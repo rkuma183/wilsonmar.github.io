@@ -321,7 +321,7 @@ lr.startTransaction(pCurrentTrans);
 
 ...
 
-lr.endTransaction({pCurrentTrans}, lr.AUTO);
+lr.endTransaction(pCurrentTrans, lr.AUTO);
 {% endhighlight %}
 
 Parametizing transaction names is needed to make generic functions
