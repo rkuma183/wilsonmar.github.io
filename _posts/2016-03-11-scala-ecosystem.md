@@ -23,6 +23,7 @@ What's new here is the sequence and hands-on approach of how information is intr
 (This one page will be separated into separate ones)
 
 ## History
+
 * 2016 Feb 22 Typesafe changes name to ![Lightbend](http://www.lightbend.com/)
 * 2014 version 2.10.4
 * 2011 TypeSafe formed to provide commercial support for a <a href="#WhatIsReactive">Reactive</a> Platform.
@@ -119,9 +120,16 @@ PROTIP: On a Mac, use Homebrew instead of downloading from http://scala-lang.org
    Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL
    ```
 
+<img align="right" src="https://cloud.githubusercontent.com/assets/300046/14325699/b81ebb0c-fbe7-11e5-84d5-847cdbe5f5c1.jpg" width="334" height="500">
+
 NOTE: The "EPFL" is for École Polytechnique Fédérale de Lausanne
 in Switzerland where
 <a href="#Odersky">Martin Odersky</a> works, in their Programming Methods Laboratory.
+Thus, the Scala logo is inspired by the staircase at EPFL, 
+pictured at right.
+
+
+## Installation
 
 0. Where is scala installed?
 

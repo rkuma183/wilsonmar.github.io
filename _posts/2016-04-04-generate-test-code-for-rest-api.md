@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scala Programs Generate Test Code"
+title: "Generate REST API Test Code"
 excerpt: "No waiting for test automation"
 tags: [text to speech, JavaScript, programming]
 image:

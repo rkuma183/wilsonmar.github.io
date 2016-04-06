@@ -324,6 +324,27 @@ Liquid can perform if/then/else decisions and loops.
 EXTRA: More detail about Liquid is at:
 https://docs.shopify.com/themes/liquid/basics#If_.2F_Else_.2F_Unless
 
+* <a target="_blank" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers"> List of Liquid commands</a>
+
+#### Collections
+
+One of the most powerful features provided by Liquid is 
+Collections.
+
+Collections is explained at:
+
+* <a target="_blank" href="https://jekyllrb.com/docs/collections/">
+  jekyllrb.com/docs/collections</a>
+* <a target="_blank" href="http://ben.balter.com/2015/02/20/jekyll-collections/">
+  2015/02/20/jekyll-collections</a>
+  by Ben Balter (product manager at GitHub).
+
+Collections refer to a custom folder containing many markdown files,
+each having front-matter than can be parsed by Liquid code.
+
+Ben has a great decision diagram:
+
+<img width="618" alt="fig white jekyll page post collection decision" src="https://cloud.githubusercontent.com/assets/300046/14328744/4c0fe5cc-fbf5-11e5-87a7-8a6002f2dc93.png">
 
 ### Link icon YAML
 
