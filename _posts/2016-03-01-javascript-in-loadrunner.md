@@ -127,17 +127,22 @@ PROTIP: Each Action listed in the script is a separate program file in the scrip
 
 CHALLENGE: Remove extra action Recording from Run Logic so that it does not get executed automatically by LoadRunner.
 
-5.Press F4 or menu Replay | Run-Time Settings 
 
-6.Click Run Logic. 
+1. Press F4 or menu Replay.
 
-7.Right-Click on Recording. 
+2. Click on Run-Time Settings 
 
-8.Select Remove Item.
+3. Click Run Logic. 
 
-9.Click OK to dismiss the dialog.
+4. Right-Click on Recording. 
 
-10.Press Ctrl+Shift+F4 or menu File | Save to save the script
+5. Select Remove Item.
+
+6. Click OK to dismiss the dialog.
+
+7. Press Ctrl+Shift+F4 or menu File.
+
+8. Click Save to save the script.
 
 ### Adjust link retrieval mode 
 
