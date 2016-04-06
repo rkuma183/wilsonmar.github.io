@@ -103,6 +103,42 @@ What follows is a hands-on tutorial to show you the most important edits to make
 > I write programs that makes these edits for you. Call me!
 
 
+### Create Recording Action File to Receive Generated Code
+
+PROTIP: Generally, it's best to leave the automatically created Action.c file with the fewest custom lines. This would reserve use of Action for more flexibility in the future.
+
+NOTE: Not all script protocols are able to record within an existing script. Only scripts for Web, Java, WAP, Oracle NCA, or RTE Vuser script can be recorded this way.
+
+PROTIP: Record into a file which is not executed so that whatever is generated can be gradually copy and pasted into a working script. And the script continues to be runnable after generation
+
+CHALLENGE: Create a separate action file to receive generated code which is never executed.
+
+1. Right-click on Actions in the Solution Explorer.
+
+2. Select Create New Action… for the pop-up:
+
+3. Replace Action1 with "Recording". 
+
+4. Press OK to dismiss the dialog. 
+
+### Remove Recording Action File from Run-Time Logic
+
+PROTIP: Each Action listed in the script is a separate program file in the script folder. 
+
+CHALLENGE: Remove extra action Recording from Run Logic so that it does not get executed automatically by LoadRunner.
+
+5.Press F4 or menu Replay | Run-Time Settings 
+
+6.Click Run Logic. 
+
+7.Right-Click on Recording. 
+
+8.Select Remove Item.
+
+9.Click OK to dismiss the dialog.
+
+10.Press Ctrl+Shift+F4 or menu File | Save to save the script
+
 ### Adjust link retrieval mode 
 
 A request generated looks like this:
