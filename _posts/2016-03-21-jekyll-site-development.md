@@ -346,6 +346,8 @@ Ben has a great decision diagram:
 
 <img width="618" alt="fig white jekyll page post collection decision" src="https://cloud.githubusercontent.com/assets/300046/14328744/4c0fe5cc-fbf5-11e5-87a7-8a6002f2dc93.png">
 
+NOTE: site.categories and site.tags only works on _posts.
+
 ### Link icon YAML
 
 In the list of posts, post titles with a link icon get that way because in its YAML is a line

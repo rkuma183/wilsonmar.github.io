@@ -125,9 +125,12 @@ PROTIP: On a Mac, use Homebrew instead of downloading from http://scala-lang.org
 NOTE: The "EPFL" is for École Polytechnique Fédérale de Lausanne
 in Switzerland where
 <a href="#Odersky">Martin Odersky</a> works, in their Programming Methods Laboratory.
-Thus, the Scala logo is inspired by the staircase at EPFL, 
-pictured at right.
 
+The staircase at EPFL, 
+pictured at right, was the inspiration for
+the Scala logo:
+
+<img src="https://cloud.githubusercontent.com/assets/300046/14332836/aafb16f2-fc08-11e5-8213-2e6d273b1328.png"><!-- Scala_logo 192x72.png -->
 
 ## Installation
 
@@ -323,7 +326,7 @@ instructions:
 0. Create a folder to hold files for your Scala program source and files created around it.
 
    ```
-   mkdir HelloWorld && cd Helloworld
+   mkdir HelloWorld && cd HelloWorld
    ```
 
 0. Typically this would be under Git version control.
@@ -343,13 +346,15 @@ instructions:
 
    ```
    object HelloWorld extends App {
-   println("Hello, World!")
+       println("Hello, World!")
    }
    ```
 
-This program only uses built-in println function, so no libraries need to be imported yet.
+This program right now only uses built-in println function, 
+so no libraries need to be imported yet.
 
-NOTE: Rather than coding Java classes, Scala programmers code singleton objects.
+NOTE: Rather than coding Java classes, 
+Scala programmers code singleton objects.
 The compiler converts Java classes with only one Java object.
 
 NOTE: Default visibility in Scala is public.
@@ -361,6 +366,7 @@ NOTE: The text editor applies text coloring for Scala.
 0. Navigate to the file you just created.
 
 ## Compile Scala from command line:
+
 Regardless of how you got the HelloWorld.scala program source:
 
 0. In a bash command line at the source folder:
@@ -490,6 +496,7 @@ an exit occurs back to the OS shell after execution.
 
 
 ## SBT (Simple Build Tool)
+
 SBT comes with Scala core (based on Maven).
 
 Docs on it is at:
@@ -563,10 +570,97 @@ NOTE: Scala also can compile to JavaScript, making it possible to write Scala pr
 
 
 
-### Lightbend/Typesafe Activator
-Activator server app aims to be a friendly one-stop-shop to bootstrap Scala, Akka, and Play development. 
-It can be used as a wrapper script that launches into traditional command line sbt, 
+<a name="Akka"></a>
+
+## Akka
+
+Most new computers are being built with multi-core processors 
+for concurrent execution, which is why Scala is built for concurrency.
+
+Scala's Actors are concurrent isolated units of processing that run in
+parallel without concern for threads and locking. 
+
+The various units communicate by exchanging messages. Actors can also be seen as a form of active objects where invoking a method corresponds to sending a message.
+
+Actors may communicate using <strong>futures</strong> which handles
+requests asynchronously, but return a representation (the future) 
+that allows await of the reply.
+
+The Scala Actors library provides both asynchronous and synchronous message sending. (the latter are implemented by exchanging several asynchronous messages). 
+
+Resources explaining Akka:
+
+* http://akka.io/ for asynch and background processing
+
+* http://spray.io/ for REST/HTTP servlet container Akka actors.
+
+* Up, Up, and Out: Scaling Software with Akka:
+
+   <amp-youtube data-videoid="GBvtE61Wrto" layout="responsive" width="480" height="270"></amp-youtube>
+
+<a target="_blank" href="https://www.lightbend.com/services/training">
+   Lightbend provides courses on Akka</a>.
+
+   * Advanced Akka focuses on clustering and sharding.
+
+## Logback for logging
+
+Logging in Scala can use the Logback framework.
+
+
+## Play! 2 Framework 
+
+BTW, version 1 of Play was first published in 2008 by Zenexity
+headed by Guillame Bort. Play 2 is a fundamentally different than Play! 1.
+Play! 2 is developed in Scala under Reactive principles
+(self hosted, stateless, horizontally scalable, async non-blocking).
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/play-2-scala/table-of-contents">
+Play! 2 for Scala</a> 1 hr 37m video course (14 Apr 2014)
+by James Hughes (http://yobriefca.se and james@yobriefca.se)
+requires a Pluralsight subscription.
+The course shows how to build a simple Contacts app
+using IntelliJ IDEA and command-line commands.
+
+The app's data is obtained from a model accessing a SQL database
+using ANORM abstraction.
+
+Play 2 comes with Specs2 and Selenium support.
+
+"Introduction to Play Framework for Java developers" by Lightbend
+
+   <amp-youtube data-videoid="bLrmnjPQsZc" layout="responsive" width="480" height="270"></amp-youtube>
+
+
+Introduction the the Play Framework by James Ward (Heroku):
+
+   <amp-youtube data-videoid="9_YYgl65FLs" layout="responsive" width="480" height="270"></amp-youtube>
+  
+   * Asychronous and non-blocking (Google Docs, Trello)
+   * From vertical scalability to scale horizontally with stateless framework
+   * API first
+
+
+The Play Framework at LinkedIn: Productivity and Performance at Scale:
+
+   <amp-youtube data-videoid="8z3h4Uv9YbE" layout="responsive" width="480" height="270"></amp-youtube>
+
+
+"Node.js v.s. Play Framework" by Yevgeny(Jim) Brikman at ScalaMatsuri 2014 
+
+   <amp-youtube data-videoid="b6yLwvNSDck" layout="responsive" width="480" height="270"></amp-youtube>
+
+
+## Lightbend/Typesafe Activator
+
+Activator is a server app that aims to be a friendly one-stop-shop to bootstrap Scala, Akka, and Play development. 
+
+Such friendliness comes at a price of licensing.
+
+Activator can be used as a wrapper script that launches into traditional command line sbt, 
 but it also includes a template and tutorial system, and an optional GUI for getting started.
+
+### Activator Installation
 
 0. On a Mac, instead of downloading http://www.lightbend.com/activator/download
 
@@ -574,13 +668,180 @@ but it also includes a template and tutorial system, and an optional GUI for get
    brew install typesafe-activator
    ```
 
-Its default port is 8888.
+0. Create a folder where a new project is created:
 
-See: https://github.com/typesafehub/activator
-for a video.
+   ```
+   activator new
+   ```
 
-The Activator UI enables you to switch quickly among 
-code, compile, test, run, and app windows.
+   This can take several minutes, ending with:
+
+   {% highlight text %}
+   Choose from these featured templates or enter a template name:
+   1) minimal-akka-java-seed
+   2) minimal-akka-scala-seed
+   3) minimal-java
+   4) minimal-scala
+   5) play-java
+   6) play-scala
+   {% endhighlight %}
+
+   BLAH: This got stuck for me.
+
+0. Create:
+
+   ```
+   activator ui
+   ```
+
+   BLAH: This did not create assets in my pwd.
+
+   The server is live when you see:
+
+     [info] play - Listening for HTTP on /127.0.0.1:8888
+
+   To stop the server, press control+C.
+
+0. Open another Terminal Shell to enter commands while the server runs.
+
+   ```
+   which activator
+   ```
+
+   The response:
+
+   ```
+   /usr/local/bin/activator
+   ```
+
+0. In a browser, use the default port 8888:
+
+   ```
+   http://127.0.0.1:8888
+   ```
+
+   The Activator UI enables you to switch quickly among 
+   code, compile, test, run, and app windows.
+
+    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/14334357/26c99a9e-fc11-11e5-91e4-32ac9f1e72e7.png">
+    <img src="https://cloud.githubusercontent.com/assets/300046/14334357/26c99a9e-fc11-11e5-91e4-32ac9f1e72e7.png"></a>
+    <!-- https://cloud.githubusercontent.com/assets/300046/14332920/2d85c586-fc09-11e5-8d85-b0032c05ff34.png"></a> scr scala activator play framework 1214x290.png and
+    scr scala activator play framework 400x290.png -->
+
+<a target="_blank" href="http://www.lightbend.com/community/core-tools/activator-and-sbt">
+lightbend.com/community/core-tools/activator-and-sbt</a> 
+is based on assets at
+<a target="_blank" href="https://github.com/typesafehub/activator">
+github.com/typesafehub/activator</a>
+
+
+### Play! 2 folders
+
+The default folder structure is similar to .NET MVC with Razor view engine:
+
+* **app** 
+
+   * controllers
+      * <a href="#AppScala">Application1.scala</a>
+
+   * models
+      * Application1.scala
+
+   * Views
+      * Global
+      * <a href="#PlayViews">index.scala.html</a>
+      * <a href="#Layout">layout.scala.html</a>
+      * main.scala.html
+
+* **conf** contains non-source files for configuration
+
+   * application.conf
+   * routes (no file extension)
+
+* **project** 
+
+   * build.properties
+   * plugins.sbt
+
+
+* **build.sbt** file written in Scala-based DSL.
+
+* **public** holds static assets:
+
+   * images
+   * javascripts
+   * stylesheets
+
+* **test** 
+
+   * ApplicationSpec.scala
+   * IntegrationSpec.scala
+
+* **build.sbt** 
+
+
+<a name="Layout"></a>
+
+### Layout
+
+   {% highlight html %}
+   @(message: String, names : List[String] )
+   @layout {
+      <h1>@html( @message )</h1>
+      @nameList(names)
+   }
+   {% endhighlight %}
+
+The @html processes HTML tags.
+
+
+<a name="PlayViews"></a>
+
+### Views
+
+The first line of html files contain a block to pass in values:
+
+   {% highlight html %}
+   @(message: String, names : List[String] )
+
+   <!doctype html>
+   <h1>@message</h1>
+   {% endhighlight %}
+
+<a name="AppScala"></a>
+
+### Controller Application.scala
+
+The string is specified in this example:
+
+   {% highlight html %}
+   package controller
+
+   import play.api._
+   import play.api.mvc._
+
+   object Application extends Controller {
+      def index = Action {
+         val names = List("One","Two","Three")
+         Ok( views.html.index("Hello", names ))
+      }
+
+      // Establish session cookie to block injection attacks:
+      def another = Action { implicit request ==> 
+         val initialValue = session.get("counter").map(_.toInit).getOrElse(0)
+         Ok(views.html.another()).withSession(
+            "counter" -> initialValue + 1).toString
+            )
+      }
+   }
+   {% endhighlight %}
+
+
+Play! uses cookies as default session and flash notification mechanisms.
+
+
+<hr />
+
 
 ### Define build files
 0. In bash command-line console within the custom program folder:
@@ -674,58 +935,6 @@ Arity of 22
 
 Scala thus is able to identify issues at compile time.
 
-### Traits like an abstract class - 
-A trait can be added to any Scala class.
-
-Like interfaces with implementations or controlled multiple inheritance.
-
-According to
-https://en.wikipedia.org/wiki/Trait_%28computer_programming%29
-"traits are a set of methods that can be used to extend the functionality of a class."
-
-https://twitter.github.io/scala_school/basics.html
-says "Traits are collections of fields and behaviors that you can extend or mixin to your classes." and offers this code example which extends traits using keywords:
-
-   ```
-   class BMW extends Car with Shiny {
-   val brand = "BMW"
-   val shineRefraction = 12
-   }
-   ```
-
-The above is dependent upon these definitions:
-
-   ```
-   trait Car {
-   val brand: String
-   }
-
-   trait Shiny {
-   val shineRefraction: Int
-   }
-
-   class BMW extends Car {
-   val brand = "BMW"
-   }
-   ```
-
-A class can extend only one class, but
-a class can extend several traits. 
-
-
-## Case Classes
-
-A case in front of a class definition makes it a factory method
-which creates getter classes:
-
-   ```
-   case SomeClass(arg1:String)
-   ```
-
-   With Scala, a **companion object** is where static objects are defined.
-
-## Pattern Matching
-
 ## Tests
 
 ```
@@ -746,35 +955,44 @@ The tilde prefix detects if code changed and runs:
    ```
 
 ## Front-end
+
 https://github.com/ochrons/scalajs-spa-tutorial
 
 Scala.js, the Scala to JavaScript compiler.
 by Sébastien Doeraene in Switzerland (![@sjrdoeraene](https://twitter.com/sjrdoeraene))
 
-* https://www.youtube.com/watch?v=n1GgVWOThhY
-Scala.js: Next generation front end development in Scala
+<a target="_blank" href="https://www.youtube.com/watch?v=n1GgVWOThhY">
+Scala.js: Next generation front end development in Scala</a>:
+
+   <amp-youtube data-videoid="n1GgVWOThhY" layout="responsive" width="480" height="270"></amp-youtube>
+
 
 * https://github.com/sbt/sbt-ghpages
-generates a XSBT project website and pushes to ghpages on GitHub.com.
+  generates a XSBT project website and pushes to ghpages on GitHub.com.
 
 
 ## Mobile
+
 Due to its Java roots, Scala can be used to create Android apps
-using this IDE:
-https://www.assembla.com/wiki/show/scala-ide/Developing_for_Android
+using the 
+<a target="_blank" href="https://www.assembla.com/wiki/show/scala-ide/Developing_for_Android">
+Assembla IDE</a>
 
 ## Google App Engine
+
 Scala works smoothly on Google App Engine 
 
 Scala Guava
 https://github.com/scalaz/scalaz
 
 ## Big Data
+
 Spark is written in Scala.
 
-* https://www.youtube.com/watch?v=AHB6aJyhDSQ
-How Scala Conquered the Big Data World
+<a target="_blank" href="https://www.youtube.com/watch?v=AHB6aJyhDSQ">
+   How Scala Conquered the Big Data World</a>:
 
+   <amp-youtube data-videoid="AHB6aJyhDSQ" layout="responsive" width="480" height="270"></amp-youtube>
 
 ## Libraries
 
@@ -805,41 +1023,6 @@ As a "very fast open source small footprint JBDC API database",
 H2 outranked MySQL (#33), and PostgreSQL (#50). 
 MongoDB didn’t make the list for Scala.
 
-
-## Akka
-
-* http://akka.io/ for asynch and background processing
-
-* http://spray.io/ for REST/HTTP servlet container Akka actors.
-
-* Up, Up, and Out: Scaling Software with Akka:
-
-   <amp-youtube data-videoid="GBvtE61Wrto" layout="responsive" width="480" height="270"></amp-youtube>
-  
-## Play Framework
-
-"Introduction to Play Framework for Java developers" by Lightbend
-
-   <amp-youtube data-videoid="bLrmnjPQsZc" layout="responsive" width="480" height="270"></amp-youtube>
-
-
-Introduction the the Play Framework by James Ward (Heroku):
-
-   <amp-youtube data-videoid="9_YYgl65FLs" layout="responsive" width="480" height="270"></amp-youtube>
-  
-   * Asychronous and non-blocking (Google Docs, Trello)
-   * From vertical scalability to scale horizontally with stateless framework
-   * API first
-
-
-The Play Framework at LinkedIn: Productivity and Performance at Scale:
-
-   <amp-youtube data-videoid="8z3h4Uv9YbE" layout="responsive" width="480" height="270"></amp-youtube>
-
-
-"Node.js v.s. Play Framework" by Yevgeny(Jim) Brikman at ScalaMatsuri 2014 
-
-   <amp-youtube data-videoid="b6yLwvNSDck" layout="responsive" width="480" height="270"></amp-youtube>
 
 ## Learning Resources for Introduction
 In addition to resources noted above,

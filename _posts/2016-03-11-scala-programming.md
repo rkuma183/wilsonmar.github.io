@@ -18,6 +18,61 @@ Here are just my notes.
 
 I will be organizing this into a hands-on approach to introduce the Scala programming language in a sequence for quick learning.
 
+
+### Traits like an abstract class - 
+A trait can be added to any Scala class.
+
+Like interfaces with implementations or controlled multiple inheritance.
+
+According to
+https://en.wikipedia.org/wiki/Trait_%28computer_programming%29
+"traits are a set of methods that can be used to extend the functionality of a class."
+
+https://twitter.github.io/scala_school/basics.html
+says "Traits are collections of fields and behaviors that you can extend or mixin to your classes." and offers this code example which extends traits using keywords:
+
+   ```
+   class BMW extends Car with Shiny {
+   val brand = "BMW"
+   val shineRefraction = 12
+   }
+   ```
+
+The above is dependent upon these definitions:
+
+   ```
+   trait Car {
+   val brand: String
+   }
+
+   trait Shiny {
+   val shineRefraction: Int
+   }
+
+   class BMW extends Car {
+   val brand = "BMW"
+   }
+   ```
+
+* A class can extend only one class, but
+* a class can extend several traits. 
+
+
+## Case Classes
+
+A case in front of a class definition makes it a factory method
+which creates getter classes:
+
+   ```
+   case SomeClass(arg1:String)
+   ```
+
+   With Scala, a **companion object** is where static objects are defined.
+
+## Pattern Matching
+
+
+
 ## Resources
 
 * https://learnxinyminutes.com/docs/scala/
