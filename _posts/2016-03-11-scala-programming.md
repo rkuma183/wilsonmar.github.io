@@ -69,9 +69,69 @@ which creates getter classes:
 
    With Scala, a **companion object** is where static objects are defined.
 
+
+
+## Scala is a New Paradigm from Java
+
+   ```
+   m map { t ==> val (s, i) = t; (s, i+1) } 
+   ```
+
+with "Sytactic sugar" removed to Java map function:
+
+   ```
+   m.map({ t ==> val (s, i) = t; (s, i+1) })
+   ```
+
+A Tuple is a fixed list which can be typed differently and
+can be a container f
+or other data types.
+Since Sashmi and Onigiri are instances of the same type Sushi:
+
+   ```
+   val bento:(Sushi, Sushi) = (new Sashimi, new Onigiri)
+   ```
+
+Arity of 22 
+
+Scala thus is able to identify issues at compile time.
+
+## Tests
+
+```
+package X
+
+class X extends FlatSpec{
+
+}
+```
+
+import org.salatest.FlatSpec
+
+## Run Tests
+The tilde prefix detects if code changed and runs:
+
+   ```
+   ~test
+   ```
+
+
 ## Pattern Matching
 
+## Read XML
 
+{% highlight scala %}
+import scala.xml._
+import java.net._
+import scala.io.Source
+val theUrl = "https://www.google.com/#q=weather+forecast+san+francisco"
+val newString = Source.fromURL(new URL(theUrl)).mkString
+val xml = XML.loadString(newString)
+val newcity1 = xml \\ "location" \\ "@city"
+val newstate1 = xml \\ "location" \\ "@region"
+val newtemperature1 = xml \\ "condition" \\ "@temp"
+println(newcity1 + " " + newstate1 + " " + newtemperature1)
+{% endhighlight %}
 
 ## Resources
 

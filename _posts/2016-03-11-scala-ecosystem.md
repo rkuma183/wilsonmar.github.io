@@ -2,7 +2,7 @@
 layout: post
 title: "Scala ecosystem"
 excerpt: "The language, not the opera house in Milan"
-tags: [scala, programming, test]
+tags: [scala, programming, ecosystem]
 image:
    feature: pic red curtains la scala 1900x500.jpg
    credit: Teatro alla Scala
@@ -66,20 +66,32 @@ It doesn't ever mention the word "Scala" at all.
 
 The name Scala is a portmanteau of "scalable" and "language".
 
-The official repository is at https://github.com/scala/scala
+The official repository is at 
+<a target="_blank" href="https://github.com/scala/scala">
+github.com/scala/scala</a>
+
+* http://docs.scala-lang.org/tutorials/
+
+* https://www.coursera.org/course/progfun
+  Martin Odersky's Coursera Course
+
+* http://typesafe.com/resources/book/scala-for-the-impatient
+
+[Prominant companies using Scala are listed on this Wikipedia page](https://en.wikipedia.org/wiki/Scala_%28programming_language%29#Companies)
+
+Scala is said to power The Guardian (UK), Walmart, Sony, 
+Huffington Post, etc. 
 
 The extent of Twitter's adoption of Scala are:
 
-* https://twitter.github.io/scala_school/
-started as lectures at Twitter.
+* <a target="_blank" href="https://twitter.github.io/scala_school/">
+  twitter.github.io/scala_school</a>
+  started as lectures at Twitter.
 
-* http://twitter.github.io/effectivescala/
-Effective Scala lists "best practices" for Scala at Twitter. 
+* <a target="_blank" href="http://twitter.github.io/effectivescala/">
+twitter.github.io/effectivescala</a>
+presents "best practices" for Scala at Twitter. 
 Useful for understanding idioms in Twitter's code.
-
-Scala is also said to power The Guardian (UK), Walmart, Sony, Huffington Post, etc. 
-
-[Prominant companies using Scala are listed on this Wikipedia page](https://en.wikipedia.org/wiki/Scala_%28programming_language%29#Companies)
 
 Agencies/consultants working with Scala:
 
@@ -90,13 +102,14 @@ Basics of the Scala language is presented during hands-on activities to set it u
 
 ## Installation
 
-PROTIP: On a Mac, use Homebrew instead of downloading from http://scala-lang.org/download (as many tutorials suggest).
+PROTIP: On a Mac, use Homebrew instead of downloading from 
+http://scala-lang.org/download (as many tutorials suggest).
 
    ```
    brew install scala --with-docs
    ```
 
-   installation to:
+   which installs to:
 
    ```
    /usr/local/Cellar/scala/...
@@ -610,6 +623,10 @@ Logging in Scala can use the Logback framework.
 
 ## Play! 2 Framework 
 
+* http://www.lightbend.com/community/core-projects/play-framework
+
+* https://www.playframework.com/
+
 BTW, version 1 of Play was first published in 2008 by Zenexity
 headed by Guillame Bort. Play 2 is a fundamentally different than Play! 1.
 Play! 2 is developed in Scala under Reactive principles
@@ -728,11 +745,29 @@ but it also includes a template and tutorial system, and an optional GUI for get
     <!-- https://cloud.githubusercontent.com/assets/300046/14332920/2d85c586-fc09-11e5-8d85-b0032c05ff34.png"></a> scr scala activator play framework 1214x290.png and
     scr scala activator play framework 400x290.png -->
 
+
+0. The Tutorial Hello Scala provide apps using basic Scala features.
+
+0. Click Create app for the template to be cloned (downloaded).
+
+Select a template.
+
+0. Specify a folder location.
+
+0. Activate.
+
+
+
+
 <a target="_blank" href="http://www.lightbend.com/community/core-tools/activator-and-sbt">
 lightbend.com/community/core-tools/activator-and-sbt</a> 
 is based on assets at
 <a target="_blank" href="https://github.com/typesafehub/activator">
 github.com/typesafehub/activator</a>
+
+   
+
+
 
 
 ### Play! 2 folders
@@ -888,8 +923,11 @@ Play! uses cookies as default session and flash notification mechanisms.
 
 ## ScalaTest Styles
 
-Test classes extends a test style class from
-among http://www.scalatest.org/user_guide/selecting_a_style
+http://www.scalatest.org/
+
+Test classes extends a 
+<a target="_blank" href="http://www.scalatest.org/user_guide/selecting_a_style">
+test style class</a>:
 
    * For xUnit, there is FunSuite.
    * For BDD, FlatSpec.
@@ -898,68 +936,29 @@ among http://www.scalatest.org/user_guide/selecting_a_style
 
 After selection, test packages should appear among Refer
 
+
 ## Performance Micro-Benchmarking
 
-See https://scalameter.github.io/
+<a target="_blank" href="https://scalameter.github.io/">
+scalameter.github.io/</a>
 by Aleksandar Prokopec of Switzerland 
-(https://twitter.com/alexprokopec,
-https://github.com/axel22) 
+(<a target="_blank" href="https://twitter.com/alexprokopec">
+@alexprokopec</a>, <a target="_blank" href="
+https://github.com/axel22/">axel22</a>)
 and clone https://github.com/scalameter/scalameter.git 
 and https://github.com/scalameter/scalameter-examples
 
 Among ![Alex's videos](https://www.youtube.com/channel/UCoyqnhi_BdpLrBVMvkNIMMw) 
-is [this one showing JVM GC profile](https://www.youtube.com/watch?v=UHCeXdxkx70)
+is this one showing JVM GC profile:
 
-## Scala is a New Paradigm from Java
+   <amp-youtube data-videoid="UHCeXdxkx70" layout="responsive" width="480" height="270"></amp-youtube>
 
-   ```
-   m map { t ==> val (s, i) = t; (s, i+1) } 
-   ```
 
-with "Sytactic sugar" removed to Java map function:
+## Front-end Scala.JS
 
-   ```
-   m.map({ t ==> val (s, i) = t; (s, i+1) })
-   ```
-
-A Tuple is a fixed list which can be typed differently and
-can be a container f
-or other data types.
-Since Sashmi and Onigiri are instances of the same type Sushi:
-
-   ```
-   val bento:(Sushi, Sushi) = (new Sashimi, new Onigiri)
-   ```
-
-Arity of 22 
-
-Scala thus is able to identify issues at compile time.
-
-## Tests
-
-```
-package X
-
-class X extends FlatSpec{
-
-}
-```
-
-import org.salatest.FlatSpec
-
-## Run Tests
-The tilde prefix detects if code changed and runs:
-
-   ```
-   ~test
-   ```
-
-## Front-end
-
-https://github.com/ochrons/scalajs-spa-tutorial
-
-Scala.js, the Scala to JavaScript compiler.
-by Sébastien Doeraene in Switzerland (![@sjrdoeraene](https://twitter.com/sjrdoeraene))
+<a target="_blank" href="https://github.com/ochrons/scalajs-spa-tutorial">Scala.js</a>, the Scala to JavaScript compiler.
+by Sébastien Doeraene in Switzerland 
+([@sjrdoeraene](https://twitter.com/sjrdoeraene))
 
 <a target="_blank" href="https://www.youtube.com/watch?v=n1GgVWOThhY">
 Scala.js: Next generation front end development in Scala</a>:
@@ -978,14 +977,14 @@ using the
 <a target="_blank" href="https://www.assembla.com/wiki/show/scala-ide/Developing_for_Android">
 Assembla IDE</a>
 
+
 ## Google App Engine
 
-Scala works smoothly on Google App Engine 
+Scala works smoothly on Google App Engine.
 
-Scala Guava
-https://github.com/scalaz/scalaz
 
-## Big Data
+
+## Spark Big Data
 
 Spark is written in Scala.
 
@@ -994,11 +993,23 @@ Spark is written in Scala.
 
    <amp-youtube data-videoid="AHB6aJyhDSQ" layout="responsive" width="480" height="270"></amp-youtube>
 
+
 ## Libraries
 
-* http://www.lightbend.com/community/core-projects/play-framework
+<a target="_blank" href="http://scalaz.github.io/scalaz/#scaladoc">
+Scalaz</a> (from 
+<a target="_blank" href="https://github.com/scalaz/scalaz">
+this Github</a>)
+provides purely functional data structures to complement those from the Scala standard library. 
+It defines a set of foundational type classes (e.g. Functor, Monad) and corresponding instances for a large number of data structures.
 
-* https://www.playframework.com/
+Scalaz consists of three parts:
+
+*  New datatypes (Validation, NonEmptyList, etc)
+*  Extensions to standard classes (OptionOps, ListOps, etc)
+*  Implementation of every single general functions you need (ad-hoc polymorphism, traits + implicits) 
+
+
 
 * Slick
 
