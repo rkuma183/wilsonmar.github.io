@@ -223,7 +223,7 @@ Add a foundcount to the call:
 web.regFind(
 {
     text : 'Find Flight', 
-    foundcount : departDate_isfound,
+    foundcount : 'departDate_isfound',
     search : 'Body'
 }
 );
