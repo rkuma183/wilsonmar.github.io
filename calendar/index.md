@@ -39,7 +39,7 @@ Come attend my classes:
 * <strong><a target="_blank" href="https://stareast.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-stareast-2016">
 Performance Testing 2-days Sunday & Monday</a></strong>.
 
-* <strong><a target="_blank" href="https://stareast.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-stareast-2016">Git and GitHub half-day Tuesday May 3</a></strong>.
+* <strong><a target="_blank" href="https://stareast.techwell.com/program/tutorials/how-testers-master-git-and-github">Git and GitHub half-day Tuesday May 3</a></strong>.
 You'll leave with a new free blog website!
 
 * A one-hour introduction to Git and GitHub terms and workflows on Wednesday afternoon.
