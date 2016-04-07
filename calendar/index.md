@@ -42,7 +42,8 @@ Performance Testing 2-days Sunday & Monday</a></strong>.
 * <strong><a target="_blank" href="https://stareast.techwell.com/program/tutorials/how-testers-master-git-and-github">Git and GitHub half-day Tuesday May 3</a></strong>.
 You'll leave with a new free blog website!
 
-* A one-hour introduction to Git and GitHub terms and workflows on Wednesday afternoon.
+* <strong><a target="_blank" href="https://stareast.techwell.com/program/concurrent-sessions/git-and-github-testers">Git and GitHub for Testers Thursday May 5</a></strong>.
+A one-hour introduction to Git and GitHub terms and workflows on Thursday afternoon.
 
 
 ## Update Jekyll Theme with Calendar
