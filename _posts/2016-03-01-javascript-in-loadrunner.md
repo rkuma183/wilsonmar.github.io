@@ -277,6 +277,8 @@ var pEndPoint = 'http://api.search.yahoo.com/NewsSearchService/V1/';
 
 How do you know whether the correct screen was returned?
 
+PROTIP: After each user action, use script code to verify whether response from the server is what is expected (positive or negative).
+
 Add code to scan the stream after receipt to identify a string of text:
 
 {% highlight html %}
