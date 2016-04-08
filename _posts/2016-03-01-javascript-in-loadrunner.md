@@ -190,10 +190,18 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
    Click Flights.
    In "Find Flights", click "Sign Off", then Stop recording.
 
-0. Select the automatic correlation ???
+0. After code generation is done, Design Studio screen pops up.
+
+0. Observe the list of possible dynamic values found.
+
+0. Highlight the ones you want to correlate and click on correlate.
+
+    NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
 
 0. Run the generated script.
 
+   NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under     General > Code Generation.
+   
    NOTE: Most application recordings require additional
    manual changes after recording.
 
