@@ -86,7 +86,7 @@ Writing in JavaScript is more comfortable to some.
 
 ### Obtain Sample Script with Utilities
 
-0. Go to <a target="_blank" href="http://GitHub.com/wilsonmar/LoadRunner"
+0. Go to <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
    GitHub.com/wilsonmar/LoadRunner</a>
    and either click <strong>Download ZIP</strong> then unzip it or
    fork the repo and clone it to your desktop if you would like changes.
