@@ -209,20 +209,31 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
 
 What follows are explorations of LoadRunner's JavaScript:
 
-### Random numbers
+### Randomize execution
 
-The wi_library_init function within the wi_library 
-creates a <strong>wi_random_seed</strong> variable
-which can be used to vary how often a section of code is executed.
-
-The number is between 0 and 100.
-So this code can be used to execute something 72.3% of the time:
+There are some situations where requests are not executed 100%
+but occassionally.
+The code here can be used to execute something 72.3% of the time.
+That static number can be substituted with another number or a variable.
 
 {% highlight html %}
-if( wi_random_seed <= 72.3 ){
-   // Do this
-}
+  var trans_random_number = 72.3;
+      wi_random_seed = Math.random() * 100 ;
+  if( wi_random_seed <= trans_random_number ){
+    lr.outputMessage(">> Within range. wi_random_seed = " + wi_random_seed + " <= " + trans_random_number );
+    // Do stuff.
+  }else{
+    lr.outputMessage(">> Out of range. wi_random_seed = " + wi_random_seed + " NOT <= " + trans_random_number );
+  }
 {% endhighlight %}
+
+The seed is between 0 and 100 because the number obtained from the 
+JavaScript randomizer is a number between zero and 1,
+multiplied by 100.
+
+The <strong>wi_random_seed</strong> variable is defined when
+the <strong>wi_library_init()</strong> function within the wi_library 
+is executed within vuser_init.
 
 
 ### Adjust link retrieval mode 
