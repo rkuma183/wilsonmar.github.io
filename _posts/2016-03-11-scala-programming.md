@@ -14,22 +14,104 @@ comments: true
 
 {% include _toc.html %}
 
-Here are just my notes.
+I don't want to repeat what others have already written.
 
-I will be organizing this into a hands-on approach to introduce the Scala programming language in a sequence for quick learning.
+My aim with this effort is a faster, easier way to 
+show how to build a full application using Scala, 
+not just to impress others about supposedly cool concepts.
+
+So I will be organizing this into a hands-on approach to introduce the Scala programming language in a sequence for quick learning.
+
+Compilation is covered in the Ecosystem page.
+
+0. Functional programming
+0. Applications
 
 
-### Traits like an abstract class - 
+0. Data Types
+0. Variables
+0. Internationalization
+0. Exceptions + try catch finally
+0. Logging
+
+0. Arrays
+
+0. Integration
+0. Classes
+0. Singleton and Companion Objects
+
+0. Traits
+
+0. if/then/else
+0. Match (case) Expressions
+
+0. while
+0. for
+
+
+## Scala vs. Java
+
+With Scala:
+
+* Functions as objects.
+* All types are objects.
+* Immutable objects
+
+* Type inference
+* Domain specific language (DSL) support
+* <a href="#Traits">Traits</a>
+* Closures (vs Java 8)
+* Concurrency support (inspired by Erlang
+
+
+## Exception mechanism similar to Java's.
+
+Scala has an exception mechanism similar to Java's.
+
+Let's look at an I/O call:
+
+{% highlight scala %}
+def MeThrowsException() {
+    throw new IllegalStateException("Exception thrown");
+}
+
+try{
+    MeThrowsException();
+    // println("this line is never executed");
+} catch {
+  case e: IllegalArgumentException => println("illegal arg. exception");
+  case e: IllegalStateException    => println("illegal state exception");
+  case e: IOException              => println("IO exception");
+  case e: Exception => println("exception caught: " + e);
+} finally {
+    println("this code is always executed");
+}
+
+{% endhighlight %}
+
+
+<a name="Traits"></a>
+
+### Traits like an abstract class 
+
+Scala offers traits instead of Java interfaces.
+
+Traits in Scala are best described as “interfaces that can provide concrete members.” 
+A class gets its concrete members for free
+by mixing in a trait and implementing the abstract members.
+
+In addition to serving as pure interfaces, traits can also provide bundles of functionality like Java’s AbstractFoo (e.g. AbstractList, etc.) classes. A trait can have a few abstract methods and a number of concrete members implemented in terms of those abstract members. 
 A trait can be added to any Scala class.
 
 Like interfaces with implementations or controlled multiple inheritance.
 
 According to
-https://en.wikipedia.org/wiki/Trait_%28computer_programming%29
+<a target="_blank" href="https://en.wikipedia.org/wiki/Trait_%28computer_programming%29">Wikipedia</a>,
 "traits are a set of methods that can be used to extend the functionality of a class."
 
-https://twitter.github.io/scala_school/basics.html
-says "Traits are collections of fields and behaviors that you can extend or mixin to your classes." and offers this code example which extends traits using keywords:
+<a target="_blank" href="https://twitter.github.io/scala_school/basics.html">
+Twitter</a> defines:
+"Traits are collections of fields and behaviors that you can extend or mixin to your classes." and offers this code example which extends traits using keywords:
 
    ```
    class BMW extends Car with Shiny {
@@ -57,6 +139,7 @@ The above is dependent upon these definitions:
 * A class can extend only one class, but
 * a class can extend several traits. 
 
+<a name="CaseClasses"></a>
 
 ## Case Classes
 
@@ -133,6 +216,8 @@ val newtemperature1 = xml \\ "condition" \\ "@temp"
 println(newcity1 + " " + newstate1 + " " + newtemperature1)
 {% endhighlight %}
 
+
+
 ## Resources
 
 * https://learnxinyminutes.com/docs/scala/
@@ -145,6 +230,7 @@ println(newcity1 + " " + newstate1 + " " + newtemperature1)
   6 - 8 hours works with Apache Spark
   with built-in modules for streaming, SQL, machine learning and graph processing.
 
+
 ## YouTube videos
 
 Scala Language Basics
@@ -153,12 +239,12 @@ by Mark Lewis
    <amp-youtube data-videoid="Ytfw8Bg86p4" layout="responsive" width="480" height="270"></amp-youtube>
 
 
-https://www.youtube.com/watch?v=DzFt0YkZo8M
 Scala Tutorial 
 by Derek Banas of http://newthinktank.com
 doesn't waste your time, so covers the topic thoroughly in a short time.
 http://goo.gl/O1CuGM
 
+  <amp-youtube data-videoid="DzFt0YkZo8M" layout="responsive" width="480" height="270"></amp-youtube>
 
 Busy Java Developer's Guide to Scala: Thinking
 by NewCircle Training

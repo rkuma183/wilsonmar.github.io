@@ -994,6 +994,13 @@ Spark is written in Scala.
    <amp-youtube data-videoid="AHB6aJyhDSQ" layout="responsive" width="480" height="270"></amp-youtube>
 
 
+## Web Frameworks
+
+A popular Scala web framework is Lift, the Scala "Rails" 
+
+* http://liftweb.net
+
+
 ## Libraries
 
 <a target="_blank" href="http://scalaz.github.io/scalaz/#scaladoc">
@@ -1008,8 +1015,6 @@ Scalaz consists of three parts:
 *  New datatypes (Validation, NonEmptyList, etc)
 *  Extensions to standard classes (OptionOps, ListOps, etc)
 *  Implementation of every single general functions you need (ad-hoc polymorphism, traits + implicits) 
-
-
 
 * Slick
 
