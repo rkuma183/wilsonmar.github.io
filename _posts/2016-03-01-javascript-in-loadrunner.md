@@ -44,6 +44,8 @@ The HP example shows a website that can only be load tested using TruClient (not
 
 I created a whole 2-day hands-on class explaning these.
 
+It is a good example of string and number functions within JavaScript.
+
 > Call me to get up and running on TruClient quickly.
 
 
@@ -61,7 +63,7 @@ A tutorial on how you can create and use a JavaScript file within a LoadRunner C
 Download a Zip the whole set of LoadRunner sample scripts from:
 
    <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
-   https://github.com/wilsonmar/LoadRunner</a>
+   github.com/wilsonmar/LoadRunner</a>
 
 If you have a Git client, clone the set of LoadRunner sample scripts using command:
 
@@ -76,27 +78,66 @@ If you have a Git client, clone the set of LoadRunner sample scripts using comma
 
 ## Script in JavaScript language
 
+Writing in JavaScript is more comfortable to some.
+
+> JavaScript code requires more memory and CPU to run than C code
+  within LoadRunner load generators.
+  About 50% more is the estimate.
+
+### Obtain Sample Script with Utilities
+
+0. Go to <a target="_blank" href="http://GitHub.com/wilsonmar/LoadRunner"
+   GitHub.com/wilsonmar/LoadRunner</a>
+   and either click <strong>Download ZIP</strong> then unzip it or
+   fork the repo and clone it to your desktop if you would like changes.
+
+   NOTE: This repo is actively improved over time,
+   so forking and cloning is the recommended approach.
+
+0. Use Finder or File Explorer to view a folder containing a sample
+   script coded in JavaScript:
+
+   <strong>WJS1_sample_WJS1250_v01</strong>
+
+  This sample script contains a library of functions that provide both
+  examples of JavaScript coding and 
+  provides useful utilities.
+
+> Use of some library functios such as md5 and SHA1
+  for OAuth2 are explained in a separate tutorial by Wilson Mar.
+
+To create a script folder containing your own application test code,
+the options are:
+
+1. Add your own application test code into this sample script.
+
+2. Open a C-script saved immediately after recording and
+   re-generate it into JavaScript,
+   then copy the sample utility file into it.
+
+3. Create a new folder, 
+   then copy the sample library file into it, 
+   as explained in the next section:
+
+### Generate new script folder
+
 To use VuGen to generate a LoadRunner script in JavaScript: 
 
 1. Create a File as protocol <strong>Web HTTP/HTML</strong>.
 
-2. Switch to Windows Explorer to see that Action.js was created rather than Action.c.
+2. Switch to Windows Explorer to see that 
+   <strong>Action.js</strong> was created (rather than Action.c).
    Then switch back to VuGen.
 
-3. In menu Record > Recording Options > Script, click the drop-down for Scripting Language 
+3. In menu Record > Recording Options > Script, 
+   click the drop-down for Scripting Language 
    to change from C to JavaScript.
 
-4. Have a ThinkTime function generated on every request.
+4. PROTIP: Have a ThinkTime function generated on every request.
 
    In General: Script, to the right of
    "Generate think time greater than threshold",
    double-click on the number (default 3) and change it to 0.
-
-5. Make a recording using WebTours (after starting it).
-
-6. Login as "jojo" with password "bean".
-   Click Flights.
-   In "Find Flights", click "Sign Off", then Stop recording.
 
 What follows is a hands-on tutorial to show you the most important edits to make to LoadRunner scripts. 
 
@@ -127,7 +168,6 @@ PROTIP: Each Action listed in the script is a separate program file in the scrip
 
 CHALLENGE: Remove extra action Recording from Run Logic so that it does not get executed automatically by LoadRunner.
 
-
 1. Press F4 or menu Replay.
 
 2. Click on Run-Time Settings 
@@ -136,13 +176,30 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
 
 4. Right-Click on Recording. 
 
-5. Select Remove Item.
+5. Select <strong>Remove Item</strong>.
 
 6. Click OK to dismiss the dialog.
 
 7. Press Ctrl+Shift+F4 or menu File.
 
 8. Click Save to save the script.
+
+9. Make a recording using WebTours (after starting it).
+
+10. Login as "jojo" with password "bean".
+   Click Flights.
+   In "Find Flights", click "Sign Off", then Stop recording.
+
+0. Select the automatic correlation ???
+
+0. Run the generated script.
+
+   NOTE: Most application recordings require additional
+   manual changes after recording.
+
+<hr />
+
+What follows are explorations of LoadRunner's JavaScript:
 
 ### Adjust link retrieval mode 
 
@@ -176,10 +233,9 @@ Generate just individual resource requests during recording by setting:
 
    <img src="/images/LR1250 Recording Recording option 1034x204.png">
 
-Run the generated script.
 
 
-### Add a Parameter to make GET call 
+### Add a Parameter (Variable) 
 
 Parametize JavaScript code generated to 
 emulate a client retrieving an index.html file:
@@ -193,7 +249,7 @@ var pEndPoint = 'http://api.search.yahoo.com/NewsSearchService/V1/';
     http://api.search.yahoo.com/NewsSearchService/V1/
 
 
-### Verify response
+### Verify response returned
 
 How do you know whether the correct screen was returned?
 
@@ -215,7 +271,7 @@ but at where the request is made, not at this script line
 which registers the capture during request execution.
 
 
-### Register Find String after download
+### Register Find String 
 
 Add a foundcount to the call:
 
@@ -347,8 +403,6 @@ Add a call to end transaction:
 
    rc = wi.EndTrans( pCurrentTrans, in_rc );
 
-
-
 ### Start and End Transaction Names
 
 PROTIP: Specify Start and End transactions using a parameter
@@ -371,6 +425,11 @@ Smaller scripts allow for more Vusers to fit into available memory on load gener
 
 PROTIP: Start transaction immediately before web request functions
 to avoid having data preparating time be counted in the transaction time.
+
+
+> There is a utility program (in both Python and Perl)
+  which parses code generated by LoadRunner
+  so the script makes use of wi library functions.
 
 
 <hr />
@@ -432,19 +491,24 @@ referer : '{pProtocolHostPort}/cgi-bin/nav.pl?in=home',
 snapshot : 't2.inf', 
 mode : 'HTML', 
 itemData : 
-[
-{ name : 'userSession', value : '{userSession}' }, 
-{ name : 'username', value : '{UserIds_userid}' }, 
-{ name : 'password', value : '{UserIds_pwd}' }, 
-{ name : 'JSFormSubmit', value : 'on' }, 
-{ name : 'login.x', value : '42' }, 
-{ name : 'login.y', value : '8' }
-]
-}
+    [
+    { name : 'userSession', value : '{userSession}' }, 
+    { name : 'username', value : '{UserIds_userid}' }, 
+    { name : 'password', value : '{UserIds_pwd}' }, 
+    { name : 'JSFormSubmit', value : 'on' }, 
+    { name : 'login.x', value : '42' }, 
+    { name : 'login.y', value : '8' }
+    ]
+  }
 );
 {% endhighlight %}
 
 
+## Additional topics
+
+* To keep memory use low, instead of large parameter files,
+  use VTS (Virtual Table Service) on a separate machine.
+  
 
 ## Resources to Learn JavaScript
 

@@ -70,12 +70,14 @@ The official repository is at
 <a target="_blank" href="https://github.com/scala/scala">
 github.com/scala/scala</a>
 
-* http://docs.scala-lang.org/tutorials/
+* <a target="_blank" href="http://docs.scala-lang.org/tutorials/">
+  docs.scala-lang.org/tutorials/</a>
 
-* https://www.coursera.org/course/progfun
-  Martin Odersky's Coursera Course
+* <a target="_blank" href="https://www.coursera.org/course/progfun">
+  Martin Odersky's Coursera Course</a>
 
-* http://typesafe.com/resources/book/scala-for-the-impatient
+* <a target="_blank" href="http://typesafe.com/resources/book/scala-for-the-impatient">
+   Scala for the impatient</a>
 
 [Prominant companies using Scala are listed on this Wikipedia page](https://en.wikipedia.org/wiki/Scala_%28programming_language%29#Companies)
 
@@ -1040,7 +1042,14 @@ H2 outranked MySQL (#33), and PostgreSQL (#50).
 MongoDB didn’t make the list for Scala.
 
 
+## Full courses
+
+* https://www.eduonix.com/courses/Software-Development/Learn-Scala-Programming-Language-from-Scratch
+
+
+
 ## Learning Resources for Introduction
+
 In addition to resources noted above,
 
 http://scala-lang.org/contribute/hacker-guide.html
@@ -1127,9 +1136,7 @@ https://plus.google.com/u/0/112145465018184674652/posts
 
 * Scala In Depth Developer book
 
-* ![SBT in action book](https://www.manning.com/books/sbt-in-action)
-
-Craig Tataryn (of Canada)
+* [SBT in action book](https://www.manning.com/books/sbt-in-action)
 
 * basementcoders.com podcast
 
