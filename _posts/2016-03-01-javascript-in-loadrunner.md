@@ -201,6 +201,22 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
 
 What follows are explorations of LoadRunner's JavaScript:
 
+### Random numbers
+
+The wi_library_init function within the wi_library 
+creates a <strong>wi_random_seed</strong> variable
+which can be used to vary how often a section of code is executed.
+
+The number is between 0 and 100.
+So this code can be used to execute something 72.3% of the time:
+
+{% highlight html %}
+if( wi_random_seed <= 72.3 ){
+   // Do this
+}
+{% endhighlight %}
+
+
 ### Adjust link retrieval mode 
 
 A request generated looks like this:
@@ -289,85 +305,6 @@ CHALLENGE: Look at the Help screen for the function to come up with a way to
 fail if the text is found (such as an error message).
 
 
-### Control whether to stop on error
-
-Some test run scenarios do not want to end if an error occurs,
-so use a variable named rc (return code) 
-when returning control up the call hierarchy rather than stopping: 
-
-{% highlight html %}
-var rc=0;
-rc = web.image(
-{
-    name : 'Search Flights Button', 
-    alt : 'Search Flights Button', 
-    snapshot : 't3.inf'
-}
-);
-if( rc != 0 ){
-   lr.outputMessage(">> ERROR Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-   // Handle error here:
-   return rc;  // 
-}else{
-   lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-}
-{% endhighlight %}
-
-
-The variable rc (return code) is set at the front of the function  
-so the function can return a status.
-
-Unlike C, there is no LR_PASS in JavaScript, so we need to use 0.
-
-### OutputMessage
-
-{% highlight html %}
-lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-{% endhighlight %}
-
-PROTIP: Specify a special set of characters at the front of output messages
-so they are easy to identify among potentially many output lines.
-
-CHALLENGE: Look in Help for other types of messages.
-
-
-### Use generic functions
-
-Replace the function with a call to a generic function
-such as:
-
-{% highlight html %}
-var rc=0;
-    rc = wi.web.image( "Search Flights Button", "Search Flights Button" );
-if( rc != 0 ){
-    lr.outputMessage(">> ERROR Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-    // Handle error here.
-    return rc;
-}else{
-    lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-}
-{% endhighlight %}
-
-
-The function above is defined within 
-<strong>wi.utilities.js</strong> in GitHub:
-
-{% highlight html %}
-function wi.web.image( in_name, in_alt )
-{
-   var rc=0;
-   rc = web.image( in_name, in_alt )
-   {
-      name : _in_name, 
-      alt : _in_alt, 
-      snapshot : 't3.inf'
-   }
-   return rc;
-);
-{% endhighlight %}
-
-PROTIP: Do not use generic functions to output messages. 
-
 
 ### Capture Parameter Extended
 
@@ -391,7 +328,92 @@ NOTE: LoadRunner automatically creates the paramName parameter
 specified.
 
 
-<hr />
+### Control whether to stop on error
+
+Some test run scenarios do not want to end if an error occurs,
+so use a variable named rc (return code) 
+when returning control up the call hierarchy rather than stopping: 
+
+{% highlight html %}
+var rc=0;
+    rc = wi.web.image( "Search Flights Button", "Search Flights Button" );
+if( rc != 0 ){
+    lr.outputMessage(">> ERROR Logged-in=" + lr.evalString( "{UserIds_userid}" ));
+    // Handle error here.
+    return rc;
+}else{
+    lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
+    return rc;
+}
+{% endhighlight %}
+
+
+The variable rc (return code) is set at the front of the function  
+so the function can return a status.
+
+Unlike C, there is no LR_PASS in JavaScript, so we need to use 0.
+
+
+<a name="OutputMessage"></a>
+
+### OutputMessage
+
+NOTE: Message text in message functions are built using concatenation.
+
+{% highlight html %}
+lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
+{% endhighlight %}
+
+PROTIP: Specify a special set of characters at the front of output messages
+so they are easy to identify among potentially many output lines.
+
+CHALLENGE: Look in Help for other types of messages.
+
+
+<a name="ForcePrint"></a>
+
+### Force print then restore logging level
+
+The function above is defined within 
+<strong>wi_library.js</strong> in GitHub:
+
+0. In the vuser_init file, this call establishes values one time
+   at the beginning of script execution:
+
+   wi_library_init();
+
+0. Under that in vuser_init, this call prints out log values:
+
+   wi_msg_level_print( wi_msg_level_at_entry );
+
+   A sample response:
+
+   {% highlight html %}
+   Run-Time Settings > Log DebugMessage level=0.
+   [_] Enable logging =1.
+   Send messages:
+       [X] Always =512.
+   Detail level:
+   [X] Standard log =16.
+       [_] Parameter substitution =4.
+       [_] Data returned by server =2
+       [_] Advanced trace =8
+   {% endhighlight %}
+
+Examine the code in wi_library.js. 
+This set of functions can be used anywhere in the script to
+force display out output messages even though logged is set off.
+
+   {% highlight html %}
+   wi_msg_force_print();
+   lr.outputmessage(...);
+   wi_msg_restore_print();
+   {% endhighlight %}
+
+
+### Date handling
+
+
 
 ### Generic Start and End Transaction Functions
 
@@ -431,6 +453,29 @@ to avoid having data preparating time be counted in the transaction time.
   which parses code generated by LoadRunner
   so the script makes use of wi library functions.
 
+### Additional JavaScript libraries
+
+These are of interest. I haven't tested them yet.
+So please let me know what you find.
+
+* <a target="_blank" href="http://momentjs.com/">
+  Moment.js</a> is a lightweight JavaScript date library for parsing, manipulating and formatting dates.
+
+* <a target="_blank" href="http://momentjs.com/timezone/">
+  Moment.js/timezone</a> parses and displays dates in any timezone.
+
+* <a target="_blank" href="http://www.boilerjs.com/">
+  boilerjs.com</a>
+  which provides 115 methods to make it easier to work with arrays, collections, functions, numbers, objects, and strings. It's the JavaScript equivalent of a Swiss Army Knife.
+
+* Underscore.js
+
+* <a target="_blank" href="https://github.com/caolan/async">
+  github.com/caolan/async</a>
+  provides around 70 functions that include the usual 'functional' suspects (map, reduce, filter, each…) as well as some common patterns for asynchronous control flow (parallel, series, waterfall…).
+
+NOTE: To save space (and memory while running),
+mimify JavaScript to remove "white space" such as spaces and tabs.
 
 <hr />
 
@@ -508,7 +553,7 @@ itemData :
 
 * To keep memory use low, instead of large parameter files,
   use VTS (Virtual Table Service) on a separate machine.
-  
+
 
 ## Resources to Learn JavaScript
 
