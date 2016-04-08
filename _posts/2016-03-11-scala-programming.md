@@ -43,7 +43,7 @@ Compilation is covered in the Ecosystem page.
 0. Traits
 
 0. if/then/else
-0. Match (case) Expressions
+0. <a href='#MatchCase">Match (case) Expressions</a>
 
 0. while
 0. for
@@ -100,6 +100,8 @@ Traits in Scala are best described as “interfaces that can provide concrete me
 A class gets its concrete members for free
 by mixing in a trait and implementing the abstract members.
 
+https://www.safaribooksonline.com/blog/2013/05/30/traits-how-scala-tames-multiple-inheritance/
+
 In addition to serving as pure interfaces, traits can also provide bundles of functionality like Java’s AbstractFoo (e.g. AbstractList, etc.) classes. A trait can have a few abstract methods and a number of concrete members implemented in terms of those abstract members. 
 A trait can be added to any Scala class.
 
@@ -138,6 +140,17 @@ The above is dependent upon these definitions:
 
 * A class can extend only one class, but
 * a class can extend several traits. 
+
+
+<a name="CaseClasses"></a>
+
+## Methods as operators
+
+
+   ```
+   println(3 max 4) // => 4
+   ``` 
+
 
 <a name="CaseClasses"></a>
 
@@ -216,7 +229,39 @@ val newtemperature1 = xml \\ "condition" \\ "@temp"
 println(newcity1 + " " + newstate1 + " " + newtemperature1)
 {% endhighlight %}
 
+<a name="Arrays"></a>
 
+## Arrays
+
+Define an array containing 10 items (0-9):
+
+   ```
+   var myArray : Array[String] = new Array[String](10);
+   ```
+
+
+<a name="MatchCase"></a>
+
+## Match case
+
+Scala simplifies on Java's switch statement by 
+not falling through cases until it hits a break operator.
+Thus, Scala doesn't need a break operator.
+
+Also, Scala's match can return a value (myResult):
+
+```
+var myVar = "theValue";
+
+var myResult =
+   myVar match {
+      case "someValue"   => println(myVar + " 1");
+      case "thisValue"   => println(myVar + " 2");
+      case "theValue"    => println(myVar + " 3");
+      case "doubleValue" => println(myVar + " 4");
+   }
+println(myResult);
+   ```
 
 ## Resources
 
