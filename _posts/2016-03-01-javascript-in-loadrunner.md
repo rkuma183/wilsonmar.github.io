@@ -192,9 +192,9 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
 
   ![designstudio](https://cloud.githubusercontent.com/assets/10678180/14401664/43a45932-fdde-11e5-9e3a-b3cf5108a61e.png)
 
-11. After code generation is done, Design Studio screen pops up.
+11.After code generation is done, Design Studio screen pops up.
 
-0. Review the dynamic values. For example: Look at userSession value 
+12.Review the dynamic values. For example: Look at userSession value 
 
 ```
 118266.392466586zAiDDcHpfzcfDztQQpQzfDHf
