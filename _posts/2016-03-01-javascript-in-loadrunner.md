@@ -192,15 +192,20 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
 
   ![designstudio](https://cloud.githubusercontent.com/assets/10678180/14401664/43a45932-fdde-11e5-9e3a-b3cf5108a61e.png)
 
-0. After code generation is done, Design Studio screen pops up.
+11. After code generation is done, Design Studio screen pops up.
 
-0. Observe the list of possible dynamic values found.
+0. Review the dynamic values. For example: Look at userSession value 
 
-0. Highlight the ones you want to correlate and click on correlate.
+```
+118266.392466586zAiDDcHpfzcfDztQQpQzfDHf
+
+```
+
+13.Select those that need to be correlated and click on Correlate.
 
     NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
 
-0. Run the generated script.
+14.Run the generated script.
 
    NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under     General > Code Generation.
    
