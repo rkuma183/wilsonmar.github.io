@@ -190,6 +190,8 @@ CHALLENGE: Remove extra action Recording from Run Logic so that it does not get 
    Click Flights.
    In "Find Flights", click "Sign Off", then Stop recording.
 
+  ![designstudio](https://cloud.githubusercontent.com/assets/10678180/14401664/43a45932-fdde-11e5-9e3a-b3cf5108a61e.png)
+
 0. After code generation is done, Design Studio screen pops up.
 
 0. Observe the list of possible dynamic values found.
