@@ -15,19 +15,15 @@ comments: true
 
 {% include _toc.html %}
 
-<a target="_blank" href="https://wilsonmar.github.io/loadrunner-javascript-coding/">
-This tutorial</a>
- is one in a <strong>series</strong> about use of JavaScript 
-within LoadRunner at:
-
-   <a target="_blank" href="https://wilsonmar.github.io/javascript-in-loadrunner/">
-   wilsonmar.github.io/wilsonmar/javascript-in-loadrunner</a>
+[This tutorial](/loadrunner-javascript-coding/)
+ is one in a <strong>series</strong> about coding of JavaScript 
+within LoadRunner.
 
 > This can get complicated. But help is just a phone call away.
   Call in the experts. Call us.
 
 
-## Script LoadRunner in JavaScript language
+## Why Script LoadRunner in JavaScript language?
 
 Writing in JavaScript is more comfortable to some.
 
