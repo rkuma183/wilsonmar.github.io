@@ -82,8 +82,7 @@ If you have a Git client, clone the set of LoadRunner sample scripts using comma
 The tutorial on coding JavaScript within a LoadRunner Web (HTTP/HTML)
 protocol script is at:
 
-   <a target="_blank" href="https://wilsonmar.github.io/loadrunner-javascript-coding/">
-   wilsonmar.github.io/wilsonmar/LoadRunner-JavaScript-Coding</a>
+   [wilsonmar.github.io/LoadRunner-JavaScript-Coding](/loadrunner-javascript-coding/)
 
 The sample script referenced by this tutorial is at:
 

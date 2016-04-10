@@ -997,10 +997,23 @@ Spark is written in Scala.
 
 
 ## Web Frameworks
+Among the votes for<a target="_blank" href="http://www.infoq.com/research/jvm-web-frameworks">Top Web Frameworks for the JVM at InfoQ</a>, 
+Play was identified as being more important and adoption-ready 
+than Lift:
 
-A popular Scala web framework is Lift, the Scala "Rails" 
+<img width="525" alt="jvm frameworks" src="https://cloud.githubusercontent.com/assets/300046/14407480/bc8f84f8-fe87-11e5-9a62-b78a6a5fa5e0.png">
 
-* http://liftweb.net
+* http://liftweb.net was created by David Pollak.
+
+The open source Play framework was created in 2007 by Guillaume Bort, who sought to bring a fresh web development experience inspired by modern web frameworks like Ruby on Rails to the long-suffering Java web development community. 
+
+Play 1.x had scala support via modules.
+
+Play 2 is written completely in Scala with full java support.
+
+Play follows a familiar stateless model-view-controller architectural pattern, with a philosophy of convention over configuration and an emphasis on developer productivity. Unlike traditional Java web frameworks with their tedious compile-package-deploy-restart cycles, updates to Play applications are instantly visible with a simple browser refresh. 
+
+* https://www.quora.com/Why-did-Typesafe-select-Play-for-their-stack-instead-of-Lift
 
 
 ## Libraries
