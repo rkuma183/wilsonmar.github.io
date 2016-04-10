@@ -15,7 +15,9 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial is one in a <strong>series</strong> about use of JavaScript 
+<a target="_blank" href="https://wilsonmar.github.io/loadrunner-javascript-coding/">
+This tutorial</a>
+ is one in a <strong>series</strong> about use of JavaScript 
 within LoadRunner at:
 
    <a target="_blank" href="https://wilsonmar.github.io/javascript-in-loadrunner/">
@@ -245,7 +247,8 @@ which is based on the
 ECMAScript 5.1 standard</a> followed by HTML4 browsers
 such as IE8.
 
-* <a href="#HandleErrors"> Handle errors</a>
+* <a href="#CustomCalls"> Code call details in a custom file</a>
+* <a href="#HandleErrors"> Design error handling</a>
 * <a href="#Randomize"> Randomize execution</a>
 * <a href="#AddParameters"> Add Parameters (Variables)</a>
 * <a href="#VerifyResponses"> Verify response returned</a>
@@ -260,7 +263,12 @@ such as IE8.
 
 <a name="DesignRunTypes"></a>
 
-### Design action run types
+<a name="CustomCalls"></a>
+
+### Code call details in a custom file
+
+PROTIP: Most experienced LoadRunner engineers hand-craft calls.
+They use code generated from recordings to analyze coding patterns.
 
 Rather than leaving all the details of calls in the Action.js file,
 details are moved to a separate file such as WJS1_Access,
@@ -371,9 +379,9 @@ Generate just individual resource requests during recording by setting:
 
 NOTE: Message text in message functions are built using concatenation.
 
-{% highlight html %}
-lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-{% endhighlight %}
+   {% highlight JavaScript %}
+   ++ lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
+   {% endhighlight %}
 
 PROTIP: Specify a special set of characters at the front of output messages
 so they are easy to identify among potentially many output lines.
