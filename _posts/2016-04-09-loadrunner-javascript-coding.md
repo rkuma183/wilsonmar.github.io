@@ -74,15 +74,17 @@ To use VuGen to generate a LoadRunner script in JavaScript:
 
 1. Create a File as protocol <strong>Web HTTP/HTML</strong>.
 
-2. Switch to Windows Explorer to see that 
-   <strong>Action.js</strong> was created (rather than Action.c).
-   Then switch back to VuGen.
+2. Switch to Windows Explorer to see that the
+   <strong>Action.js</strong> file was created 
+   (rather than Action.c).
+   
+3. Switch back to VuGen.
 
-3. In menu Record > Recording Options > Script, 
+4. In menu Record > Recording Options > Script, 
    click the drop-down for Scripting Language 
    to change from C to JavaScript.
 
-   #### Config wi_library_init in vuser_init
+### Config wi_library_init file in vuser_init
 
 0. In General: Script, to the right of
    "Generate think time greater than threshold",
@@ -99,6 +101,16 @@ To use VuGen to generate a LoadRunner script in JavaScript:
    }
    {% endhighlight %}
 
+   PROTIP: When definiting functions,
+   put the curly braces immediately after the end parenthesis
+   instead of the next line to make function definitions 
+   different than calls to functions, using
+   search specifications such as "){".
+
+   NOTE: Function names beginning with "wi_" are defined within file
+  <strong>wi_library.js</strong> obtained from GitHub.
+
+
 What follows is a hands-on tutorial to show you the most important edits to make to LoadRunner scripts. 
 
 > I write programs that makes these edits for you. Call me!
@@ -113,7 +125,9 @@ NOTE: Not all script protocols are able to record within an existing script. Onl
 NOTE: Each script file listed in the Action list is a separate 
 .js file within the script folder. 
 
-CHALLENGE: Create a separate action file to receive generated code which is never executed.
+CHALLENGE: Create a separate file to receive generated code 
+durng recordin, but will never be edited or executed
+so its line numbers stay in sync with code generation logs.
 
 1. Right-click on Actions in the Solution Explorer at the left.
 
@@ -199,16 +213,23 @@ This would reserve use of Action for more flexibility in the future.
    * WT3_Tour
    * WT3_Booking
 
+   &nbsp;
+
    PROTIP: With JavaScript, you also need to add custom files as
    an Extra File so functions within them are recognized.
 
 0. Right-click on Extra Files in the Solution Explorer and
    select <strong>Add Files to Script ...</strong>.
 
-0. Select the custom file.
+0. Select the custom file name just created.
 
 CAUTION: Deleting an entry under Extra Files, 
 that physical file is deleted from the file system as well.
+
+There is also a file <strong>WJS1_Config.js</strong> 
+to hold functions configuring overall script behavior
+such as printing and 
+common start and end transaction handling.
 
 
 ### Create custom Access functions
@@ -218,24 +239,30 @@ within WJS1_Access by doing a Replace-All command to
 your custom app name.
 
 * WJS1_Access_Landing()
-
-* WJS1_Access_SignUp_error()
 * WJS1_Access_SignUp()
-
 * WJS1_Access_SignIn()
-* WJS1_Access_SignIn_error()
-
 * WJS1_Access_SignOut()
 * WJS1_Access_Reset_Password()
 
-Negative test cases of errors may be useful because error conditions
-may cause performance issues. But these are usually
+
+### Create negative Access functions
+
+Additional functions include:
+
+* WJS1_Access_SignUp_error()
+* WJS1_Access_SignIn_error()
+
+Such <strong>negative test cases</strong> 
+causing errors deliberately
+may be useful because an app's error handling
+sometimes have performance issues. 
+But attention to them are usually
 held for development until
 additional time becomes available for scripting.
 
 <hr />
 
-## Basic edits to scripts
+## Basic edits to sample script
 
 What follows are explorations of LoadRunner's JavaScript,
 which is based on the
@@ -243,21 +270,201 @@ which is based on the
 ECMAScript 5.1 standard</a> followed by HTML4 browsers
 such as IE8.
 
-* <a href="#CustomCalls"> Code call details in a custom file</a>
-* <a href="#HandleErrors"> Design error handling</a>
-* <a href="#Randomize"> Randomize execution</a>
-* <a href="#AddParameters"> Add Parameters (Variables)</a>
-* <a href="#VerifyResponses"> Verify response returned</a>
-* <a href="#ControlOutputMessage"> Control Message Output</a>
-
-* <a href="#MakeParameterURL"> Make Parameter for URL</a>
+0. <a href="#IdRunConditions"> Capture and display run conditions</a>
+0. <a href="#ControlOutputMessage"> Control message output</a>
+0. <a href="#ForcePrint"> Force print then restore logging level</a>
+0. <a href="#DefineVerbosity"> Define verbosity</a>
+0. <a href="#UseReturnCodes"> Use return codes</a>
+0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
+0. <a href="#CustomCalls"> Code call details in a custom file</a>
+0. <a href="#Randomize"> Randomize execution</a>
+0. <a href="#Retries"> Retry execution</a>
+0. <a href="#GenericFunctions"> Use generic functions</a>
+0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
+0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
+0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
+0. <a name="#CaptureResponses"> Capture response to be returned</a>
+0. <a href="#VerifyResponses"> Verify response returned</a>
+0. <a href="#HandleErrors"> Design error handling</a>
 
 > In addition to these basic ones, 
   several TODO items are covered in private advanced courses.
   Call me to take the class.
 
 
-<a name="DesignRunTypes"></a>
+
+<a name="IdRunConditions"></a>
+
+### Capture and display run conditions
+
+Among the first activities in <strong>wi_library_init()</strong>
+is to capture and display conditions external to the script:
+
+* Loggging and other specifications in Run-Time Settings
+* Host name and IP address of the load generator running the script
+* That plus the starting date and time of the run as the basis for a 
+  an identifier unique in time and space.
+
+A combination of JavaScript utilities, built-in LoadRunner functions, 
+and custom library functions are used to obtain
+and format the current date and time.
+
+Conditions of the run are printed to the output log:
+
+   {% highlight html %}
+   Run-Time Settings > Log DebugMessage level=0.
+   [X] Enable logging =1.
+   Send messages:
+       [X] Always =512.
+   Detail level:
+   [X] Standard log =16.
+       [_] Parameter substitution =4.
+       [_] Data returned by server =2
+       [_] Advanced trace =8
+   {% endhighlight %}
+
+<a name="ControlOutputMessage"></a>
+
+### Control message output
+
+This output is created by calling a library function:
+
+   {% highlight JavaScript %}
+    wi_msg_level_print();
+   {% endhighlight %}
+
+That function contains LoadRunner print functions such as:
+
+   {% highlight JavaScript %}
+    lr.outputMessage(">> wi_msg_level_at_init = " + wi_msg_level_at_init +".");
+   {% endhighlight %}
+
+   PROTIP: Specify a special set of characters at the front of output messages
+   so they are easy to identify among potentially many output lines.
+
+NOTE: Message text in message functions are built using concatenation
+rather than formatting codes in sprintf() functions.
+
+CHALLENGE: Look in Help for other types of messages.
+
+   NOTE: LoadRunner's lr.outputMessage() function 
+   includes the script file name and line number 
+   whereas LoadRunner's lr.logMessage function does not.
+
+
+<a name="ForcePrint"></a>
+
+### Force print then restore logging level
+
+Conditions of the run are printed to the output log regardless of the
+log settings by inclusion of a library function:
+
+   {% highlight JavaScript %}
+   wi_msg_force_print();
+   {% endhighlight %}
+
+Output according to the log level selected in Run-time settings
+is honored by the rest of the script by this library function:
+
+   {% highlight JavaScript %}
+   wi_msg_print_reset();
+   {% endhighlight %}
+
+CHALLENGE: Add this pair of functions around message functions
+you want to force printing anywhere in your script 
+even though logging is not enabled:
+
+   {% highlight html %}
+   wi_msg_force_print();
+   lr.outputmessage(...);
+   wi_msg_print_reset();
+   {% endhighlight %}
+
+
+<a name="DefineVerbosity"></a>
+
+### Define verbosity
+
+> Our advanced workshops goes through use of additional
+   functions which enable you to specify levels
+   used in the popular Log4J library for Java and other platforms.
+
+   * Info - shows essential run conditions.
+   * Error - shows conditions of concern.
+   * Warning - shows conditions which may be of concern.
+   * Trace - shows major conditions, such as a line for each iteration and row processed.
+   * Debug - shows minor conditions, such as data considered for processing.
+
+An example of a Trace level statement is:
+
+   {% highlight JavaScript %}
+    WJS1_Config_print_trace();
+    lr.outputMessage(">> Action Iteration=" + lr.evalString("{pIteration}") +".");
+    wi_msg_print_reset();
+   {% endhighlight %}
+
+
+<a name="UseReturnCodes"></a>
+
+### Use return codes
+
+PROTIP: Code a return code variable to receive values returned from
+functions called, then if an error occured, return execution up
+to the caller rather than continue to the next statement.
+
+This is especially on blocking errors such as landing and login.
+
+The simplest example of error handling is in the main Action() file
+in the sample script:
+
+   {% highlight JavaScript %}
+   var rc=0;
+   rc=WJS1_Access_loop();
+   if( rc != 0 ){ return rc; }
+   {% endhighlight %}
+
+
+CHALLENGE: Define a strategy for how to deal with errors,
+especially during stress test runs.
+
+> On advanced editions of this course,
+  LoadRunner functions are used to stop on various levels of error.
+
+
+<a name="DataInAttributes"></a>
+
+## Specify Data Source Attribute
+
+In the sample script, there is coding making use of the
+<strong>RunDataIn</strong> JavaScript variable defined at the top
+of the vuser_init script file.
+
+NOTE: Variables defined the first function in a file 
+are <strong>global</strong> variables.
+
+`lr.getAttribString("RunDataIn");` obtains a value from
+the script's Run-Time Settings UI or from the LoadRunner Scenario
+at Run-Time.
+
+In the vuser_init file, a default value is enforced by this code:
+
+   {% highlight html %}
+    if( RunDataIn === undefined){
+      RunDataIn = "1"; // the default, not "FILE" or "VTS".
+      lr.outputMessage(">> RunDataIn not defined. Using default "+ RunDataIn +".");
+    }else{
+      RunDataIn = RunDataIn.toUpperCase();
+    }
+   {% endhighlight %}
+
+For attributes that have a limited number of values,
+the various values are tested so that if the value specified
+is not recognized by the code, an error condition can be issued
+at the beginning of the script rather than later during the run.
+
+In the <strong>WJS1_Access_loop()</strong> function with the sample
+WJS1_Access script file,
+
 
 <a name="CustomCalls"></a>
 
@@ -274,32 +481,9 @@ leaving high-level calls such as this:
    rc=WJS1_Access_landing( "T01_landing","http://contoso.net/",100);
    ```
 
-PROTIP: Name functions beginning with the names of the file within which
-they are defined.
+PROTIP: Name functions beginning with the name of the 
+file within which they are defined.
 
-
-<a name="HandleErrors"></a>
-
-### Design error handling 
-
-PROTIP: Define a strategy for how to deal with errors,
-especially during stress test runs.
-LoadRunner can be set to stop on error.
-
-On blocking errors such as landing and login,
-create a return code variable to receive values returned from
-functions called, then if an error occured, return execution up
-to the caller rather than continue to the next statement.
-
-The simplest example is in the sample Action file:
-
-   {% highlight JavaScript %}
-   var rc=0;
-   rc=WJS1_Access_landing( "T01_landing","http://hp.com/",100);
-   if( rc != 0 ){ return rc; }
-   {% endhighlight %}
-
-LoadRunner can be programmed to exit at several levels.
 
 <a name="Randomize"></a>
 
@@ -310,16 +494,17 @@ but occassionally.
 The code here can be used to execute something 72.3% of the time.
 That static number can be substituted with another number or a variable.
 
-{% highlight html %}
+   {% highlight html %}
   var trans_random_number = 72.3;
       wi_random_seed = Math.random() * 100 ;
   if( wi_random_seed <= trans_random_number ){
     lr.outputMessage(">> Within range. wi_random_seed = " + wi_random_seed + " <= " + trans_random_number );
-    // Do stuff.
+    // Do stuff
+    // ...
   }else{
     lr.outputMessage(">> Out of range. wi_random_seed = " + wi_random_seed + " NOT <= " + trans_random_number );
   }
-{% endhighlight %}
+   {% endhighlight %}
 
 The seed is between 0 and 100 because the number obtained from the 
 JavaScript randomizer is a number between zero and 1,
@@ -334,29 +519,80 @@ To obtain distribution, consider
 this</a> technique that produces a "bell curve" of numbers 
 clustered around .5 between 0 and 1.
 
+<a name="GenericFunctions"></a>
 
-### Adjust link retrieval mode 
+### Use generic functions
 
-A request generated looks like this:
+The wi_library.js file contains several generic functions such as
+function WJS1_Access_landing() called from the sample Action file.
 
-{% highlight html %}
-web.url(
-{
-    name : 'index.htm', 
-    url : 'http://127.0.0.1:1080/WebTours/index.htm', 
+    ```
+    rc=wi_web_url_http( in_trans , in_url );
+    ```
+
+Look at file wi_library.js and scroll to the above-mentioned function.
+Notice there are two similar functions:
+
+  * wi_web_url_html( in_trans , in_url ){
+  * wi_web_url_http( in_trans , in_url ){
+
+The sample code in these function's definition contain retry logic.
+
+
+<a name="Retries"></a>
+
+### Retry execution
+
+During stress test runs, the server may not be respond to some requests.
+Such behavior should not cause the script to stop because
+the whole point of the script is to create stress conditions.
+
+However, there needs to be a limit on how many times a particular 
+request (with a particular set of data values) are retried.
+
+That limit is specified by the <strong>Retries</strong> 
+Run-time attribute. A zero value (the default) means no retries occur.
+
+{% highlight JavaScript %}
+function wi_web_url_http( in_trans , in_url ){
+   var rc=0;
+   var i=0;
+   
+   for( i = 1; i < Retries; i++ ){ 
+
+      rc=wi_web_url( in_trans , in_url, "HTTP" );
+      if( rc == 0 ){
+        break;
+      }
+      // else loop back.
+    }
+   return rc;
+}
+{% endhighlight %}
+
+<a name="SpecifyLinkRetrieval"></a>
+
+### Specify link retrieval mode 
+
+The wi_web_url() function called contains this:
+
+   {% highlight html %}
+   web.url({
+    name : in_trans, 
+    url :  in_url, 
     targetFrame : '', 
     resource : 0, 
     recContentType : 'text/html', 
     referer : '', 
     snapshot : 't1.inf', 
-    mode : 'HTML'
-}
-);
-{% endhighlight %}
+    mode : in_mode
+   });
+   {% endhighlight %}
 
-A value in referer is not needed because the Web Tours sample application does not use it.
+NOTE: A value in <strong>referer</strong> is
+not needed with the Web Tours sample application which does not use it.
 
-NOTE: The `mode: HTML` activates a feature of LoadRunner which 
+NOTE: The `mode: ` activates a feature of LoadRunner which 
 scans the html returned and issue requests for 
 links to CSS, JavaScript, images, etc.
 
@@ -367,224 +603,184 @@ Generate just individual resource requests during recording by setting:
 
    <img src="/images/LR1250 Recording Recording option 1034x204.png">
 
+The <strong>in_mode</strong> variable is obtained from the function
+which called it:
+
+  * `rc=wi_web_url( in_trans , in_url, "HTML" );`
+  * `rc=wi_web_url( in_trans , in_url, "HTTP" );`
+
+To recap, there are several levels of generic functions:
+
+   * Generic function called by application custom code 
+   contain retry logic, such as `wi_web_url_http()`.
+
+   * Generic functions called by those functions
+   in turn call LoadRunner built-in functions such as `web_url()`.
+   Such are displayed in red by VuGen.
+
+PROTIP: Using generic functions reduce the amount of code. 
+The less coding, the smaller the script's memory footprint.
+Smaller scripts allow for more Vusers to fit into available memory on load generator machines.
+
+NOTE: Generic functions do not contain message output.
 
 
-<a name="ControlOutputMessage"></a>
+<a name="GenericStartStop"></a>
 
-### Control Message Output
+### Use generic Start and End Transactions
 
-NOTE: Message text in message functions are built using concatenation.
+The lowest-level functions surround LoadRunner call functions are
+surrounded by a pair of wi_library functions:
+
+   ```
+   WJS1_Config_StartTrans( in_trans );
+   ```
+
+   and
+
+   ```
+   rc=WJS1_Config_StartTrans( in_trans , rc );
+   ```
+
+PROTIP: Specify Start and End transactions names using a parameter
+("in_trans") so the code is more easily pastable and 
+there is no danger of typos in transaction start vs. end names,
+avoiding the most common cause of runs being aborted.
+
+<a name="VaryThinkTime"></a>
+
+### Automatically vary Think Time
+
+PROTIP: Putting think-time functions within a generic start and end function
+ensures eliminates a common coding error of 
+having think time statements placed after start transaction statements that make think time and data preparating time 
+be counted in the transaction time.
+
+   {% highlight html %}
+   lr.thinkTime( nThinkTimeSecs );
+   {% endhighlight %}
+
+The variable <strong>nThinkTimeSecs</strong> is defined at the top
+of the sample vuser_init script file.
+
+CAUTION: Think times are only added during the run
+if Run-Time Settings has been set to do so:
+
+<img width="495" alt="lr1250 rts think time replay" src="https://cloud.githubusercontent.com/assets/300046/14413611/72c4aa1e-ff3c-11e5-9ca7-256effd1ff46.png">
+
+
+<a name="CaptureResponses"></a>
+
+### Capture response to be returned
+
+How do you know whether the correct screen was returned?
+
+PROTIP: After each user action, use script code to verify whether response from the server is what is expected (positive or negative).
+
+LoadRunner provides several functions. 
+
+   * web.regFind() 
+   registers a search for a text string for the next action function.
+
+   * web.regSaveParamEx 
+   registers a request to save dynamic data located between specified boundaries to a parameter.
+
+   * web.regSaveParamJson
+   registers a request to save dynamic data in an buffer that has been formatted as Json. The data is saved to a parameter.
+
+   * web.regSaveParamRegexp 
+   registers a request to save dynamic data that matches a regular expression to a parameter.
+
+   * web.regSaveParamXpath 
+   registers a request to find dynamic data in an HTML buffer that has been formatted as XML and save the data to a parameter.
+
+CHALLENGE: Look for additional information
+on these functions in VuGen Help on LoadRunner's Functional Reference
+
+This call searches for text in the Body (rather than HTTP header)
+to be returned from the server:
 
    {% highlight JavaScript %}
-   ++ lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
+    if( in_title ){
+        web.regFind({
+           search : 'Body',
+//           relFrameId: '',
+//           fail : 'NotFound',
+           saveCount : 'title_found_count',
+           text : in_title
+        });
+    }
    {% endhighlight %}
 
-PROTIP: Specify a special set of characters at the front of output messages
-so they are easy to identify among potentially many output lines.
+The regFind() function is invoked only there is a title to be compared,
+within the in_title variable provided as part of the call.
 
-CHALLENGE: Look in Help for other types of messages.
+This function is in the start transaction code because, as the 
+"reg" in the function name implies, <strong>registers</strong>
+the evaluation to be carried out as the response streams in.
 
+Evaluation of the response is performed in 
+the endTransaction() function.
 
-<a name="ForcePrint"></a>
+The `relFrameId` attribute refers to the HTML frame to search in.
 
-### Force print then restore logging level
+VuGen does not record such functions. They must either be manually coded into the script. The VuGen UI provides a way to insert the function using a mouse. 
 
-The function above is defined within 
-<strong>wi_library.js</strong> in GitHub:
+This is a simple approach to <strong>stop execution</strong> 
+with an error at the point in the script
+that makes the call related to the above code.
 
-0. In the vuser_init file, this call establishes values one time
-   at the beginning of script execution:
-
-   wi_library_init();
-
-0. Under that in vuser_init, this call prints out log values:
-
-   wi_msg_level_print( wi_msg_level_at_entry );
-
-   A sample response:
-
-   {% highlight html %}
-   Run-Time Settings > Log DebugMessage level=0.
-   [_] Enable logging =1.
-   Send messages:
-       [X] Always =512.
-   Detail level:
-   [X] Standard log =16.
-       [_] Parameter substitution =4.
-       [_] Data returned by server =2
-       [_] Advanced trace =8
-   {% endhighlight %}
-
-Examine the code in wi_library.js. 
-This set of functions can be used anywhere in the script to
-force display out output messages even though logged is set off.
-
-   {% highlight html %}
-   wi_msg_force_print();
-   lr.outputmessage(...);
-   wi_msg_restore_print();
-   {% endhighlight %}
-
-
-<a name="MakeParameterURL"></a>
-
-### Make Parameter for URL
-
-Scripts are used in several environments,
-each of which have a different URL.
-There are several options for doing that.
-
-1. Define an Attribute which can be 
-
-2. Capture the value of the attribute in case
-   it is varied in
-   run-time Settings without editing the script.
-
-3. Search and replease all recorded script from:
-
-   http://127.0.0.1:1080
-
-   to a variable that holds the value, such as:
-
-   varURL
-
-   REST API calls call the full path an <strong>end point</strong>.
-
+NOTE: The fail attribute specifies whether finding the string specified
+if it's Found or NotFound.
 
 
 <a name="VerifyResponses"></a>
 
 ### Verify response returned
 
-How do you know whether the correct screen was returned?
+In the endTransaction function, the `title_found_count` specified
+in registration function is examined:
 
-PROTIP: After each user action, use script code to verify whether response from the server is what is expected (positive or negative).
+   {% highlight JavaScript %}
+   if( lr.evalString("{title_found_count}") == "0" ){
+      // Not found 
+   }
+   {% endhighlight %}
 
-Add code to scan the stream after receipt to identify a string of text:
+The `title_found_count` in registration functions specify the name of a
+<strong>LoadRunner parameter</strong>, 
+which transcends all JavaScript functions.
 
-{% highlight html %}
-web.regFind(
-{
-   text : 'Find Flight', 
-   search : 'Body'
-}
-);
-{% endhighlight %}
+The parameter is also a string, so needs to be converted to a number
+to do arithmetic.
 
-Run the script both ways so you see the output either way.
+What to do about information that the web page title is found or not
+in the response depends on the application.
+But most web pages do contain a title.
+
+CHALLENGE: Look at the Help screen for the function to come up with a way to  
+fail if the text is found (such as an error message).
+
 
 NOTE: An error is raised immediately if the text is not found,
 but at where the request is made, not at this script line 
 which registers the capture during request execution.
 
 
-### Register Find String 
+### For loops
 
-Add a foundcount to the call:
+   {% highlight html %}
+   for (i = 0; i < count; i++) {
+       // code block.
+   }
+   {% endhighlight %}
 
-{% highlight html %}
-web.regFind(
-{
-    text : 'Find Flight', 
-    foundcount : 'departDate_isfound',
-    search : 'Body'
-}
-);
-{% endhighlight %}
+* "i = 0" is executed before the loop (the code block) starts.
 
-CHALLENGE: Look at the Help screen for the function to come up with a way to  
-fail if the text is found (such as an error message).
+* "i < count" defines the condition for running the loop (the code block).
 
+* "i++" is executed each time after the loop (the code block) has been executed.
 
-
-### Capture Parameter Extended
-
-To have LoadRunner count the number of times it finds text in the input stream:
-
-{% highlight html %}
-web.regSaveParamEx(
-{
-    paramName : 'departDate', 
-    lb : 'name=\"departDate\" value=\"', 
-    rb : '\"', 
-    scope : 'Body', 
-    requestUrl : '*/reservations.pl*'
-}
-);
-{% endhighlight %}
-
-The code to take action depending on what is in the variable updated. 
-
-NOTE: LoadRunner automatically creates the paramName parameter
-specified.
-
-
-<a name="ControlStop"></a>
-
-### Control whether to stop on error
-
-Some test run scenarios do not want to end if an error occurs,
-so use a variable named rc (return code) 
-when returning control up the call hierarchy rather than stopping: 
-
-{% highlight html %}
-var rc=0;
-    rc = wi.web.image( "Search Flights Button", "Search Flights Button" );
-if( rc != 0 ){
-    lr.outputMessage(">> ERROR Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-    // Handle error here.
-    return rc;
-}else{
-    lr.outputMessage(">> Logged-in=" + lr.evalString( "{UserIds_userid}" ));
-    return rc;
-}
-{% endhighlight %}
-
-
-The variable rc (return code) is set at the front of the function  
-so the function can return a status.
-
-Unlike C, there is no LR_PASS in JavaScript, so we need to use 0.
-
-
-
-### Generic Start and End Transaction Functions
-
-PROTIP: Replace think-time functions with a generic function:
-
-   wi.StartTrans( pCurrentTrans, in_rc );
-
-Add a call to end transaction:
-
-   rc = wi.EndTrans( pCurrentTrans, in_rc );
-
-### Start and End Transaction Names
-
-PROTIP: Specify Start and End transactions using a parameter
-so the code is more easily pastable and there is no danger of typos,
-avoiding the most common cause of runs being aborted.
-
-{% highlight html %}
-var pCurrentTrans = 'WT3_T22_Travel_Search_Flight';
-
-lr.startTransaction(pCurrentTrans);
-
-...
-
-lr.endTransaction(pCurrentTrans, lr.AUTO);
-{% endhighlight %}
-
-Parametizing transaction names is needed to make generic functions
-that reduce the amount of coding. The less coding lines, the smaller the script's memory footprint.
-Smaller scripts allow for more Vusers to fit into available memory on load generator machines.
-
-PROTIP: Start transaction immediately before web request functions
-to avoid having data preparating time be counted in the transaction time.
-
-
-> There is a utility program (in both Python and Perl)
-  which parses code generated by LoadRunner
-  so the script makes use of wi library functions.
 
 ### Additional JavaScript libraries
 
