@@ -16,8 +16,8 @@ comments: true
 {% include _toc.html %}
 
 [This tutorial](/loadrunner-javascript-coding/)
- is one in a <strong>series</strong> about coding of JavaScript 
-within LoadRunner.
+ is one in a [series](/javascript-in-loadrunner/)
+ about coding of JavaScript within LoadRunner.
 
 > This can get complicated. But help is just a phone call away.
   Call in the experts. Call us.
@@ -283,7 +283,7 @@ such as IE8.
 0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
 0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
 0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
-0. <a name="#CaptureResponses"> Capture response to be returned</a>
+0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
 0. <a href="#HandleErrors"> Design error handling</a>
 
@@ -765,6 +765,88 @@ fail if the text is found (such as an error message).
 NOTE: An error is raised immediately if the text is not found,
 but at where the request is made, not at this script line 
 which registers the capture during request execution.
+
+
+<a name="REST-APIs"></a>
+
+### Make REST APIs
+
+Before the transaction, we make call 
+<strong>web.regSaveParamJson</strong> to
+register saving dynamic data in an buffer formatted as Json. The data is saved to a parameter.
+
+The most flexible request function is:
+<strong>web.customRequest();</strong>
+
+   {% highlight JavaScript %}
+{  
+   stepName:"<string>",
+   url:"<string>",
+   method:"<string>",
+   targetFrame:"<string>",
+   encType:"<string>",
+   recContentType:"<string>",
+   referer:"<string>",
+   bodyUnicode:"<string>",
+   bodyBinary:"<string>",
+   body:"<string>",
+   bodyFilePath:"<string>",
+   resource:"<string>",
+   resourceByteLimit:"<string>",
+   snapshot:"<string>",
+   mode:"<string>",
+   extraResBaseDir:"<string>",
+   userAgent:"<string>",
+   contentEncoding:"<string>",
+   rawBody:{  
+      content:"<string>",
+      length:"<string>"
+   },
+   "extraRes":[{  
+      url:"<string>",
+      referer:"<string>"
+   }]
+}
+   {% endhighlight %}
+
+   This is described at:
+   http://lrhelp.saas.hp.com/en/latest/help/function_reference/FuncRef.htm#js_web/lrFr_JS_web_customRequest.htm%3FTocPath%3DJavaScript%2520Functions%7CAlphabetical%2520Listing%2520of%2520Web%2520Functions%7C_____14
+
+Additionally, REST APIs usually require HTTP header coding.
+
+   {% highlight JavaScript %}
+   web.addAutoHeader("Accept-Encoding", "gzip");
+   {% endhighlight %}
+
+<a name="HandleErrors"></a>
+
+###  Design error handling
+
+LoadRunner provides a function:
+
+    {% highlight JavaScript %}
+    lr.continueOnError(0); // 0=Off = Not continue on error
+    lr.continueOnError(1); // 1=On  = Yes, Continue on eror
+    {% endhighlight %}
+
+BLAH: I wish I knew how to programmically detect what was specified in
+Run-Time Settings.
+
+Error continuation options:
+
+| Code | Value |
+| ---- | ----- |
+| lr.ON_ERROR_NO_OPTIONS | 0 |
+| lr.ON_ERROR_CONTINUE   | 1 |
+| lr.ON_ERROR_SKIP_TO_NEXT_ACTION  | 2 |
+| lr.ON_ERROR_SKIP_TO_NEXT_ITERATION | 3 |
+| lr.ON_ERROR_END_VUSER | 4 |
+
+LoadRunner provides a function to exit from a script, action, or iteration:
+
+    {% highlight JavaScript %}
+    lr.exit(lr.EXIT_VUSER, lr.FAIL);
+    {% endhighlight %}
 
 
 ### For loops

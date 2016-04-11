@@ -3,7 +3,6 @@ layout: post
 title: "JavaScript in LoadRunner"
 excerpt: "Sample code and tutorial here"
 tags: [JavaScript, Load Testing, LoadRunner]
-author: anil_mainali
 image:
   feature: pic brown running horses 1900x500.jpg
   credit: Steve Mckinzie
@@ -75,7 +74,7 @@ If you have a Git client, clone the set of LoadRunner sample scripts using comma
 > Call me to get good at JavaScript without wasting a lot of time.
 
 
-<a href="#LRJS"></a>
+<a name="LRJS"></a>
 
 ## Script LoadRunner in JavaScript language
 
