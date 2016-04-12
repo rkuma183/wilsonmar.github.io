@@ -19,13 +19,48 @@ comments: true
  is one in a [series](/javascript-in-loadrunner/)
  about coding of JavaScript within LoadRunner.
 
-> This can get complicated. But help is just a phone call away.
+
+> This can seem complicated to someone without experience.
+  But help is just a phone call away.
   Call in the experts. Call us.
 
+
+## Basic edits to sample script
+
+What follows are explorations of LoadRunner's JavaScript,
+in a sequence taken when stepping through a run of the
+sample script that accompanies this narrative.
+
+0. <a href="#IdRunConditions"> Capture and display run conditions</a>
+0. <a href="#ControlOutputMessage"> Control message output</a>
+0. <a href="#ForcePrint"> Force print then restore logging level</a>
+0. <a href="#DefineVerbosity"> Define verbosity</a>
+0. <a href="#UseReturnCodes"> Use return codes</a>
+0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
+0. <a href="#CustomCalls"> Code call details in a custom file</a>
+0. <a href="#Randomize"> Randomize execution</a>
+0. <a href="#Retries"> Retry execution</a>
+0. <a href="#GenericFunctions"> Use generic functions</a>
+0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
+0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
+0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
+0. <a href="#CaptureResponses"> Capture response to be returned</a>
+0. <a href="#VerifyResponses"> Verify response returned</a>
+0. <a href="#HandleErrors"> Design error handling</a>
+
+> In addition to these basic ones, 
+  several TODO items are covered in private advanced courses.
+  Call me to take the class.
 
 ## Why Script LoadRunner in JavaScript language?
 
 Writing in JavaScript is more comfortable to some.
+
+The language is defined in the
+<a target="_blank" href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.8.2.14">
+ECMAScript 5.1 standard</a> followed by HTML4 browsers
+such as IE8.
+
 
 > JavaScript code requires more memory and CPU to run than C code
   within LoadRunner load generators.
@@ -44,11 +79,15 @@ Writing in JavaScript is more comfortable to some.
 0. Use Finder or File Explorer to view a folder containing a sample
    script coded in JavaScript:
 
-   <strong>WJS1_sample_WJS1250_v01</strong>
+   <strong>WJS1_challenge_WJS1250_v01</strong>
 
   This sample script contains a library of functions that provide both
   examples of JavaScript coding and 
-  provides useful utilities.
+  use of utilities provided.
+
+   The script name contains the word "challenge" because
+   it is for instructional purposes. It contains some FIXME items
+   added for learners to fix as part of the learning process.
 
 > Use of some library functions such as md5 and SHA1
   for OAuth2 are explained in a separate tutorial by Wilson Mar.
@@ -261,36 +300,6 @@ held for development until
 additional time becomes available for scripting.
 
 <hr />
-
-## Basic edits to sample script
-
-What follows are explorations of LoadRunner's JavaScript,
-which is based on the
-<a target="_blank" href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.8.2.14">
-ECMAScript 5.1 standard</a> followed by HTML4 browsers
-such as IE8.
-
-0. <a href="#IdRunConditions"> Capture and display run conditions</a>
-0. <a href="#ControlOutputMessage"> Control message output</a>
-0. <a href="#ForcePrint"> Force print then restore logging level</a>
-0. <a href="#DefineVerbosity"> Define verbosity</a>
-0. <a href="#UseReturnCodes"> Use return codes</a>
-0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
-0. <a href="#CustomCalls"> Code call details in a custom file</a>
-0. <a href="#Randomize"> Randomize execution</a>
-0. <a href="#Retries"> Retry execution</a>
-0. <a href="#GenericFunctions"> Use generic functions</a>
-0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
-0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
-0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
-0. <a href="#CaptureResponses"> Capture response to be returned</a>
-0. <a href="#VerifyResponses"> Verify response returned</a>
-0. <a href="#HandleErrors"> Design error handling</a>
-
-> In addition to these basic ones, 
-  several TODO items are covered in private advanced courses.
-  Call me to take the class.
-
 
 
 <a name="IdRunConditions"></a>
