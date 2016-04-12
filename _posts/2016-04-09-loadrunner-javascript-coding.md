@@ -200,7 +200,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
 
 8. Click Save to save the script.
 
-9. Make a recording using WebTours (after starting it).
+9. Make a recording using WebTours inside the Recording action file that you created. (after starting it)
 
 10. Login as "jojo" with password "bean".
    Click Flights.
