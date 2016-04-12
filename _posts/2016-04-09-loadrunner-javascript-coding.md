@@ -495,14 +495,16 @@ Most JavaScript tutorials provide this as the sample for loop:
 * "i++" is executed each time after the loop (the code block) has been executed.
 
 The problem is that in the real world of things, 
-counts begin from 1 real thing.
-So we start with one rather than zero:
+counts begin from one, not zero.
+
+![twinsthingonetwo](https://cloud.githubusercontent.com/assets/300046/14466784/91849982-0095-11e6-9ad1-f0b6518928a6.jpg)
+
+So we start with one rather than zero in the for loop:
 
    {% highlight html %}
    for (i = 1; i <= count; i++) {
        // code block.
-   }
-   {% endhighlight %}
+   }{% endhighlight %}
 
 
 
