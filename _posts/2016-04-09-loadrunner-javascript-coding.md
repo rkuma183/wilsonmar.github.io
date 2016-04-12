@@ -408,6 +408,10 @@ An example of a Trace level statement is:
     lr.outputMessage(">> Action Iteration=" + lr.evalString("{pIteration}") +".");
     wi_msg_print_reset();{% endhighlight %}
 
+The advantage of a LoadRunner parameter is that 
+VuGen shows their values during a run if you are stepping through
+or have set a <strong>breakpoint</strong> before starting a run.
+
 
 <a name="UseReturnCodes"></a>
 
@@ -464,6 +468,12 @@ For attributes that have a limited number of values,
 the various values are tested so that if the value specified
 is not recognized by the code, an error condition can be issued
 at the beginning of the script rather than later during the run.
+
+> Advanced editions of this course covers use of JavaScript 
+   <strong>arrays</strong>
+   to structure small amounts of multi-dimensional data 
+   easily available.
+
 
 <a name="ForLoops"></a>
 
@@ -581,12 +591,8 @@ The wi_library.js file contains several generic functions such as
 function WJS1_Access_landing() called from the sample Action file.
 
     {% highlight JavaScript %}
-    rc=wi_web_url_http( in_trans , in_mode , in_url, in_title );
+    rc=wi_web_url_http( in_trans , in_url, etc. );
     {% endhighlight %}
-
-The <strong>in_mode</strong> variable provides a signal whether
-the HTTP or HTML mode. It is also used to specify the HTTP commands
-(PUT, GET, POST, etc.).
 
 
 <a name="Retries"></a>
@@ -622,6 +628,10 @@ function wi_web_url_http( in_trans , in_url ){
 <a name="SpecifyLinkRetrieval"></a>
 
 ### Specify link retrieval mode 
+
+The <strong>in_mode</strong> variable provides a signal whether
+the HTTP or HTML mode. It is also used to specify the HTTP commands
+(PUT, GET, POST, etc.).
 
 The wi_web_url() function called contains this:
 
@@ -852,8 +862,7 @@ The most flexible request function is:
       url:"<string>",
       referer:"<string>"
    }]
-}
-   {% endhighlight %}
+}{% endhighlight %}
 
    This is described at:
    http://lrhelp.saas.hp.com/en/latest/help/function_reference/FuncRef.htm#js_web/lrFr_JS_web_customRequest.htm%3FTocPath%3DJavaScript%2520Functions%7CAlphabetical%2520Listing%2520of%2520Web%2520Functions%7C_____14
@@ -863,6 +872,8 @@ Additionally, REST APIs usually require HTTP header coding.
    {% highlight JavaScript %}
    web.addAutoHeader("Accept-Encoding", "gzip");
    {% endhighlight %}
+
+
 
 <a name="HandleErrors"></a>
 
