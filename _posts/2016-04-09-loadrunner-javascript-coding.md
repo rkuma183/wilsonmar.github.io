@@ -37,10 +37,12 @@ sample script that accompanies this narrative.
 0. <a href="#DefineVerbosity"> Define verbosity</a>
 0. <a href="#UseReturnCodes"> Use return codes</a>
 0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
+0. <a href="#ForLoops"> For loops</a>
 0. <a href="#CustomCalls"> Code call details in a custom file</a>
-0. <a href="#Randomize"> Randomize execution</a>
+0. <a href="#ChainCalls"> Chain calls</a>
+0. <a href="#RandomizeCalls"> Randomize execution</a>
 0. <a href="#Retries"> Retry execution</a>
-0. <a href="#GenericFunctions"> Use generic functions</a>
+0. <a href="#GenericFunctions"> Call generic functions</a>
 0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
 0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
 0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
@@ -95,10 +97,10 @@ such as IE8.
 To create a script folder containing your own application test code,
 the options are:
 
-1. Add your own application test code into this sample script.
+1. Add your own application test code into the script folder.
 
 2. Open a C-script saved immediately after recording and
-   re-generate it into JavaScript,
+   <strong>re-generate</strong> it into JavaScript,
    then copy the sample utility file into it.
 
 3. Create a new folder, 
@@ -471,13 +473,42 @@ the various values are tested so that if the value specified
 is not recognized by the code, an error condition can be issued
 at the beginning of the script rather than later during the run.
 
-In the <strong>WJS1_Access_loop()</strong> function with the sample
-WJS1_Access script file,
+<a name="ForLoops"></a>
+
+### For loops
+
+In the <strong>WJS1_Access_loop()</strong> function for FILE,
+the script loops through records in the file.
+
+Most JavaScript tutorials provide this as the sample for loop:
+
+   {% highlight html %}
+   for (i = 0; i < count; i++) {
+       // code block.
+   }
+   {% endhighlight %}
+
+* "i = 0" is executed before the loop (the code block) starts.
+
+* "i < count" defines the condition for running the loop (the code block).
+
+* "i++" is executed each time after the loop (the code block) has been executed.
+
+The problem is that in the real world of things, 
+counts begin from 1 real thing.
+So we start with one rather than zero:
+
+   {% highlight html %}
+   for (i = 1; i <= count; i++) {
+       // code block.
+   }
+   {% endhighlight %}
+
 
 
 <a name="CustomCalls"></a>
 
-### Code call details in a custom file
+### Code call details in a custom script file
 
 PROTIP: Most experienced LoadRunner engineers hand-craft calls.
 They use code generated from recordings to analyze coding patterns.
@@ -493,8 +524,7 @@ leaving high-level calls such as this:
 PROTIP: Name functions beginning with the name of the 
 file within which they are defined.
 
-
-<a name="Randomize"></a>
+<a name="RandomizeCalls"></a>
 
 ### Randomize execution
 
@@ -528,24 +558,33 @@ To obtain distribution, consider
 this</a> technique that produces a "bell curve" of numbers 
 clustered around .5 between 0 and 1.
 
+<a name="ChainCalls"></a>
+
+### Chain calls
+
+The structure of code enables additional processing for all calls
+without having to touch every request (which introduces risk).
+
+For example, retry logic can be introduced into the chain of calls.
+
+Or addition of preparation (<strong>prep</strong>) 
+activities such as assemblying body content.
+
+
 <a name="GenericFunctions"></a>
 
-### Use generic functions
+### Use generic call functions
 
 The wi_library.js file contains several generic functions such as
 function WJS1_Access_landing() called from the sample Action file.
 
-    ```
-    rc=wi_web_url_http( in_trans , in_url );
-    ```
+    {% highlight JavaScript %}
+    rc=wi_web_url_http( in_trans , in_mode , in_url, in_title );
+    {% endhighlight %}
 
-Look at file wi_library.js and scroll to the above-mentioned function.
-Notice there are two similar functions:
-
-  * wi_web_url_html( in_trans , in_url ){
-  * wi_web_url_http( in_trans , in_url ){
-
-The sample code in these function's definition contain retry logic.
+The <strong>in_mode</strong> variable provides a signal whether
+the HTTP or HTML mode. It is also used to specify the HTTP commands
+(PUT, GET, POST, etc.).
 
 
 <a name="Retries"></a>
@@ -567,13 +606,13 @@ function wi_web_url_http( in_trans , in_url ){
    var rc=0;
    var i=0;
    
-   for( i = 1; i < Retries; i++ ){ 
+   for( i = 1; i <= Retries; i++ ){ 
 
-      rc=wi_web_url( in_trans , in_url, "HTTP" );
+          rc=wi_web_url( in_trans , in_url , etc. );
       if( rc == 0 ){
         break;
       }
-      // else loop back.
+      // else loop again.
     }
    return rc;
 }
@@ -857,20 +896,6 @@ LoadRunner provides a function to exit from a script, action, or iteration:
     lr.exit(lr.EXIT_VUSER, lr.FAIL);
     {% endhighlight %}
 
-
-### For loops
-
-   {% highlight html %}
-   for (i = 0; i < count; i++) {
-       // code block.
-   }
-   {% endhighlight %}
-
-* "i = 0" is executed before the loop (the code block) starts.
-
-* "i < count" defines the condition for running the loop (the code block).
-
-* "i++" is executed each time after the loop (the code block) has been executed.
 
 
 ### Additional JavaScript libraries
