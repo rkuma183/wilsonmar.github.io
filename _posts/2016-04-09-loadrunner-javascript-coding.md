@@ -139,8 +139,7 @@ To use VuGen to generate a LoadRunner script in JavaScript:
       var rc=0;
       rc=wi_library_init();
       return rc;
-   }
-   {% endhighlight %}
+   }{% endhighlight %}
 
    PROTIP: When definiting functions,
    put the curly braces immediately after the end parenthesis
@@ -347,8 +346,7 @@ This output is created by calling a library function:
 That function contains LoadRunner print functions such as:
 
    {% highlight JavaScript %}
-    lr.outputMessage(">> wi_msg_level_at_init = " + wi_msg_level_at_init +".");
-   {% endhighlight %}
+    lr.outputMessage(">> wi_msg_level_at_init = " + wi_msg_level_at_init +".");{% endhighlight %}
 
    PROTIP: Specify a special set of characters at the front of output messages
    so they are easy to identify among potentially many output lines.
@@ -371,15 +369,13 @@ Conditions of the run are printed to the output log regardless of the
 log settings by inclusion of a library function:
 
    {% highlight JavaScript %}
-   wi_msg_force_print();
-   {% endhighlight %}
+   wi_msg_force_print();{% endhighlight %}
 
 Output according to the log level selected in Run-time settings
 is honored by the rest of the script by this library function:
 
    {% highlight JavaScript %}
-   wi_msg_print_reset();
-   {% endhighlight %}
+   wi_msg_print_reset();{% endhighlight %}
 
 CHALLENGE: Add this pair of functions around message functions
 you want to force printing anywhere in your script 
@@ -388,8 +384,7 @@ even though logging is not enabled:
    {% highlight html %}
    wi_msg_force_print();
    lr.outputmessage(...);
-   wi_msg_print_reset();
-   {% endhighlight %}
+   wi_msg_print_reset();{% endhighlight %}
 
 
 <a name="DefineVerbosity"></a>
@@ -411,8 +406,7 @@ An example of a Trace level statement is:
    {% highlight JavaScript %}
     WJS1_Config_print_trace();
     lr.outputMessage(">> Action Iteration=" + lr.evalString("{pIteration}") +".");
-    wi_msg_print_reset();
-   {% endhighlight %}
+    wi_msg_print_reset();{% endhighlight %}
 
 
 <a name="UseReturnCodes"></a>
@@ -431,8 +425,7 @@ in the sample script:
    {% highlight JavaScript %}
    var rc=0;
    rc=WJS1_Access_loop();
-   if( rc != 0 ){ return rc; }
-   {% endhighlight %}
+   if( rc != 0 ){ return rc; }{% endhighlight %}
 
 
 CHALLENGE: Define a strategy for how to deal with errors,
@@ -465,8 +458,7 @@ In the vuser_init file, a default value is enforced by this code:
       lr.outputMessage(">> RunDataIn not defined. Using default "+ RunDataIn +".");
     }else{
       RunDataIn = RunDataIn.toUpperCase();
-    }
-   {% endhighlight %}
+    }{% endhighlight %}
 
 For attributes that have a limited number of values,
 the various values are tested so that if the value specified
@@ -485,19 +477,24 @@ Most JavaScript tutorials provide this as the sample for loop:
    {% highlight html %}
    for (i = 0; i < count; i++) {
        // code block.
-   }
-   {% endhighlight %}
+   }{% endhighlight %}
 
 * "i = 0" is executed before the loop (the code block) starts.
 
 * "i < count" defines the condition for running the loop (the code block).
 
-* "i++" is executed each time after the loop (the code block) has been executed.
+* "i++" is executed each time after each iteration of the code block executes.
 
 The problem is that in the real world of things, 
 counts begin from one, not zero.
 
 ![twinsthingonetwo](https://cloud.githubusercontent.com/assets/300046/14466784/91849982-0095-11e6-9ad1-f0b6518928a6.jpg)
+
+(Aren't they cute?)
+
+Anyway, note that in the begin-from-zero loop, the iteration number 
+is one off from the count. The first iteration is one when i=0.
+The second iteration has i=1, etc.
 
 So we start with one rather than zero in the for loop:
 
@@ -506,6 +503,10 @@ So we start with one rather than zero in the for loop:
        // code block.
    }{% endhighlight %}
 
+The condition for continuing iterating through the loop now
+needs to change because now i would match the iteration.
+
+Also, the maximum iteration is the count because we didn't start from zero.
 
 
 <a name="CustomCalls"></a>
@@ -544,8 +545,7 @@ That static number can be substituted with another number or a variable.
     // ...
   }else{
     lr.outputMessage(">> Out of range. wi_random_seed = " + wi_random_seed + " NOT <= " + trans_random_number );
-  }
-   {% endhighlight %}
+  }{% endhighlight %}
 
 The seed is between 0 and 100 because the number obtained from the 
 JavaScript randomizer is a number between zero and 1,
@@ -617,8 +617,7 @@ function wi_web_url_http( in_trans , in_url ){
       // else loop again.
     }
    return rc;
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 <a name="SpecifyLinkRetrieval"></a>
 
@@ -636,8 +635,7 @@ The wi_web_url() function called contains this:
     referer : '', 
     snapshot : 't1.inf', 
     mode : in_mode
-   });
-   {% endhighlight %}
+   });{% endhighlight %}
 
 NOTE: A value in <strong>referer</strong> is
 not needed with the Web Tours sample application which does not use it.
@@ -759,8 +757,7 @@ to be returned from the server:
            saveCount : 'title_found_count',
            text : in_title
         });
-    }
-   {% endhighlight %}
+    }{% endhighlight %}
 
 The regFind() function is invoked only there is a title to be compared,
 within the in_title variable provided as part of the call.
@@ -794,8 +791,7 @@ in registration function is examined:
    {% highlight JavaScript %}
    if( lr.evalString("{title_found_count}") == "0" ){
       // Not found 
-   }
-   {% endhighlight %}
+   }{% endhighlight %}
 
 The `title_found_count` in registration functions specify the name of a
 <strong>LoadRunner parameter</strong>, 
