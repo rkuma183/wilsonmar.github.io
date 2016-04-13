@@ -21,11 +21,9 @@ comments: true
 
 The rest of this tutorial is based on this overview:
 
-<a target="_blank" href="https://youtu.be/QmSklWlQSM0">
-<img width="1098" alt="lr wjs1 diagram v02" src="https://cloud.githubusercontent.com/assets/300046/14492959/f333a358-013f-11e6-86d8-46bc209d197b.png">
-</a>
+   <amp-youtube data-videoid="EtxFT6jOJhM" layout="responsive" width="480" height="270"></amp-youtube>
 
-0. Click on the diagram for a YouTube video with the narrative
+Click on the diagram for a YouTube video with the narrative
    below.
 
 Every LoadRunner program (regardless of programming language)
@@ -48,20 +46,21 @@ Our hope is that you'll save time and debugging frustration
 by making use of the commonly needed functions 
 we've provided in our sample script.
 
-Our contribution is a library containing additional functions
+Our library contains additional functions
 everyone can use to
 [display run conditions](#IdRunConditions),
 establish variables that specify where to obtain
-data for the run, and other exciting capabilities we'll be showing you.
+data for the run, and other exciting capabilities.
 
-The sample script also comes with files containing functions
-needed by most scripts:
+To make editing files easier, functions are grouped into
+separate files:
 
-   * <strong>WJS1_Config.js</strong> - Configuration functions
-   to print, to start and end transaction tracking, etc.
+   * The <strong>WJS1_Config.js</strong> Configuration 
+   contains functions
+   to manage printing and to start and end transaction tracking.
 
-   * <strong>WJS1_Access.js</strong> - 
-   Application access functions such as 
+   * The <strong>WJS1_Access.js</strong> 
+   Access file contains functions such as 
    Sign-Up, Sign-In, Sign-Out, etc.
 
 Over the course of load testing an app being built,
@@ -75,17 +74,19 @@ attribute to control the scope of processing at run-time.
 But for now, we'll focus here on options for efficiently coding
 the rotation through different <strong>landing</strong> pages.
 
-We make use of an attribute to select among different sources of data.
+We make use of the <strong>RunDataIn</strong> attribute 
+to select among different sources of data.
 The default is a single hard-coded URL to request.
 
-The point of the sample script is to provide features that are
-time consuming to add, such as 
-random execution
-and a strutured approach to make requests after
-preparation of all data needed.
+The objective of the sample script is to make it easier to
+add processing features that are otherwise
+time consuming to add to every request, such as 
+<strong>random execution</strong>.
 
-We've made available functions functions not in the base package.
-And making calls using our generic functions
+The sample script also provides a structured approach 
+to make requests after preparation of all data needed.
+
+Making calls using generic functions
 makes your script much much smaller, which allows more vusers
 on every load generator.
 
@@ -105,13 +106,17 @@ we also cover how to drive requests stored in
   This not only keep memory use low in load generators,
   but provide dynamic update of data going into the run.
 
+<a target="_blank" href="https://youtu.be/EtxFT6jOJhM">
+<img width="958" alt="lr wjs1 diagram v02" src="https://cloud.githubusercontent.com/assets/300046/14493021/53c0d650-0140-11e6-90c3-8bf607d1311f.png">
+</a>
 
 > All this can seem complicated to someone without experience.
   But help is just a phone call away.
   Call in the experts. Call us.
 
+<a name="DrillDown"></a>
 
-## Basic edits to sample script
+## Drill down into specific features
 
 What follows are explorations of LoadRunner's JavaScript,
 in a sequence taken when stepping through a run of the
