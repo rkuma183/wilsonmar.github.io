@@ -63,8 +63,44 @@ With Scala:
 * Closures (vs Java 8)
 * Concurrency support (inspired by Erlang
 
+## Static Code Analyzer
 
-## Exception mechanism similar to Java's.
+I think that Static Code Analyzers should be run on the most basic of code,
+by the most junior of developers.
+This is so one doesn't develop bad habits being introduced by
+most programming tutorials available, which use 
+naming conventions not safe for enterprise work.
+
+Some "best practices" documents:
+
+* <a target="_blank" href="http://twitter.github.io/effectivescala/">
+twitter.github.io/effectivescala</a>
+presents "best practices" for Scala at Twitter. 
+Useful for understanding idioms in Twitter's code.
+
+<a target="_blank" href="https://github.com/alexandru/scala-best-practices">
+   github.com/alexandru/scala-best-practices</a>
+   makes use of 
+   <a target="_blank" href="https://www.ietf.org/rfc/rfc2119.txt">
+   RFC 2119 - Key words for use in RFCs to Indicate Requirement Levels</a>
+
+   ("Cargo-cult" - sounds like a rock band.)
+
+   Alex divides his rules this way:
+
+   1. hygienic-rules
+   2. language-rules
+   3. architecture
+   4. concurrency-parallelism.
+   5. actors
+
+   It's a rather "chicken or the egg" issue -
+   how can someone understand what to avoid unless they understand what 
+   it is they are avoiding?
+
+
+
+## Exception mechanism similar to Java's
 
 Scala has an exception mechanism similar to Java's.
 

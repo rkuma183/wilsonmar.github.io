@@ -955,6 +955,22 @@ is this one showing JVM GC profile:
 
    <amp-youtube data-videoid="UHCeXdxkx70" layout="responsive" width="480" height="270"></amp-youtube>
 
+## Profilers and metrics
+
+* YourKit Profiler
+
+* Oracle's VisualVM is free and often good enough
+
+* The Dropwizard Metrics library 
+collects metrics from the running production systems.
+
+* Metrics are push to Graphite, 
+
+* Google Caliper
+for benchmarking Java code.
+
+* https://www.codacy.com/
+
 
 ## Front-end Scala.JS
 

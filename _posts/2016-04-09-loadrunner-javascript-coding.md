@@ -35,8 +35,9 @@ sample script that accompanies this narrative.
 0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
-0. <a href="#UseReturnCodes"> Use return codes</a>
 0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
+0. <a href="#UseReturnCodes"> Use return codes</a>
+
 0. <a href="#ForLoops"> For loops</a>
 0. <a href="#CustomCalls"> Code call details in a custom file</a>
 0. <a href="#ChainCalls"> Chain calls</a>
@@ -44,7 +45,7 @@ sample script that accompanies this narrative.
 0. <a href="#Retries"> Retry execution</a>
 0. <a href="#GenericFunctions"> Call generic functions</a>
 0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
-0. <a href="#GenericStartStop"> Use generic Start and End Transaction</a>
+0. <a href="#GenericStartStop"> Use generic Start and End Transactions</a>
 0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
 0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
@@ -68,6 +69,75 @@ such as IE8.
   within LoadRunner load generators.
   About 50% more is the estimate.
 
+## Begin with a sample 
+
+The rest of this tutorial is based on this overview:
+
+<img width="854" alt="lr wjs1 diagram v01" src="https://cloud.githubusercontent.com/assets/300046/14479746/f35184d8-00de-11e6-87eb-06317129f9f1.png">
+<!--
+</a>
+0. Click on the diagram for a YouTube video with the narrative
+   below.
+-->
+Every LoadRunner program has an entry point in the 
+<strong>vuser_init</strong> file,
+which LoadRunner automatically executes once at the beginning.
+
+There is also a single exit point in the vuser_end file, 
+also automatically executed only one time.
+
+Between these two is the Action file which LoadRunner iterates
+over and over until some condition ends its loop.
+
+For your convenience, we have added an extra files.
+The <strong>wi_library.js</strong> file provides generic functions
+such as one that 
+[displays run conditions](#IdRunConditions)
+and establishes a variable containing where data comes from.
+One of the sources is a sample run file 
+containing URLs the sample program can request.
+
+The sample script also comes with two files containing functions
+needed by most scripts:
+
+   * <strong>WJS1_Config</strong> 
+   to provide configuration functions
+   to print, to start and end transaction tracking, etc.
+
+   * <strong>WJS1_Access.js</strong> 
+   to provide application access
+   functions such as Sign-Up, Sign-In, Sign-Out, etc.
+
+You can add 
+[additional custom script files, such as Travel functions](#CreateCustomScripts) to
+emulate the Web Tours sample application that comes with LoadRunner.
+
+You'll save time and debugging if you make use of the functions 
+already coded in the sample script described here.
+
+The cascade of program execution includes 
+random execution
+and a request function that includes 
+preparation of all data needed to make
+a call using LoadRunner's particular syntax
+in a generic function from the library.
+
+Each cycle through the loop would include a start and end transaction,
+using functions that can be reused.
+
+All this is wrapped in a retry logic loop in case that's necessary.
+
+When the RunData attribute specifies reading from a FILE,
+we loop through rows in a data file.
+
+> Alternately, the advanced edition of this course 
+  enables values to be retrieved from
+  a VTS (Virtual Table Service) running on a separate machine.
+  This keep memory use low in the program.
+
+
+You have two options to make use of these utilities and sample script.
+
 ### Obtain Sample Script with Utilities
 
 0. Go to <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
@@ -81,7 +151,12 @@ such as IE8.
 0. Use Finder or File Explorer to view a folder containing a sample
    script coded in JavaScript:
 
-   <strong>WJS1_challenge_WJS1250_v01</strong>
+   <strong>WJS1_sample_WJS1250_v01</strong>
+
+   * "W" is for the Web (HTTP/HTML) protocol when creating the
+   script. 
+   * "JS" is for JavaScript. 
+   * "1250" is for version 12.50 of LoadRunner.
 
   This sample script contains a library of functions that provide both
   examples of JavaScript coding and 
@@ -266,11 +341,6 @@ This would reserve use of Action for more flexibility in the future.
 CAUTION: Deleting an entry under Extra Files, 
 that physical file is deleted from the file system as well.
 
-There is also a file <strong>WJS1_Config.js</strong> 
-to hold functions configuring overall script behavior
-such as printing and 
-common start and end transaction handling.
-
 
 ### Create custom Access functions
 
@@ -289,8 +359,8 @@ your custom app name.
 
 Additional functions include:
 
-* WJS1_Access_SignUp_error()
-* WJS1_Access_SignIn_error()
+   * WJS1_Access_SignUp_error()
+   * WJS1_Access_SignIn_error()
 
 Such <strong>negative test cases</strong> 
 causing errors deliberately
@@ -413,48 +483,29 @@ VuGen shows their values during a run if you are stepping through
 or have set a <strong>breakpoint</strong> before starting a run.
 
 
-<a name="UseReturnCodes"></a>
+<a name="AccessLoops"></a>
 
-### Use return codes
+## Access control flow
 
-PROTIP: Code a return code variable to receive values returned from
-functions called, then if an error occured, return execution up
-to the caller rather than continue to the next statement.
-
-This is especially on blocking errors such as landing and login.
-
-The simplest example of error handling is in the main Action() file
-in the sample script:
-
-   {% highlight JavaScript %}
-   var rc=0;
-   rc=WJS1_Access_loop();
-   if( rc != 0 ){ return rc; }{% endhighlight %}
-
-
-CHALLENGE: Define a strategy for how to deal with errors,
-especially during stress test runs.
-
-> On advanced editions of this course,
-  LoadRunner functions are used to stop on various levels of error.
-
+Now let's take a look at the flow of the program:
 
 <a name="DataInAttributes"></a>
 
-## Specify Data Source Attribute
+### Specify Data Source Attribute
 
-In the sample script, there is coding making use of the
-<strong>RunDataIn</strong> JavaScript variable defined at the top
-of the vuser_init script file.
+The <strong>RunDataIn</strong> attribute obtained from
+Run-time Settings is pulled into the program at the top
+of the vuser_init script file where
+<strong>global</strong> variables are defined.
 
-NOTE: Variables defined the first function in a file 
-are <strong>global</strong> variables.
+   {% highlight html %}
+   lr.getAttribString("RunDataIn");{% endhighlight %}
 
-`lr.getAttribString("RunDataIn");` obtains a value from
-the script's Run-Time Settings UI or from the LoadRunner Scenario
-at Run-Time.
+This mechanism enables specification of different behavior in the
+program in LoadRunner Scenarios run on different load generators.
 
-In the vuser_init file, a default value is enforced by this code:
+The <strong>default</strong> data source if none are specified
+is to process a single hard-coded URL.
 
    {% highlight html %}
     if( RunDataIn === undefined){
@@ -474,13 +525,38 @@ at the beginning of the script rather than later during the run.
    to structure small amounts of multi-dimensional data 
    easily available.
 
+<a name="UseReturnCodes"></a>
+
+### Use return codes
+
+PROTIP: Code a return code variable to receive values returned from
+functions called, then if an error occured, return execution up
+to the caller rather than continue to the next statement.
+
+This is especially on blocking errors such as landing and login.
+
+The simplest example of error handling is in the main Action() file
+in the sample script:
+
+   {% highlight JavaScript %}
+   var rc=0;
+   rc=WJS1_Access_landing_loops();
+   if( rc != 0 ){ return rc; }{% endhighlight %}
+
+
+CHALLENGE: Define a strategy for how to deal with errors,
+especially during stress test runs.
+
+> On advanced editions of this course,
+  LoadRunner functions are used to stop on various levels of error.
+
 
 <a name="ForLoops"></a>
 
 ### For loops
 
-In the <strong>WJS1_Access_loop()</strong> function for FILE,
-the script loops through records in the file.
+If FILE processing is specified, 
+the script loops through records in the dat file.
 
 Most JavaScript tutorials provide this as the sample for loop:
 
@@ -500,7 +576,8 @@ counts begin from one, not zero.
 
 ![twinsthingonetwo](https://cloud.githubusercontent.com/assets/300046/14466784/91849982-0095-11e6-9ad1-f0b6518928a6.jpg)
 
-(Aren't they cute?)
+(Aren't they cute? The "younger", nastier, twin can say to the older twin: 
+"I'm one. You're zero.")
 
 Anyway, note that in the begin-from-zero loop, the iteration number 
 is one off from the count. The first iteration is one when i=0.
@@ -906,6 +983,7 @@ LoadRunner provides a function to exit from a script, action, or iteration:
     {% endhighlight %}
 
 
+## Additional topics
 
 ### Additional JavaScript libraries
 
@@ -1001,12 +1079,6 @@ itemData :
   }
 );
 {% endhighlight %}
-
-
-## Additional topics
-
-* To keep memory use low, instead of large parameter files,
-  use VTS (Virtual Table Service) on a separate machine.
 
 
 ## Resources to Learn JavaScript
