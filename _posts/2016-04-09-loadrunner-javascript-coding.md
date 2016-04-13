@@ -222,9 +222,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
 
 13.Select those that need to be correlated and click on Correlate.
 
-    NOTE: Design Studio can be reached manually by 
-    clicking the ‘Design Studio’ button in the toolbar or 
-    in the Design menu.
+NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
 
 NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
    
