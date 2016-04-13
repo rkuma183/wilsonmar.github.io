@@ -19,8 +19,94 @@ comments: true
  is one in a [series](/javascript-in-loadrunner/)
  about coding of JavaScript within LoadRunner.
 
+The rest of this tutorial is based on this overview:
 
-> This can seem complicated to someone without experience.
+<a target="_blank" href="https://youtu.be/QmSklWlQSM0">
+<img width="1098" alt="lr wjs1 diagram v02" src="https://cloud.githubusercontent.com/assets/300046/14492959/f333a358-013f-11e6-86d8-46bc209d197b.png">
+</a>
+
+0. Click on the diagram for a YouTube video with the narrative
+   below.
+
+Every LoadRunner program (regardless of programming language)
+has an entry point in the 
+<strong>vuser_init</strong> file,
+which is automatically executed once at the beginning.
+
+There is also a single exit point in the vuser_end file, 
+also automatically executed only one time.
+
+Between these two is the Action file which LoadRunner iterates
+over and over until some condition ends its loop.
+
+There will of course be additional script files added, such as 
+[functions to book flights](#CreateCustomScripts) to
+emulate user activities in the Web Tours 
+sample application that comes with LoadRunner.
+
+Our hope is that you'll save time and debugging frustration
+by making use of the commonly needed functions 
+we've provided in our sample script.
+
+Our contribution is a library containing additional functions
+everyone can use to
+[display run conditions](#IdRunConditions),
+establish variables that specify where to obtain
+data for the run, and other exciting capabilities we'll be showing you.
+
+The sample script also comes with files containing functions
+needed by most scripts:
+
+   * <strong>WJS1_Config.js</strong> - Configuration functions
+   to print, to start and end transaction tracking, etc.
+
+   * <strong>WJS1_Access.js</strong> - 
+   Application access functions such as 
+   Sign-Up, Sign-In, Sign-Out, etc.
+
+Over the course of load testing an app being built,
+we often need to run just one of these functions at a time
+as well as all in combination. 
+
+So in the advanced version of this course 
+we cover what we call the RunType
+attribute to control the scope of processing at run-time.
+
+But for now, we'll focus here on options for efficiently coding
+the rotation through different <strong>landing</strong> pages.
+
+We make use of an attribute to select among different sources of data.
+The default is a single hard-coded URL to request.
+
+The point of the sample script is to provide features that are
+time consuming to add, such as 
+random execution
+and a strutured approach to make requests after
+preparation of all data needed.
+
+We've made available functions functions not in the base package.
+And making calls using our generic functions
+makes your script much much smaller, which allows more vusers
+on every load generator.
+
+Using our start and end transaction functions provides you
+a less error-prone way to add flexibility to scripts.
+If you'd like to capture response times in the script,
+it is already available.
+
+So is adding a <strong>retry logic</strong> loop.
+
+Our sample script folder also provides a way to loop 
+through a file of URLs in the sample data file provided.
+
+In the advanced version of this course,
+we also cover how to drive requests stored in 
+  a VTS (Virtual Table Service) running on a separate machine.
+  This not only keep memory use low in load generators,
+  but provide dynamic update of data going into the run.
+
+
+> All this can seem complicated to someone without experience.
   But help is just a phone call away.
   Call in the experts. Call us.
 
@@ -70,72 +156,6 @@ such as IE8.
   About 50% more is the estimate.
 
 ## Begin with a sample 
-
-The rest of this tutorial is based on this overview:
-
-<a target="_blank" href="https://youtu.be/QmSklWlQSM0">
-<img width="854" alt="lr wjs1 diagram v01" src="https://cloud.githubusercontent.com/assets/300046/14479746/f35184d8-00de-11e6-87eb-06317129f9f1.png"></a>
-
-0. Click on the diagram for a YouTube video with the narrative
-   below.
-
-Every LoadRunner program has an entry point in the 
-<strong>vuser_init</strong> file,
-which is automatically executed once at the beginning.
-
-There is also a single exit point in the vuser_end file, 
-also automatically executed only one time.
-
-Between these two is the Action file which LoadRunner iterates
-over and over until some condition ends its loop.
-
-Additionally, the <strong>wi_library.js</strong> file was created
-with generic functions to
-[display run conditions](#IdRunConditions)
-and establish variables that specify where to obtain
-data for the run.
-
-In the sample script folder is a sample run file 
-containing URLs the sample program can request.
-
-The sample script also comes with two files containing functions
-needed by most scripts:
-
-   * <strong>WJS1_Config.js</strong> 
-   to provide configuration functions
-   to print, to start and end transaction tracking, etc.
-
-   * <strong>WJS1_Access.js</strong> 
-   to provide application access
-   functions such as Sign-Up, Sign-In, Sign-Out, etc.
-
-The expectation is that additional custom script files will be added
-to the script folder, such as 
-[Travel functions](#CreateCustomScripts) to
-emulate the Web Tours sample application that comes with LoadRunner.
-
-You'll save time and debugging if you make use of the functions 
-already coded in the sample script described here.
-
-The cascade of program execution includes 
-random execution
-and a request function that includes 
-preparation of all data needed to make
-a call using LoadRunner's particular syntax
-in a generic function from the library.
-
-Each cycle through the loop would include a start and end transaction,
-using functions that can be reused.
-
-All this is wrapped in a retry logic loop in case that's necessary.
-
-When the RunData attribute specifies reading from a FILE,
-we loop through rows in a data file.
-
-> Alternately, the advanced edition of this course 
-  enables values to be retrieved from
-  a VTS (Virtual Table Service) running on a separate machine.
-  This keep memory use low in load generators.
 
 
 You have two options to make use of these utilities and sample script.
