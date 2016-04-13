@@ -73,15 +73,15 @@ such as IE8.
 
 The rest of this tutorial is based on this overview:
 
-<img width="854" alt="lr wjs1 diagram v01" src="https://cloud.githubusercontent.com/assets/300046/14479746/f35184d8-00de-11e6-87eb-06317129f9f1.png">
-<!--
-</a>
+<a target="_blank" href="https://youtu.be/QmSklWlQSM0">
+<img width="854" alt="lr wjs1 diagram v01" src="https://cloud.githubusercontent.com/assets/300046/14479746/f35184d8-00de-11e6-87eb-06317129f9f1.png"></a>
+
 0. Click on the diagram for a YouTube video with the narrative
    below.
--->
+
 Every LoadRunner program has an entry point in the 
 <strong>vuser_init</strong> file,
-which LoadRunner automatically executes once at the beginning.
+which is automatically executed once at the beginning.
 
 There is also a single exit point in the vuser_end file, 
 also automatically executed only one time.
@@ -89,18 +89,19 @@ also automatically executed only one time.
 Between these two is the Action file which LoadRunner iterates
 over and over until some condition ends its loop.
 
-For your convenience, we have added an extra files.
-The <strong>wi_library.js</strong> file provides generic functions
-such as one that 
-[displays run conditions](#IdRunConditions)
-and establishes a variable containing where data comes from.
-One of the sources is a sample run file 
+Additionally, the <strong>wi_library.js</strong> file was created
+with generic functions to
+[display run conditions](#IdRunConditions)
+and establish variables that specify where to obtain
+data for the run.
+
+In the sample script folder is a sample run file 
 containing URLs the sample program can request.
 
 The sample script also comes with two files containing functions
 needed by most scripts:
 
-   * <strong>WJS1_Config</strong> 
+   * <strong>WJS1_Config.js</strong> 
    to provide configuration functions
    to print, to start and end transaction tracking, etc.
 
@@ -108,8 +109,9 @@ needed by most scripts:
    to provide application access
    functions such as Sign-Up, Sign-In, Sign-Out, etc.
 
-You can add 
-[additional custom script files, such as Travel functions](#CreateCustomScripts) to
+The expectation is that additional custom script files will be added
+to the script folder, such as 
+[Travel functions](#CreateCustomScripts) to
 emulate the Web Tours sample application that comes with LoadRunner.
 
 You'll save time and debugging if you make use of the functions 
@@ -133,7 +135,7 @@ we loop through rows in a data file.
 > Alternately, the advanced edition of this course 
   enables values to be retrieved from
   a VTS (Virtual Table Service) running on a separate machine.
-  This keep memory use low in the program.
+  This keep memory use low in load generators.
 
 
 You have two options to make use of these utilities and sample script.
