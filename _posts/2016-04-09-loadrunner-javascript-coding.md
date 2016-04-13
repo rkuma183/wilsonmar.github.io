@@ -226,9 +226,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
     clicking the ‘Design Studio’ button in the toolbar or 
     in the Design menu.
 
-14.Run the generated script.
-
-   NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under     General > Code Generation.
+NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
    
    NOTE: Most application recordings require additional
    manual changes after recording.
