@@ -123,8 +123,8 @@ in a sequence taken when stepping through a run of the
 sample script that accompanies this narrative.
 
 0. <a href="#IdRunConditions"> Capture and display run conditions</a>
-0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
+0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
 0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
 0. <a href="#UseReturnCodes"> Use return codes</a>
@@ -403,10 +403,10 @@ additional time becomes available for scripting.
 Among the first activities in <strong>wi_library_init()</strong>
 is to capture and display conditions external to the script:
 
-* Loggging and other specifications in Run-Time Settings
-* Host name and IP address of the load generator running the script
-* That plus the starting date and time of the run as the basis for a 
-  an identifier unique in time and space.
+   * Loggging and other specifications in Run-Time Settings
+   * Host name and IP address of the load generator running the script
+   * Starting date and time of the run as the basis for a 
+     an identifier unique in time and space.
 
 A combination of JavaScript utilities, built-in LoadRunner functions, 
 and custom library functions are used to obtain
@@ -426,17 +426,35 @@ Conditions of the run are printed to the output log:
        [_] Advanced trace =8
    {% endhighlight %}
 
-<a name="ControlOutputMessage"></a>
-
-### Control message output
-
-This output is created by calling a library function:
+You can print the above again by specifying this library function:
 
    {% highlight JavaScript %}
     wi_msg_level_print();
    {% endhighlight %}
 
-That function contains LoadRunner print functions such as:
+
+<a name="ForcePrint"></a>
+
+### Force print no matter what
+
+CHALLENGE: In your own code,
+add this pair of functions around message functions
+you want to force printing anywhere in your script 
+even though logging is not enabled:
+
+   {% highlight html %}
+   wi_msg_force_print();
+   lr.outputmessage(...);
+   wi_msg_print_reset();{% endhighlight %}
+
+
+To establish conditions for printing no matter what the Run-Time settings
+are, use this library function:
+
+   {% highlight JavaScript %}
+   wi_msg_force_print();{% endhighlight %}
+
+After that function, use a standard LoadRunner message function such as:
 
    {% highlight JavaScript %}
     lr.outputMessage(">> wi_msg_level_at_init = " + wi_msg_level_at_init +".");{% endhighlight %}
@@ -454,29 +472,10 @@ CHALLENGE: Look in Help for other types of messages.
    whereas LoadRunner's lr.logMessage function does not.
 
 
-<a name="ForcePrint"></a>
-
-### Force print then restore logging level
-
-Conditions of the run are printed to the output log regardless of the
-log settings by inclusion of a library function:
-
-   {% highlight JavaScript %}
-   wi_msg_force_print();{% endhighlight %}
-
 Output according to the log level selected in Run-time settings
 is honored by the rest of the script by this library function:
 
    {% highlight JavaScript %}
-   wi_msg_print_reset();{% endhighlight %}
-
-CHALLENGE: Add this pair of functions around message functions
-you want to force printing anywhere in your script 
-even though logging is not enabled:
-
-   {% highlight html %}
-   wi_msg_force_print();
-   lr.outputmessage(...);
    wi_msg_print_reset();{% endhighlight %}
 
 
@@ -511,6 +510,7 @@ or have set a <strong>breakpoint</strong> before starting a run.
 ## Access control flow
 
 Now let's take a look at the flow of the program:
+
 
 <a name="DataInAttributes"></a>
 
