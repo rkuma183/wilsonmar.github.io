@@ -302,7 +302,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
 
 8. Click Save to save the script.
 
-9. Make a recording using WebTours (after starting it).
+9. Make a recording using WebTours inside the Recording action file that you just created. (after starting it)
 
 10. Login as "jojo" with password "bean".
    Click Flights.
@@ -324,13 +324,9 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
 
 13.Select those that need to be correlated and click on Correlate.
 
-    NOTE: Design Studio can be reached manually by 
-    clicking the ‘Design Studio’ button in the toolbar or 
-    in the Design menu.
+NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
 
-14.Run the generated script.
-
-   NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under     General > Code Generation.
+NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
    
    NOTE: Most application recordings require additional
    manual changes after recording.
