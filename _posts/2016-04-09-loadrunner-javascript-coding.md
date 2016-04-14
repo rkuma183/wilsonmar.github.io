@@ -81,7 +81,7 @@ The default is a single hard-coded URL to request.
 The objective of the sample script is to make it easier to
 add processing features that are otherwise
 time consuming to add to every request, such as 
-<strong>random execution</strong>.
+<a href="#RandomizeCalls">random execution</a>.
 
 The sample script also provides a structured approach 
 to make requests after preparation of all data needed.
@@ -95,10 +95,11 @@ a less error-prone way to add flexibility to scripts.
 If you'd like to capture response times in the script,
 it is already available.
 
-So is adding a <strong>retry logic</strong> loop.
+So is adding a <a href="#Retries">retry logic</a> loop.
 
-Our sample script folder also provides a way to loop 
-through a file of URLs in the sample data file provided.
+Our sample script folder also provides a way to 
+<a href="#ForLoops">loop through a file</a>
+ of URLs in the sample data file provided.
 
 In the advanced version of this course,
 we also cover how to drive requests stored in 
@@ -118,12 +119,15 @@ we also cover how to drive requests stored in
 
 ## Drill down into specific features
 
-What follows are explorations of LoadRunner's JavaScript,
-in a sequence taken when stepping through a run of the
-sample script that accompanies this narrative.
+What follows are explorations of good JavaScript programming practices
+using functions provided by LoadRunner.
+This sequence here is taken when stepping through a run of the
+<a name="SampleScript">
+sample script</a> that accompanies this narrative.
 
 0. <a href="#IdRunConditions"> Capture and display run conditions</a>
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
+0. <a href="#JavaScriptClosures"> JavaScript Closures</a>
 0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
 0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
@@ -153,12 +157,15 @@ Writing in JavaScript is more comfortable to some.
 The language is defined in the
 <a target="_blank" href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.8.2.14">
 ECMAScript 5.1 standard</a> followed by HTML4 browsers
-such as IE8.
+(such as IE8) and accessed by
+<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference?redirectlocale=en-US&redirectslug=JavaScript%2FReference">JavaScript defined on the MDN</a>.
 
 
 > JavaScript code requires more memory and CPU to run than C code
   within LoadRunner load generators.
   About 50% more is the estimate.
+
+<a name="SampleScript"></a>
 
 ## Begin with a sample 
 
@@ -395,16 +402,18 @@ additional time becomes available for scripting.
 
 <hr />
 
-
 <a name="IdRunConditions"></a>
 
 ### Capture and display run conditions
 
-Among the first activities in <strong>wi_library_init()</strong>
-is to capture and display conditions external to the script:
+Among the first activities in vuser_init is calling
+<strong>wi_library_init()</strong>
+to capture and display conditions external to the script:
 
    * Loggging and other specifications in Run-Time Settings
+
    * Host name and IP address of the load generator running the script
+
    * Starting date and time of the run as the basis for a 
      an identifier unique in time and space.
 
@@ -426,7 +435,8 @@ Conditions of the run are printed to the output log:
        [_] Advanced trace =8
    {% endhighlight %}
 
-You can print the above again by specifying this library function:
+You can print the above again in your script
+by specifying this library function:
 
    {% highlight JavaScript %}
     wi_msg_level_print();
@@ -478,6 +488,67 @@ is honored by the rest of the script by this library function:
    {% highlight JavaScript %}
    wi_msg_print_reset();{% endhighlight %}
 
+
+<a name="JavaScriptClosures"></a>
+### JavaScript Closures
+
+It's not good practice to define globals above function definitions.
+They "pollute the global namespace".
+
+Instead, we use a technique in JavaScript to make
+data values available via functions that can be executed globally.
+In JavaScript, a &quot;<strong>closure</strong>&quot; 
+turns variables into functions.
+
+This is a such a big deal among JavaScript developers that its use is a common interview question.
+
+In an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">example from Mozilla</a>, a global object (variable)
+"appleCounter" is retrieved by a "method":
+
+    {% highlight JavaScript %}
+    alert(appleCounter.howMany());{% endhighlight %}
+
+The "appleCounter" is incremented by another method:
+
+    {% highlight JavaScript %}
+    appleCounter.add();{% endhighlight %}
+
+The sample closure and its methods are defined by this:
+
+    {% highlight JavaScript %}
+    (function(){ // scoping scoping function.
+      var appleCounter = {
+         count: 0,
+         add: function() {
+            this.count = this.count + 1;
+         },
+         howMany: function() {
+            return this.count;
+         }
+      };
+    })();
+    {% endhighlight %}
+
+There are <a target="_blank" href="http://stackoverflow.com/questions/4190792/should-i-use-a-global-variable-and-if-not-what-instead-javascript">
+other similar examples</a>.
+
+At the top of the sample script above, 
+the "()" defining the anonymous function expression 
+is required by the language, since statements that begin with the token function are always considered to be function declarations.
+
+A closure in JavaScript is like keeping a copy of all the local variables, just as they were when the function exited.
+
+In C and most other common languages, after a function returns, all the local variables are no longer accessible because the stack-frame is destroyed.
+
+But in JavaScript, declaring a function within another function, then the local variables can remain accessible after returning from the function called. 
+
+
+
+Lastly, LoadRunner issues this error instead of printing out 
+the content of JavaScript alert functions to logs:
+
+    {% highlight JavaScript %}
+    Error: 'ReferenceError: alert is not defined'.{% endhighlight %}
 
 <a name="DefineVerbosity"></a>
 
