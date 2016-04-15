@@ -121,7 +121,7 @@ we often need to run just one of these functions at a time
 as well as all in combination. 
 
 So in the advanced version of this course 
-we cover what we call the RunType
+we cover what we call the <a href="#RunType">RunType</a>
 attribute to control the scope of processing at run-time.
 
 But for now, we'll focus here on options for efficiently coding
@@ -277,7 +277,7 @@ Several globally-accessible variables are needed:
 
    * Message level for printing messages
    * RunDataIn specification
-   * RunType to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
+   * <a href="#RunType">RunType</a> to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
    * ThinkTimeSecs (Numbe of seconds to wait before every)
    * Number of Retries
 
@@ -1039,7 +1039,9 @@ CAUTION: Deleting an entry under Extra Files,
 that physical file is deleted from the file system as well.
 
 
-### Create custom Access functions
+<a name="AppAccessFunctions"></a>
+
+### Create custom app access functions
 
 You are likely able to use the typical functions defined
 within WJS1_Access by doing a Replace-All command to
@@ -1052,7 +1054,7 @@ your custom app name.
 * WJS1_Access_Reset_Password()
 
 
-### Create negative Access functions
+### Create negative app access functions
 
 Additional functions include:
 
@@ -1066,6 +1068,23 @@ sometimes have performance issues.
 But attention to them are usually
 held for development until
 additional time becomes available for scripting.
+
+
+<a name="RunType"></a>
+
+### RunType app access scope
+
+Different values in the RunType attribute in Run-Time settings
+can be referenced to control what application access functions
+are executed repeatedly.
+
+| RunTYpe | Function | Purpose |
+| ------- | -------- | ------- |
+| Land    | Landing only | Network variability |
+| SignUp  | Land, SignUp  | Build user database |
+| SignUpIn | Land, SignUp, SignIn, SignOut | Stress on authentication mechanism | | SignInOut | Land, SignIn, SignOut | Stress on authentication mechanism |
+| SignIn | Land, SignIn only | Emulate call center start of shift |
+| All | SignIn only | Emulate call center start of shift |
 
 <a name="HandleErrors"></a>
 
