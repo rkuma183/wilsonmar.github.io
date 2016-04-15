@@ -132,7 +132,6 @@ sample script</a> that accompanies this narrative.
 0. <a href="#DefineVerbosity"> Define verbosity</a>
 0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
 0. <a href="#UseReturnCodes"> Use return codes</a>
-
 0. <a href="#ForLoops"> For loops</a>
 0. <a href="#CustomCalls"> Code call details in a custom file</a>
 0. <a href="#ChainCalls"> Chain calls</a>
