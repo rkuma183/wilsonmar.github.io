@@ -16,25 +16,78 @@ comments: true
 {% include _toc.html %}
 
 [This tutorial](/loadrunner-javascript-coding/)
- is one in a [series](/javascript-in-loadrunner/)
- about coding of JavaScript within LoadRunner.
+is one in a [series](/javascript-in-loadrunner/)
+about coding of JavaScript within LoadRunner.
+
+
+## Why Script LoadRunner in JavaScript language?
+
+Writing in JavaScript is more comfortable to some.
+
+
+> JavaScript code requires more memory and CPU to run than C code
+  within LoadRunner load generators.
+  About 50% more is the estimate.
+
+<a name="SampleScript"></a>
+
+## Begin with a sample 
+
+> It is so much easier to begin with a production-worthy sample
+  rather than hacking your way through and embarassing yourself.
+
+0. Use an internet browser to this repository:
+
+   <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
+   http://github.com/wilsonmar/LoadRunner</a>
+
+   Either click <strong>Download ZIP</strong> then unzip it or
+   fork the repo and clone it to your desktop if you would like changes.
+
+   NOTE: This repo is actively improved over time,
+   so forking and cloning is the recommended approach.
+
+0. Use Finder or File Explorer to view a folder containing a sample
+   script coded in JavaScript:
+
+   <strong>WJS1_sample_WJS1250_v01</strong>
+
+   * "WJS1" is for the first release of the sample app.
+   * "W" is for the Web (HTTP/HTML) protocol when creating the
+   script. 
+   * "JS" is for JavaScript. 
+   * "sample" is the scope of the script folder.
+   * "1250" is for version 12.50 of LoadRunner.
+
+  This sample script contains a library of functions that provide both
+  examples of JavaScript coding and 
+  use of utilities provided.
+
+   The script name contains the word "challenge" because
+   it is for instructional purposes. It contains some FIXME items
+   added for learners to fix as part of the learning process.
+
+
+<a name="Overview"></a>
+
+## Overview
 
 The rest of this tutorial is based on this overview:
 
    <amp-youtube data-videoid="EtxFT6jOJhM" layout="responsive" width="480" height="270"></amp-youtube>
 
-Click on the diagram for a YouTube video with the narrative
-   below.
+Click on the diagram for a YouTube video with the narrative below.
 
 Every LoadRunner program (regardless of programming language)
 has an entry point in the 
-<strong>vuser_init</strong> file,
+<a href="#vuser_init">vuser_init</a> file,
 which is automatically executed once at the beginning.
 
 There is also a single exit point in the vuser_end file, 
 also automatically executed only one time.
 
-Between these two is the Action file which LoadRunner iterates
+Between these two is the <a href="#Action_file">Action file</a>
+which LoadRunner iterates
 over and over until some condition ends its loop.
 
 There will of course be additional script files added, such as 
@@ -125,7 +178,13 @@ This sequence here is taken when stepping through a run of the
 <a name="SampleScript">
 sample script</a> that accompanies this narrative.
 
+0. <a href="#vuser_init"> Initialize vuser_init</a>
+0. <a href="#UseReturnCodes"> Use return codes</a>
+0. <a href="#GloballyAccessibleVariables"> Globally Accessible Variables</a>
+
 0. <a href="#IdRunConditions"> Capture and display run conditions</a>
+0. <a href="#ListRunTimeSettings"> Run-time Settings</a>
+
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
 0. <a href="#JavaScriptClosures"> JavaScript Closures</a>
 0. <a href="#ControlOutputMessage"> Control message output</a>
@@ -144,287 +203,189 @@ sample script</a> that accompanies this narrative.
 0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
 0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
-0. <a href="#HandleErrors"> Design error handling</a>
 
 > In addition to these basic ones, 
   several TODO items are covered in private advanced courses.
   Call me to take the class.
 
-## Why Script LoadRunner in JavaScript language?
 
-Writing in JavaScript is more comfortable to some.
-
-The language is defined in the
-<a target="_blank" href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.8.2.14">
-ECMAScript 5.1 standard</a> followed by HTML4 browsers
-(such as IE8) and accessed by
-<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference?redirectlocale=en-US&redirectslug=JavaScript%2FReference">JavaScript defined on the MDN</a>.
-
-
-> JavaScript code requires more memory and CPU to run than C code
-  within LoadRunner load generators.
-  About 50% more is the estimate.
-
-<a name="SampleScript"></a>
-
-## Begin with a sample 
-
-
-You have two options to make use of these utilities and sample script.
-
-### Obtain Sample Script with Utilities
-
-0. Go to <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
-   github.com/wilsonmar/LoadRunner</a>
-   and either click <strong>Download ZIP</strong> then unzip it or
-   fork the repo and clone it to your desktop if you would like changes.
-
-   NOTE: This repo is actively improved over time,
-   so forking and cloning is the recommended approach.
-
-0. Use Finder or File Explorer to view a folder containing a sample
-   script coded in JavaScript:
-
-   <strong>WJS1_sample_WJS1250_v01</strong>
-
-   * "W" is for the Web (HTTP/HTML) protocol when creating the
-   script. 
-   * "JS" is for JavaScript. 
-   * "1250" is for version 12.50 of LoadRunner.
-
-  This sample script contains a library of functions that provide both
-  examples of JavaScript coding and 
-  use of utilities provided.
-
-   The script name contains the word "challenge" because
-   it is for instructional purposes. It contains some FIXME items
-   added for learners to fix as part of the learning process.
 
 > Use of some library functions such as md5 and SHA1
   for OAuth2 are explained in a separate tutorial by Wilson Mar.
 
-To create a script folder containing your own application test code,
-the options are:
-
-1. Add your own application test code into the script folder.
-
-2. Open a C-script saved immediately after recording and
-   <strong>re-generate</strong> it into JavaScript,
-   then copy the sample utility file into it.
-
-3. Create a new folder, 
-   then copy the sample library file into it, 
-   as explained in the next section:
-
-Alternately:
-
-### Generate new script folder
-
-To use VuGen to generate a LoadRunner script in JavaScript: 
-
-1. Create a File as protocol <strong>Web HTTP/HTML</strong>.
-
-2. Switch to Windows Explorer to see that the
-   <strong>Action.js</strong> file was created 
-   (rather than Action.c).
-   
-3. Switch back to VuGen.
-
-4. In menu Record > Recording Options > Script, 
-   click the drop-down for Scripting Language 
-   to change from C to JavaScript.
-
-### Config wi_library_init file in vuser_init
-
-0. In General: Script, to the right of
-   "Generate think time greater than threshold",
-   double-click on the number (default 3) and change it to 0.
-
-0. In the <strong>vuser_init</strong> file, add a call to 
-   identify environment variables for the run:
-
-   {% highlight JavaScript %}
-   function vuser_init(){
-      var rc=0;
-      rc=wi_library_init();
-      return rc;
-   }{% endhighlight %}
-
-   PROTIP: When definiting functions,
-   put the curly braces immediately after the end parenthesis
-   instead of the next line to make function definitions 
-   different than calls to functions, using
-   search specifications such as "){".
-
-   NOTE: Function names beginning with "wi_" are defined within file
-  <strong>wi_library.js</strong> obtained from GitHub.
-
-
-What follows is a hands-on tutorial to show you the most important edits to make to LoadRunner scripts. 
-
-> I write programs that makes these edits for you. Call me!
-
-
-### Generate Recording to Recording File
-
-PROTIP: Record into a file which is not executed so that whatever is generated can be gradually copy and pasted into a working script. And the script continues to be runnable after generation
-
-NOTE: Not all script protocols are able to record within an existing script. Only scripts for Web, Java, WAP, Oracle NCA, or RTE Vuser script can be recorded this way.
-
-NOTE: Each script file listed in the Action list is a separate 
-.js file within the script folder. 
-
-CHALLENGE: Create a separate file to receive generated code 
-durng recordin, but will never be edited or executed
-so its line numbers stay in sync with code generation logs.
-
-1. Right-click on Actions in the Solution Explorer at the left.
-
-2. Select Create New Action… from the pop-up.
-
-3. Type "Recording". 
-
-4. Press OK to dismiss the dialog. 
-
-   The Recording.js file should appear among vuser_init, Action, etc.
-
-### Remove custom files from Run-Time Logic
-
-CHALLENGE: Remove extra custom files (such as Recording) 
-from Run Logic so that it does not get executed automatically by LoadRunner.
-
-1. Press F4 or menu Replay.
-
-2. Click on Run-Time Settings 
-
-3. Click Run Logic. 
-
-4. Right-Click on Recording. 
-
-5. Select <strong>Remove Item</strong>.
-
-6. Click OK to dismiss the dialog.
-
-7. Press Ctrl+Shift+F4 or menu File.
-
-8. Click Save to save the script.
-
-9. Make a recording using WebTours inside the Recording action file that you just created. (after starting it)
-
-10. Login as "jojo" with password "bean".
-   Click Flights.
-   In "Find Flights", click "Sign Off", then Stop recording.
-
-  ![designstudio](https://cloud.githubusercontent.com/assets/10678180/14401664/43a45932-fdde-11e5-9e3a-b3cf5108a61e.png)
-
-11.After code generation is done, Design Studio screen pops up.
-
-12.Review the dynamic values. For example: Look this userSession value:
-
-   ```
-   118266.392466586zAiDDcHpfzcfDztQQpQzfDHf
-   ```
-
-   To understand the context of these values,
-   use a text editor to read the recording generation log 
-   and search for it.
-
-13.Select those that need to be correlated and click on Correlate.
-
-NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
-
-NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
-   
-   NOTE: Most application recordings require additional
-   manual changes after recording.
-
-<a name="CreateCustomScripts"></a>
-
-### Create custom script files
-
-PROTIP: Generally, it's best to leave the automatically 
-created Action.js file with the fewest custom lines. 
-This would reserve use of Action for more flexibility in the future.
-
-0. Create a use case file to hold custom functions
-   using the steps to create a file above. An example is
-   WJS1_Access (if you are not building from the sample script).
-
-   PROTIP: Specify a standard naming convention such as
-   "WJS1" for the app under test, etc.
-
-   Use cases for the Web Tours (WT3_) application include:
-
-   * WT3_Tour
-   * WT3_Booking
-
-   &nbsp;
-
-   PROTIP: With JavaScript, you also need to add custom files as
-   an Extra File so functions within them are recognized.
-
-0. Right-click on Extra Files in the Solution Explorer and
-   select <strong>Add Files to Script ...</strong>.
-
-0. Select the custom file name just created.
-
-CAUTION: Deleting an entry under Extra Files, 
-that physical file is deleted from the file system as well.
-
-
-### Create custom Access functions
-
-You are likely able to use the typical functions defined
-within WJS1_Access by doing a Replace-All command to
-your custom app name.
-
-* WJS1_Access_Landing()
-* WJS1_Access_SignUp()
-* WJS1_Access_SignIn()
-* WJS1_Access_SignOut()
-* WJS1_Access_Reset_Password()
-
-
-### Create negative Access functions
-
-Additional functions include:
-
-   * WJS1_Access_SignUp_error()
-   * WJS1_Access_SignIn_error()
-
-Such <strong>negative test cases</strong> 
-causing errors deliberately
-may be useful because an app's error handling
-sometimes have performance issues. 
-But attention to them are usually
-held for development until
-additional time becomes available for scripting.
 
 <hr />
 
-<a name="IdRunConditions"></a>
+<a name="vuser_init"></a>
 
-### Capture and display run conditions
+## Initialize in vuser_init
 
-Among the first activities in vuser_init is calling
-<strong>wi_library_init()</strong>
-to capture and display conditions external to the script:
+The function <strong>vuser_init()</strong> 
+is LoadRunner's entry point into the program.
 
-   * Loggging and other specifications in Run-Time Settings
+This LoadRunner runs just once before advancing to the Action file.
 
-   * Host name and IP address of the load generator running the script
+Since each new script creates a blank version of this file,
+those starting from scratch
+can simply paste in a reference to a separate library file, such as:
 
-   * Starting date and time of the run as the basis for a 
-     an identifier unique in time and space.
+    {% highlight JavaScript %}
+    rc=wi_library_init();{% endhighlight %}
 
-A combination of JavaScript utilities, built-in LoadRunner functions, 
-and custom library functions are used to obtain
-and format the current date and time.
+Before we dive into that function, 
+let's first talk about that "rc=" return code.
 
-Conditions of the run are printed to the output log:
 
-   {% highlight html %}
-   Run-Time Settings > Log DebugMessage level=0.
+<a name="UseReturnCodes"></a>
+
+### Use return codes
+
+The first line under the function entry is:
+
+   {% highlight JavaScript %}
+   var rc=0;{% endhighlight %}
+
+The variable is used to receive the response from a function
+such as this:
+
+    {% highlight JavaScript %}
+    rc=wi_library_init();{% endhighlight %}
+    
+If the return code is anything other than a numeric zero
+(which I think of as "clear"), some error occured.
+
+The path of execution would revert back
+to the caller rather than continuing to the next statement with code
+such as:
+
+   {% highlight JavaScript %}
+   if( rc != 0 ){ return rc; }{% endhighlight %}
+
+> In advanced editions of this course, various coding techniques
+  are introduced to <a href="#HandleErrors">handle errors</a>
+  at various levels of processing.
+
+
+The name of the command establishes the environment needed for other functions in the <strong>wi_library.js</strong>.
+Next, let's look inside that file.
+
+
+<a name="GloballyAccessibleVariables"></a>
+
+### Globally Accessible Variables
+
+Several globally-accessible variables are needed:
+
+   * Message level for printing messages
+   * RunDataIn specification
+   * RunType to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
+   * ThinkTimeSecs (Numbe of seconds to wait before every)
+   * Number of Retries
+
+
+<a name="JavaScriptClosures"></a>
+
+### Use JavaScript Closures module pattern
+
+Global variables previously defined at the top of the file
+above the first function definition have been removed
+because it's not good practice to define globals.
+They "pollute the global namespace"
+and cause name conflicts.
+
+The values of the above are obtained by referring to 
+"methods" of an object using code such as this
+to obtain the message level at initialization:
+
+    {% highlight JavaScript %}
+    wi_msg_level.at_init(){% endhighlight %}
+
+The message level is set at initialization by this code:
+
+    {% highlight JavaScript %}
+    wi_msg_level.init(){% endhighlight %}
+
+All the functions acting on the msg_level object are coded in one set:
+
+{% highlight JavaScript %}
+var wi_msg_level = ( function() {
+    // Private members:
+    var wi_msg_level_init=0,
+    
+    init = function() {
+        wi_msg_level_init = lr.mgetMessageLevel();
+    },
+    
+    at_init = function() {
+        return wi_msg_level_init;
+    },
+    
+    };
+    return { // public:
+        init: init,
+        at_init: at_init
+    }
+})();
+{% endhighlight %}
+
+This coding should not result in warning messages when parsed by
+JSLint.
+
+This coding techique here is
+called a &quot;<strong>closure</strong>&quot; using the
+&quot;revealing module pattern&quot; of coding JavaScript.
+
+NOTE: This approach is explained in Dan Wahlin's 
+<a target="_blank" href="http://app.pluralsight.com/courses/structuring-javascript">
+video course on Pluralsight</a> and
+<a target="_blank" href="http://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern">
+blog post</a>.
+
+This is a such a big deal among JavaScript developers that its use is a common interview question.
+
+In an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">example from Mozilla</a>, a global object (variable)
+"appleCounter" is retrieved by this:
+
+The "appleCounter" is incremented by another method:
+
+    {% highlight JavaScript %}
+    appleCounter.add();{% endhighlight %}
+
+The sample closure and its methods are defined by this:
+
+
+There are <a target="_blank" href="http://stackoverflow.com/questions/4190792/should-i-use-a-global-variable-and-if-not-what-instead-javascript">
+other similar examples</a> 
+
+At the top of the sample script above, 
+the "()" defining the anonymous function expression 
+is required by the language, since statements that begin with the token function are always considered to be function declarations.
+
+A closure in JavaScript is like keeping a copy of all the local variables, just as they were when the function exited.
+
+In C and most other common languages, after a function returns, all the local variables are no longer accessible because the stack-frame is destroyed.
+
+But in JavaScript, declaring a function within another function, then the local variables can remain accessible after returning from the function called. 
+
+The return "object literal" pairs at the bottom
+matches the public name with the name coded.
+
+Going further, the
+<a target="_blank" href="http://blog.alexanderdickson.com/javascript-revealing-module-pattern#fn:1">
+JavaScript Revealing Module Pattern</a>
+developed by Richard Cornford et al 
+<a target="_blank" href="http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937">
+on comp.lang.javascript</a>.
+
+Functions that should be exposed publicly are defined in the return section of the Calculator object. 
+
+
+<a name="ListRunTimeSettings"></a>
+
+#### Run-time Settings
+
+   {% highlight text %}
+   Log DebugMessage level=0.
    [X] Enable logging =1.
    Send messages:
        [X] Always =512.
@@ -464,16 +425,16 @@ are, use this library function:
    {% highlight JavaScript %}
    wi_msg_force_print();{% endhighlight %}
 
-After that function, use a standard LoadRunner message function such as:
+Now use a LoadRunner message function such as:
 
    {% highlight JavaScript %}
-    lr.outputMessage(">> wi_msg_level_at_init = " + wi_msg_level_at_init +".");{% endhighlight %}
+    lr.outputMessage(">> wi_msg_level_at_init = " 
+        + wi_msg_level.at_init() +".");{% endhighlight %}
 
-   PROTIP: Specify a special set of characters at the front of output messages
-   so they are easy to identify among potentially many output lines.
+   PROTIP: Specify a special set of characters at the front of output messages so they are easy to identify among potentially many output lines.
 
-NOTE: Message text in message functions are built using concatenation
-rather than formatting codes in sprintf() functions.
+   NOTE: Message text in message functions are built using concatenation
+   rather than formatting codes in sprintf() functions.
 
 CHALLENGE: Look in Help for other types of messages.
 
@@ -481,78 +442,23 @@ CHALLENGE: Look in Help for other types of messages.
    includes the script file name and line number 
    whereas LoadRunner's lr.logMessage function does not.
 
-
-Output according to the log level selected in Run-time settings
+Output according to the log level set in Run-time settings
 is honored by the rest of the script by this library function:
 
    {% highlight JavaScript %}
    wi_msg_print_reset();{% endhighlight %}
 
 
-<a name="JavaScriptClosures"></a>
-### JavaScript Closures
-
-It's not good practice to define globals above function definitions.
-They "pollute the global namespace".
-
-Instead, we use a technique in JavaScript to make
-data values available via functions that can be executed globally.
-In JavaScript, a &quot;<strong>closure</strong>&quot; 
-turns variables into functions.
-
-This is a such a big deal among JavaScript developers that its use is a common interview question.
-
-In an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">example from Mozilla</a>, a global object (variable)
-"appleCounter" is retrieved by a "method":
-
-    {% highlight JavaScript %}
-    alert(appleCounter.howMany());{% endhighlight %}
-
-The "appleCounter" is incremented by another method:
-
-    {% highlight JavaScript %}
-    appleCounter.add();{% endhighlight %}
-
-The sample closure and its methods are defined by this:
-
-    {% highlight JavaScript %}
-    (function(){ // scoping scoping function.
-      var appleCounter = {
-         count: 0,
-         add: function() {
-            this.count = this.count + 1;
-         },
-         howMany: function() {
-            return this.count;
-         }
-      };
-    })();
-    {% endhighlight %}
-
-There are <a target="_blank" href="http://stackoverflow.com/questions/4190792/should-i-use-a-global-variable-and-if-not-what-instead-javascript">
-other similar examples</a>.
-
-At the top of the sample script above, 
-the "()" defining the anonymous function expression 
-is required by the language, since statements that begin with the token function are always considered to be function declarations.
-
-A closure in JavaScript is like keeping a copy of all the local variables, just as they were when the function exited.
-
-In C and most other common languages, after a function returns, all the local variables are no longer accessible because the stack-frame is destroyed.
-
-But in JavaScript, declaring a function within another function, then the local variables can remain accessible after returning from the function called. 
-
-
-
-Lastly, LoadRunner issues this error instead of printing out 
-the content of JavaScript alert functions to logs:
-
-    {% highlight JavaScript %}
-    Error: 'ReferenceError: alert is not defined'.{% endhighlight %}
-
 <a name="DefineVerbosity"></a>
 
 ### Define verbosity
+
+BTW, the JavaScript alert() functions 
+LoadRunner rejects with this error (instead of printing out 
+the content):
+
+    {% highlight JavaScript %}
+    Error: 'ReferenceError: alert is not defined'.{% endhighlight %}
 
 > Our advanced workshops goes through use of additional
    functions which enable you to specify levels
@@ -619,31 +525,6 @@ at the beginning of the script rather than later during the run.
    to structure small amounts of multi-dimensional data 
    easily available.
 
-<a name="UseReturnCodes"></a>
-
-### Use return codes
-
-PROTIP: Code a return code variable to receive values returned from
-functions called, then if an error occured, return execution up
-to the caller rather than continue to the next statement.
-
-This is especially on blocking errors such as landing and login.
-
-The simplest example of error handling is in the main Action() file
-in the sample script:
-
-   {% highlight JavaScript %}
-   var rc=0;
-   rc=WJS1_Access_landing_loops();
-   if( rc != 0 ){ return rc; }{% endhighlight %}
-
-
-CHALLENGE: Define a strategy for how to deal with errors,
-especially during stress test runs.
-
-> On advanced editions of this course,
-  LoadRunner functions are used to stop on various levels of error.
-
 
 <a name="ForLoops"></a>
 
@@ -680,7 +561,8 @@ The second iteration has i=1, etc.
 So we start with one rather than zero in the for loop:
 
    {% highlight html %}
-   for (i = 1; i <= count; i++) {
+   count = ...
+   for (i = 1; i < count; i++) {
        // code block.
    }{% endhighlight %}
 
@@ -1046,36 +928,177 @@ Additionally, REST APIs usually require HTTP header coding.
 
 
 
+
+<a neme="GenerateRecording"></a>
+
+### Generate Recording to Recording File
+
+PROTIP: Record into a file which is not executed so that whatever is generated can be gradually copy and pasted into a working script. And the script continues to be runnable after generation
+
+NOTE: Not all script protocols are able to record within an existing script. Only scripts for Web, Java, WAP, Oracle NCA, or RTE Vuser script can be recorded this way.
+
+NOTE: Each script file listed in the Action list is a separate 
+.js file within the script folder. 
+
+CHALLENGE: Create a separate file to receive generated code 
+durng recordin, but will never be edited or executed
+so its line numbers stay in sync with code generation logs.
+
+1. Right-click on Actions in the Solution Explorer at the left.
+
+2. Select Create New Action… from the pop-up.
+
+3. Type "Recording". 
+
+4. Press OK to dismiss the dialog. 
+
+   The Recording.js file should appear among vuser_init, Action, etc.
+
+### Remove custom files from Run-Time Logic
+
+CHALLENGE: Remove extra custom files (such as Recording) 
+from Run Logic so that it does not get executed automatically by LoadRunner.
+
+1. Press F4 or menu Replay.
+
+2. Click on Run-Time Settings 
+
+3. Click Run Logic. 
+
+4. Right-Click on Recording. 
+
+5. Select <strong>Remove Item</strong>.
+
+6. Click OK to dismiss the dialog.
+
+7. Press Ctrl+Shift+F4 or menu File.
+
+8. Click Save to save the script.
+
+9. Make a recording using WebTours inside the Recording action file that you just created. (after starting it)
+
+10. Login as "jojo" with password "bean".
+   Click Flights.
+   In "Find Flights", click "Sign Off", then Stop recording.
+
+  ![designstudio](https://cloud.githubusercontent.com/assets/10678180/14401664/43a45932-fdde-11e5-9e3a-b3cf5108a61e.png)
+
+11.After code generation is done, Design Studio screen pops up.
+
+12.Review the dynamic values. For example: Look this userSession value:
+
+   ```
+   118266.392466586zAiDDcHpfzcfDztQQpQzfDHf
+   ```
+
+   To understand the context of these values,
+   use a text editor to read the recording generation log 
+   and search for it.
+
+13.Select those that need to be correlated and click on Correlate.
+
+NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
+
+NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
+   
+   NOTE: Most application recordings require additional
+   manual changes after recording.
+
+
+
+<a name="CreateCustomScripts"></a>
+
+### Create custom script files
+
+PROTIP: Generally, it's best to leave the automatically 
+created Action.js file with the fewest custom lines. 
+This would reserve use of Action for more flexibility in the future.
+
+0. Create a use case file to hold custom functions
+   using the steps to create a file above. An example is
+   WJS1_Access (if you are not building from the sample script).
+
+   PROTIP: Specify a standard naming convention such as
+   "WJS1" for the app under test, etc.
+
+   Use cases for the Web Tours (WT3_) application include:
+
+   * WT3_Tour
+   * WT3_Booking
+
+   &nbsp;
+
+   PROTIP: With JavaScript, you also need to add custom files as
+   an Extra File so functions within them are recognized.
+
+0. Right-click on Extra Files in the Solution Explorer and
+   select <strong>Add Files to Script ...</strong>.
+
+0. Select the custom file name just created.
+
+CAUTION: Deleting an entry under Extra Files, 
+that physical file is deleted from the file system as well.
+
+
+### Create custom Access functions
+
+You are likely able to use the typical functions defined
+within WJS1_Access by doing a Replace-All command to
+your custom app name.
+
+* WJS1_Access_Landing()
+* WJS1_Access_SignUp()
+* WJS1_Access_SignIn()
+* WJS1_Access_SignOut()
+* WJS1_Access_Reset_Password()
+
+
+### Create negative Access functions
+
+Additional functions include:
+
+   * WJS1_Access_SignUp_error()
+   * WJS1_Access_SignIn_error()
+
+Such <strong>negative test cases</strong> 
+causing errors deliberately
+may be useful because an app's error handling
+sometimes have performance issues. 
+But attention to them are usually
+held for development until
+additional time becomes available for scripting.
+
 <a name="HandleErrors"></a>
 
 ###  Design error handling
 
-LoadRunner provides a function:
+PROTIP: Avoid duplicating the error-handling of apps used by end-users.
+With programs for stress testing, we often want
+the program to continue even when errors occur in order to 
+see how the entire system treats such conditions.
+
+* When looping through a file of loosely related URLs, 
+an error with one row results in going to the next row.
+
+* When running through a sequence, a login error would result in
+going to the next user in the list.
+
+* When a URL not found error is encountered, 
+since it can be attributed to transient network conditions, 
+the result would be to retry the call.
+
+* When establishing run conditions, if a value is not supplied,
+  automatically 
+
+LoadRunner can be asked to handle errors using 
+a function to exit from a script, action, or iteration:
 
     {% highlight JavaScript %}
-    lr.continueOnError(0); // 0=Off = Not continue on error
-    lr.continueOnError(1); // 1=On  = Yes, Continue on eror
-    {% endhighlight %}
+    lr.exit(lr.EXIT_VUSER, lr.FAIL);{% endhighlight %}
 
-BLAH: I wish I knew how to programmically detect what was specified in
-Run-Time Settings.
+Errors in intialization 
 
-Error continuation options:
-
-| Code | Value |
-| ---- | ----- |
-| lr.ON_ERROR_NO_OPTIONS | 0 |
-| lr.ON_ERROR_CONTINUE   | 1 |
-| lr.ON_ERROR_SKIP_TO_NEXT_ACTION  | 2 |
-| lr.ON_ERROR_SKIP_TO_NEXT_ITERATION | 3 |
-| lr.ON_ERROR_END_VUSER | 4 |
-
-LoadRunner provides a function to exit from a script, action, or iteration:
-
-    {% highlight JavaScript %}
-    lr.exit(lr.EXIT_VUSER, lr.FAIL);
-    {% endhighlight %}
-
+<hr />
 
 ## Additional topics
 
@@ -1174,6 +1197,8 @@ itemData :
 );
 {% endhighlight %}
 
+
+<a name="Resources></a>
 
 ## Resources to Learn JavaScript
 
