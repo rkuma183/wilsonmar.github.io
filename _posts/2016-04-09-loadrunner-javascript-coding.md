@@ -280,22 +280,32 @@ Next, let's look inside that file.
 
 ### Global variables in closures
 
-Several globally-accessible variables are useful:
+Several globally-accessible variables are useful in load stress scripts:
 
    * <a href="#MessageLevels">Message level</a> for printing messages
-   * <a href="#RunDataInAttribute">RunDataIn</a> specification
-   * <a href="#RunType">RunType</a> to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
-   * <a href="#ThinkTimeSecs">ThinkTimeSecs</a> (Number of seconds to wait before every)
-   * <a href="#Retries">Number of Retries</a>
 
-Global variables are no longer defined at the top of the file
-(above the first function definition)
-because it's not good practice to define globals.
+   * <a href="#RunType">RunType</a> to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
+
+   * <a href="#RunDataInAttribute">RunDataIn</a> specification
+
+   * <a href="#ThinkTimeSecs">ThinkTimeSecs</a> (Number of seconds to wait before every request
+   to emulate end-users looking up information to type in)
+
+   * <a href="#Retries">Retries</a> in case requests to the server do not reach the server
+   due to network issues or timeout on the server.
+
+   * <a href="#ResponseMetrics">ResponseMetrics</a> is an object that contains several values
+   (HTTP code, response time, etc.)
+
+There are several approaches to make data values globally accessible to all functions.
+
+For tutorial purposes, the sample script makes use of several techniques.
+
+The simplest approach is to define a var at the top of the file
+(above the first function definition).
+However this is not good practice because any function can change the value as well.
 They "pollute the global namespace"
 and cause name conflicts.
-
-Instead, values are made available to various calling functions 
-as "methods" of an object.
 
 <a name="MessageLevels"></a>
 
@@ -308,6 +318,9 @@ The message level is set during initialization by this code:
 
     {% highlight JavaScript %}
     wi_msg_level.init(){% endhighlight %}
+
+Data values are made available to various calling functions 
+as "methods" of the object "wi_msg_level".
 
 To retrieve the message level saved at initialization:
 
@@ -342,7 +355,8 @@ JSLint.
 
 This coding techique here uses a JavaScript technique 
 called a JavaScript &quot;<strong>closure</strong>&quot; using the
-&quot;revealing prototype pattern&quot; of coding JavaScript.
+&quot;revealing module pattern&quot; of coding JavaScript
+that encapsulates functions related to an object.
 
 NOTE: This approach is explained in Dan Wahlin's 
 <a target="_blank" href="http://app.pluralsight.com/courses/structuring-javascript">
@@ -352,8 +366,10 @@ blog post</a>.
 
 This is a such a big deal among JavaScript developers that its use is a common interview question.
 
-The "prototype" part in the technique name comes from use of the this. keyword
-referring to the object. 
+The "revealing prototype" pattern is not used because only a single instance is needed for the data.
+
+The "revealing prototype" pattern pname comes from use of the "this." keyword
+prefixed to object names to refer to the entire object.
 The advantage of "this" is that functions of the object are loaded into memory once.
 
 In an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">example from Mozilla</a>, a global object (variable)

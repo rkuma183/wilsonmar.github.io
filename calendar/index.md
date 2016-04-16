@@ -4,7 +4,8 @@ title: Please send me an appointment
 tags: [calendar, contact, Jekyll]
 comments: true
 image:
-  feature: scr white blue google calendar wilsonmar 1900x500.jpg
+#  feature: scr white blue google calendar wilsonmar 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14580798/17545f6c-0397-11e6-94af-f17f4c56105c.jpg
   credit:
   creditlink:
 ---
