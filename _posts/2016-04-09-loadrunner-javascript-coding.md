@@ -5,7 +5,7 @@ excerpt: "Sample code and tutorial here"
 tags: [JavaScript, Load Testing, LoadRunner]
 #author: anil_mainali
 image:
-  feature: pic brown running horses 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14580245/036e91dc-0385-11e6-984f-00cf841ce870.png
   credit: Steve Mckinzie
   creditlink: 
 comments: true
@@ -58,6 +58,7 @@ Writing in JavaScript is more comfortable to some.
    * "JS" is for JavaScript. 
    * "sample" is the scope of the script folder.
    * "1250" is for version 12.50 of LoadRunner.
+   * "V01" is for version 1 of the script.
 
   This sample script contains a library of functions that provide both
   examples of JavaScript coding and 
@@ -127,7 +128,7 @@ attribute to control the scope of processing at run-time.
 But for now, we'll focus here on options for efficiently coding
 the rotation through different <strong>landing</strong> pages.
 
-We make use of the <strong>RunDataIn</strong> attribute 
+We make use of the <a href="#RunDataInAttribute">RunDataIn</a> attribute 
 to select among different sources of data.
 The default is a single hard-coded URL to request.
 
@@ -160,7 +161,8 @@ we also cover how to drive requests stored in
   This not only keep memory use low in load generators,
   but provide dynamic update of data going into the run.
 
-<a target="_blank" href="https://youtu.be/EtxFT6jOJhM">
+Click the diagram to pop it to a full window:
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/14493021/53c0d650-0140-11e6-90c3-8bf607d1311f.png">
 <img width="958" alt="lr wjs1 diagram v02" src="https://cloud.githubusercontent.com/assets/300046/14493021/53c0d650-0140-11e6-90c3-8bf607d1311f.png">
 </a>
 
@@ -189,7 +191,7 @@ sample script</a> that accompanies this narrative.
 0. <a href="#JavaScriptClosures"> JavaScript Closures</a>
 0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
-0. <a href="#DataInAttributes"> Specify Data Source Attribute</a>
+0. <a href="#RunDataInAttribute"> Specify Data Source Attribute</a>
 0. <a href="#UseReturnCodes"> Use return codes</a>
 0. <a href="#ForLoops"> For loops</a>
 0. <a href="#CustomCalls"> Code call details in a custom file</a>
@@ -279,7 +281,7 @@ Next, let's look inside that file.
 Several globally-accessible variables are needed:
 
    * Message level for printing messages
-   * RunDataIn specification
+   * <a href="#RunDataInAttribute">RunDataIn</a> specification
    * <a href="#RunType">RunType</a> to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
    * ThinkTimeSecs (Numbe of seconds to wait before every)
    * Number of Retries
@@ -296,16 +298,18 @@ They "pollute the global namespace"
 and cause name conflicts.
 
 The values of the above are obtained by referring to 
-"methods" of an object using code such as this
+"methods" of an object.
+
+The message level is set during initialization by this code:
+
+    {% highlight JavaScript %}
+    wi_msg_level.init(){% endhighlight %}
+
+
 to obtain the message level at initialization:
 
     {% highlight JavaScript %}
     wi_msg_level.at_init(){% endhighlight %}
-
-The message level is set at initialization by this code:
-
-    {% highlight JavaScript %}
-    wi_msg_level.init(){% endhighlight %}
 
 All the functions acting on the msg_level object are coded in one set:
 
@@ -491,9 +495,13 @@ or have set a <strong>breakpoint</strong> before starting a run.
 Now let's take a look at the flow of the program:
 
 
-<a name="DataInAttributes"></a>
+<a name="RunDataInAttribute"></a>
 
 ### Specify Data Source Attribute
+
+A LoadRunner program can obtain data from several sources:
+hard-coded in script, from a CSV file defined in parameters, 
+and from VTS (Virtual Table Server).
 
 The <strong>RunDataIn</strong> attribute obtained from
 Run-time Settings is pulled into the program at the top
@@ -570,8 +578,6 @@ So we start with one rather than zero in the for loop:
 
 The condition for continuing iterating through the loop now
 needs to change because now i would match the iteration.
-
-Also, the maximum iteration is the count because we didn't start from zero.
 
 
 <a name="CustomCalls"></a>
@@ -1091,6 +1097,7 @@ are executed repeatedly.
 | SignIn | Land, SignIn only | Emulate call center start of shift |
 | Menus | Land, Menus | Run through all menus available before Sign-in is required. |
 | MenusIn | Land, SignUp, SignIn, MenusIn, SignOut | Emulate initial user actions |
+{: rules="groups"}
 
 To implement this in code requires kinda convoluted thinking.
 
