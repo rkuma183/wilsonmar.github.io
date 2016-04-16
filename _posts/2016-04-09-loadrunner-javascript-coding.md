@@ -203,6 +203,9 @@ sample script</a> that accompanies this narrative.
 0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
 
+0. <a href="#AppAccessFunctions"> Create custom app access functions</a>
+0. <a href="#RunType"> Use RunType</a>
+
 > In addition to these basic ones, 
   several TODO items are covered in private advanced courses.
   Call me to take the class.
@@ -1052,6 +1055,7 @@ your custom app name.
 * WJS1_Access_SignIn()
 * WJS1_Access_SignOut()
 * WJS1_Access_Reset_Password()
+* WJS1_Access_Menus()
 
 
 ### Create negative app access functions
@@ -1078,13 +1082,17 @@ Different values in the RunType attribute in Run-Time settings
 can be referenced to control what application access functions
 are executed repeatedly.
 
-| RunTYpe | Function | Purpose |
+| RunType | Function | Purpose |
 | ------- | -------- | ------- |
-| Land    | Landing only | Network variability |
+| Land    | Landing URL only | Network variability |
 | SignUp  | Land, SignUp  | Build user database |
-| SignUpIn | Land, SignUp, SignIn, SignOut | Stress on authentication mechanism | | SignInOut | Land, SignIn, SignOut | Stress on authentication mechanism |
+| SignUpIn | Land, SignUp, SignIn, SignOut | Stress on authentication mechanism | 
+| SignInOut | Land, SignIn, SignOut | Stress on authentication mechanism |
 | SignIn | Land, SignIn only | Emulate call center start of shift |
-| All | SignIn only | Emulate call center start of shift |
+| Menus | Land, Menus | Run through all menus available before Sign-in is required. |
+| MenusIn | Land, SignUp, SignIn, MenusIn, SignOut | Emulate initial user actions |
+
+To implement this in code requires kinda convoluted thinking.
 
 <a name="HandleErrors"></a>
 
