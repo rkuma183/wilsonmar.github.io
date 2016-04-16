@@ -4,7 +4,7 @@ title: "Data visualization using Tableau"
 excerpt: "It's so simple, a Data Scientist can do this."
 tags: [apple, mac, setup]
 image:
-  feature: fig rainbow sector raise fall timeline 1350X500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14583248/4b20c578-03d9-11e6-8f7a-c860b666bc73.jpg
   credit: Wall Street Journal
   creditlink: http://graphics.wsj.com/job-market-tracker/
 comments: true
