@@ -3,7 +3,8 @@ layout: home
 excerpt: "A site constructed by Wilson Mar using Jekyll."
 tags: [Jekyll, theme, responsive, blog, template]
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14583571/5050174c-03e3-11e6-8cf2-c106e5ceee0a.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14583680/1827977a-03e6-11e6-8878-3b7da7cb05a4.jpg
   credit: Random Wallpapers
-  creditlink: http://randomwallpapers.net/running-horses-centaur-autumn-tapety_w1564
+  creditlink: http://randomwallpapers.net/animal_w521503
+comments: true
 ---
