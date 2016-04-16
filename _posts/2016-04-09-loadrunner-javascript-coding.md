@@ -6,8 +6,8 @@ tags: [JavaScript, Load Testing, LoadRunner]
 #author: anil_mainali
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14580245/036e91dc-0385-11e6-984f-00cf841ce870.png
-  credit: Steve Mckinzie
-  creditlink: 
+  credit: Wallpaperswidefree.com
+  creditlink: http://www.wallpaperswidefree.com/Animal/Horse/White-Horse-herd-running-seashore-hd-wallpapers
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -182,13 +182,13 @@ sample script</a> that accompanies this narrative.
 
 0. <a href="#vuser_init"> Initialize vuser_init</a>
 0. <a href="#UseReturnCodes"> Use return codes</a>
-0. <a href="#GloballyAccessibleVariables"> Globally Accessible Variables</a>
+0. <a href="#GloballyAccessibleVariables"> Globally variables in closures</a>
+0. <a href="#MessageLevels"> Message levels</a>
 
 0. <a href="#IdRunConditions"> Capture and display run conditions</a>
 0. <a href="#ListRunTimeSettings"> Run-time Settings</a>
 
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
-0. <a href="#JavaScriptClosures"> JavaScript Closures</a>
 0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
 0. <a href="#RunDataInAttribute"> Specify Data Source Attribute</a>
@@ -201,7 +201,7 @@ sample script</a> that accompanies this narrative.
 0. <a href="#GenericFunctions"> Call generic functions</a>
 0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
 0. <a href="#GenericStartStop"> Use generic Start and End Transactions</a>
-0. <a href="#VaryThinkTime"> Automatically vary Think Time</a>
+0. <a href="#ThinkTimeSecs"> Automatically vary Think Time</a>
 0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
 
@@ -270,43 +270,46 @@ such as:
   at various levels of processing.
 
 
-The name of the command establishes the environment needed for other functions in the <strong>wi_library.js</strong>.
+The name of the command establishes the environment needed for other functions 
+in the <strong>wi_library.js</strong>.
+
 Next, let's look inside that file.
 
 
 <a name="GloballyAccessibleVariables"></a>
 
-### Globally Accessible Variables
+### Global variables in closures
 
-Several globally-accessible variables are needed:
+Several globally-accessible variables are useful:
 
-   * Message level for printing messages
+   * <a href="#MessageLevels">Message level</a> for printing messages
    * <a href="#RunDataInAttribute">RunDataIn</a> specification
    * <a href="#RunType">RunType</a> to control app access functionality (URL_Landing, SignUp, SignIn, SignOut)
-   * ThinkTimeSecs (Numbe of seconds to wait before every)
-   * Number of Retries
+   * <a href="#ThinkTimeSecs">ThinkTimeSecs</a> (Number of seconds to wait before every)
+   * <a href="#Retries">Number of Retries</a>
 
-
-<a name="JavaScriptClosures"></a>
-
-### Use JavaScript Closures module pattern
-
-Global variables previously defined at the top of the file
-above the first function definition have been removed
+Global variables are no longer defined at the top of the file
+(above the first function definition)
 because it's not good practice to define globals.
 They "pollute the global namespace"
 and cause name conflicts.
 
-The values of the above are obtained by referring to 
-"methods" of an object.
+Instead, values are made available to various calling functions 
+as "methods" of an object.
+
+<a name="MessageLevels"></a>
+
+### Message levels
+
+The scope of messages that LoadRunner outputs is determined by the 
+various Log Run-time settings.
 
 The message level is set during initialization by this code:
 
     {% highlight JavaScript %}
     wi_msg_level.init(){% endhighlight %}
 
-
-to obtain the message level at initialization:
+To retrieve the message level saved at initialization:
 
     {% highlight JavaScript %}
     wi_msg_level.at_init(){% endhighlight %}
@@ -337,9 +340,9 @@ var wi_msg_level = ( function() {
 This coding should not result in warning messages when parsed by
 JSLint.
 
-This coding techique here is
-called a &quot;<strong>closure</strong>&quot; using the
-&quot;revealing module pattern&quot; of coding JavaScript.
+This coding techique here uses a JavaScript technique 
+called a JavaScript &quot;<strong>closure</strong>&quot; using the
+&quot;revealing prototype pattern&quot; of coding JavaScript.
 
 NOTE: This approach is explained in Dan Wahlin's 
 <a target="_blank" href="http://app.pluralsight.com/courses/structuring-javascript">
@@ -348,6 +351,10 @@ video course on Pluralsight</a> and
 blog post</a>.
 
 This is a such a big deal among JavaScript developers that its use is a common interview question.
+
+The "prototype" part in the technique name comes from use of the this. keyword
+referring to the object. 
+The advantage of "this" is that functions of the object are loaded into memory once.
 
 In an <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">example from Mozilla</a>, a global object (variable)
 "appleCounter" is retrieved by this:
@@ -766,7 +773,7 @@ PROTIP: Specify Start and End transactions names using a parameter
 there is no danger of typos in transaction start vs. end names,
 avoiding the most common cause of runs being aborted.
 
-<a name="VaryThinkTime"></a>
+<a name="ThinkTimeSecs"></a>
 
 ### Automatically vary Think Time
 

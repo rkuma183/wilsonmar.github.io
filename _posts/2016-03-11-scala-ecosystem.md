@@ -4,7 +4,8 @@ title: "Scala ecosystem"
 excerpt: "The language, not the opera house in Milan"
 tags: [scala, programming, ecosystem]
 image:
-   feature: pic red curtains la scala 1900x500.jpg
+#  feature: pic red curtains la scala 1900x500.jpg
+   feature: https://cloud.githubusercontent.com/assets/300046/14580771/13ab344a-0396-11e6-8e2d-442f861417b0.jpg
    credit: Teatro alla Scala
    creditlink: http://www.connectingmx.net/wp-content/uploads/2015/04/fotina-340.jpg
 comments: true
