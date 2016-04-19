@@ -4,7 +4,8 @@ title: "Java DevOps Workflow"
 excerpt: "Write once. Test everywhere."
 tags: [java, programming, sample, gist]
 image:
-  feature: pic brown java beans 1900x500.jpg
+# feature: pic brown java beans 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622024/6a77b5b0-0584-11e6-93ea-ed1ca2c4bbc6.jpg
   credit: 
   creditlink: 
 comments: true

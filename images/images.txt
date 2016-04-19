@@ -1,10 +1,140 @@
-images.txt
+pic images.txt
 
   credit:
   creditlink:
 
 <img src="http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png">
 </a><!-- http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png -->
+
+laptop
+  credit: hdwallpapers.in
+  creditlink: http://www.hdwallpapers.in/macbook_pro-wallpapers.html
+
+![bkg_planet12 1900x500](https://cloud.githubusercontent.com/assets/300046/14625241/9a22d514-059e-11e6-8aa4-7a387673a418.jpg)
+
+![pic-black-power-button-1900x500](https://cloud.githubusercontent.com/assets/300046/14624434/dab075ca-0597-11e6-9090-f93e259a5554.jpg)
+
+pic green matrix hallway 1900x500.jpg![pic green matrix hallway 1900x500](https://cloud.githubusercontent.com/assets/300046/14623876/07afd066-0593-11e6-933a-2e596511ac67.jpg)
+
+![pic-black-blue-green-landscape-slats-1900x500](https://cloud.githubusercontent.com/assets/300046/14624073/7b96364a-0594-11e6-9643-06decef9dbfd.jpg)
+
+pic 3screen_sizes 1900x500.jpg
+![pic 3screen_sizes 1900x500](https://cloud.githubusercontent.com/assets/300046/14621804/9e5227d2-0582-11e6-8ae5-93049682416b.jpg)
+
+pic Audi-8-18022013060236-2-1900x500.jpg
+![pic audi-8-18022013060236-2-1900x500](https://cloud.githubusercontent.com/assets/300046/14621815/b92b6e92-0582-11e6-8c24-89e0f31b02c5.jpg)
+
+pic black entering stadium 1900X500.jpg
+![pic black entering stadium 1900x500](https://cloud.githubusercontent.com/assets/300046/14621833/d9af8f54-0582-11e6-9c88-7e8d1cead630.jpg)
+
+
+pic black macbook 1900x500.jpg
+![pic black macbook 1900x500](https://cloud.githubusercontent.com/assets/300046/14621846/e8cd23ca-0582-11e6-9fff-340d8bc32496.jpg)
+
+
+  credit: Brothersoft
+  creditlink: http://m.img.brothersoft.com/android/a0/a054685c75c309c2b6dfd3c96972dded_screeshots_3.jpeg
+
+pic black rainbow sound 1900X500.jpg
+![pic black rainbow sound 1900x500](https://cloud.githubusercontent.com/assets/300046/14621851/f18ba040-0582-11e6-8328-0ff5dc64f5ca.jpg)
+
+
+pic black white mlk speech DC 1900x500.jpg
+![pic black white mlk speech dc 1900x500](https://cloud.githubusercontent.com/assets/300046/14621857/fd5e6204-0582-11e6-99d9-0ee03774cd89.jpg)
+
+![pic-white-bkg-windows-apple-2560x1440](https://cloud.githubusercontent.com/assets/300046/14623814/938cc996-0592-11e6-993e-96042ce9500f.jpg)
+
+pic black white must be willing to relocate to sf 1900x500.jpg
+![pic black white must be willing to relocate to sf 1900x500](https://cloud.githubusercontent.com/assets/300046/14621966/ee85d7a2-0583-11e6-923c-a58327524273.jpg)
+
+pic blue black stars spin 1900x500.jpg
+![pic blue black stars spin 1900x500](https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg)
+
+pic blue findbiometrics.com 1900x500.jpg
+![pic blue findbiometrics com 1900x500](https://cloud.githubusercontent.com/assets/300046/14621979/1268244a-0584-11e6-8bb2-446af589f158.jpg)
+
+pic blue lake searching 1900x500.jpg
+![pic blue lake searching 1900x500](https://cloud.githubusercontent.com/assets/300046/14621985/1cdb6086-0584-11e6-9570-5cedb9f2385f.jpg)
+
+pic blue planet curves 1900x500.jpg
+![pic blue planet curves 1900x500](https://cloud.githubusercontent.com/assets/300046/14621989/28943bfa-0584-11e6-8604-925ce8dfbe74.jpg)
+
+pic blue tweet 1900x500.jpg
+![pic blue tweet 1900x500](https://cloud.githubusercontent.com/assets/300046/14621996/357d5874-0584-11e6-82f7-92ef5ce54893.jpg)
+
+pic blue white curved calendar 1900x500.png
+![pic blue white curved calendar 1900x500](https://cloud.githubusercontent.com/assets/300046/14622002/3f66133a-0584-11e6-8ed0-c20fc91f7593.png)
+
+pic brown barbed-wired fence post 1900x500.jpg
+![pic brown barbed-wired fence post 1900x500](https://cloud.githubusercontent.com/assets/300046/14622009/4bfa78f2-0584-11e6-8193-52b72e1641b6.jpg)
+
+pic brown blowholes sunset 1900x500.jpg
+![pic brown blowholes sunset 1900x500](https://cloud.githubusercontent.com/assets/300046/14622013/564257e4-0584-11e6-8b3f-b2a14eea98a4.jpg)
+
+pic brown homebrew logo 1900x500.jpg
+![pic brown homebrew logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622020/60672448-0584-11e6-8202-41c36ba82d04.jpg)
+  credit: Kickstarter
+  creditlink: https://www.kickstarter.com/projects/homebrew/brew-test-bot
+
+
+
+
+pic bw brooklyn bridge painters on grid 1900x500.jpg
+![pic bw brooklyn bridge painters on grid 1900x500](https://cloud.githubusercontent.com/assets/300046/14622040/7e25ba76-0584-11e6-918d-3532cdc4e566.jpg)
+
+pic data center slice 1900x500.jpg
+![pic data center slice 1900x500](https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg)
+
+pic deer in forest 1900x500.jpg
+![pic deer in forest 1900x500](https://cloud.githubusercontent.com/assets/300046/14622052/95b08428-0584-11e6-9679-28430c295cf3.jpg)
+
+![pic energized-services-e1448057282767-1900x500](https://cloud.githubusercontent.com/assets/300046/14622058/a574cebe-0584-11e6-8ce6-2166aca3a1a6.jpg)
+
+
+![pic giant-swiss-army-knife-1900x500](https://cloud.githubusercontent.com/assets/300046/14622061/afe5f5da-0584-11e6-8140-3278289baef4.jpg)
+
+![pic gray apple logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622069/bc293564-0584-11e6-80c7-e7c7175fd250.jpg)
+
+![pic-white-bkg-windows-apple-1900x500](https://cloud.githubusercontent.com/assets/300046/14625335/52952250-059f-11e6-84c8-5ae2d289c486.jpg)
+
+![pic gray pipeline w24-1900x500](https://cloud.githubusercontent.com/assets/300046/14622075/c2f9b7f6-0584-11e6-9d6b-a1915293c9cd.jpg)
+
+![pic green field cows 1900x500](https://cloud.githubusercontent.com/assets/300046/14622085/d7213efc-0584-11e6-9f42-8f3efb09490d.jpg)
+
+![pic jump into tiny pool 1900x500](https://cloud.githubusercontent.com/assets/300046/14622099/ef090f36-0584-11e6-8ca8-a2f2bde38026.jpg)
+
+![pic night bridge fast trails 1900x500](https://cloud.githubusercontent.com/assets/300046/14622104/f338cb00-0584-11e6-913d-60591d07fdb5.jpg)
+
+n forest road 1900x500](https://cloud.githubusercontent.com/assets/300046/14622090/dd4e1d68-0584-11e6-8833-dff4542e905c.jpg)
+
+![pic green grass windows 1900x475](https://cloud.githubusercontent.com/assets/300046/14622091/e1d86618-0584-11e6-8d00-2af2c1950275.png)
+
+In tuner:
+![pic orange auto_start_1900x500](https://cloud.githubusercontent.com/assets/300046/14632208/a8328c40-05d4-11e6-8ec0-496eaab99ff9.jpg)
+
+![pic orange wm_mcnaughton_sunset_runner_1900x500](https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg)
+
+![pic php packages 1900x500](https://cloud.githubusercontent.com/assets/300046/14622126/0e6c5e1e-0585-11e6-9097-960e073a1e21.jpg)
+![pic purple cloud flying 1900x500](https://cloud.githubusercontent.com/assets/300046/14622135/187cf904-0585-11e6-90e2-fae76077c618.jpg)
+![pic rainbow black apple logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622136/1c1cec72-0585-11e6-8a62-060c26928878.jpg)
+![pic richtexteditortoolbar 1900x500](https://cloud.githubusercontent.com/assets/300046/14622140/227572b0-0585-11e6-8d8c-55c1faa4fd68.jpg)
+![pic road and clouds to mountains 1900x500](https://cloud.githubusercontent.com/assets/300046/14622142/26a94d34-0585-11e6-8f3e-8819131c0392.jpg)
+![pic ruby full 1900x500](https://cloud.githubusercontent.com/assets/300046/14622144/2afc1a24-0585-11e6-93fa-120cda0a9b06.jpg)
+![pic silver robot white skin handshake 1900x500](https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg)
+![pic white blue spreadsheet 1900x500](https://cloud.githubusercontent.com/assets/300046/14622153/33a99aac-0585-11e6-8636-844c34d1699b.jpg)
+![pic white calendar 1900x500](https://cloud.githubusercontent.com/assets/300046/14622156/3737015a-0585-11e6-9521-8d7326506240.jpg)
+
+![pic white hand key ownership 1900x500](https://cloud.githubusercontent.com/assets/300046/14622160/3b59e1b2-0585-11e6-9157-cc003fc0f90b.jpg)
+![pic white hand key ownership 1900x500](https://cloud.githubusercontent.com/assets/300046/14623920/5dd63494-0593-11e6-92f4-d7059a29b226.jpg)
+
+![pic white keyboard british 1900x500](https://cloud.githubusercontent.com/assets/300046/14622161/3e9ed170-0585-11e6-81e5-2d3238508e4f.jpg)
+![pic white python logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622164/4230c848-0585-11e6-957b-be11147346e6.jpg)
+![pic white robots woman 1900x500](https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg)
+![scr white jekyll static tools 1900x500](https://cloud.githubusercontent.com/assets/300046/14622170/48b1ceb0-0585-11e6-8b19-b9d09feebd6f.jpg)
+![pic sunrise sunflowers-1900x500](https://cloud.githubusercontent.com/assets/300046/14622180/4f1740f0-0585-11e6-9295-7db8d15d63bf.png)
+
+
+
 
 
 Some 1900x500 pictures ready for use without cropping include:
@@ -18,13 +148,19 @@ Some 1900x500 pictures ready for use without cropping include:
   creditlink: http://www.greencoffeelover.com/wp-content/uploads/2015/03/7.jpg
 
 
-  feature: pic brown java beans 1900x500.jpg
+# feature: pic brown java beans 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622024/6a77b5b0-0584-11e6-93ea-ed1ca2c4bbc6.jpg
   credit: Green Coffee Lover
   creditlink: http://www.greencoffeelover.com/wp-content/uploads/2015/03/7.jpg
+![pic brown java beans 1900x500](https://cloud.githubusercontent.com/assets/300046/14622024/6a77b5b0-0584-11e6-93ea-ed1ca2c4bbc6.jpg)
+
 
   feature: pic brown wood apple logo 1900x500.jpg
   credit: Wonderful Engineering
   creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-1.jpg
+  pic brown wood apple logo 1900x500.jpg
+![pic brown wood apple logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622035/740efa5c-0584-11e6-9a41-db5b03eaff85.jpg)
+
 
   feature: pic brown wood apple logo 1900x500.jpg
   credit: Wonderful Engineering
@@ -41,10 +177,17 @@ Some 1900x500 pictures ready for use without cropping include:
   feature: pic gray apple logo 1900x500.jpg
   credit: Wonderful Engineering
   creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-3.jpg
+![pic gray apple logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622417/0edc21ac-0587-11e6-9f30-ccf9560ce462.jpg)
 
   feature: pic blue apple flow logo 1900x500.jpg
   credit: Wonderful Engineering
   creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/HD-apple-wallpaper-2.png
+
+![pic-brown-running-horses-puzzle-1900x500](https://cloud.githubusercontent.com/assets/300046/14624501/7a0d4f94-0598-11e6-94ed-5476fc4188d9.jpg)
+pic brown running horses 1900x500.txt
+![pic brown running horses 1900x500](https://cloud.githubusercontent.com/assets/300046/14580754/41633d98-0395-11e6-87e1-065800a95775.jpg)
+
+![whole-foods-100-percent-organic-1900x500](https://cloud.githubusercontent.com/assets/300046/14625192/24f0082a-059e-11e6-9e6a-2228abdcb5bc.jpg)
 
   feature: pic brown homebrew logo 1900x500.jpg
   credit: Kickstarter
@@ -57,6 +200,7 @@ Some 1900x500 pictures ready for use without cropping include:
   feature: pic rainbow splash black apple logo 1900x500.jpg
   credit: Brothersoft
   creditlink: http://m.img.brothersoft.com/android/a0/a054685c75c309c2b6dfd3c96972dded_screeshots_3.jpeg
+![pic rainbow splash black apple logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622138/1e81e396-0585-11e6-8120-1e4c37f06f65.jpg)
 
   feature: pic color calendar 1900x475.png
   credit: Life Journey Church
@@ -67,6 +211,8 @@ Some 1900x500 pictures ready for use without cropping include:
   creditlink: https://www.flickr.com/photos/132218932@N03/page2
 
   feature: pic white python logo 1900x500.png
+
+  pic color calendar
   credit: 
   creditlink: http://lifejourney.church/hot-topics/events-calendar/
 
@@ -74,6 +220,7 @@ Some 1900x500 pictures ready for use without cropping include:
   feature: fig orange mysql php 1900x500.jpg
   credit: Kevin Yank
   creditlink: http://www.databasejournal.com/features/mysql/article.php/1402281/Build-Your-Own-Database-Driven-Website-Using-PHP--MySQL-Pt-4.htm
+![fig orange mysql php 1900x500](https://cloud.githubusercontent.com/assets/300046/14622311/4f41e84a-0586-11e6-8164-6363861642fd.jpg)
 
   feature: pic blue planet curves 1900x500.jpg
   feature: pic gray pipeline w24-1900x500.jpg
@@ -88,7 +235,13 @@ o	http://www.dm-automobile.de/sites/default/files/auto_start_1900x500.jpg
 o	http://store.hp.com/wcsstore/hpusstore/Treatment/om_keyborad_1900x500.jpg
 o	http://sharmscubaservice.com/wp-content/uploads/2015/04/SSS6-slider-1900x500.gif
 o	http://www.redclefmusic.com/wp-content/uploads/2014/04/header3-1900x500.jpg
-o	http://www.cofely.pl/wp-content/uploads/2015/09/45-1900x500.jpg
+
+![pic powerplant 3 monitors 45-1900x500](https://cloud.githubusercontent.com/assets/300046/14622128/138d868e-0585-11e6-9696-7eb412f4aeef.jpg)
+![pic powerplant 3 monitors 45-1900x500](https://cloud.githubusercontent.com/assets/300046/14621321/14ebed6e-057f-11e6-97aa-fe3d8045c110.jpg)
+
+
+o http://www.cofely.pl/wp-content/uploads/2015/09/45-1900x500.jpg
+
 o	http://sharmscubaservice.com/wp-content/uploads/2015/04/SSS5-slider-1900x500.gif
 o	http://bazaronline.co.uk/avactis-images/whole-foods-100-percent-organic-1900x500.jpg
 o	
@@ -99,4 +252,13 @@ o	https://www.easterisland.travel/images/tours/slider/ahu-tongariki-moai-statues
 o	http://allteck.ca/wp-content/uploads/2015/10/Transmission-main-banner-original-e1448645130212-1900x500.jpg?679111
 o	http://hfcclub.com/wp-content/uploads/2015/11/Deer-1900x500.jpg
 o	http://allteck.ca/wp-content/uploads/2015/10/INDUSTRIES-WE-SERVE-TOP-BANNER-1900x500.jpg?679111
+
+
+![map brown pony_express 2880x980](https://cloud.githubusercontent.com/assets/300046/14632396/b725f60a-05d5-11e6-8b45-7babd7649ae8.jpg
+![map brown pony_express 649x221](https://cloud.githubusercontent.com/assets/300046/14632487/35bdb3e0-05d6-11e6-9e8f-3293fe2ffa5b.jpg)
+)
+
+
+![fig rainbow creative_routines partial 464](https://cloud.githubusercontent.com/assets/300046/14633529/464f101e-05db-11e6-8ebf-f91a52e9458d.jpg)
+
 

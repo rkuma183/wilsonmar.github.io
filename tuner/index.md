@@ -4,7 +4,8 @@ title: Tuner
 tags: [tuner, performance testing, scalability, capacity, Jekyll]
 modified: 2014-08-08T20:53:07.573882-04:00
 image:
-  feature: pic orange auto_start_1900x500.jpg
+# feature: pic orange auto_start_1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14632208/a8328c40-05d4-11e6-8ec0-496eaab99ff9.jpg
   credit:
   creditlink:
 comments: true

@@ -4,7 +4,8 @@ title: "Mac OSX Hardware"
 excerpt: "It's stylish because it's expensive"
 tags: [apple, mac, setup]
 image:
-  feature: pic gray apple logo 1900x500.jpg
+# feature: pic gray apple logo 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622417/0edc21ac-0587-11e6-9f30-ccf9560ce462.jpg
   credit: Wonderful Engineering
   creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-3.jpg
 comments: true

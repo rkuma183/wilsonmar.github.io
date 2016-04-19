@@ -4,7 +4,8 @@ title: "Static websites"
 excerpt: "Version controlled simplicity"
 tags: [website, builder, simplicity, jekyll]
 image:
-  feature: pic white hand key ownership 1900x500.jpg
+# feature: pic white hand key ownership 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622160/3b59e1b2-0585-11e6-9157-cc003fc0f90b.jpg
   credit:
   creditlink:
 comments: true

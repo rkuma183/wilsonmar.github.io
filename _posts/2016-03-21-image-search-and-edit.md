@@ -4,7 +4,8 @@ title: "Image search and edit"
 excerpt: "Make picture be worth a 1,000 words"
 tags: [photo, editing, authentication, personalization, jekyll]
 image:
-  feature: pic blue lake searching 1900x500.jpg
+# feature: pic blue lake searching 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621985/1cdb6086-0584-11e6-9570-5cedb9f2385f.jpg
   credit: Braintree Books
   creditlink: http://www.braintreebooks.com/search.htm
 comments: true

@@ -34,14 +34,14 @@ Writing in JavaScript is more comfortable to some.
 ## Begin with a sample 
 
 > It is so much easier to begin with a production-worthy sample
-  rather than hacking your way through and embarassing yourself.
+  rather than hacking your way through (and embarassing yourself).
 
-0. Use an internet browser to this repository:
+0. Use an internet browser to see this repository:
 
    <a target="_blank" href="https://github.com/wilsonmar/LoadRunner">
    http://github.com/wilsonmar/LoadRunner</a>
 
-   Either click <strong>Download ZIP</strong> then unzip it or
+   Either click <strong>Download ZIP</strong> then unzip or
    fork the repo and clone it to your desktop if you would like changes.
 
    NOTE: This repo is actively improved over time,
@@ -357,6 +357,14 @@ This coding techique here uses a JavaScript technique
 called a JavaScript &quot;<strong>closure</strong>&quot; using the
 &quot;revealing module pattern&quot; of coding JavaScript
 that encapsulates functions related to an object.
+
+Use of "this" is called the prototype pattern because it can be modified
+by extension.
+
+In LoadRunner scripts its main advantage is it's only created once in memory.
+
+It encapsulates private code, but that's not important when it comes to 
+LoadRunner scripts.
 
 NOTE: This approach is explained in Dan Wahlin's 
 <a target="_blank" href="http://app.pluralsight.com/courses/structuring-javascript">

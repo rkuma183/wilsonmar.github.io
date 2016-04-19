@@ -4,7 +4,8 @@ title: "Beta Activities"
 excerpt: "7+ strategies to make betas more useful"
 tags: [beta, guava, java, programming]
 image:
-  feature: pic jump into tiny pool 1900x500.jpg 
+# feature: pic jump into tiny pool 1900x500.jpg 
+  feature: https://cloud.githubusercontent.com/assets/300046/14622099/ef090f36-0584-11e6-8ca8-a2f2bde38026.jpg
   credit: 
   creditlink: 
 comments: true

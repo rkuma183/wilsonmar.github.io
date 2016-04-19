@@ -4,7 +4,8 @@ title: "Competitive Comparisons"
 excerpt: "I'm better!"
 tags: [java, programming, sample, gist]
 image:
-  feature: pic brown blowholes sunset 1900x500.jpg
+# feature: pic green field cows 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622085/d7213efc-0584-11e6-9f42-8f3efb09490d.jpg
   credit: 
   creditlink: 
 comments: true

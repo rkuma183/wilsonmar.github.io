@@ -4,9 +4,10 @@ title: "Java on Mac OSX"
 excerpt: "Because programmers can't get enough caffeine"
 tags: [apple, mac, setup]
 image:
-  feature: pic brown java beans 1900x500.jpg
-  credit: Naked Security
-  creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-1.jpg
+# feature: pic brown java beans 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622024/6a77b5b0-0584-11e6-93ea-ed1ca2c4bbc6.jpg
+  credit: Green Coffee Lover
+  creditlink: http://www.greencoffeelover.com/wp-content/uploads/2015/03/7.jpg
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

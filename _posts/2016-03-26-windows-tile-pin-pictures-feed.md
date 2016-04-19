@@ -4,7 +4,8 @@ title: "Windows Tile Pin Picture to Website Feed"
 excerpt: "So your picture can be on everyone's desktop all the time"
 tags: [windows, mac, setup, testing]
 image:
-  feature: pic green grass windows 1900x475.png
+# feature: pic green grass windows 1900x475.png
+  feature: https://cloud.githubusercontent.com/assets/300046/14622091/e1d86618-0584-11e6-8d00-2af2c1950275.png
   credit: Microsoft
   creditlink: http://dri1.img.digitalrivercontent.net/Storefront/Site/msusa/images/promo/Windows/en-US-Windows-Mod-A-Familiar-Better-desktop.jpg
 comments: true

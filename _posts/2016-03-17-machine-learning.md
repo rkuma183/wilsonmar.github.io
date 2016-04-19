@@ -4,7 +4,8 @@ title: "Machine Learning"
 excerpt: "Yes, it will be smarter than you"
 tags: [HTML, personalization, machine learning, ML]
 image:
-  feature: pic green matrix hallway 1900x500.jpg
+# feature: pic green matrix hallway 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14623876/07afd066-0593-11e6-933a-2e596511ac67.jpg
   credit: 
   creditlink: 
 comments: true

@@ -4,7 +4,8 @@ title: "Build load-balanced servers in AWS EC2"
 excerpt: "This is where computers are"
 tags: [AWS, EC2, cloud]
 image:
-  feature: pic data center slice 1900x500.jpg
+# feature: pic data center slice 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
   credit: 
   creditlink: 
 comments: true

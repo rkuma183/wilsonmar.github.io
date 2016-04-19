@@ -4,7 +4,8 @@ title: "Ruby with RVM on Mac OSX"
 excerpt: ""
 tags: [ruby, apple, mac, setup, programming]
 image:
-  feature: pic ruby full 1900x500.jpg
+# feature: pic ruby full 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622144/2afc1a24-0585-11e6-93fa-120cda0a9b06.jpg
   credit: Ruby Inside
   creditlink: http://www.rubyinside.com/advent2006/24-wallpapers.html
 comments: true

@@ -4,7 +4,8 @@ title: "PHP On Mac OSX"
 excerpt: "Not Pretty Hypertext Preprocessor?"
 tags: [PHP, apple, mac, setup]
 image:
-  feature: pic PHP packages 1900x500.jpg
+# feature: pic PHP packages 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622126/0e6c5e1e-0585-11e6-9097-960e073a1e21.jpg
   credit: Orangewebmart.com
   creditlink: http://www.orangewebmart.com/wp-content/uploads/2013/06/PHP-Website-Development.jpg
 comments: true

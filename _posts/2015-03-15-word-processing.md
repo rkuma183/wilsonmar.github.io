@@ -4,7 +4,8 @@ title: "Using Microsoft Word in a team"
 excerpt: "8 questions to ask"
 tags: [remote, telework, teamwork]
 image:
-  feature: pic blue planet curves 1900x500.jpg
+# feature: pic blue planet curves 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621989/28943bfa-0584-11e6-8604-925ce8dfbe74.jpg
   credit: 
   creditlink: 
 comments: true

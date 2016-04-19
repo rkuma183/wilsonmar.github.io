@@ -4,7 +4,8 @@ title: "Running Windows on Apple Mac OSX"
 excerpt: "Is this cheating?"
 tags: [apple, mac, setup, VMWare, Fusion]
 image:
-  feature: pic gray apple logo 1900x500.jpg
+# feature: pic gray apple logo 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14625335/52952250-059f-11e6-84c8-5ae2d289c486.jpg
   credit: Wonderful Engineering
   creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-3.jpg
 comments: true

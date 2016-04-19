@@ -4,7 +4,8 @@ title: "Crop (Mask) images"
 excerpt: "Get just the right 1900x500 picture for your Jekyll website"
 tags: [JavaScript, Load Testing, LoadRunner]
 image:
-  feature: pic deer in forest 1900x500.jpg
+# feature: pic deer in forest 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622052/95b08428-0584-11e6-9679-28430c295cf3.jpg
   credit: 
   creditlink: 
 comments: true

@@ -4,7 +4,8 @@ title: "Jekyll site development"
 excerpt: "The most popular"
 tags: [website, builder, simplicity, jekyll]
 image:
-  feature: scr white jekyll static tools 1900x500.jpg
+# feature: scr white jekyll static tools 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622170/48b1ceb0-0585-11e6-8b19-b9d09feebd6f.jpg
   credit:
   creditlink:
 comments: true

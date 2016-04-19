@@ -4,7 +4,8 @@ title: "Sound out text on page"
 excerpt: "Listen to this"
 tags: [text to speech, JavaScript, programming]
 image:
-  feature: pic black rainbow sound 1900X500.jpg
+# feature: pic black rainbow sound 1900X500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621851/f18ba040-0582-11e6-8328-0ff5dc64f5ca.jpg
   credit: Mp3jack at deviantart.com
   creditlink: http://mp3jack.deviantart.com/art/8-Bit-Sound-Desktop-492031573
 comments: true

@@ -4,7 +4,8 @@ title: "Resume"
 excerpt: "I can do it!"
 tags: [resume, builder, simplicity, jekyll]
 image:
-  feature: pic purple cloud flying 1900x500.jpg
+# feature: pic purple cloud flying 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622135/187cf904-0585-11e6-90e2-fae76077c618.jpg
   credit:
   creditlink:
 comments: true

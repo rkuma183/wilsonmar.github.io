@@ -6,8 +6,8 @@ tags: [Performance, JavaScript, Load Testing, LoadRunner]
 author: anil_mainali
 comments: true
 image:
-  feature: pic brown running horses 1900x500.jpg
-  credit: Steve Mckinzie
+  feature: https://cloud.githubusercontent.com/assets/300046/14624501/7a0d4f94-0598-11e6-94ed-5476fc4188d9.jpg
+  credit: 
   creditlink: 
 ---
 <i>{{ page.excerpt }}</i>

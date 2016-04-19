@@ -5,7 +5,8 @@ excerpt: "She remembers everything you've ever sent"
 modified:
 tags: []
 image:
-  feature: pic blue black stars spin 1900x500.jpg
+# feature: pic blue black stars spin 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg
   credit: Jeremy Thomas
   creditlink: https://www.flickr.com/photos/132218932@N03/page2
 comments: true

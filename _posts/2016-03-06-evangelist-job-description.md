@@ -5,7 +5,8 @@ excerpt: "Just apply. They can always just ignore you."
 modified:
 tags: []
 image:
-  feature: pic black white must be willing to relocate to sf 1900x500.jpg
+# feature: pic black white must be willing to relocate to sf 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621966/ee85d7a2-0583-11e6-923c-a58327524273.jpg
   credit: 
   creditlink: 
 comments: true

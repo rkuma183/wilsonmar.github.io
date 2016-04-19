@@ -4,7 +4,8 @@ title: Shop
 modified: 2016-03-19
 excerpt: "Stuff in my backpack that you might like."
 image:
-  feature: whole-foods-100-percent-organic-1900x500.jpg
+# feature: whole-foods-100-percent-organic-1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14625192/24f0082a-059e-11e6-9e6a-2228abdcb5bc.jpg
   credit: BazarOnline
   creditlink: http://www.bazaronline.co.uk/
 ---

@@ -4,7 +4,8 @@ title: "Authenticate users on Jekyll site"
 excerpt: "So you can personalize content"
 tags: [authentication, personalization, jekyll]
 image:
-  feature: pic blue findbiometrics.com 1900x500.jpg
+# feature: pic blue findbiometrics.com 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621979/1268244a-0584-11e6-8bb2-446af589f158.jpg
   credit: Findbiometrics
   creditlink: http://findbiometrics.com/ear-based-authentication-system-patented-by-amazon-26183/
 comments: true

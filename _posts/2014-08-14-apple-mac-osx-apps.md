@@ -4,7 +4,8 @@ title: "Mac OSX Apps"
 excerpt: "Applications for a long, prosperous, happy life"
 tags: [apple, mac, setup]
 image:
-  feature: pic rainbow black apple logo 1900x500.jpg
+# feature: pic rainbow black apple logo 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622136/1c1cec72-0585-11e6-8a62-060c26928878.jpg
   credit: Wallpaperscraft
   creditlink: https://wallpaperscraft.com/image/app_storm_apple_mac_rainbow_stripes_horizontal_8063_1920x1080.jpg
 comments: true

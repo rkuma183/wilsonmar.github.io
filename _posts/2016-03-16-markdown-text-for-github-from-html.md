@@ -4,9 +4,9 @@ title: "Markdown text for GitHub from HTML"
 excerpt: "Yes, it's a round-trip ticket"
 tags: [HTML, personalization, jekyll]
 image:
-  feature: pic rainbow splash black apple logo 1900x500.jpg
-  credit: Brothersoft
-  creditlink: http://m.img.brothersoft.com/android/a0/a054685c75c309c2b6dfd3c96972dded_screeshots_3.jpeg
+  feature: https://cloud.githubusercontent.com/assets/300046/14624073/7b96364a-0594-11e6-9643-06decef9dbfd.jpg
+  credit: 
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

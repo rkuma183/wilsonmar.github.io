@@ -4,7 +4,8 @@ title: "Mac OSX Homebrew"
 excerpt: "Packaged for easy digestion"
 tags: [homebrew, apple, mac, setup]
 image:
-  feature: pic brown homebrew logo 1900x500.jpg
+# feature: pic brown homebrew logo 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622020/60672448-0584-11e6-8202-41c36ba82d04.jpg
   credit: Kickstarter
   creditlink: https://www.kickstarter.com/projects/homebrew/brew-test-bot
 comments: true

@@ -4,9 +4,9 @@ title: "Backup Archival and Restore on Mac OSX"
 excerpt: "Save your life"
 tags: [apple, mac, setup, USB]
 image:
-  feature: pic black macbook 1900x500.jpg
-  credit: hdwallpapers.in
-  creditlink: http://www.hdwallpapers.in/macbook_pro-wallpapers.html
+  feature: https://cloud.githubusercontent.com/assets/300046/14624434/dab075ca-0597-11e6-9090-f93e259a5554.jpg
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

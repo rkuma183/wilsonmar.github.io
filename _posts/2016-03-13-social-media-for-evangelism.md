@@ -4,7 +4,8 @@ title: Social media for evangelism
 excerpt: "Tell them good"
 tags: [social media, evangelism, jekyll]
 image:
-  feature: pic silver robot white skin handshake 1900x500.jpg
+# feature: pic silver robot white skin handshake 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
   credit: 
   creditlink: 
 comments: true

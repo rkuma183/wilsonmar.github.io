@@ -4,7 +4,8 @@ title: "Building a team remotely?"
 excerpt: "8 questions to ask"
 tags: [remote, telework, test, teamwork]
 image:
-  feature: pic ENERGIZED-SERVICES-e1448057282767-1900x500.jpg
+# feature: pic ENERGIZED-SERVICES-e1448057282767-1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622058/a574cebe-0584-11e6-8ce6-2166aca3a1a6.jpg
   credit: 
   creditlink: 
 comments: true

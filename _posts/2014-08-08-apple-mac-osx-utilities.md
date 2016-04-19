@@ -4,7 +4,8 @@ title: "Mac OSX Utilities"
 excerpt: "The Swiss Army Knife from Steve Jobs"
 tags: [apple, mac, utilities]
 image:
-  feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
+# feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622061/afe5f5da-0584-11e6-8140-3278289baef4.jpg
   credit: 
   creditlink:
 comments: true

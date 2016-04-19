@@ -5,7 +5,8 @@ modified: 2016-03-28
 excerpt: "Your future, in little boxes"
 tags: [budget, spreadsheet, files, jekyll]
 image:
-  feature: pic white blue spreadsheet 1900x500.jpg
+# feature: pic white blue spreadsheet 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622153/33a99aac-0585-11e6-8636-844c34d1699b.jpg
   credit: blog.marketo.com
   creditlink: http://blog.marketo.com/2013/06/the-problems-with-using-spreadsheets-to-manage-your-marketing-budget.html
 comments: true

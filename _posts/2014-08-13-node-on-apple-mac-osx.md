@@ -4,7 +4,8 @@ title: "Node.js on Mac OSX "
 excerpt: "JavaScript to the rescue"
 tags: [node, javascript, apple, mac, setup]
 image:
-  feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
+# feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
   credit: William McNaughton
   creditlink: 
 comments: true

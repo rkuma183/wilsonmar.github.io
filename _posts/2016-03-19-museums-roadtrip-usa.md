@@ -4,7 +4,8 @@ title: "Museums Roadtrip USA"
 excerpt: "Visual art in every state and city"
 tags: [travel, roadtrip, museums, monuments, states]
 image:
-  feature: pic road and clouds to mountains 1900x500.jpg
+# feature: pic road and clouds to mountains 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622142/26a94d34-0585-11e6-8f3e-8819131c0392.jpg
   credit:
   creditlink:
 comments: true
@@ -26,7 +27,9 @@ Journeys on land:
    * <a href="#NorthernMiddleAmerica">Westward through Northern Middle America</a>
    * <a href="#Southwestward"> Westward through the Southwest</a>
 
-By "museums" I include here <strong>gift shops</strong> at grand natural sights and historic landmark hotels along the way ;)
+By "museums" I include here grand natural sights and 
+<a target="_blank" href="http://www.historichotels.org/hotels-resorts/?search=top-nav">
+historic landmark hotels</a> and restaurants.
 
 
 <a name="Google_route_map"></a>
@@ -1248,6 +1251,7 @@ The trail goes from St. Louis and Independence, Missouri through Kansas and Nebr
 
 <ul>
 <li><a target="_blank" href="https://www.nps.gov/moru/">Mount Rushmore National Memorial</a>, Keystone</li>
+<li><a target="_blank" href="http://www.historichotels.org/hotels-resorts/hotel-alex-johnson/">Hotel Alex Johnson</a>, Rapid City</li>
 <li><a target="_blank" href="http://www.redlinart.com/">Redlin Art Center</a>, Watertown</li>
 </ul>
 
@@ -1499,8 +1503,8 @@ between April 3, 1860 to October 24, 1861
 along 184 stations from St. Joseph, Missouri on the Missouri River
 to San Francisco, California.
 
-<a target="_blank" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pony_Express_Map_William_Henry_Jackson.jpg/2880px-Pony_Express_Map_William_Henry_Jackson.jpg">
-<img alt="map of Pony Express route" src="/images/map brown Pony_Express 2880x980.jpg" width="649" height="221"></a>
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/14632396/b725f60a-05d5-11e6-8b45-7babd7649ae8.jpg">
+<img alt="map of Pony Express route" src="https://cloud.githubusercontent.com/assets/300046/14632487/35bdb3e0-05d6-11e6-9e8f-3293fe2ffa5b.jpg" width="649" height="221"></a>
 Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of CongressPhoto image obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain, https://commons.wikimedia.org/w/index.php?curid=10111804
 
    <amp-img media="(min-width: 650px)" width="600" height="300" 

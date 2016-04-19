@@ -5,7 +5,8 @@ excerpt: "There is method to the madness"
 modified:
 tags: []
 image:
-   feature: pic black entering stadium 1900X500.jpg
+#  feature: pic black entering stadium 1900X500.jpg
+   feature: https://cloud.githubusercontent.com/assets/300046/14621833/d9af8f54-0582-11e6-9c88-7e8d1cead630.jpg 
    credit: 
    creditlink: 
 comments: true

@@ -4,7 +4,8 @@ title: "Python on Mac OSX"
 excerpt: "Get it here"
 tags: [python, apple, mac, setup]
 image:
-  feature: pic white python logo 1900x500.jpg
+# feature: pic white python logo 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622164/4230c848-0585-11e6-957b-be11147346e6.jpg
   credit: 
   creditlink: 
 comments: true

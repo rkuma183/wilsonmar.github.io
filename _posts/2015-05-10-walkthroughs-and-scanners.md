@@ -4,7 +4,8 @@ title: "Walkthroughs and Automatic Scanners"
 excerpt: "Let's do them together"
 tags: [remote, telework, test, teamwork]
 image:
-  feature: pic bw brooklyn bridge painters on grid 1900x500.jpg
+# feature: pic bw brooklyn bridge painters on grid 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622040/7e25ba76-0584-11e6-918d-3532cdc4e566.jpg
   credit: 
   creditlink: 
 comments: true

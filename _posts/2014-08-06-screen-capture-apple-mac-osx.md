@@ -4,9 +4,10 @@ title: "Screen Capture and Image File Management on Mac OSX"
 excerpt: "Did I really see that?"
 tags: [apple, mac, setup]
 image:
-  feature: pic 45-1900x500.jpg
-  credit: 
-  creditlink: 
+# feature: pic powerplant 3 monitors 45-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622128/138d868e-0585-11e6-9696-7eb412f4aeef.jpg
+  credit: Cofely.pl
+  creditlink: http://www.cofely.pl/wp-content/uploads/2015/09/45-1900x500.jpg
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

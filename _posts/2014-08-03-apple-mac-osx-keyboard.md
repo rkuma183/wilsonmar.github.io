@@ -4,7 +4,8 @@ title: "Mac OSX Keyboard"
 excerpt: "Can you do it in the dark?"
 tags: [apple, mac, keyboard]
 image:
-  feature: pic white keyboard british 1900x500.jpg
+# feature: pic white keyboard british 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622161/3e9ed170-0585-11e6-81e5-2d3238508e4f.jpg
   credit: Parallels
   creditlink: http://kb.parallels.com/en/113541
 comments: true
