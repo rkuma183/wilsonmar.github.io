@@ -184,10 +184,8 @@ sample script</a> that accompanies this narrative.
 0. <a href="#UseReturnCodes"> Use return codes</a>
 0. <a href="#GloballyAccessibleVariables"> Globally variables in closures</a>
 0. <a href="#MessageLevels"> Message levels</a>
-
 0. <a href="#IdRunConditions"> Capture and display run conditions</a>
 0. <a href="#ListRunTimeSettings"> Run-time Settings</a>
-
 0. <a href="#ForcePrint"> Force print then restore logging level</a>
 0. <a href="#ControlOutputMessage"> Control message output</a>
 0. <a href="#DefineVerbosity"> Define verbosity</a>
@@ -204,7 +202,6 @@ sample script</a> that accompanies this narrative.
 0. <a href="#ThinkTimeSecs"> Automatically vary Think Time</a>
 0. <a href="#CaptureResponses"> Capture response to be returned</a>
 0. <a href="#VerifyResponses"> Verify response returned</a>
-
 0. <a href="#AppAccessFunctions"> Create custom app access functions</a>
 0. <a href="#RunType"> Use RunType</a>
 
