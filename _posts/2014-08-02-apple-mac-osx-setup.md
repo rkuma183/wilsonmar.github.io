@@ -1139,6 +1139,47 @@ console.log('Web server listening at: %s', app.get('url'));
 </pre>
 
 
+## Invisible
+
+When I tried to install Axure, I got this message:
+
+
+
+To make files visible changes the error to a dialog that asks "sure you would like to change the file?". 
+
+Before doing that, note this closes Finder, so first close all other folders. 
+
+Enter this in Terminal:
+
+<tt>
+defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+</tt>
+
+To make invisible files invisible again:
+
+<tt>
+defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
+</tt>
+
+A description of each keyword:
+
+defaults - OSX's command to change defaults, apple's low-level preference system.
+
+write - tells defaults you want to change a preference, or write it
+
+com.apple.finder - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
+
+AppleShowAllFiles - specifies which preference you want to change within the application.
+
+TRUE or FALSE - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
+
+&&
+
+This is a terminal operator to run whatever's after this if the previous command is successful
+
+killall - kills processes or closes applications
+
+Finder - which process or application to close.
 
 
 ## More on OSX

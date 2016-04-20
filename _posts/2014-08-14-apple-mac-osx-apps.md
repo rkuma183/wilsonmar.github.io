@@ -11,8 +11,7 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
-
+<hr zz
 {% include _toc.html %}
 
 PROTIP: After installation, in the Finder, right-click on the installer to free up disk space.
@@ -142,11 +141,34 @@ at the bottom of the browser.</li>
 <li> https://iperf.fr/ iPerf network (<a target="_blank" href="http://www.techrepublic.com/blog/data-center/handy-iperf-commands-for-quick-network-testing">info</a>)
 </li>
 
-Personally, I like PKGs, primarily for the scripting capabilities.
+Personally, I like PKGs, primarily for its scripting capabilities.
+But it comes with risks.
 
-* For example,
-   http://uTorrent.com is a small program for downloading files.
+* <a target="_blank" href="http://uTorrent.com">
+  uTorrent</a> is a small program for downloading files using the Torrent protocol
+  hackers prefer. Thus a high number of files (espcially movies) come with viruses.
 
+* <a target="_blank" href="http://sw.ixoft.com/texfinderx/">
+   TexFinderX</a> is a donation tool to search and replace text inside entire folders.
+   Versions for MacOS X, Windows XP, Vista, and Seven.
+   The MacOSX downloads as TexFinderX_232_OSX.zip containing Droplets and TFXTables.
+   Drag the unziped folder into your Applications folder.
+
+Due to these security concerns,
+when you first double-click on such programs, 
+Apple forces you to prove that you know what you're doing with this pop-up:
+
+ <amp-img src="https://cloud.githubusercontent.com/assets/300046/14650954/07019508-062b-11e6-8ea3-0e5308db3a06.png"
+      width="404"
+      height="159"
+      layout="responsive"
+      alt="osx-unidentified-developer-808x318"></amp-img>
+
+0. Hold down the <strong>control</strong> key as you click the new app icon.
+
+0. Choose Open in the shortcut menu.
+
+0. Click Open in the pop-up.
 
 
 <a id="1Password"></a>

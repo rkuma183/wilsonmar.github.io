@@ -1514,15 +1514,31 @@ Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan:
 
 ## Footnote
 
-This is rather large list, intentionally to test how well the system can handle a large file.
+This is rather large list, intentionally 
+to test how well the system can handle a large file
+(how quickly it can download and display).
 
 This is an upgrade of my terrible <a target="_blank" href="http://wilsonmar.com/1usa.htm">
 Roadtrips to visit museums across the USA</a> from 2005.
 
 Additional stops:
 
-   * Presidential museums (birth places)
+   * US Presidential libraries and museums (birth places)
    * Art galleries
    * Architecture
    * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
    * Farms
+   * Bed and Breakfast
+
+Next, I'd like to display a Google map of coordinates from a public Google spreadsheet
+like Jessica Lord's
+<a target="_blank" href="http://jlord.github.io/hack-spots">
+hack-spots site</a> implemented from a
+<a target="_blank" href="https://github.com/jlord/hack-spots">
+github repo</a> which 
+uses the
+<a target="_blank" href="https://github.com/jlord/sheetsee.js">
+sheetsee.js</a> and 
+<a target="_blank" href="https://www.mapbox.com/mapbox.js/api/v2.4.0/">
+Mapbox</a> 
+libraries.

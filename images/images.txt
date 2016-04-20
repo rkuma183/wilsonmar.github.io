@@ -1,3 +1,67 @@
+        <li><a href="{{ author.uri }}"><i class="fa fa-fw fa-chain" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].website_label }}</a></li>
+      {% endif %}
+
+
+about.me/wscoble
+https://github.com/wscoble
+https://twitter.com/lvcodesmith
+
+Justin Ceros - TestDouble - Ruby 
+http://github.com/wilsonmar/oss-perf/
+valve utah
+org structure and software structure - deming / toyota / mgmt. 3.0 
+Start with skeleton - then unit test 
+java or pytest ruby - http://pytest.org/latest/
+
+Swagger 
+apache camel collect at run-time interfaces
+http://camel.apache.org/components.html
+aver
+
+- message broker kafka, zero MQ, Rabbit MQ
+ redis
+  
+———
+
+Consider the following structure
+
+class Person {
+ 	String name;
+  	Person mother;
+  	Person father;
+}
+
+Think of an Ancestory.com-style system where people just enter whatever ancestors they can think of. Assume that everything is loaded into memory and that performance is not an issue. When the system runs out of data it will have person.mother == null or person.father == null
+
+We want this to be thread-safe so no static state.
+
+//Get names of this person and all their ancestors in the system.
+static string[] getNamesOfAllAncestors(Person p) {
+//implement me.
+DFS( 
+
+}
+
+So as an example
+
+var pebbles = new Person(“Pebbles”,
+	new Person(“Fred”,
+		new Person(“Ed”, null, null),
+		new Person(“Edna”, null, null)
+	),
+	new Person(“Wilma”,
+		null,
+		new Person(“Pearl”, null, null)
+	)
+)
+
+getNamesOfAllAncestors(pebbles)
+
+Will return in no particular order
+
+Pebbles, Fred, Ed, Edna, Wilma, Pearl
+
+
 pic images.txt
 
   credit:
@@ -261,4 +325,15 @@ o	http://allteck.ca/wp-content/uploads/2015/10/INDUSTRIES-WE-SERVE-TOP-BANNER-19
 
 ![fig rainbow creative_routines partial 464](https://cloud.githubusercontent.com/assets/300046/14633529/464f101e-05db-11e6-8ebf-f91a52e9458d.jpg)
 
+
+—— gits.txt
+
+Edgar Stoknes
+stoknes7@gmail.com
+
+Nisha Junaid
+nisha.junaid@gmail.com
+
+Jess Smith
+geekchick77@gmail.com
 
