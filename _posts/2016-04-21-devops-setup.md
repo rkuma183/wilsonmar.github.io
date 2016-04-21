@@ -284,14 +284,16 @@ environment.
 ### Mobile testing
 
    * Appium (Java)
+   * Perfecto (mobile device cloud)
    * etc.
 
    <a name="PerformanceTesting"></a>
 
-### Functional testing
+### Unit & Functional testing
 
    * Selenium (Java, JavaScript, .NET, etc.)
    * Jasmine
+   * Mocha
    * etc.
 
    <a name="#MobileTesting"></a>
@@ -355,6 +357,7 @@ environment.
    * ActiveMQ
    * Amazon
    * MSMQ
+   * TIBCO
    * etc.
 
    <a name="Notifications"></a>
@@ -371,7 +374,9 @@ environment.
 ### Email & SMS
 
    * Microsoft Exchange
-   * SMS
+   * Microsoft Sharepoint
+   * SMS gateway server
+   * Fax gateway server
    * etc.
 
    <a name="RESTAPI"></a>
@@ -395,6 +400,8 @@ environment.
 ### Other technologies
 
    * Text to speech
-   * Computer vision
+   * Computer vision (XBox)
    * Drones
+   * Gaming (Unity)
+   * GLib, Maya (motion graphics)
    * etc.
