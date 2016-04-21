@@ -56,7 +56,7 @@ here are the categories for standardization decisions:
 0. <a href="#MobileTesting">Mobile testing</a>
 0. <a href="#FunctionalTesting">Functional testing</a>
 0. <a href="#PerformanceTesting">Performance testing</a>
-0. <a href="#Logging">Logging and log mangement</a>
+0. <a href="#Logging">Logging and log management</a>
 0. <a href="#DataVisualization">Visualization</a>
 0. <a href="#In-MemoryDatabases">In-Memory Databases</a>
 0. <a href="#Back-endDatabases">Back-end Databases</a>
@@ -65,6 +65,7 @@ here are the categories for standardization decisions:
 0. <a href="#Email">Email & SMS</a>
 0. <a href="#RESTAPI">REST API management</a>
 0. <a href="#GeoDatabases">Geographic Databases</a>
+0. <a href="#MachineLearning">Machine Learning</a>
 0. <a href="#Others">Other technologies</a>
 
 Most organizations flip back and forth over time between
@@ -84,9 +85,12 @@ environment.
 
 ### Development process
 
+Boards, burn-down charts.
+
    * Scrum
    * Kanban
    * Lean
+   * Atlassian JIRA 
    * etc.
 
    <a name="DevOS"></a>
@@ -301,15 +305,18 @@ environment.
 ### Performance testing
 
    * JMeter (Java)
+   * SOASTA (cloud subscription)
    * etc.
 
    <a name="Logging"></a>
 
 ### Logging and log mangement
 
-   * Logstash / ElastiSearch
-   * SumoLogic
-   * AWS
+   * Logstash / ElastiSearch (open source)
+   * NewRelic
+   * 
+   * SumoLogic (subscription)
+   * AWS (subscription)
    * Splunk
    * etc.
 
@@ -393,6 +400,16 @@ environment.
    * Google Maps
    * Bing Maps
    * ESRI
+   * Route optimization (machine learning)
+   * etc.
+
+  <a name="MachineLearning"></a>
+
+### Machine Learning
+
+   * Tensorflow (Google)
+   * Semantic Analysis
+   * Recommender
    * etc.
 
   <a name="Others"></a>
