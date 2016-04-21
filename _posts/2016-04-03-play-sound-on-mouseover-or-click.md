@@ -27,7 +27,8 @@ reading markup text.
 I haven't figured it all out yet, but below is what
 I've found so far.
 
-First a quick background.
+If you want to skip the drama in the background history,
+click <a href="#Solutions">here to the solutions</a>.
 
 ## Early fragmentation
  
@@ -165,8 +166,12 @@ only two formats of each file need to be provided on a website to cover all the 
 
 Additionally, Adobe Flash supports its own Real-time file format.
 
+<a name="Solutions"></a>
 
-## SoundManager2
+## Solutions
+
+
+### SoundManager2
 
 The simplest approach is to make use of 
 <a target="_blank" href="http://www.schillmania.com/projects/soundmanager2/doc/getstarted/#how-sm2-works">
@@ -317,4 +322,13 @@ fi
 If you only have one mp3 file to convert to ogg, do it online:
 
 * http://audio.online-convert.com/convert-to-ogg
+
+
+## Resources
+
+Here are some resources referenced on this page:
+
+http://stackoverflow.com/questions/10105063/how-to-play-a-notification-sound-on-websites
+
+
 

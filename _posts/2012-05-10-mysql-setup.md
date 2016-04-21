@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MySQL. Yes. SQL."
+title: "MySQL. Yes. SQL. Set it up"
 excerpt: "It worked for your dad. Embrace it."
 tags: [mysql, database]
 image:
