@@ -1,76 +1,3 @@
-strategicdecisions.stanford.edu online 
-
-
-949.293.5095 map
-Video call
-Join video call
-Who
-Sudha, Wilson
-
-        <li><a href="{{ author.uri }}"><i class="fa fa-fw fa-chain" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].website_label }}</a></li>
-      {% endif %}
-
-
-about.me/wscoble
-https://github.com/wscoble
-https://twitter.com/lvcodesmith
-
-Justin Ceros - TestDouble - Ruby 
-http://github.com/wilsonmar/oss-perf/
-valve utah
-org structure and software structure - deming / toyota / mgmt. 3.0 
-Start with skeleton - then unit test 
-java or pytest ruby - http://pytest.org/latest/
-
-Swagger 
-apache camel collect at run-time interfaces
-http://camel.apache.org/components.html
-aver
-
-- message broker kafka, zero MQ, Rabbit MQ
- redis
-  
-———
-
-Consider the following structure
-
-class Person {
- 	String name;
-  	Person mother;
-  	Person father;
-}
-
-Think of an Ancestory.com-style system where people just enter whatever ancestors they can think of. Assume that everything is loaded into memory and that performance is not an issue. When the system runs out of data it will have person.mother == null or person.father == null
-
-We want this to be thread-safe so no static state.
-
-//Get names of this person and all their ancestors in the system.
-static string[] getNamesOfAllAncestors(Person p) {
-//implement me.
-DFS( 
-
-}
-
-So as an example
-
-var pebbles = new Person(“Pebbles”,
-	new Person(“Fred”,
-		new Person(“Ed”, null, null),
-		new Person(“Edna”, null, null)
-	),
-	new Person(“Wilma”,
-		null,
-		new Person(“Pearl”, null, null)
-	)
-)
-
-getNamesOfAllAncestors(pebbles)
-
-Will return in no particular order
-
-Pebbles, Fred, Ed, Edna, Wilma, Pearl
-
-
 pic images.txt
 
   credit:
@@ -82,6 +9,10 @@ pic images.txt
 laptop
   credit: hdwallpapers.in
   creditlink: http://www.hdwallpapers.in/macbook_pro-wallpapers.html
+
+pic green forest road 1280x720
+
+![pic-brown-horses-running-forward-1900x500](https://cloud.githubusercontent.com/assets/300046/14724047/445df2f0-07d1-11e6-9c26-782291fe2b47.jpg)
 
 ![bkg_planet12 1900x500](https://cloud.githubusercontent.com/assets/300046/14625241/9a22d514-059e-11e6-8aa4-7a387673a418.jpg)
 

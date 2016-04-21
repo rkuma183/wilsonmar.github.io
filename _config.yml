@@ -1,15 +1,20 @@
 # Site wide configuration
-
-title:            Home
-url: http://wilsonmar.github.io
+locale                   : "en-US"
+encoding                 : UTF-8
+title                    : "Home"
+title_separator          : "-"
+name                     : &name "Wilson Mar"
+description              : &description "I have a dream..."
+url                      : http://wilsonmar.github.io
 # url: http://wilsonmar.github.io
-locale:           en_US
-encoding:         UTF-8
+gh_repo                  : "https://github.com/wilsonmar/wilsonmar.github.io"
 github:
    repo:  https://github.com/wilsonmar/wilsonmar.github.io
+teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+# breadcrumbs            : false # true, false (default)
+words_per_minute         : 200
 
 # Jekyll configuration
-
 permalink:   /:categories/:title/
 markdown:    kramdown
 highlighter: rouge
@@ -20,11 +25,34 @@ gems:
   - jekyll-sitemap
   - jekyll-gist
 
+comments:
+  provider               : "disqus" # false (default), "disqus", "facebook", "google-plus", custom"
+  disqus:
+    shortname            : "minimalmistakes" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+  facebook:
+    # https://developers.facebook.com/docs/plugins/comments
+    appid                :
+    num_posts            : # 5 (default)
+    colorscheme          : # "light" (default), "dark"
+
+# SEO Related
+google_site_verification : "8KG_Ns5zQokAg5smIfVDhCRFzkYkpUfCi-SXm-vWU2A"
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+# Conversion:
+
+# Markdown Processing:
 kramdown:
+  input: GFM
+  hard_wrap: false
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
 
@@ -42,7 +70,34 @@ page_layout: page
 titlecase: false
 
 
-# Site owner
+# Social Sharing
+twitter:
+  username               : &twitter "wilsonmar"
+facebook:
+  username               : &facebook "wilsonmar"
+  app_id                 :
+  publisher              :
+og_image                 : "site-logo.png" # Open Graph/Twitter default site image
+# For specifying social profiles
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+    - "https://twitter.com/wilsonmar"
+    - "https://facebook.com/wilsonmar"
+
+# Analytics
+analytics:
+  provider               : "google-universal" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "UA-2011187-3"
+
+# Google AdSense
+google_ad_client         :
+google_ad_slot           :
+
+# Site owner/author:
 owner:
   name: Wilson Mar
   avatar: wilsonmar_2009.jpg
