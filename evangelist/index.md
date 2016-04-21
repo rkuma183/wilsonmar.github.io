@@ -4,7 +4,7 @@ title: Evangelist
 modified: 2016-03-19
 excerpt: "Tips and tricks on technical evangelist."
 image:
-  feature: bkg_planet12 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14625241/9a22d514-059e-11e6-8aa4-7a387673a418.jpg.jpg
   credit: 
   creditlink: 
 ---
