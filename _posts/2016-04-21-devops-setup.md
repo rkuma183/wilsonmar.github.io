@@ -118,7 +118,7 @@ environment.
    * OAuth1 (PKI certificates)
    * OAuth2 (SHA1)
    * etc.
-   
+
    <a name="InputForms"></a>
 
 ### Input formats
@@ -172,6 +172,7 @@ environment.
 
 ### Server Operating System
 
+   * Shell scripts
    * CentOS (open source)
    * Ubuntu (open source)
    * RedHat Enterprise Linux (licensed)
@@ -213,6 +214,7 @@ environment.
    * Ant
    * Maven
    * Grunt, Gulp (used by Node)
+   * ActionScript (Mac)
    * etc.
 
    <a name="SpecRepo"></a>
@@ -341,6 +343,7 @@ environment.
    * MySQL (local and in Amazon)
    * Microsoft SQL Server
    * Oracle
+   * DynamoDB
    * etc.
 
    <a name="MessageQueuing"></a>
