@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "DevOps Setup"
-excerpt: "Do this or else."
+title: "DevOps Choices (a Plethora)"
+excerpt: "You gotta have one of each. Or several."
 tags: [devops]
 image:
 # feature: pic-brown-horses-running-forward-1900x500
@@ -28,13 +28,14 @@ Rather than repeating others, let me link to the most influencial pieces about D
 
 * Gene Kim
 
-## Plethora of choices
+## Categories of choice
 
-Regardless of the choice of specific technologies, 
-here are the categories for standardization decisions:
+There are many choices of specific technologies within
+each category:
 
 0. <a href="#DevProcess">Development process</a>
 0. <a href="#DevOS">Developer laptop</a>
+
 0. <a href="#MicroserviceMgmt">Microservice management</a>
 0. <a href="#SingleSignOn">Single-Sign On Authentication</a>
 0. <a href="#InputForms">Input formats</a>
@@ -47,37 +48,53 @@ here are the categories for standardization decisions:
 0. <a href="#BitRepository">Bit and Image repository</a>
 0. <a href="#TaskRunner">Task runner</a>
 0. <a href="#BuildTool">Build tool</a>
+
 0. <a href="#SpecRepo">Specifications repository</a>
 0. <a href="#ProgrammingLanguages">Programming Languages</a>
 0. <a href="#IDEs">Integrated Development Environments</a>
 0. <a href="#StaticScanner">Static Code Scanner</a>
+0. <a href="#UXDesignTools">UX Design Tools</a>
 0. <a href="#Graphics">Graphics Processing</a>
+
 0. <a href="#MobilePlatforms">Mobile platforms</a>
 0. <a href="#MobileTesting">Mobile testing</a>
-0. <a href="#FunctionalTesting">Functional testing</a>
-0. <a href="#PerformanceTesting">Performance testing</a>
+0. <a href="#UnitTesting">Unit/Functional testing</a>
+0. <a href="#PerfTesting">Performance testing</a>
+0. <a href="#DefectMgmt">Defect Management (ALM)</a>
+
 0. <a href="#Logging">Logging and log management</a>
 0. <a href="#DataVisualization">Visualization</a>
 0. <a href="#In-MemoryDatabases">In-Memory Databases</a>
 0. <a href="#Back-endDatabases">Back-end Databases</a>
+0. <a href="#GeoDatabases">Geographic Databases</a>
+
 0. <a href="#MessageQueuing">Message queuing</a>
 0. <a href="#Notifications">Notifications</a>
 0. <a href="#Email">Email & SMS</a>
 0. <a href="#RESTAPI">REST API management</a>
-0. <a href="#GeoDatabases">Geographic Databases</a>
 0. <a href="#MachineLearning">Machine Learning</a>
 0. <a href="#Others">Other technologies</a>
 
-Most organizations flip back and forth over time between
-limiting choices to limit fragmentation (and costs)
-vs. allowing for individual experimentation for
-creativity.
+## Implications
 
-There is a debate which yields the fastest speed to market
-because bleeding-edge tools often require patching
-which almost everyone is struggling to understand it
--- a condition which yields a <strong>fragile</strong> 
-environment.
+So many choices lead to integration nightmares as many of the
+pieces don't all work together easily.
+
+There is wasted time learning a technology to later learn
+that it can't be used (such as Windows Mobile).
+
+Too many choices lead to conflict among people.
+
+There are two extremes in how organizations cope with so many choices:
+
+   * limit fragmentation (and costs) by enfocing available choices 
+
+   * allow for individual experimentation for creativity.
+
+Which really yields the fastest speed to market
+and quality?
+
+Which yield a <strong>fragile</strong> environment?
 
 <hr />
 
@@ -114,10 +131,11 @@ Boards, burn-down charts.
 
    <a name="SingleSignOn"></a>
 
-### Single-Sign On Authentication
+### Single-Sign On Authentication / User Management
 
    * Okta
    * LDAP
+   * ASP.Net Identity 
    * PKI/encryption CA server
    * OAuth1 (PKI certificates)
    * OAuth2 (SHA1)
@@ -127,7 +145,7 @@ Boards, burn-down charts.
 
 ### Input formats
 
-   * CSV, JSON, XML
+   * CSV, JSON, XML, YML, config
    * Google Sheet (online)
    * Excel .xlsx, .xls (Microsoft Office, Office365)
    * Word .docx, .doc (Microsoft Office, Office365)
@@ -138,7 +156,7 @@ Boards, burn-down charts.
 
    * Dropbox
    * Box
-   * Google 
+   * Google Drive
    * Microsoft OneCloud
    * etc.
 
@@ -253,7 +271,7 @@ Boards, burn-down charts.
 
    * JetBrains
    * Eclipse (favored by Java)
-   * Visual Studio
+   * Visual Studio with ReSharper, TestDriven.Net
    * etc.
 
    <a name="StaticScanner"></a>
@@ -262,7 +280,17 @@ Boards, burn-down charts.
 
    * custom for the language
    * SonarQube
+   * Persoft
    * etc.
+
+   <a name="UXDesignTools"></a>
+
+### UX Design Tools
+
+   * Axure
+   * Photoshop PXD
+   * etc.
+
 
    <a name="Graphics"></a>
 
@@ -283,24 +311,26 @@ Boards, burn-down charts.
    * Generators (React Native from JavaScript v6)
    * etc.
 
-   <a href="#FunctionalTesting"></a>
+   <a href="#MobileTesting"></a>
 
 ### Mobile testing
 
    * Appium (Java)
    * Perfecto (mobile device cloud)
+   * SauceLabs
+   * Amazon Device Cloud
    * etc.
 
-   <a name="PerformanceTesting"></a>
+   <a name="UnitTesting"></a>
 
 ### Unit & Functional testing
 
+   * Karma with Jasmine
    * Selenium (Java, JavaScript, .NET, etc.)
-   * Jasmine
    * Mocha
    * etc.
 
-   <a name="#MobileTesting"></a>
+   <a name="PerfTesting"></a>
 
 ### Performance testing
 
@@ -308,13 +338,21 @@ Boards, burn-down charts.
    * SOASTA (cloud subscription)
    * etc.
 
+   <a name="#DefectMgmt"></a>
+
+### Defect Management (ALM)
+
+   * FogBugz
+   * etc.
+
    <a name="Logging"></a>
 
 ### Logging and log mangement
 
    * Logstash / ElastiSearch (open source)
+   * AppDynamics
    * NewRelic
-   * 
+
    * SumoLogic (subscription)
    * AWS (subscription)
    * Splunk
@@ -327,6 +365,7 @@ Boards, burn-down charts.
    * Kibana (from Elastisearch)
    * Tableau
    * Qlik
+   * PowerBI
    * etc.
 
    <a name="In-MemoryDatabases"></a>
@@ -353,6 +392,16 @@ Boards, burn-down charts.
    * Microsoft SQL Server
    * Oracle
    * DynamoDB
+   * etc.
+
+   <a name="GeoDatabases"></a>
+
+### Geographic Databases
+
+   * Google Maps
+   * Bing Maps
+   * ESRI
+   * Route optimization (machine learning)
    * etc.
 
    <a name="MessageQueuing"></a>
@@ -391,16 +440,7 @@ Boards, burn-down charts.
 ### REST API management
 
    * Mulesoft
-   * etc.
-
-   <a name="GeoDatabases"></a>
-
-### Geographic Databases
-
-   * Google Maps
-   * Bing Maps
-   * ESRI
-   * Route optimization (machine learning)
+   * Mashery (Intel)
    * etc.
 
   <a name="MachineLearning"></a>
