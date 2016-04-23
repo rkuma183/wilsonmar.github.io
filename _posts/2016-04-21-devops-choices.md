@@ -40,6 +40,8 @@ each category:
 0. <a href="#SingleSignOn">Single-Sign On Authentication</a>
 0. <a href="#InputForms">Input formats</a>
 0. <a href="#InputLocations">Input locations</a>
+
+0. <a href="#VPN">VPN</a>
 0. <a href="#CloudEnvs">Cloud environment</a>
 0. <a href="#LoadBalancer">Load Balancer</a>
 0. <a href="#CDN">Content Distribution Network</a>
@@ -97,6 +99,8 @@ and quality?
 Which yield a <strong>fragile</strong> environment?
 
 <hr />
+
+## Development environment:
 
    <a name="DevProcess"></a>
 
@@ -160,6 +164,15 @@ Boards, burn-down charts.
    * Microsoft OneCloud
    * etc.
 
+## Servers
+
+   <a name="VPN"></a>
+
+### VPN (Virtual Private Network)
+
+   * Cisco
+   * etc.
+
    <a name="CloudEnvs"></a>
 
 ### Cloud environment
@@ -208,6 +221,8 @@ Boards, burn-down charts.
    * Bitbucket
    * Stash
    * Subversion
+   * Mercurial
+   * Perforce
    * etc.
 
    <a name="BitRepository"></a>
@@ -375,6 +390,9 @@ Boards, burn-down charts.
    * Redis
    * SQLite (mobile)
    * HTML5 local storage
+
+   * Varnish
+   * Memcached
    * etc.
 
    <a name="Back-endDatabases"></a>
