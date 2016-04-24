@@ -11,7 +11,7 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr zz
+<hr />
 {% include _toc.html %}
 
 PROTIP: After installation, in the Finder, right-click on the installer to free up disk space.
@@ -216,6 +216,18 @@ And it has no option to keep my passwords out of public clouds.
 
 0.  The Android version rates at 4.5 and costs $9.99 each.
 
+<a id="Firewall"></a>
+
+## Firewall
+
+Some apps "phone home" (particularly licensed apps) 
+without informing you.
+
+This is troubling because it uses up your network bandwidth.
+
+<a target="_blank" href="https://radiosilenceapp.com/">
+$9 Radio Silence</a> reports which apps are doing it,
+then blocks them.
 
 
 <a id="AntiVirusz"></a>
