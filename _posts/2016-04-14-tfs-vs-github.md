@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Microsoft TFS and Git"
-excerpt: "What ya gonna do with it?"
+title: "Microsoft TFS vs. Git and GitHub"
+excerpt: "You committed or just checked-in?"
 tags: [devops, git, TFS]
 image:
 # feature: fig-white-black-malika-favre-vertical-bars
@@ -99,13 +99,21 @@ Visual Studio 2015 with Update 1 dated 11/30/2015:
 0. Visual Studio Team Foundation Server 2015 with Update 1 (x86 and x64) - DVD (English)
 
 
+## Pricing and options
 
+Microsoft's Express editions are free <strong>for up to 5 users</strong>.
+Express TFS makes use of Express SQL.
 
-TFS is the community server behind Microsoft's Visual Studio IDE.
+Microsoft's codeplex.com offers hosting.
+
+A 30-day free trial is available from <a target="_blank" href="http://www.discountasp.net/tfs/hosted-team-foundation-server.aspx">
+DiscountASP</a>.
 
 ## More than just version control
 
-In 2010, TFS was primarily a replacement for Visual Source Safe.
+TFS is the community server behind Microsoft's Visual Studio IDE.
+
+In 2010, TFS was primarily a replacement for Visual Source Safe product.
 
 In 2012, TFS became a part of Microsoft's new 
 ALM (Application Lifecycle Management) "best practices":
@@ -167,17 +175,51 @@ can be used across several Collections.
 Each collection has a queue.
 An agent can belong to several queues.
 
+## TFS setup
 
-## Git is King
+There is only one repository in each machine hosting TFS.
+Git allows for many repos.
 
-When the internet and its developers began to adopt Git and GitHub,
-Visual Studio 2015 provides support for both GitHub and TFS.
+In TFS, create a <strong>team project</strong>, 
+then folders for each individual project and branches.
+
+PROTIP: Naming conventions for team project name?
+
+TFS 2012 had 3 process templates to define work item field names:
+
+   * Visual Studio scrum 2.0
+   * MSF for Agile Software Development 6.0
+   * MSF for CMMI Process Improvement 6.0
+   * SAFe?
+
+IN VS, a new project can be added to TFS with a checkbox, or added by right-clicking the Solution node.
+
+
+
+## Git vs. TFS
+
+TFS is a <strong>centralized</strong> version while<br />
+Git is <strong>distributed</strong>.
 
 TFS has its own language:
 Check-in/Check-out is a different concept.
 
-In TFS Shelvesets backup what's on clients as temporary check-in.
-This is different than stage.
+TFS users "check-in" which invokes <strong>file locking</strong> whereas<br />
+Git users do commits based on distributed full versions with difference checking.
+
+TFS provides a "shelf" to hold local changes temporarily.<br />
+Git provides a stash area away from items being committed.
+
+Shelvesets in TFS are stored in the centeral server.<br />
+Stashed items in Git remain local machine.
+
+## Git is King?
+
+Public repository websites at even Google, Microsoft, and others have moved to adopt Git and GitHub.
+
+Visual Studio 2015 provides support for both GitHub and TFS.
+
+
 
 ## git-tfs bridge
 
@@ -279,3 +321,10 @@ https://technet.microsoft.com/en-us/virtuallabs?f=255&MSPPError=-2147217396
 
 https://technet.microsoft.com/en-us/virtuallabs?f=255&MSPPError=-2147217396
 TechNet Virtual Lab: Introduction to Team Foundation Build 2015 (vNext), Test Run Analysis and Machines
+
+
+## Resources
+
+<a target="_blank" href="http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html">
+Lynda video course</a> shows several version control products, including use of TFS by Visual Studio 2012.
+
