@@ -31,7 +31,7 @@ Writing in JavaScript is more comfortable to some.
 
 <a name="SampleScript"></a>
 
-## Begin with a sample 
+## Begin with a sample
 
 > It is so much easier to begin with a production-worthy sample
   rather than hacking your way through (and embarassing yourself).
@@ -54,14 +54,14 @@ Writing in JavaScript is more comfortable to some.
 
    * "WJS1" is for the first release of the sample app.
    * "W" is for the Web (HTTP/HTML) protocol when creating the
-   script. 
-   * "JS" is for JavaScript. 
+   script.
+   * "JS" is for JavaScript.
    * "sample" is the scope of the script folder.
    * "1250" is for version 12.50 of LoadRunner.
    * "V01" is for version 1 of the script.
 
   This sample script contains a library of functions that provide both
-  examples of JavaScript coding and 
+  examples of JavaScript coding and
   use of utilities provided.
 
    The script name contains the word "challenge" because
@@ -80,24 +80,24 @@ The rest of this tutorial is based on this overview:
 Click on the diagram for a YouTube video with the narrative below.
 
 Every LoadRunner program (regardless of programming language)
-has an entry point in the 
+has an entry point in the
 <a href="#vuser_init">vuser_init</a> file,
 which is automatically executed once at the beginning.
 
-There is also a single exit point in the vuser_end file, 
+There is also a single exit point in the vuser_end file,
 also automatically executed only one time.
 
 Between these two is the <a href="#Action_file">Action file</a>
 which LoadRunner iterates
 over and over until some condition ends its loop.
 
-There will of course be additional script files added, such as 
+There will of course be additional script files added, such as
 [functions to book flights](#CreateCustomScripts) to
-emulate user activities in the Web Tours 
+emulate user activities in the Web Tours
 sample application that comes with LoadRunner.
 
 Our hope is that you'll save time and debugging frustration
-by making use of the commonly needed functions 
+by making use of the commonly needed functions
 we've provided in our sample script.
 
 Our library contains additional functions
@@ -109,35 +109,35 @@ data for the run, and other exciting capabilities.
 To make editing files easier, functions are grouped into
 separate files:
 
-   * The <strong>WJS1_Config.js</strong> Configuration 
+   * The <strong>WJS1_Config.js</strong> Configuration
    contains functions
    to manage printing and to start and end transaction tracking.
 
-   * The <strong>WJS1_Access.js</strong> 
-   Access file contains functions such as 
+   * The <strong>WJS1_Access.js</strong>
+   Access file contains functions such as
    Sign-Up, Sign-In, Sign-Out, etc.
 
 Over the course of load testing an app being built,
 we often need to run just one of these functions at a time
-as well as all in combination. 
+as well as all in combination.
 
-So in the advanced version of this course 
+So in the advanced version of this course
 we cover what we call the <a href="#RunType">RunType</a>
 attribute to control the scope of processing at run-time.
 
 But for now, we'll focus here on options for efficiently coding
 the rotation through different <strong>landing</strong> pages.
 
-We make use of the <a href="#RunDataInAttribute">RunDataIn</a> attribute 
+We make use of the <a href="#RunDataInAttribute">RunDataIn</a> attribute
 to select among different sources of data.
 The default is a single hard-coded URL to request.
 
 The objective of the sample script is to make it easier to
 add processing features that are otherwise
-time consuming to add to every request, such as 
+time consuming to add to every request, such as
 <a href="#RandomizeCalls">random execution</a>.
 
-The sample script also provides a structured approach 
+The sample script also provides a structured approach
 to make requests after preparation of all data needed.
 
 Making calls using generic functions
@@ -151,12 +151,12 @@ it is already available.
 
 So is adding a <a href="#Retries">retry logic</a> loop.
 
-Our sample script folder also provides a way to 
+Our sample script folder also provides a way to
 <a href="#ForLoops">loop through a file</a>
  of URLs in the sample data file provided.
 
 In the advanced version of this course,
-we also cover how to drive requests stored in 
+we also cover how to drive requests stored in
   a VTS (Virtual Table Service) running on a separate machine.
   This not only keep memory use low in load generators,
   but provide dynamic update of data going into the run.
@@ -196,6 +196,7 @@ sample script</a> that accompanies this narrative.
 0. <a href="#ChainCalls"> Chain calls</a>
 0. <a href="#RandomizeCalls"> Randomize execution</a>
 0. <a href="#Retries"> Retry execution</a>
+0. <a href="#Redirects"> Redirect execution</a>
 0. <a href="#GenericFunctions"> Call generic functions</a>
 0. <a href="#SpecifyLinkRetrieval"> Specify link retrieval mode</a>
 0. <a href="#GenericStartStop"> Use generic Start and End Transactions</a>
@@ -205,7 +206,7 @@ sample script</a> that accompanies this narrative.
 0. <a href="#AppAccessFunctions"> Create custom app access functions</a>
 0. <a href="#RunType"> Use RunType</a>
 
-> In addition to these basic ones, 
+> In addition to these basic ones,
   several TODO items are covered in private advanced courses.
   Call me to take the class.
 
@@ -221,7 +222,7 @@ sample script</a> that accompanies this narrative.
 
 ## Initialize in vuser_init
 
-The function <strong>vuser_init()</strong> 
+The function <strong>vuser_init()</strong>
 is LoadRunner's entry point into the program.
 
 This LoadRunner runs just once before advancing to the Action file.
@@ -233,7 +234,7 @@ can simply paste in a reference to a separate library file, such as:
     {% highlight JavaScript %}
     rc=wi_library_init();{% endhighlight %}
 
-Before we dive into that function, 
+Before we dive into that function,
 let's first talk about that "rc=" return code.
 
 
@@ -251,7 +252,7 @@ such as this:
 
     {% highlight JavaScript %}
     rc=wi_library_init();{% endhighlight %}
-    
+
 If the return code is anything other than a numeric zero
 (which I think of as "clear"), some error occured.
 
@@ -267,7 +268,7 @@ such as:
   at various levels of processing.
 
 
-The name of the command establishes the environment needed for other functions 
+The name of the command establishes the environment needed for other functions
 in the <strong>wi_library.js</strong>.
 
 Next, let's look inside that file.
@@ -308,7 +309,7 @@ and cause name conflicts.
 
 ### Message levels
 
-The scope of messages that LoadRunner outputs is determined by the 
+The scope of messages that LoadRunner outputs is determined by the
 various Log Run-time settings.
 
 The message level is set during initialization by this code:
@@ -316,7 +317,7 @@ The message level is set during initialization by this code:
     {% highlight JavaScript %}
     wi_msg_level.init(){% endhighlight %}
 
-Data values are made available to various calling functions 
+Data values are made available to various calling functions
 as "methods" of the object "wi_msg_level".
 
 To retrieve the message level saved at initialization:
@@ -330,15 +331,15 @@ All the functions acting on the msg_level object are coded in one set:
 var wi_msg_level = ( function() {
     // Private members:
     var wi_msg_level_init=0,
-    
+
     init = function() {
         wi_msg_level_init = lr.mgetMessageLevel();
     },
-    
+
     at_init = function() {
         return wi_msg_level_init;
     },
-    
+
     };
     return { // public:
         init: init,
@@ -350,7 +351,7 @@ var wi_msg_level = ( function() {
 This coding should not result in warning messages when parsed by
 JSLint.
 
-This coding techique here uses a JavaScript technique 
+This coding techique here uses a JavaScript technique
 called a JavaScript &quot;<strong>closure</strong>&quot; using the
 &quot;revealing module pattern&quot; of coding JavaScript
 that encapsulates functions related to an object.
@@ -360,10 +361,10 @@ by extension.
 
 In LoadRunner scripts its main advantage is it's only created once in memory.
 
-It encapsulates private code, but that's not important when it comes to 
+It encapsulates private code, but that's not important when it comes to
 LoadRunner scripts.
 
-NOTE: This approach is explained in Dan Wahlin's 
+NOTE: This approach is explained in Dan Wahlin's
 <a target="_blank" href="http://app.pluralsight.com/courses/structuring-javascript">
 video course on Pluralsight</a> and
 <a target="_blank" href="http://weblogs.asp.net/dwahlin/techniques-strategies-and-patterns-for-structuring-javascript-code-revealing-module-pattern">
@@ -389,17 +390,17 @@ The sample closure and its methods are defined by this:
 
 
 There are <a target="_blank" href="http://stackoverflow.com/questions/4190792/should-i-use-a-global-variable-and-if-not-what-instead-javascript">
-other similar examples</a> 
+other similar examples</a>
 
-At the top of the sample script above, 
-the "()" defining the anonymous function expression 
+At the top of the sample script above,
+the "()" defining the anonymous function expression
 is required by the language, since statements that begin with the token function are always considered to be function declarations.
 
 A closure in JavaScript is like keeping a copy of all the local variables, just as they were when the function exited.
 
 In C and most other common languages, after a function returns, all the local variables are no longer accessible because the stack-frame is destroyed.
 
-But in JavaScript, declaring a function within another function, then the local variables can remain accessible after returning from the function called. 
+But in JavaScript, declaring a function within another function, then the local variables can remain accessible after returning from the function called.
 
 The return "object literal" pairs at the bottom
 matches the public name with the name coded.
@@ -407,11 +408,11 @@ matches the public name with the name coded.
 Going further, the
 <a target="_blank" href="http://blog.alexanderdickson.com/javascript-revealing-module-pattern#fn:1">
 JavaScript Revealing Module Pattern</a>
-developed by Richard Cornford et al 
+developed by Richard Cornford et al
 <a target="_blank" href="http://groups.google.com/group/comp.lang.javascript/msg/9f58bd11bd67d937">
 on comp.lang.javascript</a>.
 
-Functions that should be exposed publicly are defined in the return section of the Calculator object. 
+Functions that should be exposed publicly are defined in the return section of the Calculator object.
 
 
 <a name="ListRunTimeSettings"></a>
@@ -444,7 +445,7 @@ by specifying this library function:
 
 CHALLENGE: In your own code,
 add this pair of functions around message functions
-you want to force printing anywhere in your script 
+you want to force printing anywhere in your script
 even though logging is not enabled:
 
    {% highlight html %}
@@ -462,7 +463,7 @@ are, use this library function:
 Now use a LoadRunner message function such as:
 
    {% highlight JavaScript %}
-    lr.outputMessage(">> wi_msg_level_at_init = " 
+    lr.outputMessage(">> wi_msg_level_at_init = "
         + wi_msg_level.at_init() +".");{% endhighlight %}
 
    PROTIP: Specify a special set of characters at the front of output messages so they are easy to identify among potentially many output lines.
@@ -472,8 +473,8 @@ Now use a LoadRunner message function such as:
 
 CHALLENGE: Look in Help for other types of messages.
 
-   NOTE: LoadRunner's lr.outputMessage() function 
-   includes the script file name and line number 
+   NOTE: LoadRunner's lr.outputMessage() function
+   includes the script file name and line number
    whereas LoadRunner's lr.logMessage function does not.
 
 Output according to the log level set in Run-time settings
@@ -487,8 +488,8 @@ is honored by the rest of the script by this library function:
 
 ### Define verbosity
 
-BTW, the JavaScript alert() functions 
-LoadRunner rejects with this error (instead of printing out 
+BTW, the JavaScript alert() functions
+LoadRunner rejects with this error (instead of printing out
 the content):
 
     {% highlight JavaScript %}
@@ -511,7 +512,7 @@ An example of a Trace level statement is:
     lr.outputMessage(">> Action Iteration=" + lr.evalString("{pIteration}") +".");
     wi_msg_print_reset();{% endhighlight %}
 
-The advantage of a LoadRunner parameter is that 
+The advantage of a LoadRunner parameter is that
 VuGen shows their values during a run if you are stepping through
 or have set a <strong>breakpoint</strong> before starting a run.
 
@@ -528,7 +529,7 @@ Now let's take a look at the flow of the program:
 ### Specify Data Source Attribute
 
 A LoadRunner program can obtain data from several sources:
-hard-coded in script, from a CSV file defined in parameters, 
+hard-coded in script, from a CSV file defined in parameters,
 and from VTS (Virtual Table Server).
 
 The <strong>RunDataIn</strong> attribute obtained from
@@ -558,9 +559,9 @@ the various values are tested so that if the value specified
 is not recognized by the code, an error condition can be issued
 at the beginning of the script rather than later during the run.
 
-> Advanced editions of this course covers use of JavaScript 
+> Advanced editions of this course covers use of JavaScript
    <strong>arrays</strong>
-   to structure small amounts of multi-dimensional data 
+   to structure small amounts of multi-dimensional data
    easily available.
 
 
@@ -568,7 +569,7 @@ at the beginning of the script rather than later during the run.
 
 ### For loops
 
-If FILE processing is specified, 
+If FILE processing is specified,
 the script loops through records in the dat file.
 
 Most JavaScript tutorials provide this as the sample for loop:
@@ -584,15 +585,15 @@ Most JavaScript tutorials provide this as the sample for loop:
 
 * "i++" is executed each time after each iteration of the code block executes.
 
-The problem is that in the real world of things, 
+The problem is that in the real world of things,
 counts begin from one, not zero.
 
 ![twinsthingonetwo](https://cloud.githubusercontent.com/assets/300046/14466784/91849982-0095-11e6-9ad1-f0b6518928a6.jpg)
 
-(Aren't they cute? The "younger", nastier, twin can say to the older twin: 
+(Aren't they cute? The "younger", nastier, twin can say to the older twin:
 "I'm one. You're zero.")
 
-Anyway, note that in the begin-from-zero loop, the iteration number 
+Anyway, note that in the begin-from-zero loop, the iteration number
 is one off from the count. The first iteration is one when i=0.
 The second iteration has i=1, etc.
 
@@ -623,7 +624,7 @@ leaving high-level calls such as this:
    rc=WJS1_Access_landing( "T01_landing","http://contoso.net/",100);
    ```
 
-PROTIP: Name functions beginning with the name of the 
+PROTIP: Name functions beginning with the name of the
 file within which they are defined.
 
 <a name="RandomizeCalls"></a>
@@ -646,17 +647,17 @@ That static number can be substituted with another number or a variable.
     lr.outputMessage(">> Out of range. wi_random_seed = " + wi_random_seed + " NOT <= " + trans_random_number );
   }{% endhighlight %}
 
-The seed is between 0 and 100 because the number obtained from the 
+The seed is between 0 and 100 because the number obtained from the
 JavaScript randomizer is a number between zero and 1,
 multiplied by 100.
 
 The <strong>wi_random_seed</strong> variable is defined when
-the <strong>wi_library_init()</strong> function within the wi_library 
+the <strong>wi_library_init()</strong> function within the wi_library
 is executed within vuser_init.
 
-To obtain distribution, consider 
+To obtain distribution, consider
 <a target="_blank" href="http://jsfiddle.net/dje3z093/1/">
-this</a> technique that produces a "bell curve" of numbers 
+this</a> technique that produces a "bell curve" of numbers
 clustered around .5 between 0 and 1.
 
 <a name="ChainCalls"></a>
@@ -668,7 +669,7 @@ without having to touch every request (which introduces risk).
 
 For example, retry logic can be introduced into the chain of calls.
 
-Or addition of preparation (<strong>prep</strong>) 
+Or addition of preparation (<strong>prep</strong>)
 activities such as assemblying body content.
 
 
@@ -692,18 +693,18 @@ During stress test runs, the server may not be respond to some requests.
 Such behavior should not cause the script to stop because
 the whole point of the script is to create stress conditions.
 
-However, there needs to be a limit on how many times a particular 
+However, there needs to be a limit on how many times a particular
 request (with a particular set of data values) are retried.
 
-That limit is specified by the <strong>Retries</strong> 
+That limit is specified by the <strong>Retries</strong>
 Run-time attribute. A zero value (the default) means no retries occur.
 
 {% highlight JavaScript %}
 function wi_web_url_http( in_trans , in_url ){
    var rc=0;
    var i=0;
-   
-   for( i = 1; i <= Retries; i++ ){ 
+
+   for( i = 1; i <= Retries; i++ ){
 
           rc=wi_web_url( in_trans , in_url , etc. );
       if( rc == 0 ){
@@ -714,9 +715,60 @@ function wi_web_url_http( in_trans , in_url ){
    return rc;
 }{% endhighlight %}
 
+<a name="Redirects"></a>
+
+### Redirect execution
+
+Many landing pages redirect to another URL by returning a 302 response code along
+with the next URL prefixed by "Location: " within the HTTP header.
+
+LoadRunner is supposed to emulate browsers which automatically go to the forwarded URL.
+But we sometimes want to capture that forwarding URL or a session-cookie
+that some systems generate and add that to HTTP headers before forwarding.
+
+Extra coding in LoadRunner including telling LoadRunner not to automatically forward:
+
+    web_set_option("MaxRedirectionDepth", "0", LAST);
+
+Sometimes the user is forwarded to a chain of URLs,
+so a while loop is used to do forwarding.
+This same sets up a web_reg_save_param to capture the Location: value
+in HTTP headers:
+
+CHALLENGE: Convert from <a target="_blank" href="https://ptfrontline.wordpress.com/2010/04/11/handle-http-re-directions-in-loadrunner-scripts-yourself/"> this sample C code</a> to JavaScript:
+
+{% highlight JavaScript %}
+// Initial Location URL:
+lr_save_string("http://www.mercury.com", "Location");
+
+do
+{
+    // Save new Redirection Info (Location: header)
+    web_reg_save_param("Location",
+                       "LB=Location: ",
+                       "RB=\r\n",
+                       "Ord=1",
+                       "NotFound=Warning",
+                       "Search=Headers",
+                       LAST );
+
+    // do any web call (This needs to be modified to suit your needs)
+    web_url("my_req",
+      "URL={Location}",
+      LAST );
+
+    // Get HTTP response Code
+    HttpRetCode = web_get_int_property(HTTP_INFO_RETURN_CODE);
+
+} while ((HttpRetCode>=300) & (HttpRetCode<400));
+
+return 0;
+}{% endhighlight %}
+
+
 <a name="SpecifyLinkRetrieval"></a>
 
-### Specify link retrieval mode 
+### Specify link retrieval mode
 
 The <strong>in_mode</strong> variable provides a signal whether
 the HTTP or HTML mode. It is also used to specify the HTTP commands
@@ -726,21 +778,21 @@ The wi_web_url() function called contains this:
 
    {% highlight html %}
    web.url({
-    name : in_trans, 
-    url :  in_url, 
-    targetFrame : '', 
-    resource : 0, 
-    recContentType : 'text/html', 
-    referer : '', 
-    snapshot : 't1.inf', 
+    name : in_trans,
+    url :  in_url,
+    targetFrame : '',
+    resource : 0,
+    recContentType : 'text/html',
+    referer : '',
+    snapshot : 't1.inf',
     mode : in_mode
    });{% endhighlight %}
 
 NOTE: A value in <strong>referer</strong> is
 not needed with the Web Tours sample application which does not use it.
 
-NOTE: The `mode: ` activates a feature of LoadRunner which 
-scans the html returned and issue requests for 
+NOTE: The `mode: ` activates a feature of LoadRunner which
+scans the html returned and issue requests for
 links to CSS, JavaScript, images, etc.
 
 (Images specified within CSS are not retrieved this way)
@@ -758,14 +810,14 @@ which called it:
 
 To recap, there are several levels of generic functions:
 
-   * Generic function called by application custom code 
+   * Generic function called by application custom code
    contain retry logic, such as `wi_web_url_http()`.
 
    * Generic functions called by those functions
    in turn call LoadRunner built-in functions such as `web_url()`.
    Such are displayed in red by VuGen.
 
-PROTIP: Using generic functions reduce the amount of code. 
+PROTIP: Using generic functions reduce the amount of code.
 The less coding, the smaller the script's memory footprint.
 Smaller scripts allow for more Vusers to fit into available memory on load generator machines.
 
@@ -790,7 +842,7 @@ surrounded by a pair of wi_library functions:
    ```
 
 PROTIP: Specify Start and End transactions names using a parameter
-("in_trans") so the code is more easily pastable and 
+("in_trans") so the code is more easily pastable and
 there is no danger of typos in transaction start vs. end names,
 avoiding the most common cause of runs being aborted.
 
@@ -799,8 +851,8 @@ avoiding the most common cause of runs being aborted.
 ### Automatically vary Think Time
 
 PROTIP: Putting think-time functions within a generic start and end function
-ensures eliminates a common coding error of 
-having think time statements placed after start transaction statements that make think time and data preparating time 
+ensures eliminates a common coding error of
+having think time statements placed after start transaction statements that make think time and data preparating time
 be counted in the transaction time.
 
    {% highlight html %}
@@ -824,21 +876,21 @@ How do you know whether the correct screen was returned?
 
 PROTIP: After each user action, use script code to verify whether response from the server is what is expected (positive or negative).
 
-LoadRunner provides several functions. 
+LoadRunner provides several functions.
 
-   * web.regFind() 
+   * web.regFind()
    registers a search for a text string for the next action function.
 
-   * web.regSaveParamEx 
+   * web.regSaveParamEx
    registers a request to save dynamic data located between specified boundaries to a parameter.
 
    * web.regSaveParamJson
    registers a request to save dynamic data in an buffer that has been formatted as Json. The data is saved to a parameter.
 
-   * web.regSaveParamRegexp 
+   * web.regSaveParamRegexp
    registers a request to save dynamic data that matches a regular expression to a parameter.
 
-   * web.regSaveParamXpath 
+   * web.regSaveParamXpath
    registers a request to find dynamic data in an HTML buffer that has been formatted as XML and save the data to a parameter.
 
 CHALLENGE: Look for additional information
@@ -861,18 +913,18 @@ to be returned from the server:
 The regFind() function is invoked only there is a title to be compared,
 within the in_title variable provided as part of the call.
 
-This function is in the start transaction code because, as the 
+This function is in the start transaction code because, as the
 "reg" in the function name implies, <strong>registers</strong>
 the evaluation to be carried out as the response streams in.
 
-Evaluation of the response is performed in 
+Evaluation of the response is performed in
 the endTransaction() function.
 
 The `relFrameId` attribute refers to the HTML frame to search in.
 
-VuGen does not record such functions. They must either be manually coded into the script. The VuGen UI provides a way to insert the function using a mouse. 
+VuGen does not record such functions. They must either be manually coded into the script. The VuGen UI provides a way to insert the function using a mouse.
 
-This is a simple approach to <strong>stop execution</strong> 
+This is a simple approach to <strong>stop execution</strong>
 with an error at the point in the script
 that makes the call related to the above code.
 
@@ -889,11 +941,11 @@ in registration function is examined:
 
    {% highlight JavaScript %}
    if( lr.evalString("{title_found_count}") == "0" ){
-      // Not found 
+      // Not found
    }{% endhighlight %}
 
 The `title_found_count` in registration functions specify the name of a
-<strong>LoadRunner parameter</strong>, 
+<strong>LoadRunner parameter</strong>,
 which transcends all JavaScript functions.
 
 The parameter is also a string, so needs to be converted to a number
@@ -908,7 +960,7 @@ fail if the text is found (such as an error message).
 
 
 NOTE: An error is raised immediately if the text is not found,
-but at where the request is made, not at this script line 
+but at where the request is made, not at this script line
 which registers the capture during request execution.
 
 
@@ -916,7 +968,7 @@ which registers the capture during request execution.
 
 ### Make REST APIs
 
-Before the transaction, we make call 
+Before the transaction, we make call
 <strong>web.regSaveParamJson</strong> to
 register saving dynamic data in an buffer formatted as Json. The data is saved to a parameter.
 
@@ -973,10 +1025,10 @@ PROTIP: Record into a file which is not executed so that whatever is generated c
 
 NOTE: Not all script protocols are able to record within an existing script. Only scripts for Web, Java, WAP, Oracle NCA, or RTE Vuser script can be recorded this way.
 
-NOTE: Each script file listed in the Action list is a separate 
-.js file within the script folder. 
+NOTE: Each script file listed in the Action list is a separate
+.js file within the script folder.
 
-CHALLENGE: Create a separate file to receive generated code 
+CHALLENGE: Create a separate file to receive generated code
 durng recordin, but will never be edited or executed
 so its line numbers stay in sync with code generation logs.
 
@@ -984,24 +1036,24 @@ so its line numbers stay in sync with code generation logs.
 
 2. Select Create New Action… from the pop-up.
 
-3. Type "Recording". 
+3. Type "Recording".
 
-4. Press OK to dismiss the dialog. 
+4. Press OK to dismiss the dialog.
 
    The Recording.js file should appear among vuser_init, Action, etc.
 
 ### Remove custom files from Run-Time Logic
 
-CHALLENGE: Remove extra custom files (such as Recording) 
+CHALLENGE: Remove extra custom files (such as Recording)
 from Run Logic so that it does not get executed automatically by LoadRunner.
 
 1. Press F4 or menu Replay.
 
-2. Click on Run-Time Settings 
+2. Click on Run-Time Settings
 
-3. Click Run Logic. 
+3. Click Run Logic.
 
-4. Right-Click on Recording. 
+4. Right-Click on Recording.
 
 5. Select <strong>Remove Item</strong>.
 
@@ -1028,7 +1080,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
    ```
 
    To understand the context of these values,
-   use a text editor to read the recording generation log 
+   use a text editor to read the recording generation log
    and search for it.
 
 13.Select those that need to be correlated and click on Correlate.
@@ -1036,7 +1088,7 @@ from Run Logic so that it does not get executed automatically by LoadRunner.
 NOTE: Design Studio can be reached manually by clicking the ‘Design Studio’ button in the toolbar or in the Design menu.
 
 NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled by selecting the ‘Correlation Scan’ checkbox under   General > Code Generation.
-   
+
    NOTE: Most application recordings require additional
    manual changes after recording.
 
@@ -1046,8 +1098,8 @@ NOTE: In Recording Options dialog. Automatic correlations are enabled/disabled b
 
 ### Create custom script files
 
-PROTIP: Generally, it's best to leave the automatically 
-created Action.js file with the fewest custom lines. 
+PROTIP: Generally, it's best to leave the automatically
+created Action.js file with the fewest custom lines.
 This would reserve use of Action for more flexibility in the future.
 
 0. Create a use case file to hold custom functions
@@ -1072,7 +1124,7 @@ This would reserve use of Action for more flexibility in the future.
 
 0. Select the custom file name just created.
 
-CAUTION: Deleting an entry under Extra Files, 
+CAUTION: Deleting an entry under Extra Files,
 that physical file is deleted from the file system as well.
 
 
@@ -1099,10 +1151,10 @@ Additional functions include:
    * WJS1_Access_SignUp_error()
    * WJS1_Access_SignIn_error()
 
-Such <strong>negative test cases</strong> 
+Such <strong>negative test cases</strong>
 causing errors deliberately
 may be useful because an app's error handling
-sometimes have performance issues. 
+sometimes have performance issues.
 But attention to them are usually
 held for development until
 additional time becomes available for scripting.
@@ -1120,7 +1172,7 @@ are executed repeatedly.
 | ------- | -------- | ------- |
 | Land    | Landing URL only | Network variability |
 | SignUp  | Land, SignUp  | Build user database |
-| SignUpIn | Land, SignUp, SignIn, SignOut | Stress on authentication mechanism | 
+| SignUpIn | Land, SignUp, SignIn, SignOut | Stress on authentication mechanism |
 | SignInOut | Land, SignIn, SignOut | Stress on authentication mechanism |
 | SignIn | Land, SignIn only | Emulate call center start of shift |
 | Menus | Land, Menus | Run through all menus available before Sign-in is required. |
@@ -1135,29 +1187,29 @@ To implement this in code requires kinda convoluted thinking.
 
 PROTIP: Avoid duplicating the error-handling of apps used by end-users.
 With programs for stress testing, we often want
-the program to continue even when errors occur in order to 
+the program to continue even when errors occur in order to
 see how the entire system treats such conditions.
 
-* When looping through a file of loosely related URLs, 
+* When looping through a file of loosely related URLs,
 an error with one row results in going to the next row.
 
 * When running through a sequence, a login error would result in
 going to the next user in the list.
 
-* When a URL not found error is encountered, 
-since it can be attributed to transient network conditions, 
+* When a URL not found error is encountered,
+since it can be attributed to transient network conditions,
 the result would be to retry the call.
 
 * When establishing run conditions, if a value is not supplied,
-  automatically 
+  automatically
 
-LoadRunner can be asked to handle errors using 
+LoadRunner can be asked to handle errors using
 a function to exit from a script, action, or iteration:
 
     {% highlight JavaScript %}
     lr.exit(lr.EXIT_VUSER, lr.FAIL);{% endhighlight %}
 
-Errors in intialization 
+Errors in intialization
 
 <hr />
 
@@ -1197,8 +1249,8 @@ LoadRunner can generate script code like this based on the text of the link
 {% highlight html %}
 web.image(
 {
-name : 'Search Flights Button', 
-alt : 'Search Flights Button', 
+name : 'Search Flights Button',
+alt : 'Search Flights Button',
 snapshot : 't3.inf'
 }
 );
@@ -1213,8 +1265,8 @@ To submit an HTML form:
 {% highlight html %}
 web.submitForm(
 {
-name : 'login.pl_2', 
-snapshot : 't11.inf', 
+name : 'login.pl_2',
+snapshot : 't11.inf',
 itemData :  [
 {name : 'username', value : '{UserIds_userid}'},
 {name : 'password', value : '{UserIds_pwd}'},
@@ -1238,20 +1290,20 @@ captured by LoadRunner.
 {% highlight html %}
 web.submitData(
 {
-name : 'login.pl', 
-action : '{pProtocolHostPort}/cgi-bin/login.pl', 
-method : 'POST', 
-recContentType : 'text/html', 
-referer : '{pProtocolHostPort}/cgi-bin/nav.pl?in=home', 
-snapshot : 't2.inf', 
-mode : 'HTML', 
-itemData : 
+name : 'login.pl',
+action : '{pProtocolHostPort}/cgi-bin/login.pl',
+method : 'POST',
+recContentType : 'text/html',
+referer : '{pProtocolHostPort}/cgi-bin/nav.pl?in=home',
+snapshot : 't2.inf',
+mode : 'HTML',
+itemData :
     [
-    { name : 'userSession', value : '{userSession}' }, 
-    { name : 'username', value : '{UserIds_userid}' }, 
-    { name : 'password', value : '{UserIds_pwd}' }, 
-    { name : 'JSFormSubmit', value : 'on' }, 
-    { name : 'login.x', value : '42' }, 
+    { name : 'userSession', value : '{userSession}' },
+    { name : 'username', value : '{UserIds_userid}' },
+    { name : 'password', value : '{UserIds_pwd}' },
+    { name : 'JSFormSubmit', value : 'on' },
+    { name : 'login.x', value : '42' },
     { name : 'login.y', value : '8' }
     ]
   }
@@ -1268,4 +1320,3 @@ There are many tutorials which teach JavaScript string manipulation and other to
 * <a target="_blank" href="http://freecodecamp.com">freecodecamp.com</a>
   has learners use tutorials on codeacademy.com and other sites, then adds
   quizzes, all for free.
-

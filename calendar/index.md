@@ -122,8 +122,32 @@ visualized by this</a>:<br />
 <a target="_blank" href="https://podio.com/site/creative-routines">
 <img alt="fig rainbow creative_routines partial" src="https://cloud.githubusercontent.com/assets/300046/14229206/bd6c04d4-f8ea-11e5-900a-b2cde317237b.jpg" width="465" height="201"></a><!-- full 976x532 -->
 
+Which person?
+
 The site allows <strong>interactive</strong> selection of specific activities
 (sleep, creative work, admin, food/leisure, exercise, other).
+
+<a target="_blank" href="https://www.quora.com/I-want-to-study-but-I-waste-my-whole-day-without-doing-anything-significant-I-really-want-to-study-but-I-am-unable-to-concentrate-What-should-I-do/answer/Nupur-Joshi-1">This response on Quora</a>
+recommends "Start waking up at 5 in the morning and drink water immediately"
+and write down answers to these daily questions:
+
+1.What did I get done today?
+
+2.What did I do for my family today?
+
+3. Did I exercise today?
+
+4. Did I care for my friends today?
+
+5. What am I grateful for today?
+
+6. What are the three good things about today?
+
+7. How can I make tomorrow better?
+
+8. How much money did I spend today?
+
+Kinda like a personal scrum.
 
 
 ## Activities by month over 4 years

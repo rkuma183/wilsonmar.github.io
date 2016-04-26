@@ -213,12 +213,43 @@ Git provides a stash area away from items being committed.
 Shelvesets in TFS are stored in the centeral server.<br />
 Stashed items in Git remain local machine.
 
+TFS groups changes in sequentially numbered changesets.<br />
+Git assigns a 32-byte hash to each commit.
+
+
+## Visual Studio GUI
+
+To check-in right-click on the app within Team Explorer.
+For VS 2013:
+
+<img width="329" alt="vs2013 tfs app checkin" src="https://cloud.githubusercontent.com/assets/300046/14794922/659905da-0ae3-11e6-9d8b-9c074edd4379.png">
+
+To see differences, right-click on the folder within Source Control Explorer.
+For VS 2013:
+
+![vs2013 sourcecontrolexplorer alt-click](https://cloud.githubusercontent.com/assets/300046/14795006/babfc7c4-0ae3-11e6-8ad2-004850d4fe91.png)
+
+To apply a label, select Advanced:
+For VS 2013:
+
+![vs2013 advanced apply label](https://cloud.githubusercontent.com/assets/300046/14795665/b9d9878e-0ae6-11e6-9199-1f8c27d17635.png)
+
+Click on an item within History compare:
+For VS 2013:
+
+![vs2013 change history alt click](https://cloud.githubusercontent.com/assets/300046/14795544/42fe7b9c-0ae6-11e6-8c25-cf22eeb4946f.png)
+
+To work on individual files, right-click on the file within Solution Explorer.
+For VS 2013:
+![vs2013 file alt-click sol explorer](https://cloud.githubusercontent.com/assets/300046/14795366/6cf3bd32-0ae5-11e6-90d1-3d7768edc37e.png)
+
+
 ## Git is King?
 
-Public repository websites at even Google, Microsoft, and others have moved to adopt Git and GitHub.
+Public repository websites at even Google and others 
+have moved to adopt Git and GitHub.
 
 Visual Studio 2015 provides support for both GitHub and TFS.
-
 
 
 ## git-tfs bridge

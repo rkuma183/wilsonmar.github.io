@@ -16,18 +16,18 @@ comments: true
 
 I have a dream ...
 
-where developers get their 
-<a href="#TestScripts">test scripts</a> 
-not by waiting for manual coding, but by 
+where developers get their
+<a href="#TestScripts">test scripts</a>
+not by waiting for manual coding, but by
 
-<img width="451" alt="fig test code gen v01" 
-src="/images/fig test code gen v01 998x568.png">
+<img width="499" alt="fig test code gen v01 998x568.pptx"
+src="https://cloud.githubusercontent.com/assets/300046/14821509/3ad4145c-0b88-11e6-9b41-519bd920d488.png">
 
 0. <a href="#TestCodeGener">test code generation programs</a> referencing
 
 0. a <a href="#SpecDB">specification database</a>
 
-0. also used to create <a href="#ClientApps">client applications</a> 
+0. also used to create <a href="#ClientApps">client applications</a>
    making calls to servers.
 
 0. All this done by a <a href="#Toolchain">toolchain</a>
@@ -45,18 +45,18 @@ src="/images/fig test code gen v01 998x568.png">
 
 0. adjusting for issues observed by the generator.
 
-0. Results from test generator run include timings of transactions 
-   and size of resources processed on the client 
+0. Results from test generator run include timings of transactions
+   and size of resources processed on the client
    and
 
 0. metrics from monitoring of servers.
 
-0. Analysis of these results are made in light of the 
+0. Analysis of these results are made in light of the
    original specifications.
 
-0. Insights from human or artificial intelligence 
-   doing the analysis 
-   would influence 
+0. Insights from human or artificial intelligence
+   doing the analysis
+   would influence
    what testing code to generate in subsequent rounds.
 
 ## What took us so long?
@@ -88,7 +88,7 @@ Tutorials on APIs include:
 
 * http://www.restapitutorial.com/
 
-   <amp-youtube data-videoid="7YcW25PHnAA" 
+   <amp-youtube data-videoid="7YcW25PHnAA"
    layout="responsive" width="480" height="270">
    </amp-youtube>
 
@@ -104,7 +104,7 @@ Specifications for REST API (such as Swagger)
    if they are <strong>complete</strong> specifications of how
    client computers interact with servers.
 
-   Specifications about screen elements may be too complex 
+   Specifications about screen elements may be too complex
    or don't provide enough information for use in code generation
    at this point in time.
 
@@ -120,7 +120,7 @@ Other alternatives include:
 
   * <a target="_blank" href="http://github.com/mashery/iodocs"> IO-Docs</a> from <a target="_blank" href="http://mashery.com/product/io-docs">Mashery</a> (licensed).
 
-  * <a target="_blank" href="http://jsondoc.org/">JASONDoc</a> has a 
+  * <a target="_blank" href="http://jsondoc.org/">JASONDoc</a> has a
   <a target="_blank" href="https://github.com/jdorn/json-editor">Editor</a> that reads a JSON Schema
   and generates an HTML form to manipulate it.
 
@@ -128,7 +128,7 @@ Other alternatives include:
 
   * <a href="#WADL">WADL</a>
 
-  * <a target="_blank" href="http://www.w3.org/TR/wsdl/">WSDL</a> 
+  * <a target="_blank" href="http://www.w3.org/TR/wsdl/">WSDL</a>
     SOAP
 
   * <a target="_blank" href="http://en.wikipedia.org/wiki/Web_Application_Description_Language">WADL (Web Application Description Language) generated to describe SOAP are not viable for REST API because they do not include enough information.
@@ -140,38 +140,38 @@ Other alternatives include:
 ### RAML
 
 RAML (at <a target="_blank" href="http://raml.org/"> RAML.org</a>)
-can reuse WADL (pronounced "waddle") 
-introspection logic of 
+can reuse WADL (pronounced "waddle")
+introspection logic of
 <a target="_blank" href="http://restlet.com/">
 Restlet Framework resources</a>
-developed by Java (SE/EE, Google AppEngine, OSGi, GWT, Android) 
-REST API developers using the 
-Restlet Studio and the 
+developed by Java (SE/EE, Google AppEngine, OSGi, GWT, Android)
+REST API developers using the
+Restlet Studio and the
 APISpark cloud managed by
 Reslet based in France with an office in Palo Alto.
 
-Reslet (in Oct. 2015) bought Czech Filip Kolařík's 
+Reslet (in Oct. 2015) bought Czech Filip Kolařík's
 <a target="_blank" href="https://chrome.google.com/webstore/detail/dhc-resthttp-api-client/aejoelaoggembcahagimdiliamlcdmfm">
-DHC (Dev HTTP Client) Chrome Add-in</a> 
+DHC (Dev HTTP Client) Chrome Add-in</a>
 and https://www.sprintapi.com/dhcs.html
 to test and debug web APIs
 
 Swagger2RAML converts Swagger JSON to RAML YAML.
 
 
-   <amp-youtube data-videoid="vu8_QLkW1mg" 
+   <amp-youtube data-videoid="vu8_QLkW1mg"
    layout="responsive" width="480" height="270">
    </amp-youtube>
 
 API Description Languages: Which One Is Right For Me?
-Aug. 15, 2014 by Laura dot Heritage at 
+Aug. 15, 2014 by Laura dot Heritage at
 soa.com (Akana, formerly SOA Software).
 
 <a name="WADL-example"></a>
 
 ### WADL Example
 
-Let's use the sample 
+Let's use the sample
 <a target="_blank" href="/assets/yahoo-news-call.wadl.xml">
 yahoo-news-call.wadl.xml</a> file from the
 Wikipedia page defining one.
@@ -180,7 +180,7 @@ Open the file using an XML reader app.
 0. The service endpoint is specified by:
 
    <pre><code>
-   &LT;resources base="http://api.search.yahoo.com/NewsSearchService/V1/"> 
+   &LT;resources base="http://api.search.yahoo.com/NewsSearchService/V1/">
    </code></pre>
 
 <a name="TestScripts"></a>
@@ -201,18 +201,18 @@ There are several languages used by test script processors:
 
 ### JavaScript LoadRunner Example
 
-An example of the JavaScript code generated to 
+An example of the JavaScript code generated to
 emulate a client retrieving an index.html file:
 
 {% highlight html %}
   web.url(
     {
-      name : 'index.html', 
-      url : '{pEndPoint}', 
-      resource : 0, 
-      recContentType : 'text/html', 
-      referer : '', 
-      snapshot : 't1.inf', 
+      name : 'index.html',
+      url : '{pEndPoint}',
+      resource : 0,
+      recContentType : 'text/html',
+      referer : '',
+      snapshot : 't1.inf',
       mode : 'HTML'
     }
   );
@@ -222,8 +222,8 @@ emulate a client retrieving an index.html file:
 
     http://api.search.yahoo.com/NewsSearchService/V1/
 
-The "mode: HTML" specifies processing by LoadRunner to 
-scan the html returned and issue requests for 
+The "mode: HTML" specifies processing by LoadRunner to
+scan the html returned and issue requests for
 links to CSS, JavaScript, images, etc.
 
 (Images specified within CSS are not retrieved this way)
@@ -265,12 +265,9 @@ Since Swagger users may prefer JSON formatting.
 ## CI/CD Toolchain
 
 
-<a name="TestCodeGener"></a> 
+<a name="TestCodeGener"></a>
 
 ## Test code generation programs
 
-I have examples of code generation programs written in 
+I have examples of code generation programs written in
 Python, PHP, Java, Scala, and even VBScript in Excel files.
-
-
-
