@@ -23,7 +23,7 @@ following this prototype pattern:
       As a [role], I want to [do something] [with some frequency]
       so that I can/will [achieve some goal/objective].
 
-The above is from Mike Cohn book, <a target="_blank" href="http://www.amazon.com/dp/0321205685?tag=tbrb-20&link_code=as3&creativeASIN=0321205685&creative=373489&camp=211189">
+The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.com/dp/0321205685?tag=tbrb-20&link_code=as3&creativeASIN=0321205685&creative=373489&camp=211189">
       User Stories Applied</a>.
 
 

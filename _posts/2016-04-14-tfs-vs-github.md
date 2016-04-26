@@ -39,7 +39,7 @@ MSDN</a>. The over 100 different downloads of TFS are to these dimensions :
 The sizes of installers:
 
 |  Release   | Version | Update | Edition  | Express  | Standard |
-| ---------: | ------- | ------ | -------- | -------- | -------: | 
+| ---------: | ------- | ------ | -------- | -------- | -------: |
 | 03/30/2016 | 2015    | 2      | Standard |   461 MB |   461 MB |
 | 08/06/2015 | 2015    | -      | VS       |   891 MB |   911 MB |
 | 07/10/2015 | 2013    | 5      | VS       |   531 MB |  2518 MB |
@@ -115,12 +115,12 @@ TFS is the community server behind Microsoft's Visual Studio IDE.
 
 In 2010, TFS was primarily a replacement for Visual Source Safe product.
 
-In 2012, TFS became a part of Microsoft's new 
+In 2012, TFS became a part of Microsoft's new
 ALM (Application Lifecycle Management) "best practices":
 
    * Version Control
    * Requirements
-   * Agile Planning - Plan and Track 
+   * Agile Planning - Plan and Track
    * Design
    * Develop
    * Automated Build
@@ -133,7 +133,7 @@ In 2015 TFS added more tools:
 
 ![tfs visual studio](https://cloud.githubusercontent.com/assets/300046/14761987/8a7ad558-092c-11e6-9107-4a19c089ecbd.png)
 
-   * Layer Diagrams 
+   * Layer Diagrams
    * Architecture Validation
    * UML diagrams
 
@@ -171,7 +171,7 @@ TFBuild also supports previous XAML-based MSBuilds.
 
 Several TFBuild servers can run at once in parallel.
 Each server uses a pool of Agents that
-can be used across several Collections. 
+can be used across several Collections.
 Each collection has a queue.
 An agent can belong to several queues.
 
@@ -180,7 +180,7 @@ An agent can belong to several queues.
 There is only one repository in each machine hosting TFS.
 Git allows for many repos.
 
-In TFS, create a <strong>team project</strong>, 
+In TFS, create a <strong>team project</strong>,
 then folders for each individual project and branches.
 
 PROTIP: Naming conventions for team project name?
@@ -190,16 +190,16 @@ TFS 2012 had 3 process templates to define work item field names:
    * Visual Studio scrum 2.0
    * MSF for Agile Software Development 6.0
    * MSF for CMMI Process Improvement 6.0
-   * SAFe?
+   * SAFe for enterprises?
 
 IN VS, a new project can be added to TFS with a checkbox, or added by right-clicking the Solution node.
-
 
 
 ## Git vs. TFS
 
 TFS is a <strong>centralized</strong> version while<br />
-Git is <strong>distributed</strong>.
+Git is <strong>distributed</strong> as everyone has a full copy
+of the whole repo and its history.
 
 TFS has its own language:
 Check-in/Check-out is a different concept.
@@ -246,7 +246,7 @@ For VS 2013:
 
 ## Git is King?
 
-Public repository websites at even Google and others 
+Public repository websites at even Google and others
 have moved to adopt Git and GitHub.
 
 Visual Studio 2015 provides support for both GitHub and TFS.
@@ -267,7 +267,7 @@ The above is equivalent to:
    choco insttall Git-tf -y
    ```
 
-Alternately, follow manual instructions at 
+Alternately, follow manual instructions at
 https://gittf.codeplex.com/
 
 This installs the contents of
@@ -285,17 +285,17 @@ TFS source control bindings (*.vssscc files) are unique to TFS.
 So remove it.
 This can be done from within Visual Studio.
 
-Edit your .sln file to remove the 
+Edit your .sln file to remove the
 
    <pre>
-   GlobalSection(TeamFoundationVersionControl) ... 
+   GlobalSection(TeamFoundationVersionControl) ...
    EndGlobalSection
    </pre>
 
 ## README.md Markdown File
 
-One artifact unique to GitHub is the README.md file 
-(where .md means markdown or text). 
+One artifact unique to GitHub is the README.md file
+(where .md means markdown or text).
 
 It's optional but most GitHub repos have one.
 
@@ -320,12 +320,12 @@ AMong <a target="_blank" href="http://vsalmvm.azurewebsites.net/almvm-faq/">Visu
 avaialble 10 days at a time.
 
 Azure Active Directory (AAD) Authentication Plug-in for SonarQube
-The AAD OAuth2 provider for SonarQube, created by Hosam Kamel and Jean-Marc Prieur (product owner), enables AAD users to automatically be sign up and authenticated on a SonarQube server. 
+The AAD OAuth2 provider for SonarQube, created by Hosam Kamel and Jean-Marc Prieur (product owner), enables AAD users to automatically be sign up and authenticated on a SonarQube server.
 
-## TailSpin 
+## TailSpin
 
 Microsoft's TailSpin toys sample MVC 2 ordering
-application was 
+application was
 <a target="_blank" href="https://msdn.microsoft.com/en-us/library/aa645517%28v=vs.71%29.aspx?f=255&MSPPError=-2147217396">
 first released for Visual Studio.NET 2003</a>
 building a 3-tier app with a SQL 2000 XML service via OLE DB
@@ -345,7 +345,7 @@ Tailspin Toys Application
 Visual Studio .NET 2003
 
 
-The new home for ALM is at 
+The new home for ALM is at
 http://vsalmvm.azurewebsites.net/
 
 https://technet.microsoft.com/en-us/virtuallabs?f=255&MSPPError=-2147217396
@@ -358,4 +358,3 @@ TechNet Virtual Lab: Introduction to Team Foundation Build 2015 (vNext), Test Ru
 
 <a target="_blank" href="http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html">
 Lynda video course</a> shows several version control products, including use of TFS by Visual Studio 2012.
-
