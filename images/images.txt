@@ -6,6 +6,11 @@ pic images.txt
 <img src="http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png">
 </a><!-- http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png -->
 
+Bison: http://wallpaperswide.com/bison_in_winter-wallpapers.html
+	download as: bison_in_winter-wallpaper-2560x1600.jpg
+![pic white winter bison standing among trees 1900x500](https://cloud.githubusercontent.com/assets/300046/14860090/577d55be-0c64-11e6-8f93-6ded4a194ef1.jpg)
+
+
 laptop
   credit: hdwallpapers.in
   creditlink: http://www.hdwallpapers.in/macbook_pro-wallpapers.html

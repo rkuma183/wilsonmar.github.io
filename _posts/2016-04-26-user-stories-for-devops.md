@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "DevOps User Stories"
-excerpt: "What we want"
+excerpt: "The value we seek"
 tags: [text to speech, JavaScript, programming]
 image:
-# feature: pic white robots woman 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
-  credit: Cyberconstruct.be
-  creditlink: http://cyberconstruct.be/2015/02/digital-job-crafting/
+# feature: pic white winter bison standing among trees 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14860090/577d55be-0c64-11e6-8f93-6ded4a194ef1.jpg
+  credit: Wallpaperswide.com
+  creditlink: http://wallpaperswide.com/bison_in_winter-wallpapers.html
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
