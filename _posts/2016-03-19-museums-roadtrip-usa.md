@@ -1443,8 +1443,9 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 
 <ul>
 <li><a target="_blank" href="http://www.bbhc.org/">Buffalo Bill Historical Center</a>, Cody</li>
-<li><a target="_blank" href="http://www.wildlifeart.org/">National Museum of Wildlife Art</a>, Jackson Hole</li>
+<li><a target="_blank" href="http://thebrintonmuseum.org/">Briton Museum</a>, Big Horn</li>
 <li><a target="_blank" href="http://uwadmnweb.uwyo.edu/artmuseum/">University of Wyoming Art Museum</a>, Laramie</li>
+<li><a target="_blank" href="http://www.wildlifeart.org/">National Museum of Wildlife Art</a>, Jackson Hole</li>
 </ul>
 
 (Southern Idaho)

@@ -53,8 +53,7 @@ Writing in JavaScript is more comfortable to some.
    <strong>WJS1_sample_WJS1250_v01</strong>
 
    * "WJS1" is for the first release of the sample app.
-   * "W" is for the Web (HTTP/HTML) protocol when creating the
-   script.
+   * "W" is for the Web (HTTP/HTML) protocol when creating the script.
    * "JS" is for JavaScript.
    * "sample" is the scope of the script folder.
    * "1250" is for version 12.50 of LoadRunner.
@@ -1320,3 +1319,6 @@ There are many tutorials which teach JavaScript string manipulation and other to
 * <a target="_blank" href="http://freecodecamp.com">freecodecamp.com</a>
   has learners use tutorials on codeacademy.com and other sites, then adds
   quizzes, all for free.
+
+* <a target="_blank" href="http://www.w3schools.com/js/js_conventions.asp">
+  JavaScript Conventions at W3Schools</a>
