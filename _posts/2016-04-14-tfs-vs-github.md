@@ -210,11 +210,23 @@ Git users do commits based on distributed full versions with difference checking
 TFS provides a "shelf" to hold local changes temporarily.<br />
 Git provides a stash area away from items being committed.
 
-Shelvesets in TFS are stored in the centeral server.<br />
+Shelve-sets in TFS are stored in the centeral server.<br />
 Stashed items in Git remain local machine.
 
 TFS groups changes in sequentially numbered changesets.<br />
 Git assigns a 32-byte hash to each commit.
+
+<a target="_blank" href="https://johanleino.wordpress.com/2013/09/18/tfs-vs-git-or-is-it-tfs-with-git/">
+This site</a> summarizes the differences:
+
+| TFVC | Git |
+| Check-In | Commit + Push |
+| Get Latest Version | Pull |
+| ‘Map Local Path’ | Clone |
+| Shelve | Stash (only local though) |
+| Label | Tag |
+| ‘Compare Local to Server’ | Fetch |
+| Checkin and get Latest | Sync | 
 
 
 ## Visual Studio GUI
@@ -356,5 +368,11 @@ TechNet Virtual Lab: Introduction to Team Foundation Build 2015 (vNext), Test Ru
 
 ## Resources
 
-<a target="_blank" href="http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html">
-Lynda video course</a> shows several version control products, including use of TFS by Visual Studio 2012.
+* <a target="_blank" href="http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html">
+   Lynda video course</a> shows several version control products, including use of TFS by Visual Studio 2012.
+
+* http://betterexplained.com/articles/aha-moments-when-learning-git/
+ 
+* https://msdn.microsoft.com/en-us/library/jj190809.aspx
+  VS 2015 with Git Branches
+ 

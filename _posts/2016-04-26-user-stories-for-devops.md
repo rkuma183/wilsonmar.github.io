@@ -26,6 +26,13 @@ following this prototype pattern:
 The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.com/dp/0321205685?tag=tbrb-20&link_code=as3&creativeASIN=0321205685&creative=373489&camp=211189">
       User Stories Applied</a>.
 
+## Personas
+
+   * <a href="#Developer">Developer</a>
+   * <a href="#Sysadmin">Sysadmin (ops)</a>
+   * <a href="#Financial">Financial</a>
+
+<a name="Developer"></a>
 
 ## Developer user stories
 
@@ -55,6 +62,11 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 
 * As a developer, I want to receive periodic reports on application usage so that I can see **trends over time**.
 
+* As a developer,
+I want to maintain build step configurations in <strong>only one location</strong>
+to reduce the risk of configuration divergence.
+
+<a name="Sysadmin"></a>
 
 ## System Admin user stories
 
@@ -72,6 +84,7 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 
 * As a Sys Admin, I need to know / monitor the state of the application.
 
+<a name="FinancialSponsor"></a>
 
 ## Financial sponsor stories
 
@@ -84,6 +97,8 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 * As a Sponsor, I want to know payback
    from the expense incurred and resulting risk reduction.
 
+
+<a name="Fleshing"></a>
 
 ## Fleshing out stories
 
@@ -107,30 +122,41 @@ ensure that all relevant users stories
 contain sufficient detail and prioritized
 into releases or sprints.
 
+<a name="QualityMetrics"></a>
+
 ## Quality metrics
 
 To judge the "goodness" of each user story, teams often use criteria
 with the acronym INVEST:
 
-* **Independent** of each other.
+- [ ] **I**ndependent of dependencies other work (blocked waiting to get done).
 
-* **Negotiable** rather than firm contracts about when they are implemented.
+- [ ] **N**egotiable rather than firm contracts about when they are implemented.
+   (Negotiation of technical implementations can be facilitated by using the TeamCity Meta-Runner).
 
-* **Valuable** to someone.
+- [ ] **V**aluable to someone (end-user customers, business, developers, operations, etc.)
 
-* **Estimable** in effort.
+- [ ] **E**stimable in effort because a clear definition of what is in and out of scope makes for better estimates. 
+   This includes build steps.
+   This does not include limitless refactoring.
 
-* **Small** so they are not vague.
+- [ ] **S**mall so they are not vague.
 
-* **Testable**.
+- [ ] **T**estable so what is considered "done" is clear to all.
 
 
 ## Basis for estimation
 
 User stories are used as the basis for estimating, planning, and whether value was delivered to customers.
 
+A key DevOps strategy is bringing small increments through into productive use,
+which exposes process issues that need tuning.
+
+
 ## Resources
 
 * http://brentmcconnell.com/2014/02/devops-user-stories/
 
 * https://www.ibm.com/developerworks/community/blogs/c914709e-8097-4537-92ef-8982fc416138/entry/agile_in_practices_user_stories_explained2?lang=en
+
+* https://www.thoughtworks.com/p2magazine/issue12/treat-devops-stories-like-user-stories/
