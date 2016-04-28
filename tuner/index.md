@@ -57,7 +57,7 @@ which cause bottlenecks.
 
    This begins with micro-benchmarks during development.
 
-   * [Scenarios](scenarios-for-load)
+   * [Scenarios](/scenarios-for-load)
 
 ## 5\. Do experiments to find the optimal.
 
