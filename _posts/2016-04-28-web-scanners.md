@@ -31,11 +31,11 @@ https://validator.w3.org/checklink?uri=http%3A%2F%2Fwilsonmar.github.io%2F&summa
    We are ignoring these messages because the link is valid for clients which have a Skype client installed.
 
 * Status: 301 -> 200 OK
-   This is a permanent redirect. The link should be updated.
+  This is a permanent redirect. The link should be updated.
 
-   http://www.pinterest.com/wilsonmar4 redirected to https://www.pinterest.com/wilsonmar4
+  http://www.pinterest.com/wilsonmar4 redirected to https://www.pinterest.com/wilsonmar4
 
-   These links are fixed by using https:// instead of http://
+  These links are fixed by using https:// instead of http://
 
 * Status:404 -> Not Found
 
@@ -44,6 +44,51 @@ https://validator.w3.org/checklink?uri=http%3A%2F%2Fwilsonmar.github.io%2F&summa
   https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com
 
   This link actually does resolve and it gets found.
+  
+* Status:404 -> Not Found
+
+  The link is broken. Double-check that you have not made any typo, or mistake in copy-pasting. If the link points to a resource that no longer exists, you may want to remove or fix the link.
+
+  http://masoncurrey.com/Daily-Rituals/
+  
+  This link actually does resolve and it gets found.  It might be having a similar issue to the website below that it shows the error the first time the website is displayed and then it works.
+  
+* Status 200 -> OK
+
+  Some of the links to this resource point to broken URI fragments (such as index.html#fragment).
+  Broken fragments:
+  http://chartingthebeatles.com/#schedule (line 417)
+  
+  http://chartingthebeatles.com/
+
+  At first it displays on a specific computer it sends an error, but if you wait a few seconds the website actually appears.
+  The second time the website is requested then it loads correctly. 
+  
+* Status 301 -> 200OK 
+  Line: 304 https://calendar.google.com/ redirected to https://www.google.com/
+
+  This is a permanent redirect. The link should be updated.
+  
+  This is code that directs the user to their own calendar.  It works as it is supposed to.
+  
+* Status 200 -> OK 
+ 
+  Some of the links to this resource point to broken URI fragments (such as index.html#fragment).
+
+  Broken fragments:
+  http://zeroturnaround.com/rebellabs/the-curious-coders-java-web-frameworks-comparison-spring-mvc-grails-vaadin-gwt-wicket-play-struts-and-jsf/2/#!/ (line 245)
+
+  This is code where link may have issues opening the first time, but the website works. No issues to resolve.
+  
+* Status 301 -> 200 OK and also HTTP status code 3xx (Redirection) received and the HTTP Location header targets a relative URI
+
+  Redirections should be avoided because of the usually high latency of mobile networks. Since the final URI of the resource is on the same server, server-based redirection may be possible and would save a round-trip between the server and the end user
+  This is a permanent redirect. The link should be updated.
+  
+  http://gitter.im/wilsonmar redirected to https://gitter.im/login
+  
+  This is code that brings the user to the login for wilsonmar.  If the user does not have a login yet, then it brings them
+  to the main screen to create a login.  It is working correctly here, nothing to change.
   
 ## Google Page Speed
 
