@@ -30,7 +30,7 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 
    * <a href="#Developer">Developer</a>
    * <a href="#Sysadmin">Sysadmin (ops)</a>
-   * <a href="#Financial">Financial</a>
+   * <a href="#FinancialSponsor">Financial sponsor</a>
 
 <a name="Developer"></a>
 
