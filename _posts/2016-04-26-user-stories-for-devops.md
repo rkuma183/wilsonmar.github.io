@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "DevOps User Stories"
-excerpt: "The value we seek"
+excerpt: "Value from autonomous speed"
 tags: [text to speech, JavaScript, programming]
 image:
-# feature: pic white winter bison standing among trees 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14860090/577d55be-0c64-11e6-8f93-6ded4a194ef1.jpg
-  credit: Wallpaperswide.com
-  creditlink: http://wallpaperswide.com/bison_in_winter-wallpapers.html
+# feature: pic waiting window
+  feature: https://cloud.githubusercontent.com/assets/300046/14885988/a5994c60-0d0b-11e6-9f4e-e593d248248f.jpg
+  credit: Delta College
+  creditlink: https://www.deltacollege.edu/dept/publicinfo/prel/2012/2012-13DeltaScholarships.html
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -28,74 +28,112 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 
 ## Personas
 
-   * <a href="#Developer">Developer</a>
-   * <a href="#Sysadmin">Sysadmin (ops)</a>
-   * <a href="#FinancialSponsor">Financial sponsor</a>
+How can the organization as a whole more efficiently and effectively handle increasing <strong>complexity</strong>?
+
+The strategy of "devops" is:
+
+   * <a href="#Developer">Developers</a> <strong>enabled</strong> with what they need to move quickly.
+      This means multi-disciplinary full-stack skills are necessary among developers.
+
+   * <a href="#Sysadmin">Sysadmin (ops)</a> providing to autonomous developers 
+   <strong>shared infrastructure</strong> 
+   (networks, switches, DNS, load balancers, LDAP, NTP, CAs, monitoring, logging, etc.).
+   This means increasing efforts toward training, and support 
+   rather than simply controlling access to servers.
+
+   * <a href="#QA">QA (Quality Assurance)</a> integrated among developers
+   to provide the <strong>continuous testing</strong> which 
+   provides both early warning and safety-net for faster and more frequent deployments.
+
+   * <a href="#FinancialSponsor">Financial sponsor</a> ("management").
 
 <a name="Developer"></a>
 
 ## Developer user stories
 
-* As a developer, when <strong>starting</strong> with a new customer/project,
-  I want to be able to be up and running (full working environment) in **less than 1 hour**.
-
-* As a developer or end user I want to be able to request an environment and all supporting environments
+* As a developer or end user,
+   I can request an environment and all supporting environments
    (with networking constructs) on demand or self serviced.
 
-* As a developer, when I need to perform a very small (i.e. cosmetic) change,
-   I want to be able to deploy it in less than 1 hour.
+* As a developer, 
+   when I need to perform a very small (i.e. cosmetic) change,
+   I can **deploy** it in less than 1 hour.
 
-* As a developer, I want to understand the operational environment into which my application will be deployed.
-
-* As a developer I need to understand **operational requirements** for my application (not just user requirements)
+* As a developer 
+   I understand **operational requirements** for my application (not just user requirements)
    (servers, IP addresses, sizes, apps, folders, files, etc.)
+
+* As a developer, 
+   I understand the operational environment into which my application will be deployed.
+
+* As a developer, when <strong>starting</strong> with a new customer/project,
+  I can be up and running (full working environment) in **less than 1 hour**.
 
 * As a developer, I need <strong>feedback</strong>
    from operations on the impacts of my application on the **operational environment**
    so I can improve its behavior over time.
    (memory usage, disk space, network bandwidth usage, etc.)
 
-* As a developer, I want to be notified when <strong>application performance</strong>
+* As a developer, 
+   I am notified when <strong>application performance</strong>
    falls above or below applicable **thresholds**.
 
-* As a developer, I want to be notified when applications **crash** or are consuming too many resources in a production environment.
+* As a developer,
+  I am notified when applications **crash** or are consuming too many resources in a production environment.
 
-* As a developer, I want to receive periodic reports on application usage so that I can see **trends over time**.
+* As a developer, 
+   I receive periodic reports on application usage so that I can see **trends over time**.
 
 * As a developer,
-I want to maintain build step configurations in <strong>only one location</strong>
-to reduce the risk of configuration divergence.
+   I maintain build step configurations in <strong>only one location</strong>
+   to reduce the risk of configuration divergence.
+
+* As a <strike>Sys Admin</strike> Developer, 
+   I know what parts of the configuration **can be tuned**.
+
+* As a <strike>Sys Admin</strike> Developer, 
+   I have insight into the internal states and behavior of the applications that are deployed so I can operate and
+   **tune** them most effectively.
+
+* As a <strike>Sys Admin</strike> Developer, 
+   I have an **overview of the application architecture** so that
+   I know which applications depend on which services.
+
+
+
+<a name="QA"></a>
+
+## Quality Assurance
+
 
 <a name="Sysadmin"></a>
 
 ## System Admin user stories
 
-* As a Sys Admin, I need to build relationships with the developers so I can have an open and positive relationship with them.
+When a PaaS service such as Amazon/Azure are used, these are provided by those vendors.
 
-* As a Sys Admin, I want to have an **overview of the application architecture** so that
-   I know which applications depend on which services.
+* As a Sys Admin, 
+   I know the <strong>pattern of developer usage</strong> so
+   I can prepare adequate <strong>capacity</strong>.
 
-* As a Sys Admin, I need to know what the developers are working on so I can provide operational requirements and prepare for application deployments.
+* As a Sys Admin, 
+   I know when security anomalies occur so
+   I can protect services from malicious attack.
 
-* As a Sys Admin, I need to know what parts of the configuration **can be tuned**.
-
-* As a Sys Admin, I need insight into the internal states and behavior of the applications that are deployed so I can operate and
-   **tune** them most effectively.
-
-* As a Sys Admin, I need to know / monitor the state of the application.
 
 <a name="FinancialSponsor"></a>
 
 ## Financial sponsor stories
 
 * As a Sponsor, I want to know the scope of various <strong>risks</strong> that exist
-   (with and without DevOps),
-   such as availability, latency, capacity, testability, etc.
+   (such as availability, latency, capacity, testability, etc.)
+   so I can manage investor expectations and allocate adequate reserves.
 
 * As a Sponsor, I want to know the extent risks have been mitigated.
 
 * As a Sponsor, I want to know payback
-   from the expense incurred and resulting risk reduction.
+   from the expense incurred vs. resulting risk reduction
+   so I can prove we are increasing investor value.
 
 
 <a name="Fleshing"></a>
@@ -160,3 +198,5 @@ which exposes process issues that need tuning.
 * https://www.ibm.com/developerworks/community/blogs/c914709e-8097-4537-92ef-8982fc416138/entry/agile_in_practices_user_stories_explained2?lang=en
 
 * https://www.thoughtworks.com/p2magazine/issue12/treat-devops-stories-like-user-stories/
+
+* http://www.devopsonline.co.uk/

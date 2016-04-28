@@ -109,7 +109,7 @@ NOTE: This is a modification of
 this article</a>.
 
 
-## When Creative Each Day
+## Most Creative Tie Each Day
 
 Based on the 
 <a target="_blank" href="http://masoncurrey.com/Daily-Rituals/">
@@ -122,10 +122,15 @@ visualized by this</a>:<br />
 <a target="_blank" href="https://podio.com/site/creative-routines">
 <img alt="fig rainbow creative_routines partial" src="https://cloud.githubusercontent.com/assets/300046/14229206/bd6c04d4-f8ea-11e5-900a-b2cde317237b.jpg" width="465" height="201"></a><!-- full 976x532 -->
 
-Which person?
+Which circadian (daily) pattern do you prefer?
 
 The site allows <strong>interactive</strong> selection of specific activities
 (sleep, creative work, admin, food/leisure, exercise, other).
+
+<a target="_blank" href="http://www.businessinsider.com/different-chronotypes-have-separate-dna-sleep-cycle-circadian-rhythm-genes-2015-9">
+BusinessInsider.com reports that</a>
+an individual preference for morning or evening is determined by the <strong>chronotype</strong> of
+each person's unique DNA.
 
 <a target="_blank" href="https://www.quora.com/I-want-to-study-but-I-waste-my-whole-day-without-doing-anything-significant-I-really-want-to-study-but-I-am-unable-to-concentrate-What-should-I-do/answer/Nupur-Joshi-1">This response on Quora</a>
 recommends "Start waking up at 5 in the morning and drink water immediately"
@@ -148,6 +153,8 @@ and write down answers to these daily questions:
 8. How much money did I spend today?
 
 Kinda like a personal scrum.
+
+> If you feel you don't have enough time in the day, stop watching TV and social media.
 
 
 ## Activities by month over 4 years
