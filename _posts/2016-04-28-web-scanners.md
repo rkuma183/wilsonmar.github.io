@@ -37,6 +37,13 @@ https://validator.w3.org/checklink?uri=http%3A%2F%2Fwilsonmar.github.io%2F&summa
 
    These links are fixed by using https:// instead of http://
 
+* Status:404 -> Not Found
 
+  The link is broken. Double-check that you have not made any typo, or mistake in copy-pasting. If the link points to a resource that no longer exists, you may want to remove or fix the link.
+
+  https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com
+
+  This link actually does resolve and it gets found.
+  
 ## Google Page Speed
 
