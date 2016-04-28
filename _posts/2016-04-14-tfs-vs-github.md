@@ -39,7 +39,7 @@ MSDN</a>. The over 100 different downloads of TFS are to these dimensions :
 The sizes of installers:
 
 |  Release   | Version | Update | Edition  | Express  | Standard |
-| ---------: | ------- | ------ | -------- | -------- | -------: |
+| ---------- | ------- | ------ | -------- | -------: | -------: |
 | 03/30/2016 | 2015    | 2      | Standard |   461 MB |   461 MB |
 | 08/06/2015 | 2015    | -      | VS       |   891 MB |   911 MB |
 | 07/10/2015 | 2013    | 5      | VS       |   531 MB |  2518 MB |
@@ -104,9 +104,10 @@ Visual Studio 2015 with Update 1 dated 11/30/2015:
 Microsoft's Express editions are free <strong>for up to 5 users</strong>.
 Express TFS makes use of Express SQL.
 
-Microsoft's codeplex.com offers hosting.
+Microsoft offers hosting on <a target="_blank" href="http://www.codeplex.com">
+codeplex.com</a>, Microsoft's open source project hosting site.
 
-A 30-day free trial is available from <a target="_blank" href="http://www.discountasp.net/tfs/hosted-team-foundation-server.aspx">
+A 30-day free trial of TFS cloud service is available from <a target="_blank" href="http://www.discountasp.net/tfs/hosted-team-foundation-server.aspx">
 DiscountASP</a>.
 
 ## More than just version control
@@ -151,11 +152,11 @@ In 2015 TFS added more tools:
 
 ## UML Diagrams:
 
-* Activity - flow of work between actions and participants
-* Component - Interfaces, prots, relationships
-* Class - types and relationships
-* Sequence - interactions between objects and components
-* Use case - goals and tasks
+   * Activity - flow of work between actions and participants
+   * Component - Interfaces, prots, relationships
+   * Class - types and relationships
+   * Sequence - interactions between objects and components
+   * Use case - goals and tasks
 
 ## New Build System with 2015
 

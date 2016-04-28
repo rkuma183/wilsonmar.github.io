@@ -216,7 +216,7 @@ QUESTION: Why does the Reader larger than others when it has least capability?
 
 QUESTION: You don't need to instal Reader if you have Deskstop installed?
 
-The Server <a target="_blank" href="http://www.tableau.com/products/server/download">
+The Server <a target="_blank" href="http://www.tableau.com/products/server/download/">
 Download from here</a> only runs within Windows (32 or 64 bit) and uses Active Directory Authentication.
 
 There are several ways to open a Tableau client program:
@@ -1457,30 +1457,30 @@ More Trainings: http://www.tableau.com/learn/training?qt-training_tabs=1#qt-trai
 If you have a Pluralsight account:
 Ben Sullins (@bensullins, bensullins.com) created several video tutorials:
 
-1. <a target="_blank" href="https://app.pluralsight.com/library/courses/business-dashboard-fundamentals">
+1. <a target="_blank" href="https://app.pluralsight.com/library/courses/business-dashboard-fundamentals/">
 Business Dashboard Fundamentals</a>
 Feb 19, 2014 - 3h 36m 42s
 provides advice about design of beautiful charts in Excel and Tableau 8.1,
 such as removing Chart Junk.
 
-2. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-analytics-hands-on">
+2. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-analytics-hands-on/">
 Data Analytics: Hands On</a>
 Jul 15, 2015 - 5h 2m 19s
 provides an introduction to use of Excel and SQL and Tableau
 
-3. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-analysis-fundamentals-tableau">
+3. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-analysis-fundamentals-tableau/">
 Data Analysis Fundamentals with Tableau</a>
 Sep 03, 2013 - 4h 47m 43s
 
-4. <a target="_blank" href="https://app.pluralsight.com/library/courses/big-data-analytics-tableau">
+4. <a target="_blank" href="https://app.pluralsight.com/library/courses/big-data-analytics-tableau/">
 Big Data Analytics with Tableau</a>
 Jul 21, 2013 - 3h 44m 55s
 
-5. <a target="_blank" href="https://app.pluralsight.com/library/courses/enterprise-business-intelligence-tableau-server">
+5. <a target="_blank" href="https://app.pluralsight.com/library/courses/enterprise-business-intelligence-tableau-server/">
 Enterprise Business Intelligence with Tableau Server</a>
 Nov 13, 2013 - 1h 36m 26s
 
-6. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-visualization-using-tableau-public">
+6. <a target="_blank" href="https://app.pluralsight.com/library/courses/data-visualization-using-tableau-public/">
 Data Visualizations Using Tableau Public</a>
 Sep 09, 2013 - 1h 47m 56s
 

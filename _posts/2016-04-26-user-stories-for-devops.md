@@ -28,12 +28,13 @@ The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.
 
 ## Personas
 
-How can the organization as a whole more efficiently and effectively handle increasing <strong>complexity</strong>?
+How can the organization as a whole more efficiently and effectively handle increasing <strong>complexity</strong>,
+increase scale, yet move more rapidly and innovatively?
 
 The strategy of "devops" is:
 
    * <a href="#Developer">Developers</a> <strong>enabled</strong> with what they need to move quickly.
-      This means multi-disciplinary full-stack skills are necessary among developers.
+   This means multi-disciplinary full-stack skills are necessary among developers.
 
    * <a href="#Sysadmin">Sysadmin (ops)</a> providing to autonomous developers 
    <strong>shared infrastructure</strong> 
@@ -46,7 +47,7 @@ The strategy of "devops" is:
    provides both early warning and safety-net for faster and more frequent deployments.
 
    * <a href="#FinancialSponsor">Financial sponsor</a> ("management") 
-   seeing reduced risk, expenses, with increased business agility.
+   seeing reduced risk, lower expenses, higher revenues, with increased business agility.
 
 <a name="Developer"></a>
 

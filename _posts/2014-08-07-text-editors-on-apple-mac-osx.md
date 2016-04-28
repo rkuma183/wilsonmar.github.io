@@ -69,7 +69,7 @@ export EDITOR='subl -w'
 </pre>
 Specifying -w will cause the subl command to not exit until the file is closed.
 
-
+* http://sublimetexttips.com
 
 <a id="Git_Editor"></a>
 
