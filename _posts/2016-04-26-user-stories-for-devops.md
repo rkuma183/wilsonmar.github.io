@@ -45,7 +45,8 @@ The strategy of "devops" is:
    to provide the <strong>continuous testing</strong> which 
    provides both early warning and safety-net for faster and more frequent deployments.
 
-   * <a href="#FinancialSponsor">Financial sponsor</a> ("management").
+   * <a href="#FinancialSponsor">Financial sponsor</a> ("management") 
+   seeing reduced risk, expenses, with increased business agility.
 
 <a name="Developer"></a>
 
