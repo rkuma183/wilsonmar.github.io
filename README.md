@@ -30,3 +30,6 @@ Changes I've made:
 * Add Microsoft Windows 10 icons
 
 
+
+
+[![Join the chat at https://gitter.im/wilsonmar/wilsonmar.github.io](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
