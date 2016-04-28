@@ -136,9 +136,9 @@ each person's unique DNA.
 recommends "Start waking up at 5 in the morning and drink water immediately"
 and write down answers to these daily questions:
 
-1.What did I get done today?
+1. What did I get done today? 
 
-2.What did I do for my family today?
+2. What did I do for my family today?
 
 3. Did I exercise today?
 
