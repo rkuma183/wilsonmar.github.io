@@ -49,6 +49,19 @@ The strategy of "devops" is:
    * <a href="#FinancialSponsor">Financial sponsor</a> ("management") 
    seeing reduced risk, lower expenses, higher revenues, with increased business agility.
 
+One-word summary of the trade-off in the impact in additional complexity:
+
+| values &amp;<br /> principals | complexities |
+| Autonomy | Communication |
+| Speed of change | Execution |
+| Scale | Resilience |
+| Composability | Maintenance |
+| Tech diversity | Operational |
+
+This is explained by <a target="_blank" href="https://www.thoughtworks.com/insights/blog/microservices-lessons-frontline">
+"Real World Microservices: Lessons from the Front Lines" by Zhamak Dehghani at ThoughtWorks Australia 24 Sep 2014</a>.
+
+
 <a name="Developer"></a>
 
 ## Developer user stories
