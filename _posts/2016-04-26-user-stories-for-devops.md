@@ -125,14 +125,17 @@ When a PaaS service such as Amazon/Azure are used, these are provided by those v
 
 ## Financial sponsor stories
 
-* As a Sponsor, I want to know the scope of various <strong>risks</strong> that exist
+* As a Sponsor, 
+   I know the scope of various <strong>risks</strong> that exist
    (such as availability, latency, capacity, testability, etc.)
    so I can manage investor expectations and allocate adequate reserves.
 
-* As a Sponsor, I want to know the extent risks have been mitigated.
+* As a Sponsor, 
+   I know the extent risks have been mitigated.
 
-* As a Sponsor, I want to know payback
-   from the expense incurred vs. resulting risk reduction
+* As a Sponsor, 
+   I know the payback period
+   from expense incurred vs. resulting risk reduction
    so I can prove we are increasing investor value.
 
 
