@@ -1,3 +1,6 @@
+
+[![Join the chat at https://gitter.im/wilsonmar/wilsonmar.github.io](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 I hope you'll file an issue or send a Pull Request. 
 
 I need the help.
@@ -28,8 +31,3 @@ Changes I've made:
 * Change _config.yml at the root to add citrix: to take advantage of JavaScript added
 
 * Add Microsoft Windows 10 icons
-
-
-
-
-[![Join the chat at https://gitter.im/wilsonmar/wilsonmar.github.io](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
