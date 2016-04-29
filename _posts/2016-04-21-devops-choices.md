@@ -15,20 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-## Overview and History
-
-Rather than repeating others, let me link to the most influencial pieces about DevOps:
-
-* http://continuousdelivery.com/
-
-* 12factorapp.net
-
-* http://www.clearlytech.com/2014/01/04/12-factor-apps-plain-english/
-  12 Factor App in plain english</a>
-
-* Gene Kim
-
-## Categories of choice
+This page is one of a [series on DevOps](/devops-series.md).
 
 There are many choices of specific technologies within
 each category:

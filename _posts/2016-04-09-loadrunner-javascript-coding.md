@@ -50,12 +50,13 @@ Writing in JavaScript is more comfortable to some.
 0. Use Finder or File Explorer to view a folder containing a sample
    script coded in JavaScript:
 
-   <strong>WJS1_sample_WJS1250_v01</strong>
+   <strong>WJS1_sample_S01_WJS1250_v01</strong>
 
    * "WJS1" is for the first release of the sample app.
    * "W" is for the Web (HTTP/HTML) protocol when creating the script.
    * "JS" is for JavaScript.
    * "sample" is the scope of the script folder.
+   * "S01" is the [scenario for performance and load testing](/scenarios-for-load).
    * "1250" is for version 12.50 of LoadRunner.
    * "V01" is for version 1 of the script.
 
