@@ -45,10 +45,9 @@ STATUS: This is a draft for formatting.
 0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub
 0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>
 0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting
-0. Microsoft Service Fabric (in GA April 2016)
-0. <a target="_blank" href="http://www.mashery.com/">Intel (acquired Mashery)</a>
+0. <a target="_blank" href="http://www.mashery.com/">Mashery</a> + Intel acquired + Tibco CloudBus Aug. 2015
+0. <a target="_blank" href="https://azure.microsoft.com/en-us/services/service-fabric/">Microsoft Service Fabric</a> (in GA April 2016)
 0. CA (acquired Layer 7)
-0. Tibco CloudBus
 0. Mashape
 0. Oracle
 0. Software AG
@@ -65,7 +64,8 @@ Forrester, in their April 2015 report, classified the vendors this way:
 <img width="689" height="408" alt="api vendors in forrester 2015" src="https://cloud.githubusercontent.com/assets/300046/14916539/6c5fe680-0dd7-11e6-9149-6b803194e134.png"><!-- 1378x862 -->
 
 Forrester also illustrated the history of offerings with this timeline:
-<img width="673" height="361" alt="api vendors timeline forrester 2015" src="https://cloud.githubusercontent.com/assets/300046/14916784/c64211cc-0dd8-11e6-900c-864e6e4db92c.png"><!-- 1346x744 -->
+<img alt="api vendors timeline forrester 2015" width="652" height="361" src="https://cloud.githubusercontent.com/assets/300046/14919580/b55db79a-0de6-11e6-9377-553fba4b4366.jpg"><!-- 1346x744 -->
+This was adjusted for Tibco buying Mashery from Intel in August, 2015.
 
 &nbsp;
 <a href="#Importance"></a>
@@ -139,9 +139,14 @@ These are important because human UI are needed for:
 
 ### Coordination
 
+The need for an API Gateway is to avoid legacy point-to-point communications among computers.
+
+   * Partner management
+   * Traffic management
+
    * service coordinator, (android device hits one service instead of 100 micro services)
    * Billing
-   * Emails about changes   
+   * Emails about changes 
 
    * Predictive analytics. Apigee illustrates their Insights service which yields a buying Propensity score salespeople use to prioritize efforts:
 
@@ -166,7 +171,7 @@ uses this illustration:
 <img alt="apigee security" src="https://cloud.githubusercontent.com/assets/300046/14917830/253f56a8-0dde-11e6-9446-18a52ef1a1fb.png"></a>
 <!-- 668x376 -->
 
-
+    * No data at rest 
     * http://www.mashery.com/api/security prides itself on being certified on PCI, HITRUST CSF, SSAE, Safe Harbor, SOC 2, etc.
 
 
@@ -271,7 +276,15 @@ uses this illustration:
 
 ![polar-chart-2](https://cloud.githubusercontent.com/assets/300046/14914539/44f83b42-0dc8-11e6-84ff-ba8c2317a808.png)
 
+Vendors are in alphabetical order:
 
+Akana:
+
+* https://www.youtube.com/channel/UC3hr1MuhpS11dMxTdo1rHQw
+
+Mashery:
+
+* https://www.youtube.com/channel/UCJqekyyjX78qmzoOK_wZ2lw
 
 <a href="#VariationAmongRaters"></a>
 
