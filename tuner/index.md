@@ -57,6 +57,10 @@ which cause bottlenecks.
 
    This begins with micro-benchmarks during development.
 
+   <amp-youtube data-videoid="I6EzGV0GE2A" 
+   layout="responsive" width="480" height="270">
+   </amp-youtube>
+
    * [Scenarios](/scenarios-for-load)
 
 ## 5\. Do experiments to find the optimal.

@@ -20,14 +20,17 @@ which designates the file's usage.
 
 ## Single-user
 
+<amp-youtube data-videoid="6VmAX3DM78s" layout="responsive" width="480" height="270"></amp-youtube>
+
 * <strong>S01-Landing</strong> – Landing page from URL only for 
    <strong>connection variability testing</strong>.
    This may be the page that comes with the web container 
    (IIS, Apache, Jetty, etc.).
 
+
 * <strong>S02-Home_page</strong> for the page that appears when the application is invoked.
   Appearance of this page indication that the application is "alive", and can deliver resources.
-  This page can be used for connection load testing.
+  This page can be used for <strong>connection load testing</strong>.
 
 ## Multi-user
 
