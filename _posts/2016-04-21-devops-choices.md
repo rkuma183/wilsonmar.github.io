@@ -329,6 +329,7 @@ Boards, burn-down charts.
 
    * Karma with Jasmine
    * Selenium (Java, JavaScript, .NET, etc.)
+   * <a target="_blank" href="http://www.manula.com/manuals/primatest">RedwoodHD</a>
    * Mocha
    * etc.
 

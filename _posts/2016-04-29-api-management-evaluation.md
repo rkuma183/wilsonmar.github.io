@@ -187,8 +187,19 @@ uses this illustration:
    What maintenance is needed?
 
    * Manual work: Annual, monthly, weekly, daily, hourly, etc.
-   * Logging (AWS CloudWatch monitoring)
    * Adding additional languages
+
+   * Logging (AWS CloudWatch monitoring)
+
+      | Item | US Cost/Mo. | Note |
+      | Dashboards | $3.00 | - |
+      | Detailed Monitoring for Amazon EC2 Instances | $3.50 per instance | 1-minute frequency |
+      | Custom Metrics | $0.50 |
+      | Alarms | $0.10 |
+      | API Requests | $0.01 | per 1,000 GetMetricStatistics, ListMetrics, or PutMetricData requests |
+      | Logs ingested | $0.50 | per GB |
+      | Logs archived | $0.03 | per GB |
+      | Custom Events | $1.00 | per million |
 
 ### Scalability
 

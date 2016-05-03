@@ -217,6 +217,8 @@ Stashed items in Git remain local machine.
 TFS groups changes in sequentially numbered changesets.<br />
 Git assigns a 32-byte hash to each commit.
 
+TFS branches creates a new folder.
+
 <a target="_blank" href="https://johanleino.wordpress.com/2013/09/18/tfs-vs-git-or-is-it-tfs-with-git/">
 This site</a> summarizes the differences:
 
