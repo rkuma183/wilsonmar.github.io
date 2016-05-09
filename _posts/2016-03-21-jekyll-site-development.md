@@ -25,7 +25,10 @@ One of the nice things about WordPress and other CMS is one doesn't need to star
 
 Same with Jekyll.
 
-The structure of posts makes it easy to move it to any number of other Jekyll themes with only a few edits.
+The structure of files in jekyll makes it easy (with only a few edits) 
+to switch the site to use any number of 
+other Jekyll themes.
+
 
 ### Jekyll Theme shops
 To see responsive websites, get to it quicker on your mobile smartphone QR code is provided for you.
@@ -116,6 +119,8 @@ After downloading, have Maven pull in dependencies based on the Gemfile:
 
    bundle install
 
+This causes the list of dependencies in the Gemfile to be downloaded.
+
 Behind the scenes is a running of the **Gruntfie.js** that comes with the theme.
 It defines the parameters of various tasks that are downloaded:
 
@@ -143,25 +148,76 @@ site's folder:
 
 <a name="invoke-server"></a>
 
-    bundle exec jekyll serve
-
 To see the site the way GitHub would generate it
 (without additional plug-ins some templates provide):
 
-    bundle exec jekyll serve --safe
+   ```
+   bundle exec jekyll serve --safe
+   ```
 
    The precise version of plug-ins used by GitHub on-line is listed
    <a target="_blank" href="https://pages.github.com/versions/">here</a>.
 
-PROTIP: Leave this terminal instance running and open another Terminal
-instance to work on the content of the site.
+
+Otherwise:
+
+   ```
+   bundle exec jekyll serve
+   ```
+
+   PROTIP: Leave this terminal instance running and open another Terminal
+   instance to work on the content of the site.
+
 
 The generated HTML files can then be accessed from an internet browser
 at this URL:
 
-* <a target="_blank" href="http://localhost:4000">http://localhost:4000</a>
+   <a target="_blank" href="http://localhost:4000">http://localhost:4000</a>
 
-The landing page of the site is defined in the **index.md** file at the root folder.
+   The landing page of the site is defined in the **index.md** file at the root folder.
+
+The theme by itself does not show much.
+The template's author assumes that technical people will be using his creation.
+
+When the web server starts, it is industry standard for the `index.html` file to be rendered.
+
+0. Edit file index.html file. By default it contains this: 
+
+{% highlight HTML %}
+---
+layout: archive
+author_profile: true
+---
+&#217;% include base_path %}
+
+&LT;h3 class="archive__subtitle">Recent Posts&LT;/h3>
+
+&#217;% for post in paginator.posts %}
+&#217;% include archive-single.html %}
+&#217;% endfor %}
+
+&#217;% include paginator.html %}
+{% endhighlight %}
+
+
+Between the two triple-dash characters is the <strong>"front matter"</strong>
+for Jekyll to interpret.
+
+Jekyll uses the layout tag's value <strong>archive</strong> to build out the page
+according to the archive.html file within the _layouts folder.
+
+Another layout type, splash, arranges the page with thumbnail pictures.
+
+The other layout types are default, single, and compress.
+
+Jekyll converts index.md files to index.html files.
+
+### Edit index.html author_profile
+
+Having `author_profile: true` tells Jekyll to add the profile on the left side.
+
+0. If you would rather have text greet your visitors, add it.
+
 
 {% highlight text %}
 ---
@@ -170,15 +226,12 @@ excerpt: "By Wilson Mar"
 tags: [Jekyll, theme, responsive, blog, template]
 image:
 feature: sunrise-1900x500.png
-   credit:
-   creditlink:
+credit:
+creditlink:
 ---
 {% endhighlight %}
 
-This "front matter" is standard for Jekyll sites.
-Jekyll converts index.md files to index.html files.
-
-The theme's programming put the value from tags: key in the HTML presented to users:
+0. If you would rather have text greet your visitors, add it.
 
 {% highlight html %}
 <meta name="keywords" content="Jekyll, theme, responsive, blog, template">
@@ -188,46 +241,104 @@ TODO: Substitute the image file name in the **feature:** variable
 with an alternative file you placed in the **images** folder.
 
 
-Return to this page from any other by clicking on the site's title this theme
-presents at the upper left corner.
+Return to this page from any other by clicking on the site's title 
+presented at the upper left corner.
 
 
 ## Change README.md content
-The text in the README.md file at the root is not shown on the website.
+0. Use a text editor program to open the README.md file at the root.
 
-It was written for those who work with the site's code, not readers of the resulting website.
+   This file is not shown on the website.
 
-So the content of this page should be changed from being about the theme
-to about the website derived from the theme template, such as:
+   It was written for those who work with the site's code, 
+   not readers of the resulting website.
 
-    "I hope you'll file an issue or send a Pull Request. I need the help."
+   So the content of this page should be changed from being about the theme
+   to about the website derived from the theme template, such as:
 
-File mm-theme-post-600.jpg within the images folder can be deleted.
+   "I hope you'll file an issue or send a Pull Request. I need the help."
+
+0. File mm-theme-post-600.jpg within the <strong>images</strong> folder can be deleted.
+
+
+### Edit _config.yml and reset server
+
+0. Use a text editor to edit **_config.yml**.
+
+   ```
+# Site Settings
+locale                   : "en-US"
+title                    : "Home"
+title_separator          : "-"
+name                     : "Wilson Mar"
+description              : "Hello. Hire me."
+   ```
+
+0. Change the `title` text from "USER_" to `"Home"` or whatever you want.
+
+0. Change the name value to your screen name.
+
+
+0. Save and exit the file.
+0. Stop the server so the changes take.
+0. Start the server again.
+
+0. When you view the page again, notice the heading has changed to your title value.
+
+
+### Edit _config.yml author info
+
+0. Again use a text editor to edit the _config.yml file to change other values.
+
+0. Scroll down the file to:
+
+   ```
+# Site Author
+author:
+name             : "Wilson Mar"
+avatar           : "bio-photo.jpg"
+bio              : "Hello."
+location         : "Everywhere"
+   ```
+
+0. Change the default author name, bio text, and location.
+
+   <a href="#avatar>Change the avatar</a>.
+PROTIP: Don't change more than one or two values before you reset and view again
+so you know what change break the system.
 
 
 ## Tabs, folders, and index.md files (for SEO)
 
-"About" and other **tabs** displayed constantly at the top of the page
-are clickable. The pages they link to are specified in
-the **navigation.yml** file within the **_data** folder:
+Links at the top of the page ("QUICK-START GUIDE", "ABOUT", etc.)
+are specfied by the navigation.html file within the _data folder.
 
-{% highlight text %}
+0. Edit that file.
+
+   The **title:** key specifies the text of each tab, such as "About".
+
+   NOTE: CSS in the theme automatically turns all letters into capital.
+
+0. Change url values such as this:
+
+   {% highlight text %}
 - title: About
 url: /about/
 
 - title: Sample Posts
 url: /posts/
-{% endhighlight %}
+   {% endhighlight %}
 
-The **title:** key specifies the text of each tab, such as "About".
-NOTE: CSS in the theme automatically turns all letters into capital.
 
+0. Save and restart the server.
+
+### index.md under About folders
+
+Next let's use a text editor to look into that **about** folder specified in the .yml file.
 
 github:
 repo:  https://github.com/user/Proj # "GitHub project" link on sidebar
 
-
-Next let's use a text editor to look into that **about** folder specified in the .yml file.
 
 
 ### index.md under folders
@@ -259,6 +370,11 @@ The **posts** tab link to files within the **_posts** folder.
 In the case of the sample file named "2011-03-10-sample-post.md",
 Jekyll programming parses the "sample-post" out of the file name and uses that
 as if it's named "sample-post.html".
+
+
+### UI Text Translation
+
+An addition 
 
 
 ### Metadata within .md files

@@ -1176,6 +1176,7 @@ The trail goes from St. Louis and Independence, Missouri through Kansas and Nebr
 <li><a target="_blank" href="http://www.ku.edu/~sma/index.html">Spencer Museum of Art at the University of Kansas</a>, Lawrence</li>
 <li><a target="_blank" href="http://webs.wichita.edu/?view=ulrich">Ulrich Museum of Art at Wichita State University</a></li>
 <li><a target="_blank" href="http://www.wichitaartmuseum.org/">Wichita Art Museum</a></li>
+<li><a target="_blank" href="http://ozmuseum.com/">Oz museum</a>, Wamego</li>
 </ul>
 
 

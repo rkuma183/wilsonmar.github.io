@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "API Programming"
-excerpt: "My computer will talk with your computers"
-tags: [twitter, tweets, social, API, Jekyll]
+excerpt: "My computer talks with your computers"
+tags: [API, programming]
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
   credit: And Beyond

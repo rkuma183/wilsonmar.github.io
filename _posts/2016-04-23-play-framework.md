@@ -2,7 +2,7 @@
 layout: post
 title: "Play Framework"
 excerpt: "For easier, faster play for all"
-tags: [apple, mac, scala]
+tags: [scala, framework, javascript]
 image:
 # feature: # pic-gray-players
   feature: https://cloud.githubusercontent.com/assets/300046/14763950/bd44455a-0963-11e6-85e7-11b2d8e5740b.jpg
