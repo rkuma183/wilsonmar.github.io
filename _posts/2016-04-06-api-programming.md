@@ -19,6 +19,12 @@ without user intervention or command.
 
 APIs are being used by many web and mobile apps to communicate with servers.
 
+APIs are also called "microservices".
+
+The less coupling, the less predefined semantics, the greater means to evolve.
+
+## Fundamental shift
+
 To me, APIs are a big deal because they enable a fundamental shift
 from people (humans) <strong>initiating</strong> actions 
 by clicking on User Interfaces (UIs) to <strong>computers</strong>
@@ -30,7 +36,7 @@ impractical for someone to log into each device.
 Permissions for computers to act are given not by passwords entered,
 but by long-lived "service accounts".
 
-BLAH: There is a lack of vendors helping end-consumers with managing 
+QUESTION: Who are the vendors helping <strong>end-consumers</strong> manage 
 the rapidly proliferating bots working on their behalf.
 
 Programming in various programming languages for APIs:
