@@ -90,3 +90,10 @@ http://www.smartfile.com/blog/3-benefits-of-api-first-design/
 https://www.youtube.com/watch?v=oG2rotiGr90
 	REST-Ful API Design
 	by SpringDeveloper 
+
+http://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-introduction/
+
+https://github.com/APIs-guru/api-models#existing-integrations
+
+https://luckymarmot.com/paw
+	is a HTTP client for Mac

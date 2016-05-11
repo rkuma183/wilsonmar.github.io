@@ -72,7 +72,7 @@ are needed to avoid extra costs and effort.
 QUESTION: What are the benefits of discoverability, collaboration, ease of integration, etc. 
 and other advanced features offered by vendors?
 
-PROTIP: Consider the strategy of getting going quickly with a vendor which offers low-cost start-up costs (such as Microsoft).
+PROTIP: Consider the strategy of getting going quickly with a vendor which offers low-cost <a href="#StartupCost">start-up costs</a>.
 Then your organization can gain the experience needed to more wisely evaluate the value of additional features among all vendors.
 
 
@@ -115,7 +115,11 @@ Forrester also illustrated the history of offerings with this timeline:
 <img alt="api vendors timeline forrester 2015" width="652" height="361" src="https://cloud.githubusercontent.com/assets/300046/14919580/b55db79a-0de6-11e6-9377-553fba4b4366.jpg"><!-- 1346x744 -->
 This was adjusted for Tibco buying Mashery from Intel in August, 2015.
 
-&nbsp;
+### Gartner Magic Quadrant
+
+![gartner-api-governance-2015](https://cloud.githubusercontent.com/assets/300046/15166279/858e6896-16da-11e6-9075-76191c993feb.png)
+
+
 <a href="#Importance"></a>
 
 ## Importance of each criteria
@@ -144,13 +148,26 @@ Each of these are a risk and an aspect of cost/benefit.
    How do "bells and whistles" benefit?
 
 
+<a name="StartupCost"></a>
+
 ### Initial Cost
 
-   * Lower up-front cost is important for some.
+Lower up-front cost is important for many.
+
    * 3scale, Apigee, and WSO2 have options for no-cost, unlimited duration use of their API management solutions (though support is typically limited or unavailable).
+
    * Amazon API Gateway has a free tier for one million API calls per month for up to 12 months.
 
+   * Microsoft charges Developers $49/month 
+   and limits access to 10 users.
+
 ### Cost over time
+
+BLAH: <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/api-management/">
+Microsoft pricing</a>
+ bundles pre-defined amounts of calls, cache, and network services together in <strong>units</strong> for billing.
+
+Amazon charges for different services separately:
 
    * API calls by the million received depend on location of servers:
    <a target="_blank" href="https://aws.amazon.com/api-gateway/pricing/">Amazon charges</a>:
@@ -454,11 +471,29 @@ is published from markup text
 <a target="_blank" href="https://github.com/Azure/azure-content/blob/master/articles/api-management/api-management-get-started.md">in this GitHub</a>
 which directs people to the 
 <a target="_blank" href="https://manage.windowsazure.com/@jetbloomhotmail.onmicrosoft.com#Workspaces/ApiManagementExtension/services"> classic portal</a>.
-
    NOTE: There is no Issues tab in their GitHub.
 
+* The roadmap is not public.
 
-### Publisher portal
+* <a target="_blank" href="https://feedback.azure.com/forums/248703-api-management?filter=top&page=1">
+   Issues with the API service</a>
+   where each public can allocate 25 voting points among proposals.
+
+   The top request (May 2016) is 
+   <a target="_blank" href="https://blogs.msdn.microsoft.com/webdev/2015/09/04/introducing-microsoft-asp-net-webhooks-preview/">
+   Web Hooks in ASP.NET</a>, 
+   a <a target="_blank" href="http://docs.asp.net/projects/aspnetwebhooks/en/latest/">
+   set of Nuget packages</a>
+   for web apps to send and receive WebHooks from external services using a common HTTP pattern. 
+   http://neelbhatt2015.blogspot.in/2015/12/webhooks-in-aspnet-visual-studio.html
+   This won’t get the scale, performance, or analytics Azure Event Hubs provides, though.
+
+* <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/api-management/">
+  The pricing page</a> states there is no on-premises deployment option available at this time.
+
+### Create Publisher portal
+
+0. [Get a Microsoft Azure account](/azure-cloud/)
 
 0. Specify Scale: Developer of Standard 
 
@@ -470,53 +505,7 @@ which directs people to the
 0. Custom SSL cert
 0. Custom domain (developer.xyz.com)
 
-### Create
 
-Below are the steps to "Create an API gateway and Developer Portal in minutes".
-
-0. https://account.windowsazure.com/signup
-
-0. https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard
-   to activate my BizSpark account $25/month Azure credit. 
-
-0. Verfication by text message or call does not use land-line VOIP phone numbers,
-   only cellular numbers.
-
-0. Input credit card (even though it's free).
-
-0. Click "Start Managing my service" for https://portal.azure.com/
-
-0. Select Resource group location, rearranged below by continent:
-
-   * West US
-   * Central US
-   * East US
-   * East US 2
-   * South Central US
-   * Brazil South
-
-   * Japan East (Tokyo)
-   * Japan West 
-   * Southeast Asia (Australia)
-   * East Asia
-
-   * North Europe
-   * West Europe
-
-0. What
-
-   * Apps Services
-   * Virtual machines (classic)
-   * Virtual machines
-   * SQL databases
-   * Cloud services (classic)
-   * Security Center
-
-   * Active Directory
-   * Storage
-   * Messaging
-   * Networking
-   * Management
 
 0. Search
 
