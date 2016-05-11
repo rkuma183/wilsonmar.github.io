@@ -39,7 +39,22 @@ but by long-lived "service accounts".
 QUESTION: Who are the vendors helping <strong>end-consumers</strong> manage 
 the rapidly proliferating bots working on their behalf.
 
-Programming in various programming languages for APIs:
+## Programming Languages
+
+MS Azure API generates code for several languages:
+
+<img width="321" alt="ms-api-code-samples" src="https://cloud.githubusercontent.com/assets/300046/15183376/0f0c7c16-174e-11e6-91c3-3a87164d87f3.png">
+
+   * Curl for interactive exploration on command lines
+   * C#
+   * Java
+   * JavaScript
+   * ObjC (Objective-C for iOS)
+   * PHP
+   * Python
+   * Ruby
+
+## Apps in various programming languages for APIs
 
 * desktop client web apps 
 * mobile web app (Sencha, etc. using Cordova)
@@ -75,3 +90,61 @@ But because of this, if the call to request() takes a while, a second browser re
 
 Perhaps an alternative would be to do an initial API call when the program starts (and wait before the program starts accepting browser requests until that call returns), and then set a timer to do periodic calls separate to that. The browser request would simply retrieve whatever data is currently in the radar object. (These are the things you need to pay careful mind to when making asynchronous API calls; otherwise you'll encounter strange behavior and bugs that can be extremely difficult to track down.)"
 
+## MVC :
+
+These steps are based on <a target="_blank" href="http://neelbhatt2015.blogspot.in/2016/01/hello-world-with-mvc-6.html">
+	Create MVC 6 via ASP.NET 5 Preview in VS 2015</a>
+
+0. Open VS 2015.
+0. Create MVC project.
+0. ASP.NET 5 Preview.
+0. Change the `project.json` to be like this:
+
+{% highlight json %}
+{
+  "dependencies": {
+       "Microsoft.AspNet.Mvc": "6.0.0-*",
+       "Nowin.vNext": "1.0.0-*",
+       "Kestrel": "1.0.0-*"
+    },
+  "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Nowin.vNext",
+        "web-kestrel": "Microsoft.AspNet.Hosting --server Kestrel"
+    }
+}{% endhighlight %}
+
+5\. Modify `Startup.cs` to add configurations:
+
+{% highlight C# %}
+using System;
+using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Builder;
+using Microsoft.Framework.DependencyInjection;
+
+public class Startup
+{
+    public void Configure(IApplicationBuilder app)
+    {
+        app.UseServices(services =>
+        {
+             services.AddMvc();
+        });
+
+        app.Use(async (context, next) => 
+        {
+             Console.WriteLine(context.Request.Path);
+
+             try
+             {
+                  await next();
+             }
+             catch(Exception ex)
+             {
+                   Console.WriteLine(ex);
+             }
+         });
+
+       app.UseMvc();
+      }
+}{% endhighlight %}
+	

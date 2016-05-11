@@ -29,7 +29,6 @@ by Oliver Gierke
 <a target="_blank" href="http://pivotal.io/event/jpmc-glasgow-tech-symposium">JPMC Tech Symposium, Glasgow</a>.
 
 
-https://twitter.com/apievangelist
 
 
 ## Integrations
@@ -95,5 +94,38 @@ http://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-intr
 
 https://github.com/APIs-guru/api-models#existing-integrations
 
+## Tools
+
 https://luckymarmot.com/paw
 	is a HTTP client for Mac
+
+## API Events
+
+* I Love APIs
+
+
+## API Rock Stars
+
+Must-follow #API influencers? 
+
+@Bradamante 
+
+@apihandyman 
+
+@zdne 
+
+@h3h 
+
+@launchany
+
+Mark Baker @distobj is an early API evangelist
+
+https://twitter.com/apievangelist
+
+@mgboydcom on @APIEconomist
+
+http://apieconomist.com/blog/darrel-miller-hypermedia-apis
+	Darrel Miller
+
+   #JSON-LD is best attempt to date to make RDF consumable"
+

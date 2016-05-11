@@ -88,23 +88,24 @@ Each link may go to text lower in this document, to another page on this site, o
 0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform.
 0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>
 0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting
-0. <a target="_blank" href="http://www.mashery.com/">Mashery</a> + Intel acquired + Tibco CloudBus Aug. 2015
 0. <a href="#MS-API-mgmt"> Microsoft API Management</a>
-0. <a target="_blank" href="http://wso2.com/advantages/">WSO2</a> open-sourced
-0. CA (acquired Layer 7)
+0. Apigee (OEM'd by SAP)
 
+0. <a target="_blank" href="http://wso2.com/advantages/">WSO2</a> open-source
 0. <a target="_blank" href="https://getkong.org/about/">Kong</a> (Mashape) 
    is an open-sourced API proxy which runs in front of any RESTful API, and
    extended through Plugins.
    It's built on top of NGINX and Apache Cassandra, but scalability still an issue?
 
-0. Torry Harris
-0. Oracle
-0. Software AG
-0. IBM (3Scale)
-0. Google Kubernetes
 0. Akana (formerly SOA Software)
 0. Axway (acquired Vordel)
+0. CA (acquired Layer 7), on-prem only
+0. <a target="_blank" href="http://www.mashery.com/">Mashery</a> + Intel acquired + Tibco API Exchange CloudBus Aug. 2015
+0. Torry Harris mostly open-source API-o-Blocks, API Connect in EMEA, India and Latin America.
+0. Oracle
+0. Software AG
+0. IBM (3Scale) - high cost
+0. Dell Boomi
 0. Accenture
 0. HP (focused on large media and telcos)
 
@@ -277,12 +278,15 @@ uses this illustration:
    * The "Actor" model of Microsoft Service Fabric
    * Caching
 
+Microsoft Azure routes traffic to a region providing the least latency for each user:
+
+<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method">
+<img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/20160415071221/ic753237.jpg"></a>
+
 ### Speed
 
    * Cache
    * International end-points
-
-
 
    * Cache memory per hour.  Amazon:
 
@@ -536,8 +540,12 @@ http://apidemo.azure.api.net/echo
 
 http://echo.cloudapi.net/calc/
 
+### Developer Portal Setup
 
-### Swagger import into Microsoft
+0. <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management">
+   Add discussion board and ratings</a>
+
+### Swagger import 
 
 A Swagger 2.0 doc can be imported, but the doc MUST contain Host, BasePath, Schemes properties. Otherwise, it won't get imported:
 No message. It just hangs with "working..". 
@@ -671,12 +679,14 @@ My recommendation for the sequence to view
 
 * <a target="_blank" href="https://www.twitter.com/AzureAPIMgmt">@AzureAPIMgmt</a>
 
-https://social.msdn.microsoft.com/Forums/en-US/home?sort=relevancedesc&brandIgnore=True&searchTerm=api+management
-Microsoft forum topics
+* Mailto: apimgmt@microsoft.com 
 
+* https://social.msdn.microsoft.com/Forums/en-US/home?sort=relevancedesc&brandIgnore=True&searchTerm=api+management
+   Microsoft forum topics
 
 https://www.youtube.com/results?search_query=apimanagement
 
+#integrate2016 conference 
 
 ### Partners 
 
