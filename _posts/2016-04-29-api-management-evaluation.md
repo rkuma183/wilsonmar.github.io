@@ -30,7 +30,7 @@ But before we open your checkbook, consider the Why:
 
 ## Business Model Why
 
-<img width="480" alt="api business model v01_960x520" src="https://cloud.githubusercontent.com/assets/300046/15152415/6bd3a954-1692-11e6-9c01-7abc9478ed3a.png">
+<img width="476" alt="api-monitization-model-952x510" src="https://cloud.githubusercontent.com/assets/300046/15186420/3419291c-175a-11e6-99de-3cbe628d7460.png">
 
 PROTIP: While public APIs get a lot of press (due in part to marketing spend),
 implementing indirect monitization and private APIs also make sense for many organizations.
@@ -85,7 +85,7 @@ The vendors and their product, ranked by total points averaged among raters:
 
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
-0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform.
+0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code.
 0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>
 0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting
 0. <a href="#MS-API-mgmt"> Microsoft API Management</a>

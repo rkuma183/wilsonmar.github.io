@@ -75,6 +75,17 @@ create and maintain API consumer accounts and
 establish a gateway to obtain API usage metrics needed to 
 enforce API usage plans.
 
+## Styles of Implementation
+
+<img width="605" alt="api-styles-1210x546" src="https://cloud.githubusercontent.com/assets/300046/15186421/342085b8-175a-11e6-85c3-28f3d437fe91.png">
+
+Can apps call <strong>Assembly style</strong> (composite) requests 
+such as customerOrder?
+
+* This provides a simpler structure but more complex steps for developers to code.
+
+* But the Assembly style can create a more complex implementation for API developers.
+
 
 ## Issues
 
