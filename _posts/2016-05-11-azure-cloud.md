@@ -13,9 +13,9 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-### Create
+## Sign-up
 
-Below are the steps to "Create an API gateway and Developer Portal in minutes".
+The steps to "Create an API gateway and Developer Portal in minutes".
 
 0. https://account.windowsazure.com/signup
 
@@ -29,9 +29,15 @@ Below are the steps to "Create an API gateway and Developer Portal in minutes".
 
 0. Click "Start Managing my service" for https://portal.azure.com/
 
+## Create 
+
+0. <a target="_blank" href="https://portal.azure.com/">
+   https://portal.azure.com</a>
+
 0. Select Resource group location / <a href="#Region">region</a>:
 
-0. Options include the classic and newer ARM model:
+0. Options include the classic and newer <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/">
+ARM (Azure Resource Manager)</a>:
 
    * Apps Services
    * Virtual machines (classic)
@@ -125,22 +131,23 @@ https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
 
 ## Azure Certification
 
-https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx
-   MCSD Solutions Developer: Azure Solutions Architect 
+* <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx">
+   MCSD Solutions Developer: Azure Solutions Architect</a>
 
-https://azure.microsoft.com/en-us/community/training/
+* <a target="_blank" href="https://azure.microsoft.com/en-us/community/training/">
+   community training</a>
 
-https://azure.microsoft.com/en-us/marketplace/programs/certified/
-   certification for apps
+* <a target="_blank" href="https://azure.microsoft.com/en-us/marketplace/programs/certified/">
+   certification for apps</a>
 
-https://mva.microsoft.com/product-training/microsoft-azure#!lang=1033
-   Microsoft Virtual Academy courses
+* <a target="_blank" href="https://mva.microsoft.com/product-training/microsoft-azure#!lang=1033">
+   Microsoft Virtual Academy courses</a>
 
-   https://www.opsgility.com/
-   provides hands-on, deep-dive training
+* <a target="_blank" href="https://www.opsgility.com/">
+   Opsgility.com</a> provides hands-on, deep-dive training
+
 
 ### Exam 70-532 - Developing Microsoft Azure Solutions
-
 
 *    Compare the services available in the Azure platform
 *    Configure and deploy ASP.NET web applications

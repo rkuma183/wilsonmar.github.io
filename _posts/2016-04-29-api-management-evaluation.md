@@ -4,10 +4,9 @@ title: "API Management Evaluation"
 excerpt: "How to manage APIs?"
 tags: [devops]
 image:
-# feature: pic-brown-horses-running-forward-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/14724047/445df2f0-07d1-11e6-9c26-782291fe2b47.jpg
-  credit: 
-  creditlink: 
+  feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
+  credit: And Beyond
+  creditlink: http://www.andbeyond.com/chile/places-to-go/easter-island.htm
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -510,7 +509,7 @@ which directs people to the
 ### Create Publisher portal
 
 0. [Get a Microsoft Azure account](/azure-cloud/)
-
+0. Create a Resource (Free trial)
 0. Specify Scale: Developer of Standard 
 
    Developer
@@ -521,7 +520,18 @@ which directs people to the
 0. Custom SSL cert
 0. Custom domain (developer.xyz.com)
 
+### Create service
 
+0. 
+   <img width="1077" alt="azure-api-create-2154x508" src="https://cloud.githubusercontent.com/assets/300046/15197994/da4f767e-1791-11e6-9cc6-f54e0f8abde7.png">
+
+0. Specify the prefix to `.azure-api.net`.
+0. Select subscription (Free Trial, etc.).
+0. Select Region.
+
+0. Specify Organization name.
+0. Specify Administrator Email.
+0. Click check icon.
 
 0. Search
 
@@ -551,6 +561,24 @@ When created, the Echo API is created as a sample.
 http://apidemo.azure.api.net/echo
 
 http://echo.cloudapi.net/calc/
+
+### Authentication
+
+<a target="_blank" href="https://www.youtube.com/watch?v=z2pU_aHphbw&index=9&list=PL8nfc9haGeb4khJEFcDU9Lluit5nYlB3a">
+Delegating User Authentication and Product Subscription to a 3rd Party</a>
+
+### Policies
+
+Examples:
+
+<a target="_blank" href="https://github.com/Azure/api-management-samples/tree/master/policies">
+https://github.com/Azure/api-management-samples/tree/master/policies</a>
+
+   *   Hide response data based on product name.policy.xml
+   *   Pre-authorize requests using validate-jwt.policy.xml
+   *   Send context information to the backend service.policy.xml
+   *   Set cache duration using cache control header.policy.xml
+
 
 ### Developer Portal Setup
 
