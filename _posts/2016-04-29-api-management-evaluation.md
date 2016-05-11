@@ -33,8 +33,18 @@ But before we open your checkbook, consider the Why:
 <img width="476" alt="api-monitization-model-952x510" src="https://cloud.githubusercontent.com/assets/300046/15186420/3419291c-175a-11e6-99de-3cbe628d7460.png">
 
 PROTIP: While public APIs get a lot of press (due in part to marketing spend),
-implementing indirect monitization and private APIs also make sense for many organizations.
+implementing thru partners achieves indirect monitization
 
+After Netflix opened their API, they identified partners 
+and <strong>new channels</strong> they didn't know existed.
+
+   * increase brand image
+
+Implementing private APIs among employees only may achieve 
+cost savings from control, and standardization.
+
+   * Improve discoverability (for reuse and greater agility)
+   * Present uniform facade
 
 ## Major logical components
 
@@ -97,6 +107,7 @@ Each link may go to text lower in this document, to another page on this site, o
    extended through Plugins.
    It's built on top of NGINX and Apache Cassandra, but scalability still an issue?
 
+0. <a target="_blank" href="http://www.apiversity.com/">APIversity</a> API Manager.
 0. Akana (formerly SOA Software)
 0. Axway (acquired Vordel)
 0. CA (acquired Layer 7), on-prem only
@@ -468,7 +479,8 @@ is the tag line at
 <a target="_blank" href="https://azure.microsoft.com/en-us/services/api-management/">
 Microsoft's API Management home page</a> (Service Overview).
 
-Microsoft's service is based on its acquisition of APIphany October 23, 2013.
+Microsoft's service is based on its October 23, 2013
+acquisition of APIphany (based in Wash. DC).
 
 <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/api-management-get-started/">Documentation</a>
 is published from markup text
@@ -588,13 +600,14 @@ My recommendation for the sequence to view
    TechEd North America 2014
    by Josh Twist (@joshtwist)
 
-   https://www.youtube.com/watch?v=NSMc5YuKmb4
-   TechEd Europe 2014
-
    * Business models
    * Engaging developers: Time to First Successful call
    * Make legacy API (SOAP XML) modern (REST JSON)
    * Understand their behavior with monitoring
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NSMc5YuKmb4">
+   Introduction to API Management on Microsoft Azure</a>
+   at TechEd Europe 2014
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=6GmQvzZOpxY">
    Microsoft Azure API Management Master Class: In Depth for Fun and Profit</a>
@@ -602,7 +615,9 @@ My recommendation for the sequence to view
    by Anton Babadjanov | antonba@ | @antonbaa | https://www.linkedin.com/in/anton-babadjanov-44501b9
    and Vlaimir Vinogradsky | vlvinogr@ 
 
-   In this session we will have some fun with the product while exploring the end-to-end workflow of launching a "treasure hunt" API. We'll then have the audience play a game with it. We'll also take a peek at what the future holds for this exciting new Azure service.
+   This explores the end-to-end workflow of launching a "treasure hunt" API
+   and play a game with it. 
+   We'll also take a peek at what the future holds for this exciting new Azure service.
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=jNXXRGL3gqM">
    Azure Api Management</a>
@@ -674,6 +689,12 @@ My recommendation for the sequence to view
    Nov 09, 2015 at 2:01PM
    By: Miao Jiang
    This video demonstrates how to use the log-to-eventhub policy to build a custom dashboard with Azure Stream Analytics and PowerBI.
+
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=9sml7r019J8">
+   Azure API Management Update</a>
+   BizTalk360
+
 
 ### Social media:
 
