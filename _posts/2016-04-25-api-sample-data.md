@@ -1,29 +1,18 @@
 ---
 layout: post
-title: "Sample API data sources"
+title: "API sample data sources"
 excerpt: "No waiting for test automation"
-tags: [text to speech, JavaScript, programming]
+tags: [API, text to speech, JavaScript, programming]
 image:
-# feature: pic white robots woman 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
-  credit: Cyberconstruct.be
-  creditlink: http://cyberconstruct.be/2015/02/digital-job-crafting/
+# feature: pic bw easter island moai 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/15213184/cbe4bf88-1802-11e6-8f07-5b06236ac771.jpg
+  credit: Cole Thompson
+  creditlink: http://www.colethompsonphotography.com/MoaiStandingImages.htm
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
 <hr />
 {% include _toc.html %}
-
-## Deprecated 410 Gone response
-
-Submitting this:
-
-    http://ws.spotify.com/search/1/album?q=fo
-
-yields this with a 410 Gone HTTP response code:
-
-    This API has been deprecated. Please upgrade to our new APIs: https://developer.spotify.com/web-api/migration-guide/
-
 
 ## Flickr API
 

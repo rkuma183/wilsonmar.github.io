@@ -2,12 +2,12 @@
 layout: post
 title: "REST API Responses"
 excerpt: "Here's what I think of your request"
-tags: [REST API, JavaScript, programming]
+tags: [API, JavaScript, programming]
 image:
-# feature: pic white robots woman 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
-  credit: Cyberconstruct.be
-  creditlink: http://cyberconstruct.be/2015/02/digital-job-crafting/
+# feature: pic easter island clenched-fist-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15212221/c77ab1ba-17fc-11e6-924d-0c5d01e53522.jpg
+  credit: Patty Civalleri
+  creditlink: http://1take.com/photography/archaeology/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -34,6 +34,17 @@ comments: true
 5XX - server errors
 
       * 500	Requested Range Not Satisfiable
+
+
+### Deprecated 410 Gone response
+
+Submitting this:
+
+    http://ws.spotify.com/search/1/album?q=fo
+
+yields this with a 410 Gone HTTP response code:
+
+    This API has been deprecated. Please upgrade to our new APIs: https://developer.spotify.com/web-api/migration-guide/
 
 
 ## Format of response file type

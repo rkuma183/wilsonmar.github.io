@@ -23,7 +23,8 @@ Click content link:
 0. <a href="#TotalPoints">Total points for each choice</a> (sample recommendation: what's best for you)
 0. <a href="#Importance"> Relative Importance of each criteria</a>
 0. <a href="#Ratings">Ratings for each choice</a>
-0. <a href="#Criteria">Criteria</a>
+0. <a href="#FuncCriteria">Features Evaluated</a>
+0. <a href="#NFRCriteria">Non-Functional Criteria</a>
 0. <a href="#VariationAmongRaters">Variation among raters</a>
 
 But before opening your checkbook, consider the Why and how:
@@ -36,7 +37,7 @@ PROTIP: While public APIs get a lot of press (due in part to marketing spend),
 implementing thru partners achieves indirect monitization
 
 After Netflix opened their API, they identified partners 
-and <strong>new channels</strong> they didn't know existed.
+and <strong>new channels</strong> they didn't anticipate.
 
    * increase brand image
 
@@ -95,7 +96,7 @@ The vendors and their product, ranked by total points averaged among raters:
 
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
-0. [Microsoft API Management](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. 
+0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. 
    For Microsoft shops.
 0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code. 
    The most flexible.
@@ -151,9 +152,125 @@ These represent extent of risk and effort, and cost savings or earnings.
 Semi-transparent layers are used so both layers can be seen clearly.
 
 
-<a name="Criteria"></a>
 
-## Criteria Items
+
+<a name="Ratings"></a>
+
+## Ratings for each criteria
+
+There is usually a trade-off between cost vs. speed vs. quality (the "Iron Triangle").
+But here are more considerations:
+
+![polar-chart-2](https://cloud.githubusercontent.com/assets/300046/14914539/44f83b42-0dc8-11e6-84ff-ba8c2317a808.png)
+
+TODO: The above is an example placeholder.
+
+
+<a name="VariationAmongRaters"></a>
+
+## Variation among raters
+
+Each rating is the average of ratings among several raters.
+
+<hr />
+
+<a name="FuncCriteria"></a>
+
+## Features Evaluated
+
+* <a href="#PublisherFeatures"> API Publisher Portal Features</a>
+* <a href="#GatewayFeatures"> API Gateway Features</a>
+* <a href="#DeveloperFeatures"> API Developer Portal Features</a>
+
+Categories of featuers are detailed below:
+
+<a name="PublisherFeatures"></a>
+
+### API Publisher Portal Features
+
+* Define API schema
+* Import API schema (from Swagger, RAML, WADL, etc.) 
+
+* Package APIs into products
+* Define Billing parameters
+* Create invoice and email
+* View Billing history to collection history
+
+* Manage users (add, update, delete)
+* Define policies like quotas or transformations on the APIs
+* Get insights from analytics
+
+* Collaboration among other publishers
+* Submission and update to aggregation platforms:
+
+   * <a target="_blank" href="https://github.com/APIs-guru/api-models#existing-integrations">
+     APIs-guru on GitHub</a> is the "Wikipedia of REST API specs".
+
+   * Submission to <a target="_blank" href="https://kapeli.com/dash">Dash</a> by Bogdan Popescu
+     who aggregates 150+ APIs for access off-line (for $30).
+
+   * <a target="_blank" href="http://www.apirest.com/">
+     apirest.com</a>, the API search engine. @apirestcom
+
+<a name="GatewayFeatures"></a>
+
+### API Gateway Features
+
+* a secured channel between the API gateway and the backend.
+
+* gate access with API keys, certificates, JWT tokens
+
+* Enforce usage quotas and rate limits
+
+* detect DOS attacks by using throttling 
+
+* use advanced security policies like JWT token validation.
+
+* track usage for billing
+
+* Transform API calls on the fly without code modifications (from V1 sent to V2 accepted)
+
+* Cache (queue in memory) backend responses (where set up)
+
+* Log calls to store metadata for analytics over time
+
+* Collaboration among other gateways
+* Integration with other APIs.
+
+
+<a name="DeveloperFeatures"></a>
+
+### API Developer Portal Features
+
+* API documentation.
+* Communication about system availability history  
+* Communication about change history  
+* Announcements about hackathons and other events
+
+* Try out an API via the interactive console.
+* URL to download Swagger specs.
+
+* fast onboarding (signup via GitHub, Hotmail, AD, Google) 
+* Create an account and subscribe to get API keys.
+* Access analytics on their own usage.
+
+* Internal API portal offers a centralized location for communication about the availability and latest changes to APIs, 
+
+* gating access based on organizational accounts, all based on AD 
+
+* API facade that decouples internal implementations not ripe for partner consumption.
+
+* Foster innovation?
+
+* Collaboration among other developers
+* Integration with other API developer portals.
+* Gamification
+
+<hr />
+
+<a name="NFRCriteria"></a>
+
+## Non-Functional Criteriae
 
 Each of these are a risk and an aspect of cost/benefit.
 
@@ -361,97 +478,6 @@ Microsoft Azure routes traffic to a region providing the least latency for each 
    * Investment advisory financial ratings
    * Consumer ratings by JD Power
    * Glassdoor ratings by employees
-
-
-<a name="Ratings"></a>
-
-## Ratings for each criteria
-
-There is usually a trade-off between cost vs. speed vs. quality (the "Iron Triangle").
-But here are more considerations:
-
-![polar-chart-2](https://cloud.githubusercontent.com/assets/300046/14914539/44f83b42-0dc8-11e6-84ff-ba8c2317a808.png)
-
-
-<a name="VariationAmongRaters"></a>
-
-## Variation among raters
-
-Each rating is the average of ratings among several raters.
-
-## Features
-
-<a name="PublisherFeatures"></a>
-
-### API Publisher Portal Features
-
-* Define API schema.
-* Import API schema (from Swagger) 
-
-* Package APIs into products.
-* Define Billing parameters
-* View Billing history to collection history
-
-* Manage users (add, update, delete)
-* Define policies like quotas or transformations on the APIs.
-* Get insights from analytics
-
-* Collaboration among other publishers
-* Integration with other publishing platforms.
-
-
-<a name="GatewayFeatures"></a>
-
-### API Gateway Features
-
-* a secured channel between the API gateway and the backend.
-
-* gate access with API keys, certificates, JWT tokens
-
-* Enforce usage quotas and rate limits
-
-* detect DOS attacks by using throttling 
-
-* use advanced security policies like JWT token validation.
-
-* bill based on usage
-
-* Transform API calls on the fly without code modifications (from V1 sent to V2 accepted)
-
-* Cache (queue in memory) backend responses (where set up)
-
-* Log calls to store metadata for analytics over time
-
-* Collaboration among other gateways
-* Integration with other APIs.
-
-
-<a name="DeveloperFeatures"></a>
-
-### API Developer Portal Features
-
-* API documentation.
-* Communication about system availability history  
-* Communication about change history  
-* Announcements about hackathons and other events
-
-* Try out an API via the interactive console.
-* URL to download Swagger specs.
-
-* fast onboarding (signup via GitHub, Hotmail, AD, Google) 
-* Create an account and subscribe to get API keys.
-* Access analytics on their own usage.
-
-* Internal API portal offers a centralized location for communication about the availability and latest changes to APIs, 
-
-* gating access based on organizational accounts, all based on AD 
-
-* API facade that decouples internal implementations not ripe for partner consumption.
-
-* Foster innovation?
-
-* Collaboration among other developers
-* Integration with other API developer portals.
 
 
 <hr />

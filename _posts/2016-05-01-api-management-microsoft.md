@@ -30,7 +30,10 @@ is published from markup text
 <a target="_blank" href="https://github.com/Azure/azure-content/blob/master/articles/api-management/api-management-get-started.md">in a GitHub</a>
 which directs people to the 
 <a target="_blank" href="https://manage.windowsazure.com/@jetbloomhotmail.onmicrosoft.com#Workspaces/ApiManagementExtension/services"> classic portal
-at manage.windowsazure.com</a>.
+at manage.windowsazure.com</a> rather than the newer
+<a target="_blank" href="https://portal.azure.com/">
+portal.azure.com</a> site using Azure Resource Manager (ARM).
+
    NOTE: There is no Issues tab in their GitHub.
 
 * The roadmap is not public.
