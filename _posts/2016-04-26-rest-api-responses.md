@@ -4,10 +4,10 @@ title: "REST API Responses"
 excerpt: "Here's what I think of your request"
 tags: [API, JavaScript, programming]
 image:
-# feature: pic easter island clenched-fist-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15212221/c77ab1ba-17fc-11e6-924d-0c5d01e53522.jpg
-  credit: Patty Civalleri
-  creditlink: http://1take.com/photography/archaeology/
+# feature: pic bw easter island moai 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/15213184/cbe4bf88-1802-11e6-8f07-5b06236ac771.jpg
+  credit: Cole Thompson
+  creditlink: http://www.colethompsonphotography.com/MoaiStandingImages.htm
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

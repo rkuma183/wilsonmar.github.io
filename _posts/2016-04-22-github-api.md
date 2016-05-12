@@ -4,10 +4,10 @@ title: "GitHub REST API"
 excerpt: "You talkin to me?"
 tags: [devops]
 image:
-# feature: pic-brown-horses-running-forward-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/14724047/445df2f0-07d1-11e6-9c26-782291fe2b47.jpg
-  credit: 
-  creditlink: 
+# pic green easter island 2 hillside 1920x1080
+  feature: https://cloud.githubusercontent.com/assets/300046/15217452/d8d04062-1818-11e6-9a57-215db66655d2.jpg
+  credit: Audley Travel
+  creditlink: https://www.youtube.com/watch?v=Sq8qZoEr0nw&t=1m12s
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -31,7 +31,9 @@ and tr zxf the downloaded file, do this from a Terminal:
 
 ## GitHub API
 
-GitHub provides a well-known API with a lot of traffic.
+GitHub provides a well-known API that accepts a lot of traffic.
+
+### Don't use http
 
 Begin by:
 
@@ -49,7 +51,7 @@ Connection fused:
    curl: (7) Failed to connect to api.github.com port 80: Connection refused
    </pre>
 
-Use https:
+### Use https for HATEOAS
 
    <tt><strong>
    https://api.github.com

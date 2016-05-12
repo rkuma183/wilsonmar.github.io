@@ -474,6 +474,9 @@ videos
 https://azure.microsoft.com/en-us/documentation/samples/?service=service-fabric
 Sample apps
 
+## Logic Apps
+
+
 ## Resources
 
 * <a target="_blank" href="https://gallery.technet.microsoft.com/PowerShell-Deployment-f20bb605/">

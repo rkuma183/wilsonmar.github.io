@@ -4,9 +4,10 @@ title: "API Design"
 excerpt: "Make it work"
 tags: [API, design]
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
-  credit: And Beyond
-  creditlink: http://www.andbeyond.com/chile/places-to-go/easter-island.htm
+# pic beach easter_island_statues-wallpaper-1900x500 
+  feature: https://cloud.githubusercontent.com/assets/300046/15217295/1da4a576-1818-11e6-9a2c-527ae637d5c5.jpg
+  credit: Wallpapers Wide
+  creditlink: http://wallpaperswide.com/easter_island_statues_2-wallpapers.html
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -84,20 +85,25 @@ RAPID-ML</a>
 
 ## References
 
-http://www.smartfile.com/blog/3-benefits-of-api-first-design/
+* <a target="_blank" href="https://www.thoughtworks.com/insights/blog/microservices-lessons-frontline/">
+    Microservices: Lessons from the frontline</a>
+	at Australia
+	by Zhamak Dehghani, Principal consultant
 
-https://www.youtube.com/watch?v=oG2rotiGr90
-	REST-Ful API Design
+
+* <a target="_blank" href="http://www.smartfile.com/blog/3-benefits-of-api-first-design/">
+   Benefits of API-first design</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=oG2rotiGr90/">
+	YOUTUBE: REST-Ful API Design</a>
 	by SpringDeveloper 
 
-http://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-introduction/
+* <a target="_blank" href="http://apihandyman.io/writing-openapi-swagger-specification-tutorial-part-1-introduction/">
+   Swagger spec tutorial</a>
+   by API Handyman
 
-https://github.com/APIs-guru/api-models#existing-integrations
-
-## Tools
-
-https://luckymarmot.com/paw
-	is a HTTP client for Mac
+* <a target="_blank" href="https://github.com/APIs-guru/api-models#existing-integrations">
+   API Model from API-Guru on GitHub</a>
 
 ## API Events
 
