@@ -198,7 +198,7 @@ by Tim Warner Intermediate Apr 27, 2016 4h 46m
 Implementing Web Apps for Azure Infrastructure (70-533)</a>
 by Tim Warner Beginner Mar 15, 2016 4h 26m(14)
 
-### Exam 70-534 - Architecting Azure Solutions (70-534) 
+### Exam 70-534 - Architecting Azure Solutions
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/architecting-azure-solutions-70-534-secure-resources">
    Secure Resources</a>
