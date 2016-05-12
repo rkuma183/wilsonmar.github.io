@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "API Management Evaluation"
-excerpt: "How to manage APIs?"
-tags: [devops]
+excerpt: "Which to choose?"
+tags: [API, devops, evaluation]
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
   credit: And Beyond
@@ -16,16 +16,17 @@ comments: true
 
 This page provides you a way to apply my research on managing APIs.
 
-There are several vendors.
-So if you're in the market, I provide you a structure and approach for wisely selecting:
+> I provide here a structure and approach for wisely selecting from among several vendors.
 
-0. <a href="#TotalPoints">Total points for each choice</a> (the recommendation: what's best for you)
+Click content link:
+
+0. <a href="#TotalPoints">Total points for each choice</a> (sample recommendation: what's best for you)
 0. <a href="#Importance"> Relative Importance of each criteria</a>
 0. <a href="#Ratings">Ratings for each choice</a>
 0. <a href="#Criteria">Criteria</a>
 0. <a href="#VariationAmongRaters">Variation among raters</a>
 
-But before we open your checkbook, consider the Why:
+But before opening your checkbook, consider the Why and how:
 
 ## Business Model Why
 
@@ -94,14 +95,16 @@ The vendors and their product, ranked by total points averaged among raters:
 
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
-0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code.
-0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>
-0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting
-0. <a href="#MS-API-mgmt"> Microsoft API Management</a>
-0. Apigee (OEM'd by SAP)
+0. [Microsoft API Management](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. 
+   For Microsoft shops.
+0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code. 
+   The most flexible.
+0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code. Full featured.
+0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting. Proprietary code. 
+   OEM'd by SAP.
 
 0. <a target="_blank" href="http://wso2.com/advantages/">WSO2</a> open-source
-0. <a target="_blank" href="https://getkong.org/about/">Kong</a> (Mashape) 
+0. <a target="_blank" href="https://getkong.org/about/">Kong</a> (previously Mashape) 
    is an open-sourced API proxy which runs in front of any RESTful API, and
    extended through Plugins.
    It's built on top of NGINX and Apache Cassandra, but scalability still an issue?
@@ -369,15 +372,6 @@ But here are more considerations:
 
 ![polar-chart-2](https://cloud.githubusercontent.com/assets/300046/14914539/44f83b42-0dc8-11e6-84ff-ba8c2317a808.png)
 
-Vendors are in alphabetical order:
-
-Akana:
-
-* https://www.youtube.com/channel/UC3hr1MuhpS11dMxTdo1rHQw
-
-Mashery:
-
-* https://www.youtube.com/channel/UCJqekyyjX78qmzoOK_wZ2lw
 
 <a name="VariationAmongRaters"></a>
 
@@ -466,8 +460,15 @@ Each rating is the average of ratings among several raters.
 
 ## API Tool Vendors
 
-Pragmatic publishes a list of thousands of APIs (and growing).
+Vendors are in alphabetical order:
 
+Akana:
+
+   * https://www.youtube.com/channel/UC3hr1MuhpS11dMxTdo1rHQw
+
+Mashery:
+
+   * https://www.youtube.com/channel/UCJqekyyjX78qmzoOK_wZ2lw
 
 <a name="MS-API-mgmt"></a>
 
@@ -510,9 +511,7 @@ which directs people to the
 
 0. [Get a Microsoft Azure account](/azure-cloud/)
 0. Create a Resource (Free trial)
-0. Specify Scale: Developer of Standard 
-
-   Developer
+0. Specify Scale: Developer or Standard.
 
    Standard tier can go up to 4 instances to handle 800 million calls/month.
    QUESTION: No auto-scaling?
@@ -522,10 +521,12 @@ which directs people to the
 
 ### Create service
 
-0. 
+0. Select service:
+
    <img width="1077" alt="azure-api-create-2154x508" src="https://cloud.githubusercontent.com/assets/300046/15197994/da4f767e-1791-11e6-9cc6-f54e0f8abde7.png">
 
-0. Specify the prefix to `.azure-api.net`.
+0. Click Create.
+0. Specify the prefix to `.azure-api.net` (such as `itw1`).
 0. Select subscription (Free Trial, etc.).
 0. Select Region.
 
@@ -533,10 +534,84 @@ which directs people to the
 0. Specify Administrator Email.
 0. Click check icon.
 
+0. Use browser to visit the page, such as 
+   <a target="_blank" href="https://itw1.portal.azure-api.net">
+   https://itw1.portal.azure-api.net</a>
+
+0. Edit look and feel by clicking on the edit icon at the upper left.
+
+
+
+### Create Gateway
+
+0. Click Import API in publisher portal dashboard.
+0. Select From URL.
+0. Select Specification format: <strong>Swagger</strong> (no RAML).
+0. In Specification document URL field, paste 
+   <a target="_blank" href="http://calcapi.cloudapp.net/calcapi.json">http://calcapi.cloudapp.net/calcapi.json</a>.
+0. Provide a Web API URL suffix, e.g. 'calc'.
+0. Type 'Starter' in the products field to add your API to the 'Starter' product.
+
+   NOTICE: 
+
+   https://itw1.azure-api.net/calc
+
+0. Click Save.
+0. Click Operations tab.
+
+   Notice the GET Add, Divide, Multiply, Substract two integers.
+
+### Policy scope
+
+* Policy statements
+* Allow cross domain calls
+* Authenticate with Basic
+* Authenticate with client certificate
+* Check HTTP header
+* Control flow
+* Convert JSON to XML
+* Convert XML to JSON
+* CORS
+* Find and replace string in body
+* Forward request to backend service
+* Get from cache
+* Get value from cache
+* JSONP
+* Limit call rate per key
+* Limit call rate per subscription
+* Log to EventHub
+* Mask URLs in content
+* Remove value from cache
+* Restrict caller IPs
+* Return response
+* Rewrite URL
+* Send one way request
+* Send request
+* Set backend service
+* Set body
+* Set context variable
+* Set HTTP header
+* Set query string parameter
+* Set request method
+* Set status code
+* Set usage quota per key
+* Set usage quota per subscription
+* Store to cache
+* Store value in cache
+* Validate JWT
+* Wait for...
+
+
+### Open the developer portal 
+0. Click on APIs.
+0. Pick Calculator API from the list on the left.
+0. Click on Open Console for any API.
+0. In the console, enter values for the parameters and hit the HTTP <operation> button.
+
+
 0. Search
 
    NOTE: API Management is in category "Web + Mobile".
-
 
 "Take any API and publish it to developers and partners in minutes
 
@@ -561,6 +636,8 @@ When created, the Echo API is created as a sample.
 http://apidemo.azure.api.net/echo
 
 http://echo.cloudapi.net/calc/
+
+
 
 ### Authentication
 
@@ -842,21 +919,22 @@ Sample apps
 
 ## Resources
 
+* <a target="_blank" href="https://gallery.technet.microsoft.com/PowerShell-Deployment-f20bb605/">
+  PowerShell Deployment Toolkit (PDT)</a>
+  is a set of scripts and knowledge for automated deployment of 
+  System Center 2012 SP1/R2, including SQL and all prerequisites,
+  and all automatable post-setup integration.
+
 Matthew Snider [masnider@MSFT] 
 
 * Human factors in decisions: [Thinking, Fast and Slow](http://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374275637)
   by Daniel Kahneman
 
-* [You Are Not So Smart](http://youarenotsosmart.com/) by David McRaney
-
-* Nate Silver's [BOOK: The Signal And The Noise](http://www.amazon.com/dp/159420411X)
-
-* IT worst practices and "core incompetencies" are discussed on the [AntipatternZOO](http://antipatternzoo.com/)
-
+* [You Are Not So Smart](http://youarenotsosma
 
 ## More on APIs
 
-This page is one of a series on APIs:
+This page is one of a series about APIs:
 
 {% include api_topics.html %}
 

@@ -52,6 +52,22 @@ ARM (Azure Resource Manager)</a>:
    * Networking
    * Management
 
+   Imperative commands (verbs such as to start or stop an app or machine)
+   are used to manage resources.
+
+   ARM enables infrastructure configurations to be defined 
+   through a <strong>declarative syntax</strong>
+   in Resource Manager <strong>templates</strong> (much like Puppet).
+
+   and deployed as groups
+   (a container for each lifecycle deployment cycle)
+
+   Each resource group defines scope access control for administrative actions.
+
+   Tags are used for all other organization of resources.
+
+   A resource group can contain resources that reside in different regions.
+
 <a name="Regions"></a>
 
 ## Regions
