@@ -377,8 +377,6 @@ https://api.kloud.com.au/
     
     V1/user/cd1311/files
 
-https://twitter.com/RepreZen_API
-
 APIMatic
 
 AutoRest

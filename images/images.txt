@@ -3,6 +3,32 @@ pic images.txt
   credit:
   creditlink:
 
+—— Available:
+
+# pic-blue-city-abu-dhabi-skyscrapers-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269473/c8311bfa-19bc-11e6-890c-06abc511ef39.jpg
+  credit: Tian Xinqi
+  creditlink: http://www.tianxinqi.com/news/Above80swgpuwnk
+
+—— In use:
+
+# pic-darkblue-cloud-sunbeams-on-sea-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
+  credit: HD Wallpaper Backgrounds
+  creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
+
+
+# pic-black-bkg-white-cloud_1900x500](https://cloud.githubusercontent.com/assets/300046/15269257/8104a824-19b6-11e6-9c42-014bf608009a.jpg)
+http://www.themebin.com/hd-wallpapers/wandering-clouds-hd-wallpaper/
+![pic-black-bkg-white-cloud_1920x1200](https://cloud.githubusercontent.com/assets/300046/15269196/2e313c58-19b5-11e6-8399-8daf461b1bde.jpg)
+
+![chile_stones_easter_island_rapa_nui-wallpaper-1920x1200](https://cloud.githubusercontent.com/assets/300046/15254347/9e9b4ca8-18f3-11e6-85e1-dde5658173a7.jpg)
+
+http://wallpaperswide.com/chile_stones_easter_island_rapa_nui-wallpapers.html
+chile_stones_easter_island_rapa_nui-wallpaper-1900x500.jpg
+https://cloud.githubusercontent.com/assets/300046/15235284/1d3badc8-1877-11e6-9c93-014bb515696e.jpg
+
+
 <img src="http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png">
 </a><!-- http://www.calenweb.com/png/en/2016/2016-yearly-calendar.png -->
 

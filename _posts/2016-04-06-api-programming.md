@@ -158,4 +158,21 @@ public class Startup
        app.UseMvc();
       }
 }{% endhighlight %}
-	
+
+
+## Azure Logic Apps
+
+<strong>Azure Logic Apps</strong> allow developers to design workflows that start from a 
+<strong>trigger</strong> and then execute a series of steps, each invoking an 
+App Service API App
+whilst securely taking care of authentication and best practices like checkpointing and durable execution.
+
+See https://azure.microsoft.com/en-us/documentation/services/app-service/logic/
+
+<a target="_blank" href="https://tryappservice.azure.com/en-us">
+Create a sample Ping logic app</a> on a temporary (24 hour account)
+to ping a website on a recurring schedule, then extend it to take an action depending on the result of the ping.
+
+
+## Amazon Lambda
+

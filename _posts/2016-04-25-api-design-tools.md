@@ -16,6 +16,10 @@ comments: true
 
 ## REST API Clients
 
+* RepreZen is an IDE for designing APIs
+
+   * https://twitter.com/RepreZen_API
+
 * <a target="_blank" href="https://luckymarmot.com/paw/">
 	Paw is a HTTP client for Mac</a>
 

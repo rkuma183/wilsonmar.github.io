@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "Azure Cloud"
-excerpt: "Challenger become a leader"
+excerpt: "Challenger becomes a leader"
 tags: [cloud]
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
-  credit: And Beyond
-  creditlink: http://www.andbeyond.com/chile/places-to-go/easter-island.htm
+# pic-darkblue-cloud-sunbeams-on-sea-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
+  credit: HD Wallpaper Backgrounds
+  creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -139,9 +140,10 @@ Regions</a> with locations, rearranged by continent:
 	</td><td> - </td></tr>
 <tr><td> China East </td><td> Shanghai
 	</td><td> - </td></tr>
-
 </table>
 
+Two regions for the US Government are in Virginia.
+http://bit.ly/msgovt
 
 https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
 
@@ -182,27 +184,32 @@ https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
 
 ### Exam 70-533 - Implementing Microsoft Azure Infrastructure Solutions
 
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/preparing-pass-microsoft-azure-70-533-exam">
-Preparing to Pass the Microsoft Azure (70-533) Exam</a>
-by Tim Warner Intermediate Mar 04, 2016 1h 30m(17)
+This is based on ASM vs. new ARM.
+
+By <a target="_blank" href="http://www.timwarnertech.com/">Tim Warner</a>:
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/preparing-pass-microsoft-azure-70-533-exam">
+   Preparing to Pass the Microsoft Azure (70-533) Exam</a>
+   Intermediate Mar 04, 2016 1h 30m (17)
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-websites-azure-infrastructure-70-533">
+   Implementing Web Apps for Azure Infrastructure (70-533)</a>
+   Beginner Mar 15, 2016 4h 26m (14)
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-virtual-machines-azure-infrastructure-70-533">
+   Implementing Virtual Machines for Azure Infrastructure (70-533)</a>
+   Intermediate Apr 27, 2016 4h 46m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-cloud-services-azure-infrastructure">
 Implementing Cloud Services for Azure Infrastructure (70-533)</a>
-by Razi bin Rais Intermediate Jul 09,  2015 2h 52m(111)
+by Razi bin Rais Intermediate Jul 09,  2015 2h 52m (111)
 
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-virtual-machines-azure-infrastructure-70-533">
-Implementing Virtual Machines for Azure Infrastructure (70-533)</a>
-by Tim Warner Intermediate Apr 27, 2016 4h 46m
-
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-websites-azure-infrastructure-70-533">
-Implementing Web Apps for Azure Infrastructure (70-533)</a>
-by Tim Warner Beginner Mar 15, 2016 4h 26m(14)
 
 ### Exam 70-534 - Architecting Azure Solutions
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/architecting-azure-solutions-70-534-secure-resources">
    Secure Resources</a>
-   by Orin Thomas Intermediate Jan 06, 2016 3h 0m(15)
+   by Orin Thomas Intermediate Jan 06, 2016 3h 0m (15)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-solutions-70-534-storage-data-access">
    Design an application storage and data access strategy</a>
@@ -225,63 +232,64 @@ by Tim Warner Beginner Mar 15, 2016 4h 26m(14)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture">
 Windows Azure: The Big Picture
-by David Chappell Beginner Aug 19, 20121ah 23m(811)
+by David Chappell Beginner Aug 19, 2012 1ah 23m (811)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-fundamentals">
 Windows Azure Fundamentals</a>
-by Matt Milner Intermediate Mar 26, 2010 4h 57m(156)
+by Matt Milner Intermediate Mar 26, 2010 4h 57m (156)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/pluralsight-original-microsoft-azure-enterprises">
 Microsoft Azure for Enterprises: What and Why</a>
-by David Chappell Beginner Jun 05,  2015 1h 13m(446)
+by David Chappell Beginner Jun 05,  2015 1h 13m (446)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture/table-of-contents">
 Microsoft Azure: The Big Picture</a>
-by Matt Milner  Beginner Mar 10, 2016 1h 50m(34)
+by Matt Milner  Beginner Mar 10, 2016 1h 50m
 	@Matt Milner, mattmilner.com
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/modernizing-websites-microsoft-azure">
    Modernizing Your Websites with Azure Platform as a Service</a>
-   by Troy HuntIntermediateApr 02, 20155h 26m(232)
+   by Troy HuntIntermediateApr 02, 20155h 26m
 
 ## Overview Tech Videos
 
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-marketplace">
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-marketplace/">
 Windows Azure Marketplace</a>
-by Joe Kunk Intermediate Dec 19, 2013 1h 56m(31)
+by Joe Kunk Intermediate Dec 19, 2013 1h 56m
 
-* Applied Windows Azure
-by Vishwas Lele Intermediate Feb 18, 2014 4h 51m(176)
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/applied-windows-azure/table-of-contents/">
+Applied Windows Azure</a>
+by Vishwas Lele Intermediate Feb 18, 2014 4h 51m
 
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/designing-azure-hybrid-cloud">
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/designing-azure-hybrid-cloud/">
 Designing a Hybrid Cloud in Azure</a>
 by Gavin McShera Intermediate Apr 04, 2016 2h 8m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-sb">
 Windows Azure Service Bus</a>
-by Scott Seely Intermediate Jan 08, 20122h 5m(201)
+by Scott Seely Intermediate Jan 08, 2012 2h 5m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-service-brokered-messaging">
 Microsoft Azure Service Bus Brokered Messaging In-depth</a>
-by Alan Smith Advanced Dec 08,  2015 4h 43m(56)
+by Alan Smith Advanced Dec 08,  2015 4h 43m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-remote-app-getting-started">
 Getting Started with Azure Remote App</a>
-by Adnan Cartwright Beginner Sep 21,  2015 1h 20m(26)
+by Adnan Cartwright Beginner Sep 21,  2015 1h 20m (26)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/understanding-microsoft-azure-amazon-aws">
 Microsoft vs. Amazon</a>
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-websites-web-jobs">
 Azure Websites and WebJobs</a>
-by Matt MilnerIntermediateOct 12, 20143h 47m(155)
+by Matt MilnerIntermediateOct 12, 20143h 47m (155)
 
 
 ##  AD:
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-access-signatures-getting-started">
 Getting Started with Microsoft Azure Shared Access Signatures</a>
-by Max McCarty Beginner Nov 02,  2015 2h 18m(20)
+by Max McCarty Beginner Nov 02,  2015 2h 18m (20)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/hybrid-identity-microsoft-azure">
 Getting Started: Hybrid Identity with Microsoft Azure</a>
@@ -289,11 +297,11 @@ by Gary Grudzinskas Intermediate Mar 02, 2016 2h 12m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-acs">
 Windows Azure Access Control Service</a>
-by Scott Seely Intermediate Jan 04, 20122h 10m(114)
+by Scott Seely Intermediate Jan 04, 2012 2h 10m (114)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-ad-deploying-integrating">
 Deploying and Integrating Azure AD</a>
-by John Savill Intermediate Jan 21, 2016 3h 22m(13)
+by John Savill Intermediate Jan 21, 2016 3h 22m (13)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-ad-managing">
 Managing Azure AD</a>
@@ -305,22 +313,22 @@ by Sahil Malik Intermediate Mar 22, 2016 4h 52m
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-hybrid-connections-first-look">
 Azure Hybrid Connections: First Look</a>
-by Dan Toomey Beginner Jun 12,  2015 1h 48m(59)
+by Dan Toomey Beginner Jun 12,  2015 1h 48m (59)
 
 
 ##  Operations:
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-elastic-scale">
 Elastic Scaling on Windows Azure</a>
-by Zoiner Tejada Intermediate Dec 20, 20121h 55m(43)
+by Zoiner Tejada Intermediate Dec 20, 2012 1h 55m (43)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-automation">
 Microsoft Azure Automation</a>
-by Mike McKeown Intermediate Sep 23, 2014 2h 41m(61)
+by Mike McKeown Intermediate Sep 23, 2014 2h 41m (61)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/managing-azure-iaas-with-powershell">
 Managing Azure IaaS with PowerShell</a>
-by Elton Stoneman Intermediate Apr 18, 2016 2h 41m(12)
+by Elton Stoneman Intermediate Apr 18, 2016 2h 41m (12)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/connect-powershell-to-azure-subscription">
 Connecting PowerShell to Your Azure Subscription</a>
@@ -332,23 +340,23 @@ by J. Keith Bankston, Ashley McGlone, Mike F. Robbins, Luc Dekens, Neema Saeedi,
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-operational-insights-getting-started">
 Getting Started with Azure Operational Insights</a>
-by Russell Smith Beginner Jan 29, 2016 1h 5m(10)
+by Russell Smith Beginner Jan 29, 2016 1h 5m (10)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-diagnostics">
 Windows Azure Diagnostics</a>
-by Niraj Bhatt Intermediate Mar 08, 20123h 18m(54)
+by Niraj Bhatt Intermediate Mar 08, 2012 3h 18m (54)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-azure-security-mark-russinovich">
 Play by Play: Azure Security with Mark Russinovich</a>
-by Mark Russinovich and Mark MinasiIntermediateDec 18, 201453m(180)
+by Mark Russinovich and Mark MinasiIntermediateDec 18, 201453m (180)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-hanselman">
 Play By Play: Azure Deployment with Scott Hanselman</a>
-by Scott HanselmanIntermediateAug 01, 20131h 2m(136)
+by Scott HanselmanIntermediateAug 01, 20131h 2m (136)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/migrating-inet-azure">
 Migrating Internet Applications to Azure</a>
-by Scott SeelyIntermediateOct 31, 20122h 0m(61)
+by Scott SeelyIntermediateOct 31, 2012 2h 0m (61)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/extending-active-directory-cloud">
 Extending Active Directory to the Cloud</a>
@@ -358,90 +366,90 @@ by Russell Smith
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-iaas-essentials">
 Windows Azure Infrastructure as a Service Essentials</a>
-by Orin Thomas Intermediate Sep 11, 2013 4h 23m(268)
+by Orin Thomas Intermediate Sep 11, 2013 4h 23m (268)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-infrastructure-service-introduction">
 Introduction to Windows Azure Infrastructure as a Service</a>
-by Vishwas Lele Beginner Apr 23, 2013 2h 46m(283)
+by Vishwas Lele Beginner Apr 23, 2013 2h 46m (283)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/deploy-azure-visual-studio-online">
 Plan, Create, and Deploy to Azure With Visual Studio Online</a>
-by Esteban GarciaIntermediateAug 20, 20143h 32m(161)
+by Esteban GarciaIntermediateAug 20, 20143h 32m (161)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/implementing-reactive-manifesto-azure-aws">
 Implementing the Reactive Manifesto with Azure and AWS</a>
-by Elton Stoneman Intermediate Oct 29, 2013 3h 54m(100)
+by Elton Stoneman Intermediate Oct 29, 2013 3h 54m (100)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-highly-scalable-web-applications">
 Building Highly Scalable Web Applications in Azure</a>
-by Edin Kapic Intermediate Aug 04,  2015 2h 23m(237)
+by Edin Kapic Intermediate Aug 04,  2015 2h 23m (237)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/aspnet-multi-tenant-app-mvc-extjs-angular">
 Building a Site with Bootstrap, AngularJS, ASP.NET, EF and Azure</a>
-by Shawn Wildermuth Intermediate Jul 31, 2013 6h 29m(2202)
+by Shawn Wildermuth Intermediate Jul 31, 2013 6h 29m (2202)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/biztalk-azure-appfabric">
 Integrating BizTalk Server with Windows Azure AppFabric</a>
-by Richard Seroter Intermediate Mar 06, 2011 1h 45m(14)
+by Richard Seroter Intermediate Mar 06, 2011 1h 45m (14)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/node-on-azure">
 Node on Windows and Azure</a>
-by Paul O'Fallon Intermediate Aug 20, 20123h 24m(45)
+by Paul O'Fallon Intermediate Aug 20, 2012 3h 24m (45)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/build-microsoft-azure-windows-server-2012">
 Build a Lab Environment w/ Microsoft Azure & Windows Server 2012</a>
-by Gary Grudzinskas Intermediate Jun 23,  2015 2h 20m(127)
+by Gary Grudzinskas Intermediate Jun 23,  2015 2h 20m (127)
 
 
 ##  Data:
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-cloud-services-storage-fundamentals">
 Fundamentals of Azure Cloud Services and Storage</a>
-by Matt Milner Intermediate Apr 09, 2013 1h 52m(467)
+by Matt Milner Intermediate Apr 09, 2013 1h 52m (467)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-storage-in-depth">
 Windows Azure Storage In-Depth</a>
-by Alan SmithIntermediateMar 05, 20146h 51m(174)
+by Alan SmithIntermediateMar 05, 20146h 51m (174)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-caching">
 Windows Azure Caching Service</a>
-by Scott Seely Intermediate Jan 05, 20121h 40m(51)
+by Scott Seely Intermediate Jan 05, 2012 1h 40m (51)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-sql-course">
 SQL Azure</a>
-by Scott Seely Intermediate Jan 23, 2011 2h 38m(143)
+by Scott Seely Intermediate Jan 23, 2011 2h 38m (143)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-documentdb-introduction">
 Introduction to Azure DocumentDB</a>
-by Leonard Lobel Beginner Sep 23,  2015 5h 5m(75)
+by Leonard Lobel Beginner Sep 23,  2015 5h 5m (75)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/real-world-big-data-microsoft-azure">
 Real World Big Data in Azure</a>
-by Elton Stoneman Intermediate Jun 16,  2015 5h 21m(155)
+by Elton Stoneman Intermediate Jun 16,  2015 5h 21m (155)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/sql-server-windows-azure-iaas-optimize">
    SQL Server on Microsoft Azure IaaS - Optimizations & High Availability</a>
-   by Mike McKeown Intermediate Jan 19, 2014 2h 1m(44)
+   by Mike McKeown Intermediate Jan 19, 2014 2h 1m (44)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/hosting-sql-server-windows-azure-iaas">
 Hosting SQL Server in Microsoft Azure IaaS Fundamentals</a>
-by Mike McKeown Intermediate Oct 11, 2013 1h 40m(125)
+by Mike McKeown Intermediate Oct 11, 2013 1h 40m (125)
 
 ##  Mobile: 
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/windows-azure-mobile-services">
 Windows Azure Mobile Services</a>
-by Matt Milner Intermediate Jul 23, 2013 6h 21m(157)
+by Matt Milner Intermediate Jul 23, 2013 6h 21m (157)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/building-mobile-applications-azure-signalr-mvc">
 Building Apps with Azure Mobile Svcs, SignalR, MVC, Win 8 and WP8</a>
-by Colin Melia Intermediate Feb 12, 2014 1h 52m(106)
+by Colin Melia Intermediate Feb 12, 2014 1h 52m (106)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/building-cross-platform-mobile-apps-csharp-xamarin-azure">
 Building Cross Platform Mobile Apps with C#, Xamarin, and Azure</a>
-by Matt MilnerBeginnerApr 20, 20153h 38m(174)
+by Matt MilnerBeginnerApr 20, 20153h 38m (174)
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/wpazure">
 Building Windows Phone Applications with Azure</a>
-by Yacine Khammal Intermediate Feb 14, 2012 2h 37m
+by Yacine Khammal Intermediate Feb 14, 2012  2h 37m
 

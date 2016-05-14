@@ -97,7 +97,7 @@ The vendors and their product, ranked by total points averaged among raters:
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
 0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. 
-   For Microsoft shops.
+   For Microsoft shops. No SOAP or RAML support yet.
 0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code. 
    The most flexible.
 0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code. Full featured.
@@ -129,6 +129,10 @@ Forrester, in their April 2015 report, classified the vendors this way:
 Forrester also illustrated the history of offerings with this timeline:
 <img alt="api vendors timeline forrester 2015" width="652" height="361" src="https://cloud.githubusercontent.com/assets/300046/14919580/b55db79a-0de6-11e6-9377-553fba4b4366.jpg"><!-- 1346x744 -->
 This was adjusted for Tibco buying Mashery from Intel in August, 2015.
+
+https://en.wikipedia.org/wiki/Comparison_of_api_management
+like
+https://en.wikipedia.org/wiki/Comparison_of_text_editors
 
 ### Gartner Magic Quadrant
 
@@ -378,6 +382,12 @@ uses this illustration:
    * Redirect calls to API's URIs
    * Auto-detect new services added
 
+   * Support for steaming API protocols WebSocket and XMPP
+   * Support for two-legged or three-legged OAuth and OpenID Connect authentication
+   * Onboard SAML security token service for federation and credential translation
+   * Support for external SSO (Single Sign-On) 
+   * LDAP user provisioning for services like Web applications and social networks
+
 ### Maintainability
 
    What maintenance is needed?
@@ -468,7 +478,8 @@ Microsoft Azure routes traffic to a region providing the least latency for each 
 
    How easy is it to switch among competing vendors? Is there vendor lock-in?
 
-   * Switch from Azure to AWS, other PaaS
+   * Switch from Azure to AWS, other PaaS is not possible because Azure is a pure SaaS running on Azure
+   * How to extract data?
 
 ### Vendor prospects
 
@@ -491,6 +502,10 @@ Vendors are in alphabetical order:
 Akana:
 
    * https://www.youtube.com/channel/UC3hr1MuhpS11dMxTdo1rHQw
+
+CA
+
+   * http://www.ca.com/us/products/api-management/solutions/api-management-comparison.aspx
 
 Mashery:
 
