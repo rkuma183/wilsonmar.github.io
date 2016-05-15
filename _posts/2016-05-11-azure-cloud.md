@@ -4,15 +4,21 @@ title: "Azure Cloud"
 excerpt: "Challenger becomes a leader"
 tags: [cloud]
 image:
-# pic-darkblue-cloud-sunbeams-on-sea-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
-  credit: HD Wallpaper Backgrounds
-  creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
+# microsoft-azure-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
+  credit: Jim O'Neil
+  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
 <hr />
 {% include _toc.html %}
+
+## Two portals
+
+Right off the bat, know that Microsoft is transitioning from the "Classic" 
+Azure Service Manager (ASM) portal to the
+Azure Resource Manager (ARM) portal.
 
 ## Sign-up
 
@@ -54,12 +60,16 @@ ARM (Azure Resource Manager)</a>:
    * Networking
    * Management
 
-   Imperative commands (verbs such as to start or stop an app or machine)
-   are used to manage resources.
+   Each drill-down into ARM creates an additional ___ to the right.
 
-   ARM enables infrastructure configurations to be defined 
-   through a <strong>declarative syntax</strong>
-   in Resource Manager <strong>templates</strong> (much like Puppet).
+
+<a name="Commands"></a>
+
+## Commands #
+
+
+### Install Commands #
+
 
    and deployed as groups
    (a container for each lifecycle deployment cycle)
@@ -146,7 +156,9 @@ Regions</a> with locations, rearranged by continent:
 Two regions for the US Government are in Virginia.
 http://bit.ly/msgovt
 
-https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
+See https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
+
+<a name="AzureCert"></a>
 
 ## Azure Certification
 

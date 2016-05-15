@@ -5,18 +5,22 @@ pic images.txt
 
 —— Available:
 
-# pic-blue-city-abu-dhabi-skyscrapers-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15269473/c8311bfa-19bc-11e6-890c-06abc511ef39.jpg
-  credit: Tian Xinqi
-  creditlink: http://www.tianxinqi.com/news/Above80swgpuwnk
-
-—— In use:
-
 # pic-darkblue-cloud-sunbeams-on-sea-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
   credit: HD Wallpaper Backgrounds
   creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
 
+—— In use:
+
+# pic-blue-city-abu-dhabi-skyscrapers-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269473/c8311bfa-19bc-11e6-890c-06abc511ef39.jpg
+  credit: Tian Xinqi
+  creditlink: http://www.tianxinqi.com/news/Above80swgpuwnk
+
+# microsoft-azure-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
+  credit: Jim O'Neil
+  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
 
 # pic-black-bkg-white-cloud_1900x500](https://cloud.githubusercontent.com/assets/300046/15269257/8104a824-19b6-11e6-9c42-014bf608009a.jpg)
 http://www.themebin.com/hd-wallpapers/wandering-clouds-hd-wallpaper/
