@@ -152,6 +152,16 @@ portal.azure.com</a> site using Azure Resource Manager (ARM).
 * Validate JWT
 * Wait for...
 
+Examples:
+
+<a target="_blank" href="https://github.com/Azure/api-management-samples/tree/master/policies">
+https://github.com/Azure/api-management-samples/tree/master/policies</a>
+
+   *   Hide response data based on product name.policy.xml
+   *   Pre-authorize requests using validate-jwt.policy.xml
+   *   Send context information to the backend service.policy.xml
+   *   Set cache duration using cache control header.policy.xml
+
 
 ### Open the developer portal 
 0. Click on APIs.
@@ -194,18 +204,6 @@ http://echo.cloudapi.net/calc/
 
 <a target="_blank" href="https://www.youtube.com/watch?v=z2pU_aHphbw&index=9&list=PL8nfc9haGeb4khJEFcDU9Lluit5nYlB3a">
 Delegating User Authentication and Product Subscription to a 3rd Party</a>
-
-### Policies
-
-Examples:
-
-<a target="_blank" href="https://github.com/Azure/api-management-samples/tree/master/policies">
-https://github.com/Azure/api-management-samples/tree/master/policies</a>
-
-   *   Hide response data based on product name.policy.xml
-   *   Pre-authorize requests using validate-jwt.policy.xml
-   *   Send context information to the backend service.policy.xml
-   *   Set cache duration using cache control header.policy.xml
 
 
 ### Developer Portal Setup

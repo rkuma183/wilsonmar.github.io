@@ -1181,6 +1181,12 @@ killall - kills processes or closes applications
 
 Finder - which process or application to close.
 
+## Certification
+
+<a target="_blank" Href="https://app.pluralsight.com/library/courses/mac-osx-support-installation-configuration/table-of-contents">
+Video course Mac OS X Support: Installation and Configure</a>
+is the first of courses on Plurasight toward
+Apple Certified Support Professional (ACSP)
 
 ## More on OSX
 

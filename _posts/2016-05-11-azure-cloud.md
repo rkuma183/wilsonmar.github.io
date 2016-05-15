@@ -37,7 +37,8 @@ The steps to "Create an API gateway and Developer Portal in minutes".
 
 0. Select Resource group location / <a href="#Region">region</a>:
 
-0. Options include the classic and newer <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/">
+0. Options include the classic ASM (Azure Service Manager) 
+and newer <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/">
 ARM (Azure Resource Manager)</a>:
 
    * Apps Services
@@ -453,3 +454,6 @@ by Matt MilnerBeginnerApr 20, 20153h 38m (174)
 Building Windows Phone Applications with Azure</a>
 by Yacine Khammal Intermediate Feb 14, 2012  2h 37m
 
+
+* https://www.microsoft.com/en-us/store/apps/posterpedia/9wzdncrdcsr8
+   Get the Posterpedia Windows 8 app used to zoom into electronic posters.

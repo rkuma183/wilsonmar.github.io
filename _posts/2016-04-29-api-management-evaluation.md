@@ -246,6 +246,11 @@ Categories of featuers are detailed below:
 
 ### API Developer Portal Features
 
+<a target="_blank" href="https://developer.nutritionix.com/">
+<img align="right" width="240" alt="scr dev portal nutrition sample" src="https://cloud.githubusercontent.com/assets/300046/15271065/0e19daa8-19f4-11e6-959d-fec32043aa64.png"></a>
+Major items of interest to developers are listed here, from 3Scale.net.
+
+
 * API documentation.
 * Communication about system availability history  
 * Communication about change history  

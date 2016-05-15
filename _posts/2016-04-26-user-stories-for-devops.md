@@ -211,6 +211,11 @@ which exposes process issues that need tuning.
 
 ## Resources
 
+* <a target="_blank" href="http://scaledagileframework.com/">
+   Scaled Agile Framework</a> and SAFe are trademarks of Leffingwell and Associates 
+   have refined their enterprise approach over many projects,
+   with well-defined roles that fit within corporate strategic themes applied to budgets for value streams.
+
 * http://brentmcconnell.com/2014/02/devops-user-stories/
 
 * https://www.ibm.com/developerworks/community/blogs/c914709e-8097-4537-92ef-8982fc416138/entry/agile_in_practices_user_stories_explained2?lang=en
