@@ -1095,8 +1095,7 @@ which holds the wordpress folder expanded from download.
 
 <a id="Curlz"></a>
 
-IPv6 compatibility with Curl command line apps
-</h2>
+## IPv6 compatibility with Curl command line apps
 
 The curl command enables websites to be invoked from a command line.
 Example:
@@ -1180,6 +1179,24 @@ This is a terminal operator to run whatever's after this if the previous command
 killall - kills processes or closes applications
 
 Finder - which process or application to close.
+
+
+
+## VMWare Fusion #
+
+To create a Windows 10 instance within VMWare Fusion: 
+
+0. Download the ISO file from:
+
+    https://www.microsoft.com/en-us/software-download/windows10ISO
+
+0. Within VMWare Fusion, select File | New.
+0. Drag the ISO file and drop on the dialog.
+0. Supply the license key.
+
+   WARNING: The license key from MSDN was not recognized.
+
+
 
 ## Certification
 

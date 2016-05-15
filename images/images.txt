@@ -5,12 +5,15 @@ pic images.txt
 
 —— Available:
 
+http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environment-variables
+	pshellshell.jpg
+
+—— In use:
+
 # pic-darkblue-cloud-sunbeams-on-sea-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
   credit: HD Wallpaper Backgrounds
   creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
-
-—— In use:
 
 # pic-blue-city-abu-dhabi-skyscrapers-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269473/c8311bfa-19bc-11e6-890c-06abc511ef39.jpg
