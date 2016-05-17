@@ -116,15 +116,11 @@ Must-follow #API influencers?
 
 @Bradamante 
 
-@apihandyman 
+* Arnaud Lauret = @apihandyman 
 
-@zdne 
+* Zdenek Nemec @zdne at Apiary
 
-@h3h 
-
-@launchany
-
-Mark Baker @distobj is an early API evangelist
+* Mark Baker @distobj is an early API evangelist
 
 https://twitter.com/apievangelist
 
@@ -134,4 +130,10 @@ http://apieconomist.com/blog/darrel-miller-hypermedia-apis
 	Darrel Miller
 
    #JSON-LD is best attempt to date to make RDF consumable"
+
+Developer-friendly API documentation fantastically:
+
+* Brad Fults @h3h 
+
+* James Higginbotham @launchany
 

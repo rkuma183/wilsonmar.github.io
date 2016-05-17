@@ -26,6 +26,15 @@ pic images.txt
   credit: HD Wallpaper Backgrounds
   creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
 
+
+—— Issues:
+
+# pic clear windows-10-fujutsu-laptop 1900x500
+  feature: pic clear windows-10-fujutsu-laptop.806x500.jpg
+  credit: Fujitsu
+  creditlink: https://techcommunity.ts.fujitsu.com/en/news/d/uid-96062f67-d46a-8476-2106-b0438ab62976.html
+
+
 —— In use:
 
 http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environment-variables

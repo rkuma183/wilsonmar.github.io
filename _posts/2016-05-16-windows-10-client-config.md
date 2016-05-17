@@ -4,10 +4,10 @@ title: "Windows 10 Client Config"
 excerpt: "How I setup my Windows laptop"
 tags: [windows, mac, setup]
 image:
-# pic clear windows-10-fujutsu-laptop 1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15312931/e416b4f6-1bc4-11e6-8c0f-fb239da95caf.jpg
-  credit: Fujitsu
-  creditlink: https://techcommunity.ts.fujitsu.com/en/news/d/uid-96062f67-d46a-8476-2106-b0438ab62976.html
+# face blue windows cortana-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15312673/76026ae2-1bc3-11e6-9cf0-ca09a839ba7f.jpg
+  credit: stuff.co.za
+  creditlink: http://www.stuff.co.za/cortana-is-heading-to-android-ios-via-upcoming-phone-companion-app/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -23,7 +23,11 @@ NOTE: 64-bit programs install to C:\Program Files.
 
 ## Versions of Windows 10 #
 
-1511
+In MSDN.com, "1511" became available 3/30/2016.
+
+After downloading .iso, I use 7-zip to expand the file into a regular folder.
+
+<a id="NetworkSettings"></a>
 
 ## Network settings #
 

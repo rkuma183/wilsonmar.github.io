@@ -44,7 +44,8 @@ The steps to "Create an API gateway and Developer Portal in minutes".
 
 0. Click "Start Managing my service" for https://portal.azure.com/
 
-## Create 
+
+## Create instance #
 
 0. <a target="_blank" href="https://portal.azure.com/">
    https://portal.azure.com</a>
@@ -70,6 +71,11 @@ ARM (Azure Resource Manager)</a>:
 
    Each drill-down into ARM creates an additional ___ to the right.
 
+
+## Installers #
+
+* <a target="_blank" href="https://azure.microsoft.com/en-us/downloads/">
+   https://azure.microsoft.com/en-us/downloads</a>
 
 <a name="Commands"></a>
 
@@ -203,7 +209,11 @@ A resource group can contain resources residing in different <strong>regions</st
    Get-AzureRmResourceProvider
    </strong></tt>
 
-Load Scale sets
+<a name="ScaleSets"></a>
+
+### Load Scale sets #
+
+
 
 <a name="AzureCert"></a>
 
