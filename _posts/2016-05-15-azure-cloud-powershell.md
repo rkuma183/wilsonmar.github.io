@@ -14,7 +14,15 @@ comments: true
 <hr />
 {% include _toc.html %}
 
+This tutorial describes the use of Windows PowerShell on Azure cloud.
+
+Powershell refers to both the command-line shell and scripting language designed system administration. Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line. 
+
+
 ## One-time tasks #
+
+<a target="_blank" href="https://technet.microsoft.com/en-us/library/dn807169.aspx">
+Windows PowerShellGet Module</a>.
 
 If you don't want to install these from the 
 <a target="_blank" href="https://www.microsoft.com/web/downloads/platform.aspx">Web Platform Installer (wpilauncher.exe) at
@@ -43,18 +51,48 @@ https://www.microsoft.com/web/downloads/platform.aspx</a>
    used by ARM to enable infrastructure configurations to be defined 
    (much like Puppet).
 
+### Install PowerShell #
+
+Run from the <a target="_blank" href="https://www.powershellgallery.com/items?itemType=PSModule">
+Powershell Gallery</a> the Workflow to Download All Gallery Modules:
+
+0. Click the "Deploy" button or:
+
+   <pre><strong>
+   Install-Script -Name Download-AllGalleryModules
+   </strong></pre>
+
+0. Press Y to accept that the modules are from an untrusted source.
+
+0. Click the "Deploy" button. You should see Azure's Custon Deployment bolt with Parameters:
+
+   <amp-img width="632" height="703" alt="azure deploy 2016-05-17-1264x1406.png" src="https://cloud.githubusercontent.com/assets/300046/15326492/733d052c-1c0b-11e6-980c-fc9adef91e95.png"></amp-img>
+
+0. Type in for new Resource Group name "Download-AllGalleryModules".
+0. Click Create to see error icons.
+0. Click Edit parameters.
+0. Select your Resource group location (such as "East US 2").
+0. Click Review legal terms then click Purchase.
+0. Click Create.
+
 ### Make Imperative Commands #
 
    <tt>PS C:\\>
    </tt>
 
-Get a count of how many commands for the Azure module:
+Windows PowerShell <strong>providers</strong> access data stores, such as the Windows Registry and certificate store, as easily as you access the file system. Install NuGet provider:
+
+   <pre><strong>
+   Install-PackageProvider -Name NuGet -Force
+   </strong></pre>
+
+Get a count of how many commands for Azure module:
 
    <pre><strong>
    Get-Command -Module Azure | Measure-Object
    </strong></pre>
 
-   The count is 756 commands for just Azure for ASM.
+   I got a count of 697 commands for just Azure for ASM.
 
 List Azure commands containing "vm":
 
@@ -219,6 +257,9 @@ Rather than looping:
 Multiple services can be deployed at the same time (asychronously), as a group, along with their dependencies by 
 using a <strong>group template</strong> that defines <strong>desired end state</strong> 
 of application components.
+
+The Local Configuration Manager (LCM)  introduced in Windows PowerShell 5.0 is the engine of 
+DSC = Desired State Configuration.
 
 Differences in each stage of the application lifecycle can be specified.
 

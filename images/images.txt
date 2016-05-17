@@ -4,6 +4,9 @@ pic images.txt
   creditlink:
 
 
+—— Available:
+
+
 # pic red microsoft windows 10 splash-3840x2160
   credit: http://news.softpedia.com/news/microsoft-officially-starts-work-on-windows-10-mobile-redstone-update-500670.shtml
 
@@ -19,15 +22,22 @@ pic images.txt
   credit:
   creditlink:
 
-—— Available:
-
 # pic-darkblue-cloud-sunbeams-on-sea-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
   credit: HD Wallpaper Backgrounds
   creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
 
 
-—— Issues:
+—— possibles :
+
+http://www.howtogeek.com/102315/ask-the-readers-whats-your-source-for-awesome-wallpapers/
+
+http://www.androidcentral.com/kiss-your-old-wall-goodbye-wallpaper-wednesday
+
+http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environment-variables
+	pshellshell.jpg
+
+—— Issues :
 
 # pic clear windows-10-fujutsu-laptop 1900x500
   feature: pic clear windows-10-fujutsu-laptop.806x500.jpg
@@ -36,9 +46,6 @@ pic images.txt
 
 
 —— In use:
-
-http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environment-variables
-	pshellshell.jpg
 
 # pic-darkblue-cloud-sunbeams-on-sea-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
@@ -100,7 +107,6 @@ pic Audi-8-18022013060236-2-1900x500.jpg
 pic black entering stadium 1900X500.jpg
 ![pic black entering stadium 1900x500](https://cloud.githubusercontent.com/assets/300046/14621833/d9af8f54-0582-11e6-9c88-7e8d1cead630.jpg)
 
-
 pic black macbook 1900x500.jpg
 ![pic black macbook 1900x500](https://cloud.githubusercontent.com/assets/300046/14621846/e8cd23ca-0582-11e6-9fff-340d8bc32496.jpg)
 
@@ -148,9 +154,6 @@ pic brown homebrew logo 1900x500.jpg
 ![pic brown homebrew logo 1900x500](https://cloud.githubusercontent.com/assets/300046/14622020/60672448-0584-11e6-8202-41c36ba82d04.jpg)
   credit: Kickstarter
   creditlink: https://www.kickstarter.com/projects/homebrew/brew-test-bot
-
-
-
 
 pic bw brooklyn bridge painters on grid 1900x500.jpg
 ![pic bw brooklyn bridge painters on grid 1900x500](https://cloud.githubusercontent.com/assets/300046/14622040/7e25ba76-0584-11e6-918d-3532cdc4e566.jpg)
@@ -205,10 +208,6 @@ In tuner:
 ![pic white robots woman 1900x500](https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg)
 ![scr white jekyll static tools 1900x500](https://cloud.githubusercontent.com/assets/300046/14622170/48b1ceb0-0585-11e6-8b19-b9d09feebd6f.jpg)
 ![pic sunrise sunflowers-1900x500](https://cloud.githubusercontent.com/assets/300046/14622180/4f1740f0-0585-11e6-9295-7db8d15d63bf.png)
-
-
-
-
 
 Some 1900x500 pictures ready for use without cropping include:
 
