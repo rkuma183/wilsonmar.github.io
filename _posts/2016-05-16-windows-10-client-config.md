@@ -4,10 +4,10 @@ title: "Windows 10 Client Config"
 excerpt: "How I setup my Windows laptop"
 tags: [windows, mac, setup]
 image:
-# microsoft-azure-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
-  credit: Jim O'Neil
-  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
+# pic clear windows-10-fujutsu-laptop 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15312931/e416b4f6-1bc4-11e6-8c0f-fb239da95caf.jpg
+  credit: Fujitsu
+  creditlink: https://techcommunity.ts.fujitsu.com/en/news/d/uid-96062f67-d46a-8476-2106-b0438ab62976.html
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
