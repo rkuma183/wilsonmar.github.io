@@ -29,9 +29,7 @@ After downloading .iso, I use 7-zip to expand the file into a regular folder.
 
 <a id="NetworkSettings"></a>
 
-## Network settings #
-
-Install VPN
+## Install Cisco VPN #
 
 0. Open an internet browser for the URL supplied.
 0. If there is a certificate issue, connect anyway.
@@ -85,7 +83,16 @@ This is only for VMWare instances:
 0. Select Settings.
 0. PROTIP: Select <strong>Dark</strong> theme. That uses less electricity, doesn't use us the screen as quickly, is gentler on your eyes.
 
-## Utility programs #
+## Chrome browser programs #
+
+0. Firefox from https://www.mozilla.org/en-US/firefox/new/?icn=tabz
+0. Chrome from https://www.google.com/chrome/browser/desktop/index.html?hl=en
+
+   PROTIP: Pin the icons to the taskbar, then remove icons from the Desktop.
+
+0. Enter Chrome the first time. Select the default browser dialog opion.
+
+## Windows package Chocolatey #
 
 0. Chocolatey from https://chocolatey.org/
 0. Copy text `@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin`
@@ -102,11 +109,6 @@ Install these using Chocolatey when Run as Administrator:
 
 0. cinist 7zip -y (instead of from http://7-zip.org/download.html)
 
-0. Firefox from https://www.mozilla.org/en-US/firefox/new/?icn=tabz
-0. Chrome from https://www.google.com/chrome/browser/desktop/index.html?hl=en
-
-   PROTIP: Pin the icons to the taskbar, then remove icons from the Desktop.
-
 0. Box.com
 0. Dropbox.com
 0. Microsoft OneDrive
@@ -117,13 +119,18 @@ Install these using Chocolatey when Run as Administrator:
 
 ## Utilities #
 
+* Office Professional Plus 2016 (x86 and x64) - DVD (English) 09/22/2015
+from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=65535&activexDisabled=true&akamaiDL=false">direct download from MSDN</a>.
 
 ## Bin folder on Environment Variable Path #
 
-0. Putty
-0. Windows Powertools
+0. Create a <strong>C:\bin</strong> folder to hold programs accessed from the Windows command line.
+0. Specify that path in Environment Variables.
+0. Put files in that folder:
+
+0. Putty for SSH into Linux machines
 0. WinSCP
-0. SSH
+0. Windows Powertools
 
 ## Communications #
 
@@ -169,24 +176,68 @@ Visual Studio 2015 = version 14.0
 
    This may occur if you're not a member of a TFS security group, and need to be added to one.
 
-### Add client-side certificate #
+### Add client-side certificate in Chrome #
 
-0. click view certificate button
-0. click details tab
-0. click copy to file. This kicks off the welcome to cert export wizard
-0. click next
-0. select cryptogragphic message syntax standad pkcs #7 cert
+If a website has a certificate warning such as this:
+
+   <amp-img width="268" height="86" src="https://cloud.githubusercontent.com/assets/300046/15332615/886109b8-1c23-11e6-898e-e0b90e7f092d.jpg">
+   </amp-img><!-- win10-chrome-privacy-warning 268x86 -->
+
+   NOTE: This may be due to several root causes:
+
+   * Time and date settings incorrect on either the client or server.
+   * Anti-virus program (Kaspersky and BitDefender) is blocking the connection.
+   * SSL certificate name mismatch error.
+   * SSL certificate used is self-signed, is not issued by a trusted certificate authority (CA).
+   * SSL certificate is untrusted.
+
+### Firefox ignore add-on #
+
+https://addons.mozilla.org/en-US/firefox/addon/skip-cert-error/
+
+#### Save certificate in Chrome #
+
+To avoid needing to click ADVANCED:
+
+0. Click on the broken certificate icon.
+0. click the Details link that appears.
+
+   <img src="https://cloud.githubusercontent.com/assets/300046/15332999/0a27e3c6-1c25-11e6-9cab-9169d2705d46.jpg">
+
+   <amp-img width="554" height="337" src="https://cloud.githubusercontent.com/assets/300046/15332999/0a27e3c6-1c25-11e6-9cab-9169d2705d46.jpg">
+   </amp-img><!-- win10-chrome-insecure -->
+
+0. Click View Certificate.
+0. Click tab Details tab.
+0. Click <strong>Copy to File</strong> for the Certificate Export Wizard.
+0. Click Next.
+0. Choose Cryptogragphic Message Syntax Standad - PKCS #7 cert.
+0. Click Browse to select the folder.
+0. Type a file name (such as itw-tfs2016) for the default .p7b file extension.
+0. Click Next. Click Finish.
+0. Click OK to the successful pop-up.
+
+0. Use File Explorer to navigate to the file just created.
+0. Alt+click on the certificate file to choose <strong>Install Certificate</strong>.
+0. Click Next.
+0. Leave "Automatically select the cert store" and click Next.
+0. Click Finish.
+0. Click OK to "The import was successful" pop-up.
+
+0. Close Chrome and open it again to try the URL.
+
+   This time, you should only need to confirm the password saved by the browser.
+
+0. You may have to export it as a der encoded binary x.509 instead and then when you import it bring it into the local machine.
+
+
+
+
+### Add client-side certificate in Chrome #
+
+
 0. click include all servers in the cer path if possible
 0. click next
-0. give it a file name (such as tfs2015) I prefer to put it on the desktop
-0. click next click finish
-0. click ok
-0. right click on the certificat file and choose install cert
-0. click next
-0. leave automatically select the cert store and click next
-0. Cick Finish
-0. you may have to export it as a der encoded binary x.509 instead and then when you import it bring it into the local machine
-
 
 
 
