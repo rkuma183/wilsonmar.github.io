@@ -4,10 +4,10 @@ title: "Azure Cloud PowerShell Scripting"
 excerpt: "Do anything you want!"
 tags: [cloud, powershell]
 image:
-# pic-darkblue-cloud-sunbeams-on-sea-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
-  credit: HD Wallpaper Backgrounds
-  creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
+# fig blue powershell icon-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,31 +16,39 @@ comments: true
 
 ## One-time tasks #
 
-### Install #
+If you don't want to install these from the 
+<a target="_blank" href="https://www.microsoft.com/web/downloads/platform.aspx">Web Platform Installer (wpilauncher.exe) at
+https://www.microsoft.com/web/downloads/platform.aspx</a>
 
-If you don't want to install these from the Web Platform Installer UI.
-
-0. http://azure.microsoft.com/en-us/downloads
-0. Click PowerShell to download WindowsAzurePowershellGet.3f.3f.3fnew.exe and invoke it to download more.
-
-0. Click Azure Power Tools to download WindowsAzureXPlatCLI.3f.3f.3fnew.exe
-
-   NOTE: "XPlat" means Cross-platform. It's for ASM portal usage.
+### Install for ASM Imperative Commands #
 
    <strong>Imperative</strong> commands (verbs such as to start or stop an app or machine)
    are used in ASM.
 
-   ARM enables infrastructure configurations to be defined 
-   through a <strong>declarative syntax</strong>
-   in Resource Manager <strong>templates</strong> (much like Puppet).
+0. http://azure.microsoft.com/en-us/downloads
+0. Click PowerShell to download WindowsAzurePowershellGet.3f.3f.3fnew.exe and invoke it to download more.
+0. Click Install.
+0. Accept the pre-requisite of <strong>Windows Azure Powershell</strong>.
 
+0. Click Add for <strong>Azure Cross-platform Command-line Tools</strong> to download WindowsAzureXPlatCLI.3f.3f.3fnew.exe
+   aka Power Tools 
+
+   NOTE: "XPlat" means Cross-platform. It's for ASM portal usage.
+
+
+### Install for ARM Declarative Templates #
+
+   <strong>declarative syntax</strong> are defined 
+   in Resource Manager <strong>templates</strong>
+   used by ARM to enable infrastructure configurations to be defined 
+   (much like Puppet).
+
+### Make Imperative Commands #
 
    <tt>PS C:\\>
    </tt>
 
-### Get Commands #
-
-Verify that you have Azure commands:
+Get a count of how many commands for the Azure module:
 
    <pre><strong>
    Get-Command -Module Azure | Measure-Object
@@ -48,13 +56,15 @@ Verify that you have Azure commands:
 
    The count is 756 commands for just Azure for ASM.
 
-To list Azure commands for vm:
+List Azure commands containing "vm":
 
    <pre><strong>
    Get-Command -Module Azure -noun *vm*
    </strong></pre>
 
 ### Enable PS1 execution #
+
+PowerShell commands can be be script files with <strong>.ps1</strong> file extension.
 
    <pre><strong>
    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
@@ -69,9 +79,23 @@ As with all PowerShell versions:
    $PSVersionTable
    </strong></pre>
 
-Compare against the response on Windows 7:
+On Windows 10:
 
-<pre>
+{% highlight text %}
+Name                           Value                                                                                   
+----                           -----                                                                                   
+PSVersion                      5.0.10586.63                                                                            
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}                                                                 
+BuildVersion                   10.0.10586.63                                                                           
+CLRVersion                     4.0.30319.42000                                                                         
+WSManStackVersion              3.0                                                                                     
+PSRemotingProtocolVersion      2.3                                                                                     
+SerializationVersion           1.1.0.1                                                                                 
+{% endhighlight %}
+
+   Compare against the response on Windows 7:
+
+{% highlight text %}
 Name                           Value
 ----                           -----
 CLRVersion                     2.0.50727.5420
@@ -81,13 +105,23 @@ WSManStackVersion              2.0
 PSCompatibleVersions           {1.0, 2.0}
 SerializationVersion           1.1.0.1
 PSRemotingProtocolVersion      2.1
-</pre>
+{% endhighlight %}
 
 <hr />
 
-## On-going commands:
+## On-going basic commands:
 
-### Get Help #
+List Mangement Verbs
+
+   <pre><strong>
+   azure
+   </strong></pre>
+
+Clear Screen
+
+   <pre><strong>
+   cls
+   </strong></pre>
 
 Download help files:
 
@@ -95,22 +129,10 @@ Download help files:
    update-help -force
    </strong></pre>
 
-To pop-up help for a command to a different window for multiple windows:
+Pop-up help for a command to a different window for multiple windows:
 
    <pre><strong>
-   help start-...  -ShowWindow
-   </strong></pre>
-
-### Clear Screen #
-
-   <pre><strong>
-   cls
-   </strong></pre>
-
-### List Mangement Verbs #
-
-   <pre><strong>
-   azure
+   help Get-AzureSubscription -ShowWindow
    </strong></pre>
 
 ### Authenticate #
@@ -171,8 +193,7 @@ Based on http://www.symbiosysconsulting.com/pinging-from-powershell
    1..254 | ForEach-Object { ping "192.168.0.$_" }
    </strong></pre>
 
-   Notice the "$_" is the placeholder variable for the range before the pipe.
-
+   Notice "$_" is the placeholder variable for the range before the pipe.
 
    This loops through a range of IP's within an internal subnet to show which ones respond:
 
@@ -191,4 +212,129 @@ Based on http://www.symbiosysconsulting.com/pinging-from-powershell
    ).Wait()
    </strong></pre>
 
+Rather than looping:
 
+## Declarative Templates #
+
+Multiple services can be deployed at the same time (asychronously), as a group, along with their dependencies by 
+using a <strong>group template</strong> that defines <strong>desired end state</strong> 
+of application components.
+
+Differences in each stage of the application lifecycle can be specified.
+
+This makes it easy to get a total bill by viewing the rolled-up costs for the entire group or for a group of resources sharing the same tag.
+
+See <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/">
+Azure Resource Manager overview</a> by Tom FitzMacken.
+
+At <a target="_blank" href="http://github.com/Azure/">http://github.com/Azure</a> are<br />
+sample ARM JSON templates at <a target="_blank" href="https://github.com/Azure/azure-quickstart-templates/">
+azure-quickstart-template code</a> presented 
+<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/templates/">
+here</a>.
+
+Every template contains this:
+
+{% highlight json %}
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "conventVersion": "1.0.0.0",
+    "parameters":{
+      "storageAccountUniqueName": {
+         "type": "String",
+         "metadata": {
+           "description": "Unique name of storage account"
+       }
+      "storageAccountType": {
+         "type": "String",
+         "defaultValue": "Standard_LRS",
+         "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_RAGRS",
+              "Premium_LRS",
+          ]
+       }
+    }
+  },
+    "variables":{ 
+
+  },
+    "resources":{
+
+  },
+    "outputs":{
+
+  }
+}{% endhighlight %}
+
+### Types #
+
+ * Standard_LRS = Locally Redundant Storage
+ * Standard_GRS = Geographically Redundant Storage
+ * Standard_RAGRS = Read Access Geographically Redundant Storage
+ * Premium_LRS = 
+
+## Override #
+
+Parameters can be overriden with separate parameter files references:
+
+{% highlight json %}
+{
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "variables('StorageAccountName')",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "2015-05-01-preview",
+    "propterties": {
+      "accountType": "[parameters('storageAccountType')]"
+    }
+}{% endhighlight %}
+
+"[resourceGroup().location]" enables the resource group to span across regions.
+
+## Load Balancer #
+
+An example DNS host name is mydeployment.eastus.cloudapp.azure.com, IP 23.99.9.198.
+
+Up to 100 vms can be supported by a Load Balancer.
+
+NAT rules on the Load Balancer route inbound traffic dynamically or statically to reserved IPs.
+
+## Virtual Machine images #
+
+An example declarative template would include:
+
+{% highlight json %}
+    "imageReference": {
+      "publisher": "MicrosoftSQLServer",
+      "offer": "SQL2014-WS2012R2",
+      "sku": "Standard",
+      "version": "latest"
+    }{% endhighlight %}
+
+publisher options:
+
+   * "MicrosoftSQLServer"
+   * redhat
+   * barracuda
+
+sku options:
+
+   * "Standard"
+   * "Web"
+   * "Enterprise"
+   * "EnterpriseOptimized"
+   * "EnterpriseOptimizedDW" for Data Warehouse needing fast read but can tolerate slower bulk writes
+   * "EnterpriseOptimizedOLTP" needing fast read and fast write
+
+"offer" options: 
+
+   * "SP2014SP1-WS2012R2"
+   * "SQL2014-WS2012R2"
+   * etc.
+
+The equivalent
+
+* Get-AzureRmVMImagePublisher -Location $locName | select PublisherName
+* Get-AzureRmVMImageOffer -Location $locName -PublisherName $Publisher
+* Get-AzureRmVMImageSku -Location $locName -PublisherName $Publisher -Offer $offer

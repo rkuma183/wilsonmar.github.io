@@ -3,10 +3,22 @@ pic images.txt
   credit:
   creditlink:
 
-—— Available:
+# fig blue powershell icon-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
+  credit:
+  creditlink:
+
 
 http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environment-variables
 	pshellshell.jpg
+
+
+—— Available:
+
+# pic-darkblue-cloud-sunbeams-on-sea-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg
+  credit: HD Wallpaper Backgrounds
+  creditlink: http://hdwallpaperbackgrounds.net/clouds-hd-wallpapers/
 
 —— In use:
 

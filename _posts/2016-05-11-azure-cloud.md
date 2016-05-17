@@ -16,11 +16,19 @@ comments: true
 
 ## Two portals
 
-Right off the bat, know that Microsoft is transitioning from the "Classic" 
-Azure Service Manager (ASM) portal to the
+Right off the bat, know that Microsoft is transitioning from the "classic" 
+Azure Service Management (ASM) portal to the
 Azure Resource Manager (ARM) portal.
 
-## Sign-up
+* <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
+   Which portal supports each Azure service, listed alphabetically</a>
+
+ARM is structured with Resource Groups (logical containers) 
+instead of ASM "Cloud Services" and "Affinity Groups".
+
+NOTE: Instead of 2 racks, ARM resources can span 3 racks.
+
+## Sign-up #
 
 The steps to "Create an API gateway and Developer Portal in minutes".
 
@@ -77,8 +85,6 @@ ARM (Azure Resource Manager)</a>:
    Each resource group defines scope access control for administrative actions.
 
    Tags are used for all other organization of resources.
-
-   A resource group can contain resources that reside in different regions.
 
 <a name="Regions"></a>
 
@@ -158,9 +164,50 @@ http://bit.ly/msgovt
 
 See https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
 
+<a name="AzureLogin"></a>
+
+## Azure Login #
+
+   <tt><strong>
+   Login-AzureRmAccount
+   </strong></tt>
+
+   Type your credentials and press OK.
+
+   A sample response:
+
+   {% highlight text %}
+   Environment           : AzureCloud
+   Account               : ???@hotmail.com
+   TenantId              : ????????-5f96-4d36-a89b-5ea0f7614e72
+   SubscriptionId        : ????????-cf54-443f-b0f1-bcc5e78e9c27
+   CurrentStorageAccount :
+   {% endhighlight %}
+
+<a name="ResourceGroups"></a>
+
+## Azure Resource Groups
+
+Every resource is in only one group, listed here by stack:
+
+* Web Apps
+* SQL
+* Storage
+* VMs
+* NICs
+* Virtual Networks
+
+A resource group can contain resources residing in different <strong>regions</strong>.
+
+   <tt><strong>
+   Get-AzureRmResourceProvider
+   </strong></tt>
+
+Load Scale sets
+
 <a name="AzureCert"></a>
 
-## Azure Certification
+## Azure Certification #
 
 * <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx">
    MCSD Solutions Developer: Azure Solutions Architect</a>
