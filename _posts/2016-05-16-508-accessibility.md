@@ -57,22 +57,21 @@ per category is a percentage, divided between Pass, Warning and Fail thus enabli
 
 ## Checklists for 508 Compliance
 
-    <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
+<a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
                          alt="Checklist for evaluating PowerPoint documents">Checklist for Web Content Accessibility Guidelines </a>
    
-    <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/html/index.html" 
+<a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/html/index.html" 
                          alt="Checklist for improving HTML code">Checklist for HTML Accessibility</a>
 
-    <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/pdf/index.html" 
+<a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/pdf/index.html" 
                          alt="Checklist for evaluating PDF documents">Checklist for PDF File 508 Compliance</a>
 						 
-    <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/excel/index.html" 
+<a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/excel/index.html" 
                          alt="Checklist for changing Excel documents">Checklist of Excel Document 508 Compliance</a>			 
-						 
-    <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
+<a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
                          alt="Checklist for evaluating PowerPoint documents">Checklist for PowerPoint Document 508 Compliance</a>
    
-    <a target="_blank" href="http://webaim.org/standards/508/checklist" 
+<a target="_blank" href="http://webaim.org/standards/508/checklist" 
                          alt="Checklist listing the 508 standards and Pass and Fail criteria">Checklist for 508 Standards with Pass and Fail criteria</a>
    
 ## Firefox and Chrome Add-ons
