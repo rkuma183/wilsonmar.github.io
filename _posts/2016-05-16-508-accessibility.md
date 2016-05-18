@@ -148,19 +148,19 @@ and enables blind and visually impaired people to use computers using computeriz
                          
 ## HTML coding for accessibility
 
-1. In URL links provide words to describe what the link is about to the visual impaired. For example:
+1. In URL links provide words to describe what the link is about to the visual impaired, for example:
 
    ```
    <a alt="One of most well known websites to buy products by auction or buy now at this price" href="http://www.ebay.com">
    ```
    
-2. Images should describe the picture using words.  For example:
+2. Images should describe the picture using word, for example:
 
    ```
    <a alt="blue winter landscape with rainbow" href="URL ...
    ```
 
-3. Turn on captioning in videos on YouTube or Vimeo:
+3. Turn on captioning in videos on YouTube or Vimeo, for example:
 
    ```
    <a_target="_blank" href="URL" cc_load_policy="1"></a>
