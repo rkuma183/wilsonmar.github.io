@@ -19,10 +19,9 @@ comments: true
 This post explains how to verify whether websites are "508 Compliant". 
 Compliance is to regulations requiring websites to be accessible to the deaf, hard-of-hearing, and visually impaired.
 
-## Why? #
+## Why is this needed?
 
 This is a bigger issue than many think:
-
 
    <a target="_blank" href="http://libguides.gallaudet.edu/content.php?pid=119476&sid=1029190" 
                          alt="Statistics of deaf population">195,697,202 people in the US are deaf.</a>
@@ -35,6 +34,17 @@ This is a bigger issue than many think:
 						 
    <a target="_blank" href="http://www.colourblindawareness.org/colour-blindness/" 
                          alt="Statistics of color blind population">2.7 million people (mostly male) have some form of color blindness.</a>
+   
+   <a target="_blank" href="https://www.youtube.com/watch?v=HO3TdUb9uK8" cc_load_policy="1"
+                         alt="Accessible sites rank higher in search engines.">Accessible sites rank higher in search engines.</a>
+   
+   Increase user base by at least 20%
+   
+   <a target="_blank" href="https://www.youtube.com/watch?v=HO3TdUb9uK8" cc_load_policy="1"
+                         alt="Inclusive sites drastically reduce discriminatory potential for legal action both domestically and internationally.">Inclusive sites drastically reduce discriminatory potential for legal action both domestically and internationally.</a> 
+   
+   Good business at being progressive and knowledgeable of internet trends
+
 
 ## Website Link Validation for errors or warnings
   
@@ -76,15 +86,13 @@ standards without the grind of manual testing. Enter the name of your website an
    
 ## Firefox and Chrome Add-ons
 
-<a target="_blank href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
+<a target="_blank" href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
                          alt="Extension that can be added to Chrome to help developers with Accessibility errors in an audit"> Accessibility Developer Tools extension for Chrome </a>
-adds an Accessibility audit and an Accessibility sidebar pane in the Elements tab to your Chrome Develop Tools.  To use the audit: go to the Audits tab and click Run.  The audit results will appear
-as a list of rules which are violated by the page with one or more elements on the page shown as a result for each rule. :
+adds an Accessibility audit and an Accessibility sidebar pane in the Elements tab to your Chrome Develop Tools.  To use the audit: go to the Audits tab and click Run.  The audit results will appear as a list of rules which are violated by the page with one or more elements on the page shown as a result for each rule.
 
-<a target="_blan href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd" 
+<a target="_blank" href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd" 
                          alt="aXe is an Extension added to Chrome for developers with no false positive for Accessibility issues">aXe is Accessibility defects extension for Chrome.</a> 		
-Automated testing tools must return zero false positives, so that you know what problems you must fix.  This extension uses aXe javascript library 
-and is the third generation of accessibility rules for HTML-based user interfaces and is open source.
+Automated testing tools must return zero false positives, so that you know what problems you must fix.  This extension uses aXe javascript library and is the third generation of accessibility rules for HTML-based user interfaces and is open source.
     				 
    
 ## Link or Sanity Validation
@@ -115,22 +123,29 @@ link where it found the error or every link that triggered the error:
       alt="Tool on web that evaluates website for mobile users">mobiReady checks to see if your website works on multiple size devices </a>
 including 1024x768, 375x667, 320x533 and 240x320.
     
-
 ## Assisted Devices for Hearing-impaired or Visually-impaired
 
 <a target="_blank" href="http://www.nvaccess.org/download/" 
       alt="Free Tool for blind and visually impaired to read text on screen translated into 43 languages in 120 countries">NonVisual Desktop Access also known as NVDA is Free and Open Source </a>
-and enables blind and visually impaired people to use computers using computerized voice. You can control what is read to you by moving the cursor to the relevent area of text with a mouse or the arrows on the 
-keyboard.  NVDA provides education and employment for many blind people.  NVDA also provides access to social networking, online shopping, banking
-and news. NVDA has been translated into 43 languages and is used by more than 120 countries.
+and enables blind and visually impaired people to use computers using computerized voice. You can control what is read to you by moving the cursor to the relevent area of text with a mouse or the arrows on the keyboard.  NVDA provides education and employment for many blind people.  NVDA also provides access to social networking, online shopping, banking and news. NVDA has been translated into 43 languages and is used by more than 120 countries.
     
 <a target="_blank" href="http://www.windoweyesforoffice.com/" 
-      alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>
-to provide people who are blind, visually-impaired or print disabled with completely functionality compatible with Microsoft Office 2010, 2013 and 2016.
+      alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>to provide people who are blind, visually-impaired or print disabled with completely functionality compatible with Microsoft Office 2010, 2013 and 2016.
 
 <a target="_blank href="https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders"
       alt="Article about Assisted Devices for Hearing, Speech, Voice and Language Impairments">Article discussing various Assisted devices"
 
+## Videos about 508 Accessibility Testing
+
+<a target="_blank" href="https://www.youtube.com/watch?v=4XJcswWmmAw" cc_load_policy="1"
+                         alt="Video discussing testing using Assisted Technologies">Video about testing considerations for 508 standards using assisted technologies.</a> 
+                         
+<a target="_blank" href=" https://www.youtube.com/watch?v=c6OoQHDaLvk" cc_load_policy="1"
+                         alt="Webinar video on Section 508 Accessibility Authoring and Testing">Webinar about Section 508 Accessibility Authoring and Testing.</a> 
+                         
+<a target="_blank" href="https://www.youtube.com/watch?v=HO3TdUb9uK8" cc_load_policy="1"
+                         alt="Video about making internet accessible for all ">Video presentation discussing issues and rewards for making internet accessible for all.</a> 
+                         
 ## HTML coding for accessibility
 
 1. In URL links provide words to describe what the link is about to the visual impaired. For example:
