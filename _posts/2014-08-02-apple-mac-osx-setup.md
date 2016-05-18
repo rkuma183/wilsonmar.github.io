@@ -1207,16 +1207,26 @@ For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: E
 
 To get around it, you need to disable System Integrity Protection in OS X El Capitan.
 
-0. Shut down all apps.
-0. Reboot the Mac.
-0. Boot OS X into Recovery Mode: hold down the Command + R keys simultaneously after you hear the startup chime.
-0. When the OS X Utilities screen appears, pull down the Utilities menu at the top of the screen.
-0. Choose Terminal
-0. Type the following command into the terminal then hit return.
+0. Shut down all apps, then the operating system (from the Apple icon).
+0. Reboot the Mac. 
+
+   This is needed because System Integrity Protection settings are stored in NVRAM on each individual Mac.
+   So it can only be modified from the recovery environment running in NVRAM.
+
+0. Boot OS X into Recovery Mode: hold down the <strong>command + R</strong> keys simultaneously after you hear the startup chime.
+0. When the <strong>OS X Utilities</strong> screen appears, pull down the Utilities menu at the top of the screen.
+
+   <amp-img width="650" height="250" alt="scr mac osx reboot" src="https://cloud.githubusercontent.com/assets/300046/15366780/2b09aaca-1ce3-11e6-92e1-7f44ccc54b5d.png">
+   </amp-img>
+
+0. Choose Terminal.
+0. Type the following command into the terminal before hitting the return key.
 
    ```
    csrutil disable; reboot
    ```
+
+0. Complain about the need to do this.
 
 ## Skill Certification #
 
