@@ -51,6 +51,9 @@ the HTML element or attribute with issue and line of code.  It may not be the mo
       alt="Functional Accessibility Evaluator tool evaluates a website for Accessibility based on 508 standards.">Functional Accessibility Evaluator referred to FAE </a>		
 evaluates website based on 508 Guidelines**.  There are five categories: Navigation and Orientation, Text Equivalents, Scripting, Styling and HTML Standards.  The overall performance
 per category is a percentage, divided between Pass, Warning and Fail thus enabling specifica areas with the most issues:
+
+<a target="_blank" href="http://achecker.ca/checker/" 
+      alt="AChecker checks single HTML pages for accessibility standards.">AChecker tool checks single HTML page for conformance with accessibility standards. </a> 
 				 
 > Let me help you evaluate these tools. Contact me!
 
@@ -67,7 +70,8 @@ per category is a percentage, divided between Pass, Warning and Fail thus enabli
                          alt="Checklist for evaluating PDF documents">Checklist for PDF File 508 Compliance</a>
 						 
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/excel/index.html" 
-                         alt="Checklist for changing Excel documents">Checklist of Excel Document 508 Compliance</a>			 
+                         alt="Checklist for changing Excel documents">Checklist of Excel Document 508 Compliance</a>
+                         
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
                          alt="Checklist for evaluating PowerPoint documents">Checklist for PowerPoint Document 508 Compliance</a>
    
@@ -116,7 +120,7 @@ link where it found the error or every link that triggered the error:
 including 1024x768, 375x667, 320x533 and 240x320.
     
 
-## Tools which can be used by Hearing-impaired or Visually-impaired
+## Assisted Devices for Hearing-impaired or Visually-impaired
 
 <a target="_blank" href="http://www.nvaccess.org/download/" 
       alt="Free Tool for blind and visually impaired to read text on screen translated into 43 languages in 120 countries">NonVisual Desktop Access also known as NVDA is Free and Open Source </a>
@@ -127,7 +131,9 @@ and news. NVDA has been translated into 43 languages and is used by more than 12
 <a target="_blank" href="http://www.windoweyesforoffice.com/" 
       alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>
 to provide people who are blind, visually-impaired or print disabled with completely functionality compatible with Microsoft Office 2010, 2013 and 2016.
-    
+
+<a target="_blank href="https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders"
+      alt="Article about Assisted Devices for Hearing, Speech, Voice and Language Impairments">Article discussing various Assisted devices"
 
 ## HTML coding for accessibility
 
@@ -136,19 +142,44 @@ to provide people who are blind, visually-impaired or print disabled with comple
    ```
    <a alt="One of most well known websites to buy products by auction or buy now at this price" href="http://www.ebay.com">
    ```
+   
 2. Images should describe the picture using words.  For example:
 
    ```
    <a alt="blue winter landscape with rainbow" href="URL ...
    ```
 
-2. Turn on captioning in videos on YouTube or Vimeo:
+3. Turn on captioning in videos on YouTube or Vimeo:
 
    ```
    <a_target="_blank" href="URL" cc_load_policy="1"></a>
    ```
+   
+4. Add label for type="radio", for example:
 
-3. Anytime you use a website, make sure if it should be http:// or https://
-4. Anytime you use a website, check to see if there should be a / at the end of the website name
-5. Anytime the link your using redirects, it slows down the application, update the link to the correct location.
+   ```
+   <fieldset>
+    <h1>Salutation</h1>
 
+    <label for="salutation_mr">Mr <input id="salutation_mr" name="salutation" type="radio" value="mr"><label>
+
+    <label for="salutation_mrs">Mrs <input id="salutation_mrs" name="salutation" type="radio" value="mrs"><label>
+
+    <label for="salutation_miss">Miss <input id="salutation_miss" name="salutation" type="radio" value="miss"><label>
+
+    <label for="salutation_ms">Ms <input id="salutation_miss" name="salutation" type="radio" value="ms"><label>
+</fieldset>
+   ```
+5. Emphasis do not use italic as it causes reading issues, better to use es{..}  or  strong{...}
+
+   ```
+   strong{
+   font-weight: bold;
+   }
+   ```
+   
+6. Anytime you use a website, make sure if it should be http:// or https://
+7. Anytime you use a website, check to see if there should be a / at the end of the website name
+8. Anytime the link your using redirects, it slows down the application, update the link to the correct location periodically.
+9. <a target="_blank" href="http://ready.mobi/" 
+      alt="Tool on web that evaluates website for mobile users">Accessible Techniques for HTML Tables </a> 
