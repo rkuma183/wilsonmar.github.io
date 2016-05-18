@@ -80,12 +80,12 @@ per category is a percentage, divided between Pass, Warning and Fail thus enabli
    
 ## Firefox and Chrome Add-ons
 
-<a target="_blank"https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
+<a target="_blank href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
                          alt="Extension that can be added to Google Chrome to help developers with Accessibility errors in an audit">Accessibility Developer Tools extension for Chrome </a>
 adds an Accessibility audit and an Accessibility sidebar pane in the Elements tab to your Chrome Develop Tools.  To use the audit: go to the Audits tab and click Run.  The audit results will appear
 as a list of rules which are violated by the page with one or more elements on the page shown as a result for each rule. :
 
-<a target="_blank"https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd" 
+<a target="_blan href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd" 
                          alt="aXe is an Extension added to Chrome for developers with no false positive for Accessibility issues">aXe is Accessibility defects extension for Chrome.</a> 		
 Automated testing tools must return zero false positives, so that you know what problems you must fix.  This extension uses aXe javascript library 
 and is the third generation of accessibility rules for HTML-based user interfaces and is open source.
