@@ -14,7 +14,7 @@ comments: true
 <hr />
 
 {% include _toc.html %}
-# HTML and 508 Accessibility, why important, what tools used, and suggestions to change code.
+# HTML 508 Accessibility, importance, tools, videos and basic code suggestions.
 
 This post explains how to verify whether websites are "508 Compliant". 
 Compliance is to regulations requiring websites to be accessible to the deaf, hard-of-hearing, and visually impaired.
@@ -24,16 +24,16 @@ Compliance is to regulations requiring websites to be accessible to the deaf, ha
 This is a bigger issue than many think:
 
    <a target="_blank" href="http://libguides.gallaudet.edu/content.php?pid=119476&sid=1029190" 
-                         alt="Statistics of deaf population">195,697,202 people in the US are deaf.</a>
+                         alt="Statistics of deaf population">* 195,697,202 people in the US are deaf.</a>
 
    <a target="_blank" href="http://www.who.int/mediacentre/factsheets/fs282/en/" 
-                         alt="38 million blind is statistics for Visually impaired population">38 million blind in US, 246 with low vision, 285 million worldwide are vision impaired.</a>
+                         alt="38 million blind is statistics for Visually impaired population">* 38 million blind in US, 246 with low vision, 285 million worldwide are vision impaired.</a>
 						 
    <a target="_blank" href="https://nfb.org/blindness-statistics" 
-                         alt="Statistics of Blind impaired population">7,327,800 blind people since 2013</a>
+                         alt="Statistics of Blind impaired population">* 7,327,800 blind people since 2013</a>
 						 
    <a target="_blank" href="http://www.colourblindawareness.org/colour-blindness/" 
-                         alt="Statistics of color blind population">2.7 million people (mostly male) have some form of color blindness.</a>
+                         alt="Statistics of color blind population">* 2.7 million people (mostly male) have some form of color blindness.</a>
    
    <a target="_blank" href="https://www.youtube.com/watch?v=HO3TdUb9uK8" cc_load_policy="1"
                          alt="Accessible sites rank higher in search engines.">Accessible sites rank higher in search engines.</a>
@@ -56,10 +56,10 @@ standards without the grind of manual testing. Enter the name of your website an
       alt="EvalAccess evaluates a website for Accessibility based on standards compliance.">EvalAccess evaluates web accessibility </a>is a Free Web Service tool.  It shows errors and warnings based on Priority 1, 2, 3 and results of errors and warnings per priority. It provides a description of what it believes is wrong, the HTML element or attribute with issue and line of code.  It may not be the most user-friendly access tool, it can help designers and developers to clean up their site:
    
 <a target="_blank" href="https://fae.disability.illinois.edu/anonymous/?Anonymous%20Report=/" 
-      alt="Functional Accessibility Evaluator tool evaluates a website for Accessibility based on 508 standards.">Functional Accessibility Evaluator referred to FAE </a>evaluates website based on 508 Guidelines**.  There are five categories: Navigation and Orientation, Text Equivalents, Scripting, Styling and HTML Standards.  The overall performance per category is a percentage, divided between Pass, Warning and Fail thus enabling specifica areas with the most issues:
+      alt="Functional Accessibility Evaluator tool evaluates a website for Accessibility based on 508 standards.">Functional Accessibility Evaluator referred to FAE </a>evaluates website based on 508 Guidelines**.  There are five categories: Navigation and Orientation, Text Equivalents, Scripting, Styling and HTML Standards.  The overall performance per category is a percentage, divided between Pass, Warning and Fail thus enabling specific areas:
 
 <a target="_blank" href="http://achecker.ca/checker/" 
-      alt="AChecker checks single HTML pages for accessibility standards.">AChecker tool checks single HTML page for conformance with accessibility standards. </a> 
+      alt="AChecker checks single HTML pages for accessibility standards.">AChecker tool checks single HTML page for conformance with accessibility standards. </a>It provides suggestions for conformance, explains why it failed, how to fix and the code that failed. 
 				 
 > Let me help you evaluate these tools. Contact me!
 
