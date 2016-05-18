@@ -37,14 +37,14 @@ This is a bigger issue than many think:
 
 ## Website Link Validation for errors or warnings
   
-   <a target="_blank" href="http://www.powermapper.com/products/sortsite/ads/acc-section-508/?gclid=CMfzl_Lg38wCFVUkgQodQ8YA4A" 
+<a target="_blank" href="http://www.powermapper.com/products/sortsite/ads/acc-section-508/?gclid=CMfzl_Lg38wCFVUkgQodQ8YA4A" 
                          alt="SortSite evaluates websites for accessibility">PowerMapper's SortSite</a> accessibility tool audits an entire site for compliance with web accessibility 
 standards without the grind of manual testing. Enter the name of your website and click "Test Site". After done, click "View Report".
    
-   <a target="_blank" href="http://sipt07.si.ehu.es/evalaccess2/index.html" 
+<a target="_blank" href="http://sipt07.si.ehu.es/evalaccess2/index.html" 
       alt="EvalAccess evaluates a website for Accessibility based on standards compliance.">EvalAccess evaluates web accessibility </a>is a Free Web Service tool.  It shows errors and warnings based on Priority 1, 2, 3 and results of errors and warnings per priority. It provides a description of what it believes is wrong, the HTML element or attribute with issue and line of code.  It may not be the most user-friendly access tool, it can help designers and developers to clean up their site:
    
-   <a target="_blank" href="https://fae.disability.illinois.edu/anonymous/?Anonymous%20Report=/" 
+<a target="_blank" href="https://fae.disability.illinois.edu/anonymous/?Anonymous%20Report=/" 
       alt="Functional Accessibility Evaluator tool evaluates a website for Accessibility based on 508 standards.">Functional Accessibility Evaluator referred to FAE </a>evaluates website based on 508 Guidelines**.  There are five categories: Navigation and Orientation, Text Equivalents, Scripting, Styling and HTML Standards.  The overall performance per category is a percentage, divided between Pass, Warning and Fail thus enabling specifica areas with the most issues:
 
 <a target="_blank" href="http://achecker.ca/checker/" 
@@ -76,7 +76,7 @@ standards without the grind of manual testing. Enter the name of your website an
 ## Firefox and Chrome Add-ons
 
 <a target="_blank href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
-                         alt="Extension that can be added to Google Chrome to help developers with Accessibility errors in an audit">Accessibility Developer Tools extension for Chrome </a>
+                         alt="Extension that can be added to Chrome to help developers with Accessibility errors in an audit"> Accessibility Developer Tools extension for Chrome </a>
 adds an Accessibility audit and an Accessibility sidebar pane in the Elements tab to your Chrome Develop Tools.  To use the audit: go to the Audits tab and click Run.  The audit results will appear
 as a list of rules which are violated by the page with one or more elements on the page shown as a result for each rule. :
 
