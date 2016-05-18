@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Windows 10 Client Config"
+title: "Windows 10 Client Configuration"
 excerpt: "How I setup my Windows laptop"
 tags: [windows, mac, setup]
 image:
@@ -176,7 +176,7 @@ Visual Studio 2015 = version 14.0
 
    This may occur if you're not a member of a TFS security group, and need to be added to one.
 
-### Add client-side certificate in Chrome #
+### Invalid client-side certificate #
 
 If a website has a certificate warning such as this:
 
