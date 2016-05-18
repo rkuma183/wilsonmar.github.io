@@ -33,7 +33,8 @@ comments: true
 </td><td align="right"> -
 </td><td align="right"> 2.7.10
 </td><td align="right"> -
-</td><td align="left"> -</td></tr>
+</td><td align="left"> <a href="#ElCapitanSIP">Disable System Integrity Production</a>
+</td></tr>
 <tr valign="top"><td> OS X 10.10
 </td><td align="right"><a target="_blank" href="http://www.wikiwand.com/en/OS_X_Yosemite">Yosemite</a> (Syrah)
 </td><td align="right"> Fall 2014
@@ -1196,9 +1197,28 @@ To create a Windows 10 instance within VMWare Fusion:
 
    WARNING: The license key from MSDN was not recognized.
 
+<a name="ElCapitanSIP"></a>
 
+## Disable System Integrity Protection #
 
-## Certification
+Some programs make calls to the operating system which OSX began to see as a threat beginning with El Capitan.
+
+For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: Error running jsondialog".
+
+To get around it, you need to disable System Integrity Protection in OS X El Capitan.
+
+0. Shut down all apps.
+0. Reboot the Mac.
+0. Boot OS X into Recovery Mode: hold down the Command + R keys simultaneously after you hear the startup chime.
+0. When the OS X Utilities screen appears, pull down the Utilities menu at the top of the screen.
+0. Choose Terminal
+0. Type the following command into the terminal then hit return.
+
+   ```
+   csrutil disable; reboot
+   ```
+
+## Skill Certification #
 
 <a target="_blank" Href="https://app.pluralsight.com/library/courses/mac-osx-support-installation-configuration/table-of-contents">
 Video course Mac OS X Support: Installation and Configure</a>
