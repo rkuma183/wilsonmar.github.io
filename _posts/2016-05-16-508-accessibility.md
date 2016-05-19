@@ -24,16 +24,16 @@ Compliance is to regulations requiring websites to be accessible to the deaf, ha
 This is a bigger issue than many think:
 
    <a target="_blank" href="http://libguides.gallaudet.edu/content.php?pid=119476&sid=1029190" 
-                         alt="Statistics of deaf population">* 195,697,202 people in the US are deaf.</a>
+                         alt="Statistics of deaf population">195,697,202 people in the US are deaf.</a>
 
    <a target="_blank" href="http://www.who.int/mediacentre/factsheets/fs282/en/" 
-                         alt="38 million blind is statistics for Visually impaired population"*>38 million blind in US, 246 with low vision, 285 million worldwide are vision impaired.</a>
+                         alt="38 million blind is statistics for Visually impaired population">38 million blind in US, 246 with low vision, 285 million worldwide are vision impaired.</a>
 						 
    <a target="_blank" href="https://nfb.org/blindness-statistics" 
-                         alt="Statistics of Blind impaired population"*>7,327,800 blind people since 2013</a>
+                         alt="Statistics of Blind impaired population">7,327,800 blind people since 2013</a>
 						 
    <a target="_blank" href="http://www.colourblindawareness.org/colour-blindness/" 
-                         alt="Statistics of color blind population"*>2.7 million people (mostly male) have some form of color blindness.</a>
+                         alt="Statistics of color blind population">2.7 million people (mostly male) have some form of color blindness.</a>
    
    <a target="_blank" href="https://www.youtube.com/watch?v=HO3TdUb9uK8" cc_load_policy="1"
                          alt="Accessible sites rank higher in search engines.">Accessible sites rank higher in search engines.</a>
