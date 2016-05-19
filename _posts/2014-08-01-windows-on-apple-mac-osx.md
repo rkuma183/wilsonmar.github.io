@@ -77,7 +77,7 @@ are available.
 0. The PC can be used throughout the process, but it's not advisable.
 
 
-### Delete Snapshots
+### Delete Snapshots #
 
 VMWare automatically takes snapshots as a fall-back.
 
@@ -101,6 +101,27 @@ To establish a particular state of an instance as the <strong>base</strong> for 
 
 TBD
 -->
+
+## Microsoft Remote Desktop #
+
+Windows operating systems come with a <strong>Remote Desktop</strong> app to take over another Windows machine
+for support, training, etc.
+
+* Go to <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
+   Microsoft's Remote Desktop for Mac OSX from the Apple Store</a>
+
+   This is newer than the edition that comes with Microsoft Office for Mac 2011.
+
+0. Click Get.
+0. Click Install.
+0. Click Open.
+
+   <amp-img alt="ms remote desktop mac menu" width="467" height="87" src="https://cloud.githubusercontent.com/assets/300046/15401475/f121822c-1dac-11e6-9626-71e6ecb894d6.jpg"></amp-img>
+
+ 0. Click + New
+
+   <amp-img alt="ms remote desktop mac" width="426" height="485" href="https://cloud.githubusercontent.com/assets/300046/15401380/8e639ee0-1dac-11e6-98cd-9519d7dcf519.jpg"></amp-img>
+
 
 ## More on OSX
 
