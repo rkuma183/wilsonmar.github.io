@@ -985,6 +985,10 @@ Jundt Art Center and Museum at Gonzaga University</a></li>
 <li><a target="_blank" href="http://www.dirosapreserve.org/">di Rosa Preserve</a>, Napa</li>
 </ul>
 
+<ul>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=Qm8MB8P0Zh0">YouTube: California Road Trip</a>
+</ul>
+
 ### San Francisco Bay:
 
 <ul>
