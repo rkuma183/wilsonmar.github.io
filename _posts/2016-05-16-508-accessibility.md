@@ -151,7 +151,8 @@ and enables blind and visually impaired people to use computers using computeriz
 1. In URL links provide words to describe what the link is about to the visual impaired, for example:
 
    ```
-   <a alt="One of most well known websites to buy products by auction or buy now at this price" href="http://www.ebay.com">
+   <a alt="One of most well known websites to buy products by auction or buy now at this price" 
+     href="http://www.ebay.com">
    ```
    
 2. Images should describe the picture using word, for example:
@@ -172,14 +173,18 @@ and enables blind and visually impaired people to use computers using computeriz
    <fieldset>
     <h1>Salutation</h1>
 
-    <label for="salutation_mr">Mr <input id="salutation_mr" name="salutation" type="radio" value="mr"><label>
+    <label for="salutation_mr">Mr <input id="salutation_mr" 
+          name="salutation" type="radio" value="mr"><label>
 
-    <label for="salutation_mrs">Mrs <input id="salutation_mrs" name="salutation" type="radio" value="mrs"><label>
+    <label for="salutation_mrs">Mrs <input id="salutation_mrs" 
+          name="salutation" type="radio" value="mrs"><label>
 
-    <label for="salutation_miss">Miss <input id="salutation_miss" name="salutation" type="radio" value="miss"><label>
+    <label for="salutation_miss">Miss <input id="salutation_miss" 
+          name="salutation" type="radio" value="miss"><label>
 
-    <label for="salutation_ms">Ms <input id="salutation_miss" name="salutation" type="radio" value="ms"><label>
-</fieldset>
+    <label for="salutation_ms">Ms <input id="salutation_miss" 
+          name="salutation" type="radio" value="ms"><label>
+    </fieldset>
    ```
 5. Emphasis do not use italic as it causes reading issues, better to use es{..}  or  strong{...}
 
