@@ -51,7 +51,7 @@ The strategy of "devops" is:
 
 One-word summary of the trade-off in the impact in additional complexity:
 
-| values &amp;<br /> principals | complexities |
+| **Values &amp;<br /> principals** | **Complexities** |
 | Autonomy | Communication |
 | Speed of change | Execution |
 | Scale | Resilience |
