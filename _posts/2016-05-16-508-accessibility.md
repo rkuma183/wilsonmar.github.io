@@ -14,7 +14,7 @@ comments: true
 <hr />
 
 {% include _toc.html %}
-<h2> HTML 508 Accessibility, importance, tools, videos and basic code suggestions.</h2>
+<h2>HTML 508 Accessibility, importance, tools, videos and basic code suggestions.</h2>
 
 This post explains how to verify whether websites are "508 Compliant". 
 Compliance is to regulations requiring websites to be accessible to the deaf, hard-of-hearing, and visually impaired.
