@@ -132,8 +132,9 @@ and enables blind and visually impaired people to use computers using computeriz
 <a target="_blank" href="http://www.windoweyesforoffice.com/" 
       alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>to provide people who are blind, visually-impaired or print disabled with completely functionality compatible with Microsoft Office 2010, 2013 and 2016.
 
-<a target="_blank href="https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders"
+<a target="_blank" href="https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders"
       alt="Article about Assisted Devices for Hearing, Speech, Voice and Language Impairments">Article discussing various Assisted devices</a>
+
 
 ## Videos about 508 Accessibility Testing
 
