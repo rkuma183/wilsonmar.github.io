@@ -161,7 +161,7 @@ and enables blind and visually impaired people to use computers using computeriz
    <a alt="blue winter landscape with rainbow" href="URL ...
    ```
    
-3. Turn on captioning in videos for YouTube or Vimeo, Must have QuickTime Player. <a target="_blank" href="http://etc.usf.edu/techease/4all/web-accessibility/adding-closed-captions-to-youtube-videos/ cc_load_policy=1">Click to learn how to transcribe videos.</a> for example:
+3. Turn on captioning in videos for YouTube or Vimeo, Must have QuickTime Player. <a target="_blank" href="http://etc.usf.edu/techease/4all/web-accessibility/adding-closed-captions-to-youtube-videos/">Click to learn how to transcribe videos.</a> for example:
 
    ```
    <iframe width="640" height="360" target="_blank" href="URL cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
