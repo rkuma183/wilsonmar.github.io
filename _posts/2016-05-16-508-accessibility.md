@@ -14,7 +14,7 @@ comments: true
 <hr />
 
 {% include _toc.html %}
-# HTML 508 Accessibility, importance, tools, videos and basic code suggestions.
+<h2> HTML 508 Accessibility, importance, tools, videos and basic code suggestions.</h2>
 
 This post explains how to verify whether websites are "508 Compliant". 
 Compliance is to regulations requiring websites to be accessible to the deaf, hard-of-hearing, and visually impaired.
@@ -160,11 +160,11 @@ and enables blind and visually impaired people to use computers using computeriz
    ```
    <a alt="blue winter landscape with rainbow" href="URL ...
    ```
-
-3. Turn on captioning in videos on YouTube or Vimeo, for example:
+   
+3. Turn on captioning in videos for YouTube or Vimeo, Must have QuickTime Player. <a target="_blank" href="http://etc.usf.edu/techease/4all/web-accessibility/adding-closed-captions-to-youtube-videos/ cc_load_policy=1">Click to learn how to transcribe videos.</a> for example:
 
    ```
-   <a_target="_blank" href="URL" cc_load_policy="1"></a>
+   <iframe width="640" height="360" target="_blank" href="URL cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
    ```
    
 4. Add label for type="radio", for example:
