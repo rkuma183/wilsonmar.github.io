@@ -121,10 +121,11 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 
 <a id="Microphonez"></a>
 
-## Microphone
+## Microphone #
 
 To disable the internal microphone, there is no icon.
 So reduce the input volume to 0:
+
 <ol type="1">
 <li> Click on the Apple logo at the upper left corner.</li>
 <li> Select System Preferences.</li>
@@ -145,7 +146,7 @@ this method should work.
 
 <a id="Setup_Sound"></a>
 
-## Sound Control
+## Sound Control #
 
 
 Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
@@ -223,7 +224,7 @@ this</a>.
 
 <a id="Wallpaperz"></a>
 
-## Desktop Wallpaper Pictures
+## Desktop Wallpaper Pictures #
 
 Get to the Desktop by spreading thumb and 4 fingers on the touchpad.
 
@@ -246,7 +247,7 @@ Some wallpaper images that come with OS X are of Retina resolution:
 
 <a id="DNSConfigz"></a>
 
-## DNS Configuration 
+## DNS Configuration #
 
 <a href="_blank" href="https://code.google.com/p/namebench/">
 Namebench</a> reports the speed of various DNS servers.
@@ -275,7 +276,7 @@ See http://www.macworld.com/article/2824564/slow-internet-edit-your-dns-settings
 
 <a id="HotCornerz"></a>
 
-## Cursor to Screen Hot Corners 
+## Cursor to Screen Hot Corners #
 
 By default, if you move the mouse to one of the corners of the screen,
 stuff happens. It can be annoying.
@@ -297,7 +298,7 @@ because they show up when I don't want them.
 
 <a id="Terminalz"></a>
 
-## Open Terminal from Finder Folder
+## Open Terminal from Finder Folder #
 
 It's hard to get away from using a command-line terminal.
 
@@ -320,7 +321,7 @@ right click and choose Services > New Terminal at Folder.
 
 <a id="TerminalPingHostz"></a>
 
-### Terminal Ping Host 
+### Terminal Ping Host #
 
 Find the IP address of a website host name:
 
@@ -337,97 +338,170 @@ microsoft.com mail is handled by 10 microsoft-com.mail.protection.outlook.com.
 
 <a id="Terminal_file_listing"></a>
 
-## Terminal File Listing Home Folder
+## Terminal File Listing Home Folder #
 
 By default, the terminal shows the hard drive and lowest level file folder name, 
 in white letters over black.
 
 To show the present (current) working directory (folder):
+
 <tt><strong>
 pwd
 </strong></tt>
+
 The response for me is:
+
 <tt><strong>
 /Users/wilsonmar
 </strong></tt>
+
 You will of course have a different machine user name than wilsonmar.
 
 To get back to this <strong>home</strong> folder:
+
 <tt><strong>
 cd ~/
 </strong></tt>
 
 To list all file names (without any metadata):
+
 <tt><strong>
 ls
 </strong></tt>
+
 Folders available by default include Documents, Downloads, Pictures, Desktop, Music, Movies.
 
 
 To dive into a folder type:
+
 <tt><strong>
 cd mu
 </strong></tt>
+
 Press Enter.
 
 Nothing happens because upper case letters are important.
 Press delete to remove the mu and type:
+
 <tt><strong>
 cd Mu
 </strong></tt>
+
 Press Enter for the Music folder.
 
 Go back up a level:
+
 <tt><strong>
 cd ..
 </strong></tt>
 
 To list all files with their permission settings:
+
 <tt><strong>
 ls -ls
 </strong></tt>
+
 Notice that no hidden files are listed.
 To list all <strong>hidden</strong> files with permission settings,
 piping the listing to more instead of having results flying by:
+
 <tt><strong>
 ls -la ~/ | more
 </strong></tt>
+
 A colon appears at the bottom if there is more to show. 
-<br />
+
 To cancel the listing, press <strong>control + C</strong>.
 
 Notice the .bashrc on the first page, something like:
+
 <tt>
 -rw-r--r--  1 discworld discworld  3330 Mar 10 16:03 .bashrc
 </tt>
+
 (It's for the <a href="#BashShell">Bash Shell</a>.)
 
 
 If it's not listed, create it with:
+
 <tt><strong>
 vi ~/.bashrc
 </strong></tt>
+
 To make it rw r r:
+
 <tt><strong>
 chmod 644 .bashrc 
 </strong></tt>
+
 List only hidden files in the current folder:
+
 <tt><strong>
 ls -ld .??*
 </strong></tt>
 
 Create a Projects folder to hold projects downloaded from 
 <a href="#Setup_Github">Github</a>:
+
 <tt><strong>
 mkdir Projects
 </strong></tt>
+
 This only needs to be done once.
 
+<a id="ShowHiddenInFinderz"></a>
+
+## Show Hidden Invisible Files in Finder #
+
+By default, the Mac's Finder does not show hidden files.
+
+0. Close all Finder folders. 
+
+0. Enter this in Terminal before typing Return:
+
+   <tt><strong>
+   defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+   </strong></tt>
+
+   This causes all Finder windows to be reset.
+
+   To make invisible files invisible again:
+
+   <tt><strong>
+   defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
+   </strong></tt>
+
+   A description of each keyword:
+
+   **defaults** - OSX's command to change defaults, apple's low-level preference system.
+
+   **write** - tells defaults you want to change a preference, or write it
+
+   **com.apple.finder** - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
+
+   **AppleShowAllFiles** - specifies which preference you want to change within the application.
+
+   **TRUE or FALSE** - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
+
+   **&&** - a terminal operator to run whatever's after this if the previous command is successful.
+
+   **killall** - kills processes or closes applications.
+
+   **Finder** - specifies the process or application to close.
+
+
+### Create Terminal Aliases #
+
+Most developers leave files un-hidden.
+But if you want to just type <strong>showFiles</strong> and <strong>hideFiles</strong> 
+to show and hide Mac OS X’s hidden files, consider
+<a target="_blank" href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">
+this article</a> to create such terminal aliases.
 
 
 <a id="BashConfigz"></a>
 
-## Bash Profile Configuration
+## Bash Profile Configuration #
 
 The profile file is run during <strong>boot-up</strong>
 to configure the terminal 
@@ -485,16 +559,19 @@ Exit vi by typing <tt>:q</tt>
 
 
 Some installers request that adding a $PATH using a command such as:
+
 <pre>
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
 </pre>
 
 To execute profile with the changes:
+
 <pre><strong>
 source  ~/.bash_profile
 </strong></pre>
 
 Alternately, to install GHC copy and paste into ~/.bash_profile:
+
 <pre>
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Users/wilsonmar/Applications/ghc-7.8.4.app"
@@ -510,15 +587,17 @@ https://github.com/gcuisinier/jenv/blob/master/README.md
 
 <a id="Terminalz"></a>
 
-## Terminal Usage
-
+## Terminal Usage #
 
 This page contains notes for system administrators and developers,
 who need to control Macs below the UI level, which require
 typing commands into a command-line terminal screen.
 
 To list open files (process id's and ports, actually):
-</br><tt>sudo lsof -i -P</tt>
+
+<tt><strong>
+sudo lsof -i -P
+</strong></tt>
 
 To avoid text wrapping, pull the right edge to expand the screen width.
 
@@ -526,17 +605,21 @@ The right-most column heading &quot;Name&quot; shows the port
 (either TCP or UDP).
 
 To filter a particular port number:
-</br><tt>sudo lsof -i -P | grep 8080</tt>
+
+<tt><strong>
+sudo lsof -i -P | grep 8080
+</strong></tt>
 
 The second column, PID, lists the process identifier.
 Copy a number for use in the kill command:
-</br><tt><strong>sudo kill 289</strong></tt>
+
+<tt><strong>sudo kill 289</strong></tt>
 
 
 
 <a id="OSKernelz"></a>
 
-## Operating System Kernel
+## Operating System Kernel #
 
 I can use Linux commands in my version of the operating system:
 
@@ -574,7 +657,7 @@ Distriwatch.com describes releases.
 
 <a id="Setup_Mac"></a>
 
-## Setup Your Mac Like a Pro
+## Setup Your Mac Like a Pro #
 
 Paul Irish is one of top pros among developers, and now a Google Evangelist.
 He put his Mac configuration settings on
@@ -595,7 +678,7 @@ and most configuration files are hidden.
 
 <a id="Edit_Terminal_setting"></a>
 
-## Edit terminal prompt setting
+## Edit terminal prompt setting #
 
 <div class="sidenote">
 Paul Irish offers his setup-a-new-machine.sh at
@@ -1095,11 +1178,7 @@ which holds the wordpress folder expanded from download.
 
 
 <a id="Curlz"></a>
-
-## IPv6 compatibility with Curl command line apps
-
-The curl command enables websites to be invoked from a command line.
-Example:
+## IPv6 compatibility with Curl command line apps #
 
 <tt>
 curl http://localhost:3000
@@ -1139,48 +1218,6 @@ console.log('Web server listening at: %s', app.get('url'));
 </pre>
 
 
-## Invisible
-
-When I tried to install Axure, I got this message:
-
-
-
-To make files visible changes the error to a dialog that asks "sure you would like to change the file?". 
-
-Before doing that, note this closes Finder, so first close all other folders. 
-
-Enter this in Terminal:
-
-<tt>
-defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
-</tt>
-
-To make invisible files invisible again:
-
-<tt>
-defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
-</tt>
-
-A description of each keyword:
-
-defaults - OSX's command to change defaults, apple's low-level preference system.
-
-write - tells defaults you want to change a preference, or write it
-
-com.apple.finder - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
-
-AppleShowAllFiles - specifies which preference you want to change within the application.
-
-TRUE or FALSE - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
-
-&&
-
-This is a terminal operator to run whatever's after this if the previous command is successful
-
-killall - kills processes or closes applications
-
-Finder - which process or application to close.
-
 
 
 ## VMWare Fusion #
@@ -1194,8 +1231,6 @@ To create a Windows 10 instance within VMWare Fusion:
 0. Within VMWare Fusion, select File | New.
 0. Drag the ISO file and drop on the dialog.
 0. Supply the license key.
-
-   WARNING: The license key from MSDN was not recognized.
 
 <a name="ElCapitanSIP"></a>
 

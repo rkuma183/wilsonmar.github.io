@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "Jenkins Setup"
-excerpt: "Your robot butler daaaarling"
+excerpt: "Meet your robot butler"
 tags: [Jenkins, setup]
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14624073/7b96364a-0594-11e6-9643-06decef9dbfd.jpg
+# pic silver robot white skin handshake 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
   credit: 
   creditlink: 
 comments: true
@@ -18,14 +19,10 @@ Jenkins is open-source Java software (running under a Tomcat web server)
 to invoke jobs 
 for building software and conducting tests, etc.
 
-Jenkins can be invoked on a schedule or "continuously" or triggered
+Jenkins can be invoked on a schedule or "continuously" invoked when a trigger is fired
 as part of a chain of tasks that kicks off each step in sequence based on ending status.
 Thus, Jenkins is a key component of <strong>continuous integration</strong> 
 to invoke a chain of tasks needed to ensure that components already unit-tested can be integrated together.
-
-PROTIP: Experienced people warn to NOT check in code that may break things (fails even local unit testing).
-This is achieved by having each developer having full capabilities on their workstations or in a private cloud stack.
-This may mean using mock interfaces.
 
 
 <a id="Alternatives"></a>
@@ -42,16 +39,13 @@ This may mean using mock interfaces.
    * TFS from Microsoft
    * Team City
    * CodeShip
+   * Wercker (pronounced like worker)
 
-Jenkins began in 2010 as a fork of Hudson into Github from java.net 
+Jenkins began in 2010 as a fork of Oracle Hudson into Github from java.net 
 after its acquisition by Oracle's purchase of Sun.
+<a target="_blank" href="http://jenkins-ci.org/content/whos-driving-thing">*</a>
+<a target="_blank" href="https://isotope11.com/blog/continuous-deployment-at-isotope11-an-update">*</a>
 
-   * http://jenkins-ci.org/content/whos-driving-thing
-
-See: 
-
-  * https://isotope11.com/blog/continuous-deployment-at-isotope11-an-update
-    Continuous deployment at Isotope11.
 
 <a id="Prerequisites"></a>
 
@@ -82,7 +76,7 @@ Cloudbees.com</a> which hosts Jenkins in their cloud. Their CEO is Kohsuke Kawag
 who invented Hudson/Jenkins. Hear him speak at <a target="_blank" href="https://www.youtube.com/watch?v=0nG4xGYvAa0"> this Oct, 2014 meetup about Workflow</a>.
 
 Cloudbees sells Nectar, a supported and enhanced on-premise version of Jenkins that automatically scales on VMWare virtual machines.
-
+Cloudbees has a professional certification exam on this product.
 
 
 <a name="AmazonInstall"></a>
@@ -91,12 +85,14 @@ Cloudbees sells Nectar, a supported and enhanced on-premise version of Jenkins t
 
 Alternately, many host Jenkins on the Amazon cloud:
 
- * https://www.youtube.com/watch?v=1JSOGJQAhtE Jenkins on Amazon
+ * <a target="_blank" href="https://www.youtube.com/watch?v=1JSOGJQAhtE">
+   Jenkins on Amazon</a>
    by Jeff Shantz:
   
+
 <a name="Install_Linux"></a>
 
-### Installation on Linux #
+### Linux Installation #
 
 Alternately, to install on RedHat and Centos Linux machines, follow instructions at:
 
@@ -105,7 +101,7 @@ Alternately, to install on RedHat and Centos Linux machines, follow instructions
 
 <a id="Install_Mac"></a>
 
-### Installation on Macs #
+### Mac OSX Installation #
 
 Alternately, install on Mac OSX using Homebrew:
 
@@ -146,7 +142,7 @@ jenkins
 
 <a id="Install_Windows"></a>
 
-### Installation on Windows #
+### Windows Installation #
 
 0. Open a Command Window.
 0. Install the Chocolatey package manager (if you haven't already) by copying and pasting the PowerShell command from
@@ -237,6 +233,8 @@ The command to start Jenkins has several parameters.
    netstat | grep java
    ```
 
+   NOTE: This command takes a minute or more.
+
 ## Stop server #
 
 PROTIP: Do not stop the Jenkins instance by clicking the red X to close the command window Jenkins runs under.
@@ -258,7 +256,7 @@ PROTIP: Do not stop the Jenkins instance by clicking the red X to close the comm
 ## First-time setup #
 
 
-### Harden #
+### Use HTTPS #
 
 PROTIP: Encrypt over the wire by using https instead of https.
     
@@ -272,7 +270,7 @@ PROTIP: Encrypt over the wire by using https instead of https.
 
     –httpListenAddress=0.0.0.0 allows remote access, while 127.0.0.1 does not.
 
-    The response:
+    A sample response:
     
    {% highlight text %}
    Running from: /usr/local/Cellar/jenkins/2.5/libexec/jenkins.war
@@ -290,13 +288,7 @@ PROTIP: Encrypt over the wire by using https instead of https.
    INFO: Winstone Servlet Engine v2.0 running: controlPort=disabled
    {% endhighlight %}
 
-0. View Jenkins in your default browser by clicking: 
-
-   <a target="_blank" href="http://localhost:8081/">
-   https://localhost:8081/</a>
-
-   <amp-img width="643" alt="jenkins virgin menu" src="https://cloud.githubusercontent.com/assets/300046/12587756/7da7b5d8-c40a-11e5-88fa-a2b668c3dba6.png"></amp-img>
-
+   NOTE: Some use a domain name to reach the IP address.
 
 <a id="Config_Security"></a>
 
@@ -321,22 +313,9 @@ The first time, you see this screen:
 
 PROTIP: Configure one plug-in at a time. This makes it easier to troubleshoot.
 
-0. If you click "Install the Recommended", you'll see:
+0. DO NOT click "Install the Recommended". But if you do, you'll see:
 
    <amp-img width="650" height="206" alt="jenkins-recommended-plugins-650x206" src="https://cloud.githubusercontent.com/assets/300046/15395245/2e9ac3a2-1d94-11e6-8c12-e9dbcc261d1f.jpg"></amp-img>
-
-### View Plug-ins #
-
-0. Switch to Terminal to open a new command line window.
-0. Navigate to the Jenkins folder:
-
-   <pre><strong>
-   cd ~/.jenkins
-   cd plugins
-   ls -al
-   </strong></pre>
-
-   NOTE: Each plug-in has a <strong>.jpi</strong> binary file for each folder which contains a META-INF and WEB-INF folder.
 
 ### Create First Admin User #
 
@@ -345,6 +324,47 @@ Back to the Jenkins UI:
 0. Input your Username, Password, Confirm, Full Name, E-mail address.
 
    PROTIP: Write this information down and put the paper in a safe place.
+
+0. Press OK to see the login screen:
+
+   <amp-img width="296" height="145" alt="jenkins2.5-login" src="https://cloud.githubusercontent.com/assets/300046/15448936/c665558c-1f2c-11e6-9fe4-21e7a125e3da.jpg"></amp-img>
+
+0. Type in the credentials entered earlier.
+
+## Dashboard Explained #
+
+
+   <amp-img width="471" height="336" alt="jenkins2 5-dashboard-annotated" src="https://cloud.githubusercontent.com/assets/300046/15448917/36b153be-1f2c-11e6-8ae6-512e16f05f16.jpg"></amp-img>
+
+
+1\. The whole page is called a **Dashboard**.
+2\. **Breadcrumbs** show the hierarchy of page navigation.
+3\. Menu items are within a **Sidebar**.
+4\. Under the **Build Queue** heading.
+5\. Under the **Build Executor Status** heading.
+6\. To the right of the **All** view ???
+7\. Under the **Name** column are jobs and projects.
+8\. Build.
+9\. Different colors of icons under the **S** column indicate differing **build status**.
+10\. Different colors of icons under the **W** column indicate differing **uild trend**, 
+   where yellow sunshine is good and a thundercloud is bad.
+
+## Server Status #
+
+Use the process status command to find the process ID to kill:
+
+   <tt><strong> ps -eaf | grep jenkins </strong></tt>
+
+   A sample response:
+
+<pre>
+  501  4137     1   0 Thu06AM ??         2:54.41 /usr/bin/java -Dmail.smtp.starttls.enable=true -jar /usr/local/opt/jenkins/libexec/jenkins.war --httpListenAddress=127.0.0.1 --httpPort=8080
+  501 14728 14384   0  6:31PM ttys002    0:00.00 grep jenkins
+</pre>
+
+To remove the Jenkins process:
+
+    kill 4137
 
 
 ## Configure User Security #
@@ -385,13 +405,20 @@ Jenkins installation options are described at:
 
 ### Add User Permissions #
 
-<img align="right" width="181" height="201" alt="jenkins full menu 362x402" src="https://cloud.githubusercontent.com/assets/300046/12525765/b4483cbc-c11b-11e5-8053-57556314ff0e.png">
+0. Bring up Jenkins in your default browser:
+
+   <a target="_blank" href="http://localhost:8081/">
+   https://localhost:8081/</a>
 
 If you don't see the full menu (shown on the right), you don't have some permissions.
 
 As with other systems, granting permissions is typically done only by the Administrator of the system.
 
-0. In **Manage Jenkins** UI enter **Configre Global Security**.
+0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
+0. Click **Configre Global Security**.
+
+   <amp-img width="481" height="57" alt="jenkins2 5-manage-config-global-security-962x114" src="https://cloud.githubusercontent.com/assets/300046/15433535/f9da19d8-1e6f-11e6-8e30-e66dc2cbc9c4.png"></amp-img>
+
 0. Check Enable Security.
 0. If you have an LDAP, select that, or check Use Jenkin's own user database. But you'll have to add each user.
 0. Check **Project-based Matrix Authorization Strategy** to limit Anonymous users Read-only access.
@@ -408,11 +435,60 @@ As with other systems, granting permissions is typically done only by the Admini
 
 0. Or create a user.
 
+<a id="Plugins"></a>
+
+## Plugins #
+
+### Plugins Installed #
+
+0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
+1. Clikc **Manage Plugins**.
+2. Click **Installed** tab to view what has been installed already.
+
+   * Email Extension Plugin
+   * Git Plugin
+   * Graddle Plugin
+   * SSH Slaves
+   * Translation Assistance
+   * Workspace Cleanup Plugin
+   
+   &nbsp;
+
+   For Microsoft developers:
+
+   * MSBuild
+   * MSTest
+   * MSTest Runner
+   * VSTest Runner
+
+   &nbsp;
+
+0. Click **Available** tab has many plug-ins.
+
+0. Click on a category (Artifact Uploaders) to expand additional categories.
+
+0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
+Wiki on Plugins</a>.
+
+ PROTIP: The wide variety of plugins is why Jenkins is popular.
+
+### Plug-in files #
+
+0. Switch to Terminal to open a new command line window.
+0. Navigate to the Jenkins folder:
+
+   <pre><strong>
+   cd ~/.jenkins
+   cd plugins
+   ls -al
+   </strong></pre>
+
+   NOTE: Each plug-in has a <strong>.jpi</strong> binary file for each folder which contains a META-INF and WEB-INF folder.
+
+
 <a id="MorePlugins"></a>
 
-## More Plug-ins #
-
-### Safe Restart #
+### Safe Restart Plugin #
 
 Some install the 
 <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SafeRestart+Plugin"> 
@@ -420,14 +496,16 @@ SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to
 <a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
 Jenkins left menu</a> to avoid needing to be at the server console at all.
 
-### Green icon #
+### Green icon plugin #
 
 Don't like the color blue?
+
+https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls
 
 
 <a id="JMeterPlugin"></a>
 
-### Performance Plug-in for JMeter #
+### JMeter Performance Plug-in for JMeter #
 
 WARNING: This is no longer maintained, with a large <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-28426?jql=project%20%3D%20JENKINS%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20component%20%3D%20'performance-plugin">bug list</a>.
 
@@ -507,6 +585,41 @@ switching report format to xml in jmeter properties file:
    * http://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
    * http://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins
 
+### Other plug-ins #
+
+<a target="_blank" href="https://www.cloudbees.com/jenkins/jenkins-certification">
+Cloubees' Study Guide PDF</a>
+lists these plug-ins that all Certified Jenkins Engineers should know:
+
+* Script Security Plugin
+* Parameterized Trigger Plugin
+* Credentials Plugin
+* Fingerprint Plugin
+
+* Amazon EC2 Plugin
+* Docker Plugin
+* CloudBees Folders Plugin
+* Disk Usage Plugin
+
+* Pipeline Plugin (formerly known as Workflow) 
+* Build Pipeline Plugin
+* Delivery Pipeline Plugin
+* CloudBees Docker Build and Publish Plugin
+* Promoted Builds Plugin
+
+* Git Plugin
+* Copy Artifact Plugin
+* JUnit Plugin
+* Matrix Project Plugin
+* NodeLabel Parameter Plugin
+* Radiator View Plugin
+
+* Email-ext Plugin
+* Jabber Plugin
+* Mailer Plugin
+* IRC Plugin
+* SMS Notification Plugin
+* Skype Plugin
 
 <a id="Nodes"></a>
 
@@ -564,51 +677,8 @@ Builds/jobs can be automatically triggered several ways:
  * poll a version control system for changes
 
 
-<a id="Plugins"></a>
+## Resources #
 
-## Plugins #
-
-0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
-1. Clikc **Manage Plugins**.
-2. Click **Installed** tab to view what has been installed already.
-
-   * Email Extension Plugin
-   * Git Plugin
-   * Graddle Plugin
-   * SSH Slaves
-   * Translation Assistance
-   * Workspace Cleanup Plugin
-   
-   &nbsp;
-
-   For Microsoft developers:
-
-   * MSBuild
-   * MSTest
-   * MSTest Runner
-   * VSTest Runner
-
-   &nbsp;
-
-0. Click **Available** tab has many plug-ins.
-
-0. Click on a category (Artifact Uploaders) to expand additional categories.
-
-0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
-Wiki on Plugins</a>.
-
- PROTIP: The wide variety of plugins is why Jenkins is popular.
-
-The plugin: <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Remote+Trigger+Plugin">
-https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Remote+Trigger+Plugin</a>
-**triggers** parameterized builds on other jenkins servers. 
-This would centralize a single store of credentials.
-
- Plugins inject **Add build step** choices.
-
-<a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Extension+points">
-Extension points</a> are plugins that extend other plugins.
-
-The flow for programming code may includ **static code analysis** 
- such as using StyleCop (there is also SonarQube).
-This provides options on what violations to report. 
+* <a target="_blank" href="https://www.youtube.com/watch?v=Lxd6JMMxuwo">
+  Getting Started With Jenkins | Jenkins and DevOps tutorial </a>
+  
