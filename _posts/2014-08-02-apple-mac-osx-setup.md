@@ -499,6 +499,24 @@ to show and hide Mac OS X’s hidden files, consider
 this article</a> to create such terminal aliases.
 
 
+### Brew install tree #
+
+OSX does not come with the tree command that many other Linux distributions provide.
+So add it using brew:
+
+   <tt><strong>brew install tree</strong></tt>
+
+Active Terminal sessions need to be closed so new Terminal | Shell | New Window | Shell has this activated.
+
+See list of parameters:
+
+   <tt><strong>tree \-\-help</strong></tt>
+
+List only 2 levels deep with human-readable file size kilobytes and sort by last modified date:
+
+   <tt><strong>tree -L 2 -s -h -p -D -t</strong></tt>
+
+
 <a id="BashConfigz"></a>
 
 ## Bash Profile Configuration #
