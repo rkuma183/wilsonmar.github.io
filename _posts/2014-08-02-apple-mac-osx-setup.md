@@ -119,6 +119,24 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 </ol>
 
 
+<a id="AutoInstall"></a>
+
+## Automated Installation #
+
+Automation of installation is provided at:
+
+* https://bitbucket.org/mariusv/osx-ansible
+* http://t-wada.hatenablog.jp/entry/mac-provisioning-by-ansible
+* <a target="_blank" href="https://bitbucket.org/samfisher/mac-ansible-provisioning/src/">
+  https://bitbucket.org/samfisher/mac-ansible-provisioning/src/</a>
+   
+The <strong>run.sh</strong> defines an environment variable:
+
+   HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv localmac.yml
+
+The localmac.yml playbook contains a list of homebrew and Japanese names.
+
+
 <a id="Microphonez"></a>
 
 ## Microphone #

@@ -21,4 +21,7 @@ For years (since like 1995) I've thrown a Google search form on my website.
 
 But I want to join the cool kids and use ElasticSearch after being inspired by
 
+## Thanks, Allison!
+
+http://allizad.com/2016/05/06/elasticserch-for-jekyll/index.html
 
