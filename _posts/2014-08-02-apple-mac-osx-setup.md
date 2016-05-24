@@ -95,6 +95,96 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 Yosemite 10.10.1 update</a>
 
 
+<a id="AutoInstall"></a>
+
+## Ansible Automated Installation #
+
+The easiest way to configure a Mac is to run an Ansible playbook based on
+<a target="_blank" href="https://github.com/geerlingguy/mac-dev-playbook">
+  mac-dev-playbook</a> by Mr. Geeling, The Master of Ansible.
+  His repository contains:
+
+{% highlight text %}
+|-- LICENSE
+|-- README.md
+|-- files
+|   |-- etc
+|   |   `-- sudoers
+|   |-- sublime
+|   |   `-- Library
+|   |       `-- Packages
+|   |           `-- User
+|   |               |-- DashDoc.sublime-settings
+|   |               |-- Package\ Control.sublime-settings
+|   |               `-- Preferences.sublime-settings
+|   `-- terminal
+|       `-- JJG-Term.terminal
+|-- inventory
+|-- main.yml
+|-- requirements.txt
+|-- tasks
+|   |-- ansible-setup.yml
+|   `-- preferences.yml
+`-- vars
+    `-- main.yml{% endhighlight %} 
+
+Use a text editor to edit the <strong>main.yml</strong> file at the root.
+Change <strong>user:</strong> value from "jgeeling" to your Mac account name.
+
+{% highlight text %}
+---
+- hosts: localhost
+  user: jgeerling
+  connection: local
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - geerlingguy.homebrew
+    - geerlingguy.dotfiles
+
+  tasks:
+    - include: tasks/ansible-setup.yml
+    - include: tasks/preferences.yml
+
+    # TODO: Use sudo once .osx can be run via root with no user interaction.
+    - name: Run .osx dotfiles.
+      shell: ~/.osx --no-restart
+      changed_when: false{% endhighlight %} 
+
+
+Under the vars folder main.yml file is a list of several Homebrew packages.
+
+0. Research what each homebrew package can do.
+
+   * vimrc replaces the built-in vim program 
+
+0. Comment out packages you are not using by adding a # (pound sign) to the first character of its line.
+
+   The beauty of Ansible is that you can add one, and re-run the whole package to add it.
+
+0. Save the file.
+0. When you're ready:
+
+   <tt><strong>ansible-galaxy install -r requirements.txt</strong></tt>
+
+   File <strong>requirements.txt</strong> specifies automatic downloading of 
+   geerlingguy.dotfiles and geerlingguy.homebrew.
+
+   File inventory specifies 127.0.0.1 (localhost).
+
+0. Under the <strong>files/terminal</strong> folder,
+   open the JJG-Term.terminal file with an editor.
+   The file is used to configure Terminal colors.
+
+   Consider other Ansible playbooks for Mac:
+
+   * https://bitbucket.org/mariusv/osx-ansible
+   * http://t-wada.hatenablog.jp/entry/mac-provisioning-by-ansible
+   * <a target="_blank" href="https://bitbucket.org/samfisher/mac-ansible-provisioning/src/">
+     https://bitbucket.org/samfisher/mac-ansible-provisioning/src/</a>
+   
 
 <a id="Configz"></a>
 
@@ -117,24 +207,6 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 <li> Click one of the 5 resolutions between <strong>Larger Text</strong> and 
 <strong>More Space</strong>.</li>
 </ol>
-
-
-<a id="AutoInstall"></a>
-
-## Automated Installation #
-
-Automation of installation is provided at:
-
-* https://bitbucket.org/mariusv/osx-ansible
-* http://t-wada.hatenablog.jp/entry/mac-provisioning-by-ansible
-* <a target="_blank" href="https://bitbucket.org/samfisher/mac-ansible-provisioning/src/">
-  https://bitbucket.org/samfisher/mac-ansible-provisioning/src/</a>
-   
-The <strong>run.sh</strong> defines an environment variable:
-
-   HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-playbook -i hosts -vv localmac.yml
-
-The localmac.yml playbook contains a list of homebrew and Japanese names.
 
 
 <a id="Microphonez"></a>
@@ -1252,8 +1324,6 @@ console.log('Web server listening at: %s', app.get('url'));
 });
 };
 </pre>
-
-
 
 
 ## VMWare Fusion #
