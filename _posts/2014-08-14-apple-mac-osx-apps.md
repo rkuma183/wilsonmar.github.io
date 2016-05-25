@@ -35,28 +35,35 @@ takes 36.5 MB of disk space.
 
 ## Options for Installing Addtitional Software Apps/Programs
 
-There are several ways to get software on a Mac,
-listed in order of preference:
+There are several ways to get software on a Mac, listed in order of preference:
 
-* <a href="#AppleStore">Install apps from the Apple Store</a>
-  is the safest and simplest way. But many software publishers don't want to give Apple a slice of the money.
+* <a href="#AppleStore">Apple Store apps</a>
+  are the safest and simplest place to obtain apps. 
+  But many software publishers don't want to give Apple a slice of the money.
 
-* Execute <a href="#Bower">Bower</a> from a 
-   <a href="#Terminalz">Terminal</a>.
+  Plus, Apple Store apps currently are installed by hand, not with automation scripts.
 
-* <a href="#FileTransferz">
-Download and run a pkg or dmg file</a>.
+* Execute [Homebrew](/apple-mac-osx-homebrew/) (or <a href="#Bower">Bower</a>) from an [Ansible](/ansible/) declarative playbook.
 
+* This is the automated equivalent to manually typing a
+   <a href="#Terminalz">Terminal command</a> to use [Homebrew](/homebrew/) 
+
+* That automates manually
+   <a name="#FileTransferz">downloading</a> a zip file that contains a .dmg or .pkg file,
+   then dragging it into the system <strong>Applications</strong> folder.
+
+* Lastly, one can always go to each publisher's webpage, <a href="#FileTransferz">
+   download it</a> and run a pkg or dmg file.
 
 A particular program may provide several options.
 
-
+<hr />
 
 <a id="AppleStore"></a>
 
 ### Install Apps from the Apple Store
 
-The most popular apps from the Apple Store:
+Apps I've used from the Apple Store:
 
 * <strong>Microsoft Office</strong>
   is supposed to read and write
@@ -75,7 +82,24 @@ The most popular apps from the Apple Store:
  $99 from Amazon</a>)
  (Don't confuse this with Camtasia Studio for Windows)
  
+* <a target="_blank" href="https://itunes.apple.com/us/app/lynda.com/id985958984?l=de&ls=1&mt=12">
+   Lynda Desktop app</a> - reader for tutorial subscriptions at lynda.com.
 
+* <a target="_blank" href="https://itunes.apple.com/us/app/slack/id803453959?mt=12&ign-mpt=uo%3D2">
+   Slack</a> instant messaging
+
+* GoToMeeting for video conferencing.
+
+* ZoomUS for video conferencing.
+
+* Git-it to learn Git and GitHub.
+
+Apps offered by Apple itself:
+ 
+* XCode
+* iMove
+* Keynote
+* iPhoto
 
 <a id="FileTransferz"></a>
 

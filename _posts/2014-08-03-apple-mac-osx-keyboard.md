@@ -449,7 +449,7 @@ The mouse on OSX recognizes multiple touch points (fingers) at once.
 BetterTouchTool</a> (BTT) $6.50 app remaps what Apple input devices (keyboard, Magic Mouse, Touchpad, Trackpad) 
 recognize, and also adds more gestures.
 
-> Use [my installer for Mac](/apple-mac-osx-setup/) to setup this program with repeatable [Ansible](/ansible/) declarations.
+> Use [my installer for Mac](/apple-mac-osx-setup/) to setup this program along with all others by running repeatable [Ansible](/ansible/) declarations.
 
 There are several dimensions:
 
