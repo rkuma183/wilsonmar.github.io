@@ -25,11 +25,11 @@ comments: true
 <tr><th> Purpose </th><th> Name </th><th> Mouse 
 </th><th><a href="#HotCornerz">Hot corner</a>
 </th><th> Key </th><th> Hide </th></tr>
-<tr valign="top"><td> Active apps dashboard
+<tr valign="top"><td> Active apps thumbnails
 </td><td> Mission Control<br />(formerly Expose)
 </td><td> 3 finger swipe up
 </td><td> -
-</td><td> -
+</td><td> fn + F3
 </td><td> Esc
 </td></tr>
 <tr valign="top"><td> Active apps dashboard
@@ -81,7 +81,7 @@ comments: true
 </td><td> Start screen saver
 </td><td> -
 </td><td> Lower right
-</td><td> -
+</td><td> control + Shift + Power button
 </td></tr>
 <tr valign="top"><td> omni-search
 </td><td> <strong>Spotlight</strong>
@@ -165,6 +165,10 @@ comments: true
 </td><td> Click red ball.
 </td><td> &#8984; + shift + W
 </td></tr>
+<tr valign="top"><td> Close all windows </td><td> -
+</td><td> -
+</td><td> &#8984; + option + W
+</td></tr>
 <tr valign="top"><td> Preferences</td><td><em>app name</em> | Preferences
 </td><td> -
 </td><td> &#8984; + ,
@@ -178,45 +182,51 @@ comments: true
 
 <a id="ChromeTabz"></a>
 
-### Tabs in Browser #
+## Tabs in Browsers #
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
-<tr valign="top"><td> New blank Tab
-</td><td> -
-</td><td> &#8984; + N
+<tr><th> Purpose </th><th> Firefox </th><th> Chrome </th></tr>
+<tr valign="top"><td> New blank tab
+</td><td colspan="2"> &#8984; + shift + H
 </td></tr>
-<tr valign="top"><td> Settings tab
-</td><td> -
-</td><td> &#8984; + , (comma)
+<tr valign="top"><td> Home tab
+</td><td colspan="2"> &#8984; + T
 </td></tr>
+<tr valign="top"><td> Open Settings / Preferences tab
+</td><td colspan="2"> &#8984; + , (comma)
+</td></tr>
+<tr valign="top"><td> Close current tab
+</td><td colspan="2"> &#8984; + W
+</td></tr>
+<tr valign="top"><td> Re-open tab
+</td><td colspan="2"> &#8984; + shift + T
+</td></tr>
+<tr valign="top"><td> Cycle through tabs
+</td><td colspan="2"> control + Tab
+</td></tr>
+
 <tr valign="top"><td> Bookmarks manager tab
 </td><td> -
 </td><td> option + &#8984; + B
 </td></tr>
 <tr valign="top"><td> History tab
 </td><td> -
-</td><td> option + &#8984; + B
+</td><td> option + &#8984; + H
 </td></tr>
 <tr valign="top"><td> Downloads tab
 </td><td> -
 </td><td> shift + &#8984; + J
 </td></tr>
-<tr valign="top"><td> Cycle through tabs
-</td><td> -
-</td><td> &#8984; + `
-</td></tr>
-<tr valign="top"><td> Re-open tab
-</td><td> -
-</td><td> &#8984; + shift + T
-</td></tr>
-<tr valign="top"><td> Close current tab
-</td><td> -
-</td><td> &#8984; + W
+<tr valign="top"><td> Browser Console
+</td><td colspan="2"> shift + &#8984; + B
 </td></tr>
 </table>
 
 See https://support.google.com/chrome/answer/165450?hl=en
+
+* Firefox keyboard shortcuts can be re-mapped using the
+   <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/s3menu-wizard/">
+   Manu Wizard plug-in</a>.
 
 
 <a id="ChromeHistz"></a>
@@ -319,6 +329,18 @@ These come from the bash terminal:
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
+<tr valign="top"><td> Cut highlighted text
+</td><td> -
+</td><td> &#8984; + X
+</td></tr>
+<tr valign="top"><td> Copy highlighted text to clipboard
+</td><td> -
+</td><td> &#8984; + C
+</td></tr>
+<tr valign="top"><td> Paste highlighted text from clipboard
+</td><td> -
+</td><td> &#8984; + V
+</td></tr>
 <tr valign="top"><td> Copy URL of current page to the clipboard.
 </td><td> -
 </td><td> option + &#8984; + C
@@ -427,6 +449,8 @@ The mouse on OSX recognizes multiple touch points (fingers) at once.
 BetterTouchTool</a> (BTT) $6.50 app remaps what Apple input devices (keyboard, Magic Mouse, Touchpad, Trackpad) 
 recognize, and also adds more gestures.
 
+> Use [my installer for Mac](/apple-mac-osx-setup/) to setup this program with repeatable [Ansible](/ansible/) declarations.
+
 There are several dimensions:
 
 <table border="1" cellpadding="4" cellspacing="0">
@@ -480,26 +504,46 @@ So I've memorized the keyboard keys.
 
 * Option + &#8984; + L for the Downloads folder
 
-* Shift + &#8984; + D for the Desktop folder where screen captures are stored.
+* Shift + &#8984; + D for the Desktop folder where screen captures are stored (by default).
+* Shift + &#8984; + A for the Applications folder where apps are stored.
 
 This enables me to remove default items in the Favorites list (by right-clicking on it)
 so I can instead list my own folders I use most often.
 
-To go a level up or down in the Finder, press &#8984; + up arrow or down arrow.
-<!-- From http://support.apple.com/kb/ht1343 -->
+* To go a level up or down in the Finder, press &#8984; + up arrow or down arrow.
+   <!-- From http://support.apple.com/kb/ht1343 -->
 
-Open folders and files by clicking on it and
-pressing &#8984; + O (instead of Enter as you would on Windows).
+* Open parent folder and close current window: Option-Command-Up Arrow 	
+
+* To open folders and files by clicking on it and
+  pressing &#8984; + O (instead of Enter as you would on Windows).
+
+<amp-img width="534" height="47" alt="apple-finder-icons" src="https://cloud.githubusercontent.com/assets/300046/15545542/e988ea80-2259-11e6-81d1-22e3ce2f2b78.jpg"></amp-img>
+
+<img align="right" width="196" height="208" alt="apple-finder-actions-menu" src="https://cloud.githubusercontent.com/assets/300046/15545716/910869c0-225a-11e6-8c09-26a08ecd45ed.jpg">
+
+* &#8984; + 1 = Icon view
+* &#8984; + 2 = List view
+* &#8984; + 3 = Column view
+* &#8984; + 4 = Cover flow view
+
+   QUESTION: Is there a key to expand width of columns?
+
+* control + &#8984; + <em>number</em> to control Arrange sorting.
+
+* &#8984; + F to Search text.
+
+#### Hide and Unhide Folders #
 
 Under Favorites,
 click on your user name (next to the house icon).
 If the Library folder does not appear:
 
-   <tt>sudo chflags nohidden /Library/ ~/Library/</tt>
+   <tt><strong>sudo chflags nohidden /Library/ ~/Library/</strong></tt>
 
 To hide Library again:
 
-   <tt>sudo chflags hidden /Library/ ~/Library/</tt>
+   <tt><strong>sudo chflags hidden /Library/ ~/Library/</strong></tt>
 
 
 
@@ -623,7 +667,15 @@ U+21E2</td></tr>
 <tr><td valign="top">&#9167;</td><td valign="top">Eject</td><td valign="top">U+23CF</td></tr>
 </tbody></table>
 
-## More on OSX
+## Resources #
+
+* <a target="_blank" href="https://support.apple.com/en-us/HT201236">
+   Apple's Mac keyboard shortcuts</a>
+
+* <a target="_blank" href="http://pc.net/resources/shortcuts/mac_os_x#startup">
+   Mac OS X Keyboard Shortcuts</a>
+
+## More on OSX #
 
 This is one of a series on Mac OSX:
 
