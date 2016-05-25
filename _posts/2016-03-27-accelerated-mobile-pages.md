@@ -17,6 +17,8 @@ comments: true
 
 PROTIP: A recent innovation (from the geniuses at Google) enables websites to load nearly instantly even on mobile devices with slow connections.
 
+This means that visitors will be more engaged, and thus buy more, etc.
+
 ## Official sites about AMP
 
    * <a target="_blank" rel="amphtml" href="https://github.com/ampproject/amphtml">
@@ -27,6 +29,9 @@ PROTIP: A recent innovation (from the geniuses at Google) enables websites to lo
 
    * <a target="_blank" rel="amphtml" href="https://www.ampproject.org/docs/get_started/about-amp.html">
    ampproject.org/docs</a>
+
+   * <a target="_blank" rel="amphtml" href="http://j.mp/amp-speed/">
+     j.mp/amp-speed</a> has a full list of AMP optimizations
 
 The rest of this section describes its use.
 
@@ -52,6 +57,9 @@ See Google's search demo featuring the AMP carousel:
    * <a target="_blank" rel="amphtml" href="http://g.co/ampdemo">
    g.co/ampdemo</a>
 
+   * <a target="_blank" rel="amphtml" href="https://ampbyexample.com/">
+   ampbyexample.com</a>
+
    * <a target="_blank" rel="amphtml" href="https://www.youtube.com/watch?v=3dGO0Vs3ORg">
    A video showing its speed on mobile</a>
 
@@ -59,16 +67,24 @@ See Google's search demo featuring the AMP carousel:
 ## Videos about AMP
 
 Paul Bakaus, Developer Advocate has two videos:
-
    <amp-youtube data-videoid="lBTCB7yLs8Y" layout="responsive" width="480" height="270"></amp-youtube>
 
    &nbsp;
 
-   The more technical
-
+   The more technical:
    <amp-youtube data-videoid="SOx1XfOjJPI" layout="responsive" width="480" height="270"></amp-youtube>
 
-&nbsp;
+   &nbsp;
+
+Malte Ubl (@cramforce) at Google I/O 2016 (May): "How AMP achieves its speed":
+   <amp-youtube data-videoid="cfekj564rs0" layout="responsive" width="480" height="270"></amp-youtube>
+
+   &nbsp;
+
+Alex Russell at Google I/O 2016 (May): "AMP + Progressive Web Apps: Start fast, stay engaged":
+   <amp-youtube data-videoid="a5X_Ot-R6lo/" layout="responsive" width="480" height="270"></amp-youtube>
+
+   &nbsp;
 
 BTW, the above videos were served using AMP on this Jekyll-based site.
 
@@ -78,7 +94,7 @@ BTW, the above videos were served using AMP on this Jekyll-based site.
 PROTIP: You don't need to have the whole site under AMP. 
 Add the JavaScript to use AMP when you can.
 
-   <amp-twitter width=486 height=657 layout="responsive" data-tweetid="716443188538449920" data-cards="hidden">
+   <amp-twitter width=486 height=657 layout="responsive" data-tweetid="716443188538449920" data-cards="hidden"></amp-twitter>
 
 ### Add JavaScript libraries
 
@@ -155,19 +171,14 @@ Use this:
    bundle
    ```
 
-   The response on March 30, 2016:
+   The response on May 24, 2016:
 
    <pre>
-Fetching gem metadata from https://rubygems.org/............
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
-   </pre>
-   <pre>
-Gem::RemoteFetcher::UnknownHostError: no such name (https://rubygems.org/gems/hitimes-1.2.2.gem)
+Using hitimes 1.2.2
 Using colorator 0.1
 Using ffi 1.9.10
-Installing sass 3.4.15
-Installing rb-fsevent 0.9.5
+Using sass 3.4.15
+Using rb-fsevent 0.9.5
 Using kramdown 1.9.0
 Using liquid 3.0.6
 Using mercenary 0.3.5
@@ -175,18 +186,20 @@ Using rouge 1.10.1
 Using safe_yaml 1.0.4
 Using jekyll-paginate 1.1.0
 Using bundler 1.11.2
-An error occurred while installing hitimes (1.2.2), and Bundler cannot continue.
-Make sure that `gem install hitimes -v '1.2.2'` succeeds before bundling.
+Using timers 4.0.1
+Using rb-inotify 0.9.5
+Using jekyll-sass-converter 1.3.0
+Using celluloid 0.16.0
+Using listen 2.10.1
+Using jekyll-watch 1.2.1
+Using jekyll 3.1.2
+Using jekyll-compose 0.4.1
+Bundle complete! 3 Gemfile dependencies, 20 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
    </pre>
 
-0. Fix the dependency error 
-   for those using Jekyll 3.0.
-
-    ```
-    gem install hitimes -v '1.2.2'
-    ```
-
-    Then try bundle again.
+   NOTE: Previously, on March 30, 2016, there was an error
+   "Gem::RemoteFetcher::UnknownHostError: no such name (https://rubygems.org/gems/hitimes-1.2.2.gem)"
 
 4.  Build the site:
 
@@ -197,66 +210,36 @@ Make sure that `gem install hitimes -v '1.2.2'` succeeds before bundling.
     I get these errors:
 
     {% highlight text %}
-    WARN: Unresolved specs during Gem::Specification.reset:
-      jekyll-watch (~> 1.1)
-    WARN: Clearing out unresolved specs.
-    Please report a bug if this causes problems.
-    Configuration file: /Users/mac/gits/jekyll/amplify/_config.yml
-
-    Dependency Error: Yikes! It looks like you don't have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. The full error message from Ruby is: 'cannot load such file -- jekyll-paginate' If you run into trouble, you can find helpful resources at 
-    http://jekyllrb.com/help/! 
-    jekyll 3.1.2 | Error:  jekyll-paginate
+Configuration file: /Users/mac/gits/jekyll/amplify/_config.yml
+            Source: /Users/mac/gits/jekyll/amplify
+       Destination: /Users/mac/gits/jekyll/amplify/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.909 seconds.
+ Auto-regeneration: enabled for '/Users/mac/gits/jekyll/amplify'
+Configuration file: /Users/mac/gits/jekyll/amplify/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
     {% endhighlight %}
 
-5.  So I install the package even though GitHub has decided to not use it:
+   Previously, this needed:
 
     ```
     gem install jekyll-watch -v 1.1
-    ```
-
-    The response:
-
-    <pre>
-    Successfully installed jekyll-watch-1.3.1
-    Parsing documentation for jekyll-watch-1.3.1
-    Done installing documentation for jekyll-watch after 0 seconds
-    1 gem installed
-    </pre>
-
-    And:
-
-    ```
     gem install jekyll-paginate
     ```
 
-    The response:
-
-    <pre>
-    Successfully installed jekyll-paginate-1.1.0
-    Parsing documentation for jekyll-paginate-1.1.0
-    Done installing documentation for jekyll-paginate after 0 seconds
-    1 gem installed
-    </pre>
-
-0.  Try again:
+0. Bring up:
 
     ```
-    jekyll serve
+    bundle exec jekyll serve
     ```
-
-    The response:
-
-    <pre>
-    </pre>
-
-## View Generated Site
 
 6.  In a browser, view the site in validation mode:
 
     ```
     localhost://4000
     ```
-
 
 
 ### AMP Validator
@@ -288,7 +271,7 @@ provides the NewsArticle file Google uses. See:
 
 ### Convert SCSS to CSS
 
-With AMP, all CSS must be inline (no external CSS files) within a <style amp-custom> in the header. Because of this, the main css file for this site is in _includes/styles.scss (instead of the standard css/ folder) and in-lined into the header of every page via the special scssify filter in _includes/head.html.
+With AMP, all CSS must be inline (no external CSS files) within a &LT;style amp-custom> in the header. Because of this, the main css file for this site is in _includes/styles.scss (instead of the standard css/ folder) and in-lined into the header of every page via the special scssify filter in _includes/head.html.
 
 CAUTION: The AMP specification forbids the use of some CSS selectors and attributes. Because of this, it is not a good idea to include the main stylesheet by default.
 
@@ -346,7 +329,7 @@ In order to do DNS pre-connects for faster speed, AMP needs an extra attribute i
    &#123;% endif %}
    </code></pre>
 
-Add rel="canonical" to regular href links
+Add rel="canonical" to regular href links.
 
 ### Use \<amp-ad> for advertisements
 
@@ -400,6 +383,9 @@ The AMP Project provides helpers for many other types of content like audio, ads
    * <a target="_blank" rel="amphtml" href="https://github.com/ampproject/amphtml/blob/master/builtins/README.md">
    https://github.com/ampproject/amphtml/blob/master/builtins/README.md</a>
 
+### Coding JavaScript #
+
+* FastDOM library
 
 ## More videos
 

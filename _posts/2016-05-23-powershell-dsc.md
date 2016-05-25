@@ -14,9 +14,12 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-This tutorial describes the use of Windows PowerShell Desired State Configuration.
+This tutorial describes the use of Windows PowerShell Desired State Configuration (DSC).
 
-Powershell refers to both the command-line shell and scripting language designed system administration. Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line. 
+
+
+Powershell refers to both the command-line shell and scripting language designed system administration. 
+Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line. 
 
 ## Deploy as MOF #
 
@@ -43,4 +46,12 @@ A Practical Overview of Desired State Configuration
    TechEd North America 2014
 
    Windows PowerShell 4.0 introduces Desired State Configuration (DSC), and it's time to put it to use. With DSC, you declaratively ..
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=CkxVQy6ACXE">
+  Why I love PowerShell Desired State Configuration and so should u</a>
+  by Nicholas Dille
+   https://twitter.com/NicholasDille 
+   http://dille.name/blog/
+
+* ‏@CDwithWindows
 

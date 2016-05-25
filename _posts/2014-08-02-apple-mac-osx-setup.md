@@ -36,7 +36,7 @@ comments: true
 </td><td align="left"> <a href="#ElCapitanSIP">Disable System Integrity Production</a>
 </td></tr>
 <tr valign="top"><td> OS X 10.10
-</td><td align="right"><a target="_blank" href="http://www.wikiwand.com/en/OS_X_Yosemite">Yosemite</a> (Syrah)
+</td><td align="right"><a target="_blank" rel="amphtml" href="http://www.wikiwand.com/en/OS_X_Yosemite">Yosemite</a> (Syrah)
 </td><td align="right"> Fall 2014
 </td><td align="right"> 5.5.14
 </td><td align="right"> 2.7.6
@@ -87,22 +87,205 @@ comments: true
 </td><td align="left"> - </td></tr>
 </table>
 
-From <a target="_blank" href="http://en.wikipedia.org/wiki/OS_X#Versions">
+From <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
-
-<a target="_blank" href="http://support.apple.com/kb/DL1779?viewlocale=en_US&locale=en_US">
-Yosemite 10.10.1 update</a>
+* <a target="_blank" rel="amphtml" href="http://support.apple.com/kb/DL1779?viewlocale=en_US&locale=en_US">
+   Yosemite 10.10.1 update</a>
 
 
 <a id="AutoInstall"></a>
 
-## Ansible Automated Installation #
+## Automated Configuration #
 
-The easiest way to configure a Mac is to run an Ansible playbook based on
-<a target="_blank" href="https://github.com/geerlingguy/mac-dev-playbook">
-  mac-dev-playbook</a> by Mr. Geeling, The Master of Ansible.
-  His repository contains:
+This is the easiest way to quickly configure a Mac the way many developers prefer
+and add programs many developers want.
+
+If you already have an established installation with vagrant and virtualbox, 
+create a virtual machine to try this process.
+
+If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
+
+0. Copy the shell script call to the invisible clipboard
+   (click to the left of the sh and drag the mouse to the end, then hold down command and press C):
+
+   <tt><strong>
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
+   </strong></tt>
+
+0. Open a Terminal
+
+0. Make a folder and navigate into it:
+
+   <pre><strong>
+   cd ~
+   mkdir gits
+   cd gits
+   mkdir siyelo
+   cd siyelo
+   </strong></pre>
+
+   You can create another folder name if you prefer, but folder names in this tutorial will be wrong.
+
+0. In the Terminal window, paste the call from clipboard (hold down command and press V).
+0. Press the <strong>enter/return</strong> key to invoke the command which
+   causes files to be downloaded and folders created:
+
+   * Xcode 
+   * Homebrew
+   * Ansible 
+
+   &nbsp;
+
+   The command also downloads folder laptop from 
+   <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop">
+   https://github.com/siyelo/laptop</a>
+
+   NOTE: Download and installation is skipped if it's already installed.
+
+0. When <strong>SUDO password:</strong> appears, hold down the <strong>control</strong> key and press C.
+   This message should appear (in red):
+
+   "[ERROR]: User interrupted execution
+   failed"
+
+0. While still in the Terminal window from above, change to the directory just created:
+
+   <tt><strong>
+   cd laptop<br />
+   pwd
+   </strong></tt>
+
+   You should now be at:
+
+   <pre>
+   /Users/mac/gits/siyelo/laptop
+   </pre>
+
+   Instead of "mac" above, it would show your account name.
+
+<a name="SelectApps"></a>
+
+### Select Apps #
+
+Switch to use an internet browser to see my list of programs for Mac OSX at
+   <a target="_blank" rel="amphtml" href="https://docs.google.com/spreadsheets/d/15rgbl_C1qX_wyCi1hNoyHEzXpMCTm5DxAAOqTykPVsw/edit?usp=sharing">
+   this Google spreadsheet online</a>.
+
+   The <strong>_installer</strong> column identifies the technique to install to install each program named:
+
+   * **brew** (formulas) are installed using the <a target="_blank" rel="amphtml" href="http://brew.sh/">brew</a> command.
+     Programs installed this way are invoked using a text-based Terminal command-line interface.
+   
+   * **cask** packages are installed using the <strong>brew cask</strong> command, which is 
+     an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
+
+   * **tap** uses the brew tap command to install a package within another repository. 
+   <a target="_blank" rel="amphtml" href="https://github.com/Homebrew/homebrew/wiki/Interesting-Taps-&-Branches">
+   interesting brew tap</a>
+
+   * **store** indicates manual installation using the Apple iTunes program accessing the Apple Store.
+   
+   * **zip** programs are installed after a download, requiring an Ansible task to replace manual clicks and data entry.
+
+   &nbsp;
+
+   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/playbook.yml">
+   siyelo playbook.yml</a> file lists the applications to be loaded.
+
+   WARNING: Each program added uses up more disk space.
+
+   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/scripts/system_settings.sh">
+   scripts/system_settings.sh</a> file are commands to configure the Mac operating system
+   for better security and productivity. It would take hours to set them all.
+
+   WARNING: This may make obsolete documentation based on default Mac settings.
+
+   Configurations are "idempotent", which means that if you run it again, the result is the same.
+   With declarative specifications, items specified for install are not re-installed.
+
+0. List brew packages already installed:
+
+   <tt><strong>
+   brew list<br />
+   brew tap<br />
+   brew outdated
+   </strong></tt>
+
+<a name="EditApps"></a>
+
+## Edit playbook.yml #
+
+0. Use the vi text editor program to edit the file:
+
+   <tt><strong>
+   vi ~/gits/siyelo/laptop/playbook.yml
+   </strong></tt>
+
+   * To quit without editing type <strong>:q</strong>
+   * To save changes type <strong>:wq</strong> (colon, w, and q)
+   * To enter insert mode, press I.
+   * To escape insert mode, press the Esc key.
+
+   &nbsp;
+
+0. Have a # (pound sign) in front of each package based on your evaluation.
+   
+   Click on each link to open a web page about each.
+   Some links take you to a section lower in this tutorial.
+
+NOTE: The playbook.yml file contains code to run the system_settings.sh file.
+
+<a name="EditSettings"></a>
+
+## Edit System Settings #
+
+0. List the files and change directory into the scripts folder:
+
+   <tt><strong>
+   ls -al
+   cd scripts
+   </strong></tt>
+
+   The above list the files and change directory into the scripts folder.
+
+0. Use the vi text editor program to edit the file:
+
+   <tt><strong>
+   vi ~/gits/siyelo/laptop/scripts/system_settings.sh
+   </strong></tt>
+
+   * To quit without editing type <strong>:q</strong>
+   * To save changes type <strong>:wq</strong> (colon, w, and q)
+
+
+
+### Other Ansible Playbooks #
+
+Consider other Ansible playbooks for Mac:
+
+* <a target="_blank" rel="amphtml" href="https://github.com/MWGriffin/ansible-playbooks">
+   github.com/MWGriffin/ansible-playbooks</a>
+   is one of the first to use Ansible to install Macs.
+
+   The last change was made in 2013.
+   It provides playbooks for installation of php and others from zip file
+   that may now be available as Homebrew packages.
+
+   It copies from URLS such as https://copy.com/8WKZ3x1ZWOIC/VLC-2.0.6.dmg?download=1
+   into the /.ansible-downloads/ folder it creates.
+
+* <a target="_blank" rel="amphtml" href="https://bitbucket.org/samfisher/mac-ansible-provisioning/src/">
+     https://bitbucket.org/samfisher/mac-ansible-provisioning/src/</a>
+
+   &nbsp;
+
+* Mr. Jeff Geeling I call "Master of the 
+   <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
+   Ansible Galaxy</a>" because he has contributed both the most downloaed roles and the highest ratings.
+  His <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
+   mac-dev-playbook</a> 
+   contains:
 
 {% highlight text %}
 |-- LICENSE
@@ -127,6 +310,13 @@ The easiest way to configure a Mac is to run an Ansible playbook based on
 |   `-- preferences.yml
 `-- vars
     `-- main.yml{% endhighlight %} 
+
+The <strong>requirements.txt</strong> file specifies files to download from the Ansible Gaxlaxy sharing site.
+
+   * <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/dotfiles/blob/master/.osx">geerlingguy.dotfiles</a>
+      sets up preferences and configurations for all the built-in services and apps.
+
+   * <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/homebrew">geerlingguy.homebrew</a>
 
 Use a text editor to edit the <strong>main.yml</strong> file at the root.
 Change <strong>user:</strong> value from "jgeeling" to your Mac account name.
@@ -156,35 +346,34 @@ Change <strong>user:</strong> value from "jgeeling" to your Mac account name.
 
 Under the vars folder main.yml file is a list of several Homebrew packages.
 
-0. Research what each homebrew package can do.
+<a name="RunAncible"></a>
 
-   * vimrc replaces the built-in vim program 
+## Run Installation #
 
-0. Comment out packages you are not using by adding a # (pound sign) to the first character of its line.
+0. Open a Termial, go to the directory:
 
-   The beauty of Ansible is that you can add one, and re-run the whole package to add it.
+   <tt><strong>
+   cd ~/gits/siyelo/laptop/
+   </strong></tt>
 
-0. Save the file.
-0. When you're ready:
+0. Run Ansible:
 
-   <tt><strong>ansible-galaxy install -r requirements.txt</strong></tt>
+   <tt><strong>
+   ansible-playbook playbook.yml -i hosts --ask-sudo-pass -vvvv 
+   </strong></tt>
 
-   File <strong>requirements.txt</strong> specifies automatic downloading of 
-   geerlingguy.dotfiles and geerlingguy.homebrew.
+0. Press the return key to invoke the command.
 
-   File inventory specifies 127.0.0.1 (localhost).
+0. A restart is needed at the end.
 
-0. Under the <strong>files/terminal</strong> folder,
-   open the JJG-Term.terminal file with an editor.
-   The file is used to configure Terminal colors.
+<a name="RemoveApp"></a>
 
-   Consider other Ansible playbooks for Mac:
+### Remove app #
 
-   * https://bitbucket.org/mariusv/osx-ansible
-   * http://t-wada.hatenablog.jp/entry/mac-provisioning-by-ansible
-   * <a target="_blank" href="https://bitbucket.org/samfisher/mac-ansible-provisioning/src/">
-     https://bitbucket.org/samfisher/mac-ansible-provisioning/src/</a>
-   
+QUESTION: How to remove apps
+
+
+<hr />
 
 <a id="Configz"></a>
 
@@ -241,7 +430,7 @@ this method should work.
 
 Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
 create in the /Library/Scripts folder shell scripts containing 
-osacript (<a target="_blank" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>a>) commands
+osacript (<a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>a>) commands
 to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Open a terminal and type in nano. Press Enter.
@@ -307,7 +496,7 @@ to mute sound automatically before reboot, and un-mute after reboot.
    </pre>
 
 For more about Applescript commands and hooks, see
-<a target="_blank" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
+<a target="_blank" rel="amphtml" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
 this</a>.
 
 
@@ -585,7 +774,7 @@ By default, the Mac's Finder does not show hidden files.
 Most developers leave files un-hidden.
 But if you want to just type <strong>showFiles</strong> and <strong>hideFiles</strong> 
 to show and hide Mac OS X’s hidden files, consider
-<a target="_blank" href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">
+<a target="_blank" rel="amphtml" href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">
 this article</a> to create such terminal aliases.
 
 
@@ -644,7 +833,7 @@ View the file using the vi editor that comes with OSX:
 vi .bash_profile
 </strong></pre>
 
-According to the <a target="_blank" href="http://linux.die.net/man/1/bash">
+According to the <a target="_blank" rel="amphtml" href="http://linux.die.net/man/1/bash">
 bash man page</a>, 
 .bash_profile is executed during <strong>login</strong> before the command prompt,
 while .bashrc is executed for interactive non-login shells such as
@@ -769,9 +958,9 @@ Distriwatch.com describes releases.
 
 Paul Irish is one of top pros among developers, and now a Google Evangelist.
 He put his Mac configuration settings on
-<a target="_blank" href="https://github.com/paulirish/dotfiles">
+<a target="_blank" rel="amphtml" href="https://github.com/paulirish/dotfiles">
 github.com/paulirish/dotfiles</a>. But he recommends cloning 
-<a target="_blank" href="https://github.com/mathiasbynens/dotfiles/">
+<a target="_blank" rel="amphtml" href="https://github.com/mathiasbynens/dotfiles/">
 github.com/mathiasbynens/dotfiles/</a>.
 
 On the Git page notice that he has established an industry convention of using
@@ -800,7 +989,7 @@ ZShell (included with Mac and can be set as the default in Terminal)
 
 By default, if you have a long file name, it would leave little room to type in commands before it wraps to the next line.
 
-<a target="_blank" href="http://code.tutsplus.com/tutorials/how-to-customize-the-command-prompt--net-20586">
+<a target="_blank" rel="amphtml" href="http://code.tutsplus.com/tutorials/how-to-customize-the-command-prompt--net-20586">
 To redefine what appears in the prompt</a>,
 edit this file using the vi editor that comes with each Mac:
 <tt>
@@ -853,7 +1042,7 @@ PROMPT_COMMAND=print_before_the_prompt
 PS1='->'
 </pre>
 The command above uses global parameters $USER and $PWD,
-plus <a target="_blank" href="https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash">
+plus <a target="_blank" rel="amphtml" href="https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash">
 colors from this list</a>.
 
 Exit from the Terminal shell:
@@ -911,7 +1100,7 @@ Under a Unix system like Mac OS X you must have "root" (administrative) privileg
 After Mac install, the root or superuser account is not enabled. 
 While it is possible to enable the root account, 
 once enabled, if forgetten, you'll have to 
-<a target="_blank" href="http://danfrakes.com/2014/10/16/how-to-make-a-bootable-yosemite-installer-drive/">
+<a target="_blank" rel="amphtml" href="http://danfrakes.com/2014/10/16/how-to-make-a-bootable-yosemite-installer-drive/">
 reboot from the installer drive</a> (a hassle).
 
 It is safer and easier to use the sudo command to gain temporary root access to the system.
@@ -1008,10 +1197,10 @@ http://www.jesseweb.com/coding/automator/create-windows-like-shortcuts-with-para
 Mac OSX doesn't allow you to create shortcuts like Windows.
 OSX alias don't allow parameters (ex. create a Screen Sharing shortcut that connects to a specific computer). 
 
-Jessie suggests <a target="_blank" href="http://www.jesseweb.com/coding/automator/create-windows-like-shortcuts-with-parameters/"> 
+Jessie suggests <a target="_blank" rel="amphtml" href="http://www.jesseweb.com/coding/automator/create-windows-like-shortcuts-with-parameters/"> 
 this</a> to create a Windows like shortcut with parameters in the Comments field.
 
-<a target="_blank" href="http://hints.macworld.com/article.php?story=20040111200114634">
+<a target="_blank" rel="amphtml" href="http://hints.macworld.com/article.php?story=20040111200114634">
 Another alternative</a>
 is to use a text editor to create URL shortcut files
 like the ones Windows Internet Explorer stores its bookmarks. 
@@ -1371,10 +1560,14 @@ To get around it, you need to disable System Integrity Protection in OS X El Cap
 
 ## Skill Certification #
 
-<a target="_blank" Href="https://app.pluralsight.com/library/courses/mac-osx-support-installation-configuration/table-of-contents">
+<a target="_blank" rel="amphtml" href="https://app.pluralsight.com/library/courses/mac-osx-support-installation-configuration/table-of-contents">
 Video course Mac OS X Support: Installation and Configure</a>
 is the first of courses on Plurasight toward
 Apple Certified Support Professional (ACSP)
+
+## Daemons and Agents #
+
+* https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
 
 ## More on OSX
 
