@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac OSX Keyboard"
-excerpt: "Can you do it in the dark?"
+excerpt: "Can you do this in the dark?"
 tags: [apple, mac, keyboard]
 image:
 # feature: pic white keyboard british 1900x500.jpg
@@ -15,82 +15,11 @@ comments: true
 
 {% include _toc.html %}
 
-
-<!--<img align="right" src="http://merc.tv/img/logos/apple-key-symbols.gif" width="413" height="399" alt="Apple keys" />
- -->
-<a id="WinKeyz"></a>
-
-### Windows Keyboard vs. Mac Keyboards
-
-If you are used to a Microsoft Windows keyboard,
-<a target="_blank" href="https://support.microsoft.com/en-us/kb/970299?wa=wsignin1.0">
-Keyboard mappings using a PC keyboard on a Macintosh</a>
-on Microsoft's website 
-notes that
-the <strong>Delete</strong> key on an Apple keyboard (&#9003; on older keyboards)
-is actually the <strong>backspace</strong> key to all other operating systems.
-To press the equivalent of the Windows backspace that removes to the left of the cursor:
-
-<ul>
-<li> On a Macintosh notebook keyboard, press fn + Delete.</li>
-<li> On a full-sized Macintosh keyboard, press &#8998; (called "Forward Delete") below the Help key.</li>
-</ul>
-
-The ALT key on Windows is OPTION on Mac keyboards.
-
-<a target="_blank" href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1001675">
-To send key commands from a Mac into a Windows instance inside VMWare Fusion</a>.
-
-<table border="1" cellpadding="4" cellspacing="0">
-<tr align="left"><th> Windows </th><th> Mac  </th></tr>
-<tbody>
-<tr><td> Windows Start orb </td><td> Command </td></tr>
-<tr><td> Backspace </td><td> Delete (see above)</td></tr>
-<tr><td> Function key </td><td> fn + F1 ... F12 </td></tr>
-<tr><td> Num lock </td><td> Virtual Machine > Send Key </td></tr>
-<tr><td> Insert toggle </td><td> <em>see below</em> </td></tr>
-</tbody>
-</table>
-
-Sending <strong>Insert</strong> from a Mac to a virtual Windows machine is problematic.
-
-<ul>
-<li> On older Macintosh keyboards, press the Help key.</li>
-<li> On older Macintosh notebook keyboards, press <strong>Fn+M</strong>.</li>
-<li> Newer Macintosh notebooks do not support Fn+M. 
-So I suggest mapping <strong>Alt+F1</strong> within 
-VMware Fusion > Preferences > Keyboard &amp; Mouse > Key Mappings.</li>
-</ul>
-
-To send the equivalent of Ctrl + select on Windows,
-<br /> hold Ctrl + option while clicking on multiple items.
-
-
+<amp-img width="413" height="399" alt="Apple keys symbols" src="https://cloud.githubusercontent.com/assets/300046/15536540/fe6cb344-222e-11e6-9f2b-c37419a9d42f.gif"></amp-img>
 
 <a id="OSComponentz"></a>
 
-### Mouse and Keyboard on major OS X components
-
-Programs can be invoked several different ways:
-
-<ul>
-<li>Click the magnifying glass and type the program name </li>
-<li>Click on the apple menu </li>
-<li> the Dock </li>
-<li> or from the Applications folder on your hard drive. </li>
-</ul>
-
-
-The mouse on OSX recognizes multiple touch points (fingers) at once.
-
-<ul>
-<li>One finger to move the mouse cursor.</li>
-<li>Two fingers to scroll up or down.</li>
-<li>Three fingers to move among applications active.</li>
-</ul>
-
-Holding down the <strong>control</strong> key during mouse clicks is the Mac's 
-<strong>right-click</strong>.	
+## Apple components from any active app #
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Purpose </th><th> Name </th><th> Mouse 
@@ -100,7 +29,7 @@ Holding down the <strong>control</strong> key during mouse clicks is the Mac's
 </td><td> Mission Control<br />(formerly Expose)
 </td><td> 3 finger swipe up
 </td><td> -
-</td><td> F3
+</td><td> -
 </td><td> Esc
 </td></tr>
 <tr valign="top"><td> Active apps dashboard
@@ -110,43 +39,40 @@ Holding down the <strong>control</strong> key during mouse clicks is the Mac's
 </td><td> control + F3
 </td><td> Esc
 </td></tr>
-<tr valign="top"><td> Drives and Devices
+<tr valign="top"><td> -
 </td><td> Desktop
 </td><td> Thumb and 3 finger spread [1]
 </td><td> -
-</td><td> fn + F11
+</td><td> F11 
+</td><td><em>toggle</em>
 </td></tr>
-<tr valign="top"><td> Calculator, Calendar, Clock,<br />and other Accessories
+<tr valign="top"><td> Calculator, other Accessories
 </td><td> Dashboard
 </td><td> 3 finger swipe right
 </td><td> Lower left
-</td><td> fn + F12
-</td></tr>
-<tr valign="top"><td> -
-</td><td> Notification Center
-</td><td> -
-</td><td> -
-</td><td> -
+</td><td> ?
 </td></tr>
 <tr valign="top"><td> Apps icons customized
-</td><td> Dock bar
+</td><td> Dock bar (bottom of screen)
 </td><td> Mouse beyond bottom of screen
 </td><td> -
-</td><td> fn + control + F3
+</td><td> -
 </td><td> Esc
 </td></tr>
 <tr valign="top"><td> Active app selection
 </td><td> Active apps
-</td><td colspan="3"> &#8984; + Tab. Repeat.
+</td><td> -
+</td><td> -
+</td><td> &#8984; + Tab<br /><em>Repeat</em>
 </td></tr>
 <tr valign="top"><td> Installed apps 
 </td><td> Launchpad
 </td><td> Thumb and 3 finger pinch
 </td><td> Upper right
-</td><td> Thumb and 3 finger spread or F4
+</td><td> fn + F4
 </td></tr>
 <tr valign="top"><td> Files and folders
-</td><td><a href="#Finderz">Finder</a>>
+</td><td><a href="#Finderz">Finder</a>
 </td><td> -
 </td><td> -
 </td><td> &#8984; + option + T
@@ -157,145 +83,108 @@ Holding down the <strong>control</strong> key during mouse clicks is the Mac's
 </td><td> Lower right
 </td><td> -
 </td></tr>
+<tr valign="top"><td> omni-search
+</td><td> <strong>Spotlight</strong>
+</td><td> -
+</td><td> -
+</td><td> command + spacebar
+</td><td> Esc
+</td></tr>
+
+<tr valign="top"><td> mute 
+</td><td rowspan="3"> Speaker volume
+</td><td> -
+</td><td> -
+</td><td> fn + F11
+</td><td> -
+</td></tr>
+<tr valign="top"><td> Softer
+</td><td> -
+</td><td> -
+</td><td> fn + F12
+</td><td> -
+</td></tr>
+<tr valign="top"><td> Louder
+</td><td> -
+</td><td> -
+</td><td> fn + F12
+</td><td> -
+</td></tr>
+<tr valign="top"><td> Alerts
+</td><td> Notification Center
+</td><td> -
+</td><td> -
+</td><td> -
+</td></tr>
 </table>
 
 
 [1] = This does not work when the active program is on an extended screen.
 
-To reset during open, in the Application folder,
-hold down all keys SHIFT OPTION COMMAND then click the app's icon.
+<a id="Processes"></a>
 
-To resize a window, hold down the option key and drag the lower left corner of the window.
+## Process Navigation #
 
-For <strong>Spotlight</strong> omni-search, press command + spacebar.
+* Press <strong>command + Tab</strong> to cycle through programs running.
 
+* Press <strong>control + F4</strong> to cycle through processes running.
 
-
-
-<a id="ShortKeys"></a>
-
-### Control Key Shortcuts that work on all apps:
-
-These come from the bash terminal:
-
-<ul>
-<li> control + H = Backspace (right hand)</li>
-<li> control + D = Delete (</li>
-
-<li> control + F = Forward </li>
-<li> control + B = Backward </li>
-
-<li> control + N = Next line </li>
-<li> control + P = Previous line </li>
-<li> control + A = Beginning of the line (as in A to Z) </li>
-<li> control + K = Kill line </li>
-</ul>
-
-
-<a id="Finderz"></a>
-
-## Finder Usage from Keyboard
-
-<img align="right" alt="Mac 10.10 Finder keys" src="http://merc.tv/img/scr/mac_10.10_finder_keys.jpg" width="171" height="240" >
-
-   <!--<amp-img media="(min-width: 171px)" width="171" height="240" 
-   layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206362/d5f6e13e-f7cf-11e5-899a-0ffa966916a2.jpg"></amp-img> http://merc.tv/img/scr/mac_10.10_finder_keys.jpg -->
-
-I probably click the Finder Favorites more than anything else.
-So I've memorized the keyboard keys.
-
-* Option + &#8984; + L for the Downloads folder
-
-* Shift + &#8984; + D for the Desktop folder where screen captures are stored.
-
-This enables me to remove default items in the Favorites list (by right-clicking on it)
-so I can instead list my own folders I use most often.
-
-To go a level up or down in the Finder, press &#8984; + up arrow or down arrow.
-<!-- From http://support.apple.com/kb/ht1343 -->
-
-Open folders and files by clicking on it and
-pressing &#8984; + O (instead of Enter as you would on Windows).
-
-Under Favorites,
-click on your user name (next to the house icon).
-If the Library folder does not appear:
-
-   <tt>sudo chflags nohidden /Library/ ~/Library/</tt>
-
-To hide Library again:
-
-   <tt>sudo chflags hidden /Library/ ~/Library/</tt>
-
+* Press shift plus the above reverses the cycling direction.
 
 
 <a id="ActiveWindowz"></a>
 
-## Active App Window
-
+## Window navigation #
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
-<tr valign="top"><td> New Window
+<tr><th> Purpose </th><th> Menu </th><th> Mouse </th><th> Key </th></tr>
+<tr valign="top"><td> New window </td><td> File | New Window
 </td><td> -
 </td><td> &#8984; + N
 </td></tr>
-<tr valign="top"><td> New Window Incongnito
+<tr valign="top"><td> New window Incongnito</td><td> 
 </td><td> -
 </td><td> &#8984; + shift + N
 </td></tr>
-<tr valign="top"><td> Cycle through Windows in app
+<tr valign="top"><td> Cycle through windows in app </td><td> Window
 </td><td> -
-</td><td> &#8984; + ` (at upper left corner of keyboard)
+</td><td> &#8984; + ` <em>(at upper left corner of keyboard)</em>
 </td></tr>
-<tr valign="top"><td> Maximize window 
-</td><td> Press Shift while clicking round green + button<br />in the top left corner of the window.
-</td><td> -
+<tr valign="top"><td> Maximize window (no menu bar)</td><td> -
+</td><td> <em>Click green icon at the top left corner of window</em>
+</td><td rowspan="2"> &#8984; + shift + F<br /><em>toggle</em>
 </td></tr>
-<tr valign="top"><td> Minimize window
+<tr valign="top"><td> Un-Maximize window </td><td> -
+</td><td><em>Cursor to top left corner. Click on green icon.</em>
+</td></tr>
+<tr valign="top"><td> Minimize window</td><td> -
 </td><td> Click yellow ball.
 </td><td> &#8984; + M
 </td></tr>
-<tr valign="top"><td> Close current window 
+<tr valign="top"><td> Close current window </td><td> -
 </td><td> Click red ball.
 </td><td> &#8984; + shift + W
 </td></tr>
-<tr valign="top"><td> Quit app completely
+<tr valign="top"><td> Preferences</td><td><em>app name</em> | Preferences
+</td><td> -
+</td><td> &#8984; + ,
+</td></tr>
+<tr valign="top"><td> Quit app completely</td><td><em>app name</em> | Quit
 </td><td> -
 </td><td> &#8984; + Q
 </td></tr>
 </table>
 
 
-
-
-<a id="BrowserUIz"></a>
-
-## Internet Browser UI
-
-Mouse to the hot corner designated for Application Windows.
-This is quicker than clicking Window.
-
-To see browser windows as a dashboard, control + F3
-
-To page back, swipe <strong>two fingers</strong> left.
-<br />
-To page forward, swipe <strong>two fingers</strong> right.
-
-
-http://www.podfeet.com/blog/tutorials-5/how-to-make-chrome-safe-from-the-poodle-vulnerability/
-
-
-
 <a id="ChromeTabz"></a>
 
-### Chrome Tab Operations
+### Tabs in Browser #
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
 <tr valign="top"><td> New blank Tab
 </td><td> -
-</td><td> 
+</td><td> &#8984; + N
 </td></tr>
 <tr valign="top"><td> Settings tab
 </td><td> -
@@ -315,9 +204,9 @@ http://www.podfeet.com/blog/tutorials-5/how-to-make-chrome-safe-from-the-poodle-
 </td></tr>
 <tr valign="top"><td> Cycle through tabs
 </td><td> -
-</td><td> 
+</td><td> &#8984; + `
 </td></tr>
-<tr valign="top"><td> Tab re-open
+<tr valign="top"><td> Re-open tab
 </td><td> -
 </td><td> &#8984; + shift + T
 </td></tr>
@@ -332,17 +221,13 @@ See https://support.google.com/chrome/answer/165450?hl=en
 
 <a id="ChromeHistz"></a>
 
-### Page operations within Chrome Tab
+#### Page operations within Chrome Tab #
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
-<tr valign="top"><td> Home page
+<tr valign="top"><td> History
 </td><td> -
 </td><td> shift + &#8984; + H
-</td></tr>
-<tr valign="top"><td> Full Screen toggle
-</td><td> -
-</td><td> shift + &#8984; + F
 </td></tr>
 <tr valign="top"><td> Search web
 </td><td> -
@@ -407,10 +292,30 @@ See https://support.google.com/chrome/answer/165450?hl=en
 </td></tr>
 </table>
 
+<a id="ShortKeys"></a>
+
+## Text Line Shortcuts #
+
+These come from the bash terminal:
+
+<ul>
+<li> control + H = Backspace left of cursor</li>
+<li> control + D = Delete right of cursor</li>
+
+<li> control + F = Forward cursor</li>
+<li> control + B = Backward </li>
+
+<li> control + N = Next line </li>
+<li> control + P = Previous line </li>
+<li> control + A = Beginning of the line (as in A to Z) </li>
+<li> control + K = Kill line </li>
+</ul>
+
+
 
 <a id="ChromeTextz"></a>
 
-### Text string operations within Chrome Tab
+## Text string operations #
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Purpose </th><th> Mouse </th><th> Key </th></tr>
@@ -425,17 +330,188 @@ See https://support.google.com/chrome/answer/165450?hl=en
 </table>
 
 
+<a id="WinKeyz"></a>
+
+## Microsoft vs. Mac Keyboards #
+
+Needing to change habits learned typing is difficult and takes time. It's literaly physical therapy.
+
+This is perhaps the most frustrating aspect of changing from Windows to a Mac.
+
+Key ideas:
+
+* Holding down the <strong>control</strong> key during mouse clicks is the Mac's 
+  <strong>right-click</strong>.	
+
+Here are the most problematic among
+<a target="_blank" href="https://support.microsoft.com/en-us/kb/970299/">
+Keyboard mappings using a PC keyboard on a Macintosh</a>
+on Microsoft's website:
+
+<table border="1" cellpadding="4" cellspacing="0">
+<tr align="left"><th> Microsoft Windows </th><th> Apple Macintosh </th><th> issue </th></tr>
+<tbody>
+<tr><td> Ctrl + <em>mouse click multiple items</em> </td><td> control + option + <em>mouse click</em></td><td> Two keys on Mac</td></tr>
+<tr><td> Delete (right of cursor) </td><td><a href="#DeleteBackspace">fn + delete</a><br />control + D</td><td rowspan="2"><a href="#DeleteBackspace">swapped</a></td></tr>
+<tr><td> Backspace (left of cursor) </td><td><a href="#DeleteBackspace">delete</a><br />control + H</td></tr>
+<tr><td> Function key </td><td> fn + F1 ... F12 </td><td> &nbsp; </td></tr>
+<tr><td> Windows Start orb </td><td><a href="#AwkwardKeys">control+F2, then enter/return</a></td><td><a href="#AwkardKeys">awkard</a></td></tr></td></tr>
+<tr><td> Num lock </td><td> Virtual Machine > Send Key</a> </td></tr>
+<tr><td> Insert toggle </td><td colspan="2"> <a href="#RemapKeyboard"><em>Requires mapping</em></a></td></tr>
+</tbody>
+</table>
+
+<a id="DeleteBackspace"></a>
+
+### Delete and Backspace keys swapped #
+
+The <strong>Delete</strong> key on an Apple keyboard (&#9003; on older keyboards)
+is actually the <strong>backspace</strong> key to all other operating systems.
+To press the equivalent of the Windows backspace that removes to the left of the cursor:
+
+<ul>
+<li> On a Macintosh notebook keyboard, press fn + Delete.</li>
+<li> On a full-sized Macintosh keyboard, press &#8998; (called "Forward Delete") below the Help key.</li>
+</ul>
+
+The ALT key on Windows is OPTION on Mac keyboards.
+
+<a target="_blank" href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1001675">
+To send key commands from a Mac into a Windows instance inside VMWare Fusion</a>.
+
+
+<a id="AwkwardKeys"></a>
+
+### Awkward Keys #
+
+There are some key combinations that are so awkard to use that it's better to use a mouse or another approach.
+
+Since the **fn** and **control** keys are only on the left side of a MacBook keyboard,
+using them requires a Carpel-tunnel Syndrome-inducing move of the left hand:
+
+   * control+F2 to highlight the Apple menu.
+   * control+F3 to highlight the Dock at the bottom of the screen.
+
+PROTIP: The **fn** key is easy to find without looking because it's at a corner.
+But use a companion key on the right side of the keyboard.
+
+<a id="InsertKeyz"></a>
+
+### Insert key requires mapping #
+
+Sending the equivalent of Windows keyboard <strong>Insert</strong> 
+on a Mac is problematic, especially within a virtual Windows machine.
+
+<ul>
+<li> On older Macintosh keyboards, press the Help key.</li>
+<li> On older Macintosh notebook keyboards, press <strong>fn+M</strong>.</li>
+<li> Newer Macintosh notebooks do not support fn+M. 
+So I suggest mapping <strong>Alt+F1</strong> within 
+VMware Fusion > Preferences > Keyboard &amp; Mouse > Key Mappings.</li>
+</ul>
+
+
+<a id="RemapKeyboard"></a>
+
+## Mouse Remapping Tool #
+
+The mouse on OSX recognizes multiple touch points (fingers) at once.
+
+<ul>
+<li>One finger to move the mouse cursor.</li>
+<li>Two fingers to scroll up or down.</li>
+<li>Three fingers to move among applications active.</li>
+</ul>
+
+<a target="_blank" href="https://www.boastr.net/">
+BetterTouchTool</a> (BTT) $6.50 app remaps what Apple input devices (keyboard, Magic Mouse, Touchpad, Trackpad) 
+recognize, and also adds more gestures.
+
+There are several dimensions:
+
+<table border="1" cellpadding="4" cellspacing="0">
+<tr align="left"><th> Fingers </th><th> Motion </th><th> Direction </th><th> Repeats </th><th> Pressure </th></tr>
+<tbody>
+<tr valign="top"><td> 1<br />2<br />3<br />4
+  </td><td> tap<br />swipe<br />pinch in/out (zoom)
+  </td><td> up<br />down<br />left<br />right
+  </td><td> tap<br />TipTap
+  </td><td> light<br />medium<br />heavy
+  </td></tr>
+</tbody>
+</table>
+
+Combos: single finger tap left, single finger tap right, single finger tap, two finger tap, two finger click, two finger swipe (up/down/left/right), three finger tap, three finger click, three finger swipe (up/down/left/right) and 'TipTap' left/right.
+
+* https://www.youtube.com/watch?v=A1xFhreDR_k
+* https://www.youtube.com/watch?v=7mr2IiJ0Y0E
+* https://www.youtube.com/watch?v=qeocxFO5yWA
+* https://www.youtube.com/watch?v=aFmB3XCva_Y
+
+Some install Emmet 
+
+Programs can be invoked several different ways:
+
+<ul>
+<li>Click the magnifying glass and type the program name </li>
+<li>Click on the apple menu </li>
+<li> the Dock </li>
+<li> or from the Applications folder on your hard drive. </li>
+</ul>
+
+To reset during open, in the Application folder,
+hold down all keys SHIFT OPTION COMMAND then click the app's icon.
+
+
+
+## App-specific keys #
+
+<a id="Finderz"></a>
+
+### Finder
+
+<img align="right" alt="Mac 10.10 Finder keys" src="http://merc.tv/img/scr/mac_10.10_finder_keys.jpg" width="171" height="240" >
+
+   <!--<amp-img media="(min-width: 171px)" width="171" height="240" 
+   layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206362/d5f6e13e-f7cf-11e5-899a-0ffa966916a2.jpg"></amp-img> http://merc.tv/img/scr/mac_10.10_finder_keys.jpg -->
+
+I probably click the Finder Favorites more than anything else.
+So I've memorized the keyboard keys.
+
+* Option + &#8984; + L for the Downloads folder
+
+* Shift + &#8984; + D for the Desktop folder where screen captures are stored.
+
+This enables me to remove default items in the Favorites list (by right-clicking on it)
+so I can instead list my own folders I use most often.
+
+To go a level up or down in the Finder, press &#8984; + up arrow or down arrow.
+<!-- From http://support.apple.com/kb/ht1343 -->
+
+Open folders and files by clicking on it and
+pressing &#8984; + O (instead of Enter as you would on Windows).
+
+Under Favorites,
+click on your user name (next to the house icon).
+If the Library folder does not appear:
+
+   <tt>sudo chflags nohidden /Library/ ~/Library/</tt>
+
+To hide Library again:
+
+   <tt>sudo chflags hidden /Library/ ~/Library/</tt>
+
+
 
 <a id="ChromeMacros"></a>
 
-### Chrome iMacros
+## Chrome iMacros
 
 To use macros, add to Chrome browser the
 <a target="_blank" href="https://chrome.google.com/webstore/detail/imacros-for-chrome/cplklnmnlbnpmjogncfgfijoopmnlemp">
 iMacros for Chrome</a>.
 
 This auto-opens http://imacros.net/browser/cr/welcome.
-
 
 To use macros on Firefox, open in Firefox 
 <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/imacros-for-firefox/">
@@ -445,25 +521,9 @@ Click Install.
 Click Restart Now.
 
 
-
-<a id="SpecialCharz"></a>
-
-## Special Characters
-
-In a text editor, press either Shift + Option + 8 OR Option + 0
-
-For autocomplete in TextEdit, press Tab + Esc.
-
-Unfortunately, this is the same key to toggle text-to-speech.
-
-For the Â©Copyright symbol, press the "alt" key (or "option") 
-and hold it down while typing "g" on the keyboard.
-
-
-
 <a id="WordKeyz"></a>
 
-## Microsoft Word for Mac 2011
+### Microsoft Word for Mac 2011 #
 
 * <a target="_blank" href="http://office.microsoft.com/en-us/mac-word-help/word-keyboard-shortcuts-HA102929541.aspx">
 Keyboard Shortcuts for Word for Mac 2011</a>
@@ -471,8 +531,21 @@ Keyboard Shortcuts for Word for Mac 2011</a>
 * <a target="_blank" href="https://support.office.microsoft.com/en-us/article/Word-keyboard-shortcuts-c0ca851f-3d58-4ce0-9867-799df73666a7?CorrelationId=01abcab5-3d34-41bc-b5be-d5588e368c9e&ui=en-US&rs=en-US&ad=US">
 Word Keyboard Shortcuts</a>
 
-* Save = command + S.<br />
-* Save As = Shift + command + S.
+   * Save = command + S
+   * Save As = Shift + command + S
+
+
+<a id="SpecialCharz"></a>
+
+## Text Editor Special Characters #
+
+In a text editor, press either Shift + Option + 8 or Option + 0.
+
+For autocomplete in TextEdit, press Tab + Esc.
+Unfortunately, this is the same key to toggle the Mac's text-to-speech.
+
+For the ©Copyright symbol, press the "alt" key (or "option") 
+and hold it down while typing "g" on the keyboard.
 
 
 <a id="KeySymbolz"></a>
