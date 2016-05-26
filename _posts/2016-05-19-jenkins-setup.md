@@ -682,3 +682,6 @@ Builds/jobs can be automatically triggered several ways:
 * <a target="_blank" href="https://www.youtube.com/watch?v=Lxd6JMMxuwo">
   Getting Started With Jenkins | Jenkins and DevOps tutorial </a>
   
+* <a target="_blank" href="https://www.selikoff.net/2016/02/27/jeannes-experiences-with-the-jenkins-certification-beta-exam/">
+   Jenkins beta certification exam</a> by Jeanne Boyarsky, 27 Feb 2016
+   shares a word file and quizlet that enabled her to pass.
