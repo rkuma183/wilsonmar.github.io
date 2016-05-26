@@ -23,10 +23,12 @@ comments: true
 Homebrew 
 at <a target="_blank" href="http://brew.sh/">
 http://brew.sh/</a>
-is the newest and most popular.
-https://www.macports.org/ and
-http://www.finkproject.org/
-provide a similar function.
+is the newest and most popular package utility on OSX.
+
+Alternatives:
+
+* https://www.macports.org/ and
+* http://www.finkproject.org/
 
 <strong>Homebrew</strong> is the missing package manager for OS X.
 It installs using Ruby (built into Mac OSX)
@@ -61,7 +63,7 @@ There is no response if no brew package has been installed.
 
 Install the wget command-line utility:
 
-<tt><strong>brew install wget</strong></tt>
+   <tt><strong>brew install wget</strong></tt>
 
 This installs to folder /usr/local/bin/wget.
 
@@ -75,9 +77,9 @@ One way is to install Apple's Xcode.
 
 Test wget operating:
 
-<tt><strong>cd ~/Downloads
-<br />wget http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz
-</strong></tt>
+   <tt><strong>cd ~/Downloads<br />
+   wget http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz
+   </strong></tt>
 
 ## Keep Homebrew updated #
 
@@ -85,9 +87,9 @@ Test wget operating:
 
 Brew places files in its Cellar:
 
-<pre><strong>
-/usr/local/Cellar/node/0.10.35
-</strong></pre>
+   <pre><strong>
+   /usr/local/Cellar/node/0.10.35
+   </strong></pre>
 
 To see first what exactly will be overwritten, without actually doing it.
 
@@ -115,7 +117,6 @@ brew install brew-cask
 <a id="MavenSetupz"></a>
 
 ##  Maven via Homebrew #
-
 
 Before Mavericks, 
 <a target="_blank" href="http://maven.apache.org/">
