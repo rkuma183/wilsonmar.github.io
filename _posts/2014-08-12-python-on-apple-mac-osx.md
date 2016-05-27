@@ -15,16 +15,20 @@ comments: true
 
 {% include _toc.html %}
 
+"Speed, reproducibility, easy rollbacks, and predictability is what we strive for when deploying our diverse Python applications."
+
 <a id="PackagInstallerz"></a>
+
+## Hard-core #
 
 The hard-core approach is to download the <strong>pip-x.x.x.tar.gz</strong> (tarball) containing source
 (The version may be different when it comes time for you to do this.)
 
-*   [python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/)
+* [python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/)
 
 But there are more "civilized" approaches.
 
-## Python Package Installs
+## Python Package Install Options #
 
 CAUTION: There is a conflict of choice here:
 
@@ -57,14 +61,34 @@ Differences:
 * pip is built on top of setuptools.
 * conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
 
+### Virtualenv and Docker #
+
+<a target="_blank" href="https://hynek.me/articles/virtualenv-lives/">
+Hynek Schlawack recommends</a>
+
+   * Don’t pip-install anything into its global site-packages beyond virtualenv.
+
+   * Install <strong>both</strong> virtualenv and system isolation (they are not mutually exclusive):
+
+      * Isolate your application server’s OS from its host using Docker/lxc/jails/zones/kvm/VMware/… to one container/vm per application.
+
+      * inside of them also do isolate your Python environment using virtualenv from unexpected surprises in the system site-packages.
+
+Remove hassles from managing per-project virtualenvs by using one of these, depending on the shell and operating system used:
+
+   * virtualenvwrapper
+   * virtualenvwrapper-win on MS Windows
+   * <a target="_blank" href="https://github.com/adambrenecki/virtualfish"> virtualfish</a>
+
 <a id="corda"></a>
+
+### Corda #
 
 Many prefer to install Python using Conda for better package and environment management. 
 
 Conda installs, runs, and updates packages and their dependencies. Its home page:
 
 *   [http://conda.pydata.org/docs/install/quick.html](http://conda.pydata.org/docs/install/quick.html)
-
 
 
 <a id="PIPz"></a>
@@ -92,6 +116,8 @@ So you want to use python on the Mac</a>:
 these are both "sorta" package managers for OS/X, and while I do have macports installed, I do not use it for Python work. 
 I prefer compilation and self management."
 
+### Easy_install #
+
 Others use 
 <strong>easy_install</strong> (with setuptools) 
 to install packages from the web. 
@@ -101,9 +127,10 @@ to install packages from the web.
    </strong></tt>
 
 "To be effective in the world, you're going to want to install both, 
-and only fall back to easy_install if pip fails you.
-I prefer <a target="_blank" href="https://pypi.python.org/pypi/pip">
-pip</a>.
+and only fall back to easy_install if  <a target="_blank" href="https://pypi.python.org/pypi/pip">
+pip</a> fails you.
+
+### Homebrew install pip #
 
 Alternately, use Homebrew to install pip (as <a target="_blank" href="http://penandpants.com/2012/02/24/install-python/">recommended by this site</a>):
 
@@ -116,8 +143,10 @@ Alternately, use Homebrew to install pip (as <a target="_blank" href="http://pen
 
 ## Virtual Python environments
 
+The best way to have painless and reproducible deployments is to package whole virtual environments of the application you want to deploy including all dependencies but without configuration.
+
 > In the world of Python, an **environment** is a folder (directory) containing everything that a 
-Python **project** (application) needs to run in an organised, isolated fashion. 
+   Python **project** (application) needs to run in an organised, isolated fashion. 
 
 When it is initiated, it automatically comes with its own Python interpreter 
 - a copy of the one used to create it - alongside its very own pip.
@@ -189,39 +218,38 @@ If you want to automatically activate an vironment when you cd into it:
 
 Install packages as usual, for example:
 
-<tt>
-pip install request???
-</tt>
+   <tt>
+   pip install request
+   </tt>
 
 When you are done working in the virtual environment for the moment:
 
-<tt>
-deactivate
-</tt>
+   <tt>
+   deactivate
+   </tt>
 
-The above puts you back to the systemâ€™s default Python interpreter with all its installed libraries.
+The above puts you back to the system's default Python interpreter with all its installed libraries.
 
 To delete a virtual environment, just delete its folder. (In this case, it would be 
 
-<tt>
-rm -rf venv
-</tt>
+   <tt>
+   rm -rf venv
+   </tt>
 
 To keep your environment consistent, 
 <srong>freeze</srong> the current state of the environment packages:
 
-<tt>
-pip freeze > requirements.txt
-</tt>
+   <tt>
+   pip freeze > requirements.txt
+   </tt>
 
 This creates a <strong>requirements.txt</strong> file containing a simple list of all the packages in the current environment, and their respective versions. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
 
-<tt>
-pip install -r requirements.txt
-</tt>
+   <tt>
+   pip install -r requirements.txt
+   </tt>
 
-This ensures consistency across installations, deployments, and developers.
-
+   This ensures consistency across installations, deployments, and developers.
 
 As noted in 
 http://docs.python-guide.org/en/latest/dev/virtualenvs/
@@ -237,6 +265,12 @@ and download file python-3.4.2-macosx10.6.pkg.
 
 See 	http://docs.python-guide.org/en/latest/dev/virtualenvs/
 https://www.digitalocean.com/community/tutorials/common-python-tools-using-virtualenv-installing-with-pip-and-managing-packages
+
+To list what packages have been installed:
+
+   <tt>
+   pip list
+   </tt>
 
 Look for packages by keyword:
 
@@ -337,27 +371,24 @@ Click New
 </p>
 
 
-
+## Vagrant #
 
 Download the 224.3 MB vagrant_1.7.1.dmg
-
-
-
 
 The binary gets installed in the Applications folder with a link to the /usr/bin so it is added to the shell path.
 
 List commands:
 
-<tt>
-vagrant<br />
-vagrant list-commands
-</tt>
+   <tt>
+   vagrant<br />
+   vagrant list-commands
+   </tt>
 
 Change directory to where you want to store the Vagrant project and run
 
-<tt>
-vagrant init
-</tt>
+   <tt>
+   vagrant init
+   </tt>
 
 The response:<br />
 
@@ -409,15 +440,19 @@ Where you are picking up Python from?
 
    <tt><strong>type python</strong></tt>
 
-mine says
+   If Python was installed:
 
    <tt>python is hashed (/usr/bin/python)</tt>
 
+   Alternately, if Conda was installed:
+
+   <tt>python is hashed (/Users/mac/miniconda2/bin/python)</tt>
+
 In a Terminal issue command:
 
-<tt><strong>
-python --version
-</strong></tt>
+   <tt><strong>
+   python --version
+   </strong></tt>
 
 The response is its version. My Mac Yosemite shows this:
 
@@ -439,9 +474,15 @@ python -m site --user-site
 
 The response I got is this:
 
-<tt>
-/Users/wilsonmar/Library/Python/2.7/lib/python/site-packages
-</tt>
+   <tt>
+   /Users/wilsonmar/Library/Python/2.7/lib/python/site-packages
+   </tt>
+
+   Alternately:
+
+   <tt>
+   /Users/mac/.local/lib/python2.7/site-packages
+   </tt>
 
 Open Python command-line:
 
