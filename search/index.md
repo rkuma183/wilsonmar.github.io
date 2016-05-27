@@ -13,7 +13,7 @@ comments: true
 
 {% include _toc.html %}
 
-## Bing search:
+## Microsoft Bing search:
 
 <div class="searchbox">
   <form method="get" action="http://www.bing.com/search">
@@ -21,7 +21,7 @@ comments: true
     <input type="hidden" name="q1" value="site:{{site.production_url}}" />
   </form>
 </div>
-
+Press enter/return to submit search term. Results will pop up in a new screen.
 
 ## Google search:
 
@@ -29,4 +29,17 @@ comments: true
 <input type="text" name="q" id="q" value="" />
 <input type="submit" value="search" onClick="return google_search()" />
 </form>
+
+
+## Custom search:
+
+<form onSubmit="google_search()">
+<input type="text" name="q" id="q" value="" />
+<input type="submit" value="search" onClick="return google_search()" />
+</form>
+Results are returned below.
+
+## Results:
+
+
 

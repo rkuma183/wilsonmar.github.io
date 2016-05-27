@@ -564,7 +564,8 @@ stuff happens. It can be annoying.
 0. Select System Preferences.
 0. Select Desktop &amp; Screen Saver.
 0. Click Hot Corners at the lower-right corner.
-<amp-img media="(min-width: 320px)" width="320" height="118" 
+   
+   <amp-img media="(min-width: 320px)" width="320" height="118" 
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206160/5a816098-f7ce-11e5-8e9c-eb5c06d3b2ad.jpg"></amp-img><!-- http://merc.tv/img/scr/mac_10.10_hot_corners.jpg" -->
 
 ADVICE:

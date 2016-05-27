@@ -249,22 +249,13 @@ The Amplify Jekyll template has this in the <strong>head.html</strong> within it
    * A popular SASS library is 
    bourbon
 
-<a name="BingSearch"></a>
+<a name="SiteVars"></a>
 
-### Bing Search Form #
+### Jekyll Site Variable Values #
 
-0. Copy the HTML below and paste it in the file.
+HTML make reference to `site.production_url` variables defined within file <strong>_config.yml</strong>.
 
-{% highlight html %}{% raw %}
-<div class="searchbox">
-  <form method="get" action="http://www.bing.com/search">
-    <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
-    <input type="hidden" name="q1" value="site:{{site.production_url}}" />
-  </form>
-</div>
-{% endraw %}{% endhighlight %}
-
-   NOTE: The `site.production_url` variable is defined within file _config.yml.
+So populate them. For example:
 
    ```
    url                      : https://wilsonmar.github.io
@@ -272,11 +263,34 @@ The Amplify Jekyll template has this in the <strong>head.html</strong> within it
    host                     :         wilsonmar.github.io
    ```
 
-2\. Add these lines (but with your url and host name) if they are not already defined.
+<a name="BingSearch"></a>
 
-3\. PROTIP: Use an appropriate hero graphic, if your page design uses one.
+### Bing Search Form #
 
-4\. Save the change and adjust the CSS.
+Sample HTML:
+
+{% highlight html %}{% raw %}
+<div class="searchbox">
+  <form method="get" action="http://www.bing.com/search">
+    <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
+    <input type="hidden" name="q1" value="site:{{ site.production_url }}" />
+  </form>
+</div>{% endraw %}{% endhighlight %}
+
+0. Copy the HTML below and paste it in the file.
+
+0. Add these lines (but with your url and host name) if they are not already defined.
+
+0. PROTIP: Use an appropriate hero graphic, if your page design uses one.
+
+0. Save the change and adjust the CSS.
+
+0. Add, commit, and push to GitHub.
+
+0. Do a sample search.
+
+    CAUTION: Visitors to your site are directed out to the Bing search page.
+    So this approach feeds visitors to Bing.
 
 <a name="GoogleSearch"></a>
 
@@ -305,42 +319,46 @@ function google_search(){
 
 0. Save the change and adjust the CSS.
 
+0. Add, commit, and push to GitHub.
+
+0. Do a sample search.
+
+    CAUTION: Visitors to your site are directed out to the Bing search page.
+    So this approach feeds visitors to Bing.
 
 <a name="elasticsearch"></a>
 
 ## Your Own Search Database #
 
 The problem with using search engines is that you only get back what each has indexed.
-
 And their use make the site seem cheap (because they are free).
 However, they will do until you have time to go through the rest of this tutorial.
 
-Here are how you can use you own search database:
+The advantage of using your own search database are 
 
-   * Microsoft Azure DIY
-   * Amazon EC2 (where you have to configure) DIY
-   * Amazon's Elastic Cloud DIY
+   * results can be returned on the same page
+   * Type-ahead find shows a list of auto-completes based on characters typed in the search field
+   * Filter based on metadata in Jekyll front-matter (dates, categories, tags)
+   * Fast queries
+   * Full-text search
+   * Highlight of words searched in results.
+
+Options for setting up your own search database:
+
    * <a href="#Bonzai">Bonzai's hosted ElasticSearch service</a>
-   * <a target="_blank" href="https://youtu.be/ivMML1J4ABY">Algolia service</a>
+   * <a href="#Algolia">Algolia service</a>
+   * Microsoft Azure DIY
 
+   The first three above are SaSS services. No server to setup.
 
-   Common to each solution is the need to sign-up on their website and get an API key.
+   * Amazon's Elastic Cloud DIY
+   * Amazon EC2 (where you have to configure) DIY
 
-   Documentation for each solution usually provide instructions for using various 
+   Common to each solution above is the need to sign-up on their website and get an API key.
+
+Documentation for each solution usually provide instructions for using various 
    programming languages (Rails, Python, PHP) 
    as well as frameworks (Django, WordPress, Jekyll).
-
-
-
-
-<a name="Alogolia"></a>
-
-### Alogolia hosted service #
-
-   <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
-   </amp-youtube>
-
-https://github.com/algolia/algoliasearch-jekyll
 
 
 <a name="Bonzai"></a>
@@ -367,14 +385,15 @@ Allison blogged about the steps to use Bonzai</a>.
 
    https://whygq7pbkd:vh70yz954n@jetbloom-2189350326.us-west-2.bonsai.io
 
-0. Paste the URL in a browser. The result is, for example:
+0. To verify whether the URL works, paste it in a browser. 
+The result is, for example:
 
-   ```
-\{
+{% highlight json %}{% raw %}
+{
   "status" : 200,
   "name" : "Stonecutter",
   "cluster_name" : "elasticsearch",
-  "version" : \{
+  "version" : {
     "number" : "1.7.5",
     "build_hash" : "7b17af8ebc9cde792eebd2c18a5dc06f5029c64f",
     "build_timestamp" : "2016-03-23T18:33:33Z",
@@ -382,10 +401,55 @@ Allison blogged about the steps to use Bonzai</a>.
     "lucene_version" : "4.10.4"
   },
   "tagline" : "You Know, for Search"
-\}
-   ```
+}{% endraw %}{% endhighlight %}
+
+   NOTE: Some REST APIs return a list of follow-on calls available,
+   following principles of <a target="_blank" href="https://en.wikipedia.org/wiki/HATEOAS/"> HATEOAS</a>
+   (Hypermedia as the Engine of Application State). This site is not one of them.
 
 Next, get your Jekyll site to send the call from a search box, and display the results.
+
+Try the request using a curl command ???
+
+<a name="Algolia"></a>
+
+### Algolia hosted service #
+
+A free account of up to 10,000 requests per day is available from<br />
+<a target="_blank" href="https://www.algolia.com/">
+Algolia.com</a>.
+
+   <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
+   </amp-youtube>
+
+In this video, Tim Carry (tim@algolia.com)
+describes use of his <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll">
+algolia/algoliasearch-jekyll</a> library in GitHub.
+
+0. Sign-up at <a target="_blank" href="https://www.algolia.com/">
+Algolia.com</a> (using your GitHub credentials).
+0. Specify name and region. Their UI has a cool list of live ping response times to various regions:
+
+   <amp-img media="(min-width: 386px)" width="386" height="346" 
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
+
+0. Look at the email for links to their thorough
+<a target="_blank" href="https://www.algolia.com/doc">tutorials (doc)</a> and
+<a target="_blank" href="https://www.algolia.com/demos/">demos</a>.
+
+<a name="CustomSearchForm"></a>
+
+### Custom Search Form #
+
+0. Copy the HTML below and paste it in the file.
+
+{% highlight html %}{% raw %}
+<div class="searchbox">
+  <form method="get" action="http://???">
+    <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
+    <input type="hidden" name="q1" value="site:{{site.production_url}}" />
+  </form>
+</div>{% endraw %}{% endhighlight %}
 
 
 <a name="libraries"></a>
@@ -453,11 +517,10 @@ https://github.com/omc/searchyll
 
    Make content searchable by wrapping it between beginning and ending article HTML5 tags. 
 
-   ```
-   &LT;article&GT;
-   \{\{ content }}
-   &LT;/article&GT;
-   ```
+   {% highlight html %}{% raw %}
+   <article>
+   {{ content }}
+   </article>{% endraw %}{% endhighlight %}
 
   Save the edits and exit.
 
@@ -465,16 +528,15 @@ https://github.com/omc/searchyll
 
    Notice there is a for loop through post objects. 
 
-   ```
+   {% highlight html %}{% raw %}
 <!DOCTYPE html>
 <html ⚡ lang="en">
-  \% include head.html %}
+  {% include head.html %}
   <body>
-    \% include header.html %}
-    \ content }}
+    {% include header.html %}
+    {{ content }}
   </body>
-</html>
-   ```
+</html>{% endraw %}{% endhighlight %}
 
 <a name="config.yml"></a>
 
@@ -579,3 +641,10 @@ Watch it auto-complete with results.
 ## View Logs #
 
 On the search service webpage.
+
+
+<a name="TravisCI"></a>
+
+## Travis CI #
+
+Set to automatically push data and reindex upon save.
