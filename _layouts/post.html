@@ -73,5 +73,9 @@
 
 {% include _scripts.html %}
 
+<script type="text/javascript">
+function google_search(){
+   window.location = "http://www.google.com/search?q=site:{{ site.production_url }}+" + encodeURIComponent(document.getElementById("q").value);
+}
 </body>
 </html>

@@ -6,6 +6,8 @@ title_separator          : "-"
 name                     : &name "Wilson Mar"
 description              : &description "I have a dream..."
 url                      : https://wilsonmar.github.io
+productoin_url           : https://wilsonmar.github.io
+host                     :         wilsonmar.github.io
 gh_repo                  : "https://github.com/wilsonmar/wilsonmar.github.io"
 github:
    repo:  https://github.com/wilsonmar/wilsonmar.github.io

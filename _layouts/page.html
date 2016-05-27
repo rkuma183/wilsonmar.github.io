@@ -31,9 +31,6 @@
 <div id="main" role="main">
   <div class="article-author-side">
     {% include _author-bio.html %}
-    <p>
-  <img width="200" height="200" alt="QR code to this site" src="../images/wilsonmar.github.io.qrcode.png" />
-  </p>
 </div>
   <article class="page">
     <h1>{{ page.title }}</h1>
@@ -58,5 +55,10 @@
 
 {% include _scripts.html %}
 
+<script type="text/javascript">
+function google_search(){
+   window.location = "http://www.google.com/search?q=site:{{ site.production_url }}+" + encodeURIComponent(document.getElementById("q").value);
+}
+</script>
 </body>
 </html>
