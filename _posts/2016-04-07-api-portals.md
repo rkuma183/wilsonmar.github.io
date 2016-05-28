@@ -32,14 +32,10 @@ Here are links to my favorite API portals.
 Among the most famous, earliest, their
 API is part of a whole set of tools for developers:
 
-* <a target="_blank" href="https://developer.salesforce.com/">
-   Salesforce</a>
+## Retail #
 
 * <a target="_blank" href="https://go.developer.ebay.com/">
    Ebay</a> reports $7 billion worth of sales through APIs.
-
-* <a target="_blank" href="">
-   Twitter</a> reports 10 times more traffic via API than their website.
 
 * <a target="_blank" href="https://developer.amazon.com/">
    Amazon</a>
@@ -47,43 +43,43 @@ API is part of a whole set of tools for developers:
 * <a target="_blank" href="https://developer.walmartlabs.com/">
    Walmart Labs</a>
 
+* <a target="_blank" href="https://developer.bestbuy.com/">
+  Best Buy</a>
+   <a target="_blank" href="https://medium.com/best-buy-developers/announcing-a-change-to-best-buy-s-api-access-b09afc4bc27a#.5d39skb3t">
+   no loger issues API keys to gmail and other free email accounts</a>.
+
+
+## Social #
+
+* <a target="_blank" href="https://developer.salesforce.com/">
+   Salesforce</a>
+
+* <a target="_blank" href="">
+   Twitter</a> reports 10 times more traffic via API than their website.
+
 * <a target="_blank" href="https://developers.facebook.com/tools-and-support/">
    Facebook</a>
 
+## Travel #
+
 * <a target="_blank" href="http://developer.ean.com/">
    Expedia</a> travel
-
-* <a target="_blank" href="https://developer.capitalone.com/">
-   Capital One</a> is a trail-blazer for banks opening up APIs.
-
-* <a target="_blank" href="https://www.flickr.com/services/api/">
-   Yahoo Flickr</a> photos
 
 * <a target="_blank" href="http://www.everytrail.com/developer">
    Everytrail</a> has rich information on travel sites and media about them.
    It returns XML.
    A wiki is provided.
 
-### Google
+## Finance #
 
-Google's maps is the most-referenced API according to ProgrammableWeb.
-
-<a target="_blank" href="https://developers.google.com/products/">
-  Among Google's many API products</a>:
-
-* <a target="_blank" href="https://developers.google.com/civic-information/">
-   Google's Civic Infomation API</a> 
-   enables developers to build applications that let citizens and voters know about their political representation and voting locations.
-   First released in 2012, it supplies official information for every state and the District of Columbia.
-   Version 2 released in 2015 adds ballot drop-off and early voting locations.
-
-*   Data.gov
-
-   * <a target="_blank" href="http://www.digitalgov.gov/2015/04/29/the-api-briefing-top-five-findings-for-api-developers-from-pew-research-center/">
-     Top Five Findings for API Developers from Pew Research Center</a>
+* <a target="_blank" href="https://developer.capitalone.com/">
+   Capital One</a> is a trail-blazer for banks opening up APIs.
 
 
 ## Flickr API
+
+* <a target="_blank" href="https://www.flickr.com/services/api/">
+   Yahoo Flickr</a> photos
 
 Flickr provides an API to access images contributed by its users.
 
@@ -106,7 +102,26 @@ Management console:
     http://apigee.com/console/flickr
 
 
-## US federal jobs
+### Google #
+
+Google's maps is the most-referenced API according to ProgrammableWeb.
+
+<a target="_blank" href="https://developers.google.com/products/">
+  Among Google's many API products</a>:
+
+* <a target="_blank" href="https://developers.google.com/civic-information/">
+   Google's Civic Infomation API</a> 
+   enables developers to build applications that let citizens and voters know about their political representation and voting locations.
+   First released in 2012, it supplies official information for every state and the District of Columbia.
+   Version 2 released in 2015 adds ballot drop-off and early voting locations.
+
+## Data.gov #
+
+   * <a target="_blank" href="http://www.digitalgov.gov/2015/04/29/the-api-briefing-top-five-findings-for-api-developers-from-pew-research-center/">
+     Top Five Findings for API Developers from Pew Research Center</a>
+
+
+### US federal jobs #
 
 http://usasearch.howto.gov/developer/jobs.html
 collects jobs posted by government at several levels (federal, state, etc.).
@@ -118,7 +133,7 @@ A sample free-form query:
    http://api.usa.gov/jobs/search.json?query=telecommute+jobs
 
 
-## US Weather
+### US Weather #
 
 http://graphical.weather.gov/xml/rest.php
 provides weather prediction in XML.
@@ -136,7 +151,7 @@ http://graphical.weather.gov/xml/docs/elementInputNames.php
 BLAH: Sample code to present the information is not provided by the site.
 
 
-## US Census
+### US Census #
 
 <a target="_blank" href="http://www.census.gov/developers">
 http://www.census.gov/developers</a>
@@ -168,7 +183,7 @@ obtained from email after registration at
 http://api.census.gov/data/citysdk.html</a>
 
 
-## Other APIs
+## Other APIs #
 
 https://shkspr.mobi/blog/2014/04/wanted-simple-apis-without-authentication/
 lists several.
@@ -178,13 +193,7 @@ lists several.
 * Citrix
 
 
-## Trends
-
-* Best Buy
-   <a target="_blank" href="https://medium.com/best-buy-developers/announcing-a-change-to-best-buy-s-api-access-b09afc4bc27a#.5d39skb3t">
-   no loger issues API keys to gmail and other free email accounts</a>.
-
-## Mashups
+## Mashups #
 
 A mashup app combines data from several Web APIs in its presentation.
 

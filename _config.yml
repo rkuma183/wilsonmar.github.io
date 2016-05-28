@@ -5,9 +5,7 @@ title                    : "Home"
 title_separator          : "-"
 name                     : &name "Wilson Mar"
 description              : &description "I have a dream..."
-url                      : https://wilsonmar.github.io
-productoin_url           : https://wilsonmar.github.io
-host                     :         wilsonmar.github.io
+url                      : https://wilsonmar.github.io # overridden by _config-dev.yml during jekyll serve.
 gh_repo                  : "https://github.com/wilsonmar/wilsonmar.github.io"
 github:
    repo:  https://github.com/wilsonmar/wilsonmar.github.io
@@ -25,6 +23,11 @@ sass:
 gems:
   - jekyll-sitemap
   - jekyll-gist
+  - algoliasearch-jekyll
+
+algolia:
+  application_id: 'EILX55I5BP'
+  index_name:     'your_index_name'
 
 comments:
   provider               : "disqus" # false (default), "disqus", "facebook", "google-plus", custom"

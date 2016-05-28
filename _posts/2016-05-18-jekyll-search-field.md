@@ -17,32 +17,78 @@ comments: true
 
 This tutorial is intended for "newbies", which also ensures completeness for the advanced.
 
-This is a step-by-step tutorial on to setup your own free static website that provides a search box:
+<a name="elasticsearch"></a>
+
+## Your Own Search Database #
+
+It's relatively easy to add a search box to an online search engines
+<a href="#BingSearch">Bing</a> or
+<a href="#GoogleSearch">Google</a>.
+I show you how below.
+
+But the problem with using search engines is that you only get back what each has indexed.
+And their use make the site seem cheap (because they are free).
+However, they will do until you have time to go through the rest of this tutorial.
+
+The advantage of using your own search database are:
+
+   * results can be returned on the same page rather than sending your visitors away (a big deal)
+   * Type-ahead find shows a list of auto-completes as characters are typed in the search field
+   * Filter based on metadata in Jekyll front-matter (dates, categories, tags)
+   * Fast queries
+   * Full-text search
+   * Highlight of words searched in results.
+
+Options for setting up your own search database:
+
+   * <a href="#Bonzai">Bonzai's hosted ElasticSearch service</a>
+   * <a href="#Algolia">Algolia service</a>
+   * Microsoft Azure DIY
+   * Amazon's Elastic Cloud DIY
+
+   The ones above are SaSS services. No server to setup.
+
+   * Amazon EC2 (where you have to configure) DIY
+
+   Common to each solution above is the need to sign-up on their website and get an API key.
+
+Documentation for each solution usually provide instructions for using various 
+   programming languages (Rails, Python, PHP) 
+   as well as frameworks (Django, WordPress, Jekyll).
+
+<hr />
+
+This is a step-by-step tutorial on to setup your own free static website that provides a search box.
 
 0. <a href="#repo"> Create a GitHub repository</a>
 0. <a href="#Jekyll"> Add a Jekyll template</a>
 0. <a href="#Ruby"> Install Ruby and Build gems</a>
 0. <a href="#RunJekyll"> Run Jekyll locally</a>
 
-0. <a href="#GitClient"> Install Git client</a>
-0. <a href="#ConfigRemote"> Configure remote repo</a>
-
+0. <a href="#AddPosts"> Add Posts with Text</a>
 0. <a href="#SearchField"> Add Search Field</a>
 0. <a href="#SearchCSS"> Add Search Field CSS</a>
 0. <a href="#SearchField"> Add Search JavaScript</a>
 
+0. <a href="#GitClient"> Install Git client</a>
+0. <a href="#ConfigRemote"> Configure remote repo</a>
+
 0. <a href="#elasticsearch"> Setup Search API</a>
 0. <a href="#libraries"> Code library links</a>
 
-0. <a href="#config.yml"> In config.yml add gem in gem file</a
-0. <a href="#gemfile"> In gem file add gem searchyll</a>
+0. <a href="#config.yml"> Add gem in _config.yml file</a>
+0. <a href="#gemfile"> Add gem in Gemfile</a>
 
-0. <a href="#searchyll"> Add searchyll as a dependency</a>
-0. <a href="#article"> Add &LT;article&GT; tag in _layout/post.html</a>
+0. <a href="#article"> Add article tag in _layout/post.html</a>
 0. To display, add a Javascript framework for client-side interaction via HTTP. I’m using React and Searchkit.
 
 0. <a href="#Index">Index</a>
 0. <a href="#Query"> Query</a>
+
+0. <a href="#JenkinsCI"> Jenkins</a>
+0. <a href="#TravisCI"> Travis</a>
+
+<hr />
 
 <a name="repo"></a>
 
@@ -65,7 +111,18 @@ so that GitHub can properly generate HTML from the files.
 
 A template comes with all the CSS and JavaScript that GitHub recognizes.
 
-If the template is on GitHub, click the Fork button.
+0. If the template is on GitHub, click its Fork button to put it under your GitHub account.
+
+   <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde">
+   https://github.com/algolia/algoliasearch-jekyll-hyde</a>
+   is good to use because a search box has been addedd to the original theme
+   (by the legendary Mark Otto of GitHub).
+
+   <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
+   Test drive a demo of it online</a>.
+
+0. Click Settings if you want to rename the repo, such as <em>your_account_name</em>.github.io.
+   
 
 <a name="GitClient"></a>
 
@@ -96,33 +153,124 @@ Alternately, if you purchased a template, copy it into the folder just created.
    bundle
    </strong></tt>
 
+   Install is the default action.
+
    The Gemfile.lock file generated defines the version being used of each gem.
+
+   Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
+   Rubygems website</a>.
+
+   Every time the list of gems changes, re-bundle again.
+
+<a name="SiteVars"></a>
+
+## Set Jekyll Site Variable Values #
+
+Jekyll references file <strong>_config.yml</strong> at the top root folder.
+Here is an example:
+
+   <pre>
+   url                      : https://wilsonmar.github.io
+   host                     :         wilsonmar.github.io
+   </pre>
+
+If you click on a link, you will be sent to a URL based on the variable "url".
+
+NOTE: Most Jekyll templates do not have the `host` variables add here.
+
+The `url` variable should be the fully qualified domain name.
+
+<a name="LocalSiteVars"></a>
+
+## Define local variables #
+
+Jekyll can run locally (on your laptop) to do what GitHub does in the cloud.
+
+But when a link is clicked on a site <a href="#RunJekyll">running Jekyll locally</a>, 
+the user is taken to whatever host value is specified by the url variable, such as:
+
+   ```
+   url                      : https://wilsonmar.github.io
+   ```
+
+We want to go to a local site such as:
+
+   ```
+   url                      :  http://localhost:4001/
+   ```
+
+Thus, we need to overrides the public url.
+
+0. Create a <strong>_config-dev.yml</strong> file to override values while operating locally.
+
+   <pre>
+url: http://localhost:4001
+analytics:
+  provider: false
+comments:
+  disqus:
+    shortname            : ""
+       </pre>
+
+   NOTE: Port 4000 is the default port Jekyll.
+
 
 <a name="RunJekyll"></a>
 
 ## Run Jekyll Locally #
 
-Ensure you have a base version that works, run:
+0. To ensure you have a base version that works locally, run:
 
    <tt><strong>
-   bundle exec jekyll serve --config _config.yml,_config-dev.yml
+   bundle exec jekyll serve --config _config.yml,_config-dev.yml --port 4001
    </strong></tt>
 
-BTW, Jekyll command options are detailed at:
+   The sample response:
+
+   <pre>
+            Source: /Users/mac/gits/jetbloom/jetbloom.github.io
+       Destination: /Users/mac/gits/jetbloom/jetbloom.github.io/_site
+      Generating... 
+                    done.
+ Auto-regeneration: enabled for '/Users/mac/gits/jetbloom/jetbloom.github.io'
+    Server address: http://127.0.0.1:4001/
+  Server running... press ctrl-c to stop.
+   </pre>
+
+   If an error message appears about port 4000 (the default), it may be because two dashes need to precede the port parameter keyword.
+
+   On a Mac, "ctrl-c" means hold down the control key and press C.
+
+0. Switch to an internet browser to open the server address:
+
+   http://127.0.0.1:4001/
+
+   BTW, other configuration options:
 
    * <a target="_blank" href="https://jekyllrb.com/docs/configuration/">
    https://jekyllrb.com/docs/configuration/</a>
 
 
+   PROTIP: Create a shell script to save time typing the long command.
+
+   Create a file named 4001.sh
+   in a folder in the system path so it can be defined in one place, then executed from any folder.
+
+   In each folder, define run permissions: chmod a+x 4001.sh
+
+   Run it: ./4001.sh
+
 <a name="ArchiveRemote"></a> 
 
 ## Archive remote repo #
+
+PROTIP: Make a small change, then add and commit.
 
 Archive in the cloud a base version to fall back to in case edits cause issues.
 
    <tt><strong>
    git add .<br />
-   git commit
+   git commit -m"Add sample posts"
    </strong></tt>
 
 See if there is a remote local defined:
@@ -145,8 +293,14 @@ Push commits to GitHub to verify the site running before customization.
    git push
    </strong></tt>
 
-
 <hr />
+
+<a name="AddPosts"></a>
+
+## Add Posts with Text #
+
+   If you installed Algolia's sample Hyde theme, note no posts are in it to search on.
+   We are using that repo as an example of coding and configuration settings.
 
 <a name="SearchField"></a>
 
@@ -160,11 +314,12 @@ In a Jekyll site, that would be <strong>head.html</strong>.
 
 In the MinimalMistakes theme from March 2016, the page.html folder contains:
 
-   \% include _navigation.html %}
+   {% highlight text %}{% raw %}
+  {% include _navigation.html %}{% endraw %}{% endhighlight %}
 
    This file I found within the _includes folder.
 
-I couldn't insert a field without having it wrap to the next line.
+NOTE: I couldn't insert a field without having it wrap to the next line.
 
 ### Separate menu item #
 
@@ -172,25 +327,14 @@ So I added a "SEARCH" menu item in the template's _data/navigation.yml file,
 then created a folder at the root with the same name I specified: search.
 Insid that folder I created a default.html file.
 
-### Search providers #
-
-The search index server can be setup several ways:
-
-   * <a href="#BingSearch">Bing search form</a>
-   * <a href="#GoogleSearch">Google Search form</a>
-   * Yahoo
-
-Each of these involve <a href="#SearchCSS"> changes to CSS</a> as well to suit your design tastes.
-
 
 <a name="SearchCSS"></a>
 
-### Search Field CSS Formatting #
+## Search Field CSS Formatting #
+
+Each option involves <a href="#SearchCSS"> changes to CSS</a> as well to suit your design tastes.
 
 It seems there are as many ways to store CSS in Jekyll sites as there are Jekyll sites.
-
-Jekyll stores files it generates in the <strong>_sites</strong> folder. 
-That's what site vistors download and display.
 
 The Amplify Jekyll template has this in the <strong>head.html</strong> within its _includes folder:
 
@@ -249,23 +393,10 @@ The Amplify Jekyll template has this in the <strong>head.html</strong> within it
    * A popular SASS library is 
    bourbon
 
-<a name="SiteVars"></a>
-
-### Jekyll Site Variable Values #
-
-HTML make reference to `site.production_url` variables defined within file <strong>_config.yml</strong>.
-
-So populate them. For example:
-
-   ```
-   url                      : https://wilsonmar.github.io
-   productoin_url           : https://wilsonmar.github.io
-   host                     :         wilsonmar.github.io
-   ```
 
 <a name="BingSearch"></a>
 
-### Bing Search Form #
+## Bing Search Form #
 
 Sample HTML:
 
@@ -273,7 +404,7 @@ Sample HTML:
 <div class="searchbox">
   <form method="get" action="http://www.bing.com/search">
     <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
-    <input type="hidden" name="q1" value="site:{{ site.production_url }}" />
+    <input type="hidden" name="q1" value="site:{{ site.url }}" />
   </form>
 </div>{% endraw %}{% endhighlight %}
 
@@ -294,7 +425,7 @@ Sample HTML:
 
 <a name="GoogleSearch"></a>
 
-### Google Search Form #
+## Google Search Form #
 
 This goes in head.html in the menu bar so it appears on every page:
 
@@ -306,16 +437,16 @@ This goes in head.html in the menu bar so it appears on every page:
 
 The use of an onClick function means JavaScript needs to be defined.
 
-This can be put before the &LT;body> section.
+This can be put before the `<body>` section.
 
 {% highlight html %}
 <script type="text/javascript">
 function google_search(){
-   window.location = "http://www.google.com/search?q=site:{{ site.production_url }}+" + encodeURIComponent(document.getElementById("q").value);
+   window.location = "http://www.google.com/search?q=site:{{ site.url }}+" + encodeURIComponent(document.getElementById("q").value);
 }
 </script>{% endhighlight %}
 
-   The production_url is variable replaced with with the external host name searchable after Jekyll runs.
+   The url is a variable replaced with with the external host name searchable after Jekyll runs.
 
 0. Save the change and adjust the CSS.
 
@@ -326,44 +457,10 @@ function google_search(){
     CAUTION: Visitors to your site are directed out to the Bing search page.
     So this approach feeds visitors to Bing.
 
-<a name="elasticsearch"></a>
-
-## Your Own Search Database #
-
-The problem with using search engines is that you only get back what each has indexed.
-And their use make the site seem cheap (because they are free).
-However, they will do until you have time to go through the rest of this tutorial.
-
-The advantage of using your own search database are 
-
-   * results can be returned on the same page
-   * Type-ahead find shows a list of auto-completes based on characters typed in the search field
-   * Filter based on metadata in Jekyll front-matter (dates, categories, tags)
-   * Fast queries
-   * Full-text search
-   * Highlight of words searched in results.
-
-Options for setting up your own search database:
-
-   * <a href="#Bonzai">Bonzai's hosted ElasticSearch service</a>
-   * <a href="#Algolia">Algolia service</a>
-   * Microsoft Azure DIY
-
-   The first three above are SaSS services. No server to setup.
-
-   * Amazon's Elastic Cloud DIY
-   * Amazon EC2 (where you have to configure) DIY
-
-   Common to each solution above is the need to sign-up on their website and get an API key.
-
-Documentation for each solution usually provide instructions for using various 
-   programming languages (Rails, Python, PHP) 
-   as well as frameworks (Django, WordPress, Jekyll).
-
 
 <a name="Bonzai"></a>
 
-### Bonzai hosted ElasticSearch service #
+## Bonzai hosted ElasticSearch service #
 
 I heard about this service from <a target="_blank" href="https://youtu.be/Rsc0Mmp1qc8">
 Allison at JekyllConf</a>
@@ -413,7 +510,7 @@ Try the request using a curl command ???
 
 <a name="Algolia"></a>
 
-### Algolia hosted service #
+## Algolia hosted service #
 
 A free account of up to 10,000 requests per day is available from<br />
 <a target="_blank" href="https://www.algolia.com/">
@@ -422,20 +519,130 @@ Algolia.com</a>.
    <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
    </amp-youtube>
 
-In this video, Tim Carry (tim@algolia.com)
-describes use of his <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll">
-algolia/algoliasearch-jekyll</a> library in GitHub.
+This video is by Tim Carry (tim@algolia.com).
+
+This tutorial fills in some steps missing in his
+<a target="_blank" href="https://blog.algolia.com/instant-search-blog-documentation-jekyll-plugin/">
+   blog article</a>.
 
 0. Sign-up at <a target="_blank" href="https://www.algolia.com/">
-Algolia.com</a> (using your GitHub credentials).
+Algolia.com</a> (you can use your GitHub credentials).
 0. Specify name and region. Their UI has a cool list of live ping response times to various regions:
 
    <amp-img media="(min-width: 386px)" width="386" height="346" 
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
 
 0. Look at the email for links to their thorough
-<a target="_blank" href="https://www.algolia.com/doc">tutorials (doc)</a> and
-<a target="_blank" href="https://www.algolia.com/demos/">demos</a>.
+<a target="_blank" href="https://www.algolia.com/demos/">demos</a> and
+<a target="_blank" href="https://www.algolia.com/doc">tutorials (doc)</a>,
+which populates your instance with example of actors.
+
+0. When you sign-in again, you get the <a target="_blank" href="https://www.algolia.com/dashboard">
+Dashboard</a>.
+
+   #### Create index #
+
+0. Click the pink NEW INDEX button at the upper right.
+
+0. Specify a name, such as prod_ARTICLE.
+
+   Records are not added via the GUI website.
+
+   NOTE: Jekyll stores files it generates in the <strong>_sites</strong> folder. 
+   That's what site vistors download and display.
+
+   A Jekyll plugin from Algolia extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
+   This approach of reading the final HTML pages instead of markdown text works with any markdown parser 
+   and custom plugin.
+
+   The plugin also adds metadata context to each paragraph before pushing the lot to the Algolia index in the cloud.
+
+
+   #### Populate _config.yml with identifers #
+
+0. Use a text editor to open the <strong>_config.yml</strong> file and paste in this under the gems: section:
+
+   <pre>
+   gems:
+     - algoliasearch-jekyll
+
+   algolia:
+     application_id: 'EILX55I5BP'
+     index_name:     'jekyll_PROD'
+     read_only_api_key: '4f4c22ee357217a585b443282cadc2b0'
+     excluded_files:
+      - 404.html
+      - index.html
+       </pre>
+
+0. At the Algolia website, click the <strong>API Keys</strong> icon at the left.
+0. Copy the Application ID value into the Clipboard by clicking the icon to its left, or highlight the text and press command+C to copy.
+
+   <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
+
+   &nbsp;
+
+0. Back to the file, double-click on the application_id value to highlight and press command+V to paste from the Clipboard.
+
+   #### Define Index for _config.yml #
+
+0. Return to the Dashboard and click the <strong>Indices</strong> icon on the left icon menu.
+
+0. Click on the index name within the sausage ("getstarted_actors" in the example).
+
+   <amp-img media="(min-width: 386px)" width="536" height="157" alt="algolia index 536x157"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15623898/51fb4024-2438-11e6-9d12-a03cf345957d.jpg"></amp-img>
+
+   &nbsp;
+
+0. In the drop-down, highlight the text and press command + C to copy to the Clipboard.
+
+0. Switch to _config.yml and double-click 'your_index_name' to highlight it, the press command + V to replace it with the Clipboard.
+
+0. Save the file.
+
+   #### Add Gem to Gemfile and Bundle #
+
+0. Edit the Gemfile to add under section gems:
+
+   <pre>
+group :jekyll_plugins do
+  gem 'algoliasearch-jekyll', '~> 0.7.0'
+end
+   </pre>
+
+   The gem downloaded from Rubygems.org was obtained from:
+
+   <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll/">
+   github.com/algolia/algoliasearch-jekyll</a>
+
+0. Use an internet browser to go to that GitHub repo and click Watch.
+
+0. Switch back to Terminal to <a href="#Bundle">bundle the site again</a>.
+
+0. <a href="#Run">Run Jekyll again</a>.
+
+   #### Define Write API #
+
+0. On the Algolia website, click the API Keys icon.
+
+0. Click the pink NEW API Key button at the upper right.
+
+0. Type a Description value.
+
+0. Check Add Records.
+
+0. Click Generate.
+
+0. Click the copy icon next to the newly generated API key for Operation addObject.
+
+0. In the Terminal, type this (replacing "your_write_api_key") with the contents of Clipboard:
+
+   <tt><strong>
+   ALGOLIA_API_KEY='your_write_api_key' jekyll algolia push
+   </strong></tt>
+
 
 <a name="CustomSearchForm"></a>
 
@@ -447,7 +654,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621
 <div class="searchbox">
   <form method="get" action="http://???">
     <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
-    <input type="hidden" name="q1" value="site:{{site.production_url}}" />
+    <input type="hidden" name="q1" value="site:{{site.url}}" />
   </form>
 </div>{% endraw %}{% endhighlight %}
 
@@ -487,10 +694,9 @@ https://github.com/omc/searchyll
    Notice there is a for loop through post objects. 
    Each post in the loop is within an &LT;article HTML5 tag:
 
-   ```
-    \% for post in paginator.posts %\}
-      &LT;article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">
-   ```
+   {% highlight html %}{% raw %}
+    {% for post in paginator.posts %\}
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">{% endraw %}{% endhighlight %}
 
    Individual post files are within the <strong>_posts</strong> folder.
 
@@ -541,33 +747,6 @@ https://github.com/omc/searchyll
 <a name="config.yml"></a>
 
 ## Edit _config-dev.yml  #
-
-Two configuration files are necessary in Jekyll because, 
-unlike websites powered by WordPress,
-GitHub only does parsing into HTML.
-
-The configuration file that GitHub uses is <strong>_config.yml</strong>.
-It contains a full URL:
-
-   ```
-   url:  "https://wilsonmar.github.io"
-   ```
-
-Jekyll runs locally (on your laptop) to do what GitHub does in the cloud.
-
-The <strong>_config-dev.yml</strong> overrides the url with:
-
-   ```
-   url:  http://localhost:4000/
-   ```
-
-   Port 4000 is the default port Jekyll.
-
-This override is specified when <a href="#RunJekyll">running Jekyll locally</a>, such as:
-
-   <tt><strong>
-   jekyll serve --config _config.yml,_config-dev.yml
-   </strong></tt>
 
 0. Use a text editor to open <strong>_config-dev.yml</strong>.
 0. Add a dependency in gem and add elasticsearch variables.
@@ -641,6 +820,13 @@ Watch it auto-complete with results.
 ## View Logs #
 
 On the search service webpage.
+
+
+<a name="JenkinsCI"></a>
+
+## Jenkins CI #
+
+Set to automatically push data and reindex upon save.
 
 
 <a name="TravisCI"></a>
