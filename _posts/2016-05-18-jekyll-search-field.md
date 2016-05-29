@@ -15,20 +15,21 @@ comments: true
 
 {% include _toc.html %}
 
+The object of this document is that you create a free website with a search field.
+
 This tutorial is intended for "newbies", which also ensures completeness for the advanced.
 
-<a name="elasticsearch"></a>
+#### Search engine #
 
-## Your Own Search Database #
-
-It's relatively easy to add a search box to an online search engines
-<a href="#BingSearch">Bing</a> or
-<a href="#GoogleSearch">Google</a>.
+It's relatively easy to add a search box to an online search engines (<a href="#BingSearch">Bing</a>,
+<a href="#GoogleSearch">Google</a>, etc.).
 I show you how below.
 
-But the problem with using search engines is that you only get back what each has indexed.
+But the problem with using public search engines is that you only get back what each has indexed.
 And their use make the site seem cheap (because they are free).
 However, they will do until you have time to go through the rest of this tutorial.
+
+#### Custom search engine #
 
 The advantage of using your own search database are:
 
@@ -54,18 +55,24 @@ Options for setting up your own search database:
 
 Documentation for each solution usually provide instructions for using various 
    programming languages (Rails, Python, PHP) 
-   as well as frameworks (Django, WordPress, Jekyll).
+   as well as frameworks (Django, WordPress, Jekyll, etc.).
+
+This tutorial focuses on using Jekyll hosted on GitHub.com and edited locally on your own machine.
 
 <hr />
 
 This is a step-by-step tutorial on to setup your own free static website that provides a search box.
 
 0. <a href="#repo"> Create a GitHub repository</a>
-0. <a href="#Jekyll"> Add a Jekyll template</a>
+0. <a href="#Jekyll"> Clone a Jekyll template</a>
 0. <a href="#Ruby"> Install Ruby and Build gems</a>
 0. <a href="#RunJekyll"> Run Jekyll locally</a>
+0. <a href="#RunJekyllScript">Create a Script to Run Jekyll Locally</a>
 
+0. <a href="#BuildIndex">Add step to build index</a>
 0. <a href="#AddPosts"> Add Posts with Text</a>
+0. <a href="#Query"> Query test</a>
+
 0. <a href="#SearchField"> Add Search Field</a>
 0. <a href="#SearchCSS"> Add Search Field CSS</a>
 0. <a href="#SearchField"> Add Search JavaScript</a>
@@ -82,11 +89,8 @@ This is a step-by-step tutorial on to setup your own free static website that pr
 0. <a href="#article"> Add article tag in _layout/post.html</a>
 0. To display, add a Javascript framework for client-side interaction via HTTP. I’m using React and Searchkit.
 
-0. <a href="#Index">Index</a>
-0. <a href="#Query"> Query</a>
-
-0. <a href="#JenkinsCI"> Jenkins</a>
-0. <a href="#TravisCI"> Travis</a>
+0. <a href="#BuildIndex">Build Index</a>
+0. <a href="#BuildCI">Build Continuous Integration</a>
 
 <hr />
 
@@ -104,7 +108,7 @@ There are several ways GitHub generates websites.
 
 <a name="Jekyll"></a>
 
-## Add a Jekyll template #
+## Clone a Jekyll template #
 
 GitHub needs to have a distinctive structure of folders, files, and coding
 so that GitHub can properly generate HTML from the files.
@@ -137,9 +141,18 @@ There are several choices.
 
 On your local machine, create a folder.
 
+   <tt><strong>
+   mkdir ~/gits
+   cd gits
+   </strong></tt>
+
+   On Mac and Linux, the ~ (tilde) character designates the current user's home folder.
+
+   Repos are created within this folder.
+
 If your template is in GitHub:
 
-   git clone 
+   git clone https://github.com/...
 
 Alternately, if you purchased a template, copy it into the folder just created.
 
@@ -167,52 +180,45 @@ Alternately, if you purchased a template, copy it into the folder just created.
 ## Set Jekyll Site Variable Values #
 
 Jekyll references file <strong>_config.yml</strong> at the top root folder.
-Here is an example:
+Here is an example (a "fully qualified" domain name):
 
    <pre>
    url                      : https://wilsonmar.github.io
-   host                     :         wilsonmar.github.io
    </pre>
 
-If you click on a link, you will be sent to a URL based on the variable "url".
+This variable value is embedded in HTML so that when a link is clicked,
+the user is taken to whatever host value is specified by the variable `url`.
 
-NOTE: Most Jekyll templates do not have the `host` variables add here.
+But this is meant for use when hosted publicly (on GitHub).
 
-The `url` variable should be the fully qualified domain name.
+For development use,
+Jekyll can also be <a href="#RunJekyll">run locally</a> (on your laptop) to do what GitHub does in the cloud.
 
-<a name="LocalSiteVars"></a>
-
-## Define local variables #
-
-Jekyll can run locally (on your laptop) to do what GitHub does in the cloud.
-
-But when a link is clicked on a site <a href="#RunJekyll">running Jekyll locally</a>, 
-the user is taken to whatever host value is specified by the url variable, such as:
-
-   ```
-   url                      : https://wilsonmar.github.io
-   ```
-
-We want to go to a local site such as:
+But when we run locally, we want to go to the local site url such as:
 
    ```
    url                      :  http://localhost:4001/
    ```
 
-Thus, we need to overrides the public url.
+Thus, we need to override the url variable value during local use.
 
-0. Create a <strong>_config-dev.yml</strong> file to override values while operating locally.
+0. Use a text editor to create a <strong>_config-dev.yml</strong> file.
+0. Copy and paste the text below (to override values while operating locally):
 
-   <pre>
+   {% highlight yml %}
 url: http://localhost:4001
+
 analytics:
   provider: false
+
 comments:
   disqus:
     shortname            : ""
-       </pre>
+  {% endhighlight %}
 
-   NOTE: Port 4000 is the default port Jekyll.
+If you don't have analytics or use disqus on your site, leave them out.
+
+NOTE: Port 4000 is Jekyll's default port.
 
 
 <a name="RunJekyll"></a>
@@ -250,149 +256,248 @@ comments:
    * <a target="_blank" href="https://jekyllrb.com/docs/configuration/">
    https://jekyllrb.com/docs/configuration/</a>
 
+<a name="RunJekyllScript"></a>
 
-   PROTIP: Create a shell script to save time typing the long command.
+### Create a Script to Run Jekyll Locally #
 
-   Create a file named 4001.sh
-   in a folder in the system path so it can be defined in one place, then executed from any folder.
+PROTIP: Create a script instead of typing in the long command, to save time and avoid mistakes.
 
-   In each folder, define run permissions: chmod a+x 4001.sh
+#### Run script for Mac and Linux #
 
-   Run it: ./4001.sh
+0. Use a text editor program to create a file named 4001.sh</strong>.
 
-<a name="ArchiveRemote"></a> 
+0. Save the file in the root folder of the Jekyll repository.
 
-## Archive remote repo #
-
-PROTIP: Make a small change, then add and commit.
-
-Archive in the cloud a base version to fall back to in case edits cause issues.
+0. Open a Terminal instance and navigate to that repository.
+0. Define run permissions: 
 
    <tt><strong>
-   git add .<br />
-   git commit -m"Add sample posts"
+   chmod a+x 4001.sh
    </strong></tt>
 
-See if there is a remote local defined:
+0. Open a Terminal instance to run it: 
 
    <tt><strong>
-   git remote -v
+   ./4001.sh
    </strong></tt>
 
-If there isn't, define one (replacing the URL with yours):
-  
+#### Run script for Windows #
+
+0. Use a text editor program to create a file named 4001.cmd</strong>.
+
+0. Save the file in the root folder of the Jekyll repository.
+
+0. Open cmd program and navigate to that Jekyll folder.
+
+0. Run it: 
+
    <tt><strong>
-   git remote add remote https://github.com/jetbloom/jetbloom.github.io
+   4001.cmd
    </strong></tt>
 
-Verify with another `git remote -v`.
 
-Push commits to GitHub to verify the site running before customization.
-
-   <tt><strong>
-   git push
-   </strong></tt>
-
-<hr />
 
 <a name="AddPosts"></a>
 
-## Add Posts with Text #
+### Add Posts with Text #
 
-   If you installed Algolia's sample Hyde theme, note no posts are in it to search on.
+   Some themes contain no posts to search on. So you would have to add some .md (markdown) files.
+
+   Algolia's sample Hyde theme does come with sample posts.
+
    We are using that repo as an example of coding and configuration settings.
+
+<a name="404Search"></a>
+
+### 404 Search Redirect #
+
+Change the URL to a post that should not exist, such as: 
+
+   http://<em>your_account</em>.github.io/whatever.
+
+   * Are you redirected to a search page with the post name ("whatever") in the search field?
+   NOTE: <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/issues/4">
+   An issue has been filed to request this feature</a>.
+
+
+<a name="Query"></a>
+
+### Query test #
+
+Type in the search field a letter such as "L".
+
+* Do results appear as you type?
+
+Click home and try search term "love craxy" with a misspelling.
+
+* Is it "typo tolerant"?
+
+* Are capital letters and lower case letters equivalent?
+ 
+* Do you like the way it looks?
+
+   Would you rather have the background around text appear in a different color?
+
+* Do results highlight contents in context of the website rather than taking you to another website with different branding?
+
+<hr />
+
+xxx
 
 <a name="SearchField"></a>
 
-## Add Search Field #
+## Add Search Field in sidebar HTML #
 
-### Field on Menu #
+   NOTE: Jekyll stores files it generates in the <strong>_sites</strong> folder. 
+   That's what site vistors download and display.
+   Each <strong>index.html</strong> served to vistors who go to the URL is generated from several files.
+   It may not be mimified so we can still read it without additional processing.
 
-Most typically want to add a search field among the menu bar at the top of each page.
+0. Navigate down the folders to an index.html file and open it in a text editor.
+   
+   All content files are named **index.html** so visitors don't have to type in the .html file extension.
+   This is better for SEO (Search Engine Optimization).
 
-In a Jekyll site, that would be <strong>head.html</strong>.
+0. Press Ctrl+F to search for `<article class="post">`
+   a <a target="_blank" href="http://mdn.beonex.com/en/HTML/Element/article.html">HTML5 standard tag</a>
+   to designate content (and not navigation and other fluff).
 
-In the MinimalMistakes theme from March 2016, the page.html folder contains:
+   NOTE: Content shown on Jekyll websites are defined as individual files within the <strong>_posts</strong> folder.
+   The underline in the name means that the folder is not transferred into the _site folder.
 
-   {% highlight text %}{% raw %}
-  {% include _navigation.html %}{% endraw %}{% endhighlight %}
+   Post files have file names ending with ".md" to designate markdown formatting.
+   Jekyll processes such files into index.html files.
 
-   This file I found within the _includes folder.
+   The three dashes in the first line begins the "front matter" which Jekyll processes.
 
-NOTE: I couldn't insert a field without having it wrap to the next line.
+   <pre>
+   ---
+   layout: post
+   title: Let's start the adventure
+   </pre>
 
-### Separate menu item #
+   The `post` value in `layout: post` means that the **post.html** file in the **_layouts** folder is used to format text in the file.
+   Text in the file replaces the tag: 
 
-So I added a "SEARCH" menu item in the template's _data/navigation.yml file, 
-then created a folder at the root with the same name I specified: search.
-Insid that folder I created a default.html file.
+      &#123;&#123; content }}
+   
+   In the **_includes** folder of the Algolia template are the head.html, footer.html, and sidebar.html.
+
+### sidebar.html #
+
+The **sidebar.html** file contains what is within the `<div class="sidebar">` tag positioned to the left of content on every page.
+
+The search field is in that file:
+
+   <pre>
+&LT;input type="text" class="algolia__input js-algolia__input" 
+autocomplete="off" 
+name="query" 
+placeholder="Search in this site..." />
+   </pre>
+
+   TODO: Explain Notice there is no JavaScript "onClick" function here.
+
+   That's because JavaScript functions have been invoked when the website was loaded to watch for changes in classes
+   <strong>algolia__input</strong> and <strong>js-algolia__input</strong>.
+
+### head.html #
+
+When a web page (index.html) is loaded by an internet browser at the client end,
+contents of the `<head>` are processed first.
+
+The Algolia Jekyll theme defines that code in the **head.html** file.
+
+That includes `<link` statements to bring in JavaScript and CSS files.
+
+### footer.html #
+
+   The **footer.html** file contains what goes before the `</body>` tag at the bottom of every page.
+   The Algoria template also defines JavaScript variables and populates them with values from the _config.xml file:
+
+ {% highlight text %}{% raw %}
+  <script>
+  window.ALGOLIA_CONFIG = {
+    'applicationId': '{{ site.algolia.application_id }}',
+    'indexName': '{{ site.algolia.index_name }}',
+    'apiKey': '{{ site.algolia.read_only_api_key }}',
+    'baseurl': '{{ site.baseurl }}'
+  }
+</script>{% endraw %}{% endhighlight %}
+
+   
+
+ {% highlight text %}{% raw %}
+<script id="algolia__template" type="text/template">
+% raw %}
+  <div class="algolia__result">
+    <a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a>
+    {{#posted_at}}
+    <div class="algolia__result-date">{{ posted_at_readable }}</div>
+    {{/posted_at}}
+    <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
+  </div>
+% endraw %}
+</script>
+<script id="algolia__template--no-results" type="text/template">
+  No results found.
+</script>{% endraw %}{% endhighlight %}
+
+
+### JavaScript #
+
+The <strong>onLinkClick</strong> JavaScript function invoked 
+is defined in the <strong>algolia.js</strong> file within
+the public/js folder.
+
+* onQueryChange
+
+* onResult
+
+* renderResults
+
+* getAnchorSelector
+
+* scrollPageToSelector
+
+The above in turn reference functions in libraries pulled in from the internet:
+
+   {% highlight html %}
+<script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/algoliasearch/3.6.0/algoliasearch.min.js"></script>
+<script src="//cdn.jsdelivr.net/algoliasearch.helper/2.1.0/algoliasearch.helper.min.js"></script>
+<script src="//cdn.jsdelivr.net/hogan.js/3.0.2/hogan.min.js"></script>
+<script src="//cdn.jsdelivr.net/momentjs/2.10.3/moment.min.js"></script>
+<script src="/algoliasearch-jekyll-hyde/public/js/algolia.js"></script>{% endhighlight %}
+
+
 
 
 <a name="SearchCSS"></a>
 
 ## Search Field CSS Formatting #
 
-Each option involves <a href="#SearchCSS"> changes to CSS</a> as well to suit your design tastes.
-
 It seems there are as many ways to store CSS in Jekyll sites as there are Jekyll sites.
 
-The Amplify Jekyll template has this in the <strong>head.html</strong> within its _includes folder:
+Each option involves <a href="#SearchCSS"> changes to CSS</a> as well to suit your design tastes.
 
-   {% highlight text %}{% raw %}
-  <style amp-custom>
-  {% capture include_to_scssify %}
-    {% include styles.scss %}
-  {% endcapture %}
-  {{ include_to_scssify | scssify }}
-  </style>{% endraw %}{% endhighlight %}
+The Algoria theme keeps CSS and JavaScript within a <strong>public</strong> folder.
+   A separate <strong>algoria.css</strong> file contains styling for both the search box and search results.
+
+   Notice it is raw CSS, with no SASS processing.
 
    Many Jekyll templates use SASS, 
    which expands style codes in sass files to generate CSS used in websites.
-
-
-   Alternately, the Minimal Jekyll template's <strong>_head.html</strong> file's _includes folder contains this line:
-
-   {% highlight html %}
-   <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">{% endhighlight %}
-
-   NOTE: Variables beginning with `site.` is defined to the right of "url:" within file _config.yml for the site.
-
-   PROTIP: The <strong>main.css</strong> file is the file name generated by SASS.
-
-0. Open the styles.scss in a text editor.
-
-   The bourbon/bourbon and syntax-highlighting imported at the top of the file are popular mixins.
-   They were downloaded.
-
-0. Copy and paste the custom css below onto the bottom of the file:
-
-   {% highlight css %}
-   .searchbox {
-     float:right;
-     width: 50%;
-     padding: 3px;
-     border:0;
-     outline: none;
-     vertical-align: bottom;
-   }
-   #searchinput {
-     width:100%;
-   }{% endhighlight %}
-
-3\. Save the changes.
-
-4\. Adjust as you like after adding HTML that makes use of these definitions.
-
-   For example,
-   the `float:right` positions the field at the far right, where most websites have a search box.
-   If there is something already there, you will have to change this CSS.
    
+Resources:
+
    * <a target="_blank" href="https://www.toptal.com/css/sass-mixins-keep-your-stylesheets-dry">
    More about SASS mixins</a>
 
    * A popular SASS library is 
    bourbon
 
+<hr />
 
 <a name="BingSearch"></a>
 
@@ -416,7 +521,7 @@ Sample HTML:
 
 0. Save the change and adjust the CSS.
 
-0. Add, commit, and push to GitHub.
+0. Add, commit to set a save point.
 
 0. Do a sample search.
 
@@ -512,7 +617,7 @@ Try the request using a curl command ???
 
 ## Algolia hosted service #
 
-A free account of up to 10,000 requests per day is available from<br />
+A free account of up to 10,000 requests per day is available from
 <a target="_blank" href="https://www.algolia.com/">
 Algolia.com</a>.
 
@@ -540,23 +645,35 @@ which populates your instance with example of actors.
 0. When you sign-in again, you get the <a target="_blank" href="https://www.algolia.com/dashboard">
 Dashboard</a>.
 
+   <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
+
+   &nbsp;
+
+0. Copy the value of
+   the Application ID and API KEY 
+   (by clicking on the icon to the right of each value or
+   highlight each value and press Ctrl_C).
+
+
+
+
+
    #### Create index #
-
-0. Click the pink NEW INDEX button at the upper right.
-
-0. Specify a name, such as prod_ARTICLE.
 
    Records are not added via the GUI website.
 
-   NOTE: Jekyll stores files it generates in the <strong>_sites</strong> folder. 
-   That's what site vistors download and display.
-
-   A Jekyll plugin from Algolia extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
+   A Jekyll plugin (from Algolia or another) 
+   extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
    This approach of reading the final HTML pages instead of markdown text works with any markdown parser 
    and custom plugin.
 
    The plugin also adds metadata context to each paragraph before pushing the lot to the Algolia index in the cloud.
 
+
+NOTE: With Aloglia, an index does not need to be created.
+
+0. Specify a name, such as prod_ARTICLE.
 
    #### Populate _config.yml with identifers #
 
@@ -576,13 +693,6 @@ Dashboard</a>.
        </pre>
 
 0. At the Algolia website, click the <strong>API Keys</strong> icon at the left.
-0. Copy the Application ID value into the Clipboard by clicking the icon to its left, or highlight the text and press command+C to copy.
-
-   <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
-
-   &nbsp;
-
 0. Back to the file, double-click on the application_id value to highlight and press command+V to paste from the Clipboard.
 
    #### Define Index for _config.yml #
@@ -643,6 +753,11 @@ end
    ALGOLIA_API_KEY='your_write_api_key' jekyll algolia push
    </strong></tt>
 
+   #### Define JavaScript #
+
+JavaScript executed 
+
+
 
 <a name="CustomSearchForm"></a>
 
@@ -662,27 +777,6 @@ end
 <a name="libraries"></a>
 
 ## Code library links #
-
-In the <strong>head.html</strong> file, add under the <head tag:
-
-   {% highlight html %}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/tabletop.js"></script>
-    <script type="text/javascript" src='js/sheetsee.js'></script>{% endhighlight %}
-
-* JQuery
-
-* Tabletop
-
-* Sheetsee
-
-* https://facebook.github.io/react/
-
-* http://www.searchkit.co/
-
-https://github.com/omc/searchyll
-
-   Save and exit, then add, commit, and push to GitHub to ensure that the site still works.
 
 
 <a name="article"></a>
@@ -790,47 +884,69 @@ https://github.com/omc/searchyll
 
    The Gemfile.lock file generated defines the version being used of each gem.
 
-<a name="Index"></a>
+<a name="BuildIndex"></a>
 
-### Index Search Words #
+## Build index locally #
 
-Many developers setup a way to invoke a task runner when a file change is detected.
+PROTIP: A <a href="#RunJekyll">custom shell script to invoke Jekyll</a> 
+can also enable additional processing to be invoked automatically.
 
-From Allison's blog:
+In this case, parse text for indexing and push index entries to Algolia API servers.
+
+Add to the bottom of the 40001 run script this line:
+
+   <tt><strong>
+   ALGOLIA_API_KEY=’your_write_api_key’ jekyll algolia push
+   </strong></tt>
+
+0. Use an internet browser to go the Dashboard to your account on the Algoria.com website.
+0. Copy the API key to your machine's Clipboard.
+0. Switch back to the text editor to replace ’your_write_api_key’ from the Clipboard.
+0. Save the file and run again (as described above).
+
+0. If you don't want to expose your API key to the world, 
+   keep the 4001 script file only in your local git repository and not in the public GitHub
+   by adding the file's name to the repo's <strong>.gitignore</strong> file.
+
+One way to tell the plugin what this key is, is to define it as a global variable right before calling the command (ALGOLIA_API_KEY="XXXX"). Another way is to create a file named _algolia_api_key in the same folder as the _config.yml file.
+
+But with any of these methods, having the file not in the public make sense since
+GitHub doesn't do algolia push anyway. 
+It's only done locally or by a "Continuous Integration" server (such as Jekins, Travis, or Circle).
+
+
+### For Allison's Bonzai #
 
 Searchyll indexes on build, so you can index to your cluster locally by running:
 
-  $ BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" jekyll build
+  BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" jekyll build
 
 Or, if you’re going to use it in your deploy:
 
-  $ BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" bin/deploy
+  BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" bin/deploy
 
+TODO: Explain what this means.
 
-<a name="Query"></a>
-
-## Query #
-
-Type in a query string.
-
-Watch it auto-complete with results.
 
 <a name="ViewLogs"></a>
 
-## View Logs #
+## View Logs and Metrics #
 
 On the search service webpage.
 
 
-<a name="JenkinsCI"></a>
+<a name="BuildCI"></a>
 
-## Jenkins CI #
+## Update indexes in Continuous Integration #
 
-Set to automatically push data and reindex upon save.
+PROTIP: Update indexes using a continuous integration server
+set to automatically push data and reindex upon save.
 
+There are several CI servers:
 
-<a name="TravisCI"></a>
+TODO: Add CI settings instructions.
 
-## Travis CI #
-
-Set to automatically push data and reindex upon save.
+* Jenkins
+* Cloudbees SaaS running Jenkins
+* TravisCI
+* CircleCI

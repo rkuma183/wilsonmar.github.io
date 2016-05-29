@@ -164,7 +164,7 @@ that Markdown converts into escape entities that begin with an **&amp;** (ampers
 
 * the ampersand itself turns to &amp;amp;, as in link URLs.
 
-## Headings
+## Headings #
 
 Instead of the opening `<h2>` and such tags, replace with `##`
 (called <a target="_blank" href="http://www.aaronsw.com/2002/atx/">Atx-style</a> headers).
@@ -172,7 +172,8 @@ Instead of the opening `<h2>` and such tags, replace with `##`
 Markdown recognizes up to 6 hash characters for 6 levels.
 
 The ending '##' character is optional. It can be any number of characters.
-## Tables
+
+## Tables #
 
 Alternately, <a target="_blank" href="http://docutils.sourceforge.net/mirror/setext.html">Setext-style</a>
 headers are specified (“underlined”) by a series of
@@ -185,6 +186,7 @@ First-level H1 headers
 Second-level H2 headers
 -------------
 </code></pre>
+
 ## Tables in HTML
 
 HTML tables renders well from within Markdown text document.
@@ -329,16 +331,22 @@ Liquid &#123;% tag markers:
 Liquid <strong>output</strong> markup can also be specified between two curly braces,
 such as:
 
-<pre><code>
-&#123;% highlight html %}
+{% highlight text %}{% raw %}
 {{ page.heading | upcase | truncate: 8 }}
-</code></pre>
+{% endraw %}{% endhighlight %}
 
 The page.heading refers to the heading variable specified in the front matter at the top of the file.
 
+To display Liquid markup in documentation:
+
+<pre><code>
+&#123;% highlight html %}&#123;% raw %}
+&#123;&#123; page.heading | upcase | truncate: 8 }}
+&#123;% endraw %}&#123;% endhighlight %}
+</code></pre>
+
 In fact, Liquid is a rather (simple yet complete) <strong>programming language</strong> on its own right, with if/then/else,
 for loops, etc.
-
 The home page for Liquid template language (written in Ruby):
 
 * <a target="_blank" href="http://shopify.github.io/liquid/">
