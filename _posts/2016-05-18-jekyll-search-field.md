@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Text Search within Jekyll websites"
-excerpt: "Where did you write that?"
+excerpt: "Make a website with a search box"
 tags: [Jekyll, ElasticSearch, Search]
 image:
 # feature: pic blue lake searching 1900x500.jpg
@@ -15,56 +15,91 @@ comments: true
 
 {% include _toc.html %}
 
-The object of this document is that you create a free website with a search field.
+The first objective of this document is that you create a nicely formatted free personal blog with a search box.
 
-This tutorial is intended for "newbies", which also ensures completeness for the advanced.
+This tutorial is written so "newbies" can follow step-by-step.
 
-#### Search engine #
+PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
 
-It's relatively easy to add a search box to an online search engines (<a href="#BingSearch">Bing</a>,
-<a href="#GoogleSearch">Google</a>, etc.).
-I show you how below.
+If you want to <strong>add</strong> search capabilities (using ElasticSearch service) to an existing Jekyll theme,
+see an upcoming blog by Andrew Krug 
 
-But the problem with using public search engines is that you only get back what each has indexed.
-And their use make the site seem cheap (because they are free).
-However, they will do until you have time to go through the rest of this tutorial.
+<a name="QueryTest"></a>
 
-#### Custom search engine #
+## Test drive search on theme's demo site #
 
-The advantage of using your own search database are:
+0. Click this link to go to our theme's demo website on-line:
 
-   * results can be returned on the same page rather than sending your visitors away (a big deal)
-   * Type-ahead find shows a list of auto-completes as characters are typed in the search field
-   * Filter based on metadata in Jekyll front-matter (dates, categories, tags)
-   * Fast queries
-   * Full-text search
-   * Highlight of words searched in results.
+   <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
+   http://community.algolia.com/algoliasearch-jekyll-hyde/</a>
 
-Options for setting up your own search database:
+   The formatting of this site is what you'll have as your blog 
+   after following instructions in this tutorial.
 
-   * <a href="#Bonzai">Bonzai's hosted ElasticSearch service</a>
-   * <a href="#Algolia">Algolia service</a>
-   * Microsoft Azure DIY
-   * Amazon's Elastic Cloud DIY
+0. Type in the search field a single letter such as "L".
 
-   The ones above are SaSS services. No server to setup.
+   * Do results appear as you type? It should.
 
-   * Amazon EC2 (where you have to configure) DIY
+   * Do you need to click a submit button? No.
 
-   Common to each solution above is the need to sign-up on their website and get an API key.
+   * Are results highlighted within the normal presentation rather than with a different format, such as with Bing or Google search?
 
-Documentation for each solution usually provide instructions for using various 
-   programming languages (Rails, Python, PHP) 
-   as well as frameworks (Django, WordPress, Jekyll, etc.).
+0. Click another link (Home) and try search term "Love craxy" (with a capital letter and a misspelling).
 
-This tutorial focuses on using Jekyll hosted on GitHub.com and edited locally on your own machine.
+   * Is it "typo tolerant" ("crazy" is found even though it was typed in wrong as "craxy").
+
+   * Are capital letters and lower case letters equivalent?
+
+   Thus, as far as search goes, the theme presented is rather complete. Well, almost.
+ 
+   <a name="404Search"></a>
+
+   ### 404 Search Redirect #
+
+0. Change the URL to a post that should not exist, such as: 
+
+   <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
+   http://community.algolia.com/algoliasearch-jekyll-hyde/<strong>whatever</strong></a>
+
+   * Are you redirected to a search page with "whatever" in the search field? 
+   No.
+   <br /><br />
+   NOTE: <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/issues/4">
+   I've filed an issue to request this feature</a>.
+
+
+### Additional features #
+
+We are using a <strong>pre-formatted theme</strong> rather than design-your-own,
+which takes much more time and expertise.
+
+Some features on other blogs that can be added include:
+
+* Request for visitor email to subscribe.
+* Comments such as Disqus
+* Commenting buttons to create a post on Twitter, Facebook, Google+, etc.
+* Social buttons to the author's eminations on Twitter, Facebook, etc.
+
+* Email form to provide feedback
+* Site XML file for Google Search to discover
+* Google Analytics
+* Google ads
+
+* etc.
+
+However, this article does take a "deep dive" into the intracacies of programming HTML and CSS
+in the context of this Jekyll framework, to begin equipping you to add features to your site:
+
+* Custom icons appearing on website tabs
 
 <hr />
 
-This is a step-by-step tutorial on to setup your own free static website that provides a search box.
+## Step-by-step instructions #
 
-0. <a href="#repo"> Create a GitHub repository</a>
-0. <a href="#Jekyll"> Clone a Jekyll template</a>
+Here are the steps setup your own free static website that provides a search box.
+
+0. <a href="#GitHubAccount"> Create a GitHub account</a>
+0. <a href="#ForkRepo"> Clone a Jekyll template</a>
 0. <a href="#Ruby"> Install Ruby and Build gems</a>
 0. <a href="#RunJekyll"> Run Jekyll locally</a>
 0. <a href="#RunJekyllScript">Create a Script to Run Jekyll Locally</a>
@@ -94,39 +129,67 @@ This is a step-by-step tutorial on to setup your own free static website that pr
 
 <hr />
 
-<a name="repo"></a>
+<a name="GitHubAccount"></a>
 
-## Create a Repository #
+## Create a GitHub Account #
 
-http://github.com/
+In this tutorial, we refer to <em>your_account</em> as the account name you created in GitHub.
 
-There are several ways GitHub generates websites.
+If you already have an account, skip this section.
 
-   * account.github.io
-   * account.github.io/project
-   * Wiki within project
+0. Click on this URL to open an internet browser to: 
 
-<a name="Jekyll"></a>
+   <a target="_blank" href="http://github.com/">github.com</a>
 
-## Clone a Jekyll template #
+0. Sign-up.
 
-GitHub needs to have a distinctive structure of folders, files, and coding
-so that GitHub can properly generate HTML from the files.
+0. Confirm your email. 
 
-A template comes with all the CSS and JavaScript that GitHub recognizes.
 
-0. If the template is on GitHub, click its Fork button to put it under your GitHub account.
+<a name="ForkRepo"></a>
+
+## Fork and rename the Jekyll template #
+
+Templates provide pre-formatted CSS and JavaScript.
+Themes are available from a variety of sources.
+
+We like Jekyll over WordPress, Drupal, and other frameworks because unlike them others,
+Jekyll's blog entries are stored in text files rather in a database.
+This makes it easier to switch Jekyll themes.
+
+The theme we are using in this tutorial is based on a fork of 
+the <a target="_blank" href="http://hyde.getpoole.com/">
+Hyde theme template</a>, which is among the most popular 
+partly because it is created by the legendary <a target="_blank" href="https://twitter.com/mdo">
+Mark Otto</a>, Director of Design at GitHub.
+
+   * Mobile friendly design and development
+
+   * Easily scalable text and component sizing with rem units in the CSS
+
+The steps:
+
+0. Click the link below to open an internet browser with our base theme:
 
    <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde">
    https://github.com/algolia/algoliasearch-jekyll-hyde</a>
-   is good to use because a search box has been addedd to the original theme
-   (by the legendary Mark Otto of GitHub).
 
-   <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
-   Test drive a demo of it online</a>.
+   This theme adds a search box to the Hyde theme by adding
+   additional HTML, CSS, configuration settings, and JavaScript programming.
 
-0. Click Settings if you want to rename the repo, such as <em>your_account_name</em>.github.io.
+   We will examine each change below.
+
+0. Click its <strong>Fork</strong> button to put it under your GitHub account.
+
+0. Click the <strong>Settings</strong> tab to rename the repo, as <em>your_account_name</em>.github.io.
+
+   In other words, if your account name is "wilsonmar", you would rename the repo to wilsonmar.github.io.
    
+   NOTE: "github.io" means the site is hosted by GitHub, which does not charge (unlike GoDaddy or other hosting provider).
+
+   PROTIP: Sites hosted on GitHub.io can still have a custom name such as "wilsonmar.com".
+
+Next, we'll download the repository.
 
 <a name="GitClient"></a>
 
@@ -134,15 +197,23 @@ A template comes with all the CSS and JavaScript that GitHub recognizes.
 
 There are several choices.
 
+   * Mac machine already have a command-line Git client.
+
+
+
 
 <a name="ConfigRemote"></a> 
 
-## Configure remote repo #
+## Create a local repo #
 
-On your local machine, create a folder.
+
+0. Open a Terminal Shell Window.
+
+0. PROTIP: Create a folder to hold all Git repositories.
+   Change directory into it:
 
    <tt><strong>
-   mkdir ~/gits
+   mkdir ~/gits<br />
    cd gits
    </strong></tt>
 
@@ -150,15 +221,26 @@ On your local machine, create a folder.
 
    Repos are created within this folder.
 
-If your template is in GitHub:
+0. Since you cloned:
 
-   git clone https://github.com/...
+   <tt><strong>
+   git clone https://github.com/<em>your_account</em>/<em>your_account</em>.github.io
+   </strong></tt>
 
-Alternately, if you purchased a template, copy it into the folder just created.
+   NOTE: This mechanism includes a .git folder that contains all the history in the creation of the template.
 
 <a name="Ruby"></a>
 
 ## Install Ruby and Build gems #
+
+Jekyll is written in the Ruby programming language.
+
+Gems contain Ruby programs in a way that can be easily installed.
+
+0. Use a text editor to open the <strong>Gemfile</em>.
+
+   Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
+   Rubygems website</a>.
 
 0. In a Terminal window, fetch gems specified in the Gemfile:
 
@@ -168,57 +250,7 @@ Alternately, if you purchased a template, copy it into the folder just created.
 
    Install is the default action.
 
-   The Gemfile.lock file generated defines the version being used of each gem.
-
-   Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
-   Rubygems website</a>.
-
-   Every time the list of gems changes, re-bundle again.
-
-<a name="SiteVars"></a>
-
-## Set Jekyll Site Variable Values #
-
-Jekyll references file <strong>_config.yml</strong> at the top root folder.
-Here is an example (a "fully qualified" domain name):
-
-   <pre>
-   url                      : https://wilsonmar.github.io
-   </pre>
-
-This variable value is embedded in HTML so that when a link is clicked,
-the user is taken to whatever host value is specified by the variable `url`.
-
-But this is meant for use when hosted publicly (on GitHub).
-
-For development use,
-Jekyll can also be <a href="#RunJekyll">run locally</a> (on your laptop) to do what GitHub does in the cloud.
-
-But when we run locally, we want to go to the local site url such as:
-
-   ```
-   url                      :  http://localhost:4001/
-   ```
-
-Thus, we need to override the url variable value during local use.
-
-0. Use a text editor to create a <strong>_config-dev.yml</strong> file.
-0. Copy and paste the text below (to override values while operating locally):
-
-   {% highlight yml %}
-url: http://localhost:4001
-
-analytics:
-  provider: false
-
-comments:
-  disqus:
-    shortname            : ""
-  {% endhighlight %}
-
-If you don't have analytics or use disqus on your site, leave them out.
-
-NOTE: Port 4000 is Jekyll's default port.
+   The <strong>Gemfile.lock</strong> file generated defines the version being used of each gem.
 
 
 <a name="RunJekyll"></a>
@@ -296,57 +328,31 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
    </strong></tt>
 
 
-
 <a name="AddPosts"></a>
 
-### Add Posts with Text #
+## Add Posts with Text #
 
    Some themes contain no posts to search on. So you would have to add some .md (markdown) files.
 
-   Algolia's sample Hyde theme does come with sample posts.
+   Algolia's sample Hyde theme comes with sample posts.
 
-   We are using that repo as an example of coding and configuration settings.
-
-<a name="404Search"></a>
-
-### 404 Search Redirect #
-
-Change the URL to a post that should not exist, such as: 
-
-   http://<em>your_account</em>.github.io/whatever.
-
-   * Are you redirected to a search page with the post name ("whatever") in the search field?
-   NOTE: <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/issues/4">
-   An issue has been filed to request this feature</a>.
+   This tutorial examples the sample theme's files to learn coding and configuration techniques.
 
 
 <a name="Query"></a>
 
 ### Query test #
 
-Type in the search field a letter such as "L".
-
-* Do results appear as you type?
-
-Click home and try search term "love craxy" with a misspelling.
-
-* Is it "typo tolerant"?
-
-* Are capital letters and lower case letters equivalent?
- 
-* Do you like the way it looks?
-
-   Would you rather have the background around text appear in a different color?
-
-* Do results highlight contents in context of the website rather than taking you to another website with different branding?
 
 <hr />
 
-xxx
-
 <a name="SearchField"></a>
 
-## Add Search Field in sidebar HTML #
+## Add Search Field in HTML #
+
+Different templates use varying techniques to provide a form field for visitors to specify search terms.
+
+### index.html #
 
    NOTE: Jekyll stores files it generates in the <strong>_sites</strong> folder. 
    That's what site vistors download and display.
@@ -368,7 +374,8 @@ xxx
    Post files have file names ending with ".md" to designate markdown formatting.
    Jekyll processes such files into index.html files.
 
-   The three dashes in the first line begins the "front matter" which Jekyll processes.
+   The three dashes in the first line begins the <a target="_blank" href="http://jekyllrb.com/docs/frontmatter/">
+   front matter"</a> which Jekyll processes.
 
    <pre>
    ---
@@ -381,7 +388,16 @@ xxx
 
       &#123;&#123; content }}
    
-   In the **_includes** folder of the Algolia template are the head.html, footer.html, and sidebar.html.
+In the **_includes** folder of the Algolia template are the head.html, footer.html, and sidebar.html.
+
+### head.html #
+
+When a web page (index.html) is loaded by an internet browser at the client end,
+contents of the `<head>` are processed first.
+
+The Algolia Jekyll theme defines that code in the **head.html** file.
+
+That includes `<link` statements to bring in JavaScript and CSS files.
 
 ### sidebar.html #
 
@@ -401,19 +417,13 @@ placeholder="Search in this site..." />
    That's because JavaScript functions have been invoked when the website was loaded to watch for changes in classes
    <strong>algolia__input</strong> and <strong>js-algolia__input</strong>.
 
-### head.html #
 
-When a web page (index.html) is loaded by an internet browser at the client end,
-contents of the `<head>` are processed first.
-
-The Algolia Jekyll theme defines that code in the **head.html** file.
-
-That includes `<link` statements to bring in JavaScript and CSS files.
 
 ### footer.html #
 
-   The **footer.html** file contains what goes before the `</body>` tag at the bottom of every page.
-   The Algoria template also defines JavaScript variables and populates them with values from the _config.xml file:
+The **footer.html** file contains what goes before the `</body>` tag at the bottom of every page.
+
+The Algoria template also defines JavaScript variables and populates them with values from the _config.xml file:
 
  {% highlight text %}{% raw %}
   <script>
@@ -481,7 +491,7 @@ It seems there are as many ways to store CSS in Jekyll sites as there are Jekyll
 
 Each option involves <a href="#SearchCSS"> changes to CSS</a> as well to suit your design tastes.
 
-The Algoria theme keeps CSS and JavaScript within a <strong>public</strong> folder.
+The Algoria theme keeps CSS and JavaScript within a folder named <strong>public</strong>.
    A separate <strong>algoria.css</strong> file contains styling for both the search box and search results.
 
    Notice it is raw CSS, with no SASS processing.
@@ -489,13 +499,34 @@ The Algoria theme keeps CSS and JavaScript within a <strong>public</strong> fold
    Many Jekyll templates use SASS, 
    which expands style codes in sass files to generate CSS used in websites.
    
-Resources:
+ Additional resources about SASS:
 
    * <a target="_blank" href="https://www.toptal.com/css/sass-mixins-keep-your-stylesheets-dry">
    More about SASS mixins</a>
 
    * A popular SASS library is 
    bourbon
+
+
+<a name="HydeChanges"></a>
+
+#### Theme adjustments #
+
+Some themes pre-code alternative CSS that can be selected.
+
+<a target="_blank" href="https://github.com/poole/hyde">
+   https://github.com/poole/hyde</a>
+   explains some changes in the format of the site's layout.
+   To change the color scheme of the site to green and flip the menu to the right side,
+   change <strong>_layouts/default.html</strong> from:
+
+   `<body class="theme-base-09">`
+
+   to:
+
+   `<body class="theme-base-0b layout-reverse">`
+
+The disadvantage of this convenience is that the CSS file can become "bloated", and require longer to load by visitors.
 
 <hr />
 
@@ -758,132 +789,6 @@ end
 JavaScript executed 
 
 
-
-<a name="CustomSearchForm"></a>
-
-### Custom Search Form #
-
-0. Copy the HTML below and paste it in the file.
-
-{% highlight html %}{% raw %}
-<div class="searchbox">
-  <form method="get" action="http://???">
-    <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
-    <input type="hidden" name="q1" value="site:{{site.url}}" />
-  </form>
-</div>{% endraw %}{% endhighlight %}
-
-
-<a name="libraries"></a>
-
-## Code library links #
-
-
-<a name="article"></a>
-
-## article tag #
-
-1\. Use a text editor to open <strong>index.html</strong>.
-
-   Notice there is a for loop through post objects. 
-   Each post in the loop is within an &LT;article HTML5 tag:
-
-   {% highlight html %}{% raw %}
-    {% for post in paginator.posts %\}
-      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" role="article">{% endraw %}{% endhighlight %}
-
-   Individual post files are within the <strong>_posts</strong> folder.
-
-   Close the file without changes.
-
-2\. Open an .md file within the  _posts folder.
-
-   The .md means "Markdown" format. Each such file are automatically converted to .html by GitHub.
-
-   The three dashes at the top defines the "front matter".
-
-   ```
-   ---
-   layout: post
-   ```
-
-   The "post" value is what we came to find.
-
-   Close the file without changes.
-
-3\. Navigate to folder <strong>_layouts</strong>.
-
-4\. Edit file <strong>page.html</strong>.
-
-   Make content searchable by wrapping it between beginning and ending article HTML5 tags. 
-
-   {% highlight html %}{% raw %}
-   <article>
-   {{ content }}
-   </article>{% endraw %}{% endhighlight %}
-
-  Save the edits and exit.
-
-5\. Use a text editor to open **default.html** within folder _layouts.
-
-   Notice there is a for loop through post objects. 
-
-   {% highlight html %}{% raw %}
-<!DOCTYPE html>
-<html ⚡ lang="en">
-  {% include head.html %}
-  <body>
-    {% include header.html %}
-    {{ content }}
-  </body>
-</html>{% endraw %}{% endhighlight %}
-
-<a name="config.yml"></a>
-
-## Edit _config-dev.yml  #
-
-0. Use a text editor to open <strong>_config-dev.yml</strong>.
-0. Add a dependency in gem and add elasticsearch variables.
-
-   ```
-   gems:
-     - jekyll-paginate
-     - searchyll
-
-   elasticsearch:
-     url: "http://localhost:9200/"
-     number_of_shards: 1                       # Optional.
-     number_of_replicas: 1                     # Optional.
-     index_name: "jekyll"                      # Optional.
-     default_type: "post"                      # Optional.
-   ```
-
-  Save the edits and exit.
-
-0. Use a text editor to open <strong>_config.yml</strong>.
-0. Add only elasticsearch variables.
-
-<a name="gemfile"></a>
-
-## Gemfile #
-
-0. Use a text editor to open **Gemfile** (no file extension).
-0. Add at the bottom of the file:
-
-   <tt><strong>
-   gem 'jekyll'<br />
-		...<br />
-   gem "searchyll"
-   </strong></tt>
-
-0. In a Terminal window, fetch gems specified in the Gemfile:
-
-   <tt><strong>
-   bundle
-   </strong></tt>
-
-   The Gemfile.lock file generated defines the version being used of each gem.
-
 <a name="BuildIndex"></a>
 
 ## Build index locally #
@@ -915,24 +820,11 @@ GitHub doesn't do algolia push anyway.
 It's only done locally or by a "Continuous Integration" server (such as Jekins, Travis, or Circle).
 
 
-### For Allison's Bonzai #
-
-Searchyll indexes on build, so you can index to your cluster locally by running:
-
-  BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" jekyll build
-
-Or, if you’re going to use it in your deploy:
-
-  BONSAI_URL="https://user_name:password@trial-jekyll-1468587631.us-east-1.bonsai.io" bin/deploy
-
-TODO: Explain what this means.
-
-
 <a name="ViewLogs"></a>
 
 ## View Logs and Metrics #
 
-On the search service webpage.
+On the search service Dashboard:
 
 
 <a name="BuildCI"></a>
