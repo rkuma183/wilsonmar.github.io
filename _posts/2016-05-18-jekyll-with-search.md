@@ -222,6 +222,14 @@ There are several choices.
 
    Repos are created within this folder.
 
+0. PROTIP: Create a folder to hold all Git repositories from your account.
+   Change directory into it:
+
+   <tt><strong>
+   mkdir ~/gits/<em>your_account</em><br />
+   cd <em>your_account</em>
+   </strong></tt>
+
 0. Since you cloned:
 
    <tt><strong>
@@ -309,9 +317,9 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 
 0. Switch to an internet browser to open the server address:
 
-   http://127.0.0.1:4001/
+   <a target="_blank" href="http://127.0.0.1:4001/">http://127.0.0.1:4001</a>
 
-   BTW, other configuration options:
+   BTW, documentation on all configuration options:
 
    * <a target="_blank" href="https://jekyllrb.com/docs/configuration/">
    https://jekyllrb.com/docs/configuration/</a>
@@ -355,28 +363,37 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
    4001.cmd
    </strong></tt>
 
+<a name="HydeChanges"></a>
 
-<a name="AddPosts"></a>
+## Theme presentation adjustments #
 
-## Add Posts with Text #
+Some themes pre-code alternative CSS that can be selected.
 
-   Some themes contain no posts to search on. So you would have to add some .md (markdown) files.
+<a target="_blank" href="https://github.com/poole/hyde">
+The Hyde theme at https://github.com/poole/hyde</a>
+   explains some changes in the format of the site's layout.
+   To change the color scheme of the site to green and flip the menu to the right side,
+   change <strong>_layouts/default.html</strong> from:
 
-   Algolia's sample Hyde theme comes with sample posts.
+   `<body class="theme-base-09">`
 
-   This tutorial examples the sample theme's files to learn coding and configuration techniques.
+   to:
 
+   `<body class="theme-base-0b layout-reverse">`
 
-<a name="Query"></a>
-
-### Query test #
-
+The disadvantage of this convenience is that the CSS file can become "bloated", and require longer to load by visitors.
 
 <hr />
 
+<a name="ChangesDeepDive"></a>
+
+## Deep dive #
+
+The following examines changes made to the base Hype template to add search capabilities.
+
 <a name="SearchField"></a>
 
-## Add Search Field in HTML #
+### Add Search Field in HTML #
 
 Different templates use varying techniques to provide a form field for visitors to specify search terms.
 
@@ -384,8 +401,11 @@ Different templates use varying techniques to provide a form field for visitors 
 
 0. Navigate down the folders to an index.html file and open it in a text editor.
    
-   All content files are named **index.html** so visitors don't have to type in the .html file extension.
-   This is better for SEO (Search Engine Optimization).
+   NOTE: All content files are named **index.html** so visitors don't have to type in the .html file extension.
+   It is better for SEO (Search Engine Optimization) if folder names are used as links.
+
+   * Dashes are interpreted by search engines as spaces between words.
+   * Underlines are interpreted as compound words.<br /><br />
 
 0. Press Ctrl+F to search for `<article class="post">`
    a <a target="_blank" href="http://mdn.beonex.com/en/HTML/Element/article.html">HTML5 standard tag</a>
@@ -531,25 +551,6 @@ The Algoria theme keeps CSS and JavaScript within a folder named <strong>public<
    bourbon
 
 
-<a name="HydeChanges"></a>
-
-#### Theme adjustments #
-
-Some themes pre-code alternative CSS that can be selected.
-
-<a target="_blank" href="https://github.com/poole/hyde">
-   https://github.com/poole/hyde</a>
-   explains some changes in the format of the site's layout.
-   To change the color scheme of the site to green and flip the menu to the right side,
-   change <strong>_layouts/default.html</strong> from:
-
-   `<body class="theme-base-09">`
-
-   to:
-
-   `<body class="theme-base-0b layout-reverse">`
-
-The disadvantage of this convenience is that the CSS file can become "bloated", and require longer to load by visitors.
 
 <hr />
 
