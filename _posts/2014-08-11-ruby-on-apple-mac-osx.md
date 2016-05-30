@@ -18,46 +18,60 @@ comments: true
 
 The Ruby language compiler is included in Mac OSX.
 
-To see the current version number:
+To see the current version number, open a Termina Shell Window and type:
 
-<pre><strong>
-ruby --version
-</strong></pre>
+   <tt><strong>
+   ruby \-\-version
+   </strong></tt>
 
 The response for the Yosemite default:
 
-<tt>
-ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
-</tt>
+   <tt>
+   ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+   </tt>
 
 After updating (below) on April 19, 2015:
 
-<tt>
-ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
-</tt>
+   <tt>
+   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
+   </tt>
 
+After updating (below) on May 30, 2016:
+
+   <tt>
+   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
+   </tt>
 
 ### Get the current gem version number:
 
-<pre><strong>
-gem --version
-</strong></pre>
+   <tt><strong>
+   gem \-\-version
+   </strong></tt>
 
 The response for the Yosemite default:
 
-<tt>
-2.0.14
-</tt>
+   <tt>
+   2.0.14
+   </tt>
+
 After updating (below) on April 19, 2015:
-<tt>
-2.4.6
-</tt>
+
+   <tt>
+   2.4.6
+   </tt>
+
+After updating (below) on May 30, 2016:
+
+   <tt>
+   2.5.1
+   </tt>
+
 
 ### Update RubyGems and Bundler:
 
-<pre><strong>
-sudo gem update --system
-</strong></pre>
+   <tt><strong>
+   sudo gem update \-\-system
+   </strong></tt>
 
 The response:
 
@@ -96,9 +110,9 @@ RubyGems system software updated
 
 ### Update Bundler:
 
-<pre><strong>
-sudo gem install --no-rdoc --no-ri bundler
-</strong></pre>
+   <tt><strong>
+   sudo gem install \-\-no-rdoc \-\-no-ri bundler
+   </strong></tt>
 
 The response:
 
@@ -110,9 +124,10 @@ Successfully installed bundler-1.9.4
 
 
 ### Update gem:
-<pre><strong>
+
+<tt><strong>
 sudo gem update
-</strong></pre>
+</strong></tt>
 
 The response takes several minutes becuase it touches every gem:
 
@@ -132,10 +147,9 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 
 ### Cleanup gem:
 
-<pre><strong>
-sudo gem cleanup
-</strong></pre>
-
+   <tt><strong>
+   sudo gem cleanup
+   </strong></tt>
 
 <a name="ruby-rvm"></a>
 
@@ -143,44 +157,46 @@ sudo gem cleanup
 
 To upgrade:
 
-<pre><strong>
-rvm get head
-</strong></pre>
+   <tt><strong>
+   rvm get head
+   </strong></tt>
 
-If the response is 
-<tt>
--bash: rvm: command not found
-</tt>
+If the response is:
+
+   <pre>
+   -bash: rvm: command not found
+   </pre>
 
 Have the rvm shell configuration loaded:
 
-<pre><strong>
-source ~/.rvm/scripts/rvm
+<tt><strong>
+source ~/.rvm/scripts/rvm<br />
 type rvm | head -n 1
-</strong></pre>
+</strong></tt>
 
 The response should be:
 
 <tt>
 rvm is a function
 </tt>
-Try rvm get head again.
+
+If so, try rvm get head again.
 
 
 
 ### To upgrade:
 
-<pre><strong>
-rvm autolibs homebrew
+<tt><strong>
+rvm autolibs homebrew<br />
 rvm install ruby
-</strong></pre>
+</strong></tt>
 
 
 To install the latest stable release:
 
-<pre><strong>
+<tt><strong>
 \curl -ssL https://get.rvm.io | bash -s stable
-</strong></pre>
+</strong></tt>
 
 The response:
 
@@ -216,6 +232,7 @@ source ~/.profile
 
 Some say at this point close the terminal and open again.
 
+## Resources:
 
 This also provides instructions on installation of Ruby:
 

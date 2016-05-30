@@ -85,6 +85,7 @@ Some features on other blogs that can be added include:
 * Google Analytics
 * Google ads
 
+* Minify HTML, CSS, and JavaScript files
 * etc.
 
 However, this article does take a "deep dive" into the intracacies of programming HTML and CSS
@@ -233,16 +234,43 @@ There are several choices.
 
 ## Install Ruby and Build gems #
 
-Jekyll is written in the Ruby programming language.
+Text in Jekyll sites are written in "Markdown" format which Jekyll converts to HTML 
+that site vistors download and display on their internet browsers.
 
-Gems contain Ruby programs in a way that can be easily installed.
+The programming for Jekyll to do that is written in the Ruby programming language.
 
-0. Use a text editor to open the <strong>Gemfile</em>.
+0. [Install the Ruby program compiler](/ruby-on-apple-mac-osx/)
 
-   Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
-   Rubygems website</a>.
+   Gems contain Ruby programs in a way that can be easily installed.
 
-0. In a Terminal window, fetch gems specified in the Gemfile:
+0. Use a text editor to open the <strong>Gemfile</strong>.
+
+   <pre>
+   source 'https://rubygems.org'
+
+   gem 'jekyll', '~> 2.5'
+
+   group :jekyll_plugins do
+     gem 'algoliasearch-jekyll', '~> 0.4'
+   end
+   </pre>
+
+   NOTE: If you are adding search capability to an existing site,
+   you would add gem specifications to this file.
+
+0. Click the URL to visit:
+
+   NOTE: Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/">
+   Rubygems website</a>. 
+
+0. Search for <strong>algoliasearch-jekyll</strong>:
+
+   <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
+   https://rubygems.org/gems/algoliasearch-jekyll/</a>
+
+   Notice the dependencies.
+
+0. In a Terminal window, have dependency gems automatically fetched based on the Gemfile and dependencies:
 
    <tt><strong>
    bundle
@@ -353,11 +381,6 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
 Different templates use varying techniques to provide a form field for visitors to specify search terms.
 
 ### index.html #
-
-   NOTE: Jekyll stores files it generates in the <strong>_sites</strong> folder. 
-   That's what site vistors download and display.
-   Each <strong>index.html</strong> served to vistors who go to the URL is generated from several files.
-   It may not be mimified so we can still read it without additional processing.
 
 0. Navigate down the folders to an index.html file and open it in a text editor.
    
