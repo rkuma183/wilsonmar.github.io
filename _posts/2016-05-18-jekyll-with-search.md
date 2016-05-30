@@ -218,7 +218,7 @@ There are several choices.
 0. Since you cloned:
 
    <tt><strong>
-   git clone https://github.com/<em>your_account</em>/<em>your_account</em>.github.io
+   git clone https://github.com/<em>your_account/your_account</em>.github.io
    </strong></tt>
 
    NOTE: This mechanism includes a .git folder that contains all the history in the creation of the template.
@@ -665,7 +665,16 @@ PROTIP: Make a small change, then add and commit.
    git remote add remote https://github.com/jetbloom/jetbloom.github.io
    </strong></tt>
 
-0. Verify with another `git remote -v`.
+0. Verify with another:
+
+   <tt><strong>
+   git remote -v
+   </strong></tt>
+
+   <pre>
+   origin http://github.com/jetbloom/jetbloom.github.io (fetch)
+   origin  http://github.com/jetbloom/jetbloom.github.io (push)
+   </pre>
 
 0. Push commits to GitHub to verify the site running before customization.
 
