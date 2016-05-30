@@ -574,11 +574,22 @@ In this case, parse text for indexing and push index entries to Algolia API serv
 0. Use a text editor to edit the <a href="#RunJekyllScript">
    4001.sh script created above to Run Jekyll locally</a>.
 
-0. Add to the bottom of the 4001 script file this line:
+0. Replace the 4001 script file with this:
 
    <pre><strong>
-   ALGOLIA_API_KEY=’your_write_api_key’ jekyll algolia push
+   # build _site folder:
+   bundle exec jekyll build –config _config.yml,_config-dev.yml
+   # Index:
+   ALGOLIA_API_KEY='1234562f0aa092e7acc19f81df82dfe5' jekyll algolia push 
+   # Display:
+   bundle exec jekyll serve –config _config.yml,_config-dev.yml --port 4001 
    </strong></pre>
+
+   QUESTION: How to run jekyll to generate _site and stop for indexing.
+
+   Consider this:
+   <a target="_blank" href="https://jekyllrb.com/docs/usage/">
+   https://jekyllrb.com/docs/usage/</a>
 
    <a name="WriteAPIKEY"></a>
 
