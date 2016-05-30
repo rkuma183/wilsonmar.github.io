@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Text Search within Jekyll websites"
+title: "Jekyll website with Text Search"
 excerpt: "Make a website with a search box"
-tags: [Jekyll, ElasticSearch, Search]
+tags: [Jekyll, Algolia, Search]
 image:
 # feature: pic blue lake searching 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14621985/1cdb6086-0584-11e6-9570-5cedb9f2385f.jpg
@@ -15,14 +15,15 @@ comments: true
 
 {% include _toc.html %}
 
-The first objective of this document is that you create a nicely formatted free personal blog with a search box.
+The objective of this document is that you create a nicely formatted free personal blog with a search box.
 
 This tutorial is written so "newbies" can follow step-by-step.
 
 PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
 
-If you want to <strong>add</strong> search capabilities (using ElasticSearch service) to an existing Jekyll theme,
-see an upcoming blog by Andrew Krug 
+This is in preparation for you to <strong>add</strong> search capabilities (using ElasticSearch service) to an existing Jekyll theme.
+
+Search capabilities already come with the Jekyll theme described here.
 
 <a name="QueryTest"></a>
 
@@ -68,12 +69,14 @@ see an upcoming blog by Andrew Krug
    I've filed an issue to request this feature</a>.
 
 
+<a name="Additional"></a>
+
 ### Additional features #
 
 We are using a <strong>pre-formatted theme</strong> rather than design-your-own,
 which takes much more time and expertise.
 
-Some features on other blogs that can be added include:
+Some features that can be added (offered in other themes) include:
 
 * Request for visitor email to subscribe.
 * Comments such as Disqus
@@ -86,6 +89,7 @@ Some features on other blogs that can be added include:
 * Google ads
 
 * Minify HTML, CSS, and JavaScript files
+* Default author information display
 * etc.
 
 However, this article does take a "deep dive" into the intracacies of programming HTML and CSS
@@ -108,25 +112,6 @@ Here are the steps setup your own free static website that provides a search box
 0. <a href="#BuildIndex">Add step to build index</a>
 0. <a href="#AddPosts"> Add Posts with Text</a>
 0. <a href="#Query"> Query test</a>
-
-0. <a href="#SearchField"> Add Search Field</a>
-0. <a href="#SearchCSS"> Add Search Field CSS</a>
-0. <a href="#SearchField"> Add Search JavaScript</a>
-
-0. <a href="#GitClient"> Install Git client</a>
-0. <a href="#ConfigRemote"> Configure remote repo</a>
-
-0. <a href="#elasticsearch"> Setup Search API</a>
-0. <a href="#libraries"> Code library links</a>
-
-0. <a href="#config.yml"> Add gem in _config.yml file</a>
-0. <a href="#gemfile"> Add gem in Gemfile</a>
-
-0. <a href="#article"> Add article tag in _layout/post.html</a>
-0. To display, add a Javascript framework for client-side interaction via HTTP. I’m using React and Searchkit.
-
-0. <a href="#BuildIndex">Build Index</a>
-0. <a href="#BuildCI">Build Continuous Integration</a>
 
 <hr />
 
@@ -200,7 +185,7 @@ There are several choices.
 
    * Mac machine already have a command-line Git client.
 
-
+   * Follow this website to install Git in Windows 
 
 
 <a name="ConfigRemote"></a> 
@@ -296,7 +281,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 0. To ensure you have a base version that works locally, run:
 
    <tt><strong>
-   bundle exec jekyll serve --config _config.yml,_config-dev.yml --port 4001
+   bundle exec jekyll serve \-\-config _config.yml,_config-dev.yml \-\-port 4001
    </strong></tt>
 
    The sample response:
@@ -313,7 +298,9 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 
    If an error message appears about port 4000 (the default), it may be because two dashes need to precede the port parameter keyword.
 
-   On a Mac, "ctrl-c" means hold down the control key and press C.
+   On a Mac, "ctrl-c" means hold down the control key and press C to stop.
+
+   NOTE: A <strong>_site</strong> folder should now be generated.
 
 0. Switch to an internet browser to open the server address:
 
@@ -349,6 +336,9 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
    ./4001.sh
    </strong></tt>
 
+0. <a href="#ViewSite">View site again</a>.
+
+
 #### Run script for Windows #
 
 0. Use a text editor program to create a file named 4001.cmd</strong>.
@@ -363,9 +353,31 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
    4001.cmd
    </strong></tt>
 
+<hr />
+
+<a name="CustomizeSite"></a>
+
+## Customize Site #
+
+You want your own content instead of the postings copied from the theme, right?
+
+There are several customizations:
+
+0. <a href="#HydeChanges"> Adjust theme colors and presentation</a>
+0. <a href="#AddPosts">Add new custom posts</a>
+0. <a href="#ViewSite">View refreshed site</a>
+0. <a href="#EraseSamplePosts">Erase sample posts</a>
+0. <a href="#AlgoliaSetup">Setup your own indexing service</a>
+0. <a href="#ConfigYml">Configure _config.yml</a>
+0. <a href="#WriteAPIKEY">Create Write API KEY</a>
+0. <a href="#IndexShellScript">Index in shell script</a>
+0. <a href="#BuildIndexCI">Build index in CI</a>
+0. <a href="#PushGitHub">Make site changes public on GitHub</a>
+0. <a href="#ReplaceSiteIcon">Replace site icon</a>
+
 <a name="HydeChanges"></a>
 
-## Theme presentation adjustments #
+### Adjust theme presentation #
 
 Some themes pre-code alternative CSS that can be selected.
 
@@ -383,6 +395,286 @@ The Hyde theme at https://github.com/poole/hyde</a>
 
 The disadvantage of this convenience is that the CSS file can become "bloated", and require longer to load by visitors.
 
+<a name="AddPosts"></a>
+
+### Add posts #
+
+   NOTE: Content shown on Jekyll websites are defined as individual files within the <strong>_posts</strong> folder.
+
+0. Use a text editor to open an .md file within the _posts folder.
+
+   Post files have file names ending with ".md" to designate markdown formatting.
+   Jekyll processes such files into index.html files.
+
+   Some text editors can provide text highlighting based on the file extension.
+
+   The three dashes in the first line begins the <a target="_blank" href="http://jekyllrb.com/docs/frontmatter/">
+   front matter"</a> which Jekyll processes.
+
+   <pre>
+   ---
+   layout: post
+   title: Let's start the adventure
+   author:
+     login: nicolas
+     email: nicolas@algolia.com
+     display_name: nicolas
+     first_name: Nicolas
+     last_name: Dessaigne
+   ---
+   </pre>
+
+   NOTE: The `post` value in `layout: post` means that the **post.html** file in the **_layouts** folder is used to format text in the file.
+
+0. Replace the title and author.
+
+   NOTE: Some other themes provide a default author so it doesn't have to be entered on every post.
+
+0. Erase the remainder after the front matter (three dashes).
+0. Save the file <strong>with a different file name</strong>.
+0. <a href="#ViewSite">View site again</a>.
+
+<a name="ViewSite"></a>
+
+### View refreshed site #
+
+0. Switch to the Terminal window running Jekyll.
+
+   Jekyll is set to detect changes to the file and re-generate HTML as needed.
+
+   <pre>
+   Regenerating: 1 file(s) changed at 2016-05-30 11:03:55 ...done in 5.612279 seconds.
+   </pre>
+
+0. Switch to the internet browser and press Ctrl+R or click the icon to refresh the screen.
+
+
+<a name="EraseSamplePosts"></a>
+
+### Erase sample posts #
+
+0. Switch to the Finder on a Mac or File Explorer on Windows.
+0. Navigate to the _posts folder.
+0. Select and delete all files except the one created above.
+
+<a name="AlgoliaSetup"></a>
+
+### Setup your own indexing service #
+
+0. Sign-up at <a target="_blank" href="https://www.algolia.com/">
+   Algolia.com</a> (you can optionally use your GitHub credentials).
+
+   A free account of up to 10,000 requests per day is available from
+   <a target="_blank" href="https://www.algolia.com/">
+   Algolia.com</a>.
+
+0. View this video by Tim Carry (tim@algolia.com) 
+   summarizes details in his
+   <a target="_blank" href="https://blog.algolia.com/instant-search-blog-documentation-jekyll-plugin/">
+   blog article</a>.
+   <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
+   </amp-youtube>
+
+0. Specify the name and region where the majority of your visitors are located.
+   
+   Algoria's UI has a cool list of live ping response times to various regions:
+
+   <amp-img media="(min-width: 386px)" width="386" height="346" 
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
+
+0. Look at the email for links to their thorough
+   <a target="_blank" href="https://www.algolia.com/demos/">demos</a> and
+   <a target="_blank" href="https://www.algolia.com/doc">tutorials (doc)</a>,
+   which populates your instance with example of actors.
+
+
+<a name="ConfigYml""></a>
+
+## Configure _config.yml #
+
+0. Use a text editor to open the <strong>_config.yml</strong> file.
+
+0. Manually change these values in the sample file:
+
+   <pre>
+   title:            Hyde
+   tagline:          'A Jekyll theme, with instant search'
+   description:      'The popular <a href="http://hyde.getpoole.com/" target="_blank">Hyde theme</a> for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, now with instant-search capabilities. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://www.algolia.com/" target="_blank">Algolia</a>'
+   </pre>
+
+0. Click <strong>Find and Replace</strong> from
+
+   algolia/algoliasearch-jekyll-hyde
+
+   to
+
+   wilsonmar/wilsonmar.github.io
+
+   would change these lines:
+
+   <pre>
+   url:              https://github.com/algolia/algoliasearch-jekyll-hyde
+   baseurl:          /algoliasearch-jekyll-hyde
+   </pre>
+
+0. Switch to an internet browser to go to the <a target="_blank" href="https://www.algolia.com/dashboard">
+   Algolia Dashboard</a>.
+
+   <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
+<br /><br />
+
+   NOTE: Records are not added via the GUI website.
+
+0. Copy the value of
+   the Application ID and API KEY 
+   (by clicking on the icon to the right of each value or
+   highlight each value and press Ctrl_C).
+
+   A Jekyll plugin (from Algolia or another) 
+   extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
+   This approach of reading the final HTML pages instead of markdown text works with any markdown parser 
+   and custom plugin.
+
+0. Use a text editor to open the <strong>_config.yml</strong> file and paste in this under the gems: section:
+
+   <pre>
+   gems:
+     - algoliasearch-jekyll
+   
+   algolia:
+     application_id: 'latency'
+     index_name: 'jekyll'
+     read_only_api_key: '6be0576ff61c053d5f9a3225e2a90f76'
+     excluded_files:
+       - 404.html
+       - index.html
+       </pre>
+
+0. At the Algolia website, click the <strong>API Keys</strong> icon at the left.
+0. Back to the file, double-click on the application_id value to highlight and press command+V to paste from the Clipboard.
+
+   #### Define Index for _config.yml #
+
+   The Algolia plugin also adds metadata context to each paragraph before pushing the lot to the Algolia index in the cloud.
+
+0. PROTIP: Specify a different index name for PROD and TEST.
+
+   NOTE: With Aloglia, an index does not need to be created manually.
+  
+
+<a name="IndexShellScript"></a>
+
+## Index in shell script #
+
+PROTIP: A <a href="#RunJekyll">custom shell script to invoke Jekyll</a> 
+can also enable additional processing to be invoked automatically.
+In this case, parse text for indexing and push index entries to Algolia API servers.
+
+0. Use a text editor to edit the <a href="#RunJekyllScript">
+   4001.sh script created above to Run Jekyll locally</a>.
+
+0. Add to the bottom of the 4001 script file this line:
+
+   <pre><strong>
+   ALGOLIA_API_KEY=’your_write_api_key’ jekyll algolia push
+   </strong></pre>
+
+   <a name="WriteAPIKEY"></a>
+
+   ### Define Write API KEY #
+
+0. Switch to an internet browser to go the Algolia website Dashboard to your account.
+
+0. Click the pink <strong>NEW API Key</strong> button at the upper right.
+
+0. Type a Description value.
+
+0. Check Add Records.
+
+0. Click Generate.
+
+0. Click the copy icon next to the newly generated API key for Operation <strong>addObject</strong>
+
+   ### Paste Write API KEY #
+
+0. Switch back to the text editor to replace ’your_write_api_key’ from the Clipboard.
+0. Save the file and run again (as described above).
+
+   ### .gitignore Write API KEY #
+
+0. If you don't want to expose your API key to the world, 
+   keep the 4001 script file only in your local git repository and not in the public GitHub
+   by adding the file's name to the repo's <strong>.gitignore</strong> file.
+
+   One way to tell the plugin what this key is, is to define it as a global variable right before calling the command (ALGOLIA_API_KEY='XXXX'). Another way is to create a file such as "_algolia_api_key" in the same folder as the _config.yml file.
+
+But with any of these methods, having the file not in the public make sense since
+GitHub doesn't do algolia push anyway. 
+It's only done locally or by a "Continuous Integration" server (such as Jekins, Travis, or Circle).
+
+
+<a name="ViewLogs"></a>
+
+### View Logs and Metrics #
+
+On the search service Dashboard:
+
+NOTE: Alogia emails the number of calls each day.
+
+
+<a name="BuildIndexCI"></a>
+
+## Update indexes in Continuous Integration #
+
+PROTIP: Update indexes using a continuous integration server
+set to automatically push data and reindex upon save.
+
+There are several CI servers:
+
+TODO: Add CI settings instructions.
+
+* Jenkins
+* Cloudbees SaaS running Jenkins
+* TravisCI
+* CircleCI
+
+
+<a name="PushGitHub"></a>
+
+## Make site changes public on GitHub #
+
+PROTIP: Make a small change, then add and commit.
+
+0. If you use a command-line Git client:
+
+   <tt><strong>
+   git add .<br />
+   git commit -m"Add sample posts"
+   </strong></tt>
+
+0. See if there is a remote local defined:
+
+   <tt><strong>
+   git remote -v
+   </strong></tt>
+
+0. If there isn't, define one (replacing the URL with yours):
+
+   <tt><strong>
+   git remote add remote https://github.com/jetbloom/jetbloom.github.io
+   </strong></tt>
+
+0. Verify with another `git remote -v`.
+
+0. Push commits to GitHub to verify the site running before customization.
+
+   <tt><strong>
+   git push
+   </strong></tt>
+
+0. View your site using the public URL.
+
 <hr />
 
 <a name="ChangesDeepDive"></a>
@@ -390,6 +682,13 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
 ## Deep dive #
 
 The following examines changes made to the base Hype template to add search capabilities.
+
+<a name="ReplaceSiteIcon"></a>
+
+### Replace Site Icon #
+
+TODO: ReplaceSiteIcon
+
 
 <a name="SearchField"></a>
 
@@ -411,22 +710,6 @@ Different templates use varying techniques to provide a form field for visitors 
    a <a target="_blank" href="http://mdn.beonex.com/en/HTML/Element/article.html">HTML5 standard tag</a>
    to designate content (and not navigation and other fluff).
 
-   NOTE: Content shown on Jekyll websites are defined as individual files within the <strong>_posts</strong> folder.
-   The underline in the name means that the folder is not transferred into the _site folder.
-
-   Post files have file names ending with ".md" to designate markdown formatting.
-   Jekyll processes such files into index.html files.
-
-   The three dashes in the first line begins the <a target="_blank" href="http://jekyllrb.com/docs/frontmatter/">
-   front matter"</a> which Jekyll processes.
-
-   <pre>
-   ---
-   layout: post
-   title: Let's start the adventure
-   </pre>
-
-   The `post` value in `layout: post` means that the **post.html** file in the **_layouts** folder is used to format text in the file.
    Text in the file replaces the tag: 
 
       &#123;&#123; content }}
@@ -524,8 +807,6 @@ The above in turn reference functions in libraries pulled in from the internet:
 <script src="/algoliasearch-jekyll-hyde/public/js/algolia.js"></script>{% endhighlight %}
 
 
-
-
 <a name="SearchCSS"></a>
 
 ## Search Field CSS Formatting #
@@ -551,318 +832,5 @@ The Algoria theme keeps CSS and JavaScript within a folder named <strong>public<
    bourbon
 
 
+   The underline in the name means that the folder is not transferred into the _site folder.
 
-<hr />
-
-<a name="BingSearch"></a>
-
-## Bing Search Form #
-
-Sample HTML:
-
-{% highlight html %}{% raw %}
-<div class="searchbox">
-  <form method="get" action="http://www.bing.com/search">
-    <input id="searchinput" type="text" placeholder="Search..." name="q" value="" /> 
-    <input type="hidden" name="q1" value="site:{{ site.url }}" />
-  </form>
-</div>{% endraw %}{% endhighlight %}
-
-0. Copy the HTML below and paste it in the file.
-
-0. Add these lines (but with your url and host name) if they are not already defined.
-
-0. PROTIP: Use an appropriate hero graphic, if your page design uses one.
-
-0. Save the change and adjust the CSS.
-
-0. Add, commit to set a save point.
-
-0. Do a sample search.
-
-    CAUTION: Visitors to your site are directed out to the Bing search page.
-    So this approach feeds visitors to Bing.
-
-<a name="GoogleSearch"></a>
-
-## Google Search Form #
-
-This goes in head.html in the menu bar so it appears on every page:
-
-{% highlight html %}
-<form onSubmit="google_search()">
-<input type="text" name="q" id="q" value="" />
-<input type="submit" value="search" onClick="return google_search()" />
-</form>{% endhighlight %}
-
-The use of an onClick function means JavaScript needs to be defined.
-
-This can be put before the `<body>` section.
-
-{% highlight html %}
-<script type="text/javascript">
-function google_search(){
-   window.location = "http://www.google.com/search?q=site:{{ site.url }}+" + encodeURIComponent(document.getElementById("q").value);
-}
-</script>{% endhighlight %}
-
-   The url is a variable replaced with with the external host name searchable after Jekyll runs.
-
-0. Save the change and adjust the CSS.
-
-0. Add, commit, and push to GitHub.
-
-0. Do a sample search.
-
-    CAUTION: Visitors to your site are directed out to the Bing search page.
-    So this approach feeds visitors to Bing.
-
-
-<a name="Bonzai"></a>
-
-## Bonzai hosted ElasticSearch service #
-
-I heard about this service from <a target="_blank" href="https://youtu.be/Rsc0Mmp1qc8">
-Allison at JekyllConf</a>
-
-   <amp-youtube data-videoid="Rsc0Mmp1qc8" layout="responsive" width="480" height="270">
-   </amp-youtube>
-
-&nbsp;
-
-<a target="_blank" href="http://allizad.com/2016/05/06/elasticserch-for-jekyll/index.html">
-Allison blogged about the steps to use Bonzai</a>.
-
-0. At <a target="_blank" href="https://bonzai.io/">bonzai.io</a>
-   open an account.
-0. Specify a cluster name.
-0. Review the pricing.
-0. In Access tab, copy the <strong>access key</strong> (such as "abcdq7pbkd").
-0. In Manage tab, copy the REST API call, such as:
-
-   https://whygq7pbkd:vh70yz954n@jetbloom-2189350326.us-west-2.bonsai.io
-
-0. To verify whether the URL works, paste it in a browser. 
-The result is, for example:
-
-{% highlight json %}{% raw %}
-{
-  "status" : 200,
-  "name" : "Stonecutter",
-  "cluster_name" : "elasticsearch",
-  "version" : {
-    "number" : "1.7.5",
-    "build_hash" : "7b17af8ebc9cde792eebd2c18a5dc06f5029c64f",
-    "build_timestamp" : "2016-03-23T18:33:33Z",
-    "build_snapshot" : false,
-    "lucene_version" : "4.10.4"
-  },
-  "tagline" : "You Know, for Search"
-}{% endraw %}{% endhighlight %}
-
-   NOTE: Some REST APIs return a list of follow-on calls available,
-   following principles of <a target="_blank" href="https://en.wikipedia.org/wiki/HATEOAS/"> HATEOAS</a>
-   (Hypermedia as the Engine of Application State). This site is not one of them.
-
-Next, get your Jekyll site to send the call from a search box, and display the results.
-
-Try the request using a curl command ???
-
-<a name="Algolia"></a>
-
-## Algolia hosted service #
-
-A free account of up to 10,000 requests per day is available from
-<a target="_blank" href="https://www.algolia.com/">
-Algolia.com</a>.
-
-   <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
-   </amp-youtube>
-
-This video is by Tim Carry (tim@algolia.com).
-
-This tutorial fills in some steps missing in his
-<a target="_blank" href="https://blog.algolia.com/instant-search-blog-documentation-jekyll-plugin/">
-   blog article</a>.
-
-0. Sign-up at <a target="_blank" href="https://www.algolia.com/">
-Algolia.com</a> (you can use your GitHub credentials).
-0. Specify name and region. Their UI has a cool list of live ping response times to various regions:
-
-   <amp-img media="(min-width: 386px)" width="386" height="346" 
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
-
-0. Look at the email for links to their thorough
-<a target="_blank" href="https://www.algolia.com/demos/">demos</a> and
-<a target="_blank" href="https://www.algolia.com/doc">tutorials (doc)</a>,
-which populates your instance with example of actors.
-
-0. When you sign-in again, you get the <a target="_blank" href="https://www.algolia.com/dashboard">
-Dashboard</a>.
-
-   <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
-
-   &nbsp;
-
-0. Copy the value of
-   the Application ID and API KEY 
-   (by clicking on the icon to the right of each value or
-   highlight each value and press Ctrl_C).
-
-
-
-
-
-   #### Create index #
-
-   Records are not added via the GUI website.
-
-   A Jekyll plugin (from Algolia or another) 
-   extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
-   This approach of reading the final HTML pages instead of markdown text works with any markdown parser 
-   and custom plugin.
-
-   The plugin also adds metadata context to each paragraph before pushing the lot to the Algolia index in the cloud.
-
-
-NOTE: With Aloglia, an index does not need to be created.
-
-0. Specify a name, such as prod_ARTICLE.
-
-   #### Populate _config.yml with identifers #
-
-0. Use a text editor to open the <strong>_config.yml</strong> file and paste in this under the gems: section:
-
-   <pre>
-   gems:
-     - algoliasearch-jekyll
-
-   algolia:
-     application_id: 'EILX55I5BP'
-     index_name:     'jekyll_PROD'
-     read_only_api_key: '4f4c22ee357217a585b443282cadc2b0'
-     excluded_files:
-      - 404.html
-      - index.html
-       </pre>
-
-0. At the Algolia website, click the <strong>API Keys</strong> icon at the left.
-0. Back to the file, double-click on the application_id value to highlight and press command+V to paste from the Clipboard.
-
-   #### Define Index for _config.yml #
-
-0. Return to the Dashboard and click the <strong>Indices</strong> icon on the left icon menu.
-
-0. Click on the index name within the sausage ("getstarted_actors" in the example).
-
-   <amp-img media="(min-width: 386px)" width="536" height="157" alt="algolia index 536x157"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15623898/51fb4024-2438-11e6-9d12-a03cf345957d.jpg"></amp-img>
-
-   &nbsp;
-
-0. In the drop-down, highlight the text and press command + C to copy to the Clipboard.
-
-0. Switch to _config.yml and double-click 'your_index_name' to highlight it, the press command + V to replace it with the Clipboard.
-
-0. Save the file.
-
-   #### Add Gem to Gemfile and Bundle #
-
-0. Edit the Gemfile to add under section gems:
-
-   <pre>
-group :jekyll_plugins do
-  gem 'algoliasearch-jekyll', '~> 0.7.0'
-end
-   </pre>
-
-   The gem downloaded from Rubygems.org was obtained from:
-
-   <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll/">
-   github.com/algolia/algoliasearch-jekyll</a>
-
-0. Use an internet browser to go to that GitHub repo and click Watch.
-
-0. Switch back to Terminal to <a href="#Bundle">bundle the site again</a>.
-
-0. <a href="#Run">Run Jekyll again</a>.
-
-   #### Define Write API #
-
-0. On the Algolia website, click the API Keys icon.
-
-0. Click the pink NEW API Key button at the upper right.
-
-0. Type a Description value.
-
-0. Check Add Records.
-
-0. Click Generate.
-
-0. Click the copy icon next to the newly generated API key for Operation addObject.
-
-0. In the Terminal, type this (replacing "your_write_api_key") with the contents of Clipboard:
-
-   <tt><strong>
-   ALGOLIA_API_KEY='your_write_api_key' jekyll algolia push
-   </strong></tt>
-
-   #### Define JavaScript #
-
-JavaScript executed 
-
-
-<a name="BuildIndex"></a>
-
-## Build index locally #
-
-PROTIP: A <a href="#RunJekyll">custom shell script to invoke Jekyll</a> 
-can also enable additional processing to be invoked automatically.
-
-In this case, parse text for indexing and push index entries to Algolia API servers.
-
-Add to the bottom of the 40001 run script this line:
-
-   <tt><strong>
-   ALGOLIA_API_KEY=’your_write_api_key’ jekyll algolia push
-   </strong></tt>
-
-0. Use an internet browser to go the Dashboard to your account on the Algoria.com website.
-0. Copy the API key to your machine's Clipboard.
-0. Switch back to the text editor to replace ’your_write_api_key’ from the Clipboard.
-0. Save the file and run again (as described above).
-
-0. If you don't want to expose your API key to the world, 
-   keep the 4001 script file only in your local git repository and not in the public GitHub
-   by adding the file's name to the repo's <strong>.gitignore</strong> file.
-
-One way to tell the plugin what this key is, is to define it as a global variable right before calling the command (ALGOLIA_API_KEY="XXXX"). Another way is to create a file named _algolia_api_key in the same folder as the _config.yml file.
-
-But with any of these methods, having the file not in the public make sense since
-GitHub doesn't do algolia push anyway. 
-It's only done locally or by a "Continuous Integration" server (such as Jekins, Travis, or Circle).
-
-
-<a name="ViewLogs"></a>
-
-## View Logs and Metrics #
-
-On the search service Dashboard:
-
-
-<a name="BuildCI"></a>
-
-## Update indexes in Continuous Integration #
-
-PROTIP: Update indexes using a continuous integration server
-set to automatically push data and reindex upon save.
-
-There are several CI servers:
-
-TODO: Add CI settings instructions.
-
-* Jenkins
-* Cloudbees SaaS running Jenkins
-* TravisCI
-* CircleCI
