@@ -44,7 +44,7 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
    <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
    http://community.algolia.com/algoliasearch-jekyll-hyde/</a>
 
-   The formatting of this site is what you'll have as your blog 
+   The formatting of this site is what you'll have as YOUR blog 
    after following instructions in this tutorial.
 
 0. Type in the search field a single letter such as "L".
@@ -94,15 +94,30 @@ Features not in the theme would need to be added.
 
 <a name="GetRepoWorking"></a>
 
-## Step-by-step instructions #
+## Get it to work locally #
 
-Here are the steps setup your own free static website that provides a search box.
+Here are the steps setup your own free static website that provides a search box:
 
 0. <a href="#GitHubAccount"> Create a GitHub account</a>
 0. <a href="#ForkRepo"> Clone a Jekyll template</a>
 0. <a href="#InstallRuby"> Install Ruby, Jekyll, Build gems</a>
 0. <a href="#RunJekyll"> Run Jekyll locally</a>
 0. <a href="#RunJekyllScript">Create a Script to Run Jekyll Locally</a>
+
+The architectural components is call the <strong>JAM stack</strong>,
+with JAM standing for JavaScript, APIs, and Markup. 
+The order of the components has no significance (there had to be a vowel in the second letter).
+
+JAM is a fast-growing stack for building websites and apps:
+
+* No database servers that take time to retrieve
+* No construction of web pages to respond to a request
+
+* Markup in text files within GitHub for version control
+* Markup files are pre-processed into display-ready HTML 
+* HTML files can be stored on various servers around the world in a CDN
+
+* JavaScript calls APIs for any moving parts (such as retrieving personalization data)
 
 <hr />
 
@@ -229,11 +244,13 @@ There are several choices.
    <a target="_blank" href="https://jekyllrb.com/docs/structure/">
    standard structure</a>.
 
+   Notice the <strong>.jekyll-metadata</strong> entry keeps the file's data local.
+   It will NOT be sent back up to GitHub.
+
 0. Use a text editor to view the <strong>.gitignore</strong> file.
 
    The presence of the <strong>_site</strong> line means that the _site folder generated will 
    NOT be sent back up to GitHub because GitHub will generate its own _site folder.
-
 
 <a name="InstallRuby"></a>
 
@@ -608,11 +625,12 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627
 PROTIP: Keep private from the world API keys with write permissons.
 
 0. Use a text editor to open file <strong>.gitignore</strong> file.
-0. Scroll to the bottom of the file to see the <strong>_algolia_api_key</strong> entry.
+0. Scroll to the bottom of the file to copy the <strong>_algolia_api_key</strong> entry.
 
    Functions in the Algolia JavaScript client library downloaded open a file with this name
    to retrieve the contents for use like a password associated with write and delete permissions.
 
+0. Close the file.
 0. Switch to an internet browser with the <a target="_blank" href="https://www.algolia.com/dashboard">
    Algolia Dashboard</a> on your account.
 
@@ -626,18 +644,16 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15708
 0. Switch back to the text editor to open a new file.
 0. Paste the API key in the file.
 0. Save the file in the repo folder as name <strong>_algolia_api_key</strong> (no file extension).
-
+0. Close the file.
 
 <a name="IndexShellScript"></a>
 
 ## Index in shell script #
 
-PROTIP: A <a href="#RunJekyll">custom shell script to invoke Jekyll</a> 
-can also enable additional processing to be invoked automatically.
-In this case, parse text for indexing and push index entries to Algolia API servers.
+PROTIP: Combine several actions in the custom shell script, such as building the index.
 
 0. Use a text editor to edit the <a href="#RunJekyllScript">
-   4001.sh script created above to Run Jekyll locally</a>.
+   4001.sh or 4001.cmd script created above to Run Jekyll locally</a>.
 
 0. Replace the 4001 script file with this:
 

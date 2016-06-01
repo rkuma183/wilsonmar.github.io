@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Website features"
-excerpt: "What I want"
+excerpt: "Whether it's wanted or not"
 tags: [website]
 image:
 # feature: pic blue lake searching 1900x500.jpg
@@ -15,40 +15,56 @@ comments: true
 
 {% include _toc.html %}
 
-Some features that can be added (offered in other themes) include:
+> Let me know if you know of more features.
 
-## Navigation:
+Some features that can be added (offered in other themes and templates) include:
+
+## Navigation
+
+* Apple app images
+* Windows 10 desktop tile images
 
 * Previous and Next article
 * Top of page link/icon
+* Link back to site ("this site")
+
 * Custom icon (favico.ico/png) appearing on browser tabs
 * Also enjoy these others in this same site
 
-* Apple app images.
-* Windows 10 desktop tile images.
+* Search field (and custom response page)
 
-## Social:
+## Personalization
+
+* Lookup location based on IP
+* Confirm identity simply, such as clicking a pre-agreed image
+* Time-appropriate greeting based on visitor's local time zone
+* Personalized greeting based on personalization data stored in browser during previous session
+* Store history of browser version, OS, etc.
+
+## Social
 
 * Default author information display
-* Request for visitor email to subscribe.
+* Request for visitor email to subscribe
 * Visitor comments using Disqus
 * Commenting buttons to create a post on Twitter, Facebook, Google+, etc.
 * Social buttons to the author's eminations on Twitter, Facebook, etc.
 * Email form to provide feedback
 
-## SEO:
+## SEO
 
 * Site XML file for Google Search to discover
-* Google Analytics html file.
-* Google Analytics JavaScript.
-* Bing site ownership file.
+* Google Analytics JavaScript
 
-## Monitization:
+* Google search ownership file
+* Bing search site ownership file
+
+## Monitization
 
 * Google ads
 * Shop (t-shirts, etc.)
 
-## Performance:
+## Performance
 
+* Asychronous update of a section rather than entire form (submit)
 * Minify HTML, CSS, and JavaScript files
-
+* [Google AMP coding](/accelerated-mobile-pages/)

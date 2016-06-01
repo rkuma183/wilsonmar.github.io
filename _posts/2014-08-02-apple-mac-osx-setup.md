@@ -1585,7 +1585,7 @@ To get around it, you need to disable System Integrity Protection in OS X El Cap
    csrutil disable; reboot
    ```
 
-0. Complain about the need to do this.
+0. Complain about the need to do this. ;)
 
 ## Skill Certification #
 
@@ -1597,6 +1597,11 @@ Apple Certified Support Professional (ACSP)
 ## Daemons and Agents #
 
 * https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+
+## Resources:
+
+* https://www.hamsterpad.com/chat/typescriptpdx
+   Typescript Slack group
 
 ## More on OSX
 

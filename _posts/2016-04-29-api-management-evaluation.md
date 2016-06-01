@@ -122,6 +122,7 @@ Each link may go to text lower in this document, to another page on this site, o
 0. Dell Boomi
 0. Accenture
 0. HP (focused on large media and telcos)
+0. <a target="_blank" href="https://www.apinf.com/">apinf.com</a> from Finland (@APInf_io) Opensource
 
 Forrester, in their April 2015 report, classified the vendors this way:
 <img width="689" height="408" alt="api vendors in forrester 2015" src="https://cloud.githubusercontent.com/assets/300046/14916539/6c5fe680-0dd7-11e6-9149-6b803194e134.png"><!-- 1378x862 -->
