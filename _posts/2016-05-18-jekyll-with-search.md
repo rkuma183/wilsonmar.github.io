@@ -15,15 +15,25 @@ comments: true
 
 {% include _toc.html %}
 
-The objective of this document is that you create a nicely formatted free personal blog with a search box.
+The objective of this document are that you can:
 
-This tutorial is written so "newbies" can follow step-by-step.
+1. <a href="#QueryTest">Test drive a demo site.</a>
 
-PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
+2. <a href="#GetRepoWorking">Get a sample theme with search queries on your local machine.</a>
 
-This is in preparation for you to <strong>add</strong> search capabilities (using ElasticSearch service) to an existing Jekyll theme.
+   We setup your machine with Ruby and Jekyll, then 
+   clone a fork of a famous Jekyll theme adapted with search capabilities.
 
-Search capabilities already come with the Jekyll theme described here.
+3. <a href="#CustomizeSite">Edit the repo so your own posts are indexed.</a>
+
+   We obtain API keys for a new account on the search service and use it to index new posts of our own.
+
+4. <a href="#AddSearch">Add search features to another theme.</a>
+
+   We deep dive into the theme to add JavaScript, CSS, and HTML.
+
+This is written so "newbies" can follow step-by-step, but 
+along the way, PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
 
 <a name="QueryTest"></a>
 
@@ -71,33 +81,18 @@ Search capabilities already come with the Jekyll theme described here.
 
 <a name="Additional"></a>
 
-### Additional features #
+### Missing features #
 
 We are using a <strong>pre-formatted theme</strong> rather than design-your-own,
 which takes much more time and expertise.
 
-Some features that can be added (offered in other themes) include:
+* [List of features in a website (offered in other themes)](/website-features/) 
 
-* Request for visitor email to subscribe.
-* Comments such as Disqus
-* Commenting buttons to create a post on Twitter, Facebook, Google+, etc.
-* Social buttons to the author's eminations on Twitter, Facebook, etc.
-
-* Email form to provide feedback
-* Site XML file for Google Search to discover
-* Google Analytics
-* Google ads
-
-* Minify HTML, CSS, and JavaScript files
-* Default author information display
-* etc.
-
-However, this article does take a "deep dive" into the intracacies of programming HTML and CSS
-in the context of this Jekyll framework, to begin equipping you to add features to your site:
-
-* Custom icons appearing on website tabs
+Features not in the theme would need to be added.
 
 <hr />
+
+<a name="GetRepoWorking"></a>
 
 ## Step-by-step instructions #
 
@@ -105,13 +100,9 @@ Here are the steps setup your own free static website that provides a search box
 
 0. <a href="#GitHubAccount"> Create a GitHub account</a>
 0. <a href="#ForkRepo"> Clone a Jekyll template</a>
-0. <a href="#Ruby"> Install Ruby and Build gems</a>
+0. <a href="#InstallRuby"> Install Ruby, Jekyll, Build gems</a>
 0. <a href="#RunJekyll"> Run Jekyll locally</a>
 0. <a href="#RunJekyllScript">Create a Script to Run Jekyll Locally</a>
-
-0. <a href="#BuildIndex">Add step to build index</a>
-0. <a href="#AddPosts"> Add Posts with Text</a>
-0. <a href="#Query"> Query test</a>
 
 <hr />
 
@@ -127,10 +118,15 @@ If you already have an account, skip this section.
 
    <a target="_blank" href="http://github.com/">github.com</a>
 
-0. Sign-up.
+0. Sign-up with a <strong>user name</strong> you pick (one that's not already taken).
+
+   NOTE: The remainder of this tutorial refers to "acme" in place of YOUR real user/account name.
+
+   <amp-img width="300" height="235" alt="meme-acme-not-real"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
+   <br /><br />
 
 0. Confirm your email. 
-
 
 <a name="ForkRepo"></a>
 
@@ -169,11 +165,11 @@ The steps:
 
 0. Click the <strong>Settings</strong> tab to rename the repo, as <em>your_account_name</em>.github.io.
 
-   In other words, if your account name is "wilsonmar", you would rename the repo to wilsonmar.github.io.
+   In other words, if your account name is "acme", you would rename the repo to acme.github.io.
    
    NOTE: "github.io" means the site is hosted by GitHub, which does not charge (unlike GoDaddy or other hosting provider).
 
-   PROTIP: Sites hosted on GitHub.io can still have a custom name such as "wilsonmar.com".
+   PROTIP: Sites hosted on GitHub.io can still have a custom name such as "acme.com".
 
 Next, we'll download the repository.
 
@@ -192,49 +188,76 @@ There are several choices.
 
 ## Create a local repo #
 
+0. Open a Terminal Shell Window on the Mac or cmd program on Windows.
 
-0. Open a Terminal Shell Window.
-
-0. PROTIP: Create a folder to hold all Git repositories.
-   Change directory into it:
+0. PROTIP: Create a folder path to clone (create) repositories into.
 
    <tt><strong>
    mkdir ~/gits<br />
    cd gits
    </strong></tt>
 
-   On Mac and Linux, the ~ (tilde) character designates the current user's home folder.
-
    Repos are created within this folder.
 
 0. PROTIP: Create a folder to hold all Git repositories from your account.
-   Change directory into it:
+
+   And change directory into it:
 
    <tt><strong>
    mkdir ~/gits/<em>your_account</em><br />
    cd <em>your_account</em>
    </strong></tt>
 
-0. Since you cloned:
+   On Mac and Linux, the ~ (tilde) character designates the current user's home folder.
+
+0. Clone from your_account on GitHub:
 
    <tt><strong>
    git clone https://github.com/<em>your_account/your_account</em>.github.io
    </strong></tt>
 
-   NOTE: This mechanism includes a .git folder that contains all the history in the creation of the template.
+0. View folder.
 
-<a name="Ruby"></a>
+   <tt><strong>
+   cd <em>your_account</em>.github.io
+   </strong></tt>
 
-## Install Ruby and Build gems #
+   NOTE: Cloning creates <strong>.git</strong> folder that contains all the history in the creation of the template.
+   This file is what enables Git version control.
+
+0. Compare this against the 
+   <a target="_blank" href="https://jekyllrb.com/docs/structure/">
+   standard structure</a>.
+
+0. Use a text editor to view the <strong>.gitignore</strong> file.
+
+   The presence of the <strong>_site</strong> line means that the _site folder generated will 
+   NOT be sent back up to GitHub because GitHub will generate its own _site folder.
+
+
+<a name="InstallRuby"></a>
+
+## Install Ruby and Jekyll, Build gems #
 
 Text in Jekyll sites are written in "Markdown" format which Jekyll converts to HTML 
 that site vistors download and display on their internet browsers.
 
 The programming for Jekyll to do that is written in the Ruby programming language.
 
-0. [Install the Ruby program compiler](/ruby-on-apple-mac-osx/)
+0. [Install the Ruby program compiler on a Mac](/ruby-on-apple-mac-osx/)
+
+   <a target="_blank" href="https://jekyllrb.com/docs/windows/#installation">
+   Alternately, install Ruby on Windows</a>.
 
    Gems contain Ruby programs in a way that can be easily installed.
+
+0. Install Jekyll as a Ruby gem:
+
+   <pre><strong>
+   gem install jekyll
+   </strong></pre>
+
+   This automatically install dependencies.
 
 0. Use a text editor to open the <strong>Gemfile</strong>.
 
@@ -271,7 +294,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 
    Install is the default action.
 
-   The <strong>Gemfile.lock</strong> file generated defines the version being used of each gem.
+   NOTE: The <strong>Gemfile.lock</strong> file generated defines the version being used of each gem.
 
 
 <a name="RunJekyll"></a>
@@ -287,11 +310,11 @@ The programming for Jekyll to do that is written in the Ruby programming languag
    The sample response:
 
    <pre>
-            Source: /Users/mac/gits/jetbloom/jetbloom.github.io
-       Destination: /Users/mac/gits/jetbloom/jetbloom.github.io/_site
+            Source: /Users/mac/gits/acme/acme.github.io
+       Destination: /Users/mac/gits/acme/acme.github.io/_site
       Generating... 
                     done.
- Auto-regeneration: enabled for '/Users/mac/gits/jetbloom/jetbloom.github.io'
+ Auto-regeneration: enabled for '/Users/mac/gits/acme/acme.github.io'
     Server address: http://127.0.0.1:4001/
   Server running... press ctrl-c to stop.
    </pre>
@@ -369,15 +392,22 @@ There are several customizations:
 0. <a href="#EraseSamplePosts">Erase sample posts</a>
 0. <a href="#AlgoliaSetup">Setup your own indexing service</a>
 0. <a href="#ConfigYml">Configure _config.yml</a>
-0. <a href="#WriteAPIKEY">Create Write API KEY</a>
+0. <a href="#WriteAPIKEY">Specify Write API KEY</a>
 0. <a href="#IndexShellScript">Index in shell script</a>
 0. <a href="#BuildIndexCI">Build index in CI</a>
 0. <a href="#PushGitHub">Make site changes public on GitHub</a>
 0. <a href="#ReplaceSiteIcon">Replace site icon</a>
+0. <a href="#ViewLogs">View Logs and Metrics</a>
+
+On the search service Dashboard:
+
+NOTE: Alogia emails the number of calls each day.
+
+
 
 <a name="HydeChanges"></a>
 
-### Adjust theme presentation #
+### Adjust theme colors and presentation #
 
 Some themes pre-code alternative CSS that can be selected.
 
@@ -397,19 +427,24 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
 
 <a name="AddPosts"></a>
 
-### Add posts #
+### Add new custom posts #
 
    NOTE: Content shown on Jekyll websites are defined as individual files within the <strong>_posts</strong> folder.
+   This is a key differentiator of Jekyll vs. WordPress, Drupal, and others that store content in a database.
+
+   Files in the _posts folder can be moved among different Jekyll themes.
 
 0. Use a text editor to open an .md file within the _posts folder.
 
-   Post files have file names ending with ".md" to designate markdown formatting.
+   Files names end with ".md" to designate markdown formatting.
    Jekyll processes such files into index.html files.
+
+   There are other formats, such as 
 
    Some text editors can provide text highlighting based on the file extension.
 
    The three dashes in the first line begins the <a target="_blank" href="http://jekyllrb.com/docs/frontmatter/">
-   front matter"</a> which Jekyll processes.
+   "front matter"</a> which Jekyll processes.
 
    <pre>
    ---
@@ -454,8 +489,9 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
 ### Erase sample posts #
 
 0. Switch to the Finder on a Mac or File Explorer on Windows.
-0. Navigate to the _posts folder.
-0. Select and delete all files except the one created above.
+0. Navigate to the <strong>_posts</strong> folder.
+0. Select all files in the folder except the one created above.
+0. Delete files selected.
 
 <a name="AlgoliaSetup"></a>
 
@@ -488,9 +524,11 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621
    which populates your instance with example of actors.
 
 
-<a name="ConfigYml""></a>
+<a name="ConfigYml"></a>
 
 ## Configure _config.yml #
+
+NOTE: Jekyll keeps its configuration information in a text file named _config.yml.
 
 0. Use a text editor to open the <strong>_config.yml</strong> file.
 
@@ -506,9 +544,9 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621
 
    algolia/algoliasearch-jekyll-hyde
 
-   to
+   to, for example:
 
-   wilsonmar/wilsonmar.github.io
+   acme/acme.github.io
 
    would change these lines:
 
@@ -517,19 +555,16 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621
    baseurl:          /algoliasearch-jekyll-hyde
    </pre>
 
-0. Switch to an internet browser to go to the <a target="_blank" href="https://www.algolia.com/dashboard">
-   Algolia Dashboard</a>.
+0. Switch to an internet browser with the <a target="_blank" href="https://www.algolia.com/dashboard">
+   Algolia Dashboard</a> on your account.
 
    <amp-img width="651" height="143" alt="algolia-app-id-651x143-71pct"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
 <br /><br />
 
-   NOTE: Records are not added via the GUI website.
-
-0. Copy the value of
-   the Application ID and API KEY 
-   (by clicking on the icon to the right of each value or
-   highlight each value and press Ctrl_C).
+0. Copy the value of the Application ID 
+   by clicking on the icon to the right of each value or
+   highlight each value and press Ctrl+C.
 
    A Jekyll plugin (from Algolia or another) 
    extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
@@ -551,17 +586,47 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627
        - index.html
        </pre>
 
-0. At the Algolia website, click the <strong>API Keys</strong> icon at the left.
-0. Back to the file, double-click on the application_id value to highlight and press command+V to paste from the Clipboard.
+0. As above, copy from the Dashboard the <strong>Search-Only API Key</strong> and 
+   replace the value of <strong>read_only_api_key</strong> in the _config.yml file.
 
-   #### Define Index for _config.yml #
+   #### Define index_name #
+
+   PROTIP: Specify a different index name for PROD and TEST.
 
    The Algolia plugin also adds metadata context to each paragraph before pushing the lot to the Algolia index in the cloud.
 
-0. PROTIP: Specify a different index name for PROD and TEST.
+0. In _config.yml specify a index name such as "jekyll_PROD". and TEST.
 
-   NOTE: With Aloglia, an index does not need to be created manually.
+0. In _config-dev.yml specify a index name such as "jekyll_TEST".
+
+   NOTE: With Aloglia, an index does not need to be created manually ahead of index insertion.
   
+<a name="WriteAPIKEY"></a>
+
+## Create _algolia_api_key #
+
+PROTIP: Keep private from the world API keys with write permissons.
+
+0. Use a text editor to open file <strong>.gitignore</strong> file.
+0. Scroll to the bottom of the file to see the <strong>_algolia_api_key</strong> entry.
+
+   Functions in the Algolia JavaScript client library downloaded open a file with this name
+   to retrieve the contents for use like a password associated with write and delete permissions.
+
+0. Switch to an internet browser with the <a target="_blank" href="https://www.algolia.com/dashboard">
+   Algolia Dashboard</a> on your account.
+
+0. Click the icon to the right of the <strong>Admin API Key</strong> value to copy it into your Clipboard.
+
+   <amp-img width="650" height="86" alt="algolia admin api key"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15708068/9dd3997c-27b9-11e6-9386-e898d0d2b7e8.jpg"></amp-img>
+   
+   The key's value is shown as dots in case someone else is looking over your shoulder.
+
+0. Switch back to the text editor to open a new file.
+0. Paste the API key in the file.
+0. Save the file in the repo folder as name <strong>_algolia_api_key</strong> (no file extension).
+
 
 <a name="IndexShellScript"></a>
 
@@ -579,59 +644,23 @@ In this case, parse text for indexing and push index entries to Algolia API serv
    <pre><strong>
    # build _site folder:
    bundle exec jekyll build –config _config.yml,_config-dev.yml
-   # Index:
-   ALGOLIA_API_KEY='1234562f0aa092e7acc19f81df82dfe5' jekyll algolia push 
+   # Index sub-command:
+   jekyll algolia push 
    # Display:
    bundle exec jekyll serve –config _config.yml,_config-dev.yml --port 4001 
    </strong></pre>
 
-   QUESTION: How to run jekyll to generate _site and stop for indexing.
+   NOTE: The jekyll aloglia sub-command references the <a href="#WriteAPIKEY">_algolia_api_key</a>.
 
-   Consider this:
+   FAIL QUESTION: How to fix message:
+
+   <pre>
+   fatal: 'jekyll algolia' could not be found. You may need to install the jekyll-algolia gem or a related gem to be able to use this subcommand.
+   </pre>
+
+   This is constructed based on
    <a target="_blank" href="https://jekyllrb.com/docs/usage/">
-   https://jekyllrb.com/docs/usage/</a>
-
-   <a name="WriteAPIKEY"></a>
-
-   ### Define Write API KEY #
-
-0. Switch to an internet browser to go the Algolia website Dashboard to your account.
-
-0. Click the pink <strong>NEW API Key</strong> button at the upper right.
-
-0. Type a Description value.
-
-0. Check Add Records.
-
-0. Click Generate.
-
-0. Click the copy icon next to the newly generated API key for Operation <strong>addObject</strong>
-
-   ### Paste Write API KEY #
-
-0. Switch back to the text editor to replace ’your_write_api_key’ from the Clipboard.
-0. Save the file and run again (as described above).
-
-   ### .gitignore Write API KEY #
-
-0. If you don't want to expose your API key to the world, 
-   keep the 4001 script file only in your local git repository and not in the public GitHub
-   by adding the file's name to the repo's <strong>.gitignore</strong> file.
-
-   One way to tell the plugin what this key is, is to define it as a global variable right before calling the command (ALGOLIA_API_KEY='XXXX'). Another way is to create a file such as "_algolia_api_key" in the same folder as the _config.yml file.
-
-But with any of these methods, having the file not in the public make sense since
-GitHub doesn't do algolia push anyway. 
-It's only done locally or by a "Continuous Integration" server (such as Jekins, Travis, or Circle).
-
-
-<a name="ViewLogs"></a>
-
-### View Logs and Metrics #
-
-On the search service Dashboard:
-
-NOTE: Alogia emails the number of calls each day.
+   Jekyll documentation at https://jekyllrb.com/docs/usage/</a>
 
 
 <a name="BuildIndexCI"></a>
@@ -673,7 +702,7 @@ PROTIP: Make a small change, then add and commit.
 0. If there isn't, define one (replacing the URL with yours):
 
    <tt><strong>
-   git remote add remote https://github.com/jetbloom/jetbloom.github.io
+   git remote add remote https://github.com/acme/acme.github.io
    </strong></tt>
 
 0. Verify with another:
@@ -683,8 +712,8 @@ PROTIP: Make a small change, then add and commit.
    </strong></tt>
 
    <pre>
-   origin http://github.com/jetbloom/jetbloom.github.io (fetch)
-   origin  http://github.com/jetbloom/jetbloom.github.io (push)
+   origin http://github.com/acme/acme.github.io (fetch)
+   origin  http://github.com/acme/acme.github.io (push)
    </pre>
 
 0. Push commits to GitHub to verify the site running before customization.
@@ -695,11 +724,24 @@ PROTIP: Make a small change, then add and commit.
 
 0. View your site using the public URL.
 
+
+<a name="ViewLogs"></a>
+
+### View Logs and Metrics #
+
+On the search service Dashboard:
+
+NOTE: Alogia emails the number of calls each day.
+
+
 <hr />
 
-<a name="ChangesDeepDive"></a>
+<a name="AddSearch"></a>
 
-## Deep dive #
+## Add Search #
+
+To add search features to another theme,
+we dive into theme JavaScript, CSS, and HTML.
 
 The following examines changes made to the base Hype template to add search capabilities.
 

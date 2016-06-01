@@ -591,35 +591,60 @@ switching report format to xml in jmeter properties file:
 Cloubees' Study Guide PDF</a>
 lists these plug-ins that all Certified Jenkins Engineers should know:
 
-* Script Security Plugin
-* Parameterized Trigger Plugin
-* Credentials Plugin
-* Fingerprint Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin".
+   Script Security Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">
+   Parameterized Trigger Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">
+   Credentials Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Fingerprint+Plugin">
+   Fingerprint Plugin</a>
 
-* Amazon EC2 Plugin
-* Docker Plugin
-* CloudBees Folders Plugin
-* Disk Usage Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin">
+   Amazon EC2 Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">
+   Docker Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Folders+Plugin">
+   CloudBees Folders Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Disk+Usage+Plugin">
+   Disk Usage Plugin</a>
 
-* Pipeline Plugin (formerly known as Workflow) 
-* Build Pipeline Plugin
-* Delivery Pipeline Plugin
-* CloudBees Docker Build and Publish Plugin
-* Promoted Builds Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">
+   Pipeline Plugin (formerly known as Workflow)</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">
+   Build Pipeline Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">
+   Delivery Pipeline Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin">
+   CloudBees Docker Build and Publish Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Promoted+Builds+Plugin">
+   Promoted Builds Plugin</a>
 
-* Git Plugin
-* Copy Artifact Plugin
-* JUnit Plugin
-* Matrix Project Plugin
-* NodeLabel Parameter Plugin
-* Radiator View Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">
+   Git Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">
+   Copy Artifact Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin
+   JUnit Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">
+   Matrix Project Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/NodeLabel+Parameter+Plugin">
+   NodeLabel Parameter Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Radiator+View+Plugin">
+   Radiator View Plugin</a>
 
-* Email-ext Plugin
-* Jabber Plugin
-* Mailer Plugin
-* IRC Plugin
-* SMS Notification Plugin
-* Skype Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin">
+   Email-ext Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Jabber+Plugin">
+   Jabber Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Mailer">
+   Mailer Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">
+   IRC Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SMS+Notification">
+   SMS Notification Plugin</a>
+* https://wiki.jenkins-ci.org/display/JENKINS/Skype+Plugin">
+   Skype Plugin</a>
 
 <a id="Nodes"></a>
 

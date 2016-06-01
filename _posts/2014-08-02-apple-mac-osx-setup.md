@@ -109,9 +109,9 @@ If you've already run this, <a href="#SelectApps">click here to skip to view and
 0. Copy the shell script call to the invisible clipboard
    (click to the left of the sh and drag the mouse to the end, then hold down command and press C):
 
-   <tt><strong>
+   <pre><strong>
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
-   </strong></tt>
+   </strong></pre>
 
 0. Open a Terminal
 
@@ -1363,7 +1363,9 @@ If you add your own custom partition to the mix you will find that Apple's tools
 DOTHIS: Plug in a <strong>Time Machine</strong> drive. 
 In a Terminal window invoke:
 
-<tt>diskutil info /dev/disk2</tt>
+   <pre><strong>
+   diskutil info /dev/disk2
+   </strong></pre>
 
 In the list it would have 3 partitions:
 
@@ -1378,7 +1380,9 @@ In the list it would have 3 partitions:
 DOTHIS: Plug in a <strong>SD card</strong>. 
 In a Terminal window invoke:
 
-<tt>diskutil list</tt>
+   <pre><strong>
+   diskutil list
+   </strong></pre>
 
 In the list it would have 2 partitions:
 
@@ -1388,14 +1392,14 @@ In the list it would have 2 partitions:
 
 In a Terminal window invoke:
 
-<tt>diskutil info /dev/disk3</tt>
+   <tt>diskutil info /dev/disk3</tt>
 
 
 DOTHIS: 
 Plug in an <strong>external drive</strong>. 
 In a Terminal window invoke:
 
-<tt>diskutil list</tt>
+   <tt>diskutil list</tt>
 
 In the list it would have 2 partitions:
 
@@ -1406,8 +1410,8 @@ In the list it would have 2 partitions:
 DOTHIS: 
 In a Terminal window invoke:
 
-<tt>diskutil info /dev/disk5</tt>
-<br />
+   <tt>diskutil info /dev/disk5</tt>
+
 &quot;Seagate BUP Slim SL Media&quot;
 
 According to 
@@ -1429,19 +1433,43 @@ DOTHIS:
 To show partition tables for a particular disk:
 In a Terminal window invoke:
 
-<tt>sudo get show /dev/disk0</tt>
+   <tt>sudo get show /dev/disk0</tt>
 
 Eject the disk from the Finder (or use the unmount terminal command if you'd like). If you don't do this, you may get a Resource busy error message during the following step.
 
 CAUTION:
 Change the partition label as desired:
 
-<tt>sudo gpt label -i 2 -l "My New Partition Label" /dev/rdisk0</tt>
+   <pre><strong>
+   sudo gpt label -i 2 -l "My New Partition Label" /dev/rdisk0
+   </strong></pre>
 
 (replace disk0 with the relevant disk number
 and replace 2 with the index number.
 
 
+<a id="App"></a>
+
+## Disk Space Usage #
+
+<a target="_blank" href="https://medium.com/@thomasdegry/how-sketch-took-over-200gb-of-our-macbooks-cb7dd10c8163">
+One of the folks at Sketch (the Mac photo-editing tool) noticed</a> that 
+Daisy Disk didn't map all the disk space usage.
+
+To reveal disk usage by a file that Apple Lion uses to store copies of files to revert to any version:
+
+   <pre><strong>
+   sudo du -sh /.DocumentRevisions-V100
+   </strong></pre>
+
+Resetting to zero would involve re-installs.
+
+If you use an alternative backup such as Dropbox, 
+you can turn it off for a particular program:
+
+   <pre><strong>
+   defaults write -app ‘sketch’ ApplePersistence -bool no
+   </strong></pre>
 
 
 <a id="DevFolderz"></a>
