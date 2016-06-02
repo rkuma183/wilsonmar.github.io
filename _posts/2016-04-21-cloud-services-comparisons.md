@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cloud services compared"
-excerpt: "Cloud"
+excerpt: "Take my cloud ... please"
 tags: [Cloud, comparison]
 comments: true
 image: # pic-black-bkg-white-cloud_1920x1200
@@ -24,10 +24,13 @@ Factor | AWS EC2 | Azure |
 Initial appearance | 2006 | 2010 |
 Granularity of billing | per hour | per minute |
 Entrepreneurial Discount | - | BizSpark |
-# Data centers | 25 | 100 |
-Largest # cores | - | G: 32 cores |
-Largest RAM | - | G: 448 GB |
+# Data centers | 24 | 100 |
+# zones | 33 | 100 |
+Largest server | <a target="_blank" href="https://goo.gl/64UcCb">x1.32xlarge</a> | G: |
+Largest # cores | 128 | 32 |
+Largest RAM GB | 1,952 GB | 448 GB |
 
+### Pricing #
 
 Even though cloud vendors provide a great deal of transparency to how they price their services,
 there are so many variables to what affects the final bill that the only accurate way is to 
@@ -38,6 +41,12 @@ actually run services.
 <li><a target="_blank" href="http://calculator.s3.amazonaws.com/index.html">Amazon's AWS Pricing Calculator</a></li>
 </ul>
 
+<a target="_blank" href="http://www.zdnet.com/article/public-cloud-computing-vendors-a-look-at-strengths-weaknesses-big-picture/">
+Cowan analysis May 2016</a> (using 1.0 as average among vendors) rated Amazon 1.37 (above avarge) in prices (most expensive).
+Microsoft was rated the leader in price and APIs, but the lowest in support.
+
+   <amp-img width="770" height="446" alt="cloud comparison table zdnet 2016-770x446-9.jpg"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15745884/5b980e2a-2891-11e6-9dc5-22f06137e56a.jpg"></amp-img>
 
 ## Operating Systems in the cloud
 

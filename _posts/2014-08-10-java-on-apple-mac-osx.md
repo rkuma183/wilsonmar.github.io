@@ -83,11 +83,10 @@ Matching Java Virtual Machines (4):
 
 ### Apple Java
 
-Apple's version of <strong>Java 6</strong> for OS X 2014-001 can be obtained from
+WARNING: Apple's version of <strong>Java 6</strong> for OS X 2014-001 can be obtained from
 <a target="_blank" href="https://support.apple.com/kb/DL1572?locale=en_US">
 https://support.apple.com/kb/DL1572?locale=en_US</a>
 but note it's not the latest (Java 8).
-
 
 <a name="OracleJavaC"></a>
 
@@ -95,10 +94,103 @@ but note it's not the latest (Java 8).
 
 Hold off downloading the java .dmg installer file from 
 
+   * https://www.java.com/en/ 
    * https://www.java.com/en/download/help/mac_install.xml
    * http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 WARNING: Oracle installs an annoying Ask Toolbar, sometimes without asking.
+
+
+<a name="OpenJDK"></a>
+
+### Open JDK #
+
+Open JDK is the open-sourced implementation of the 
+JRE spec, at
+<a target="_blank" href="http://openjdk.java.net/">http://openjdk.java.net</a>
+is at JVM 7.
+
+  * https://en.wikipedia.org/wiki/List_of_Java_virtual_machines
+
+But it is still not ready for "prime time" on Mac as installation is a dirty affair.
+
+   * https://wiki.openjdk.java.net/display/MacOSXPort/Mac+OS+X+Port+Project+Status
+
+Open JDK's 
+<a target="_blank" href="http://openjdk.java.net/install/">
+install page at http://openjdk.java.net/install/</a>
+shows apt-get (for Debian, Ubuntu) and
+yum (for Red Hat, CentOS, Oracle Linus, Fedora).
+
+   * http://blog.shelan.org/2015/03/how-to-build-open-jdk-9-on-mac-osx.html
+     on Yosemite
+
+   * http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html
+
+<a target="_blank" href="http://gvsmirnov.ru/blog/tech/2014/02/07/building-openjdk-8-on-osx-maverick.html#tldr">
+For OSX, this page recommends using Make to compile from source</a>.
+
+0. Download source using Mercurial to a new folder "openjdk9":
+
+   <tt><strong>
+   hg clone http://hg.openjdk.java.net/jdk9/jdk9 openjdk9
+   cd ./openjdk9
+   </strong></tt>
+
+   Note JDK 9 is under active development.
+
+   http://hg.openjdk.java.net/jdk8/jdk8 work stopped at 2014-03-04.
+
+0. Install <a target="_blank" href="https://www.xquartz.org/"> XQuartz</a> for X Window System that runs on OSX:
+
+   <tt><strong>
+   brew install Caskroom/cask/xquartz<br />
+   brew cask list
+   </strong></tt>
+
+   NOTE: Downloaded /Library/Caches/Homebrew/xquartz-2.7.9.dmg was 7.9K
+
+   xquartz staged at '/opt/homebrew-cask/Caskroom/xquartz/2.7.9' (73M)
+
+0. cd to the .tar.gz directory containing the configure file for Make to use.
+0. XQuartz fixes an error in this command:
+
+   bash ./configure 
+
+0. Install apple-gcc42 the Apple C compiler.
+
+   <a target="_blank" href="https://mihail.stoynov.com/2015/01/29/building-openjdk-9-on-a-osx-or-any-linux/">
+   Mihail recommends</a>:
+
+0. Install ccache compiler cache.
+
+   <tt><strong>
+   brew install ccache
+   </strong></tt>
+
+0. Make a symlink /usr/bin/gcc -> /usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2 (same for g++)
+
+0. If you're at Mavericks Apply patches: 1, 2, 3, 4.
+
+0. if you're at Mavericks Comment out NS_AVAILABLE(10_9, NA) in line 16 of /System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h
+
+9. Build:
+
+   <tt><strong>
+   make all
+   make install
+   </strong></tt>
+
+   Built image should be available at build/macosx-x86_64-normal-server-release/jdk/
+
+<a name="TestBuild"></a>
+
+## Test JDK Build #
+
+https://mihail.stoynov.com/2015/01/29/building-openjdk-9-on-a-osx-or-any-linux/
+   shows JDK 9 install using ccache, mercurial (hg), jtreg "testing harness", and Webrev to diff code
+
+
 
 
 <a name="JenvInstall"></a>

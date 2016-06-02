@@ -25,6 +25,9 @@ MySQL
 http://dev.mysql.com/downloads/workbench/
 MySQL Workbench install on mac
 
+The command-line client is mysql.
+
+
 Invoke from the command line:
 
    <tt><strong>
@@ -36,6 +39,14 @@ To exit:
    <tt><strong>
    quit
    <strong></tt>
+
+Create a database:
+
+   <tt>USE mydb3</tt>
+
+Delete a database:
+
+   <tt>drop mydb3</tt>
 
 To login using the user name I created:
 
@@ -84,8 +95,22 @@ CREATE TABLE  'inmail','NEWMAIL' (
 // postal code 11
 // TIMESTAMP is 
 </pre>
-Create a database:
-<tt>USE mydb3</tt>
-Delete a database:
-<tt>drop mydb3</tt>
 
+## MariaDB #
+
+Maria-DB is a drop-in replacement for MySQL.
+MariaDB 5.1.53 is based on MySQL 5.1.53.
+
+Maria-DB is from MySQL-founder Michael “Monty” Widenius, who left after Oracle acquired Sun to start a new company (Monty Program).
+
+The main configuration file is still my.cnf 
+
+MariaDB shis with additional storage engines installed (no compilation as with MySQL):
+Aria, XtraDB (an enhanced and extended version of the InnoDB storage engine), PBXT, FederatedX (a drop-in replacement for Federated), OQGraph, and SphinxSE 
+in addition to standard MyISAM, blackhole, CSV, Memory, etx.
+
+   show storage engines;
+
+MariaDB Knowledgebase: 
+
+   http://kb.askmonty.org/v/mariadb

@@ -24,6 +24,9 @@ Some features that can be added (offered in other themes and templates) include:
 * Apple app images
 * Windows 10 desktop tile images
 
+* Visual site map
+* Breadcrumb trail
+
 * Previous and Next article
 * Top of page link/icon
 * Link back to site ("this site")
@@ -40,6 +43,9 @@ Some features that can be added (offered in other themes and templates) include:
 * Time-appropriate greeting based on visitor's local time zone
 * Personalized greeting based on personalization data stored in browser during previous session
 * Store history of browser version, OS, etc.
+
+* Cookie policy verification (for EU)
+* Display most popular post on anonymous landing
 
 ## Social
 

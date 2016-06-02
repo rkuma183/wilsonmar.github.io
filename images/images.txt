@@ -6,14 +6,15 @@ pic images.txt
 
 —— Available in 1900x500 within Amazon:
 
+![pic cosmonauts-spacewalk-1900x500-24](https://cloud.githubusercontent.com/assets/300046/15745195/bad7ce38-288d-11e6-988f-2d13d97eeefa.jpg)
+http://www.space.com/24425-spacewalk-photos-space-station-cosmonauts-january-27-2014.html
+
 Android-Marshmallow-HD-Wallpaper.jpg
 http://viewhdpicture.com/android-marshmallow-hd-wallpaper/
 
 pic sunset couple jump WDF_1561320
 http://e2ua.com/data/wallpapers/113/WDF_1561320.jpg
 
-fig multicolor boxes-1080x1920.jpg
-http://e2ua.com/WDF-1167653.html
 
 
 # pic red microsoft windows 10 splash-3840x2160
@@ -55,6 +56,13 @@ http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environmen
 
 
 —— In use:
+
+2016-06-01-svg-image-files.md
+# fig multicolor boxes 1900x500-48
+  feature: https://cloud.githubusercontent.com/assets/300046/15722987/9e7c93b2-27fd-11e6-9549-3a90a081a710.jpg
+  credit: Android Widget Center
+  creditlink: http://e2ua.com/WDF-1167653.html
+
 
 # pic-darkblue-cloud-sunbeams-on-sea-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15269398/92b4ddc4-19ba-11e6-82bf-2a3f1c58d7c8.jpg

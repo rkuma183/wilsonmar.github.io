@@ -14,23 +14,21 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-<a target="_blank" href="http://www.programmableweb.com/apis">
-ProgammableWeb.com</a> has a large inventory of APIs
-and enlightening articles for API developers.
+An inventory of APIs is available from:
 
-   <a target="_blank" href="http://www.programmableweb.com/news/web-platform/2005/08/20">
-   This "Web as a Platform" article</a> by John Musser describing his site in 2005 was precient.
+   * <a target="_blank" href="https://apiharmony-open.mybluemix.net/">
+  API Harmony (IBM)</a>
 
-<a target="_blank" href="https://apis-guru.github.io/">
+   * <a target="_blank" href="http://www.programmableweb.com/apis">
+   ProgammableWeb.com</a> 
+
+  * <a target="_blank" href="https://apis-guru.github.io/">
    https://apis-guru.github.io</a> is the UI for
    <a target="_blank" href="https://github.com/APIs-guru/api-models">
    https://github.com/APIs-guru/api-models</a>
    is a repository of APIs you can search while off-line.
 
-Here are links to my favorite API portals.
-
-Among the most famous, earliest, their
-API is part of a whole set of tools for developers:
+Below are some major ones API developers should know about:
 
 ## Retail #
 

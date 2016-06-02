@@ -4,10 +4,10 @@ title: "Java Google Guava Ecosystem"
 excerpt: "End of any doubt Googlers are our boss."
 tags: [google, guava, java, programming]
 image:
-# feature: pic brown java beans 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622024/6a77b5b0-0584-11e6-93ea-ed1ca2c4bbc6.jpg
-  credit: Naked Security
-  creditlink: http://cdn.wonderfulengineering.com/wp-content/uploads/2013/11/apple-wallpaper-1.jpg
+# pic green guava basket 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15744015/985aac60-2886-11e6-9ce0-71fb50c6720d.jpg
+  credit: Alpha Coders
+  creditlink: https://wall.alphacoders.com/big.php?i=439522
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -15,16 +15,16 @@ comments: true
 
 {% include _toc.html %}
 
-Among the billions of libraries on GitHub,
-this one is #2 (behind Log4J):
+Among the thousands of libraries imported by Java programs on GitHub,
+Guava is the #2 (behind Log4J):
 
-* <a target="_blank" href="https://github.com/google/guava">
+   * <a target="_blank" href="https://github.com/google/guava">
    https://github.com/google/guava</a>
 
 Although nearly 9,000 have starred it at time of writing,
 only around 1,000 are watching it.
 
-## Why This Page
+## Why This Page #
 
 The contribution of this particular page here is to present an understandable <strong>sequence</strong>
 to learn programming Java using library along with
@@ -37,11 +37,11 @@ Might as well learn to do it right the first time than to pick up bad habits.
 > It's kinda like learning to swim by diving into the deep end of a pool filled with Olympic swimmers.
 
 This is probably why <a target="_blank" href="https://en.wikipedia.org/wiki/Google_Guava">
-the Wikipedia page on Guava</a> mention that developers of the library don't
+the Wikipedia page on Guava</a> mentions that developers of the library don't
 encourage outside contributions.
 
 
-## Get It on Your Laptop
+## Get It on Your Laptop #
 
 0. On a Mac, create a group folder (google), then
 
@@ -296,3 +296,7 @@ From LevelUp Lunch:
 
 * <a target="_blank" href="http://stackoverflow.com/questions/ask?tags=java+guava">
    Stackoverflow search of java+guava</a>
+
+## Resources
+
+* http://www.tutorialspoint.com/guava/guava_overview.htm
