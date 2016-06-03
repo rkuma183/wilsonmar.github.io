@@ -15,17 +15,27 @@ comments: true
 
 {% include _toc.html %}
 
-AWS Lambda acts like a giant single server that processes API requests.
+This tutorial takes a deep dive into creating and using AWS Lambda.
+This takes a hands-on approach. Take one step and we have PROTIPs and notes along the way.
 
-So no worries about massive scale.
-Addition of enough machines to handle load are taken care of by Amazon people behind the scenes.
+0. Get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
+   http://aws.amazon.com/</a>.
 
-   BTW, in case you're worried about vendor lock-in, know that Amazon is not the only ones who can run lambdas.
-   <a target="_blank" href="https://www.iron.io/">iron.io</a> runs Lambas on your own servers if you feel nostalgic for power cords on physical servers.
+   * <a target="_blank" href="http://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730">
+   On Google Android mobile phones</a>
 
-Amazon calls Lambda a "compute service" because programmers write code as discrete API 
-handlers responding to 
-<strong>events</strong> such as an image being uploaded.
+   * <a target="_blank" href="https://itunes.apple.com/us/app/aws-console/id580990573?mt=8">
+   on Apple iPhones and iPads</a>
+
+   Sign up for an account with your credit card if you don't already have one.
+
+   Once you sign-in, your AWS Console is tied to a particular <a href="#AvailabilityZone">
+   Availability Zone</a>, such as "us-west-2":
+
+   <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
+   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
+
+   NOTE: Baking different zones into Console URLs makes for more direct connections and removes issues from using a single URL/DNS.
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
    On the AWS Console, select Services, select Lambda from among Compute services such as EC2</a>.
@@ -33,6 +43,20 @@ handlers responding to
    Compute services are at the top of the list among all Amazon services because it's the hottest thing right now (June 2016).
 
    <amp-img width="650" alt="lambda services 2016-06-03 959x124" src="https://cloud.githubusercontent.com/assets/300046/15784793/5d0342ee-2971-11e6-97e0-a4ac79fe7818.jpg"></amp-img>
+
+   AWS Lambda acts like a giant single server that processes API requests.
+
+   So no worries about massive scale.
+   Addition of enough machines to handle load are taken care of by Amazon people behind the scenes.
+
+   BTW, in case you're worried about vendor lock-in, know that Amazon is not the only ones who can run lambdas.
+   <a target="_blank" href="https://www.iron.io/">iron.io</a> runs Lambas on your own servers if you feel nostalgic for power cords on physical servers.
+
+   Amazon calls Lambda a "compute service" because programmers write code as discrete API 
+   handlers responding to 
+   <strong>events</strong> such as an image being uploaded.
+
+   <a name="Pricing"></a>
 
    #### Pricing #
 
@@ -42,9 +66,11 @@ handlers responding to
 
    It says the first million requests are free. That's 20 cents you've saved.
 
-   The first 400,000 GB-seconds are free. If your lambda consumes a massive 1,536 MB every second while it runs, 
-   you'll have 266,667 seconds to play for free each month. That's (266,667 / 60 seconds / 60 minutes ) 
+   The first 400,000 GB-seconds are free. If your lambda consumes a massive 1,536 MB (1 GB) every second while it runs, 
+   you'll have 266,667 GB-seconds to play for free each month. That's (266,667 / 60 seconds / 60 minutes ) 
    74 hours of continuous processing per month.
+
+   NOTE: Lambda functions created (and sitting around with no activity) incure no charges.
 
    QUESTION: How to tell how much each lambda request consumes in memory.
 
@@ -79,11 +105,10 @@ handlers responding to
    
    The specific version is listed: Node.JS 0.10, Node.JS 4.3, Python 2.7.
 
-   QUESTION: Where's Java?
+0. If you want to run Java, click Skip.  QUESTION: Where's Java blueprints?
 
-0. Type "s3" in the Filter field to select a <strong>blueprint</strong> (sample configurations of event sources and Lambda functions).
-
-   s3-get-object
+   Alternately, to use, for example, blueprint "s3-get-object",
+   type "s3" in the Filter field to select a <strong>blueprint</strong> (sample configurations of event sources and Lambda functions).
 
    <a name="EventSources"></a>
 
@@ -99,7 +124,7 @@ handlers responding to
 
    ### Configure function #
 
-   The default Description is "An Amazon S3 trigger that retrieves metadata for the object that has been updated.".
+   The default Description is supplied from the blueprint.
 
    <a name="Runtimes"></a>
 
@@ -114,11 +139,46 @@ handlers responding to
    let s3 = new aws.S3({ apiVersion: '2006-03-01' });
    </pre>
 
+   Alternately:
+
+   * If you selected <strong>Edit code inline</strong>, paste code copied from a Gist or GitHub.
+   * If you selected Upload a ZIP file, navigate to the file on your machine. 
+
+     WARNING: Each upload is limited to under 50 MB (compressed). 
+
+   * If you selected Upload a file from Amazon S3, paste in the bucket ID.
+
+   PROTIP: Install the AWS Eclipse plugin to author and deploy Lambda functions for Java and Node.js.
+
+   NOTE: The file holding the code is <strong>index.js</strong>.
+
 0. Leave Handler as "index.handler".
 
-0. Select *S3 execution role.
+0. The <strong>Execution role</strong> defines the permissions.
 
    <amp-img width="359" height="248" alt="lambda roles 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778512/eaf94314-2953-11e6-9306-10755458fbee.jpg"></amp-img>
+
+   * If you are usign S3, select * S3 execution role.
+   * If you select Basic execution role:
+
+0. Click View Policy Document. An example:
+
+   <pre>
+   {
+   "Version": "2012-10-17",
+   "Statement": [
+     {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+     }
+    ]
+   }
+   </pre>
 
 0. Click Allow in the IAM window opened for you to accept the role name suggested.
 
@@ -128,9 +188,11 @@ handlers responding to
 
 0. No VPC during tutorial runs. Click Next.
 
-0. Do not click Enable event source until testing has occurred. Click Create function.
+0. Click Enable event source until testing has occurred. Click Create function.
 
-   #### Test Trigger S3 #
+## Test Trigger #
+
+### Test Trigger S3 #
 
 0. Switch back to the S3 tab.
 0. Click on the bucket link.
@@ -141,12 +203,36 @@ handlers responding to
 
    Done.
 
+### Test Trigger Custom #
+
+0. In the Lambda Functions screen, select <strong>Actions</strong> since Test should not be clicked until it's configured.
+
+   <amp-img width="264" height="207" alt="lambda test actions 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15787037/1c0e00e2-297d-11e6-8933-c3ed031e6768.jpg"></amp-img>
+
+0. The default data that appears is from the Hello World sample event template. But there are others:
+
+   <amp-img width="603" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15787217/3f884c66-297e-11e6-9e54-9c821cecc4a2.jpg"></amp-img>
+
+0. If your function does not use test data, save an empty set of JSON curly braces:
+
+   <pre>
+   { }
+   </pre>
+
+0. Click Test. Scroll to the bottom of the screen to see the Execution result.
+
+
+
 ## Use CloudWatch #
 
 0. In Lambda > Functions, click on the function's name ("S3Function").
-0. Click the monitoring tab.
+0. Click the <strong>Monitoring</strong> tab.
 
    <a name="MonitoringGraphs"></a>
+
+   <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
+
+0. PROTIP: Mouse over a point on a line for more detail.
 
    * **Invocation count** measures the number of times a function has been invoked and billed
    (in response to an event or API call). This includes both successful and failed invocations, but not throttled attempts.
@@ -176,9 +262,15 @@ handlers responding to
 
 0. Click the line that begins with "REPORT RequestId:" to expand it to see the amount of memory actually used.
 
-   <amp-img width="254" height="38" alt="lambda request mb used 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15779968/95bcf856-295c-11e6-9f86-254417d1ca3a.jpg"></amp-img>
+   <pre>
+   REPORT RequestId: 0ddf5949-29b1-11e6-b8de-a70c7c47033a Duration: 1.00 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 36 MB
+   </pre>
 
-   WARNING: The number of MB used can vary from one execution to another for different sizes of files handled by the funtion.
+   These statistics also appear in the Summary pane.
+
+   The amount charged (Billed) is in increments of 100 milliseconds, even if the Duration is 1 ms.
+
+   The number of Max Memory Used used can vary from one execution to another for different sizes of files handled by the function.
 
    QUESTION: Can the highest MB Used by the function be a metric shown in the list of functions (along with Max. memory)?
 
@@ -189,6 +281,8 @@ NOTE: CloudFront logs can also be read using command-line tool
 
 ## Dynamo DB #
 
+To build mobile back-ends that retrieve and transform data from Amazon DynamoDB:
+
 https://github.com/abalone0204/serverless-demo-with-dynamodb-node
 
 http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
@@ -196,6 +290,14 @@ http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
 Install serverless-framework 
 
    npm install -g serverless
+
+
+handlers that compress or transform objects as they are uploaded to Amazon S3, 
+
+## Kinesis #
+
+Server-less processing of streaming data using Amazon Kinesis.
+
 
 
 ## Programming model #
@@ -294,3 +396,12 @@ by  David Barnett
     Visualizing the Mandelbrot sets
      Playing Monte Carlo simulations
      Visualizing Apache Spark and Databricks
+
+Public repos in GitHub 
+
+   * <a target="_blank" href="https://github.com/Netflix/bless">
+     BLESS from Netflix</a> is an SSH Certificate Authority that runs as a AWS Lambda function in an isolated AWS account with restricted IAM roles
+     to sign short-lived ssh public keys. Written in Python.
+
+   * http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
+   mentions ImageMagick for processing image files.

@@ -43,6 +43,37 @@ Each "method" is the combination of a resource path and an HTTP verb such as GET
 
 ## Create Lambda function #
 
+0. In an internet browser go to <a target="_blank" href="https://qwiklabs.com/focuses/preview/2380">
+   Services > Compute > Lambda</a>
+0. [Create an Amazon Lambda function](/amazon-lambda/) to work with if you haven't already.
+0. Click on the name of a Lambda function to expose using an API endpoint.
+0. Click the API endpoints tab.
+0. Click Add API endpoint.
+0. Select API Gateway in the pop-up dialog.
+
+   QUESTION: Why is this necessary if there is only one choice?
+
+0. Change the Resource Name (such as `/faq`) to define part of the URL path.
+0. The initial Method must be GET.
+0. Change Deployment stage to `test`.
+0. Select Open for Security (no tracking by access key or authentication with IAM).
+0. Click Submit to have a URL assigned, such as:
+
+   https://tsdwtdl0r1.execute-api.us-west-2.amazonaws.com/prod/faq
+
+### API Gateway console #
+
+0. In the internet browser open a new 
+   to go to <a target="_blank" href="https://us-west-2.console.aws.amazon.com/apigateway/home?region=us-west-2#/apis">
+   Services > Application Services > API Gateway</a>.
+
+0. Click on the link to a API microservice you created, such as "LambdaMicroservice".
+0. Click on the link to its GET method.
+
+   Marvel at the visualization and blinking icons.
+
+0. Click on the Test link for an explanation of conditions before clicking Test.
+
 
 
 ## More on API Microservices #
