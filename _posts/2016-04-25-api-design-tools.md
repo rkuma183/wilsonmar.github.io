@@ -36,3 +36,9 @@ Snow Crash can be used with Dredd (https://github.com/apiaryio/dredd)
 to verify that endpoints match the spec.
 
 
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

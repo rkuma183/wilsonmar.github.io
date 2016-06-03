@@ -282,3 +282,10 @@ However, launchd job will run when the computer wakes up if
 the computer is <strong>asleep</strong> when the job should have run
 (if the StartCalendarInterval key has been set).
 
+
+## More on OSX
+
+This is one of a series on Mac OSX:
+
+{% include mac_links.html %}
+

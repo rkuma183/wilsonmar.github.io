@@ -74,6 +74,13 @@ Below are some major ones API developers should know about:
    Capital One</a> is a trail-blazer for banks opening up APIs.
 
 
+## Music #
+
+* <a target="_blank" href="https://developer.spotify.com/web-api/">
+   https://developer.spotify.com/web-api/</a>
+   lets your applications fetch data from the Spotify music catalog and manage user’s playlists and saved music.
+
+
 ## Flickr API
 
 * <a target="_blank" href="https://www.flickr.com/services/api/">
@@ -180,6 +187,11 @@ obtained from email after registration at
 <a target="_blank" href="http://api.census.gov/data/citysdk.html">
 http://api.census.gov/data/citysdk.html</a>
 
+### US White House #
+
+<a target="_blank" href="https://github.com/WhiteHouse/api-standards#pragmatic-rest">
+https://github.com/WhiteHouse/api-standards#pragmatic-rest</a>
+was created with participation by Kin Lane.
 
 ## Other APIs #
 
@@ -197,3 +209,10 @@ A mashup app combines data from several Web APIs in its presentation.
 
 
 
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

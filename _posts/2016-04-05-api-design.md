@@ -32,7 +32,7 @@ by Oliver Gierke
 
 
 
-## Integrations
+## Integrations #
 
 ![api-roi-600x438](https://cloud.githubusercontent.com/assets/300046/15142705/7f951a4c-1663-11e6-93ad-8104b7d29274.jpg)
 
@@ -137,3 +137,19 @@ Developer-friendly API documentation fantastically:
 
 * James Higginbotham @launchany
 
+* The term "REST" was introduced by Fielding's dissertation at:<br />
+   https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+
+* Best Practices for Designing a Pragmatic RESTful API<br />
+   http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+
+* Microservice architecture by Chris Richardson<br />
+   http://microservices.io/<br />
+   http://eventuate.io/exampleapps.html
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

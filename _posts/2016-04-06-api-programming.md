@@ -174,5 +174,8 @@ Create a sample Ping logic app</a> on a temporary (24 hour account)
 to ping a website on a recurring schedule, then extend it to take an action depending on the result of the ping.
 
 
-## Amazon Lambda
+## More on API Microservices #
 
+This is one of a series:
+
+{% include api_links.html %}

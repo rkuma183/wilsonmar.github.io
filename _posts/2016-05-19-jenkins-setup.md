@@ -15,14 +15,14 @@ comments: true
 
 {% include _toc.html %}
 
-Jenkins is open-source Java software (running under a Tomcat web server)
-to invoke jobs 
-for building software and conducting tests, etc.
+Jenkins invokes jobs 
+for building software, conducting tests, etc.
 
-Jenkins can be invoked on a schedule or "continuously" invoked when a trigger is fired
-as part of a chain of tasks that kicks off each step in sequence based on ending status.
-Thus, Jenkins is a key component of <strong>continuous integration</strong> 
-to invoke a chain of tasks needed to ensure that components already unit-tested can be integrated together.
+Jenkins can invoke jobs on a schedule, but it's called a "continuos integration" (CI) tool because it can
+invoke jobs when a <strong>trigger</strong> is fired.
+
+Jenkins can orchestrate a chain of tasks that kicks off each step in sequence based on ending status,
+such as ensure that components already unit-tested can be integrated together.
 
 
 <a id="Alternatives"></a>
@@ -31,15 +31,7 @@ to invoke a chain of tasks needed to ensure that components already unit-tested 
 
 <amp-img width="530" height="246" alt="jenkins alternatives" src="https://cloud.githubusercontent.com/assets/300046/12533728/df265ae4-c1ee-11e5-9a0b-bbc380a2d20f.png"></amp-img>
 
-   * Hudson Oracle
-   * Bamboo from Atlassian
-   * Travis
-   * Fabric
-   * Capistrano
-   * TFS from Microsoft
-   * Team City
-   * CodeShip
-   * Wercker (pronounced like worker)
+   * [My list of CI tools](/devops-choices/#CITaskRunner/)
 
 Jenkins began in 2010 as a fork of Oracle Hudson into Github from java.net 
 after its acquisition by Oracle's purchase of Sun.
@@ -51,10 +43,12 @@ after its acquisition by Oracle's purchase of Sun.
 
 ## Prerequisites #
 
-Jenkins is written in Java.
+Jenkins is open-source software written in Java.
 So you'll need to first install Java 1.5 or higher.
 
 If you download Jenkins, it's a <strong>jenkins.war</strong> file.
+
+It contains a Tomcat web server Java runs under.
 
 
 <a id="Installation"></a>
@@ -81,14 +75,55 @@ Cloudbees has a professional certification exam on this product.
 
 <a name="AmazonInstall"></a>
 
-### Amazon Installation #
+### Amazon Cloud Installation #
 
-Alternately, many host Jenkins on the Amazon cloud:
+Jenkins can be hosted on the Amazon cloud several ways:
 
- * <a target="_blank" href="https://www.youtube.com/watch?v=1JSOGJQAhtE">
-   Jenkins on Amazon</a>
-   by Jeff Shantz:
-  
+   * AWS EC2 instance
+   * <a href="#CodeDeploy">AWS CodeDeploy service</a>
+
+Jeff Shantz has a great set of videos on "Continuous Integration with Jenkins on Amazon EC2" (from 2014):
+   <a target="_blank" href="https://www.youtube.com/watch?v=1JSOGJQAhtE">
+   1</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=zojMg2c6k3Q">
+   2</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=0ZS2BL5R3Ow">
+   3</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=SRAQzs41ct4">
+   4</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=IZ99VwrF6t4">
+   5</a>
+
+<a name="CodeDeploy"></a>
+
+### AWS CodeDeploy service #
+
+#### Pre-requisites #
+
+Define what will be specified later:
+
+0. Define EC2 Key Pair.
+0. Define VPC id.
+0. Define VPC subnet.
+
+#### Use CloudFormation #
+
+0. <a target="_blank" href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new">
+  Go to AWS CloudFormation service, Create stack</a>.
+0. Create a <strong>CloudFormation template</strong> based on 
+   <a target="_blank" href="https://github.com/mikepfeiffer/jenkins-aws-ec2/blob/master/jenkins-server.template">
+   this one</a>.
+0. Upload it to S3.
+0. Specify a Stack name according to your organization's naming standards. (For now we use "Jenkins1").
+0. For Parameters, select an Instance Type (t2.micro).
+0. For YourIPRange, type "0.0.0.0" to expose it to the world. Next.
+0. Options: Tag a key not necessary.
+0. Advanced notification options and stack policy not used for now. Next.
+0. Check acknowledge resource creation (to talk to CodePipeline).
+0. Click Create in the Summary page.
+
+   Status goest from CREATE_IN_PROGRESS to CREATE_COMPLETE.
+
 
 <a name="Install_Linux"></a>
 
@@ -294,6 +329,8 @@ PROTIP: Encrypt over the wire by using https instead of https.
 
 ### Unlock Admin password #
 
+PROTIP: Jenkins is installed with no authentication enabled.
+
 The first time, you see this screen:
 
    <amp-img width="660" height="238" alt="jenkins-unlock" src="https://cloud.githubusercontent.com/assets/300046/15393232/7631489a-1d89-11e6-8d3b-8479160064ff.jpg"></amp-img>
@@ -410,22 +447,26 @@ Jenkins installation options are described at:
    <a target="_blank" href="http://localhost:8081/">
    https://localhost:8081/</a>
 
-If you don't see the full menu (shown on the right), you don't have some permissions.
+   If you don't see the full menu (shown on the right), you don't have some permissions.
 
-As with other systems, granting permissions is typically done only by the Administrator of the system.
+   As with other systems, granting permissions is typically done only by the Administrator of the system.
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
-0. Click **Configre Global Security**.
+0. Click **Configure Global Security**.
 
    <amp-img width="481" height="57" alt="jenkins2 5-manage-config-global-security-962x114" src="https://cloud.githubusercontent.com/assets/300046/15433535/f9da19d8-1e6f-11e6-8e30-e66dc2cbc9c4.png"></amp-img>
 
-0. Check Enable Security.
-0. If you have an LDAP, select that, or check Use Jenkin's own user database. But you'll have to add each user.
+0. Check <strong>Enable Security</strong>.
+0. If you have an LDAP, select that. Alternately, check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
+0. Check **Allow users to sign up**.
+0. Check **Matrix-based security**.
+0. In **User/Group to add", type "admin".
+0. In the row of check boxes that appear, check the box under "Administer".
 0. Check **Project-based Matrix Authorization Strategy** to limit Anonymous users Read-only access.
 
    PROTIP: Rather than specifying individual users and their permissions,
-   the preferred approach is to firt assign individual users to a group in LDAP,
-   then assign permission to the group.
+   the preferred approach is to first assign individual users to a group in LDAP,
+   then assign permission to the group (like what the Windows OS does).
 
 0. For an existing user/group, check boxes to its right.
 
@@ -435,15 +476,22 @@ As with other systems, granting permissions is typically done only by the Admini
 
 0. Or create a user.
 
+0. Install the "AWS CodePipeline Plugin" 
+   by following the next section below.
+
 <a id="Plugins"></a>
 
 ## Plugins #
 
-### Plugins Installed #
+### Install Plugins #
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
-1. Clikc **Manage Plugins**.
-2. Click **Installed** tab to view what has been installed already.
+0. Clikc **Manage Plugins**.
+0. Click **Installed** tab to view what has been installed already.
+
+   <a name="BasePlugins"></a>
+
+   ### Base Plug-ins:
 
    * Email Extension Plugin
    * Git Plugin
@@ -463,19 +511,22 @@ As with other systems, granting permissions is typically done only by the Admini
 
    &nbsp;
 
+   See the list of plugin-ins <a href="#MorePlugins">more plugins</a>.
+
 0. Click **Available** tab has many plug-ins.
 
 0. Click on a category (Artifact Uploaders) to expand additional categories.
 
 0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
-Wiki on Plugins</a>.
+   Wiki on Plugins</a>.
 
  PROTIP: The wide variety of plugins is why Jenkins is popular.
+
 
 ### Plug-in files #
 
 0. Switch to Terminal to open a new command line window.
-0. Navigate to the Jenkins folder:
+0. Navigate to the hidden Jenkins folder:
 
    <pre><strong>
    cd ~/.jenkins
@@ -486,7 +537,80 @@ Wiki on Plugins</a>.
    NOTE: Each plug-in has a <strong>.jpi</strong> binary file for each folder which contains a META-INF and WEB-INF folder.
 
 
+### Rake Environment Variable #
+
+0. In the Manage Jenkins menu, click Configure System.
+0. Check Environment variables under the Global properties section.
+0. Click Add.
+0. In the name value, type "PATH".
+0. In the value field, type "$PATH /usr/local/bin" for Linux or OSX.
+
+   Alternately, on Windows type "???". TODO:
+
 <a id="MorePlugins"></a>
+
+### Other plug-ins #
+
+<a target="_blank" href="https://www.cloudbees.com/jenkins/jenkins-certification">
+Cloubees' Study Guide PDF</a>
+lists these plug-ins that all Certified Jenkins Engineers should know:
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin".
+   Script Security Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">
+   Parameterized Trigger Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">
+   Credentials Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Fingerprint+Plugin">
+   Fingerprint Plugin</a>
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin">
+   Amazon EC2 Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">
+   Docker Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Folders+Plugin">
+   CloudBees Folders Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Disk+Usage+Plugin">
+   Disk Usage Plugin</a>
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">
+   Pipeline Plugin (formerly known as Workflow)</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">
+   Build Pipeline Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">
+   Delivery Pipeline Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin">
+   CloudBees Docker Build and Publish Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Promoted+Builds+Plugin">
+   Promoted Builds Plugin</a>
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">
+   Git Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">
+   Copy Artifact Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin
+   JUnit Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">
+   Matrix Project Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/NodeLabel+Parameter+Plugin">
+   NodeLabel Parameter Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Radiator+View+Plugin">
+   Radiator View Plugin</a>
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin">
+   Email-ext Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Jabber+Plugin">
+   Jabber Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Mailer">
+   Mailer Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">
+   IRC Plugin</a>
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SMS+Notification">
+   SMS Notification Plugin</a>
+* https://wiki.jenkins-ci.org/display/JENKINS/Skype+Plugin">
+   Skype Plugin</a>
+
+<hr />
 
 ### Safe Restart Plugin #
 
@@ -585,66 +709,7 @@ switching report format to xml in jmeter properties file:
    * http://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
    * http://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins
 
-### Other plug-ins #
 
-<a target="_blank" href="https://www.cloudbees.com/jenkins/jenkins-certification">
-Cloubees' Study Guide PDF</a>
-lists these plug-ins that all Certified Jenkins Engineers should know:
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin".
-   Script Security Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">
-   Parameterized Trigger Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">
-   Credentials Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Fingerprint+Plugin">
-   Fingerprint Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin">
-   Amazon EC2 Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">
-   Docker Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Folders+Plugin">
-   CloudBees Folders Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Disk+Usage+Plugin">
-   Disk Usage Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">
-   Pipeline Plugin (formerly known as Workflow)</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">
-   Build Pipeline Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">
-   Delivery Pipeline Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin">
-   CloudBees Docker Build and Publish Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Promoted+Builds+Plugin">
-   Promoted Builds Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">
-   Git Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">
-   Copy Artifact Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin
-   JUnit Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">
-   Matrix Project Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/NodeLabel+Parameter+Plugin">
-   NodeLabel Parameter Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Radiator+View+Plugin">
-   Radiator View Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin">
-   Email-ext Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Jabber+Plugin">
-   Jabber Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Mailer">
-   Mailer Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">
-   IRC Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SMS+Notification">
-   SMS Notification Plugin</a>
-* https://wiki.jenkins-ci.org/display/JENKINS/Skype+Plugin">
-   Skype Plugin</a>
 
 <a id="Nodes"></a>
 
@@ -705,7 +770,7 @@ Builds/jobs can be automatically triggered several ways:
 ## Resources #
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=Lxd6JMMxuwo">
-  Getting Started With Jenkins | Jenkins and DevOps tutorial </a>
+   Getting Started With Jenkins | Jenkins and DevOps tutorial on YouTube</a>
   
 * <a target="_blank" href="https://www.selikoff.net/2016/02/27/jeannes-experiences-with-the-jenkins-certification-beta-exam/">
    Jenkins beta certification exam</a> by Jeanne Boyarsky, 27 Feb 2016

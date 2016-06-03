@@ -980,9 +980,8 @@ Matthew Snider [masnider@MSFT]
 
 * [You Are Not So Smart](http://youarenotsosma
 
-## More on APIs
+## More on API Microservices #
 
-This page is one of a series about APIs:
+This is one of a series:
 
-{% include api_topics.html %}
-
+{% include api_links.html %}

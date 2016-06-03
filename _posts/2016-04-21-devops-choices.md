@@ -35,7 +35,7 @@ each category:
 0. <a href="#ServerOS">Server Operating System</a>
 0. <a href="#SourceRepo">Source repository</a>
 0. <a href="#BitRepository">Bit and Image repository</a>
-0. <a href="#TaskRunner">Task runner</a>
+0. <a href="#CITaskRunner">Continuous Integration Task Runner</a>
 0. <a href="#BuildTool">Build tool</a>
 
 0. <a href="#SpecRepo">Specifications repository</a>
@@ -153,6 +153,10 @@ Boards, burn-down charts.
 
 ## Servers
 
+   * HP
+   * Dell
+   * IBM
+
    <a name="VPN"></a>
 
 ### VPN (Virtual Private Network)
@@ -164,11 +168,11 @@ Boards, burn-down charts.
 
 ### Cloud environment
 
-   * AWS is the most popular
+   * AWS is the most popular, most expensive
    * Microsoft Azure 
    * Google Cloud
-   * Heroku
-   * Rackspace
+   * Heroku (runs in AWS)
+   * Rackspace (runs in AWS)
 
    * HP private cloud
    * Oracle
@@ -204,12 +208,21 @@ Boards, burn-down charts.
 
 ### Source repository
 
-   * Git is the most popular
+   * GitHub (the most popular, supported by AWS CodePipeline)
    * Bitbucket
-   * Stash
+   * Stash (Atlassian)
    * Subversion
-   * Mercurial
+   * Mercurial (hg)
    * Perforce
+   * Assembla
+   * BeanstalkApp
+   * Codebase
+   * Gitlab
+   * Gitorious
+   * ProjectLocker
+   * Kiln
+   * Solano (supported by AWS CodePipeline)
+   * <a target="_blank" href="https://aws.amazon.com/codecommit">CodeCommit</a> in AWS cloud
    * etc.
 
    <a name="BitRepository"></a>
@@ -219,25 +232,33 @@ Boards, burn-down charts.
    * Artifactory (open source)
    * etc.
 
-   <a name="TaskRunner"></a>
+   <a name="CITaskRunner"></a>
 
 ### Task runner CI
 
    * Jenkins (licensed Cloudbees SaaS)
    * CircleCI
    * TravisCI
-
+   * Fabric
+   * CodeShip.com
+   * <a target="_blank" href="https://cruisecontrol.sourceforge.net/"> CruiseControl</a>
    * Bamboo from Atlassian (licensed)
    * TFS from Microsoft (licensed)
-   * etc.
+   * TeamCity from JetBrains (licensed)
+   * Wercker (pronounced like worker)
+   * AppVeyor
+   * BuildForge
 
    <a name="BuildTool"></a>
 
 ### Build Tool
 
-   * Ant
+   * Ant for Java
+   * NAnt for .NET
+   * Phing for PHP
+   * Rake for Ruby based on haml files.
    * Maven
-   * Grunt, Gulp (used by Node)
+   * Grunt, Gulp (for Node)
    * ActionScript (Mac)
    * etc.
 
