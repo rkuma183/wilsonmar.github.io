@@ -49,7 +49,7 @@ Each "method" is the combination of a resource path and an HTTP verb such as GET
 
 0. In an internet browser go to <a target="_blank" href="https://qwiklabs.com/focuses/preview/2380">
    Services > Compute > Lambda</a>
-0. [Create an Amazon Lambda function](/amazon-lambda/) to work with if you haven't already.
+0. [Create an Amazon Lambda function](/aws-lambda/) to work with if you haven't already.
 0. Click on the name of a Lambda function to expose using an API endpoint.
 0. Click the API endpoints tab.
 0. Click Add API endpoint.
