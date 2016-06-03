@@ -15,11 +15,15 @@ comments: true
 
 {% include _toc.html %}
 
-Microsoft on Azure is one of several [API management/governance vendors I evaluated](/api-management-evaluation/).
-
 To see for yourself, go through the 35-minute self-paced lab <a target="_blank" href="https://qwiklabs.com/focuses/preview/2380">
 Introduction to Amazon API Gateway</a>.
 In the lab, you create a simple FAQ microservice. The microservice returns a JSON object containing a random question and answer pair using an API Gateway endpoint that invokes a Lambda function. So students should take the prerequisite lab "Introduction to AWS Lambda" before taking this lab.
+
+This is an expanded version of that lab. 
+This tutorial takes a deep dive into creating and using AWS API Management.
+This is a hands-on guided tour. Take one step at a time and we point out PROTIPs and notes along the way.
+
+## High level orientation #
 
 According to <a target="_blank" href="https://aws.amazon.com/api-gateway/details/">
 https://aws.amazon.com/api-gateway/details</a>
@@ -37,9 +41,9 @@ Amazon's API Gateway "is a fully managed service that makes it easy for develope
 * Cache API responses via Amazon CloudFront for faster response times
 
 
-Each "resource", such as "api.mysite.com/questions" is a single microservice within a system.
+Each "resource" is a single microservice within a system, with a URL such as "https://api.mysite.com/questions".
 
-Each "method" is the combination of a resource path and an HTTP verb such as GET, POST, DELETE, etc.
+Each "method" is the combination of a resource path and an HTTP verb such as GET, POST, DELETE, etc. in the HTTP header.
 
 ## Create Lambda function #
 

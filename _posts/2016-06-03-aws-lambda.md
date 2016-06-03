@@ -16,10 +16,10 @@ comments: true
 {% include _toc.html %}
 
 This tutorial takes a deep dive into creating and using AWS Lambda.
-This takes a hands-on approach. Take one step and we have PROTIPs and notes along the way.
+This is a hands-on guided tour. Take one step at a time and we point out PROTIPs and notes along the way.
 
 0. Get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
-   http://aws.amazon.com/</a>.
+   http://aws.amazon.com/</a> on web browsers. For mobile devices:
 
    * <a target="_blank" href="http://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730">
    On Google Android mobile phones</a>
@@ -60,15 +60,17 @@ This takes a hands-on approach. Take one step and we have PROTIPs and notes alon
 
    #### Pricing #
 
-0. Click Learn About link to http://aws.amazon.com/lambda/
+0. Click <a target="_blank" href="http://aws.amazon.com/lambda/">Learn About link to http://aws.amazon.com/lambda/</a>.
 
-0. Click Pricing for http://aws.amazon.com/lambda/pricing 
+0. Click <a target="_blank" href="http://aws.amazon.com/lambda/pricing">Pricing for http://aws.amazon.com/lambda/pricing</a>.
 
-   It says the first million requests are free. That's 20 cents you've saved.
+   It says the first million requests are free. That's 20 cents you'll save month.
 
    The first 400,000 GB-seconds are free. If your lambda consumes a massive 1,536 MB (1 GB) every second while it runs, 
    you'll have 266,667 GB-seconds to play for free each month. That's (266,667 / 60 seconds / 60 minutes ) 
    74 hours of continuous processing per month.
+
+   QUESTION: What is the date that free allocations flip to the next month?
 
    NOTE: Lambda functions created (and sitting around with no activity) incure no charges.
 
