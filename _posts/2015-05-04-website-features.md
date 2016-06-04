@@ -4,10 +4,10 @@ title: "Website features"
 excerpt: "Whether it's wanted or not"
 tags: [website]
 image:
-# feature: pic blue lake searching 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14621985/1cdb6086-0584-11e6-9570-5cedb9f2385f.jpg
-  credit: Braintree Books
-  creditlink: http://www.braintreebooks.com/search.htm
+# drawing blue messaging icons flow 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15797012/6c3aa21a-29c7-11e6-8fbd-ef15a86df580.jpg
+  credit: IT Management
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

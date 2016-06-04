@@ -1,13 +1,16 @@
 pic images.txt
 
-  credit:
-  creditlink:
+  feature: 
+  credit: 
+  creditlink: 
 
 
 —— Available in 1900x500 within Amazon:
 
-![pic cosmonauts-spacewalk-1900x500-24](https://cloud.githubusercontent.com/assets/300046/15745195/bad7ce38-288d-11e6-988f-2d13d97eeefa.jpg)
-http://www.space.com/24425-spacewalk-photos-space-station-cosmonauts-january-27-2014.html
+# pic cosmonauts-spacewalk-1900x500-24]
+  feature: https://cloud.githubusercontent.com/assets/300046/15745195/bad7ce38-288d-11e6-988f-2d13d97eeefa.jpg
+  credit: Space.com
+  creditlink: http://www.space.com/24425-spacewalk-photos-space-station-cosmonauts-january-27-2014.html
 
 Android-Marshmallow-HD-Wallpaper.jpg
 http://viewhdpicture.com/android-marshmallow-hd-wallpaper/
@@ -56,6 +59,11 @@ http://windowsitpro.com/powershell/powershell-one-liner-getting-local-environmen
 
 
 —— In use:
+
+2016-05-04-website-features.md
+# drawing blue messaging icons flow 1900x500
+https://cloud.githubusercontent.com/assets/300046/15797012/6c3aa21a-29c7-11e6-8fbd-ef15a86df580.jpg
+  credit: IT Management
 
 2016-06-01-svg-image-files.md
 # fig multicolor boxes 1900x500-48

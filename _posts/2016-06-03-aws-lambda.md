@@ -64,7 +64,7 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 
 0. Click <a target="_blank" href="http://aws.amazon.com/lambda/pricing">Pricing for http://aws.amazon.com/lambda/pricing</a>.
 
-   It says the first million requests are free. That's 20 cents you'll save month.
+   It says the first million requests are free. That's 20 cents you'll save each month.
 
    The first 400,000 GB-seconds are free. If your lambda consumes a massive 1,536 MB (1 GB) every second while it runs, 
    you'll have 266,667 GB-seconds to play for free each month. That's (266,667 / 60 seconds / 60 minutes ) 
@@ -74,9 +74,10 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 
    NOTE: Lambda functions created (and sitting around with no activity) incure no charges.
 
-   QUESTION: How to tell how much each lambda request consumes in memory.
+   NOTE: How much each Lambda request consumes in memory time is described in
+   <a href="#CloudWatch">CloudWatch below</a>.
 
-## Tutorial: Create Event Source S3 #
+## Create Event Source S3 #
 
    The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    Introduction to AWS Lambda course in qwiklabs.com</a> 
@@ -101,16 +102,17 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/create?step=1">
    On the AWS Console, select Services, select Lambda, click Get Started Now</a>
 
-0. Click the <strong>All languages</strong> drop-down.
+0. Click the <strong>All languages</strong> drop-down. The default is Node.JS 4.3.
 
-   Inside the Lambda "server" are Node JS, Python, and JVM run-times that run "lambda programs".
+   But also available are Java 8, Node.JS 0.10, Node.JS 4.3, Python 2.7.
+
+   COOL: With Lambda developers don't need to provision servers and install and update JVM run-time software.
+   Servers accepting Lambda requests are Node JS, Python, and JVM run-times that run Lambda functions.
    
-   The specific version is listed: Node.JS 0.10, Node.JS 4.3, Python 2.7.
-
-0. If you want to run Java, click Skip.  QUESTION: Where's Java blueprints?
-
-   Alternately, to use, for example, blueprint "s3-get-object",
+0. If you want to use, for example, blueprint "s3-get-object",
    type "s3" in the Filter field to select a <strong>blueprint</strong> (sample configurations of event sources and Lambda functions).
+
+   Alternately, to provide your own script, scroll down to click <strong>Skip</strong>.  
 
    <a name="EventSources"></a>
 
@@ -160,8 +162,9 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 
    <amp-img width="359" height="248" alt="lambda roles 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778512/eaf94314-2953-11e6-9306-10755458fbee.jpg"></amp-img>
 
-   * If you are usign S3, select * S3 execution role.
-   * If you select Basic execution role:
+   If you are usign S3, select `* S3 execution role`. The asterisk (*) designates the default selection.
+
+   Alternately, select `Basic execution role` if your function does not need to input data.
 
 0. Click View Policy Document. An example:
 
@@ -224,10 +227,11 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 0. Click Test. Scroll to the bottom of the screen to see the Execution result.
 
 
+<a name="CloudWatch"></a>
 
 ## Use CloudWatch #
 
-0. In Lambda > Functions, click on the function's name ("S3Function").
+0. In Lambda > Functions, click on your function's name (such as "S3Function").
 0. Click the <strong>Monitoring</strong> tab.
 
    <a name="MonitoringGraphs"></a>
@@ -277,9 +281,49 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
    QUESTION: Can the highest MB Used by the function be a metric shown in the list of functions (along with Max. memory)?
 
    QUESTION: Are charges for memory based on the maximum allocated or the amount actually used?
+
+0. In the CloudWatch Console, click "Lambda" under the Metrics category on the left menu.
+
+
+
+### CloudWatch Command-line Tool #
    
 NOTE: CloudFront logs can also be read using command-line tool
 <a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
+
+
+<a name="CreateLambda"></a>
+
+## Create Lambda function with no input data #
+
+0. In an internet browser go to <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions">
+   Services > Compute > Lambda<br />
+   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions</a>
+
+0. [Create an Amazon Lambda function](/aws-lambda/) to work with if you haven't already.
+0. Click on the name of a Lambda function to expose using an API endpoint.
+
+   Notice a set of numbers and letters (such as tsdwtdl0r1) has been assigned next to your Lambda name.
+
+0. Click the API endpoints tab.
+0. Click Add API endpoint.
+0. Select API Gateway in the pop-up dialog.
+
+   QUESTION: Why is this necessary if there is only one choice?
+
+0. Change the Resource Name (such as `/faq`) to define part of the URL path.
+0. The initial Method must be GET.
+0. Change Deployment stage to `test`.
+0. Select Open for Security (no tracking by access key or authentication with IAM).
+
+   The screen before clicking.
+
+   <amp-img width="650" alt="lambda services 2016-06-03 959x124" src="https://cloud.githubusercontent.com/assets/300046/15784793/5d0342ee-2971-11e6-97e0-a4ac79fe7818.jpg"></amp-img>
+
+0. Click Submit to have a URL assigned, such as:
+
+   https://tsdwtdl0r1.execute-api.us-west-2.amazonaws.com/prod/faq
+
 
 ## Dynamo DB #
 

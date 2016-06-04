@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-## Photo editing programs
+## Photo editing programs #
 
 Adobe Photoshop 
 is the choice of professionals, and premium features means money.
@@ -53,15 +53,25 @@ Search in images.google.com for "1900x500".
 0. On the screen drag a small rectangle. Don't worry about the size because it's too difficult to come up
    up with a precise box with the mouse.
 
-0. On the Size: type in 1900 and 500.'
+0. Specify the Size: type in width: 1900 and height: 500.
+
+   This needs to be done with the aspect ratio lock off (the default).
 
 0. Drag the mask area onto the picture.
+
+   PROTIP: The <a target="_blank" href="https://en.wikipedia.org/wiki/Golden_ratio">
+   Golden Ratio</a> is for the subject of the canvas to be 0.618 from the edge.
+
+   * 1900 * .618 = 1174 + 726
+   * 500 * .618 = 309 + 191
 
 0. At the left, select both the Rectangle and the picture: hold down the shift key and click.
 
 0. Click the **Mask** icon.
 
-0. Click menu File | Export. Select Export Selection.
+## Export image #
+
+0. Click menu File \| Export. Select Export Selection.
 
 0. Select the Format (JPG) at the lower right.
 
