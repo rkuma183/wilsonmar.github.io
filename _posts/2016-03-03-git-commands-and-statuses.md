@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git Commands and Statuses"
-excerpt: "There is method to the madness"
+excerpt: "The Visual Cheat Sheet"
 modified:
 tags: []
 image:
