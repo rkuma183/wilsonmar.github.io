@@ -66,11 +66,12 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
 
    It says the first million requests are free. That's 20 cents you'll save each month.
 
-   The first 400,000 GB-seconds are free. If your lambda consumes a massive 1,536 MB (1 GB) every second while it runs, 
-   you'll have 266,667 GB-seconds to play for free each month. That's (266,667 / 60 seconds / 60 minutes ) 
-   74 hours of continuous processing per month.
+   For now, the first 400,000 GB-seconds (x 1024 = 409,600,000 MB-seconds) are free. 
 
-   QUESTION: What is the date that free allocations flip to the next month?
+   If you run only 128 MB Lambdas, you can make one request every 1.23 seconds during a 30-day month, for free.
+   (409,600,000 / 128 = 3,200,000 / 30 days / 24 hours / 60 minutes / 60 seconds = 1.23 )
+
+   QUESTION: What is the date that free allocations flip to the next month? On the 1st?
 
    NOTE: Lambda functions created (and sitting around with no activity) incure no charges.
 
@@ -318,11 +319,40 @@ NOTE: CloudFront logs can also be read using command-line tool
 
    The screen before clicking.
 
-   <amp-img width="650" alt="lambda services 2016-06-03 959x124" src="https://cloud.githubusercontent.com/assets/300046/15784793/5d0342ee-2971-11e6-97e0-a4ac79fe7818.jpg"></amp-img>
+   <amp-img width="400" alt="lambda api endpoint summary 2016-06-03 400x356" src="https://cloud.githubusercontent.com/assets/300046/15801299/019fc322-2a4e-11e6-96cb-86e863aa4adc.jpg"></amp-img>
 
 0. Click Submit to have a URL assigned, such as:
 
    https://tsdwtdl0r1.execute-api.us-west-2.amazonaws.com/prod/faq
+
+## Serverless Command-line #
+
+Lambda functions can be defined from a command-line using the Serverless framework (formerly JAWS).
+
+https://www.youtube.com/watch?v=fXZzVzptkeo
+AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
+
+http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
+
+Install serverless-framework 
+
+   npm install -g serverless
+
+Austen Collins created the Serverless Framework
+
+http://justserverless.com/blog/your-first-serverless-application/
+
+http://serverlessconf.io/
+
+http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/
+Phillip muens
+@pmmuens
+github.com/pmuens
+https://gumroad.com/l/learn-serverless-book
+
+handlers that compress or transform objects as they are uploaded to Amazon S3, 
+
+https://gitter.im/serverless/serverless
 
 
 ## Dynamo DB #
@@ -331,14 +361,10 @@ To build mobile back-ends that retrieve and transform data from Amazon DynamoDB:
 
 https://github.com/abalone0204/serverless-demo-with-dynamodb-node
 
-http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
+https://www.youtube.com/watch?v=TuGyyTXPQ-U
+1 How to use AWS API Gateway to expose AWS DynamoDB database backend
+by mattua
 
-Install serverless-framework 
-
-   npm install -g serverless
-
-
-handlers that compress or transform objects as they are uploaded to Amazon S3, 
 
 ## Kinesis #
 
@@ -451,3 +477,12 @@ Public repos in GitHub
 
    * http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
    mentions ImageMagick for processing image files.
+
+* The <a target="_blank" href="https://www.w3.org/TR/REC-html40/sgml/entities.html">
+HTML 4 character entity references</a> for the Greek capital and small letter lambda are "&#923;" and "&#955;". 
+* The Unicode numbers for lambda are U+039B and U+03BB.
+
+## Rock Stars #
+
+* Tim Wagner, General Manager of AWS Lambda at Amazon
+

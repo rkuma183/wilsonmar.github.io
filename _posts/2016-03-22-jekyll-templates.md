@@ -4,9 +4,9 @@ title: "Jekyll templates"
 excerpt: "The most popular"
 tags: [website, builder, templates, jekyll]
 image:
-# feature: scr white jekyll static tools 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622170/48b1ceb0-0585-11e6-8b19-b9d09feebd6f.jpg
-  credit:
+# yellow aristo template 
+  feature: https://cloud.githubusercontent.com/assets/300046/15800377/63a04610-2a34-11e6-87d6-c66f1366715f.jpg
+  credit: Aristo
   creditlink:
 comments: true
 ---
@@ -110,7 +110,8 @@ and unzip it into that folder rather than:
 
     git clone https://github.com/mmistakes/minimal-mistakes.git
 
-### Grunt tasks
+### Grunt example #
+
 After downloading, have Maven pull in dependencies based on the Gemfile:
 
    bundle install
@@ -136,6 +137,8 @@ minifies SVG graphics files.
 NOTE: File names beginning with a dot are hidden.
 
 
-## Others #
+## Gulp example #
 
-* https://github.com/kriasoft/static-site-starter
+* <a target="_blank" href="https://github.com/kriasoft/static-site-starter">
+   https://github.com/kriasoft/static-site-starter</a>
+   uses a gulpfile.js

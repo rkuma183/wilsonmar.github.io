@@ -16,18 +16,57 @@ comments: true
 {% include _toc.html %}
 
 
+
+<a id="Terminalz"></a>
+
+## Open Terminal from Finder Folder #
+
+It's hard to get away from using a command-line terminal.
+
+With Yosemite comes an option to <strong>right-click</strong> on a directory or folder 
+and have it open terminal in that location.
+
+<ol type="1">
+<li> Click the Apple icon, System Preferences....</li>
+<li> Press K and select Keyboard.</li>
+<li> Click Shortcuts, Services.</li>
+<li> Scroll to the <strong>Files and Folders</strong> section.</li>
+<li> Check on <strong>New Terminal at Folder</strong>.</li>
+<li> Close the dialog by clicking the red dot at the upper left corner.</li>
+</ol>
+
+
+
+<a id="MacVer"></a>
+
+## Mac Versions #
+
+In a Terminal window on any folder, type:
+
+   <tt><strong>
+   sw_vers
+   </strong></tt>
+
+   sample response:
+
+   <pre>
+   ProductName: Mac OS X
+   ProductVersion: 10.11.4
+   BuildVersion: 15E65
+   </pre>
+
 <a id="Versionz"></a>
 
 ## Versions of Mac OS X
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> Version </th><th> Code Name </th><th> Avail. Date 
-</th><th><a href="#PHPz">PHP</a> 
-</th><th><a href="#Pythonz">Python</a> 
-</th><th><a href="#Rubyz">Ruby</a> 
+<tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date 
+</th><th>[PHP](/php-on-apple-mac-osx/)</a> 
+</th><th>[Python](/python-on-apple-mac-osx/)</a> 
+</th><th>[Ruby](/ruby-on-apple-mac-osx/)</a> 
 </th><th> Introduced
 </th></tr>
-<tr valign="top"><td> OS X 10.11
+<tr valign="top"><td> 10.11
 </td><td align="right"> El Capitan (Gala)
 </td><td align="right"> July 2015
 </td><td align="right"> -
@@ -35,51 +74,51 @@ comments: true
 </td><td align="right"> -
 </td><td align="left"> <a href="#ElCapitanSIP">Disable System Integrity Production</a>
 </td></tr>
-<tr valign="top"><td> OS X 10.10
+<tr valign="top"><td> 10.10
 </td><td align="right"><a target="_blank" rel="amphtml" href="http://www.wikiwand.com/en/OS_X_Yosemite">Yosemite</a> (Syrah)
 </td><td align="right"> Fall 2014
 </td><td align="right"> 5.5.14
 </td><td align="right"> 2.7.6
 </td><td align="right"> -
 </td><td align="left"> Swift, non-skeuomorphic UI, connect Apple </td></tr>
-<tr valign="top"><td> OS X 10.9	
+<tr valign="top"><td> 10.9 
 </td><td align="right"> Mavericks (Caberet)
 </td><td align="right"> Oct. 22, 2013
 </td><td align="right"> 5.3.26
 </td><td align="right"> -
 </td><td align="right"> 2.0.0p247
 </td><td align="left"> - </td></tr>
-<tr valign="top"><td> OS X 10.8	</td><td align="right"> Mountain Lion
+<tr valign="top"><td> 10.8 </td><td align="right"> Mountain Lion
 </td><td align="right"> July 25, 2012
 </td><td align="right"> -
 </td><td align="right"> -
 </td><td align="right"> 1.8.7 
 </td><td align="left"> - </td></tr>
-<tr valign="top"><td> Mac OS X 10.7	</td><td align="right"> Lion
+<tr valign="top"><td> 10.7 </td><td align="right"> Lion
 </td><td align="right"> July 20, 2011
 </td><td align="right"> 5.3
 </td><td align="right"> -
 </td><td align="right"> -
 </td><td align="left"> - </td></tr>
-<tr valign="top"><td> Mac OS X 10.6	</td><td align="right"> Snow Leopard
+<tr valign="top"><td> 10.6 </td><td align="right"> Snow Leopard
 </td><td align="right"> June 9, 2008
 </td><td align="right"> 5.3
 </td><td align="right"> -
 </td><td align="right"> -
 </td><td align="left"> <a href="#AppleStore">Apple Store</a> </td></tr>
-<tr valign="top"><td> Mac OS X 10.5	</td><td align="right"> Leopard
+<tr valign="top"><td> 10.5 </td><td align="right"> Leopard
 </td><td align="right"> Oct. 26, 2007
 </td><td align="right"> 5.2
 </td><td align="right"> 2.5.1
 </td><td align="right"> -
 </td><td align="left"> - </td></tr>
-<tr valign="top"><td> Mac OS X 10.4	</td><td align="right"> Tiger
+<tr valign="top"><td> 10.4 </td><td align="right"> Tiger
 </td><td align="right"> ?
 </td><td align="right"> ?
 </td><td align="right"> -
 </td><td align="right"> -
 </td><td align="left"> from tsch to <a href="#BashShell">bash shell</a></td></tr>
-<tr valign="top"><td> Mac OS X 10.3	</td><td align="right"> Jaguar
+<tr valign="top"><td> 10.3 </td><td align="right"> Jaguar
 </td><td align="right"> ?
 </td><td align="right"> ?
 </td><td align="right"> -
@@ -96,7 +135,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
 <a id="AutoInstall"></a>
 
-## Automated Configuration #
+## Bootstrap Automated Install using Ansible #
 
 This is the easiest way to quickly configure a Mac the way many developers prefer
 and add programs many developers want.
@@ -106,15 +145,13 @@ create a virtual machine to try this process.
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
-0. Copy the shell script call to the invisible clipboard
-   (click to the left of the sh and drag the mouse to the end, then hold down command and press C):
+0. Copy from below this shell script call (highlight the line, then hold down command and press C to the invisible Clipboard):
 
    <pre><strong>
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
    </strong></pre>
 
-0. Open a Terminal
-
+0. Open a Terminal window.
 0. Make a folder and navigate into it:
 
    <pre><strong>
@@ -573,29 +610,6 @@ I disabled each by selecting the dash (last choice)
 because they show up when I don't want them.
 
 
-
-
-
-<a id="Terminalz"></a>
-
-## Open Terminal from Finder Folder #
-
-It's hard to get away from using a command-line terminal.
-
-With Yosemite comes an option to <strong>right-click</strong> on a directory or folder 
-and have it open terminal in that location.
-
-<ol type="1">
-<li> Click the Apple icon, System Preferences....</li>
-<li> Press K and select Keyboard.</li>
-<li> Click Shortcuts, Services.</li>
-<li> Scroll to the Files and Folders.</li>
-<li> Check on New Terminal at Folder.</li>
-<li> Close the dialog by clicking the red dot at the upper left corner.</li>
-</ol>
-
-Go to your directory that has your SASS and CSS directories in it and 
-right click and choose Services > New Terminal at Folder.
 
 
 

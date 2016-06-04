@@ -21,8 +21,7 @@ This tutorial describes how to work with SVG (Scaled Vector Graphics) image file
 
 Here are the sections
 
-0. <a href="#WhySVG">What are SVG?</a>
-0. <a href="#WhatIsSVG">What is SVG</a>
+0. <a href="#WhySVG">Why SVG?</a>
 0. <a href="#EditingSVG">Creating Editing SVG</a>
 0. <a href="#StoringSVG">Storing SVG</a>
 0. <a href="#D3">D3</a>
@@ -31,10 +30,14 @@ Here are the sections
 
 ## Why SVG? #
 
-SVG files are basically text "programs" to draw graphics on the screen.
+   <amp-img width="541" height="343" alt="svg vs raster"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15801079/93eb7e26-2a47-11e6-9090-724da6e7d176.png"></amp-img>
+
+<a target="_blank" href="https://www.wikiwand.com/en/Scalable_Vector_Graphics/">
+SVG (Scaled Vector Graphics) files</a> are basically text "programs" to draw graphics on the screen.
 So SVG graphics look sharp no matter the size of the screen, unlike bitmapped based graphic files such as jpg, git, and png.
 
-   * https://www.wikiwand.com/en/Scalable_Vector_Graphics
+
 
 The W3C spec for SVG reached back to 1998.
 
@@ -53,9 +56,6 @@ Examples of SVG graphics:
    * <a target="_blank" href="https://www.iconmonstr.com/">iconmonstr.com</a> is a free library of 24x24 pixel icons.
 
    * https://commons.wikimedia.org/wiki/File:Ghostscript_Tiger.svg
-
-Many logos are drawn using SVG.
-
 
 Others:
 
@@ -203,22 +203,43 @@ the gear clock</a>
 
 QUESTION: Is there code to generate click maps by parsing the SVG file?
 
+
+<a target="_blank" href="http://aws.amazon.com/architecture/icons/">
+Amazon's icons at 
+http://aws.amazon.com/architecture/icons</a>
+
+   * https://d3aeo97xi0ngf3.cloudfront.net/resources/img/logos/Compute_AmazonEC2.svg
+
+   <object data="https://d3aeo97xi0ngf3.cloudfront.net/resources/img/logos/Compute_AmazonEC2.svg" type="image/svg+xml" class="Amazon EC2" />
+
+
+
 <a name="D3">D3</a>
 
 ## D3 #
 
 <a target="_blank" href="http://d3js.org/">
 D3.js</a> 
-creates graphs by generating SVG.
+creates graphs by generating SVG using JavaScript such as this:
 
    <pre>
    d3.select("body").append("svg").append("rect").attr("width",50).attr("height",50).style("fill","blue");
    </pre>
 
+   .append and .attr are operators.
+
 The D3 library is added in the `<head>` section of HTML:
 
    <pre>
    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+   </pre>
+
+Circle:
+
+   <pre>
+   <svg>
+      <circle cx="25" cy="25" r="25" style="file: blue"/>
+   </svg>
    </pre>
 
 This example is from the video course about D3 on Pluralsight.com.
