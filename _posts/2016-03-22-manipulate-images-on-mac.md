@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Crop (Mask) images"
-excerpt: "Get just the right 1900x500 picture for your Jekyll website"
+excerpt: "Get just the right 1900x500 picture for your website"
 tags: [JavaScript, Load Testing, LoadRunner]
 image:
 # feature: pic deer in forest 1900x500.jpg

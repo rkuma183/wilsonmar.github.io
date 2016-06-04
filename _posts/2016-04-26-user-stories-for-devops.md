@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DevOps User Stories"
+title: "DevOps User Stories by Persona"
 excerpt: "Value from autonomous speed"
 tags: [text to speech, JavaScript, programming]
 image:
@@ -16,17 +16,11 @@ comments: true
 
 User stories have become the primary method used by agile teams for defining what value is provided by a system being built.
 
-To facilitate <strong>estimation</strong>,
-each user story defined below is a <strong>summary</strong> that fits on 3x5 inch index card,
-following this prototype pattern:
+## Separation of duties #
 
-      As a [role], I want to [do something] [with some frequency]
-      so that I can/will [achieve some goal/objective].
+   <amp-img width="819" alt="newgen net-devops 819x406" src="https://cloud.githubusercontent.com/assets/300046/15799299/3c3aec34-2a15-11e6-8660-2c8ea007ace8.jpg"></amp-img>
 
-The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.com/dp/0321205685?tag=tbrb-20&link_code=as3&creativeASIN=0321205685&creative=373489&camp=211189">
-      User Stories Applied</a>.
-
-## Personas
+## Personas #
 
 How can the organization as a whole more efficiently and effectively handle increasing <strong>complexity</strong>,
 increase scale, yet move more rapidly and innovatively?
@@ -49,22 +43,22 @@ The strategy of "devops" is:
    * <a href="#FinancialSponsor">Financial sponsor</a> ("management") 
    seeing reduced risk, lower expenses, higher revenues, with increased business agility.
 
-One-word summary of the trade-off in the impact in additional complexity:
 
-| **Values &amp;<br /> principals** | **Complexities** |
-| Autonomy | Communication |
-| Speed of change | Execution |
-| Scale | Resilience |
-| Composability | Maintenance |
-| Tech diversity | Operational |
+## User Story format #
 
-This is explained by <a target="_blank" href="https://www.thoughtworks.com/insights/blog/microservices-lessons-frontline">
-"Real World Microservices: Lessons from the Front Lines" by Zhamak Dehghani at ThoughtWorks Australia 24 Sep 2014</a>.
+To facilitate <strong>estimation</strong>,
+each user story defined below is a <strong>summary</strong> that fits on 3x5 inch index card,
+following this prototype pattern:
 
+      As a [role], I want to [do something] [with some frequency]
+      so that I can/will [achieve some goal/objective].
+
+The above is from the Mike Cohn book <a target="_blank" href="http://www.amazon.com/dp/0321205685?tag=tbrb-20&link_code=as3&creativeASIN=0321205685&creative=373489&camp=211189">
+      User Stories Applied</a>.
 
 <a name="Developer"></a>
 
-## Developer user stories
+### Developer user stories #
 
 * As a developer or end user,
    I can request an environment and all supporting environments
@@ -118,12 +112,13 @@ This is explained by <a target="_blank" href="https://www.thoughtworks.com/insig
 
 <a name="QA"></a>
 
-## Quality Assurance
+### Quality Assurance
 
+Different organizations have different approaches.
 
 <a name="Sysadmin"></a>
 
-## System Admin user stories
+### System Admin user stories
 
 When a PaaS service such as Amazon/Azure are used, these are provided by those vendors.
 
@@ -138,7 +133,7 @@ When a PaaS service such as Amazon/Azure are used, these are provided by those v
 
 <a name="FinancialSponsor"></a>
 
-## Financial sponsor stories
+### Financial sponsor stories #
 
 * As a Sponsor, 
    I know the scope of various <strong>risks</strong> that exist
@@ -156,7 +151,7 @@ When a PaaS service such as Amazon/Azure are used, these are provided by those v
 
 <a name="Fleshing"></a>
 
-## Fleshing out stories
+## Fleshing out stories #
 
 User stories are unique to each team due to different priorities.
 So <strong>conversations</strong> about each is necessary,
@@ -180,7 +175,7 @@ into releases or sprints.
 
 <a name="QualityMetrics"></a>
 
-## Quality metrics
+## Quality metrics #
 
 To judge the "goodness" of each user story, teams often use criteria
 with the acronym INVEST:
@@ -201,15 +196,29 @@ with the acronym INVEST:
 - [ ] **T**estable so what is considered "done" is clear to all.
 
 
-## Basis for estimation
+## Basis for estimation #
 
 User stories are used as the basis for estimating, planning, and whether value was delivered to customers.
 
 A key DevOps strategy is bringing small increments through into productive use,
 which exposes process issues that need tuning.
 
+### Trade-offs #
 
-## Resources
+One-word summary of the trade-off in the impact in additional complexity:
+
+| **Values &amp;<br /> principals** | **Complexities** |
+| Autonomy | Communication |
+| Speed of change | Execution |
+| Scale | Resilience |
+| Composability | Maintenance |
+| Tech diversity | Operational |
+
+This is explained by <a target="_blank" href="https://www.thoughtworks.com/insights/blog/microservices-lessons-frontline">
+"Real World Microservices: Lessons from the Front Lines" by Zhamak Dehghani at ThoughtWorks Australia 24 Sep 2014</a>.
+
+
+## Resources #
 
 * <a target="_blank" href="http://scaledagileframework.com/">
    Scaled Agile Framework</a> and SAFe are trademarks of Leffingwell and Associates 

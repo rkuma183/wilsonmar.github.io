@@ -55,32 +55,6 @@ Each "method" is the combination of a resource path and an HTTP verb such as GET
 Several "stages" (such as "dev", "prod", etc.) can be defined to hold resources and methods, 
 which are usually different for different enviornments.
 
-<a name="CreateLambda"></a>
-
-## Create Lambda function #
-
-0. In an internet browser go to <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions">
-   Services > Compute > Lambda<br />
-   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions</a>
-
-0. [Create an Amazon Lambda function](/aws-lambda/) to work with if you haven't already.
-0. Click on the name of a Lambda function to expose using an API endpoint.
-
-   Notice a set of numbers and letters (such as tsdwtdl0r1) has been assigned next to your Lambda name.
-
-0. Click the API endpoints tab.
-0. Click Add API endpoint.
-0. Select API Gateway in the pop-up dialog.
-
-   QUESTION: Why is this necessary if there is only one choice?
-
-0. Change the Resource Name (such as `/faq`) to define part of the URL path.
-0. The initial Method must be GET.
-0. Change Deployment stage to `test`.
-0. Select Open for Security (no tracking by access key or authentication with IAM).
-0. Click Submit to have a URL assigned, such as:
-
-   https://tsdwtdl0r1.execute-api.us-west-2.amazonaws.com/prod/faq
 
 ### Define an API #
 

@@ -18,11 +18,19 @@ http://viewhdpicture.com/android-marshmallow-hd-wallpaper/
 pic sunset couple jump WDF_1561320
 http://e2ua.com/data/wallpapers/113/WDF_1561320.jpg
 
-
+pic Buckingham-Palace-2-fotolia-1200x400.jpg
 
 # pic red microsoft windows 10 splash-3840x2160
   credit: http://news.softpedia.com/news/microsoft-officially-starts-work-on-windows-10-mobile-redstone-update-500670.shtml
 
+pic dirt easter-island_stones-1900x500.jpg
+pic green easter island 2 hillside 1920x1080.jpg
+pic green easter island hillside 1900x500.jpg
+pic green easter island hillside 1920x1080.jpg
+
+pic red microsoft windows 10 splash-3840x2160.jpg
+
+pic white winter bison standing among trees-2560x1600.jpg
 
 # face blue windows cortana-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15312673/76026ae2-1bc3-11e6-9cf0-ca09a839ba7f.jpg

@@ -25,6 +25,7 @@ Here are the sections
 0. <a href="#WhatIsSVG">What is SVG</a>
 0. <a href="#EditingSVG">Creating Editing SVG</a>
 0. <a href="#StoringSVG">Storing SVG</a>
+0. <a href="#D3">D3</a>
 
 <a name="WhySVG"></a>
 
@@ -201,6 +202,28 @@ Examples on Codepen:
 the gear clock</a>
 
 QUESTION: Is there code to generate click maps by parsing the SVG file?
+
+<a name="D3">D3</a>
+
+## D3 #
+
+<a target="_blank" href="http://d3js.org/">
+D3.js</a> 
+creates graphs by generating SVG.
+
+   <pre>
+   d3.select("body").append("svg").append("rect").attr("width",50).attr("height",50).style("fill","blue");
+   </pre>
+
+The D3 library is added in the `<head>` section of HTML:
+
+   <pre>
+   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+   </pre>
+
+This example is from the video course about D3 on Pluralsight.com.
+
+jsbin.com
 
 ## Resources:
 
