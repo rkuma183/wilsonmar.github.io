@@ -22,7 +22,23 @@ I'm having to convert hundreds of pages I've written in HTML since the 90's.
 
 > Let me help you with this. Call me!
 
-## Ordered lists
+## Why Markdown? #
+
+Many non-technical writers prefer writing Markdown text instead of using the mouse-enabled Microsoft Word.
+They say writing pure text allows them to keep their fingers firmly planted on the keyboard
+even as they apply formatting on the fly. 
+Being able to format using text codes means they don't have to stop typing or think about anything else to apply styles.
+
+This tutorial is for such people.
+
+## Automatic conversion #
+
+You can copy HTML and paste into Dom Christie's website for conversion to Markdown:
+
+   <a target="_blank" href="http://domchristie.github.io/to-markdown/">
+   http://domchristie.github.io/to-markdown</a>
+
+## Ordered lists #
 
 My favorite feature of Markdown is it **automatically ordered numbers in lists**!
 
@@ -377,3 +393,10 @@ A discussion forum about markdown is at:
 
 * <a target="_blank" href="https://pairlist6.pair.net/mailman/listinfo/markdown-discuss/">
    pairlist6.pair.net/mailman/listinfo/markdown-discuss</a>
+
+
+References:
+
+* https://blog.ghost.org/markdown/
+   has a list of markdown editors across operating systems.
+

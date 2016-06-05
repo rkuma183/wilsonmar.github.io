@@ -167,7 +167,7 @@ If you've already run this, <a href="#SelectApps">click here to skip to view and
    causes files to be downloaded and folders created:
 
    * Xcode 
-   * Homebrew
+   * <a href="#Homebrew">Homebrew</a>, Tap, and Cask
    * Ansible 
 
    &nbsp;
@@ -199,9 +199,16 @@ If you've already run this, <a href="#SelectApps">click here to skip to view and
 
    Instead of "mac" above, it would show your account name.
 
+   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/playbook.yml">
+   siyelo playbook.yml</a> file lists the applications to be loaded.
+
+   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/scripts/system_settings.sh">
+   scripts/system_settings.sh</a> file are commands to configure the Mac operating system
+   for better security and productivity. It would take hours to set them all manually.
+
 <a name="SelectApps"></a>
 
-### Select Apps #
+### Mac Programs Google Sheet #
 
 Switch to use an internet browser to see my list of programs for Mac OSX at
    <a target="_blank" rel="amphtml" href="https://docs.google.com/spreadsheets/d/15rgbl_C1qX_wyCi1hNoyHEzXpMCTm5DxAAOqTykPVsw/edit?usp=sharing">
@@ -212,40 +219,69 @@ Switch to use an internet browser to see my list of programs for Mac OSX at
    * **brew** (formulas) are installed using the <a target="_blank" rel="amphtml" href="http://brew.sh/">brew</a> command.
      Programs installed this way are invoked using a text-based Terminal command-line interface.
    
-   * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is 
-     an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
-
-   * **tap** uses the `brew tap` command to install a package <strong>within another repository</strong>. 
+   * <a href="#Tap">**tap**</a> uses the `brew tap` command to install a package <strong>within another repository</strong>. 
    <a target="_blank" rel="amphtml" href="https://github.com/Homebrew/homebrew/wiki/Interesting-Taps-&-Branches">
    interesting brew tap</a>.
 
+   * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is 
+     an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
+
+   * **pip** are Python plug-ins.
+   * <a href="#npm">**npm**</a> are Node modules (such as Express).
+   
    * **store** indicates manual installation using the Apple iTunes program accessing the Apple Store.
    
    * **zip** programs are installed after a download, requiring an Ansible task to replace manual clicks and data entry.
-
-   &nbsp;
-
-   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/playbook.yml">
-   siyelo playbook.yml</a> file lists the applications to be loaded.
+   <br />
 
    WARNING: Each program added uses up more disk space.
 
-   The <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop/blob/master/scripts/system_settings.sh">
-   scripts/system_settings.sh</a> file are commands to configure the Mac operating system
-   for better security and productivity. It would take hours to set them all.
-
    WARNING: This may make obsolete documentation based on default Mac settings.
 
-   Configurations are "idempotent", which means that if you run it again, the result is the same.
+   Ansible configurations are "idempotent", which means that if you run it again, the result is the same.
    With declarative specifications, items specified for install are not re-installed.
+
+The other columns in the spreadsheet:
+
+   _want contains Y for the generator to include in Ansible file.
+
+<a name="Homebrew"></a>
+
+## Homebrew #
+
+Homebrew is the packager for Mac.
+
+0. Verify brew installation:
+
+   <tt><strong>
+   brew doctor
+   </strong></tt>
 
 0. List brew packages already installed:
 
    <tt><strong>
-   brew list<br />
-   brew tap<br />
+   brew list
+   </strong></tt>
+
+0. List brew packages obsolete:
+
+   <tt><strong>
    brew outdated
    </strong></tt>
+
+
+
+<a name="Tap"></a>
+
+## Tap #
+
+
+0. List brew tap packages already installed:
+
+   <tt><strong>
+   brew tap
+   </strong></tt>
+
 
 <a name="Cask"></a>
 
@@ -385,6 +421,22 @@ NOTE: The playbook.yml file contains code to run the system_settings.sh file.
    * To quit without editing type <strong>:q</strong>
    * To save changes type <strong>:wq</strong> (colon, w, and q)
 
+<a href="npm"></a>
+
+## NPM #
+
+0. Search for packages at this site where resources are downloaded for install:
+
+   * <a target="_blank" href="https://www.npmjs.com/package/">
+   https://www.npmjs.com/package/generator-webapp</a>
+
+Example:
+
+   <tt><strong>
+   npm install -g yo
+   </strong></tt>
+
+   The `-g` globally installs for access from any folder.
 
 
 ### Other Ansible Playbooks #
@@ -1664,12 +1716,24 @@ To create a Windows 10 instance within VMWare Fusion:
 
 ## Disable System Integrity Protection #
 
-Some programs make calls to the operating system which OSX began to see as a threat beginning with El Capitan.
+Some programs make calls to the operating system which OSX began to see as a threat, beginning with El Capitan.
 
-For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: Error running jsondialog".
+<a target="_blank" href="https://support.apple.com/en-us/HT204899/">
+Apple says</a> System Integrity Protection blocks code injection (and many other things).
 
-To get around it, you need to disable System Integrity Protection in OS X El Capitan.
+But what about useful programs (such as 
+<a target="_blank" href="https://www.trankynam.com/xtrafinder/sip.html">
+XtraFinder</a>)
+which works by injecting its code into Finder and other application processes?
 
+   * For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: Error running jsondialog".
+
+To get around this, you need to partially disable System Integrity Protection in OS X El Capitan.
+
+See <a target="_blank" href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html">
+Apple's article</a> on how:
+
+0. Run a full backup to an external USB drive.
 0. Shut down all apps, then the operating system (from the Apple icon).
 0. Reboot the Mac. 
 
@@ -1689,7 +1753,19 @@ To get around it, you need to disable System Integrity Protection in OS X El Cap
    csrutil disable; reboot
    ```
 
-0. Complain about the need to do this. ;)
+0. For XtraFinder:
+
+   ```
+   csrutil enable \-\-without debug
+   ```
+
+0. To revert SIP to original state:
+
+   ```
+   csrutil clear
+   ```
+
+
 
 ## Skill Certification #
 

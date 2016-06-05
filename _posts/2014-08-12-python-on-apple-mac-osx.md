@@ -589,7 +589,7 @@ After installing Python3, obtain the Python 3 command line with:
 The response I get:
 
 <pre>
-ython 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
+Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 </pre>
@@ -602,6 +602,28 @@ Using the symbol ~ as a shorthand for /Users/&LT;your acct name>, then we can wr
 </pre>
 
 
+
+## Anaconda #
+
+*Conda installs outside the standard structure, so if you run:
+
+   brew doctor
+
+   this warning appears (which can be safely ignored):
+
+{% highlight text %}
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config scripts to determine if
+software packages are installed, and what additional flags to use when
+compiling and linking.
+
+Having additional scripts in your path can confuse software installed via
+Homebrew if the config script overrides a system or Homebrew provided
+script of the same name. We found the following "config" scripts:
+    /Users/mac/miniconda2/bin/python-config
+    /Users/mac/miniconda2/bin/python2-config
+    /Users/mac/miniconda2/bin/python2.7-config
+{% endhighlight %}
 
 ## More on OSX
 
