@@ -270,15 +270,19 @@ Skip the long URLs, the "To install, drag this icon…", and manually deleting i
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
    </strong></pre>
 
-0. Install a cask:
+0. Search for a cask by name:
 
-   <tt><strong>
-   brew cask install google-chrome
-   </strong></tt>
+   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/search?utf8=✓">
+   https://github.com/caskroom/homebrew-cask/search?utf8=✓</a>
 
-   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/">
-   https://github.com/caskroom/homebrew-cask/blob/master/Casks/</a>
-   is where all casks are obtained. 
+   This website is where casks are obtained. 
+
+   One should see the cask definition before using it.
+   I would be suspicious of casks with sparse information.
+
+   The safe way to get the homepage URL of the programmer is from here (don't Google it and end up at a rogue site).
+
+0. Look at some cask definitions:
 
    <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb">
    https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb</a>
@@ -314,16 +318,22 @@ cask 'google-chrome' do
               ]
 end{% endhighlight %}
 
-   The safe way to get the homepage URL of the programmer is from here (don't Google it and end up at a rogue site).
+0. Install the cask:
+
+   <tt><strong>
+   brew cask install google-chrome
+   </strong></tt>
 
    Cask downloads then moves the app to the ~/Applications folder, 
    so it can be opened this way:
+
+0. Open the installed cask from Terminal:
 
    <pre><strong>
    open /Applications/"Google Chrome.app"
    </strong></pre>
 
-Installing with cask enables you to cleanup:
+0. Installing with cask enables you to cleanup:
 
    <pre><strong>
    brew cask cleanup
