@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "AWS Notes"
-excerpt: "Keeping up"
-tags: [AWS, EC2, cloud]
+title: "AWS On-boarding"
+excerpt: "You'll like it here"
+tags: [AWS, EC2, cloud, on-boarding]
 image:
 # feature: pic data center slice 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
@@ -15,7 +15,89 @@ comments: true
 
 {% include _toc.html %}
 
+There are two ways to work with AWS:
+
+0. <a href="#AWSConsole">Manually on a browser AWS Management Console</a>
+0. Elastic Beanstalk
+0. CloudFront
+0. <a href="#CLI">Command line</a>
+0. Automated using Ansible
+
+### Tutorials #
+
+Tutorials in Amazon's Qwiklabs use the manual approach,
+so it's presented here to provide notes.
+
+
+<a name="AWSConsole"></a>
+
+## AWS Management Console
+
+0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
+   http://aws.amazon.com/</a> on web browsers. For mobile devices:
+
+
+   * <a target="_blank" href="http://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730">
+   On Google Android mobile phones</a>
+
+   * <a target="_blank" href="https://itunes.apple.com/us/app/aws-console/id580990573?mt=8">
+   on Apple iPhones and iPads</a>
+
+   Sign up for an account with your credit card if you don't already have one.
+
+   Once you sign-in, your AWS Console is tied to a particular <a href="#AvailabilityZone">
+   Availability Zone</a>, such as "us-west-2":
+
+   <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
+   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
+
+   NOTE: Baking different zones into Console URLs makes for more direct connections and removes issues from using a single URL/DNS.
+
+   The AWS Management Console 
+   is now used for <strong>manual review</strong> of one 
+   Availability Zone at a time.
+
+### Set icon bar with your favorite services #
+
+0. There are several ways to select a service.
+  One is clicking the icon in the gallery.
+
+0. Copy the public DNS to clipboard, for example: 
+
+    ec2-11-22-33-444-compute-1.amazonaws.com
+
+0. Download the PEM/PPK.
+
+## Services and Categories #
+
+* <a target="_blank" href="http://aspenroo.com/challenge-me.php">
+   Memorize what each service belongs in which category (drag and drop)</a>
+
+## Automation coming #
+
+In enterprises today, servers are built by 
+scripts and configuration files 
+generated from templates. 
+This is so the build process can be debugged
+and changed slightly through the lifecycle from test to prod.
+
+Instead of clicking and typing, server administrators work with
+template files in JSON format for Cloud Formation to process.
+
+The next step up is to use Atlas 
+which generates  
+JSON files based on information typed into their web Consoles.
+
+
+<a name="CLI"></a>
+
 ## AWS CLI #
+
+The <a href="#CLI">command line interface</a>
+is used by programs rather than the manual Console.
+
+These inputs to generators (and the generator code)
+are saved in version control systems like Git.
 
 To install AWS CLI:
 
@@ -99,7 +181,7 @@ Yan Kurniawan
 
 * http://joconner.com/
 
---- AWS Training::
+## AWS Training #
 
 	http://www.pluralsight.com/courses/aws-certified-sysops-admin-associate
 
@@ -108,12 +190,11 @@ Yan Kurniawan
 	https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
 
 
-
 	https://www.aws.training/home?courseid=8&language=en-US&src=web_en_course-developing&view=table
 
 
 
-## Git 
+## Git # 
 
    Git-History
 
@@ -121,7 +202,7 @@ Yan Kurniawan
 
 
 
-## CodeCommit, CodePipeline, Code Deploy
+## CodeCommit, CodePipeline, Code Deploy #
 
 ### Setup instances #
 
@@ -252,4 +333,12 @@ CodeDeploy agent in EC2 Deploy Group
 
 
 
-https://github.com/mikepfeiffer/PowerShell
+* https://github.com/mikepfeiffer/PowerShell
+
+
+
+## More on Amazon #
+
+This is one of a series on Amazon:
+
+{% include aws_links.html %}

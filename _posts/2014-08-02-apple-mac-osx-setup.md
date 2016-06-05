@@ -23,8 +23,8 @@ comments: true
 
 It's hard to get away from using a command-line terminal.
 
-With Yosemite comes an option to <strong>right-click</strong> on a directory or folder 
-and have it open terminal in that location.
+Since Yosemite, you can open a terminal to a folder listed within Finder 
+by positioning mouse on it then tapping with two fingers on the touchpad.
 
 <ol type="1">
 <li> Click the Apple icon, System Preferences....</li>
@@ -35,11 +35,9 @@ and have it open terminal in that location.
 <li> Close the dialog by clicking the red dot at the upper left corner.</li>
 </ol>
 
-
-
 <a id="MacVer"></a>
 
-## Mac Versions #
+### Mac Version? #
 
 In a Terminal window on any folder, type:
 
@@ -57,7 +55,7 @@ In a Terminal window on any folder, type:
 
 <a id="Versionz"></a>
 
-## Versions of Mac OS X
+### Versions of Mac OS X
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date 
@@ -135,7 +133,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
 <a id="AutoInstall"></a>
 
-## Bootstrap Automated Install using Ansible #
+## Install Bootstrap Automation using Ansible #
 
 This is the easiest way to quickly configure a Mac the way many developers prefer
 and add programs many developers want.
@@ -214,12 +212,12 @@ Switch to use an internet browser to see my list of programs for Mac OSX at
    * **brew** (formulas) are installed using the <a target="_blank" rel="amphtml" href="http://brew.sh/">brew</a> command.
      Programs installed this way are invoked using a text-based Terminal command-line interface.
    
-   * **cask** packages are installed using the <strong>brew cask</strong> command, which is 
+   * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is 
      an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
 
-   * **tap** uses the brew tap command to install a package within another repository. 
+   * **tap** uses the `brew tap` command to install a package <strong>within another repository</strong>. 
    <a target="_blank" rel="amphtml" href="https://github.com/Homebrew/homebrew/wiki/Interesting-Taps-&-Branches">
-   interesting brew tap</a>
+   interesting brew tap</a>.
 
    * **store** indicates manual installation using the Apple iTunes program accessing the Apple Store.
    
@@ -248,6 +246,88 @@ Switch to use an internet browser to see my list of programs for Mac OSX at
    brew tap<br />
    brew outdated
    </strong></tt>
+
+<a name="Cask"></a>
+
+## Cask #
+
+Skip the long URLs, the "To install, drag this icon…", and manually deleting installer files.
+
+0. <a target="_blank" href="https://caskroom.github.io/">
+   https://caskroom.github.io</a>, the home page, said there are 3,197 casks (as of June 5, 2016).
+
+   QUESTION: Is there a graph of growth in cask counts over time?
+
+0. Install the cask extension to Homebrew:
+
+   <pre><strong>
+   brew tap caskroom/cask
+   </strong></pre>
+
+   Alternately:
+
+   <pre><strong>
+   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
+   </strong></pre>
+
+0. Install a cask:
+
+   <tt><strong>
+   brew cask install google-chrome
+   </strong></tt>
+
+   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/">
+   https://github.com/caskroom/homebrew-cask/blob/master/Casks/</a>
+   is where all casks are obtained. 
+
+   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb">
+   https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb</a>
+   is a sample cask definition: 
+
+{% highlight text %}
+cask 'google-chrome' do
+  version :latest
+  sha256 :no_check
+
+  url 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
+  name 'Google Chrome'
+  homepage 'https://www.google.com/chrome/'
+  license :gratis
+
+  auto_updates true
+
+  app 'Google Chrome.app'
+
+  zap delete: [
+                '~/Library/Application Support/Google/Chrome',
+                '~/Library/Caches/Google/Chrome',
+                '~/Library/Caches/com.google.Chrome',
+                '~/Library/Caches/com.google.Chrome.helper.EH',
+                '~/Library/Caches/com.google.Keystone.Agent',
+                '~/Library/Caches/com.google.SoftwareUpdate',
+                '~/Library/Google/GoogleSoftwareUpdate',
+                '~/Library/Logs/GoogleSoftwareUpdateAgent.log',
+              ],
+      rmdir:  [
+                '~/Library/Caches/Google',
+                '~/Library/Google',
+              ]
+end{% endhighlight %}
+
+   The safe way to get the homepage URL of the programmer is from here (don't Google it and end up at a rogue site).
+
+   Cask downloads then moves the app to the ~/Applications folder, 
+   so it can be opened this way:
+
+   <pre><strong>
+   open /Applications/"Google Chrome.app"
+   </strong></pre>
+
+Installing with cask enables you to cleanup:
+
+   <pre><strong>
+   brew cask cleanup
+   </strong></pre>
 
 <a name="EditApps"></a>
 

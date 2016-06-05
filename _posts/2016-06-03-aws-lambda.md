@@ -18,24 +18,8 @@ comments: true
 This tutorial takes a deep dive into creating and using AWS Lambda.
 This is a hands-on guided tour. Take one step at a time and we point out PROTIPs and notes along the way.
 
-0. Get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
+0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
    http://aws.amazon.com/</a> on web browsers. For mobile devices:
-
-   * <a target="_blank" href="http://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730">
-   On Google Android mobile phones</a>
-
-   * <a target="_blank" href="https://itunes.apple.com/us/app/aws-console/id580990573?mt=8">
-   on Apple iPhones and iPads</a>
-
-   Sign up for an account with your credit card if you don't already have one.
-
-   Once you sign-in, your AWS Console is tied to a particular <a href="#AvailabilityZone">
-   Availability Zone</a>, such as "us-west-2":
-
-   <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
-   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
-
-   NOTE: Baking different zones into Console URLs makes for more direct connections and removes issues from using a single URL/DNS.
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
    On the AWS Console, select Services, select Lambda from among Compute services such as EC2</a>.
@@ -486,3 +470,9 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 
 * Tim Wagner, General Manager of AWS Lambda at Amazon
 
+
+## More on Amazon #
+
+This is one of a series on Amazon:
+
+{% include aws_links.html %}

@@ -18,7 +18,7 @@ comments: true
 Building a server within AWS for enterprise use requires several services:
 
 * <a href="#AWSConsole">AWS Management Console</a>
-* <a href="#CLI">Command Line Interface</a>
+* <a href="#Beanstalk">Beanstalk</a>
 * <a href="#CF">Cloud Formation</a>
 * <a href="#AMI">AMI</a>
 * <a href="#ELB">ELB</a>
@@ -31,52 +31,124 @@ And dozens more.
 
 <a name="AWSConsole"></a>
 
-## AWS Management Console
+## AWS Management Console #
 
-The AWS Management Console 
-is now used for <strong>manual review</strong> of one 
-Availability Zone at a time.
+See [AWS On-boarding](/aws-onboarding/) for a tutorial on the AWS Management Console.
 
-In enterprises today, servers are built by 
-scripts and configuration files 
-generated from templates. 
-This is so the build process can be debugged
-and changed slightly through the lifecycle from test to prod.
+0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
+   http://aws.amazon.com/</a> on web browsers. For mobile devices:
 
-Instead of clicking and typing, server administrators work with
-template files in JSON format for Cloud Formation to process.
+<a name="Beanstalk"></a>
 
-The next step up is to use Atlas 
-which generates  
-JSON files based on information typed into their web Consoles.
+## Elastic Beanstalk #
 
-The <a href="#CLI">command line interface</a>
-is used by programs rather than the manual Console.
+<a target="_blank" title="By Amazon Web Services LLC [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AAWS_Simple_Icons_Compute_AWSElasticBeanstalk.svg"><img align="right" width="100" height="100" alt="AWS Simple Icons Compute AWSElasticBeanstalk" src="https://upload.wikimedia.org/wikipedia/commons/8/8f/AWS_Simple_Icons_Compute_AWSElasticBeanstalk.svg"/></a>
 
-These inputs to generators (and the generator code)
-are saved in version control systems like Git.
+Before doing this, setup a default 
+VPC, subnet, and 
+Security Group.
 
-However, tutorials in Amazon's Qwiklabs use the manual approach,
-so it's presented here to provide notes.
+0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/gettingStarted">
+   Services > Compute > Beanstalk</a>
 
-0. There are several ways to select a service.
-  One is clicking the icon in the gallery.
+   NOTE: Beanstalk is designed for developers to quickly bring up standard configurations.
 
-0. Copy the public DNS to clipboard (like 
+   You can't SSH into individual servers.
 
-    ec2-11-22-33-444-compute-1.amazonaws.com
+0. Specify an <strong>Application Name</strong>.
 
-0. Download the PEM/PPK.
+   PROTIP: Define a convention that applies to apps, such as a project, feature, and version number, such as
+   PS1-bean2-node-v01.
+
+   PROTIP: Include in the name a code for the platform being used.
+
+0. Select a <strong>Platform</strong>.
+
+   <amp-img width="305" height="227" alt="aws beanstalk platforms 2016-06-04 610x454"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15802811/6295c404-2a7d-11e6-8a6c-a446a0058732.png"></amp-img>
+
+0. Click <strong>Configure more options</strong>.
+
+   Beanstalk is considered a "Platform-as-a-Service" (PaaS),
+   that does the "heavy lifting" to get infrastructure online,
+   with load balancing, autoscaling, and health monitoring.
+
+   The Virtual Machine is for the Platform chosen in the previous step.
+
+   The <strong>Low cost</strong> configuration preset is the default.
+
+   In the Scaling section, the Environment type is <strong>single instance</strong>.
+
+0. Click the <strong>Highly available</strong> configuration preset.
+
+   Notice the Environment type changed to "loadbalancing, autoscaling" with 
+   Scale instance: 1-4.
+
+   Beanstalk is free to use. You only pay for servers deployed by it.
+
+0. Click Modify in the Notifications section and input your email address.
+
+0. Switch temporarily to your email to confirm the subscription.
+
+0. Since this is a tutorial, select the <strong>Low cost single instance</strong>.
+
+0. Scroll down to click <strong>Create app</strong>.
+
+### Beanstalk Settings #
+
+Configuration information stored in the <strong>.ebextensions</strong> folder containing:
+
+* a dynamodb.config 
+
+   The file contains functions definitions such as `Fn::GetOptionSetting:` with parameters.
+
+* a options.config files.
+
+The <strong>.elasticbeanstalk</strong> folder ???
 
 
-<a name="CLI"></a>
+### Beanstalk Actions #
 
-## Command Line Interface
 
+
+## Opsworks Chef #
+
+Opsworks is a higher level tool than CloudFormation,
+offering more customization than Elastic Beanstalk.
+
+0. <a target="_blank" href="https://console.aws.amazon.com/opsworks/home?region=us-west-2#">
+   Services > Management Tools > Opsworks</a>
+
+0. Click Add your first stack.
+
+   NOTE: You cannot mix and match Windows with Linux servers.
+
+Opsworks is called a "configuration as code service"
+because it sets up servers by
+running <strong>Chef</strong> recipies obtained from a Cookbook repository.
+
+   NOTE: There is no equivalent for Puppet.
+
+Each "layer" is a blueprint and container for instances.
+(JSON) defining stacks:
+
+* OpsWorks
+* ECS
+* RDS
+
+   A different Chef recipie for each event within the lifecycle :
+
+   * Setup
+   * Configure
+   * Deploy
+   * Undeploy
+   * Shutdown
+
+Each server has a Chef agent installed.
 
 <a name="CF"></a>
 
-## Cloud Formation
+## CloudFormation #
 
 CF can span two or more Availability Zones 
 in a multi-subnet Amazon <a href="#VPC">VPC</a>.
@@ -132,7 +204,8 @@ automate search among multiple files.
 
 <a name="AZ"></a>
 
-## Availability zone
+## Availability zones #
+
 Unlike the Console web page,
 which shows the current Availability Zone in the upper right corner,
 within CLI you use a command:
@@ -195,7 +268,9 @@ Nowdays, 64-bit servers are all that is being made.
 
 ## VPC (Virtual Private Cloud)
 
-For security, some servers can only make outbound calls to the internet (through the <a href="#NAT">NAT server</a>)
+https://console.aws.amazon.com
+
+For security, some servers can only make outbound calls to the internet (through the <a href="#NAT">NAT server</a>).
 
 There is one VPC per Availability Zone.
 
@@ -235,21 +310,27 @@ In the CF JSON to define a VPC, CF automatically populates the
 NOTE: One annoyance of EC2 at the moment is the use of 
 static IP addresses in configurations. 
 
-An alternative cloud (Skytap) enables servers to be configured
+BTW, An alternative cloud (Skytap) enables servers to be configured
 and saved with a static IP address which Skytap internally 
 changes to real ones. This allows many servers to be configured
 and run with the same IP addresses.
 
+The CIDR block for a default VPC is always 172.31.0.0/16.
+This provides from 16 to 65,536 private IP addresses. 
+A default subnet has a /20 subnet mask, which provides up to 4,096 addresses per subnet. 
+Some addresses are reserved for Amazon’s use.
+
+* http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
 
 <a name="SecGroups"></a>
 
-## Security Groups
+## Security Groups #
 
 SGs define which ports are open.
 
 By default, no ports are open.
 
-This template has additional output parameters:
+This template has additional output parameters.
 
 
 
@@ -553,3 +634,9 @@ CloudFront has one Resource Type: Distribution.
 
 
 
+
+## More on Amazon #
+
+This is one of a series on Amazon:
+
+{% include aws_links.html %}
