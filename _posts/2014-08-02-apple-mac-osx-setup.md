@@ -42,6 +42,19 @@ by positioning mouse on it then tapping with two fingers on the touchpad.
 <li> Close the dialog by clicking the red dot at the upper left corner.</li>
 </ol>
 
+
+
+Three ways to relaunch the Finder:
+
+0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
+
+0. Press Command with your right hand and Option-esc with your left hand
+   and choose Force Quit from the Apple menu. Then select the Finder and click Relaunch.
+
+0. Log out and log back in to your user account.
+
+
+
 <a id="MacVer"></a>
 
 ### Mac Version? #
@@ -468,7 +481,7 @@ The above enables him to invoke:
    Click on each link to open a web page about each.
    Some links take you to a section lower in this tutorial.
 
-NOTE: The playbook.yml file contains code to run the system_settings.sh file.
+    NOTE: The playbook.yml file contains code to run the system_settings.sh file.
 
 <a name="EditSettings"></a>
 
@@ -532,8 +545,8 @@ Consider other Ansible playbooks for Mac:
 
 * Mr. Jeff Geeling I call "Master of the 
    <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
-   Ansible Galaxy</a>" because he has contributed both the most downloaed roles and the highest ratings.
-  His <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
+   Ansible Galaxy</a>" because he has contributed both the most downloaded roles and garnered the highest ratings.
+   His <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
    mac-dev-playbook</a> 
    contains:
 
@@ -565,6 +578,9 @@ The <strong>requirements.txt</strong> file specifies files to download from the 
 
    * <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/dotfiles/blob/master/.osx">geerlingguy.dotfiles</a>
       sets up preferences and configurations for all the built-in services and apps.
+
+      It references <a target="_blank" href="http://secrets.blacktree.com/?showapp=com.apple.finder">
+      http://secrets.blacktree.com/?showapp=com.apple.finder
 
    * <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/homebrew">geerlingguy.homebrew</a>
 

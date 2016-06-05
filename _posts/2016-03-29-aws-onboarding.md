@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-There are two ways to work with AWS:
+There are several ways to get entry to work within AWS:
 
 0. <a href="#AWSConsole">Manually on a browser AWS Management Console</a>
 0. Elastic Beanstalk
@@ -330,11 +330,33 @@ CodeDeploy agent in EC2 Deploy Group
 
 * Amazon Route 53 globomantics.com 
 
-
-
-
 * https://github.com/mikepfeiffer/PowerShell
 
+## AMIs #
+
+<a target="_blank" href="https://github.com/Netflix/aminator/">
+Netflix/aminator</a> open-sourced their Python tool for creating EBS-backed AMIs.
+It's described in <a target="_blank" href="http://techblog.netflix.com/2013/03/ami-creation-with-aminator.html">
+this blog from 2013</a>.
+
+   "We knew that application startup latency would be very important, especially during scale-up operations."
+
+Building a server from installers in S3 
+can be time-consuming because it take so much I/O.
+
+To save time, their strategy is to create a <strong>Base AMI</strong> 
+by taking a snapshot of the root volume
+and make it available as an EBS volume that can be used to launch an EC2 instance.
+
+This is simpler than Packer from Hashicorp.
+
+## Diagrams #
+
+<a target="_blank" href="https://www.processon.com/">
+ProcessOn.com</a>
+provides a free on-line tool to draw diagrams such as 
+<a target="_blank" href="https://www.processon.com/view/56e785b1e4b05387d0391d33">
+this</a>
 
 
 ## More on Amazon #
