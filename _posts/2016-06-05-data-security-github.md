@@ -46,7 +46,7 @@ whatever was exposed can nevertheless live on in any zips, clones, or forks
 others have taken of the repository.
 
 A better approach is instead of storing credentials in any folder that Git may reference,
-we define a configuration file or 
+we define a <a href="#ConfigScript">configuration script</a> or 
 <a href="#Symlink">symlink</a> 
 to reference files in folders outside of Git repository.
 
@@ -92,6 +92,11 @@ find known passwords and replace them with "***REMOVED***".
 Git is designed such that every file and folder is represented only once (and given a unique SHA-1 hash-id).
 
 
+<a name="ConfigScript"></a>
+
+## Config Script #
+
+
 <a name="Symlink"></a>
 
 ## Symlink Configuration #
@@ -114,11 +119,21 @@ git push{% endhighlight %}
 {% highlight text %}
 echo "export SECRET_PASS=12345678910" >> ~/app-root/data/.bash_profile{% endhighlight %}
 
-Python programs reference `process.env.SECRET_PASS`.
+   * Python programs reference `process.env.SECRET_PASS`.
 
-PHP programs use `getenv('SECRET_PASS');`.
+   * PHP programs use `getenv('SECRET_PASS');`.
 
 ## Resources 
 
+* http://stackoverflow.com/questions/1396617/committing-machine-specific-configuration-files/1397180#1397180
+
+* http://stackoverflow.com/questions/1974886/how-to-version-control-config-files-pragmatically
+
 * https://gist.github.com/ryanj/4446113
+
+* http://programmers.stackexchange.com/questions/205606/strategy-for-keeping-secret-info-such-as-api-keys-out-of-source-control
+
+* http://programmers.stackexchange.com/questions/141698/version-control-and-personal-configuration-file
+
+* http://stackoverflow.com/questions/6009/how-do-you-deal-with-configuration-files-in-source-control
 
