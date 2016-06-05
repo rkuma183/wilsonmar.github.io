@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Setup"
-excerpt: "How I setup my laptop"
+title: "Mac OSX Setup Automation"
+excerpt: "How I setup several Macbooks while I sleep"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -15,6 +15,13 @@ comments: true
 
 {% include _toc.html %}
 
+<a id="Fusion"></a>
+
+## OSX within OSX with VMware Fusion #
+
+It costs a few bucks, but you can run Windows or OSX within VMWare Fusion.
+
+This would enable you to experiment with setups.
 
 
 <a id="Terminalz"></a>
@@ -306,14 +313,18 @@ Skip the long URLs, the "To install, drag this icon…", and manually deleting i
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
    </strong></pre>
 
-0. Search for a cask by name:
+0. Search for a cask by name, in website is where casks are obtained:
 
    <a target="_blank" href="https://github.com/caskroom/homebrew-cask/search?utf8=✓">
    https://github.com/caskroom/homebrew-cask/search?utf8=✓</a>
 
-   This website is where casks are obtained. 
+   Alternately, run a search command. This example searches for "yo":
 
-   One should see the cask definition before using it.
+   <pre><strong>
+   brew cask search yo
+   </strong></pre>
+
+   PROTIP: One should see the cask definition before using it.
    I would be suspicious of casks with sparse information.
 
    The safe way to get the homepage URL of the programmer is from here (don't Google it and end up at a rogue site).
@@ -374,6 +385,66 @@ end{% endhighlight %}
    <pre><strong>
    brew cask cleanup
    </strong></pre>
+
+
+<a name="Dotfiles"></a>
+
+## Dotfiles #
+
+<a target="_blank" href="http://dotfiles.github.io/">
+GitHub's Dotfiles</a> manage files containing preferences for command-line programs.
+
+For example, the configuration file for Zsh is .zshrc. 
+The SSH configuration folder is .ssh. 
+And on. 
+
+Such files have a dot because they are hidden.
+
+Famous collections of dotfiles from:
+
+* https://github.com/holman/dotfiles from Zach Holman
+* Matthias Bynens
+* Paul Irish
+* https://github.com/mattstauffer/ohmyzsh-dotfiles
+
+Features added by dotfiles:
+
+   * Color grep output
+   * Boost ls commands
+   * Adding plugins to vim
+
+### Symlinks #
+
+Symlinks to files allow you to git pull and watch your dotfiles instantly update.
+
+One
+stores .ssh-config file in his Dropbox folder which he symlinks:
+
+   <pre>
+   touch ~/Dropbox/.ssh-config
+   ln -s ~/Dropbox/.ssh-config ~/.ssh/config
+   </pre>
+
+The .ssh-config file contains:
+
+<pre>
+# My Awesome Web Site
+Host awesome
+    Hostname 141.141.141.141
+    User me_duh
+    IdentityFile=/Users/me/.ssh/id_for_awesome_site.rsa
+</pre>
+
+The above enables him to invoke:
+
+   <pre><strong>
+   ssh awesome
+   </strong></pre>
+
+   No more remembering ip addresses, fumbling with command line switches for multiple SSH IDs, or even remembering your ssh usernames.
+
+
+   * https://mattstauffer.co/blog/setting-up-a-new-os-x-development-machine-part-3-dotfiles-rc-files-and-ssh-config
 
 <a name="EditApps"></a>
 
@@ -705,16 +776,22 @@ Some wallpaper images that come with OS X are of Retina resolution:
 
 <a id="DNSConfigz"></a>
 
-## DNS Configuration #
+## DNS Configuration with NameBench #
 
-<a href="_blank" href="https://code.google.com/p/namebench/">
-Namebench</a> reports the speed of various DNS servers.
+<a target="_blank" href="http://www.macworld.com/article/2824564/slow-internet-edit-your-dns-settings.html">
+Analysis at one time</a> showed this ranking by speed:
 
-<ul>
+<ol type="1">
 <li> UltraDNS at 156.154.70.1 </li>
 <li> Google at 8.8.4.4, 8.8.8.8</li>
 <li> OpenDNS at 208.67.222.222, 208.67.220.220, 208.67.222.220 </li>
-</ul>
+</ol>
+
+<a href="_blank" href="https://code.google.com/p/namebench/">
+Google Namebench</a> tries the speed of various DNS servers from YOUR machine (which takes some time) and pops up in your browser this:
+
+   <amp-img media="(min-width: 401px)" width="401" height="109"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15806416/10a81d26-2b00-11e6-9bcc-811ea1debc07.jpg"></amp-img>
 
 <ol type="1">
 <li> If you don't see the Apple icon at the top of the screen,
@@ -724,12 +801,8 @@ move the cursor to the very top of the screen for a few seconds.</li>
 <li> Click <strong>Network</strong>.</li>
 <li> Click <strong>Advanced</strong>.</li>
 <li> Click <strong>DNS</strong>.</li>
-
 <li> Click <strong>[+]</strong>, copy, and paste </li>
 </ol>
-
-See http://www.macworld.com/article/2824564/slow-internet-edit-your-dns-settings.html
-
 
 
 <a id="HotCornerz"></a>
