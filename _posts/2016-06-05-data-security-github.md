@@ -15,20 +15,22 @@ comments: true
 
 {% include _toc.html %}
 
-   <amp-img width="597" height="424" alt="github-secrets-v01 597x424"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15808748/f5163074-2b3c-11e6-869f-9ba50e00319d.jpg"></amp-img>
+   <amp-img width="600" height="419" alt="github-secrets-v01-600x418"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15812410/c5a7cafc-2b71-11e6-8859-904137d02f72.jpg"></amp-img>
 
-In our individual machines,
-we use the `ssh-keygen` utility to create key pairs based on our email or other seed.
-The public key we copy into each server so that we can access using `SSH` 
+In our individual machines, 
+we use the `ssh-keygen` utility to generate key pairs based on our email or other seed.
+The public key we copy into each server for use to <strong>`SSH`</strong>
 with the private side of the pair (instead of a password).
 
-As we write functions within application source files, 
+As we write functions within application source files within a Git folder,
 we commit changes into .git history.
 
-Like SSH, functions that access data in servers may also need a certificate.
+Programmed functions also need to use private keys and other <strong>secrets</strong> 
+to access data in web services such as Facebook, Google, etc.
+also need to provide secrets that we don't want to be made public.
 
-The conveninent thing to do is simply copy the private certificate among other files in the folder,
+The conveninent thing to do is simply copy private certificates (among other files) in the Git folder,
 so we can forget about it.
 When files are pushed up to GitHub or other repository,
 <strong>.gitignore</strong> settings should prevent the certificate from being uploaded and thus risk exposure.
@@ -45,24 +47,30 @@ like the Padora's Box legend,
 whatever was exposed can nevertheless live on in any zips, clones, or forks 
 others have taken of the repository.
 
-A better approach is instead of storing credentials in any folder that Git may reference,
-we define a <a href="#ConfigScript">configuration script</a> or 
+A more secure approach is to define a 
+<a href="#ConfigScript">configuration script</a> that establishes a 
 <a href="#Symlink">symlink</a> 
-to reference files in folders outside of Git repository.
+to reference secret files in folders outside of the Git repository.
 
 PROTIP: In an enterprise setting where other members of your team may need to use your credentials
 in case you're on vacation or something,
-one approach is to store credentials in a secure <strong>Dropbox</strong>,
-then have a script file retrieve private key values and load them into an 
-<a href="#EnvVars">environment variables</a> within memory.
-This works great for people who frequently move among machines.
+one approach is to store credentials in a <strong>cloud drive</strong>
+(such as Dropbox, Box, Google Drive, or Microsoft OneDrive).
+Key values then then be in <strong>profile scripts</strong> that load
+<a href="#EnvVars">environment variables</a> within memory accessible by application programs.
 
-But application functions would need to be <strong>programmed</strong> to retrieve enviornment variables.
+SSH scripts and associate private keys can also be retrieved from a cloud drive 
+for people who frequently move among machines.
 
 
-## Security scans #
+## Dorking scans #
 
-There are utilities that scan through all GitHub repos looking for exposed keys.
+There are utilities (called "dorking") 
+that scan through all GitHub repos looking for exposed keys.
+
+   * http://www.securityweek.com/github-search-makes-easy-discovery-encryption-keys-passwords-source-code
+
+   * http://www.itworld.com/article/2921135/security/add-github-dorking-to-list-of-security-concerns.html
 
 <a name="BFG"></a>
 
@@ -96,10 +104,28 @@ Git is designed such that every file and folder is represented only once (and gi
 
 ## Config Script #
 
+You can tell Git to ignore changes to a file in the future:
+
+   <pre><strong>
+   git update-index --assume-unchanged
+   </strong></pre>
+
+   However, this works only on a single branch.
+   On a change of branch, Git detects changes in the config file, and you'll have to either undo them, or check them in.
+
+Another option is to use pre and post-commit hooks to automatically add/remove secret config values when checking in and out, using a Python program.
+
+* http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
 
 <a name="Symlink"></a>
 
 ## Symlink Configuration #
+
+On a Mac, this sample command is used to create a file named Classic pointing to /Volumes/Classic:
+
+   ln -s /Volumes/Classic/ Classic
+
+On Windows, a "Shortcut" is created to a file.
 
 Example:
 
@@ -112,18 +138,39 @@ git push{% endhighlight %}
 
    NOTE: .app is replaced with the configuration file of your app.
 
+
+<a name="CloudSync"></a>
+
+## Sync from Dropbox #
+
+<a target="_blank" href="http://www.technorange.com/cloudlinker-direct-link-generator-for-dropboxgoogle-driveone-drive-copy-com/">
+This on-line tool</a> generates a direct link from a share link from
+Dropbox, Google Drive, and Microsoft OneDrive.
+
+
 <a name="EnvVars"></a>
 
 ## Enviornment variables #
 
+To insert secret key in a Mac's .bash_profile script that the operating system executes
+upon boot-up:
+
 {% highlight text %}
 echo "export SECRET_PASS=12345678910" >> ~/app-root/data/.bash_profile{% endhighlight %}
+
+Programming to retrieve an enviornment variable into the program:
 
    * Python programs reference `process.env.SECRET_PASS`.
 
    * PHP programs use `getenv('SECRET_PASS');`.
 
-## Resources 
+   * C# programs use `System.Environment.GetEnvironmentVariable("SECRET_PASS", _<br />EnvironmentVariableTarget.Process)`.
+
+NOTE: Internet browser sandboxing restricts JavaScript from accessing operating system
+environment variables.
+
+
+## Resources #
 
 * http://stackoverflow.com/questions/1396617/committing-machine-specific-configuration-files/1397180#1397180
 
@@ -137,3 +184,4 @@ echo "export SECRET_PASS=12345678910" >> ~/app-root/data/.bash_profile{% endhigh
 
 * http://stackoverflow.com/questions/6009/how-do-you-deal-with-configuration-files-in-source-control
 
+* http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
