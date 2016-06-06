@@ -15,34 +15,45 @@ comments: true
 
 {% include _toc.html %}
 
-   <amp-img width="600" height="419" alt="github-secrets-v01-600x418"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15812410/c5a7cafc-2b71-11e6-8859-904137d02f72.jpg"></amp-img>
+<amp-img width="714" height="466" alt="github-secrets-v02-714x466"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15831785/7aa96c3e-2bdc-11e6-9c3f-0dbf31a59f42.png"></amp-img>
 
 In our individual machines, 
-we use the `ssh-keygen` utility to generate key pairs based on our email or other seed.
-The public key we copy into each server for use to <strong>`SSH`</strong>
+we use the `ssh-keygen` utility to generate key pairs.
+The public key we copy into each <strong>server</strong> 
+so we can <strong>`SSH`</strong>
 with the private side of the pair (instead of a password).
 
-As we write functions within application source files within a Git folder,
-we commit changes into .git history.
+PROTIP: In an enterprise setting where other members of your team may need to use your credentials
+in case you're on vacation or something,
+one approach is to store credentials in a <strong>cloud drive</strong>
+(such as Dropbox, Box, Google Drive, or Microsoft OneDrive).
+The keys can be downloaded along with
+<strong>SSH scripts</strong> to simplify execution.
 
-Programmed functions also need to use private keys and other <strong>secrets</strong> 
-to access data in web services such as Facebook, Google, etc.
-also need to provide secrets that we don't want to be made public.
+For physical security,
+some may want to use an encrypted USB Solid State Drive.
 
-The conveninent thing to do is simply copy private certificates (among other files) in the Git folder,
-so we can forget about it.
+As we write functions within application source files,
+we put them within a Git folder,
+and commit changes into .git history.
+
+The private <strong>API keys</strong> and crypto certificates from Certificate Authorities
+we collectively call <strong>secrets</strong> 
+for accessing web services
+can be conveninently just copied into the Git folder.
+
 When files are pushed up to GitHub or other repository,
 <strong>.gitignore</strong> settings should prevent the certificate from being uploaded and thus risk exposure.
 
-PROTIP: It's not a good idea to keep secrets such as passwords and 
-SSH private keys in a GitHub repository. Murphy's Law applies.
+PROTIP: Many say it's not a good idea to keep secrets such as passwords and 
+other private data in a GitHub repository. Murphy's Law applies here too.
 
-Rogue scanners scan through every GitHub repository looking for vulnerabilities.
+Rogue scanners look through every GitHub repository, looking for secrets.
 
 We can use <a href="#BFG">the BFG utility to remove sensitive data</a>.
 
-CAUTION: Even after sensitive data is removed from the <strong>current</strong> repository,
+CAUTION: But even after sensitive data is removed from the <strong>current</strong> repository,
 like the Padora's Box legend,
 whatever was exposed can nevertheless live on in any zips, clones, or forks 
 others have taken of the repository.
@@ -52,15 +63,8 @@ A more secure approach is to define a
 <a href="#Symlink">symlink</a> 
 to reference secret files in folders outside of the Git repository.
 
-PROTIP: In an enterprise setting where other members of your team may need to use your credentials
-in case you're on vacation or something,
-one approach is to store credentials in a <strong>cloud drive</strong>
-(such as Dropbox, Box, Google Drive, or Microsoft OneDrive).
-Key values then then be in <strong>profile scripts</strong> that load
+Private file in them can be referenced in <strong>profile scripts</strong> that load files and
 <a href="#EnvVars">environment variables</a> within memory accessible by application programs.
-
-SSH scripts and associate private keys can also be retrieved from a cloud drive 
-for people who frequently move among machines.
 
 
 ## Dorking scans #
@@ -107,15 +111,23 @@ Git is designed such that every file and folder is represented only once (and gi
 You can tell Git to ignore changes to a file in the future:
 
    <pre><strong>
-   git update-index --assume-unchanged
+   git update-index --assume-unchanged  <file>
    </strong></pre>
 
    However, this works only on a single branch.
    On a change of branch, Git detects changes in the config file, and you'll have to either undo them, or check them in.
 
-Another option is to use pre and post-commit hooks to automatically add/remove secret config values when checking in and out, using a Python program.
+To track changes again:
 
-* http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
+   <pre><strong>
+   git update-index --no-assume-unchanged  <file>
+   </strong></pre>
+
+   * http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
+
+   * http://gitready.com/intermediate/2009/02/18/temporarily-ignoring-files.html
+
+Another option is to use pre and post-commit hooks to automatically add/remove secret config values when checking in and out, using a Python program.
 
 <a name="Symlink"></a>
 
@@ -144,7 +156,7 @@ git push{% endhighlight %}
 ## Sync from Dropbox #
 
 <a target="_blank" href="http://www.technorange.com/cloudlinker-direct-link-generator-for-dropboxgoogle-driveone-drive-copy-com/">
-This on-line tool</a> generates a direct link from a share link from
+This on-line tool</a> generates a direct link from a share link into
 Dropbox, Google Drive, and Microsoft OneDrive.
 
 
@@ -152,13 +164,22 @@ Dropbox, Google Drive, and Microsoft OneDrive.
 
 ## Enviornment variables #
 
+For AWS CLI:
+
+   <pre>
+   $ export AWS_ACCESS_KEY_ID='YOUR_AWS_API_KEY'
+   $ export AWS_SECRET_ACCESS_KEY='YOUR_AWS_API_SECRET_KEY'
+   </pre>
+
+   * https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/
+
 To insert secret key in a Mac's .bash_profile script that the operating system executes
 upon boot-up:
 
-{% highlight text %}
-echo "export SECRET_PASS=12345678910" >> ~/app-root/data/.bash_profile{% endhighlight %}
+   {% highlight text %}
+   echo "export SECRET_PASS=12345678910" >> ~/app-root/data/.bash_profile{% endhighlight %}
 
-Programming to retrieve an enviornment variable into the program:
+Programming to retrieve an environment variable into the program:
 
    * Python programs reference `process.env.SECRET_PASS`.
 

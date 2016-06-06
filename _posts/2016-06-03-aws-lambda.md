@@ -349,7 +349,8 @@ https://www.youtube.com/watch?v=TuGyyTXPQ-U
 1 How to use AWS API Gateway to expose AWS DynamoDB database backend
 by mattua
 
-
+* https://www.youtube.com/watch?v=XByPxb_VvpY
+   AWS re:Invent 2015 | (DEV303) Practical DynamoDB Programming in Java
 ## Kinesis #
 
 Server-less processing of streaming data using Amazon Kinesis.
@@ -470,6 +471,9 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 
 * Tim Wagner, General Manager of AWS Lambda at Amazon
 
+* Ajay Nair @ajaynairthinks Lead Product Manager for AWS Lambda
+
+* Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
 ## More on Amazon #
 
