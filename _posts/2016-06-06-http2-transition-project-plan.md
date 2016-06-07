@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "HTTP2 Transition Project Plan"
+title: "HTTP/2 Transition Project Plan"
 excerpt: "for Project Management to make adoption real"
 tags: [HTTP2, project]
 image:
@@ -18,7 +18,9 @@ comments: true
 
 There are many blogs and YouTube videos about the technical details and configuration changes associated with HTTP/2. But I haven’t seen much in the way of the 
 <strong>implications</strong> to project managers and other management personnel
-who need to make real the transition. So I rearranges the various technical facts here, with PROTIPs identifying suggestions.
+who need to make real the transition. 
+So I rearranged the various technical facts here, 
+with PROTIPs identifying suggestions.
 
 ## Googling #
 
@@ -57,7 +59,7 @@ ALPN, or Application-Layer Protocol Negotiation,
 is a TLS extension that includes the protocol negotiation within the exchange of hello messages. 
 See https://tools.ietf.org/html/rfc7301
 
-TODO: Confirm whether HTTP2 ALPN is actually activated on in the web server under test.
+TODO: Confirm whether h2 ALPN is actually activated on in the web server under test.
 
 Some organizations use web protocol scanners as an aspect of quality.
 
@@ -65,7 +67,7 @@ The W3C scanner identifies issues such as "https" being specified instead of "ht
 and the inclusion of a slash at the end of URLs to avoid a redirect.
 
 ALPN negotiates which protocol should be handled over a secure connection in a way that is more efficient and avoids additional round trips. 
-So with HTTP2, `HTTP://` can be specified and the connection will still be encrypted as if you entered `https://`.
+So with h2, `HTTP://` can be specified and the connection will still be encrypted as if you entered `https://`.
 
 Will the W3C scanner recognize this change?
 If you need to explain what W3C finds,
@@ -74,7 +76,7 @@ you would need to add this to your notes about the discrepancy.
 
 ## Adoption Statistics #
 
-Several websites respond with whether a domain name you input supports HTTP2:
+Several websites respond with whether a domain name you input supports h2:
 
    * <a target="_blank" href="https://spdycheck.org/">
    https://spdycheck.org</a>
@@ -82,35 +84,49 @@ Several websites respond with whether a domain name you input supports HTTP2:
    * <a target="_blank" href="https://tools.keycdn.com/http2-test">
    https://tools.keycdn.com/http2-test</a>
 
-Among <a target="_blank" href="https://w3techs.com/technologies/details/ce-http2/all/all"> sites supporting http2:
+Among <a target="_blank" href="https://w3techs.com/technologies/details/ce-http2/all/all"> sites supporting h2:
 
-   * Home pages of organizations that support HTTP2:
+   * Home pages of organizations that support h2:
 google, youtube, facebook, twitter, instagram, wikipedia, yahoo, dropbox, wordpress.
 
-   * Home pages of organizations that do not yet support HTTP2 (as of June 6, 2016):
-amazon, github.com, github.io, ibm, hp, microsoft, sap, salesforce, spotify, pandora, paypal
+   * Home pages of organizations that do not yet support h2 (as of June 6, 2016):
+github.com, github.io, ibm, hp, microsoft, sap, salesforce, spotify, pandora, paypal
+
+   WARNING: Google made support for mobile viewports a factor in their search rankings.
+   The same is likely for adoption for h2.
 
 TODO: Even if your corporate marketing home page is not used for transaction processing,
-get it up to HTTP2 to improve impact to corporate technical cred.
+get it up to h2 to improve impact to corporate technical cred.
+
+Although Amazon.com does not support h2, many Amazon domains do support h2
+according to
+<a target="_blank" href="http://isthewebhttp2yet.com/measurements/adoption.html">
+IsTheWebHttp2Yet</a>'s counts (and list) of domains supporting h2.
+Those metrics differentiates between "Announced" and "True" support,
+even if some embedded objects are still served over HTTP 1.1.
+
+<a target="_blank" href="https://w3techs.com/technologies/details/ce-http2/all/all">
+W3Techs.com</a> publishes the percentage of sites supporting h2:
+<amp-img width="650" alt="Percentage of all sites using h2" src="https://w3techs.com/diagram/history_technology/ce-http2"></amp-img>
 
 PROTIP: It doesn’t matter much that industry-wide only 
-8% or 18% of all websites are supporting HTTP2.
-Even though overall support for HTTP2 may be lacking,
+8% or 38% of all websites are supporting h2.
+Even though overall support for h2 may be lacking,
 IT organizations nevertheless need to begin preparing for its adoption
 because customers and vendors and partners are getting onboard.
 Ideally, IT organizations ought to get "in front" of people in the organization who need to experiment with that eventuality. Don’t hold them back.
 
-PROTIP: Include in adoption stats not just HTTP2 but SPDY, its predecessor.
+PROTIP: Include in adoption stats not just h2 but SPDY, its predecessor.
 
 
 ## Data center prep. #
 
-TODO: Every component needs to be analyzed for its impact on HTTP2 adoption.
+TODO: Every component needs to be analyzed for its impact on h2 adoption.
 
-PROTIP: The presence of legacy data center components is often the most vexing block to HTTP2
+PROTIP: The presence of legacy data center components is often the most vexing block to h2
 adoption because of the lead time necessary for changes to occur.
 
-PROTIP: Those who develop programs assuming HTTP2 may need to use a cloud vendor which supports HTTP2
+PROTIP: Those who develop programs assuming h2 may need to use a cloud vendor which supports h2
 while the corporate data center catches up.
 
 #### Load balancers #
@@ -142,10 +158,18 @@ Many proxies don’t usually speak full, compliant HTTP1 let alone HTTP2.
 This needs to change.
 
 
+### TLS certificates #
+
+h2 works on IE only if TLS certificates (not SSL certificates) used on servers,
+since TLS has the more advanced cipher.
+
+Delivery certificate needs to have Perfect Forward Secrecy (PFS) support enabled in TLS metadata
+
+
 
 ## Browsers #
 
-The use of "evergreen" browsers is a pre-requisite for HTTP2 adoption.
+The use of "evergreen" browsers is a pre-requisite for h2 adoption.
 
 But most "enterprise" organizations tend to use Microsoft browsers 
 and lag behind in upgrades of operating systems.
@@ -154,29 +178,36 @@ and lag behind in upgrades of operating systems.
 http://caniuse.com/#feat=http2</a> 
 says Microsoft did not support HTTP2 in IE until IE11 with in Windows 10
 (and Server 2016).
-Microsoft is said to be developing their own 
-"Microsoft Speed + Mobility (Microsoft S+M)" protocol.
 
-The Chrome browser is the first to support HTTP2 because the company
-created SPDY on which HTTP2 is based.
+   NOTE: Microsoft is said to be developing their own 
+   "Microsoft Speed + Mobility (Microsoft S+M)" protocol.
 
 PROTIP: To encourage its use, IT organizations need to make the installation 
 of Chrome browsers a part of the standard process for getting laptops ready for users. This includes making Chrome the default browser.
 
+Apple Safari supports h2 since 10.11 [El Capitan](/apple-mac-osx-setup/).
+
+The Mozilla browser is lagging behind in support of h2:
+
+   <a target="_blank" href="https://wiki.mozilla.org/Networking/http2">
+   https://wiki.mozilla.org/Networking/http2</a>
+
+The Chrome browser is the first to support h2 because the company
+created SPDY on which h2 is based.
+The Android Browser and Chrome for Android supports h2 (at version 50).
+
 There is 
 <a target="_blank" href="https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin?hl=en">
 a Chrome plug-in</a>
-that shows an icon to show whether a site is HTTP2.
+that shows an icon to show whether a site is h2.
 
 Put this in the address bar of a Chrome browser to see which tab supports "h2":
 
    * <a target="_blank" href="chrome://net-internals/#http2">
    chrome://net-internals/#http2"
 
-The Mozilla browser is lagging behind in support of HTTP2:
+To identify h2 usage in the Chrome Debugger: ...
 
-   <a target="_blank" href="https://wiki.mozilla.org/Networking/http2">
-   https://wiki.mozilla.org/Networking/http2</a>
 
 
 ## Performance Testing #
@@ -201,18 +232,30 @@ the tool. And that’s not an easy job. So differences are bound to occur.
 Programs that emulate browsers need to add, among other features, 
 the capability to handle <strong>binary streams</strong> 
 rather than just text handling in HTTP1.1.
-This difference is part of the speed improvement in HTTP2.
+This difference is part of the speed improvement with h2.
 
-Those who use LoadRunner need the latest version, 12.53 which became available in June, 2016. See <a target="_blank" href="http://community.hpe.com/t5/LoadRunner-and-Performance/How-to-gain-the-best-from-LoadRunner-s-support-of-HTTP-2/ba-p/6863547#.V1Yp7ZMrJZo">this blog</a>.
+* Those who use LoadRunner need the latest version, 12.53 which became available in June, 2016. See <a target="_blank" href="http://community.hpe.com/t5/LoadRunner-and-Performance/How-to-gain-the-best-from-LoadRunner-s-support-of-HTTP-2/ba-p/6863547#.V1Yp7ZMrJZo">this blog</a>.
 
-Those who use JMeter need the 
+* Those who use JMeter need the 
 <a target="_blank" href="https://github.com/syucream/jmeter-http2-plugin">
 jmeter-http2-plugin</a> sampler.
 
-PROTIP: Add in your performance testing tool a check whether the response is HTTP2.
+* Those who use Gatling ???
 
+## Is this site h2? #
 
+PROTIP: Add in your test scripts a check whether the response is HTTP2.
 
+Among <a target="_blank" href="https://github.com/http2/http2-spec/wiki/Tools">
+tools supporting h2</a>:
+
+   * <a target="_blank" href="https://nghttp2.org/documentation/h2load-howto.html"
+     h2load (compiled alongside nghttp2 HTTP/2 C language library)</a> 
+     by Tatsuhiro Tsujikawa
+     is a multi-threaded benchmarking tool
+     with a 
+     <a target="_blank" href="https://nghttp2.org/documentation/python-apiref.html">
+     Python API binding</a>.
 
 ## Server Installs #
 
@@ -223,12 +266,13 @@ Legacy "enterprise" web applications tend to have large headers to
 pass cookies back and forth. So just this alone may provide a boost to
 performance.
 
-PROTIP: Install HPACK (from Twitter) from
-<a target="_blank" href="https://github.com/twitter/hpack">
-https://github.com/twitter/hpack</a>
+   NOTE: HPACK is from Twitter at 
+   <a target="_blank" href="https://github.com/twitter/hpack">
+   https://github.com/twitter/hpack</a>
 
+   HPACK also resists "compression attacks" to steal cookies.
 
-#### Apache
+### Apache
 
 Apache mod_h2 was unofficial 
 
@@ -247,7 +291,7 @@ httpd.conf
    * https://icing.github.io/mod_h2/howto.html#chrome
 
 
-#### NGNIX 
+### NGNIX #
 
 * nginx 9 still in beta?
 
@@ -270,9 +314,9 @@ Yesterday's perf best-practices are today's HTTP/2 anti-patterns - Velocity 2015
 Ilya Grigorik (@igrigorik) also has a 
 <a target="_blank" href="https://docs.google.com/presentation/d/1r7QXGYOLCh4fcUq0jDdDwKJWNqWK1o4xMtYpKZCJYjM/present?slide=id.p19"> slidedeck</a>
 and
-<a target="_blank" href="http://www.oreilly.com/webops-perf/free/files/HTTP2-high-perf-browser-networking.pdf
+<a target="_blank" href="http://www.oreilly.com/webops-perf/free/files/HTTP2-high-perf-browser-networking.pdf">
 free 29 page book with diagrams</a>
-that explains the nitty gritty of HTTP2.
+which explains the nitty gritty of h2.
 
 
 ### Sprites #
@@ -282,7 +326,7 @@ programmers have been arranging several icons into a single file and
 using CSS to present a section of the image file.
 
 This time-consuming hack
-is no longer necessary with HTTP2 because HTTP2 uses a single TCP connection
+is no longer necessary with h2 because h2 uses a single TCP connection
 and streams any number of files simultaneously.
 
 <a target="_blank" href="https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf"> In this PDF</a>
@@ -298,7 +342,7 @@ Previously with HTTP1, large files were split into small tiles
 for the HTML or CSS code to assemble.
 
    * <a target="_blank href="http://http2.golang.org/gophertiles?latency=0"
-   see it live</a>
+   see it live</a>. BTW, this can be used to test any HTTP/2 browser.
 
 The site is demo’d by Brad Fitzpatrick in
 <a target="_blank" href="https://www.youtube.com/watch?v=FARQMJndUn0">
@@ -306,12 +350,15 @@ this YouTube video</a> and
 <a target="_blank" href="https://docs.google.com/presentation/d/1G9gPIAorTsVD_pMgEJcTGEjt5ApZZWyI2uO244_f7TU/present?slide=id.p">
 slide deck</a> shows his demo site:
 
+
 ### Domain sharding #
 
 Domain sharding hurts performance under HTTP2.
 
 
-## Size of objects and line quality matters #
+## Configuration Settings #
+
+### Size of objects and line quality matters #
 
 https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf
 
@@ -319,13 +366,17 @@ HTTP/SPDY takes longer with large objects transmitted over lines with loss.
 
 This was confirmed by http://wprof.cs.washington.edu/spdy
 
+### Frame Settings #
 
-## TLS certificates #
+* There are 10 different frame types
 
-2) TLS certificates (not SSL certificates) used on servers
+* Negotiate peer limits
 
-* delivery certificate needs to have Perfect Forward Secrecy (PFS) support enabled in TLS metadata
+* Max frame size (16 K default, 16 MB max)
 
+* Max concurrent requests
+
+* Priority of streams (CSS before JS, etc.)
 
 
 ## Other Resources 
@@ -335,5 +386,19 @@ https://ma.ttias.be/architecting-websites-http2-era/
 https://ma.ttias.be/http2
 
 
+* https://www.youtube.com/watch?v=r2f8tloYJY0
+  HTTP2 at the GOTO conference
+  by Daniel Stenberg
 
+* https://www.youtube.com/watch?v=wR3o6HA47Ao
+  unRESTful Web Services with HTTP2 by Fabian Staber
+
+* https://www.youtube.com/watch?v=r5oT_2ndjms
+   HTTP/2 101 (Chrome Dev Summit 2015)
+   Nov 18, 2015
+  by @surmair
+
+* https://www.youtube.com/watch?v=QpLtBftqM04
+  HTTP 2.0 & Java: Current Status by Simone Bordet
+  at Devoxx
 

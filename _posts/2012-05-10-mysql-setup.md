@@ -114,3 +114,16 @@ in addition to standard MyISAM, blackhole, CSV, Memory, etx.
 MariaDB Knowledgebase: 
 
    http://kb.askmonty.org/v/mariadb
+
+
+## Amazon Aurora #
+
+https://aws.amazon.com/rds/aurora/
+it replaces MySQL, but also enables scaling to 64 TB
+and replicates across 3 zones.
+
+It's managed by RDS (Relational Data Service).
+
+
+
+
