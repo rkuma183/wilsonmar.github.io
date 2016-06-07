@@ -49,15 +49,15 @@ Try this search phrase:
 
    "h2" is the value of the response in the HTTP header:
 
-   `ALPH protocol: h2`
+   `ALPN protocol: h2`
 
-BTW, ALPN, or Application-Layer Protocol Negotiation, is a TLS extension that includes the protocol negotiation within the exchange of hello messages. 
+## Web Scanners #
+
+ALPN, or Application-Layer Protocol Negotiation, 
+is a TLS extension that includes the protocol negotiation within the exchange of hello messages. 
 See https://tools.ietf.org/html/rfc7301
 
 TODO: Confirm whether HTTP2 ALPN is actually activated on in the web server under test.
-
-
-## Web Scanners #
 
 Some organizations use web protocol scanners as an aspect of quality.
 
