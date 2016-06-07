@@ -88,16 +88,19 @@ Among <a target="_blank" href="https://w3techs.com/technologies/details/ce-http2
 google, youtube, facebook, twitter, instagram, wikipedia, yahoo, dropbox, wordpress.
 
    * Home pages of organizations that do not yet support HTTP2 (as of June 6, 2016):
-amazon, github.com, github.io, ibm, microsoft, sap, salesforce, spotify, pandora, paypal
+amazon, github.com, github.io, ibm, hp, microsoft, sap, salesforce, spotify, pandora, paypal
+
+TODO: Even if your corporate marketing home page is not used for transaction processing,
+get it up to HTTP2 to improve impact to corporate technical reputation.
 
 PROTIP: It doesn’t matter much that industry-wide only 
-8% of all websites are supporting HTTP2.
-Even though support for HTTP2 may be lacking,
+8% or 18% of all websites are supporting HTTP2.
+Even though overall support for HTTP2 may be lacking,
 IT organizations nevertheless need to begin preparing for its adoption
 because customers and vendors and partners are getting onboard.
 Ideally, IT organizations ought to get "in front" of people in the organization who need to experiment with that eventuality. Don’t hold them back.
 
-PROTIP: Include in adoption not just HTTP2 but SPDY, its predecessor.
+PROTIP: Include in adoption stats not just HTTP2 but SPDY, its predecessor.
 
 ## Data center prep. #
 
