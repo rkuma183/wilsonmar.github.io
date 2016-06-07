@@ -24,11 +24,10 @@ The public key we copy into each <strong>server</strong>
 so we can <strong>`SSH`</strong>
 with the private side of the pair (instead of a password).
 
-PROTIP: In an enterprise setting where other members of your team may need to use your credentials
-in case you're on vacation or something,
+PROTIP: For those who only want to create credential once,
 one approach is to store credentials in a <strong>cloud drive</strong>
 (such as Dropbox, Box, Google Drive, or Microsoft OneDrive).
-The keys can be downloaded along with
+Credentials there can be downloaded along with
 <strong>SSH scripts</strong> to simplify execution.
 
 For physical security,
@@ -49,11 +48,14 @@ When files are pushed up to GitHub or other repository,
 PROTIP: Many say it's not a good idea to keep secrets such as passwords and 
 other private data in a GitHub repository. Murphy's Law applies here too.
 
-Rogue scanners look through every GitHub repository, looking for secrets.
+Rogue "dorking" scanners are looking through every public repository, looking for secrets.
 
-We can use <a href="#BFG">the BFG utility to remove sensitive data</a>.
+PROTIP: Organizations should do their own scans to find issues before others do.
 
-CAUTION: But even after sensitive data is removed from the <strong>current</strong> repository,
+If private information is found, we
+can use <a href="#BFG">the BFG utility to remove it</a>.
+
+CAUTION: But even after data is removed from the <strong>current</strong> repository,
 like the Padora's Box legend,
 whatever was exposed can nevertheless live on in any zips, clones, or forks 
 others have taken of the repository.
@@ -85,7 +87,7 @@ What if you found out that your private data has been exposed?
 First, if a file is deleted using `git rm` and a commit is made,
 a vestige of that data can still exist in the repository's <strong>history</strong> (.git folder).
 
-Two tool remove historical data:
+Tools which remove historical data:
 
    * Git's `git-filter-branch` command.
 
@@ -95,7 +97,7 @@ Two tool remove historical data:
 
 <a target="_blank" href="https://help.github.com/articles/remove-sensitive-data/">
 This webpage</a> explains commands such as replacing such as this to 
-find known passwords and replace them with "***REMOVED***".
+find known passwords and replace them with <strong>\*\*\*REMOVED\*\*\*</strong>.
 
    <pre>
    java -jar bfg.jar --replace-text passwords.txt  my-repo.git
@@ -111,7 +113,7 @@ Git is designed such that every file and folder is represented only once (and gi
 You can tell Git to ignore changes to a file in the future:
 
    <pre><strong>
-   git update-index --assume-unchanged  <file>
+   git update-index --assume-unchanged  &LT;file>
    </strong></pre>
 
    However, this works only on a single branch.
@@ -120,7 +122,7 @@ You can tell Git to ignore changes to a file in the future:
 To track changes again:
 
    <pre><strong>
-   git update-index --no-assume-unchanged  <file>
+   git update-index --no-assume-unchanged  &LT;file>
    </strong></pre>
 
    * http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
@@ -129,26 +131,95 @@ To track changes again:
 
 Another option is to use pre and post-commit hooks to automatically add/remove secret config values when checking in and out, using a Python program.
 
+
+<a name="Config"></a>
+
+## AWS CLI Configuration #
+
+Although AWS in 2015 enabled users to 
+<a target="_blank" href="https://blogs.aws.amazon.com/security/post/Tx1XWZ93EAFL9C4/How-to-Switch-Easily-Between-AWS-Accounts-by-Using-the-AWS-Management-Console-an">
+switch roles in the Console</a>, switching roles in the CLI is not yet availble.
+
+AWS provides a command to define admin access:
+
+   <pre>
+   aws configure
+   </pre>
+
+List the location on a Mac or Linux machine:
+
+   <pre>
+   ls ~/.aws
+   </pre>
+
+List the location on Windows:
+
+   <pre>
+   dir %UserProfile%\.aws
+   </pre>
+
+Insidie the .aws folder is a <strong>credentials</strong> file containing, for example:
+
+   <pre>
+   [default]
+   aws_access_key_id = ABCDEFGVSYNHR5G2VNGQ
+   aws_secret_access_key = 123456nVqH3AWz5pGQcZ/+JDHB4dBM2BDNtzUsnK
+
+   [user2]
+   aws_access_key_id=AKIAI44QH8DHBEXAMPLE
+   aws_secret_access_key=je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+   </pre>
+
+On a Mac, store:
+
+   <pre>
+   export AWS_ACCESS_KEY_ID='YOUR_AWS_API_KEY'
+   export AWS_SECRET_ACCESS_KEY='YOUR_AWS_API_SECRET_KEY'
+   </pre>
+
+   * https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/
+
+Insidie the .aws folder is a <strong>config</strong> file containing, for example:
+
+   <pre>
+   [default]
+   region=us-west-2
+   output=json
+
+   [profile e1]
+   region=us-east-1
+   output=text
+   </pre>
+
+   PROTIP: Define profile names with the region.
+
+   <pre>
+   aws s3 ls \-\-profile default
+   </pre>
+
+
+See http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files
+
+
+Configuration includes enabling auto completion for AWS CLI, 
+edit file <strong>/etc/bashrc</strong> to add:
+
+   <pre>
+   complete -C aws_completer aws
+   </pre>
+
 <a name="Symlink"></a>
 
 ## Symlink Configuration #
 
-On a Mac, this sample command is used to create a file named Classic pointing to /Volumes/Classic:
+On a Mac, this sample command is used to create a symlink. For example:
 
-   ln -s /Volumes/Classic/ Classic
+   <pre>
+   ln -s ~/.aws/credentials  credentials
+   ln -s ~/.aws/config  config
+   </pre>
 
 On Windows, a "Shortcut" is created to a file.
-
-Example:
-
-{% highlight text %}
-cd YOUR_LOCAL_REPO
-echo "source ~/app-root/data/.bash_profile" >> .app/action_hooks/pre_start_nodejs-0.6
-git add .app/action_hooks/pre_start_nodejs-0.6
-git commit -m 'importing bash profile during app init'
-git push{% endhighlight %}
-
-   NOTE: .app is replaced with the configuration file of your app.
 
 
 <a name="CloudSync"></a>
@@ -163,15 +234,6 @@ Dropbox, Google Drive, and Microsoft OneDrive.
 <a name="EnvVars"></a>
 
 ## Enviornment variables #
-
-For AWS CLI:
-
-   <pre>
-   $ export AWS_ACCESS_KEY_ID='YOUR_AWS_API_KEY'
-   $ export AWS_SECRET_ACCESS_KEY='YOUR_AWS_API_SECRET_KEY'
-   </pre>
-
-   * https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/
 
 To insert secret key in a Mac's .bash_profile script that the operating system executes
 upon boot-up:
