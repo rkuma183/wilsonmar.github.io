@@ -91,7 +91,7 @@ google, youtube, facebook, twitter, instagram, wikipedia, yahoo, dropbox, wordpr
 amazon, github.com, github.io, ibm, hp, microsoft, sap, salesforce, spotify, pandora, paypal
 
 TODO: Even if your corporate marketing home page is not used for transaction processing,
-get it up to HTTP2 to improve impact to corporate technical reputation.
+get it up to HTTP2 to improve impact to corporate technical cred.
 
 PROTIP: It doesn’t matter much that industry-wide only 
 8% or 18% of all websites are supporting HTTP2.
@@ -101,6 +101,7 @@ because customers and vendors and partners are getting onboard.
 Ideally, IT organizations ought to get "in front" of people in the organization who need to experiment with that eventuality. Don’t hold them back.
 
 PROTIP: Include in adoption stats not just HTTP2 but SPDY, its predecessor.
+
 
 ## Data center prep. #
 
@@ -207,6 +208,10 @@ Those who use LoadRunner need the latest version, 12.53 which became available i
 Those who use JMeter need the 
 <a target="_blank" href="https://github.com/syucream/jmeter-http2-plugin">
 jmeter-http2-plugin</a> sampler.
+
+PROTIP: Add in your performance testing tool a check whether the response is HTTP2.
+
+
 
 
 ## Server Installs #
