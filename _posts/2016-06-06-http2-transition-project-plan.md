@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "HTTP2 for Project Managers"
-excerpt: "A Transition Plan for HTTP2"
+title: "HTTP2 Transition Project Plan"
+excerpt: "for Project Management to make adoption real"
 tags: [HTTP2, project]
 image:
 # feature: pic data center slice 1900x500.jpg
