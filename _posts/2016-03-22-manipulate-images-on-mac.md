@@ -123,6 +123,8 @@ alt="">
 * <a target="_blank" href="http://www.responsivebreakpoints.com/">
   responsivebreakpoints.com</a>
   has a REST API.
+  <a target="_blank" href="https://www.smashingmagazine.com/2016/01/responsive-image-breakpoints-generation/">
+  (Article about it)</a>
 
 * http://adaptive-images.com/
    download for PHP 5 on Apache2/nginx, GD lib.
