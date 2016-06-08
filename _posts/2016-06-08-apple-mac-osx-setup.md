@@ -496,11 +496,55 @@ Under the vars folder main.yml file is a list of several Homebrew packages.
 
 <a name="RemoveApp"></a>
 
-### Remove app #
+## Remove app #
 
 QUESTION: How to remove apps
 
+## Apple Store programs #
 
+Programs are installed into the Applications folder.
+Remember there are two different Applications folders
+
+   * `cd /Applications` 
+
+   * `cd ~/Applications` to see programs installed by clicking browser links, 
+   such as GoToMeeting, etc.
+
+To get rid of GarageBand, 
+
+0. In a Terminal, go to where Apple stores its default apps at:
+
+   <pre>
+   cd "/Library/Application Support/GarageBand/"
+   </pre>
+
+   The quotes are needed because there is a space in the folder name.
+
+0. See how much disk space it takes.
+
+   <pre>
+   ls -al
+   </pre>
+
+   The number of bytes is to the left of the date:
+
+   <pre>
+   -rw-rw-r--   1 root  admin  31211520 Oct 25  2013 Themes.db
+   </pre>
+
+0. PROTIP: Delete the contents, but leave the folder name.
+
+   <pre>
+   rm -rf *.* /s
+   </pre>
+
+https://github.com/argon/mas
+
+To uninstall, select it and press Command+Delete or drag the program into the Trash.
+
+http://osxdaily.com/2014/01/02/delete-garageband-imovie-iphoto-mac-os-x/
+
+http://osxdaily.com/2014/01/01/4-free-os-x-utilities-mac/
 
 ## More on OSX
 
