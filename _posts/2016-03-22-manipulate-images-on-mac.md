@@ -125,6 +125,7 @@ alt="">
   has a REST API.
   <a target="_blank" href="https://www.smashingmagazine.com/2016/01/responsive-image-breakpoints-generation/">
   (Article about it)</a>
+   <amp-img width="500" height="463" alt="scr responsive-breakpoints-settings-opt-preview 500x463" src="https://cloud.githubusercontent.com/assets/300046/15913058/2c8e374a-2d95-11e6-9596-001bbf1daede.png"></amp-img>
 
 * http://adaptive-images.com/
    download for PHP 5 on Apache2/nginx, GD lib.

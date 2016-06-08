@@ -475,6 +475,14 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
+* http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/
+gif-to-mp4
+create-timelapse
+file-to-png
+pngs-to-mp4
+mp4s-to-timelapse
+upload-to-vimeo
+
 ## More on Amazon #
 
 This is one of a series on Amazon:
