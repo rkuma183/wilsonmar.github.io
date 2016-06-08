@@ -484,12 +484,14 @@ HttpArchive</a>
   by Daniel Stenberg
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=wR3o6HA47Ao">
-  unRESTful Web Services with HTTP2 by Fabian Staber
+  unRESTful Web Services with HTTP2</a> Nov 23, 2015
+   by Fabian Staber
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=QpLtBftqM04">
-  HTTP 2.0 & Java: Current Status</a>
-   by Simone Bordet
-  at Devoxx
+  HTTP 2.0 & Java: Current Status</a> at Devoxx Nov 14, 2015
+  by Simone Bordet 
+  from WebTide which supports Jetty web server.
+  
 
 ## Other Resources 
 
