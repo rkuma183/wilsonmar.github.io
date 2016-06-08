@@ -32,8 +32,6 @@ Try this search phrase:
    http/2 or h2 or http2 or http_2 or rfc7540
    </pre>
 
-   "HTTP/2" seems to be the most frequent keyword returned.
-
    Alternatives to the special character slash is needed with
    the <a target="_blank" href="https://twitter.com/http_2">
    @HTTP_2</a> Twitter handle used by 
@@ -161,7 +159,13 @@ This needs to change.
 ### TLS certificates #
 
 h2 works on IE only if TLS certificates (not SSL certificates) used on servers,
-since TLS has the more advanced cipher.
+since TLS has more advanced ciphers.
+
+An example:
+
+<pre>
+echo test | /usr/local/Cellar/openssl/1.0.2e/bin/openssl s_client -connect http2.akamai.com:443 -servername http2.akamai.com -alpn spdy/2,h2,h2-14 -cipher "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA" | grep ALPN
+</pre>
 
 Delivery certificate needs to have Perfect Forward Secrecy (PFS) support enabled in TLS metadata
 
@@ -329,11 +333,10 @@ This time-consuming hack
 is no longer necessary with h2 because h2 uses a single TCP connection
 and streams any number of files simultaneously.
 
-<a target="_blank" href="https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf"> In this PDF</a>
-Xiao Wang's benchmarks
-found that most of the performance from SPDY comes from the single TCP connection. 
-
-   * http://wprof.cs.washington.edu/spdy
+<a target="_blank" href="https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf"> 
+In this PDF</a>
+Xiao (Sophia) Wang's team found that most of the performance from SPDY comes from that single TCP connection
+multiplexing sliced frames.
 
 
 ### Tiles #
@@ -341,22 +344,68 @@ found that most of the performance from SPDY comes from the single TCP connectio
 Previously with HTTP1, large files were split into small tiles
 for the HTML or CSS code to assemble.
 
-   * <a target="_blank href="http://http2.golang.org/gophertiles?latency=0"
-   see it live</a>. BTW, this can be used to test any HTTP/2 browser.
+   * <a target="_blank" href="http://http2.golang.org/gophertiles?latency=0">
+   See the tiles assemble at http2.golang.org/gophertiles</a>.
+   
+   * <a target="_blank" href="https://http2.akamai.com/demo">
+   Akamai has a similar demo page at http2.akamai.com/demo</a>
 
-The site is demo’d by Brad Fitzpatrick in
+The site is demo’d 
 <a target="_blank" href="https://www.youtube.com/watch?v=FARQMJndUn0">
 this YouTube video</a> and
 <a target="_blank" href="https://docs.google.com/presentation/d/1G9gPIAorTsVD_pMgEJcTGEjt5ApZZWyI2uO244_f7TU/present?slide=id.p">
-slide deck</a> shows his demo site:
+slide deck</a> 
+by Brad Fitzpatrick.
 
+### Inlining #
+
+NOTE: HTTP/1.1 has a limit of <strong>6 TCP</strong> connections.
+
+To reduce the number of file, some have gotten to put CSS and JavaScript inline within HTML,
+especially on the initial landing page.
+
+But h2 browsers open just one TCP connection but multiplexes a large number of connections.
+
+Those who use workflow engine such as Gulp can stop the processing.
 
 ### Domain sharding #
 
-Domain sharding hurts performance under HTTP2.
+However, with h2, domain sharding hurts performance under HTTP2.
+
 
 
 ## Configuration Settings #
+
+There are several configuration settings that can be made to obtain the best
+response time for visitors.
+
+PROTIP: Before doing experiments with configuration changes,
+have a base set of performance stats for a base configuration.
+
+Consider these 6 factors, from Xiao (Sophia) Wang's 2014 benchmarking:
+<amp-img width="400" height="185" alt="h2 factors experiment 2016-06-07 400x184" src="https://cloud.githubusercontent.com/assets/300046/15879983/5f3d30f6-2ce6-11e6-94ae-a33b366998fd.jpg"></amp-img>
+
+   * Evaluate the results yourself at <a target="_blank" href="http://wprof.cs.washington.edu/spdy">
+     http://wprof.cs.washington.edu/spdy</a>.
+
+PROTIP: To limit variability due to random network conditions,
+run your experiments on servers you setup in an internal network.
+This makes for better repeatability.
+
+### Push #
+
+The h2 push feature can reduce latency 10-30% and up to 80% less data transfers.
+(according to Xiao (Sophia) Wang's 2014 benchmarking, page 43)
+
+When the server pushes files even before the client asks for it,
+when the client does ask for it, those files would already be in cache.
+
+This would be a boon to websites using custom fonts.
+
+
+
+(The browser within LoadRunner 12.53 does not support this feature)
+
 
 ### Size of objects and line quality matters #
 
@@ -365,6 +414,9 @@ https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_sli
 HTTP/SPDY takes longer with large objects transmitted over lines with loss.
 
 This was confirmed by http://wprof.cs.washington.edu/spdy
+
+According to <a target="_blank" href="http://httparchive.org/trends.php">
+HttpArchive</a> 
 
 ### Frame Settings #
 
@@ -377,6 +429,8 @@ This was confirmed by http://wprof.cs.washington.edu/spdy
 * Max concurrent requests
 
 * Priority of streams (CSS before JS, etc.)
+
+
 
 
 ## Other Resources 
