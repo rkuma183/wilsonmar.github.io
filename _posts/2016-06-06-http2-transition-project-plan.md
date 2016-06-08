@@ -472,6 +472,24 @@ HttpArchive</a>
    the perceived level of congestion.
    TCP reacts to a timeout by halving cwnd.
 
+## Videos on YouTube #
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=r5oT_2ndjms">
+   HTTP/2 101 (Chrome Dev Summit 2015</a>
+   Nov 18, 2015
+  by @surmair
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=r2f8tloYJY0">
+  HTTP2 at the GOTO conference</a>
+  by Daniel Stenberg
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=wR3o6HA47Ao">
+  unRESTful Web Services with HTTP2 by Fabian Staber
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=QpLtBftqM04">
+  HTTP 2.0 & Java: Current Status</a>
+   by Simone Bordet
+  at Devoxx
 
 ## Other Resources 
 
@@ -479,20 +497,4 @@ https://ma.ttias.be/architecting-websites-http2-era/
 
 https://ma.ttias.be/http2
 
-
-* https://www.youtube.com/watch?v=r2f8tloYJY0
-  HTTP2 at the GOTO conference
-  by Daniel Stenberg
-
-* https://www.youtube.com/watch?v=wR3o6HA47Ao
-  unRESTful Web Services with HTTP2 by Fabian Staber
-
-* https://www.youtube.com/watch?v=r5oT_2ndjms
-   HTTP/2 101 (Chrome Dev Summit 2015)
-   Nov 18, 2015
-  by @surmair
-
-* https://www.youtube.com/watch?v=QpLtBftqM04
-  HTTP 2.0 & Java: Current Status by Simone Bordet
-  at Devoxx
 
