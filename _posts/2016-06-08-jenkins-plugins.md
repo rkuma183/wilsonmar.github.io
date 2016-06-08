@@ -245,4 +245,5 @@ switching report format to xml in jmeter properties file:
    * http://wiki.jenkins-ci.org/display/JENKINS/Checking+out+existing+plugins
    * http://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
    * http://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins
+   * https://www.blazemeter.com/blog/continuous-integration-101-how-run-jmeter-jenkins
 
