@@ -296,6 +296,25 @@ httpd.conf
 
    * https://icing.github.io/mod_h2/howto.html#chrome
 
+#### Gzip #
+
+Ensure that gzip is enabled in the <strong>.htaccess</strong> file:
+
+<pre>
+&LT;ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+&LT;/ifModule>
+</pre>
+
+* <a target="_blank" href="https://varvy.com/tools/gzip/">
+   To see whether Gzip is working on a site, use the varvy.com online tool/a>
 
 ### NGNIX #
 
@@ -375,6 +394,14 @@ Those who use workflow engine such as Gulp can stop the processing.
 However, with h2, domain sharding hurts performance under HTTP2.
 
 
+### Long polling is cool again #
+
+Since a page doesn't have to waste a connection by holding it open,
+connections can be kept open for long-polling.
+
+This also means Web Sockets (which aimed to solve long polling) 
+may "not be a thing" anymore.
+
 
 ## Configuration Settings #
 
@@ -394,6 +421,7 @@ PROTIP: To limit variability due to random network conditions,
 run your experiments on servers you setup in an internal network.
 This makes for better repeatability.
 
+
 ### Push #
 
 The h2 push feature can reduce latency 10-30% and up to 80% less data transfers.
@@ -405,6 +433,11 @@ when the client does ask for it, those files would already be in cache.
 This would be a boon to websites using custom fonts.
 
 (The browser within LoadRunner 12.53 does not support this feature)
+
+
+NOTE: Work is underway to have a <strong>manifest.json</strong>
+file specify what to push when an index.html is received by a server.
+The file is generated in a build step http2-push-manifest.
 
 
 
@@ -431,12 +464,14 @@ HttpArchive</a>
 
 * Priority of streams (CSS before JS, etc.)
 
+## Server Push #
 
 * <a target="_blank" href="https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window">
    Congestion Window (CDWN)</a>
    is a variable held by the TCP source for each connection that reflects 
    the perceived level of congestion.
    TCP reacts to a timeout by halving cwnd.
+
 
 ## Other Resources 
 

@@ -21,6 +21,8 @@ This assumes that you have followed
 
 ### Install Plugins #
 
+Here is a generic set of steps to install a plug-in:
+
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 0. Clikc **Manage Plugins**.
 0. Click **Installed** tab to view what has been installed already.
@@ -165,6 +167,10 @@ https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls
 
 
 <a id="JMeterPlugin"></a>
+
+## JMeter plug-ins #
+
+QUESTION: Are there more plug-ins for JMeter?
 
 ### JMeter Performance Plug-in for JMeter #
 
