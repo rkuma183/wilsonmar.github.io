@@ -25,29 +25,7 @@ This assumes that you have followed
 0. Clikc **Manage Plugins**.
 0. Click **Installed** tab to view what has been installed already.
 
-   <a name="BasePlugins"></a>
-
-   ### Base Plug-ins:
-
-   * Email Extension Plugin
-   * Git Plugin
-   * Graddle Plugin
-   * SSH Slaves
-   * Translation Assistance
-   * Workspace Cleanup Plugin
-   
-   &nbsp;
-
-   For Microsoft developers:
-
-   * MSBuild
-   * MSTest
-   * MSTest Runner
-   * VSTest Runner
-
-   &nbsp;
-
-   See the list of plugin-ins <a href="#MorePlugins">more plugins</a>.
+   Pick one from the list of plugin-ins <a href="#MorePlugins">more plugins</a>.
 
 0. Click **Available** tab has many plug-ins.
 
@@ -85,7 +63,30 @@ This assumes that you have followed
 
 <a id="MorePlugins"></a>
 
-### Other plug-ins #
+## More plug-ins #
+
+<a name="BasePlugins"></a>
+
+### Base Plug-ins #
+
+   * Email Extension Plugin
+   * Git Plugin
+   * Graddle Plugin
+   * SSH Slaves
+   * Translation Assistance
+   * Workspace Cleanup Plugin
+   
+
+### For Microsoft developers #
+
+   * MSBuild
+   * MSTest
+   * MSTest Runner
+   * VSTest Runner
+
+<a id="OtherPlugins"></a>
+
+### Other plugins #
 
 <a target="_blank" href="https://www.cloudbees.com/jenkins/jenkins-certification">
 Cloubees' Study Guide PDF</a>
