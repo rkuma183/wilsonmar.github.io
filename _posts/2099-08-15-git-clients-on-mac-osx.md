@@ -283,6 +283,18 @@ the computer is <strong>asleep</strong> when the job should have run
 (if the StartCalendarInterval key has been set).
 
 
+## Emojis #
+
+You can put an emoji by using a code such this from
+<a target="_blank" href="http://www.emoji-cheat-sheet.com/">
+the cheat-sheet</a>:
+
+   <pre>
+   :package:
+   </pre>
+
+
+
 ## More on OSX
 
 This is one of a series on Mac OSX:

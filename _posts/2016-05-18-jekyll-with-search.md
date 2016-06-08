@@ -15,18 +15,22 @@ comments: true
 
 {% include _toc.html %}
 
-The objective of this document are that you can:
+The objective of this document are that you can implement these use cases:
 
-1. <a href="#QueryTest">Test drive a demo site.</a>
+1. <a href="#QueryTest">Test drive a demo site online</a>
 
-2. <a href="#GetRepoWorking">Get a sample theme with search queries on your local machine.</a>
+   The site is built with Jekyll and can perform text search
+   on pre-defined text content.
 
-   We setup your machine with Ruby and Jekyll, then 
+2. <a href="#GetRepoWorking">Get on your local machine a sample theme with search query features.</a>
+
+   We setup your machine with Jekyll and Ruby, then 
    clone a fork of a famous Jekyll theme adapted with search capabilities.
 
 3. <a href="#CustomizeSite">Edit the repo so your own posts are indexed.</a>
 
-   We obtain API keys for a new account on the search service and use it to index new posts of our own.
+   We obtain API keys for a new account on the search service 
+   and use it to index new posts we add.
 
 4. <a href="#AddSearch">Add search features to another theme.</a>
 

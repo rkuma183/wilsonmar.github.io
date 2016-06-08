@@ -90,6 +90,8 @@ google, youtube, facebook, twitter, instagram, wikipedia, yahoo, dropbox, wordpr
    * Home pages of organizations that do not yet support h2 (as of June 6, 2016):
 github.com, github.io, ibm, hp, microsoft, sap, salesforce, spotify, pandora, paypal
 
+   * Linkedin supports SPDY but not h2/ALPN.
+
    WARNING: Google made support for mobile viewports a factor in their search rankings.
    The same is likely for adoption for h2.
 
@@ -402,9 +404,8 @@ when the client does ask for it, those files would already be in cache.
 
 This would be a boon to websites using custom fonts.
 
-
-
 (The browser within LoadRunner 12.53 does not support this feature)
+
 
 
 ### Size of objects and line quality matters #
@@ -431,7 +432,11 @@ HttpArchive</a>
 * Priority of streams (CSS before JS, etc.)
 
 
-
+* <a target="_blank" href="https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window">
+   Congestion Window (CDWN)</a>
+   is a variable held by the TCP source for each connection that reflects 
+   the perceived level of congestion.
+   TCP reacts to a timeout by halving cwnd.
 
 ## Other Resources 
 
