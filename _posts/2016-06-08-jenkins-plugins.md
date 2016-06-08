@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Jenkins Setup"
-excerpt: "Meet your robot butler"
+title: "Jenkins Plugins"
+excerpt: "You own Minions"
 tags: [Jenkins, setup]
 image:
 # pic silver robot white skin handshake 1900x500
