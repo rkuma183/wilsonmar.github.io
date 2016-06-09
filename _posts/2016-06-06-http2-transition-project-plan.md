@@ -157,12 +157,14 @@ Many proxies don’t usually speak full, compliant HTTP1 let alone HTTP2.
 
 This needs to change.
 
+#### Identity management server #
+
+LDAP, OAuth, OpenID, SAML, and Federated identity management SSO
 
 ### TLS certificates #
 
 h2 works on IE only if TLS certificates (not SSL certificates) used on servers,
-since TLS has more advanced ciphers.
-
+since TLS has more advanced ciphers needed by h2.
 An example:
 
 <pre>
@@ -278,11 +280,14 @@ performance.
 
    HPACK also resists "compression attacks" to steal cookies.
 
-### Apache
+### Tomcat #
 
-Apache mod_h2 was unofficial 
+Support for h2 will come with Tomcat 9.
 
-This should appear:
+### Apache #
+
+Apache mod_h2 was unofficial support.
+This should appear when the server comes up:
 
    <tt>
    mod_http2 (v1.0.0, nghttp2 1.3.4), initializing...
@@ -296,30 +301,20 @@ httpd.conf
 
    * https://icing.github.io/mod_h2/howto.html#chrome
 
-#### Gzip #
+#### Jetty #
 
-Ensure that gzip is enabled in the <strong>.htaccess</strong> file:
+Jetty supports h2.
 
-<pre>
-&LT;ifModule mod_gzip.c>
-mod_gzip_on Yes
-mod_gzip_dechunk Yes
-mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
-mod_gzip_item_include handler ^cgi-script$
-mod_gzip_item_include mime ^text/.*
-mod_gzip_item_include mime ^application/x-javascript.*
-mod_gzip_item_exclude mime ^image/.*
-mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
-&LT;/ifModule>
-</pre>
+* <a target="_blank" href="https://www.youtube.com/watch?v=QpLtBftqM04">
+  HTTP 2.0 & Java: Current Status</a> at Devoxx Nov 14, 2015
+  by Simone Bordet 
+  from WebTide which supports Jetty web server.
+  
 
-* <a target="_blank" href="https://varvy.com/tools/gzip/">
-   To see whether Gzip is working on a site, use the varvy.com online tool/a>
 
 ### NGNIX #
 
 * nginx 9 still in beta?
-
 
 ## Programming changes #
 
@@ -464,6 +459,27 @@ HttpArchive</a>
 
 * Priority of streams (CSS before JS, etc.)
 
+
+#### Gzip #
+
+Ensure that gzip is enabled in the <strong>.htaccess</strong> file:
+
+<pre>
+&LT;ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+&LT;/ifModule>
+</pre>
+
+* <a target="_blank" href="https://varvy.com/tools/gzip/">
+   To see whether Gzip is working on a site, use the varvy.com online tool/a>
+
 ## Server Push #
 
 * <a target="_blank" href="https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window">
@@ -487,11 +503,6 @@ HttpArchive</a>
   unRESTful Web Services with HTTP2</a> Nov 23, 2015
    by Fabian Staber
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=QpLtBftqM04">
-  HTTP 2.0 & Java: Current Status</a> at Devoxx Nov 14, 2015
-  by Simone Bordet 
-  from WebTide which supports Jetty web server.
-  
 
 ## Other Resources 
 
