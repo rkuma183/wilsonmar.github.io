@@ -15,38 +15,59 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial takes a deep dive into creating and using AWS Lambda.
-This is a hands-on guided tour. Take one step at a time and we point out PROTIPs and notes along the way.
+This tutorial provides a deep dive into creating and using AWS Lambda.
+This is a hands-on guided tour. 
+Take one step at a time and we point out PROTIPs and notes along the way.
 
 0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
-   http://aws.amazon.com/</a> on web browsers. For mobile devices:
+   http://aws.amazon.com</a>
 
-0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
-   On the AWS Console, select Services, select Lambda from among Compute services such as EC2</a>.
+0. Click Sign In to the Console.
 
-   Compute services are at the top of the list among all Amazon services because it's the hottest thing right now (June 2016).
+   <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
+   https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
+
+   NOTE: AWS Lambda acts like a giant single server.
+   But you get to pick which Availability Zone.
+
+
+0. Select Services from the top menu.
 
    <amp-img width="650" alt="lambda services 2016-06-03 959x124" src="https://cloud.githubusercontent.com/assets/300046/15784793/5d0342ee-2971-11e6-97e0-a4ac79fe7818.jpg"></amp-img>
 
-   AWS Lambda acts like a giant single server that processes API requests.
+   COMMENT: Compute services are at the top of the list among all Amazon services because it's the hottest thing right now (June 2016).
 
-   So no worries about massive scale.
+0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
+   Select Lambda from among Compute services</a>.
+
+   If no Lambda functions have been created, you will see a "Get Started Now" button.
+
+   If custom Lambda functions have been created on your account, you'll see a list of those functions.
+
+   No worries about achieving massive scale.
    Addition of enough machines to handle load are taken care of by Amazon people behind the scenes.
 
    BTW, in case you're worried about vendor lock-in, know that Amazon is not the only ones who can run lambdas.
-   <a target="_blank" href="https://www.iron.io/">iron.io</a> runs Lambas on your own servers if you feel nostalgic for power cords on physical servers.
+   <a target="_blank" href="https://www.iron.io/platform/ironworker/">
+   Iron.io IronWorker</a> 
+   runs Lambas on your own servers if you feel nostalgic for power cords on physical servers.
 
    Amazon calls Lambda a "compute service" because programmers write code as discrete API 
-   handlers responding to 
-   <strong>events</strong> such as an image being uploaded.
+   handler functions responding to 
+   <strong>events</strong> such as an image being uploaded into S3.
 
    <a name="Pricing"></a>
 
    #### Pricing #
 
-0. Click <a target="_blank" href="http://aws.amazon.com/lambda/">Learn About link to http://aws.amazon.com/lambda/</a>.
+   NOTE: Amazon currently does not charge for code storage.
 
-0. Click <a target="_blank" href="http://aws.amazon.com/lambda/pricing">Pricing for http://aws.amazon.com/lambda/pricing</a>.
+0. On a new browser tab, click<br />
+   <a target="_blank" href="http://aws.amazon.com/lambda/">
+   http://aws.amazon.com/lambda/</a>, the home page for Amazon's Lambda service.
+
+0. Click <a target="_blank" href="http://aws.amazon.com/lambda/pricing">
+   http://aws.amazon.com/lambda/pricing</a>
 
    It says the first million requests are free. That's 20 cents you'll save each month.
 
@@ -62,9 +83,134 @@ This is a hands-on guided tour. Take one step at a time and we point out PROTIPs
    NOTE: How much each Lambda request consumes in memory time is described in
    <a href="#CloudWatch">CloudWatch below</a>.
 
+
+## Hello World Lambda function from Blueprint #
+
+0. Alt-Click the black question mark at the upper-right corner for a new window or tab containing 
+   <a target="_blank" href="https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html">
+   a tutorial on the basic steps to get to "Hello World" output on the Console</a>.
+
+0. Click "Create a Lambda Function".
+
+0. Among Blueprint of pre-defined function code:
+
+   PROTIP: If you're going to use a Blueprint, highlight its name and
+   copy it to your Clipboard so your can paste it into the function name.
+
+0. Page forward to click on the name "Hello World" Node.js function.
+
+0. Construct a function name.
+
+   An example:
+
+   <pre>
+   learn1-hello-world-node43-v01
+   </pre>
+
+   PROTIP: Prefix the function with the project and use case.
+   Include in the name the language and version (such as node43 for Node.js 4.3).
+   Specify a version number (v01).
+   Use dashes instead of spaces.
+
+   Function names must contain only letters, numbers, hyphens, or underscores.
+
+
+   ### Role #
+
+0. Scroll down beyond the script to the Role selection.
+
+   ### Save and Test #
+
+0. Click Next.
+
+0. Review, then click Create function.
+
+0. Click Test.
+
+   ### Test Data #
+
+0. Select from Sample event template. The default is always "Hello World"
+   (even if you're not using the Hello World function).
+
+0. Click Save and test.
+
+   The first invocation is a pop-up **Input test event**.
+   This can later be obtained by Actions > Configure test event.
+
+   QUESTION: Minmification of script?
+
+   ### Log review #
+
+   Notice that the initial `console.log('Loading function');` 
+   does not appear in the run Log Output.
+
+0. Click "Click here" to open a new tab to view CloudWatch log group.
+
+0. Click on a log stream item.  Notice the 'Loading function' there.
+
+0. Click on the Lambda Management Console to return.
+
+0. Add a console.log line at the end of the script:
+
+   <pre>
+   console.log('Ending Loading function');
+   </pre>
+
+0. Run again and view the CloudWatch log.
+
+   Notice the "Ending Loading function" is not shown at the bottom.
+
+   
+<pre>
+'use strict';
+console.log('Loading function');
+
+exports.handler = (event, context, callback) => {
+    //console.log('Received event:', JSON.stringify(event, null, 2));
+    console.log('value1 =', event.key1);
+    console.log('value2 =', event.key2);
+    console.log('value3 =', event.key3);
+    callback(null, event.key1);  // Echo back the first key value
+    // callback('Something went wrong');
+};
+</pre>
+
+   The callback is used for asynchronous behavior.
+
+
+<pre>
+'use strict';
+/**
+ * Provides a simple framework for conducting various tests of your Lambda
+ * functions. Make sure to include permissions for `lambda:InvokeFunction`
+ * and `dynamodb:PutItem` in your execution role!
+ */
+let AWS = require('aws-sdk');
+let doc = require('dynamodb-doc');
+
+let lambda = new AWS.Lambda({ apiVersion: '2015-03-31' });
+let dynamo = new doc.DynamoDB();
+</pre>
+
+<pre>
+// Asynchronously run a given function X times:
+const asyncAll = (opts) => {
+    let i = -1;
+    const next = () => {
+        i++;
+        if (i === opts.times) {
+            opts.done();
+            return;
+        }
+        opts.fn(next, i);
+    };
+    next();
+};
+</pre>
+
 ## Create Event Source S3 #
 
-   The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
+The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    Introduction to AWS Lambda course in qwiklabs.com</a> 
    provides step-by-step instruction on creating an Lambda Event Source triggered 
    by an upload to S3 bucket.
@@ -428,6 +574,8 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
    See http://jinja.pocoo.org/docs/dev/templates/#filters
 
+## Kenesis Streams #
+
 ## Resources:
 
 * http://codurance.com/2016/05/11/aws-lambdas/
@@ -469,7 +617,13 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 
 ## Rock Stars #
 
-* Tim Wagner, General Manager of AWS Lambda at Amazon
+* Tim Wagner, General Manager of AWS Lambda at Amazon, 
+   Apr 10, 2015:
+   <amp-youtube data-videoid="copO_JQQsBs" layout="responsive" width="480" height="270"></amp-youtube>
+  
+  Lambda was launched publicly November, 2015.
+  Can run 100 Lambdas at the same time by default.
+  Added Sychronous (Request/Response).
 
 * Ajay Nair @ajaynairthinks Lead Product Manager for AWS Lambda
 
