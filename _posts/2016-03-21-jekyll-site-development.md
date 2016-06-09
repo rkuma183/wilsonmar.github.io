@@ -765,7 +765,20 @@ renders to:
 
 If you are viewing this on a desktop, mouse-over each button to see the color change.
 
-To change the colors, edit in folder **_sass** file **variables.scss**.
+### SASS #
+
+To change the colors, edit in folder **_sass** file **variables.scss**,
+then compile the file to .css.
+
+   <pre>
+    sass variables.scss  variables.css
+   </pre>
+
+Sass, or Syntactically Awesome StyleSheets, is an extension language for CSS. 
+
+Variables
+Mixins
+Nests
 
 ### Paragraph Indents
 By default, the theme assumes formatting is for books by removing extra lines and adds indents to

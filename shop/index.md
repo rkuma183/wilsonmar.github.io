@@ -28,6 +28,7 @@ listed with the highest priority on top:
 - [ ] Internal compression straps to keep things from knocking into each other inside the pack.
 - [ ] A sleek look without side pockets that never seem to be the right size.
 - [ ] Lightweight. Generally around 2 pounds. The wheels add weight.
+- [ ] Cut-proof fabric.
 
 I don't care about the pack being:
 
@@ -50,7 +51,14 @@ Other alteratives I considered:
    * <a target="_blank" href="http://www.amazon.com/Osprey-Farpoint-Travel-Backpack-Volcanic/dp/B014EBM3KA/ref=wilsonslifenotes">Osprey Farpoint 40 Travel Backpack ($160)</a>
    This one's nice but a bit spendy.
 
-
+   * <a target="_blank" href="https://www.xd-design.com/">
+   XD Design's Boddy</a> from the Netherlands
+   (@XDDesign_) is estimated to be available November 2016 after an April, 2016 campaign
+   <a target="_blank" href="https://www.kickstarter.com/projects/257670560/bobby-the-best-anti-theft-backpack-by-xd-design">
+   launched on KickStarter</a>
+   AND
+   <a target="_blank" href="https://www.indiegogo.com/projects/bobby-the-best-anti-theft-backpack-by-xd-design#/">
+   Indiegogo</a>
 
 ## Locator chips
 

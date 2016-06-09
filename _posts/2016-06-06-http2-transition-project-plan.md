@@ -109,12 +109,12 @@ even if some embedded objects are still served over HTTP 1.1.
 W3Techs.com</a> publishes the percentage of sites supporting h2:
 <amp-img width="650" alt="Percentage of all sites using h2" src="https://w3techs.com/diagram/history_technology/ce-http2"></amp-img>
 
-PROTIP: It doesn’t matter much that industry-wide only 
+PROTIP: It doesn’t matter whether only 
 8% or 38% of all websites are supporting h2.
 Even though overall support for h2 may be lacking,
 IT organizations nevertheless need to begin preparing for its adoption
 because customers and vendors and partners are getting onboard.
-Ideally, IT organizations ought to get "in front" of people in the organization who need to experiment with that eventuality. Don’t hold them back.
+Ideally, IT organizations get "in front" of people in the organization who need to experiment with that eventuality. Don’t hold them back.
 
 PROTIP: Include in adoption stats not just h2 but SPDY, its predecessor.
 
@@ -163,8 +163,15 @@ LDAP, OAuth, OpenID, SAML, and Federated identity management SSO
 
 ### TLS certificates #
 
-h2 works on IE only if TLS certificates (not SSL certificates) used on servers,
-since TLS has more advanced ciphers needed by h2.
+Many websites uses older SSL certificates.
+
+And many older client operating systems (Windows 7)
+are using default settings that does not include TLS 1.2.
+
+This may mean an upgrade of clients is necessary.
+
+h2 works on IE only if TLS certificates (not SSL certificates) are used on servers,
+since TLS has the more advanced ciphers needed by h2.
 An example:
 
 <pre>
@@ -172,7 +179,6 @@ echo test | /usr/local/Cellar/openssl/1.0.2e/bin/openssl s_client -connect http2
 </pre>
 
 Delivery certificate needs to have Perfect Forward Secrecy (PFS) support enabled in TLS metadata
-
 
 
 ## Browsers #
@@ -217,6 +223,26 @@ Put this in the address bar of a Chrome browser to see which tab supports "h2":
 To identify h2 usage in the Chrome Debugger: ...
 
 
+## Head of Line Blocking #
+
+Before h2, browsers worked on files one at a time.
+The browser made requests one at a time, and waited until for a response to each request.
+Load testing scripts are written to measure the delay due to this behavior,
+called "head of line blocking".
+
+With h2, the browser sends out several requests simultaneous,
+and processes responses in whatever sequence response is received.
+
+Guy Podjarny, CTO of Akamai, explains:
+<amp-youtube data-videoid="WkLBrHW4NhQ" layout="responsive" width="480" height="270"></amp-youtube>
+
+PROTIP: Browser emulation (performance testing)
+programs need to work the same way as browsers.
+But some emulation programs my not really be able to 
+handle multiple threads at the same time like browsers do.
+
+PROTIP: Try several browser emulation programs to compare results.
+
 
 ## Performance Testing #
 
@@ -250,6 +276,7 @@ jmeter-http2-plugin</a> sampler.
 
 * Those who use Gatling ???
 
+
 ## Is this site h2? #
 
 PROTIP: Add in your test scripts a check whether the response is HTTP2.
@@ -257,7 +284,7 @@ PROTIP: Add in your test scripts a check whether the response is HTTP2.
 Among <a target="_blank" href="https://github.com/http2/http2-spec/wiki/Tools">
 tools supporting h2</a>:
 
-   * <a target="_blank" href="https://nghttp2.org/documentation/h2load-howto.html"
+   * <a target="_blank" href="https://nghttp2.org/documentation/h2load-howto.html">
      h2load (compiled alongside nghttp2 HTTP/2 C language library)</a> 
      by Tatsuhiro Tsujikawa
      is a multi-threaded benchmarking tool
