@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll website with Text Search"
+title: "Search static (Jekyll) websites"
 excerpt: "Make a website with a search box"
 tags: [Jekyll, Algolia, Search]
 image:
@@ -15,14 +15,14 @@ comments: true
 
 {% include _toc.html %}
 
-The objective of this document are that you can implement these use cases:
+The objective of this document is for you to implement these use cases:
 
-1. <a href="#QueryTest">Test drive a demo site online</a>
+1. <a href="#QueryTest">Test drive a demo site online</a>.
 
    The site is built with Jekyll and can perform text search
    on pre-defined text content.
 
-2. <a href="#GetRepoWorking">Get on your local machine a sample theme with search query features.</a>
+2. <a href="#GetRepoWorking">Get a sample theme on your local machine working with search queries.</a>
 
    We setup your machine with Jekyll and Ruby, then 
    clone a fork of a famous Jekyll theme adapted with search capabilities.
