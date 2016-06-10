@@ -141,7 +141,7 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    ### Log review #
 
-   Notice that the initial `console.log('Loading function');` 
+   Notice that output from the initial `console.log('Loading function');` 
    does not appear in the run Log Output.
 
 0. Click "Click here" to open a new tab to view CloudWatch log group.
@@ -160,7 +160,8 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    Notice the "Ending Loading function" is not shown at the bottom.
 
-   
+   QUESTION: Why?
+
 <pre>
 'use strict';
 console.log('Loading function');
@@ -177,36 +178,6 @@ exports.handler = (event, context, callback) => {
 
    The callback is used for asynchronous behavior.
 
-
-<pre>
-'use strict';
-/**
- * Provides a simple framework for conducting various tests of your Lambda
- * functions. Make sure to include permissions for `lambda:InvokeFunction`
- * and `dynamodb:PutItem` in your execution role!
- */
-let AWS = require('aws-sdk');
-let doc = require('dynamodb-doc');
-
-let lambda = new AWS.Lambda({ apiVersion: '2015-03-31' });
-let dynamo = new doc.DynamoDB();
-</pre>
-
-<pre>
-// Asynchronously run a given function X times:
-const asyncAll = (opts) => {
-    let i = -1;
-    const next = () => {
-        i++;
-        if (i === opts.times) {
-            opts.done();
-            return;
-        }
-        opts.fn(next, i);
-    };
-    next();
-};
-</pre>
 
 ## Create Event Source S3 #
 
@@ -581,6 +552,8 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 * http://codurance.com/2016/05/11/aws-lambdas/
 
 * https://www.npmjs.com/package/aws-lambda-toolkit
+
+* https://www.youtube.com/watch?v=fXZzVzptkeo
 
 @johncmckim  John McKim's Express to AWS Lambda series on Medium:
 

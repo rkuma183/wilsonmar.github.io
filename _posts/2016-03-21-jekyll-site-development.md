@@ -776,9 +776,17 @@ then compile the file to .css.
 
 Sass, or Syntactically Awesome StyleSheets, is an extension language for CSS. 
 
-Variables
-Mixins
 Nests
+
+Variables:
+
+   <pre>
+   $background-transparent :
+   </pre>
+
+Mixins
+
+
 
 ### Paragraph Indents
 By default, the theme assumes formatting is for books by removing extra lines and adds indents to

@@ -343,6 +343,8 @@ Jetty supports h2.
 
 * nginx 9 still in beta?
 
+
+
 ## Programming changes #
 
 Previous hacks to obtain more speed now need to be dismantled 
@@ -429,6 +431,10 @@ may "not be a thing" anymore.
 
 There are several configuration settings that can be made to obtain the best
 response time for visitors.
+
+For example, with h2, 
+the Nginx server was found to time out due to too many concurrent streams. 
+The default maximum streams setting needs to be reduced for the system to work under load.
 
 PROTIP: Before doing experiments with configuration changes,
 have a base set of performance stats for a base configuration.

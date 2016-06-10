@@ -36,6 +36,13 @@ Some features that can be added (offered in other themes and templates) include:
 
 * Search field (and custom response page)
 
+## Authentication #
+
+* Facebook
+* GitHub
+* Twitter
+* Amazon Cognito Identity User Pools
+
 ## Personalization
 
 * Lookup location based on IP
