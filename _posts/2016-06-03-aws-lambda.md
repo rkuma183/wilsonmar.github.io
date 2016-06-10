@@ -181,6 +181,8 @@ exports.handler = (event, context, callback) => {
 
 ## Create Event Source S3 #
 
+This is an example of a "push" model where Lambda is triggered by an event external to it.
+
 The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    Introduction to AWS Lambda course in qwiklabs.com</a> 
    provides step-by-step instruction on creating an Lambda Event Source triggered 
@@ -200,6 +202,10 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    For now, no logging, versioning, replication, tags, etc. for the bucket.
 
    #### Create Lambda Function #
+
+   On Dec 9, 2014 Dominick Peluso talks about his Lambda that, when it detects an image has been upload,
+   it uses ImageMagick to create a thumbnail in S3, then sends an email.
+   <amp-youtube data-videoid="_-hnJC4IXJI" layout="responsive" width="480" height="270"></amp-youtube>
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/create?step=1">
    On the AWS Console, select Services, select Lambda, click Get Started Now</a>
@@ -250,7 +256,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    * If you selected <strong>Edit code inline</strong>, paste code copied from a Gist or GitHub.
    * If you selected Upload a ZIP file, navigate to the file on your machine. 
 
-     WARNING: Each upload is limited to under 50 MB (compressed). 
+     WARNING: Each upload is limited to under 50 MB (compressed), 10 MB in uploads.
 
    * If you selected Upload a file from Amazon S3, paste in the bucket ID.
 
@@ -259,6 +265,8 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    NOTE: The file holding the code is <strong>index.js</strong>.
 
 0. Leave Handler as "index.handler".
+
+   "index" Lambda calls a <strong>module</strong> in error messages.
 
 0. The <strong>Execution role</strong> defines the permissions.
 
@@ -388,11 +396,6 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
 
 
-### CloudWatch Command-line Tool #
-   
-NOTE: CloudFront logs can also be read using command-line tool
-<a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
-
 
 <a name="CreateLambda"></a>
 
@@ -456,7 +459,13 @@ handlers that compress or transform objects as they are uploaded to Amazon S3,
 https://gitter.im/serverless/serverless
 
 
-## Dynamo DB #
+## Dynamo DB Pull #
+
+This is an example of a "pull model" where Lambda <strong>watches</strong> a data stream
+(DynamoDB or Kinesis streams).
+A change event triggers additional actions.
+
+https://www.youtube.com/watch?v=_-hnJC4IXJI
 
 To build mobile back-ends that retrieve and transform data from Amazon DynamoDB:
 
@@ -519,13 +528,30 @@ public class Hello {
 }
    </pre>
 
-## Social #
 
-\#AWSLamba is the Twitter tag.
+## AWS CLI #
 
-\#GoServerless
+Lambdas can be invoked from a command-line window or shell script.
 
-* http://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+This example provides an input.txt file containing JSON text:
+
+   <tt>
+   aws lambda invoke-async \-\-function-name learn1-hello-world1-node43-v01 
+   \-\-region us-west-2 \-\-invoke-args input.txt \-\-profile adminuser
+   </tt>
+
+   Return:
+
+   <tt>
+   {
+      "Status": 202
+   }
+   </tt>
+
+### CloudWatch Command-line Tool #
+   
+NOTE: CloudFront logs can also be read using command-line tool
+<a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
 
 
 ## CloudFormation #
@@ -545,7 +571,15 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
    See http://jinja.pocoo.org/docs/dev/templates/#filters
 
-## Kenesis Streams #
+
+## Social #
+
+\#AWSLamba is the Twitter tag.
+
+\#GoServerless
+
+* http://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+
 
 ## Resources:
 
