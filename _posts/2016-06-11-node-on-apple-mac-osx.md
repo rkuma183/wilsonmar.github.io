@@ -58,9 +58,9 @@ comments: true
 
 0. Get version:
 
-   <tt><strong>
+   <pre><strong>
    brew -v
-   </strong></tt>
+   </strong></pre>
 
    The response (at time of writing):
 
@@ -71,9 +71,9 @@ comments: true
 
 0. Identify where the program is located:
 
-   <tt><strong>
+   <pre><strong>
    which brew
-   </strong></tt>
+   </strong></pre>
 
    The response:
 
@@ -83,11 +83,11 @@ comments: true
 
 0. Analyze brew environment:
 
-   <tt><strong>
+   <pre><strong>
    brew cleanup
    brew update
    brew doctor
-   </strong></tt>
+   </strong></pre>
 
    Fix any issue revealed.
 
@@ -108,9 +108,9 @@ Several blogs addresses issues related to this topic:
 
    The simplest way to install node is to use brew:
 
-   <tt><strong>
+   <pre><strong>
    brew install node
-   </strong></tt>
+   </strong></pre>
 
    NOTE: By default, when node is installed, it installs 
    <strong>npm</strong>, the Node Package Manager,
@@ -118,29 +118,29 @@ Several blogs addresses issues related to this topic:
 
    We can get the default location by this command:
    
-   <tt><strong>
+   <pre><strong>
    which npm
-   </strong></tt>
+   </strong></pre>
 
    The response for default installations:
 
-   <tt><strong>
+   <pre><strong>
    /usr/local/lib/node_modules
-   </strong></tt>
+   </strong></pre>
 
    We list npm global modules installed on the default global module folder
    with this command:
 
-   <tt><strong>
+   <pre><strong>
    ls /usr/local/lib/node_modules
-   </strong></tt>
+   </strong></pre>
 
    The command to install a package without additional parameters is, for example:
 
-   <tt><strong>
+   <pre><strong>
    pwd
    npm install serverless
-   </strong></tt>
+   </strong></pre>
 
    This installs the node packages <strong>locally</strong> within 
    whatever folder is the present working directory, revealed by the `pwd` command.
@@ -151,9 +151,9 @@ Several blogs addresses issues related to this topic:
    This location is one that OSX requires sudo prefix.
    For example:
 
-   <tt><strong>
+   <pre><strong>
    sudo npm install serverless -g
-   </strong></tt>
+   </strong></pre>
 
    Without sudo, an error would occur from the above command 
    because the default npm folder is managed at the system level,
@@ -219,9 +219,9 @@ Several blogs addresses issues related to this topic:
 
 0. After install, verify the location:
 
-   <tt><strong>
+   <pre><strong>
    which npm
-   </strong></tt>
+   </strong></pre>
 
    The response, where "mac" is substitued with your user name:
 
@@ -237,16 +237,16 @@ Several blogs addresses issues related to this topic:
 0. Add an NPM_PACKAGES environment variable containing the path to npm-installed packages
    into the system PATH variable:
 
-   <tt><strong>
+   <pre><strong>
    NPM_PACKAGES="${HOME}/.npm-packages"
    PATH="$NPM_PACKAGES/bin:$PATH"
-   </strong></tt>
+   </strong></pre>
 
 0. To identify where node executables are installed:
 
-   <tt><strong>
+   <pre><strong>
    which node
-   </strong></tt>
+   </strong></pre>
 
    the response:
 
@@ -288,9 +288,9 @@ before discussing your installation, obtain and present these facts:
 
 0. The operating system:
 
-   <tt><strong>
+   <pre><strong>
    uname -a
-   </strong></tt>
+   </strong></pre>
 
    On my Mac OSX, the response:
 
@@ -300,17 +300,17 @@ before discussing your installation, obtain and present these facts:
 
 0. Obtain node version:
 
-   <tt><strong>
+   <pre><strong>
    node -v
-   </strong></tt>
+   </strong></pre>
 
    v4.4.5
 
 0. Obtain npm version:
 
-   <tt><strong>
+   <pre><strong>
    npm -v
-   </strong></tt>
+   </strong></pre>
 
    3.9.5
 
@@ -354,9 +354,9 @@ Similarly to npm, bower tracks dependencies in a file called <strong>bower.json<
 
 0. Install bower globally via npm:
 
-   <tt><strong>
+   <pre><strong>
    npm install -g bower
-   </strong></tt>
+   </strong></pre>
 
 Running bower install will resolve, download, and install them.
 
@@ -366,30 +366,30 @@ Running bower install will resolve, download, and install them.
 
 0. Install the project's bower components using bower:
 
-   <tt><strong>
+   <pre><strong>
 bower install
-   </strong></tt>
+   </strong></pre>
 
 0. Install http-server using npm:
 
-   <tt><strong>
+   <pre><strong>
 npm install -g http-server
-   </strong></tt>
+   </strong></pre>
 
 0. Fire up the server at default port 8080:
 
-   <tt><strong>
+   <pre><strong>
 http-server client/
-   </strong></tt>
+   </strong></pre>
 
 
 ## Brew Node.js 
 
 Brew places node file in its Cellar:
 
-   <tt><strong>
+   <pre><strong>
    /usr/local/Cellar/node/0.10.35
-   </strong></tt>
+   </strong></pre>
 
 <hr />
 
@@ -437,9 +437,9 @@ http://quickleft.com/blog/getting-started-with-express-in-node</a>
 
 You probably don't want to do this just yet right now, but just in case:
 
-   <tt><strong>
+   <pre><strong>
 rew rm node
-   </strong></tt>
+   </strong></pre>
 
 Uninstalling /usr/local/Cellar/node/0.10.35...
 
@@ -451,35 +451,35 @@ nvm -list
 nvm ls-remote
 nvm install v0.11.14
 
-   <tt><strong>
+   <pre><strong>
 nvm use v0.11.14
 nvm default v0.11.14
-   </strong></tt>
+   </strong></pre>
 
 
-   <tt><strong>
+   <pre><strong>
 experess<br />
 request
-   </strong></tt>
+   </strong></pre>
 
-   <tt><strong>
+   <pre><strong>
 mkdir farmhack<br />
 cd /farmhack<br />
 npm install -g n # n refers to npm<br />
 npm init # prompt create package.json
-   </strong></tt>
+   </strong></pre>
 
 # http://expressjs.com/ says:
 
-   <tt><strong>
+   <pre><strong>
 npm install -g express --save<br />
 npm install -g request --save
-   </strong></tt>
+   </strong></pre>
 
-   <tt><strong>
+   <pre><strong>
 touch index.js<br />
 subl index.js
-   </strong></tt>
+   </strong></pre>
 -->
 
 ## Postman app #
@@ -536,19 +536,19 @@ Avg Conn Time                 0.00ms{% endhighlight %}
 
 Where is that file?
 
-   <tt><strong>
+   <pre><strong>
 sudo find / -name learnyounode
-   </strong></tt>
+   </strong></pre>
 
-   <tt><strong>
+   <pre><strong>
 sudo find -name *vagrantfile
-   </strong></tt>
+   </strong></pre>
 
 https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
 
-   <tt><strong>
+   <pre><strong>
 sudo chown -R $(whoami) /usr/local
-   </strong></tt>
+   </strong></pre>
 
 https://github.com/Homebrew/homebrew/issues
 
