@@ -60,8 +60,6 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    #### Pricing #
 
-   NOTE: Amazon currently does not charge for code storage.
-
 0. On a new browser tab, click<br />
    <a target="_blank" href="http://aws.amazon.com/lambda/">
    http://aws.amazon.com/lambda/</a>, the home page for Amazon's Lambda service.
@@ -73,6 +71,8 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    For now, the first 400,000 GB-seconds (x 1024 = 409,600,000 MB-seconds) are free. 
 
+   <a target="_blank" href="https://www.twitter.com/lambdatips/">
+   @lambdatips</a>: 
    If you run only 128 MB Lambdas, you can make one request every 1.23 seconds during a 30-day month, for free.
    (409,600,000 / 128 = 3,200,000 / 30 days / 24 hours / 60 minutes / 60 seconds = 1.23 )
 
@@ -84,46 +84,118 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    <a href="#CloudWatch">CloudWatch below</a>.
 
 
-## Hello World Lambda function from Blueprint #
+<h2 id="create-a-lambda-function">Create a Lambda function</h2>
 
-0. Alt-Click the black question mark at the upper-right corner for a new window or tab containing 
-   <a target="_blank" href="https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html">
-   a tutorial on the basic steps to get to "Hello World" output on the Console</a>.
+There are several options for creating Lambda functions:
 
-0. Click "Create a Lambda Function".
+<ul>
+  <li><a href="#AWSCLI">AWS CLI (Command Line Interface)</a></li>
+  <li>Console GUI interactively (below)</li>
+</ul>
 
-0. Among Blueprint of pre-defined function code:
+0. Click “Create a Lambda Function”.
 
-   PROTIP: If you're going to use a Blueprint, highlight its name and
-   copy it to your Clipboard so your can paste it into the function name.
+    ### Source of code #
 
-0. Page forward to click on the name "Hello World" Node.js function.
+    There are several ways to get programming code into AWS Lambda:
 
-0. Construct a function name.
+    <ul>
+      <li><a href="#SelectBlueprint">Select a Blueprint of Amazon-defined code - Hello JSON</a></li>
+      <li><a href="#PasteS3">Paste inline code from Clipboard - Trigger from S3</a>.</li>
+      <li><a href="#UploadZipSNS"> Upload a Zip file with library - SNS Email</a></li>
+      <li><a href="#UploadFromS3"> Obtain code from S3</a></li>
+      <li><a href="#GetFromGitHub">Get from GitHub (for Dynamo DB Pull)</a></li>
+    </ul>
 
-   An example:
+<a name="SelectBlueprint"></a>
+
+## Select Blueprint Hello World receiving static JSON #
+
+    #### Function name
+
+0. Look for “Hello World”. Click the right-arrow to Page forward.
+
+    <img src="https://cloud.githubusercontent.com/assets/300046/15981923/dadb3122-2f39-11e6-803c-6b6db5873701.jpg" alt="lambda blueprint page forward 244x55" />
+
+    PROTIP: Highlight the blueprint’s name (in bold letters) and
+    copy it to your Clipboard so your can paste it into the function name during the next step.
+
+0. Click on the name “Hello World” Node.js function.
+
+0. PROTIP: Construct a function name with more metadata, like this example:
 
    <pre>
    learn1-hello-world-node43-v01
    </pre>
 
-   PROTIP: Prefix the function with the project and use case.
-   Include in the name the language and version (such as node43 for Node.js 4.3).
-   Specify a version number (v01).
-   Use dashes instead of spaces.
+   * Prefix the function with a project name (such as “learn1”).
+   * Use dashes or underscores instead of spaces (which are not allowed in the name).
+   * Include the use case (“hello-json”) for Hello World receiving key-value pairs in a static JSON file.
+   * Include in the name the language and its version (such as node43 for Node.js 4.3).
+   * Specify a version number (v01) for different versions you want to keep simultaneously.
+   (Git can keep history of alterations to the same version)
 
-   Function names must contain only letters, numbers, hyphens, or underscores.
+   #### Description #
 
+   PROTIP: In the description, put in a URL to a wiki ?
+
+   #### Runtime #
+
+   The code associated with each blueprint is for a particular runtime.
+   So runtime isn’t a choice that can be changed on this form.
+
+   <amp-img width="380" height="161" alt="lambda runtimes 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778339/c5db0258-2952-11e6-8ac0-5b641024f760.jpg"></amp-img>
+
+   NOTE: <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html ">This page</a>
+   describes the specific <strong>Linux</strong> server and utility libraries used in each region:
+
+   * Linux kernel `4.1.19-24.31.amzn1.x86_64`
+   * AWS SDK for JavaScript version 2.3.8
+   * Python images contain AWS SDK for Python (Boto 3) version 1.3.1.
+
+   WARNING: These underlying versions can change at anytime, unannounced.
+   So have a way of being notified if errors are detected in run logs.
+
+   Scroll down beyond the script to more input fields.
+
+   <a name="Handler"></a>
+
+   #### Handler #
+
+   NOTE: `index.handler` specifies the default index module.
+
+   Leave the default alone.
 
    ### Role #
 
-0. Scroll down beyond the script to the Role selection.
+0. If empty, click on the Role field for a list:
+
+   <amp-img width="359" height="248" alt="lambda roles 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778512/eaf94314-2953-11e6-9306-10755458fbee.jpg"></amp-img>
+
+   The <strong>Execution role</strong> defines the permissions.
+
+0. Select `Basic execution role` if your function does not access input data from S3, Dynamo DB, Kinesis, etc.
+
+   Additional custom execution roles can be defined.
+
+0. Click Allow in the pop-up browser window and be returned to the Lambda definition.
+
+   #### Memory #
+
+   PROTIP: Initially select the lowest memory (128 MB) and add more as necessary.
+
+   NOTE: Billing is in minimum 128 MB increments even if less memory was actually used.
+
+   PROTIP: Keep input and output data of a known small size.
+   Memory used to hold input and output data is included in the memory used.
+   Uncertainties about the size of data used require a larger allocation.
+
 
    ### Save and Test #
 
 0. Click Next.
 
-0. Review, then click Create function.
+0. Review, then click <strong>Create function</strong>.
 
 0. Click Test.
 
