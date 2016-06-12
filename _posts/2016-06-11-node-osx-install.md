@@ -316,14 +316,18 @@ Several blogs addresses issues related to this topic:
 
 NVM (Node Version Manager) downloads and installs multiple versions of Node.js. 
 
-Its README at <a target="_blank" href="https://github.com/creationix/nvm">
-https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
-with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
-Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+0. Install C++ Compiler.
+
+   The README at <a target="_blank" href="https://github.com/creationix/nvm">
+   https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
+   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
 
 0. Install NVM:
 
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+   <pre><strong>
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh \| bash
+   </strong></pre>
 
    It appends source string to ~/.bashrc
 
