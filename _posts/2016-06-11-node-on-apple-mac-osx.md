@@ -56,6 +56,8 @@ comments: true
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    <strong></pre>
 
+   https://github.com/Homebrew/homebrew/issues
+
 0. Get version:
 
    <pre><strong>
@@ -281,7 +283,7 @@ Several blogs addresses issues related to this topic:
 
 <a name="Verify"></a>
 
-### Verification #
+### Verify Node works #
 
 Regardless of how you installed node,
 before discussing your installation, obtain and present these facts:
@@ -341,6 +343,46 @@ before discussing your installation, obtain and present these facts:
    </strong></pre>
 
 
+
+<a name="CodeNode"></a>
+
+## Code Node JavaScript
+
+Others who have blogged about this include:
+
+* <a target="_blank" href="http://quickleft.com/blog/getting-started-with-express-in-node">
+   http://quickleft.com/blog/getting-started-with-express-in-node</a>
+
+0. Make a folder containing Node application files, and go to it:
+
+0. Use a text editor to create file `index.js` containing "Hello World" code in JavaScript:
+
+{% highlight JavaScript %}
+var express = require('express');
+var app = express();
+app.get('/', function(res,req){
+   res.json({
+   message: 'hello world'
+   });
+});
+app.listen(3000);{% endhighlight %}
+
+   This establishes port 3000. You can use another port.
+
+0. Start the Node server running the default <strong>index.js</strong> program:
+
+   <pre><strong>
+   node index.js
+   </strong></pre>
+
+0. Install NodeMon:
+
+   <pre><strong>
+   npm install nodemon -g # -g installs globally as system command.
+   nodemon index.js # watch for changes and kill server when needed
+   </strong></pre>
+
+
 <a id="Bower_installz"></a>
 
 ## Bower Install
@@ -383,7 +425,7 @@ http-server client/
    </strong></pre>
 
 
-## Brew Node.js 
+### Brew Node.js 
 
 Brew places node file in its Cellar:
 
@@ -395,7 +437,7 @@ Brew places node file in its Cellar:
 
 <a id="LearnNode"></a>
 
-## Node Module Install and Uninstall
+## Node Tutorial #
 
 The classic interactive tutorial introducing Node.Js was created on:
 
@@ -421,98 +463,12 @@ To install it we reference its npm package on npm.org:
 0. When you're done, run `npm uninstall learnyounode`.
 
 
-## Troubleshooting 
 
-* <a target="_blank" href="http://quickleft.com/blog/getting-started-with-express-in-node">
-http://quickleft.com/blog/getting-started-with-express-in-node</a>
-
-
-
-<!--
-
-/Users/wilsonmar/.nvm/v0.11.14/bin/node
-
-
-## UnInstall
-
-You probably don't want to do this just yet right now, but just in case:
-
-   <pre><strong>
-rew rm node
-   </strong></pre>
-
-Uninstalling /usr/local/Cellar/node/0.10.35...
-
-curl https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
-reset
-source /Users/wilsonmar/.bash_profile
-nvm h
-nvm -list 
-nvm ls-remote
-nvm install v0.11.14
-
-   <pre><strong>
-nvm use v0.11.14
-nvm default v0.11.14
-   </strong></pre>
-
-
-   <pre><strong>
-experess<br />
-request
-   </strong></pre>
-
-   <pre><strong>
-mkdir farmhack<br />
-cd /farmhack<br />
-npm install -g n # n refers to npm<br />
-npm init # prompt create package.json
-   </strong></pre>
-
-# http://expressjs.com/ says:
-
-   <pre><strong>
-npm install -g express --save<br />
-npm install -g request --save
-   </strong></pre>
-
-   <pre><strong>
-touch index.js<br />
-subl index.js
-   </strong></pre>
--->
-
-## Postman app #
-
-Postman is a desktop app for interacting with a REST API server.
-
-<a target="_blank" href="http://www.getpostman.com/">
-getpostman.com</a>
-
-
-<a name="CodeNode"></a>
-
-## Code Node JavaScript
-
-{% highlight JavaScript %}
-var express = require('express');
-var app = express();
-app.get('/', function(res,req){
-   res.json({
-   message: 'hello world'
-   });
-});
-
-app.listen(3000);{% endhighlight %}
 
 <!--
 ## Alternative installations
 
 {% highlight text %}
-npm install nodemon -g # -g installs globally as system command.
-nodemon index.js # watch for changes and kill server when needed
-node index.js
-
 ngrok.com to setup extern
 sudo mv ~/Downloads/ngrok /usr/local/bin/ngrok
 ngrok 3000
@@ -549,13 +505,6 @@ https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issue
    <pre><strong>
 sudo chown -R $(whoami) /usr/local
    </strong></pre>
-
-https://github.com/Homebrew/homebrew/issues
-
-
-<a id="Resourcez"></a>
-
-## Resources
 
 -->
 
