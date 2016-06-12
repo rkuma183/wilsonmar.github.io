@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Node.js on Mac OSX"
+title: "Node.js Installation on OSX"
 excerpt: "JavaScript for the win"
 tags: [node, javascript, apple, mac, setup]
 image:
@@ -26,7 +26,7 @@ comments: true
    http://nodejs.org</a>
 <br />
 
-0. Choose method of installing brew:
+0. Choose a (all mutually exclusive) method of installing Node:
 
    * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
    * <a href="#Download">Download most current version v6.2.1+</a>

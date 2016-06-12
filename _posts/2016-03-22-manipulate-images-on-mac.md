@@ -38,6 +38,10 @@ The easiest thing is to avoid cropping altogether by finding
 
 Search in images.google.com for "1900x500".
 
+## Screen capture #
+
+http://lifehacker.com/5880540/the-best-screen-capture-tool-for-mac-os-x
+
 ## Crop
 
 <amp-youtube data-videoid="MqXRVzGyvWU" layout="responsive" width="480" height="270"></amp-youtube>
