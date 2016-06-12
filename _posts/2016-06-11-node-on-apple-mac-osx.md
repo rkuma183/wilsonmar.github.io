@@ -18,28 +18,81 @@ comments: true
 
 <a id="NodeJSz"></a>
 
-## Node.js installation options
+## Know the versions of Node.js 
 
-Instead of downloading the installer:
+0. Use an internet browser to visit the list of versions:
+
+   * <a target="_blank" href="http://nodejs.org/">
+   http://nodejs.org</a>
+
+0. Choose which method of installation:
+
+   * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
+   * <a href="#Download">Download Most current version v6.2.1+</a>
+   * <a href="#Homebrew">Brew install whatever version Homebrew has available</a>
+
+<hr />
+
+<a name="Download"></a>
+
+## Download and Install #
+
+0. Download installer from <a target="_blank" href="http://nodejs.org/">
+
+0. Use the Mac Finder to navigate to the file in your Downloads folder.
+0. Unzip the file downloaded.
+0. Execute the file.
+0. Respond to the prompts.
+0. <a href="#Verify">Verify the install</a>
+
+<a name="Homebrew"></a>
+
+## Install it using Homebrew #
+
+0. Install Homebrew if you haven't already.
+
+0. Verify
 
    <tt><strong>
-http://nodejs.org/download/
+   which brew
    </strong></tt>
 
-See if you have Brew installed for use instead:
+   The response:
+
+   <pre>
+   /usr/local/bin/brew
+   </pre>
+
+0. Install whatever version Homebrew has vetted:
 
    <tt><strong>
-which brew
+   brew install node
    </strong></tt>
 
-/usr/local/bin/brew
+0. Verify version installed:
 
+
+<a name="Verify"></a>
+
+## Verification #
+
+There are two major aspects:
+
+0. Verify node:
 
    <tt><strong>
-brew install node
+   node -v
    </strong></tt>
 
-### Set path to Node
+0. Verify npm:
+
+   <tt><strong>
+   npm -v
+   </strong></tt>
+
+
+
+## Set path to Node #
 
 Put NPM (Node Package Manager) in the path for commands to be found:
 
@@ -101,10 +154,8 @@ Running bower install will resolve, download, and install them.
 0. Install bower globally via npm:
 
    <tt><strong>
-npm install -g bower
-</strong></tt>
-
-
+   npm install -g bower
+   </strong></tt>
 
 ### Project Bower Install
 
@@ -134,18 +185,10 @@ http-server client/
 Brew places node file in its Cellar:
 
    <tt><strong>
-/usr/local/Cellar/node/0.10.35
+   /usr/local/Cellar/node/0.10.35
    </strong></tt>
 
 <!--
-
-## Confirm Install
-
-Where was Node installed?
-
-   <tt><strong>
-which node
-   </strong></tt>
 
 /Users/wilsonmar/.nvm/v0.11.14/bin/node
 
@@ -199,7 +242,7 @@ subl index.js
    </strong></tt>
 -->
 
-## Postman app
+## Postman app #
 
 Postman is a desktop app for interacting with a REST API server.
 
