@@ -24,14 +24,15 @@ comments: true
 
    <a target="_blank" href="http://nodejs.org/">
    http://nodejs.org</a>
-   <br />
+<br />
 
 0. Choose method of installing brew:
 
    * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
-   * <a href="#Download">Download Most current version v6.2.1+</a>
+   * <a href="#Download">Download most current version v6.2.1+</a>
    * <a href="#Homebrew">Brew install whatever version Homebrew has available</a>
    * <a href="#NVMInstall">Install NVM to install Node</a>
+<br />
 
 <hr />
 
@@ -50,6 +51,9 @@ comments: true
 <a name="Homebrew"></a>
 
 ## Install Homebrew #
+
+See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
+
 
 0. Install Homebrew if you haven't already.
 
@@ -519,7 +523,7 @@ http-server client/
 
 <a id="LearnNode"></a>
 
-## Node Tutorial #
+## Node Programming Tutorial #
 
 The classic interactive tutorial introducing Node.Js was created on:
 
@@ -546,56 +550,8 @@ To install it we reference its npm package on npm.org:
 
 
 
-
-<!--
-## Alternative installations
-
-{% highlight text %}
-ngrok.com to setup extern
-sudo mv ~/Downloads/ngrok /usr/local/bin/ngrok
-ngrok 3000
-for pop-up
-http://ngrok:3000{% endhighlight %}
-
-
-{% highlight text %}
-Tunnel Status                 online
-Version                       1.7/1.7
-Forwarding                    http://42d8c4de.ngrok.com -> 127.0.0.1:3000
-Forwarding                    https://42d8c4de.ngrok.com -> 127.0.0.1:3000
-Web Interface                 127.0.0.1:4040
-
-# Conn                        0
-Avg Conn Time                 0.00ms{% endhighlight %}
-
-
-
-## Find file
-
-Where is that file?
-
-   <pre><strong>
-sudo find / -name learnyounode
-   </strong></pre>
-
-   <pre><strong>
-sudo find -name *vagrantfile
-   </strong></pre>
-
-https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
-
-   <pre><strong>
-sudo chown -R $(whoami) /usr/local
-   </strong></pre>
-
--->
-
-## More on OSX
+## More on OSX #
 
 This is one of a series on Mac OSX:
 
 {% include mac_links.html %}
-
-
-
-https://github.com/glenpike/npm-g_nosudo/blob/master/npm-g-nosudo.sh
