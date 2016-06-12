@@ -317,7 +317,7 @@ before discussing your installation, obtain and present these facts:
 0. List what npm global packages installed as a tree:
 
    <pre><strong>
-   npm list \-\-depth=0 -g
+   npm list --depth=0 -g
    </strong></pre>
 
    The depth paramenter eliminates the dependencies.
@@ -325,7 +325,7 @@ before discussing your installation, obtain and present these facts:
 0. List what global npm packages installed as a tree:
 
    <pre><strong>
-   npm list -g \-\-depth=0
+   npm list -g --depth=0
    </strong></pre>
 
    Alternately,
