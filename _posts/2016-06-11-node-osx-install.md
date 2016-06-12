@@ -157,7 +157,7 @@ Several blogs addresses issues related to this topic:
    However, we usually need node packages to be installed <strong>globally</strong> 
    for access from any present directory by any user on the machine.
 
-   This location is one that OSX requires sudo prefix.
+   This location is one that OSX requires sudo (super user do) permission elevation.
    For example:
 
    <pre><strong>
@@ -167,26 +167,30 @@ Several blogs addresses issues related to this topic:
    Without sudo, an error would occur from the above command such as:
 
    <pre>
-   npm WARN checkPermissions Missing write access to /...
+   npm WARN checkPermissions Missing write access to ...
    </pre>
 
    This is because the default npm folder is managed at the system level,
    not user level.
 
    To avoid these permission issues, 
-   some recommend messing with permissions, as in:
+   some recommend higher permissions to folders, as in:
 
    <pre><strong>
    sudo chown -R $USER:$GROUP ~/.npm
    sudo chown -R $USER:$GROUP ~/.config
    </strong></pre>
 
-   More importantly, installation using Homebrew has created other issues,
-   such as when upgrading, such as:
+   This may not be enough to address installation issues when using Homebrew
+   such as when upgrading with command:
 
    <pre><strong>
    npm update npm -g
    </strong></pre>
+
+   <a name="AltFolder"></a>
+
+   #### Alternate folder #
 
    We can install the folder under a user's HOME folder, 
    which is defined by the ${HOME} environment variable:
@@ -244,7 +248,7 @@ Several blogs addresses issues related to this topic:
 0. To install node for global use:
 
    <pre><strong>
-   curl -L https://www.npmjs.com/install.sh | sh
+   curl -L https://www.npmjs.com/install.sh \| sh
    </strong></pre>
 
 0. After install, verify the location:
@@ -333,6 +337,10 @@ NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
 
    Note it installs to folder <strong>~/.nvm</strong>.
 
+   CAUTION: NVM does not recognize the PREFIX used in the 
+   <a href="#AltFolder"> Alternate folder technique</a>.
+   So we would need to live with just elevated permissions.
+   
 0. Verify
 
    <pre><strong>
@@ -409,7 +417,7 @@ before discussing your installation, obtain and present these facts:
    Alternately,
 
    <pre><strong>
-   npm ls --parseable | awk '{gsub(/\/.*\//,"",$1); print}'| sort -u
+   npm ls --parseable \| awk '{gsub(/\/.*\//,"",$1); print}'\| sort -u
    </strong></pre>
 
 0. Simple list of npm packages installed:
