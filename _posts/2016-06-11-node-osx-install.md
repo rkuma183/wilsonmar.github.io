@@ -31,6 +31,7 @@ comments: true
    * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
    * <a href="#Download">Download Most current version v6.2.1+</a>
    * <a href="#Homebrew">Brew install whatever version Homebrew has available</a>
+   * <a href="#NVMInstall">Install NVM to install Node</a>
 
 <hr />
 
@@ -105,6 +106,7 @@ Several blogs addresses issues related to this topic:
    Install npm packages globally without sudo on OS X and Linux</a>
 * <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
   Advice on fixing npm On Mac OS X for Homebrew Users</a>
+  * http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo/24404451#24404451
 <br />
 
 0. Choose method of installing brew:
@@ -167,6 +169,14 @@ Several blogs addresses issues related to this topic:
    This is because the default npm folder is managed at the system level,
    not user level.
 
+   To avoid these permission issues, 
+   some recommend messing with permissions, as in:
+
+   <pre><strong>
+   sudo chown -R $USER:$GROUP ~/.npm
+   sudo chown -R $USER:$GROUP ~/.config
+   </strong></pre>
+
    More importantly, installation using Homebrew has created other issues,
    such as when upgrading, such as:
 
@@ -174,8 +184,7 @@ Several blogs addresses issues related to this topic:
    npm update npm -g
    </strong></pre>
 
-   To avoid these issues,
-   we should install the folder under a user's HOME folder, 
+   We can install the folder under a user's HOME folder, 
    which is defined by the ${HOME} environment variable:
 
    <pre><strong>
@@ -212,12 +221,21 @@ Several blogs addresses issues related to this topic:
    mkdir "${HOME}/.npm-packages"
    </strong></pre>
 
+0. To avoid permission issues:
+
+   <pre><strong>
+   sudo chown -R $USER:$GROUP ~/.npm-packages
+   sudo chown -R $USER:$GROUP ~/.config
+   </strong></pre>
+
 0. Indicate to npm where to store globally installed packages
    by adding a line at the bottom of the ~/.npmrc file:
 
    <pre><strong>
    echo prefix=~/.npm-packages >> ~/.npmrc
    </strong></pre>
+
+   WARNING: NVM does not support this.
 
 0. To install node for global use:
 
@@ -286,6 +304,50 @@ Several blogs addresses issues related to this topic:
    <pre><strong>
    source ~/.bash_profile
    </strong></pre>
+
+
+<a name="NVMInstall"></a>
+
+### NVM #
+
+NVM (Node Version Manager) downloads and installs multiple versions of Node.js. 
+
+Its README at <a target="_blank" href="https://github.com/creationix/nvm">
+https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
+with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+
+0. Install NVM:
+
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+
+   It appends source string to ~/.bashrc
+
+   Note it installs to folder <strong>~/.nvm</strong>.
+
+0. Verify
+
+   <pre><strong>
+   nvm -v
+   </strong></pre>
+
+   3.9.5
+
+   NOTE: nvm is a shell script, so where command does not work.
+
+0. To download, compile, and install the latest v5.0.x release of node:
+
+   nvm install 5.0
+
+0. To list what versions of Node.js are installed:
+
+   nvm ls
+
+0. To use version 5.0 installed:
+
+   nvm use 5.0
+
+BTW, an alternative to NVM is "n" from https://github.com/tj/n.
 
 <a name="Verify"></a>
 
@@ -364,21 +426,26 @@ Others who have blogged about this include:
 0. Install the express package and its dependencies:
 
    <pre><strong>
-   npm install express
+   npm install express -g
    </strong></pre>
 
 0. Use a text editor to create file `index.js` containing "Hello World" code in JavaScript:
 
-{% highlight JavaScript %}
-var express = require('express');
-var app = express();
-app.get('/', function(res,req){
-   res.json({
-      message: 'hello world'
+   <pre>
+   /*jslint node: true */
+   var express = require('express');
+   var app = express();
+   app.get('/', function(res,req){
+      res.json({
+         message: 'hello world'
+      });
    });
-});
-app.listen(3000); // This establishes port 3000. You can use another port.{% endhighlight %}
+   app.listen(3000); // This establishes port 3000. You can use another port.
+   </pre>
    
+   NOTE: Semicolons and carriage returns serve the same purpose in JavaScript. You only need semicolons if you are concatenating code together in a single line.
+
+   See https://www.airpair.com/javascript/posts/eleven-mistakes-developers-javascript
 
 0. Start the Node server running the default <strong>index.js</strong> program:
 
@@ -386,13 +453,16 @@ app.listen(3000); // This establishes port 3000. You can use another port.{% end
    node index.js
    </strong></pre>
 
-   The window remains open until
+   The window remains open and accept no other commands
+   until you press <strong>control+C</strong> to escape the process.
 
 0. Switch to an internet browser to open the Node Express web server running locally at port 3000:
 
    <pre>
    http://localhost:3000/
    </pre>
+
+   If you get "TypeError: res.json is not a function" ...
 
 0. Install NodeMon:
 
