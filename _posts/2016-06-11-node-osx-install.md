@@ -31,7 +31,7 @@ comments: true
    * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
    * <a href="#Download">Download most current version v6.2.1+</a>
    * <a href="#Homebrew">Brew install whatever version Homebrew has available</a>
-   * <a href="#NVMInstall">Install NVM to install Node</a>
+   * <a href="#NVMInstall">Install NVM to switch among several versions of Node</a>
 <br />
 
 <hr />
@@ -312,7 +312,7 @@ Several blogs addresses issues related to this topic:
 
 <a name="NVMInstall"></a>
 
-### NVM #
+## NVM Install #
 
 NVM (Node Version Manager) downloads and installs multiple versions of Node.js. 
 
@@ -355,7 +355,7 @@ BTW, an alternative to NVM is "n" from https://github.com/tj/n.
 
 <a name="Verify"></a>
 
-### Verify Node works #
+## Verify Node works #
 
 Regardless of how you installed node,
 before discussing your installation, obtain and present these facts:
