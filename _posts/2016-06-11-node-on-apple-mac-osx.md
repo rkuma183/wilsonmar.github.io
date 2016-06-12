@@ -100,11 +100,12 @@ comments: true
 
 Several blogs addresses issues related to this topic:
 
+* https://docs.npmjs.com/getting-started/fixing-npm-permissions
 * <a target="_blank" href="https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md">
    Install npm packages globally without sudo on OS X and Linux</a>
-
 * <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
   Advice on fixing npm On Mac OS X for Homebrew Users</a>
+<br />
 
 0. Choose method of installing brew:
 
@@ -157,8 +158,13 @@ Several blogs addresses issues related to this topic:
    sudo npm install serverless -g
    </strong></pre>
 
-   Without sudo, an error would occur from the above command 
-   because the default npm folder is managed at the system level,
+   Without sudo, an error would occur from the above command such as:
+
+   <pre>
+   npm WARN checkPermissions Missing write access to /...
+   </pre>
+
+   This is because the default npm folder is managed at the system level,
    not user level.
 
    More importantly, installation using Homebrew has created other issues,
@@ -355,6 +361,12 @@ Others who have blogged about this include:
 
 0. Make a folder containing Node application files, and go to it:
 
+0. Install the express package and its dependencies:
+
+   <pre><strong>
+   npm install express
+   </strong></pre>
+
 0. Use a text editor to create file `index.js` containing "Hello World" code in JavaScript:
 
 {% highlight JavaScript %}
@@ -362,18 +374,25 @@ var express = require('express');
 var app = express();
 app.get('/', function(res,req){
    res.json({
-   message: 'hello world'
+      message: 'hello world'
    });
 });
-app.listen(3000);{% endhighlight %}
-
-   This establishes port 3000. You can use another port.
+app.listen(3000); // This establishes port 3000. You can use another port.{% endhighlight %}
+   
 
 0. Start the Node server running the default <strong>index.js</strong> program:
 
    <pre><strong>
    node index.js
    </strong></pre>
+
+   The window remains open until
+
+0. Switch to an internet browser to open the Node Express web server running locally at port 3000:
+
+   <pre>
+   http://localhost:3000/
+   </pre>
 
 0. Install NodeMon:
 
@@ -385,7 +404,7 @@ app.listen(3000);{% endhighlight %}
 
 <a id="Bower_installz"></a>
 
-## Bower Install
+## Bower Install #
 
 Bower is similar to npm, but for the front-end GUI applications.
 
@@ -400,9 +419,16 @@ Similarly to npm, bower tracks dependencies in a file called <strong>bower.json<
    npm install -g bower
    </strong></pre>
 
-Running bower install will resolve, download, and install them.
+   Running bower install will resolve, download, and install them.
 
-### Project Bower Install
+   BTW, Brew places the node file in its Cellar:
+
+   <pre><strong>
+   /usr/local/Cellar/node/0.10.35
+   </strong></pre>
+
+
+   ### Project Bower Install
 
 0. cd to the project's folder.
 
@@ -424,14 +450,6 @@ npm install -g http-server
 http-server client/
    </strong></pre>
 
-
-### Brew Node.js 
-
-Brew places node file in its Cellar:
-
-   <pre><strong>
-   /usr/local/Cellar/node/0.10.35
-   </strong></pre>
 
 <hr />
 
