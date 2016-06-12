@@ -421,12 +421,6 @@ Similarly to npm, bower tracks dependencies in a file called <strong>bower.json<
 
    Running bower install will resolve, download, and install them.
 
-   BTW, Brew places the node file in its Cellar:
-
-   <pre><strong>
-   /usr/local/Cellar/node/0.10.35
-   </strong></pre>
-
 
    ### Project Bower Install
 
