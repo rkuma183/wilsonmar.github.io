@@ -39,7 +39,7 @@ who built the
 <a target="_blank" https://serverless.com/">
 Serverless company</a>
 around its open-source
-<a target="_blank" https://github.com/serverless/serverless-framework">
+<a target="_blank" href="https://github.com/serverless/serverless-framework">
 serverless framework on GitHub</a>,
 
 Social media around the company and its repos on GitHub.
@@ -58,6 +58,8 @@ Social media around the company and its repos on GitHub.
    * <a target="_blank" href="http://serverlessconf.io/">serverlessconf.io</a> conferences
    * <a target="_blank" href="https://twitter.com/search?q=goserverless&src=typd">
     @GoServerless</a> Twitter account
+   * <a target="_blank" href="https://www.youtube.com/channel/UCFYG383lawh9Hrs_DEKTtdg">
+   YouTube channel</a>
 
 
 ## Serverless framework install #
@@ -193,6 +195,10 @@ specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs
 <strong>admin.env<strong>
 
 
+## Sample apps #
+
+https://github.com/microapps/MoonMail
+from http://microapps.com/
 
 ## Serverless Command-line #
 
