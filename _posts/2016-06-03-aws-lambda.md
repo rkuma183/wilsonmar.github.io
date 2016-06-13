@@ -226,6 +226,15 @@ There are several ways to get programming code into AWS Lambda:
    Memory used to hold input and output data is included in the memory used.
    Uncertainties about the size of data used require a larger allocation.
 
+   #### Timeout #
+
+   The longest is <strong>5 minutes</strong>.
+
+   #### VPC #
+
+   You'll want a Virtual Private Communication.
+
+   <amp-img width="765" height="453" alt="lambda vpc 765x453" src="https://cloud.githubusercontent.com/assets/300046/16012256/e9259106-3145-11e6-8a47-eb03d72494f6.jpg"></amp-img>
 
    ### Save and Test #
 

@@ -15,6 +15,12 @@ comments: true
 
 {% include _toc.html %}
 
+This tutorial aims to have you ending up with a serverless app running in the Amazon cloud.
+We'll take it one step at a time.
+I'll give you PROTIPs and notes along the way so you'll understand how we get there.
+
+## About Serverless #
+
 The term "serverless" describes an <strong>architectural style</strong> 
 where developers shift concerned about the hardware and its ability to scale to AWS Lambda.
 
@@ -140,13 +146,11 @@ variables ...... list, set, unset
 
 ## Serverless Framework #
 
-0. Create a folder to hold a serverless project. I like:
+0. Create a folder to hold serverless projects. I like:
 
    <pre><strong>
-   ~/
+   ~/gits/sls
    </strong></pre>
-
-0. 
 
 The serverless framework save developers' time by standarizing the structure of folders and files.
 
@@ -183,7 +187,8 @@ A workaround is to use the
 Serverless Meta Sync plugin 
 which stores project metadata in S3. 
 
-<strong>s-resources-cf.json</strong> file specifying
+<strong>s-resources-cf.json</strong> is a AWS CloudFormation template 
+specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs.
 
 <strong>admin.env<strong>
 
