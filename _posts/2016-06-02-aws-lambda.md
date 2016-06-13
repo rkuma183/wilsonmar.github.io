@@ -47,16 +47,20 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    No worries about achieving massive scale.
    Addition of enough machines to handle load are taken care of by Amazon people behind the scenes.
 
-   BTW, if you're worried about vendor lock-in, 
-   know that Amazon is not the only ones who can run lambdas.
+   BTW, in case you're worried about vendor lock-in, know that Amazon is not the only ones who can run lambdas.
    <a target="_blank" href="https://www.iron.io/platform/ironworker/">
-   IronWorker from Iron.io</a> and 
-   Serverless
-   can run Lambas on your own servers.
+   Iron.io IronWorker</a> 
+   runs Lambas on your own servers if you feel nostalgic for power cords on physical servers.
+
+   Amazon calls Lambda a "compute service" because programmers write code as discrete API 
+   handler functions responding to 
+   <strong>events</strong> such as an image being uploaded into S3.
 
    <a name="Pricing"></a>
 
    #### Pricing #
+
+   NOTE: Amazon currently does not charge for code storage.
 
 0. On a new browser tab, click<br />
    <a target="_blank" href="http://aws.amazon.com/lambda/">
@@ -69,9 +73,8 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    For now, the first 400,000 GB-seconds (x 1024 = 409,600,000 MB-seconds) are free. 
 
-   <a target="_blank" href="https://www.twitter.com/lambdatips/">
-   @lambdatips</a>: 
-   If you run only 128 MB Lambdas, you can make one request every 1.23 seconds during a 30-day month, for free.
+   If you run only the smallest 128 MB Lambdas, the free allocation enables 
+   you to make one request every 1.23 seconds during a 30-day month.
    (409,600,000 / 128 = 3,200,000 / 30 days / 24 hours / 60 minutes / 60 seconds = 1.23 )
 
    QUESTION: What is the date that free allocations flip to the next month? On the 1st?
@@ -82,146 +85,46 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    <a href="#CloudWatch">CloudWatch below</a>.
 
 
-<h2 id="create-a-lambda-function">Create a Lambda function</h2>
+## Hello World Lambda function from Blueprint #
 
-There are several options for creating Lambda functions:
+0. Alt-Click the black question mark at the upper-right corner for a new window or tab containing 
+   <a target="_blank" href="https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html">
+   a tutorial on the basic steps to get to "Hello World" output on the Console</a>.
 
-<ul>
-  <li><a href="#AWSCLI">AWS CLI (Command Line Interface)</a></li>
-  <li>Console GUI interactively (below)</li>
-</ul>
+0. Click "Create a Lambda Function".
 
-0. Click “Create a Lambda Function”.
+0. Among Blueprint of pre-defined function code:
 
-### Source of code #
+   PROTIP: If you're going to use a Blueprint, highlight its name and
+   copy it to your Clipboard so your can paste it into the function name.
 
-There are several ways to get programming code into AWS Lambda:
+0. Page forward to click on the name "Hello World" Node.js function.
 
-<ul>
-   <li><a href="#SelectBlueprint">Select Blueprint of Amazon-defined code - Hello JSON</a></li>
-   <li><a href="#PasteS3">Paste inline code from Clipboard - Trigger from S3</a>.</li>
-   <li><a href="#UploadZipSNS"> Upload a Zip file with library - SNS Email</a></li>
-   <li><a href="#UploadFromS3"> Obtain code from S3</a></li>
-   <li><a href="#GetFromGitHub">Get from GitHub (for Dynamo DB Pull)</a></li>
-</ul>
+0. Construct a function name.
 
-<hr />
-
-<a name="SelectBlueprint"></a>
-
-## Select Blueprint of Amazon-defined code - Hello JSON #
-
-   #### Function name #
-
-0. Click the right-arrow to Page forward if you don't see “Hello World”.
-
-    <amp-img alt="lambda blueprint page forward 244x55" width="244" height="55" src="https://cloud.githubusercontent.com/assets/300046/15981923/dadb3122-2f39-11e6-803c-6b6db5873701.jpg" ></amp-img>
-
-    PROTIP: Highlight the blueprint’s name (in bold letters) and
-    copy it to your Clipboard so your can paste it into the function name during the next step.
-
-0. PROTIP: Use your mouse to highlight the function name for use in a later step.
-
-0. Click on the name “Hello World” Node.js function.
-
-   Amazon calls Lambda a "compute service" because programmers write code as discrete API 
-   handler functions responding to 
-   <strong>events</strong> such as an image being uploaded into S3.
-
-   <pre>
-   'use strict';
-   console.log('Loading function');
-
-   exports.handler = (event, context, callback) => {
-      //console.log('Received event:', JSON.stringify(event, null, 2));
-    console.log('value1 =', event.key1);
-    console.log('value2 =', event.key2);
-    console.log('value3 =', event.key3);
-    callback(null, event.key1);  // Echo back the first key value
-    // callback('Something went wrong');
-   };
-   </pre>
-
-   NOTE: The callback function is like a return statement.
-   The callback value is the JSON file <strong>returned</strong> after asynchronous execution.
-
-   Additional observations about programming is at 
-   [AWS Lambda Node Programming](/aws-lambda-node-js-programming/).
-
-0. PROTIP: Construct a function name with more metadata, like this example:
+   An example:
 
    <pre>
    learn1-hello-world-node43-v01
    </pre>
 
-   * Prefix the function with a project name (such as “learn1”).
-   * Use dashes or underscores instead of spaces (which are not allowed in the name).
-   * Include the use case (“hello-json”) for Hello World receiving key-value pairs in a static JSON file.
-   * Include in the name the language and its version (such as node43 for Node.js 4.3).
-   * Specify a version number (v01) for different versions you want to keep simultaneously.
-   (Git can keep history of alterations to the same version)
+   PROTIP: Prefix the function with the project and use case.
+   Include in the name the language and version (such as node43 for Node.js 4.3).
+   Specify a version number (v01).
+   Use dashes instead of spaces.
 
-   #### Description #
+   Function names must contain only letters, numbers, hyphens, or underscores.
 
-   PROTIP: In the description, put in a URL to a wiki ?
-
-   #### Runtime #
-
-   The code associated with each blueprint is for a particular runtime.
-   So runtime isn’t a choice that can be changed on this form.
-
-   <amp-img width="380" height="161" alt="lambda runtimes 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778339/c5db0258-2952-11e6-8ac0-5b641024f760.jpg"></amp-img>
-
-   NOTE: <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html ">This page</a>
-   describes the specific <strong>Linux</strong> server and utility libraries used in each region:
-
-   * Linux kernel `4.1.19-24.31.amzn1.x86_64`
-   * AWS SDK for JavaScript version 2.3.8
-   * Python images contain AWS SDK for Python (Boto 3) version 1.3.1.
-
-   WARNING: These underlying versions can change at anytime, unannounced.
-   So have a way of being notified if errors are detected in run logs.
-
-   Scroll down beyond the script to more input fields.
-
-   <a name="Handler"></a>
-
-   #### Handler #
-
-   NOTE: `index.handler` specifies the default index module.
-
-   Leave the default alone for now.
 
    ### Role #
 
-0. If empty, click on the Role field for a list:
-
-   <amp-img width="359" height="248" alt="lambda roles 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778512/eaf94314-2953-11e6-9306-10755458fbee.jpg"></amp-img>
-
-   The <strong>Execution role</strong> defines the permissions.
-
-0. Select `Basic execution role` if your function does not access input data from S3, Dynamo DB, Kinesis, etc.
-
-   Additional custom execution roles can be defined.
-
-0. Click Allow in the pop-up browser window and be returned to the Lambda definition.
-
-   #### Memory #
-
-   PROTIP: Initially select the lowest memory (128 MB) and add more as necessary.
-
-   NOTE: Billing is in minimum 128 MB increments even if less memory was actually used.
-
-   PROTIP: Keep input and output data of a known small size.
-   Memory used to hold input and output data is included in the memory used.
-   Uncertainties about the size of data used require a larger allocation.
-
+0. Scroll down beyond the script to the Role selection.
 
    ### Save and Test #
 
 0. Click Next.
 
-0. Review, then click <strong>Create function</strong>.
+0. Review, then click Create function.
 
 0. Click Test.
 
@@ -232,97 +135,19 @@ There are several ways to get programming code into AWS Lambda:
 
 0. Click Save and test.
 
-   On first invocation is a pop-up **Input test event**.
+   The first invocation is a pop-up **Input test event**.
    This can later be obtained by Actions > Configure test event.
 
-   #### Input test sample event data template #
+   QUESTION: Minmification of script?
 
-   NOTE: Events provide input into the function.
-
-0. Click Test. If no input data has been defined, the <strong>Input test event form</strong> appears.
-
-   The default data that appears is from the Hello World sample event template. But there are others:
-
-   <amp-img width="603" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15787217/3f884c66-297e-11e6-9e54-9c821cecc4a2.jpg"></amp-img>
-
-0. Select from Sample event template “Hello World” to replace what has been saved for the current Lambda.
-
-   <pre>
-{
-  "key3": "value3",
-  "key2": "value2",
-  "key1": "value1"
-}
-</pre>
-
-   NOTE: Each Key-Value pair (KVP) is called a “structure” (two pieces of data together as a single object).
-   Keys used to lookup values are also called “identifiers”.
-
-0. Click <strong>Save</strong> to exit the modal dialog.   
-
-  #### Action: Configure test event #
-
-0. Return to the “Input test event” dialog by selecting from the <strong>Actions</strong>
-   dropdown “Configure test event”.
-
-0. Click <strong>Save and test</strong> to exit the modal dialog and 
-   run the function.
-
-
-   #### Execution result #
-
-0. Scroll down the page for the “Execution result” section.
-
-   The result shows “value1” because of this code line:
-
-   <pre>
-callback(null, event.key1);  // Echo back the first key value
-   </pre>
-
-   Variable `event.key1` in the script refers to “key1” and its value “value1” in the JSON file above.
+   ### Log review #
 
    Notice that output from the initial `console.log('Loading function');` 
    does not appear in the run Log Output.
 
-   ### CloudWatch Logs #
-
 0. Click "Click here" to open a new tab to view CloudWatch log group.
 
-0. Click the <strong>Monitoring</strong> tab.
-
-   <a name="MonitoringGraphs"></a>
-
-   <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
-
-   PROTIP: Mouse over a point on a line for more detail.
-
-0. In Lambda &gt; Functions, click on your function’s name.
-
-   * <strong>Invocation count</strong> measures the number of times a function has been invoked and billed
-   (in response to an event or API call). This includes both successful and failed invocations, but not throttled attempts.
-
-   * <strong>Invocation duration</strong> measures the elasped wall clock time from when the function code starts executing
-   (as a result of an invocation) to when it stops executing. This is used in billing, rounded up to the nearest 100 milliseconds.
-   The maximum data point value possible is the function timeout configuration.
-
-   * <strong>Invocation errors</strong> measure the number of invocations that failed due to some error.
-   Failed invocations may trigger a retry attempt that succeeds:
-
-      <ul>
-        <li>Handling exceptions such as context.fail(error).</li>
-        <li>Unhandled exceptions causing the code to exit the function since it can’t handle the error.</li>
-        <li>Out of memory exceptions</li>
-        <li>Timeouts</li>
-        <li>Permission errors</li>
-      </ul>
-
-   * <strong>Throttled invocations</strong> measures the number of Lambda functon invocation attempts not executed because the customer concurrent limit has been reached for the period (error 429).
-
-   NOTE: AWS Lambda only sends non-zero value metrics to CloudWatch.
-
-   #### Log stream items #
-
-0. Click on a log stream item.  Notice the "'"Loading function" there.
+0. Click on a log stream item.  Notice the 'Loading function' there.
 
 0. Click on the Lambda Management Console to return.
 
@@ -338,7 +163,24 @@ callback(null, event.key1);  // Echo back the first key value
 
    QUESTION: Why?
 
-   ### Create Event Source S3 #
+<pre>
+'use strict';
+console.log('Loading function');
+
+exports.handler = (event, context, callback) => {
+    //console.log('Received event:', JSON.stringify(event, null, 2));
+    console.log('value1 =', event.key1);
+    console.log('value2 =', event.key2);
+    console.log('value3 =', event.key3);
+    callback(null, event.key1);  // Echo back the first key value
+    // callback('Something went wrong');
+};
+</pre>
+
+   The callback is used for asynchronous behavior.
+
+
+## Create Event Source S3 #
 
 This is an example of a "push" model where Lambda is triggered by an event external to it.
 
@@ -495,6 +337,112 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
 0. Click Test. Scroll to the bottom of the screen to see the Execution result.
 
+
+### GitHub Hook SNS #
+
+<a target="_blank" href="https://aws.amazon.com/blogs/compute/dynamic-github-actions-with-aws-lambda/">
+This blog</a> describes how when a webhook in GitHub.com recognizes a commit,
+it triggers a topic for Amazon Simple Notification Service (SNS)
+to invoke an action in AWS Lambda.
+
+   <a name="SNSTopic"></a>
+
+   #### Create SNS ARN #
+
+0. Open the SNS Console under services category Mobile Services.
+
+   <a target="_blank" href="https://us-west-2.console.aws.amazon.com/sns/v2/home?region=us-west-2#/home">
+   https://us-west-2.console.aws.amazon.com/sns/v2/home?region=us-west-2#/home</a>
+
+0. Create a Topic name of 256 characters or less, without spaces ("GitHubLambaDemo").
+0. Define a Disnplay Name of 10 characters or less.
+0. Click Create Topic.
+0. Click Publish.
+0. Copy for later use the topic ARN, such as:
+
+    <pre>
+    arn:aws:sns:us-west-2:123456083449:GitHubLambdaDemo
+    </pre>
+
+   Notice SNS Topics are region specific.
+   One is needed for each region.
+
+   <a name="IAMUser"></a>
+
+   #### Create IAM User Role to Publish As
+
+0. Go to the Amazon IAM Console (under the Security and Identity category)
+
+   https://console.aws.amazon.com/iam/home?region=us-west-2#home
+
+0. Click Users menu, then Create New Users.
+0. Enter name up to 64 characters, such as "GitHubPublisher1".
+0. Copy the name to your Clipboard and press Create.
+0. Click  Show User Security Credentials.
+0. Click Download Credentials (as file named credentials.csv).
+0. Click Close.
+0. PROTIP: In your Downloads folder, rename the file and paste the name from Clipboard
+   to "GitHubPublisher1_credentials.csv".
+0. Click the name of the newly created user to edit it.
+0. Open Permissions tab. Expand Inline Policies. Click "click here" to create a new inline policy.
+0. Select the “Custom Policy” radio button. Press “Select”.
+0. Type policy name such as "GitHubPublish".
+
+0. Paste the following statements that authorize publication to the SNS topic you created in Step 1 (here’s where you use the topic ARN you were saving).
+
+   <pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "sns:Publish"
+      ],
+      "Resource": [
+        "arn:aws:sns:us-west-2:123456083449:GitHubLambdaDemo"
+      ],
+      "Effect": "Allow"
+    }
+     ]
+   }
+   </pre>
+
+0. Replace the ARN string with yours.
+0. Click Validate Policy. Clap when you see "The policy is valid".
+0. Click “Apply Policy”.
+
+   #### GitHub Webhook setup #
+
+More on this topic is at [my Github-webhook-setup](github-webhook-setup/).
+
+0. Use an internet browser to get to your repo on GitHub<br />
+   <a target="_blank" href="https://github.com/wilsonmar/hello-world/">
+   https://github.com/wilsonmar/hello-world</a>
+
+0. Click on “Settings” in the menu.
+0. Click on “Webhooks & Services”.
+0. Click the “Add service” dropdown. Scroll to select <strong>AmazonSNS</strong>.
+
+   You may be asked for your GitHub password.
+
+0. Scroll down to form fields.
+
+0. For 'aws_key', copy from the <a href="#IAMUser">
+   credentials.csv created and downloaded for IAM User</a>, such as "GitHubPublisher1".
+
+0. For 'aws_secret', paste the Amazon secret access key associated with the AWS Key above.
+
+0. For 'sns_topic', the Full ARN path to the SNS Topic, ie. arn:aws:sns:eu-west-1:718656560584:sns_topic_name
+
+0. For 'sns_region', the identifier for the AWS Region that the SNS Topic is located in. 
+   This defaults to "us-east-1". But for this tutorial it's "us-west-2".
+
+0. Click “Add service”.
+
+   #### Create Lambda Function #
+
+
+   #### Function to Email via Simple Email Service #
 
 <a name="CloudWatch"></a>
 
