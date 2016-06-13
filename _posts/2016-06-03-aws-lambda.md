@@ -99,6 +99,7 @@ There are several options for creating Lambda functions:
 <ul>
   <li><a href="#AWSCLI">AWS CLI (Command Line Interface)</a></li>
   <li>Console GUI interactively (below)</li>
+  <li>Serverless framework</li>
 </ul>
 
 0. Click “Create a Lambda Function”.

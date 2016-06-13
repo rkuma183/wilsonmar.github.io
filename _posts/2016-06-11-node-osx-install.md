@@ -367,7 +367,7 @@ BTW, an alternative to NVM is "n" from https://github.com/tj/n.
 
 <a name="Verify"></a>
 
-## Verify Node works #
+## Verify Node working location #
 
 Regardless of how you installed node,
 before discussing your installation, obtain and present these facts:
@@ -400,32 +400,33 @@ before discussing your installation, obtain and present these facts:
 
    3.9.5
 
-0. List what npm global packages installed as a tree:
-
-   <pre><strong>
-   npm list --depth=0 -g
-   </strong></pre>
-
-   The depth paramenter eliminates the dependencies.
-
-0. List what global npm packages installed as a tree:
+0. From any folder, list what global npm packages installed as a tree:
 
    <pre><strong>
    npm list -g --depth=0
    </strong></pre>
 
-   Alternately,
+   The response is a list with version numbers:
 
-   <pre><strong>
-   npm ls --parseable \| awk '{gsub(/\/.*\//,"",$1); print}'\| sort -u
-   </strong></pre>
+   <pre>
+/Users/mac/.npm-packages/lib
+├── bower@1.7.9
+├── express@4.13.4
+├── grunt@1.0.1
+├── grunt-cli@1.2.0
+├── learnyounode@3.5.3
+├── n@2.1.0
+├── npm@3.9.5
+└── serverless@0.5.6
+   </pre>
 
-0. Simple list of npm packages installed:
+   Note the first line in the response shows the folder.
+
+   Alternately, for just a simple list of package names:
 
    <pre><strong>
    ls `npm root -g`
    </strong></pre>
-
 
 
 <a name="CodeNode"></a>
