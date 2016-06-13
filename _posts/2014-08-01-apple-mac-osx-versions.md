@@ -20,12 +20,20 @@ comments: true
 ### Versions of Mac OS X
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date 
-</th><th>[PHP](/php-on-apple-mac-osx/)</a> 
-</th><th>[Python](/python-on-apple-mac-osx/)</a> 
-</th><th>[Ruby](/ruby-on-apple-mac-osx/)</a> 
+<tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date
+</th><th>[PHP](/php-on-apple-mac-osx/)</a>
+</th><th>[Python](/python-on-apple-mac-osx/)</a>
+</th><th>[Ruby](/ruby-on-apple-mac-osx/)</a>
 </th><th> Introduced
 </th></tr>
+<tr valign="top"><td> 10.12?
+</td><td align="right"> MacOS Sierra
+</td><td align="right"> Fall 2016
+</td><td align="right"> -
+</td><td align="right"> -
+</td><td align="right"> -
+</td><td align="left"> Auto unlock, universal clipboard, Siri
+</td></tr>
 <tr valign="top"><td> 10.11
 </td><td align="right"> El Capitan (Gala)
 </td><td align="right"> July 2015
@@ -41,7 +49,7 @@ comments: true
 </td><td align="right"> 2.7.6
 </td><td align="right"> -
 </td><td align="left"> Swift, non-skeuomorphic UI, connect Apple </td></tr>
-<tr valign="top"><td> 10.9 
+<tr valign="top"><td> 10.9
 </td><td align="right"> Mavericks (Caberet)
 </td><td align="right"> Oct. 22, 2013
 </td><td align="right"> 5.3.26
@@ -52,7 +60,7 @@ comments: true
 </td><td align="right"> July 25, 2012
 </td><td align="right"> -
 </td><td align="right"> -
-</td><td align="right"> 1.8.7 
+</td><td align="right"> 1.8.7
 </td><td align="left"> - </td></tr>
 <tr valign="top"><td> 10.7 </td><td align="right"> Lion
 </td><td align="right"> July 20, 2011

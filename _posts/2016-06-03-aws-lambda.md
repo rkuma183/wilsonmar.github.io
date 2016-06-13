@@ -91,8 +91,21 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    NOTE: How much each Lambda request consumes in memory time is described in
    <a href="#CloudWatch">CloudWatch below</a>.
 
+## Why? #
 
-<h2 id="create-a-lambda-function">Create a Lambda function</h2>
+<a target="_blank" href="https://www.linkedin.com/in/andrew-baird-2bb7324a">
+Andrew Baird</a>, AWS Solutions Architect, 
+<a target="_blank" href="https://www.youtube.com/watch?v=O2GQRC0sVA8&t=5m22s">
+listed all the questions that developers DON'T have to graple with
+in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
+
+    <amp-img alt="lambda questions 650x287" width="650" height="287" src="https://cloud.githubusercontent.com/assets/300046/16016299/920289da-3157-11e6-8252-1849a5f1fda3.jpg"></amp-img>
+
+> "There are tools and entire industries whose entire value proposition are about answering just one of these."
+
+<a name="CreateFunction"></a>
+
+## Create a Lambda function #
 
 There are several options for creating Lambda functions:
 

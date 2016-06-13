@@ -7,7 +7,7 @@ image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
   credit: William McNaughton
-  creditlink: 
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,40 +16,32 @@ comments: true
 {% include _toc.html %}
 
 This tutorial aims to have you ending up with a serverless app running in the Amazon cloud.
-We'll take it one step at a time.
-I'll give you PROTIPs and notes along the way so you'll understand how we get there.
+We'll take it one step at a time in an order that makes natural sense.
+Along the way are PROTIPs and notes so you'll understand how we get there.
 
 ## About Serverless #
 
-The term "serverless" describes an <strong>architectural style</strong> 
+The term "serverless" describes an <strong>architectural style</strong>
 where developers shift concerned about the hardware and its ability to scale to AWS Lambda.
 
-<a target="_blank" href="https://www.linkedin.com/in/andrew-baird-2bb7324a">
-Andrew Baird</a>, AWS Solutions Architect, 
-<a target="_blank" href="https://www.youtube.com/watch?v=O2GQRC0sVA8&t=5m22s">
-listed all the questions that developers DON'T have to graple with
-in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
-
-> "There are tools and entire industries whose entire value proposition are about answering just one of these."
-
-The name "serverless" has been adopted by enprepreneur 
+The name "serverless" has been adopted by enprepreneur
 <a target="_blank" href="https://twitter.com/austencollins">
 @austencollins</a>
-who built the 
+who built the
 <a target="_blank" https://serverless.com/">
 Serverless company</a>
 around its open-source
 <a target="_blank" href="https://github.com/serverless/serverless-framework">
 serverless framework on GitHub</a>,
 
-Social media around the company and its repos on GitHub.
-
    * <a target="_blank" href="https://github.com/serverless/serverless">
    serverless-framework</a>
    * <a target="_blank" href="http://docs.serverless.com/v0.5.0/docs">
    Docs on serverless</a>
-   * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
-   $99 Learn Serverless book</a>
+   * <a target="_blank" href="https://github.com/serverless/serverless/milestones/">
+   Roadmap</a>
+
+Social media:
 
    * <a target="_blank" href="https://www.serverless.com/">
    serverless.com</a> is the company's home page.
@@ -60,14 +52,25 @@ Social media around the company and its repos on GitHub.
     @GoServerless</a> Twitter account
    * <a target="_blank" href="https://www.youtube.com/channel/UCFYG383lawh9Hrs_DEKTtdg">
    YouTube channel</a>
+   * <a target="_blank" href="http://github.us11.list-manage1.com/subscribe?u=b4fad36768cab222f88338995&id=5f8407dded">
+   Mailchimp Mailing List</a>
+   * <a target="_blank" href="http://www.meetup.com/serverless/">
+   Meetups on meetup.com</a> and at
+   <a target="_blank" href="https://www.ServerlessMeetups.com/">
+   ServerlessMeetups.com</a>
 
+   * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
+   Hacker News</a> announced it in 2015 when the product was first called JAWS.
+
+   * Initial Serverless presentation at AWS:Invent 2015
+   <amp-youtube data-videoid="D_U6luQ6I90" layout="responsive" width="480" height="270"></amp-youtube>
 
 ## Serverless framework install #
 
 0. [Install Node.js](/node-osx-install/)
    as a pre-requisite since the framework is written in Node.js.
 
-0. Install the serverless-framework 
+0. Install the serverless-framework
 
    <pre><strong>
    npm install -g serverless
@@ -91,7 +94,11 @@ Social media around the company and its repos on GitHub.
 
    Nothing returns if you're up-to-date.
 
-0. Get summary of commands:
+<a id="LookAround"></a>
+
+## Look around #
+
+0. Get summary of commands using the abbreviated command:
 
    <pre><strong>
    sls
@@ -105,7 +112,7 @@ Social media around the company and its repos on GitHub.
 |   |   |             The Serverless Application Framework
 |       |                           serverless.com, v0.5.6
 `-------'
-.
+&nbsp;
 Commands
 * Serverless documentation: http://docs.serverless.com
 * You can run commands with "serverless" or the shortcut "sls"
@@ -138,21 +145,55 @@ variables ...... list, set, unset
 0. List framework folders and files:
 
    <pre><strong>
-   cd ~/.npm-packages/bin/serverless
+   cd ~/.npm-packages/lib/node_modules/serverless
+   ls
    </strong></pre>
 
+0. View the README.md file using a Markdown reader.
 
+   In the Atom text editor (from GitHub),
+   alt-click on the file to select <strong>Markdown Preview</strong>.
+
+   This file lists projects,
+   plugins, and consultants who provide services.
+
+
+<a name="Projects"></a>
+
+## Projects #
+
+0. Create a folder to hold serverless projects.
+   For example:
+
+   <pre><strong>
+   ~/gits/sls
+   </strong></pre>
+
+0. Pick a sample project from  https://github.com:
+
+   *  [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
+
+   * [serverless/serverless-starter](https://github.com/serverless/serverless-starter) - A simple boilerplate for new projects with a few architectural options
+
+   * [serverless/serverless-graphql-blog](https://github.com/serverless/serverless-graphql-blog) - A blog boilerplate that leverages GraphQL in front of DynamoDB to offer a minimal REST API featuring only 1 endpoint
+
+   * [laardee/serverless-authentication-boilerplate](https://github.com/laardee/serverless-authentication-boilerplate) - A generic authentication boilerplate for Serverless framework
+
+   * [sc5/sc5-serverless-boilerplate](https://github.com/SC5/sc5-serverless-boilerplate) - A boilerplate for test driven development of REST endpoints
+
+   * [microapps/MoonMail] (https://github.com/microapps/MoonMail) - Build your own email marketing infrastructure using Lambda + SES from http://microapps.com/
+
+
+0. Load a sample project.
+
+   <pre><strong>
+   serverless project install project-name
+   </strong></pre>
 
 
 <a name="FrameworkStructure"></a>
 
 ## Serverless Framework #
-
-0. Create a folder to hold serverless projects. I like:
-
-   <pre><strong>
-   ~/gits/sls
-   </strong></pre>
 
 The serverless framework save developers' time by standarizing the structure of folders and files.
 
@@ -170,35 +211,73 @@ function1            // A custom function
 
 This set of project file is what developers work with.
 
-The serverless framework that ead and process project files
+The serverless framework that read and process project files
 is written in Node JavaScript.
 
-A key differentiator with the Serverless Framework is that infrastructure is defined as code in one project. 
+A key differentiator with the Serverless Framework is that infrastructure is defined as code in one project.
 
 Components are deployed per stage, allowing developers to easily deploy separate prod, test and dev environments.
 
-Within the folder for each function is a <strong>s-function.json</strong> file containing metadata.
+Within the folder for each function is a <strong>s-function.json</strong> file containing metadata such as <a href="#Plugins">plugins</a> installed with the project.
 
 When the framework is created for a project, a <strong>.gitignore</strong> file is created with other files
 to specify private and temporary work files that should not be publicly uploaded to GitHub.
 
-Project metadata in file 
-<strong>_meta</strong> outputs and user variables used in function configurations. 
+Project metadata in file
+<strong>_meta</strong> outputs and user variables used in function configurations.
 But due to the sensitive nature of these variables, the file needs to be gitignore'd by default.
-A workaround is to use the 
-Serverless Meta Sync plugin 
-which stores project metadata in S3. 
+A workaround is to use the
+Serverless Meta Sync plugin
+which stores project metadata in S3.
 
-<strong>s-resources-cf.json</strong> is a AWS CloudFormation template 
+<strong>s-resources-cf.json</strong> is a AWS CloudFormation template
 specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs.
 
 <strong>admin.env<strong>
 
+<a name="Plugins"></a>
 
-## Sample apps #
+## Plugins #
 
-https://github.com/microapps/MoonMail
-from http://microapps.com/
+The heart of Serverless are its Plugins.
+Default Plugins come with the Framework.
+Others you can add to improve/help your workflow:
+
+0. List plugins installed.
+
+   <pre><strong>
+   ???
+   </strong></pre>
+
+0. Install others:
+
+   <pre><strong>
+   npm install serverless-meta-sync --save
+   </strong></pre>
+
+   PROTIP: Plugins need to be installed for each project that uses each.
+
+
+* [Meta Sync](https://github.com/serverless/serverless-meta-sync) - Securely sync your the variables in your project's `_meta/variables` across your team.
+* [Offline](https://github.com/dherault/serverless-offline) - Emulate AWS Lambda and Api Gateway locally to speed up your development cycles.
+* [Hook Scripts](https://github.com/kennu/serverless-plugin-hookscripts) - Easily create shell script hooks that are run whenever Serverless actions are executed.
+* [CORS](https://github.com/joostfarla/serverless-cors-plugin) - Adds support for CORS (Cross-origin resource sharing).
+* [Serve](https://github.com/Nopik/serverless-serve) - Simulate API Gateway locally, so all function calls can be run via localhost.
+* [Webpack](https://github.com/asprouse/serverless-webpack-plugin) - Use Webpack to optimize your Serverless Node.js Functions.
+* [Serverless Client](https://github.com/serverless/serverless-client-s3) - Deploy and config a web client for your Serverless project to S3.
+* [Alerting](https://github.com/martinlindenberg/serverless-plugin-alerting) - This Plugin adds Cloudwatch Alarms with SNS notifications for your Lambda functions.
+* [Optimizer](https://github.com/serverless/serverless-optimizer-plugin) - Optimizes your code for performance in Lambda. Supports coffeeify, babelify and other transforms
+* [CloudFormation Validator](https://github.com/tmilewski/serverless-resources-validation-plugin) - Adds support for validating your CloudFormation template.
+* [Prune](https://github.com/Nopik/serverless-lambda-prune-plugin) - Delete old versions of AWS lambdas from your account so that you don't exceed the code storage limit.
+* [Base-Path](https://github.com/daffinity/serverless-base-path-plugin) - Sets a base path for all API Gateway endpoints in a Component.
+* [Test](https://github.com/arabold/serverless-test-plugin) - A Simple Integration Test Framework for Serverless.
+* [SNS Subscribe](https://github.com/martinlindenberg/serverless-plugin-sns) - This plugin easily subscribes your lambda functions to SNS notifications.
+* [JSHint](https://github.com/joostfarla/serverless-jshint-plugin) - Detect errors and potential problems in your Lambda functions.
+* [ESLint](https://github.com/nishantjain91/serverless-eslint-plugin) - Detect errors and potential problems in your Lambda functions using eslint.
+* [Mocha](https://github.com/SC5/serverless-mocha-plugin) - Enable test driven development by creating test cases when creating new functions
+* [Function-Package](https://github.com/HyperBrain/serverless-package-plugin) - Package your lambdas without deploying to AWS.
+* [Sentry](https://github.com/arabold/serverless-sentry-plugin) - Automatically send errors and exceptions to [Sentry](https://getsentry.com).
+* [Auto-Prune](https://github.com/arabold/serverless-autoprune-plugin) - Delete old AWS Lambda versions.
 
 ## Serverless Command-line #
 
@@ -214,7 +293,7 @@ http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
 
 ## Get Permissions #
 
-Since 
+Since
 
 aws-lambda-node-js-programming
 
@@ -223,10 +302,17 @@ http://stackoverflow.com/questions/37779324/how-to-troubleshoot-serverless-iam-p
 
 ## Resources #
 
-Phillip muens (@pmmuens, github.com/pmuens)
-has an informative blog at
-<a target="_blank" href="http://justserverless.com/blog/">
-JustServerless.com</a>
+<a name="PhillipMuens"></a>
+Phillip muens (@pmmuens, github.com/pmuens) from Germany
+
+   * Has an informative blog at
+   <a target="_blank" href="http://justserverless.com/blog/">
+   JustServerless.com</a>
+
+   * <a target="_blank" href="https://github.com/JustServerless/awesome-serverless">Awesome list</a>
+
+   * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
+   $28.13 Learn Serverless ebook</a> (5.7 MB in 5 PDFs).
 
    * http://justserverless.com/blog/your-first-serverless-application/
 
@@ -243,12 +329,12 @@ by Jake Knowles
 
 <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
 Serverless Framework: The Good Parts</a>
-by John McKim 
+by John McKim
 @johncmckim  
 
 ## Future topics #
 
-handlers that compress or transform objects as they are uploaded to Amazon S3, 
+handlers that compress or transform objects as they are uploaded to Amazon S3,
 
 
 ## More on Serverless #
