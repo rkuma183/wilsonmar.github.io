@@ -24,18 +24,23 @@ Andrew Baird</a>, AWS Solutions Architect,
 listed all the questions that developers DON'T have to graple with
 in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
 
-   "There are tools and entire industries whose entire value proposition are about answering just one of these."
+> "There are tools and entire industries whose entire value proposition are about answering just one of these."
 
-
-The name "serverless" has been co-opted by enprepreneur 
+The name "serverless" has been adopted by enprepreneur 
 <a target="_blank" href="https://twitter.com/austencollins">
 @austencollins</a>
-who started the Serverless company.
+who built the 
+<a target="_blank" https://serverless.com/">
+Serverless company</a>
+around its open-source
+<a target="_blank" https://github.com/serverless/serverless-framework">
+serverless framework on GitHub</a>,
+
 Social media around the company and its repos on GitHub.
 
-   * <a target="_blank" href="https://github.com/serverless.io/">
-   github.com/serverless</a> account's repos.
-   * <a target="_blank" href="https://github.com/serverless.io/">
+   * <a target="_blank" href="https://github.com/serverless/serverless">
+   serverless-framework</a>
+   * <a target="_blank" href="http://docs.serverless.com/v0.5.0/docs">
    Docs on serverless</a>
    * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
    $99 Learn Serverless book</a>
@@ -48,25 +53,119 @@ Social media around the company and its repos on GitHub.
    * <a target="_blank" href="https://twitter.com/search?q=goserverless&src=typd">
     @GoServerless</a> Twitter account
 
+
+## Serverless framework install #
+
+0. [Install Node.js](/node-osx-install/)
+   as a pre-requisite since the framework is written in Node.js.
+
+0. Install the serverless-framework 
+
+   <pre><strong>
+   npm install -g serverless
+   </strong></pre>
+
+0. Verify version:
+
+   <pre><strong>
+   serverless -v
+   </strong></pre>
+
+   NOTE: Serverless was in Beta version 0.5.6 as of June 2016.
+
+<a id="UpdateFramework"></a>
+
+## Update Serverless #
+
+   <pre><strong>
+   npm update -g serverless
+   </strong></pre>
+
+   Nothing returns if you're up-to-date.
+
+0. Get summary of commands:
+
+   <pre><strong>
+   sls
+   </strong></pre>
+
+   <pre>
+ _______                             __
+|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
+|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
+|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|
+|   |   |             The Serverless Application Framework
+|       |                           serverless.com, v0.5.6
+`-------'
+
+Commands
+* Serverless documentation: http://docs.serverless.com
+* You can run commands with "serverless" or the shortcut "sls"
+* Pass "--help" after any &LT;context> &LT;action> for contextual help
+* Add "--debug" to any command for extra useful logs
+
+project ........ create, init, install, remove
+function ....... create, deploy, logs, remove, rollback, run
+endpoint ....... deploy, remove
+event .......... deploy, remove
+dash ........... deploy, summary
+stage .......... create, remove
+region ......... create, remove
+resources ...... deploy, diff, remove
+plugin ......... create
+variables ...... list, set, unset
+   </pre>
+
+
+0. Verify:
+
+   <pre><strong>
+   which serverless
+   </strong></pre>
+
+   <pre>
+   /Users/mac/.npm-packages/bin/serverless
+   </pre>
+
+0. List framework folders and files:
+
+   <pre><strong>
+   cd ~/.npm-packages/bin/serverless
+   </strong></pre>
+
+
+
+
 <a name="FrameworkStructure"></a>
 
-## Framework Structure #
+## Serverless Framework #
+
+0. Create a folder to hold a serverless project. I like:
+
+   <pre><strong>
+   ~/
+   </strong></pre>
+
+0. 
 
 The serverless framework save developers' time by standarizing the structure of folders and files.
 
    <pre>
-s-project.json // Project file (JSON or YAML)
+s-project.json       // Project file (JSON or YAML)
 s-resources-cf.json  // CloudFormation template
-s-templates.json // Config templates and variables
-admin.env        // AWS Profiles (gitignored)
-_meta            // Metadata (gitignored)
-function1        // A function
+s-templates.json     // Config templates and variables
+admin.env            // AWS Profiles (gitignored)
+_meta                // Metadata (gitignored)
+function1            // A custom function
   |__event.json
   |__handler.js
   |__s-function.json
    </pre>
 
-The serverless framework provides the Node.js coding to read these files.
+This set of project file is what developers work with.
+
+The serverless framework that ead and process project files
+is written in Node JavaScript.
 
 A key differentiator with the Serverless Framework is that infrastructure is defined as code in one project. 
 
@@ -74,13 +173,31 @@ Components are deployed per stage, allowing developers to easily deploy separate
 
 Within the folder for each function is a <strong>s-function.json</strong> file containing metadata.
 
-When the framework is created for a project, a .gitignore file is created with other files
+When the framework is created for a project, a <strong>.gitignore</strong> file is created with other files
 to specify private and temporary work files that should not be publicly uploaded to GitHub.
 
-The project metadata contains CloudFormation outputs and user variables. These are used in the function configurations. However, due to the sensitive nature of these variables, the metadata is gitignored by default.
+Project metadata in file 
+<strong>_meta</strong> outputs and user variables used in function configurations. 
+But due to the sensitive nature of these variables, the file needs to be gitignore'd by default.
+A workaround is to use the 
+Serverless Meta Sync plugin 
+which stores project metadata in S3. 
 
-The Serverless Meta Sync plugin can help with this by storing a project’s metadata in S3. 
-However, this is not mentioned in the Serverless docs leaving many people confused.
+<strong>s-resources-cf.json</strong> file specifying
+
+<strong>admin.env<strong>
+
+
+
+## Serverless Command-line #
+
+Lambda functions can be defined from a command-line using the Serverless framework.
+
+AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
+   <amp-youtube data-videoid="fXZzVzptkeo" layout="responsive" width="480" height="270"></amp-youtube>
+
+http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
+
 
 <a id="IAM"></a>
 
@@ -93,37 +210,34 @@ aws-lambda-node-js-programming
 
 http://stackoverflow.com/questions/37779324/how-to-troubleshoot-serverless-iam-permissions
 
+## Resources #
 
+Phillip muens (@pmmuens, github.com/pmuens)
+has an informative blog at
+<a target="_blank" href="http://justserverless.com/blog/">
+JustServerless.com</a>
 
-## Serverless Command-line #
+   * http://justserverless.com/blog/your-first-serverless-application/
 
-Lambda functions can be defined from a command-line using the Serverless framework (formerly JAWS).
+   * <a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
+   Nanoservices</a>
 
-https://www.youtube.com/watch?v=fXZzVzptkeo
-AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
+<a target="_blank" href="https://www.amazon.com/AWS-Lambda-Guide-Serverless-Microservices-ebook/dp/B016JOMAEE/">
+AWS Lambda: A Guide to Serverless Microservices</a>
+$3.99 by Matthew Fuller
 
-http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
-
-Install serverless-framework 
-
-   npm install -g serverless
-
-Austen Collins created the Serverless Framework
-
-http://justserverless.com/blog/your-first-serverless-application/
-
-
-<a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
-Phillip muens (@pmmuens)
-github.com/pmuens
-
-handlers that compress or transform objects as they are uploaded to Amazon S3, 
+AWS Lambda: Serverless Microservices Guide with Simple Instructions
+by Jake Knowles
 
 
 <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
 Serverless Framework: The Good Parts</a>
 by John McKim 
 @johncmckim  
+
+## Future topics #
+
+handlers that compress or transform objects as they are uploaded to Amazon S3, 
 
 
 ## More on Serverless #

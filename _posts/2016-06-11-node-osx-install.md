@@ -560,6 +560,12 @@ To install it we reference its npm package on npm.org:
 
 0. When you're done, run `npm uninstall learnyounode`.
 
+## Resources #
+
+<a target="_blank" href="https://iojs.org/">
+iojs.org</a>
+is a forke of Node.js by several core committers frustrated by Joyant.
+It's Go language.
 
 
 ## More on OSX #
