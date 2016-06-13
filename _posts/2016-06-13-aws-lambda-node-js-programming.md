@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "AWS Lambda Serverless"
+title: "AWS Lambda Node JavaScript Programming"
 excerpt: "JavaScript for the masses"
-tags: [node, javascript, apple, mac, setup]
+tags: [aws, lambda, node, javascript, programming]
 image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
@@ -15,12 +15,13 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial provides a deep dive into creating and using Node.js functions in AWS Lambda.
+This tutorial provides a deep dive into coding and debugging Node JavaScript functions in AWS Lambda.
 This is a hands-on guided tour. 
 Take one step at a time and we point out PROTIPs and notes along the way.
 
 Topics:
 
+* ES5 vs ES6 "fatties" and functional programming constructs?
 * provided libraries ('aws-sdk')
 * custom libraries
 
@@ -58,9 +59,11 @@ exports.handler = function(event, contect){
 https://aws.amazon.com/blogs/compute/nodejs-packages-in-lambda/
 
 
-https://www.topcoder.com/blog/amazon-lambda-demo-tutorial/#!
-29 Jan. 2015
-by Jeff Douglas
+## GitHub #
+
+<a target="_blank" href="https://www.topcoder.com/blog/amazon-lambda-demo-tutorial/#!">
+A blog dated 29 Jan. 2015</a> 
+by Jeff Douglas provides this code:
 
    <pre>
 var githubapi = require("github"),
@@ -201,3 +204,11 @@ exports.handler = function(event, context) {
   });
 };
    </pre>
+
+
+
+## More on Serverless #
+
+This is one of a series on Serverless computing
+
+{% include serverless_links.html %}
