@@ -6,8 +6,8 @@ tags: [AWS, EC2, lambda, cloud]
 image:
 # feature: pic data center slice 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
-  credit: 
-  creditlink: 
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,7 +16,7 @@ comments: true
 {% include _toc.html %}
 
 This tutorial provides a deep dive into creating and using AWS Lambda.
-This is a hands-on guided tour. 
+This is a hands-on guided tour.
 Take one step at a time and we point out PROTIPs and notes along the way.
 
 0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
@@ -57,10 +57,10 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    No worries about achieving massive scale.
    Addition of enough machines to handle load are taken care of by Amazon people behind the scenes.
 
-   BTW, if you're worried about vendor lock-in, 
+   BTW, if you're worried about vendor lock-in,
    know that Amazon is not the only ones who can run lambdas.
    <a target="_blank" href="https://www.iron.io/platform/ironworker/">
-   IronWorker from Iron.io</a> and 
+   IronWorker from Iron.io</a> and
    Serverless
    can run Lambas on your own servers.
 
@@ -77,10 +77,10 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    It says the first million requests are free. That's 20 cents you'll save each month.
 
-   For now, the first 400,000 GB-seconds (x 1024 = 409,600,000 MB-seconds) are free. 
+   For now, the first 400,000 GB-seconds (x 1024 = 409,600,000 MB-seconds) are free.
 
    <a target="_blank" href="https://www.twitter.com/lambdatips/">
-   @lambdatips</a>: 
+   @lambdatips</a>:
    If you run only 128 MB Lambdas, you can make one request every 1.23 seconds during a 30-day month, for free.
    (409,600,000 / 128 = 3,200,000 / 30 days / 24 hours / 60 minutes / 60 seconds = 1.23 )
 
@@ -94,7 +94,7 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 ## Why? #
 
 <a target="_blank" href="https://www.linkedin.com/in/andrew-baird-2bb7324a">
-Andrew Baird</a>, AWS Solutions Architect, 
+Andrew Baird</a>, AWS Solutions Architect,
 <a target="_blank" href="https://www.youtube.com/watch?v=O2GQRC0sVA8&t=5m22s">
 listed all the questions that developers DON'T have to graple with
 in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
@@ -148,8 +148,8 @@ There are several ways to get programming code into AWS Lambda:
 
 0. Click on the name “Hello World” Node.js function.
 
-   Amazon calls Lambda a "compute service" because programmers write code as discrete API 
-   handler functions responding to 
+   Amazon calls Lambda a "compute service" because programmers write code as discrete API
+   handler functions responding to
    <strong>events</strong> such as an image being uploaded into S3.
 
    <pre>
@@ -169,7 +169,7 @@ There are several ways to get programming code into AWS Lambda:
    NOTE: The callback function is like a return statement.
    The callback value is the JSON file <strong>returned</strong> after asynchronous execution.
 
-   Additional observations about programming is at 
+   Additional observations about programming is at
    [AWS Lambda Node JavaScript Programming](/aws-lambda-node-js-programming/).
 
 0. PROTIP: Construct a function name with more metadata, like this example:
@@ -240,6 +240,8 @@ There are several ways to get programming code into AWS Lambda:
    Memory used to hold input and output data is included in the memory used.
    Uncertainties about the size of data used require a larger allocation.
 
+   1,536 MB is the current maximum.
+
    #### Timeout #
 
    The longest is <strong>5 minutes</strong>.
@@ -298,7 +300,7 @@ There are several ways to get programming code into AWS Lambda:
 0. Return to the “Input test event” dialog by selecting from the <strong>Actions</strong>
    dropdown “Configure test event”.
 
-0. Click <strong>Save and test</strong> to exit the modal dialog and 
+0. Click <strong>Save and test</strong> to exit the modal dialog and
    run the function.
 
 
@@ -314,7 +316,7 @@ callback(null, event.key1);  // Echo back the first key value
 
    Variable `event.key1` in the script refers to “key1” and its value “value1” in the JSON file above.
 
-   Notice that output from the initial `console.log('Loading function');` 
+   Notice that output from the initial `console.log('Loading function');`
    does not appear in the run Log Output.
 
    ### CloudWatch Logs #
@@ -376,11 +378,11 @@ callback(null, event.key1);  // Echo back the first key value
 This is an example of a "push" model where Lambda is triggered by an event external to it.
 
 The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
-   Introduction to AWS Lambda course in qwiklabs.com</a> 
-   provides step-by-step instruction on creating an Lambda Event Source triggered 
+   Introduction to AWS Lambda course in qwiklabs.com</a>
+   provides step-by-step instruction on creating an Lambda Event Source triggered
    by an upload to S3 bucket.
 
-0. Open another tab on your browser to create a bucket in 
+0. Open another tab on your browser to create a bucket in
    <a target="_blank" href="https://console.aws.amazon.com/s3/home?region=us-west-2#">
    S3</a> with a name such as "lambdabkt001".
 
@@ -408,7 +410,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
    COOL: With Lambda developers don't need to provision servers and install and update JVM run-time software.
    Servers accepting Lambda requests are Node JS, Python, and JVM run-times that run Lambda functions.
-   
+
 0. If you want to use, for example, blueprint "s3-get-object",
    type "s3" in the Filter field to select a <strong>blueprint</strong> (sample configurations of event sources and Lambda functions).
 
@@ -446,7 +448,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    Alternately:
 
    * If you selected <strong>Edit code inline</strong>, paste code copied from a Gist or GitHub.
-   * If you selected Upload a ZIP file, navigate to the file on your machine. 
+   * If you selected Upload a ZIP file, navigate to the file on your machine.
 
      WARNING: Each upload is limited to under 50 MB (compressed), 10 MB in uploads.
 
@@ -652,12 +654,12 @@ The full programming model for the lambdas consists of:
 
 * Handlers
 * Context Objects
-* Logging 
+* Logging
 * Exceptions
 
 See http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html
 
-Individual Lambdas cannot hold state because they are brought up and down and replicated as needed. 
+Individual Lambdas cannot hold state because they are brought up and down and replicated as needed.
 Persistent state should be stored in a service that is outside the lifecycle of the lambda such as Amazon DynamoDB, S3 etc.
 
 Lambdas save and retrieve persistent data (state) in a service outside the lifecycle of the lambda,
@@ -666,7 +668,7 @@ such as Amazon DynamoDB, S3 etc.
 ## Setup #
 
 http://docs.aws.amazon.com/lambda/latest/dg/setup.html
-Setup an AWS Command-line Interface 
+Setup an AWS Command-line Interface
 
 ## Python program #
 
@@ -682,7 +684,7 @@ The most basic lambda in Java:
    <pre>
 package example;
 
-import com.amazonaws.services.lambda.runtime.Context; 
+import com.amazonaws.services.lambda.runtime.Context;
 
 public class Hello {
     public String lambdaHandler(String event, Context context) {
@@ -699,7 +701,7 @@ Lambdas can be invoked from a command-line window or shell script.
 This example provides an input.txt file containing JSON text:
 
    <tt>
-   aws lambda invoke-async \-\-function-name learn1-hello-world1-node43-v01 
+   aws lambda invoke-async \-\-function-name learn1-hello-world1-node43-v01
    \-\-region us-west-2 \-\-invoke-args input.txt \-\-profile adminuser
    </tt>
 
@@ -712,7 +714,7 @@ This example provides an input.txt file containing JSON text:
    </tt>
 
 ### CloudWatch Command-line Tool #
-   
+
 NOTE: CloudFront logs can also be read using command-line tool
 <a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
 
@@ -761,17 +763,17 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 * https://www.npmjs.com/package/vandium
    Vandium AWS Lambda wrapper for Node.js
 
-Justin Yoo Readify ‏@readify 
+Justin Yoo Readify ‏@readify
 
 http://www.rightbrainnetworks.com/blog/aws-lambda-tutorial-playing-math-games-lambda/
 May 24 2016
 AWS LAMBDA TUTORIAL: PLAYING MATH GAMES WITH LAMBDA
-by  David Barnett 
+by  David Barnett
     Visualizing the Mandelbrot sets
      Playing Monte Carlo simulations
      Visualizing Apache Spark and Databricks
 
-Public repos in GitHub 
+Public repos in GitHub
 
    * <a target="_blank" href="https://github.com/Netflix/bless">
      BLESS from Netflix</a> is an SSH Certificate Authority that runs as a AWS Lambda function in an isolated AWS account with restricted IAM roles
@@ -781,15 +783,15 @@ Public repos in GitHub
    mentions ImageMagick for processing image files.
 
 * The <a target="_blank" href="https://www.w3.org/TR/REC-html40/sgml/entities.html">
-HTML 4 character entity references</a> for the Greek capital and small letter lambda are "&#923;" and "&#955;". 
+HTML 4 character entity references</a> for the Greek capital and small letter lambda are "&#923;" and "&#955;".
 * The Unicode numbers for lambda are U+039B and U+03BB.
 
 ## Rock Stars #
 
-* Tim Wagner, General Manager of AWS Lambda at Amazon, 
+* Tim Wagner, General Manager of AWS Lambda at Amazon,
    Apr 10, 2015:
    <amp-youtube data-videoid="copO_JQQsBs" layout="responsive" width="480" height="270"></amp-youtube>
-  
+
   Lambda was launched publicly November, 2015.
   Can run 100 Lambdas at the same time by default.
   Added Sychronous (Request/Response).

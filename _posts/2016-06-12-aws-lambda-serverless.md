@@ -169,7 +169,7 @@ variables ...... list, set, unset
    ~/gits/sls
    </strong></pre>
 
-0. Pick a sample project from  https://github.com:
+0. Pick a sample project from https://github.com:
 
    *  [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
 
@@ -189,7 +189,6 @@ variables ...... list, set, unset
    <pre><strong>
    serverless project install project-name
    </strong></pre>
-
 
 <a name="FrameworkStructure"></a>
 
@@ -240,44 +239,63 @@ specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs
 ## Plugins #
 
 The heart of Serverless are its Plugins.
-Default Plugins come with the Framework.
-Others you can add to improve/help your workflow:
+Several plugins come with the Framework.
+
+PROTIP: Plugins need to be installed for each project that uses each.
 
 0. List plugins installed.
 
    <pre><strong>
-   ???
+   ls _meta/
    </strong></pre>
 
-0. Install others:
+0. Install others from the root of your project:
 
    <pre><strong>
-   npm install serverless-meta-sync --save
+   npm install serverless-offline --save
    </strong></pre>
 
-   PROTIP: Plugins need to be installed for each project that uses each.
+Plugins are downloaded from GitHub:
 
+* [serverless/serverless-meta-sync](https://github.com/serverless/serverless-meta-sync) - Securely sync your the variables in your project's `_meta/variables` across your team.
 
-* [Meta Sync](https://github.com/serverless/serverless-meta-sync) - Securely sync your the variables in your project's `_meta/variables` across your team.
-* [Offline](https://github.com/dherault/serverless-offline) - Emulate AWS Lambda and Api Gateway locally to speed up your development cycles.
-* [Hook Scripts](https://github.com/kennu/serverless-plugin-hookscripts) - Easily create shell script hooks that are run whenever Serverless actions are executed.
-* [CORS](https://github.com/joostfarla/serverless-cors-plugin) - Adds support for CORS (Cross-origin resource sharing).
-* [Serve](https://github.com/Nopik/serverless-serve) - Simulate API Gateway locally, so all function calls can be run via localhost.
-* [Webpack](https://github.com/asprouse/serverless-webpack-plugin) - Use Webpack to optimize your Serverless Node.js Functions.
-* [Serverless Client](https://github.com/serverless/serverless-client-s3) - Deploy and config a web client for your Serverless project to S3.
-* [Alerting](https://github.com/martinlindenberg/serverless-plugin-alerting) - This Plugin adds Cloudwatch Alarms with SNS notifications for your Lambda functions.
-* [Optimizer](https://github.com/serverless/serverless-optimizer-plugin) - Optimizes your code for performance in Lambda. Supports coffeeify, babelify and other transforms
-* [CloudFormation Validator](https://github.com/tmilewski/serverless-resources-validation-plugin) - Adds support for validating your CloudFormation template.
-* [Prune](https://github.com/Nopik/serverless-lambda-prune-plugin) - Delete old versions of AWS lambdas from your account so that you don't exceed the code storage limit.
-* [Base-Path](https://github.com/daffinity/serverless-base-path-plugin) - Sets a base path for all API Gateway endpoints in a Component.
-* [Test](https://github.com/arabold/serverless-test-plugin) - A Simple Integration Test Framework for Serverless.
-* [SNS Subscribe](https://github.com/martinlindenberg/serverless-plugin-sns) - This plugin easily subscribes your lambda functions to SNS notifications.
-* [JSHint](https://github.com/joostfarla/serverless-jshint-plugin) - Detect errors and potential problems in your Lambda functions.
-* [ESLint](https://github.com/nishantjain91/serverless-eslint-plugin) - Detect errors and potential problems in your Lambda functions using eslint.
-* [Mocha](https://github.com/SC5/serverless-mocha-plugin) - Enable test driven development by creating test cases when creating new functions
-* [Function-Package](https://github.com/HyperBrain/serverless-package-plugin) - Package your lambdas without deploying to AWS.
-* [Sentry](https://github.com/arabold/serverless-sentry-plugin) - Automatically send errors and exceptions to [Sentry](https://getsentry.com).
-* [Auto-Prune](https://github.com/arabold/serverless-autoprune-plugin) - Delete old AWS Lambda versions.
+* [dherault/serverless-offline](https://github.com/dherault/serverless-offline) - Emulate AWS Lambda and Api Gateway locally to speed up your development cycles.
+
+* [kennu/serverless-plugin-hookscripts](https://github.com/kennu/serverless-plugin-hookscripts) - Easily create shell script hooks that are run whenever Serverless actions are executed.
+
+* [joostfarla/serverless-cors-plugin](https://github.com/joostfarla/serverless-cors-plugin) - Adds support for CORS (Cross-origin resource sharing).
+
+* [Nopik/serverless-serve](https://github.com/Nopik/serverless-serve) - Simulate API Gateway locally, so all function calls can be run via localhost.
+
+* [asprouse/serverless-webpack-plugin](https://github.com/asprouse/serverless-webpack-plugin) - Use Webpack to optimize your Serverless Node.js Functions.
+
+* [serverless/serverless-client-s3](https://github.com/serverless/serverless-client-s3) - Deploy and config a web client for your Serverless project to S3.
+* [martinlindenberg/serverless-plugin-alerting](https://github.com/martinlindenberg/serverless-plugin-alerting) - This Plugin adds Cloudwatch Alarms with SNS notifications for your Lambda functions.
+
+* [serverless/serverless-optimizer-plugin](https://github.com/serverless/serverless-optimizer-plugin) - Optimizes your code for performance in Lambda. Supports coffeeify, babelify and other transforms
+
+* [tmilewski/serverless-resources-validation-plugin](https://github.com/tmilewski/serverless-resources-validation-plugin) - Adds support for validating your CloudFormation template.
+
+* [Nopik/serverless-lambda-prune-plugin](https://github.com/Nopik/serverless-lambda-prune-plugin) - Delete old versions of AWS lambdas from your account so that you don't exceed the code storage limit.
+
+* [daffinity/serverless-base-path-plugin](https://github.com/daffinity/serverless-base-path-plugin) - Sets a base path for all API Gateway endpoints in a Component.
+
+* [arabold/serverless-test-plugin](https://github.com/arabold/serverless-test-plugin) - A Simple Integration Test Framework for Serverless.
+
+* [martinlindenberg/serverless-plugin-sns](https://github.com/martinlindenberg/serverless-plugin-sns) - This plugin easily subscribes your lambda functions to SNS notifications.
+
+* [joostfarla/serverless-jshint-plugin](https://github.com/joostfarla/serverless-jshint-plugin) - Detect errors and potential problems in your Lambda functions.
+
+* [nishantjain91/serverless-eslint-plugin](https://github.com/nishantjain91/serverless-eslint-plugin) - Detect errors and potential problems in your Lambda functions using eslint.
+
+* [SC5/serverless-mocha-plugin](https://github.com/SC5/serverless-mocha-plugin) - Enable test driven development by creating test cases when creating new functions
+
+* [HyperBrain/serverless-package-plugin](https://github.com/HyperBrain/serverless-package-plugin) - Package your lambdas without deploying to AWS.
+
+* [arabold/serverless-sentry-plugin](https://github.com/arabold/serverless-sentry-plugin) - Automatically send errors and exceptions to [Sentry](https://getsentry.com).
+
+* [arabold/serverless-autoprune-plugin](https://github.com/arabold/serverless-autoprune-plugin) - Delete old AWS Lambda versions.
+
 
 ## Serverless Command-line #
 
@@ -303,38 +321,42 @@ http://stackoverflow.com/questions/37779324/how-to-troubleshoot-serverless-iam-p
 ## Resources #
 
 <a name="PhillipMuens"></a>
-Phillip muens (@pmmuens, github.com/pmuens) from Germany
+Phillip Muens (@pmmuens, github.com/pmuens) from Germany
 
    * Has an informative blog at
    <a target="_blank" href="http://justserverless.com/blog/">
    JustServerless.com</a>
 
-   * <a target="_blank" href="https://github.com/JustServerless/awesome-serverless">Awesome list</a>
-
-   * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
-   $28.13 Learn Serverless ebook</a> (5.7 MB in 5 PDFs).
-
    * http://justserverless.com/blog/your-first-serverless-application/
 
-   * <a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
-   Nanoservices</a>
+   * <a target="_blank" href="https://github.com/JustServerless/awesome-serverless">Awesome list</a>
 
-<a target="_blank" href="https://www.amazon.com/AWS-Lambda-Guide-Serverless-Microservices-ebook/dp/B016JOMAEE/">
-AWS Lambda: A Guide to Serverless Microservices</a>
-$3.99 by Matthew Fuller
+    * <a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
+    Nanoservices</a>
 
-AWS Lambda: Serverless Microservices Guide with Simple Instructions
-by Jake Knowles
+   * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
+   $28.13 Learn Serverless ebook</a> (5.7 MB in 5 PDFs),
+   <a target="_blank" href="https://github.com/JustServerless/notes">
+   github.com/JustServerless/notes</a>
 
+Matthew Fuller
 
-<a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
-Serverless Framework: The Good Parts</a>
-by John McKim
-@johncmckim  
+   * <a target="_blank" href="https://www.amazon.com/AWS-Lambda-Guide-Serverless-Microservices-ebook/dp/B016JOMAEE/">
+   AWS Lambda: A Guide to Serverless Microservices</a>
+   $3.99
+
+Jake Knowles
+
+ * AWS Lambda: Serverless Microservices Guide with Simple Instructions
+
+John McKim  @johncmckim  blogs on Medium:
+
+   * <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
+   Serverless Framework: The Good Parts</a>
 
 ## Future topics #
 
-handlers that compress or transform objects as they are uploaded to Amazon S3,
+handlers that compress or transform objects while being uploaded to Amazon S3.
 
 
 ## More on Serverless #
