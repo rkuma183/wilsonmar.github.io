@@ -51,8 +51,8 @@ Social media around the company and its repos on GitHub.
    * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
    $99 Learn Serverless book</a>
 
-   * <a target="_blank" href="https://www.serverless.io/">
-   serverless.io</a> is the home page.
+   * <a target="_blank" href="https://www.serverless.com/">
+   serverless.com</a> is the company's home page.
    * <a target="_blank" href="https://gitter.im/serverless/serverless">
    gitter.im/serverless/serverless</a> for instant chatting
    * <a target="_blank" href="http://serverlessconf.io/">serverlessconf.io</a> conferences
@@ -105,13 +105,13 @@ Social media around the company and its repos on GitHub.
 |   |   |             The Serverless Application Framework
 |       |                           serverless.com, v0.5.6
 `-------'
-
+.
 Commands
 * Serverless documentation: http://docs.serverless.com
 * You can run commands with "serverless" or the shortcut "sls"
 * Pass "--help" after any &LT;context> &LT;action> for contextual help
 * Add "--debug" to any command for extra useful logs
-
+&nbsp;
 project ........ create, init, install, remove
 function ....... create, deploy, logs, remove, rollback, run
 endpoint ....... deploy, remove
