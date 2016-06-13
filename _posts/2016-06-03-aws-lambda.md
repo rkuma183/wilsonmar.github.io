@@ -22,7 +22,17 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
    http://aws.amazon.com</a>
 
-0. Click Sign In to the Console.
+   BTW, competitors to AWS Lambda  include:
+
+   * <a target="_blank" href="https://azure.microsoft.com/en-us/services/functions/">
+   Microsoft Azure Functions</a>
+
+   * <a target="_blank" href="https://cloud.google.com/functions/">
+   Google Cloud Functions</a>
+
+   TODO: I hope to have a competitive comparison in the future.
+
+0. Click <strong>Sign In</strong> to the AWS Lambda Console.
 
    <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
    https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
@@ -146,7 +156,7 @@ There are several ways to get programming code into AWS Lambda:
    The callback value is the JSON file <strong>returned</strong> after asynchronous execution.
 
    Additional observations about programming is at 
-   [AWS Lambda Node Programming](/aws-lambda-node-js-programming/).
+   [AWS Lambda Node JavaScript Programming](/aws-lambda-node-js-programming/).
 
 0. PROTIP: Construct a function name with more metadata, like this example:
 
@@ -322,7 +332,7 @@ callback(null, event.key1);  // Echo back the first key value
 
    #### Log stream items #
 
-0. Click on a log stream item.  Notice the "'"Loading function" there.
+0. Click on a log stream item.  Notice the "Loading function" there.
 
 0. Click on the Lambda Management Console to return.
 
@@ -588,35 +598,6 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
    https://tsdwtdl0r1.execute-api.us-west-2.amazonaws.com/prod/faq
 
-## Serverless Command-line #
-
-Lambda functions can be defined from a command-line using the Serverless framework (formerly JAWS).
-
-https://www.youtube.com/watch?v=fXZzVzptkeo
-AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
-
-http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
-
-Install serverless-framework 
-
-   npm install -g serverless
-
-Austen Collins created the Serverless Framework
-
-http://justserverless.com/blog/your-first-serverless-application/
-
-http://serverlessconf.io/
-
-http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/
-Phillip muens
-@pmmuens
-github.com/pmuens
-https://gumroad.com/l/learn-serverless-book
-
-handlers that compress or transform objects as they are uploaded to Amazon S3, 
-
-https://gitter.im/serverless/serverless
-
 
 ## Dynamo DB Pull #
 
@@ -735,7 +716,6 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
 \#AWSLamba is the Twitter tag.
 
-\#GoServerless
 
 * http://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 
@@ -796,6 +776,7 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
 * http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/
+
 gif-to-mp4
 create-timelapse
 file-to-png
@@ -803,8 +784,9 @@ pngs-to-mp4
 mp4s-to-timelapse
 upload-to-vimeo
 
-## More on Amazon #
 
-This is one of a series on Amazon:
+## More on Serverless #
 
-{% include aws_links.html %}
+This is one of a series on Serverless computing
+
+{% include serverless_links.html %}
