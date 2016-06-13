@@ -7,7 +7,7 @@ image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
   credit: William McNaughton
-  creditlink: 
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,11 +16,12 @@ comments: true
 {% include _toc.html %}
 
 This tutorial provides a deep dive into coding and debugging Node JavaScript functions in AWS Lambda.
-This is a hands-on guided tour. 
+This is a hands-on guided tour.
 Take one step at a time and we point out PROTIPs and notes along the way.
 
 Topics:
 
+* Minimal Hello World
 * ES5 vs ES6 "fatties" and functional programming constructs?
 * provided libraries ('aws-sdk')
 * custom libraries
@@ -30,7 +31,24 @@ Topics:
 * Machine Learning
 * IoT
 
+<hr />
 
+## Minimal Hello World #
+
+## Context object #
+
+   <pre>
+   exports.handler = (event, context, callback) => {
+      console.log('Received event:', JSON.stringify(event, null, 2));
+      console.log("context.awsRequestId: "  + context.awsRequestId);
+      console.log("context.logGroupName: "  + context.logGroupName);
+      console.log("context.logStreamName: " + context.logStreamName);
+      console.log("context.identity: "      + context.identity);
+      console.log("context.functionName: "  + context.functionName);
+      callback(null, event.key1);  // Echo back the first key value
+   // callback('Something went wrong');
+   };
+      </pre>
 
 
    <pre>
@@ -62,7 +80,7 @@ https://aws.amazon.com/blogs/compute/nodejs-packages-in-lambda/
 ## GitHub #
 
 <a target="_blank" href="https://www.topcoder.com/blog/amazon-lambda-demo-tutorial/#!">
-A blog dated 29 Jan. 2015</a> 
+A blog dated 29 Jan. 2015</a>
 by Jeff Douglas provides this code:
 
    <pre>
@@ -73,7 +91,7 @@ var githubapi = require("github"),
 //
 // the 'handler' that lambda calls to execute our code
 exports.handler = function(event, context) {
-// 
+//
   // config the sdk with our credentials
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html
   AWS.config.loadFromPath('./config.json');

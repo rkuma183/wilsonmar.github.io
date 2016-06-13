@@ -210,14 +210,30 @@ function1            // A custom function
 
 This set of project file is what developers work with.
 
-The serverless framework that read and process project files
+The serverless framework programming which read and process project files
 is written in Node JavaScript.
 
-A key differentiator with the Serverless Framework is that infrastructure is defined as code in one project.
+The <strong>s-project.json</strong> lists plugins:
 
-Components are deployed per stage, allowing developers to easily deploy separate prod, test and dev environments.
+   <pre>
+{
+  "name": "notes",
+  "custom": {},
+  "plugins": [
+    "serverless-client-s3"
+  ]
+}
+   </pre>
 
-Within the folder for each function is a <strong>s-function.json</strong> file containing metadata such as <a href="#Plugins">plugins</a> installed with the project.
+A key differentiator with the Serverless Framework is that infrastructure specs are defined as code in one project.
+<strong>s-resources-cf.json</strong> is a AWS CloudFormation template
+specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs.
+
+Components are deployed per stage (dev, prod, etc.), 
+allowing developers to easily deploy separate prod, test and dev environments.
+
+Within the folder for each function is a <strong>s-function.json</strong>
+file containing metadata such as <a href="#Plugins">plugins</a> installed with the project.
 
 When the framework is created for a project, a <strong>.gitignore</strong> file is created with other files
 to specify private and temporary work files that should not be publicly uploaded to GitHub.
@@ -228,9 +244,6 @@ But due to the sensitive nature of these variables, the file needs to be gitigno
 A workaround is to use the
 Serverless Meta Sync plugin
 which stores project metadata in S3.
-
-<strong>s-resources-cf.json</strong> is a AWS CloudFormation template
-specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs.
 
 <strong>admin.env<strong>
 
@@ -249,15 +262,14 @@ PROTIP: Plugins need to be installed for each project that uses each.
    ls _meta/
    </strong></pre>
 
-0. Install others from the root of your project:
-
-   <pre><strong>
-   npm install serverless-offline --save
-   </strong></pre>
-
-Plugins are downloaded from GitHub:
+0. Navigate your active directory to the root of your project.
+0. Plugins are downloaded from GitHub by npm:
 
 * [serverless/serverless-meta-sync](https://github.com/serverless/serverless-meta-sync) - Securely sync your the variables in your project's `_meta/variables` across your team.
+
+     <pre><strong>
+     npm install serverless-offline --save
+     </strong></pre>
 
 * [dherault/serverless-offline](https://github.com/dherault/serverless-offline) - Emulate AWS Lambda and Api Gateway locally to speed up your development cycles.
 
@@ -269,16 +281,26 @@ Plugins are downloaded from GitHub:
 
 * [asprouse/serverless-webpack-plugin](https://github.com/asprouse/serverless-webpack-plugin) - Use Webpack to optimize your Serverless Node.js Functions.
 
+    <pre>
+    npm install serverless-webpack-plugin webpack --save-dev
+    </pre>
+
 * [serverless/serverless-client-s3](https://github.com/serverless/serverless-client-s3) - Deploy and config a web client for your Serverless project to S3.
-* [martinlindenberg/serverless-plugin-alerting](https://github.com/martinlindenberg/serverless-plugin-alerting) - This Plugin adds Cloudwatch Alarms with SNS notifications for your Lambda functions.
 
-* [serverless/serverless-optimizer-plugin](https://github.com/serverless/serverless-optimizer-plugin) - Optimizes your code for performance in Lambda. Supports coffeeify, babelify and other transforms
+* [martinlindenberg/serverless-plugin-alerting](https://github.com/martinlindenberg/serverless-plugin-alerting) -
+   This Plugin adds Cloudwatch Alarms with SNS notifications for your Lambda functions.
 
-* [tmilewski/serverless-resources-validation-plugin](https://github.com/tmilewski/serverless-resources-validation-plugin) - Adds support for validating your CloudFormation template.
+* [serverless/serverless-optimizer-plugin](https://github.com/serverless/serverless-optimizer-plugin) -
+   Optimizes your code for performance in Lambda. Supports coffeeify, babelify and other transforms
 
-* [Nopik/serverless-lambda-prune-plugin](https://github.com/Nopik/serverless-lambda-prune-plugin) - Delete old versions of AWS lambdas from your account so that you don't exceed the code storage limit.
+* [tmilewski/serverless-resources-validation-plugin](https://github.com/tmilewski/serverless-resources-validation-plugin) -
+   Adds support for validating your CloudFormation template.
 
-* [daffinity/serverless-base-path-plugin](https://github.com/daffinity/serverless-base-path-plugin) - Sets a base path for all API Gateway endpoints in a Component.
+* [Nopik/serverless-lambda-prune-plugin](https://github.com/Nopik/serverless-lambda-prune-plugin) -
+   Delete old versions of AWS lambdas from your account so that you don't exceed the code storage limit.
+
+* [daffinity/serverless-base-path-plugin](https://github.com/daffinity/serverless-base-path-plugin) -
+   Sets a base path for all API Gateway endpoints in a Component.
 
 * [arabold/serverless-test-plugin](https://github.com/arabold/serverless-test-plugin) - A Simple Integration Test Framework for Serverless.
 
@@ -336,8 +358,12 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
 
    * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
    $28.13 Learn Serverless ebook</a> (5.7 MB in 5 PDFs),
+   <a target="_blank" href="http://learnserverless.club/">learnserverless.club</a>,
+   with the sample app at
    <a target="_blank" href="https://github.com/JustServerless/notes">
-   github.com/JustServerless/notes</a>
+   github.com/JustServerless/notes</a>.
+
+   https://github.com/JustServerless/learnserverless-book/issues
 
 Matthew Fuller
 

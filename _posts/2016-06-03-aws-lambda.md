@@ -86,10 +86,10 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    QUESTION: What is the date that free allocations flip to the next month? On the 1st?
 
-   NOTE: Lambda functions created (and sitting around with no activity) incure no charges.
+   NOTE: Lambda functions created (and sitting around with no activity) incur no charges.
 
    NOTE: How much each Lambda request consumes in memory time is described in
-   <a href="#CloudWatch">CloudWatch below</a>.
+   <a href="#CloudWatch">CloudWatch</a>, below.
 
 ## Why? #
 
@@ -99,7 +99,7 @@ Andrew Baird</a>, AWS Solutions Architect,
 listed all the questions that developers DON'T have to graple with
 in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
 
-    <amp-img alt="lambda questions 650x287" width="650" height="287" src="https://cloud.githubusercontent.com/assets/300046/16016299/920289da-3157-11e6-8252-1849a5f1fda3.jpg"></amp-img>
+  <amp-img alt="lambda questions 650x287" width="650" height="287" src="https://cloud.githubusercontent.com/assets/300046/16016299/920289da-3157-11e6-8252-1849a5f1fda3.jpg"></amp-img>
 
 > "There are tools and entire industries whose entire value proposition are about answering just one of these."
 
@@ -169,7 +169,7 @@ There are several ways to get programming code into AWS Lambda:
    NOTE: The callback function is like a return statement.
    The callback value is the JSON file <strong>returned</strong> after asynchronous execution.
 
-   Additional observations about programming is at
+   Additional observations about Node.js programming is at
    [AWS Lambda Node JavaScript Programming](/aws-lambda-node-js-programming/).
 
 0. PROTIP: Construct a function name with more metadata, like this example:
@@ -240,17 +240,22 @@ There are several ways to get programming code into AWS Lambda:
    Memory used to hold input and output data is included in the memory used.
    Uncertainties about the size of data used require a larger allocation.
 
-   1,536 MB is the current maximum.
+   1,536 MB is the current maximum memory size.
+
+   CAUTION: If a function needs more memory than allocated, it would fail,
+   and AWS would still charge you for the allocated memory.
 
    #### Timeout #
 
    The longest is <strong>5 minutes</strong>.
 
+   But the maximum execution duration per request	is <strong>300 seconds</strong>.
+
+   See http://docs.aws.amazon.com/lambda/latest/dg/limits.html
+
    #### VPC #
 
-   You'll want a Virtual Private Communication.
-
-   <amp-img width="765" height="453" alt="lambda vpc 765x453" src="https://cloud.githubusercontent.com/assets/300046/16012256/e9259106-3145-11e6-8a47-eb03d72494f6.jpg"></amp-img>
+   Our initial example does not use the internet.
 
    ### Save and Test #
 
@@ -274,7 +279,7 @@ There are several ways to get programming code into AWS Lambda:
 
    NOTE: Events provide input into the function.
 
-0. Click Test. If no input data has been defined, the <strong>Input test event form</strong> appears.
+0. Click Test. If no input data has been defined, the <strong>Input test event form</strong> appears in a pop-up.
 
    The default data that appears is from the Hello World sample event template. But there are others:
 
@@ -288,14 +293,14 @@ There are several ways to get programming code into AWS Lambda:
   "key2": "value2",
   "key1": "value1"
 }
-</pre>
+   </pre>
 
    NOTE: Each Key-Value pair (KVP) is called a “structure” (two pieces of data together as a single object).
    Keys used to lookup values are also called “identifiers”.
 
 0. Click <strong>Save</strong> to exit the modal dialog.   
 
-  #### Action: Configure test event #
+   #### Action: Configure test event #
 
 0. Return to the “Input test event” dialog by selecting from the <strong>Actions</strong>
    dropdown “Configure test event”.
@@ -316,10 +321,10 @@ callback(null, event.key1);  // Echo back the first key value
 
    Variable `event.key1` in the script refers to “key1” and its value “value1” in the JSON file above.
 
+   ### CloudWatch Logs #
+
    Notice that output from the initial `console.log('Loading function');`
    does not appear in the run Log Output.
-
-   ### CloudWatch Logs #
 
 0. Click "Click here" to open a new tab to view CloudWatch log group.
 
@@ -757,6 +762,7 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
    * <a target="_blank" href="https://medium.com/@johncmckim/express-to-aws-lambda-part-1-a057096abe34#.fmuh3gr9e">
      Getting Started</a>
+
    * <a target="_blank" href="https://medium.com/@johncmckim/express-to-aws-lambda-part-4-22257f71385f#.hqscogos0">
    Authentication and Authorisation</a>
 
