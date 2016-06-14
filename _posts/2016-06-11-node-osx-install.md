@@ -141,6 +141,8 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
     Pruned 1598 symbolic links and 185 directories from /usr/local
     </pre>
 
+
+
 <a name="NodeInstall"></a>
 
 ## Install Node using Homebrew #
@@ -191,6 +193,15 @@ Several blogs addresses issues related to this topic:
    <pre><strong>
    ls /usr/local/lib/node_modules
    </strong></pre>
+
+   Other folders created:
+
+   <pre>
+   /usr/local/bin/node
+   /usr/local/share/doc/node/gdbinit
+   </pre>
+
+
 
    The command to install a package without additional parameters is, for example:
 
