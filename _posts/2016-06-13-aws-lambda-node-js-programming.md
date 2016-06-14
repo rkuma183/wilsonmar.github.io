@@ -31,6 +31,8 @@ Topics:
 * Machine Learning
 * IoT
 
+* Sign strings
+
 <hr />
 
 ## Retry loop #
@@ -350,7 +352,9 @@ exports.handler = function(event, context) {
 };
    </pre>
 
+## Sign API Requests #
 
+http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html
 
 ## More on Serverless #
 

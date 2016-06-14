@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This is follow-up to my [AWS Lambda introduction](/aws-lambda/) base tutorial.
+This is follow-up to my [AWS Lambda basics tutorial](/aws-lambda/).
 
 0. Be at the AWS Lambda Functions page at URL such as
 
@@ -44,7 +44,7 @@ Global configuration in file <strong>AWS.config</strong>.
 
 http://docs.aws.amazon.com/AWSJavaScriptSDK/latest
 
-## Events #
+## Trigger Events #
 
 Lambdas are triggered by events, such as:
 
