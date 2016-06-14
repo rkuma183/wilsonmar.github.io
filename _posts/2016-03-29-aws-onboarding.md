@@ -6,8 +6,8 @@ tags: [AWS, EC2, cloud, on-boarding]
 image:
 # feature: pic data center slice 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
-  credit: 
-  creditlink: 
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -53,8 +53,8 @@ so it's presented here to provide notes.
 
    NOTE: Baking different zones into Console URLs makes for more direct connections and removes issues from using a single URL/DNS.
 
-   The AWS Management Console 
-   is now used for <strong>manual review</strong> of one 
+   The AWS Management Console
+   is now used for <strong>manual review</strong> of one
    Availability Zone at a time.
 
 ### Set icon bar with your favorite services #
@@ -62,7 +62,7 @@ so it's presented here to provide notes.
 0. There are several ways to select a service.
   One is clicking the icon in the gallery.
 
-0. Copy the public DNS to clipboard, for example: 
+0. Copy the public DNS to clipboard, for example:
 
     ec2-11-22-33-444-compute-1.amazonaws.com
 
@@ -75,16 +75,16 @@ so it's presented here to provide notes.
 
 ## Automation coming #
 
-In enterprises today, servers are built by 
-scripts and configuration files 
-generated from templates. 
+In enterprises today, servers are built by
+scripts and configuration files
+generated from templates.
 This is so the build process can be debugged
 and changed slightly through the lifecycle from test to prod.
 
 Instead of clicking and typing, server administrators work with
 template files in JSON format for Cloud Formation to process.
 
-The next step up is to use Atlas 
+The next step up is to use Atlas
 which generates  
 JSON files based on information typed into their web Consoles.
 
@@ -120,7 +120,7 @@ To get what version you have:
 
    Notice Python 2.7 is being used, not Python 3.
    <a target="_blank" href="https://github.com/boto/botocore">
-   The Python package botocore on GitHub</a> 
+   The Python package botocore on GitHub</a>
    provides a low-level foundation for AWS CLI software.
 
 To enable bash completion for aws commands:
@@ -150,7 +150,7 @@ See http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-using.html
 ## Social #
 
 * <a target="_blank" href="https://www.reddit.com/r/aws/">
-  Reddit</a> 
+  Reddit</a>
 
 ## Rock Stars #
 
@@ -175,7 +175,7 @@ Yan Kurniawan
 * https://aws.amazon.com/powershell  
    for Windows</a>
 
-   Get-AWSCredentials -ListProfiles 
+   Get-AWSCredentials -ListProfiles
 
 * 	http://www.lynda.com/AWS-tutorials/Amazon-Web-Services-Essential-Training/
 
@@ -194,7 +194,7 @@ Yan Kurniawan
 
 
 
-## Git # 
+## Git #
 
    Git-History
 
@@ -239,7 +239,7 @@ Yan Kurniawan
 0. No Triggers.
 0. Select a Service Role ARN defined in a prior step. Create Application.
 
-   The Console provides code to deploy from a S3 bucket. 
+   The Console provides code to deploy from a S3 bucket.
 
 ### AWS CodePipeline #
 
@@ -263,7 +263,7 @@ Yan Kurniawan
 
 ### Make Change #
 
-0. 
+0.
 0. Commit.
 0. Detect a change.
 0. View app deployed again.
@@ -328,7 +328,7 @@ using AWS Code Services
 
 CodeDeploy agent in EC2 Deploy Group
 
-* Amazon Route 53 globomantics.com 
+* Amazon Route 53 globomantics.com
 
 * https://github.com/mikepfeiffer/PowerShell
 
@@ -341,10 +341,10 @@ this blog from 2013</a>.
 
    "We knew that application startup latency would be very important, especially during scale-up operations."
 
-Building a server from installers in S3 
+Building a server from installers in S3
 can be time-consuming because it take so much I/O.
 
-To save time, their strategy is to create a <strong>Base AMI</strong> 
+To save time, their strategy is to create a <strong>Base AMI</strong>
 by taking a snapshot of the root volume
 and make it available as an EBS volume that can be used to launch an EC2 instance.
 
@@ -354,9 +354,12 @@ This is simpler than Packer from Hashicorp.
 
 <a target="_blank" href="https://www.processon.com/">
 ProcessOn.com</a>
-provides a free on-line tool to draw diagrams such as 
+provides a free on-line tool to draw diagrams such as
 <a target="_blank" href="https://www.processon.com/view/56e785b1e4b05387d0391d33">
 this</a>
+
+Amazon provides icons in a sample PowerPoint file you cut and paste,
+or you can download a zip containing icon .png and .svg files.
 
 
 ## More on Amazon #
