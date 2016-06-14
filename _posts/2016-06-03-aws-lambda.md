@@ -260,11 +260,15 @@ There are several ways to get programming code into AWS Lambda:
 
    #### Timeout #
 
-   The longest is <strong>5 minutes</strong>.
+   The longest allowed is <strong>5 minutes</strong>.
 
    But the maximum execution duration per request	is <strong>300 seconds</strong>.
 
-   See http://docs.aws.amazon.com/lambda/latest/dg/limits.html
+   NOTE: AWS Lambda is a <strong>multi-tenancy</strong> environment
+   much like what Salesforce.com provides developers.
+   Different developers (who don't know each other) use the same physical server. So
+   <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">
+   limits</a> are necessary to keep one function to affect all others.
 
    #### VPC #
 
