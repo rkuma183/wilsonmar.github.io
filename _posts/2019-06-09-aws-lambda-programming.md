@@ -6,8 +6,8 @@ tags: [AWS, EC2, lambda, cloud]
 image:
 # feature: pic data center slice 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
-  credit: 
-  creditlink: 
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This is follow-up to my [AWS Lambda introduction](/aws-lambda/) tutorial.
+This is follow-up to my [AWS Lambda introduction](/aws-lambda/) base tutorial.
 
 0. Be at the AWS Lambda Functions page at URL such as
 
@@ -31,6 +31,8 @@ This is follow-up to my [AWS Lambda introduction](/aws-lambda/) tutorial.
    "index.handler" specifies the ???
 
 0. Be at the AWS Lambda <strong>Code</strong> editor.
+
+## Console
 
 
 
@@ -51,7 +53,7 @@ Lambdas are triggered by events, such as:
 * a message arrived in an Amazon Kinesis stream
 * a custom event was received from another app or service
 
-Individual Lambdas cannot hold state because they are brought up and down and replicated as needed. 
+Individual Lambdas cannot hold state because they are brought up and down and replicated as needed.
 Persistent state should be stored in a service that is outside the lifecycle of the lambda such as Amazon DynamoDB, S3 etc.
 
 Lambdas save and retrieve persistent data (state) in a service outside the lifecycle of the lambda,
@@ -64,7 +66,7 @@ The full programming model for the lambdas consists of:
 
 * <a href="#Handlers">Handlers</a>
 * Context Objects
-* Logging 
+* Logging
 * Exceptions
 
 See http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html
@@ -87,7 +89,7 @@ exports.handler = (event, context, callback) => {
 
    `exports.handler` defines the Lambda function.
 
-   The name 
+   The name
 
 
    The callback function is a reserved function name.
@@ -104,7 +106,7 @@ Sample code to obtain code from GitHub is in
 this Lambda demo tutorial</a>
 
 
-Uploads must be no larger than 50MB (compressed). 
+Uploads must be no larger than 50MB (compressed).
 
 Sample apps:
 
@@ -115,7 +117,7 @@ Sample apps:
 
 Amazon DynamoDB
 
-Amazon S3 
+Amazon S3
 
 ## Temp space #
 
@@ -179,4 +181,3 @@ To make public,
    <pre>
    ACL: 'public-read'
    </pre>
-

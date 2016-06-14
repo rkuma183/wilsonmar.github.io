@@ -35,7 +35,24 @@ Topics:
 
 ## Minimal Hello World #
 
+## Stringify #
+
+Un-comment
+
+   <pre>
+   console.log('Received event:', JSON.stringify(event, null, 2));
+   </pre>
+
+Save and Test
+
+Received event: {
+  "key3": "value3",
+  "key2": "value2",
+  "key1": "value1"
+}
+
 ## Context object #
+
 
    <pre>
    exports.handler = (event, context, callback) => {

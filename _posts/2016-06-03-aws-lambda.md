@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial provides a deep dive into creating and using AWS Lambda.
+This tutorial provides a deep dive into the basics of creating and using functions within AWS Lambda.
 This is a hands-on guided tour.
 Take one step at a time and we point out PROTIPs and notes along the way.
 
@@ -295,6 +295,8 @@ There are several ways to get programming code into AWS Lambda:
 }
    </pre>
 
+0. Make a change to "value1".
+
    NOTE: Each Key-Value pair (KVP) is called a “structure” (two pieces of data together as a single object).
    Keys used to lookup values are also called “identifiers”.
 
@@ -336,6 +338,64 @@ callback(null, event.key1);  // Echo back the first key value
 
    PROTIP: Mouse over a point on a line for more detail.
 
+
+      <a name="CloudWatch"></a>
+
+      ### View CloudWatch #
+
+0. Click the <strong>Monitoring</strong> tab.
+
+     <a name="MonitoringGraphs"></a>
+
+     <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
+
+0. PROTIP: Mouse over a point on a line for more detail.
+
+      * **Invocation count** measures the number of times a function has been invoked and billed
+      (in response to an event or API call). This includes both successful and failed invocations, but not throttled attempts.
+
+      * **Invocation duration** measures the elasped wall clock time from when the function code starts executing
+       (as a result of an invocation) to when it stops executing. This is used in billing, rounded up to the nearest 100 milliseconds.
+       The maximum data point value possible is the function timeout configuration.
+
+       * **Invocation errors** measure the number of invocations that failed due to some error.
+       Failed invocations may trigger a retry attempt that succeeds:
+
+          * Handling exceptions such as context.fail(error).
+          * Unhandled exceptions causing the code to exit the function since it can't handle the error.
+          * Out of memory exceptions
+          * Timeouts
+          * Permission errors
+
+      * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
+      the customer concurrent limit has been reached for the period (error 429).
+
+      NOTE: AWS Lambda only sends non-zero value metrics to CloudWatch.
+
+0. Click View logs in CloudWatch link.
+0. Click a Log stream entry to see the Event Data for it.
+
+     Notice the time stamp such as "Last modified date2016-06-03T13:23:27.021+0000" is UTC/GMT time.
+
+0. Click the line that begins with "REPORT RequestId:" to expand it to see the amount of memory actually used.
+
+      <pre>
+      REPORT RequestId: 0ddf5949-29b1-11e6-b8de-a70c7c47033a Duration: 1.00 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 36 MB
+      </pre>
+
+     These statistics also appear in the Summary pane.
+
+     The amount charged (Billed) is in increments of 100 milliseconds, even if the Duration is 1 ms.
+
+     The number of Max Memory Used used can vary from one execution to another for different sizes of files handled by the function.
+
+     QUESTION: Can the highest MB Used by the function be a metric shown in the list of functions (along with Max. memory)?
+
+     QUESTION: Are charges for memory based on the maximum allocated or the amount actually used?
+
+0. In the CloudWatch Console, click "Lambda" under the Metrics category on the left menu.
+
+
 0. In Lambda &gt; Functions, click on your function’s name.
 
    * <strong>Invocation count</strong> measures the number of times a function has been invoked and billed
@@ -366,19 +426,64 @@ callback(null, event.key1);  // Echo back the first key value
 
 0. Click on the Lambda Management Console to return.
 
-0. Add a console.log line at the end of the script:
+
+## Programming model #
+
+The <a target=“_blank” href=“http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html”>
+full programming model for Lambdas</a>
+consists of:
+
+   * Handlers (shown above)
+   * Logging (shown above)
+   * Context Objects (next)
+   * <a href="#Exceptions">Exceptions</a>
+
+   <a name="ContextObject"></a>
+
+   ### Context objects #
+
+0. Uncomment the first console.log with stringify and
+   add these console.log lines from <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html">
+   docs about the Context object</a>:
 
    <pre>
-   console.log('Ending Loading function');
-   </pre>
+   'use strict';
+   console.log('Loading function');
+   exports.handler = (event, context, callback) => {
+      console.log('Received event:', JSON.stringify(event, null, 2));
+      console.log("context.awsRequestId: "  + context.awsRequestId);
+      console.log("context.logGroupName: "  + context.logGroupName);
+      console.log("context.functionName: "  + context.functionName);
+      console.log("context.logStreamName: " + context.logStreamName);
+      console.log('context.getRemainingTimeInMillis: ', context.getRemainingTimeInMillis());
+      console.log("context.identity: "      + context.identity);
+      console.log('clientContext =', context.clientContext);
+      if (typeof context.identity !== 'undefined') {
+          console.log('Cognito identity ID =', context.identity.cognitoIdentityId);
+      }    
+      callback(null, event.key1);  // Echo back the first key value
+   // callback('Something went wrong');
+   };
+    </pre>
 
 0. Run again and view the CloudWatch log.
 
-   Notice the "Ending Loading function" is not shown at the bottom.
+   * The RequestId is shown in the log without being asked.
+   * The logGroupname is the name of the function, such as "/aws/lambda/learn1-context-node43-v01".
+   * The functionName does not include the "/aws/lambda" path.
+   * The logStreamName is the input, such as "2016/06/13/[$LATEST]f64505ba061e4ecea26d59abeb513f72".
+   * The RemainingTime is milliseconds before timeout occurs. Kinda like "headroom".
+   * The identity is unidentified.
 
-   QUESTION: Why?
 
-   ### Create Event Source S3 #
+<a name="Exceptions"></a>
+
+## Exception handling #
+
+TBD.
+
+
+## Create Event Source S3 #
 
 This is an example of a "push" model where Lambda is triggered by an event external to it.
 
@@ -536,69 +641,10 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 0. Click Test. Scroll to the bottom of the screen to see the Execution result.
 
 
-<a name="CloudWatch"></a>
-
-## Use CloudWatch #
-
-0. In Lambda > Functions, click on your function's name (such as "S3Function").
-0. Click the <strong>Monitoring</strong> tab.
-
-   <a name="MonitoringGraphs"></a>
-
-   <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
-
-0. PROTIP: Mouse over a point on a line for more detail.
-
-   * **Invocation count** measures the number of times a function has been invoked and billed
-   (in response to an event or API call). This includes both successful and failed invocations, but not throttled attempts.
-
-   * **Invocation duration** measures the elasped wall clock time from when the function code starts executing
-   (as a result of an invocation) to when it stops executing. This is used in billing, rounded up to the nearest 100 milliseconds.
-   The maximum data point value possible is the function timeout configuration.
-
-   * **Invocation errors** measure the number of invocations that failed due to some error.
-   Failed invocations may trigger a retry attempt that succeeds:
-
-      * Handling exceptions such as context.fail(error).
-      * Unhandled exceptions causing the code to exit the function since it can't handle the error.
-      * Out of memory exceptions
-      * Timeouts
-      * Permission errors
-
-   * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
-   the customer concurrent limit has been reached for the period (error 429).
-
-   NOTE: AWS Lambda only sends non-zero value metrics to CloudWatch.
-
-0. Click View logs in CloudWatch link.
-0. Click a Log stream entry to see the Event Data for it.
-
-   Notice the time stamp such as "Last modified date2016-06-03T13:23:27.021+0000" is UTC/GMT time.
-
-0. Click the line that begins with "REPORT RequestId:" to expand it to see the amount of memory actually used.
-
-   <pre>
-   REPORT RequestId: 0ddf5949-29b1-11e6-b8de-a70c7c47033a Duration: 1.00 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 36 MB
-   </pre>
-
-   These statistics also appear in the Summary pane.
-
-   The amount charged (Billed) is in increments of 100 milliseconds, even if the Duration is 1 ms.
-
-   The number of Max Memory Used used can vary from one execution to another for different sizes of files handled by the function.
-
-   QUESTION: Can the highest MB Used by the function be a metric shown in the list of functions (along with Max. memory)?
-
-   QUESTION: Are charges for memory based on the maximum allocated or the amount actually used?
-
-0. In the CloudWatch Console, click "Lambda" under the Metrics category on the left menu.
-
-
-
 
 <a name="CreateLambda"></a>
 
-## Create Lambda function with no input data #
+## Create Lambda function with no input data for API #
 
 0. In an internet browser go to <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions">
    Services > Compute > Lambda<br />
@@ -652,28 +698,6 @@ by mattua
 Server-less processing of streaming data using Amazon Kinesis.
 
 
-
-## Programming model #
-
-The full programming model for the lambdas consists of:
-
-* Handlers
-* Context Objects
-* Logging
-* Exceptions
-
-See http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html
-
-Individual Lambdas cannot hold state because they are brought up and down and replicated as needed.
-Persistent state should be stored in a service that is outside the lifecycle of the lambda such as Amazon DynamoDB, S3 etc.
-
-Lambdas save and retrieve persistent data (state) in a service outside the lifecycle of the lambda,
-such as Amazon DynamoDB, S3 etc.
-
-## Setup #
-
-http://docs.aws.amazon.com/lambda/latest/dg/setup.html
-Setup an AWS Command-line Interface
 
 ## Python program #
 
