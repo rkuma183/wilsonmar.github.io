@@ -88,16 +88,35 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
    /usr/local/bin/brew
    </pre>
 
-0. Analyze brew environment:
+0. Remove obsolete brew:
 
    <pre><strong>
    brew cleanup
-   brew update
-   brew doctor
    </strong></pre>
 
-   Fix any issue revealed.
+   No response if there is nothing to clearn.
 
+ 0. Update brew formulas:
+
+    <pre><strong>
+    brew update
+    </strong></pre>
+
+   This can take several minutes.
+
+0. Identify an brew issues:
+
+    <pre><strong>
+    brew doctor
+    </strong></pre>
+
+    Fix any issue revealed.
+
+    <pre>
+    Warning: Unbrewed header files were found in /usr/local/include.
+    If you didn't put them there on purpose they could cause problems when
+    building Homebrew formulae, and may need to be deleted.
+    </pre>
 
 <a name="NodeInstall"></a>
 
