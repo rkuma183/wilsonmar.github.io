@@ -34,6 +34,14 @@ Topics:
 <hr />
 
 ## Retry loop #
+
+A retry loop assumes that errors are transitory.
+
+maxErrorRetry value of 0 turns off retries.
+
+http://docs.aws.amazon.com/general/latest/gr/api-retries.html
+A Java sample is provided in AWS docs.
+
    <pre>
 var loopCounter = 0;
 Loop:

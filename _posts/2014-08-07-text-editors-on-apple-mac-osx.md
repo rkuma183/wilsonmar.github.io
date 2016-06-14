@@ -26,28 +26,49 @@ Free:
 
    * <a href="#atom">Atom</a> from GitHub (free)
    * Microsoft Code (free)
+   * Adobe Brackets http://brackets.io on Windows too
+   * http://barebones.com/products/textwrangler is the
+     little brother to BBEdit.
 
 Licensed nagware:
 
    * $89 <a href="#SublimeTextz">Sublime Text</a>
-   * There is no equivalent of Notepad++ (on Windows)
+   * There is no equivalent of Notepad++ on Windows
 
-IDEs:
+Free IDEs:
 
-   * IntelliJ from JetBrains
+   * Aptana Studio
+   * NetBeans
+   * Visual Studio Express from Microsoft
+
+Licensed IDEs:
+
+   * IntelliJ and WebStorm and PhpStorm from JetBrains
    * Visual Studio from Microsoft
 
 <hr />
+
+<a name="Features"></a>
+
+## Features #
+
+* Markdown display
+* Code completion
+* Pre-compile on the fly
+* Static code scan on the fly
+* Full project navigation
+* Refactoring (renaming) support
+* Debugging
 
 <a name="vim"></a>
 
 ## Vim
 
 To edit the file executed upon opening a command-line Terminal:
-   
+
    <strong>vim ~/.bash_profile</strong>
 
-To get out of VIM, type: 
+To get out of VIM, type:
 
    <pre>
    :q to quit (short for :quit)
@@ -79,7 +100,7 @@ There are two simultaneous production versions of Sublime Text: 2 and 3.
 
 ### Download and Install Sublime Text
 
-* <a target="_blank" href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a> 
+* <a target="_blank" href="https://www.sublimetext.com/3">https://www.sublimetext.com/3</a>
    is recommended even though it's labeled "beta" because desirable packages are being written for it.
 
 * <a target="_blank" href="https://www.sublimetext.com/2">https://www.sublimetext.com/2</a>
@@ -93,7 +114,7 @@ Expanded explanations for various platforms:
 ### Configure for command-line invocation
 
 To use the Sublime Text text editor from the command line,
-make a symlink to subl. 
+make a symlink to subl.
 
 0. If you don't have a folder <strong>/usr/local/bin/</strong>, create it.
 
@@ -108,7 +129,7 @@ make a symlink to subl.
    sudo ln -s "/Applications/Sublime Text 3.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
    </strong></pre>
 
-0. To use Sublime Text as the editor for many commands that prompt for input, 
+0. To use Sublime Text as the editor for many commands that prompt for input,
    set your EDITOR environment variable:
 
    <pre><strong>
@@ -126,9 +147,9 @@ make a symlink to subl.
 
 One advantage of Sublime Text is its plug-ins.
 
-0. Switch to an internet browser to visit 
+0. Switch to an internet browser to visit
    <a target="_blank" href="https://sublime.wbond.net/">Package Control home page</a>.
-0. Click Browse at the upper right for the most popular: 
+0. Click Browse at the upper right for the most popular:
 
    * Emmet for keyboard shortcuts
    * SideBarEnhancements
@@ -148,7 +169,7 @@ One advantage of Sublime Text is its plug-ins.
 0. Press Ctrl+C to copy the command into the operating system's invisible clipboard.
 0. Switch back to SublimeText (press Command+Tab).
 
-0. Bring up Sublime's command-line <strong>Console</strong> by using the 
+0. Bring up Sublime's command-line <strong>Console</strong> by using the
    <strong>control+`</strong> (back-tick) shortcut or click menu View > Show Console.
 
    NOTE: The Console recognizes <strong>Python</strong> code.
@@ -176,7 +197,7 @@ One advantage of Sublime Text is its plug-ins.
    NOTE: This may take a few seconds to bring up a list from a website visited above.
 
    <img width="469" alt="scr sublime text 3 package manager packages" src="https://cloud.githubusercontent.com/assets/300046/15268227/3c23493e-1995-11e6-983b-32fd4f708e76.png">
-   
+
 0. Type in a package name and press Enter to install it:
 
    <a target="_blank" href="https://packagecontrol.io/packages/Sublime%20Tutor">Sublime Tutor</a>
@@ -236,7 +257,7 @@ command + O to go to class
 <br />
 command + &#9003; Delete line
 
-* http://symbolcodes.tlt.psu.edu/keyboards/charpalosx.html 
+* http://symbolcodes.tlt.psu.edu/keyboards/charpalosx.html
 
 
 <a name="#atom"></a>
@@ -247,7 +268,7 @@ command + &#9003; Delete line
 
    The site recognizes your operating system (OS X, Windows, or Linux)
    and presents the appropriate download button.
-   
+
    Atom has package control, themes, auto-completion built-in.
 
 0. <a target="_blank" href="https://confirmsubscription.com/h/i/FDEEF15834EF73C7">Sign up for updates</a>
