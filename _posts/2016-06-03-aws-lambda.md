@@ -361,6 +361,7 @@ callback(null, event.key1);  // Echo back the first key value
           * Out of memory exceptions
           * Timeouts
           * Permission errors
+        <br />
 
       * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
       the customer concurrent limit has been reached for the period (error 429).
@@ -400,9 +401,10 @@ callback(null, event.key1);  // Echo back the first key value
    PROTIP: AWS has a free tier of several gigabytes of log storage.
    Set the log retention time to the amount of time to fit your budget.
 
+
 ## Programming model #
 
-The <a target=“_blank” href=“http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html”>
+The <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">
 full programming model for Lambdas</a>
 consists of:
 
@@ -413,7 +415,7 @@ consists of:
 
    <a name="ContextObject"></a>
 
-   ### Context objects #
+### Context objects #
 
 0. Uncomment the first console.log with stringify and
    add these console.log lines from <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html">
