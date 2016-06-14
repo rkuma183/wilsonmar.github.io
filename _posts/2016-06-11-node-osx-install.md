@@ -96,7 +96,7 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
 
    No response if there is nothing to clearn.
 
- 0. Update brew formulas:
+0. Update brew formulas:
 
     <pre><strong>
     brew update
@@ -110,12 +110,34 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
     brew doctor
     </strong></pre>
 
-    Fix any issue revealed.
+    If you see this message at the top of messages returned:
 
     <pre>
     Warning: Unbrewed header files were found in /usr/local/include.
     If you didn't put them there on purpose they could cause problems when
     building Homebrew formulae, and may need to be deleted.
+    </pre>
+
+    The above may occur if curl and nodejs were installed without using homebrew.
+
+    Remove them and install nodejs and curl from homebrew:
+
+    <pro><strong>
+    rm -rf /usr/local/include/node/
+    </strong></pro>
+
+    Warning: Broken symlinks were found. Remove them with `brew prune`:
+
+0. Prune:
+
+      <pre><strong>
+      brew prune
+      </strong></pre>
+
+      A sample response:
+
+    <pre>
+    Pruned 1598 symbolic links and 185 directories from /usr/local
     </pre>
 
 <a name="NodeInstall"></a>
