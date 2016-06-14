@@ -33,9 +33,75 @@ Topics:
 
 <hr />
 
-## Minimal Hello World #
+## Retry loop #
+   <pre>
+var loopCounter = 0;
+Loop:
+   counter +1
+   Do it
+   if context.succeed()
+      pass object up.
+   else
+   If context.fail()
+      if count > max
+         drop out
+      else
+         loop to retry.
+   endif
+end loop
+   </pre>
 
-## Stringify #
+## Libraries built-in #
+
+Modules:
+
+   * AWS SDK module (“ aws-sdk”)
+   * AWS Lambda module (“ awslambda”)
+   * DynamoDB interaction module (“ dynamodb-doc”)
+   * image processing tool (“ imagemagick”)
+
+Others require:
+
+   <pre>
+   var mymodule = require(" mymodule");
+   </pre>
+
+## Control Log verbosity #
+
+Matthew Fuller proposes this code to enable searching of CloudWatch for “INFO” or “DEBUG” and
+to adjust extent of logging, as runs in staging often require a more extensive debug level
+while production runs should only expose warnings in logs.
+
+Fuller, Matthew (2016-01-11). AWS Lambda: A Guide to Serverless Microservices (Kindle Locations 536-538).  . Kindle Edition.
+It's an example of a JavaScript case statement:
+
+   <pre>
+module.exports = function( level) {
+  var levelValue = 100;
+  switch (level) {
+    case 'TRACE': levelValue = 0; break;
+    case 'DEBUG': levelValue = 1; break;
+    case 'INFO': levelValue = 2; break;
+    case 'WARN': levelValue = 3; break;
+    case 'ERROR': levelValue = 4; break;
+    case 'FATAL': levelValue = 5; break;
+    }
+    // Override all logs if testing with mocha:
+    if (process.argv.join(''). indexOf(' mocha') > -1) {
+      levelValue = 100;
+    }
+    return {
+      trace: function( message) {
+        if (levelValue < = 0) { console.log(' TRACE: ' + message); } },
+      debug: function( message) { if (levelValue < = 1) { console.log(' DEBUG: ' + message); } },
+      info: function( message) { if (levelValue < = 2) { console.log(' INFO: ' + message); } },
+      warn: function( message) { if (levelValue < = 3) { console.log(' WARN: ' + message); } },
+      error: function( message) { if (levelValue < = 4) { console.log(' ERROR: ' + message); } },
+      fatal: function( message) { if (levelValue < = 5) { console.log(' FATAL: ' + message); } }
+    };
+   </pre>
+
+   PROTIP: Consider defining CloudWatch alerts based on log patterns such as an email being sent when the words “error: invalid” appears.
 
 Un-comment
 

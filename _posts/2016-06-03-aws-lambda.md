@@ -226,7 +226,17 @@ There are several ways to get programming code into AWS Lambda:
 
 0. Select `Basic execution role` if your function does not access input data from S3, Dynamo DB, Kinesis, etc.
 
-   Additional custom execution roles can be defined.
+   This example is for performing CloudWatch actions on logs:
+
+     <pre>
+     { "Version": "2012-10-17", "Statement": [
+       { "Effect": "Allow",
+         "Action": [ "logs:*" ],
+         "Resource": "arn:aws:logs:*:*:*" }
+       ]
+     </pre>
+
+   NOTE: AWS IAM provides for roles based on specific resources.
 
 0. Click Allow in the pop-up browser window and be returned to the Lambda definition.
 
@@ -328,26 +338,11 @@ callback(null, event.key1);  // Echo back the first key value
    Notice that output from the initial `console.log('Loading function');`
    does not appear in the run Log Output.
 
-0. Click "Click here" to open a new tab to view CloudWatch log group.
-
 0. Click the <strong>Monitoring</strong> tab.
 
    <a name="MonitoringGraphs"></a>
 
    <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
-
-   PROTIP: Mouse over a point on a line for more detail.
-
-
-      <a name="CloudWatch"></a>
-
-      ### View CloudWatch #
-
-0. Click the <strong>Monitoring</strong> tab.
-
-     <a name="MonitoringGraphs"></a>
-
-     <amp-img width="600" alt="lambda onitoring screens 2016-06-03 1340x313" src="https://cloud.githubusercontent.com/assets/300046/15787783/66061b72-2981-11e6-88d0-ef06f298451f.jpg"></amp-img>
 
 0. PROTIP: Mouse over a point on a line for more detail.
 
@@ -358,7 +353,7 @@ callback(null, event.key1);  // Echo back the first key value
        (as a result of an invocation) to when it stops executing. This is used in billing, rounded up to the nearest 100 milliseconds.
        The maximum data point value possible is the function timeout configuration.
 
-       * **Invocation errors** measure the number of invocations that failed due to some error.
+     * **Invocation errors** measure the number of invocations that failed due to some error.
        Failed invocations may trigger a retry attempt that succeeds:
 
           * Handling exceptions such as context.fail(error).
@@ -369,10 +364,11 @@ callback(null, event.key1);  // Echo back the first key value
 
       * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
       the customer concurrent limit has been reached for the period (error 429).
+   <br />
 
       NOTE: AWS Lambda only sends non-zero value metrics to CloudWatch.
 
-0. Click View logs in CloudWatch link.
+0. Click <strong>View logs in CloudWatch</strong> link.
 0. Click a Log stream entry to see the Event Data for it.
 
      Notice the time stamp such as "Last modified date2016-06-03T13:23:27.021+0000" is UTC/GMT time.
@@ -395,37 +391,14 @@ callback(null, event.key1);  // Echo back the first key value
 
 0. In the CloudWatch Console, click "Lambda" under the Metrics category on the left menu.
 
-
-0. In Lambda &gt; Functions, click on your function’s name.
-
-   * <strong>Invocation count</strong> measures the number of times a function has been invoked and billed
-   (in response to an event or API call). This includes both successful and failed invocations, but not throttled attempts.
-
-   * <strong>Invocation duration</strong> measures the elasped wall clock time from when the function code starts executing
-   (as a result of an invocation) to when it stops executing. This is used in billing, rounded up to the nearest 100 milliseconds.
-   The maximum data point value possible is the function timeout configuration.
-
-   * <strong>Invocation errors</strong> measure the number of invocations that failed due to some error.
-   Failed invocations may trigger a retry attempt that succeeds:
-
-      <ul>
-        <li>Handling exceptions such as context.fail(error).</li>
-        <li>Unhandled exceptions causing the code to exit the function since it can’t handle the error.</li>
-        <li>Out of memory exceptions</li>
-        <li>Timeouts</li>
-        <li>Permission errors</li>
-      </ul>
-
-   * <strong>Throttled invocations</strong> measures the number of Lambda functon invocation attempts not executed because the customer concurrent limit has been reached for the period (error 429).
-
-   NOTE: AWS Lambda only sends non-zero value metrics to CloudWatch.
-
-   #### Log stream items #
+   #### CloudWatch Log stream items #
 
 0. Click on a log stream item.  Notice the "Loading function" there.
 
 0. Click on the Lambda Management Console to return.
 
+   PROTIP: AWS has a free tier of several gigabytes of log storage.
+   Set the log retention time to the amount of time to fit your budget.
 
 ## Programming model #
 
