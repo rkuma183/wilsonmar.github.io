@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS Lamba"
-excerpt: "In like a lamb, roaring like a lion"
+title: "AWS Lamba Basics"
+excerpt: "Kinda like Java Lambdas, but not really"
 tags: [AWS, EC2, lambda, cloud]
 image:
 # feature: pic data center slice 1900x500.jpg
@@ -818,26 +818,27 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 
 ## Rock Stars #
 
-* Tim Wagner, General Manager of AWS Lambda at Amazon,
+* Tim Wagner, @timallenwagner,
+   General Manager of AWS Lambda at Amazon,
    Apr 10, 2015:
    <amp-youtube data-videoid="copO_JQQsBs" layout="responsive" width="480" height="270"></amp-youtube>
 
   Lambda was launched publicly November, 2015.
   Can run 100 Lambdas at the same time by default.
-  Added Sychronous (Request/Response).
+  Added Synchronous (Request/Response).
 
-* Ajay Nair @ajaynairthinks Lead Product Manager for AWS Lambda
+* Ajay Nair @ajaynairthinks is Lead Product Manager for AWS Lambda
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
 * http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/
 
-gif-to-mp4
-create-timelapse
-file-to-png
-pngs-to-mp4
-mp4s-to-timelapse
-upload-to-vimeo
+   * gif-to-mp4
+   * create-timelapse
+   * file-to-png
+   * pngs-to-mp4
+   * mp4s-to-timelapse
+   * upload-to-vimeo
 
 
 ## More on Serverless #
