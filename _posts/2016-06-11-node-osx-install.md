@@ -122,9 +122,9 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
 
     Remove them and install nodejs and curl from homebrew:
 
-    <pro><strong>
+    <pre><strong>
     rm -rf /usr/local/include/node/
-    </strong></pro>
+    </strong></pre>
 
     Warning: Broken symlinks were found. Remove them with `brew prune`:
 
