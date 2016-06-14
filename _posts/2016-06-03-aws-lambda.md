@@ -293,7 +293,7 @@ There are several ways to get programming code into AWS Lambda:
 
    The default data that appears is from the Hello World sample event template. But there are others:
 
-   <amp-img width="603" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15787217/3f884c66-297e-11e6-9e54-9c821cecc4a2.jpg"></amp-img>
+   <amp-img width="256" height="586" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/16029891/d4d87eb6-31a9-11e6-9865-b31e90482a57.jpg"></amp-img>
 
 0. Select from Sample event template “Hello World” to replace what has been saved for the current Lambda.
 
@@ -413,7 +413,7 @@ consists of:
    * Context Objects (next)
    * <a href="#Exceptions">Exceptions</a>
 
-   <a name="ContextObject"></a>
+<a name="ContextObject"></a>
 
 ### Context objects #
 
