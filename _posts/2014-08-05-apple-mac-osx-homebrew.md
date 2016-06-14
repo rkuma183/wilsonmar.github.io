@@ -20,7 +20,7 @@ comments: true
 
 ## Brew (Homebrew) Package Utility Setup
 
-Homebrew 
+Homebrew
 at <a target="_blank" href="http://brew.sh/">
 http://brew.sh/</a>
 is the newest and most popular package utility on OSX.
@@ -30,32 +30,126 @@ Alternatives:
 * https://www.macports.org/ and
 * http://www.finkproject.org/
 
-<strong>Homebrew</strong> is the missing package manager for OS X.
-It installs using Ruby (built into Mac OSX)
+<hr />
+
+<a name="Homebrew"></a>
+
+## Install Homebrew #
+
+See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
+
+0. Make a full backup before following these instructions.
+
+0. Install XCode.
+
+   If XCode is not already installed, you are prompted
+   to install it.
 
 
-<tt><strong>
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-</strong></tt>
+0. Install Homebrew if you haven't already.
 
-HISTORICAL NOTE: Previously, the installer 
-was at https://raw.github.com/Homebrew/homebrew/go/install)"
+   <pre><strong>
+   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   <strong></pre>
 
-If XCode is not already installed, you are prompted
-to install it.
-CAUTION: Don't press Enter on the Terminal until the Download Software dialog reaches 100%.
+   CAUTION: Don't press Enter on the Terminal until the Download Software dialog reaches 100%.
 
-Press the Enter key to the message:
-<br /><tt>Press RETURN to continue or any other key to abort.</tt> then
+   Press the Enter key to the message:
+   <br /><tt>Press RETURN to continue or any other key to abort.</tt> then
 
-To proceed, enter your password, or type Ctrl+C to abort.
+   To proceed, enter your password, or type Ctrl+C to abort.
+
+   NOTE: The download is from
+   https://github.com/Homebrew/homebrew/issues
+
+   HISTORICAL NOTE: Previously, the installer
+   was at https://raw.github.com/Homebrew/homebrew/go/install)"
+
+
+0. Get version after installation:
+
+   <pre><strong>
+   brew -v
+   </strong></pre>
+
+   The response (at time of writing):
+
+   <pre>
+   Homebrew 0.9.9 (git revision e9cc; last commit 2016-06-12)
+   Homebrew/homebrew-core (git revision 3977; last commit 2016-06-12)
+   </pre>
+
+0. Identify where the program is located:
+
+   <pre><strong>
+   which brew
+   </strong></pre>
+
+   The response:
+
+   <pre>
+   /usr/local/bin/brew
+   </pre>
+
+0. Remove obsolete brew:
+
+   <pre><strong>
+   brew cleanup
+   </strong></pre>
+
+   No response if there is nothing to clearn.
+
+0. Update brew formulas:
+
+    <pre><strong>
+    brew update
+    </strong></pre>
+
+   This can take several minutes.
+
+0. Identify an brew issues:
+
+    <pre><strong>
+    brew doctor
+    </strong></pre>
+
+    If you see this message at the top of messages returned:
+
+    <pre>
+    Warning: Unbrewed header files were found in /usr/local/include.
+    If you didn't put them there on purpose they could cause problems when
+    building Homebrew formulae, and may need to be deleted.
+    </pre>
+
+    The above may occur if curl and nodejs were installed without using homebrew.
+
+    Remove them and install nodejs and curl from homebrew:
+
+    <pre><strong>
+    rm -rf /usr/local/include/node/
+    </strong></pre>
+
+    Warning: Broken symlinks were found. Remove them with `brew prune`:
+
+0. Prune:
+
+    <pre><strong>
+    brew prune
+    </strong></pre>
+
+    A sample response:
+
+    <pre>
+    Pruned 1598 symbolic links and 185 directories from /usr/local
+    </pre>
 
 
 ## Confirm installation #
 
-List apps installed by Homebrew (in folder 
+List apps installed by Homebrew (in folder
 <strong>/usr/local/Cellar</strong>):
-<tt><strong>brew list</strong></tt>
+
+   <tt><strong>brew list</strong></tt>
 
 There is no response if no brew package has been installed.
 
@@ -70,7 +164,7 @@ This installs to folder /usr/local/bin/wget.
 * Each brew package should be defined in <a target="_blank" href="http://brewformulas.org/">
    brewformulas.org</a>
 
-The above is one of <a target="_blank" href="http://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/"> 
+The above is one of <a target="_blank" href="http://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/">
 several ways</a> to install the wget command-line utility.
 One way is to install Apple's Xcode.
 
@@ -94,7 +188,7 @@ Brew places files in its Cellar:
 To see first what exactly will be overwritten, without actually doing it.
 
 <tt><strong>
-brew link --overwrite --dry-run python 
+brew link --overwrite --dry-run python
 </strong></tt>
 
 <tt><strong>
@@ -118,13 +212,13 @@ brew install brew-cask
 
 ##  Maven via Homebrew #
 
-Before Mavericks, 
+Before Mavericks,
 <a target="_blank" href="http://maven.apache.org/">
 Maven</a> was installed by default in:
 
    <tt>/usr/share/maven/bin/mvn</tt>
 
-To install older versions, see 
+To install older versions, see
 http://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula
 
 
@@ -235,7 +329,7 @@ The reply I got:
 /Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home
 </pre>
 
-Note the Maven home path above. 
+Note the Maven home path above.
 Because of homebrew, to get to Maven's configuration file:
 
 <pre><strong>

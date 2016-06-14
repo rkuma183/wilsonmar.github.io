@@ -50,102 +50,9 @@ comments: true
 
 <a name="Homebrew"></a>
 
-## Install Homebrew #
-
-See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
-
-0. Make a full backup before following these instructions.
-
-0. Install Homebrew if you haven't already.
-
-   <pre><strong>
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   <strong></pre>
-
-   https://github.com/Homebrew/homebrew/issues
-
-0. Get version:
-
-   <pre><strong>
-   brew -v
-   </strong></pre>
-
-   The response (at time of writing):
-
-   <pre>
-   Homebrew 0.9.9 (git revision e9cc; last commit 2016-06-12)
-   Homebrew/homebrew-core (git revision 3977; last commit 2016-06-12)
-   </pre>
-
-0. Identify where the program is located:
-
-   <pre><strong>
-   which brew
-   </strong></pre>
-
-   The response:
-
-   <pre>
-   /usr/local/bin/brew
-   </pre>
-
-0. Remove obsolete brew:
-
-   <pre><strong>
-   brew cleanup
-   </strong></pre>
-
-   No response if there is nothing to clearn.
-
-0. Update brew formulas:
-
-    <pre><strong>
-    brew update
-    </strong></pre>
-
-   This can take several minutes.
-
-0. Identify an brew issues:
-
-    <pre><strong>
-    brew doctor
-    </strong></pre>
-
-    If you see this message at the top of messages returned:
-
-    <pre>
-    Warning: Unbrewed header files were found in /usr/local/include.
-    If you didn't put them there on purpose they could cause problems when
-    building Homebrew formulae, and may need to be deleted.
-    </pre>
-
-    The above may occur if curl and nodejs were installed without using homebrew.
-
-    Remove them and install nodejs and curl from homebrew:
-
-    <pre><strong>
-    rm -rf /usr/local/include/node/
-    </strong></pre>
-
-    Warning: Broken symlinks were found. Remove them with `brew prune`:
-
-0. Prune:
-
-    <pre><strong>
-    brew prune
-    </strong></pre>
-
-    A sample response:
-
-    <pre>
-    Pruned 1598 symbolic links and 185 directories from /usr/local
-    </pre>
-
-
-
-<a name="NodeInstall"></a>
-
 ## Install Node using Homebrew #
+
+0. Follow instructions at my [Homebrew installation tutorial](/apple-mac-osx-homebrew/).
 
 Several blogs addresses issues related to this topic:
 
@@ -155,6 +62,7 @@ Several blogs addresses issues related to this topic:
 * <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
   Advice on fixing npm On Mac OS X for Homebrew Users</a>
   * http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo/24404451#24404451
+  * http://stackoverflow.com/questions/10081293/install-npm-into-home-directory-with-distribution-nodejs-package-ubuntu/13021677#13021677
 <br />
 
 0. Choose method of installing brew:
@@ -162,10 +70,10 @@ Several blogs addresses issues related to this topic:
    The simplest way to install node is to use brew:
 
    <pre><strong>
-   brew install node
+   brew install node -g
    </strong></pre>
 
-   Notice the folder:
+   Notice the folder (which may have a different version number):
 
    <pre>
    ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
@@ -184,7 +92,7 @@ Several blogs addresses issues related to this topic:
    The response for default installations:
 
    <pre><strong>
-   /usr/local/lib/node_modules
+   /usr/local/bin/npm
    </strong></pre>
 
    We list npm global modules installed on the default global module folder
@@ -194,14 +102,24 @@ Several blogs addresses issues related to this topic:
    ls /usr/local/lib/node_modules
    </strong></pre>
 
-   Other folders created:
+   Other folders which need to be removed using sudo rm:
 
    <pre>
-   /usr/local/bin/node
-   /usr/local/share/doc/node/gdbinit
+   rm '/usr/local/lib/dtrace/node.d'
+   rm `/usr/local/bin/npn'
+   rm `/usr/local/bin/node'
+   rm `/usr/local/share/doc/node/gdbinit'
+   rm `/usr/local/share/man/man1/node.1`
+   rm `/usr/local/share/systemtap/tapset/node.stp`
+   rm `/usr/local/share/systemtap/tapset`
    </pre>
 
+   Each of the above blocks full automatic install and should be
+   removed, followed by a brew uninstall node.
 
+
+
+<hr />
 
    The command to install a package without additional parameters is, for example:
 
@@ -293,7 +211,11 @@ Several blogs addresses issues related to this topic:
    <pre><strong>
    sudo chown -R $USER:$GROUP ~/.npm-packages
    sudo chown -R $USER:$GROUP ~/.config
+   sudo chown -R $USER:admin /usr/local/
+   sudo chown -R $USER:admin /usr/local/include
    </strong></pre>
+
+   Provide your password when prompted.
 
 0. Indicate to npm where to store globally installed packages
    by adding a line at the bottom of the ~/.npmrc file:
@@ -303,6 +225,12 @@ Several blogs addresses issues related to this topic:
    </strong></pre>
 
    WARNING: NVM does not support this.
+
+0. Install node without default npm:
+
+    <pre><strong>
+    brew install node --without-npm
+    </strong></pre>
 
 0. To install node for global use:
 

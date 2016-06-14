@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Search static (Jekyll) websites"
+title: "Search within (Jekyll) websites using Bonsai"
 excerpt: "Make a website with a search box"
 tags: [Jekyll, Algolia, Search]
 image:
@@ -916,3 +916,6 @@ The Algoria theme keeps CSS and JavaScript within a folder named <strong>public<
 
    The underline in the name means that the folder is not transferred into the _site folder.
 
+## Resources #
+
+* Nick Zadrozny is the co-founder of Bonsai.io.
