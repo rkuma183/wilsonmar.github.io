@@ -18,7 +18,7 @@ comments: true
 
 <a id="NodeJSz"></a>
 
-## Know the versions of Node.js
+## Know the versions of Node.js #
 
 0. Use an internet browser to visit the list of versions:
 
@@ -26,19 +26,272 @@ comments: true
    http://nodejs.org</a>
 <br />
 
-0. Choose one (all mutually exclusive) method of installing Node:
+Choose one (all mutually exclusive) method of installing Node:
 
-   * A: <a href="#Homebrew">Brew install whatever version Homebrew has available</a>. Recommended.
-   * B: <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
-   * C: <a href="#Download">Download most current version v6.2.1+</a>
-   * D: <a href="#NVMInstall">Install NVM to switch among several versions of Node</a>
-<br />
+   * A: <a href="#Homebrew">Brew install node with default npm and nvm</a>. More error-prone.
+   * B: <a href="#Homebrew">Brew install node without npm, then install .npm-packages with no nvm</a>. Recommended.
+   * C: <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>.
+   * D: <a href="#Download">Download most current version v6.2.1+</a>.
+   <br />
+
+The recommended approach is presented second in the list in order for us to see the issue with using defaults in option A.
 
 <hr />
 
+<a name="Homebrew"></a>
+
+## Brew install (for both options A. and B.) #
+
+0. Follow instructions at my [Homebrew installation tutorial](/apple-mac-osx-homebrew/).
+
+   <a href="#NpmPackageInstall">Click here if you want to go straight to the recommended option B</a>.
+
+   ## Option A: Install node with default npm and nvm #
+
+   0. The simplest way to install node is to use brew:
+
+      <pre><strong>
+      brew install node -g
+      </strong></pre>
+
+      Notice the folder (which may have a different version number):
+
+      <pre>
+      ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
+      </pre>
+
+      NOTE: By default, when node is installed, it installs
+      <strong>npm</strong>, the Node Package Manager,
+      a node package to install additional packages.
+
+0.   Identify which folder npm is obtained:
+
+      <pre><strong>
+      which npm
+      </strong></pre>
+
+      The response for default installations:
+
+      <pre><strong>
+      /usr/local/bin/npm
+      </strong></pre>
+
+0.    List npm global modules installed on the default global module folder:
+
+      <pre><strong>
+      ls /usr/local/lib/node_modules
+      </strong></pre>
+
+      <a name="NVMInstall"></a>
+
+      #### NVM Install #
+
+   NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
+
+0. Install C++ Compiler.
+
+      The README at <a target="_blank" href="https://github.com/creationix/nvm">
+      https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
+      with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+      Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+
+0. Install NVM:
+
+      <pre><strong>
+      curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+      </strong></pre>
+
+      It appends source string to ~/.bashrc
+
+      Note it installs to folder <strong>~/.nvm</strong>.
+
+      CAUTION: NVM does not recognize the PREFIX used in the
+      <a href="#AltFolder"> Alternate folder technique</a>.
+      So we would need to live with just elevated permissions.
+
+0. Verify
+
+      <pre><strong>
+      nvm -v
+      </strong></pre>
+
+      3.9.5
+
+      NOTE: nvm is a shell script, so where command does not work.
+
+0. To download, compile, and install the latest v5.0.x release of node:
+
+      <pre>
+      nvm install 5.0
+      </pre>
+
+0. To list what versions of Node.js are installed:
+
+      <pre>
+      nvm ls
+      </pre>
+
+0. To use version 5.0 installed:
+
+      <pre>
+      nvm use 5.0
+      </pre>
+
+NOTE: nvm only seems with work with plugins installed in the
+default .npm folder (not in .npm-packages described below).
+
+
+
+<a name="NpmPackageInstall"></a>
+
+## B. Install node without npm, then install .npm-packages with no nvm #
+
+   <a name="Uninstall"></a>
+
+   ### Uninstall default install #
+
+0. If node was previously installed, uninstall it:
+
+      <pre><strong>
+      brew uninstall node
+      </strong></pre>
+
+0. If node was previously installed,
+   these folders have been known to block re-install,
+   so remove them:
+
+   <pre>
+   sudo rm '/usr/local/lib/dtrace/node.d'
+   sudo rm `/usr/local/bin/npn'
+   sudo rm `/usr/local/bin/node'
+   sudo rm `/usr/local/share/doc/node/gdbinit'
+   sudo rm `/usr/local/share/man/man1/node.1`
+   sudo rm `/usr/local/share/systemtap/tapset/node.stp`
+   sudo rm `/usr/local/share/systemtap/tapset`
+   </pre>
+
+   ### Create .npm-packages folder #
+
+0. Create the ~/.npm-packages folder:
+
+   <pre><strong>
+   mkdir "${HOME}/.npm-packages"
+   </strong></pre>
+
+0. To avoid permission issues:
+
+   <pre><strong>
+   sudo chown -R $USER:$GROUP ~/.npm-packages
+   sudo chown -R $USER:$GROUP ~/.config
+   sudo chown -R $USER:admin /usr/local/
+   sudo chown -R $USER:admin /usr/local/include
+   </strong></pre>
+
+   Provide your password when prompted.
+
+0. Indicate to npm where to store globally installed packages
+   by adding a line at the bottom of the ~/.npmrc file:
+
+   <pre><strong>
+   echo prefix=~/.npm-packages >> ~/.npmrc
+   </strong></pre>
+
+   WARNING: NVM does not support this.
+
+0. Install node without default npm:
+
+    <pre><strong>
+    brew install node --without-npm -g
+    </strong></pre>
+
+0. Install npm for global use:
+
+   <pre><strong>
+   curl -L https://www.npmjs.com/install.sh | sh
+   </strong></pre>
+
+   The response:
+
+   <pre>
+   fetching: http://registry.npmjs.org/npm/-/npm-3.9.5.tgz
+   </pre>
+
+0. After install, verify the location:
+
+   <pre><strong>
+   which npm
+   </strong></pre>
+
+   The response, where "mac" is substituted with your user name:
+
+   <pre>
+   /Users/mac/.npm-packages/bin/npm
+   </pre>
+
+0. To ensure npm will find installed binaries and man pages,
+   use a text editor to edit the <strong>~/.bash_profile</strong> file.
+
+   BTW, .bash_profile on Mac is equivalent to the .bashrc file used in Linux systems.
+
+0. Add a NPM_PACKAGES environment variable containing the path to npm-installed packages
+   into the system PATH variable:
+
+   <pre><strong>
+   NPM_PACKAGES="${HOME}/.npm-packages"
+   PATH="$NPM_PACKAGES/bin:$PATH"
+   </strong></pre>
+
+0. To identify where node executables are installed:
+
+   <pre><strong>
+   which node
+   </strong></pre>
+
+   the response:
+
+   <pre>
+   /usr/local/bin/node
+   </pre>
+
+   See that Node one among many other programs at:
+
+   <pre>
+   ls /usr/local/bin
+   </pre>
+
+0. Make sure that this path containing the node executable is in the PATH:
+
+   <pre>
+   echo $PATH
+   </pre>
+
+   If not add it to the system PATH:
+
+   <pre>
+   export NODE_PATH=/usr/local/bin
+   </pre>
+
+0. Save changes to the .bash_profile file.
+0. Run the file into memory:
+
+   <pre><strong>
+   source ~/.bash_profile
+   </strong></pre>
+
+The above is recommended by
+<a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
+Advice on fixing npm On Mac OS X for Homebrew Users</a>
+
+BTW, an alternative to NVM is "n" from https://github.com/tj/n.
+However, I never got it to work for me.
+
+
+<hr />
+
+
 <a name="Download"></a>
 
-## Download and Install Node #
+## C: Download and Install Node #
 
 0. Download installer from <a target="_blank" href="http://nodejs.org/">
    http://nodejs.org</a>
@@ -48,74 +301,17 @@ comments: true
 0. Respond to the prompts.
 0. Skip to <a href="#Verify">Verify the install</a>
 
-<a name="Homebrew"></a>
 
-## Install Node using Homebrew #
-
-0. Follow instructions at my [Homebrew installation tutorial](/apple-mac-osx-homebrew/).
+## Resources #
 
 Several blogs addresses issues related to this topic:
 
 * https://docs.npmjs.com/getting-started/fixing-npm-permissions
 * <a target="_blank" href="https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md">
    Install npm packages globally without sudo on OS X and Linux</a>
-* <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
-  Advice on fixing npm On Mac OS X for Homebrew Users</a>
   * http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo/24404451#24404451
   * http://stackoverflow.com/questions/10081293/install-npm-into-home-directory-with-distribution-nodejs-package-ubuntu/13021677#13021677
 <br />
-
-0. Choose method of installing brew:
-
-   The simplest way to install node is to use brew:
-
-   <pre><strong>
-   brew install node -g
-   </strong></pre>
-
-   Notice the folder (which may have a different version number):
-
-   <pre>
-   ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
-   </pre>
-
-   NOTE: By default, when node is installed, it installs
-   <strong>npm</strong>, the Node Package Manager,
-   a node package to install additional packages.
-
-   We can get the default location by this command:
-
-   <pre><strong>
-   which npm
-   </strong></pre>
-
-   The response for default installations:
-
-   <pre><strong>
-   /usr/local/bin/npm
-   </strong></pre>
-
-   We list npm global modules installed on the default global module folder
-   with this command:
-
-   <pre><strong>
-   ls /usr/local/lib/node_modules
-   </strong></pre>
-
-   Other folders which need to be removed using sudo rm:
-
-   <pre>
-   rm '/usr/local/lib/dtrace/node.d'
-   rm `/usr/local/bin/npn'
-   rm `/usr/local/bin/node'
-   rm `/usr/local/share/doc/node/gdbinit'
-   rm `/usr/local/share/man/man1/node.1`
-   rm `/usr/local/share/systemtap/tapset/node.stp`
-   rm `/usr/local/share/systemtap/tapset`
-   </pre>
-
-   Each of the above blocks full automatic install and should be
-   removed, followed by a brew uninstall node.
 
 
 
@@ -176,7 +372,7 @@ Several blogs addresses issues related to this topic:
    echo "${HOME}"
    </strong></pre>
 
-   The alternative npm folder name estblished by convention is:
+   The alternative npm folder name established by convention is:
 
    <pre><strong>
    ls ~/.npm-packages
@@ -196,168 +392,25 @@ Several blogs addresses issues related to this topic:
    <a target="_blank" href="https://github.com/glenpike/npm-g_nosudo/blob/master/npm-g-nosudo.sh">
    npm-g_nosudo</a>
 
-   ### Install with no sudo #
 
-   Alternately, we do it manually by following the steps below:
+<a name="VerifyNode"></a>
 
-0. Create the ~/.npm-packages folder:
+## Verify #
 
-   <pre><strong>
-   mkdir "${HOME}/.npm-packages"
-   </strong></pre>
-
-0. To avoid permission issues:
+0. Verify:
 
    <pre><strong>
-   sudo chown -R $USER:$GROUP ~/.npm-packages
-   sudo chown -R $USER:$GROUP ~/.config
-   sudo chown -R $USER:admin /usr/local/
-   sudo chown -R $USER:admin /usr/local/include
+   echo $NODE_PATH
    </strong></pre>
 
-   Provide your password when prompted.
-
-0. Indicate to npm where to store globally installed packages
-   by adding a line at the bottom of the ~/.npmrc file:
-
-   <pre><strong>
-   echo prefix=~/.npm-packages >> ~/.npmrc
-   </strong></pre>
-
-   WARNING: NVM does not support this.
-
-0. Install node without default npm:
-
-    <pre><strong>
-    brew install node --without-npm
-    </strong></pre>
-
-0. To install node for global use:
-
-   <pre><strong>
-   curl -L https://www.npmjs.com/install.sh | sh
-   </strong></pre>
-
-0. After install, verify the location:
-
-   <pre><strong>
-   which npm
-   </strong></pre>
-
-   The response, where "mac" is substitued with your user name:
+   The response:
 
    <pre>
-   /Users/mac/.npm-packages/bin/npm
+   /Users/mac/.npm-packages/lib/node_modules:/usr/local/bin
    </pre>
 
-0. To ensure npm will find installed binaries and man pages,
-   use a text editor to edit the <strong>~/.bash_profile</strong> file.
-
-   BTW, .bash_profile is equivalent to the .bashrc file used in Linux systems.
-
-0. Add an NPM_PACKAGES environment variable containing the path to npm-installed packages
-   into the system PATH variable:
-
-   <pre><strong>
-   NPM_PACKAGES="${HOME}/.npm-packages"
-   PATH="$NPM_PACKAGES/bin:$PATH"
-   </strong></pre>
-
-0. To identify where node executables are installed:
-
-   <pre><strong>
-   which node
-   </strong></pre>
-
-   the response:
-
-   <pre>
-   /usr/local/bin/node
-   </pre>
-
-   See that Node one among many other programs at:
-
-   <pre>
-   ls /usr/local/bin
-   </pre>
-
-0. Make sure that this path containing the node executable is in the PATH:
-
-   <pre>
-   echo $PATH
-   </pre>
-
-   If not add it to the system PATH:
-
-   <pre>
-   export NODE_PATH=/usr/local/bin
-   </pre>
-
-0. Save the file.
-0. Activate the file in memory:
-
-   <pre><strong>
-   source ~/.bash_profile
-   </strong></pre>
-
-
-<a name="NVMInstall"></a>
-
-## NVM Install #
-
-NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
-
-0. Install C++ Compiler.
-
-   The README at <a target="_blank" href="https://github.com/creationix/nvm">
-   https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
-   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
-   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
-
-0. Install NVM:
-
-   <pre><strong>
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-   </strong></pre>
-
-   It appends source string to ~/.bashrc
-
-   Note it installs to folder <strong>~/.nvm</strong>.
-
-   CAUTION: NVM does not recognize the PREFIX used in the
-   <a href="#AltFolder"> Alternate folder technique</a>.
-   So we would need to live with just elevated permissions.
-
-0. Verify
-
-   <pre><strong>
-   nvm -v
-   </strong></pre>
-
-   3.9.5
-
-   NOTE: nvm is a shell script, so where command does not work.
-
-0. To download, compile, and install the latest v5.0.x release of node:
-
-   nvm install 5.0
-
-0. To list what versions of Node.js are installed:
-
-   nvm ls
-
-0. To use version 5.0 installed:
-
-   nvm use 5.0
-
-BTW, an alternative to NVM is "n" from https://github.com/tj/n.
-
-<a name="Verify"></a>
-
-## Verify Node working location #
-
-Regardless of how you installed node,
-before discussing your installation, obtain and present these facts:
+   Regardless of how you installed node,
+   before discussing your installation, obtain and present these facts:
 
 0. The operating system:
 
@@ -553,7 +606,7 @@ To install it we reference its npm package on npm.org:
 <a target="_blank" href="https://iojs.org/">
 iojs.org</a>
 is a forke of Node.js by several core committers frustrated by Joyant.
-It's Go language.
+It uses the Go language.
 
 
 ## More on OSX #

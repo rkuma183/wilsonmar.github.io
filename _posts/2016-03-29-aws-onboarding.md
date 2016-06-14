@@ -362,6 +362,11 @@ Amazon provides icons in a sample PowerPoint file you cut and paste,
 or you can download a zip containing icon .png and .svg files.
 
 
+## People #
+
+* Matt Wood, @mza, Product Strategy @ Amazon Web Services
+
+
 ## More on Amazon #
 
 This is one of a series on Amazon:
