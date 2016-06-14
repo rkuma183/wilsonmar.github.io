@@ -462,7 +462,7 @@ consists of:
 
 ## Exception handling #
 
-TBD.
+See http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-mode-exceptions.html
 
 
 ## Create Event Source S3 #

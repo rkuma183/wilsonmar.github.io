@@ -7,7 +7,7 @@ image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
   credit: William McNaughton
-  creditlink: 
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -18,7 +18,7 @@ comments: true
 
 <a id="NodeJSz"></a>
 
-## Know the versions of Node.js 
+## Know the versions of Node.js
 
 0. Use an internet browser to visit the list of versions:
 
@@ -121,12 +121,12 @@ Several blogs addresses issues related to this topic:
    brew install node
    </strong></pre>
 
-   NOTE: By default, when node is installed, it installs 
+   NOTE: By default, when node is installed, it installs
    <strong>npm</strong>, the Node Package Manager,
    a node package to install additional packages.
 
    We can get the default location by this command:
-   
+
    <pre><strong>
    which npm
    </strong></pre>
@@ -151,10 +151,10 @@ Several blogs addresses issues related to this topic:
    npm install serverless
    </strong></pre>
 
-   This installs the node packages <strong>locally</strong> within 
+   This installs the node packages <strong>locally</strong> within
    whatever folder is the present working directory, revealed by the `pwd` command.
 
-   However, we usually need node packages to be installed <strong>globally</strong> 
+   However, we usually need node packages to be installed <strong>globally</strong>
    for access from any present directory by any user on the machine.
 
    This location is one that OSX requires sudo (super user do) permission elevation.
@@ -173,7 +173,7 @@ Several blogs addresses issues related to this topic:
    This is because the default npm folder is managed at the system level,
    not user level.
 
-   To avoid these permission issues, 
+   To avoid these permission issues,
    some recommend higher permissions to folders, as in:
 
    <pre><strong>
@@ -192,7 +192,7 @@ Several blogs addresses issues related to this topic:
 
    #### Alternate folder #
 
-   We can install the folder under a user's HOME folder, 
+   We can install the folder under a user's HOME folder,
    which is defined by the ${HOME} environment variable:
 
    <pre><strong>
@@ -248,7 +248,7 @@ Several blogs addresses issues related to this topic:
 0. To install node for global use:
 
    <pre><strong>
-   curl -L https://www.npmjs.com/install.sh \| sh
+   curl -L https://www.npmjs.com/install.sh | sh
    </strong></pre>
 
 0. After install, verify the location:
@@ -318,7 +318,7 @@ Several blogs addresses issues related to this topic:
 
 ## NVM Install #
 
-NVM (Node Version Manager) downloads and installs multiple versions of Node.js. 
+NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
 
 0. Install C++ Compiler.
 
@@ -330,17 +330,17 @@ NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
 0. Install NVM:
 
    <pre><strong>
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh \| bash
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
    </strong></pre>
 
    It appends source string to ~/.bashrc
 
    Note it installs to folder <strong>~/.nvm</strong>.
 
-   CAUTION: NVM does not recognize the PREFIX used in the 
+   CAUTION: NVM does not recognize the PREFIX used in the
    <a href="#AltFolder"> Alternate folder technique</a>.
    So we would need to live with just elevated permissions.
-   
+
 0. Verify
 
    <pre><strong>
@@ -459,7 +459,7 @@ Others who have blogged about this include:
    });
    app.listen(3000); // This establishes port 3000. You can use another port.
    </pre>
-   
+
    NOTE: Semicolons and carriage returns serve the same purpose in JavaScript. You only need semicolons if you are concatenating code together in a single line.
 
    See https://www.airpair.com/javascript/posts/eleven-mistakes-developers-javascript
@@ -495,7 +495,7 @@ Others who have blogged about this include:
 
 Bower is similar to npm, but for the front-end GUI applications.
 
-Any frameworks or 3rd-party libraries that need to be accessible in the user's browser 
+Any frameworks or 3rd-party libraries that need to be accessible in the user's browser
 will be managed by bower.
 
 Similarly to npm, bower tracks dependencies in a file called <strong>bower.json</strong>.
@@ -549,7 +549,7 @@ To install it we reference its npm package on npm.org:
 
    Notice the -g can go before or after the module being installed.
 
-0. Run `learnyounode` 
+0. Run `learnyounode`
 
    <img width="540" height="320" alt="learnyounode 1080x640" src="https://cloud.githubusercontent.com/assets/300046/14714119/0163d652-07a1-11e6-9a24-0ea6d5941222.png">
 
