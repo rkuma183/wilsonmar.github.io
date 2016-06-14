@@ -54,6 +54,7 @@ comments: true
 
 See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md
 
+0. Make a full backup before following these instructions.
 
 0. Install Homebrew if you haven't already.
 
