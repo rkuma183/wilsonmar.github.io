@@ -51,6 +51,7 @@ Loop:
 end loop
    </pre>
 
+
 ## Libraries built-in #
 
 Modules:
@@ -65,6 +66,41 @@ Others require:
    <pre>
    var mymodule = require(" mymodule");
    </pre>
+
+
+
+   ### AWS JavaScript SDK #
+
+   http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/
+   provides functions to access AWS services in the browser or
+   http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html
+   inside Node.js apps on the server.
+
+   Still need to specify
+
+   <pre>
+   var AWS = require('aws-sdk');
+   AWS.config.region = 'us-west-2';
+   </pre>
+
+   This locks the version as of a point in time between
+   releases dated 2011-12-05 and 2012-08-10:
+
+      <pre>
+      var dynamodb = new AWS.DynamoDB({apiVersion: '2012-04-04'});
+      </pre>
+
+   To pass a parameter to a service operation:
+
+      <pre>
+      s3.getObject({Bucket: 'bucketName', Key: 'keyName'});
+      </pre>
+
+  To bind a parameter to a service operation:
+
+         <pre>
+         var s3bucket = new AWS.S3({ params: {Bucket: 'myBucket'} });
+         </pre>
 
 ## Control Log verbosity #
 

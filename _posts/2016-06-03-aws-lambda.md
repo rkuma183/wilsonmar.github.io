@@ -4,10 +4,10 @@ title: "AWS Lamba Basics"
 excerpt: "Kinda like Java Lambdas, but not really"
 tags: [AWS, EC2, lambda, cloud]
 image:
-# feature: pic data center slice 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
-  credit:
-  creditlink:
+# pic friends white shirts 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/16040708/8f5b3cc6-31ee-11e6-9043-15d6ba1326c7.jpg
+  credit: Genius Quotes
+  creditlink: http://geniusquotes.org/best-friends-forever-quotes-images-and-friends-wallpapers/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -175,7 +175,7 @@ There are several ways to get programming code into AWS Lambda:
 0. PROTIP: Construct a function name with more metadata, like this example:
 
    <pre>
-   learn1-hello-world-node43-v01
+   learn1-hello-json-node43-v01
    </pre>
 
    * Prefix the function with a project name (such as “learn1”).
@@ -199,7 +199,10 @@ There are several ways to get programming code into AWS Lambda:
    NOTE: <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html ">This page</a>
    describes the specific <strong>Linux</strong> server and utility libraries used in each region:
 
+   * <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/">Amazon Linux AMI</a>
    * Linux kernel `4.1.19-24.31.amzn1.x86_64`
+   * <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/2014.09-packages/">
+      Linux AMI 2014.09 Packages - source RPMs</a>
    * AWS SDK for JavaScript version 2.3.8
    * Python images contain AWS SDK for Python (Boto 3) version 1.3.1.
 
@@ -584,7 +587,9 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
 0. Click Enable event source until testing has occurred. Click Create function.
 
-## Test Trigger #
+
+
+## Test Triggers #
 
 ### Test Trigger S3 #
 
@@ -668,7 +673,9 @@ by mattua
 
 * https://www.youtube.com/watch?v=XByPxb_VvpY
    AWS re:Invent 2015 | (DEV303) Practical DynamoDB Programming in Java
-## Kinesis #
+
+
+## Kinesis streams #
 
 Server-less processing of streaming data using Amazon Kinesis.
 
@@ -740,6 +747,51 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
    See http://jinja.pocoo.org/docs/dev/templates/#filters
 
+## In-built libraries #
+
+### ImageMagick #
+
+ImageMagick is built-in to Lambda
+
+   * http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
+    mentioned among available libraries.
+
+    * https://www.npmjs.com/package/imagemagick
+      wrapper around the imagemagick CLI.
+
+## Stories about Uses for Lamba #
+
+Some Lambda developers share their stories:
+
+<a target="_blank" href="http://www.rightbrainnetworks.com/blog/aws-lambda-tutorial-playing-math-games-lambda/">
+AWS LAMBDA TUTORIAL: PLAYING MATH GAMES WITH LAMBDA</a>
+May 24 2016
+by  David Barnett
+
+    *    Visualizing the Mandelbrot sets
+    *   Playing Monte Carlo simulations
+    *   Visualizing Apache Spark and Databricks
+
+<a target="_blank" href="http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/">
+  Russ Matney: What I am using AWS Lambda for</a>
+
+      * gif-to-mp4
+      * create-timelapse
+      * file-to-png
+      * pngs-to-mp4
+      * mp4s-to-timelapse
+      * upload-to-vimeo
+
+
+## AWS Lambda Tools #
+
+* <a target="_blank" href="https://github.com/Netflix/bless">
+     BLESS from Netflix</a> is an SSH Certificate Authority that runs as a AWS Lambda function in an isolated AWS account with restricted IAM roles
+     to sign short-lived ssh public keys. Written in Python.
+
+
+* https://www.npmjs.com/package/aws-lambda-toolkit
+
 
 ## Social #
 
@@ -752,8 +804,6 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 ## Resources:
 
 * http://codurance.com/2016/05/11/aws-lambdas/
-
-* https://www.npmjs.com/package/aws-lambda-toolkit
 
 * https://www.youtube.com/watch?v=fXZzVzptkeo
 
@@ -770,28 +820,14 @@ Jinja2 templates can be used to expand "moustache" variables in CloudFormation J
 
 Justin Yoo Readify ‏@readify
 
-http://www.rightbrainnetworks.com/blog/aws-lambda-tutorial-playing-math-games-lambda/
-May 24 2016
-AWS LAMBDA TUTORIAL: PLAYING MATH GAMES WITH LAMBDA
-by  David Barnett
-    Visualizing the Mandelbrot sets
-     Playing Monte Carlo simulations
-     Visualizing Apache Spark and Databricks
-
-Public repos in GitHub
-
-   * <a target="_blank" href="https://github.com/Netflix/bless">
-     BLESS from Netflix</a> is an SSH Certificate Authority that runs as a AWS Lambda function in an isolated AWS account with restricted IAM roles
-     to sign short-lived ssh public keys. Written in Python.
-
-   * http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
-   mentions ImageMagick for processing image files.
+## Trivia #
 
 * The <a target="_blank" href="https://www.w3.org/TR/REC-html40/sgml/entities.html">
 HTML 4 character entity references</a> for the Greek capital and small letter lambda are "&#923;" and "&#955;".
-* The Unicode numbers for lambda are U+039B and U+03BB.
 
-## Rock Stars #
+The Unicode numbers for lambda are U+039B and U+03BB.
+
+## People #
 
 * Tim Wagner, @timallenwagner,
    General Manager of AWS Lambda at Amazon,
@@ -805,16 +841,6 @@ HTML 4 character entity references</a> for the Greek capital and small letter la
 * Ajay Nair @ajaynairthinks is Lead Product Manager for AWS Lambda
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
-
-* http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/
-
-   * gif-to-mp4
-   * create-timelapse
-   * file-to-png
-   * pngs-to-mp4
-   * mp4s-to-timelapse
-   * upload-to-vimeo
-
 
 ## More on Serverless #
 
