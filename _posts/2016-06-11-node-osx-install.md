@@ -26,12 +26,12 @@ comments: true
    http://nodejs.org</a>
 <br />
 
-0. Choose a (all mutually exclusive) method of installing Node:
+0. Choose one (all mutually exclusive) method of installing Node:
 
-   * <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
-   * <a href="#Download">Download most current version v6.2.1+</a>
-   * <a href="#Homebrew">Brew install whatever version Homebrew has available</a>
-   * <a href="#NVMInstall">Install NVM to switch among several versions of Node</a>
+   * A: <a href="#Homebrew">Brew install whatever version Homebrew has available</a>. Recommended.
+   * B: <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>
+   * C: <a href="#Download">Download most current version v6.2.1+</a>
+   * D: <a href="#NVMInstall">Install NVM to switch among several versions of Node</a>
 <br />
 
 <hr />
@@ -130,11 +130,11 @@ See https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-I
 
 0. Prune:
 
-      <pre><strong>
-      brew prune
-      </strong></pre>
+    <pre><strong>
+    brew prune
+    </strong></pre>
 
-      A sample response:
+    A sample response:
 
     <pre>
     Pruned 1598 symbolic links and 185 directories from /usr/local
@@ -161,6 +161,12 @@ Several blogs addresses issues related to this topic:
    <pre><strong>
    brew install node
    </strong></pre>
+
+   Notice the folder:
+
+   <pre>
+   ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
+   </pre>
 
    NOTE: By default, when node is installed, it installs
    <strong>npm</strong>, the Node Package Manager,
