@@ -107,6 +107,21 @@ in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
 
 > "There are tools and entire industries whose entire value proposition are about answering just one of these."
 
+## Why NOT? #
+
+You are not a good candidate for using AWS Lambda if
+you interact with components in EC2 instances:
+
+   * AMI - app requires a custom AMI
+   * SSH into server using multiple accounts
+   * LDAP
+   * OS updates impact your app?
+   * OS configuration such as memory settings, max. file handlers, etc.
+   * OS snapshots during security incidents
+   * Intrusion detection not available
+   * Network speeds not known
+   * VPC not yet supported
+
 <a name="CreateFunction"></a>
 
 ## Create a Lambda function #
@@ -286,10 +301,9 @@ There are several ways to get programming code into AWS Lambda:
 
 0. Click Test.
 
-   ### Test Data #
+   ### Input Test Event #
 
-0. Select from Sample event template. The default is always "Hello World"
-   (even if you're not using the Hello World function).
+0. Select from <strong>Sample event template</strong>. The default is "Hello World".
 
 0. Click Save and test.
 
@@ -302,9 +316,31 @@ There are several ways to get programming code into AWS Lambda:
 
 0. Click Test. If no input data has been defined, the <strong>Input test event form</strong> appears in a pop-up.
 
-   The default data that appears is from the Hello World sample event template. But there are others:
+   The default data that appears is from the Hello World sample event template.
 
-   <amp-img width="256" height="586" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/16029891/d4d87eb6-31a9-11e6-9865-b31e90482a57.jpg"></amp-img>
+0. Scroll down the list to marvel at other options to trigger the function:
+
+   <img align="right" width="256" height="586" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/16029891/d4d87eb6-31a9-11e6-9865-b31e90482a57.jpg">
+
+   * API Gateway Authorizer
+   * CloudFormation Create REPORT
+   * SES Email receiving
+   * CloudWatch Logs
+   * SNS
+
+   * DynamoDB Update
+   * Cognito Sync trigger
+   * Kinesis
+   * S3 Put
+   * S3 Delete
+
+   * Alexa Start Session
+   * Alexa End Session
+   * Alexa Smart Home - Control
+   * Alexa Intent - MyColorIs
+
+   * Hello World
+   * Mobile Backend
 
 0. Select from Sample event template “Hello World” to replace what has been saved for the current Lambda.
 
@@ -477,7 +513,9 @@ These v0.10.36 context functions still work in v4.3.2, but are no longer recomme
 
 ## Create Event Source S3 #
 
-This is an example of a "push" model where Lambda is triggered by an event external to it.
+This is an example of a <strong>"push"</strong> model where Lambda is triggered by an event external to it.
+
+Prior to AWS Lambda, servers had to "ping" S3 frequently to identify when a file has been added.
 
 The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    Introduction to AWS Lambda course in qwiklabs.com</a>
@@ -536,7 +574,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
    <a name="Runtimes"></a>
 
-0. Select "Node.j2 4.3" for Runtime
+0. Select "Node.j2 4.3" for Runtime.
 
    <amp-img width="380" height="161" alt="lambda runtimes 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778339/c5db0258-2952-11e6-8ac0-5b641024f760.jpg"></amp-img>
 
@@ -560,6 +598,9 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
    NOTE: The file holding the code is <strong>index.js</strong>.
 
+0. The Event Source Type would be "S3".
+0. The Event Type would be "Object Created (All)".
+
 0. Leave Handler as "index.handler".
 
    "index" Lambda calls a <strong>module</strong> in error messages.
@@ -576,37 +617,17 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
    <pre>
    {
+     "Version": "2012-10-17",
      "Statement" : [
-     {
-       "Effect" : "Allow",
-       "Action" : [ "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"
-       ],
+     { "Effect" : "Allow",
+       "Action" : [ "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents" ],
        "Resource" : "arn:aws:logs:*:*:*"
      },
      { "Effect" : "Allow", "Action" : [ "s3: GetObject" ],
        "Resource" : "arn:aws:s3::: your-bucket-name"
-     } 
+     }
    ]
  }
-   </pre>
-
-0. Click View Policy Document. An example:
-
-   <pre>
-   {
-   "Version": "2012-10-17",
-   "Statement": [
-     {
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:*"
-     }
-    ]
-   }
    </pre>
 
 0. Click Allow in the IAM window opened for you to accept the role name suggested.
@@ -790,6 +811,8 @@ ImageMagick is built-in to Lambda
 
     * https://www.npmjs.com/package/imagemagick
       wrapper around the imagemagick CLI.
+
+## Use of /tmp folder #
 
 ## Stories about Uses for Lamba #
 
