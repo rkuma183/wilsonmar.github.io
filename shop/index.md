@@ -33,6 +33,7 @@ Comfort:
 - [ ] Be the maximum size to qualify as carry-on luggage (22 x 16 x 8 inches).
 - [ ] Adjustable shoulder and side straps.
 - [ ] Lightweight. Generally around 2 pounds. The wheels add weight.
+- [ ] External water tube to internal water bag (not requiring removal of bag to drink)
 
 Security features:
 
