@@ -215,13 +215,18 @@ There are several ways to get programming code into AWS Lambda:
 
    <amp-img width="380" height="161" alt="lambda runtimes 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/15778339/c5db0258-2952-11e6-8ac0-5b641024f760.jpg"></amp-img>
 
-   NOTE: <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html ">This page</a>
-   describes the specific <strong>Linux</strong> server and utility libraries used in each region:
+   Run-times exist within a
+   <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/">Amazon Linux AMI</a>.
+   More specifically,
+   <a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html ">this page</a>
+   describes the specific <strong>Linux</strong> server and utility libraries used in each region.
+   (ami-f0091d91) in Oregon is <a target="_blank" href="amazon/amzn-ami-hvm-2015.09.1.x86_64-gp2">
+      amazon/amzn-ami-hvm-2015.09.1.x86_64-gp2</a>
+   with Linux kernel `4.1.19-24.31.amzn1.x86_64`.
 
-   * <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/">Amazon Linux AMI</a>
-   * Linux kernel `4.1.19-24.31.amzn1.x86_64`
-   * <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/2014.09-packages/">
+   <a target="_blank" href="http://aws.amazon.com/amazon-linux-ami/2014.09-packages/">
       Linux AMI 2014.09 Packages - source RPMs</a>
+
    * AWS SDK for JavaScript version 2.3.8
    * Python images contain AWS SDK for Python (Boto 3) version 1.3.1.
 
@@ -318,6 +323,9 @@ There are several ways to get programming code into AWS Lambda:
 
    The default data that appears is from the Hello World sample event template.
 
+   CAUTION: Selection of “Hello World” from the Sample event template
+   <strong>replaces</strong> what has been saved for the current Lambda.
+
 0. Scroll down the list to marvel at other options to trigger the function:
 
    <img align="right" width="256" height="586" alt="lambda test sample 2016-06-03" src="https://cloud.githubusercontent.com/assets/300046/16029891/d4d87eb6-31a9-11e6-9865-b31e90482a57.jpg">
@@ -328,10 +336,10 @@ There are several ways to get programming code into AWS Lambda:
    * CloudWatch Logs
    * SNS
 
-   * DynamoDB Update
+   * <a href="#DynamoTrigger"> DynamoDB Update</a>
    * Cognito Sync trigger
    * Kinesis
-   * S3 Put
+   * <a href="S3Put">S3 Put</a>
    * S3 Delete
 
    * Alexa Start Session
@@ -341,8 +349,9 @@ There are several ways to get programming code into AWS Lambda:
 
    * Hello World
    * Mobile Backend
+<br />
 
-0. Select from Sample event template “Hello World” to replace what has been saved for the current Lambda.
+0. Make a change to "value1".
 
    <pre>
 {
@@ -352,12 +361,11 @@ There are several ways to get programming code into AWS Lambda:
 }
    </pre>
 
-0. Make a change to "value1".
-
    NOTE: Each Key-Value pair (KVP) is called a “structure” (two pieces of data together as a single object).
    Keys used to lookup values are also called “identifiers”.
 
 0. Click <strong>Save</strong> to exit the modal dialog.   
+
 
    #### Action: Configure test event #
 
@@ -407,8 +415,7 @@ callback(null, event.key1);  // Echo back the first key value
           * Unhandled exceptions causing the code to exit the function since it can't handle the error.
           * Out of memory exceptions
           * Timeouts
-          * Permission errors
-        <br />
+          * Permission errors<br />
 
       * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
       the customer concurrent limit has been reached for the period (error 429).
@@ -511,7 +518,11 @@ These v0.10.36 context functions still work in v4.3.2, but are no longer recomme
 0. Change AWS_RUNTIME value to nodejs in the .env file.
 
 
+<a name="S3Put"></a>
+
 ## Create Event Source S3 #
+
+See https://github.com/awslabs/lambda-refarch-fileprocessing
 
 This is an example of a <strong>"push"</strong> model where Lambda is triggered by an event external to it.
 
@@ -524,7 +535,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 
 0. Open another tab on your browser to create a bucket in
    <a target="_blank" href="https://console.aws.amazon.com/s3/home?region=us-west-2#">
-   S3</a> with a name such as "lambdabkt001".
+   S3</a> with a name (such as "lambdabkt001").
 
    WARNING: Bucket names must be unique among all S3 users.
 
@@ -534,6 +545,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    <amp-img width="273" height="259" alt="lambda regions 2016-06-03 " src="https://cloud.githubusercontent.com/assets/300046/15779042/53daf6d6-2957-11e6-8420-140090d9f799.jpg"></amp-img>
 
    For now, no logging, versioning, replication, tags, etc. for the bucket.
+
 
    #### Create Lambda Function #
 
@@ -641,10 +653,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 0. Click Enable event source until testing has occurred. Click Create function.
 
 
-
-## Test Triggers #
-
-### Test Trigger S3 #
+   ### Test Trigger S3 #
 
 0. Switch back to the S3 tab.
 0. Click on the bucket link.
@@ -654,6 +663,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 0. Click Start Upload.
 
    Done.
+
 
 ### Test Trigger Custom #
 
@@ -674,6 +684,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
 0. Click Test. Scroll to the bottom of the screen to see the Execution result.
 
 
+<a name="DynamoTrigger"></a>
 
 <a name="CreateLambda"></a>
 

@@ -16,7 +16,7 @@ comments: true
 
 This tutorial describes the use of Windows PowerShell on Azure cloud.
 
-Powershell refers to both the command-line shell and scripting language designed system administration. Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line. 
+Powershell refers to both the command-line shell and scripting language designed system administration. Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line.
 
 
 ## One-time tasks #
@@ -24,7 +24,7 @@ Powershell refers to both the command-line shell and scripting language designed
 <a target="_blank" href="https://technet.microsoft.com/en-us/library/dn807169.aspx">
 Windows PowerShellGet Module</a>.
 
-If you don't want to install these from the 
+If you don't want to install these from the
 <a target="_blank" href="https://www.microsoft.com/web/downloads/platform.aspx">Web Platform Installer (wpilauncher.exe) at
 https://www.microsoft.com/web/downloads/platform.aspx</a>
 
@@ -39,16 +39,16 @@ https://www.microsoft.com/web/downloads/platform.aspx</a>
 0. Accept the pre-requisite of <strong>Windows Azure Powershell</strong>.
 
 0. Click Add for <strong>Azure Cross-platform Command-line Tools</strong> to download WindowsAzureXPlatCLI.3f.3f.3fnew.exe
-   aka Power Tools 
+   aka Power Tools
 
    NOTE: "XPlat" means Cross-platform. It's for ASM portal usage.
 
 
 ### Install for ARM Declarative Templates #
 
-   <strong>declarative syntax</strong> are defined 
+   <strong>declarative syntax</strong> are defined
    in Resource Manager <strong>templates</strong>
-   used by ARM to enable infrastructure configurations to be defined 
+   used by ARM to enable infrastructure configurations to be defined
    (much like Puppet).
 
 ### Install PowerShell #
@@ -179,7 +179,7 @@ Pop-up help for a command to a different window for multiple windows:
    azure login
    </strong></pre>
 
-   Copy the code and open 
+   Copy the code and open
    <a target="_blank" href="https://aka.ms/devicelogin">https://aka.ms/devicelogin</a>
 
    <pre><strong>
@@ -254,11 +254,11 @@ Rather than looping:
 
 ## Declarative Templates #
 
-Multiple services can be deployed at the same time (asychronously), as a group, along with their dependencies by 
-using a <strong>group template</strong> that defines <strong>desired end state</strong> 
+Multiple services can be deployed at the same time (asychronously), as a group, along with their dependencies by
+using a <strong>group template</strong> that defines <strong>desired end state</strong>
 of application components.
 
-The Local Configuration Manager (LCM)  introduced in Windows PowerShell 5.0 is the engine of 
+The Local Configuration Manager (LCM)  introduced in Windows PowerShell 5.0 is the engine of
 DSC = Desired State Configuration.
 
 Differences in each stage of the application lifecycle can be specified.
@@ -270,7 +270,7 @@ Azure Resource Manager overview</a> by Tom FitzMacken.
 
 At <a target="_blank" href="http://github.com/Azure/">http://github.com/Azure</a> are<br />
 sample ARM JSON templates at <a target="_blank" href="https://github.com/Azure/azure-quickstart-templates/">
-azure-quickstart-template code</a> presented 
+azure-quickstart-template code</a> presented
 <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/templates/">
 here</a>.
 
@@ -298,7 +298,7 @@ Every template contains this:
        }
     }
   },
-    "variables":{ 
+    "variables":{
 
   },
     "resources":{
@@ -314,7 +314,7 @@ Every template contains this:
  * Standard_LRS = Locally Redundant Storage
  * Standard_GRS = Geographically Redundant Storage
  * Standard_RAGRS = Read Access Geographically Redundant Storage
- * Premium_LRS = 
+ * Premium_LRS =
 
 ## Override #
 
@@ -368,7 +368,7 @@ sku options:
    * "EnterpriseOptimizedDW" for Data Warehouse needing fast read but can tolerate slower bulk writes
    * "EnterpriseOptimizedOLTP" needing fast read and fast write
 
-"offer" options: 
+"offer" options:
 
    * "SP2014SP1-WS2012R2"
    * "SQL2014-WS2012R2"
