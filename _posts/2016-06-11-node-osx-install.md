@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Node.js Installation on OSX"
+title: "Node.js Installation on MacOS"
 excerpt: "JavaScript for the win"
 tags: [node, javascript, apple, mac, setup]
 image:
@@ -330,7 +330,7 @@ Several blogs addresses issues related to this topic:
    However, we usually need node packages to be installed <strong>globally</strong>
    for access from any present directory by any user on the machine.
 
-   This location is one that OSX requires sudo (super user do) permission elevation.
+   This location is one MacOS requires sudo (super user do) permission elevation.
    For example:
 
    <pre><strong>
@@ -418,7 +418,7 @@ Several blogs addresses issues related to this topic:
    uname -a
    </strong></pre>
 
-   On my Mac OSX, the response:
+   On my machine, the response:
 
    <pre>
    Darwin macs-MacBook-Pro-4.local 15.5.0 Darwin Kernel Version 15.5.0: Tue Apr 19 18:36:36 PDT 2016; root:xnu-3248.50.21~8/RELEASE_X86_64 x86_64
@@ -609,8 +609,8 @@ is a forke of Node.js by several core committers frustrated by Joyant.
 It uses the Go language.
 
 
-## More on OSX #
+## More on MacOS #
 
-This is one of a series on Mac OSX:
+This is one of a series on MacOS:
 
 {% include mac_links.html %}

@@ -229,7 +229,7 @@ A key differentiator with the Serverless Framework is that infrastructure specs 
 <strong>s-resources-cf.json</strong> is a AWS CloudFormation template
 specifying security (IAM) roles, SNS email topics, DynamoDB tables, Queues, ARNs.
 
-Components are deployed per stage (dev, prod, etc.), 
+Components are deployed per stage (dev, prod, etc.),
 allowing developers to easily deploy separate prod, test and dev environments.
 
 Within the folder for each function is a <strong>s-function.json</strong>
@@ -246,6 +246,22 @@ Serverless Meta Sync plugin
 which stores project metadata in S3.
 
 <strong>admin.env<strong>
+
+
+<a name="Testing"></a>
+
+## Testing #
+
+We are taking a test-first approach to achieve code maturity.
+
+0. Install the node-lambda package:
+
+   <tt><strong>
+   npm install <a target="_blank" href="https://www.npmjs.com/package/node-lambda">
+   node-lambda</a>
+   </strong></tt>
+
+0. Describe them in a JSON file.
 
 <a name="Plugins"></a>
 

@@ -807,7 +807,15 @@ by  David Barnett
 
 ## Resources:
 
+* https://blog.fugue.co/2016-05-05-architecting-a-serverless-web-application-in-aws.html
+
+* https://github.com/dwyl/learn-aws-lambda
+
+* https://www.jayway.com/2015/11/07/error-handling-in-api-gateway-and-aws-lambda/
+
 * http://codurance.com/2016/05/11/aws-lambdas/
+
+* https://stelligent.com/2016/03/23/serverless-delivery-bootstrapping-the-pipeline-part-2/
 
 * https://www.youtube.com/watch?v=fXZzVzptkeo
 
