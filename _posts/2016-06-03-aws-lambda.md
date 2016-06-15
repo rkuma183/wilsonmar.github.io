@@ -33,12 +33,16 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    TODO: I hope to have a competitive comparison in the future.
 
 0. Click <strong>Sign In</strong> to the AWS Lambda Console.
+   If you have signed in before, the URL changes to include your working region.
 
    <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
    https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2</a>
 
    NOTE: AWS Lambda acts like a giant single server.
    But you get to pick which Availability Zone.
+
+0. Change the region if you need.
+
 
 
 0. Select Services from the top menu.
@@ -567,6 +571,24 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    If you are usign S3, select `* S3 execution role`. The asterisk (*) designates the default selection.
 
    Alternately, select `Basic execution role` if your function does not need to input data.
+
+0. Click View Policy Document for accessing S3. An example:
+
+   <pre>
+   {
+     "Statement" : [
+     {
+       "Effect" : "Allow",
+       "Action" : [ "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"
+       ],
+       "Resource" : "arn:aws:logs:*:*:*"
+     },
+     { "Effect" : "Allow", "Action" : [ "s3: GetObject" ],
+       "Resource" : "arn:aws:s3::: your-bucket-name"
+     } 
+   ]
+ }
+   </pre>
 
 0. Click View Policy Document. An example:
 
