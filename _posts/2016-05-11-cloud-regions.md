@@ -61,8 +61,22 @@ Each region within Amazon contains multiple, isolated <strong>Availability Zones
 
    Additional End-point locations.
 
+   CAUTION: The number and mapping of Availability Zones per region may vary between AWS accounts.
+
 See <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">
-Amazon's User Guide on Regions and availability zones</a>.
+Amazon's User Guide on Regions and availability zones</a> for examples of AWS CLI commands:
+
+   <pre><strong>
+   aws ec2 describe-regions
+   aws ec2 describe-availability-zones --region us-west-2
+   </strong></pre>
+
+
+PROTIP: Set an environment variable to your default regional endpoint (for example, https://ec2.us-west-1.amazonaws.com):
+
+   * AWS_DEFAULT_REGION (AWS CLI)
+   * EC2_URL (Amazon EC2 CLI)
+
 
 <a name="AzureRegions"></a>
 

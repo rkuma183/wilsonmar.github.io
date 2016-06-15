@@ -35,20 +35,17 @@ There are several ways to automate server setup:
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084480/3664cfcc-32d6-11e6-91a2-f3bffad430b8.png"></amp-img>
 
 
-All these follow an "idempotent" approach of specifying what is desired rather than specific steps.
+All these follow an "idempotent" approach of specifying what is desired rather than specific sequences of actions.
 
-Building a server within AWS for enterprise use requires several services:
+## Component services #
+
+Each environment within AWS for enterprise use requires several services:
 
    * <a href="#AWSConsole">AWS Management Console</a>
-   * <a href="#Beanstalk">Beanstalk</a>
-   * <a href="#CF">Cloud Formation</a>
-   * <a href="#AMI">AMI</a>
-   * <a href="#ELB">ELB</a>
-   * <a href="#VPN">VPN</a>
+   * <a href="#VPN">VPN</a> VPC
    * <a href="#NAT">NAT</a>
-   * <a href="#AutoScale">Auto-Scale</a>
-
-And dozens more.
+   * <a href="#AMI">AMI</a> with Auto-scale
+   * <a href="#ELB">ELB</a>
 
 <hr />
 
@@ -236,14 +233,16 @@ All CF templates must have a version, even though it's always 2010-09-09:
     "Properties": {
       "ImageId": "ami-bff32ccc",
       "InstanceType": "t2.nano",
-      "NetworkInterfaces": [{"SubnetId": "..."}]
+      "NetworkInterfaces": [{
+        "GroupSet": [{"Ref": "SecurityGroup1"}]
+        "SubnetId": "..."
+      }]
     }
   },
   "ElasticIP": {...},
   "SecurityGroup": {...}
 }
 {% endhighlight %}
-
 
 
 <a name="AZ"></a>
@@ -283,9 +282,12 @@ In CF Mapping, each AMI is specific to a Availability Zone.
     }
 {% endhighlight %}
 
+
+
 <a name="Mappings"></a>
 
 ## Mappings of Instance Types
+
 Within the Console, the type of machine are Instance Types.
 
 In a CF JSON file, instance types are defined in Mappings:
@@ -307,7 +309,8 @@ In a CF JSON file, instance types are defined in Mappings:
     },
 {% endhighlight %}
 
-Nowdays, 64-bit servers are all that is being made.
+   NOTE: Nowdays, 64-bit servers are all that is being made.
+
 
 <a name="VPC"></a>
 
@@ -360,12 +363,15 @@ and saved with a static IP address which Skytap internally
 changes to real ones. This allows many servers to be configured
 and run with the same IP addresses.
 
-The CIDR block for a default VPC is always 172.31.0.0/16.
+### CIDR #
+
+<strong>The CIDR block for a default VPC is always 172.31.0.0/16.</strong>
 This provides from 16 to 65,536 private IP addresses.
 A default subnet has a /20 subnet mask, which provides up to 4,096 addresses per subnet.
 Some addresses are reserved for Amazon’s use.
 
 * http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+
 
 <a name="SecGroups"></a>
 
@@ -375,7 +381,17 @@ SGs define which ports are open.
 
 By default, no ports are open.
 
-This template has additional output parameters.
+A template can have additional output parameters.
+
+{% highlight text %}
+  "SecurityGroupIngress": [{
+    "CidrIp": "0.0.0.0/0",
+    "FromPort": 22,
+    "IpProtocol": "tcp",
+    "ToPort": 22
+  }]
+}
+{% endhighlight %}
 
 
 
@@ -393,7 +409,8 @@ is inspected.
 
 <a name="NAT"></a>
 
-## NAT
+## NAT #
+
 Network Address Translation enables servers in private subnets to communicate with the public Internet outside the farm.
 
 An example of how NAT is configured in a CF JSON file:
@@ -409,9 +426,9 @@ An example of how NAT is configured in a CF JSON file:
     },
 {% endhighlight %}
 
-The "m1.small" is defined in <a href="#Mappings">Mappings</a>.
+   The "m1.small" is defined in <a href="#Mappings">Mappings</a>.
 
-In the CF JSON Resources section:
+   In the CF JSON Resources section:
 
 {% highlight text %}
     "NAT" : {
@@ -460,6 +477,7 @@ used to log into the instance.
 NAT instances are a Single Point of Failure (SPOF),
 so monitoring and automated replacement is needed.
 
+
 <a name="VPN"></a>
 
 ## VPN (Virtual Private Network)
@@ -484,12 +502,12 @@ inbound access.
 Cidr (Classless Inter-Domain Routing) is also called "supernetting"
 becuase it allows more flexible allocation of Internet Protocol (IP) addresses. Whatever.
 
+
 <a name="Bastion"></a>
 
 ## Bastion Hosts
 
-Bastion hosts are the only servers allowed access from SSH
-via the public internet.
+Bastion hosts are the only servers allowed access via SSH from the public internet.
 
 Windows users use Putty program from:
 
