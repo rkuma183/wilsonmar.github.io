@@ -28,7 +28,7 @@ The name "serverless" has been adopted by enprepreneur
 <a target="_blank" href="https://twitter.com/austencollins">
 @austencollins</a>
 who built the
-<a target="_blank" https://serverless.com/">
+<a target="_blank" href="https://serverless.com/">
 Serverless company</a>
 around its open-source
 <a target="_blank" href="https://github.com/serverless/serverless-framework">
@@ -248,20 +248,58 @@ which stores project metadata in S3.
 <strong>admin.env<strong>
 
 
-<a name="Testing"></a>
+## Serverless Command-line #
 
-## Testing #
+Lambda functions can be defined from a command-line using the Serverless framework.
 
-We are taking a test-first approach to achieve code maturity.
+AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
+   <amp-youtube data-videoid="fXZzVzptkeo" layout="responsive" width="480" height="270"></amp-youtube>
 
-0. Install the node-lambda package:
+http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
+
+
+## Keeping Secrets #
+
+BLAH: AWS Lambda doesn't allow setting and reference to operating system <strong>environment variables</strong>.
+
+Secrets such as DB connection string or encryption key
+are secure values that should not be checked into version control (specified in a .gitignore file).
+
+To provide Lambda functions with
+<strong>deploy.env</strong> file in combination with the
+<strong>`--configFile`</strong> flag to set values which will be
+prepended to your compiled Lambda function as
+<strong>process.env</strong> environment variables before it gets uploaded to S3.
+
+
+<a name="LocalTesting"></a>
+
+## Local Runs for testing #
+
+If we're taking a "test-first" approach to achieve code maturity,
+doing test runs locally before committing to a team branch is important.
+
+Let's examine the choices to emulate AWS Lambda locally:
+
+* <a target="_blank" href="https://www.npmjs.com/package/local-node-lambda">
+   local-node-lambda</a>
+
+* <a target="_blank" href="https://github.com/ashiina/lambda-local">
+   ashiina/lambda-local</a>
+
+0. Install the "Command line tool for <strong>locally running</strong>
+   and remotely deploying your node.js applications to Amazon Lambda."
+   from <a target="_blank" href="https://github.com/motdotla/node-lambda">
+   github.com/motdotla/node-lambda</a>
 
    <tt><strong>
-   npm install <a target="_blank" href="https://www.npmjs.com/package/node-lambda">
+   npm install -g <a target="_blank" href="https://www.npmjs.com/package/node-lambda">
    node-lambda</a>
    </strong></tt>
 
-0. Describe them in a JSON file.
+0. Describe tests in a JSON file.
+
+
 
 <a name="Plugins"></a>
 
@@ -334,15 +372,6 @@ PROTIP: Plugins need to be installed for each project that uses each.
 
 * [arabold/serverless-autoprune-plugin](https://github.com/arabold/serverless-autoprune-plugin) - Delete old AWS Lambda versions.
 
-
-## Serverless Command-line #
-
-Lambda functions can be defined from a command-line using the Serverless framework.
-
-AWS May 2016 Webinar Series - Deep Dive on Serverless Web Applications
-   <amp-youtube data-videoid="fXZzVzptkeo" layout="responsive" width="480" height="270"></amp-youtube>
-
-http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
 
 
 <a id="IAM"></a>

@@ -464,6 +464,12 @@ consists of:
 
 See http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-mode-exceptions.html
 
+Functions context.done(), context.succeed(), and context.fail()
+have been deprecated in favor of the callback() function.
+These v0.10.36 context functions still work in v4.3.2, but are no longer recommended.
+
+0. Change AWS_RUNTIME value to nodejs in the .env file.
+
 
 ## Create Event Source S3 #
 

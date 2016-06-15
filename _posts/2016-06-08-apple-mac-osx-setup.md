@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Mac OSX Setup Automation"
+title: "MacOS Setup Automation"
 excerpt: "How I setup several Macbooks while I sleep"
-tags: [apple, mac, setup]
+tags: [apple, mac, setup, automation]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622035/740efa5c-0584-11e6-9a41-db5b03eaff85.jpg
@@ -20,7 +20,7 @@ comments: true
 This is the easiest way to quickly configure a Mac the way many developers prefer
 and add programs many developers want.
 
-If you already have an established installation with vagrant and virtualbox, 
+If you already have an established installation with vagrant and virtualbox,
 create a virtual machine to try this process.
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
@@ -48,13 +48,13 @@ If you've already run this, <a href="#SelectApps">click here to skip to view and
 0. Press the <strong>enter/return</strong> key to invoke the command which
    causes files to be downloaded and folders created:
 
-   * Xcode 
+   * Xcode
    * <a href="#Homebrew">Homebrew</a>, Tap, and Cask
-   * Ansible 
+   * Ansible
 
    &nbsp;
 
-   The command also downloads folder laptop from 
+   The command also downloads folder laptop from
    <a target="_blank" rel="amphtml" href="https://github.com/siyelo/laptop">
    https://github.com/siyelo/laptop</a>
 
@@ -100,19 +100,19 @@ Switch to use an internet browser to see my list of programs for Mac OSX at
 
    * <a href="#Homebrew">**brew**</a> (formulas) are installed using the <a target="_blank" rel="amphtml" href="http://brew.sh/">brew</a> command.
      Programs installed this way are invoked using a text-based Terminal command-line interface.
-   
-   * <a href="#Tap">**tap**</a> uses the `brew tap` command to install a package <strong>within another repository</strong>. 
+
+   * <a href="#Tap">**tap**</a> uses the `brew tap` command to install a package <strong>within another repository</strong>.
    <a target="_blank" rel="amphtml" href="https://github.com/Homebrew/homebrew/wiki/Interesting-Taps-&-Branches">
    interesting brew tap</a>.
 
-   * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is 
+   * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is
      an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
 
    * **pip** are Python plug-ins.
    * <a href="#npm">**npm**</a> are Node modules (such as Express).
-   
+
    * **store** indicates manual installation using the Apple iTunes program accessing the Apple Store.
-   
+
    * **zip** programs are installed after a download, requiring an Ansible task to replace manual clicks and data entry.
    <br />
 
@@ -208,7 +208,7 @@ Skip the long URLs, the "To install, drag this icon…", and manually deleting i
 
    <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb">
    https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb</a>
-   is a sample cask definition: 
+   is a sample cask definition:
 
 {% highlight text %}
 cask 'google-chrome' do
@@ -246,7 +246,7 @@ end{% endhighlight %}
    brew cask install google-chrome
    </strong></tt>
 
-   Cask downloads then moves the app to the ~/Applications folder, 
+   Cask downloads then moves the app to the ~/Applications folder,
    so it can be opened this way:
 
 0. Open the installed cask from Terminal:
@@ -269,9 +269,9 @@ end{% endhighlight %}
 <a target="_blank" href="http://dotfiles.github.io/">
 GitHub's Dotfiles</a> manage files containing preferences for command-line programs.
 
-For example, the configuration file for Zsh is .zshrc. 
-The SSH configuration folder is .ssh. 
-And on. 
+For example, the configuration file for Zsh is .zshrc.
+The SSH configuration folder is .ssh.
+And on.
 
 Such files have a dot because they are hidden.
 
@@ -339,7 +339,7 @@ The above enables him to invoke:
    &nbsp;
 
 0. Have a # (pound sign) in front of each package based on your evaluation.
-   
+
    Click on each link to open a web page about each.
    Some links take you to a section lower in this tutorial.
 
@@ -405,11 +405,11 @@ Consider other Ansible playbooks for Mac:
 
    &nbsp;
 
-* Mr. Jeff Geeling I call "Master of the 
+* Mr. Jeff Geeling I call "Master of the
    <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
    Ansible Galaxy</a>" because he has contributed both the most downloaded roles and garnered the highest ratings.
    His <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
-   mac-dev-playbook</a> 
+   mac-dev-playbook</a>
    contains:
 
 {% highlight text %}
@@ -434,7 +434,7 @@ Consider other Ansible playbooks for Mac:
 |   |-- ansible-setup.yml
 |   `-- preferences.yml
 `-- vars
-    `-- main.yml{% endhighlight %} 
+    `-- main.yml{% endhighlight %}
 
 The <strong>requirements.txt</strong> file specifies files to download from the Ansible Gaxlaxy sharing site.
 
@@ -469,7 +469,7 @@ Change <strong>user:</strong> value from "jgeeling" to your Mac account name.
     # TODO: Use sudo once .osx can be run via root with no user interaction.
     - name: Run .osx dotfiles.
       shell: ~/.osx --no-restart
-      changed_when: false{% endhighlight %} 
+      changed_when: false{% endhighlight %}
 
 
 Under the vars folder main.yml file is a list of several Homebrew packages.
@@ -487,7 +487,7 @@ Under the vars folder main.yml file is a list of several Homebrew packages.
 0. Run Ansible:
 
    <tt><strong>
-   ansible-playbook playbook.yml -i hosts --ask-sudo-pass -vvvv 
+   ansible-playbook playbook.yml -i hosts --ask-sudo-pass -vvvv
    </strong></tt>
 
 0. Press the return key to invoke the command.
@@ -505,12 +505,12 @@ QUESTION: How to remove apps
 Programs are installed into the Applications folder.
 Remember there are two different Applications folders
 
-   * `cd /Applications` 
+   * `cd /Applications`
 
-   * `cd ~/Applications` to see programs installed by clicking browser links, 
+   * `cd ~/Applications` to see programs installed by clicking browser links,
    such as GoToMeeting, etc.
 
-To get rid of GarageBand, 
+To get rid of GarageBand,
 
 0. In a Terminal, go to where Apple stores its default apps at:
 
