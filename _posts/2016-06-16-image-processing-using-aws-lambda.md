@@ -165,7 +165,7 @@ An alternative is via subscription to SNS topics.
 Pictures need to be re-sized for:
 
    * 150x fixed width, height is scaled as needed
-   * 50x50 scale image best into box
+   * 50x50 scale image best into box 
    * x150 fixed height, width is scaled as needed
 
 ImageMagick is used.

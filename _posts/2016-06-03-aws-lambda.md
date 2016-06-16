@@ -799,6 +799,7 @@ This example provides an input.txt file containing JSON text:
 NOTE: CloudFront logs can also be read using command-line tool
 <a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
 
+<a name="CF"></a>
 
 ## CloudFormation #
 

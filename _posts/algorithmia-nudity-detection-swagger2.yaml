@@ -34,10 +34,3 @@ paths:
                   type: string
                 confidence:
                   type: number
-
-// Test cases:
-
-// nude: True, confidence: 0.93
-  // https://s3.amazonaws.com/www.isitnude.com/assets/images/sample/obama.jpg
-// nude: false, confidence: 0.95
-  // http://www.isitnude.com.s3-website-us-east-1.amazonaws.com/assets/images/sample/young-man-by-the-sea.jpg

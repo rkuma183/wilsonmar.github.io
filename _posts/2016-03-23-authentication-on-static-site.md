@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Authenticate users on Jekyll site"
+title: "Authenticate users on Jekyll sites"
 excerpt: "So you can personalize content"
 tags: [authentication, personalization, jekyll]
 image:
@@ -35,7 +35,7 @@ All is described at: https://github.com/benbalter/jekyll-auth
 0. Create a GitHub **project** under that organization.
 0. Create a Jekyll **site** within that project.
 0. Create a GitHub **Application**
-0. Install <a target="_blank" href="https://toolbelt.heroku.com/">Heroku toolbelt</a> 
+0. Install <a target="_blank" href="https://toolbelt.heroku.com/">Heroku toolbelt</a>
    to work with Heroku (Heroku gem doesn't work for this).
 0. Host the site on Heroku, which has extra capabilities not offered by GitHub.io.
 
@@ -58,7 +58,7 @@ http://fabian-kostadinov.github.io/2014/11/13/installation-of-jekyll-auth/
 ## Heroku hosting
 
 Having the site hosted on Heroku and using Jekyll-Auth
-keeps the website itself in a protected zone and 
+keeps the website itself in a protected zone and
 enables control of access to both website and data.
 
 
@@ -72,7 +72,7 @@ Text files in Github can serve as a "database" of data about users, etc.
 
 https://github.com/rypan/jekyll-db
 
-Items are stored in text markdown tables within .md files named like any post 
+Items are stored in text markdown tables within .md files named like any post
 (such as 2013-09-02-item-1.md).
 
 
@@ -80,7 +80,7 @@ Items are stored in text markdown tables within .md files named like any post
 
 http://www.alpacajs.org/
 
-Build HTML forms for user input from JSON Schema. 
+Build HTML forms for user input from JSON Schema.
 
 https://github.com/joshfire/jsonform
 is not maintained anymore.
@@ -93,4 +93,3 @@ http://fabian-kostadinov.github.io/2014/09/22/validation-in-jsonform/
 https://github.com/prose/prose
 
 is an online editor for editing (markdown, HTML and other) files in a repository on GitHub.com.
-
