@@ -754,8 +754,8 @@ My recommendation for the sequence to view
    by Josh Twist (@joshtwist)
 
    * Business models
-   * Engaging developers: Time to First Successful call
-   * Make legacy API (SOAP XML) modern (REST JSON)
+   * Engaging developers: Time to First Successful call success metric
+   * Make legacy API (SOAP XML) and modern (REST JSON)
    * Understand their behavior with monitoring
    <br /><br />
 
