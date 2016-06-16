@@ -757,7 +757,6 @@ My recommendation for the sequence to view
    * Engaging developers: Time to First Successful call
    * Make legacy API (SOAP XML) modern (REST JSON)
    * Understand their behavior with monitoring
-
    <br />
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NSMc5YuKmb4">
