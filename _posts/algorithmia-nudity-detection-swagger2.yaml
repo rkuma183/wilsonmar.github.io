@@ -1,0 +1,43 @@
+swagger: "2.0"
+
+info:
+  version: "1.0.0",
+  title: Nudity Detection
+  description: Detects extent of nudity in pictures.
+  contact:
+    name: https://isitnude.com/
+    url: https://algorithmia.com/algorithms/sfw/NudityDetection
+    email: wilsonmar@gmail.com
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+paths:
+  basePath: https://api.algorithmia.com/v1/algo/sfw/NudityDetection/1.1.4
+  /resources:
+    get:
+      summary: Evaluate picture in URL
+      description: Evaluate picture in URL
+      parameters:
+        url:
+        header:
+          content-type: Content-Type: application/json
+          add: Authorization: Simple {{ YOUR_API_KEY }}
+        type: POST
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                nudity:
+                  type: string
+                confidence:
+                  type: number
+
+// Test cases:
+
+// nude: True, confidence: 0.93
+  // https://s3.amazonaws.com/www.isitnude.com/assets/images/sample/obama.jpg
+// nude: false, confidence: 0.95
+  // http://www.isitnude.com.s3-website-us-east-1.amazonaws.com/assets/images/sample/young-man-by-the-sea.jpg

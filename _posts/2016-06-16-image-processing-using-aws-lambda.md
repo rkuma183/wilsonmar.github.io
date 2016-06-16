@@ -19,6 +19,10 @@ comments: true
 Here is a design on an enterprise-worthy processing of pictures several ways
 using AWS Lambda functions calling various 3rd party APIs.
 
+The advantage of doing it on  AWS S3
+rather than Gulp.js is that it's a publicly accessible to many
+more people than only those who can setup a Gulp server.
+
    The first three steps are described in qwikLabs:
 
 0. Setup Lambda function to invoke upon S3 bucket file upload
@@ -39,6 +43,7 @@ using AWS Lambda functions calling various 3rd party APIs.
 
    Add capacity management features:
 
+0. Automate saving of multiple files into S3 by another (test) program.
 0. Update setup DNS across two Availability Zones.
 0. Setup replication of DynamoDB across availability zones.
 
@@ -51,7 +56,7 @@ using AWS Lambda functions calling various 3rd party APIs.
    Add management features:
 
 0. Filter log group/stream to generate metric.
-0. Display metrics from DynamoDB on website.
+0. Display metrics from DynamoDB on Tableau.
 0. Setup alarms on CloudWatch of metrics.
 0. Email once a day with metrics summary (cron)
 
@@ -66,8 +71,21 @@ using AWS Lambda functions calling various 3rd party APIs.
 
 ## Nudity Check #
 
+https://algorithmia.com/algorithms/sfw/NudityDetection
 Algorithmia.com
 
+Swagger for service:
+
+NOTE: Does not work in black and white though.
+
+
+### Training cases:
+
+1) nude: True, confidence: 0.93
+<br /> https://s3.amazonaws.com/www.isitnude.com/assets/images/sample/obama.jpg
+
+2) nude: false, confidence: 0.95
+<br /> http://www.isitnude.com.s3-website-us-east-1.amazonaws.com/assets/images/sample/young-man-by-the-sea.jpg
 
 
 <a name="UpdateDynamo"></a>
@@ -89,6 +107,7 @@ DynamoDB is a NoSQL database containing key-value pairs.
    * Size of picture after compression
    * Width of picture
    * Height of picture
+   * Method of scaling
 
    * ContainsNudity: true/false
    * ContainsNudityConfidence: 0 to 100%.
@@ -123,7 +142,10 @@ https://aws.amazon.com/blogs/aws/dynamodb-update-triggers-streams-lambda-cross-r
 
 CAUTION: There is a concurrent Lambda invocation limit of 100 at a time per account.
 
-API Gateway RPS maximum limit (1000)
+API Gateway has a maximum limit of 1000 RPS (requests per second),
+but can be adjusted by request.
+
+http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.html
 
 ### Alternative chaining via SNS #
 
@@ -138,9 +160,17 @@ An alternative is via subscription to SNS topics.
 
 <a name="Thumbnail"></a>
 
-## Thumbnail generation #
+## Picture generation #
 
-ImageMagick
+Pictures need to be re-sized for:
+
+   * 150x fixed width, height is scaled as needed
+   * 50x50 scale image best into box
+   * x150 fixed height, width is scaled as needed
+
+ImageMagick is used.
+
+PROTIP: Do image compression after resize.
 
 <a name="Compress"></a>
 
@@ -153,6 +183,8 @@ https://tinypng.com/developers
 
 https://speakerdeck.com/michaelwittig/the-life-of-a-serverless-microservice-on-aws
 Michael Wittig (@hellomichibye, mwittig@tecracer.de):
+
+   * https://cloudonaut.io/serverless-image-resizing-at-any-scale/
 
    * https://github.com/michaelwittig/devopscon16-auth-service
    * https://github.com/michaelwittig/devopscon16-profile-service
