@@ -659,16 +659,28 @@ PROTIP: Combine several actions in the custom shell script, such as building the
 0. Use a text editor to edit the <a href="#RunJekyllScript">
    4001.sh or 4001.cmd script created above to Run Jekyll locally</a>.
 
+0. Identify the sub-modules installed:
+
+   <pre>
+   bundle exec jekyll -h
+   </pre>
+
+   The algolia sub-command should be listed.
+
 0. Replace the 4001 script file with this:
 
    <pre><strong>
    # build _site folder:
    bundle exec jekyll build –config _config.yml,_config-dev.yml
    # Index sub-command:
-   jekyll algolia push 
+   bundle exec jekyll algolia push 
    # Display:
    bundle exec jekyll serve –config _config.yml,_config-dev.yml --port 4001 
    </strong></pre>
+
+   This is constructed based on
+   <a target="_blank" href="https://jekyllrb.com/docs/usage/">
+   Jekyll documentation at https://jekyllrb.com/docs/usage/</a>
 
    NOTE: The jekyll aloglia sub-command references the <a href="#WriteAPIKEY">_algolia_api_key</a>.
 
@@ -677,10 +689,6 @@ PROTIP: Combine several actions in the custom shell script, such as building the
    <pre>
    fatal: 'jekyll algolia' could not be found. You may need to install the jekyll-algolia gem or a related gem to be able to use this subcommand.
    </pre>
-
-   This is constructed based on
-   <a target="_blank" href="https://jekyllrb.com/docs/usage/">
-   Jekyll documentation at https://jekyllrb.com/docs/usage/</a>
 
 
 <a name="BuildIndexCI"></a>

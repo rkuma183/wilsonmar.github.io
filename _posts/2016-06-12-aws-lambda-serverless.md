@@ -373,6 +373,7 @@ PROTIP: Plugins need to be installed for each project that uses each.
 * [arabold/serverless-autoprune-plugin](https://github.com/arabold/serverless-autoprune-plugin) - Delete old AWS Lambda versions.
 
 
+ Functions of the same component can use the lib folder to share common code.
 
 <a id="IAM"></a>
 
