@@ -6,8 +6,8 @@ tags: [remote, telework, test, teamwork]
 image:
 # feature: pic ENERGIZED-SERVICES-e1448057282767-1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622058/a574cebe-0584-11e6-8ce6-2166aca3a1a6.jpg
-  credit: 
-  creditlink: 
+  credit:
+  creditlink:
 comments: true
 ---
 I've worked with and built several teams,
@@ -18,7 +18,7 @@ When it works, it's marvelous how much can be done at 3 times the speed.
 
 But when it doesn't work, it's a frustrating mess of ill-will all around.
 
-Here are some of the lessons learned that I thought you'd want to know, 
+Here are some of the lessons learned that I thought you'd want to know,
 phrased in questions that help me determine the conditions for effectiveness in multi-team collaboration.
 (Kinda like Joel Splotsky's questions uses on Stackoverflow jobs)
 
@@ -29,19 +29,19 @@ phrased in questions that help me determine the conditions for effectiveness in 
   It's frustrating to be bumped off a machine.
   Sometimes people run over the allotted time frame.
   Sometimes a team is not ready to begin work and likely will "drop the ball".
-  
+
   Like a runner who passes the baton to the next runner, it's something that needs to be practiced.
-  
+
 ## Details
 
 **2. How does details get shared about a shared environment?**
 
-  Google Docs and now Microsoft Office has cloud-based software which allows several people to see 
+  Google Docs and now Microsoft Office has cloud-based software which allows several people to see
   the impact of each other's changes to the same document. Such systems also track each change,
   which enables granular identifiecation of who changed what and also restore of items changed or deleted.
- 
+
  This provides a worry-free enviornment for people to take initiative.
- 
+
 ## Task list
 
 **3. Where is a detailed task list of what needs to be done in priority order?**
@@ -50,7 +50,7 @@ phrased in questions that help me determine the conditions for effectiveness in 
   and how it fits into the overall work.
 
   One word. Trello.
-  
+
 ## Prestige
 
 **4. Does each location get treated as a equal partner with other locations?**
@@ -61,7 +61,7 @@ phrased in questions that help me determine the conditions for effectiveness in 
   This wastes precious time that projects often don't have.
 
 ## Reflection
-  
+
 **5. Does the team devote a regular pre-scheduled block of time to identify impediements and improvements?**
 
   Opportunities to "clear the air" among the team helps to keep the focus on resolution and innovation rather than
@@ -73,19 +73,23 @@ phrased in questions that help me determine the conditions for effectiveness in 
 
   A crucial contribution of managers is to not only track time spent and achievements by the team,
   but the catalyst or conduit for optimizing the conditions in which the team operates most efficiently.
-  
+
 ## Trends
 
 **7. How does the team evaluate trends in technologies and industry trends?**
-  
+
   Changes in technology are occuring at a quicker rate.
   Companies such as Uber make use of new technologies in new business models that disrupt previous industries.
   Indidivuals and organizations need to think ahead.
-  
+
 ## Skills
 
 **8. How does the team acquire all skills needed?**
-  
+
    Adopting new tools and techniques to capture or maintain market share requires homework or tutoring.
-  
+
    In today's world, achieving greater velocity and adaptability trumps predictability as key to achieving competitiveness.
+
+## Related resources
+
+https://www.sitepoint.com/5-ways-remote-teams-can-create-a-culture-of-accountability/

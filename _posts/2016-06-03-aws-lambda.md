@@ -92,6 +92,10 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 
    NOTE: Lambda functions created (and sitting around with no activity) incur no charges.
 
+   On-line TOOL: <a target="_blank" href="https://s3.amazonaws.com/lambda-tools/pricing-calculator.html#">
+   Pricing Calculator at<br />
+   https://s3.amazonaws.com/lambda-tools/pricing-calculator.html</a>
+
    NOTE: How much each Lambda request consumes in memory time is described in
    <a href="#CloudWatch">CloudWatch</a>, below.
 
@@ -729,11 +733,13 @@ https://www.youtube.com/watch?v=_-hnJC4IXJI
 
 To build mobile back-ends that retrieve and transform data from Amazon DynamoDB:
 
-https://github.com/abalone0204/serverless-demo-with-dynamodb-node
+   * https://github.com/abalone0204/serverless-demo-with-dynamodb-node
 
-https://www.youtube.com/watch?v=TuGyyTXPQ-U
-1 How to use AWS API Gateway to expose AWS DynamoDB database backend
+* https://www.youtube.com/watch?v=TuGyyTXPQ-U1
+How to use AWS API Gateway to expose AWS DynamoDB database backend
 by mattua
+
+* http:// blog.import.io/ post/ using-amazon-lambda-and-api-gateway
 
 * https://www.youtube.com/watch?v=XByPxb_VvpY
    AWS re:Invent 2015 | (DEV303) Practical DynamoDB Programming in Java
@@ -915,6 +921,10 @@ The Unicode numbers for lambda are U+039B and U+03BB.
 * Ajay Nair @ajaynairthinks is Lead Product Manager for AWS Lambda
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
+
+* Eric Hammond has published several blog posts at <a target="_blank" href="https://www.alestic.com/">alestic.com</a>.
+
+Fuller, Matthew (2016-01-11). AWS Lambda: A Guide to Serverless Microservices (Kindle Locations 2071-2074).  . Kindle Edition.
 
 ## More on Serverless #
 

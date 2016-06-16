@@ -6,8 +6,8 @@ tags: [HTTP2, project]
 image:
 # feature: pic data center slice 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622043/8b1f9cce-0584-11e6-8b9f-4b6db5bb6e37.jpg
-  credit: 
-  creditlink: 
+  credit:
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,10 +16,10 @@ comments: true
 {% include _toc.html %}
 
 
-There are many blogs and YouTube videos about the technical details and configuration changes associated with HTTP/2. But I haven’t seen much in the way of the 
+There are many blogs and YouTube videos about the technical details and configuration changes associated with HTTP/2. But I haven’t seen much in the way of the
 <strong>implications</strong> to project managers and other management personnel
-who need to make real the transition. 
-So I rearranged the various technical facts here, 
+who need to make real the transition.
+So I rearranged the various technical facts here,
 with PROTIPs identifying suggestions.
 
 ## Googling #
@@ -34,7 +34,7 @@ Try this search phrase:
 
    Alternatives to the special character slash is needed with
    the <a target="_blank" href="https://twitter.com/http_2">
-   @HTTP_2</a> Twitter handle used by 
+   @HTTP_2</a> Twitter handle used by
    <a target="_blank" href="http://http2.github.io">
    http://http2.github.io</a>, the home page for HTTP/2
    maintained by the <a target="_blank" href="https://httpwg.github.io/">
@@ -53,8 +53,8 @@ Try this search phrase:
 
 ## Web Scanners #
 
-ALPN, or Application-Layer Protocol Negotiation, 
-is a TLS extension that includes the protocol negotiation within the exchange of hello messages. 
+ALPN, or Application-Layer Protocol Negotiation,
+is a TLS extension that includes the protocol negotiation within the exchange of hello messages.
 See https://tools.ietf.org/html/rfc7301
 
 TODO: Confirm whether h2 ALPN is actually activated on in the web server under test.
@@ -64,7 +64,7 @@ Some organizations use web protocol scanners as an aspect of quality.
 The W3C scanner identifies issues such as "https" being specified instead of "http"
 and the inclusion of a slash at the end of URLs to avoid a redirect.
 
-ALPN negotiates which protocol should be handled over a secure connection in a way that is more efficient and avoids additional round trips. 
+ALPN negotiates which protocol should be handled over a secure connection in a way that is more efficient and avoids additional round trips.
 So with h2, `HTTP://` can be specified and the connection will still be encrypted as if you entered `https://`.
 
 Will the W3C scanner recognize this change?
@@ -109,7 +109,7 @@ even if some embedded objects are still served over HTTP 1.1.
 W3Techs.com</a> publishes the percentage of sites supporting h2:
 <amp-img width="650" alt="Percentage of all sites using h2" src="https://w3techs.com/diagram/history_technology/ce-http2"></amp-img>
 
-PROTIP: It doesn’t matter whether only 
+PROTIP: It doesn’t matter whether only
 8% or 38% of all websites are supporting h2.
 Even though overall support for h2 may be lacking,
 IT organizations nevertheless need to begin preparing for its adoption
@@ -140,10 +140,10 @@ The Cloudflare CDN was an early adopter of HTTP2.
 But getting the Akamai CDN to support can be complex:
 
    * <a target="_blank" href="https://http2.akamai.com/">
-    https://http2.akamai.com</a> mentions 
+    https://http2.akamai.com</a> mentions
 
    * <a target="_blank" href="https://community.akamai.com/community/web-performance/blog/2015/01/26/enabling-http2-h2-in-akamai">THis blog</a>
-   suggests: 
+   suggests:
 
    TODO: Check whether H2 is part of your Akamai contract.
 
@@ -185,18 +185,18 @@ Delivery certificate needs to have Perfect Forward Secrecy (PFS) support enabled
 
 The use of "evergreen" browsers is a pre-requisite for h2 adoption.
 
-But most "enterprise" organizations tend to use Microsoft browsers 
+But most "enterprise" organizations tend to use Microsoft browsers
 and lag behind in upgrades of operating systems.
 
 <a target="_blank" href="http://caniuse.com/#feat=http2">
-http://caniuse.com/#feat=http2</a> 
+http://caniuse.com/#feat=http2</a>
 says Microsoft did not support HTTP2 in IE until IE11 with in Windows 10
 (and Server 2016).
 
-   NOTE: Microsoft is said to be developing their own 
+   NOTE: Microsoft is said to be developing their own
    "Microsoft Speed + Mobility (Microsoft S+M)" protocol.
 
-PROTIP: To encourage its use, IT organizations need to make the installation 
+PROTIP: To encourage its use, IT organizations need to make the installation
 of Chrome browsers a part of the standard process for getting laptops ready for users. This includes making Chrome the default browser.
 
 Apple Safari supports h2 since 10.11 [El Capitan](/apple-mac-osx-setup/).
@@ -210,7 +210,7 @@ The Chrome browser is the first to support h2 because the company
 created SPDY on which h2 is based.
 The Android Browser and Chrome for Android supports h2 (at version 50).
 
-There is 
+There is
 <a target="_blank" href="https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin?hl=en">
 a Chrome plug-in</a>
 that shows an icon to show whether a site is h2.
@@ -238,7 +238,7 @@ Guy Podjarny, CTO of Akamai, explains:
 
 PROTIP: Browser emulation (performance testing)
 programs need to work the same way as browsers.
-But some emulation programs my not really be able to 
+But some emulation programs my not really be able to
 handle multiple threads at the same time like browsers do.
 
 PROTIP: Try several browser emulation programs to compare results.
@@ -263,14 +263,14 @@ Most performance testing tools work by emulating browsers.
 So whatever technique is used in new browsers need to be programmed into
 the tool. And that’s not an easy job. So differences are bound to occur.
 
-Programs that emulate browsers need to add, among other features, 
-the capability to handle <strong>binary streams</strong> 
+Programs that emulate browsers need to add, among other features,
+the capability to handle <strong>binary streams</strong>
 rather than just text handling in HTTP1.1.
 This difference is part of the speed improvement with h2.
 
 * Those who use LoadRunner need the latest version, 12.53 which became available in June, 2016. See <a target="_blank" href="http://community.hpe.com/t5/LoadRunner-and-Performance/How-to-gain-the-best-from-LoadRunner-s-support-of-HTTP-2/ba-p/6863547#.V1Yp7ZMrJZo">this blog</a>.
 
-* Those who use JMeter need the 
+* Those who use JMeter need the
 <a target="_blank" href="https://github.com/syucream/jmeter-http2-plugin">
 jmeter-http2-plugin</a> sampler.
 
@@ -285,10 +285,10 @@ Among <a target="_blank" href="https://github.com/http2/http2-spec/wiki/Tools">
 tools supporting h2</a>:
 
    * <a target="_blank" href="https://nghttp2.org/documentation/h2load-howto.html">
-     h2load (compiled alongside nghttp2 HTTP/2 C language library)</a> 
+     h2load (compiled alongside nghttp2 HTTP/2 C language library)</a>
      by Tatsuhiro Tsujikawa
      is a multi-threaded benchmarking tool
-     with a 
+     with a
      <a target="_blank" href="https://nghttp2.org/documentation/python-apiref.html">
      Python API binding</a>.
 
@@ -297,11 +297,11 @@ tools supporting h2</a>:
 A big part of the speed improvement offered by HTTP2 over HTTP1 is
 compression of HTTP headers.
 
-Legacy "enterprise" web applications tend to have large headers to 
+Legacy "enterprise" web applications tend to have large headers to
 pass cookies back and forth. So just this alone may provide a boost to
 performance.
 
-   NOTE: HPACK is from Twitter at 
+   NOTE: HPACK is from Twitter at
    <a target="_blank" href="https://github.com/twitter/hpack">
    https://github.com/twitter/hpack</a>
 
@@ -334,9 +334,9 @@ Jetty supports h2.
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=QpLtBftqM04">
   HTTP 2.0 & Java: Current Status</a> at Devoxx Nov 14, 2015
-  by Simone Bordet 
+  by Simone Bordet
   from WebTide which supports Jetty web server.
-  
+
 
 
 ### NGNIX #
@@ -347,7 +347,7 @@ Jetty supports h2.
 
 ## Programming changes #
 
-Previous hacks to obtain more speed now need to be dismantled 
+Previous hacks to obtain more speed now need to be dismantled
 because HTTP2 made them unnecessary.
 
 In fact, previous hacks are now <strong>technical debt</strong> because
@@ -360,7 +360,7 @@ to me is the most entertaining video on developer’s transition to HTTP2
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=yURLTwZ3ehk">
 Yesterday's perf best-practices are today's HTTP/2 anti-patterns - Velocity 2015 (Santa Clara)</a> on YouTube dives into the issues
-Ilya Grigorik (@igrigorik) also has a 
+Ilya Grigorik (@igrigorik) also has a
 <a target="_blank" href="https://docs.google.com/presentation/d/1r7QXGYOLCh4fcUq0jDdDwKJWNqWK1o4xMtYpKZCJYjM/present?slide=id.p19"> slidedeck</a>
 and
 <a target="_blank" href="http://www.oreilly.com/webops-perf/free/files/HTTP2-high-perf-browser-networking.pdf">
@@ -370,7 +370,7 @@ which explains the nitty gritty of h2.
 
 ### Sprites #
 
-To reduce the number of files being downloaded, 
+To reduce the number of files being downloaded,
 programmers have been arranging several icons into a single file and
 using CSS to present a section of the image file.
 
@@ -378,7 +378,7 @@ This time-consuming hack
 is no longer necessary with h2 because h2 uses a single TCP connection
 and streams any number of files simultaneously.
 
-<a target="_blank" href="https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf"> 
+<a target="_blank" href="https://www.usenix.org/sites/default/files/conference/protected-files/nsdi14_slides_wang.pdf">
 In this PDF</a>
 Xiao (Sophia) Wang's team found that most of the performance from SPDY comes from that single TCP connection
 multiplexing sliced frames.
@@ -391,15 +391,15 @@ for the HTML or CSS code to assemble.
 
    * <a target="_blank" href="http://http2.golang.org/gophertiles?latency=0">
    See the tiles assemble at http2.golang.org/gophertiles</a>.
-   
+
    * <a target="_blank" href="https://http2.akamai.com/demo">
    Akamai has a similar demo page at http2.akamai.com/demo</a>
 
-The site is demo’d 
+The site is demo’d
 <a target="_blank" href="https://www.youtube.com/watch?v=FARQMJndUn0">
 this YouTube video</a> and
 <a target="_blank" href="https://docs.google.com/presentation/d/1G9gPIAorTsVD_pMgEJcTGEjt5ApZZWyI2uO244_f7TU/present?slide=id.p">
-slide deck</a> 
+slide deck</a>
 by Brad Fitzpatrick.
 
 ### Inlining #
@@ -423,7 +423,7 @@ However, with h2, domain sharding hurts performance under HTTP2.
 Since a page doesn't have to waste a connection by holding it open,
 connections can be kept open for long-polling.
 
-This also means Web Sockets (which aimed to solve long polling) 
+This also means Web Sockets (which aimed to solve long polling)
 may "not be a thing" anymore.
 
 
@@ -432,8 +432,8 @@ may "not be a thing" anymore.
 There are several configuration settings that can be made to obtain the best
 response time for visitors.
 
-For example, with h2, 
-the Nginx server was found to time out due to too many concurrent streams. 
+For example, with h2,
+the Nginx server was found to time out due to too many concurrent streams.
 The default maximum streams setting needs to be reduced for the system to work under load.
 
 PROTIP: Before doing experiments with configuration changes,
@@ -478,7 +478,7 @@ HTTP/SPDY takes longer with large objects transmitted over lines with loss.
 This was confirmed by http://wprof.cs.washington.edu/spdy
 
 According to <a target="_blank" href="http://httparchive.org/trends.php">
-HttpArchive</a> 
+HttpArchive</a>
 
 ### Frame Settings #
 
@@ -517,7 +517,7 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 
 * <a target="_blank" href="https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window">
    Congestion Window (CDWN)</a>
-   is a variable held by the TCP source for each connection that reflects 
+   is a variable held by the TCP source for each connection that reflects
    the perceived level of congestion.
    TCP reacts to a timeout by halving cwnd.
 
@@ -537,10 +537,10 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
    by Fabian Staber
 
 
-## Other Resources 
+## Other Resources
 
 https://ma.ttias.be/architecting-websites-http2-era/
 
 https://ma.ttias.be/http2
 
-
+http://www.neotys.com/blog/http2-changes-challenges-and-considerations-for-load-performance-testers/

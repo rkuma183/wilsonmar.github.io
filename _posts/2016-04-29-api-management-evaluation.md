@@ -36,12 +36,12 @@ But before opening your checkbook, consider the Why and how:
 PROTIP: While public APIs get a lot of press (due in part to marketing spend),
 implementing thru partners achieves indirect monitization
 
-After Netflix opened their API, they identified partners 
+After Netflix opened their API, they identified partners
 and <strong>new channels</strong> they didn't anticipate.
 
    * increase brand image
 
-Implementing private APIs among employees only may achieve 
+Implementing private APIs among employees only may achieve
 cost savings from control, and standardization.
 
    * Improve discoverability (for reuse and greater agility)
@@ -80,7 +80,7 @@ are needed to avoid extra costs and effort.
 
 ## Different strategies over time
 
-QUESTION: What are the benefits of discoverability, collaboration, ease of integration, etc. 
+QUESTION: What are the benefits of discoverability, collaboration, ease of integration, etc.
 and other advanced features offered by vendors?
 
 PROTIP: Consider the strategy of getting going quickly with a vendor which offers low-cost <a href="#StartupCost">start-up costs</a>.
@@ -96,18 +96,18 @@ The vendors and their product, ranked by total points averaged among raters:
 
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
-0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. 
+0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited.
    For Microsoft shops. No SOAP or RAML support yet.
-0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code. 
+0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code.
    The most flexible.
 0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code. Full featured.
-0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting. Proprietary code. 
+0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting. Proprietary code.
    OEM'd by SAP.
 
 0. <a target="_blank" href="http://wso2.com/advantages/">WSO2</a> open-source
-0. <a target="_blank" href="https://www.apinf.io/">apinf.com</a> from Finland (@APInf_io) open-source in 
+0. <a target="_blank" href="https://www.apinf.io/">apinf.com</a> from Finland (@APInf_io) open-source in
    <a target="_blank" href="https://github.com/apinf/">on GitHub</a>
-0. <a target="_blank" href="https://getkong.org/about/">Kong</a> (previously Mashape) 
+0. <a target="_blank" href="https://getkong.org/about/">Kong</a> (previously Mashape)
    is an open-sourced API proxy which runs in front of any RESTful API, and
    extended through Plugins.
    It's built on top of NGINX and Apache Cassandra, but scalability still an issue?
@@ -148,10 +148,10 @@ https://en.wikipedia.org/wiki/Comparison_of_text_editors
 <img align="right" width="383" height="301" src="https://cloud.githubusercontent.com/assets/300046/14914831/086b982e-0dcb-11e6-9859-9c5d67f8a31d.png">
 <!-- 766x602 -->
 
-This radar polar chart visually illustrates the relative importance of 
+This radar polar chart visually illustrates the relative importance of
 each criteria we used to evaluate options.
 
-If everything has the same importance, no trade-offs are considered. 
+If everything has the same importance, no trade-offs are considered.
 
 These represent extent of risk and effort, and cost savings or earnings.
 
@@ -195,7 +195,7 @@ Categories of featuers are detailed below:
 ### API Publisher Portal Features
 
 * Define API schema
-* Import API schema (from Swagger, RAML, WADL, etc.) 
+* Import API schema (from Swagger, RAML, WADL, etc.)
 
 * Package APIs into products
 * Define Billing parameters
@@ -228,7 +228,7 @@ Categories of featuers are detailed below:
 
 * Enforce usage quotas and rate limits
 
-* detect DOS attacks by using throttling 
+* detect DOS attacks by using throttling
 
 * use advanced security policies like JWT token validation.
 
@@ -261,13 +261,13 @@ Major items of interest to developers are listed here, from 3Scale.net.
 * Try out an API via the interactive console.
 * URL to download Swagger specs.
 
-* fast onboarding (signup via GitHub, Hotmail, AD, Google) 
+* fast onboarding (signup via GitHub, Hotmail, AD, Google)
 * Create an account and subscribe to get API keys.
 * Access analytics on their own usage.
 
-* Internal API portal offers a centralized location for communication about the availability and latest changes to APIs, 
+* Internal API portal offers a centralized location for communication about the availability and latest changes to APIs,
 
-* gating access based on organizational accounts, all based on AD 
+* gating access based on organizational accounts, all based on AD
 
 * API facade that decouples internal implementations not ripe for partner consumption.
 
@@ -300,7 +300,7 @@ Lower up-front cost is important for many.
 
    * Amazon API Gateway has a free tier for one million API calls per month for up to 12 months.
 
-   * Microsoft charges Developers $49/month 
+   * Microsoft charges Developers $49/month
    and limits access to 10 users.
 
 ### Cost over time
@@ -315,7 +315,7 @@ Amazon charges for different services separately:
    <a target="_blank" href="https://aws.amazon.com/api-gateway/pricing/">Amazon charges</a>:
 
    | Locale    | per million |
-   | US        | $3.50 | 
+   | US        | $3.50 |
    | Ireland   | $3.50 |
    | Frankfurt | $3.70 |
    | Asia Pac. | $4.25 |
@@ -323,15 +323,15 @@ Amazon charges for different services separately:
    * Data transfer out to internet.  Amazon:
 
    | Volume     | per TB |
-   |    0-10 TB | $0.120 | 
-   |   11-40 TB | $0.085 | 
-   |  41-100 TB | $0.082 | 
-   | 101-350 TB | $0.080 | 
+   |    0-10 TB | $0.120 |
+   |   11-40 TB | $0.085 |
+   |  41-100 TB | $0.082 |
+   | 101-350 TB | $0.080 |
 
 ### Style / Ease of Use
 
    * The hipness of UI - default layouts inviting, clean, etc.
-   * Familiarity 
+   * Familiarity
 
 These are important because human UI are needed for:
 
@@ -353,7 +353,7 @@ The need for an API Gateway is to avoid legacy point-to-point communications amo
 
    * service coordinator, (android device hits one service instead of 100 micro services)
    * Billing
-   * Emails about changes 
+   * Emails about changes
 
    * Predictive analytics. Apigee illustrates their Insights service which yields a buying Propensity score salespeople use to prioritize efforts:
 
@@ -373,12 +373,12 @@ The need for an API Gateway is to avoid legacy point-to-point communications amo
    * Verify api keys
 
 <a target="_blank" href="https://pages.apigee.com/eBook-API-First-Security-Dont-Build-Your-Own-Maginot-Line-conf.html">
-Apigee 
+Apigee
 uses this illustration:
 <img alt="apigee security" src="https://cloud.githubusercontent.com/assets/300046/14917830/253f56a8-0dde-11e6-9446-18a52ef1a1fb.png"></a>
 <!-- 668x376 -->
 
-    * No data at rest 
+    * No data at rest
     * http://www.mashery.com/api/security prides itself on being certified on PCI, HITRUST CSF, SSAE, Safe Harbor, SOC 2, etc.
 
 
@@ -392,7 +392,7 @@ uses this illustration:
    * Support for steaming API protocols WebSocket and XMPP
    * Support for two-legged or three-legged OAuth and OpenID Connect authentication
    * Onboard SAML security token service for federation and credential translation
-   * Support for external SSO (Single Sign-On) 
+   * Support for external SSO (Single Sign-On)
    * LDAP user provisioning for services like Web applications and social networks
 
 ### Maintainability
@@ -438,14 +438,14 @@ Microsoft Azure routes traffic to a region providing the least latency for each 
    * Cache memory per hour.  Amazon:
 
    | Volume     | per hr. |
-   |     0.5 TB | $0.028 | 
-   |     1.6 TB | $0.054 | 
-   |     6.1 TB | $0.245 | 
-   |    13.5 TB | $0.290 | 
-   |    28.4 TB | $0.560 | 
-   |    58.2 TB | $1.100 | 
-   |   118.0 TB | $2.200 | 
-   |   237.0 TB | $4.400 | 
+   |     0.5 TB | $0.028 |
+   |     1.6 TB | $0.054 |
+   |     6.1 TB | $0.245 |
+   |    13.5 TB | $0.290 |
+   |    28.4 TB | $0.560 |
+   |    58.2 TB | $1.100 |
+   |   118.0 TB | $2.200 |
+   |   237.0 TB | $4.400 |
 
 ### I18N (Internationalization)
 
@@ -468,7 +468,7 @@ Microsoft Azure routes traffic to a region providing the least latency for each 
 
    How quickly and deeply can people get up to speed on the technology?
 
-   How easy is to to learn/maintain? 
+   How easy is to to learn/maintain?
 
    This is a consideration of costs and risks.
 
@@ -533,7 +533,7 @@ acquisition of APIphany (based in Wash. DC).
 <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/api-management-get-started/">Documentation</a>
 is published from markup text
 <a target="_blank" href="https://github.com/Azure/azure-content/blob/master/articles/api-management/api-management-get-started.md">in this GitHub</a>
-which directs people to the 
+which directs people to the
 <a target="_blank" href="https://manage.windowsazure.com/@jetbloomhotmail.onmicrosoft.com#Workspaces/ApiManagementExtension/services"> classic portal</a>.
    NOTE: There is no Issues tab in their GitHub.
 
@@ -543,12 +543,12 @@ which directs people to the
    Issues with the API service</a>
    where each public can allocate 25 voting points among proposals.
 
-   The top request (May 2016) is 
+   The top request (May 2016) is
    <a target="_blank" href="https://blogs.msdn.microsoft.com/webdev/2015/09/04/introducing-microsoft-asp-net-webhooks-preview/">
-   Web Hooks in ASP.NET</a>, 
+   Web Hooks in ASP.NET</a>,
    a <a target="_blank" href="http://docs.asp.net/projects/aspnetwebhooks/en/latest/">
    set of Nuget packages</a>
-   for web apps to send and receive WebHooks from external services using a common HTTP pattern. 
+   for web apps to send and receive WebHooks from external services using a common HTTP pattern.
    http://neelbhatt2015.blogspot.in/2015/12/webhooks-in-aspnet-visual-studio.html
    This won’t get the scale, performance, or analytics Azure Event Hubs provides, though.
 
@@ -582,7 +582,7 @@ which directs people to the
 0. Specify Administrator Email.
 0. Click check icon.
 
-0. Use browser to visit the page, such as 
+0. Use browser to visit the page, such as
    <a target="_blank" href="https://itw1.portal.azure-api.net">
    https://itw1.portal.azure-api.net</a>
 
@@ -595,12 +595,12 @@ which directs people to the
 0. Click Import API in publisher portal dashboard.
 0. Select From URL.
 0. Select Specification format: <strong>Swagger</strong> (no RAML).
-0. In Specification document URL field, paste 
+0. In Specification document URL field, paste
    <a target="_blank" href="http://calcapi.cloudapp.net/calcapi.json">http://calcapi.cloudapp.net/calcapi.json</a>.
 0. Provide a Web API URL suffix, e.g. 'calc'.
 0. Type 'Starter' in the products field to add your API to the 'Starter' product.
 
-   NOTICE: 
+   NOTICE:
 
    https://itw1.azure-api.net/calc
 
@@ -650,7 +650,7 @@ which directs people to the
 * Wait for...
 
 
-### Open the developer portal 
+### Open the developer portal
 0. Click on APIs.
 0. Pick Calculator API from the list on the left.
 0. Click on Open Console for any API.
@@ -710,10 +710,10 @@ https://github.com/Azure/api-management-samples/tree/master/policies</a>
 0. <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management">
    Add discussion board and ratings</a>
 
-### Swagger import 
+### Swagger import
 
 A Swagger 2.0 doc can be imported, but the doc MUST contain Host, BasePath, Schemes properties. Otherwise, it won't get imported:
-No message. It just hangs with "working..". 
+No message. It just hangs with "working..".
 
 ### Analytics:
 
@@ -758,6 +758,8 @@ My recommendation for the sequence to view
    * Make legacy API (SOAP XML) modern (REST JSON)
    * Understand their behavior with monitoring
 
+   <br />
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NSMc5YuKmb4">
    Introduction to API Management on Microsoft Azure</a>
    at TechEd Europe 2014
@@ -766,10 +768,10 @@ My recommendation for the sequence to view
    Microsoft Azure API Management Master Class: In Depth for Fun and Profit</a>
    at TechEd North America 2014
    by Anton Babadjanov | antonba@ | @antonbaa | https://www.linkedin.com/in/anton-babadjanov-44501b9
-   and Vlaimir Vinogradsky | vlvinogr@ 
+   and Vlaimir Vinogradsky | vlvinogr@
 
    This explores the end-to-end workflow of launching a "treasure hunt" API
-   and play a game with it. 
+   and play a game with it.
    We'll also take a peek at what the future holds for this exciting new Azure service.
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=jNXXRGL3gqM">
@@ -779,13 +781,13 @@ My recommendation for the sequence to view
 0. <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/videos/api-management-overview/">
    API Management Overview (cartoon)
    03-25-2015
-   Overview video of the Azure API Management service 
+   Overview video of the Azure API Management service
 
 
 0. <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/videos/adding-developer-portal-functionality-using-templates-in-azure-api-management/">
    Adding Developer Portal functionality using Templates in Azure API Management
-   by Matt Farmer 
-   
+   by Matt Farmer
+
    uses Contoso API:  
    http://contosoapim.azure-api.net/calc/add?a=(a)&b=(b)
 
@@ -795,13 +797,13 @@ My recommendation for the sequence to view
    Configure your API Management instance using Git</a>
    03-12-2016
    by Anton Babadjanov | @antonbaa | https://www.linkedin.com/in/anton-babadjanov-44501b9
-   Access and modify the configuration of your API Management instance using Git. 
-   Configure Security > Configuration: 
+   Access and modify the configuration of your API Management instance using Git.
+   Configure Security > Configuration:
    This enables scenarios:
 
-   * Managing multiple configuration versions 
-   * Syncing the configuration of multiple tenants 
-   * Utilizing the Git workflow for collaborative editing 
+   * Managing multiple configuration versions
+   * Syncing the configuration of multiple tenants
+   * Utilizing the Git workflow for collaborative editing
    * Text-file based configuration for flexibility
 
 0. <a target="_blank" href="https://channel9.msdn.com/Series/onacloud/API-or-No-API?ocid=player">
@@ -816,11 +818,11 @@ My recommendation for the sequence to view
    API Management in under 5 minutes</a>
    06-16-2014
    Shows the classic portal to https://wellmark1.portal.azure-api.net/
-   This video shows how Wellmark Blue Cross & Blue Shield use Azure API Management to accelerate their partners in adopting the Wellmark API, 
+   This video shows how Wellmark Blue Cross & Blue Shield use Azure API Management to accelerate their partners in adopting the Wellmark API,
 
 
 0. <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/">
-   Episode 177: More API Management Features with Vlad Vinogradsky 
+   Episode 177: More API Management Features with Vlad Vinogradsky
    06-12-2015 42 min, 07 sec
 
    In this episode Chris Risner is joined by Vlad Vinogradsky, Principal Program Manager on the Azure API Management Team. Vlad joins us to talk about some of the latest features…
@@ -830,14 +832,14 @@ My recommendation for the sequence to view
    Episode 176: Logic Apps with Stephen Siciliano</a>
    05-29-2015
 
-   In this episode Chris Risner and Haishi Bai are joined by Stephen Siciliano, Program Manager on Azure App Service. Stephen joins us to demonstrate Logic Apps. 
+   In this episode Chris Risner and Haishi Bai are joined by Stephen Siciliano, Program Manager on Azure App Service. Stephen joins us to demonstrate Logic Apps.
 
 0. <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/videos/getting-started-with-azure-api-management-rest-api/">
    Getting Started with Azure API Management REST API</a>
    12-01-2014
    Azure API Management provides a REST API for performing operations on selected entities, such as APIs, users, groups, products, and subscriptions. The API can be used fo…
 
-0. 
+0.
    Integrate Azure API Management with Event Hubs
    Nov 09, 2015 at 2:01PM
    By: Miao Jiang
@@ -853,23 +855,23 @@ My recommendation for the sequence to view
 
 * <a target="_blank" href="https://www.twitter.com/AzureAPIMgmt">@AzureAPIMgmt</a>
 
-* Mailto: apimgmt@microsoft.com 
+* Mailto: apimgmt@microsoft.com
 
 * https://social.msdn.microsoft.com/Forums/en-US/home?sort=relevancedesc&brandIgnore=True&searchTerm=api+management
    Microsoft forum topics
 
 https://www.youtube.com/results?search_query=apimanagement
 
-#integrate2016 conference 
+#integrate2016 conference
 
-### Partners 
+### Partners
 
 @KloudSolutions
 
 https://api.kloud.com.au/
-    
+
     {version}/{entity-set}/{id}/{property}
-    
+
     V1/user/cd1311/files
 
 https://twitter.com/RepreZen_API
@@ -896,7 +898,7 @@ http://azure.microsoft.com/pricing/details/api-management/
 
 ### Stars
 
-Jorge Arteiro 
+Jorge Arteiro
 
 * http://aka.ms/melgabdev4
 *  jorgearterio@hotmail.com
@@ -919,18 +921,18 @@ has
 <a target="_blank" href="http://tryazureservicefabric.eastus.cloudapp.azure.com/">
 several free "party" clusters</a> that last for less than 4 hours each.
 
-In order to build and run Azure Service Fabric applications on your development machine, 
-you need to install the runtime, SDK, and tools. 
+In order to build and run Azure Service Fabric applications on your development machine,
+you need to install the runtime, SDK, and tools.
 You also need to enable execution of the Windows PowerShell 3.0 scripts included in the SDK.
 
-To use Service Fabric PowerShell cmdlets on Windows 7, 
-which includes Windows PowerShell 2.0 by default, 
+To use Service Fabric PowerShell cmdlets on Windows 7,
+which includes Windows PowerShell 2.0 by default,
 <a target="_blank" href="https://www.microsoft.com/en-us/download/details.aspx?id=50395">
 download the Windows Management Framework 5.0 which includes PowerShell 3.0</a> as well as
 Desired State Configuration (DSC), Windows Remote Management (WinRM), Windows Management Instrumentation (WMI).
-See http://go.microsoft.com/fwlink/?LinkID=717903 
+See http://go.microsoft.com/fwlink/?LinkID=717903
 
-The Party Cluster is created by code at 
+The Party Cluster is created by code at
 https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster
 
 Not AzurePS
@@ -958,10 +960,10 @@ videos
 https://azure.microsoft.com/en-us/documentation/samples/?service=service-fabric
 Sample apps
 
- Service Fabric programming model that they focus on: 
- * Reliable Actors, 
- * Reliable Services, 
- * custom application orchestration, and 
+ Service Fabric programming model that they focus on:
+ * Reliable Actors,
+ * Reliable Services,
+ * custom application orchestration, and
  * Service Fabric management tasks.
 
 
@@ -969,11 +971,11 @@ Sample apps
 
 * <a target="_blank" href="https://gallery.technet.microsoft.com/PowerShell-Deployment-f20bb605/">
   PowerShell Deployment Toolkit (PDT)</a>
-  is a set of scripts and knowledge for automated deployment of 
+  is a set of scripts and knowledge for automated deployment of
   System Center 2012 SP1/R2, including SQL and all prerequisites,
   and all automatable post-setup integration.
 
-Matthew Snider [masnider@MSFT] 
+Matthew Snider [masnider@MSFT]
 
 * Human factors in decisions: [Thinking, Fast and Slow](http://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374275637)
   by Daniel Kahneman
