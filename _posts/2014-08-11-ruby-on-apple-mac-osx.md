@@ -186,8 +186,42 @@ If you do not wish to install this documentation in the future, use the
 RubyGems system software updated
    </pre>
 
+0. List local gems:
 
-### Update Bundler:
+   <tt><strong>gem list b</strong></tt>
+
+   A sample example (on 2016-06-16):
+
+   <pre>
+bigdecimal (default: 1.2.8)
+bundler-unload (1.0.2)
+executable-hooks (1.3.2)
+rubygems-bundler (1.4.4)
+rubygems-update (2.6.4)
+   </pre>
+
+
+
+## Update Bundler:
+
+0. If bundler is not found:
+
+   <tt><strong>
+   gem install bundler
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+Fetching: bundler-1.12.5.gem (100%)
+Successfully installed bundler-1.12.5
+Parsing documentation for bundler-1.12.5
+Installing ri documentation for bundler-1.12.5
+Done installing documentation for bundler after 5 seconds
+1 gem installed
+   </pre>
+
+0. Run
 
    <tt><strong>
    sudo gem install \-\-no-rdoc \-\-no-ri bundler
