@@ -256,6 +256,15 @@ There are several choices.
    The presence of the <strong>_site</strong> line means that the _site folder generated will 
    NOT be sent back up to GitHub because GitHub will generate its own _site folder.
 
+0. Use a text editor to create a <strong>_config-dev.yml</strong> file containing:
+
+   <pre>
+# Develop override settings
+url: http://localhost:4001
+   </pre>
+
+
+
 <a name="InstallRuby"></a>
 
 ## Install Ruby and Jekyll, Build gems #
@@ -310,7 +319,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 0. In a Terminal window, have dependency gems automatically fetched based on the Gemfile and dependencies:
 
    <tt><strong>
-   bundle
+   bundle install
    </strong></tt>
 
    Install is the default action.
