@@ -460,7 +460,7 @@ Refer to this table of nodes for each <strong>netmask</strong> Amazon allows:
    | ------- | --------: | ------: | -----: | ----: | --: | -: | -: |
    | Values: | 1,000,000 | 100,000 | 10,000 | 1,000 | 100 | 10 |  1 |
 
-   Now imagine each box above is a different sized bucket containing candies of various colors and patterns, a unique one for each possible value.
+   Now imagine a bucket for each figure level, a different size bucket containing candies of various colors and patterns, unique one for each possible value.
    People earning 7 figures can choose from the bucket holding a million possible values.
 
    If we add up the values (colors) possible in the right-most 3 buckets,
@@ -468,7 +468,8 @@ Refer to this table of nodes for each <strong>netmask</strong> Amazon allows:
 
    #### Counting in Base 2 #
 
-   Instead of the way banks use to do arithmetic, called "base 10" or decimal calculations,
+   Instead of the way banks use to do arithmetic (called "base 10" or decimal calculations),
+   where ten $1 bills is equivalent to a 10 dollar bill, 
    computers count using "base 2" or binary arithmetic using 0's and 1's.
    So each of their "buckets" have a different number of possibility values:
 
