@@ -417,8 +417,8 @@ An example CIDR subnet looks like this:
 
    PROTIP: Some organizations allocate the bottom half of the 255 possibilities to private and upper half to public addresses:
 
-   * private 10.0.1.0/24 (3rd byte &LT; 129)
-   * public 10.0.129.0/24 (3rd byte &GT; 128)
+   * private 10.0.1.0/24 (3rd byte < 129)
+   * public 10.0.129.0/24 (3rd byte > 128)
 
 Address ranges for private (non-routed) use (per <a target="_blank" href="http://info.internet.isi.edu/in-notes/rfc/files/rfc1918.txt">RFC 1918</a>):
 
@@ -438,7 +438,7 @@ then instantiate again.
 Refer to this table of nodes for each <strong>netmask</strong> Amazon allows:
 
    <table border="1">
-   <tr><th align="right"> # Nodes </th><th align="center"> Netmask </th><th> Subnet Mask </th></tr>
+   <tr><th align="right"> # Nodes </th><th align="center"> Netmask </th><th align="left"> Subnet Mask </th></tr>
    <tr><td align="right">     14 </td><td align="center"> /28 </td><td> 255.255.255.240 </td></tr>
    <tr><td align="right">     30 </td><td align="center"> /27 </td><td> 255.255.255.224 </td></tr>
    <tr><td align="right">     62 </td><td align="center"> /26 </td><td> 255.255.255.192 </td></tr>
@@ -469,7 +469,7 @@ Refer to this table of nodes for each <strong>netmask</strong> Amazon allows:
    #### Counting in Base 2 #
 
    Instead of the way banks use to do arithmetic (called "base 10" or decimal calculations),
-   where ten $1 bills is equivalent to a 10 dollar bill, 
+   where ten $1 bills is equivalent to a 10 dollar bill,
    computers count using "base 2" or binary arithmetic using 0's and 1's.
    So each of their "buckets" have a different number of possibility values:
 
@@ -517,10 +517,44 @@ A template can have additional output parameters.
 {% endhighlight %}
 
 
+<a name="Bastion"></a>
+
+## Bastion Hosts
+
+Bastion hosts are used to limit exposure to the internet, to enable sysadmins to SSH into machines.
+
+Is many setups, bastion hosts are the only servers allowed access from the public internet.
+
+Windows users use Putty program from:
+
+    http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+Public and private keys:
+
+    * Windows users download the PPK.
+    * Linux/Mac users download the PEM.
+
+
+<a name="ELB"></a>
+
+## ELB (Elastic Load Balancer)
+
+Load balancers distribute traffic among individual nodes in a cluster.
+
+Clients reach the load balancer via a VIP (Virtual IP) address.
+
+Some use an address outside AWS to distribute load to other clouds (servers in private locations, in Azure, etc.)
+
+
+<a name="EIP"></a>
+
+## Elastic IPs #
+
+
 
 <a name="ACL"></a>
 
-## ACL
+## ACL #
 
 Access Control Lists can provide more fine-grained control.
 
@@ -533,6 +567,11 @@ is inspected.
 <a name="NAT"></a>
 
 ## NAT #
+
+Instances launched into an AWS VPC aren’t directly accessible from internet, so by default are more secure.
+
+To expose nodes to the public internet, configure NAT rules
+for use with a public <a href="#VPC">VPC</a>
 
 Network Address Translation enables servers in private subnets to communicate with the public Internet outside the farm.
 
@@ -624,27 +663,6 @@ inbound access.
 
 Cidr (Classless Inter-Domain Routing) is also called "supernetting"
 becuase it allows more flexible allocation of Internet Protocol (IP) addresses. Whatever.
-
-
-<a name="Bastion"></a>
-
-## Bastion Hosts
-
-Bastion hosts are the only servers allowed access via SSH from the public internet.
-
-Windows users use Putty program from:
-
-    http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
-
-Public and private keys:
-
-    * Windows users download the PPK.
-    * Linux/Mac users download the PEM.
-
-
-<a name="ELB"></a>
-
-## ELB (Elastic Load Balancer)
 
 
 
@@ -843,6 +861,13 @@ and Michael show you:
 
    CloudFront has one Resource Type: Distribution.
 
+
+## Direct connect #
+
+One can directly connect an on-premise network to an AWS VPC.
+
+PROTIP: Direct connects have a set static bandwidth,
+so plan accordingly.
 
 ## More on Amazon #
 

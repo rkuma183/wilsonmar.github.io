@@ -186,9 +186,13 @@ If you do not wish to install this documentation in the future, use the
 RubyGems system software updated
    </pre>
 
+
+
 0. List local gems:
 
-   <tt><strong>gem list b</strong></tt>
+   <tt><strong>
+   gem list b
+   </strong></tt>
 
    A sample example (on 2016-06-16):
 
@@ -201,10 +205,9 @@ rubygems-update (2.6.4)
    </pre>
 
 
+   ## Update Bundler:
 
-## Update Bundler:
-
-0. If bundler is not found:
+0. If bundler is not on the list above:
 
    <tt><strong>
    gem install bundler
@@ -220,6 +223,25 @@ Installing ri documentation for bundler-1.12.5
 Done installing documentation for bundler after 5 seconds
 1 gem installed
    </pre>
+
+0. Navigate to a folder containing <strong></strong>:
+
+   <tt><strong>
+   bundle install
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+Fetching gem metadata from https://rubygems.org/
+Fetching version metadata from https://rubygems.org/
+Fetching dependency metadata from https://rubygems.org/
+Installing rake 11.1.2
+...
+Bundle complete! 5 Gemfile dependencies, 39 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+   </pre>
+
 
 0. Run
 

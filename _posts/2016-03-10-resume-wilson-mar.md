@@ -24,22 +24,26 @@ comments: true
 
 Developer Evangelist, HP Software
 
-   * Created hands-on course on mobile development optimization and network virtualization.
+   * Created hands-on courses on mobile development optimization and network virtualization.
 
    * Designed and produced videos for initial launch of cloud capabilities.
 
    * Initiated meetups and technical deep-dives at conferences.
 
-Performance Engineer at SAP, McKesson, Intralinks, and other organizations
+DevOps Performance Engineer at SAP, McKesson, Intralinks, and other organizations
+where I collaborated with developers on tuning using code scanners, code profilers, and deep analytics to identify issues.
 
 
-## What I can do
-Some writing samples:
+## What I can do for you #
+
+Writing samples for non-technical audiences:
 
 * <a target="_blank" href="https://medium.com/@Montana/my-backpack-was-stolen-what-i-ve-learned-from-it-eafa9145cb36#.bzgd35dbi">
    My backpack was stolen. What I've learned from it</a>
 
-For technical subjects, let me describe how you can do it too:
+   * [Shopping for a backpack](/shop/)
+
+For technical subjects, I describe how you can do it too:
 
 * [Build data visualization using Tableau](/data-visualization-using-tableau)
 
@@ -77,6 +81,5 @@ For technical subjects, let me describe how you can do it too:
 
 ## Generation
 
-Generated using <a target="_blank" href="https://github.com/jsonresume/resume-cli">jsonresume.org</a> with the 
+Generated using <a target="_blank" href="https://github.com/jsonresume/resume-cli">jsonresume.org</a> with the
 <a target="_blank" href="http://themes.jsonresume.org/theme/modern">modern theme</a>.
-

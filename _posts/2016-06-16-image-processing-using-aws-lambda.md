@@ -27,38 +27,45 @@ more people than only those who can setup a Gulp server.
 
 0. Setup Lambda function to invoke upon S3 bucket file upload
 0. Manually drop a file into an S3 bucket (or Amazon Drive)
-0. Trigger invokes Lambda function.
+0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
 
-0. Apply image recognition (extent image has nudity, etc.).
-0. <a href="#UpdateDynamo">Update DynamoDB</a> with results and timings.
+0. Apply image recognition (extent image has nudity, etc.)
+0. <a href="#UpdateDynamo">Update DynamoDB</a> with results and timings
 
    If acceptable, continue:
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
 0. <a href="#Compress">Compress image file</a>
-0. Generate thumbnail.
-0. Generate other sizes.
-0. Generate HTML in amp-img format.
+0. Generate thumbnail
+0. Generate other sizes
+0. Generate HTML in amp-img format
 
    Add capacity management features:
 
-0. Automate saving of multiple files into S3 by another (test) program.
-0. Update setup DNS across two Availability Zones.
-0. Setup replication of DynamoDB across availability zones.
+0. Automate saving of multiple files into S3 by another (test) program
+0. Update setup DNS across two Availability Zones
+0. Setup replication of DynamoDB across availability zones
 
    Add auto-discovery features:
 
 0. Scan through HTML to extract local images to convert
-0. Replace image file URL in HTML.
-0. Commit change into GitHub.
+0. Replace image file URL in HTML
+0. Commit change into GitHub
 
    Add management features:
 
-0. Filter log group/stream to generate metric.
-0. Display metrics from DynamoDB on Tableau.
-0. Setup alarms on CloudWatch of metrics.
+0. Filter log group/stream to generate metric
+0. Display metrics from DynamoDB on Tableau
+0. Setup alarms on CloudWatch of metrics
 0. Email once a day with metrics summary (cron)
+
+   Add archival features:
+
+0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
+0. Archive file to AWS Glacier
+0. Update DynamoDB about archival and file deletion
+0. Remove file from S3
 
 <hr />
 
@@ -165,7 +172,7 @@ An alternative is via subscription to SNS topics.
 Pictures need to be re-sized for:
 
    * 150x fixed width, height is scaled as needed
-   * 50x50 scale image best into box 
+   * 50x50 scale image best into box
    * x150 fixed height, width is scaled as needed
 
 ImageMagick is used.
