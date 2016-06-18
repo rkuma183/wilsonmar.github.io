@@ -22,7 +22,9 @@ Along the way are PROTIPs and notes so you'll understand how we get there.
 ## About Serverless #
 
 The term "serverless" describes an <strong>architectural style</strong>
-where developers shift concerned about the hardware and its ability to scale to AWS Lambda.
+where developers shift concerned about the hardware and its ability to scale.
+
+   * http://martinfowler.com/articles/serverless.html
 
 The name "serverless" has been adopted by enprepreneur
 <a target="_blank" href="https://twitter.com/austencollins">

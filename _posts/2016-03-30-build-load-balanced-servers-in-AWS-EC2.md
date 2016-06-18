@@ -347,164 +347,46 @@ In a CF JSON file, instance types are defined in Mappings:
 
 ## VPC (Virtual Private Cloud)
 
-VPCs are really software-defined networks (SDN).
-
-This chapter condenses http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html
-
-https://console.aws.amazon.com/vpc/
-
-For security, some servers can only make outbound calls to the internet (through the <a href="#NAT">NAT server</a>).
-
-There is one VPC per Availability Zone.
-
-A single Gateway serves all VPCs because that is the address
-the public DNS resolves corporate host names to.
-
-In each VPC is a public subnet and a private subnet.
-
-In the CF JSON to define a VPC, CF automatically populates the
-"VpcId" : { "Ref" : "VPC" },
-
-{% highlight text %}
-  "Resources" : {
-     "VPC" : {
-      "Type" : "AWS::EC2::VPC",
-      "Properties" : {
-        "CidrBlock" : "10.0.0.0/16"
-      }
-    },
-
-    "InternetGateway" : {
-      "Type" : "AWS::EC2::InternetGateway",
-      "Properties" : {
-      }
-    },
-
-    "AttachGateway" : {
-       "Type" : "AWS::EC2::VPCGatewayAttachment",
-       "Properties" : {
-         "VpcId" : { "Ref" : "VPC" },
-         "InternetGatewayId" : { "Ref" : "InternetGateway" }
-       }
-    },
-{% endhighlight %}
-
-
-NOTE: One annoyance of EC2 at the moment is the use of
-static IP addresses in configurations.
-
-
-### CIDR Subnet notation #
-
-<a name="Octets"></a>
-
-An example CIDR subnet looks like this:
-
-   <pre>
-   10.0.1.0/18
-   </pre>
-
-   A dot separates each of the 4 "octets".
-   Each bucket can be from 1 to 253.
-   Two of the values cannot be used for nodes because networks use addresses of all 0's nor all 1's for their own broadcasting.
-
-
-   PROTIP: Some organizations use a convention replacing the "1" in the same above with:
-
-   * 1 for app tier zone a, 2 for zone b
-   * 51 for ELB zone a, 52 for ELB zone b
-   * 11 for databases (RDS), etc.
-
-   PROTIP: Some organizations allocate the bottom half of the 255 possibilities to private and upper half to public addresses:
-
-   * private 10.0.1.0/24 (3rd byte < 129)
-   * public 10.0.129.0/24 (3rd byte > 128)
-
-Address ranges for private (non-routed) use (per <a target="_blank" href="http://info.internet.isi.edu/in-notes/rfc/files/rfc1918.txt">RFC 1918</a>):
-
-   * 10.0.0.0 -> 10.255.255.255     within "Class A" addresses 1 -> 126
-   * 172.16.0.0 -> 172.31.255.255   within "Class B" addresses 127 -> 191
-   * 192.168.0.0 -> 192.168.255.255 within "Class C" addresses 192 -> 223
-
-   <strong>The CIDR block for a default in VPC is always 172.31.0.0/16.</strong>
-
-PROTIP: Carefully predict how many nodes each subnet might need.
-Once assigned, AWS VPC subnet blocks can’t be modified.
-If you find an established VPC is too small, you’ll need to terminate all of the instances of the VPC, delete it, and then create a new, larger VPC,
-then instantiate again.
-
-<a name="NetmaskNodes"></a>
-
-Refer to this table of nodes for each <strong>netmask</strong> Amazon allows:
-
-   <table border="1">
-   <tr><th align="right"> # Nodes </th><th align="center"> Netmask </th><th align="left"> Subnet Mask </th></tr>
-   <tr><td align="right">     14 </td><td align="center"> /28 </td><td> 255.255.255.240 </td></tr>
-   <tr><td align="right">     30 </td><td align="center"> /27 </td><td> 255.255.255.224 </td></tr>
-   <tr><td align="right">     62 </td><td align="center"> /26 </td><td> 255.255.255.192 </td></tr>
-   <tr><td align="right">    126 </td><td align="center"> /25 </td><td> 255.255.255.128 </td></tr>
-   <tr><td align="right">    254 </td><td align="center"> /24 </td><td> 255.255.255.0   </td></tr>
-   <tr><td align="right">    510 </td><td align="center"> /23 </td><td> 255.255.254.0   </td></tr>
-   <tr><td align="right"> 65,534 </td><td align="center"> /16 </td><td> 255.255.255.240 </td></tr>
-   </table>
-
-   For example, if all you'll need are 14 nodes, specify `/28`.
-   Notice that the larger the CIDR netmask, the less hosts in the subnet.
-
-   #### Bucket of Candies Analogy #
-
-   If you must know why, here is my analogy (best for kinesthetic learners):
-   When we say a sports star makes a "7 figure salary", we figure out what that means with a table like this:
-
-   | Figure: |         7 |       6 |      5 |     4 |   3 |  2 |  1 |
-   | ------- | --------: | ------: | -----: | ----: | --: | -: | -: |
-   | Values: | 1,000,000 | 100,000 | 10,000 | 1,000 | 100 | 10 |  1 |
-
-   Now imagine a bucket for each figure level, a different size bucket containing candies of various colors and patterns, unique one for each possible value.
-   People earning 7 figures can choose from the bucket holding a million possible values.
-
-   If we add up the values (colors) possible in the right-most 3 buckets,
-   we would have 100 + 10 + 1 = 111 possibilities.
-
-   #### Counting in Base 2 #
-
-   Instead of the way banks use to do arithmetic (called "base 10" or decimal calculations),
-   where ten $1 bills is equivalent to a 10 dollar bill,
-   computers count using "base 2" or binary arithmetic using 0's and 1's.
-   So each of their "buckets" have a different number of possibility values:
-
-   | Figure:        |   8 |   7 |   6 |   5 |   4 |   3 |   2 |   1 |
-   | -------------- | --: | --: | --: | --: | --: | --: | --: | --: |
-   | Values:        | 254 | 128 |  64 |  32 |  16 |   8 |   4 |   2 |
-   | Possibilities: | 510 | 254 | 126 |  62 |  30 |  14 |   6 |   2 |
-
-   If we add up the values possibles in the <strong>right-most</strong> 3 buckets,
-   we would have 8 + 4 + 2 = 14 possibilities.
-
-   Look back above at <a href="#NetmaskNodes">the table of nodes</a>.
-   Again, 14 possibilities.
-
-   The buckets on the <strong>left side</strong> "buckets" are used to identify <strong>subnets</strong> managed by Amazon rather than indiviual nodes.
-
-
-More on CIDR (Classless Inter-Domain Routing), aka "supernetting":
-
-   * http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
-
-   * VLSM (Variable Length Subnet Mask)
-
-   * https://cloudacademy.com/amazon-web-services/amazon-vpc-networking-course/build-and-configure-a-nat-instance.html
-
 
 <a name="SecGroups"></a>
 
 ## Security Groups #
 
-SGs define which ports are open.
-
 By default, no ports are open.
 
+SGs define which ports are open.
+
+   <a name="SecGroupNaming"></a>
+
+PROTIP: Agree on a naming convention for security groups, perhaps using codes not also used by Amazon.
+Examples: "US_VA5_LX_WEB_P_001" and "IR_2_W12_DMZ_F_002":
+
+   * "US" for the United States legal domicile entities. "G" for Germany, etc.
+   * "VA5" for Virginia 5.
+   * "LX" for Amazon Linux, "W2" for Windows Server 2012, etc.
+   * "WEB" for web server tier, "DMZ", "SQL" database, "NOS" for NO-SQL database, etc.
+   * "P" for prod, "F" for functional testing, "C" for capacity test environment.
+   * "001" a sequential number, zero-filled to ensure proper sorting over time.
+
+    Public-facing NAT should be protected with Multi-factor authentication (MFA).
+
+    * SSH and RDP ports should open only on sources and destination IP's,
+    not global network (0.0.0.0/0) nor static exit IP's not dynamic exit IP's.  
+
+PROTIP: "Tier" security groups so servers on each tier cannot access all ports.
+Don't use same security group for multiple tiers of instances.
+
 A template can have additional output parameters.
+
+<a target="_blank" href="http://harish11g.blogspot.com/2014/01/Amazon-Virtual-Private-Cloud-VPC-best-practices-tips-for-architecture-migration.html">
+This</a> advice:
+
+      "People have tendency to open for port 8080 to 10.10.0.0/24 (web layer) range. Instead of that, open port 8080 to web-security-group.
+      This will make sure only web security group instances will be able to contact on port 8080.
+      If someone launches NAT instance with NAT-Security-Group in 10.10.0.0/24,
+      he won't be able to contact on port 8080 as it allows access from only web security group."
+
+### FTP #
 
 {% highlight text %}
   "SecurityGroupIngress": [{

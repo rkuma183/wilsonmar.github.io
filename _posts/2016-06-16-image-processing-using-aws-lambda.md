@@ -26,6 +26,7 @@ more people than only those who can setup a Gulp server.
    The first three steps are described in qwikLabs:
 
 0. Setup Lambda function to invoke upon S3 bucket file upload
+0. Obtain <a href="#PresignedS3">pre-signed S3 URLs</a>.
 0. Manually drop a file into an S3 bucket (or Amazon Drive)
 0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
@@ -68,6 +69,45 @@ more people than only those who can setup a Gulp server.
 0. Remove file from S3
 
 <hr />
+
+
+<a name="PreSignedS3"></a>
+
+## Pre-signed S3 URLs #
+
+<a target="_blank" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html">
+This Amazon doc</a> notes that
+normally, S3 buckets are considered private.
+Permissions need to be assigned to those who want to upload.
+
+<a target="_blank" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html">
+This Amazon doc</a> notes that
+<strong>S3 URLs can be pre-signed with permissions to upload files by providing:
+
+   * security credentials,
+   * a bucket name object key,
+   * the HTTP PUT method (uploading objects), and
+   * an expiration date and time
+
+BTW: Visual Studio users can manually obtain a pre-signed object URL without writing any code by using the
+<a target="_blank" href="http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/using-s3.html">
+Visual Studio AWS Explorer</a>.
+
+   NOTE: Amazon allows pre-signed S3 URLs to be valid for only 10 minutes.
+
+Code for pre-signing are provided in .NET, Ruby, and
+<a target="_blank" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObjectJavaSDK.html">
+Java</a>.
+TODO:
+<a target="_blank" href="http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html">
+write a CreateFunction function</a> to pre-sign.
+The AmazonS3.generatePresignedUrl method of the AmazonS3 class within the AWS SDK for Java.
+GeneratePresignedUrlRequest class.
+
+TODO: Embed the pre-signed S3 URL in the HTML for presentation in a webpage where visitors can drag and drop files.
+
+But the website should ask for (and validate) email addresses.
+
 
 <a name="Add2Dynamo"></a>
 
@@ -118,6 +158,25 @@ DynamoDB is a NoSQL database containing key-value pairs.
 
    * ContainsNudity: true/false
    * ContainsNudityConfidence: 0 to 100%.
+
+Other information on all AWS activity logs:
+
+   * instance-id,
+   * region,
+   * availability-zone
+   * environment (staging, production, etc),
+
+Having logs outside each server makes it unnecessary to SSH into individual servers
+and enables trends across servers and other attributes to be analyzed.
+
+<a target="_blank" href="https://wblinks.com/notes/aws-tips-i-wish-id-known-before-i-started/">
+This blogger says</a>:
+
+> "If you have to SSH into your servers, then your automation has failed.
+ This is both the most frightening and yet most useful thing I've learned."
+
+* <a target="_blank" href=https://news.ycombinator.com/item?id=7173361">
+Discussion on this on Hacker News</a>.
 
 
 <a name="DynamoTriggers"></a>
