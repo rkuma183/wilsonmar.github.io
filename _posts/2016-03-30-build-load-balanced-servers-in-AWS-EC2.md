@@ -368,10 +368,14 @@ Examples: "US_VA5_LX_WEB_P_001" and "IR_2_W12_DMZ_F_002":
    * "P" for prod, "F" for functional testing, "C" for capacity test environment.
    * "001" a sequential number, zero-filled to ensure proper sorting over time.
 
-    Public-facing NAT should be protected with Multi-factor authentication (MFA).
+Public-facing NAT should be protected with Multi-factor authentication (MFA).
 
     * SSH and RDP ports should open only on sources and destination IP's,
     not global network (0.0.0.0/0) nor static exit IP's not dynamic exit IP's.  
+
+    * http://www.howtogeek.com/121650/how-to-secure-ssh-with-google-authenticators-two-factor-authentication/
+
+    * http://www.rohos.com/2013/02/google-authenticator-windows-login/
 
 PROTIP: "Tier" security groups so servers on each tier cannot access all ports.
 Don't use same security group for multiple tiers of instances.

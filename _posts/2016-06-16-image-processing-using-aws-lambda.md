@@ -16,17 +16,21 @@ comments: true
 {% include _toc.html %}
 
 
-Here is a design on an enterprise-worthy processing of pictures several ways
+Here is a design to process files containing pictures
 using AWS Lambda functions calling various 3rd party APIs.
 
-The advantage of doing it on  AWS S3
-rather than Gulp.js is that it's a publicly accessible to many
+This roadmap is designed for an agile "minimul viable product"
+approach.
+
+The advantage of doing this on AWS S3
+rather than Gulp.js is that it is publicly accessible to many
 more people than only those who can setup a Gulp server.
+
+## Roadmap #
 
    The first three steps are described in qwikLabs:
 
 0. Setup Lambda function to invoke upon S3 bucket file upload
-0. Obtain <a href="#PresignedS3">pre-signed S3 URLs</a>.
 0. Manually drop a file into an S3 bucket (or Amazon Drive)
 0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
@@ -41,6 +45,12 @@ more people than only those who can setup a Gulp server.
 0. Generate thumbnail
 0. Generate other sizes
 0. Generate HTML in amp-img format
+
+   Automate input:
+
+0. Generate <a href="#PresignedS3">pre-signed S3 URLs</a>
+0. Desktop website to accept drops of files to store in S3
+0. Mobile app to accept upload of files to store in S3
 
    Add capacity management features:
 
@@ -67,6 +77,15 @@ more people than only those who can setup a Gulp server.
 0. Archive file to AWS Glacier
 0. Update DynamoDB about archival and file deletion
 0. Remove file from S3
+
+   Process files in other clouds:
+
+0. Process image files in Amazon Cloud Drive (https://www.amazon.com/clouddrive/)
+0. Process image files in Dropbox
+0. Process image files in Microsoft Azure
+0. Process image files in Google Drive
+
+> Let's work on these together! Contact me.
 
 <hr />
 
