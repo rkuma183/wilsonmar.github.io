@@ -1,9 +1,8 @@
 swagger: "2.0"
-
 info:
   version: "1.0.0",
   title: Nudity Detection
-  description: Detects extent of nudity in pictures.
+  description: Detects whether there is nudity in pictures, with confidence there is.
   contact:
     name: https://isitnude.com/
     url: https://algorithmia.com/algorithms/sfw/NudityDetection
@@ -11,6 +10,9 @@ info:
   license:
     name: MIT
     url: http://opensource.org/licenses/MIT
+host: https://api.algorithmia.com/v1/algo/sfw/NudityDetection/1.1.4
+schemes: 
+  https
 paths:
   basePath: https://api.algorithmia.com/v1/algo/sfw/NudityDetection/1.1.4
   /resources:
@@ -26,7 +28,8 @@ paths:
       responses:
         200:
           description: OK
-          schema:
+          examples:
+            application/json
             type: array
             items:
               properties:
@@ -34,3 +37,15 @@ paths:
                   type: string
                 confidence:
                   type: number
+
+              - question: "Favourite programming language?"
+                published_at: "2015-08-05T08:40:51.620Z"
+                choices:
+                  - choice: "Swift"
+                    votes: 2048
+                  - choice: "Python"
+                    votes: 1024
+                  - choice: "Objective-C"
+                    votes: 512
+                  - choice: "Ruby"
+                    votes: 256
