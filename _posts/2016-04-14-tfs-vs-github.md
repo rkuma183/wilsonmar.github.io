@@ -10,9 +10,12 @@ image:
   creditlink: http://create.adobe.com/2016/4/1/the_bold_cheeky_and_frequently_nsfw_art_of_malika_favre.html
 comments: true
 ---
+<a target="_blank" href="https://goo.gl/aFyhJa">
+https://wilsonmar.github.io/tfs-vs-github</a>
+
 <i>{{ page.excerpt }}</i>
 <hr />
- 
+
 {% include _toc.html %}
 
 ## What is TFS?
@@ -229,7 +232,7 @@ This site</a> summarizes the differences:
 | Shelve | Stash (only local though) |
 | Label | Tag |
 | ‘Compare Local to Server’ | Fetch |
-| Checkin and get Latest | Sync | 
+| Checkin and get Latest | Sync |
 
 
 ## Visual Studio GUI
@@ -375,7 +378,6 @@ TechNet Virtual Lab: Introduction to Team Foundation Build 2015 (vNext), Test Ru
    Lynda video course</a> shows several version control products, including use of TFS by Visual Studio 2012.
 
 * http://betterexplained.com/articles/aha-moments-when-learning-git/
- 
+
 * https://msdn.microsoft.com/en-us/library/jj190809.aspx
   VS 2015 with Git Branches
- 

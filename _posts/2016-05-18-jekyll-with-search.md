@@ -15,7 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
-The objective of this document is for you to implement these use cases:
+The objective of this document is for you to implement these use cases
+(click on the underlined items to go straight there):
 
 1. <a href="#QueryTest">Test drive a demo site online</a>.
 
@@ -24,19 +25,19 @@ The objective of this document is for you to implement these use cases:
 
 2. <a href="#GetRepoWorking">Get a sample theme on your local machine working with search queries.</a>
 
-   We setup your machine with Jekyll and Ruby, then 
+   We setup your machine with Jekyll and Ruby, then
    clone a fork of a famous Jekyll theme adapted with search capabilities.
 
 3. <a href="#CustomizeSite">Edit the repo so your own posts are indexed.</a>
 
-   We obtain API keys for a new account on the search service 
+   We obtain API keys for a new account on the search service
    and use it to index new posts we add.
 
 4. <a href="#AddSearch">Add search features to another theme.</a>
 
    We deep dive into the theme to add JavaScript, CSS, and HTML.
 
-This is written so "newbies" can follow step-by-step, but 
+This is written so "newbies" can follow step-by-step, but
 along the way, PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
 
 <a name="QueryTest"></a>
@@ -48,7 +49,7 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
    <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
    http://community.algolia.com/algoliasearch-jekyll-hyde/</a>
 
-   The formatting of this site is what you'll have as YOUR blog 
+   The formatting of this site is what you'll have as YOUR blog
    after following instructions in this tutorial.
 
 0. Type in the search field a single letter such as "L".
@@ -66,17 +67,17 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
    * Are capital letters and lower case letters equivalent?
 
    Thus, as far as search goes, the theme presented is rather complete. Well, almost.
- 
+
    <a name="404Search"></a>
 
    ### 404 Search Redirect #
 
-0. Change the URL to a post that should not exist, such as: 
+0. Change the URL to a post that should not exist, such as:
 
    <a target="_blank" href="http://community.algolia.com/algoliasearch-jekyll-hyde/">
    http://community.algolia.com/algoliasearch-jekyll-hyde/<strong>whatever</strong></a>
 
-   * Are you redirected to a search page with "whatever" in the search field? 
+   * Are you redirected to a search page with "whatever" in the search field?
    No.
    <br /><br />
    NOTE: <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/issues/4">
@@ -90,7 +91,7 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
 We are using a <strong>pre-formatted theme</strong> rather than design-your-own,
 which takes much more time and expertise.
 
-* [List of features in a website (offered in other themes)](/website-features/) 
+* [List of features in a website (offered in other themes)](/website-features/)
 
 Features not in the theme would need to be added.
 
@@ -109,7 +110,7 @@ Here are the steps setup your own free static website that provides a search box
 0. <a href="#RunJekyllScript">Create a Script to Run Jekyll Locally</a>
 
 The architectural components is call the <strong>JAM stack</strong>,
-with JAM standing for JavaScript, APIs, and Markup. 
+with JAM standing for JavaScript, APIs, and Markup.
 The order of the components has no significance (there had to be a vowel in the second letter).
 
 JAM is a fast-growing stack for building websites and apps:
@@ -118,7 +119,7 @@ JAM is a fast-growing stack for building websites and apps:
 * No construction of web pages to respond to a request
 
 * Markup in text files within GitHub for version control
-* Markup files are pre-processed into display-ready HTML 
+* Markup files are pre-processed into display-ready HTML
 * HTML files can be stored on various servers around the world in a CDN
 
 * JavaScript calls APIs for any moving parts (such as retrieving personalization data)
@@ -133,7 +134,7 @@ In this tutorial, we refer to <em>your_account</em> as the account name you crea
 
 If you already have an account, skip this section.
 
-0. Click on this URL to open an internet browser to: 
+0. Click on this URL to open an internet browser to:
 
    <a target="_blank" href="http://github.com/">github.com</a>
 
@@ -145,7 +146,7 @@ If you already have an account, skip this section.
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
    <br /><br />
 
-0. Confirm your email. 
+0. Confirm your email.
 
 <a name="ForkRepo"></a>
 
@@ -158,9 +159,9 @@ We like Jekyll over WordPress, Drupal, and other frameworks because unlike them 
 Jekyll's blog entries are stored in text files rather in a database.
 This makes it easier to switch Jekyll themes.
 
-The theme we are using in this tutorial is based on a fork of 
+The theme we are using in this tutorial is based on a fork of
 the <a target="_blank" href="http://hyde.getpoole.com/">
-Hyde theme template</a>, which is among the most popular 
+Hyde theme template</a>, which is among the most popular
 partly because it is created by the legendary <a target="_blank" href="https://twitter.com/mdo">
 Mark Otto</a>, Director of Design at GitHub.
 
@@ -185,7 +186,7 @@ The steps:
 0. Click the <strong>Settings</strong> tab to rename the repo, as <em>your_account_name</em>.github.io.
 
    In other words, if your account name is "acme", you would rename the repo to acme.github.io.
-   
+
    NOTE: "github.io" means the site is hosted by GitHub, which does not charge (unlike GoDaddy or other hosting provider).
 
    PROTIP: Sites hosted on GitHub.io can still have a custom name such as "acme.com".
@@ -200,10 +201,10 @@ There are several choices.
 
    * Mac machine already have a command-line Git client.
 
-   * Follow this website to install Git in Windows 
+   * Follow this website to install Git in Windows
 
 
-<a name="ConfigRemote"></a> 
+<a name="ConfigRemote"></a>
 
 ## Create a local repo #
 
@@ -244,7 +245,7 @@ There are several choices.
    NOTE: Cloning creates <strong>.git</strong> folder that contains all the history in the creation of the template.
    This file is what enables Git version control.
 
-0. Compare this against the 
+0. Compare this against the
    <a target="_blank" href="https://jekyllrb.com/docs/structure/">
    standard structure</a>.
 
@@ -253,7 +254,7 @@ There are several choices.
 
 0. Use a text editor to view the <strong>.gitignore</strong> file.
 
-   The presence of the <strong>_site</strong> line means that the _site folder generated will 
+   The presence of the <strong>_site</strong> line means that the _site folder generated will
    NOT be sent back up to GitHub because GitHub will generate its own _site folder.
 
 0. Use a text editor to create a <strong>_config-dev.yml</strong> file containing:
@@ -269,7 +270,7 @@ url: http://localhost:4001
 
 ## Install Ruby and Jekyll, Build gems #
 
-Text in Jekyll sites are written in "Markdown" format which Jekyll converts to HTML 
+Text in Jekyll sites are written in "Markdown" format which Jekyll converts to HTML
 that site vistors download and display on their internet browsers.
 
 The programming for Jekyll to do that is written in the Ruby programming language.
@@ -307,14 +308,36 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 0. Click the URL to visit:
 
    NOTE: Gems specified are pulled from the <a target="_blank" href="https://rubygems.org/">
-   Rubygems website</a>. 
+   Rubygems website</a>.
 
 0. Search for <strong>algoliasearch-jekyll</strong>:
 
    <a target="_blank" href="https://rubygems.org/gems/algoliasearch-jekyll/">
    https://rubygems.org/gems/algoliasearch-jekyll/</a>
 
-   Notice the dependencies.
+   The <strong>development</strong> dependencies are libraries used during
+   code programming:
+
+    * coveralls ~> 0.8
+    * flay ~> 2.6
+    * flog ~> 4.3
+    * guard-rspec ~> 4.6
+    * jeweler ~> 2.0
+    * rspec ~> 3.0
+    * rubocop ~> 0.31
+    * simplecov ~> 0.10
+    <br /><br />
+
+   <strong>Run-time</strong> dependencies are what needs to be specified in
+   the Gemfile:
+
+   * algoliasearch ~> 1.4
+   * appraisal ~> 2.1.0
+   * awesome_print ~> 1.6
+   * json ~> 1.8
+   * nokogiri ~> 1.6
+   * verbal_expressions ~> 0.1.5
+   <br /><br />
 
 0. In a Terminal window, have dependency gems automatically fetched based on the Gemfile and dependencies:
 
@@ -342,7 +365,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
    <pre>
             Source: /Users/mac/gits/acme/acme.github.io
        Destination: /Users/mac/gits/acme/acme.github.io/_site
-      Generating... 
+      Generating...
                     done.
  Auto-regeneration: enabled for '/Users/mac/gits/acme/acme.github.io'
     Server address: http://127.0.0.1:4001/
@@ -377,13 +400,13 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
 0. Save the file in the root folder of the Jekyll repository.
 
 0. Open a Terminal instance and navigate to that repository.
-0. Define run permissions: 
+0. Define run permissions:
 
    <tt><strong>
    chmod a+x 4001.sh
    </strong></tt>
 
-0. Open a Terminal instance to run it: 
+0. Open a Terminal instance to run it:
 
    <tt><strong>
    ./4001.sh
@@ -400,7 +423,7 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
 
 0. Open cmd program and navigate to that Jekyll folder.
 
-0. Run it: 
+0. Run it:
 
    <tt><strong>
    4001.cmd
@@ -469,7 +492,7 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
    Files names end with ".md" to designate markdown formatting.
    Jekyll processes such files into index.html files.
 
-   There are other formats, such as 
+   There are other formats, such as
 
    Some text editors can provide text highlighting based on the file extension.
 
@@ -534,7 +557,7 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
    <a target="_blank" href="https://www.algolia.com/">
    Algolia.com</a>.
 
-0. View this video by Tim Carry (tim@algolia.com) 
+0. View this video by Tim Carry (tim@algolia.com)
    summarizes details in his
    <a target="_blank" href="https://blog.algolia.com/instant-search-blog-documentation-jekyll-plugin/">
    blog article</a>.
@@ -542,10 +565,10 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
    </amp-youtube>
 
 0. Specify the name and region where the majority of your visitors are located.
-   
+
    Algoria's UI has a cool list of live ping response times to various regions:
 
-   <amp-img media="(min-width: 386px)" width="386" height="346" 
+   <amp-img media="(min-width: 386px)" width="386" height="346"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
 
 0. Look at the email for links to their thorough
@@ -592,13 +615,13 @@ NOTE: Jekyll keeps its configuration information in a text file named _config.ym
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627136/be0ed046-2497-11e6-93d3-6ab5183661f2.jpg"></amp-img>
 <br /><br />
 
-0. Copy the value of the Application ID 
+0. Copy the value of the Application ID
    by clicking on the icon to the right of each value or
    highlight each value and press Ctrl+C.
 
-   A Jekyll plugin (from Algolia or another) 
+   A Jekyll plugin (from Algolia or another)
    extracts every paragraph of text (between `<p>` and `</p>` tags) from HTML files generated by the jekyll build command.
-   This approach of reading the final HTML pages instead of markdown text works with any markdown parser 
+   This approach of reading the final HTML pages instead of markdown text works with any markdown parser
    and custom plugin.
 
 0. Use a text editor to open the <strong>_config.yml</strong> file and paste in this under the gems: section:
@@ -606,7 +629,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627
    <pre>
    gems:
      - algoliasearch-jekyll
-   
+
    algolia:
      application_id: 'latency'
      index_name: 'jekyll'
@@ -616,7 +639,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627
        - index.html
        </pre>
 
-0. As above, copy from the Dashboard the <strong>Search-Only API Key</strong> and 
+0. As above, copy from the Dashboard the <strong>Search-Only API Key</strong> and
    replace the value of <strong>read_only_api_key</strong> in the _config.yml file.
 
    #### Define index_name #
@@ -630,7 +653,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15627
 0. In _config-dev.yml specify a index name such as "jekyll_TEST".
 
    NOTE: With Aloglia, an index does not need to be created manually ahead of index insertion.
-  
+
 <a name="WriteAPIKEY"></a>
 
 ## Create _algolia_api_key #
@@ -651,7 +674,7 @@ PROTIP: Keep private from the world API keys with write permissons.
 
    <amp-img width="650" height="86" alt="algolia admin api key"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15708068/9dd3997c-27b9-11e6-9386-e898d0d2b7e8.jpg"></amp-img>
-   
+
    The key's value is shown as dots in case someone else is looking over your shoulder.
 
 0. Switch back to the text editor to open a new file.
@@ -682,9 +705,9 @@ PROTIP: Combine several actions in the custom shell script, such as building the
    # build _site folder:
    bundle exec jekyll build –config _config.yml,_config-dev.yml
    # Index sub-command:
-   bundle exec jekyll algolia push 
+   bundle exec jekyll algolia push
    # Display:
-   bundle exec jekyll serve –config _config.yml,_config-dev.yml --port 4001 
+   bundle exec jekyll serve –config _config.yml,_config-dev.yml --port 4001
    </strong></pre>
 
    This is constructed based on
@@ -798,7 +821,7 @@ Different templates use varying techniques to provide a form field for visitors 
 ### index.html #
 
 0. Navigate down the folders to an index.html file and open it in a text editor.
-   
+
    NOTE: All content files are named **index.html** so visitors don't have to type in the .html file extension.
    It is better for SEO (Search Engine Optimization) if folder names are used as links.
 
@@ -809,10 +832,10 @@ Different templates use varying techniques to provide a form field for visitors 
    a <a target="_blank" href="http://mdn.beonex.com/en/HTML/Element/article.html">HTML5 standard tag</a>
    to designate content (and not navigation and other fluff).
 
-   Text in the file replaces the tag: 
+   Text in the file replaces the tag:
 
       &#123;&#123; content }}
-   
+
 In the **_includes** folder of the Algolia template are the head.html, footer.html, and sidebar.html.
 
 ### head.html #
@@ -831,9 +854,9 @@ The **sidebar.html** file contains what is within the `<div class="sidebar">` ta
 The search field is in that file:
 
    <pre>
-&LT;input type="text" class="algolia__input js-algolia__input" 
-autocomplete="off" 
-name="query" 
+&LT;input type="text" class="algolia__input js-algolia__input"
+autocomplete="off"
+name="query"
 placeholder="Search in this site..." />
    </pre>
 
@@ -860,7 +883,7 @@ The Algoria template also defines JavaScript variables and populates them with v
   }
 </script>{% endraw %}{% endhighlight %}
 
-   
+
 
  {% highlight text %}{% raw %}
 <script id="algolia__template" type="text/template">
@@ -881,7 +904,7 @@ The Algoria template also defines JavaScript variables and populates them with v
 
 ### JavaScript #
 
-The <strong>onLinkClick</strong> JavaScript function invoked 
+The <strong>onLinkClick</strong> JavaScript function invoked
 is defined in the <strong>algolia.js</strong> file within
 the public/js folder.
 
@@ -919,15 +942,15 @@ The Algoria theme keeps CSS and JavaScript within a folder named <strong>public<
 
    Notice it is raw CSS, with no SASS processing.
 
-   Many Jekyll templates use SASS, 
+   Many Jekyll templates use SASS,
    which expands style codes in sass files to generate CSS used in websites.
-   
+
  Additional resources about SASS:
 
    * <a target="_blank" href="https://www.toptal.com/css/sass-mixins-keep-your-stylesheets-dry">
    More about SASS mixins</a>
 
-   * A popular SASS library is 
+   * A popular SASS library is
    bourbon
 
 
