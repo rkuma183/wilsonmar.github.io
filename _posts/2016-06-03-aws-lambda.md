@@ -923,9 +923,17 @@ The Unicode numbers for lambda are U+039B and U+03BB.
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
-* Eric Hammond has published several blog posts at <a target="_blank" href="https://www.alestic.com/">alestic.com</a>.
+* Eric Hammond has published several blog posts at
+   <a target="_blank" href="https://www.alestic.com/">alestic.com</a>.
 
-Fuller, Matthew (2016-01-11). AWS Lambda: A Guide to Serverless Microservices (Kindle Locations 2071-2074).  . Kindle Edition.
+* Matthew Fuller wrote an Amazon Kindle book published 2016-01-11):
+   <br />AWS Lambda: A Guide to Serverless Microservices
+
+* Vyon Nagrani, AWS Lambda Sr. Product Manager,
+   gave a very high level webinar video
+   <a target="_blank" href="https://www.youtube.com/watch?v=dCv0gZLjcNY/">
+   AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway 200
+   14 Oct. 2015</a>
 
 ## More on Serverless #
 

@@ -176,8 +176,9 @@ AWS offers its <strong>SigV4</strong> to authorize access to APIs.
 http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html
 
 https://www.youtube.com/watch?v=dCv0gZLjcNY
-AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway 200 webinar</a>
+AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway 200</a>
 14 Oct. 2015
+is a high-level webinar
 by AWS Lambda Sr. Product Manager
 Vyon Nagrani
 
