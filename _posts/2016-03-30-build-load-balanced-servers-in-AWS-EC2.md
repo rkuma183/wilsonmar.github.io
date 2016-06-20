@@ -27,8 +27,9 @@ CURRENTLY UNDER CONSTRUCTION
 
 There are several ways to automate server setup:
 
-   * Manually on the <a target="_blank" href="http://aws.amazon.com/"> AWS Management Console at
-      http://aws.amazon.com/</a> on web browsers.
+   * <a href="#ManualConfig">Manually configure</a> the various components using the
+   <a target="_blank" href="http://aws.amazon.com/"> AWS Management Console at
+      http://aws.amazon.com/</a> on internet browsers.
     See [my AWS On-boarding](/aws-onboarding/) for a tutorial on the AWS Management Console and Consoles on mobile devices.
 
    * <a href="#Beanstalk">Elastic Beanstalk</a> for developers to quickly bring up standard server configurations with no SSH capability.
@@ -47,15 +48,23 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084
 
 All these follow an "idempotent" approach of specifying what is desired rather than specific sequences of actions.
 
-## Component services #
+<a name="ManualConfig"></a>
 
-Each environment within AWS for enterprise use requires several services:
+## Manually configure component services #
 
-   * <a href="#AWSConsole">AWS Management Console</a>
-   * <a href="#VPC">VPC</a>
-   * <a href="#NAT">NAT</a>
-   * <a href="#MapRegionAMI">AMI</a> by Region, with Auto-scale
-   * <a href="#ELB">ELB</a>
+<amp-img width="651" height="356" alt="hashicorp atlas 2014-12-08-at-10-09-am.png"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084480/3664cfcc-32d6-11e6-91a2-f3bffad430b8.png"></amp-img>
+
+Each environment within AWS for enterprise use requires several services.
+Here is the sequence of dependencies:
+
+   0. <a href="#VPC">VPC</a>
+   0. <a href="#NAT">NAT</a>
+
+   0. <a href="#DNS">DNS</a>
+   0. <a href="#ELB">ELB</a>
+
+   0. <a href="#MapRegionAMI">AMI</a> by Region, with Auto-scale
 
    Diagram from <a target="_blank" href="http://blog.flux7.com/blogs/aws/vpc-best-configuration-practices">Flux7</a>:
    <amp-img width="700" height="265" alt="fig vpc flux7 700x265.jpg"
@@ -421,6 +430,25 @@ Public and private keys:
     * Linux/Mac users download the PEM.
 
 
+<a name="DNS"></a>
+
+## DNS (Domain Name Service) Route 53 #
+
+Customers and advertisers are given a <strong>domain name</strong>.
+
+Visitors specifying the domain name go to the DNS server each has configured on their machine.
+
+Those DNS services got the DNS ANAME record <strong>propagated to them</strong> from
+AWS Route 53.
+
+The enterprise approach is to have the
+DNS Domain Name Service distribute traffic among two external-facing load balancers,
+to avoid any single point of failure, however unlikely.
+
+DNS would distribute load among load balancers in a round-robin fashion.
+
+
+
 <a name="ELB"></a>
 
 ## ELB (Elastic Load Balancer)
@@ -429,7 +457,18 @@ Load balancers distribute traffic among individual nodes in a cluster.
 
 Clients reach the load balancer via a VIP (Virtual IP) address.
 
+PROTIP: The response AWS expects from the Ping Path resource (typically `/index.html`) is a 200 HTTP response.
+So AWS may consider a server up even if the web server is down if the
+<strong>container</strong> service responds with a formatted "Please try again later" message.
+
 Some use an address outside AWS to distribute load to other clouds (servers in private locations, in Azure, etc.)
+
+   * Response Timeout 5 seconds.
+   * **Health Check Interval** is the number of seconds AWS waits between health checks 2.
+   * Unhealthy Threshold
+   * **Healthy Threshold** is the number of health checks to report healthy before AWS can consider a server healthy enough to use.
+
+PROTIP: Set Healthy Threshold to 2 checks multiplied Health Check Interval of 2.
 
 
 <a name="EIP"></a>
