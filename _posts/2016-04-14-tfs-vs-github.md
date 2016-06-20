@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Microsoft TFS vs. Git and GitHub"
-excerpt: "You committed or just checked-in?"
+excerpt: "Check out Git, then commit to it"
 tags: [devops, git, TFS]
 image:
 # feature: fig-white-black-malika-favre-vertical-bars
