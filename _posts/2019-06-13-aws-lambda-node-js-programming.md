@@ -163,8 +163,28 @@ Received event: {
   "key1": "value1"
 }
 
-## Context object #
 
+<a name="Authentication"></a>
+
+## Authentication #
+
+AWS offers its <strong>SigV4</strong> to authorize access to APIs.
+
+
+### Sign API Requests #
+
+http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html
+
+https://www.youtube.com/watch?v=dCv0gZLjcNY
+AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway 200 webinar</a>
+14 Oct. 2015
+by AWS Lambda Sr. Product Manager
+Vyon Nagrani
+
+
+<a name="ContextObject"></a>
+
+## Context object #
 
    <pre>
    exports.handler = (event, context, callback) => {
@@ -205,8 +225,9 @@ exports.handler = function(event, contect){
 
 https://aws.amazon.com/blogs/compute/nodejs-packages-in-lambda/
 
+<a name="GitHubAccess"></a>
 
-## GitHub #
+## GitHub Access #
 
 <a target="_blank" href="https://www.topcoder.com/blog/amazon-lambda-demo-tutorial/#!">
 A blog dated 29 Jan. 2015</a>
@@ -352,9 +373,6 @@ exports.handler = function(event, context) {
 };
    </pre>
 
-## Sign API Requests #
-
-http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html
 
 ## More on Serverless #
 
