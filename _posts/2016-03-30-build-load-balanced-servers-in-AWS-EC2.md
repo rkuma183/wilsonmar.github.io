@@ -23,7 +23,12 @@ going through an <a href="#ELB">ELB</a>
 into a <a href="#VPC">VPC</a>
 spanning several regions.
 
-CURRENTLY UNDER CONSTRUCTION
+<amp-img width="650" height="472" alt="aws-enterprise-v01-2016-06-20-650x472"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16204025/365377f6-36da-11e6-8446-af1e66941b75.jpg"></amp-img>
+
+This page is what I'm currently working on, so please consider this "under construction".
+
+## Multiple Approaches #
 
 There are several ways to automate server setup:
 
@@ -51,9 +56,6 @@ All these follow an "idempotent" approach of specifying what is desired rather t
 <a name="ManualConfig"></a>
 
 ## Manually configure component services #
-
-<amp-img width="651" height="356" alt="hashicorp atlas 2014-12-08-at-10-09-am.png"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084480/3664cfcc-32d6-11e6-91a2-f3bffad430b8.png"></amp-img>
 
 Each environment within AWS for enterprise use requires several services.
 Here is the sequence of dependencies:
