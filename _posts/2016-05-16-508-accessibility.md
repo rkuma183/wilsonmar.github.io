@@ -91,6 +91,8 @@ Screen Magnifiers - These tools allow users to amplify the text on the screen in
 
 Speech Recognition - These tools allow users to convert spoken words into text.  It can include dictation to the point of being able to manipulating applications on the screen using words understood by the software tools.
 
+Color Contrast Analyser - These tools help determine the contrast of background and text or of visual elements like graphical controls into a Pass/Fail category to assist users who struggle with conflicting colors. a targe="_blank" href="https://www.paciellogroup.com/resources/contrastanalyser/" alt="Color Analyser software Tools for Windows to read content for people with less than 20/20 vision">Download Color Analyser Software Tool for those with color blindness, cataracts or less than 20/20 vision.</a>
+
 Alternative Input Devices - These tools allow users with specific needs to be able to manipulate a computer using modified pointing device, eye movement, expanded keyboards, head-operated pointing devices, modified keyboards to specialized software.
 
 
