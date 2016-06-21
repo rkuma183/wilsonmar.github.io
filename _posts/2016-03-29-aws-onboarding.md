@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS On-boarding"
-excerpt: "You'll like it here"
+excerpt: "You'll like it here in the cloud"
 tags: [AWS, EC2, cloud, on-boarding]
 image:
 # feature: pic data center slice 1900x500.jpg
@@ -358,13 +358,37 @@ provides a free on-line tool to draw diagrams such as
 <a target="_blank" href="https://www.processon.com/view/56e785b1e4b05387d0391d33">
 this</a>
 
-Amazon provides icons in a sample PowerPoint file you cut and paste,
-or you can download a zip containing icon .png and .svg files.
+At <a target="_blank" href="https://aws.amazon.com/architecture/icons/">
+architecture/icons</a> Amazon provides a sample .PPTX (PowerPoint 2010+) file
+(AWS_Simple_Icons_PPT_v16.2.22.zip). Lines used to illustrate the hierarchy:
+<amp-img width="147" height="116" alt="aws powerpoint stack 147x116-59.jpg"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16227227/b1a46ec8-376c-11e6-93e7-de366264e725.jpg"></amp-img>
+<br /><br />
+
+You can also download a zip containing .png and .svg files of icons
+(AWS_Simple_Icons_EPS-SVG_v16.2.22.zip).
 
 
 ## People #
 
 * Matt Wood, @mza, Product Strategy @ Amazon Web Services
+
+## Certification #
+
+* <a target="_blank" href="https://aws.amazon.com/certification/certified-sysops-admin-associate/">
+  $150, 80-minute AWS Certified SysOps Administrator - Associate</a>
+
+* <a target="_blank" href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">
+  $150, 80-minute AWS Certified Solutions Architect - Associate</a>
+
+* <a target="_blank" href="https://aws.amazon.com/certification/certified-developer-associate/">
+  $150, 80-minute AWS Certified Developer - Associate</a>
+
+* <a target="_blank" href="https://aws.amazon.com/certification/certified-solutions-architect-professional/">
+  $300, 170 minutes AWS Certified Solutions Architect - Professional</a>
+
+* <a target="_blank" href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">
+  $300, 170 minutes AWS Certified DevOps Engineer - Professional</a>
 
 
 ## More on Amazon #

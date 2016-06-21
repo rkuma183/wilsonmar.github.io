@@ -10,6 +10,8 @@ image:
   creditlink:
 comments: true
 ---
+<a href="https://wilsonmar.github.io/buil-load-balanced-servers-in-AWS-EC2/">https://goo.gl/sdfsdfsdf</a>
+
 <i>{{ page.excerpt }}</i>
 <hr />
 
@@ -795,6 +797,24 @@ One can directly connect an on-premise network to an AWS VPC.
 
 PROTIP: Direct connects have a set static bandwidth,
 so plan accordingly.
+
+<a name="#NAT"></a>
+
+## NAT *
+
+A NAT instance provide whatever capacity a single AMI provides,
+so it should be configured with CloudWatch alarms and traffic metrics.
+
+Prepare before need a script to manually
+<a target="_blank" href="https://aws.amazon.com/articles/2781451301784570/">
+to manage Subnet failover to another NAT in this Amazon article</a>.
+
+A NAT instance can be configured for port forwarding, bastion hosts.
+
+AWS NAT Gateways support bursts of up to 10Gbps.
+They are managed by AWS, so it does not provide traffic metrics
+nor CloudWatch alarms.
+
 
 ## More on Amazon #
 

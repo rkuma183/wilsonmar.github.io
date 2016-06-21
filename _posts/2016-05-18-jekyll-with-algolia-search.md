@@ -10,6 +10,11 @@ image:
   creditlink: http://www.braintreebooks.com/search.htm
 comments: true
 ---
+<a href="https://goo.gl/UWKgTu">
+https://wilsonmar.github.io/jekyll-with-algolia-search</a> =
+<a href="https://goo.gl/UWKgTu">
+https://goo.gl/UWKgTu</a>
+
 <i>{{ page.excerpt }}</i>
 <hr />
 
@@ -51,6 +56,10 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
 
    The formatting of this site is what you'll have as YOUR blog
    after following instructions in this tutorial.
+
+   <a name="SearchDemo"></a>
+
+   ### Search Demo steps #
 
 0. Type in the search field a single letter such as "L".
 
@@ -320,9 +329,9 @@ The programming for Jekyll to do that is written in the Ruby programming languag
    The <strong>development</strong> dependencies are libraries used during
    code programming:
 
-    * coveralls ~> 0.8
-    * flay ~> 2.6
-    * flog ~> 4.3
+    * <a target="_blank" href="https://www.npmjs.com/package/coveralls">coveralls</a> ~> 0.8 takes json-cov output into stdin and POSTs to coveralls.io
+    * <a target="_blank" href="https://www.npmjs.com/package/flay">flay</a> ~> 2.6
+    * <a target="_blank" href="https://www.npmjs.com/package/flog">flog</a> ~> 4.3 light-weight configurable front-end logger
     * guard-rspec ~> 4.6
     * jeweler ~> 2.0
     * rspec ~> 3.0
@@ -766,11 +775,13 @@ PROTIP: Combine several actions in the custom shell script, such as building the
 
    NOTE: The jekyll aloglia sub-command references the <a href="#WriteAPIKEY">_algolia_api_key</a>.
 
-   FAIL QUESTION: How to fix message:
+   <a href="#InstallRuby">Repeat your Ruby install and bundle install</a>
+   if you see this message:
 
    <pre>
    fatal: 'jekyll algolia' could not be found. You may need to install the jekyll-algolia gem or a related gem to be able to use this subcommand.
    </pre>
+
 
 
 <a name="BuildIndexCI"></a>
