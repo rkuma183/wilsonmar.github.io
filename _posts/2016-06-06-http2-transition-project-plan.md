@@ -523,10 +523,14 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 
 ## Videos on YouTube #
 
+Surma ()@DasSurma) works on the Google Chrome team in London:
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=r5oT_2ndjms">
-   HTTP/2 101 (Chrome Dev Summit 2015</a>
+   HTTP/2 101 (Chrome Dev Summit 2015</a> #PWASummit
    Nov 18, 2015
-  by @surmair
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G62aCRIlONU/">
+  Instant loading with HTTP/2 (Progressive Web App Summit 20 Jun 2016)</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=r2f8tloYJY0">
   HTTP2 at the GOTO conference</a>

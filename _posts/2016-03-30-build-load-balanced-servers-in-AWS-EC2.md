@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Build load-balanced servers in AWS EC2 using CloudFormation"
-excerpt: "This is where computers are"
+excerpt: "High Availability in the cloud"
 tags: [AWS, EC2, cloud]
 image:
 # feature: pic data center slice 1900x500.jpg
@@ -62,6 +62,7 @@ All these follow an "idempotent" approach of specifying what is desired rather t
 Each environment within AWS for enterprise use requires several services.
 Here is the sequence of dependencies:
 
+   0. VPN
    0. <a href="#VPC">VPC</a>
    0. <a href="#NAT">NAT</a>
 
@@ -207,7 +208,7 @@ in a multi-subnet VPC.
    NOTE: One CF template can be used to create multiple stacks.
 
 0. In the Stack Name box, type "Lab" or other name.
-0. Select Specify an Amazon S3 template URL.
+0. Select Specify an <a href="#S3Template">Amazon S3 template URL</a>.
 0. Paste the URL. An example is provided at:
 
     <pre>
@@ -239,6 +240,17 @@ To be able to delete the stack, first turn off <strong>Termination Protection</s
 0. Select the box for the stack to be deleted.
 0. Click Delete Stack.
 0. Click Yes, Delete.
+
+
+<a name"S3Template"></a>
+
+### S3 Template URL #
+
+For enviornments routinely processing more than 100 images per second,
+because S3 stores files lexicographically (alphabetically),
+S3 GETs can be faster if file names are prefixed with a random string (as in a GUID)
+or reverse the keyname string.
+
 
 
 ### CF Front Matter #
@@ -282,6 +294,66 @@ Template Reference at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserG
 {% endhighlight %}
 
 
+
+<a name="DNS"></a>
+
+## DNS #
+
+DNS servers obtain IP address from URL names by forwarding requests it cannot resolve from its own
+tables.
+
+Clients -- called <strong>resolvers</strong> -- make requests of DNS <strong>name servers</strong>.
+
+Two DNS servers are usually specified (in client machine TCP/IP properties) for load balancing
+and fault tolerance.
+
+DNS servers refer to 3 types of records to answer 3 types of queries:
+
+<ul>
+<li> <strong>A</strong> (host Address) records are used to answer <strong>forward lookup</strong>
+of an FQDN (host name) to a specific IP address.
+The host name to IP address mappings for a zone are stored in the <strong>Domain.dns</strong> file
+in the <a href="1envvars.htm">&#37;systemroot&#37;</a>\System32\Dns folder.
+</li>
+
+<a name="DNSPTR"></a>
+<li> <strong>PTR</strong> (<span style="text-decoration:underline">P</span>oin<span style="text-decoration:underline">t</span>e<span style="text-decoration:underline">r</span> resource) records are used to
+answer a <strong>reverse lookup</strong> of an IP address to a host name
+(another DNS domain name location).
+IP address to host name mappings are in the <tt><strong>z.y.w.x.in-addr.arpa</strong></tt> file.
+Create file <strong>1.0.0.127.in-addr.arpa</strong> zone file for reverse lookup.
+</li>
+
+<li> <strong>SRV</strong> (<span style="text-decoration:underline">S</span>e<span style="text-decoration:underline">rv</span>er location) records -- new in Windows 2000 DNS -- are used to
+<strong>locate domain controllers</strong>.
+SRV specifies the server to which a DNS name server <strong>forwards</strong>
+when it cannot resolve a query.
+Windows 2000 server <strong>requires DNS</strong> to locate domain controllers.
+On Windows 2000, DNS is installed as a Windows component on a
+domain controller with a static (not dynamic) IP address.
+</li>
+</ul>
+
+Other types of resource records:
+<ul>
+<li> <strong>NS</strong> records notate which DNS servers are designated
+  as authoritative for the zone.
+</li>
+
+<li> <strong>SOA</strong> (Start Of Authority) records indicate the <strong>name of origin</strong> and other basic properties for each zone,
+  including the name of the primary server for the source for information about the zone,
+</li>
+
+<li> <strong>CNAME</strong> (Canonical name) records define <strong>aliases</strong>.
+</li>
+
+<li> <strong>MX</strong> (<span style="text-decoration:underline">M</span>ail e<span style="text-decoration:underline">x</span>changer) records define the
+  owner and mail exchange server DNS name,
+  with <strong>preference number</strong>.
+</li>
+</ul>
+
+
 <a name="AZ"></a>
 
 ### Availability zones #
@@ -293,6 +365,19 @@ within CLI you use a command:
     <pre><strong>
     ec2-metadata -z
     </strong></pre>
+
+## EC2 HPC Placement Groups #
+
+0. From the EC2 Management Console,
+   High Performance Computing
+   <a target="_blank" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">
+   placement groups</a> for low latency and high bandwidth
+   within each availability center
+   must be unique within each AWS account.
+
+   EC2 instances can't be moved into a placement group.
+   They most be created all at the same time.
+
 
 <a name="BastionHost"></a>
 
@@ -360,12 +445,12 @@ In a CF JSON file, instance types are defined in Mappings:
 
 ## VPC (Virtual Private Cloud)
 
+See [my tutorial on AWS VPC](/aws-vpc/)
+
 
 <a name="SecGroups"></a>
 
 ## Security Groups #
-
-By default, no ports are open.
 
 SGs define which ports are open.
 
@@ -393,15 +478,24 @@ Public-facing NAT should be protected with Multi-factor authentication (MFA).
 PROTIP: "Tier" security groups so servers on each tier cannot access all ports.
 Don't use same security group for multiple tiers of instances.
 
+By default, no ports are open (all ports are blocked).
+
+   * DNS
+   * ICMP for pings. But only for internal, not external servers.
+
 A template can have additional output parameters.
 
 <a target="_blank" href="http://harish11g.blogspot.com/2014/01/Amazon-Virtual-Private-Cloud-VPC-best-practices-tips-for-architecture-migration.html">
 This</a> advice:
 
-      "People have tendency to open for port 8080 to 10.10.0.0/24 (web layer) range. Instead of that, open port 8080 to web-security-group.
-      This will make sure only web security group instances will be able to contact on port 8080.
-      If someone launches NAT instance with NAT-Security-Group in 10.10.0.0/24,
-      he won't be able to contact on port 8080 as it allows access from only web security group."
+   "People have tendency to open for port 8080 to 10.10.0.0/24 (web layer) range.
+   Instead of that, open port 8080 to web-security-group.
+   This will make sure only web security group instances
+   will be able to contact on port 8080.
+   If someone launches NAT instance with NAT-Security-Group in 10.10.0.0/24,
+   he won't be able to contact on port 8080
+   as it allows access from only web security group."
+
 
 ### FTP #
 
@@ -418,7 +512,7 @@ This</a> advice:
 
 <a name="Bastion"></a>
 
-## Bastion Hosts
+## Bastion Host #
 
 Bastion hosts are used to limit exposure to the internet, to enable sysadmins to SSH into machines.
 
@@ -438,7 +532,8 @@ Public and private keys:
 
 ## DNS (Domain Name Service) Route 53 #
 
-Customers and advertisers are given a <strong>domain name</strong>.
+Customers and advertisers are given a <strong>domain name</strong> such as
+amazon.com, acme.com, microsoft.com, etc.
 
 Visitors specifying the domain name go to the DNS server each has configured on their machine.
 
@@ -448,9 +543,18 @@ AWS Route 53.
 The enterprise approach is to have the
 DNS Domain Name Service distribute traffic among two external-facing load balancers,
 to avoid any single point of failure, however unlikely.
+Secondary DNS operated by an alternative vendor:
 
-DNS would distribute load among load balancers in a round-robin fashion.
+   * dyn.com
+   * google.com
+   * https://nsone.net/
 
+AWS built Route 53 from the ground up rather than using open source
+coding. AWS added additional features such as health checks.
+Route 53 works for VPCs only
+with private hosted zones.
+
+DNS distributes load among load balancers in a round-robin fashion.
 
 
 <a name="ELB"></a>
@@ -801,19 +905,6 @@ so plan accordingly.
 <a name="#NAT"></a>
 
 ## NAT *
-
-A NAT instance provide whatever capacity a single AMI provides,
-so it should be configured with CloudWatch alarms and traffic metrics.
-
-Prepare before need a script to manually
-<a target="_blank" href="https://aws.amazon.com/articles/2781451301784570/">
-to manage Subnet failover to another NAT in this Amazon article</a>.
-
-A NAT instance can be configured for port forwarding, bastion hosts.
-
-AWS NAT Gateways support bursts of up to 10Gbps.
-They are managed by AWS, so it does not provide traffic metrics
-nor CloudWatch alarms.
 
 
 ## More on Amazon #
