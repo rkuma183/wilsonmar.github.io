@@ -60,10 +60,10 @@ This is a bigger issue than many think:
 <a target="_blank" href="http://achecker.ca/checker/" 
       alt="AChecker checks single HTML pages for accessibility standards.">AChecker tool checks single HTML page for conformance with accessibility standards. </a>It provides suggestions for conformance, explains why it failed, how to fix and the code that failed. 
 				 
-> Let me help you evaluate these tools. Contact me!
-
 
 ## Checklists for 508 Compliance
+
+User must be able to only use keyboard to be able to get to all enterable items and controls.
 
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
                          alt="Checklist for evaluating PowerPoint documents">Checklist for Web Content Accessibility Guidelines </a>
@@ -85,15 +85,15 @@ This is a bigger issue than many think:
 
 ## Types of Tools utilized
 
-Screen Readers - These tools transmit text that is displayed on the computer screen to aid a visually impaired user to process. It uses a synthetic voice to tell the user where all the data is on the screen. As a user uses the keyboard to get around on the screen, as they move around the screen, it should read all headings and text on the screen.  If a picture is on the screen, if programmed properly the screen reader will read text displaying for the user what is contained in the picture.
+<b>Screen Readers</b> - These tools transmit text that is displayed on the computer screen to aid a visually impaired user to process. It uses a synthetic voice to tell the user where all the data is on the screen. As a user uses the keyboard to get around on the screen, as they move around the screen, it should read all headings and text on the screen.  If a picture is on the screen, if programmed properly the screen reader will read text displaying for the user what is contained in the picture.
 
-Screen Magnifiers - These tools allow users to amplify the text on the screen in a enlarged screen format usually within a small focused area of the screen. As the mouse is moved around the screen, the objects are magnified so they can be easily read.  As my eyes started changing, my glasses no longer was able to read the screen properly until I got bifocals, screen magnifiers amplify the text and make it easier to read.
+<b>Screen Magnifiers</b> - These tools allow users to amplify the text on the screen in a enlarged screen format usually within a small focused area of the screen. As the mouse is moved around the screen, the objects are magnified so they can be easily read.  As my eyes started changing, my glasses no longer was able to read the screen properly until I got bifocals, screen magnifiers amplify the text and make it easier to read.
 
-Speech Recognition - These tools allow users to convert spoken words into text.  It can include dictation to the point of being able to manipulating applications on the screen using words understood by the software tools.
+<b>Speech Recognition</b> - These tools allow users to convert spoken words into text.  It can include dictation to the point of being able to manipulating applications on the screen using words understood by the software tools.
 
-Color Contrast Analyser - These tools help determine the contrast of background and text or of visual elements like graphical controls into a Pass/Fail category to assist users who struggle with conflicting colors. <a target="_blank" href="https://www.paciellogroup.com/resources/contrastanalyser/" alt="Color Analyser software Tools for Windows to read content for people with less than 20/20 vision">Download Color Analyser Software Tool for those with color blindness, cataracts or less than 20/20 vision.</a>
+<b>Color Contrast Analyser</b> - These tools help determine the contrast of background and text or of visual elements like graphical controls into a Pass/Fail category to assist users who struggle with conflicting colors. <a target="_blank" href="https://www.paciellogroup.com/resources/contrastanalyser/" alt="Color Analyser software Tools for Windows to read content for people with less than 20/20 vision">Download Color Analyser Software Tool for those with color blindness, cataracts or less than 20/20 vision.</a>
 
-Alternative Input Devices - These tools allow users with specific needs to be able to manipulate a computer using modified pointing device, eye movement, expanded keyboards, head-operated pointing devices, modified keyboards to specialized software.
+<b>Alternative Input Devices</b> - These tools allow users with specific needs to be able to manipulate a computer using modified pointing device, eye movement, expanded keyboards, head-operated pointing devices, modified keyboards to specialized software.
 
 
 ## Firefox and Chrome Add-ons
