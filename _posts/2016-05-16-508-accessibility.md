@@ -164,17 +164,18 @@ and enables blind and visually impaired people to use computers using computeriz
                          
 ## HTML coding for accessibility
 
-1. In URL links provide words to describe what the link is about to the visual impaired, for example:
+1. In alt="  " provide words to describe more details about what the link is about so screen reader can read, for example:
 
    ```
-   <a alt="One of most well known websites to buy products by auction or buy now at this price" 
-     href="http://www.ebay.com">
+   <a target="_blank" href="http://www.ebay.com" 
+       alt="One of most well known websites to buy products by auction or buy now at this price">Ebay is the most well known
+       websites for buying production by auction or pay the buy in now price"</a>
    ```
    
 2. Images should describe the picture using word, for example:
 
    ```
-   <a alt="blue winter landscape with rainbow" href="URL ...
+   <a target="_blank" href="http://....." alt="blue winter landscape with rainbow"</a>
    ```
    
 3. Turn on captioning in videos for YouTube or Vimeo, Must have QuickTime Player. <a target="_blank" href="http://etc.usf.edu/techease/4all/web-accessibility/adding-closed-captions-to-youtube-videos/">Click to learn how to transcribe videos.</a> for example:
