@@ -574,12 +574,13 @@ There are several customizations:
    <a target="_blank" href="https://www.algolia.com/">
    Algolia.com</a>.
 
-0. View this video by Tim Carry (tim@algolia.com)
-   summarizes details in his
+   This video by Tim Carry (tim@algolia.com)
+   illustrates his
    <a target="_blank" href="https://blog.algolia.com/instant-search-blog-documentation-jekyll-plugin/">
-   blog article</a>.
+   blog article</a>:
    <amp-youtube data-videoid="ivMML1J4ABY" layout="responsive" width="480" height="270">
    </amp-youtube>
+   <br /><br />
 
 0. Specify the name and region where the majority of your visitors are located.
 
@@ -587,7 +588,7 @@ There are several customizations:
 
    <amp-img width="386" height="346"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
-<br /><br />
+   <br /><br />
 
 0. Look at the email for links to their thorough
    <a target="_blank" href="https://www.algolia.com/demos/">demos</a> and

@@ -76,8 +76,9 @@ In 2016-06-05-data-security-github.md
   creditlink: http://blogs-images.forbes.com/ricksmith/files/2014/11/secret.png
 
 2016-05-04-website-features.md
-# drawing blue messaging icons flow 1900x500
-https://cloud.githubusercontent.com/assets/300046/15797012/6c3aa21a-29c7-11e6-8fbd-ef15a86df580.jpg
+# drawing blue messaging icons flow 1900x500-23
+OLD https://cloud.githubusercontent.com/assets/300046/15797012/6c3aa21a-29c7-11e6-8fbd-ef15a86df580.jpg
+https://cloud.githubusercontent.com/assets/300046/16225973/99aa9424-3766-11e6-973e-f7031d6c333d.jpg
   credit: IT Management
 
 2016-06-01-svg-image-files.md
