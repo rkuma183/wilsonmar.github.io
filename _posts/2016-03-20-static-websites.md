@@ -30,7 +30,8 @@ make calls to a single-threaded database, which adds time.
 Secondarily, the rise of APIs has removed many of the limitations
 of static HTML.
 
-## Tools to generate static websites
+## Tools to generate static websites #
+
 I've configured a few, but most recently:
 
    * <strong>[Jekyll](/jekyll-site-development)</strong> is the most popular among static website generation tools largely because GitHub.io websites are
@@ -53,19 +54,33 @@ Surveys are:
 
 * <a target="_blank" href="http://myers.io/posts/">myers.io/posts</a>
 
-## There is a downside
+## There is a downside #
 
 0. Some feel git is a hassle to use.
 
 0. Some prefer the WSIWYG editors like Microsoft Word
 over text editors and writing markdown code.
 
-   However, <a target="_blank" href="https://cloudcannon.com/"> CloudCannon.com</a> 
+   However, <a target="_blank" href="https://cloudcannon.com/"> CloudCannon.com</a>
    enables users to create a Jekyll site that presents
    Visual Editor forms for editing text in context of background graphics.
 
 0. Since Jekyll and other static platforms are newer than WordPress, Drupal, etc.
    there are not as much of a diversity in themes and plug-ins available.
+
+
+## React-driven generation #
+
+   <a target="_blank" href="https://phenomic.io/">https://phenomic.io</a> 
+   is a static site generator that leverages React.js
+   to generate html from .md files.
+
+   The templating language are standard react components.
+
+   Phenomic builds docs into a chunked <strong>single page app</strong> for faster page navigation.
+   (navigate their site to see this in action)
+
+   The built site has a <strong>Edit this</strong> link to the GitHub repo file.
 
 
 ## Footnotes
