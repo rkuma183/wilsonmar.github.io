@@ -242,17 +242,6 @@ To be able to delete the stack, first turn off <strong>Termination Protection</s
 0. Click Yes, Delete.
 
 
-<a name"S3Template"></a>
-
-### S3 Template URL #
-
-For enviornments routinely processing more than 100 images per second,
-because S3 stores files lexicographically (alphabetically),
-S3 GETs can be faster if file names are prefixed with a random string (as in a GUID)
-or reverse the keyname string.
-
-
-
 ### CF Front Matter #
 
 This section is based on the
@@ -377,11 +366,6 @@ within CLI you use a command:
 
    EC2 instances can't be moved into a placement group.
    They most be created all at the same time.
-
-
-<a name="BastionHost"></a>
-
-## Bastion host #
 
 
 
@@ -510,6 +494,7 @@ This</a> advice:
 {% endhighlight %}
 
 
+<a name="BastionHost"></a>
 <a name="Bastion"></a>
 
 ## Bastion Host #
@@ -527,6 +512,51 @@ Public and private keys:
     * Windows users download the PPK.
     * Linux/Mac users download the PEM.
 
+
+<a name"S3Template"></a>
+
+### S3 Template URL #
+
+    For enviornments routinely processing more than 100 images per second,
+    because S3 stores files lexicographically (alphabetically),
+    S3 GETs can be faster if file names are prefixed with a random string (as in a GUID)
+    or reverse the keyname string.
+
+    <a target="_blank" href="https://media.amazonwebservices.com/AWS_Storage_Options.pdf">
+    PDF: AWS Storage options</a>
+
+   * Bucket Policies.
+   * MFA Delete
+   * Backup data in another bucket/account
+
+AWS offers several Gateways to store data:
+
+   * Gateway-cached volumes
+   * Gateway-Stored volumes
+   * Gateway-Virtual Tape Library (VTL)
+
+<a name="EBS"></a>
+
+## EBS #
+
+Each EBS volume is attached to one instance at a time.
+
+EBS can be transferred among availability zones.
+
+EBS volumes are replicated across multiple servers in an AZ.
+But a backup is still needed because
+EBS is designed to have an annual failure rate (AFR) of
+0.1% to 0.2% (SLA of 99.95%).
+
+<a name="Glacier"></a>
+
+## Glacier #
+
+AWS allows up to 1,000 vaults per account.
+
+Individual archives can be up to 40 TB each.
+
+Lifecycle retention policies.
 
 <a name="DNS"></a>
 

@@ -390,6 +390,11 @@ You can also download a zip containing .png and .svg files of icons
 * <a target="_blank" href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">
   $300, 170 minutes AWS Certified DevOps Engineer - Professional</a>
 
+## Resources #
+
+* <a target="_blank" href="https://quizlet.com/_2dk9qd/">
+   Memorize AWS Acronyms as flash cards and games on Quizlet</a>
+
 
 ## More on Amazon #
 

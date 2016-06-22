@@ -10,7 +10,7 @@ image:
   creditlink: http://www.braintreebooks.com/search.htm
 comments: true
 ---
-<a href="https://goo.gl/UWKgTu">
+<a href="https://wilsonmar.github.io/jekyll-with-algolia-search/">
 https://wilsonmar.github.io/jekyll-with-algolia-search</a> =
 <a href="https://goo.gl/UWKgTu">
 https://goo.gl/UWKgTu</a>
@@ -23,7 +23,7 @@ https://goo.gl/UWKgTu</a>
 The objective of this document is for you to implement these use cases
 (click on the underlined items to go straight there):
 
-1. <a href="#QueryTest">Test drive a demo site online</a>.
+1. <a href="#QueryTest">Test drive search on a demo site online</a>.
 
    The site is built with Jekyll and can perform text search
    on pre-defined text content.
@@ -47,7 +47,7 @@ along the way, PROTIP tags mark where suggestions for higher productivity and se
 
 <a name="QueryTest"></a>
 
-## Test drive search on theme's demo site #
+## Test drive search on theme's demo site online #
 
 0. Click this link to go to our theme's demo website on-line:
 
@@ -108,7 +108,7 @@ Features not in the theme would need to be added.
 
 <a name="GetRepoWorking"></a>
 
-## Get it to work locally #
+## Get it working locally #
 
 Here are the steps setup your own free static website that provides a search box:
 
@@ -139,7 +139,7 @@ JAM is a fast-growing stack for building websites and apps:
 
 <a name="GitHubAccount"></a>
 
-## Create a GitHub Account #
+### Create a GitHub Account #
 
 In this tutorial, we refer to <em>your_account</em> as the account name you created in GitHub.
 
@@ -161,7 +161,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675
 
 <a name="ForkRepo"></a>
 
-## Fork and rename the Jekyll template #
+### Fork and rename the Jekyll template #
 
 Templates provide pre-formatted CSS and JavaScript.
 Themes are available from a variety of sources.
@@ -206,7 +206,7 @@ Next, we'll download the repository.
 
 <a name="GitClient"></a>
 
-## Install Git Client #
+### Install Git Client #
 
 There are several choices.
 
@@ -217,7 +217,7 @@ There are several choices.
 
 <a name="ConfigRemote"></a>
 
-## Create a local repo #
+### Create a local repo #
 
 0. Open a Terminal Shell Window on the Mac or cmd program on Windows.
 
@@ -279,7 +279,7 @@ url: http://localhost:4001
 
 <a name="InstallRuby"></a>
 
-## Install Ruby and Jekyll, Build gems #
+### Install Ruby and Jekyll, Build gems #
 
 Text in Jekyll sites are written in "Markdown" format which Jekyll converts to HTML
 that site vistors download and display on their internet browsers.
@@ -363,7 +363,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 
 <a name="RunJekyll"></a>
 
-## Run Jekyll Locally #
+### Run Jekyll Locally #
 
 0. To ensure you have a base version that works locally, run:
 
@@ -400,7 +400,7 @@ The programming for Jekyll to do that is written in the Ruby programming languag
 
 <a name="RunJekyllScript"></a>
 
-## Create a Shell Script to Run Jekyll Locally #
+### Create a Shell Script to Run Jekyll Locally #
 
 PROTIP: Create a script instead of typing in the long command, to save time and avoid mistakes.
 
@@ -454,7 +454,7 @@ PROTIP: Create a script instead of typing in the long command, to save time and 
 
 <a name="UpdateAlogia"></a>
 
-## Update Alogria code locally #
+### Update Alogria code locally #
 
 Since Algoria is good enough to update its example over time to reflect
 for changes by authors of the Jekyll base and the Hyde template,
@@ -549,7 +549,7 @@ disturbing your configuration changes.
 
 <a name="CustomizeSite"></a>
 
-## Customize Site #
+## Edit the repo so your own posts are indexed #
 
 You want your own content instead of the postings copied from the theme, right?
 
@@ -607,7 +607,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621
 
 <a name="ConfigYml"></a>
 
-## Configure _config.yml #
+### Configure _config.yml #
 
 NOTE: Jekyll keeps its configuration information in a text file named _config.yml.
 
@@ -713,7 +713,7 @@ Indexing of 822 items in jekyll_PROD done.
 
 <a name="WriteAPIKEY"></a>
 
-## Create _algolia_api_key #
+### Create _algolia_api_key #
 
 PROTIP: Keep private from the world API keys with write permissons.
 
@@ -743,7 +743,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15708
 
 <a name="IndexShellScript"></a>
 
-## Index in shell script #
+### Index in shell script #
 
 PROTIP: Combine several actions in the custom shell script, such as building the index.
 
@@ -786,7 +786,7 @@ PROTIP: Combine several actions in the custom shell script, such as building the
 
 <a name="BuildIndexCI"></a>
 
-## Update indexes in Continuous Integration #
+### Update indexes in Continuous Integration #
 
 PROTIP: Update indexes using a continuous integration server
 set to automatically push data and reindex upon save.
@@ -889,9 +889,11 @@ The disadvantage of this convenience is that the CSS file can become "bloated", 
 0. Navigate to the <strong>_posts</strong> folder.
 0. Select all files in the folder except the one created above.
 0. Delete files selected.
+
+
 <a name="PushGitHub"></a>
 
-## Make site changes public on GitHub #
+### Make site changes public on GitHub #
 
 PROTIP: Make a small change, then add and commit.
 
@@ -947,7 +949,7 @@ NOTE: Alogia emails the number of calls each day.
 
 <a name="AddSearch"></a>
 
-## Add Search #
+## Add search features to another theme #
 
 To add search features to another theme,
 we dive into theme JavaScript, CSS, and HTML.
@@ -1080,7 +1082,7 @@ The above in turn reference functions in libraries pulled in from the internet:
 
 <a name="SearchCSS"></a>
 
-## Search Field CSS Formatting #
+### Search Field CSS Formatting #
 
 It seems there are as many ways to store CSS in Jekyll sites as there are Jekyll sites.
 
