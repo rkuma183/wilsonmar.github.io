@@ -49,8 +49,7 @@ This is a bigger issue than many think:
 ## Website Link Validation for errors or warnings
   
 <a target="_blank" href="http://www.powermapper.com/products/sortsite/ads/acc-section-508/?gclid=CMfzl_Lg38wCFVUkgQodQ8YA4A" 
-                         alt="SortSite evaluates websites for accessibility">PowerMapper's SortSite</a> accessibility tool audits an entire site for compliance with web accessibility 
-standards without the grind of manual testing. Enter the name of your website and click "Test Site". After done, click "View Report".
+                         alt="SortSite evaluates websites for accessibility">PowerMapper's SortSite</a> accessibility tool audits an entire site for compliance with web accessibility standards without the grind of manual testing. Enter the name of your website and click "Test Site". After done, click "View Report".
    
 <a target="_blank" href="http://sipt07.si.ehu.es/evalaccess2/index.html" 
       alt="EvalAccess evaluates a website for Accessibility based on standards compliance.">EvalAccess evaluates web accessibility </a>is a Free Web Service tool.  It shows errors and warnings based on Priority 1, 2, 3 and results of errors and warnings per priority. It provides a description of what it believes is wrong, the HTML element or attribute with issue and line of code.  It may not be the most user-friendly access tool, it can help designers and developers to clean up their site:
@@ -61,29 +60,43 @@ standards without the grind of manual testing. Enter the name of your website an
 <a target="_blank" href="http://achecker.ca/checker/" 
       alt="AChecker checks single HTML pages for accessibility standards.">AChecker tool checks single HTML page for conformance with accessibility standards. </a>It provides suggestions for conformance, explains why it failed, how to fix and the code that failed. 
 				 
-> Let me help you evaluate these tools. Contact me!
-
 
 ## Checklists for 508 Compliance
 
+<a target="_blank" href="https://www.nngroup.com/articles/keyboard-accessibility/" 
+        alt="Users with visual impairments only use keyboard so testing should be done that way.">User must be able to only use keyboard to be able to get to all enterable items and controls.</a>
+
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
-                         alt="Checklist for evaluating PowerPoint documents">Checklist for Web Content Accessibility Guidelines </a>
+       alt="Checklist for evaluating PowerPoint documents">Checklist for Web Content Accessibility Guidelines </a>
    
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/html/index.html" 
-                         alt="Checklist for improving HTML code">Checklist for HTML Accessibility</a>
+       alt="Checklist for improving HTML code">Checklist for HTML Accessibility</a>
 
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/pdf/index.html" 
-                         alt="Checklist for evaluating PDF documents">Checklist for PDF File 508 Compliance</a>
+       alt="Checklist for evaluating PDF documents">Checklist for PDF File 508 Compliance</a>
 						 
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/excel/index.html" 
-                         alt="Checklist for changing Excel documents">Checklist of Excel Document 508 Compliance</a>
+       alt="Checklist for changing Excel documents">Checklist of Excel Document 508 Compliance</a>
                          
 <a target="_blank" href="http://www.hhs.gov/web/section-508/making-files-accessible/checklist/ppt/index.html" 
-                         alt="Checklist for evaluating PowerPoint documents">Checklist for PowerPoint Document 508 Compliance</a>
+       alt="Checklist for evaluating PowerPoint documents">Checklist for PowerPoint Document 508 Compliance</a>
    
 <a target="_blank" href="http://webaim.org/standards/508/checklist" 
-                         alt="Checklist listing the 508 standards and Pass and Fail criteria">Checklist for 508 Standards with Pass and Fail criteria</a>
-   
+       alt="Checklist listing the 508 standards and Pass and Fail criteria">Checklist for 508 Standards with Pass and Fail criteria</a>
+
+## Types of Tools utilized
+
+<b>Screen Readers</b> - These tools transmit text that is displayed on the computer screen to aid a visually impaired user to process. It uses a synthetic voice to tell the user where all the data is on the screen. As a user uses the keyboard to get around on the screen, as they move around the screen, it should read all headings and text on the screen.  If a picture is on the screen, if programmed properly the screen reader will read text displaying for the user what is contained in the picture.
+
+<b>Screen Magnifiers</b> - These tools allow users to amplify the text on the screen in a enlarged screen format usually within a small focused area of the screen. As the mouse is moved around the screen, the objects are magnified so they can be easily read.  As my eyes started changing, my glasses no longer was able to read the screen properly until I got bifocals, screen magnifiers amplify the text and make it easier to read.
+
+<b>Speech Recognition</b> - These tools allow users to convert spoken words into text.  It can include dictation to the point of being able to manipulating applications on the screen using words understood by the software tools.
+
+<b>Color Contrast Analyser</b> - These tools help determine the contrast of background and text or of visual elements like graphical controls into a Pass/Fail category to assist users who struggle with conflicting colors. <a target="_blank" href="https://www.paciellogroup.com/resources/contrastanalyser/" alt="Color Analyser software Tools for Windows to read content for people with less than 20/20 vision">Download Color Analyser Software Tool for those with color blindness, cataracts or less than 20/20 vision.</a>
+
+<b>Alternative Input Devices</b> - These tools allow users with specific needs to be able to manipulate a computer using modified pointing device, eye movement, expanded keyboards, head-operated pointing devices, modified keyboards to specialized software.
+
+
 ## Firefox and Chrome Add-ons
 
 <a target="_blank" href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en" 
@@ -122,6 +135,7 @@ link where it found the error or every link that triggered the error:
 <a target="_blank" href="http://ready.mobi/" 
       alt="Tool on web that evaluates website for mobile users">mobiReady checks to see if your website works on multiple size devices </a>
 including 1024x768, 375x667, 320x533 and 240x320.
+
     
 ## Assisted Devices for Hearing-impaired or Visually-impaired
 
@@ -130,7 +144,8 @@ including 1024x768, 375x667, 320x533 and 240x320.
 and enables blind and visually impaired people to use computers using computerized voice. You can control what is read to you by moving the cursor to the relevent area of text with a mouse or the arrows on the keyboard.  NVDA provides education and employment for many blind people.  NVDA also provides access to social networking, online shopping, banking and news. NVDA has been translated into 43 languages and is used by more than 120 countries.
     
 <a target="_blank" href="http://www.windoweyesforoffice.com/" 
-      alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>to provide people who are blind, visually-impaired or print disabled with completely functionality compatible with Microsoft Office 2010, 2013 and 2016.
+      alt="Window Eyes is a Screen Reader free for Microsoft Office 2010, 2013 and 2016 versions">Window Eyes is FREE screen reader for Microsoft products </a>to provide people who are blind, visually-impaired or print challenged with completely functionality compatible with Microsoft Office 2010, 2013 and 2016. <a target="_blank" href="http://getwindoweyes.com/Window-Eyes/Manual/HTML/basic.html"
+      alt="User Manual for Window Eyes is located here">Click here for a user manual on Window Eyes.</a>
 
 <a target="_blank" href="https://www.nidcd.nih.gov/health/assistive-devices-people-hearing-voice-speech-or-language-disorders"
       alt="Article about Assisted Devices for Hearing, Speech, Voice and Language Impairments">Article discussing various Assisted devices</a>
@@ -149,17 +164,18 @@ and enables blind and visually impaired people to use computers using computeriz
                          
 ## HTML coding for accessibility
 
-1. In URL links provide words to describe what the link is about to the visual impaired, for example:
+1. In alt="  " provide words to describe more details about what the link is about so screen reader can read, for example:
 
    ```
-   <a alt="One of most well known websites to buy products by auction or buy now at this price" 
-     href="http://www.ebay.com">
+   <a target="_blank" href="http://www.ebay.com" 
+       alt="One of most well known websites to buy products by auction or buy now at this price">Ebay is the most well known
+       websites for buying production by auction or pay the buy in now price"</a>
    ```
    
 2. Images should describe the picture using word, for example:
 
    ```
-   <a alt="blue winter landscape with rainbow" href="URL ...
+   <a target="_blank" href="http://....." alt="blue winter landscape with rainbow"</a>
    ```
    
 3. Turn on captioning in videos for YouTube or Vimeo, Must have QuickTime Player. <a target="_blank" href="http://etc.usf.edu/techease/4all/web-accessibility/adding-closed-captions-to-youtube-videos/">Click to learn how to transcribe videos.</a> for example:
