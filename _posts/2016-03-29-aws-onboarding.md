@@ -10,6 +10,8 @@ image:
   creditlink:
 comments: true
 ---
+<a target="_blank" href="https://wilsonmar.github.io/aws-onboarding/">https://wilsonmar.github.io/aws-onboarding/</a>
+
 <i>{{ page.excerpt }}</i>
 <hr />
 
@@ -150,48 +152,51 @@ See http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-using.html
 ## Social #
 
 * <a target="_blank" href="https://www.reddit.com/r/aws/">
-  Reddit</a>
+  Reddit on AWS</a>
 
-## Rock Stars #
+* https://console.aws.amazon.com/ec2/home
 
-* <a target="_blank" href="https://aws.amazon.com/blogs/aws/">
-  AWS Blog</a> by Chief Evangelist Jeff Barr
-  <a target="_blank" href="https://www.twitter.com/@jeffbarr/">@jeffbarr</a>
 
-* <a target="_blank" href="https://twitter.com/search?q=%23aws&src=typd">
+## Rock Stars and their presentations #
+
+Jeff Barr (<a target="_blank" href="https://www.twitter.com/@jeffbarr/">@jeffbarr</a>),
+AWS Chief Evangelist
+makes announcements of all new stuff at the company's
+   <a target="_blank" href="https://aws.amazon.com/blogs/aws/">
+  AWS Blog</a> and
+  <a target="_blank" href="https://twitter.com/search?q=%23aws&src=typd">
   #AWS Twitter hash-tag</a>
 
 Yan Kurniawan
 
-* <a target="_blank" href="https://leanpub.com/ansible-for-aws">
+   * <a target="_blank" href="https://leanpub.com/ansible-for-aws">
    Ansible for AWS book</a> 280 pages for minimum $30 published on 2016-01-15 by Yan Kurniawan living in Sydney, Australia
-    #ansible4aws.
+  #ansible4aws.
 
 * <a target="_blank" href="https://github.com/yankurniawan/ansible-for-aws">
     https://github.com/yankurniawan/ansible-for-aws</a>
 
-* https://console.aws.amazon.com/ec2/home
-
 * https://aws.amazon.com/powershell  
-   for Windows</a>
+   AWS Powershell for Windows</a>
 
    Get-AWSCredentials -ListProfiles
 
-* 	http://www.lynda.com/AWS-tutorials/Amazon-Web-Services-Essential-Training/
+J O'connner:
 
-* http://joconner.com/
+   * http://joconner.com/
 
 ## AWS Training #
 
-	http://www.pluralsight.com/courses/aws-certified-sysops-admin-associate
+* <a target="_blank" href="http://www.lynda.com/AWS-tutorials/Amazon-Web-Services-Essential-Training/">"
+   Lynda.com AWS tutorials</a>
 
-	https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1
+* http://www.pluralsight.com/courses/aws-certified-sysops-admin-associate
 
-	https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
+* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1
 
+* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
 
-	https://www.aws.training/home?courseid=8&language=en-US&src=web_en_course-developing&view=table
-
+* https://www.aws.training/home?courseid=8&language=en-US&src=web_en_course-developing&view=table
 
 
 ## Git #
@@ -361,9 +366,10 @@ this</a>
 At <a target="_blank" href="https://aws.amazon.com/architecture/icons/">
 architecture/icons</a> Amazon provides a sample .PPTX (PowerPoint 2010+) file
 (AWS_Simple_Icons_PPT_v16.2.22.zip). Lines used to illustrate the hierarchy:
-<amp-img width="147" height="116" alt="aws powerpoint stack 147x116-59.jpg"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16227227/b1a46ec8-376c-11e6-93e7-de366264e725.jpg"></amp-img>
-<br /><br />
+<amp-img width="238" height="183" alt="aws simple icons-238x183-63"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263922/ed4eb538-3833-11e6-8a22-b72cb8f12c32.jpg"></amp-img>
+Different colors for lines and text are used to reduce confusion.
+
 
 You can also download a zip containing .png and .svg files of icons
 (AWS_Simple_Icons_EPS-SVG_v16.2.22.zip).

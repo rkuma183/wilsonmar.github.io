@@ -20,20 +20,17 @@ comments: true
 This tutorial describes the automated setup of multi-stage (dev+QA+prod) <strong>enterprise</strong> environments within EC2,
 using CloudFormation.
 
-<amp-img width="650" height="472" alt="aws-enterprise-v01-2016-06-20-650x472"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16204025/365377f6-36da-11e6-8446-af1e66941b75.jpg"></amp-img>
+<amp-img width="650" height="483" alt="fig-aws-enterprise-v02-650x483-80"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263954/1389b3ba-3834-11e6-8471-46d2602d3f39.jpg"></amp-img>
 
 ## Multiple Approaches #
 
 CloudFormation is one of several ways to automate server setup.
 See [my tutorial on Elastic Beanstalk and Opsworks](/aws-server-deploy-options/).
+Basics about CloudFormation is found there.
 
-This tutorial focuses on 
-
-## Manually configure component services #
-
-Each environment within AWS for enterprise use requires several services.
-Here is the sequence of dependencies:
+This tutorial shows how to configure CloudFormation JSON for each aspect
+of AWS for an enterprise, by sequence of dependencies:
 
    0. VPN
    0. <a href="#VPC">VPC</a>
@@ -115,9 +112,12 @@ Template Reference at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserG
    PROTIP: Use #tags as  metadata in the Description to
    automate search among multiple files.
 
+
 <a name="AZ"></a>
 
-### Resources #
+### EC2 Instances #
+
+An example CF template:
 
 {% highlight text %}
 "Resources": {
