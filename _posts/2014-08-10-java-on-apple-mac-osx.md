@@ -53,7 +53,7 @@ On a Terminal open to any folder:
 
 
    if it's not installed, you will be prompted to install the JDK.
-   Clever. 
+   Clever.
 
 0. Click <strong>More Info...</strong>.
 
@@ -74,7 +74,7 @@ Matching Java Virtual Machines (4):
 /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
    </pre>
 
-   In OSX, all known JVM's are located at 
+   In OSX, all known JVM's are located at
 
    /Library/Java/JavaVirtualMachines/.
 
@@ -92,9 +92,9 @@ but note it's not the latest (Java 8).
 
 ### Oracle Java .dmg
 
-Hold off downloading the java .dmg installer file from 
+Hold off downloading the java .dmg installer file from
 
-   * https://www.java.com/en/ 
+   * https://www.java.com/en/
    * https://www.java.com/en/download/help/mac_install.xml
    * http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
@@ -105,7 +105,7 @@ WARNING: Oracle installs an annoying Ask Toolbar, sometimes without asking.
 
 ### Open JDK #
 
-Open JDK is the open-sourced implementation of the 
+Open JDK is the open-sourced implementation of the
 JRE spec, at
 <a target="_blank" href="http://openjdk.java.net/">http://openjdk.java.net</a>
 is at JVM 7.
@@ -116,7 +116,7 @@ But it is still not ready for "prime time" on Mac as installation is a dirty aff
 
    * https://wiki.openjdk.java.net/display/MacOSXPort/Mac+OS+X+Port+Project+Status
 
-Open JDK's 
+Open JDK's
 <a target="_blank" href="http://openjdk.java.net/install/">
 install page at http://openjdk.java.net/install/</a>
 shows apt-get (for Debian, Ubuntu) and
@@ -155,7 +155,7 @@ For OSX, this page recommends using Make to compile from source</a>.
 0. cd to the .tar.gz directory containing the configure file for Make to use.
 0. XQuartz fixes an error in this command:
 
-   bash ./configure 
+   bash ./configure
 
 0. Install apple-gcc42 the Apple C compiler.
 
@@ -202,13 +202,13 @@ You'll likely need to manage different versions of Java installed needed by diff
 <a target="_blank" href="http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html?q=java">
 http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html?q=java</a>
 <br />
-describes the steps 
+describes the steps
 which works like rbenv for <a href="#Rubyz">Ruby</a> (from http://rbenv.org/).
-	
-So install Jenv from https://github.com/gcuisinier/jenv/blob/master/README.md
-	
 
-Since jenv (from http://www.jenv.be/) 
+So install Jenv from https://github.com/gcuisinier/jenv/blob/master/README.md
+
+
+Since jenv (from http://www.jenv.be/)
 is not in the core Homebrew formula collection yet:
 
 <pre><strong>
@@ -224,7 +224,7 @@ echo 'eval "$(jenv init -)"' >> ~/.bash_profile
 To see if jenv can run:
 
 <pre><strong>
-jenv 
+jenv
 </strong></pre>
 
 lists its version and commands.
@@ -243,7 +243,7 @@ The response if none if brew cask was not installed:
 </tt>
 
 
-Install Java using brew cask: 
+Install Java using brew cask:
 
 <pre><strong>
 sudo brew update && brew cask install java

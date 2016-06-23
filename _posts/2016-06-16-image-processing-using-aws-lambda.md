@@ -35,7 +35,7 @@ more people than only those who can setup a Gulp server.
 0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
 
-0. Apply image recognition (extent image has nudity, etc.)
+0. Apply image recognition (extent image has nudity, is a face, etc.)
 0. <a href="#UpdateDynamo">Update DynamoDB</a> with results and timings
 
    If acceptable, continue:
@@ -44,7 +44,8 @@ more people than only those who can setup a Gulp server.
 0. <a href="#Compress">Compress image file</a>
 0. Generate thumbnail
 0. Generate other sizes
-0. Generate HTML in amp-img format
+0. <a href="#CloudFront">Store image in AWS CloudFront</a>
+0. Generate HTML with img sizes in amp-img format for return
 
    Automate input:
 
@@ -74,7 +75,7 @@ more people than only those who can setup a Gulp server.
    Add archival features:
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
-0. Archive file to AWS Glacier
+0. <a href="#Archive">Archive file to AWS Glacier</a>
 0. Update DynamoDB about archival and file deletion
 0. Remove file from S3
 
@@ -135,7 +136,7 @@ But the website should ask for (and validate) email addresses.
 
 <a name="NudityCheck"></a>
 
-## Nudity Check #
+## Image Processing: Nudity Check #
 
 https://algorithmia.com/algorithms/sfw/NudityDetection
 Algorithmia.com
@@ -144,14 +145,20 @@ Swagger for service:
 
 NOTE: Does not work in black and white though.
 
-
-### Training cases:
+Training cases:
 
 1) nude: True, confidence: 0.93
 <br /> https://s3.amazonaws.com/www.isitnude.com/assets/images/sample/obama.jpg
 
 2) nude: false, confidence: 0.95
 <br /> http://www.isitnude.com.s3-website-us-east-1.amazonaws.com/assets/images/sample/young-man-by-the-sea.jpg
+
+
+<a name="CloudFront"></a>
+
+## Store image in AWS CloudFront #
+
+
 
 
 <a name="UpdateDynamo"></a>
@@ -262,6 +269,14 @@ PROTIP: Do image compression after resize.
 ## Compression service #
 
 https://tinypng.com/developers
+
+
+<a name="Archival"></a>
+
+## Archival to AWS Glacier #
+
+<a target="_blank" href="http://aws.amazon.com/glacier/">
+Amazon Glacier</a> provides extremely low-cost storage for data archiving and backup. Objects (or archives, as they are known in Amazon Glacier) are optimized for infrequent access, for which retrieval times of several hours are adequate.
 
 
 ## Resources #

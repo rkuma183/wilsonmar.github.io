@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Build load-balanced servers in AWS EC2 using CloudFormation"
-excerpt: "High Availability in the cloud"
+excerpt: "Automate High Availability in the cloud"
 tags: [AWS, EC2, cloud]
 image:
 # feature: pic data center slice 1900x500.jpg
@@ -23,9 +23,7 @@ using CloudFormation.
 <amp-img width="650" height="483" alt="fig-aws-enterprise-v02-650x483-80"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263954/1389b3ba-3834-11e6-8471-46d2602d3f39.jpg"></amp-img>
 
-## Multiple Approaches #
-
-CloudFormation is one of several ways to automate server setup.
+The CloudFormation coding here is one of several ways to automate server setup.
 See [my tutorial on Elastic Beanstalk and Opsworks](/aws-server-deploy-options/).
 Basics about CloudFormation is found there.
 
@@ -413,6 +411,8 @@ Individual archives can be up to 40 TB each.
 
 Lifecycle retention policies.
 
+Google Nearline Storage
+
 <a name="DNS"></a>
 
 ## DNS (Domain Name Service) Route 53 #
@@ -789,7 +789,12 @@ so plan accordingly.
 
 <a name="#NAT"></a>
 
-## NAT *
+## Resources #
+
+* <a target="_blank" href="https://play.google.com/store/books/details?id=xF7CCAAAQBAJ">
+Implementing Cloud Design Patterns for AWS April 29, 2015 from Packt</a>
+by Marcus Young
+
 
 
 ## More on Amazon #
