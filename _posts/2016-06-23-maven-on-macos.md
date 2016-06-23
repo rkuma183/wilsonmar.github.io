@@ -165,6 +165,44 @@ comments: true
    </pre>
 
 
+## Maven lifecycle phases #
+
+Here are sub-commands for mvn:
+
+<pre>
+   | validate | - |
+   | initialize | - |  
+   | generate-sources | - |  
+   | process-sources | - |  
+   | generate-resources | - |  
+   | process-resources | - |  
+   | compile | - |  
+   | process-classes | - |  
+   | generate-test-sources | - |  
+   | process-test-sources | - |  
+   | generate-test-resources | - |  
+   | process-test-resources | - |  
+   | test-compile | - |  
+   | process-test-classes | - |  
+   | test | - |  
+   | prepare-package | - |  
+   | package | - |  
+   | pre-integration-test | - |  
+   | integration-test | - |  
+   | post-integration-test | - |  
+   | verify | - |  
+   | install | - |  
+   | deploy | - |  
+   | pre-clean | - |  
+   | clean | - |  
+   | post-clean | - |  
+   | pre-site | - |  
+   | site | - |  
+   | post-site | - |  
+   | site-deploy | - |
+</pre>
+
+
 ## More on OSX
 
 This is one of a series on Mac OSX:
