@@ -15,6 +15,25 @@ comments: true
 
 {% include _toc.html %}
 
+This tutorial helps you install Maven.
+
+Maven's competitors include Ant and Gradle.
+
+Unlike Ant, Maven also provides dependency management, standard project layout and project management.
+
+Maven is written in Java, and grew up supporting Java builds
+by creating from Java source and resources for deployment
+deliverables like JAR file or WAR files.
+
+So Maven is the default for the Jenkins continuous integration tool which
+triggers a Maven build whenever developer commit code.
+
+Read more: http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF
+
+Maven adopts principle of "Convention over configuration", which means
+less coding work.
+
+
 <a id="MavenSetupz"></a>
 
 ## Install latest #
@@ -165,18 +184,45 @@ comments: true
    </pre>
 
 
-## Maven lifecycle phases #
+## Using Maven #
+
+Maven allows use of a central maven repository.
+
+With Maven, after downloading a project, to build, run:
+
+   <pre><strong>
+   mvn install
+   </strong></pre>
+
+   Maven looks at <strong>pom.xml</strong> (Project Object Model)
+   files that describes project dependencies.
+
+   Maven enforces a standard naming convention for artifacts defined using
+   groupId, artifactId, and version.
+
+   Maven is said to also act as project management tool because
+   it can generate reports etc.
+
+   <strong>build.xml</strong>
+
+
+### Maven lifecycle phases #
+
+<a target="_blank" href="http://www.slideshare.net/boyw165/note-apache-maven-intro-36821953">
+<img width="527" height="360" alt="fig maven-lifecycle-phases-527x360-6.png"
+src="https://cloud.githubusercontent.com/assets/300046/16313507/bb3e9320-3936-11e6-9a3b-aa4d0afa6416.png">
+</a>
 
 Here are sub-commands for mvn:
 
 <pre>
-   | validate | - |
+   | **validate** | - |
    | initialize | - |  
    | generate-sources | - |  
    | process-sources | - |  
    | generate-resources | - |  
    | process-resources | - |  
-   | compile | - |  
+   | **compile** | - |  
    | process-classes | - |  
    | generate-test-sources | - |  
    | process-test-sources | - |  
@@ -184,15 +230,15 @@ Here are sub-commands for mvn:
    | process-test-resources | - |  
    | test-compile | - |  
    | process-test-classes | - |  
-   | test | - |  
+   | **test** | - |  
    | prepare-package | - |  
-   | package | - |  
+   | **package** | - |  
    | pre-integration-test | - |  
-   | integration-test | - |  
+   | **integration-test** | - |  
    | post-integration-test | - |  
-   | verify | - |  
-   | install | - |  
-   | deploy | - |  
+   | **verify** | - |  
+   | **install** | - |  
+   | **deploy** | - |  
    | pre-clean | - |  
    | clean | - |  
    | post-clean | - |  
@@ -201,6 +247,23 @@ Here are sub-commands for mvn:
    | post-site | - |  
    | site-deploy | - |
 </pre>
+
+### Maven plug-in goals by lifecycle phase #
+
+<a target="_blank" href="http://java.uzmanprogramci.com/maven-lifecycle/">
+<img width="638" height="359" alt="fig maven-phase-plugin-goals"
+src="https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11e6-8af5-1c3b93b9caef.jpg">
+</a>
+
+
+### Maven plug-ins by lifecycle phase #
+
+<a target="_blank" href="http://java.uzmanprogramci.com/maven-lifecycle/">
+<img width="374" height="479" alt="fig maven lifecycle plugin-374x479-60"
+src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11e6-99fd-d3cb0acf5170.png">
+</a>
+
+
 
 
 ## More on OSX
