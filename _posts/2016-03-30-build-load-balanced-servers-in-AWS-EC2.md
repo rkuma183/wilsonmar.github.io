@@ -10,7 +10,7 @@ image:
   creditlink:
 comments: true
 ---
-<a href="https://wilsonmar.github.io/buil-load-balanced-servers-in-AWS-EC2/">https://wilsonmar.github.io/buil-load-balanced-servers-in-AWS-EC2</a>
+<a href="https://wilsonmar.github.io/build-load-balanced-servers-in-AWS-EC2/">https://wilsonmar.github.io/build-load-balanced-servers-in-AWS-EC2</a>
 
 <i>{{ page.excerpt }}</i>
 <hr />

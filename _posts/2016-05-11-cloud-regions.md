@@ -4,38 +4,47 @@ title: "Cloud Regions"
 excerpt: "Who is where"
 tags: [cloud, regions]
 image:
-# microsoft-azure-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
-  credit: Jim O'Neil
-  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
+# pic-black-bkg-white-cloud_1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15269257/8104a824-19b6-11e6-9c42-014bf608009a.jpg
+  credit: Theme bin
+  creditlink: http://www.themebin.com/hd-wallpapers/wandering-clouds-hd-wallpaper/
 comments: true
 ---
+<a href="https://wilsonmar.github.io/cloud-regions/">https://wilsonmar.github.io/cloud-regions</a>
+
 <i>{{ page.excerpt }}</i>
 <hr />
 {% include _toc.html %}
 
-Here's a multi-vendor comparison of regions.
+Unlike other tutorials which focus on specific vendors,
+here's a multi-vendor comparison of regions.
 
-* <a href="#Amazon">Amazon</a>
-* <a href="#Azure">Azure</a>
-* Google Cloud Compute
-* Rackspace
+   * <a href="#AWSRegions">AWS regions</a>
+   * <a href="#AzureRegions">Azure</a>
+   * Google Cloud Compute (TODO)
+   * <a href="#Rackspace">Rackspace</a> (TODO)
+   * IBM (todo)
+   * etc.
 
 TODO: Provide an interactive comparison.
 
 Each region is a separate geographic area.
 
-Each region within Amazon contains multiple, isolated <strong>Availability Zones</strong>.
-
 <hr />
 
-<a name="AzureRegions"></a>
+<a name="AWSRegions"></a>
 
-## Amazon Regions #
+## Amazon regions #
 
-0. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+0. Open the Amazon EC2 console at <br />
+   <a target="_blank" href="https://console.aws.amazon.com/ec2/">
+   https://console.aws.amazon.com/ec2</a>
 
-0. From the navigation bar, view the options in the region selector.
+   Sign-in if you haven't done so.
+
+   <a name="EC2_URL"></a>
+
+0. Select your default region: from the navigation bar, view the options in the region selector.
 
    | Code | Name |
    | ---- | ---- |
@@ -50,37 +59,100 @@ Each region within Amazon contains multiple, isolated <strong>Availability Zones
    | ap-southeast-2 | Asia Pacific (Sydney) |
    | sa-east-1 | South America (São Paulo) |
 
-   Amazon charges for network traffic between availability zones.
+   Names in parentheses is what is displayed at the upper-right on various AWS consoles.
 
-   Amazon's AWS GovCloud (US) and China (Beijing) cannot be specified.
+   NOTE: In addition to the above, Amazon's has a AWS GovCloud (US) and China (Beijing)
+   which cannot be specified this way.
 
 0. Availability Zones under each region are listed on the <strong>Status</strong> by
    service under each <strong>continent</strong> at
    <a target="_blank" href="http://status.aws.amazon.com/">
    status.aws.amazon.com</a>
 
-   Additional End-point locations.
+   Each region within Amazon contains multiple, isolated <strong>Availability Zones</strong>.
+
+   Additional end-point locations via AWS CloudFormation CDN service.
 
    CAUTION: The number and mapping of Availability Zones per region may vary between AWS accounts.
 
-See <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">
-Amazon's User Guide on Regions and availability zones</a> for examples of AWS CLI commands:
+   NOTE: Amazon charges for network traffic between availability zones.
+
+
+   ### Set Default Region and URL for CLI #
+
+0. Open your MacOS profile using a text editor (substitute atom with subl, vim, etc.):
+
+   PROTIP: Set an environment variable to your default regional endpoint (for example, https://ec2.us-west-1.amazonaws.com):
 
    <pre><strong>
-   aws ec2 describe-regions
-   aws ec2 describe-availability-zones --region us-west-2
+   atom ~/.bash_profile
    </strong></pre>
 
+0. Add to the bottom of the file based on <a href="#EC2_URL">your selection in the step above</a>:
 
-PROTIP: Set an environment variable to your default regional endpoint (for example, https://ec2.us-west-1.amazonaws.com):
+   <tt><strong>
+   export AWS_DEFAULT_REGION=us-west-2<br />
+   export EC2_URL=https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2
+   </strong></tt>
 
-   * AWS_DEFAULT_REGION (AWS CLI)
-   * EC2_URL (Amazon EC2 CLI)
+   Notice the region is specified twice in EC2_URL.
 
+   WARNING: Do not include in EC2_URL the # and what follows, such as "#Instances:sort=instanceId".
+
+0. Save the file and run the file to load it into memory:
+
+   <pre><strong>
+   source ~/.bash_profile
+   </strong></pre>
+
+   ### List regions using CLI #
+
+0. In a Terminal window, view the very latest
+   <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-DescribeRegions.html">
+   list of AWS regions</a>:
+
+    <pre><strong>
+    aws ec2 describe-regions
+    aws ec2 describe-availability-zones --region us-west-2
+    </strong></pre>
+
+    For examples of AWS CLI commands such as the above, see:<br />
+    <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">
+    Amazon's User Guide on Regions and availability zones</a>.
+
+0. If you get an error message like this:
+
+   <pre>
+   -bash: aws: command not found
+   </pre>
+
+   then <a target="_blank" href="http://docs.aws.amazon.com/cli/latest/userguide/installing.html">
+   install Python 2.7, pip, and the AWS CLI</a>.
+
+0. If you get an error message such as this:
+
+   <pre>
+   An error occurred (UnauthorizedOperation) when calling the DescribeRegions operation: You are not authorized to perform this operation.
+   </pre>
+
+   then <a target="_blank" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html">
+   use the AWS configure command to obtain</a>:
+
+   * AWS Access Key ID
+   * AWS Secret Access Key
+   * Default region name (such as "us-west-2")
+
+   PROTIP: Create Named Profiles in file `~/.aws/credentials` and `~/.aws/config` (containing region)
+   because you will likely use multiple AWS accounts.
+
+   Then, go to IAM to <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ec2-api-permissions.html">
+   define permissions for each user to access EC2</a>.
+
+<hr />
 
 <a name="AzureRegions"></a>
 
-## Microsoft Azure Cloud Regions #
+## Microsoft Azure cloud regions #
 
 Not all <a target="_blank" href="https://azure.microsoft.com/en-us/regions/#services">
 services are available</a> in all regions.
@@ -155,3 +227,12 @@ Two regions for the US Government are in Virginia.
 http://bit.ly/msgovt
 
 See https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.aspx
+
+
+<a name="Rackspace"></a>
+
+## Rackspace #
+
+Rackspace began operations soon after the announcement of AWS.
+The company provides value-added on AWS as well as
+on its own servers East of its Austin, Texas headquarters.

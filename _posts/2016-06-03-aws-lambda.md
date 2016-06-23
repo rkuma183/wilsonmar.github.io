@@ -55,7 +55,7 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    COMMENT: Compute services are at the top of the list among all Amazon services because it's the hottest thing right now (June 2016).
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
-   Select Lambda from among Compute services</a>.
+   Select Lambda from among <strong>Compute</strong> services</a>.
 
    If no Lambda functions have been created, you will see a "Get Started Now" button.
 
