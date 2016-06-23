@@ -187,13 +187,15 @@ Brew places files in its Cellar:
 
 To see first what exactly will be overwritten, without actually doing it.
 
-<tt><strong>
-brew link --overwrite --dry-run python
-</strong></tt>
+   <tt><strong>
+   brew link --overwrite --dry-run python
+   </strong></tt>
 
-<tt><strong>
-brew doctor
-</strong></tt>
+   Make sure everything is still OK:
+
+   <tt><strong>
+   brew doctor
+   </strong></tt>
 
 
 
@@ -201,169 +203,10 @@ brew doctor
 
 Install brew cask:
 
-<pre><strong>
-brew tap caskroom/cask
-brew install brew-cask
-</strong></pre>
-
-
-
-<a id="MavenSetupz"></a>
-
-##  Maven via Homebrew #
-
-Before Mavericks,
-<a target="_blank" href="http://maven.apache.org/">
-Maven</a> was installed by default in:
-
-   <tt>/usr/share/maven/bin/mvn</tt>
-
-To install older versions, see
-http://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula
-
-
-To install the latest version (instead of brew install homebrew/versions/maven30 ):
-
-<pre><strong>
-brew update
-brew install maven
-</strong></pre>
-
-the response:
-
-<pre>
-==> Downloading http://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.2.5/bi
-==> Best Mirror http://apache.cs.utah.edu/maven/maven-3/3.2.5/binaries/apache-ma
-######################################################################## 100.0%
-ðŸº  /usr/local/Cellar/maven/3.2.5: 82 files, 9.1M, built in 66 seconds
-</pre>
-
-Alternately, to install a previous version:
-
-<pre><strong>
-brew install homebrew/versions/maven30
-</strong></pre>
-
-Then, to switch among versions:
-
-<pre><strong>
-brew unlink maven30 && brew link maven
-brew unlink maven && brew link maven30
-</strong></pre>
-
-To see the shell script:
-
-<pre><strong>
-which mvn
-</strong></pre>
-
-response:
-
-<pre>
-/usr/local/bin/mvn
-</pre>
-
-
-To verify install:
-
-<pre><strong>
-mvn -version
-</strong></pre>
-
-I got this response:
-
-<pre>
-Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T10:29:23-07:00)
-Maven home: /usr/local/Cellar/maven/3.2.5/libexec
-Java version: 1.6.0_65, vendor: Apple Inc.
-Java home: /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-Default locale: en_US, platform encoding: MacRoman
-OS name: "mac os x", version: "10.10.2", arch: "x86_64", family: "mac"
-</pre>
-
-If JDK 1.6 in the above output but Oracle JDK 1.7 was installed,
-add the following to under export PATH=:
-
-<pre><strong>
-cd $HOME
-subl .bash_profile
-</strong></pre>
-
-add the following to under export PATH=:
-
-<pre><strong>
-export JAVA_HOME=$(/usr/libexec/java_home)
-</strong></pre>
-
-Also add these memory variables:
-
-<pre><strong>
-export M2_HOME=/usr/local/Cellar/maven/3.2.5/libexec
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2_HOME/bin
-</strong></pre>
-
-NOTE: Do not specify this wrong path specified in other instructions:
-
-<tt>export M2_HOME=/Users/wilsonmar/apache-maven-3.1.1</tt>
-
-Verify changes:
-
-<pre><strong>
-echo $JAVA_HOME
-echo $M2_HOME
-echo $M2
-echo $PATH
-</strong></pre>
-
-
-Verify:
-
-<pre><strong>
-echo $JAVA_HOME
-</strong></pre>
-
-The reply I got:
-
-<pre>
-/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home
-</pre>
-
-Note the Maven home path above.
-Because of homebrew, to get to Maven's configuration file:
-
-<pre><strong>
-cd /usr/local/Cellar/maven/3.2.5/libexec/conf/
-subl settings.xml
-</strong></pre>
-
-Within the editor, press Ctrl+F to search for <strong>&LT;localRepository&GT;</strong>.
-
-<pre>
-&LT;!-- localRepository
-|
-| Default: ~/.m2/repository
-&LT;localRepository>/path/to/local/repo&LT;/localRepository>
--->
-&LT;localRepository>/Users/wilsonmar/maven/repo/&LT;/localRepository>
-</pre>
-
-Move the --> above the line to activate it and
-replace <tt>/path/to/local/repo</tt> to point to where
-you want maven to store artifacts on a Mac (substituting your name):
-
-<pre>
-/Users/wilsonmar//maven/repo/
-</pre>
-
-Create the location of maven repository (substituting your name):
-
-<pre><strong>
-cd /Users/wilsonmar
-mkdir maven
-cd maven
-mkdir repo
-</strong></pre>
+   <pre><strong>
+   brew tap caskroom/cask
+   brew install brew-cask
+   </strong></pre>
 
 
 ## More on OSX
