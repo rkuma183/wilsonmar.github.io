@@ -36,10 +36,6 @@ The options:
    * Value-added services outside Amazon, such as <a target="_blank" href="https://www.hashicorp.com/#products">
    Terraform (and licensed Atlas) from Hashicorp</a>.
 
-   <amp-img width="651" height="356" alt="hashicorp atlas 2014-12-08-at-10-09-am.png"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084480/3664cfcc-32d6-11e6-91a2-f3bffad430b8.png"></amp-img>
-
-
 All these follow an "idempotent" approach of specifying what is desired rather than specific sequences of actions.
 
 <hr />

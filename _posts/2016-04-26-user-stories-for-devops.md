@@ -18,7 +18,14 @@ User stories have become the primary method used by agile teams for defining wha
 
 ## Separation of duties #
 
-   <amp-img width="819" alt="newgen net-devops 819x406" src="https://cloud.githubusercontent.com/assets/300046/15799299/3c3aec34-2a15-11e6-8660-2c8ea007ace8.jpg"></amp-img>
+   <amp-img width="819" height="406" alt="newgen net-devops 819x406" layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15799299/3c3aec34-2a15-11e6-8660-2c8ea007ace8.jpg"></amp-img>
+   <br /><br />
+
+   Another viewpoint by workflow lifecycle adopted by the Atlas product from Hashicorp:
+
+   <amp-img width="651" height="356" alt="hashicorp atlas 2014-12-08-at-10-09-am.png"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16084480/3664cfcc-32d6-11e6-91a2-f3bffad430b8.png"></amp-img>
+
 
 ## Personas #
 

@@ -236,6 +236,7 @@ There are several ways to get programming code into AWS Lambda:
 
    * AWS SDK for JavaScript version 2.3.8
    * Python images contain AWS SDK for Python (Boto 3) version 1.3.1.
+   <br /><br />
 
    WARNING: These underlying versions can change at anytime, unannounced.
    So have a way of being notified if errors are detected in run logs.
@@ -807,9 +808,11 @@ This example provides an input.txt file containing JSON text:
 NOTE: CloudFront logs can also be read using command-line tool
 <a target="_blank" href="https://github.com/jorgebastida/awslogs">awslogs</a>.
 
+
+
 <a name="CF"></a>
 
-## CloudFormation #
+## CloudFormation Deploy #
 
 https://github.com/jorgebastida/gordon
 λ Gordon is a tool to create, wire and deploy AWS Lambdas using CloudFormation.
@@ -817,14 +820,23 @@ https://github.com/jorgebastida/gordon
 http://gordon.readthedocs.io/en/latest/
 provides examples in Java, JavaScript (for Node), and Python.
 
-Jinja2 templates can be used to expand "moustache" variables in CloudFormation JSON:
 
-   * stage: The name of the stage where you are applying your project.
-   * aws_region: The name of the AWS_REGION where you are applying your project.
-   * aws_account_id: The ID of the account that you are using to apply your project.
-   * env: All available environment variables.
+## Create EC2 instance from Lambda #
 
-   See http://jinja.pocoo.org/docs/dev/templates/#filters
+An example to start an EC2 instance: 
+
+{% highlight text %}
+var AWS = require('aws-sdk');
+exports.handler = function(event, context) {
+   var ec2 = new AWS.EC2({region: 'us-east-1'});
+   ec2.startInstances({InstanceIds : ['i-0114833f8ffc9151c'] },function (err, data) {
+      if (err) console.log(err, err.stack);
+      else console.log(data);
+      context.done(err,data);
+   });
+};
+{% endhighlight %}
+
 
 ## In-built libraries #
 
@@ -977,6 +989,16 @@ Vyon Nagrani, AWS Lambda Sr. Product Manager,
    AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway
    14 Oct. 2015</a>
 
+
+   }, "Region" : { "Value" : { "Ref" : "AWS:: Region" }, "Description" : "The region this template was launched in." } } }
+
+Typer Cross
+
+   * wrote an ebook "AWS Lambda: The Ultimate Guide To Serverless Microservices - Learn Everything You Need To Know About Microservices Without Servers!"
+   I do not recommend this at all.
+   The title is a total lie as the author offers no comments to the code copied from elsewhere.
+
+   When code is copied from Kindle, line endings are removed and everything appears as a single line.
 
 
 ## AWS People #

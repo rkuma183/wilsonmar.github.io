@@ -17,9 +17,11 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes the automated setup of multi-stage (dev+QA+prod) <strong>enterprise</strong> environments within EC2,
-using CloudFormation.
+This tutorial describes the automated setup of multi-stage (dev+QA+prod) 
+<strong>enterprise</strong> environments within EC2,
+using CloudFormation in the sequence needed during manual configuration on the AWS Management Console.
 
+TODO: Make this diagram into a video:
 <amp-img width="650" height="483" alt="fig-aws-enterprise-v02-650x483-80"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263954/1389b3ba-3834-11e6-8471-46d2602d3f39.jpg"></amp-img>
 
@@ -41,35 +43,42 @@ of AWS for an enterprise, by sequence of dependencies:
 
 <hr />
 
-<a name="CF"></a>
+<a name="Launch"></a>
 
-## CloudFormation #
+## Launch #
 
-CF can span two or more Availability Zones
-in a multi-subnet VPC.
-
-   PROTIP: With such complexity, better use a JSON file
-   which contains all the resource specifications.
-
-0. In the AWS Management Console Services gallery, click
+0. Instead of entering EC2 in the Management Console,
+   In the AWS Management Console Services gallery, click
    Cloud Formation.
+
+0. Select the Region.
+
+   PROTIP: New services are supported in a single region initially. 
+   So check what region depending on the services it supports.
+
 0. Click Create New Stack.
 
-   NOTE: One CF template can be used to create multiple stacks.
+   NOTE: One CF template can be used to create multiple <strong>stacks</strong> of servers.
+
+   CF can span two or more Availability Zones
+   in a multi-subnet VPC.
 
 0. In the Stack Name box, type "Lab" or other name.
 0. Select Specify an <a href="#S3Template">Amazon S3 template URL</a>.
 0. Paste the URL. An example is provided at:
 
-    <pre>
-    http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC1.json
-    </pre>
+   PROTIP: With such complexity, better use a JSON file
+   which contains all the resource specifications.
 
-    This one has additional security groups and output parameters:
+   <pre>
+   http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC1.json
+   </pre>
 
-    <pre>
-    http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC2.json
-    </pre>
+   This one has additional security groups and output parameters:
+
+   <pre>
+   http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC2.json
+   </pre>
 
 0. Click Next.
 0. On the Specify Parameters page, leave the default settings.
@@ -83,13 +92,15 @@ To be able to delete the stack, first turn off <strong>Termination Protection</s
 
 0. Select EC2 from the Services gallery.
 0. Click Instances.
-0. <strong>Right-click</strong> on the running instance
-   to Change Termination Protection.
+0. <strong>Right-click</strong> on the running instance to Change Termination Protection.
 0. Click Yes, Disable.
 0. Now back on Cloud Formation service.
 0. Select the box for the stack to be deleted.
 0. Click Delete Stack.
 0. Click Yes, Delete.
+
+   NOTE: Unlike using the manual Console, AMIs are  
+   specified in the CloudFormation template JSON.
 
 
 ### CF Front Matter #
@@ -98,17 +109,109 @@ This section is based on the
 <a target="_blank" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html">
 Template Reference at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html</a>.
 
-   All CF templates must have a version, even though it's always "2010-09-09":
+All CF templates must have a version, even though it's always "2010-09-09":
 
 {% highlight text %}
 {
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "Prod VPC with 4 subnets across 2 Availability Zones, and a bastion host.",
-  ...
+   "AWSTemplateFormatVersion" : "2010-09-09",
+   "Description" : "Prod VPC with 4 subnets across 2 Availability Zones, and a bastion host.",
+...
 {% endhighlight %}
 
-   PROTIP: Use #tags as  metadata in the Description to
+   PROTIP: Specify a URL to documentaiton and discussion about the template.  
+
+   PROTIP: Use #tags as metadata in the Description to
    automate search among multiple files.
+
+
+### Jinja2 like Jackyll yaml #
+
+Jinja2 templates (described at 
+<a target="_blank" href="http://jinja.pocoo.org/docs/dev/templates/#filters">
+http://jinja.pocoo.org/docs/dev/templates</a>)
+can be used to expand “moustache” variables in CloudFormation JSON:
+
+   * ** stage ** : The name of the stage where you are applying your project (dev, test, prod, etc.).
+   * ** aws_region ** : The name of the AWS_REGION where you are applying your project.
+   * ** aws_account_id ** : The ID of the account that you are using to apply your project.
+   * ** env ** : All available environment variables.
+   * ** ip-xxx ** : A specific IP address
+   <br /><br />
+
+
+<a name="AdvancedUserData"></a>
+
+## Advanced User Data #
+
+The "User" here refers to you, the DevOps person using CloudFormation, 
+not the ultimate end user of the system being built.
+
+The EC2 Advanced User Data field contains script code that "boostraps" a server,
+executing after the server becomes active.
+
+<a target="_blank" href="https://gist.github.com/mikepfeiffer/a4ce6d25ae092f1a4ea97afad5879530">
+This example</a> is a Windows machine running the Powershell iex command to download and install
+<a target="_blank" href="https://www.chocolatey.org/">
+the Chocolaty package manager for Windows machines</a> 
+used here to install Python. Lastly, the awscli is installed.
+
+{% highlight text %}
+<powershell>
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install python -y
+(new-object net.webclient).DownloadFile('https://s3.amazonaws.com/aws-cli/AWSCLI64.msi','c:\AWSCLI64.msi')
+msiexec.exe /i 'C:\AWSCLI64.msi' /qn
+</powershell>
+{% endhighlight %}
+
+   PROTIP: Many enterprises reference Artifactory to obtain installers 
+   instead of whoever at Chocolatey. 
+   This is to ensure that all packages have been reviewed by internal Security personnel.  
+
+
+An example to bootstrap instance with CloudWatch sample scripts on Linux servers: 
+
+{% highlight text %}
+#!/bin/bash
+yum install perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https -y
+curl http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip -O
+unzip CloudWatchMonitoringScripts-1.2.1.zip
+rm CloudWatchMonitoringScripts-1.2.1.zip
+{% endhighlight %}
+
+### CloudWatch Custom Metrics#
+
+The defaults does not include all the metrics needed, such as
+Disk Metrics. See 
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html
+
+For example: the AWS CLI script 
+to send a log every 5 minutes about amount of free memory in GigaBytes: 
+
+   <pre><strong>
+   aws cloudwatch put-metric-data --metric-name FreeMemoryGB --namespace Windows --value 5 --region us-west-2
+   --dimensions 'Name=Server,Value=WIN'
+   </strong></pre>
+
+
+An example to install CodeDeploy agent on Linux servers:
+
+{% highlight text %}
+#!/bin/bash
+yum install -y aws-cli
+cd /home/ec2-user/
+aws s3 cp 's3://aws-codedeploy-us-east-1/latest/codedeploy-agent.noarch.rpm' . --region us-east-1
+yum -y install codedeploy-agent.noarch.rpm
+{% endhighlight %}
+
+
+### User Data CloudInit #
+
+The EC2 Advanced User Data field can also contain
+CloudInit commands to execute actions on instances at launch time. 
+s so you can configure and customize the instances at launch time. Both the
+Ubuntu Linux AMI and the Amazon Linux AMI contain a version of CloudInit. Dynamically
+configuring an AMI at startup means you can use a common base AMI for different use cases. 
 
 
 <a name="AZ"></a>
@@ -795,7 +898,8 @@ so plan accordingly.
 Implementing Cloud Design Patterns for AWS April 29, 2015 from Packt</a>
 by Marcus Young
 
-
+* <a target="_blank" href="https://s3.amazonaws.com/cloudformation-examples/BoostrappingApplicationsWithAWSCloudFormation.pdf">
+   Bootstrapping Applications via AWS CloudFormation</a>
 
 ## More on Amazon #
 

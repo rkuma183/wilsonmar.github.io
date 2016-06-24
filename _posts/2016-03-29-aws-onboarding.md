@@ -10,7 +10,8 @@ image:
   creditlink:
 comments: true
 ---
-<a target="_blank" href="https://wilsonmar.github.io/aws-onboarding/">https://wilsonmar.github.io/aws-onboarding/</a>
+<a target="_blank" href="https://wilsonmar.github.io/aws-onboarding/">
+https://wilsonmar.github.io/aws-onboarding/</a>
 
 <i>{{ page.excerpt }}</i>
 <hr />
@@ -21,19 +22,20 @@ There are several ways to get entry to work within AWS:
 
 0. <a href="#AWSConsole">Manually on a browser AWS Management Console</a>
 0. Elastic Beanstalk
-0. CloudFront
 0. <a href="#CLI">Command line</a>
-0. Automated using Ansible
+0. <a href="#CodeDeploy">CodeDeploy</a>
+0. CloudFormation
+0. Automated using Ansible calling CloudFormation
 
-### Tutorials #
-
-Tutorials in Amazon's Qwiklabs use the manual approach,
-so it's presented here to provide notes.
-
+<hr />
 
 <a name="AWSConsole"></a>
 
 ## AWS Management Console
+
+Tutorials in Amazon's Qwiklabs use the manual approach,
+so it's presented here to provide notes.
+
 
 0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
    http://aws.amazon.com/</a> on web browsers. For mobile devices:
@@ -70,6 +72,7 @@ so it's presented here to provide notes.
 
 0. Download the PEM/PPK.
 
+
 ## Services and Categories #
 
 * <a target="_blank" href="http://aspenroo.com/challenge-me.php">
@@ -101,14 +104,43 @@ is used by programs rather than the manual Console.
 These inputs to generators (and the generator code)
 are saved in version control systems like Git.
 
-To install AWS CLI:
+0. Install AWS CLI:
 
    <tt><strong>
    brew update<br />
    brew install awscli
    </strong></tt>
 
-To get what version you have:
+   the response I got on 20 Jun 2016:
+
+   <pre>
+   ==> Downloading https://homebrew.bintray.com/bottles/awscli-1.10.39.el_capitan.b
+   ######################################################################## 100.0%
+   ==> Pouring awscli-1.10.39.el_capitan.bottle.tar.gz
+   ==> Caveats
+   The "examples" directory has been installed to:
+     /usr/local/share/awscli/examples
+
+   Add the following to ~/.bashrc to enable bash completion:
+     complete -C aws_completer aws
+
+   Add the following to ~/.zshrc to enable zsh completion:
+     source /usr/local/share/zsh/site-functions/_aws
+
+   Before using awscli, you need to tell it about your AWS credentials.
+   The easiest way to do this is to run:
+     aws configure
+
+   More information:
+     https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+
+   zsh completion has been installed to:
+     /usr/local/share/zsh/site-functions
+   ==> Summary
+   🍺  /usr/local/Cellar/awscli/1.10.39: 2,778 files, 19.8M
+   </pre>
+
+0. Verify what version you have installed:
 
    <tt><strong>
    aws \-\-version
@@ -117,21 +149,21 @@ To get what version you have:
    Sample response (June 4, 2016):
 
    <pre>
-   aws-cli/1.10.34 Python/2.7.10 Darwin/15.4.0 botocore/1.4.24
+   aws-cli/1.10.38 Python/2.7.11 Darwin/15.5.0 botocore/1.4.28
    </pre>
 
-   Notice Python 2.7 is being used, not Python 3.
+   NOTE: Python 2.7 is being used, not Python 3.
    <a target="_blank" href="https://github.com/boto/botocore">
    The Python package botocore on GitHub</a>
    provides a low-level foundation for AWS CLI software.
 
-To enable bash completion for aws commands:
+0. To enable bash completion for aws commands:
 
    <tt><strong>
    echo 'complete -C aws_completer aws' >> ~/.bashrc
    </strong></tt>
 
-To configure <a target="_blank" href="https://console.aws.amazon.com/iam/home?#home">IAM</a>:
+0. To configure <a target="_blank" href="https://console.aws.amazon.com/iam/home?#home">IAM</a>:
 
    <tt><strong>
    aws configure
@@ -141,62 +173,13 @@ To configure <a target="_blank" href="https://console.aws.amazon.com/iam/home?#h
 
    The default output format is `json`.
 
-For a list of commands:
+0. For a list of commands:
 
    <tt><strong>
    aws command help
    </strong></tt>
 
-See http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-using.html
-
-## Social #
-
-* <a target="_blank" href="https://www.reddit.com/r/aws/">
-  Reddit on AWS</a>
-
-* https://console.aws.amazon.com/ec2/home
-
-
-## Rock Stars and their presentations #
-
-Jeff Barr (<a target="_blank" href="https://www.twitter.com/@jeffbarr/">@jeffbarr</a>),
-AWS Chief Evangelist
-makes announcements of all new stuff at the company's
-   <a target="_blank" href="https://aws.amazon.com/blogs/aws/">
-  AWS Blog</a> and
-  <a target="_blank" href="https://twitter.com/search?q=%23aws&src=typd">
-  #AWS Twitter hash-tag</a>
-
-Yan Kurniawan
-
-   * <a target="_blank" href="https://leanpub.com/ansible-for-aws">
-   Ansible for AWS book</a> 280 pages for minimum $30 published on 2016-01-15 by Yan Kurniawan living in Sydney, Australia
-  #ansible4aws.
-
-* <a target="_blank" href="https://github.com/yankurniawan/ansible-for-aws">
-    https://github.com/yankurniawan/ansible-for-aws</a>
-
-* https://aws.amazon.com/powershell  
-   AWS Powershell for Windows</a>
-
-   Get-AWSCredentials -ListProfiles
-
-J O'connner:
-
-   * http://joconner.com/
-
-## AWS Training #
-
-* <a target="_blank" href="http://www.lynda.com/AWS-tutorials/Amazon-Web-Services-Essential-Training/">"
-   Lynda.com AWS tutorials</a>
-
-* http://www.pluralsight.com/courses/aws-certified-sysops-admin-associate
-
-* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1
-
-* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
-
-* https://www.aws.training/home?courseid=8&language=en-US&src=web_en_course-developing&view=table
+   See http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-using.html
 
 
 ## Git #
@@ -205,7 +188,20 @@ J O'connner:
 
    Invoke-History 13
 
+## Linux AMIs #
 
+Types of operating system AMI:
+
+   * Amazon Linux 2014.09.2 (CentOS)
+   * Red Hat Enterprise Linux 6.6
+   * SUSE Linux Enterprise Server 12
+   * Ubuntu Server 14.04
+
+
+<hr />
+
+
+<a name="CodeDeploy"></a>
 
 ## CodeCommit, CodePipeline, Code Deploy #
 
@@ -268,7 +264,6 @@ J O'connner:
 
 ### Make Change #
 
-0.
 0. Commit.
 0. Detect a change.
 0. View app deployed again.
@@ -355,6 +350,21 @@ and make it available as an EBS volume that can be used to launch an EC2 instanc
 
 This is simpler than Packer from Hashicorp.
 
+
+## Advanced User Data #
+
+https://gist.github.com/mikepfeiffer/
+
+   <pre>
+   </pre>
+
+* https://aws.amazon.com/powershell  
+   AWS Powershell for Windows</a>
+
+   aws Get-AWSCredentials -ListProfiles
+
+
+
 ## Diagrams #
 
 <a target="_blank" href="https://www.processon.com/">
@@ -368,18 +378,56 @@ architecture/icons</a> Amazon provides a sample .PPTX (PowerPoint 2010+) file
 (AWS_Simple_Icons_PPT_v16.2.22.zip). Lines used to illustrate the hierarchy:
 <amp-img width="238" height="183" alt="aws simple icons-238x183-63"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263922/ed4eb538-3833-11e6-8a22-b72cb8f12c32.jpg"></amp-img>
-Different colors for lines and text are used to reduce confusion.
+PROTIP: Use different colors for lines and text to reduce visual confusion.
 
 
 You can also download a zip containing .png and .svg files of icons
 (AWS_Simple_Icons_EPS-SVG_v16.2.22.zip).
 
 
+
 ## People #
 
 * Matt Wood, @mza, Product Strategy @ Amazon Web Services
 
-## Certification #
+
+## Social #
+
+* <a target="_blank" href="https://www.reddit.com/r/aws/">
+  Reddit on AWS</a>
+
+* https://console.aws.amazon.com/ec2/home
+
+
+## Tutorial Rock Stars and their presentations #
+
+Jeff Barr (<a target="_blank" href="https://www.twitter.com/@jeffbarr/">@jeffbarr</a>),
+AWS Chief Evangelist
+makes announcements of all new stuff at the company's
+   <a target="_blank" href="https://aws.amazon.com/blogs/aws/">
+  AWS Blog</a> and
+  <a target="_blank" href="https://twitter.com/search?q=%23aws&src=typd">
+  #AWS Twitter hash-tag</a>
+
+Yan Kurniawan
+
+   * <a target="_blank" href="https://leanpub.com/ansible-for-aws">
+   Ansible for AWS book</a> 280 pages for minimum $30 published on 2016-01-15 by Yan Kurniawan living in Sydney, Australia
+  #ansible4aws.
+
+* <a target="_blank" href="https://github.com/yankurniawan/ansible-for-aws">
+    https://github.com/yankurniawan/ansible-for-aws</a>
+
+J O'connner:
+
+   * http://joconner.com/
+
+Ryan Scott Brown @ryan_sb
+
+   * https://serverlesscode.com/post/new-ssl-tls-cert-manager-acm/
+
+
+## AWS Certifications #
 
 * <a target="_blank" href="https://aws.amazon.com/certification/certified-sysops-admin-associate/">
   $150, 80-minute AWS Certified SysOps Administrator - Associate</a>
@@ -396,7 +444,22 @@ You can also download a zip containing .png and .svg files of icons
 * <a target="_blank" href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">
   $300, 170 minutes AWS Certified DevOps Engineer - Professional</a>
 
-## Resources #
+
+## AWS Training Resources #
+
+* <a target="_blank" href="https://www.cloudacademy.com/">
+   CloudAcademy.com</a> provides hands-on lab instances with their tutorials.
+
+* <a target="_blank" href="http://www.lynda.com/AWS-tutorials/Amazon-Web-Services-Essential-Training/">
+   Lynda.com AWS tutorials</a>
+
+* http://www.pluralsight.com/courses/aws-certified-sysops-admin-associate
+
+* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-1
+
+* https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
+
+* https://www.aws.training/home?courseid=8&language=en-US&src=web_en_course-developing&view=table
 
 * <a target="_blank" href="https://quizlet.com/_2dk9qd/">
    Memorize AWS Acronyms as flash cards and games on Quizlet</a>
