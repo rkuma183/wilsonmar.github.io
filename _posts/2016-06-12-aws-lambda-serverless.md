@@ -19,6 +19,8 @@ This tutorial aims to have you ending up with a serverless app running in the Am
 We'll take it one step at a time in an order that makes natural sense.
 Along the way are PROTIPs and notes so you'll understand how we get there.
 
+But that objective has not been reached yet.
+
 ## About Serverless #
 
 The term "serverless" describes an <strong>architectural style</strong>
@@ -41,7 +43,7 @@ serverless framework on GitHub</a>,
    * <a target="_blank" href="http://docs.serverless.com/v0.5.0/docs">
    Docs on serverless</a>
    * <a target="_blank" href="https://github.com/serverless/serverless/milestones/">
-   Roadmap</a>
+   Roadmap</a> includes runs in Microsoft Azure!
 
 Social media:
 
@@ -84,7 +86,9 @@ Social media:
    serverless -v
    </strong></pre>
 
-   NOTE: Serverless was in Beta version 0.5.6 as of June 2016.
+   NOTE: Serverless was in Beta version 0.5.6 as of June 2016,
+   with v1.0 announced 24 June 2016.
+
 
 <a id="UpdateFramework"></a>
 
@@ -96,6 +100,7 @@ Social media:
 
    Nothing returns if you're up-to-date.
 
+
 <a id="LookAround"></a>
 
 ## Look around #
@@ -105,6 +110,8 @@ Social media:
    <pre><strong>
    sls
    </strong></pre>
+
+   the response:
 
    <pre>
  _______                             __
@@ -144,19 +151,23 @@ variables ...... list, set, unset
    /Users/mac/.npm-packages/bin/serverless
    </pre>
 
-0. List framework folders and files:
+0. Navigate to framework folders and files:
 
    <pre><strong>
    cd ~/.npm-packages/lib/node_modules/serverless
-   ls
+   ls -al
    </strong></pre>
 
-0. View the README.md file using a Markdown reader.
+0. View the README.md file using a Markdown reader:
 
-   In the Atom text editor (from GitHub),
+   <pre><strong>
+   atom README.md
+   </strong></pre>
+
+   Instead of the Atom text editor (from GitHub),
    alt-click on the file to select <strong>Markdown Preview</strong>.
 
-   This file lists projects,
+   The file contains a list of projects,
    plugins, and consultants who provide services.
 
 
@@ -171,9 +182,17 @@ variables ...... list, set, unset
    ~/gits/sls
    </strong></pre>
 
+0. Create a blank project.
+
+    <pre><strong>
+    serverless create project
+    </strong></pre>
+
+    Alternately:
+
 0. Pick a sample project from https://github.com:
 
-   *  [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
+   * [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
 
    * [serverless/serverless-starter](https://github.com/serverless/serverless-starter) - A simple boilerplate for new projects with a few architectural options
 
@@ -186,17 +205,84 @@ variables ...... list, set, unset
    * [microapps/MoonMail] (https://github.com/microapps/MoonMail) - Build your own email marketing infrastructure using Lambda + SES from http://microapps.com/
 
 
-0. Load a sample project.
+0. Load a sample project from above:
 
    <pre><strong>
-   serverless project install project-name
+   serverless project install serverless-graphql
    </strong></pre>
+
+   The response:
+
+   <pre>
+   _______                             __
+|   _   .-----.----.--.--.-----.----|  .-----.-----.-----.
+|   |___|  -__|   _|  |  |  -__|   _|  |  -__|__ --|__ --|
+|____   |_____|__|  \___/|_____|__| |__|_____|_____|_____|
+|   |   |             The Serverless Application Framework
+|       |                           serverless.com, v0.5.6
+`-------'
+&nbsp;
+Serverless: Installing Serverless Project "serverless-graphql"...  
+Serverless: Downloading project and installing dependencies...  
+Serverless: Initializing Serverless Project...  
+Serverless: Enter a new stage name for this project:  (dev)
+   </pre>
+
+0. Press Enter to accept the default
+
+0. Keyboard up and down to select:
+
+   <pre>
+Serverless: For the "dev" stage, do you want to use an existing Amazon Web Services profile or create a new one?
+  > Existing Profile
+    Create A New Profile
+Serverless: Select a profile for your project:
+    default
+  > GitHubPublisher1
+    me_dev
+    serverless-graphql_dev
+Serverless: Creating stage "dev"...  
+Serverless: Select a new region for your stage:
+    us-east-1
+  > us-west-2
+    eu-west-1
+    eu-central-1
+    ap-northeast-1
+Serverless: Creating region "us-west-2" in stage "dev"...  
+Serverless: Deploying resources to stage "dev" in region "us-west-2" via Cloudformation (~3 minutes)...
+   </pre>
+
+<a name="Stuck"></a>
+
+> If you see these error messages, let me know because I'm stuck!!!!
+
+{% highlight text %}
+   /Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/async.js:61
+        fn = function () { throw arg; };
+                           ^
+
+ServerlessError: ServerlessError: The security token included in the request is invalid.
+  at new ServerlessError (/Users/mac/.npm-packages/lib/node_modules/serverless/lib/Error.js:17:11)
+  at ResourcesDeploy.<anonymous> (/Users/mac/.npm-packages/lib/node_modules/serverless/lib/actions/ResourcesDeploy.js:241:25)
+  at ResourcesDeploy.tryCatcher (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/util.js:16:23)
+  at Promise._settlePromiseFromHandler (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/promise.js:502:31)
+  at Promise._settlePromise (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/promise.js:559:18)
+  at Promise._settlePromise0 (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/promise.js:604:10)
+  at Promise._settlePromises (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/promise.js:679:18)
+  at Async._drainQueue (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/async.js:138:16)
+  at Async._drainQueues (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/async.js:148:10)
+  at Immediate.Async.drainQueues [as _onImmediate] (/Users/mac/.npm-packages/lib/node_modules/serverless/node_modules/bluebird/js/release/async.js:17:14)
+  at tryOnImmediate (timers.js:543:15)
+  at processImmediate [as _immediateCallback] (timers.js:523:5)
+{% endhighlight %}
+
+
 
 <a name="FrameworkStructure"></a>
 
 ## Serverless Framework #
 
-The serverless framework save developers' time by standarizing the structure of folders and files.
+The serverless framework save developers' time by standardizing the structure of folders and files.
 
    <pre>
 s-project.json       // Project file (JSON or YAML)
@@ -401,7 +487,7 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
 
    * <a target="_blank" href="https://github.com/JustServerless/awesome-serverless">Awesome list</a>
 
-    * <a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
+   * <a target="_blank" href="http://justserverless.com/blog/nanoservices-microservices-monolith-serverless-architectures-by-example/">
     Nanoservices</a>
 
    * <a target="_blank" href="https://gumroad.com/l/learn-serverless-book">
@@ -416,17 +502,21 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
 Matthew Fuller
 
    * <a target="_blank" href="https://www.amazon.com/AWS-Lambda-Guide-Serverless-Microservices-ebook/dp/B016JOMAEE/">
-   AWS Lambda: A Guide to Serverless Microservices</a>
+   AWS Lambda: A Guide to Serverless Microservices</a> Amazon Kindle book published 2016-01-11):
    $3.99
+
 
 Jake Knowles
 
- * AWS Lambda: Serverless Microservices Guide with Simple Instructions
+   * AWS Lambda: Serverless Microservices Guide with Simple Instructions
 
 John McKim  @johncmckim  blogs on Medium:
 
    * <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
    Serverless Framework: The Good Parts</a>
+
+
+
 
 ## Future topics #
 

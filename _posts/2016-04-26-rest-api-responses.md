@@ -27,6 +27,7 @@ comments: true
 
 4XX - error
 
+      * 403 is the AWS response for not authorized
       * 404	Not Found
       * 406	The request you made is not acceptable
       * 410 Gone (deprecated)

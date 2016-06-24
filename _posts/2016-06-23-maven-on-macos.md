@@ -248,13 +248,22 @@ Here are sub-commands for mvn:
    | site-deploy | - |
 </pre>
 
+See
+* http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference
+
+* http://books.sonatype.com/mvnref-book/reference/lifecycle-sect-common-goals.html
+
+
 ### Maven plug-in goals by lifecycle phase #
+
+Each unit of execution work in Maven is called a <strong>goal</strong>.
 
 <a target="_blank" href="http://java.uzmanprogramci.com/maven-lifecycle/">
 <img width="638" height="359" alt="fig maven-phase-plugin-goals"
 src="https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11e6-8af5-1c3b93b9caef.jpg">
 </a>
 
+Maven C/C++ Plugin http://duns.github.io/maven-nar-plugin/
 
 ### Maven plug-ins by lifecycle phase #
 
@@ -263,7 +272,19 @@ src="https://cloud.githubusercontent.com/assets/300046/16313672/881e4a8e-3937-11
 src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11e6-99fd-d3cb0acf5170.png">
 </a>
 
+### Dependencies #
 
+<amp-img width="300" height="235" alt="meme-acme-not-real"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
+<br /><br />
+
+The 
+
+* http://www.sonatype.com/resources/books/maven-by-example
+
+* https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-best-practice.html
+
+* http://www.sonatype.com/resources/books/maven-the-complete-reference
 
 
 ## More on OSX

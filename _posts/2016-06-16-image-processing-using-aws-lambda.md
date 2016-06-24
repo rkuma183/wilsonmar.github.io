@@ -41,11 +41,16 @@ more people than only those who can setup a Gulp server.
    If acceptable, continue:
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
-0. <a href="#Compress">Compress image file</a>
-0. Generate thumbnail
+0. Generate thumbnail using ImageMagick
 0. Generate other sizes
+0. <a href="#Compress">Compress image file</a> using TinyPng API
 0. <a href="#CloudFront">Store image in AWS CloudFront</a>
 0. Generate HTML with img sizes in amp-img format for return
+
+   More processing:
+
+0. Facial recognition
+0. <a href="ExtractGeotags</a>Extract geotags from photos</a>
 
    Automate input:
 
@@ -158,7 +163,9 @@ Training cases:
 
 ## Store image in AWS CloudFront #
 
+An example of a resource in CloudFront is
 
+   http://d36cz9buwru1tt.cloudfront.net/AWS_Disaster_Recovery.pdf
 
 
 <a name="UpdateDynamo"></a>
@@ -269,6 +276,86 @@ PROTIP: Do image compression after resize.
 ## Compression service #
 
 https://tinypng.com/developers
+
+
+<a name="ExtractGeotags"></a>
+
+## Extract geotags from photos #
+
+There are several tools to read the metadata
+devices embed in photo files.
+
+From JPEG images Phil Harvey's EXIF command extracts:
+
+   <pre>
+   North or South Latit|N                                                         
+   Latitude            |42.00, 39.00, 24.67                                       
+   East or West Longitu|E                                                         
+   Longitude           |23.00, 21.00, 28.45                                       
+   Altitude reference  |0x00                                                      
+   Altitude            |625.50
+   &nbsp;
+   Manufacturer        |Nokia                                                     
+   Model               |E71                                                       
+   Orientation         |top - left                                                
+   x-Resolution        |300.00                                                    
+   y-Resolution        |300.00                                                    
+   Resolution Unit     |Inch                                                      
+   YCbCr Positioning   |centered                                                  
+   Compression         |JPEG compression                                          
+   x-Resolution        |72.00                                                     
+   y-Resolution        |72.00                                                     
+   Resolution Unit     |Inch                                                      
+   FNumber             |f/3.2                                                     
+   Exif Version        |Exif Version 2.2                                          
+   Date and Time (origi|2011:01:24 12:15:01                                       
+   Date and Time (digit|2011:01:24 12:15:01                                       
+   ComponentsConfigurat|Y Cb Cr -                                                 
+   Aperture            |3.20 EV (f/3.0)                                           
+   Light Source        |0                                                         
+   Flash               |Flash did not fire, auto mode.                            
+   Focal Length        |4.9 mm                                                    
+   FlashPixVersion     |FlashPix Version 1.0                                      
+   Color Space         |sRGB                                                      
+   PixelXDimension     |2048                                                      
+   PixelYDimension     |1536                                                      
+   Custom Rendered     |Normal process                                            
+   Exposure Mode       |Auto exposure                                             
+   White Balance       |Auto white balance                                        
+   Digital Zoom Ratio  |1.00                                                      
+   Scene Capture Type  |Standard                                                  
+   GPS tag version     |0x02, 0x02, 0x00, 0x00                                    
+   </pre>
+
+For videos there is exiftool at http://www.sno.phy.queensu.ca/~phil/exiftool/
+Perl library.
+
+There is also https://github.com/DIA-NZ/Metadata-Extraction-Tool
+the National Library of New Zealand wrote in Java and XML since 2003
+at http://meta-extractor.sourceforge.net/
+
+On-line from a browser are:
+
+   * http://readexifdata.com/
+
+   * <a target="_blank" href="http://regex.info/exif.cgi">
+   http://regex.info/exif.cgi</a> displays the day for a file URL specified.
+   See http://regex.info/blog/other-writings/online-exif-image-data-viewer
+
+BTW, http://www.dpreview.com/forums/1005
+has photos.
+
+
+### Geo names from coordinates #
+
+Obtain from
+<a target="_blank" href="http://wiki.openstreetmap.org/wiki/Nominatim#Reverse_Geocoding">
+Nominatim OpenStreetMap Web Service</a>
+
+https://exposingtheinvisible.org/resources/obtaining-evidence/image-digging
+provides a Ruby script to process a list of image files.
+
+Next, display the tag in a Google Map
 
 
 <a name="Archival"></a>

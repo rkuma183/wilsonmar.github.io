@@ -952,22 +952,206 @@ NOTE: Alogia emails the number of calls each day.
 ## Add search features to another theme #
 
 To add search features to another theme,
-we dive into theme JavaScript, CSS, and HTML.
+we dive into theme JavaScript, CSS, HTML, and configuration files.
+
+This sequence is designed so you can rebuild the project at each step
+and not have it blow up:
+
+0. Get a copy of your custom theme working on your local machine (git clone from GitHub)
+0. <a href="#CSSInHead"> Add a link to the algolia.css file in _includes/head.html</a>
+0. <a href="GitIgnorePrivates"> Specify in .gitignore the file containing private keys</a>
+0. Edit _config.yml to add your Algolia credentials
+0. Edit Gemfile (if you're using bundler) to add the Jekyll Algolia plugin
+0. Edit _includes/footer.html to include the links to the needed JS files and templates
+0. Edit_includes/sidebar.html to add the search input
+0. Edit_layouts/default.html to replace the element where content is usually displayed and transform it into two elements. One for the "static" display (current blog post for example) and one for the "dynamic" display (search results). Only one of the two will be visible at a time, depending if the user is searching or reading
+public/css/search.css where you put all the search-specific styling (input, results, etc)
+* public/js/search.js where you put the search-specific javascript (instanciating the Algolia client, updating the render, etc)
 
 The following examines changes made to the base Hype template to add search capabilities.
 
-<a name="ReplaceSiteIcon"></a>
+   <a name="CSSInHead"></a>
 
-### Replace Site Icon #
+0. Add a link to the algolia.css file in _includes/head.html
+
+   <pre>
+   &LT;link rel="stylesheet" href="{{ site.baseurl }}public/css/algolia.css">
+   </pre>
+
+   To check if this works, use your browser Debugger's waterfall chart.
+
+0. Add CSS to style the search form and search results based on
+   the contents within:
+
+   <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/blob/master/public/css/algolia.css">
+   https://github.com/algolia/algoliasearch-jekyll-hyde/blob/master/public/css/algolia.css</a>
+
+   What you actually add can be much different if you prefer to
+   make use of SASS, etc.
+
+   <pre>
+   /* Search form */
+.algolia__form {
+  margin-bottom: 1rem;
+}
+&nbsp;
+.algolia__input {
+  font-size: 20px;
+  padding:.25rem .5rem;
+}
+&nbsp;
+/* Search results */
+&nbsp;
+.algolia__initial-content {
+  display:block;
+}
+.algolia__initial-content--hidden {
+  display:none;
+}
+.algolia__search-content {
+  display:none;
+}
+.algolia__search-content--active {
+  display:block;
+}
+&nbsp;
+.algolia__result-link {
+  font-size: 1.25rem;
+  font-weight:bold;
+}
+.algolia__result-date {
+  font-size:0.8rem;
+}
+.algolia__result-text {
+}
+.algolia__result-highlight {
+  background: yellow;
+  color:inherit;
+}
+   </pre>
+
+   You won't be able to check if this works until the form is added,
+   below.
+
+   <a name="SearchField"></a>
+
+0. Add the search form input field in the sidebar.html within _includes.
+
+   Different templates use varying techniques to provide a form field
+   for visitors to specify search terms.
+
+   <pre>
+   <form class="algolia__form" action="/search/" method="GET">
+   <input type="text" class="algolia__input js-algolia__input"
+      autocomplete="off" name="query"
+      placeholder="Search in this site..." />
+   </form>
+   </pre>
+
+   After saving, the form should appear.
+   Adjust the CSS styling and positioning as you wish.
+
+0. Add the algolia.js library of JavaScript functions into the repo,
+   such as the public/js folder.
+
+   <a target="_blank" href="https://github.com/algolia/algoliasearch-jekyll-hyde/blob/master/public/js/algolia.js">
+   https://github.com/algolia/algoliasearch-jekyll-hyde/blob/master/public/js/algolia.js</a>
+
+0. Add the HTML to display page titles and content in default.html
+   within folder _layouts:
+
+    <pre>
+    &LT;div class="content container">
+      &LT;div class="algolia__initial-content js-algolia__initial-content">{{ content }}&LT;/div>
+    &nbsp;
+      &LT;div class="algolia__search-content js-algolia__search-content">
+        &LT;h1 class="page-title">Search&LT;/h1>
+        &LT;div class="posts algolia__results">&LT;/div>
+      &LT;/div>
+    &LT;/div>
+   </pre>
+
+0. Add HTML links to the Algolia library within the HTTP footer.html
+   within the _includes folder.
+
+   <pre>
+   &LT;script>
+     window.ALGOLIA_CONFIG = {
+       'applicationId': '{{ site.algolia.application_id }}',
+       'indexName': '{{ site.algolia.index_name }}',
+       'apiKey': '{{ site.algolia.read_only_api_key }}'
+     }
+   &LT;/script>
+   &LT;script id="algolia__template" type="text/template">
+   {% raw %}
+     &LT;div class="algolia__result">
+       &LT;a class="algolia__result-link" href="{{ url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}&LT;/a>
+       {{#posted_at}}
+       &LT;div class="algolia__result-date">{{ posted_at_readable }}&LT;/div>
+       {{/posted_at}}
+       &LT;div class="algolia__result-text">{{{ _highlightResult.content.value }}}&LT;/div>
+   {% endraw %}
+   &LT;/script>
+   &LT;script id="algolia__template--no-results" type="text/template">
+     No results found.
+   &LT;/script>
+   &LT;script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js">&LT;/script>
+   &LT;script src="//cdn.jsdelivr.net/algoliasearch/3.6.0/algoliasearch.min.js">&LT;/script>
+   &LT;script src="//cdn.jsdelivr.net/algoliasearch.helper/2.1.0/algoliasearch.helper.min.js">&LT;/script>
+   &LT;script src="//cdn.jsdelivr.net/hogan.js/3.0.2/hogan.min.js">&LT;/script>
+   &LT;script src="//cdn.jsdelivr.net/momentjs/2.10.3/moment.min.js">&LT;/script>
+   &LT;script src="{{ site.baseurl }}public/js/algolia.js">&LT;/script>
+   </pre>
+
+0. Adjust CDN.
+
+   Although Algolia makes use of the jQuery library stored in a CDN,
+   you can use another CDN (such as Google's) if you prefer.
+
+   <a name="Gemfile.lock"></a>
+
+0. Add dependencies and their versions in the <strong>Gemfile.lock</strong> file:
+
+   <a name="Gemfile"></a>
+
+0. Specify the Jekyll plugin in the <strong>Gemfile</strong> file:
+
+   <pre>
+   source 'https://rubygems.org'
+   &nbsp;
+   gem 'jekyll', '>=2.5.3'
+   &nbsp;
+   group :jekyll_plugins do
+     gem 'algoliasearch-jekyll'
+   end
+   </pre>
+
+   <a name="GitIgnorePrivates"></a>
+
+   ### .gitignore #
+
+0. Edit the project's .gitignore file so the key is not uploaded to GitHub:
+
+   <pre>
+   _algolia_api_key
+   </pre>
+
+   NOTE: The leading underline character tells Jekyll to not convert it
+   into HTML.
+
+
+0. Edit variables and their values in the
+   project's <strong>_config.yml</strong> file.
+
+
+<hr />
+
+   <a name="ReplaceSiteIcon"></a>
+
+   ### Replace Site Icon #
 
 TODO: ReplaceSiteIcon
 
-
-<a name="SearchField"></a>
-
-### Add Search Field in HTML #
-
-Different templates use varying techniques to provide a form field for visitors to specify search terms.
 
 ### index.html #
 
@@ -988,8 +1172,6 @@ Different templates use varying techniques to provide a form field for visitors 
       &#123;&#123; content }}
 
 In the **_includes** folder of the Algolia template are the head.html, footer.html, and sidebar.html.
-
-### head.html #
 
 When a web page (index.html) is loaded by an internet browser at the client end,
 contents of the `<head>` are processed first.

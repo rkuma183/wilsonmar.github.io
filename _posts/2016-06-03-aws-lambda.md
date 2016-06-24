@@ -116,18 +116,18 @@ in his March 2016 webinar "Getting Started with Serverless Architectures"</a>.
 
 ## Why NOT? #
 
-You are not a good candidate for using AWS Lambda if
+An app is NOT a good candidate for using AWS Lambda if
 you interact with components in EC2 instances:
 
-   * AMI - app requires a custom AMI
-   * SSH into server using multiple accounts
-   * LDAP
+   * App requires a custom AMI (extra programs on servers rather than via REST API)
+   * Need to SSH into server using multiple accounts
+   * Need to use LDAP for authentication
    * OS updates impact your app?
    * OS configuration such as memory settings, max. file handlers, etc.
    * OS snapshots during security incidents
-   * Intrusion detection not available
-   * Network speeds not known
-   * VPC not yet supported
+   * Intrusion detection is needed (not available in AWS Lambda)
+   * Network speeds are important (not known in AWS Lambda)
+   * VPC is needed (not yet supported in AWS Lambda)
 
 <a name="CreateFunction"></a>
 
@@ -356,7 +356,7 @@ There are several ways to get programming code into AWS Lambda:
 
    * Hello World
    * Mobile Backend
-<br />
+<br /><br />
 
 0. Make a change to "value1".
 
@@ -422,7 +422,8 @@ callback(null, event.key1);  // Echo back the first key value
           * Unhandled exceptions causing the code to exit the function since it can't handle the error.
           * Out of memory exceptions
           * Timeouts
-          * Permission errors<br />
+          * Permission errors
+          <br /><br />
 
       * **Throttled invocations** measures the number of Lambda functon invocation attempts not executed because
       the customer concurrent limit has been reached for the period (error 429).
@@ -433,21 +434,25 @@ callback(null, event.key1);  // Echo back the first key value
 0. Click <strong>View logs in CloudWatch</strong> link.
 0. Click a Log stream entry to see the Event Data for it.
 
-     Notice the time stamp such as "Last modified date2016-06-03T13:23:27.021+0000" is UTC/GMT time.
+     Notice the time stamp such as
+     "Last modified date2016-06-03T13:23:27.021+0000" is UTC/GMT time (London with no Summertime).
 
 0. Click the line that begins with "REPORT RequestId:" to expand it to see the amount of memory actually used.
 
-      <pre>
-      REPORT RequestId: 0ddf5949-29b1-11e6-b8de-a70c7c47033a Duration: 1.00 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 36 MB
-      </pre>
+   <pre>
+   REPORT RequestId: 0ddf5949-29b1-11e6-b8de-a70c7c47033a Duration: 1.00 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 36 MB
+   </pre>
 
      These statistics also appear in the Summary pane.
 
-     The amount charged (Billed) is in increments of 100 milliseconds, even if the Duration is 1 ms.
+     The amount charged (Billed) is in increments of <strong>100 milliseconds</strong>,
+     even if the Duration is 1 ms.
 
-     The number of Max Memory Used used can vary from one execution to another for different sizes of files handled by the function.
+     The number of Max Memory Used used can vary from one execution to
+     another for different sizes of files handled by the function.
 
-     QUESTION: Can the highest MB Used by the function be a metric shown in the list of functions (along with Max. memory)?
+     QUESTION: Can the highest MB Used by the function be
+     a metric shown in the list of functions (along with Max. memory)?
 
      QUESTION: Are charges for memory based on the maximum allocated or the amount actually used?
 
@@ -835,21 +840,50 @@ ImageMagick is built-in to Lambda
 
 ## Use of /tmp folder #
 
-## Stories about Uses for Lamba #
+## AWS Lamba projects shared #
 
 Some Lambda developers share their stories:
 
+Lena and Sergey Barinova
+<a target="_blank" href="http://www.bebetterdeveloper.com/coding/architecture/serverless-system-architecture-using-aws.html">
+blogged about how she used AWS, React, and Node.js</a> to build her
+<a target="_blank" href="http://price-tracker-website.s3-website-us-west-2.amazonaws.com/">
+Price Tracker website hosted in Amazon S3</a>.
+Code for it is exposed at
+<a target="_blank" href="https://github.com/LenaBarinova/PriceTracker">
+https://github.com/LenaBarinova/PriceTracker</a>, which include Gulp tasks and Mocha tests.
+Concern is expressed about the latency involved in data retrieval from DynamoDB.
+   <amp-img width="607" height="419" alt="pt-architecture-607x419-75"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16328841/4c624004-399b-11e6-9658-97c706d33749.jpg"></amp-img>
+   <br /><br />
+
+John Stamper, AWS Solution Architect,
+wrote
+<a target="_blank" href="https://aws.amazon.com/blogs/compute/fanout-s3-event-notifications-to-multiple-endpoints/">
+Fanout S3 Event Notifications to Multiple Endpoints</a> 24 JUL 2015
+<amp-img alt="lambda fanout-S3-usecase-diagram-625x355-75" width="625" height="355"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16329098/68d6d194-399d-11e6-88af-be75785a80c5.jpg"></amp-img>
+<br /><br />
+
+
+Daniele Stroppa, AWS Solution Architect,
+<a target="_blank" href="https://aws.amazon.com/blogs/compute/continuous-integration-deployment-for-aws-lambda-functions-with-jenkins-and-grunt-part-2/">
+described how he uses Jenkins and Grunt to deploy AWS Lambdas</a>  09 JUL 2015.
+
+
+David Barnett wrote
 <a target="_blank" href="http://www.rightbrainnetworks.com/blog/aws-lambda-tutorial-playing-math-games-lambda/">
 AWS LAMBDA TUTORIAL: PLAYING MATH GAMES WITH LAMBDA</a>
 May 24 2016
-by  David Barnett
 
-    *    Visualizing the Mandelbrot sets
-    *   Playing Monte Carlo simulations
-    *   Visualizing Apache Spark and Databricks
+     * Visualizing the Mandelbrot sets
+     * Playing Monte Carlo simulations
+     * Visualizing Apache Spark and Databricks
 
+
+Russ Matney:
 <a target="_blank" href="http://russmatney.com/techsposure/what-i-am-using-aws-lambda-for/">
-  Russ Matney: What I am using AWS Lambda for</a>
+What I am using AWS Lambda for</a>
 
       * gif-to-mp4
       * create-timelapse
@@ -864,7 +898,6 @@ by  David Barnett
 * <a target="_blank" href="https://github.com/Netflix/bless">
      BLESS from Netflix</a> is an SSH Certificate Authority that runs as a AWS Lambda function in an isolated AWS account with restricted IAM roles
      to sign short-lived ssh public keys. Written in Python.
-
 
 * https://www.npmjs.com/package/aws-lambda-toolkit
 
@@ -907,11 +940,46 @@ Justin Yoo Readify ‏@readify
 ## Trivia #
 
 * The <a target="_blank" href="https://www.w3.org/TR/REC-html40/sgml/entities.html">
-HTML 4 character entity references</a> for the Greek capital and small letter lambda are "&#923;" and "&#955;".
+   HTML 4 character entity references</a> for the Greek capital
+   and small letter lambda are "&#923;" (&amp;\#923) and "&#955;" (&amp;\#955).
 
-The Unicode numbers for lambda are U+039B and U+03BB.
+* The Unicode numbers for lambda are U+039B and U+03BB.
 
-## People #
+
+## Tutorial Rock Stars #
+
+Danilo Poccia (@danilop of Luxembourg, http://danilop.net/),
+   Technical Evangelist at Amazon Web Services
+
+   * began February 2016 writing
+   <a target="_blank" href="https://www.manning.com/books/aws-lambda-in-action">
+   AWS Lambda in Action: Event-driven serverless applications</a>
+   for Spring 2017 (estimated) publication as
+   ISBN 9781617293719 475 pages (estimated).
+   Interact with
+   <a target="_blank" href="https://forums.manning.com/forums/aws-lambda-in-action">
+   other devs n the Forum</a>
+   and with
+   <a target="_blank" href="https://eventdrivenapps.com/#livedemos">
+   demos at eventdrivenapps.com</a> from the
+   <a target="_blank" href="https://github.com/danilop/AWS_Lambda_in_Action">
+   code in GitHub</a>.
+
+Eric Hammond
+
+   * published several blog posts at
+   <a target="_blank" href="https://www.alestic.com/">alestic.com</a>.
+
+Vyon Nagrani, AWS Lambda Sr. Product Manager,
+
+   * gave a very high level webinar video
+   <a target="_blank" href="https://www.youtube.com/watch?v=dCv0gZLjcNY/">
+   AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway
+   14 Oct. 2015</a>
+
+
+
+## AWS People #
 
 * Tim Wagner, @timallenwagner,
    General Manager of AWS Lambda at Amazon,
@@ -926,17 +994,8 @@ The Unicode numbers for lambda are U+039B and U+03BB.
 
 * Michael LaFrenier @MLaFrecruiter Talent Sourcer and Executive Recruiter for Amazon Web Services
 
-* Eric Hammond has published several blog posts at
-   <a target="_blank" href="https://www.alestic.com/">alestic.com</a>.
 
-* Matthew Fuller wrote an Amazon Kindle book published 2016-01-11):
-   <br />AWS Lambda: A Guide to Serverless Microservices
 
-* Vyon Nagrani, AWS Lambda Sr. Product Manager,
-   gave a very high level webinar video
-   <a target="_blank" href="https://www.youtube.com/watch?v=dCv0gZLjcNY/">
-   AWS August Webinar Series - Building Serverless Backends with AWS Lambda and Amazon API Gateway 200
-   14 Oct. 2015</a>
 
 ## More on Serverless #
 
