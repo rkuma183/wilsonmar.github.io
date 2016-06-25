@@ -35,22 +35,21 @@ more people than only those who can setup a Gulp server.
 0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
 
-0. Apply image recognition (extent image has nudity, is a face, etc.)
+0. Apply image recognition (extent image has nudity)
 0. <a href="#UpdateDynamo">Update DynamoDB</a> with results and timings
 
    If acceptable, continue:
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
-0. Generate thumbnail using ImageMagick
-0. Generate other sizes
-0. <a href="#Compress">Compress image file</a> using TinyPng API
+0. <a href="#ImageSizes">Generate thumbnails and other size images</a>
+0. <a href="#Compress">Compress image file</a> (using TinyPng API)
 0. <a href="#CloudFront">Store image in AWS CloudFront</a>
 0. Generate HTML with img sizes in amp-img format for return
 
-   More processing:
+   More image processing:
 
-0. Facial recognition
-0. <a href="ExtractGeotags</a>Extract geotags from photos</a>
+0. <a href="#FacialRecognition">Facial recognition (does the image contain one or more faces?)</a>
+0. <a href="#ExtractGeotags</a>Extract geotags from photos</a>
 
    Automate input:
 
@@ -90,6 +89,12 @@ more people than only those who can setup a Gulp server.
 0. Process image files in Dropbox
 0. Process image files in Microsoft Azure
 0. Process image files in Google Drive
+
+   Additional notification features:
+
+0. SNS to IFTTT to invoke IoT https://github.com/danilop/SNS2IFTTT
+0. Zapier notification
+
 
 > Let's work on these together! Contact me.
 
@@ -257,19 +262,27 @@ An alternative is via subscription to SNS topics.
 0. Other Lambdas subscribe to this topic so as soon as messages arrive in the topic, second Lambda gets executed with the message as it's input parameter.
 
 
-<a name="Thumbnail"></a>
+<a name="ImageSizes"></a>
 
-## Picture generation #
+### Resize images to various sizes #
 
-Pictures need to be re-sized for:
+Pictures need to be re-sized for (pixels):
 
-   * 150x fixed width, height is scaled as needed
+   * 150x? fixed width, height is scaled as needed
    * 50x50 scale image best into box
-   * x150 fixed height, width is scaled as needed
+   * ?x150 fixed height, width is scaled as needed
+
+   * 108x108 PNG (with transparency) or JPG for display in the Alexa App. 
+   * 512x512 PNG (with transparency) or JPG for display in the Alexa App on larger screens.
+
+   * 2560x1440 for YouTube Channel Art
+
+
+
 
 ImageMagick is used.
 
-PROTIP: Do image compression after resize.
+   PROTIP: Do image compression AFTER resize?
 
 <a name="Compress"></a>
 
@@ -356,6 +369,20 @@ https://exposingtheinvisible.org/resources/obtaining-evidence/image-digging
 provides a Ruby script to process a list of image files.
 
 Next, display the tag in a Google Map
+
+
+
+<a name="FacialRecognition"></a>
+
+## Facial recognition #
+
+Does the image contain one or more faces?
+
+https://github.com/danilop/docker-opencv
+
+
+
+
 
 
 <a name="Archival"></a>

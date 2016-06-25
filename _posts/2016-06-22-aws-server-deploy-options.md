@@ -33,6 +33,8 @@ The options:
 
    * <a href="#CF">CloudFormation</a> for sysadmins to create JSON template files which configure ALL AWS services.
 
+   * <a href="#AnsibleCF">Ansible using CloudFormation</a>.
+
    * Value-added services outside Amazon, such as <a target="_blank" href="https://www.hashicorp.com/#products">
    Terraform (and licensed Atlas) from Hashicorp</a>.
 
@@ -163,101 +165,19 @@ Each "layer" is a blueprint and container for instances.
    * Undeploy
    * Shutdown
 
-Each server has a Chef agent installed.
+<a target="_blank" href="https://github.com/danilop/opsworks-cookbooks/">
+Opsworks Cookbooks</a> from @Danilop.
 
+NOTE: Each server has a Chef agent installed.
 
-<hr />
+   The lack of agents is why Ansible is becoming more popular.
 
-<a name="CF"></a>
+<a name="AnsibleCF"></a>
 
-## CloudFormation #
+## Ansible using CloudFormation #
 
-CF can span two or more Availability Zones
-in a multi-subnet VPC.
-
-   PROTIP: With such complexity, better use a JSON file
-   which contains all the resource specifications.
-
-0. In the AWS Management Console Services gallery, click
-   Cloud Formation.
-0. Click Create New Stack.
-
-   NOTE: One CF template can be used to create multiple stacks.
-
-0. In the Stack Name box, type "Lab" or other name.
-0. Select Specify an <a href="#S3Template">Amazon S3 template URL</a>.
-0. Paste the URL. An example is provided at:
-
-    <pre>
-    http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC1.json
-    </pre>
-
-    This one has additional security groups and output parameters:
-
-    <pre>
-    http://us-east-1-aws-training.s3.amazonaws.com/self-paced-lab-15/VPC2.json
-    </pre>
-
-0. Click Next.
-0. On the Specify Parameters page, leave the default settings.
-0. Click Next in the Options page (no Tags).
-0. Click Create after reviewing.
-0. Click Events tab.
-0. Click Refresh occassionally.
-0. On the Services menu, click VPC to see results.
-
-To be able to delete the stack, first turn off <strong>Termination Protection</strong>:
-
-0. Select EC2 from the Services gallery.
-0. Click Instances.
-0. <strong>Right-click</strong> on the running instance
-   to Change Termination Protection.
-0. Click Yes, Disable.
-0. Now back on Cloud Formation service.
-0. Select the box for the stack to be deleted.
-0. Click Delete Stack.
-0. Click Yes, Delete.
-
-
-### CF Front Matter #
-
-This section is based on the
-<a target="_blank" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html">
-Template Reference at https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html</a>.
-
-   All CF templates must have a version, even though it's always "2010-09-09":
-
-{% highlight text %}
-{
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "Prod VPC with 4 subnets across 2 Availability Zones, and a bastion host.",
-  ...
-{% endhighlight %}
-
-   PROTIP: Use #tags as  metadata in the Description to
-   automate search among multiple files.
-
-<a name="AZ"></a>
-
-### Resources #
-
-{% highlight text %}
-"Resources": {
-  "EC2Instance": {
-    "Type": "AWS::EC2::Instance",
-    "Properties": {
-      "ImageId": "ami-bff32ccc",
-      "InstanceType": "t2.nano",
-      "NetworkInterfaces": [{
-        "GroupSet": [{"Ref": "SecurityGroup1"}]
-        "SubnetId": "..."
-      }]
-    }
-  },
-  "ElasticIP": {...},
-  "SecurityGroup": {...}
-}
-{% endhighlight %}
+[My tutorial on AWS High-Availability using CloudFormation](/aws-ha-ansible-cloudformation/),
+which is the current rage (June 2016).
 
 
 ## More on Amazon #

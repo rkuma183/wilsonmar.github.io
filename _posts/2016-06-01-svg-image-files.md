@@ -246,6 +246,12 @@ This example is from the video course about D3 on Pluralsight.com.
 
 jsbin.com
 
+
+## Animation #
+
+https://maxwellito.github.io/vivus/
+provides a library to animate SVG files (looks like animated GIFs).
+
 ## Resources:
 
 * https://msdn.microsoft.com/en-us/library/gg589526%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396#Ways_to_Render_SVG

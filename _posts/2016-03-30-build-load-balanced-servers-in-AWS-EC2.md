@@ -553,9 +553,12 @@ Load balancers distribute traffic among individual nodes in a cluster.
 
 Clients reach the load balancer via a VIP (Virtual IP) address.
 
-PROTIP: The response AWS expects from the Ping Path resource (typically `/index.html`) is a 200 HTTP response.
-So AWS may consider a server up even if the web server is down if the
-<strong>container</strong> service responds with a formatted "Please try again later" message.
+<a target="_blank" href="https://github.com/danilop/ec2-watchdog">
+EC2-WatchDog</a> is a simple (bash) script for Amazon EC2 to monitor another node for HA and take over a Virtual IP (VIP) if the service on the other node fails. http://danilop.github.io/ec2-watchdog
+
+   PROTIP: The response AWS expects from the Ping Path resource (typically `/index.html`) is a 200 HTTP response.
+   So AWS may consider a server up even if the web server is down if the
+   <strong>container</strong> service responds with a formatted "Please try again later" message.
 
 Some use an address outside AWS to distribute load to other clouds (servers in private locations, in Azure, etc.)
 
