@@ -257,7 +257,7 @@ Site Lifecycle:
 | Sub-command | Description |
 | -------- | ----------- |   
 | pre-site | Executes processes needed prior to the actual project site generation. |  
-| site | - | Generates the project's site documentation. |
+| site | Generates the project's site documentation. |
 | post-site | Executes processes needed to finalize the site generation, and to prepare for site deployment. |
 | site-deploy | Deploys the generated site documentation to the specified web server. |
 
