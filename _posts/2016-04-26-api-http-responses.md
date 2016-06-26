@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "REST API Responses"
+title: "API HTTP Responses"
 excerpt: "Here's what I think of your request"
 tags: [API, JavaScript, programming]
 image:
@@ -24,6 +24,7 @@ comments: true
 3XX - redirects
 
       * 302 Redirect
+      * 304 Not modified
 
 4XX - error
 
@@ -64,3 +65,11 @@ Currently, three output formats are available:
 * CSV for import into Excel and other spreadsheets
 
 * Google Sheet referenced by data processors
+
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

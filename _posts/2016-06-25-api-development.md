@@ -23,15 +23,21 @@ This tutorial is about creating the elements of a full ecosystem for the
 
 <amp-youtube data-videoid="HjTjXpfdf60" layout="responsive" width="480" height="270">
 </amp-youtube>
-NOTE: Click CC in YouTube for Closed Captioning.
+In this 3 minute video, click "CC" to toggle Closed Captioning text.
 
 We want <strong>developers</strong> to create <strong>client apps</strong> to access
 <strong>API services</strong>.
 
 But first developers need to find (discover) that the API exists,
-perhaps from a <strong>gallery of available APIs</strong>, particularly a gallery which has done
-<strong>quality scans</strong> of the machine-readable
-<strong>API interface specs</strong>.
+perhaps from a <strong>galleries of available APIs</strong>
+such as <a target="_blank" href="https://apis.guru/">apis.guru</a>.
+
+It's helpful for a gallery to provide results from static
+<strong>quality scans</strong> evaulating the machine-readable
+<strong>interface specs</strong> of the API.
+
+There are several competing API specification formats (such as RAML, WADL, and Swagger).
+But <strong>Swagger</strong> seems to be the most popular at this time.
 
 <strong>Documentation</strong> about the API helps not only
 for the API to be discovered from the public galleries,
@@ -85,10 +91,6 @@ by marking up server code with
 <a href="#SpecMarkup">comments</a>
 recognizeble by a <strong>parser such as Doxegen</strong>.
 
-There are other extraction programs for each of 
-several competing API specification formats (such as RAML, WADL, and Swagger).
-But <strong>Swagger</strong> seems to be the most popular at this time.
-
 Programs are getting more mature at reading specs to 
 <strong>generate programming code</strong>
 in various programming languages.
@@ -103,8 +105,8 @@ provide a differentiator for community collaboration.
 
 <a name="Diagram"></a>
 
-<amp-img width="650" height="286" alt="api-overview-v04-gen-650x286-63"
-src="https://cloud.githubusercontent.com/assets/300046/16358075/cbfe1a24-3ac5-11e6-96c8-97a8feec312c.jpg">
+<amp-img width="650" height="286" alt="api-ecosystem-v05-650x286-63.jpg"
+src="https://cloud.githubusercontent.com/assets/300046/16362210/3ee9af22-3b65-11e6-8caa-f7571da06386.jpg">
 </amp-img>
 
 <hr />
