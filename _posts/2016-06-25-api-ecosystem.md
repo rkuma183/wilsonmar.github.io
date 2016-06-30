@@ -21,7 +21,7 @@ shorturl: https://goo.gl/wojj1R
 This tutorial is about the elements of an ecosystem for 
 <strong>development</strong> of Application Programming Interfaces (APIs).
 
-<amp-youtube data-videoid="HjTjXpfdf60" layout="responsive" width="480" height="270">
+<amp-youtube data-videoid="bOuMpvrrkGY" layout="responsive" width="480" height="270">
 </amp-youtube>
 In this 3 minute video, click "CC" to toggle Closed Captioning text below.
 
