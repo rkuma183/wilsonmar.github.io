@@ -216,3 +216,53 @@ and enables blind and visually impaired people to use computers using computeriz
 8. Anytime the link your using redirects, it slows down the application, update the link to the correct location periodically.
 9. <a target="_blank" href="http://ready.mobi/" 
       alt="Tool on web that evaluates website for mobile users">Accessible Techniques for HTML Tables </a> 
+
+
+## Create ADA-Compliant Captions #
+
+This section is adapted from Camtasia 2 for Mac tutorials
+presenting tips to create ADA-compliant captions.
+
+The Americans with Disabilities Act (ADA) is a federal antidiscrimination statute 
+designed to ensure equal access to opportunities and benefits for qualified individuals with disabilities. 
+In many state, government, and education institutions, 
+videos must include ADA compliant captions. 
+
+Generally, captions should:
+
+* Be accessible and readily available to those who need or want them.
+* Be synchronized with the audio spoken words 
+   (appear at approximately the same time as the audio).
+* Appear onscreen long enough to be read
+   (Stay on the screen a few seconds, and are then replaced by another caption.)
+
+* Be in an easy-to-read format:
+   not cover up graphics and other essential visual elements of the picture.
+* Use a non-serif font similar to Helvetica medium.
+* Have good resolution.
+
+* Have correct spelling throughout the production.
+
+
+Words in ADA compliant captions should:
+
+* Use upper and lowercase letters.
+* Be verbatim when time allows or as close as possible in other situations.
+
+* Describe use of slang and accent is preserved.
+* Describe music or other sound inside square brackets such as [music] or [laughter].
+* Identify the speaker when more than one person is onscreen or when the speaker is not visible.
+* Use italics when a new word is being defined or a word is heavily emphasized in speech.
+* Use punctuation to clarify meaning.
+
+* Reflect all words spoken, regardless of language or dialect.
+* Fit the 32-character-per-line requirement 
+* Be preferrably one line of text that appear onscreen all at once, 
+* Be no longer than three lines.
+<br /><br />
+
+
+
+To check for compliancy, select the Captions options dropdown > Show non-compliant duration. 
+This option highlights any captions in red whose duration is not between three and seven seconds.
+

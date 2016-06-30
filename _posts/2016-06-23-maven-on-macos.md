@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Maven on MacOS (OSX)"
-excerpt: "for Java"
+excerpt: "for Java, Jenkins, etc."
 tags: [homebrew, apple, mac, setup]
 image:
 # feature: pic brown homebrew logo 1900x500.jpg

@@ -233,6 +233,14 @@ move the cursor to the very top of the screen for a few seconds.</li>
 <li> Click <strong>[+]</strong>, copy, and paste </li>
 </ol>
 
+An example:
+
+<ol type="1">
+<li> 205.171.3.65 </li>
+<li> 216.146.35.35 </li>
+<li> 192.168.0.1 </li>
+</ol>
+
 
 <a id="HotCornerz"></a>
 

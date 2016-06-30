@@ -55,16 +55,15 @@ so developers and potential users can really grasp the value of the services exp
 Then developers would be more enticed to get <strong>API keys</strong>
 client apps need to provide when accessing API services.
 
-It helps to have enough <strong>sample data</strong> so
-sample <strong>test automation scripts</strong> have the test coverage needed
-to give assurance that all features really work, and work quickly, even under load. 
+Having enough <strong>sample data</strong> is important so
+<strong>test automation scripts</strong> have the test coverage needed
+to make sure that all features really work, and work quickly, even under load. 
 
-Many developers now also like having a <strong>mock server</strong> running locally
-so they can work anywhere with a stable end-point, even while off the network.
-Many have found this shortens development cycles by reducing the need to wait for others to
-achieve stability in dependent modules.
+A <strong>mock server</strong> doesn't provide all the logic and data from a real server,
+but some developers use them while they build their clients because they provide
+a stable end-point running locally while off the network.
 
-All this is what makes up a "full" API ecosystem.
+All this is what makes up a "full" API ecosystem today.
 
 <amp-img width="650" height="286" alt="api-ecosystem-v05-a-650x286-69"
 src="https://cloud.githubusercontent.com/assets/300046/16362494/68d05a36-3b6d-11e6-8af3-5df961e1d778.jpg">
