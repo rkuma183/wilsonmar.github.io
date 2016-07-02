@@ -19,7 +19,10 @@ comments: true
 
 This tutorial describes the automated setup of multi-stage (dev+QA+prod) 
 <strong>enterprise</strong> environments within EC2,
-using CloudFormation in the sequence needed during manual configuration on the AWS Management Console.
+using <strong>CloudFormation</strong> 
+in the sequence needed during manual configuration on the AWS Management Console.
+
+NOTE: This page is in draft form at the moment.
 
 TODO: Make this diagram into a video:
 <amp-img width="650" height="483" alt="fig-aws-enterprise-v02-650x483-80"
@@ -32,7 +35,9 @@ Basics about CloudFormation is found there.
 This tutorial shows how to configure CloudFormation JSON for each aspect
 of AWS for an enterprise, by sequence of dependencies:
 
-   0. VPN
+   0. <a href="#AWSCLI">AWS CLI</a>
+   0. <a href="#IAM">IAM</a>
+   0. <a href="#VPN">VPN</a>
    0. <a href="#VPC">VPC</a>
    0. <a href="#NAT">NAT</a>
 
@@ -42,6 +47,55 @@ of AWS for an enterprise, by sequence of dependencies:
    0. <a href="#MapRegionAMI">AMI</a> by Region, with Auto-scale
 
 <hr />
+
+<a name="Account"></a>
+
+## AWS Account #
+
+PROTIP: Create a sub-account to do work rather than using the account
+created for billing. 
+
+0. Obtain an AWS account using the email address of the billing administrator,
+   providing your credit card.
+
+0. Open AWS Management Console and login as that billing administrator.
+
+0. Create a sub-account.
+
+0. Assign permissions to that sub-account.
+
+   This sub-account will be used in the remainder of this tutorial.
+
+
+<a name="AWSCLI"></a>
+
+## AWS CLI #
+
+0. Open a Terminal shell window to install the Command-line Interface (CLI).
+
+
+<a name="IAM"></a>
+
+## IAM #
+
+AWS Identity and Access Management (IAM) controls access to
+users, groups, roles, and policies.
+
+0. Assign permissions to make
+
+
+
+0. List users:
+
+   <tt><strong>
+   aws iam list-users \-\-query Users[*].UserName
+   </strong></tt>
+
+0. List groups which the user belongs to :
+
+   <tt><strong>
+   aws iam list-groups-for-user \-\-username ???
+   </strong></tt>
 
 <a name="Launch"></a>
 
@@ -205,13 +259,70 @@ yum -y install codedeploy-agent.noarch.rpm
 {% endhighlight %}
 
 
+## Boot-up #
+
+0. Use a text editor to open the <strong>boot script</strong> for many Linux AMIs: 
+
+   <strong>/etc/rc.local</strong>
+
+0. Additional scripts can be added to  
+   run configuration scripts when the instance is launched as the root user.
+
+
+
 ### User Data CloudInit #
 
-The EC2 Advanced User Data field can also contain
-CloudInit commands to execute actions on instances at launch time. 
-s so you can configure and customize the instances at launch time. Both the
-Ubuntu Linux AMI and the Amazon Linux AMI contain a version of CloudInit. Dynamically
-configuring an AMI at startup means you can use a common base AMI for different use cases. 
+Amazon provides some AMIs (Ubuntu Linux AMI and the Amazon Linux AMI)
+which contain a version of CloudInit. CloudInit accepts commands in
+the EC2 Advanced User Data field 
+to customize instances at launch time.
+
+REMEMBER: The the EC2 Advanced User Data field has a limit of 16,000 bytes. 
+
+WARNING: CloudInit takes time to run, which delays auto-scaling.
+
+Dynamically configuring an AMI at startup means you can use a common base AMI for different use cases. 
+
+the database connection string
+
+
+
+## Security #
+
+however, we recommend that if you do this, you pass the AWS access key ID and secret key of an AWS Identity and Access Management (IAM) user with limited permissions. You should grant the IAM user only the read access permissions it needs to retrieve the configuration information.
+You can use AWS CloudFormation to create IAM users, groups, and policies. From a within a single template, you can create a user, set appropriate polices, create an access key ID and secret key pair, and then add the credentials to the instance through the user data. By adding the IAM user in the template, you have a user whose existence is tied to the lifetime of the stack, with each new stack having a separate, unique user.
+
+bootstrap scripts. We strongly recommend that you assign an IAM role to on the EC2 instance when the instance is launched. By using an IAM role, no long-term secrets are defined in the template or stored in the metadata on the EC2 instance. When the IAM role is used, temporary security credentials are created and used to access AWS services such as AWS CloudFormation. These temporary credentials expire after a short time, making it harder to compromise the credentials and reducing the risk and exposure if the credentials are compromised.
+
+
+## Retrieve using help scripts #
+
+Within servers, user data is retrieved from the metadata store at constant IP address:
+
+   http://169.254.169.254/latest/user-data
+
+   NOTE: The same IP address is used for both Linux and Windows.
+
+User data can also be from this command:
+
+   <tt><strong>
+   /opt/aws/bin/ec2-metadata --help
+   </strong></tt>
+
+Use a helper script on Amazon Linux AMIs to extract. 
+CloudFormation helper scripts are installed by default within Amazon Linux AMI at
+
+   <strong>/opt/aws/bin</strong>
+
+from the Amazon Linux AMI yum repository (package name <strong>aws-cfn-bootstrap</strong>).
+
+CloudFormation helper scripts are available from:
+
+   * <a target="_blank" href="http://aws.amazon.com/cloudformation/aws-cloudformation-templates/">
+   Amazon's 'AWS CloudFormation sample template site</a> 
+
+   * <a target="_blank" href="http://aws.amazon.com/developertools/AWS-CloudFormation/4026240853893296">
+   Helpers in other formats</a>
 
 
 <a name="AZ"></a>
@@ -903,6 +1014,76 @@ by Marcus Young
 
 * <a target="_blank" href="https://s3.amazonaws.com/cloudformation-examples/BoostrappingApplicationsWithAWSCloudFormation.pdf">
    Bootstrapping Applications via AWS CloudFormation</a>
+
+
+## Shell script #
+
+0. First, let's interactively run a command such as this (but change the region code):
+
+   <tt><strong>
+   aws ec2 describe-security-groups \-\-region us-west-2
+   </strong></tt>
+
+
+0. Use a text editor to begin defining a shell script.
+
+   We define enviornment variables with values,
+   such as REGION needed for most aws CLI commands. 
+
+   <pre>
+#!/bin/bash
+REGION=us-west-2
+SGOUT="tmp/sgnifo"
+aws ec2 describe-security-groups \-\-region $REGION \-\-output text > $SGOUT
+IFS=$'\n'
+cat $SGOUT | while read line
+do
+   </pre>
+
+The IFS (Internal Field Separator) adds a "new line" break.
+
+The cat command is piped to a while which reads each line.
+
+   <pre>
+case $line in
+SECURITYGROUPS*)
+GID=(`echo $line | awk -F"\t" '{print $3}'`)
+GNAME=(`echo $line | awk -F"\t" '{print $4}'`)
+;;
+IPPERMISSIONSEGRESS*)
+PROTO="EGRESS"
+;;
+   </pre>
+
+$3 is for the third position of the output, $4 the fourth position, etc.
+
+Part 3:
+
+   <pre>
+IPPERMISSIONS*)
+FROMPORT=(`echo $line | awk -F"\t" '{print $2}'`)
+PROTO=(`echo $line | awk -F"\t" '{print $3}'`)
+TOPORT=(`echo $line | awk -F"\t" '{print $4}'`)
+;;
+esac
+Done
+rm $SGOUT
+   </pre>
+
+
+Part 4:
+
+   <pre>
+IPRANGES*)
+CIDR=(`echo $line | awk -F"\t" '{print $2}'`)
+if [[ "$CIRD" = "0.0.0.0/0" && "$PROTO" != "EGRESS" ]]; then
+   echo "$GNAME, $GID, $CIDR, $PROTO, $FROMPORT, $TOPORT"
+fi
+;;
+   </pre>
+
+"fi" is the "end if" of bash scripts.
+
 
 ## More on Amazon #
 
