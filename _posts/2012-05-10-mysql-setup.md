@@ -15,11 +15,46 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial covers the basics for getting started with MySQL 
-in a hands-on way.
+This tutorial covers the basics for getting started with MySQL on Mac OSX,
+PROTIPs and NOTEs are provided as instructions are presented in a hands-on way.
+
+Content here was developed based on advice from <a href="#Resources">several websites</a>.
+
+<a name="OneOfMany"></a>
+
+## From MySQL to MariaDB to Aurora #
+
+MySQL is open-sourced,
+first proposed by Edgar Cord in 1970.
+The free usage made it a natural choice for other open-source frameworks such as WordPress
+and thus its rapid growth.
+
+The freedom of open-source is realized when Maria-DB was forked as the basis for
+a drop-in replacement for MySQL (MariaDB 5.1.53 is based on MySQL 5.1.53).
+
+After Oracle acquired Sun (MySQL's owner),
+Maria-DB was created by MySQL-founder Michael “Monty” Widenius, 
+who left to start a new company (Monty Program).
+
+   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, My.
 
 
-## Install via Homebrew #
+<a target="_blank" href="https://aws.amazon.com/rds/aurora/">
+https://aws.amazon.com/rds/aurora</a>
+replaces MySQL in the AWS cloud, enabling scaling to 64 TB
+and replicates across 3 zones.
+It's managed by the AWS RDS (Relational Data Service).
+
+
+<a name="InstallMySQL"></a>
+
+## Install MySQL via Homebrew #
+
+PROTP: Use Homebrew instead of downloading from
+   <a target="_blank" href="http://dev.mysql.com/downloads/">
+   http://dev.mysql.com/downloads</a>, which gets you the latest version
+   instead of one vetted.
+
 
 0. Prepare the Homebrew environment (before any Homebrew install):
 
@@ -29,6 +64,8 @@ in a hands-on way.
 
    This can take several minutes.
 
+   Resolve any issues reported.
+
    <tt><strong>
    brew doctor<br />
    brew upgrade
@@ -37,16 +74,7 @@ in a hands-on way.
    This can cause other packages to be downloaded, which can take several minutes.
 
 
-<a name="InstallMySQL"></a>
-
-### Install MySQL via Homebrew #
-
-PROTP: Use Homebrew instead of downloading from
-   <a target="_blank" href="http://dev.mysql.com/downloads/">
-   http://dev.mysql.com/downloads</a>, which gets you the latest version
-   instead of one vetted.
-
-0. Prepare the Homebrew environment (before any Homebrew install):
+0. Run the Homebrew installer:
 
    <tt><strong>
    brew install mysql
@@ -171,9 +199,9 @@ recommends:
 0. Allow MySQL to run under your user account by typing these (don't copy and paste from this page):
 
    <pre><strong>
-   mysql_install_db \-\-verbose \-\-user=\`whoami\` \\<br />
-   \-\-basedir="$(brew \-\-prefix mysql)" \\<br />
-   \-\-datadir=/usr/local/var/mysql \-\-tmpdir=/tmp
+   mysql_install_db --verbose --user=\`whoami\` \\<br />
+   --basedir="$(brew --prefix mysql)" \\<br />
+   --datadir=/usr/local/var/mysql --tmpdir=/tmp
    </strong></pre>
 
 
@@ -234,6 +262,8 @@ recommends:
    </strong></tt>
 
 
+<a name="UninstallMySQL"></a>
+
 ### Uninstall MySQL #
 
 
@@ -280,22 +310,12 @@ recommends:
 
 
 
+<a name="MariaDB"></a>
+
 ## Install MariaDB via Homebrew #
 
-MySQL is open-sourced,
-first proposed by Edgar Cord in 1970.
-The free usage made it a natural choice for other open-source frameworks such as WordPress.
-
-The freedom of open-source is realized when Maria-DB was forked as the basis for
-a drop-in replacement for MySQL (MariaDB 5.1.53 is based on MySQL 5.1.53).
-
-Maria-DB is from MySQL-founder Michael “Monty” Widenius, 
-who left after Oracle acquired Sun to start a new company (Monty Program).
-Both use main configuration file <strong>my.cnf</strong>. 
-
-   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, My.
-
 MariaDB ships with additional storage engines installed (no compilation as with MySQL):
+
 Aria, XtraDB (an enhanced and extended version of the InnoDB storage engine), PBXT, FederatedX (a drop-in replacement for Federated), OQGraph, and SphinxSE 
 in addition to standard MyISAM, blackhole, CSV, Memory, etx.
 
@@ -304,8 +324,8 @@ in addition to standard MyISAM, blackhole, CSV, Memory, etx.
 <a target="_blank" href="http://kb.askmonty.org/v/mariadb">
 http://kb.askmonty.org/v/mariadb</a> is the MariaDB Knowledgebase. 
 
-
-
+0. Take a full backup before doing this.
+0. <a href="#UninstallMySQL">Uninstall MySQL</a>.
 0. Install MariaDB:
 
    <tt><strong>
@@ -376,9 +396,9 @@ Or, if you don't want/need a background service you can just run:
 
 0. Invoke interactively from the command line:
 
-   <tt><strong>
+   <pre><strong>
    mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql 
-   </strong></tt>
+   </strong></pre>
 
    NOTE: The `whoami` returns the output from running the whoami command.
 
@@ -433,15 +453,31 @@ Or, if you don't want/need a background service you can just run:
 
 ## Interactive SQL Client #
 
-0. Download SequelPro SQL client:
+   NOTE: There is no brew install sequelpro.
+
+0. Download SequelPro SQL client from
 
    <a target="_blank" href="http://www.sequelpro.com/">http://www.sequelpro.com</a>
 
-   NOTE: There is no brew install sequelpro.
+0. In the Downloads folder click the file downloaded
+   (sequel-pro-1.1.2.dmg as of June 2016).
 
-0. Install the installer from the Downloads folder.
+0. In the window that pops up, click "Sequel Pro".
+0. Click "Open" in the "downloaded from the internet" dialog.
+0. Click X to dismiss the "Sequel Pro" window.
+0. Press command+tab to select Sequel Pro's "pancake" icon.
+
+   QUESTION: Where is this installed?
+
+0. Pinch with three fingers for the Mac's Launch window.
+
+   <a name="Sockets"></a>
+
+   ### Sockets #
 
 0. Create a new connection via the Socket option without changing any settings.
+
+   Both MySQL and MariaDB use main configuration file <strong>my.cnf</strong>. 
 
 
 
@@ -608,12 +644,6 @@ These commands are entered `mysql>`.
    Query OK, 1 row affected (0.00 sec)
    </pre>
 
-0. Drop:
-
-   <tt><strong>
-   DROP DATABASE IF EXISTS sampledb;
-   </strong></tt>
-
 
 0. Switch
 
@@ -632,7 +662,33 @@ PROTIP: Interact with the databae via batch-submitted files for repeatability.
 
    TBD
 
-0. Invoke the SQL script:
+PROTIP: Interact with the databae via batch-submitted files for repeatability.
+
+0. Invoke a SQL script using the Linux source command:
+
+   <tt><strong>
+   source mydb5
+   </strong></tt>
+
+About the sample database creation
+
+
+0. Since the script creates the database, we begin by deleting it:
+
+   <pre>
+   DROP DATABASE IF EXISTS sampledb;
+   </pre>
+
+0. PROTIP: If a SQL script needs to create several databases,
+   group the various actions for a particular database together rather than
+   doing each step for each database.
+
+   <pre>
+   DROP DATABASE IF EXISTS sampledb;
+   create database sampledb;
+   use sampledb;
+   </pre>
+
 
    To create a database based on
    <a target="_blank" href="http://stackoverflow.com/questions/20958/list-of-standard-lengths-for-database-fields"> this discussion</a>:
@@ -671,45 +727,8 @@ CREATE TABLE  'inmail','NEWMAIL' (
 </pre>
 
 
-<a name="WriteSQL"></a>
 
-## Write some SQL #
-
-   <tt>USE mydb3</tt>
-
-
-0. Specify database name:
-
-   <tt>USE mydb3</tt>
-
-0. Delete a database:
-
-   <tt>drop mydb3</tt>
-
-
-<a name="CommandFiles"></a>
-
-## Command Files #
-
-PROTIP: Interact with the databae via batch-submitted files for repeatability.
-
-0. Invoke a SQL script:
-
-<tt><strong>
-source mydb5
-</strong></tt>
-
-
-
-
-## Amazon Aurora #
-
-https://aws.amazon.com/rds/aurora/
-it replaces MySQL, but also enables scaling to 64 TB
-and replicates across 3 zones.
-
-It's managed by RDS (Relational Data Service).
-
+<a name="Resources></a>
 
 ## Resources #
 
@@ -717,12 +736,9 @@ Pinal Dave (pronounced "da way", @pinaldave from India)
 has been producing video courses for years for
 <a target="_blank" href="http://blog.sqlauthority.com/"> SQLAuthority.com</a>
 before doing the 29 Apr 2013
-<a target="_blank" href='https://app.pluralsight.com/library/courses/mysql-fundamentals-part1/table-of-contents">
+<a target="_blank" href="https://app.pluralsight.com/library/courses/mysql-fundamentals-part1/table-of-contents">
 MySQL Fundamentals video course on Pluralsight</a>
 (2 hour 37 minutes)
-
-
-
 
 
 0. To login using the user name I created:
