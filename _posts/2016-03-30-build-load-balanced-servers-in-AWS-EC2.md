@@ -17,20 +17,42 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes the automated setup of multi-stage (dev+QA+prod) 
-<strong>enterprise</strong> environments within EC2,
-using <strong>CloudFormation</strong> 
+This tutorial focuses on both the automated setup of multi-stage (dev+QA+prod) 
+<strong>enterprise</strong> environments within AWS
+by specifying <strong>CloudFormation</strong> 
 in the sequence needed during manual configuration on the AWS Management Console.
 
-NOTE: This page is in draft form at the moment.
+There are several ways to setup
+<strong>enterprise</strong> environments within AWS,
+listed from the most manual (most difficult) to the easiest (most automated):
+
+   1. Manually typing in the AWS Management Console
+   2. Interactively use AWS CLI (Command Line Interface) to type commands with parameters 
+   3. Create shell scripts calling AWS CLI commands to specify the sequence of construction
+   4. Create CloudFormation templates which declare what Amazon creates 
+   5. Use [Amazon's Elastic Beanstalk and Opsworks services](/aws-server-deploy-options/).
 
 TODO: Make this diagram into a video:
 <amp-img width="650" height="483" alt="fig-aws-enterprise-v02-650x483-80"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16263954/1389b3ba-3834-11e6-8471-46d2602d3f39.jpg"></amp-img>
 
-The CloudFormation coding here is one of several ways to automate server setup.
-See [my tutorial on Elastic Beanstalk and Opsworks](/aws-server-deploy-options/).
-Basics about CloudFormation is found there.
+NOTE: This page is in draft form at the moment.
+
+
+## Human interaction #
+
+The two main types of people interacting with AWS are
+1) Administrators who define the enviornment
+and
+2) end-users of the whole setup. 
+
+
+My [AWS basic on-boarding tutorial](/aws-onboarding/) describes setting up an account,
+use of the AWS Management Console, and 
+installation of AWS Command-line Interface.
+
+
+
 
 This tutorial shows how to configure CloudFormation JSON for each aspect
 of AWS for an enterprise, by sequence of dependencies:
@@ -47,55 +69,6 @@ of AWS for an enterprise, by sequence of dependencies:
    0. <a href="#MapRegionAMI">AMI</a> by Region, with Auto-scale
 
 <hr />
-
-<a name="Account"></a>
-
-## AWS Account #
-
-PROTIP: Create a sub-account to do work rather than using the account
-created for billing. 
-
-0. Obtain an AWS account using the email address of the billing administrator,
-   providing your credit card.
-
-0. Open AWS Management Console and login as that billing administrator.
-
-0. Create a sub-account.
-
-0. Assign permissions to that sub-account.
-
-   This sub-account will be used in the remainder of this tutorial.
-
-
-<a name="AWSCLI"></a>
-
-## AWS CLI #
-
-0. Open a Terminal shell window to install the Command-line Interface (CLI).
-
-
-<a name="IAM"></a>
-
-## IAM #
-
-AWS Identity and Access Management (IAM) controls access to
-users, groups, roles, and policies.
-
-0. Assign permissions to make
-
-
-
-0. List users:
-
-   <tt><strong>
-   aws iam list-users \-\-query Users[*].UserName
-   </strong></tt>
-
-0. List groups which the user belongs to :
-
-   <tt><strong>
-   aws iam list-groups-for-user \-\-username ???
-   </strong></tt>
 
 <a name="Launch"></a>
 
@@ -176,6 +149,13 @@ All CF templates must have a version, even though it's always "2010-09-09":
 
    PROTIP: Use #tags as metadata in the Description to
    automate search among multiple files.
+
+   NOTE: CloudFormation follows an <strong>"idempotent"</strong> approach of specifying what is 
+   desired (an end state) rather than specific sequences of actions.
+
+   A script that adds resources would create another new resource each time it is run.
+
+   So no matter how many times the specification is run, the end result is the same.
 
 
 ### Jinja2 like Jackyll yaml #

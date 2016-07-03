@@ -18,28 +18,20 @@ https://wilsonmar.github.io/aws-onboarding/</a>
 
 {% include _toc.html %}
 
-There are several ways to get entry to work within AWS:
-
-0. <a href="#AWSConsole">Manually on a browser AWS Management Console</a>
-0. Elastic Beanstalk
-0. <a href="#CLI">Command line</a>
-0. <a href="#CodeDeploy">CodeDeploy</a>
-0. CloudFormation
-0. Automated using Ansible calling CloudFormation
+This tutorial focuses on getting you setup to access the AWS cloud
+as a System Administrator.
 
 <hr />
-
-<a name="AWSConsole"></a>
-
-## AWS Management Console
 
 Tutorials in Amazon's Qwiklabs use the manual approach,
 so it's presented here to provide notes.
 
+   <a name="AWSConsole"></a>
+
+   ## AWS Management Console
 
 0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
-   http://aws.amazon.com/</a> on web browsers. For mobile devices:
-
+   http://aws.amazon.com/</a> on web browsers. There are apps for mobile devices:
 
    * <a target="_blank" href="http://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730">
    On Google Android mobile phones</a>
@@ -47,9 +39,45 @@ so it's presented here to provide notes.
    * <a target="_blank" href="https://itunes.apple.com/us/app/aws-console/id580990573?mt=8">
    on Apple iPhones and iPads</a>
 
-   Sign up for an account with your credit card if you don't already have one.
+   <a name="Account"></a>
 
-   Once you sign-in, your AWS Console is tied to a particular <a href="#AvailabilityZone">
+   ## AWS Sub-Accounts #
+
+0. Sign-up for an AWS account using the email address of the billing administrator,
+   providing your credit card.
+
+0. Open AWS Management Console and login as the billing administrator root account.
+
+   PROTIP: Create a sub-account to do work rather than using the account
+   created for billing. 
+
+0. Create a sub-account.
+
+   TODO: Add steps.
+
+0. Define <strong>group roles</strong> to permissions.
+
+0. Grant permissions to each <strong>group</strong>.
+
+0. Create <strong>sub-accounts</strong>.
+
+0. Assign <strong>sub-account users</strong> to group roles.
+
+   This sub-account will be used in the remainder of this tutorial.
+
+   NOTE: Groups cannot be nested.
+
+0. Create a sign-in link, such as:
+
+   https://whatever.signin.aws.amazon.com/console
+
+0. Delete root access.
+
+   ## Regions #
+
+0. Sign-in using a sub-account.
+
+   Notice your AWS Console is tied to a particular <a href="#AvailabilityZone">
    Availability Zone</a>, such as "us-west-2":
 
    <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
@@ -61,7 +89,8 @@ so it's presented here to provide notes.
    is now used for <strong>manual review</strong> of one
    Availability Zone at a time.
 
-### Set icon bar with your favorite services #
+
+   ### Set icon bar with your favorite services #
 
 0. There are several ways to select a service.
   One is clicking the icon in the gallery.
@@ -71,6 +100,33 @@ so it's presented here to provide notes.
     ec2-11-22-33-444-compute-1.amazonaws.com
 
 0. Download the PEM/PPK.
+
+
+
+
+<a name="IAM"></a>
+
+## IAM #
+
+AWS Identity and Access Management (IAM) controls access to
+users, groups, roles, and policies.
+
+0. Assign permissions to make
+
+
+
+0. List users:
+
+   <tt><strong>
+   aws iam list-users \-\-query Users[*].UserName
+   </strong></tt>
+
+0. List groups which the user belongs to :
+
+   <tt><strong>
+   aws iam list-groups-for-user \-\-username ???
+   </strong></tt>
+
 
 
 ## Services and Categories #
@@ -193,163 +249,11 @@ are saved in version control systems like Git.
 Types of operating system AMI:
 
    * Amazon Linux 2014.09.2 (CentOS)
-   * Red Hat Enterprise Linux 6.6
+   * Red Hat Enterprise Linux 6.6 (RHEL)
    * SUSE Linux Enterprise Server 12
    * Ubuntu Server 14.04
 
-
 <hr />
-
-
-<a name="CodeDeploy"></a>
-
-## CodeCommit, CodePipeline, Code Deploy #
-
-### Setup instances #
-
-0. In IAM Service, create Role "codedeploy".
-
-0. Create CDInstanceRole
-
-0. In Compute EC2 service, launch Amazon Linux, t2.micro, 2 instances, using the role created above.
-   In Advanced Details, paste script from https://gist.github.com/mikepfeiffer/4d9386afdcceaf29493a
-
-   EC2 UserData script to install <strong>CodeDeploy agent</strong>:
-
-   <pre>
-   #!/bin/bash
-   yum install -y aws-cli
-   cd /home/ec2-user/
-   aws s3 cp 's3://aws-codedeploy-us-east-1/latest/codedeploy-agent.noarch.rpm' . --region us-east-1
-   yum -y install codedeploy-agent.noarch.rpm
-   </pre>
-
-   CUSTOMIZE folder, region mentionedtwice.
-
-0. Tag instances with name "Dev" for Development.
-0. Add a Security Group Role for HTTP. No SSH.
-
-### AWS CodeDeploy Setup #
-
-0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/codedeploy/home?region=us-west-2#/first-run/welcome">
-   Got to AWS CodeDeploy service, Get Started Now</a>.
-0. Custom deployment.
-0. Specify an Application Name and Deployment Group Name according to your organization's naming standards.
-0. Select Tag Type "Amazon EC2" value "Dev" specified for 2 instances in a step above.
-0. Deployment Config - AllAtOnce (instead of Half at a time).
-0. No Triggers.
-0. Select a Service Role ARN defined in a prior step. Create Application.
-
-   The Console provides code to deploy from a S3 bucket.
-
-### AWS CodePipeline #
-
-0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/codepipeline/home?region=us-west-2#/create/Name">
-  Go to AWS CodePipeline service, Get Started</a>.
-0. Specify a Pipeline name according to your organization's naming standards. ("Pipeline1")
-0. Select Source Provider: GitHub (NOT Amazon S3). Click Connect to GitHub.
-0. Select a Repository and Branch from the GitHub account authenticated.
-0. Select Deployment provider AWS CodeDeploy (NOT AWS Elastic Beanstalk).
-0. Supply AWS CodeDeploy Application Name and Deployment group from earlier.
-0. Do not define Build Stage (until we have a build).
-0. Create Service Role using default name "AWS-CodePipeline-Service". View Policy Document to review Actions allowed the role:
-0. Review Pipeline summary.
-
-### View app deployed #
-
-0. In EC2, get the Public DNS address (such as "ec2-11-222-177-132-us-west-2-compute.amazonaws.com").
-0. Paste URL in an internet browser.
-
-   It should respond with "Congratualations".
-
-### Make Change #
-
-0. Commit.
-0. Detect a change.
-0. View app deployed again.
-
-
-0. Create a Deployment Group or Autoscaling Group
-0. CodePipeline
-
-
-0. appspec.yml file in the root folder in source code repo
-
-   <pre>
-version: 0.0
-os: linux
-files:
-  - source: /index.html
-    destination: /var/www/html/
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
-   </pre>
-
-
-0. For sample application, it's just a single index.html file containing CSS, no JavaScript.
-
-   https://github.com/mikepfeiffer/aws-codedeploy-linux/blob/master/index.html
-
-0. Install dependencies
-
-   <pre>
-   #!/bin/bash
-   yum install -y httpd
-   </pre>
-
-0. Start server
-
-   <pre>
-   #!/bin/bash
-   service httpd start
-   </pre>
-
-0. Stop server:
-
-   <pre>
-   #!/bin/bash
-   isExistApp = `pgrep httpd`
-   if [[ -n  $isExistApp ]]; then
-       service httpd stop        
-   fi
-   </pre>
-
-using AWS Code Services
-
-CodeDeploy agent in EC2 Deploy Group
-
-* Amazon Route 53 globomantics.com
-
-* https://github.com/mikepfeiffer/PowerShell
-
-## AMIs #
-
-<a target="_blank" href="https://github.com/Netflix/aminator/">
-Netflix/aminator</a> open-sourced their Python tool for creating EBS-backed AMIs.
-It's described in <a target="_blank" href="http://techblog.netflix.com/2013/03/ami-creation-with-aminator.html">
-this blog from 2013</a>.
-
-   "We knew that application startup latency would be very important, especially during scale-up operations."
-
-Building a server from installers in S3
-can be time-consuming because it take so much I/O.
-
-To save time, their strategy is to create a <strong>Base AMI</strong>
-by taking a snapshot of the root volume
-and make it available as an EBS volume that can be used to launch an EC2 instance.
-
-This is simpler than Packer from Hashicorp.
-
 
 ## Advanced User Data #
 

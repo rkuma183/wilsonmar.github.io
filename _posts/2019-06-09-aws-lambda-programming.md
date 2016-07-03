@@ -35,6 +35,16 @@ This is follow-up to my [AWS Lambda basics tutorial](/aws-lambda/).
 ## Console
 
 
+var http = require('http');
+var url = "http://[host]/[endpoint]?[params]";
+http.get(url, function(res) {
+console.log("Got response: " + res.statusCode);
+context.done(null,'');
+}).on('error', function(e) {
+console.log("Got error: " + e.message);
+context.done(null,'');
+});
+
 
 ## Node.js SDK Confg #
 

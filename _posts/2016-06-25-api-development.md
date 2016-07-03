@@ -318,6 +318,25 @@ https://help.apiary.io/tools/mock-server
    HelloReverb.com</a>
 
 
+## Metrics #
+
+In her <a target="_blank" href="http://freecontent.manning.com/designing-apis-communicating-with-your-developers/">
+book Irresistible APIs</a>
+Kirsten L. Hunter suggests these metrics:
+
+   * Number of users reading or writing via the API
+   * Usage through the API vs. through the main product
+   * Number of applications interacting via the API
+   * Number of new users coming through via third party applications
+
+   * Ratio of read vs. write of new data
+   * Percentage of unique content 
+   <br /><br />
+
+"In order to communicate this with your customer developers, the information needs to be clearly available for them to read. The wording needs to be clear and approachable and make it easy for the developers to understand why you have the API and what you’re hoping to accomplish with your platform."
+
+
+
 <a id="IRC"></a>
 
 ## IRC Chat channel

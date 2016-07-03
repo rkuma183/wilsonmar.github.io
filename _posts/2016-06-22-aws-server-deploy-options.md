@@ -38,7 +38,6 @@ The options:
    * Value-added services outside Amazon, such as <a target="_blank" href="https://www.hashicorp.com/#products">
    Terraform (and licensed Atlas) from Hashicorp</a>.
 
-All these follow an "idempotent" approach of specifying what is desired rather than specific sequences of actions.
 
 <hr />
 

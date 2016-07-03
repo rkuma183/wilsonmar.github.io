@@ -29,15 +29,21 @@ first proposed by Edgar Cord in 1970.
 The free usage made it a natural choice for other open-source frameworks such as WordPress
 and thus its rapid growth.
 
-The freedom of open-source is realized when Maria-DB was forked as the basis for
-a drop-in replacement for MySQL (MariaDB 5.1.53 is based on MySQL 5.1.53).
-
 After Oracle acquired Sun (MySQL's owner),
-Maria-DB was created by MySQL-founder Michael “Monty” Widenius, 
-who left to start a new company (Monty Program).
+the freedom of open-source was realized when Maria-DB was forked 
+to create a <strong>drop-in replacement for MySQL</strong>
+by MySQL co-founder Michael “Monty” Widenius, 
+who left Oracle to start a new company (Monty Program)
 
    NOTE: The "My" in MySQL is named after co-founder Michael's daughter, My.
 
+Many developers have migrated to MariaDB.
+(MariaDB 5.1.53 is based on MySQL 5.1.53).
+
+<a href="#InstallMariaDB">Click here to go straight to installing MariaDB</a>
+rather than upgrading.
+
+### AWS Aurora #
 
 <a target="_blank" href="https://aws.amazon.com/rds/aurora/">
 https://aws.amazon.com/rds/aurora</a>
@@ -104,6 +110,8 @@ Or, if you don't want/need a background service you can just run:
 
    Notice the installer is specific to the version of Mac OSX (such as "El Capitan").
 
+
+
    Alternately, to install a specific version, such as 5.6:
 
    <tt><strong>
@@ -111,6 +119,9 @@ Or, if you don't want/need a background service you can just run:
    </strong></tt>
 
 0. Expose folders and dependencies:
+
+   NOTE: mysql is the command line tool.  
+   mysqld is the server.
 
    <tt><strong>
    brew info mysql
@@ -171,7 +182,6 @@ Or, if you don't want/need a background service you can just run:
    </pre>
 
 
-
 ## Configure #
 
 0. Open in Terminal a shell window.
@@ -182,28 +192,9 @@ Or, if you don't want/need a background service you can just run:
    sudo chown -R mysql /usr/local/var/mysql/
    </strong></tt>
 
-0. Since OS X expects the MySQL socket to be in folder <strong>/var/mysql</strong>, 
-   create it and add a symbolic link to where the socket actually lives:
-
-   <tt><strong>
-   sudo mkdir /var/mysql<br />
-   sudo chmod 755 /var/mysql<br />
-   sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
-   </strong></tt>
-
-
-<a target="_blank" href="http://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/">
-Joe Fallon, in his blog</a> 
-recommends:
-
-0. Allow MySQL to run under your user account by typing these (don't copy and paste from this page):
-
-   <pre><strong>
-   mysql_install_db --verbose --user=\`whoami\` \\<br />
-   --basedir="$(brew --prefix mysql)" \\<br />
-   --datadir=/usr/local/var/mysql --tmpdir=/tmp
-   </strong></pre>
-
+0. <a target="_blank" href="http://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/">
+   Joe Fallon, in his blog</a>, proposed additional configurations.
+    
 
 ## Invoke daemon process #
 
@@ -266,7 +257,6 @@ recommends:
 
 ### Uninstall MySQL #
 
-
 0. Remove MySQL:
 
    <tt><strong>
@@ -310,12 +300,11 @@ recommends:
 
 
 
-<a name="MariaDB"></a>
+<a name="InstallMariaDB"></a>
 
 ## Install MariaDB via Homebrew #
 
 MariaDB ships with additional storage engines installed (no compilation as with MySQL):
-
 Aria, XtraDB (an enhanced and extended version of the InnoDB storage engine), PBXT, FederatedX (a drop-in replacement for Federated), OQGraph, and SphinxSE 
 in addition to standard MyISAM, blackhole, CSV, Memory, etx.
 
@@ -453,6 +442,10 @@ Or, if you don't want/need a background service you can just run:
 
 ## Interactive SQL Client #
 
+   NOTE: mysqladmin is the default client tool for performing administrative tasks.
+
+   PROTIP: Use Sequel Pro's Export and Import features (use a MySQL dump) to move databases.
+
    NOTE: There is no brew install sequelpro.
 
 0. Download SequelPro SQL client from
@@ -461,7 +454,6 @@ Or, if you don't want/need a background service you can just run:
 
 0. In the Downloads folder click the file downloaded
    (sequel-pro-1.1.2.dmg as of June 2016).
-
 0. In the window that pops up, click "Sequel Pro".
 0. Click "Open" in the "downloaded from the internet" dialog.
 0. Click X to dismiss the "Sequel Pro" window.
@@ -471,9 +463,37 @@ Or, if you don't want/need a background service you can just run:
 
 0. Pinch with three fingers for the Mac's Launch window.
 
+0. Use <a target="_blank" href="http://www.sequelpro.com/docs/Keyboard_Shortcuts">
+   SequelPro's keyboard shortcuts</a>.
+
    <a name="Sockets"></a>
 
    ### Sockets #
+
+0. Since OS X expects the MySQL socket <strong>mysql.sock</strong> 
+   to be in folder <strong>/var/mysql</strong>, 
+   create it and add a symbolic link to where the socket actually lives:
+
+   <tt><strong>
+   sudo mkdir /var/mysql<br />
+   sudo chmod 755 /var/mysql<br />
+   sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
+   </strong></tt>
+
+   Alternately, installation of MySQL 5 by MacPorts places the Socket File in folder:
+
+   <pre>
+   /opt/local/var/run/mysql5/mysqld.sock
+   </pre>
+
+   and data files in
+
+   <pre>
+   /opt/local/var/db/mysql5/
+   </pre>
+
+   <a target="_blank" href="http://www.sequelpro.com/docs/Where_are_MySQLs_Files">
+   http://www.sequelpro.com/docs/Where_are_MySQLs_Files</a>
 
 0. Create a new connection via the Socket option without changing any settings.
 
@@ -526,7 +546,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
    <tt><strong>
    quit
-   <strong></tt>
+   </strong></tt>
 
    Then bring up mysql again.
 
@@ -545,9 +565,17 @@ launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 <a name="VerifyDB"></a>
 
-## Verify #
+## List databases #
 
-0. List databaes:
+There are two ways to get a list of databases:
+
+0. From the command line:
+
+   <tt><strong>
+   mysqlshow
+   </strong></tt>
+
+   From within MySQL:
 
    <tt><strong>
    show databases;
@@ -561,12 +589,37 @@ launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 +--------------------+
 | information_schema |
 | mysql              |
-| sampledb           |
 +--------------------+
 3 rows in set (0.00 sec)
    </pre>
 
 
+
+<a name="MySQLAdmin"></a>
+
+## MySQLAdmin #
+
+mysqladmin is a command-line interface for administrators to perform server administration tasks.
+
+0. On a Terminal command line:
+
+   <tt><strong>
+   mysqladmin
+   </strong></tt>
+
+   The response is long, starting with...
+
+   <pre>
+mysqladmin  Ver 8.42 Distrib 5.7.13, for osx10.11 on x86_64
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+&nbsp;
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+&nbsp;
+Administration program for the mysqld daemon.
+Usage: mysqladmin [OPTIONS] command command....
+   </pre>
 
 <a name="ManageUsers"></a>
 
@@ -590,7 +643,7 @@ launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
    ->
    </pre>
 
-   To exit, press control+C and press Enter.
+   To exit, press control+C then Enter.
 
    Enter more lines:
 
@@ -664,16 +717,25 @@ PROTIP: Interact with the databae via batch-submitted files for repeatability.
 
 PROTIP: Interact with the databae via batch-submitted files for repeatability.
 
+0. Save the SQL script to a folder such as ~/sql.
+
 0. Invoke a SQL script using the Linux source command:
 
    <tt><strong>
-   source mydb5
+   mysql < ~/sql/sqlfile1
    </strong></tt>
 
-About the sample database creation
+0. Invoke a SQL script using the Linux source command:
 
+   <tt><strong>
+   source file_name<br />
+   \. file_name
+   </strong></tt>
 
-0. Since the script creates the database, we begin by deleting it:
+   About the sample database creation
+
+0. Since the script creates the database, 
+   the repeatable script needs to begin by deleting it:
 
    <pre>
    DROP DATABASE IF EXISTS sampledb;
@@ -728,7 +790,7 @@ CREATE TABLE  'inmail','NEWMAIL' (
 
 
 
-<a name="Resources></a>
+<a name="Resources"></a>
 
 ## Resources #
 
@@ -741,9 +803,9 @@ MySQL Fundamentals video course on Pluralsight</a>
 (2 hour 37 minutes)
 
 
-0. To login using the user name I created:
+## More on OSX
 
-<tt><strong>
-sql5 -u mysqladmin -p
-</strong></tt>
+This is one of a series on Mac OSX:
+
+{% include mac_links.html %}
 

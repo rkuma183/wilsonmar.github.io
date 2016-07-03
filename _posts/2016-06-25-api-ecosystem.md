@@ -111,6 +111,19 @@ src="https://cloud.githubusercontent.com/assets/300046/16363159/2761d3c4-3b7f-11
 </amp-img>
 
 
+## Summary #
+
+What I'm advocating here is the programming of code generation programs so that 
+the many future changes in requirements will be automatically reflected.
+
+> Email or call me so we can see how this can work for you and your organization.
+
+We're not talking about painting the Mona Lisa here.
+
+We're talking about generating code based on a standard specification (Swagger)
+with known formats.
+
+
 ## More on API Microservices #
 
 This is one of a series:
