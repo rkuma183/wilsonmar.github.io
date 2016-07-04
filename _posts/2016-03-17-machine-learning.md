@@ -17,11 +17,39 @@ comments: true
 
 Several organizations are in an arms race in Artificial intelligence.
 
-Cloud vendors are hoping to cash in by charging for processing.
+   * Amazon
+   * Google
+   * Microsoft 
+   <br /><br />
+
+Cloud vendors, especially, are hoping to cash in by charging for processing.
+
+
+<a target="_blank" href="https://dato.com/products/create/">
+GraphLab Create</a> from Dato 
+provides scalable "pre-implemented" ML algorithms 
+using Python installed using Anaconda.
+Entire courses on its use is at
+
+   * https://www.coursera.org/learn/ml-foundations
+   * https://dato.com/learn/userguide/
+   * https://dato.com/products/create/docs/
+   * https://github.com/learnml/machine-learning-specialization
+   * https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
+
+When the one-year free license is over, consider 
+scikit-learn.
+
+For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
+Numpy</a> open-source Python library for fast performance with data that fits in memory.
+<a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
+Quickstart</a>.
+
+## Initiatives #
+
+Below are various initiatives
 
 <a target="_blank" href="https://algorithmia.com/algorithms">algorithmia.com</a>
-
-Here are the various initiatives:
 
 ## Conversions
 
@@ -74,6 +102,16 @@ Here are the various initiatives:
    * https://algorithmia.com/algorithms/nlp/SentimentAnalysis
 
    * IBM
+
+## Tools for Data Manipulation #
+
+<a target="_blank" href="https://github.com/dato-code/SFrame">
+SFrame</a> is an open-source, highly-scalable Python library for data manipulation. 
+Unlike <a target="_blank" href="http://pandas.pydata.org/">
+Pandas</a>, SFrame is not limited to datasets which can fit in memory, 
+so it can deal with large datasets, even on a laptop.
+
+
 
 ## Footnotes
 

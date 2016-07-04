@@ -106,7 +106,8 @@ Switch to use an internet browser to see my list of programs for Mac OSX at
    interesting brew tap</a>.
 
    * <a href="#Cask">**cask**</a> packages are installed using the `brew cask` command which is
-     an extension to brew that allows management of applications with a <strong>graphical</strong> user interface (GUI).
+     an extension to Homebrew that allows management of applications with a 
+     <strong>graphical</strong> user interface (GUI).
 
    * **pip** are Python plug-ins.
    * <a href="#npm">**npm**</a> are Node modules (such as Express).
@@ -131,135 +132,11 @@ The other columns in the spreadsheet:
 
 ## Homebrew #
 
-Homebrew is the packager for Mac.
-
-0. Verify brew installation:
-
-   <tt><strong>
-   brew doctor
-   </strong></tt>
-
-0. List brew packages already installed:
-
-   <tt><strong>
-   brew list
-   </strong></tt>
-
-0. List brew packages obsolete:
-
-   <tt><strong>
-   brew outdated
-   </strong></tt>
-
-
-
-<a name="Tap"></a>
-
-## Tap #
-
-
-0. List brew tap packages already installed:
-
-   <tt><strong>
-   brew tap
-   </strong></tt>
 
 
 <a name="Cask"></a>
 
 ## Cask #
-
-Skip the long URLs, the "To install, drag this icon…", and manually deleting installer files.
-
-0. <a target="_blank" href="https://caskroom.github.io/">
-   https://caskroom.github.io</a>, the home page, said there are 3,197 casks (as of June 5, 2016).
-
-   QUESTION: Is there a graph of growth in cask counts over time?
-
-0. Install the cask extension to Homebrew:
-
-   <pre><strong>
-   brew tap caskroom/cask
-   </strong></pre>
-
-   Alternately:
-
-   <pre><strong>
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
-   </strong></pre>
-
-0. Search for a cask by name, in website is where casks are obtained:
-
-   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/search?utf8=✓">
-   https://github.com/caskroom/homebrew-cask/search?utf8=✓</a>
-
-   Alternately, run a search command. This example searches for "yo":
-
-   <pre><strong>
-   brew cask search yo
-   </strong></pre>
-
-   PROTIP: One should see the cask definition before using it.
-   I would be suspicious of casks with sparse information.
-
-   The safe way to get the homepage URL of the programmer is from here (don't Google it and end up at a rogue site).
-
-0. Look at some cask definitions:
-
-   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb">
-   https://github.com/caskroom/homebrew-cask/blob/master/Casks/google-chrome.rb</a>
-   is a sample cask definition:
-
-{% highlight text %}
-cask 'google-chrome' do
-  version :latest
-  sha256 :no_check
-
-  url 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
-  name 'Google Chrome'
-  homepage 'https://www.google.com/chrome/'
-  license :gratis
-
-  auto_updates true
-
-  app 'Google Chrome.app'
-
-  zap delete: [
-                '~/Library/Application Support/Google/Chrome',
-                '~/Library/Caches/Google/Chrome',
-                '~/Library/Caches/com.google.Chrome',
-                '~/Library/Caches/com.google.Chrome.helper.EH',
-                '~/Library/Caches/com.google.Keystone.Agent',
-                '~/Library/Caches/com.google.SoftwareUpdate',
-                '~/Library/Google/GoogleSoftwareUpdate',
-                '~/Library/Logs/GoogleSoftwareUpdateAgent.log',
-              ],
-      rmdir:  [
-                '~/Library/Caches/Google',
-                '~/Library/Google',
-              ]
-end{% endhighlight %}
-
-0. Install the cask:
-
-   <tt><strong>
-   brew cask install google-chrome
-   </strong></tt>
-
-   Cask downloads then moves the app to the ~/Applications folder,
-   so it can be opened this way:
-
-0. Open the installed cask from Terminal:
-
-   <pre><strong>
-   open /Applications/"Google Chrome.app"
-   </strong></pre>
-
-0. Installing with cask enables you to cleanup:
-
-   <pre><strong>
-   brew cask cleanup
-   </strong></pre>
 
 
 <a name="Dotfiles"></a>
@@ -320,6 +197,7 @@ The above enables him to invoke:
 
 
    * https://mattstauffer.co/blog/setting-up-a-new-os-x-development-machine-part-3-dotfiles-rc-files-and-ssh-config
+
 
 <a name="EditApps"></a>
 

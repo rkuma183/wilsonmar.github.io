@@ -19,12 +19,17 @@ comments: true
 
 <a id="PackagInstallerz"></a>
 
-## Hard-core #
+## Hard-core Installation #
 
-The hard-core approach is to download the <strong>pip-x.x.x.tar.gz</strong> (tarball) containing source
-(The version may be different when it comes time for you to do this.)
+What I call the "hard-core" approach is to use an internet browser to
 
-* [python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/)
+   * [python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/)
+
+and download the <strong>pip-x.x.x.tar.gz</strong> 
+(tarball "gunzip") containing source.
+
+The "x.x.x" represents the version,
+which probably will be different when it comes time for you to do this.
 
 But there are more "civilized" approaches.
 
@@ -32,11 +37,11 @@ But there are more "civilized" approaches.
 
 CAUTION: There is a conflict of choice here:
 
-   * Conda
+   * <a href="#Conda">Conda</a>
    * MiniCorda 
    * Anacorda 
-   * easy_install
-   * pip
+   * <a href="#easy_install">easy_install</a>
+   * <a href="#PIPz">pip</a> (Python Installation Packager, built on top of setuptools)
 
 Differences:
 
@@ -45,21 +50,21 @@ Differences:
 * Conda is both.
 
 * pip can install anything from pypi in one command. 
-* conda requires three commands: skeleton, build, install and possibly more
+* conda requires at least three commands: skeleton, build, install, and possibly more
 
 * Conda handles library dependencies outside of the Python packages as well as the Python packages themselves. 
-  Conda also creates a virtual environment, like virtualenv does.
 
-* pip compiles everything from source if a wheel is not available.
+* pip compiles everything from source if a "wheel" is not available.
 
    <tt><strong>
    pip install --use-wheel <em>package</em>
    </strong></tt>
 
-* Conda installs from binary, meaning that someone (e.g., Continuum) has already done the hard work of compiling the package, and so the installation is easy. 
+* Conda installs from binary, meaning that someone (e.g., Continuum) 
+   has already done the hard work of compiling the package, making installation easier and faster.
 
-* pip is built on top of setuptools.
 * conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
+
 
 ### Virtualenv and Docker #
 
@@ -80,11 +85,11 @@ Remove hassles from managing per-project virtualenvs by using one of these, depe
    * virtualenvwrapper-win on MS Windows
    * <a target="_blank" href="https://github.com/adambrenecki/virtualfish"> virtualfish</a>
 
-<a id="corda"></a>
+<a name="Conda"></a>
 
-### Corda #
+## Conda installation #
 
-Many prefer to install Python using Conda for better package and environment management. 
+Many prefer to install Python using Conda for better package and environment management.
 
 Conda installs, runs, and updates packages and their dependencies. Its home page:
 
@@ -95,9 +100,9 @@ Conda installs, runs, and updates packages and their dependencies. Its home page
 
 ## PIP (Python Installation Packager)
 
-As of Python 2.7.9 and Python 3.4.x, python.org installers for OS X install pip as well.
-Activestate.com and download ActivePython. 
-It's a simple install that gives you Python and pip. 
+As of Python 2.7.9 and Python 3.4.x, python.org installers for OS X install pip as well
+from Activestate.com and download ActivePython. 
+It's a simple install that gives you both Python and pip. 
 
 According to https://www.python.org/download/mac/tcltk/,
 download from
@@ -106,15 +111,18 @@ file ActiveTcl8.6.3.1.298624-macosx10.5-i386-x86_64-threaded.dmg
 After install, the 
 <a target="_blank" href="file:///Library/Documentation/Help/ActiveTcl-8.6/index.html">
 ActiveTcl User Guide</a> is popped up.
-Yours will be different.
-
 
 Jesse Noller notes in
 <a target="_blank" href="http://jessenoller.com/blog/2009/03/16/so-you-want-to-use-python-on-the-mac">
 So you want to use python on the Mac</a>:
-"Now, some people may recommend you install macports or fink: 
-these are both "sorta" package managers for OS/X, and while I do have macports installed, I do not use it for Python work. 
+"Now, some people may recommend you install Macports or Fink: 
+these are both "sorta" package managers for OS/X, 
+and while I do have Macports installed, I do not use it for Python work. 
 I prefer compilation and self management."
+
+
+
+<a name="easy_install"></a>
 
 ### Easy_install #
 
@@ -130,9 +138,12 @@ to install packages from the web.
 and only fall back to easy_install if  <a target="_blank" href="https://pypi.python.org/pypi/pip">
 pip</a> fails you.
 
+
+
 ### Homebrew install pip #
 
-Alternately, use Homebrew to install pip (as <a target="_blank" href="http://penandpants.com/2012/02/24/install-python/">recommended by this site</a>):
+Use [Homebrew](/homebrew/)
+to install pip (as <a target="_blank" href="http://penandpants.com/2012/02/24/install-python/">recommended by this site</a>):
 
    <tt><strong>
    brew install pip
@@ -163,40 +174,39 @@ It's done by creating isolated Python environments using
 <a target="_blank" href="https://pypi.python.org/pypi/virtualenv">
 virtualenv</a> (Virtual python environment builder).
 
-<tt><strong>
-sudo pip install virtualenv
-</strong></tt>
+   <tt><strong>
+   sudo pip install virtualenv
+   </strong></tt>
 
 As the reponse requests, activate:
 
-<tt><strong>
-source /usr/local/opt/autoenv/activate.sh
-<strong></tt>
+   <tt><strong>
+   source /usr/local/opt/autoenv/activate.sh
+   <strong></tt>
 
-This does not issue a response.
+   This does not issue a response.
 
 
 Instead of &quot;venv&quot;, substitute your project name to to create:
 
-<tt><strong>
-cd my_project_folder
-$ virtualenv venv
-</strong></tt>
+   <tt><strong>
+   cd my_project_folder
+   $ virtualenv venv
+   </strong></tt>
 
 Exclude the virtual environment folder from source control by adding it to the git ignore list.
 
 List all environments:
 
-<tt><strong>
-lsvirtualenv
-</strong></tt>
+   <tt><strong>
+   lsvirtualenv
+   </strong></tt>
 
 To use a particular Python interpreter:
 
-<tt><strong>
-virtualenv -p /usr/bin/python2.7 venv
-</strong></tt>
-
+   <tt><strong>
+   virtualenv -p /usr/bin/python2.7 venv
+   </strong></tt>
 
 Activate your project:
 
@@ -204,10 +214,10 @@ Activate your project:
    source venv/bin/activate
    </tt>
 
-The name of the current virtual environment should now appear on the left of the prompt 
-(e.g. (venv)Your-Computer:your_project UserName$). 
+   The name of the current virtual environment should now appear on the left of the prompt 
+   (e.g. (venv)Your-Computer:your_project UserName$). 
 
-From now on, any package that you install using pip will be placed in the venv folder, isolated from the global Python installation.
+   From now on, any package that you install using pip will be placed in the venv folder, isolated from the global Python installation.
 
 If you want to automatically activate an vironment when you cd into it:
 
@@ -375,7 +385,7 @@ Click New
 
 Download the 224.3 MB vagrant_1.7.1.dmg
 
-The binary gets installed in the Applications folder with a link to the /usr/bin so it is added to the shell path.
+   The binary gets installed in the Applications folder with a link to the /usr/bin so it is added to the shell path.
 
 List commands:
 
@@ -398,15 +408,18 @@ the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
 </tt>
 
-<tt>
-ls
-</tt>
-shows Vagrantfile (with capital V).
+   <tt>
+   ls
+   </tt>
 
-https://www.vagrantup.com/downloads.html
+   This shows Vagrantfile (with capital V).
+
+   https://www.vagrantup.com/downloads.html
 
 
-vagrant up --provider=PROVIDER
+   <tt><strong>
+   vagrant up --provider=PROVIDER
+   </strong></tt>
 
 
 https://vagrantcloud.com/boxes/search
@@ -415,12 +428,14 @@ lists boxes created by the community.
 I am pulling the box from ATT M2X https://m2x.att.com/developer/sample-code
 This Repo provides a Vagrant virtual machine that contains several demo applications (Ruby and Python) that report data to AT&T M2X.
 https://github.com/attm2x/m2x-demo-vagrant
-<tt>
-git clone https://github.com/attm2x/m2x-demo-vagrant.git
-</tt>
-vagrant box add chef/centos-6.5	
 
-bootstrap.bash
+   <tt><strong>
+   git clone https://github.com/attm2x/m2x-demo-vagrant.git
+   </strong></tt>
+
+   vagrant box add chef/centos-6.5	
+
+   bootstrap.bash
 
 
 User data for Vagrant is filed in the directory from which vagrant was used and is stored in an invisible directory .vagrant.d
@@ -438,11 +453,15 @@ This advice from 2010</a>
 
 Where you are picking up Python from?
 
-   <tt><strong>type python</strong></tt>
+   <tt><strong>
+   type python
+   </strong></tt>
 
    If Python was installed:
 
-   <tt>python is hashed (/usr/bin/python)</tt>
+   <tt>
+   python is hashed (/usr/bin/python)
+   </tt>
 
    Alternately, if Conda was installed:
 
@@ -456,21 +475,21 @@ In a Terminal issue command:
 
 The response is its version. My Mac Yosemite shows this:
 
-<pre>
+   <pre>
 Python 2.7.6 (default, Sep  9 2014, 15:04:36)
 [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
-</pre>
+   </pre>
 
 Exit the interpreter with Command+D.
 
 
 Get the folder:
 
-<tt><strong>
-python -m site --user-site
-</strong></tt>
+   <tt><strong>
+   python -m site --user-site
+   </strong></tt>
 
 The response I got is this:
 
