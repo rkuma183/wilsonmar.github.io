@@ -87,6 +87,8 @@ Below are various initiatives
 
    * https://algorithmia.com/algorithms/ocr/RecognizeCharacters OCR
 
+   Some of these make use of <strong>OpenCV</strong> (CV = Computer Vision).
+
 ## Voice Recognition
 
    * <a target="_blank" href="https://cloud.google.com/speech/">
@@ -95,7 +97,7 @@ Below are various initiatives
 ## Speech to Text
 
 
-## Sentiment Analysis
+## Sentiment Analysis #
 
    Analyze text for positive or negative sentiment, based on a training database of potential word meanings:
 
@@ -103,7 +105,17 @@ Below are various initiatives
 
    * IBM
 
-## Tools for Data Manipulation #
+## Document Search #
+
+   * TF-IDF = Term Frequency - <strong>Inverse Document Frequency</strong>
+   emphasizes important words 
+   which appear rarely in the corpus searched (rare globally).
+   which appear frequently in document (common locally)
+   Term frequency is measured by word count (how many occurances of each word).
+
+   The IDF to downweight words is the log of #docs divided by 1 + #docs using given word.
+
+## Data Manipulation #
 
 <a target="_blank" href="https://github.com/dato-code/SFrame">
 SFrame</a> is an open-source, highly-scalable Python library for data manipulation. 

@@ -572,6 +572,9 @@ end{% endhighlight %}
    man brew
    </strong></tt>
    
+
+## Social media #
+
 Social media from <a target="_blank" href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/README.md#readme">
 brew's readme</a>:
 
