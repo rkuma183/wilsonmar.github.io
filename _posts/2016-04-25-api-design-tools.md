@@ -35,6 +35,14 @@ To put together an API spec quickly:
 Snow Crash can be used with Dredd (https://github.com/apiaryio/dredd) 
 to verify that endpoints match the spec.
 
+## Resource #
+
+<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-microservices-16510/">
+Introduction to Microservices</a> 
+using containers within Azure Compute Platform
+Container services and Service Fabric 
+video course published 09 June 2016
+by Boris Scholl and Jeffrey Richter within Microsoft
 
 
 ## More on API Microservices #
