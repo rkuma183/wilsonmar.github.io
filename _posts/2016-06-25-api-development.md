@@ -18,10 +18,10 @@ shorturl: https://goo.gl/wojj1R
 
 {% include _toc.html %}
 
-This tutorial is about creating the elements of a full ecosystem for the 
+This tutorial is about creating the elements of a full ecosystem for the
 <strong>development</strong> of programming for Application Programming Interfaces.
 
-<amp-youtube data-videoid="HjTjXpfdf60" layout="responsive" width="480" height="270">
+<amp-youtube data-videoid="bOuMpvrrkGY" layout="responsive" width="480" height="270">
 </amp-youtube>
 In this 3 minute video, click "CC" to toggle Closed Captioning text.
 
@@ -43,13 +43,13 @@ But <strong>Swagger</strong> seems to be the most popular at this time.
 for the API to be discovered from the public galleries,
 but also for developers to more quickly appreciate the intricacies of that API.
 
-What's even better than reading documentation 
+What's even better than reading documentation
 is to interact live with a sample <strong>demonstration</strong> app
-so developers and potential users can really grasp the value of the services exposed. 
+so developers and potential users can really grasp the value of the services exposed.
 
 It helps to have enough <strong>sample data</strong> so
 sample <strong>test automation scripts</strong> have the test coverage needed
-to give assurance that all features really work, and work quickly, even under load. 
+to give assurance that all features really work, and work quickly, even under load.
 
 Many developers now also like having a <strong>mock server</strong> running locally
 so they can work anywhere with a stable end-point, even while off the network.
@@ -64,34 +64,34 @@ src="https://cloud.githubusercontent.com/assets/300046/16357990/923eafda-3ac3-11
 
 <hr />
 
-It takes <strong>effort</strong> 
+It takes <strong>effort</strong>
 to create docs, demo, test, and mock server code.
 
 That is why many have begun writing automated generation of such code.
 
-But ideally, the <strong>logic</strong> used to generate this code 
-would be based on both the interface specifications and 
-<strong>wisdom</strong> culled from analysis of the 
-<strong>metadata</strong> gleaned from the pattern of growth in data over time. 
+But ideally, the <strong>logic</strong> used to generate this code
+would be based on both the interface specifications and
+<strong>wisdom</strong> culled from analysis of the
+<strong>metadata</strong> gleaned from the pattern of growth in data over time.
 
 More sophisticated variation of <strong>data values</strong> in generated code
 is now the frontier.
-Such data include values and statistics from both historical points in time 
+Such data include values and statistics from both historical points in time
 and projections plus predictions of values expected in the future.
 
 With apps of enterprise scope and complexity,
 <strong>manual</strong> coding of the client and server code-base by human developers
-can seem repetitive and be error-prone, therefore taking more time and 
+can seem repetitive and be error-prone, therefore taking more time and
 be more expensive than what could be.
 
 So instead of manually defining interface specs,
-we can <a href="#SpecGen">generate those specs</a> from the 
-<strong>code base</strong> 
-by marking up server code with 
+we can <a href="#SpecGen">generate those specs</a> from the
+<strong>code base</strong>
+by marking up server code with
 <a href="#SpecMarkup">comments</a>
 recognizeble by a <strong>parser such as Doxegen</strong>.
 
-Programs are getting more mature at reading specs to 
+Programs are getting more mature at reading specs to
 <strong>generate programming code</strong>
 in various programming languages.
 
@@ -99,8 +99,8 @@ Being able to generate code from specs can cut time to market
 and encourage reusability of code.
 
 To ensure quality in generated code, community agreement on a strong set of
-<strong>rules</strong> used to drive quality scans of specifications 
-can not just boost confidence, but also 
+<strong>rules</strong> used to drive quality scans of specifications
+can not just boost confidence, but also
 provide a differentiator for community collaboration.
 
 <a name="Diagram"></a>
@@ -330,7 +330,7 @@ Kirsten L. Hunter suggests these metrics:
    * Number of new users coming through via third party applications
 
    * Ratio of read vs. write of new data
-   * Percentage of unique content 
+   * Percentage of unique content
    <br /><br />
 
 "In order to communicate this with your customer developers, the information needs to be clearly available for them to read. The wording needs to be clear and approachable and make it easy for the developers to understand why you have the API and what you’re hoping to accomplish with your platform."
@@ -349,3 +349,5 @@ Kirsten L. Hunter suggests these metrics:
    Beautiful REST & JSON APIs video</a>
    Aug. 7, 2013
    by Les Hazelwood of StormPath | @Hazelwood
+
+*
