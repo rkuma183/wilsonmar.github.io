@@ -65,8 +65,8 @@ a stable end-point running locally while off the network.
 
 All this is what makes up a "full" API ecosystem today.
 
-<amp-img width="650" height="286" alt="api-ecosystem-v05-a-650x286-69"
-src="https://cloud.githubusercontent.com/assets/300046/16362494/68d05a36-3b6d-11e6-8af3-5df961e1d778.jpg">
+<amp-img width="650" height="283" alt="api-ecosystem-v05-needs-650x283-c67.jpg"
+src="https://cloud.githubusercontent.com/assets/300046/16594103/f753f594-42a5-11e6-99cf-fabe7317374d.jpg">
 </amp-img>
 
 <hr />
@@ -106,8 +106,8 @@ docs, the client demo code, mock server code, test code, and benchmark run resul
 
 <a name="Diagram"></a>
 
-<amp-img width="650" height="305" alt="api-ecosystem-v05-650x305-64.jpg"
-src="https://cloud.githubusercontent.com/assets/300046/16363159/2761d3c4-3b7f-11e6-9dd9-31f8b6b46d70.jpg">
+<amp-img width="650" height="307" alt="api-ecosystem-v05-650x307-c64.jpg"
+src="https://cloud.githubusercontent.com/assets/300046/16593898/e34ad1f4-42a4-11e6-9b08-4396c1514ca9.jpg">
 </amp-img>
 
 

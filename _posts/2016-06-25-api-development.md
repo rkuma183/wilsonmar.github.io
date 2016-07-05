@@ -18,99 +18,6 @@ shorturl: https://goo.gl/wojj1R
 
 {% include _toc.html %}
 
-This tutorial is about creating the elements of a full ecosystem for the
-<strong>development</strong> of programming for Application Programming Interfaces.
-
-<amp-youtube data-videoid="bOuMpvrrkGY" layout="responsive" width="480" height="270">
-</amp-youtube>
-In this 3 minute video, click "CC" to toggle Closed Captioning text.
-
-We want <strong>developers</strong> to create <strong>client apps</strong> to access
-<strong>API services</strong>.
-
-But first developers need to find (discover) that the API exists,
-perhaps from a <strong>galleries of available APIs</strong>
-such as <a target="_blank" href="https://apis.guru/">apis.guru</a>.
-
-It's helpful for a gallery to provide results from static
-<strong>quality scans</strong> evaulating the machine-readable
-<strong>interface specs</strong> of the API.
-
-There are several competing API specification formats (such as RAML, WADL, and Swagger).
-But <strong>Swagger</strong> seems to be the most popular at this time.
-
-<strong>Documentation</strong> about the API helps not only
-for the API to be discovered from the public galleries,
-but also for developers to more quickly appreciate the intricacies of that API.
-
-What's even better than reading documentation
-is to interact live with a sample <strong>demonstration</strong> app
-so developers and potential users can really grasp the value of the services exposed.
-
-It helps to have enough <strong>sample data</strong> so
-sample <strong>test automation scripts</strong> have the test coverage needed
-to give assurance that all features really work, and work quickly, even under load.
-
-Many developers now also like having a <strong>mock server</strong> running locally
-so they can work anywhere with a stable end-point, even while off the network.
-Many have found this shortens development cycles by reducing the need to wait for others to
-achieve stability in dependent modules.
-
-All this is what makes up a "full" API offering.
-
-<amp-img width="650" height="262" alt="api-overview-v04-complete-650x262-69"
-src="https://cloud.githubusercontent.com/assets/300046/16357990/923eafda-3ac3-11e6-9ee7-2648bd8b91d6.jpg">
-</amp-img>
-
-<hr />
-
-It takes <strong>effort</strong>
-to create docs, demo, test, and mock server code.
-
-That is why many have begun writing automated generation of such code.
-
-But ideally, the <strong>logic</strong> used to generate this code
-would be based on both the interface specifications and
-<strong>wisdom</strong> culled from analysis of the
-<strong>metadata</strong> gleaned from the pattern of growth in data over time.
-
-More sophisticated variation of <strong>data values</strong> in generated code
-is now the frontier.
-Such data include values and statistics from both historical points in time
-and projections plus predictions of values expected in the future.
-
-With apps of enterprise scope and complexity,
-<strong>manual</strong> coding of the client and server code-base by human developers
-can seem repetitive and be error-prone, therefore taking more time and
-be more expensive than what could be.
-
-So instead of manually defining interface specs,
-we can <a href="#SpecGen">generate those specs</a> from the
-<strong>code base</strong>
-by marking up server code with
-<a href="#SpecMarkup">comments</a>
-recognizeble by a <strong>parser such as Doxegen</strong>.
-
-Programs are getting more mature at reading specs to
-<strong>generate programming code</strong>
-in various programming languages.
-
-Being able to generate code from specs can cut time to market
-and encourage reusability of code.
-
-To ensure quality in generated code, community agreement on a strong set of
-<strong>rules</strong> used to drive quality scans of specifications
-can not just boost confidence, but also
-provide a differentiator for community collaboration.
-
-<a name="Diagram"></a>
-
-<amp-img width="650" height="286" alt="api-ecosystem-v05-650x286-63.jpg"
-src="https://cloud.githubusercontent.com/assets/300046/16362210/3ee9af22-3b65-11e6-8caa-f7571da06386.jpg">
-</amp-img>
-
-<hr />
-
 ## What is Swagger? #
 
 Swagger Core is a **Description Language (DL)** for REST APIs. It provides:
@@ -337,9 +244,12 @@ Kirsten L. Hunter suggests these metrics:
 
 
 
-<a id="IRC"></a>
+<a id="Social"></a>
 
-## IRC Chat channel
+## Social #
+
+* <a target="_blank" href="https://groups.google.com/forum/#!forum/swagger-swaggersocket">
+   Google Group swagger-swaggersocket</a>
 
 * <a target="_blank" href="http://swagger.io/irc/">
    http://swagger.io/irc</a> is provided (instead of a client),
@@ -350,4 +260,4 @@ Kirsten L. Hunter suggests these metrics:
    Aug. 7, 2013
    by Les Hazelwood of StormPath | @Hazelwood
 
-*
+* 
