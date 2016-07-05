@@ -105,15 +105,22 @@ Below are various initiatives
 
    * IBM
 
-## Document Search #
+## Document (article) Search #
 
-   * TF-IDF = Term Frequency - <strong>Inverse Document Frequency</strong>
-   emphasizes important words 
+   <strong>TF-IDF = Term Frequency - Inverse Document Frequency</strong>
+   emphasizes important words (called a vector)
    which appear rarely in the corpus searched (rare globally).
    which appear frequently in document (common locally)
    Term frequency is measured by word count (how many occurances of each word).
 
    The IDF to downweight words is the log of #docs divided by 1 + #docs using given word.
+
+   Cosine similarity normalizes vectors
+   so small angle thetas identify similarity.
+
+   Normalizing makes the comparison invariant to the number of words.
+   The common compromise is to cap maximum word count.
+
 
 ## Data Manipulation #
 
