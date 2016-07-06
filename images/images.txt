@@ -7,6 +7,9 @@ pic images.txt
 
 —— Available in 1900x500 within Amazon:
 
+# pic pic circuit board 1920x800.jpg
+http://www.blakell-europlacer-distribution.co.uk/wp-content/uploads/2016/01/tagarno-2.jpg
+
 # pic cosmonauts-spacewalk-1900x500-24]
   feature: https://cloud.githubusercontent.com/assets/300046/15745195/bad7ce38-288d-11e6-988f-2d13d97eeefa.jpg
   credit: Space.com

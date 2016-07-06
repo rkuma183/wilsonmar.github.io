@@ -24,6 +24,9 @@ Several organizations are in an arms race in Artificial intelligence.
 
 Cloud vendors, especially, are hoping to cash in by charging for processing.
 
+<a target="_blank" href="https://gibhut.com/josephmisiti/awesome-machine-learning/">
+awesome-machine-learning</a>
+provides many links to resources, so they will not be repeated here.
 
 <a target="_blank" href="https://dato.com/products/create/">
 GraphLab Create</a> from Dato 
@@ -38,7 +41,7 @@ Entire courses on its use is at
    * https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
 
 When the one-year free license is over, consider 
-scikit-learn.
+scikit-learn, also using Python with Anaconda.
 
 For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
 Numpy</a> open-source Python library for fast performance with data that fits in memory.

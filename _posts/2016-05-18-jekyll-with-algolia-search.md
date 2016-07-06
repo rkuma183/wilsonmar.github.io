@@ -1,5 +1,6 @@
 ---
 layout: post
+name: jekyll-with-algolia-search
 title: "Search within Hyde format Jekyll websites using Algolia"
 excerpt: "Add a feature-rich search box in your JAM stack website"
 tags: [Jekyll, Algolia, Search, JavaScript, website]
@@ -20,7 +21,11 @@ https://goo.gl/UWKgTu</a>
 
 {% include _toc.html %}
 
-The objective of this document is for you to implement these use cases
+This is written so "newbies" can follow step-by-step. 
+But along the way, PROTIP tags mark where suggestions for higher productivity and 
+security that many advanced programmers may not know.
+
+The objective of this article is for you to implement these use cases
 (click on the underlined items to go straight there):
 
 1. <a href="#QueryTest">Test drive search on a demo site online</a>.
@@ -42,12 +47,40 @@ The objective of this document is for you to implement these use cases
 
    We deep dive into the theme to add JavaScript, CSS, and HTML.
 
-This is written so "newbies" can follow step-by-step, but
-along the way, PROTIP tags mark where suggestions for higher productivity and security that many advanced programmers may not know.
+   NOTE: This section is not complete yet.
+
+Before we dive into Alogolia, know this:
+
+## Alternatives to Aloglia search #
+
+There are alternatives to add search on a Jekyll site:
+
+   * Mike Neumegen of @CloudCannonApp
+   has a <a target="_blank" href="http://jekyll.tips/jekyll-casts/jekyll-search-using-lunr-js/">
+   video blog</a> showing how to add search using 
+   <a target="_blank" href="http://lunrjs.com/">lunr.js</a> 
+   to the <a target="_blank" href="https://github.com/CloudCannon/bakery-store/">
+   bakery-store theme on GitHub</a>
+   of his own design. There is a 
+   <a target="_blank" href="https://css-tricks.com/building-a-jekyll-site-part-1-of-3/">
+   tutorial on how to contruct it</a>.
+
+   Alas, <a target="_blank" href="https://www.youtube.com/watch?v=Nebae_YEok4&t&t=4m50s">
+   [4:50] near the end of this 5-minute video</a>: 
+   
+   <amp-youtube data-videoid="Nebae_YEok4" layout="responsive" width="480" height="270">
+   </amp-youtube>
+   "Where it really falls down is if you have a large site, you need all your search data in a JSON file
+   which has to be downloaded by the client.
+   So if you have hundreds of blog posts, it's going to be 
+   <strong>really slow</strong> if you try to implement it using lunr."
+
+
+<hr />
 
 <a name="QueryTest"></a>
 
-## Test drive search on theme's demo site online #
+## Test drive search on Algolia's Jekyll-Hyde theme's demo site online #
 
 0. Click this link to go to our theme's demo website on-line:
 
@@ -153,15 +186,11 @@ If you already have an account, skip this section.
 
    NOTE: The remainder of this tutorial refers to "acme" in place of YOUR real user/account name.
 
-   <amp-img width="300" height="235" alt="meme-acme-not-real"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
-   <br /><br />
-
 0. Confirm your email.
 
 <a name="ForkRepo"></a>
 
-### Fork and rename the Jekyll template #
+### Fork and rename template altered by Alogolia #
 
 Templates provide pre-formatted CSS and JavaScript.
 Themes are available from a variety of sources.
@@ -949,7 +978,7 @@ NOTE: Alogia emails the number of calls each day.
 
 <a name="AddSearch"></a>
 
-## Add search features to another theme #
+## Add search features to a base theme #
 
 To add search features to another theme,
 we dive into theme JavaScript, CSS, HTML, and configuration files.
@@ -957,7 +986,7 @@ we dive into theme JavaScript, CSS, HTML, and configuration files.
 This sequence is designed so you can rebuild the project at each step
 and not have it blow up:
 
-0. Get a copy of your custom theme working on your local machine (git clone from GitHub)
+0. <a href="#GetTheme">Get a copy of your custom theme working on your local machine</a> 
 0. <a href="#CSSInHead"> Add a link to the algolia.css file in _includes/head.html</a>
 0. <a href="GitIgnorePrivates"> Specify in .gitignore the file containing private keys</a>
 0. Edit _config.yml to add your Algolia credentials
@@ -968,7 +997,52 @@ and not have it blow up:
 public/css/search.css where you put all the search-specific styling (input, results, etc)
 * public/js/search.js where you put the search-specific javascript (instanciating the Algolia client, updating the render, etc)
 
+<hr />
+
 The following examines changes made to the base Hype template to add search capabilities.
+
+<a name="GetTheme"></a>
+
+Get a base theme working on your local machine.
+
+   [My Jekyll Templates page](/jekyll-templates/) lists several.
+
+   As an example, we'll be modifying the Hyde theme since we're already familiar with its
+   look and feel.
+
+   PROTIP: We modify the theme so that we can test the effectiveness of each step.
+
+0. Open an internet browser to see the base theme demo:
+
+   <a target="_blank" href="http://hyde.getpoole.com/">
+   http://hyde.getpoole.com</a>
+
+0. Click the link below to open the GitHub page for the theme:
+
+   <a target="_blank" href="https://github.com/poole/hyde">
+   https://github.com/poole/hyde</a>
+
+   We will add a search box by adding
+   additional HTML, CSS, configuration settings, and JavaScript programming.
+
+0. Click its <strong>Fork</strong> button to put it under your GitHub account.
+
+0. Click "Clone or download", then Download Zip.
+
+0. Use Finder to open the "hyde-master.zip" in the Downloads folder.
+
+0. Unzip it.
+
+0. Move the folder to a directory such as "~/gits/jekyll".
+
+   NOTE: The folder does not contain a Gemfile.
+
+0. Navigate to that folder.
+0. Run Jekyll server to display the static site:
+
+   <tt><strong>
+   jekyll serve
+   </strong></tt>
 
    <a name="CSSInHead"></a>
 
@@ -1062,7 +1136,7 @@ The following examines changes made to the base Hype template to add search capa
 
     <pre>
     &LT;div class="content container">
-      &LT;div class="algolia__initial-content js-algolia__initial-content">{{ content }}&LT;/div>
+      &LT;div class="algolia__initial-content js-algolia__initial-content">\{\{ content \}\}&LT;/div>
     &nbsp;
       &LT;div class="algolia__search-content js-algolia__search-content">
         &LT;h1 class="page-title">Search&LT;/h1>

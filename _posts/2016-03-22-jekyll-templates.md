@@ -15,34 +15,59 @@ comments: true
 
 {% include _toc.html %}
 
-One of the nice things about WordPress and other CMS is one doesn't need to start from scratch.
+This article lists and evaluates templates for Jekyll, 
+which drives GitHub.io static websites.
 
-Same with Jekyll.
-
-The structure of files in jekyll makes it easy (with only a few edits) 
+The structure of content (.md files) created for display using 
+Jekyll makes it easy (with only a few edits) 
 to switch the site to use any number of 
-other Jekyll themes.
+other Jekyll themes / templates.
 
 
-### Jekyll Theme shops
-To see responsive websites, get to it quicker on your mobile smartphone QR code is provided for you.
+### Jekyll Theme shops #
 
-* <a target="_blank" href="http://jekyll.tips/templates/">jekyll.tips/templates</a>
+My personal favorite is:
+
+   * <a target="_blank" href="http://jekyll.tips/templates/">jekyll.tips/templates</a>
+   by Mike Neumegen (<a target="_blank" href="https://twitter.com/mikeneumegen">@mikeneumegen</a>,
+   CEO of @CloudCannonApp, a SaaS services provider for Jekyll) 
 
 Within the Jekyll repository on GitHub:
 
    * <a target="_blank" href="https://github.com/jekyll/jekyll/wiki/Themes">
     github.com/jekyll/jekyll/wiki/Themes</a>
 
-   Premium (paid) themes so you get updates and support, for less than $30.
+Premium (paid) themes so you get updates and support, for less than $30.
 
    * <a target="_blank" href="http://jekyllthemes.io">jekyllthemes.io</a>
 
-     This is an affiliate for other sites offering the same themes for less.
+This is an affiliate for other sites offering the same themes for less.
 
    * <a target="_blank" href="http://jekyllthemes.org">jekyllthemes.org</a>
 
-### Themes from Michael Rose
+<hr />
+
+### Jekyll.tips Templates #
+
+<a target="_blank" href="http://jekyll.tips/templates/">jekyll.tips/templates</a>
+lists templates available at
+<a target="_blank" href="https://github.com/CloudCannon/">
+https://github.com/CloudCannon</a>.
+
+<a target="_blank" href="https://github.com/CloudCannon/bakery-store/">
+Bakery-store</a> is in GitHub but not shown in the gallery.
+
+
+
+## Responsive? #
+
+To see responsive websites, get to it quicker on your mobile smartphone QR code is provided for you.
+
+
+
+<a name="MichaelRoseThemes"></a>
+
+### Themes from Michael Rose #
 
 Content on this website was created by editing markdown text (index.md files)
 stored on GitHub.com.
@@ -61,8 +86,7 @@ It features more use of graphics, and allows for localization.
 Micheal blogs about his themes at
 https://mademistakes.com/articles/using-jekyll-2016/
 
-
-## Features comparison #
+A feature comparison:
 
 | Feature          | HPSTR   | Minimal | Skinny | Simple |
 |:-----------------|:-------:|--------:|-------:|-------:|
@@ -94,7 +118,7 @@ All the themes feature:
    * Links to major social sites
 
 
-## Installation and Generation #
+### Installation and Generation #
 
 Michael Rose presents a concise description of
 <a target="_blank" href="https://mmistakes.github.io/minimal-mistakes/theme-setup/">

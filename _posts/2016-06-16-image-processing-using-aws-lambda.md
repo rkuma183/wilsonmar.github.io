@@ -41,6 +41,7 @@ more people than only those who can setup a Gulp server.
    If acceptable, continue:
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
+0. <a href="#Watermark">Detect and add invisible watermark</a>
 0. <a href="#ImageSizes">Generate thumbnails and other size images</a>
 0. <a href="#Compress">Compress image file</a> (using TinyPng API)
 0. <a href="#CloudFront">Store image in AWS CloudFront</a>
@@ -142,6 +143,17 @@ But the website should ask for (and validate) email addresses.
 <a name="Add2Dynamo"></a>
 
 ## Add List in Dynamo #
+
+
+<a name="Watermark"></a>
+
+## Detect and add Watermark #
+
+Several organizations provide manual ways to add an invisible watermark.
+
+   * http://www.adptools.com/en/signmyimage-description.html
+
+But what about an API to do it?
 
 
 <a name="NudityCheck"></a>

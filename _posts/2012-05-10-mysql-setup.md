@@ -41,7 +41,7 @@ Many developers have migrated to MariaDB.
 (MariaDB 5.1.53 is based on MySQL 5.1.53).
 
 <a href="#InstallMariaDB">Click here to go straight to installing MariaDB</a>
-rather than upgrading.
+rather than uninstalling MySQL.
 
 ### AWS Aurora #
 
@@ -788,6 +788,18 @@ CREATE TABLE  'inmail','NEWMAIL' (
 // TIMESTAMP is 
 </pre>
 
+<a name="Engines"></a>
+
+## InnoDB Engine #
+
+InnoDB is newer, faster, and scales better than the MyISAM database engine.
+
+Allocate a maximum amount of RAM to your MySQL instance with the 
+<strong>innodb_buffer_pool_size</strong> parameter and give at least 15Mb to the 
+<strong>query_cache_size</strong> parameter. 
+
+Read <a target="_blank" href="http://www.mysqlperformanceblog.com/2007/11/01/innodb-performance-optimization-basics/">
+this article about InnoDB Performance Optimization Basics</a>.
 
 
 <a name="Resources"></a>
