@@ -91,6 +91,7 @@ Lithium has two portals for developers:
 
    * [https://klout.com/s/developers/home](https://klout.com/s/developers/home)
     which employs the Mashery platform.
+    Its Rate Limits are 10 Calls per second and 20,000  Calls per day.
 
 Direct links:
 
@@ -304,10 +305,10 @@ You should now be able to use the "li" command:
 
 The README.md file contains links to build servers on the web:
 
-* [travis-url]: https://travis-ci.org/lithiumtech/lithium-sdk
-* [travis-image]: https://travis-ci.org/lithiumtech/lithium-sdk.svg?branch=master
-* [travis-dev-url]: https://travis-ci.org/lithiumtech/lithium-sdk/branches
-* [travis-dev-image]: https://travis-ci.org/lithiumtech/lithium-sdk.svg?branch=develop
+* travis-url: https://travis-ci.org/lithiumtech/lithium-sdk
+* travis-image: https://travis-ci.org/lithiumtech/lithium-sdk.svg?branch=master
+* travis-dev-url: https://travis-ci.org/lithiumtech/lithium-sdk/branches
+* travis-dev-image: https://travis-ci.org/lithiumtech/lithium-sdk.svg?branch=develop
 
 * https://github.com/lithiumtech/lithium-oss-superpom/blob/master/pom.xml
   Maven
