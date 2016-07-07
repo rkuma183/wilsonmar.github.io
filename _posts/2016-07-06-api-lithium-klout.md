@@ -23,7 +23,7 @@ Lithium was first identified in petalite ore on the Swedish island Utö in 1817.
 A year later, lithium powder are used to make red flames in fireworks. 
 Fiery and unstable, lithium somehow calms emotional states often characterized in the same way.
 
-But we're talking about Lithium Technologies, which
+But here we're talking about Lithium Technologies, which
 <a target="_blank" href="http://www.zdnet.com/article/and-the-winners-of-the-2016-crm-watchlist-are/">
 one author in 2016 named</a> 
 the most "impactful" CRM (Customer Relationship Manager) software.
@@ -237,11 +237,17 @@ Notice Lithum makes use of <a target="_blank" href="https://nodejs.org/en/docs/"
 
 ## Command li #
 
+<a target="_blank" href="http://www.zazzle.com/chemistry_elements_of_periodic_table_round_clock-256786128725912169">
+<img align="right" width="171" height="171" alt="lithium periodic elements clock-322x322-c45.jpg" src="https://cloud.githubusercontent.com/assets/300046/16662415/d1503c50-4434-11e6-9d53-0f176741ad3d.jpg"/>
+</a>
+
 You should now be able to use the "li" command:
 
    <tt><strong>
    li
    </strong></tt>
+
+   NOTE: The element lithium is the Alkali metal "Li", at 3 on the Periodic Chart of elements.
 
    See http://sdk-docs.lithium.com/develop/tutorial about:
 
@@ -426,9 +432,12 @@ FreeMarker variable</a>
    </strong></tt>
 
 
-## SASS CSS #
+## SASS SCSS CSS #
 
 [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+
+http://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive
+Responsive skin architecture use SCSS styles.
 
 
 ## Studio #
@@ -504,13 +513,22 @@ Return recipe_board for a specific author:
     ORDER BY post_time DESC LIMIT 4
     </strong></tt>
 
-## Community Bulk Data API # 
 
-This allows for greater reporting flexibility and expands the analytics capabilities 
+## <a name="BulkData"> Community Bulk Data API</a> # 
 
-Lithium Social Intelligence (LSI)
-automates bulk data extraction from LSI to a brand’s data store, 
-enabling brands to mine Lithium data at a granular level or join Lithium data with their own to derive new business insights.
+Also called Lithium Social Intelligence (LSI).
+
+QUESTION: What is CIC?
+
+The curl commands shown in its API docs at
+http://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=bulkdata
+can be called from programs issuing REST API calls.
+
+The calls respond with JSON or as a flat CSV files (for Excel spreadsheets).
+
+The product automates bulk data extraction from LSI to a brand’s data store, 
+enabling brands to mine Lithium data at a granular level or 
+join Lithium data with their own to derive new business insights.
 
 
 ## People #
