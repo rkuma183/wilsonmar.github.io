@@ -63,7 +63,14 @@ Click for full-screen larger image from <a target="_blank" href="http://sdk-docs
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16651542/d352161e-4401-11e6-800a-c4e684ad28fb.jpg">
    </a>
 
-BTW, Lithium does not offer a complete self-service solution that covers email, chat, customer portals, knowledge management, co-browsing, video agents and virtual customer assistants. 
+BTW, Lithium does not offer a complete self-service solution that covers email, chat, customer portals, knowledge management, co-browsing, video agents, and virtual customer assistants. 
+
+Lithium as a company lists these products:
+
+   * Lithium Communities
+   * Lithium Response
+   * Lithium Reach
+   * Klout
 
 Since 2014 Lithinum added Value Analytics and 
 Lithium Cohort Benchmarking (much like what Google Analytics offers) 
