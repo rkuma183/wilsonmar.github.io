@@ -28,13 +28,13 @@ But we're talking about Lithium Technologies, which
 one author in 2016 named</a> 
 the most "impactful" CRM (Customer Relationship Manager) software.
 
-<a target="_blank" href="https://www.salesforce.com/blog/2014/06/gartner-magic-quadrant.html">
+<a target="_blank" href="https://www.salesforce.com/form/service-cloud/2016-gartner-magic-quadrant-crm-customer-engagement-center.jsp">
 Gartner placed Lithium in the middle of the CRM pack</a> beneath Salesforce and Pegasystems's rule-based system:
    <amp-img width="650" height="650" alt="crm gartner magicquadrant 2014-488x536-c69.jpg"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16656597/86c33b28-441c-11e6-8a26-fd36ab72d073.jpg">
    </amp-img><br /><br />
 
-Compare <a target="_blank" href="https://www.gartner.com/doc/reprints?id=1-32ATMUI&ct=160331&st=sb">
+Compare <a target="_blank" href="https://www.salesforce.com/blog/2014/06/gartner-magic-quadrant.html">
 against Gartner's 2014 ranking</a>:
    <amp-img width="488" height="536" alt="crm gartner magicquadrant 2016 650x650-c78.jpg"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16652067/2f8e138a-4405-11e6-84c9-118af7e05300.jpg">
