@@ -624,7 +624,7 @@ There are several customizations:
 
    Algoria's UI has a cool list of live ping response times to various regions:
 
-   <amp-img width="386" height="346"
+   <amp-img width="386" height="346" alt=""
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15621061/7779e1b0-241b-11e6-977a-0aeeb0a5c1d2.jpg"></amp-img>
    <br /><br />
 
@@ -980,11 +980,15 @@ NOTE: Alogia emails the number of calls each day.
 
 ## Add search features to a base theme #
 
-To add search features to another theme,
+To add search features to another Jekyll theme,
 we dive into theme JavaScript, CSS, HTML, and configuration files.
 
-This sequence is designed so you can rebuild the project at each step
-and not have it blow up:
+   <amp-img width="650" height="488" alt="jekyll-angolia-v02-650x488-c79.jpg"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16637295/76fa2584-439b-11e6-9242-b24cd41b52a0.jpg"></amp-img>
+
+PROTIP: The sequence in the video above shows a sequence of changes so 
+you can make one change at a time and 
+have it still working so you can verify each change.
 
 0. <a href="#GetTheme">Get a copy of your custom theme working on your local machine</a> 
 0. <a href="#CSSInHead"> Add a link to the algolia.css file in _includes/head.html</a>
@@ -998,8 +1002,6 @@ public/css/search.css where you put all the search-specific styling (input, resu
 * public/js/search.js where you put the search-specific javascript (instanciating the Algolia client, updating the render, etc)
 
 <hr />
-
-The following examines changes made to the base Hype template to add search capabilities.
 
 <a name="GetTheme"></a>
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll site development"
-excerpt: "The most popular"
+excerpt: "Getting started with Jekyll"
 tags: [website, builder, simplicity, jekyll]
 image:
 # feature: scr white jekyll static tools 1900x500.jpg
@@ -15,10 +15,26 @@ comments: true
 
 {% include _toc.html %}
 
+This article contains notes on getting started with Jekyll and other static websites.
+
+This is one in a series:
+
+   0. [Static website development](/static-websites/)
+   0. [Jekyll site development](/jekyll-site-development/)
+   0. [Jekyll templates and themes](/jekyll-templates/)
+   0. [Email from Jekyll sites](/email-from-jekyll/)
+   0. [Add search to Jekyll sites](/jekyll-with-algolia-search/)
+   0. [Authenticate on static sites](/authentication-on-static-site/)
+   0. [Clickable maps in Jekyll sites](/clickable-maps-in-jekyll-posts/)
+
+There is no need to repeat excellent tutorials:
+
+* <a target="_blank" href="https://www.youtube.com/playlist?list=PLWjCJDeWfDdfVEcLGAfdJn_HXyM4Y7_k-">
+   Thomas Bradley's videos on YouTube</a>
+
 Jekyll is currently the
 [most popular among static site builder options](/static-websites/).
 
-[Jekyll templates and themes](/jekyll-templates/).
 
 ## Bundle install #
 

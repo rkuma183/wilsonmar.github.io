@@ -35,10 +35,12 @@ more people than only those who can setup a Gulp server.
 0. Trigger invokes Lambda function
 0. <a href="#Add2Dynamo">Add to list in DynamoDB</a>
 
-0. Apply image recognition (extent image has nudity)
+0. Apply initial image recognition task (extent image has nudity, etc.)
 0. <a href="#UpdateDynamo">Update DynamoDB</a> with results and timings
 
    If acceptable, continue:
+
+0. <a href="#CustomCollect">Obtain images from alternate source</a>
 
 0. <a href="#DynamoTriggers">DynamoDB change triggers additional processing</a>
 0. <a href="#Watermark">Detect and add invisible watermark</a>
@@ -144,6 +146,21 @@ But the website should ask for (and validate) email addresses.
 
 ## Add List in Dynamo #
 
+
+
+<a name="CustomCollect"></a>
+
+## Custom image collection #
+
+<a target="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=commv2&v2.main=liqlexamples#media">
+From Lithium</a>
+
+* Fetching the latest photos posted to the community
+* Fetching the latest photos posted to a node
+* Fetching photos with most kudos
+* Fetching top photo contributors
+* Fetching photos uploaded to a thread
+* Fetching photos posted by a user
 
 <a name="Watermark"></a>
 

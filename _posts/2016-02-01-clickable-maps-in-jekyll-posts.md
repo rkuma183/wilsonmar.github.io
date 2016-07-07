@@ -8,12 +8,18 @@ comments: true
 <i>{{ page.excerpt }}</i>
 <hr />
 
+<a name="US_states_map"></a>
+
+## States of the Union
+
+Major cities are listed in the index on the right.
+
 Clickable US map (Click on Oregon or Washington state):
 
-<img src="https://cloud.githubusercontent.com/assets/300046/14015545/77b35900-f17f-11e5-83b7-f931da813eb2.gif" alt="Us states" usemap="#us-states" />
+<img src="https://cloud.githubusercontent.com/assets/300046/14015545/77b35900-f17f-11e5-83b7-f931da813eb2.gif" alt="USA states" usemap="#us-states" />
 <map name="us-states">
-{% for s in site.collections['/assets/us-states'] %}
-    <area shape="poly" coords="{{ s.coord }}" 
+{% for s in site.collections['us-states'] %}
+    <area shape="poly" coords="{{ s.map.coord }}" 
           href="{{ s.href }}" 
           alt="{{ s.alt }}" title="{{ s.title }}" >
 {% endfor %}

@@ -42,21 +42,6 @@ historic landmark hotels</a> and restaurants.
 The about route was optimized for least driving time using Google Maps API driven by <a target="_blank" href="
 https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb"> Machine Learning algorithms run in a Python Jupyter Notebook</a> as <a target="_blank" href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">described by Randal S. Olson</a>.
 
-<a name="US_states_map"></a>
-
-## States of the Union
-
-Major cities are listed in the index on the right.
-
-<img src="https://cloud.githubusercontent.com/assets/300046/14015545/77b35900-f17f-11e5-83b7-f931da813eb2.gif" alt="USA states" usemap="#us-states" />
-<map name="us-states">
-{% for s in site.collections['us-states'] %}
-    <area shape="poly" coords="{{ s.map.coord }}" 
-          href="{{ s.href }}" 
-          alt="{{ s.alt }}" title="{{ s.title }}" >
-{% endfor %}
-</map>
-<!-- Thanks to David Jacquel for http://stackoverflow.com/questions/36192890/clickable-image-map-in-jekyll-site -->
 
 <a name="DownEastCoast"></a>
 

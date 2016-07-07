@@ -399,33 +399,103 @@ Downloading https://github.com/rvm/rvm/archive/1.26.11.tar.gz
 Downloading https://github.com/rvm/rvm/releases/download/1.26.11/1.26.11.tar.gz.asc
 Found PGP signature at: 'https://github.com/rvm/rvm/releases/download/1.26.11/1.26.11.tar.gz.asc',
 but no GPG software exists to validate it, skipping.
-
+&nbsp;
 Installing RVM to /Users/wilsonmar/.rvm/
 Adding rvm PATH line to /Users/wilsonmar/.profile /Users/wilsonmar/.mkshrc /Users/wilsonmar/.bashrc /Users/wilsonmar/.zshrc.
 Adding rvm loading line to /Users/wilsonmar/.profile /Users/wilsonmar/.bash_profile /Users/wilsonmar/.zlogin.
 Installation of RVM in /Users/wilsonmar/.rvm/ is almost complete:
-
+&nbsp;
 * To start using RVM you need to run `source /Users/wilsonmar/.rvm/scripts/rvm`
 in all your open shell windows, in rare cases you need to reopen all shell windows.
-
+&nbsp;
 # Wilson Mar,
 #
 #   Thank you for using RVM!
 #   We sincerely hope that RVM helps to make your life easier and more enjoyable!!!
 #
 # ~Wayne, Michal & team.
-
+&nbsp;
 In case of problems: http://rvm.io/help and https://twitter.com/rvm_io
-
+&nbsp;
 * WARNING: You have '~/.profile' file, you might want to load it,
 to do that add the following line to '/Users/wilsonmar/.bash_profile':
-
+&nbsp;
 source ~/.profile
    </pre>
 
 
 0. Some say at this point close the terminal and open again.
 
+
+## Sample Ruby program #
+
+Here is a Ruby script to produce a nice Unicode tree along with metadata to its left:
+
+   <pre>
+#!/usr/bin/env ruby
+def tree_hierarchy( root, &children )
+  queue = [[root,"",true]]
+  [].tap do |results|
+    until queue.empty?
+      item,indent,last = queue.pop
+      kids = children[item]
+      extra = indent.empty? ? '' : last ? '└╴' : '├╴'
+      results << [ indent+extra, item ]
+      results << [ indent, nil ] if last and kids.empty?
+      indent += last ? '  ' : '│ '
+      parts = kids.map{ |k| [k,indent,false] }.reverse
+      parts.first[2] = true unless parts.empty?
+      queue.concat parts
+    end
+  end
+end
+def tree(dir)
+  cols = tree_hierarchy(File.expand_path(dir)) do |d|
+    File.directory?(d) ? Dir.chdir(d){ Dir['*'].map(&File.method(:expand_path)) } : []
+  end.map do |indent,path|
+    if path
+      file = File.basename(path) + File.directory?(path) ? '/' : ''
+      meta = `ls -lhd "#{path}"`.split(/\s+/)
+      [ [indent,file].join, meta[0], meta[4], "%s %-2s %s" % meta[5..7] ]
+    else
+      [indent]
+    end
+  end
+  maxs = cols.first.zip(*(cols[1..-1])).map{ |c| c.compact.map(&:length).max }
+  tmpl = maxs.map.with_index{ |n,i| "%#{'-' if cols[0][i][/^\D/]}#{n}s" }.join('  ')
+  cols.map{ |a| a.length==1 ? a.first : tmpl % a }
+end
+puts tree(ARGV.first || ".") if __FILE__==$0
+   </pre>
+
+0. Copy and paste the above into a text editor program.
+0. Save the file named <strong>tree.rb</strong>.
+0. In a Terminal window, navigate to the folder holding the script.
+0. Mark the file as executable:
+
+   <tt><strong>
+   chmod +x tree.rb
+   </strong></tt>
+
+   This only needs to be done once.
+
+0. Run the program:
+
+   <tt><strong>
+   tree.rb
+   </strong></tt>
+
+   ERROR: The response:
+
+   <pre>
+   ./tree.rb:24:in `+': no implicit conversion of true into String (TypeError)
+  from ./tree.rb:24:in `block in tree'
+  from ./tree.rb:22:in `map'
+  from ./tree.rb:22:in `tree'
+  from ./tree.rb:35:in `<main>'
+   </pre>
+
+   http://superuser.com/users/57219/phrogz
 
 ## Resources:
 
