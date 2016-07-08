@@ -70,7 +70,7 @@ Lithium as a company lists these products:
    * Lithium Communities
    * Lithium Response
    * Lithium Reach
-   * Klout
+   * <a href="#Klout">Klout</a>
 
 Since 2014 Lithinum added Value Analytics and 
 Lithium Cohort Benchmarking (much like what Google Analytics offers) 
@@ -540,3 +540,25 @@ Commiters on Lithium's GitHub:
 * Andrew Dorsett (awdorsett)
 * Brian Harrington (bdharrington7) https://bdharrington.com/
 * doug.schroeder
+
+
+## <a name="Klout">Klout API</a> #
+
+Competitors to Klout include
+<a target="_blank" href="http://kred.com/about/">
+Kred</a>,
+<a target="_blank" href="http://about.peerindex.com/">
+PeerIndex</a>,
+<a target="_blank" href="http://peekanalytics.com/">
+Peek Analytics</a>,
+and 
+Empire game.
+
+These all calculate an “influence” scores
+based on social media activities such as likes, re-tweets, mentions, replies, shares, comments, etc..
+But Klout calls it calls theirs an "engagement" score.
+
+It's difficult to track a conversion to actual trial, purchase, change of opinion, etc.
+
+<a target="_blank" href="http://innetwork.net/2013/02/klout-alexa-other-social-scoring/">
+One blogger</a> recommends that a separate score for Twitter and Facebook.
