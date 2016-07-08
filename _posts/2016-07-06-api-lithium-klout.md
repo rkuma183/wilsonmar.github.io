@@ -18,7 +18,7 @@ comments: true
 This contains my notes on examining the API and SDK to
 Lithium Technologies (@lithiumtech).
 
-BTW, the photo is the Salar de Uyuni salt flats in Bolivia where 50% of the world's lithium is mined.
+BTW, the photo above is the Salar de Uyuni salt flats in Bolivia where 50% of the world's lithium is mined.
 Lithium was first identified in petalite ore on the Swedish island Utö in 1817. 
 A year later, lithium powder are used to make red flames in fireworks. 
 Fiery and unstable, lithium somehow calms emotional states often characterized in the same way.
@@ -248,7 +248,8 @@ You should now be able to use the "li" command:
    li
    </strong></tt>
 
-   NOTE: The element lithium is the Alkali metal "Li", at 3 on the Periodic Chart of elements.
+   NOTE: The element lithium is the Alkali metal "Li", which has 3 protons on the clock and
+   shown on the left side of the Periodic Chart of elements.
 
    See http://sdk-docs.lithium.com/develop/tutorial about:
 
@@ -387,23 +388,112 @@ application error definitions,
 
 
 
-## FreeMarker code #
+## FreeMarker templating #
 
+Lithium makes use of the Java 1.5+ template engine from
 <a target="_blank" href="http://freemarker.org/">
-Apache FreeMarker</a> is a template engine: a Java library to generate text output (HTML web pages, e-mails, configuration files, source code, etc.) based on templates and changing data. 
+FreeMarker.org</a> to generate text output 
+(HTML web pages, e-mails, configuration files, source code, etc.) 
+based on templates.
 
    <amp-img width="435" height="180" alt="fig freemarker 435x180-c66.png"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16651901/29f98766-4404-11e6-8338-0774a61531f1.png">
    </amp-img><br /><br />
 
+When FreeMarker is run, variables in the template
+ written in the <strong>FreeMarker Template Language (FTL)</strong>
+ such as this:
 
+   {% highlight html%}
+   <body>
+   <h2>Welcome ${user}<#if user == "Big Joe">, our beloved leader</#if>!</h2>
+    <p>Our latest product:
+   <a href="${latestProduct.url}">${latestProduct.name}</a>!
+   <#list misc.fruits>
+     <p>Fruits:
+     <ul>
+       <#items as fruit>
+         <li>${fruit}<#sep> and</#sep>
+       </#items>
+     </ul>
+   <#else>
+     <p>We have no fruits.
+   </#list>
+   <#include "/copyright_footer.html">
+   </body>
+   {% endhighlight %}
+
+are replace with data values from java objects,
+as illustraded by this <strong>data model</strong> hierarchy:
+
+   {% highlight html%}
+(root)
+  |
+  +- user = "Big Joe"
+  |
+  +- latestProduct
+      |
+      +- url = "products/greenmouse.html"
+      |
+      +- name = "green mouse"
+   {% endhighlight %}
+
+The on-line evaluation website at 
+<a target="_blank" href="http://freemarker-online.kenshoo.com/">
+http://freemarker-online.kenshoo.com</a> 
+has example data such as this list of various data formats:
+
+   <pre>
+someString = Some value
+otherString = "JSON\nsyntax"
+someNumber = 3.14
+someBoolean = true
+someDate = 2014-02-28
+someTime = 20:50:30.5+02:00
+someDatetime = 2014-02-28T18:50Z
+someList = ["JSON", "syntax", 1, 2, 3 ]
+someMap = { "JSON syntax": true, "nestedList": [1, 2, 3] }
+someXML = &LT;example x="1">text</example>
+   </pre>
+
+   Notice the if/then/end if conditional logic
+   and hiearchical data specification.
+
+See
 <a target="_blank" href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l%3A%3A%7B%22p%22%3A%22%2Flearn%2FaboutFreeMarker%22%7D">
 About Freemarker</a>
 
-Templates are written in the <strong>FreeMarker Template Language (FTL)</strong>, 
-which is a simple, specialized language (not a full-blown programming language like PHP). 
+BTW, <a target="_blank" href="http://stackoverflow.com/questions/4137981/freemarker-vs-velocity">
+alternatives to FreeMarker</a> are:
 
-In the template you are focusing on how to present the data, and outside the template you are focusing on what data to present.
+   * http://www.stringtemplate.org/
+   * http://velocity.apache.org/tools/2.0/
+
+### Freemarker setup #
+
+0. Download Freemarker from http://freemarker.org/freemarkerdownload.html
+
+0. Extract <strong>apache-freemarker-2.3.25-incubating-bin.tar.gz</strong> to a folder.
+
+0. The documentation folder contains what is presented on 
+   <a target="_blank" href="http://freemarker.org/">
+   FreeMarker.org</a> 
+
+   freemarker.jar
+
+   Download from <a target="_blank" href="http://fmpp.sourceforge.net/">
+   fmpp.sourceforge</a> the FreeMarker-based file PreProcessor
+   general-purpose text file preprocessing tool that uses FreeMarker templates
+
+   http://stackoverflow.com/search?q=freemarker
+
+0. Create a configuration for each app instance
+0. Create a data-model
+0. Get the template
+0. Merging the template with the data-model
+0. Putting all together
+
+### Freemarker setup Lithium #
 
 Use API v2 in FreeMarker code using 
 [Lithium FreeMarker context objects](https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker)

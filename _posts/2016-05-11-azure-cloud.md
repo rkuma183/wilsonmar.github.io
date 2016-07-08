@@ -231,6 +231,10 @@ An Azure Service Fabric agent runs on each machine
 
 Different services can run on the same machine.
 
+Azure Service Fabric offers a substitute for external storage via its 
+<strong>Reliable Collections</strong> programming model
+accessing dictionary entries.
+
 
 <a name="ScaleSets"></a>
 
