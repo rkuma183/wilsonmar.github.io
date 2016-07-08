@@ -14,19 +14,19 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-This article contains technical details on Microsoft Azure,
-without the confusing marketing generalizations.
+This article contains higher-level technical details on Microsoft Azure,
+but with less confusing grandiose marketing generalizations.
 
 
 ## Architectural components #
 
-   <amp-img width="650" height="252" alt="azure compute platform 650x252-c60.jpg"
+<amp-img width="650" height="252" alt="azure compute platform 650x252-c60.jpg"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16688245/6898a7a0-44da-11e6-9245-ee5e1ff729f9.jpg">
 </amp-img>
 
 Developers interact with these platforms as a service (PaaS) for "Rapid Development":
 
-   * Service Fabric apps
+   * <a href="#ServiceFabric">Service Fabric</a> apps
    * Power apps
    * Web apps
    * Mobile apps (Xamarin)
@@ -50,7 +50,7 @@ components for "High Control":
    * Jelastic
 
 
-## Two portals #
+## Two Azure portals #
 
 Right off the bat, know that Microsoft is transitioning from the "classic"
 Azure Service Management (ASM) portal to the
@@ -174,8 +174,9 @@ A resource group can contain resources residing in different <strong>regions</st
    </strong></tt>
 
 
+<a name="ContainerService"></a>
 
-## <a name="ContainerService">Azure Container Service (ACS)</a> #
+## Azure Container Service (ACS) #
 
 Microsoft created and maintains the Azure Container Service with 
 <a target="_blank" href="https://mesosphere.com/">Mesosphere.com</a>
@@ -201,15 +202,46 @@ Backed up as a HA Proxy.
 "Minuteman" provides virtual IPs stored in IP tables synced across the cluster.
 
 
+<a name="ServiceFabric"></a>
+
+## Azure Service Fabric #
+
+<amp-img width="611" height="296" alt="azure service fabric 20160708-611x296-c60.jpg"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16689972/cfcc70b6-44e2-11e6-9b32-a15ad6085ee5.jpg">
+</amp-img>
 
 
-### <a name="ScaleSets">Load Scale sets</a> #
+Azure Service Fabric enables you to talk to a cluster of machines as if they were one.
+
+An Azure Service Fabric agent runs on each machine 
+-- in Amazon or private cloud as well.
+
+   * One call to manage capacity (add and remove nodes at will)
+   * Service endpoint discovery
+   * Create (immutable) containers
+   * Deploy software to containers
+
+   * health reporting
+   * Monitoring based on queue length
+   * Dynamic resource balancing based on actual resource usage (queue length)
+   * Move resources from one node to another
+
+   * coordinate upgrades (select what node to upgrade)
+   * Diagnostics in F5
+
+Different services can run on the same machine.
+
+
+<a name="ScaleSets"></a>
+
+### Load Scale sets #
 
 
 
 
+<a name="AzureCert"></a>
 
-## <a name="AzureCert">Azure Certification</a> #
+## Azure Certification #
 
 * <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx">
    MCSD Solutions Developer: Azure Solutions Architect</a>
