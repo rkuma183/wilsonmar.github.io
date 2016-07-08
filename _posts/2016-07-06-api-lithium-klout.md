@@ -544,21 +544,14 @@ Commiters on Lithium's GitHub:
 
 ## <a name="Klout">Klout API</a> #
 
-Competitors to Klout include
-<a target="_blank" href="http://kred.com/about/">
-Kred</a>,
-<a target="_blank" href="http://about.peerindex.com/">
-PeerIndex</a>,
-<a target="_blank" href="http://peekanalytics.com/">
-Peek Analytics</a>,
-and 
-Empire game.
-
-These all calculate an “influence” scores
+[Various social media metrics (competitors to Klout)](/social-media-for-evangelism/)
+all calculate an “influence” score
 based on social media activities such as likes, re-tweets, mentions, replies, shares, comments, etc..
 But Klout calls it calls theirs an "engagement" score.
 
 It's difficult to track a conversion to actual trial, purchase, change of opinion, etc.
 
 <a target="_blank" href="http://innetwork.net/2013/02/klout-alexa-other-social-scoring/">
-One blogger</a> recommends that a separate score for Twitter and Facebook.
+One blogger</a> recommends that a separate score for Twitter, Facebook, and LinkedIn.
+
+

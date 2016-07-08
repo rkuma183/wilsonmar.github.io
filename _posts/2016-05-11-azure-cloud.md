@@ -14,7 +14,43 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-## Two portals
+This article contains technical details on Microsoft Azure,
+without the confusing marketing generalizations.
+
+
+## Architectural components #
+
+   <amp-img width="650" height="252" alt="azure compute platform 650x252-c60.jpg"
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16688245/6898a7a0-44da-11e6-9245-ee5e1ff729f9.jpg">
+</amp-img>
+
+Developers interact with these platforms as a service (PaaS) for "Rapid Development":
+
+   * Service Fabric apps
+   * Power apps
+   * Web apps
+   * Mobile apps (Xamarin)
+
+   * Media Services
+   * Stream Analytics
+
+Operations interact with these Infrastructure as a service (IaaS) 
+components for "High Control":
+
+   * Azure Service Fabric
+   * Azure Batch
+   * Define Virtual Machines
+   * Define VM Scale Sets
+   * VM Extensions
+   * Azure Container Service that uses Docker Swarm
+   * Cloud Foundry
+   * Open Shift
+   * Kubernetes 
+   * Apprenda
+   * Jelastic
+
+
+## Two portals #
 
 Right off the bat, know that Microsoft is transitioning from the "classic"
 Azure Service Management (ASM) portal to the
@@ -68,11 +104,17 @@ ARM (Azure Resource Manager)</a>:
    * Messaging
    * Networking
    * Management
+   <br /><br />
 
    Each drill-down into ARM creates an additional ___ to the right.
 
 
 ## Installers #
+
+* <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/templates">
+   Templates</a> at
+   <a target="_blank" href="https://github.com/Azure/azure-quickstart-templates">
+   https://github.com/Azure/azure-quickstart-templates</a>
 
 * <a target="_blank" href="https://azure.microsoft.com/en-us/downloads/">
    https://azure.microsoft.com/en-us/downloads</a>
@@ -131,15 +173,43 @@ A resource group can contain resources residing in different <strong>regions</st
    Get-AzureRmResourceProvider
    </strong></tt>
 
-<a name="ScaleSets"></a>
-
-### Load Scale sets #
 
 
+## <a name="ContainerService">Azure Container Service (ACS)</a> #
 
-<a name="AzureCert"></a>
+Microsoft created and maintains the Azure Container Service with 
+<a target="_blank" href="https://mesosphere.com/">Mesosphere.com</a>
 
-## Azure Certification #
+with standard Docker tooling and API.
+
+Streamlined provisioning of DC/OS Clusters
+
+and Docker Swarm support
+
+
+Mesos-DNS for service discovery and registration
+(no health checks)
+
+<a target="_blank" href="https://mesosphere.github.io/marathon/docs/native-docker.html">
+DC/OS Marathon load balancer</a> support of
+<a target="_blank" href="https://docs.mesosphere.com/1.7/usage/cli/command-reference/">
+dcos cli commands</a>
+needs to be installed.
+Backed up as a HA Proxy.
+
+
+"Minuteman" provides virtual IPs stored in IP tables synced across the cluster.
+
+
+
+
+### <a name="ScaleSets">Load Scale sets</a> #
+
+
+
+
+
+## <a name="AzureCert">Azure Certification</a> #
 
 * <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsd-azure-architect-certification.aspx">
    MCSD Solutions Developer: Azure Solutions Architect</a>
