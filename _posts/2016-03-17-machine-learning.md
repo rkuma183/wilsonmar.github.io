@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+## Companies #
+
 Several organizations are in an arms race in offering 
 Artificial intelligence and Machine Learning (ML) services in their clouds:
 
@@ -22,13 +24,22 @@ Artificial intelligence and Machine Learning (ML) services in their clouds:
    * Google
    * IBM Watson
    * Amazon Alexa
-   <br /><br />
+   <br />
 
-Cloud vendors, especially, are hoping to cash in by charging for processing.
+Each of the above are cloud vendors hoping to cash in by charging for processing.
+
+Other companies:
+
+<a target="_blank" href="https://algorithmia.com/algorithms">
+Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
+
 
 <a target="_blank" href="https://gibhut.com/josephmisiti/awesome-machine-learning/">
 awesome-machine-learning</a>
 provides many links to resources, so they will not be repeated here.
+
+
+### Turi (Dato) Python algorithms #
 
 <a target="_blank" href="https://dato.com/products/create/">
 GraphLab Create</a> from Dato 
@@ -37,24 +48,147 @@ using Python installed using Anaconda.
 Entire courses on its use is at
 
    * https://www.coursera.org/learn/ml-foundations
-   * https://dato.com/learn/userguide/
-   * https://dato.com/products/create/docs/
+   * https://www.turi.com/learn/userguide/
+   * https://www.turi.com/products/create/docs/
    * https://github.com/learnml/machine-learning-specialization
    * https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
 
 When the one-year free license is over, consider 
-scikit-learn, also using Python with Anaconda.
+scikit-learn</a>, 
+which also uses Python with Anaconda.
 
 For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
 Numpy</a> open-source Python library for fast performance with data that fits in memory.
 <a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
 Quickstart</a>.
 
-## Initiatives #
+Benedict Evans, the resident futurist at venture capital firm Andreessen Horowitz, 
+observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google">
+recent blog post</a> that the future of AI remains opaque: 
+"This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference,"
 
-Below are various initiatives
 
-<a target="_blank" href="https://algorithmia.com/algorithms">algorithmia.com</a>
+## "Hard" ML #
+
+Below are various initiatives by MS (Microsoft) and other organizations:
+
+<a name="x"></a>
+<a name="y"></a>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr align="bottom" align="left">
+<th> Category </th><th> Algorithm </th><th> MS </th></tr>
+</tbody>
+<tr valign="top"><td rowspan="4"> Statistical Functions
+  </td><td><a href="#x"> Descriptive Statistics</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Hypothesis Testing</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> T-Test Linear Correlation</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Probability Function Evaluation</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="1"> Recommendation
+  </td><td><a href="#x"> Matchbox Recommender</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="8"> Regression
+  </td><td><a href="#x"> Bayesian Linear Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Boosted Decision</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Tree Decision Forest</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Fast Forest Quantile Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Linear Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Neural Network Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Ordinal Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Poisson Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="1"> Clustering
+  </td><td><a href="#x"> K-means Clustering</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="3"> Anomaly Detection
+  </td><td> One-class Support Vector Machine</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x">Principal Component Analysis-based Anomaly Detection</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Time Series Anomaly Detection</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="8"> Two-class<br />Classification
+  </td><td> Averaged Perceptron</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x">Bayes Point Machine</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Boosted Decision Tree</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Decision Forest</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Decision Jungle</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Logistic Regression</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Neural Network</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Support Vector Machine</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="5"> Multi-class Classification
+  </td><td><a href="#x"> Decision Forest</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Decision Jungle</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Logistic Regression</a> 
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Neural Network</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> One-vs-all</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="2"> Text Analytics
+  </td><td><a href="#x"> Feature Hashing</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+  <tr valign="top"><td><a href="#x"> Named Entity Recognition Vowpal Wabbit</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="1"> Computer Vision
+  </td><td><a href="#x"> OpenCV Library</a>
+  </td><td><a href="#y"> Y</a>
+  </td></tr>
+</tbody></table> 
+
+<hr />
 
 ## Conversions
 
