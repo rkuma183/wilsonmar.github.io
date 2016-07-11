@@ -182,9 +182,17 @@ Below are various initiatives by MS (Microsoft) and other organizations:
   <tr valign="top"><td><a href="#x"> Named Entity Recognition Vowpal Wabbit</a>
   </td><td><a href="#y"> Y</a>
   </td></tr>
-<tr valign="top"><td rowspan="1"> Computer Vision
+<tr valign="top"><td rowspan="1"><a href="#CV">Computer Vision</a>
   </td><td><a href="#x"> OpenCV Library</a>
   </td><td><a href="#y"> Y</a>
+  </td></tr>
+<tr valign="top"><td rowspan="1"><a href="#Voice">Voice</a>
+  </td><td><a href="#x"> Text to Speech</a>
+  </td><td><a href="#y"> Cortana</a>
+  </td></tr>
+<tr valign="top"><td rowspan="1"><a href="#Translation">Translation</a>
+  </td><td><a href="#x"> Text to Speech</a>
+  </td><td><a href="#y"> Cortana</a>
   </td></tr>
 </tbody></table> 
 
@@ -208,18 +216,21 @@ Below are various initiatives by MS (Microsoft) and other organizations:
 
    * https://algorithmia.com/algorithms/opencv/ChangeImageFormat (from jpg to png)
 
-## Translation
+<a name="Translation"></a>
+
+## Translation #
 
    * Google Translate API 
    has been working on websites for years.
 
-## Image Recognition
+
+<a name="CV"></a>
+
+## Image Recognition / Computer Vision #
 
    * https://algorithmia.com/algorithms/z/ColorPalettefromImage
 
-   * Google Cloud Vision API
-
-   * DJI on 
+   * <a target="_blank" href="https://cloud.google.com/vision/">Google Cloud Vision API</a>
 
    * https://algorithmia.com/algorithms/opencv/FaceDetection
   then https://algorithmia.com/algorithms/opencv/CensorFace
