@@ -27,9 +27,17 @@ because instead of accessing a database and generating HTML on the fly:
    (Content Distribution Network) such as Amazon S3
    scattered throughout the world, which reduces network latency.
 
+   Reduction in cost of CDNs via Amazon S3, CloudFlar, Fastly, etc.
+   vs. the enterprise Akamai makes this possible.
+
 2. There is no time lost generating HTML dynamically.
-   CMS (Content Management Systems) such as WordPress
-   make calls to a single-threaded database.
+   Unlike CMS (Content Management Systems) such as WordPress
+   which make calls to a single-threaded database,
+   visitors to static sites see HTML without going through a database.
+
+
+<amp-youtube data-videoid="FOfIoCi9uTI" layout="responsive" width="480" height="270"></amp-youtube>
+
 
 <a target="_blank" href="https://performance.sucuri.net/domain/wilsonmar.github.io">
 See for yourself the speed for this site:<br />
