@@ -197,7 +197,22 @@ SonarLint for Visual Studio is based on and benefits from the .NET Compiler Plat
 SonarLint is free, open source, and available in the Visual Studio Gallery.
 
 
-Install in Eclipse?
+## Validation #
+
+<a target="_blank" href="http://www.computerworld.com/article/3093423/application-development/the-truth-about-bug-finders-theyre-essentially-useless.html">This article on July 2016</a>
+reported that researchers from NYU found that static scans found only 2% of defects 
+injected by their <a target="_blank" href="http://www.ieee-security.org/TC/SP2016/papers/0824a110.pdf">
+PDF about their LAVA (Large-Scale Automated Vulnerability Addition)</a>.
+
+This is both the 
+<a target="_blank" href="https://www.wikiwand.com/en/Fuzz_testing">
+fuzz testing"</a> and 
+<a target="_blank" href="https://www.wikiwand.com/en/Symbolic_execution">
+"symbolic-execution" approaches.
+
+
+
+## Install in Eclipse?
 
 
 <a id="Videos"></a>

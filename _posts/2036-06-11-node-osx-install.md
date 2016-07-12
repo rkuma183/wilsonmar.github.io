@@ -568,9 +568,18 @@ npm install -g http-server
 0. Fire up the server at default port 8080:
 
    <pre><strong>
-http-server client/
+   http-server client/
    </strong></pre>
 
+
+
+   <pre><strong>
+   npm ls
+   </strong></pre>
+
+   <pre><strong>
+   http-server client/
+   </strong></pre>
 
 <hr />
 
@@ -600,6 +609,37 @@ To install it we reference its npm package on npm.org:
 0. To exit, press control/command + C to close the process.
 
 0. When you're done, run `npm uninstall learnyounode`.
+
+
+## How NPM works #
+
+HEADS UP! This article was written for an older version of node. More up-to-date information may be available elsewhere.
+https://howtonode.org/introduction-to-npm
+
+http://stackoverflow.com/questions/25897908/how-npm-install-works
+
+https://www.npmjs.org/doc/cli/npm-shrinkwrap.html
+
+I use Node.js (via browserify) for each of my web apps, all of which have some dependencies in common and others specific to themselves. Each of these apps has a package.json file that specifies which versions of which modules it needs.
+
+Yes, that is what npm install does. In node.js code, the require algorithm has a particular sequence of places it looks, including walking up the filesystem. However, npm install doesn't do that. It just installs in place. The algorithms it uses are all constrained to just a single node_modules directory under your current directory and it won't touch anything above that (except for with -g).
+
+Right now, I have a /node_modules directory in the parent folder of my apps for modules that they all need to reference, and then I put app-specific modules in a node_modules folder in that app's directory. This works fine in the short term, since my require() statements are able to keep looking upward in the file structure until they find the node_modules directory with the correct app in it.
+
+Where this gets tricky is when I want to go back to an old project and run npm install to make sure it can still find all the dependencies it needs. (Who knows what funny-business has occurred since then at the parent directory level.) I was under the impression that npm install did this:
+
+    for each module listed in package.json, first check if it's present, moving up the directory the same way require does. If it's not, install it to the local node_modules directory (creating that directory if necessary).
+
+When I run npm install inside an app folder, however, it appears to install everything locally regardless of where else it may exist upstream. Is that the correct behavior? (It's possible there's another reason, like bad version language in my package.json). If this IS the correct behavior, is there a way for me to have npm install behave like the above?
+
+It's not a big deal to widely replicate the modules inside every app, but it feels messy and prevents me from make small improvements to the common modules and not having to update every old package.json file. Of course, this could be a good thing...
+
+Yeah basically you're doing it wrong. The regular workflow scales well to the Internet. 
+For your use case it creates some extra tedious work, 
+but you can also just use semantic versioning as intended and specify "mylib": "^1.0.0" in your package.json for your apps and be OK with automatically getting newer versions next time you npm install.
+
+
+
 
 ## Resources #
 
