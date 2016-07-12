@@ -18,11 +18,15 @@ comments: true
 Jenkins invokes jobs 
 for building software, conducting tests, etc.
 
-Jenkins can invoke jobs on a schedule, but it's called a "continuos integration" (CI) tool because it can
+Jenkins can invoke jobs on a schedule, 
+but it's called a "continuos integration" (CI) tool because it can
 invoke jobs when a <strong>trigger</strong> is fired.
 
-Jenkins can orchestrate a chain of tasks that kicks off each step in sequence based on ending status,
-such as ensure that components already unit-tested can be integrated together.
+Jenkins can orchestrate a chain of <strong>tasks</strong> 
+that kicks off each step in sequence based on the ending status of the previous step,
+such as to ensure that components already unit-tested can be integrated together.
+
+For scaling, several slaves can be setup to run simultaneously.
 
 
 <a id="Alternatives"></a>
@@ -35,8 +39,8 @@ such as ensure that components already unit-tested can be integrated together.
 
 Jenkins began in 2010 as a fork of Oracle Hudson into Github from java.net 
 after its acquisition by Oracle's purchase of Sun.
-<a target="_blank" href="http://jenkins-ci.org/content/whos-driving-thing">*</a>
-<a target="_blank" href="https://isotope11.com/blog/continuous-deployment-at-isotope11-an-update">*</a>
+See <a target="_blank" href="http://jenkins-ci.org/content/whos-driving-thing">*</a>
+and <a target="_blank" href="https://isotope11.com/blog/continuous-deployment-at-isotope11-an-update">*</a>
 
 
 <a id="Prerequisites"></a>
@@ -55,11 +59,14 @@ It contains a Tomcat web server Java runs under.
 
 ## Installation options #
 
-   * <a href="#CloudbeesInstall">Cloudbees</a>
-   * <a href="#AmazonInstall">Amazon cloud</a>
-   * <a href="#Install_Mac">Mac</a>
-   * <a href="#Install_Windows">Windows</a>
-   * <a href="#Install_Linux">Linux</a>
+   * <a href="#CloudbeesInstall">Cloudbees</a> Saas
+   * <a href="#CodeDeploy">AWS CodeDeploy service</a> SaaS
+   * <a href="#AmazonInstall">Amazon EC2 instance you setup</a>
+     with Ansible script using Docker image
+   * <a href="#Install_Mac">Mac</a> locally
+   * <a href="#Choco_Windows">Windows</a> locally using Chocolatey
+   * <a href="#Install_Windows">Windows</a> locally by download
+   * <a href="#Install_Linux">Linux</a> locally
 
 <a id="CloudbeesInstall"></a>
 
@@ -73,26 +80,6 @@ Cloudbees sells Nectar, a supported and enhanced on-premise version of Jenkins t
 Cloudbees has a professional certification exam on this product.
 
 
-<a name="AmazonInstall"></a>
-
-### Amazon Cloud Installation #
-
-Jenkins can be hosted on the Amazon cloud several ways:
-
-   * AWS EC2 instance
-   * <a href="#CodeDeploy">AWS CodeDeploy service</a>
-
-Jeff Shantz has a great set of videos on "Continuous Integration with Jenkins on Amazon EC2" (from 2014):
-   <a target="_blank" href="https://www.youtube.com/watch?v=1JSOGJQAhtE">
-   1</a>,
-   <a target="_blank" href="https://www.youtube.com/watch?v=zojMg2c6k3Q">
-   2</a>,
-   <a target="_blank" href="https://www.youtube.com/watch?v=0ZS2BL5R3Ow">
-   3</a>,
-   <a target="_blank" href="https://www.youtube.com/watch?v=SRAQzs41ct4">
-   4</a>,
-   <a target="_blank" href="https://www.youtube.com/watch?v=IZ99VwrF6t4">
-   5</a>
 
 <a name="CodeDeploy"></a>
 
@@ -123,6 +110,27 @@ Define what will be specified later:
 0. Click Create in the Summary page.
 
    Status goest from CREATE_IN_PROGRESS to CREATE_COMPLETE.
+
+<a name="AmazonInstall"></a>
+
+### Amazon EC2 Installation #
+
+If you have a prefer to select your own server sizes on EC2,
+Jenkins can be hosted on the Amazon cloud several ways.
+
+Jeff Shantz did a great job on his videos on "Continuous Integration with Jenkins on Amazon EC2" (from 2014):
+   <a target="_blank" href="https://www.youtube.com/watch?v=1JSOGJQAhtE">
+   1</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=zojMg2c6k3Q">
+   2</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=0ZS2BL5R3Ow">
+   3</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=SRAQzs41ct4">
+   4</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=IZ99VwrF6t4">
+   5</a>
+
+However, there are some updates necessary two years later.
 
 
 <a name="Install_Linux"></a>
@@ -175,9 +183,9 @@ jenkins
     * http://iosfactory.blogspot.com/2015/02/jenkins-setup-for-ios-development.html
  
 
-<a id="Install_Windows"></a>
+<a id="Choco_Windows"></a>
 
-### Windows Installation #
+### Windows Chocolatey Installation #
 
 0. Open a Command Window.
 0. Install the Chocolatey package manager (if you haven't already) by copying and pasting the PowerShell command from
@@ -224,10 +232,22 @@ Finished installing 'jenkins' and dependencies - if errors not shown in console,
  
    Notice Java is installed on path `C:\Users\%User%\AppData\Local\Temp\chocolatey\jenkins`, where %user% is what's on your own computer.
 
+<a id="Install_Windows"></a>
+
+### Windows Installation from download #
+
+0. Click on this link to download the latest installer:
+
+   <a target="_blank" href="https://jenkins.io/content/thank-you-downloading-windows-installer/">
+   https://jenkins.io/content/thank-you-downloading-windows-installer</a>
+
+
 
 <a id="Verify_install"></a>
 
 ## Verify Installation #
+
+Regardless of the installation mechanism:
 
 0. Verify intallation on a Mac or Linux:
 
