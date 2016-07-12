@@ -236,12 +236,25 @@ Finished installing 'jenkins' and dependencies - if errors not shown in console,
 
 ### Windows Installation from download #
 
-0. Click on this link to download the latest installer:
+CAUTION: Do not download the Windows jenkins.msi such as:
 
    <a target="_blank" href="https://jenkins.io/content/thank-you-downloading-windows-installer/">
    https://jenkins.io/content/thank-you-downloading-windows-installer</a>
 
+   After you install to Program Files(x86). Install 2.7.1. Finish.
 
+   A web server is automatically created on localhost:8080 and pops up an Authorization.
+
+   But what is the User Name and Password?
+
+So here is the approach that Umesh Lakana recommends:
+
+0. Download the jenkins.war file from 
+
+   <a target="_blank" href="http://ftp.tsukuba.wide.ad.jp/software/jenkins/war-stable/2.7.1/jenkins.war">
+   http://ftp.tsukuba.wide.ad.jp/software/jenkins/war-stable/2.7.1/jenkins.war</a>
+
+TODO: 
 
 <a id="Verify_install"></a>
 
