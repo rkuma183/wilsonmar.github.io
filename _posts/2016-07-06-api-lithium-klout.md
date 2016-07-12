@@ -28,6 +28,9 @@ But here we're talking about Lithium Technologies, which
 one author in 2016 named</a> 
 the most "impactful" CRM (Customer Relationship Manager) software.
 
+Futurist Jacob Morgan visits Lithum's co-founder Kirk Yokomizo's San Francisco office:
+   <amp-youtube data-videoid="_j9VazWUEH8" layout="responsive" width="480" height="270"></amp-youtube>
+ 
 <a target="_blank" href="https://www.salesforce.com/form/service-cloud/2016-gartner-magic-quadrant-crm-customer-engagement-center.jsp">
 Gartner placed Lithium in the middle of the CRM pack</a> beneath Salesforce and Pegasystems's rule-based system:
    <amp-img width="650" height="650" alt="crm gartner magicquadrant 2014-488x536-c69.jpg"
@@ -580,32 +583,34 @@ Query the number of unanswered posts (topic messages with no replies):
 
 Return forum posts that have an average rating value of 4 or higher.
  
-    <tt><strong>
-    SELECT * FROM messages 
-    WHERE ratings.avg(value)>=4 
-    AND conversation.style='forum'
-    </strong></tt>
+   <pre><strong>
+   SELECT * FROM messages 
+   WHERE ratings.avg(value)>=4 
+   AND conversation.style='forum'
+   </strong></pre>
 
 Return the subject, ID, and conversation data for forum topics with accepted solutions.
  
-    <tt><strong>
-    SELECT subject, id, conversation 
-    FROM messages 
-    WHERE conversation.style= 'forum' 
-    AND depth=0 AND conversation.solved='true'
-    </strong></tt>
+   <pre><strong>
+   SELECT subject, id, conversation 
+   FROM messages 
+   WHERE conversation.style= 'forum' 
+   AND depth=0 AND conversation.solved='true'
+   </strong></pre>
 
 Return recipe_board for a specific author:
 
-    <tt><strong>
-    SELECT id
-    FROM messages WHERE category.name = ‘recipe_board’ 
-    AND author.id = '3' AND depth = 0 
-    ORDER BY post_time DESC LIMIT 4
-    </strong></tt>
+   <pre><strong>
+   SELECT id
+   FROM messages WHERE category.name = ‘recipe_board’ 
+   AND author.id = '3' AND depth = 0 
+   ORDER BY post_time DESC LIMIT 4
+   </strong></pre>
 
 
-## <a name="BulkData"> Community Bulk Data API</a> # 
+<a name="BulkData"></a>
+
+## Community Bulk Data API # 
 
 Also called Lithium Social Intelligence (LSI).
 
@@ -624,15 +629,20 @@ join Lithium data with their own to derive new business insights.
 
 ## People #
 
-Commiters on Lithium's GitHub:
+Commiters on Lithium's public GitHub:
 
 * Abhinand Menon (abhinandmenon), https://www.linkedin.com/in/abhinand/en
 * Andrew Dorsett (awdorsett)
 * Brian Harrington (bdharrington7) https://bdharrington.com/
 * doug.schroeder
 
+There are also many consultants working on Lithum's public interface:
 
-## <a name="Klout">Klout API</a> #
+
+
+<a name="Klout"></a>
+
+## Klout API #
 
 [Various social media metrics (competitors to Klout)](/social-media-for-evangelism/)
 all calculate an “influence” score

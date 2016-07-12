@@ -7,6 +7,12 @@ pic images.txt
 
 —— Available in 1900x500 within Amazon:
 
+# pic jessica nedved swimming 1900x500-c70.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/16708828/1e020bc6-45bd-11e6-9b1d-efb4246989c2.jpg
+  credit: Jessica Nedved
+  creditlink: http://www.jessicanedved.com/blog/?p=29
+
+
 # pic pic circuit board 1920x800.jpg
 http://www.blakell-europlacer-distribution.co.uk/wp-content/uploads/2016/01/tagarno-2.jpg
 
