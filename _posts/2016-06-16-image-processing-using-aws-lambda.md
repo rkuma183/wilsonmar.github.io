@@ -52,7 +52,7 @@ more people than only those who can setup a Gulp server.
    More image processing:
 
 0. <a href="#FacialRecognition">Facial recognition (does the image contain one or more faces?)</a>
-0. <a href="#ExtractGeotags</a>Extract geotags from photos</a>
+0. <a href="#ExtractGeotags">Extract geotags from photos</a>
 
    Automate input:
 
