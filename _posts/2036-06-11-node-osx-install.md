@@ -639,6 +639,12 @@ For your use case it creates some extra tedious work,
 but you can also just use semantic versioning as intended and specify "mylib": "^1.0.0" in your package.json for your apps and be OK with automatically getting newer versions next time you npm install.
 
 
+## N|Solid #
+
+N|Solid is a fully compatible Node.js runtime 
+enhanced to address the needs of the enterprise:
+
+* https://downloads.nodesource.com/
 
 
 ## Resources #
