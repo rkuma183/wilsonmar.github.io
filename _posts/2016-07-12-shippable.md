@@ -63,7 +63,7 @@ less developers to do the same work
 frictionless
 for speed
 
-#DevOps2.0
+\#DevOps2.0
 
    #devops2.0 expanding to embrace non-developers and feature releases separate from code deployments
 
@@ -116,8 +116,11 @@ declarative
 watches and <strong>Notifications</strong> are handled by the Shippable Lighthouse service.
 to Slack, IRC
 
+## Value proposition #
+
 Don't need to learn Docker, Jenkins.
 
+## Videos #
 
 * https://www.youtube.com/watch?v=tJ1lvTQCGuI&feature=youtu.be&a
    Demo: Shippable CI/CD and Formations
@@ -139,7 +142,10 @@ Don't need to learn Docker, Jenkins.
 
 ## Competitors
 
-Integration offerings such as Zapier, 
+Integration offerings such as Zapier,
+
+
+
 
 ## Social
 
@@ -148,6 +154,23 @@ Integration offerings such as Zapier,
 * <a target="_blank" href="https://www.linkedin.com/company/3320485">Shippable</a>
 * <a target="_blank" href="https://www.linkedin.com/in/shippable/">linkedin.com group Shippable</a>
 
+
+
+## Repositories #
+
+https://github.com/goshippable
+
+https://github.com/shippable
+
+   * docsv2
+   * support
+   * cexec
+
+https://github.com/shippableSamples by https://github.com/pranaypareek
+
+https://github.com/dry-dock
+
+   * ubuntu
 
 ## People #
 
@@ -165,4 +188,10 @@ Integration offerings such as Zapier,
   http://blog.shippable.com/author/abhijit-kini
 
 * Ragesh Krishna in GitHub
+
+* Amal Francis (amalfra) in Bengaluru
+
+* https://github.com/kanthchandra
+
+* https://github.com/pranaypareek
 

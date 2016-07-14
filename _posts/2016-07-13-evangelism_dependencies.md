@@ -13,7 +13,7 @@ image:
 
 This diagram 
 is an example of the <strong>sequencing</strong> 
-of deliverables by evangelists:
+of deliverables for evangelism:
 
    <amp-img width="650" height="350" alt="evangelism-dependencies-v01-650x350-c57.jpg"
    layout="responsive" 
@@ -22,6 +22,7 @@ of deliverables by evangelists:
 
 Different colors in the diagram are arbitrary, 
 to delineate level of secrecy or ownership by different people.
+This will be different for each organization.
 
 1. We start with the <strong>pain points</strong>, where people need to take action 
    and are likely to be looking for <strong>solutions</strong>,
@@ -38,8 +39,8 @@ to delineate level of secrecy or ownership by different people.
    both indistry-wide and internally 
    would drive messaging rather than just empty slogans.
 
-0. Real people
-0. and their stories
+0. Real people and their organizations
+0. and their stories ("proof points")
 0. in presentation graphics so
 0. social media reflects reality and sincerity.
 0. But we need to show Return on Investment in
@@ -59,7 +60,7 @@ to delineate level of secrecy or ownership by different people.
 
 NOTE: The digram was [(created with animations in MS PowerPoint 2011)](/fig/evangelism_dependencies_v01.pptx/)
 
-The diagram does not cover all of the artifacts relevant to technical Evangelists:
+The diagram does not cover all of the artifacts relevant to [technical Evangelists](/evangelist/):
 
 {% include evangelist_links.html %}
 
