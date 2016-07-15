@@ -107,7 +107,11 @@ adds an Accessibility audit and an Accessibility sidebar pane in the Elements ta
                          alt="aXe is an Extension added to Chrome for developers with no false positive for Accessibility issues">aXe is Accessibility defects extension for Chrome.</a> 		
 Automated testing tools must return zero false positives, so that you know what problems you must fix.  This extension uses aXe javascript library and is the third generation of accessibility rules for HTML-based user interfaces and is open source.
     				 
-   
+<a target="_blank" href="http://chromelens.xyz/" 
+                         alt="ChromeLens is a set of developer tools that allow developers to code websites better suited for the visually impaired.">
+ChromeLens.xyz</a> is a set of developer tools that allow developers to code websites better suited for the visually impaired.
+
+
 ## Link or Sanity Validation
 
 <a target="_blank" href="https://validator.w3.org/" 
