@@ -44,8 +44,10 @@ This will be different for each organization.
 0. in presentation graphics so
 0. social media reflects reality and sincerity.
 0. But we need to show Return on Investment in
-0. blogs and longer form communications
-0. summarized in scripted videos to get people into
+0. blogs and longer form communications.
+
+0. <strong>scripted videos</strong> are essentially recordings of demos and 
+   conceptual explanations given at
 0. meetups and conference presentations.
 
 0. On the technical side, <strong>sample applications</strong> are used in

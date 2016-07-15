@@ -15,27 +15,93 @@ comments: true
 
 {% include _toc.html %}
 
-This article equips developers to use Shippable, 
+This article explains the <strong>quickest</strong> and <strong>least cost way</strong> 
+developers can create servers configured for production use.
 
-KEYWORD: "DevOps 2.0" 
 
-   * Graphic table like https://www.wikiwand.com/en/Industry_4.0
+## Frictionless DevOps 2.0 #
 
-KEYWORD: "Frictionless" 
+Twitter hashtag "\#DevOps_2.0"
 
-which began as a CI/CD tool
-(like Jenkins) to trigger events.
+   0. servers run <strong>on-premises</strong> or on 
+   <strong>any major cloud environment</strong> (Amazon, Microsoft, Google, etc.)
+   
+   0. servers are built on whichever cloud has the <strong>lowest cost</strong> any any given moment
+
+   0. server configurations are treated like textual programming code residing
+   within a <strong>versioned source repository</strong>
+   GitHub, or Bitbucket in the cloud or GitLab <strong>on-premises</strong>
+
+   0. server configurations are defined using <strong>declarative</strong> 
+   statements that specify the <strong>end result</strong>
+   rather than specific steps
+
+   0. a single server configurate can be applied to <strong>several operating systems</strong>
+
+   0. when a server configuration is run several times, it doesn't create a mess
+   (this is called "idempotent").
+
+   0. differences in creating servers for test, demo, prod, and other stages
+   are handled automatically without requiring explicit manual specification.
+
+   0. monitoring and other utility software are automatically added to servers
+
+   0. notifications are sent 
+
+   0. developers don't need to learn Jenkins and Chef
+
+TODO: graphic table like https://www.wikiwand.com/en/Industry_4.0
+
+## Software #
+
+All this is achieved by tools from several developer groups.
+
+   * GitHub / Bitbucket / GitLab
+   * Docker.com
+   * Kubernetes.com
+   * Artifactory server image repository
+   * Shippable.com 
+   * container registry services in cloud environments
+   * Shippable Lighthouse service watches and sends <strong>notifications</strong> to Slack, IRC, etc.
+
+
+## Upgrade from DevOps 1.0 #
+
+How long does it take to make a small change ... and get it to the customer?
+   through tests in various environments 
+   which gets more complex as more developers and components
+
+less developers to do the same work
+
+"DevOps 2.0" improves on where the "12 Factor App" promise of DevOps has stalled:
+
+   * software too complex to learn
+   * software too difficult to test in production
+   * software too brittle
+   * software operates only within a single vendor's environment
+   * inconsistencies of servers in different stages and environments
+
+
+## Technical Descriptions #
+
+Docker containerized environments
+
+<strong>Kubernetes</strong> software watches and adjusts the number of servers as appropriate.
 
 "Minions" (workers)
 
-Company Stats:
+<strong>Formation</strong>
+like shipping lanes for applications
+ <strong>pipelines</strong> 
+
+
+
+## Company Stats 
 
    * 400 # Accounts
    * 4000 Docker system
 
 I added a video to a @YouTube playlist http://youtu.be/RhLMyQI5IuU?a  CenturyLink Labs Interviews Shippable Founder, Avi Cavale
-
-Shipping lanes for applications
 
 USE CASE: One-click on GitHub to working instance
 
@@ -54,37 +120,11 @@ TODO: Video courses on Udemy, Lynda, Pluralsight
 
 TODO: Get into curriculum of code camps
 
-How long does it take to make a small change ... and get it to the customer?
-   through tests in various environments 
-   which gets more complex as more developers and components
-
-less developers to do the same work
-
-frictionless
-for speed
-
-\#DevOps2.0
 
    #devops2.0 expanding to embrace non-developers and feature releases separate from code deployments
 
-   "Staging Servers Must Die"
-   XebiaLabs ‏@xebialabs https://t.co/oL8G01wq3i
-
 @BeShippable "If you're writing a single line of code for DevOps, you're not doing DevOps 2.0."  #nocode #devops2_0
 
-
- eliminate environmental inconsistencies
- without DevOps coding
-
-Shippable builds source into an image registry 
-(such as Artifactory)
-<strong>formations</strong> to prod
-
-smart containerized environments
-
-decoupled infrastructure
-
-too slow?
 
 not directly add value waste > provisioning machines, 
 
@@ -96,29 +136,8 @@ Shippable frees software organizations from <strong>vendor lock-in</strong>.
 Because shippable works on <strong>several clouds</strong>,
 your work can achieve truely high availability and capacity.
 
-Shippable achieves end-to-end 
-beginning from declarative in GitHub, BitBucket, and other version control clouds.
-
-Docker hub
-Docker 
-
 cells
 
-Shippable enables software delivery <strong>pipelines</strong> 
-
-Fraction of cost
-
-Shippable leverage authentication of source code system.
-
-idempotent
-declarative 
-
-watches and <strong>Notifications</strong> are handled by the Shippable Lighthouse service.
-to Slack, IRC
-
-## Value proposition #
-
-Don't need to learn Docker, Jenkins.
 
 ## Videos #
 
@@ -140,19 +159,24 @@ Don't need to learn Docker, Jenkins.
    Build Tools Shippable CI setup
 
 
-## Competitors
+## Alternative vendors #
+
+   "Staging Servers Must Die"
+   XebiaLabs ‏@xebialabs https://t.co/oL8G01wq3i
 
 Integration offerings such as Zapier,
 
 
 
 
-## Social
+## Social #
 
-* <a target="_blank" href="https://www.shippable.com/">shippable.com</a>
-* <a target="_blank" href="https://www.twitter.com/beshippable/">@beshippable</a>
-* <a target="_blank" href="https://www.linkedin.com/company/3320485">Shippable</a>
-* <a target="_blank" href="https://www.linkedin.com/in/shippable/">linkedin.com group Shippable</a>
+Shippable:
+
+   * <a target="_blank" href="https://www.shippable.com/">shippable.com</a>
+   * <a target="_blank" href="https://www.twitter.com/beshippable/">@beshippable</a>
+   * <a target="_blank" href="https://www.linkedin.com/company/3320485">Shippable</a>
+   * <a target="_blank" href="https://www.linkedin.com/in/shippable/">linkedin.com group Shippable</a>
 
 
 
@@ -162,17 +186,23 @@ https://github.com/goshippable
 
 https://github.com/shippable
 
-   * docsv2
+   * docsv2 of shippable-docs using http://www.mkdocs.org/user-guide/configuration/#pages
+
    * support
+
    * cexec
 
-https://github.com/shippableSamples by https://github.com/pranaypareek
+https://github.com/shippableSamples 
+by https://github.com/pranaypareek
 
-https://github.com/dry-dock
+https://github.com/dry-dock 
+houses Docker files for specific versions:
 
    * ubuntu
 
 ## People #
+
+Shippable:
 
 * Avi Cavale (avinci on GitHub)
 
@@ -194,4 +224,9 @@ https://github.com/dry-dock
 * https://github.com/kanthchandra
 
 * https://github.com/pranaypareek
+
+
+## References #
+
+* https://www.oreilly.com/ideas/using-a-single-codebase-for-your-cloud-native-app
 
