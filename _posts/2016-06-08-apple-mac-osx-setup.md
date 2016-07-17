@@ -27,11 +27,10 @@ If you've already run this, <a href="#SelectApps">click here to skip to view and
 
 0. Copy from below this shell script call (highlight the line, then hold down command and press C to the invisible Clipboard):
 
-   <pre><strong>
+   <tt><strong>
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
-   </strong></pre>
+   </strong></tt>
 
-0. Open a Terminal window.
 0. Make a folder and navigate into it:
 
    <pre><strong>

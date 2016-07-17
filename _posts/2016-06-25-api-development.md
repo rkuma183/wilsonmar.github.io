@@ -205,6 +205,22 @@ https://help.apiary.io/tools/mock-server
    * Multiple requests
 
 
+<a name="Generators"></a>
+
+## Code Generators #
+
+https://www.manning.com/books/code-generation-in-action
+   Manning published 2003 
+   authored by Jack Herrington
+   makes use of PHP
+   to generate C, C++, C#, Java, Perl, SQL, and unit tests.
+
+https://github.com/api-platform/api-platform
+   API-first web framework on top of PHP Symfony with JSON-LD, Schema.org, and Hydra support 
+   https://api-platform.com
+
+
+
 <a name="Videos"></a>
 
 ## Videos #
@@ -260,4 +276,3 @@ Kirsten L. Hunter suggests these metrics:
    Aug. 7, 2013
    by Les Hazelwood of StormPath | @Hazelwood
 
-* 

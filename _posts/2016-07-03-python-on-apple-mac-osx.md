@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python on Mac OSX"
-excerpt: "Get it here"
+excerpt: "Confusion and errors from many alternatives and options"
 tags: [python, apple, mac, setup]
 image:
 # feature: pic white python logo 1900x500.jpg
@@ -15,58 +15,579 @@ comments: true
 
 {% include _toc.html %}
 
-"Speed, reproducibility, easy rollbacks, and predictability is what we strive for when deploying our diverse Python applications."
+This tutorial describes the different options to install
+a package manager which helps you find and install Python packages.
+Unlike others, this is a hands-on presentation providing step-by-step instructions 
+followed by commentary.
+
+Steps here are carefully sequenced for learning of concepts
+rather than workflow so each concept introduced is done after the necessary background is learned.
+
+
+<a name="PythonVersion"></a>
+
+## Python version #
+
+Since Python comes installed on MacOS machines
+since the Mavericks version,
+we start with this:
+
+(Use the index at the right if you want to jump ahead)
+
+0. Open a Terminal shell window and issue command:
+
+   <tt><strong>
+   python \-\-version
+   </strong></tt>
+
+   The response on El Capitan version:
+
+   <pre>
+   Python 2.7.6
+   </pre>
+
+   CAUTION: The version that comes installed with MacOS is obsolete.
+
+   Alternately, if you have installed <a href="#Conda">Conda (described below)</a>,
+   you would instead see:
+
+   <pre>
+   Python 2.7.12 :: Continuum Analytics, Inc.
+   </pre>
+
+0. List your present working directory:
+
+   <tt><strong>
+   pwd
+   </strong></tt>
+
+   We next use a Python interactive command to obtain this again.
+
+0. Open a Python command-line prompt:
+
+   <tt><strong>
+   python
+   </strong></tt>
+
+   The response on a new El Capital machine:
+
+   <pre>
+   Python 2.7.6 (default, Sep  9 2014, 15:04:36)
+   [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>> 
+   </pre>
+
+   \>\>\> is the Python interpreter prompt.
+
+   If you see \>\>\> in front of a command, don't enter that part.
+   
+0. Display Python's current working directory with these Python statements:
+
+   <tt><strong>
+   \>\>\> import os<br />
+   \>\>\> os.getcwd()
+   </strong></tt>
+
+   The response is your home folder (substitue my "mac" user name with yours):
+
+   <tt>
+   '/Users/mac/Downloads'
+   </tt>
+
+0. Futhermore...
+
+   <tt><strong>
+   \>\>\> import os, sys<br />
+   \>\>\> os.path.dirname(os.path.abspath(sys.argv[0]))
+   </strong></tt>
+
+   The response is your home folder (substitue "mac" with your user name):
+
+   <tt>
+   '/Users/mac'
+   </tt>
+
+0. Exit the Python interpreter by typing:
+
+   <tt><strong>
+   exit()
+   </strong></tt>
+
+   NOTE: MacOS does not come installed with a package manager for Python.
+
+
+<a name="UpgradePython"></a>
+
+## Upgrade Python #
+
+To build Python on a machine requires a GCC compiler.
+One comes with command-line tools installed with
+Apple's XCode IDE</a>.
+
+0. Use an internet browser to <a target="_blank" href="https://developer.apple.com/xcode/">
+   https://developer.apple.com/xcode</a>
+
+0. Click "Download" and provide your Apple ID.
+   You'll need to establish an Apple ID.
+
+0. Select the version to download:
+
+   | File               | Date       | Download | Unpacked |
+   | :----------------- | :--------- | -------: | ------: |
+   | XCode_8_beta_2.xip | 2016-07-05 |   5.9 GB | 12.32 GB |
+   | XCode_7.31         | 2016-05-03 |   3.8 GB | ? |
+   | XCode_4.1          | 2014-      |   2.9 GB | ? |
+   | XCode_3.2.4        | 2014-      |   2.? GB | ? |
+
+   NOTE: These are massive files that may take a while to download if you don't have a fast internet connection.
+
+   CAUTION: Even more important, make sure that your machine will have enough free space available.
+
+0. Remember to delete the installer after you're done, then 
+
+## Upgrade pip and setuptools #
+
+
+<a name="BrewPip"></a>
+
+### Install pip #
+
+Instead of following instructions such as 
+<a target="_blank" href="https://packaging.python.org/installing/#install-pip-setuptools-and-wheel">
+this</a> with:
+
+   <tt><strong>
+   pip install -U pip setuptools
+   </strong></tt>
+
+   BTW, on Windows it's:
+
+   <tt><strong>
+   python -m pip install -U pip setuptools
+   </strong></tt>
+
+0. On a Mac use the Mac system package manager [Homebrew](/homebrew/)
+   to install pip (as <a target="_blank" href="http://penandpants.com/2012/02/24/install-python/">recommended by this site</a>
+   and <a target="_blank" href="https://pip.readthedocs.io/en/stable/installing/">https://pip.readthedocs.io/en/stable/installing</a>):
+
+   <tt><strong>
+   brew install pip
+   </strong></tt>
+
+   Conda installs outside the standard structure, so 
+
+0. Run:
+
+   <tt><strong>
+   brew doctor
+   </strong></tt>
+
+   this warning appears (which can be safely ignored):
+
+{% highlight text %}
+Warning: "config" scripts exist outside your system or Homebrew directories.
+`./configure` scripts often look for *-config scripts to determine if
+software packages are installed, and what additional flags to use when
+compiling and linking.
+
+Having additional scripts in your path can confuse software installed via
+Homebrew if the config script overrides a system or Homebrew provided
+script of the same name. We found the following "config" scripts:
+    /Users/mac/miniconda2/bin/python-config
+    /Users/mac/miniconda2/bin/python2-config
+    /Users/mac/miniconda2/bin/python2.7-config
+{% endhighlight %}
+
+   QUESTION: Is there a way to suppress these messages?
+
+
+<a name="Requirements"></a>
+
+## Requirements.txt #
+
+In a GitHub repo cloned locally,
+if you see a file <strong>Requirements.txt</strong>, 
+it is likely a list of Python packages needed by the application:
+
+   <pre>
+# pip install awscli mkdocs
+awscli==1.7.26
+bcdoc==0.14.0
+botocore==0.107.0
+certifi==2015.4.28
+colorama==0.3.3
+docutils==0.12
+ghp-import==0.4.1
+Jinja2==2.7.3
+jmespath==0.7.1
+livereload==2.3.2
+Markdown==2.6.2
+MarkupSafe==0.23
+mkdocs==0.14.0
+pyasn1==0.1.7
+python-dateutil==2.4.2
+PyYAML==3.11
+rsa==3.1.4
+six==1.9.0
+tornado==4.1
+   </pre>
+
+   Notice each specific version is specified.
+
+0. In a Terminal shell window, change the directory to where app resides.
+
+0. Just for laughs:
+
+   <tt><source>
+   pip install
+   </strong></tt>
+
+   The response:
+
+   <pre>
+You must give at least one requirement to install (see "pip help install")
+   </pre>
+
+   The use of the word "requirement" in this message is partly why 
+   lists of Python package dependencies are in a requirements.txt file.
+
+
+<a name="VirtualEnvironments"></a>
+
+## Virtual Environments #
+
+   Examples of instructions for installing a requirements.txt file 
+   are typically preceded by a `source bin/activate` command
+   which executes the activate script in the project's bin folder.
+
+   An activate script is placed in each virtual environment established
+   to store different sets of dependencies required by different projects in separate isolated locaations.
+   
+   This solves the &quot;Project X depends on version 1.x but, Project Y needs 4.x&quot; dilemma, 
+   and keeps your global site-packages directory clean and manageable.
+   - <a target="blank" href="http://docs.python-guide.org/en/latest/starting/install/osx/">
+   Python Guide</a>
+
+
+
+
+
+   before the `pip install` command:
+   Automatically download the packages listed
+   (after you manually change the /path/to)
+
+   <tt><source>
+   source bin/activate<br />
+   pip install -r /path/to/requirements.txt  
+   </strong></tt>
+
+   This downloads dependencies from PyPI (the Python Package Index),
+   a public repository of software for the Python programming language at
+   <a target="_blank" href="https://pypi.python.org/pypi">
+   https://pypi.python.org/pypi</a>.
+
+   However, adding the "\-\-no-index" option would not use it.
+
+   NOTE: pip compiles everything from source if a "wheel" is not available for it.
+   Wheels are a pre-built distribution format that provides faster installation compared to Source Distributions (sdist), 
+   especially when a project contains compiled extensions.
+
+   <tt><strong>
+   pip install \-\-use-wheel <em>package</em>
+   </strong></tt>
+
+   The steps to follow describe how to install pip:
+
 
 <a id="PackagInstallerz"></a>
 
-## Hard-core Installation #
+## Python installation #
 
-What I call the "hard-core" approach is to use an internet browser to
+0. In an internet browser at <br />
+   <a target="_blank" href="https://www.python.org/downloads/mac-osx/">
+   https://www.python.org/downloads/mac-osx</a>
 
-   * [python.org/downloads/mac-osx/](https://www.python.org/downloads/mac-osx/)
+0. Click the Latest link at the top or a <br />
+   specific "Mac OS X 64-bit/32-bit installer".
 
-and download the <strong>pip-x.x.x.tar.gz</strong> 
-(tarball "gunzip") containing source.
+   | File                         | Date       | Download |
+   | :--------------------------- | :--------- | ------: |
+   | python-2.7.12-macosx10.6.pkg | 2016-06-25 | 21.3 MB |
+   | python-2.7.11-macosx10.6.pkg | 2015-12-05 | 21.1 MB |
+   | python-2.7.10-macosx10.6.pkg | 2015-05-23 | 21.1 MB |
+   | python-2.7.09-macosx10.6.pkg | 2014-12-10 | 21.0 MB |
+   | python-2.7.08-macosx10.6.pkg | 2014-07-02 | 19.4 MB |
+   | python-2.7.07-macosx10.6.pkg | 2014-05-31 | 19.4 MB |
+   | python-2.7.06-macosx10.6.pkg | 2013-11-10 | 19.2 MB |
 
-The "x.x.x" represents the version,
-which probably will be different when it comes time for you to do this.
+   This table shows the growth in download size over time,
+   an analysis unique to this page.
 
-But there are more "civilized" approaches.
 
 ## Python Package Install Options #
 
-CAUTION: There is a conflict of choice here:
+There is what can be a confusing conflict of choice here for installing Python and its package manager.
 
-   * <a href="#Conda">Conda</a>
-   * MiniCorda 
-   * Anacorda 
-   * <a href="#easy_install">easy_install</a>
-   * <a href="#PIPz">pip</a> (Python Installation Packager, built on top of setuptools)
+The "traditional" approach:
 
-Differences:
+   * <a href="#PIPz">pip</a> (Python Installation Packager) is built on top of <strong>setuptools</strong> which
+   is what downloads and installs Python software over a network (usually the Internet) with a single command (easy_install). 
+   It itself is installed using easy_install.
+
+   * <a href="#easy_install">easy_install</a> is an environment manager.
+   <br /><br />
+
+Alternatively, there are these alternatives from Continuum Analytics:
+
+   * <a href="#Conda">Conda</a> is the command-line tool that combines functionality of pip and virtualenv
+   * <a href="#MiniConda">Miniconda</a> is a lightweight distribution of conda
+   * Anaconda contains a curated collection of over 720 "common" packages for scientific python users. It goes on top of miniconda.
+   <br /><br />
+
+Differences among them:
 
 * Pip is a package manager.
 * Virtualenv is an environment manager. 
 * Conda is both.
 
-* pip can install anything from pypi in one command. 
-* conda requires at least three commands: skeleton, build, install, and possibly more
+* pip can install anything from PyPI in one command. 
+* Conda requires at least three commands: skeleton, build, install, and possibly more
 
 * Conda handles library dependencies outside of the Python packages as well as the Python packages themselves. 
-
-* pip compiles everything from source if a "wheel" is not available.
-
-   <tt><strong>
-   pip install --use-wheel <em>package</em>
-   </strong></tt>
 
 * Conda installs from binary, meaning that someone (e.g., Continuum) 
    has already done the hard work of compiling the package, making installation easier and faster.
 
-* conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
+* Conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
 
 
-### Virtualenv and Docker #
+
+<a name="Miniconda"></a>
+
+## Miniconda install #
+
+Below is a more "hands-on" description than what
+<a target="_blank" href="http://conda.pydata.org/docs/install/quick.html">
+pydata.org</a> and
+<a target="_blank" href="http://kylepurdon.com/blog/using-continuum-analytics-conda-as-a-replacement-for-virtualenv-pyenv-and-more.html">
+Kyle Purdon</a> offers.
+
+0. Use an internet browser to visit the <a target="_blank" href="http://conda.pydata.org/miniconda.html">
+   Miniconda Download page at http://conda.pydata.org/miniconda.html</a>
+
+   Alternately, download:
+
+   <tt><strong>
+   cd ~/Downloads<br />
+   wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+   </strong></tt>
+
+0. Select version to download. For Python 2.7:
+
+   | Version    | File                               | Size    |
+   | :--------- | :--------------------------------- | ------: |
+   | Python 2.7 | Miniconda2-latest-MacOSX-x86_64.sh | 20.3 MB |
+   | Python 3.5 | Miniconda3-latest-MacOSX-x86_64.sh | 23.4 MB |
+
+   NOTE: Python3 is not backward compatible with Version 2.
+
+   Notice the ".sh" means these are shell scripts.
+
+0. Open a Terminal shell window to
+   navigate to your Downloads folder and run the Python 2.7 script:
+
+   <tt><strong>
+   cd ~/Downloads<br />
+   bash Miniconda2-latest-MacOSX-x86_64.sh -b
+   </strong></tt>
+
+   PROTIP: The "-b" option specifies unattended with defaults.
+
+   The response:
+
+   <pre>
+Welcome to Miniconda2 4.0.5 (by Continuum Analytics, Inc.)
+&nbsp;
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+>>> 
+   </pre>
+
+0. Press Enter to accept the license.
+0. Press "q" to the ":" prompt.
+0. Type yes.
+
+   "ERROR: File or directory already exists:"
+   appears if miniconda was already installed.
+
+   <a name="Conda"></a>
+
+   ### Update Conda verson #
+
+0. To update miniconda's version, use the conda command line installed above:
+
+   <tt><strong>
+   conda update conda
+   </strong></tt>
+
+   The response is a list of packages to be updated if you agree:
+
+   <pre>
+Fetching package metadata: ....
+.Solving package specifications: ..........
+&nbsp;
+Package plan for installation in environment /Users/mac/miniconda2:
+&nbsp;
+The following packages will be downloaded:
+&nbsp;
+    package                    |            build
+    ---------------------------|-----------------
+    sqlite-3.13.0              |                0         1.4 MB
+    python-2.7.12              |                1         9.5 MB
+    conda-env-2.5.1            |           py27_0          26 KB
+    ruamel_yaml-0.11.7         |           py27_0         174 KB
+    conda-4.1.8                |           py27_0         201 KB
+    ------------------------------------------------------------
+                                           Total:        11.2 MB
+&nbsp;
+The following NEW packages will be INSTALLED:
+&nbsp;
+    ruamel_yaml: 0.11.7-py27_0
+&nbsp;
+The following packages will be UPDATED:
+&nbsp;
+    conda:       4.0.4-py27_0 --> 4.1.8-py27_0 
+    conda-env:   2.4.5-py27_0 --> 2.5.1-py27_0 
+    python:      2.7.11-0     --> 2.7.12-1     
+    sqlite:      3.9.2-0      --> 3.13.0-0     
+&nbsp;
+Proceed ([y]/n)? 
+   </pre>
+
+0. Press "y" to proceed. A sample response:
+
+   <pre>
+Fetching packages ...
+sqlite-3.13.0- 100% |################################| Time: 0:00:02 483.10 kB/s
+python-2.7.12- 100% |################################| Time: 0:00:20 477.84 kB/s
+conda-env-2.5. 100% |################################| Time: 0:00:00 392.63 kB/s
+ruamel_yaml-0. 100% |################################| Time: 0:00:00 331.95 kB/s
+conda-4.1.8-py 100% |################################| Time: 0:00:00 457.60 kB/s
+Extracting packages ...
+[      COMPLETE      ]|###################################################| 100%
+Unlinking packages ...
+[      COMPLETE      ]|###################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|###################################################| 100%
+   </pre>
+
+0. After install, close and then re-open the terminal window so the changes can take effect.
+
+0. For a list of packages installed in the currently active environment:
+
+   <tt><strong>
+   conda list
+   </strong></tt>
+
+  
+   ### Path to Miniconda executables #
+
+0. To see what MacOS
+
+   <tt><strong>
+   which python
+   </strong></tt>
+
+   The response on my machine (yours will have something else than "mac"):
+
+   <pre>
+   /Users/mac/miniconda2/bin/python
+   </pre>
+
+
+0. For a list of what Python executes:
+
+   <tt><strong>
+   ls ~/miniconda2/bin
+   </strong></tt>
+
+   The response begins with this:
+
+   <pre>
+2to3        openssl        python2-config
+activate    pip         python2.7
+aws         pip2        python2.7-config
+   </pre>
+   
+0. Open a text editor to ~/.bash_profile and add:
+
+   <tt><strong>
+   export PATH="~/miniconda2/bin:$PATH"<br />
+   export PYTHON_PATH=~/miniconda2/bin/python
+   </strong></tt>
+
+0. Activate the shell file as if you logged in:
+
+   <tt><strong>
+   source ~/.bash_profile
+   </strong></tt>
+
+
+
+0. For just the version number:
+
+   <tt><strong>
+   conda \-\-version
+   </strong></tt>
+
+   The response:
+
+   <pre>
+   conda 4.1.8
+   </pre>
+
+0. For details:
+
+   <tt><strong>
+   conda info
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Current conda install:
+&nbsp;
+             platform : osx-64
+        conda version : 4.1.8
+    conda-env version : 2.5.1
+  conda-build version : not installed
+       python version : 2.7.12.final.0
+     requests version : 2.10.0
+     root environment : /Users/mac/miniconda2  (writable)
+  default environment : /Users/mac/miniconda2
+     envs directories : /Users/mac/miniconda2/envs
+        package cache : /Users/mac/miniconda2/pkgs
+         channel URLs : https://repo.continuum.io/pkgs/free/osx-64/
+                        https://repo.continuum.io/pkgs/free/noarch/
+                        https://repo.continuum.io/pkgs/pro/osx-64/
+                        https://repo.continuum.io/pkgs/pro/noarch/
+          config file : None
+         offline mode : False
+    is foreign system : False
+       </pre>
+
+0. Download a cheat-sheet of Conda commands in a PDF file:
+
+   * <a target="_blank" href="http://conda.pydata.org/docs/_downloads/conda-cheatsheet.pdf">
+   http://conda.pydata.org/docs/_downloads/conda-cheatsheet.pdf</a>
+
+
+
+<a name="Virtualenv"></a>
+
+## Virtualenv and Docker #
 
 <a target="_blank" href="https://hynek.me/articles/virtualenv-lives/">
 Hynek Schlawack recommends</a>
@@ -85,15 +606,6 @@ Remove hassles from managing per-project virtualenvs by using one of these, depe
    * virtualenvwrapper-win on MS Windows
    * <a target="_blank" href="https://github.com/adambrenecki/virtualfish"> virtualfish</a>
 
-<a name="Conda"></a>
-
-## Conda installation #
-
-Many prefer to install Python using Conda for better package and environment management.
-
-Conda installs, runs, and updates packages and their dependencies. Its home page:
-
-*   [http://conda.pydata.org/docs/install/quick.html](http://conda.pydata.org/docs/install/quick.html)
 
 
 <a id="PIPz"></a>
@@ -134,25 +646,27 @@ to install packages from the web.
    sudo easy_install pip
    </strong></tt>
 
-"To be effective in the world, you're going to want to install both, 
-and only fall back to easy_install if  <a target="_blank" href="https://pypi.python.org/pypi/pip">
-pip</a> fails you.
+   The response:
 
+   <pre>
+Password:
+Searching for pip
+Best match: pip 8.1.2
+Adding pip 8.1.2 to easy-install.pth file
+Installing pip script to /Users/mac/miniconda2/bin
+Installing pip3.5 script to /Users/mac/miniconda2/bin
+Installing pip3 script to /Users/mac/miniconda2/bin
+&nbsp;
+Using /Users/mac/miniconda2/lib/python2.7/site-packages
+Processing dependencies for pip
+Finished processing dependencies for pip
+   </pre>
 
-
-### Homebrew install pip #
-
-Use [Homebrew](/homebrew/)
-to install pip (as <a target="_blank" href="http://penandpants.com/2012/02/24/install-python/">recommended by this site</a>):
-
-   <tt><strong>
-   brew install pip
-   </strong></tt>
 
 
 <a id="VirtualPyEnvz"></a>
 
-## Virtual Python environments
+## Virtual Python environments #
 
 The best way to have painless and reproducible deployments is to package whole virtual environments of the application you want to deploy including all dependencies but without configuration.
 
@@ -182,33 +696,65 @@ As the reponse requests, activate:
 
    <tt><strong>
    source /usr/local/opt/autoenv/activate.sh
-   <strong></tt>
+   </strong></tt>
 
    This does not issue a response.
 
 
-Instead of &quot;venv&quot;, substitute your project name to to create:
+0. Instead of &quot;venv&quot;, substitute your project name to to create:
 
    <tt><strong>
-   cd my_project_folder
-   $ virtualenv venv
+   cd my_project_folder<br />
+   virtualenv venv
    </strong></tt>
 
-Exclude the virtual environment folder from source control by adding it to the git ignore list.
+   Exclude the virtual environment folder from source control by adding it to the git ignore list.
 
-List all environments:
+   <pre>
+New python executable in /Users/mac/gits/wilsonmar/shippable/one/bin/python
+Installing setuptools, pip, wheel...
+  Complete output from command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wheel:
+  Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/mac/miniconda2/lib/python2.7/tempfile.py", line 32, in <module>
+    import io as _io
+  File "/Users/mac/miniconda2/lib/python2.7/io.py", line 51, in <module>
+    import _io
+ImportError: dlopen(/Users/mac/gits/wilsonmar/shippable/one/lib/python2.7/lib-dynload/_io.so, 2): Symbol not found: __PyCodecInfo_GetIncrementalDecoder
+  Referenced from: /Users/mac/gits/wilsonmar/shippable/one/lib/python2.7/lib-dynload/_io.so
+  Expected in: flat namespace
+ in /Users/mac/gits/wilsonmar/shippable/one/lib/python2.7/lib-dynload/_io.so
+----------------------------------------
+...Installing setuptools, pip, wheel...done.
+Traceback (most recent call last):
+  File "/Users/mac/miniconda2/bin/virtualenv", line 11, in <module>
+    sys.exit(main())
+  File "/Users/mac/miniconda2/lib/python2.7/site-packages/virtualenv.py", line 711, in main
+    symlink=options.symlink)
+  File "/Users/mac/miniconda2/lib/python2.7/site-packages/virtualenv.py", line 944, in create_environment
+    download=download,
+  File "/Users/mac/miniconda2/lib/python2.7/site-packages/virtualenv.py", line 900, in install_wheel
+    call_subprocess(cmd, show_stdout=False, extra_env=env, stdin=SCRIPT)
+  File "/Users/mac/miniconda2/lib/python2.7/site-packages/virtualenv.py", line 795, in call_subprocess
+    % (cmd_desc, proc.returncode))
+OSError: Command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wheel failed with error code 1
+   </pre>
+
+   QUESTION: How to fix this?
+
+0. List all environments:
 
    <tt><strong>
    lsvirtualenv
    </strong></tt>
 
-To use a particular Python interpreter:
+0. To use a particular Python interpreter:
 
    <tt><strong>
    virtualenv -p /usr/bin/python2.7 venv
    </strong></tt>
 
-Activate your project:
+0. Activate your project:
 
    <tt>
    source venv/bin/activate
@@ -219,41 +765,40 @@ Activate your project:
 
    From now on, any package that you install using pip will be placed in the venv folder, isolated from the global Python installation.
 
-If you want to automatically activate an vironment when you cd into it:
+0. To automatically activate an vironment when you cd into it:
 
    <tt>
    brew install autoenv
    </tt>
 
-
-Install packages as usual, for example:
+0. Install packages as usual, for example:
 
    <tt>
    pip install request
    </tt>
 
-When you are done working in the virtual environment for the moment:
+0. When you are done working in the virtual environment for the moment:
 
    <tt>
    deactivate
    </tt>
 
-The above puts you back to the system's default Python interpreter with all its installed libraries.
+   The above puts you back to the system's default Python interpreter with all its installed libraries.
 
-To delete a virtual environment, just delete its folder. (In this case, it would be 
+0. To delete a virtual environment, just delete its folder. (In this case, it would be 
 
    <tt>
    rm -rf venv
    </tt>
 
-To keep your environment consistent, 
-<srong>freeze</srong> the current state of the environment packages:
+0. To keep your environment consistent, 
+   <srong>freeze</srong> the current state of the environment packages:
 
    <tt>
    pip freeze > requirements.txt
    </tt>
 
-This creates a <strong>requirements.txt</strong> file containing a simple list of all the packages in the current environment, and their respective versions. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
+   This creates a <strong>requirements.txt</strong> file containing a simple list of all the packages in the current environment, and their respective versions. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
 
    <tt>
    pip install -r requirements.txt
@@ -268,21 +813,21 @@ and a copy of the pip library which you can use to install other packages.
 The name of the virtual environment (in this case, it was venv) can be anything;
 omitting the name will place the files in the current directory instead.
 
-Open an internet browser to 
-<a target="_blank" href="https://www.python.org/downloads/">
-https://www.python.org/downloads/</a>
-and download file python-3.4.2-macosx10.6.pkg.
+0. Open an internet browser to 
+   <a target="_blank" href="https://www.python.org/downloads/">
+   https://www.python.org/downloads/</a>
+   and download file python-3.4.2-macosx10.6.pkg.
 
-See 	http://docs.python-guide.org/en/latest/dev/virtualenvs/
-https://www.digitalocean.com/community/tutorials/common-python-tools-using-virtualenv-installing-with-pip-and-managing-packages
+   See 	http://docs.python-guide.org/en/latest/dev/virtualenvs/
+   https://www.digitalocean.com/community/tutorials/common-python-tools-using-virtualenv-installing-with-pip-and-managing-packages
 
-To list what packages have been installed:
+0. To list what packages have been installed:
 
    <tt>
    pip list
    </tt>
 
-Look for packages by keyword:
+0. Look for packages by keyword:
 
    <tt>
    pip search django
@@ -418,7 +963,7 @@ the comments in the Vagrantfile as well as documentation on
 
 
    <tt><strong>
-   vagrant up --provider=PROVIDER
+   vagrant up \-\-provider=PROVIDER
    </strong></tt>
 
 
@@ -467,13 +1012,13 @@ Where you are picking up Python from?
 
    <tt>python is hashed (/Users/mac/miniconda2/bin/python)</tt>
 
-In a Terminal issue command:
+0. Open a Terminal shell window and issue command:
 
    <tt><strong>
-   python --version
+   python \-\-version
    </strong></tt>
 
-The response is its version. My Mac Yosemite shows this:
+   The response is its version. My Mac Yosemite default of Python shows this:
 
    <pre>
 Python 2.7.6 (default, Sep  9 2014, 15:04:36)
@@ -482,19 +1027,27 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
    </pre>
 
-Exit the interpreter with Command+D.
+   With Miniconda installed on El Capitan, it's this instead:
 
+   <pre>
+Python 2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:43:17) 
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>>
+   </pre>
 
-Get the folder:
+0. Get the folder:
 
    <tt><strong>
-   python -m site --user-site
+   python -m site \-\-user-site
    </strong></tt>
 
 The response I got is this:
 
    <tt>
-   /Users/wilsonmar/Library/Python/2.7/lib/python/site-packages
+   /Users/mac/Library/Python/2.7/lib/python/site-packages
    </tt>
 
    Alternately:
@@ -503,50 +1056,6 @@ The response I got is this:
    /Users/mac/.local/lib/python2.7/site-packages
    </tt>
 
-Open Python command-line:
-
-<pre>
-python
-</pre>
-
-My Yosemite Mac responds with:
-
-<pre>
-Python 2.7.6 (default, Sep  9 2014, 15:04:36)
-[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.39)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>> </pre>
-
-The >>> is the Python interpreter prompt.
-
-
-Exit Python by specifying a function:
-
-<pre><strong>
-exit()
-</strong></pre>
-
-Get back into python.
-
-Display Python's current working directory:
-
-<pre><strong>
->>> import os
->>> os.getcwd()
-</strong></pre>
-
-Also:
-
-<pre><strong>
-import os, sys
-os.path.dirname(os.path.abspath(sys.argv[0]))
-</strong></pre>
-
-The response is your home folder (substitue my name with yours)
-
-<tt>
-'/Users/wilsonmar'
-</tt>
 
 Do not delete or modify the system-provided Python in<br />
 /System/Library/Frameworks/Python.framework and /usr/bin/python<br />
@@ -594,55 +1103,26 @@ python -m http.server
 
 ## Using Python 3
 
-<div class="sidenote">
-<a target="_blank" href="sub">
-This post on Qita (from Japan)</a> describes step to setup a developer's environment on Yosemite.
-</div>
+0. After installing Python3, obtain the Python 3 command line with:
 
-Python3 is not backward compatible with Version 2.
+   <tt><strong>python3</strong></tt>
 
-After installing Python3, obtain the Python 3 command line with:
+   The response I got:
 
-<tt><strong>python3</strong></tt>
-
-The response I get:
-
-<pre>
+   <pre>
 Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
-</pre>
+   </pre>
 
-Unlike Apple's default install of 2.x, version 3.x installs into your own library folder. 
-Using the symbol ~ as a shorthand for /Users/&LT;your acct name>, then we can write the location as:
+   Unlike Apple's default install of 2.x, version 3.x installs into your own library folder. 
+   Using the symbol ~ as a shorthand for /Users/&LT;your acct name>, then we can write the location as:
 
-<pre>
-~/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
-</pre>
+   <pre>
+   ~/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
+   </pre>
 
 
-
-## Anaconda #
-
-*Conda installs outside the standard structure, so if you run:
-
-   brew doctor
-
-   this warning appears (which can be safely ignored):
-
-{% highlight text %}
-Warning: "config" scripts exist outside your system or Homebrew directories.
-`./configure` scripts often look for *-config scripts to determine if
-software packages are installed, and what additional flags to use when
-compiling and linking.
-
-Having additional scripts in your path can confuse software installed via
-Homebrew if the config script overrides a system or Homebrew provided
-script of the same name. We found the following "config" scripts:
-    /Users/mac/miniconda2/bin/python-config
-    /Users/mac/miniconda2/bin/python2-config
-    /Users/mac/miniconda2/bin/python2.7-config
-{% endhighlight %}
 
 ## More on OSX
 
