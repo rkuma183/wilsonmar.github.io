@@ -12,6 +12,8 @@ image: # pic-black-bkg-white-cloud_1920x1200
 <i>{{ page.excerpt }}</i>
 <hr />
 
+{% include _toc.html %}
+
 This compares cloud services Amazon AWS vs. Microsoft Azure.
 
 (There is also Google Compute Cloud, Oracle,
@@ -53,10 +55,27 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15745
    by someone who outbids.
 
 
-## Operating Systems in the cloud
+## Market share #
+
+Different surveys contradict each other.
+
+Here is one:
+
+   <amp-img width="529" height="488" alt="cloud chart iaas market share 2015-529x488-c22.jpg"
+   layout="responsive" 
+   src="https://cloud.githubusercontent.com/assets/300046/16921114/778410d8-4ccd-11e6-9bb8-faf3cd75a449.jpg">
+   </amp-img>
+
+
+## Operating Systems in the cloud #
 
 As of May 2016, Azure works with SUSE and Oracle,
 but not Red Hat Enterprise Linux (RHEL).
+
+Amazon provides software to host whatever os is put into images.
+But its free server images are based on 
+CentOS.
+
 
 ## Links to service brand names
 

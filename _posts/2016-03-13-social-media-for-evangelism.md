@@ -4,8 +4,8 @@ title: Social media for evangelism
 excerpt: "Tell them good"
 tags: [social media, evangelism, jekyll]
 image:
-# feature: pic silver robot white skin handshake 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+# pic blue networkers social 1900x500-c21.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/16904951/0e5ebb1a-4c5c-11e6-8741-778edab0dd85.jpg
   credit: 
   creditlink: 
 comments: true
@@ -62,13 +62,13 @@ comments: true
 * <a target="_blank" href="https://www.empire.kred/">Empire.Kred</a> game
 * <a target="_blank" href="https://www.appearoo.com/">Appearoo</a> social aggregator (was XeeMe until Sep 2014)
 
+<hr />
 
 ## <a name="Engagement">Engagement</a> #
 
 It's not enough just to have an account with some words and pictures.
 
 Measurement of engagement looks at how many took some action after reading an item.
-
 
 * <a target="_blank" href="http://klout.com/">
 Klout</a> (Lithium)
@@ -102,8 +102,26 @@ It is rare to get more than 5% on messages delivered.
 
 Most tweets are never read by anyone.
 
+However, tweets remain forever, so someone doing searches may find it days, months, and years later.
 
-## Best times to tweet
+## Multiple Twitter accounts #
+
+Some companies find it useful to have several twitter accounts:
+
+   * One account for the corporate name
+
+   * A hashtag for each brand or product name
+
+   * AskXYZ for questions
+
+   * One account for the conference each year
+
+   * The accounts of each person affliated with the above
+
+TODO: Brand positioning.
+
+
+## Best times to tweet #
 
 Popular evangelists note that they tweet the same message <strong>several times a day</strong>
 to catch the attention of people in different time zones around the world.
@@ -112,7 +130,7 @@ Services such as HootSuite
 enable messages to be stored for future delivery at specific times.
 
 
-## Competitive Association
+## Competitive Association #
 
 When an organization makes a media splash,
 competitors may hijack the hashtags being promoted

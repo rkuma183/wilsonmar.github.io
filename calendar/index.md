@@ -4,15 +4,17 @@ title: Please send me an appointment
 tags: [calendar, contact, Jekyll]
 comments: true
 image:
-#  feature: scr white blue google calendar wilsonmar 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14580798/17545f6c-0397-11e6-94af-f17f4c56105c.jpg
+# pic white calendar 1900x500-c28.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/16904663/5adbca78-4c57-11e6-9fa7-973731b8927a.jpg
   credit:
   creditlink:
 ---
 {% include _toc.html %}
 
-Pick a time from my <a target="_blank" href="https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com
-"><strong>public Google calendar</strong>:
+Pick a time from my <a target="_blank" href="https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com">
+<strong>public Google calendar</strong> at<br />
+<a target="_blank" href="https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com">
+https://www.google.com/calendar/embed?src=wilsonmar%40gmail.com</a>
 
 NOTE: I usually am up by 4 am Pacific Time (5 am Mountain, 6 am Central, 7 am Eastern).
 
@@ -28,23 +30,28 @@ NOTE: In this calendar I keep only the times I cannot move.
 I have a separate calendar I use to plan my day.
 
 
-## Coming Up
+## Conferences coming Up #
 
-On May 1, I'll be in Orlando, Florida for 
-<strong><a target="_blank" href="https://stareast.techwell.com/">
-StarEast</a></strong>. It's one of a <a target="_blank" href="https://www.techwell.com/software-conferences/star-software-testing-conferences">
-series</a>
+In October I'll be in Disneyland for 
+StarWest.
 
 Come attend my classes:
 
-* <strong><a target="_blank" href="https://stareast.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-stareast-2016">
-Performance Testing 2-days Sunday & Monday</a></strong>.
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-stareast-2016">
+   Performance Testing 2-days Sunday & Monday</a></strong>.
 
-* <strong><a target="_blank" href="https://stareast.techwell.com/program/tutorials/how-testers-master-git-and-github">Git and GitHub half-day Tuesday May 3</a></strong>.
-You'll leave with a new free blog website!
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/tutorials/how-testers-master-git-and-github">
+   Git and GitHub full-day Tuesday</a></strong>.
+   You'll leave with a new free blog website!
 
-* <strong><a target="_blank" href="https://stareast.techwell.com/program/concurrent-sessions/git-and-github-testers">Git and GitHub for Testers Thursday May 5</a></strong>.
-A one-hour introduction to Git and GitHub terms and workflows on Thursday afternoon.
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/concurrent-sessions/git-and-github-testers">
+   Git and GitHub for Testers</a></strong>.
+   A one-hour introduction to Git and GitHub terms and workflows on Thursday afternoon.
+
+Next May, I'll be in Orlando, Florida for 
+<strong><a target="_blank" href="https://stareast.techwell.com/">
+StarEast</a></strong>. It's one of a <a target="_blank" href="https://www.techwell.com/software-conferences/star-software-testing-conferences">
+series</a>.
 
 
 ## Update Jekyll Theme with Calendar
@@ -109,7 +116,7 @@ NOTE: This is a modification of
 this article</a>.
 
 
-## Most Creative Tie Each Day
+## Most Creative Time Each Day
 
 Based on the 
 <a target="_blank" href="http://masoncurrey.com/Daily-Rituals/">
@@ -170,3 +177,4 @@ which illustrates the group's work activities, month-by-month:
 <a target="_blank" href="hhttps://mostcontagious.files.wordpress.com/2010/01/beatles.jpg">
 <img alt="fig black beatles 4 year schedule" src="https://cloud.githubusercontent.com/assets/300046/14229397/26bc50c4-f8f0-11e5-9a74-879d530b6eef.jpg" width="1297" height="1026"></a>
 
+Over the years, the group did less touring and performing (in green).

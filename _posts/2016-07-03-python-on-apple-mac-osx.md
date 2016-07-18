@@ -4,7 +4,7 @@ title: "Python on Mac OSX"
 excerpt: "Confusion and errors from many alternatives and options"
 tags: [python, apple, mac, setup]
 image:
-# feature: pic white python logo 1900x500.jpg
+# pic white python logo 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622164/4230c848-0585-11e6-957b-be11147346e6.jpg
   credit: 
   creditlink: 
@@ -741,8 +741,9 @@ OSError: Command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wh
    </pre>
 
    QUESTION: How to fix this?
+   This occurs when virtualenv was installed with easy_install (or "python setup.py install")
 
-0. List all environments:
+0. List all virtual environments:
 
    <tt><strong>
    lsvirtualenv
@@ -771,6 +772,19 @@ OSError: Command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wh
    brew install autoenv
    </tt>
 
+   The response:
+
+   <pre>
+==> Downloading https://github.com/kennethreitz/autoenv/archive/v0.1.0.tar.gz
+==> Downloading from https://codeload.github.com/kennethreitz/autoenv/tar.gz/v0.
+######################################################################## 100.0%
+==> Caveats
+To finish the installation, source activate.sh in your shell:
+  source /usr/local/opt/autoenv/activate.sh
+==> Summary
+🍺  /usr/local/Cellar/autoenv/0.1.0: 4 files, 5K, built in 2 seconds
+   </pre>
+
 0. Install packages as usual, for example:
 
    <tt>
@@ -785,7 +799,7 @@ OSError: Command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wh
 
    The above puts you back to the system's default Python interpreter with all its installed libraries.
 
-0. To delete a virtual environment, just delete its folder. (In this case, it would be 
+0. To delete a virtual environment, delete its folder. In this case, it would be:
 
    <tt>
    rm -rf venv
@@ -798,7 +812,10 @@ OSError: Command /Users/mac/gits/wils...pable/one/bin/python - setuptools pip wh
    pip freeze > requirements.txt
    </tt>
 
-   This creates a <strong>requirements.txt</strong> file containing a simple list of all the packages in the current environment, and their respective versions. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
+   This creates (or overwrites) a <strong>requirements.txt</strong> file 
+   containing a simple list of all the packages in the current environment and their respective versions. 
+   This file would make it easier to re-create the environment and
+   to install the same packages using the same versions:
 
    <tt>
    pip install -r requirements.txt
