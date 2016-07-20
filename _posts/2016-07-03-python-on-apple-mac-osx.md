@@ -342,7 +342,8 @@ Alternatively, there are these alternatives from Continuum Analytics:
 
    * <a href="#Conda">Conda</a> is the command-line tool that combines functionality of pip and virtualenv
    * <a href="#MiniConda">Miniconda</a> is a lightweight distribution of conda
-   * Anaconda contains a curated collection of over 720 "common" packages for scientific python users. It goes on top of miniconda.
+   * Anaconda contains a curated collection of <a target="_blank" href="https://docs.continuum.io/anaconda/pkgs.html">
+   over 720 "common" packages</a> for scientific python users. It goes on top of miniconda.
    <br /><br />
 
 Differences among them:
@@ -1078,27 +1079,53 @@ Do not delete or modify the system-provided Python in<br />
 /System/Library/Frameworks/Python.framework and /usr/bin/python<br />
 or you will hose your operating system and need to reinstall Yosemite.
 
-Install packages:
 
-<pre><strong>
-pip install numpy
-pip install scipy
-</strong></pre>
+## Install Python packages #
 
-Instead of downloading
-http://www.scipy.org/scipylib/download.html#
-linear algebra, standard distributions, signal processing, data IO
+0. NumPy at http://www.numpy.org/
+   needed by
+   http://www.pymvpa.org/installation.html
 
-http://www.numpy.org/
+   <tt><strong>
+   pip install numpy
+   </strong></tt>
 
-which are needed by
-http://www.pymvpa.org/installation.html
+0. Instead of downloading
+   http://www.scipy.org/scipylib/download.html#
+   linear algebra, standard distributions, signal processing, data IO
 
+   <tt><strong>
+   pip install scipy
+   </strong></tt>
+
+0. SKlearn
+
+   <tt><strong>
+   pip install sklearn
+   </strong></tt>
+
+0. Pandas based on
+   <a target="_blank" href="https://www.youtube.com/watch?v=0KVIsLTBjWA">
+   VIDEO: How to install Pandas</a> Miniconda:
+
+   <tt><strong>
+   pip install pandas
+   </strong></tt>
+
+   <a target="_blank" href="https://www.youtube.com/channel/UCxn_7r6CDazLYPN9Gm7knDw">
+   YouTube videos: Learn Pandas</a> 
+
+Other Python packages:
+
+   * xlwings interfaces with Microsoft Excel spreadsheets
+   * matplotlib
+   * pygame develops GUI
+   * openCV for computer vision
 
 
 <a id="PythonHTTP"></a>
 
-## Start a HTTP Server Using Python
+## Start a HTTP Server Using Python #
 
 
 A simple HTTP server service can be started with command:
@@ -1139,6 +1166,9 @@ Type "help", "copyright", "credits" or "license" for more information.
    ~/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
    </pre>
 
+## Miscellaneous #
+
+http://stackoverflow.com/questions/990754/how-to-leave-exit-deactivate-a-python-virtualenv?rq=1
 
 
 ## More on OSX
@@ -1146,3 +1176,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 This is one of a series on Mac OSX:
 
 {% include mac_links.html %}
+

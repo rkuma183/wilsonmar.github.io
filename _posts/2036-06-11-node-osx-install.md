@@ -22,21 +22,36 @@ comments: true
 
 0. Use an internet browser to visit the list of versions:
 
+   <tt><strong>
    <a target="_blank" href="http://nodejs.org/">
    http://nodejs.org</a>
-<br />
+   </strong></tt>
 
-Choose one (all mutually exclusive) method of installing Node:
+   * <strong>npm</strong> is the package manager that allows you to install javascript packages.
 
-   * A: <a href="#Homebrew">Brew install node with default npm and nvm</a>. More error-prone.
+   * <strong>nvm</strong> is the node version manager, a tool that allows you to download and install 
+   and manage multiple active node.js versions.
+   You don't need nvm unless you you want to keep and upgrade multiple versions of Node.js.
+
+   There is a conflict between how nvm and npm works.
+
+   NOTE: nvm only works with plugins installed in the
+   default .npm folder (not in .npm-packages described below).
+
+   When .npm folder is used, sudo must be used.
+
+0. Choose one (all mutually exclusive) method of installing Node:
+
+   * A: <a href="#npm+nvm">Brew install node with default npm and nvm</a>. More error-prone.
    * B: <a href="#Homebrew">Brew install node without npm, then install .npm-packages with no nvm</a>. Recommended.
    * C: <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>.
    * D: <a href="#Download">Download most current version v6.2.1+</a>.
-   <br />
+   <br /><br />
 
-The recommended approach is presented second in the list in order for us to see the issue with using defaults in option A.
+   The recommended approach is presented second in the list in order for us to see the issue with using defaults in option A.
 
 <hr />
+
 
 <a name="Homebrew"></a>
 
@@ -48,98 +63,112 @@ The recommended approach is presented second in the list in order for us to see 
 
    ## Option A: Install node with default npm and nvm #
 
-   0. The simplest way to install node is to use brew:
+0. The simplest way to install node is to use brew:
 
-      <pre><strong>
-      brew install node -g
-      </strong></pre>
+   <pre><strong>
+   brew install node -g
+   </strong></pre>
 
-      Notice the folder (which may have a different version number):
+   Notice the folder (which may have a different version number):
 
-      <pre>
-      ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
-      </pre>
+   <pre>
+   ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
+   </pre>
 
-      NOTE: By default, when node is installed, it installs
-      <strong>npm</strong>, the Node Package Manager,
-      a node package to install additional packages.
+   NOTE: By default, when node is installed, it installs
+   <strong>npm</strong>, the Node Package Manager,
+   a node package to install additional packages.
 
-0.   Identify which folder npm is obtained:
+0. Identify which folder npm is obtained:
 
-      <pre><strong>
-      which npm
-      </strong></pre>
+   <pre><strong>
+   which npm
+   </strong></pre>
 
-      The response for default installations:
+   The response for default installations:
 
-      <pre><strong>
-      /usr/local/bin/npm
-      </strong></pre>
+   <pre>
+   /usr/local/bin/npm
+   </pre>
 
-0.    List npm global modules installed on the default global module folder:
+   Alternatively:
 
-      <pre><strong>
-      ls /usr/local/lib/node_modules
-      </strong></pre>
+   <pre>
+   /Users/mac/.npm-packages/bin/npm
+   </pre>
 
-      <a name="NVMInstall"></a>
+0. List npm global modules installed on the default global module folder:
 
-      #### NVM Install #
+   <pre><strong>
+   ls /usr/local/lib/node_modules
+   </strong></pre>
+
+   <a name="NVMInstall"></a>
+
+   #### NVM Install #
 
    NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
 
 0. Install C++ Compiler.
 
-      The README at <a target="_blank" href="https://github.com/creationix/nvm">
-      https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
-      with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
-      Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+   The README at <a target="_blank" href="https://github.com/creationix/nvm">
+   https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
+   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
 
-0. Install NVM:
+0. Install NVM using either curl or wget:
 
-      <pre><strong>
-      curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-      </strong></pre>
+   <pre><strong>
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+   </strong></pre>
 
-      It appends source string to ~/.bashrc
+   Alternately:
+   
+   <pre><strong>
+   wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+   </strong></pre>
 
-      Note it installs to folder <strong>~/.nvm</strong>.
 
-      CAUTION: NVM does not recognize the PREFIX used in the
-      <a href="#AltFolder"> Alternate folder technique</a>.
-      So we would need to live with just elevated permissions.
+   It appends source string to ~/.bashrc
+
+   Note it installs to folder <strong>~/.nvm</strong>.
+
+   CAUTION: NVM does not recognize the PREFIX used in the
+   <a href="#AltFolder"> Alternate folder technique</a>.
+   So we would need to live with just elevated permissions.
 
 0. Verify
 
-      <pre><strong>
-      nvm -v
-      </strong></pre>
+   <pre><strong>
+   nvm -v
+   nvm \-\-version
+   </strong></pre>
 
-      3.9.5
+   The response (19 July 2016):
 
-      NOTE: nvm is a shell script, so where command does not work.
+   <pre>
+   3.9.5
+   </pre>
+
+   NOTE: nvm is a shell script, so where command does not work.
 
 0. To download, compile, and install the latest v5.0.x release of node:
 
-      <pre>
-      nvm install 5.0
-      </pre>
+   <pre>
+   nvm install 5.0
+   </pre>
 
 0. To list what versions of Node.js are installed:
 
-      <pre>
-      nvm ls
-      </pre>
+   <pre>
+   nvm ls
+   </pre>
 
 0. To use version 5.0 installed:
 
-      <pre>
-      nvm use 5.0
-      </pre>
-
-NOTE: nvm only seems with work with plugins installed in the
-default .npm folder (not in .npm-packages described below).
-
+   <pre>
+   nvm use 5.0
+   </pre>
 
 
 <a name="NpmPackageInstall"></a>
@@ -204,7 +233,7 @@ default .npm folder (not in .npm-packages described below).
     brew install node --without-npm -g
     </strong></pre>
 
-0. Install npm for global use:
+   Alternately, install npm for global use:
 
    <pre><strong>
    curl -L https://www.npmjs.com/install.sh | sh
@@ -215,6 +244,34 @@ default .npm folder (not in .npm-packages described below).
    <pre>
    fetching: http://registry.npmjs.org/npm/-/npm-3.9.5.tgz
    </pre>
+
+0. After install, verify the location:
+
+   <pre><strong>
+   which node
+   </strong></pre>
+
+   The response:
+
+   <pre>
+   /usr/local/bin/node
+   </pre>
+
+0. Define where Node is installed:
+
+   <tt><strong>
+   export NODE_INSTALL=/usr/local/bin/node<br />
+   echo $NODE_INSTALL
+   </strong></tt>
+
+   This is needed because Node is installed into several folders:
+
+    * sudo rm -rf $NODE_INSTALL/bin/node 
+    * sudo rm -rf $NODE_INSTALL/bin/npm 
+    * sudo rm -rf $NODE_INSTALL/include/node 
+    * sudo rm -rf $NODE_INSTALL/lib/node_modules 
+    * sudo rm -rf ~/.npm
+
 
 0. After install, verify the location:
 
@@ -556,7 +613,7 @@ Similarly to npm, bower tracks dependencies in a file called <strong>bower.json<
 0. Install the project's bower components using bower:
 
    <pre><strong>
-bower install
+   bower install
    </strong></pre>
 
 0. Install http-server using npm:
@@ -580,6 +637,25 @@ npm install -g http-server
    <pre><strong>
    http-server client/
    </strong></pre>
+
+<hr />
+
+<a name="NVM"></a>
+
+## NVM (Node Version Manager) #
+
+https://github.com/creationix/nvm
+
+There is no Homebrew installation.
+
+The ~/.npmrc file cannot contain any <strong>prefix</strong> settings, such as:
+
+   <pre>
+   prefix=/Users/mac/.npm-packages
+   </pre>
+
+
+
 
 <hr />
 

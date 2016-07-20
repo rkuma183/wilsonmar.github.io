@@ -276,6 +276,38 @@ command + &#9003; Delete line
 0. Follow Twitter @AtomEditor
 
 
+<a name="Eclipse"></a>
+
+## Eclipse IDE install #
+
+To install 
+   <a target="_blank" href="http://macappstore.org/eclipse-java/">eclipse-java</a>
+using [Homebrew](/macos-homebrew/):
+
+   <tt><strong>
+   brew update<br />
+   brew cask install eclipse-java
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Please migrate your Casks to the new location and delete /opt/homebrew-cask/Caskroom,
+or if you would like to keep your Caskroom at /opt/homebrew-cask/Caskroom, add the
+following to your HOMEBREW_CASK_OPTS:
+&nbsp;
+  --caskroom=/opt/homebrew-cask/Caskroom
+&nbsp;
+For more details on each of those options, see https://github.com/caskroom/homebrew-cask/issues/21913.
+==> Satisfying dependencies
+complete
+==> Downloading https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-macosx-cocoa-x86_64.tar.gz&r=1
+==> Verifying checksum for Cask eclipse-java
+==> Moving App 'Eclipse.app' to '/Applications/Eclipse.app'
+🍺  eclipse-java staged at '/opt/homebrew-cask/Caskroom/eclipse-java/4.6.0' (0B)
+   </pre>
+
+
 
 ## More on OSX
 

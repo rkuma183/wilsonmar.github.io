@@ -958,6 +958,8 @@ Jundt Art Center and Museum at Gonzaga University</a></li>
 <li><a target="_blank" href="http://uoma.uoregon.edu/">University of Oregon Museum of Art</a>, Eugene </li>
 </ul>
 
+&nbsp;
+
 <a name="CA"></a>
 
 > <strong>California</strong>
@@ -970,11 +972,8 @@ Jundt Art Center and Museum at Gonzaga University</a></li>
 <li><a target="_blank" href="http://www.dirosapreserve.org/">di Rosa Preserve</a>, Napa</li>
 </ul>
 
-<ul>
-<li><a target="_blank" href="https://www.youtube.com/watch?v=Qm8MB8P0Zh0">YouTube: California Road Trip</a>
-</ul>
 
-### San Francisco Bay:
+### San Francisco Bay: #
 
 <ul>
 <li><a target="_blank" href="http://www.yerbabuenaarts.org/">Yerba Buena Center for the Arts</a>, San Francisco</li>
@@ -1299,6 +1298,8 @@ on the way to Oklahoma City, Amarillo, and Flagstaff before ending on the Santa 
 Since Illinos and Missouri are already in our <a href="#DownMississippi">Mississippi route</a>,
 we begin from Oklahoma and take a long detour North to avoid too much desert along the way.
 
+&nbsp;
+
 <a name="OK"></a>
 
 > <strong> Oklahoma </strong>
@@ -1487,6 +1488,7 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 <li><a target="_blank" href="http://www.nevadaart.org/">Nevada Museum of Art</a>, Reno</li>
 <li>Harrah's Auto Collection, Reno</li>
 </ul>
+<br /><br />
 
 NOTE: Not included in this route is the 1,900-mile-long (3,100 km) 
 <a target="_blank" href="https://en.wikipedia.org/wiki/Pony_Express#Pony_Express_route">route taken by Pony Express riders</a>
@@ -1498,12 +1500,29 @@ to San Francisco, California.
 <img alt="map of Pony Express route" src="https://cloud.githubusercontent.com/assets/300046/14632487/35bdb3e0-05d6-11e6-9e8f-3293fe2ffa5b.jpg" width="649" height="221"></a>
 Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of CongressPhoto image obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain, https://commons.wikimedia.org/w/index.php?curid=10111804
 
-   <amp-img media="(min-width: 650px)" width="600" height="300" 
-   layout="responsive" src="https://en.wikipedia.org/wiki/Pony_Express#/media/File:Pony_Express_Map_William_Henry_Jackson.jpg"></amp-img>
+<amp-img media="(min-width: 650px)" width="600" height="300" 
+layout="responsive" src="https://en.wikipedia.org/wiki/Pony_Express#/media/File:Pony_Express_Map_William_Henry_Jackson.jpg">
+</amp-img>
+
+## US Civil War #
+
+<a target="_blank" href="https://www.nps.gov/civilwar/facts.htm">
+<img width="600" height="300" alt="map-us-states-civil-war-323x227-c64.jpg"
+src="https://cloud.githubusercontent.com/assets/300046/16953089/fc8c99ba-4d88-11e6-9845-7b4120243ea4.jpg">
+
+The Confederacy included the 11 Southern states of 
+Texas, Arkansas, Louisiana, Tennessee, Mississippi, Alabama, Georgia, Florida, South Carolina, North Carolina, and Virginia. 
+
+The 5 "Border States" are Maryland, Delaware, West Virginia, Kentucky, and Missouri.
+
+States in white did not fight for either side.
+<a target="_blank" href="https://www.wikiwand.com/en/Idaho_in_the_American_Civil_War">
+Idaho</a> volunteers did not fight against the Confederacy.
+<a target="_blank" href="https://www.wikiwand.com/en/Confederate_Arizona">
+Areas in Arizona and New Mexico were claimed by both sides</a>.
 
 
-
-## Footnote
+## Footnote #
 
 This is rather large list, intentionally 
 to test how well the system can handle a large file
@@ -1520,6 +1539,9 @@ Additional stops:
    * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
    * Farms
    * Bed and Breakfast
+
+
+## More #
 
 Next, I'd like to display a Google map of coordinates from a public Google spreadsheet
 like Jessica Lord's

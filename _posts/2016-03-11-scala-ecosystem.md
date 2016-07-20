@@ -1215,3 +1215,5 @@ See http://lanyrd.com/2014/reactsf/nov-20/
 
 * Meetup - Bay Area Scala Enthusiast group 
 
+* http://www.brianstorti.com/the-actor-model/
+   The actor model in 10 minutes

@@ -89,6 +89,10 @@ The backpack that meets my specs:
 
 Other alteratives I considered:
 
+   * <a target="_blank" href="http://sdrtraveller.com/products/d3-traveller">
+   The D3 Traveller</a> is a duffle bag which costs $983 because it looks like a used trash can liner.
+   It is ultralight even though has double walls of waterproof scan-resistent fabric.
+
    * <a target="_blank" href="http://www.amazon.com/Osprey-Farpoint-Travel-Backpack-Volcanic/dp/B014EBM3KA/ref=wilsonslifenotes">Osprey Farpoint 40 Travel Backpack ($160)</a>
    This one's nice but a bit spendy.
 

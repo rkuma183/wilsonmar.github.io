@@ -55,3 +55,7 @@ A Practical Overview of Desired State Configuration
 
 * ‏@CDwithWindows
 
+
+http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
+How to search a string in multiple files and return the names of files in Powershell
+
