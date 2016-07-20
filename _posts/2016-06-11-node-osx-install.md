@@ -18,39 +18,123 @@ comments: true
 
 <a id="NodeJSz"></a>
 
-## Know the versions of Node.js #
+## And the horse you rode in on #
 
-0. Use an internet browser to visit the list of versions:
+Instead of using an internet browser to download an installer from<br />
+   <a target="_blank" href="https://nodejs.org/en/download/releases/">
+   https://nodejs.org/en/download/releases/</a><br />
+   consider these:
 
-   <tt><strong>
-   <a target="_blank" href="http://nodejs.org/">
-   http://nodejs.org</a>
-   </strong></tt>
+   * <strong>nvm</strong> (node version manager) is a shell function that downloads and upgrades
+   versions of node.js.
+   It's not needed unless you want to keep and upgrade multiple versions of Node.js.
+   But you will eventually will need to.
 
-   * <strong>npm</strong> is the package manager that allows you to install javascript packages.
+   * <strong>npm</strong> (node package manager) installs JavasSript packages such as Express.js.
 
-   * <strong>nvm</strong> is the node version manager, a tool that allows you to download and install 
-   and manage multiple active node.js versions.
-   You don't need nvm unless you you want to keep and upgrade multiple versions of Node.js.
+   Ideally, we would have both nvm and npm on the same machine, each configured the way we want for maximum productivity.
 
-   There is a conflict between how nvm and npm works.
+   However, there is a conflict between the ideal way of installing npm with how nvm works.
 
-   NOTE: nvm only works with plugins installed in the
-   default .npm folder (not in .npm-packages described below).
+   The ideal way to install most applications is to 
+   NOT need to use the <strong>sudo</strong> prefix command to temporarily elevate permissions.
+   
+   On a Mac, by default, npm is installed in the <strong>.npm</strong> folder.
 
-   When .npm folder is used, sudo must be used.
+   To make it work, we install it in the <strong>.npm-packages</strong> folder
+   by placing a configuration setting.
 
-0. Choose one (all mutually exclusive) method of installing Node:
+   However, nvm does not recognize that configuration setting
+   and thus only works with plugins installed in the default .npm folder.
 
-   * A: <a href="#npm+nvm">Brew install node with default npm and nvm</a>. More error-prone.
-   * B: <a href="#Homebrew">Brew install node without npm, then install .npm-packages with no nvm</a>. Recommended.
-   * C: <a href="#Download">Download LTS (Long Term Support) v4.4.5</a>.
-   * D: <a href="#Download">Download most current version v6.2.1+</a>.
+   Yes, why can't people from nvm and npm get together and work things out?
+
+   Thus, a choice needs to be made.
+
+0. Choose one (all mutually exclusive) method of installing Node.
+   Click on the choice for additional instructions:
+
+   * A: <a href="#Homebrew">Brew install node without npm, then install .npm-packages with no nvm</a>. Recommended.
+
+   * B: <a href="#npm+nvm">Brew install node with default npm and nvm</a>. More error-prone.
+
+   * C: <a href="#LTS">Download LTS (Long Term Support) v4.4.5</a>.
+
+   * D: <a href="#Download">Download most current version v6.2.1+ from Node website and manually install</a>.
+
+   * E: <a href="#NjSolid">Download most current version of NjSolid</a>.
    <br /><br />
 
-   The recommended approach is presented second in the list in order for us to see the issue with using defaults in option A.
+## IO.JS Forks Merged #
+
+Node.js was started as an open-source project in 2009 and has been maintained and supported by Joyent, a cloud computing company. 
+
+There was 
+<a target="_blank" href="https://iojs.org/">
+iojs.org</a>, 
+a fork of Node.js by several core committers frustrated by Joyant, which maintains Node.
+
+Node.js was founded by Ryan Dahl. 
+Its second contributor was Isaac Schlueter who now leads the project and is also employed by Joyent. 
+
+The project has a total of 447 core contributors as of 2016. 
+Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
+To date, Joyent has raised in the neighborhood of $100 million in venture capital and has an employee headcount in excess of 120.
+
+Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
+on September, 2015</a>, io.js merged with the Node.js project again
+under new <a target="_blank" href="https://nodejs.org/en/foundation/">
+nodejs.org/en/foundation</a> governance.
+
+<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
+A VentureBeat article in 2013</a> writes "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called StrongLoop. 
+And they’re apparently attempting to hijack the Node brand and community for themselves."
+
+Instructions for installing Node by those packaging it in their solution
+often specify a specific version of Node:
+
+   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
+
 
 <hr />
+
+<a name="npm+nvm"></a>
+
+## NPM and NVM together #
+
+   * http://www.backdrifter.com/2011/02/18/using-nvm-and-npm-to-manage-node-js/
+   from 2011 is frequently quoted
+
+
+<a name="LTS"></a>
+
+## Long Term Support #
+
+QUESTION: What are the install instructions 
+If you're an enterprise user paying for <a target="_blank" href="https://github.com/nodejs/LTS/">
+Long Term Support</a> introduced Fall, 2015.
+
+Long-term support (LTS) releases are actively developed for 18 months,
+then maintained for a further 12 months. 
+This means a particular LTS release stays in production for 30 months
+with bug and security fixes.
+
+
+<a name="NjSolid"></a>
+
+## N|Solid #
+
+<a target="_blank" href="https://nodesource.com/products/nsolid">
+N|Solid</a>
+from NodeSource
+   is a fully compatible Node.js runtime 
+   enhanced to address the needs of enterprise production support.
+
+<a target="_blank" href="https://downloads.nodesource.com/">
+   https://downloads.nodesource.com</a>
+
+Pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
+
 
 
 <a name="Homebrew"></a>
@@ -127,6 +211,34 @@ comments: true
    <pre><strong>
    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
    </strong></pre>
+
+   The response:
+
+   <pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  7766  100  7766    0     0   7318      0  0:00:01  0:00:01 --:--:--  7326
+=> nvm is already installed in /Users/mac/.nvm, trying to update using git
+=> 
+=> Source string already in /Users/mac/.bashrc
+=> You currently have modules installed globally with `npm`. These will no
+=> longer be linked to the active version of Node when you install a new node
+=> with `nvm`; and they may (depending on how you construct your `$PATH`)
+=> override the binaries of modules installed with `nvm`:
+&nbsp;
+/usr/local/Cellar/node/6.2.2/lib
+└── grunt@1.0.1
+&nbsp;
+=> If you wish to uninstall them at a later point (or re-install them under your
+=> `nvm` Nodes), you can remove them from the system Node as follows:
+&nbsp;
+     $ nvm use system
+     $ npm uninstall -g a_module
+&nbsp;
+=> Close and reopen your terminal to start using nvm
+   </pre>
+
 
 
    It appends source string to ~/.bashrc
@@ -659,9 +771,47 @@ The ~/.npmrc file cannot contain any <strong>prefix</strong> settings, such as:
 
 <hr />
 
+## Node modules #
+
+Install famous Node modules:
+
+
+<a id="Grunt"></a>
+
+### Grunt #
+
+   <tt><strong>
+   npm install -g grunt-cli
+   </strong></tt>
+
+   The response:
+
+   <pre>
+/usr/local/Cellar/node/6.2.2/bin/grunt -> /usr/local/Cellar/node/6.2.2/lib/node_modules/grunt-cli/bin/grunt
+/usr/local/Cellar/node/6.2.2/lib
+└─┬ grunt-cli@1.2.0 
+  ├─┬ findup-sync@0.3.0 
+  │ └─┬ glob@5.0.15 
+  │   ├─┬ inflight@1.0.5 
+  │   │ └── wrappy@1.0.2 
+  │   ├── inherits@2.0.1 
+  │   ├─┬ minimatch@3.0.2 
+  │   │ └─┬ brace-expansion@1.1.5 
+  │   │   ├── balanced-match@0.4.2 
+  │   │   └── concat-map@0.0.1 
+  │   ├── once@1.3.3 
+  │   └── path-is-absolute@1.0.0 
+  ├── grunt-known-options@1.1.0 
+  ├─┬ nopt@3.0.6 
+  │ └── abbrev@1.0.9 
+  └── resolve@1.1.7 
+   </pre>
+
+
+
 <a id="LearnNode"></a>
 
-## Node Programming Tutorial #
+### LearnNode Programming Tutorial #
 
 The classic interactive tutorial introducing Node.Js was created on:
 
@@ -715,21 +865,21 @@ For your use case it creates some extra tedious work,
 but you can also just use semantic versioning as intended and specify "mylib": "^1.0.0" in your package.json for your apps and be OK with automatically getting newer versions next time you npm install.
 
 
-## N|Solid #
+If installed using homebrew so it's done on every shell session:
+Add to ~/.profile
 
-N|Solid is a fully compatible Node.js runtime 
-enhanced to address the needs of the enterprise:
+   source $(brew --prefix nvm)/nvm.sh
 
-* https://downloads.nodesource.com/
 
 
 ## Resources #
 
-<a target="_blank" href="https://iojs.org/">
-iojs.org</a>
-is a forke of Node.js by several core committers frustrated by Joyant.
-It uses the Go language.
+   https://github.com/isaacs/nave
+   nave is a virtual environment for node,
+   an alternative to nvm.
+   It is invoked by source command rather than run.
 
+* http://blog.teamtreehouse.com/install-node-js-npm-mac
 
 ## More on MacOS #
 

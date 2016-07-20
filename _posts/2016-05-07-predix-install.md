@@ -19,30 +19,22 @@ This article refines instructions to <strong>install</strong>
 Predix, GE's brand name for their "Industrial Internet" which 
 incorporates Machine Learning, Data Science, and Artificial Intelligence.
 
+Options to install the <a href="#Components">various components</a>:
+
+0. <a href="#CloudFoundary">Hosting in the Cloud Foundry cloud</a>
+0. <a href="#LocalInstall">Local install</a>
+0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
+
+
 The technical components according to 
 <a target="_blank" href="https://www.predix.io/resources/training">
 https://www.predix.io/resources/training</a>
 
-0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
-0. <a href="#LocalInstall">Local install</a> Eclipse IDE (text editor) with STS (Spring Tool Suite)
-0. Java programming language
-0. <a href="#Spring">Spring framework</a>
-0. <a href="#OpenJPA">Apache OpenJPA persistence</a>
-0. Maven build
-0. <a href="#CloudFoundary">Hosting in the Cloud Foundry cloud</a>
-
 <hr />
 
-<a name="#Devbox"></a>
+<a name="#Components"></a>
 
-## Devbox #
-
-If you're running on a Oracle/Red Hat Linux System
-
-https://www.predix.io/resources/tutorials
-
-<a target="_blank" href="https://www.predix.io/services/other-resources/devbox.html">
-https://www.predix.io/services/other-resources/devbox.html</a>:
+## Components #
 
 Collaboration:
 
@@ -52,7 +44,7 @@ Collaboration:
 
 IDE / Editors:
 
-   * STS/Eclipse, 
+   * STS/Eclipse <a href="#Spring">Spring framework</a>
    * Atom, 
    * <a target="_blank" href="http://bfwiki.tellefsen.net/index.php/Installing_Bluefish">Bluefish</a>
    * OpenOffice for spreadsheets
@@ -62,6 +54,8 @@ Front End:
 
    * Bower, NodeJS, Grunt, 
    * Firefox, Chromium browsers
+   * <a href="#OpenJPA">Apache OpenJPA persistence</a>
+
 
 Back End:
 
@@ -91,16 +85,32 @@ Predix:
 
 ## Local install #
 
-Use the script at https://github.com/PredixDev/local-setup
+Use the script at<br />
+<a target="_blank" href="https://github.com/PredixDev/local-setup">
+https://github.com/PredixDev/local-setup</a>
 
+
+
+<a name="#Devbox"></a>
+
+## Devbox #
+
+If you're running on a Oracle/Red Hat Linux System
+
+https://www.predix.io/resources/tutorials
+
+<a target="_blank" href="https://www.predix.io/services/other-resources/devbox.html">
+https://www.predix.io/services/other-resources/devbox.html</a>:
+
+<hr />
 
 <a name="Eclipse"></a>
 
 ### Eclipse STS IDE #
 
-https://www.predix.io/resources/tutorials/journey.html#1607
+<a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html#1607">
+This</a>
 advises the use of STS 
-
 
 0. Use an interest browser to the STS website.
 0. Select a download site to begin download. Wait for the file to download.
@@ -135,6 +145,9 @@ provides a graphical real-time view of application performance metrics that lets
 <a name="Spring"></a>
 
 ## Spring framework
+
+<a target="_blank" href="https://spring.io/guides/">
+https://spring.io/guides</a>
 
 The framework is based on the Java Spring framework,
 which many now consider "heavy".
@@ -251,6 +264,14 @@ APPS:
    restage                                Restage an app
    </pre>
 
+   ### Sample app #
+
+0. In an internet browser, explore sample apps in Cloud Foundry's sample organization:<br />
+   <a target="_blank" href="https://github.com/cloudfoundry-samples/">
+   https://github.com/cloudfoundry-samples</a>
+
+   Back at the Termial:
+
 0. Clone the sample app:
 
    <tt><strong>
@@ -272,11 +293,59 @@ Checking connectivity... done.
 
 0. Navigate to the repo created:
 
+   <tt><strong>
    cd cf-sample-app-spring
+   </strong></tt>
 
 0. Sign in to PWS:
 
+   <tt><strong>
    cf login -a https://api.run.pivotal.io
+   </strong></tt>
+
+   The response:
+
+   <pre>
+API endpoint: https://api.run.pivotal.io
+Email> 
+   </pre>
+
+0. Type in your Email, then Password.
+
+   The response:
+
+   <pre>
+API endpoint:   https://api.run.pivotal.io (API version: 2.57.0)
+User:           xxx@gmail.com
+No org or space targeted, use 'cf target -o ORG -s SPACE'
+   </pre>
+0. Type in email and password (which is not reflected back to the screen):
+
+   <pre>
+Authenticating...
+OK
+&nbsp;
+Targeted org montana
+&nbsp;
+Select a space (or press enter to skip):
+1. development
+2. joliet
+&nbsp;
+Space> 2
+   </pre>
+
+0. Type in the number associated with the space you want to use (based on the list):
+
+   <pre>
+Targeted space joliet
+&nbsp;
+API endpoint:   https://api.run.pivotal.io (API version: 2.57.0)
+User:           xxx@gmail.com
+Org:            montana
+Space:          joliet
+   </pre>
+
+
 
    ### API End-points #
 
@@ -291,21 +360,174 @@ Checking connectivity... done.
 
    * https://api.system.asv-pr.ice.predix.io
 
-0. Type in your Email and Password.
+
+   ### Deploy app #
+
+0. Deploy the app to PWS:
+
+   <tt><strong>
+   cf push
+   </strong></tt>
+
+   The response begins with:
+
+   <pre>
+Using manifest file /Users/mac/gits/pivotal/cf-sample-app-spring/manifest.yml
+&nbsp;
+Creating app cf-spring in org montana / space joliet as wilsonmar@gmail.com...
+OK
+&nbsp;
+Creating <strong>route cf-spring-isomagnetic-pleiophylly.cfapps.io...</strong>
+OK
+&nbsp;
+Binding cf-spring-isomagnetic-pleiophylly.cfapps.io to cf-spring...
+OK
+&nbsp;
+Uploading cf-spring...
+Uploading app files from: /Users/mac/gits/pivotal/cf-sample-app-spring
+Uploading 1M, 44 files
+Done uploading               
+OK
+&nbsp;
+Starting app cf-spring in org montana / space joliet as xxx@gmail.com...
+   </pre>
+
+   The response ends with:
+
+   <pre>
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: cf-spring-isomagnetic-pleiophylly.cfapps.io
+last uploaded: Wed Jul 20 02:10:46 UTC 2016
+stack: unknown
+buildpack: java-buildpack=v3.8.1-offline-https://github.com/cloudfoundry/java-buildpack.git#29c79f2 open-jdk-like-jre=1.8.0_91-unlimited-crypto open-jdk-like-memory-calculator=2.0.2_RELEASE spring-boot-cli=1.3.5_RELEASE
+&nbsp;
+     state     since                    cpu    memory           disk         details
+#0   running   2016-07-19 08:11:24 PM   0.0%   338.7M of 512M   155M of 1G
+   </pre>
+
+0. TODO: Change the log color.
+
+0. <a target="_blank" href="http://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/view-the-logs">
+   View log snapshots</a>
+
+   <tt><strong>
+   cf logs cf-spring --recent
+   </strong></tt>
+
+   ### From Marketplace #
+
+0. List the available ElephantSQL service plans in the Marketplace:
+
+   <tt><strong>
+   cf marketplace -s elephantsql
+   </strong></tt>
 
    The response:
 
    <pre>
-API endpoint:   https://api.run.pivotal.io (API version: 2.57.0)
-User:           xxx@gmail.com
-No org or space targeted, use 'cf target -o ORG -s SPACE'
+Getting service plan information for service elephantsql as wilsonmar@gmail.com...
+OK
+&nbsp;
+service plan   description                                            free or paid
+turtle         4 concurrent connections, 20MB Storage                 free
+panda          20 concurrent connections, 2GB Storage                 paid
+hippo          300 concurrent connections, 100 GB Storage             paid
+elephant       300 concurrent connections, 1000 GB Storage, 500Mbps   paid
    </pre>
 
-   <a name="cfPush"></a>
+0. Create a service instance with the free plan "turtle":
 
-0. Push the app to PWS:
+   <tt><strong>
+   cf create-service elephantsql turtle cf-spring-db
+   </strong></tt>
 
-   cf push
+   The response:
+
+   <pre>
+Creating service instance cf-spring-db in org montana / space joliet as xxx@gmail.com...
+OK
+   </pre>
+
+0. Bind the newly created service to the app:
+
+   <tt><strong>
+   cf bind-service cf-spring cf-spring-db
+   </strong></tt>
+
+   NOTE: When a service is bound to an app, 
+   environment variables are stored that allow the app to 
+   connect to the service after a push, restage, or restart command.
+
+   The response:
+
+   <pre>
+Binding service cf-spring-db to app cf-spring in org montana / space joliet as wilsonmar@gmail.com...
+OK
+TIP: Use 'cf restage cf-spring' to ensure your env variable changes take effect
+   </pre>
+
+
+0. Restart the app:
+
+   <tt><strong>
+   cf restart cf-spring
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Stopping app cf-spring in org montana / space joliet as xxx@gmail.com...
+OK
+&nbsp;
+Starting app cf-spring in org montana / space joliet as xxx@gmail.com...
+&nbsp;
+0 of 1 instances running, 1 starting
+   </pre>
+
+0. Verify the new service is bound to the app:
+
+   <tt><strong>
+   cf services
+   </strong></tt>
+
+   The response:
+
+   <pre>
+name           service       plan     bound apps   last operation
+cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
+   </pre>
+
+
+   ### Configure scaling #
+
+0. Increase the number of app instances from one to two:
+
+   <tt><strong>
+   cf scale cf-spring -i 2
+   </strong></tt>
+
+0. Check the status of the app and verify there are two instances running:
+
+   <tt><strong>
+   cf app cf-spring
+   </strong></tt>
+
+   WARNING: Scaling your app vertically changes the disk space limit or memory limit for each app instance.
+
+0. Increase the memory limit for each app instance:
+
+   <tt><strong>
+   cf scale cf-spring -m 1G
+   </strong></tt>
+
+0. Increase the disk limit for each app instance:
+
+   <tt><strong>
+   cf scale cf-spring -k 512M
+   </strong></tt>
+
 
 <hr />
 
