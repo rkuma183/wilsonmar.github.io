@@ -61,7 +61,8 @@ Let's look now at the <strong>wisdom</strong>, the PROTIPs, behind each item in 
 0. Such are what external industry analysts (such as Gartner) can use to make their case for you.
 
 0. Yes, <strong>books</strong> are still helpful for publicity and credibility.
-0. But <strong>video courses</strong> with student interaction is what 
+
+0. But <strong>video courses</strong> with student interaction and quizzes to ensure learning is what 
    delivers capable users who can
 0. achieve useful results during <strong>Hackathons</strong> and actual deployments of your offering.
 

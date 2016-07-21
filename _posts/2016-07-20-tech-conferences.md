@@ -70,6 +70,10 @@ so more and more of them are popping up.
    July 27-28, 2016
    San Francisco, CA
 
+* <a target="_blank" href="http://apiworld.co/">
+   API World.co</a>
+   Sep 12-14, San Jose Convention Center
+
 * KrankyGeek WebRTC
 
 * LinuxCon
