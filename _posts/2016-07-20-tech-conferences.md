@@ -66,7 +66,9 @@ so more and more of them are popping up.
 * MobileDevCon
 * WearablesDevCon
 
-* NodeSummit
+* <a target="_blank" href="http://nodesummit.com/">NodeSummit.com</a>
+   July 27-28, 2016
+   San Francisco, CA
 
 * KrankyGeek WebRTC
 
@@ -76,10 +78,17 @@ so more and more of them are popping up.
 * OSCon
 
 
-## Job Role specific #
+## For enterprise job titles #
 
 * CFO
 * CIO by Gartner
+
+* <a target="_blank" href="http://www.gartner.com/events/na/catalyst/">
+   Gartner Catalyst</a>
+   15 - 18 August 2016 | San Diego, CA
+
+
+## For devops  #
 
 * DevOps Enterprise Summit (DOES)
 * DevOps Days
@@ -93,6 +102,14 @@ so more and more of them are popping up.
 
 * ASTD for trainers
 
+
+## For developers #
+
+* <a target="_blank" href="https://www.codeonthebeach.com/">Code on the Beach.com</a>
+   August 12 - 14, 2016
+   Atlantic Beach, Florida
+   $399
+
 * QCon New York <a target="_blank" href="https://qconnewyork.com/">qconnewyork.com</a>
    #qconnewyork
    Jun 13-15, workshops Jun 16-17
@@ -101,6 +118,7 @@ so more and more of them are popping up.
    Nov 7-9, workshops Nov 10-11
 
 * DeveloperWeek San Francisco
+
 * No Fluff Just Stuff
 
 
@@ -121,6 +139,10 @@ so more and more of them are popping up.
    #Build2016
    San Francisco early Spring
 
+* <a target="_blank" href="https://springoneplatform.io/">https://springoneplatform.io</a>
+   August 1–4, 2016
+   Aria, Las Vegas 
+
 * EMC
 * Dell
 * IBM
@@ -131,11 +153,16 @@ so more and more of them are popping up.
 * RSA
 
 
-## Location specific #
+## Location specific multi-technology #
 
 * Salt Lake City
 * Philly Tech Week
-* BigSky DevCon Montana
+* BigSky DevCon Montana in March
 
-## Resources #
+* <a target="_blank" href="https://cloudplatformonline.com/NEXT2016-Tokyo.html">
+   GCP (Google Cloud Compute) Tokyo</a> (in Japanese)
+
+## More #
+
+TODO: Arrange this in a sortable table.
 

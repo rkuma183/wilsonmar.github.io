@@ -10,12 +10,10 @@ image:
   creditlink: 
 comments: true
 ---
+<i>{{ page.excerpt }}</i>
+<hr />
 
 {% include _toc.html %}
-
-> BTW, I am available to help you with this. Call me!
-
-## What is social media
 
 (All sites are .com unless noted otherwise)
 
@@ -62,79 +60,13 @@ comments: true
 * <a target="_blank" href="https://www.empire.kred/">Empire.Kred</a> game
 * <a target="_blank" href="https://www.appearoo.com/">Appearoo</a> social aggregator (was XeeMe until Sep 2014)
 
-<hr />
+> BTW, I and my colleagues can help you with this. Call me!
 
-## <a name="Engagement">Engagement</a> #
+## More on evangelism #
 
-It's not enough just to have an account with some words and pictures.
+This is one of many topics:
 
-Measurement of engagement looks at how many took some action after reading an item.
-
-* <a target="_blank" href="http://klout.com/">
-Klout</a> (Lithium)
-
-* <a target="_blank" href="http://kred.com/about/">
-Kred</a> (Empire.Kred) game
-
-* <a target="_blank" href="http://about.peerindex.com/">
-PeerIndex</a>
-
-* <a target="_blank" href="http://peekanalytics.com/">
-Peek Analytics</a>
-
-* <a target="_blank" href="http://tweetlevel.edelman.com/">
-Tweetlevel.Edelman</a> 
-
-* <a target="_blank" href="http://twitalyzer.com/">
-Twitalyzer</a>
-
-* <a target="_blank" href="http://www.howsociable.com/">
-How Sociable</a>
-
-* <a target="_blank" href="http://www.postrank.com/">
-Postrank</a>
-
-* <a target="_blank" href="http://www.twittergrader.com/">
-TwitterGrader</a>
-
-
-It is rare to get more than 5% on messages delivered.
-
-Most tweets are never read by anyone.
-
-However, tweets remain forever, so someone doing searches may find it days, months, and years later.
-
-## Multiple Twitter accounts #
-
-Some companies find it useful to have several twitter accounts:
-
-   * One account for the corporate name
-
-   * A hashtag for each brand or product name
-
-   * AskXYZ for questions
-
-   * One account for the conference each year
-
-   * The accounts of each person affliated with the above
-
-TODO: Brand positioning.
-
-
-## Best times to tweet #
-
-Popular evangelists note that they tweet the same message <strong>several times a day</strong>
-to catch the attention of people in different time zones around the world.
-
-Services such as HootSuite
-enable messages to be stored for future delivery at specific times.
-
-
-## Competitive Association #
-
-When an organization makes a media splash,
-competitors may hijack the hashtags being promoted
-by tweeting the competitor's tag along with their own, which associates the communications together.
+{% include evangelist_links.html %}
 
 
 

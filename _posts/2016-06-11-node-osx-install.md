@@ -904,6 +904,20 @@ but you can also just use semantic versioning as intended and specify "mylib": "
 If installed using homebrew so it's done on every shell session:
 Add to ~/.profile
 
+## Nodemon #
+
+Install https://github.com/remy/nodemon
+
+   npm install -g nodemon
+
+To restart your node server specified in a coffee-script:
+
+   nodemon server.coffee
+
+   Alternately
+
+## Additional topics #
+
    source $(brew --prefix nvm)/nvm.sh
 
 
