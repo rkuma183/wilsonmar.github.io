@@ -125,6 +125,8 @@ You get bonus points if:
 
  * Experience in a startup and growth-stage environments
 
+ * Developed a "maturity model".
+ 
 
 ## What we offer
 
