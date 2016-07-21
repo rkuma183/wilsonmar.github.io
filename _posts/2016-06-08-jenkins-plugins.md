@@ -94,7 +94,7 @@ Here is a generic set of steps to install a plug-in:
 Cloubees' Study Guide PDF</a>
 lists these plug-ins that all Certified Jenkins Engineers should know:
 
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin".
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin">
    Script Security Plugin</a>
 * <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">
    Parameterized Trigger Plugin</a>
@@ -127,7 +127,7 @@ lists these plug-ins that all Certified Jenkins Engineers should know:
    Git Plugin</a>
 * <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">
    Copy Artifact Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin">
    JUnit Plugin</a>
 * <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">
    Matrix Project Plugin</a>

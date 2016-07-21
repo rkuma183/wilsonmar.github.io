@@ -19,15 +19,69 @@ This article examines instructions to developers from
 Predix, GE's brand name for their "Industrial Internet" which 
 incorporates Machine Learning, Data Science, and Artificial Intelligence.
 
+This duplicates much of the material on predix.io,
+so that PROTIPs and NOTEs can be added in context.
 
-## predixdev #
+TODO: Edget starter with Raspberry Pi?
 
-During register for a Predix account, 
-each developer's GitHub account is granted access to 
-the repository and a number of subrepositories
-at
+## Account #
+
+0. Register for a Predix account at<br />
+   <a target="_blank" href="https://www.predix.io/registration/">
+   https://www.predix.io/registration</a>
+
+   QUESTION: After the free days, $ ___ per month.
+
+0. Confirm phone and email while on the page.
+
+   A GitHub repo account needs to be specified.
+
+0. Confirm email from Predix.
+
+   PROTIP: Emails after registration take several hours or may not ever arrive.
+
+   "Thanks for your interest in a Predix trial account. We'll validate your information, and will respond within five business days."
+
+   Each developer's GitHub account is granted access to 
+   the repository and a number of subrepositories
 
    * <a target="_blank" href="https://github.com/predixdev/">https://github.com/predixdev</a>
+
+
+## Getting Started #
+
+Jayson Delancy, Dev. Evangelist interviews 
+Tom Turner of the Adoption team about
+<a target="_blank" href="https://www.youtube.com/watch?v=0RdsCHDLmEw">
+Getting Started</a> 10 Jun 2016.
+
+
+## UAA Security #
+
+Jayson Delancy, Dev. Evangelist interviews 
+developer Tom Turner on
+<a target="_blank" href="https://www.youtube.com/watch?v=DXbJM0bvkME">
+User Account and Authentication</a> 29 Jun 2016.
+includes SAML in SSO.
+
+
+## Cloud Foundry #
+
+Jayson Delancy, Dev. Evangelist interviews 
+Jeff Barrows, Cloud Services (CF, RabitMQ, LogStash, Redis, sys automation, monitoring)
+<a target="_blank" href="https://www.youtube.com/watch?v=DXbJM0bvkME">
+Cloud Foundry</a> 20 Jun 2016
+PaaS makes it easy for devs to deploy production-grade apps.
+by abstracting infrastructure functions for several languages (Go, Ruby, Java, Ruby).
+Embraces DevOps methodology to build out a load balancer, create database instance, etc.
+Difference vs. Kubernetes are both container models in a separate ecosystem.
+CF has "build pack" that bundles apps and other underpinnings. 
+12 Factor Apps pioneered by Heroku cloud apps using environment variables.
+
+Pivotal is the custodian for Cloud Foundry open-source
+and maintains additional services.
+Check out predix.io/docs/
+deploy a "hello world" application.
 
 
 ## <a name="OpenJPA">OpenJPA persistence</a> #

@@ -22,6 +22,7 @@ so more and more of them are popping up.
 
 * Consumer Electronics Show each January
 
+* Techcrunch Disrupt Sep 12-14, 2016 San Francisco
 
 * Fluent O'Reilly 
 * Gartner

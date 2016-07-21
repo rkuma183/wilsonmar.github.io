@@ -15,10 +15,51 @@ comments: true
 
 {% include _toc.html %}
 
+Installing Node has become complex due to the drama behind
+<a href="#Editions">different editions</a> and 
+<a href="#Versions">versions</a> of Node with
+different mechanisms for managing updates,
+each with <a target="_blank" href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">
+permissions issues</a>.
+Many instructions on the internet are outdated, contradictory, or plain wrong.
 
-<a id="NodeJSz"></a>
+The objective of this article is to help you install and uninstall the various editions and versions.
 
-## And the horse you rode in on #
+
+<a name="Editions"></a>
+
+## Different editions #
+
+Node.js was started as an open-source project in 2009 and has been maintained and supported by Joyent, a cloud computing company. 
+Node.js was founded by Ryan Dahl. 
+Its second contributor was Isaac Schlueter who now leads the project and is also employed by Joyent. 
+
+The project has a total of 447 core contributors as of 2016. 
+Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
+Joyent has raised in the neighborhood of $100 million in venture capital and has an employee headcount in excess of 120.
+
+In 2013 
+<a target="_blank" href="https://iojs.org/">
+iojs.org</a>, 
+a fork of Node.js was formed by several core committers frustrated by Joyant.
+
+Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
+on September, 2015</a>, io.js merged with the Node.js project again
+under new <a target="_blank" href="https://nodejs.org/en/foundation/">
+nodejs.org/en/foundation</a> governance.
+
+<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
+A VentureBeat article in 2013</a> writes "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
+<a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
+And they’re apparently attempting to hijack the Node brand and community for themselves."
+Strongloop supports Express and LoopBack framework.
+<a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
+On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on API lifecycle.
+
+
+<a name="Versions"></a>
+
+## Which version of what? #
 
 Instead of using an internet browser to download an installer from<br />
    <a target="_blank" href="https://nodejs.org/en/download/releases/">
@@ -62,39 +103,14 @@ Instead of using an internet browser to download an installer from<br />
 
    * D: <a href="#Download">Download most current version v6.2.1+ from Node website and manually install</a>.
 
-   * E: <a href="#NjSolid">Download most current version of NjSolid</a>.
+   * E: <a href="#NjSolid">Download most current version of N|Solid</a>.
    <br /><br />
 
-## IO.JS Forks Merged #
-
-Node.js was started as an open-source project in 2009 and has been maintained and supported by Joyent, a cloud computing company. 
-
-There was 
-<a target="_blank" href="https://iojs.org/">
-iojs.org</a>, 
-a fork of Node.js by several core committers frustrated by Joyant, which maintains Node.
-
-Node.js was founded by Ryan Dahl. 
-Its second contributor was Isaac Schlueter who now leads the project and is also employed by Joyent. 
-
-The project has a total of 447 core contributors as of 2016. 
-Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
-To date, Joyent has raised in the neighborhood of $100 million in venture capital and has an employee headcount in excess of 120.
-
-Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
-on September, 2015</a>, io.js merged with the Node.js project again
-under new <a target="_blank" href="https://nodejs.org/en/foundation/">
-nodejs.org/en/foundation</a> governance.
-
-<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
-A VentureBeat article in 2013</a> writes "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called StrongLoop. 
-And they’re apparently attempting to hijack the Node brand and community for themselves."
-
-Instructions for installing Node by those packaging it in their solution
-often specify a specific version of Node:
+## Explanations #
 
    * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
 
+   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
 
 <hr />
 
@@ -127,8 +143,9 @@ with bug and security fixes.
 <a target="_blank" href="https://nodesource.com/products/nsolid">
 N|Solid</a>
 from NodeSource
-   is a fully compatible Node.js runtime 
-   enhanced to address the needs of enterprise production support.
+   is a "fully compatible Node.js runtime 
+   enhanced to address the needs of enterprise production support."
+It provides a GUI.
 
 <a target="_blank" href="https://downloads.nodesource.com/">
    https://downloads.nodesource.com</a>
@@ -147,16 +164,35 @@ Pricing for both Joyant and NodeSource start at around $1,000 per month per deve
 
    ## Option A: Install node with default npm and nvm #
 
-0. The simplest way to install node is to use brew:
+0. The simplest way to install node is to use Homebrew:
 
    <pre><strong>
    brew install node -g
    </strong></pre>
 
+   The response:
+
+   <pre>
+==> Downloading https://homebrew.bintray.com/bottles/node-6.3.0.el_capitan.bottl
+######################################################################## 100.0%
+==> Pouring node-6.3.0.el_capitan.bottle.tar.gz
+==> Caveats
+Please note by default only English locale support is provided. If you need
+full locale support you should either rebuild with full icu:
+  `brew reinstall node --with-full-icu`
+or add full icu data at runtime following:
+  https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
+&nbsp;
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+==> Summary
+🍺  /usr/local/Cellar/node/6.3.0: 3,829 files, 39.8M
+   </pre>
+
    Notice the folder (which may have a different version number):
 
    <pre>
-   ~/Library/Caches/Homebrew/node-6.2.1.el_capitan.bottle.tar.gz
+   ~/Library/Caches/Homebrew/node-6.3.0.el_capitan.bottle.tar.gz
    </pre>
 
    NOTE: By default, when node is installed, it installs
@@ -187,6 +223,9 @@ Pricing for both Joyant and NodeSource start at around $1,000 per month per deve
    ls /usr/local/lib/node_modules
    </strong></pre>
 
+   The response is simply "npm".
+
+
    <a name="NVMInstall"></a>
 
    #### NVM Install #
@@ -200,17 +239,14 @@ Pricing for both Joyant and NodeSource start at around $1,000 per month per deve
    with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
    Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
 
-0. Install NVM using either curl or wget:
+0. Install NVM using wget: 
 
-   <pre><strong>
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-   </strong></pre>
-
-   Alternately:
-   
    <pre><strong>
    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
    </strong></pre>
+
+   PROTIP: The instructions say either curl or wget, but I prefer using wget because it is not installed by default,
+   and nvm requires it. So if you don't have it, better to know it sooner than later.
 
    The response:
 
@@ -871,7 +907,6 @@ Add to ~/.profile
    source $(brew --prefix nvm)/nvm.sh
 
 
-
 ## Resources #
 
    https://github.com/isaacs/nave
@@ -880,6 +915,11 @@ Add to ~/.profile
    It is invoked by source command rather than run.
 
 * http://blog.teamtreehouse.com/install-node-js-npm-mac
+
+* <a target="_blank" href="https://github.com/felixrieseberg/npm-windows-upgrade">
+   https://github.com/felixrieseberg/npm-windows-upgrade</a>
+   enables upgrade of Node on Windows using elevated PowerShell scripts.
+
 
 ## More on MacOS #
 
