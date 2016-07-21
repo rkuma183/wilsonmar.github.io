@@ -191,6 +191,41 @@ Software can do much of the planning and scheduling to available capacity.
 We want to avoid focusing too much on "productivity" metrics of operators
 rather than people.
 
+## Partners #
+
+Denzil Samuels, GE Digital’s Global Head of Alliances, Channels, Business Development & Ventures, 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=sYBQA2pOY-Q">
+   Video: Predix: The Opportunity for Partners</a>
+   ge.com/digital/partners
+   [0:26] the industrial cloud is "a bigger opportunity than the enterprise and consumer cloud. And yet there is no one there."﻿
+   VSI can build a business.
+   Service providers working on connected devices talking to each other.
+   ISVs write code that run without worrying about hardware, storage.
+   Cisco can sell compute power.
+
+
+## 30-second commercials #
+
+TV Commercial created by GE corporate:
+
+* https://www.youtube.com/watch?v=puRCMlOPaPE
+  Predix: Industrial Assistant - GE
+
+* https://www.youtube.com/watch?v=eCQ-M2-kVhE
+  Like Talking to a Wall - Unimpossible Missions - GE
+  places sensitive accelerameters (microphones) on both sides of the Berline wall.
+  Man reads a children's book to kids on the other side of the wall
+  "... living in peace".
+
+* https://www.youtube.com/watch?v=SQ_blyWcQoQ
+   Raining Octopuses - GE
+   ... whatever the world throws at us ... we're ready.
+
+* https://www.youtube.com/watch?v=zIZHBzvgfGk
+   'A Snowball’s Chance in Hell' - Unimpossible Missions - GE
+   encases a snowball in a highly insulated 3D-printed container 
+   lowered in a foundry 2,000 degrees hot.
 
 
 
@@ -369,5 +404,15 @@ The above uses Apache Maven commands
 <a target="_blank" href="https://network.pivotal.io/products/pcfdev">
 Pivotal PCDEV</a>
 
+## Videos #
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=6h3iEy2MnsY">
+   1:29 VIDEO: Inside the Predix Cloud</a>
+   is a bunch of photos of a data center set to music.
 
 
+## More #
+
+This is one of several related topics:
+
+{% include predix_links.html %}

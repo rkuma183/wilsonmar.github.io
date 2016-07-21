@@ -56,14 +56,17 @@ and have integrated with all of the major Platform-as-a-Service providers (Herok
 
 Your key responsibilities will include the following:
 
-* Build a following of passionate developers who want to be the best of the best, using the most efficient technologies and platforms to write their applications.
+* Build a following of passionate <strong>developers</strong> 
+(who want to be the best of the best, using the most efficient technologies and platforms)
+ to write their applications.
 
-* Identify opportunities to bring content and perspective to senior executives in our target market.
+* Identify opportunities to bring content and perspective to <strong>senior executives</strong> in our target market.
 
 * Leverage social networks, blog and video platforms, 
-and highly scalable marketing technologies to get the word out.
+   and highly scalable marketing technologies to <strong>get the word out</strong>.
 
-* <strong>Publish blog posts and tutorials</strong> that highlight best practices and offer a fresh perspective.
+* <strong>Publish blog posts and tutorials</strong> that highlight 
+   <strong>best practices</strong> and offer a fresh perspective.
 
 * Attend and speak at meetups and conferences, serving as an evangelist, coach, cheerleader, and teammate to budding and veteran users.
 
@@ -72,8 +75,10 @@ and highly scalable marketing technologies to get the word out.
 * Seize moments of inspiration to hack on or create open source projects.
 
 * Deliver compelling presentations on solutions, <strong>trends data</strong>, 
-and <strong>thought leadership</strong> topics.
-* Create content and campaigns with partners which are NOT boring, but highly engaging and useful to end users.
+   and <strong>thought leadership</strong> topics.
+
+* Create content and campaigns with <strong>partners</strong> which are NOT boring, 
+   but highly engaging and useful to end users.
 
 * Position {{ page.company }} as a technical thought leader, both online and offline.
 
@@ -83,15 +88,13 @@ and <strong>thought leadership</strong> topics.
 
 * Up to 20% of time on direct developer-centric customer support.
 
-## Our ideal candidate possesses or demonstrates
-
-The ideal candidate will have done a similar job before, likely in the technology industry, 
-with sharable examples of previous speaking opportunities, conference speaker feedback, and/or recorded webcast delivery. 
+## Our ideal candidate possesses will have done a similar job before, likely in the technology industry, 
+   with sharable examples of previous speaking opportunities, conference speaker feedback, and/or recorded webcast delivery. 
 
 * Experience as a current or former developer with one or more apps published in an app marketplace 
-(Google Play, Apple Store, Windows Store, Office Store, iTunes, etc.)
+   (Google Play, Apple Store, Windows Store, Office Store, iTunes, etc.)
 
-* Familiarity with Maven, Git, Gradle, Groovy, Chef
+* Familiarity with Maven, Git, Gradle, Groovy, Chef, Kubernetes, etc.
 
 * Ability to code demos in one or more languages.
 

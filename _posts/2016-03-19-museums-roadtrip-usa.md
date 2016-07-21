@@ -42,6 +42,14 @@ historic landmark hotels</a> and restaurants.
 The about route was optimized for least driving time using Google Maps API driven by <a target="_blank" href="
 https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb"> Machine Learning algorithms run in a Python Jupyter Notebook</a> as <a target="_blank" href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">described by Randal S. Olson</a>.
 
+## Refueling #
+
+Make sure your planning includes how much travel can occure between gas or electricity fill-ups.
+Here's the map of Tesla superchargers:
+
+<a target="_blank" title="Tesla Superchargers in the US planned for 2016" href="https://www.tesla.com/supercharger">
+<img alt="map tesla charging stations 650x334-c59" width="650" height="334" src="https://cloud.githubusercontent.com/assets/300046/17037278/538ea0f8-4f4d-11e6-907a-6a0b65a807e5.jpg"></a>
+
 
 <a name="DownEastCoast"></a>
 

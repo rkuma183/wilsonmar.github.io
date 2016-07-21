@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-{% include tts1.html %}
+<!-- {% include tts1.html %} -->
 
 Public beta releases 
 are often the first time that partners and friends have 
@@ -36,7 +36,8 @@ Here is a summary of my advice explained further below:
 
 More about each is described below.
 
-<amp-twitter width=486 height=657 layout="responsive" data-tweetid="716443188538449920" data-cards="hidden">
+<!-- <amp-twitter width=486 height=657 layout="responsive" data-tweetid="716443188538449920" data-cards="hidden">
+-->
 
 
 <a name="Define"></a>

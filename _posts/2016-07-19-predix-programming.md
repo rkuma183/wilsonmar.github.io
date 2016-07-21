@@ -158,3 +158,8 @@ By default, all the fields are of type @Basic, which are persisted as-is in the 
 @GeneratedValue signifies a strategy to assign a unique value to your identity fields automatically. The types of strategies available are IDENTITY, SEQUENCE, TABLE, and AUTO. The default strategy is auto
 
 
+## More #
+
+This is one of several related topics:
+
+{% include predix_links.html %}

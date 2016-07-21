@@ -29,6 +29,10 @@ What percent of your activity results in some action by readers:
 
    * Link to your site from their website
 
+   * Forward to someone else
+
+   * Download a white paper (pdf)
+
    * Friend you on Facebook
 
    * etc.

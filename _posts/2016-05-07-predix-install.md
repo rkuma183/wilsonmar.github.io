@@ -760,3 +760,15 @@ See https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=
 [INFO] ------------------------------------------------------------------------
    </pre>
 
+
+## API Setup #
+
+https://www.youtube.com/watch?v=9SEVfK-1sCQ
+Predix Intelligent Environment API Quick Start Demo
+
+
+## More #
+
+This is one of several related topics:
+
+{% include predix_links.html %}
