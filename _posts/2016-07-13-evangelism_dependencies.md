@@ -75,5 +75,9 @@ so contact me for more.
 
 NOTE: The diagram was [(created with animations in MS PowerPoint 2011)](/fig/evangelism_dependencies_v01.pptx/)
 
+## More on technical evangelism #
+
+This is one of several topics:
+
 {% include evangelist_links.html %}
 
