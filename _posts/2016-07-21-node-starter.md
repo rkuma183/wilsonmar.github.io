@@ -295,7 +295,7 @@ Checking connectivity... done.
    npm install 
    </strong></tt>
 
-   ### Add MongoDB #
+   ### Add MongoDB in MacOS #
 
 0. <a target="_blank" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">
    Install Mongodb, on a Mac</a> (not the latest dev release):
@@ -448,6 +448,15 @@ Express server listening on port 3000 in development mode
 
    PROTIP: The Starter makes use of the cookie stored on your browser when you sign into Twitter.
 
+   CAUTION: <a target="_blank" href="http://thenextweb.com/twitter/2012/08/17/twitter-4/#gref">
+   In 2013</a> Twitter killed their API program by putting
+   user caps for third-party Twitter clients and
+   limiting the maximum number of users any outside client can ever have.
+
+   <a target="_blank" href="http://www.zdnet.com/article/tweeting-trolls-without-tools-twitter-will-remain-a-cesspool-of-hate/">
+   This author wisely noticed that</a> "by restricting access to its APIs, Twitter has in effect created a closed environment, where trolls can operate freely, because end-users do not have access to tools that would enable them to insulate themselves.
+   It means the bad guys and the angry mob can game the system a lot easier."
+
    TODO: Describe the Starter's CSRF prevention techniques.
    CSRF prevention work by embedding additional authentication data into requests that allows the web application to detect requests from unauthorized locations.
 
@@ -478,7 +487,16 @@ Express server listening on port 3000 in development mode
    So let's put the (unedited) website out there.
 
 
-## Publish website #
+## Website hosting #
+
+There are several options to host a Node website.
+
+   * Locally
+   * Locally within a Vagrant instance.
+   * Heroku cloud
+   * AWS
+
+   * https://mlab.com/home?newAccount=1
 
 Here we use docker-compose to get your Nodejs project in a real server.
 
