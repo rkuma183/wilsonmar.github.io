@@ -75,9 +75,11 @@ so more and more of them are popping up.
    API World.co</a>
    Sep 12-14, San Jose Convention Center
 * <a target="_blank" href="http://apistrat.com/">
-   APIStrat.com</a>
+   APIStrat.com</a> API Strategy & Practice Conference
    November 2nd-4th, 2016
-   Boston, MA
+   Boston, MA 
+   <a target="_blank" href="https://www.youtube.com/channel/UCVrBi5B3I4yNNOY9nRInnOQ">
+   [videos]</a>
 
 * KrankyGeek WebRTC
 
