@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Node Starter"
-excerpt: "API"
+title: "Node API Starter"
+excerpt: "Add routes to basic features included"
 tags: [Node, API]
 image:
 # feature: pic white robots woman 1900x500.jpg
@@ -15,23 +15,24 @@ comments: true
 
 {% include _toc.html %}
 
-This is a tutorial on how to make use of Sahat Yalkabov's
+This is a tutorial on how to make use of the
 <a target="_blank" href="https://github.com/sahat/hackathon-starter">
-hackathon-starter</a> repo which uses SASS, Express, and several other packages
-to create a new Node app that has basic plumbing for processing several APIs
+hackathon-starter</a> repo which uses SASS, Express, and several other commonly used packages
+to create a new Node app. 
+Sahat Yalkabov's repo comes with basic plumbing for processing several APIs
 along with account creation, login, contact form,
-and other basic features of any website.
+and other basic "plumbing" features of websites.
 
 Unlike the README and most other tutorials, 
-this tutorial specifies each step to present responses,
-taking a "deep dive" approach, and adds NOTEs and PROTIPs commentary along the way.
+this tutorial taking a "deep dive" approach by explaining each step's responses,
+and adding NOTEs and PROTIPs commentary along the way.
 
-The objective here is to add a visualization (viz) page
+The objective of the steps below is to add a top menu item a new route (page)
 to the boilerplate website.
 
 0. Use an internet browser to view<br />
    <a target="_blank" href="https://github.com/sahat/hackathon-starter">
-   https://github.com/sahat/hackathon-starter</a>
+   <strong>https://github.com/sahat/hackathon-starter</strong></a>
 
 0. Fork the repo into your own account, such as:<br />
    https://github.com/wilsonmar/hackathon-starter
@@ -555,18 +556,8 @@ exports.index = (req, res) => {
 0. Define getViz.
 
 
-   ### Add HTML #
 
-   Per https://www.predix.io/learn?mkt_tok=...
-
-   <pre>
-<px-chart>
-    <px-chart-controls data-controls show-date-range="true"></px-chart-controls>
-</px-chart>
-    </pre>
-
-
-## Run again
+## Run to see changes #
 
    Alternately, you may instead see some error messages:
 
