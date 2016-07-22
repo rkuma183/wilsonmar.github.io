@@ -80,6 +80,13 @@ so more and more of them are popping up.
    Boston, MA 
    <a target="_blank" href="https://www.youtube.com/channel/UCVrBi5B3I4yNNOY9nRInnOQ">
    [videos]</a>
+* <a target="_blank" href="https://2016.restfest.org/us/">
+   2016.restfest.org/us</a> RESTful Web Services Unconference
+   September 15-17, 2016
+   Greenville, SC
+
+   <a target="_blank" href="http://productforge.io/livestreams/rest-fest/2016/07/16/rest-fest-uk-2016-conference-day/">
+   Video</a>
 
 * KrankyGeek WebRTC
 
@@ -130,7 +137,7 @@ so more and more of them are popping up.
 
 * DeveloperWeek San Francisco
 
-* No Fluff Just Stuff
+* No Fluff Just Stuff (NFJS)
 
 
 ## Vendor specific #

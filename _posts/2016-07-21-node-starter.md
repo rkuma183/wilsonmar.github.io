@@ -603,7 +603,7 @@ CMD [ "node", "app.js" ]
    http://localhost:3000
    </pre>
 
-0. Try again to <a href="#ConfigureAPI">Configure API</a>.
+0. Try again to <a href="#ConfigureAPI">Configure API above</a>.
 
 
    ### Share Dock image #
@@ -773,7 +773,7 @@ exports.index = (req, res) => {
 
 
 
-## Run to see changes #
+   ### Run to see changes #
 
    Alternately, you may instead see some error messages:
 
@@ -799,7 +799,7 @@ Error: Route.get() requires callback functions but got a [object Undefined]
 
 
 
-## Look and feel customization #
+## Customize Look and feel #
 
 0. Select a template from http://html5up.net/
 
@@ -810,3 +810,13 @@ Error: Route.get() requires callback functions but got a [object Undefined]
    Howeveer, Hackathon Starter CSS is coded to use gird and styles for 
    the Bootstrap CSS framework, but these templates do not. 
 
+
+
+
+   ### JavaScript changes #
+
+   When coding JavaScript please keep in mind the rules specified in this Style Guide:
+
+   https://github.com/airbnb/javascript
+
+   
