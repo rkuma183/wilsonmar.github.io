@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Predix Visualizations"
-excerpt: "Visualization for the Industrial Internet"
-tags: [ML, GE]
+title: "Node Starter"
+excerpt: "API"
+tags: [Node, API]
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -15,22 +15,34 @@ comments: true
 
 {% include _toc.html %}
 
-Here are my notes about following the Interactive Demo I took to 
-visualize time-series data in an application running Predix.
+This is a tutorial on how to make use of Sahat Yalkabov's
+<a target="_blank" href="https://github.com/sahat/hackathon-starter">
+hackathon-starter</a> repo which uses SASS, Express, and several other packages
+to create a new Node app that has basic plumbing for processing several APIs
+along with account creation, login, contact form,
+and other basic features of any website.
 
 Unlike the README and most other tutorials, 
 this tutorial specifies each step to present responses,
 taking a "deep dive" approach, and adds NOTEs and PROTIPs commentary along the way.
 
-## Step 1 #
+The objective here is to add a visualization (viz) page
+to the boilerplate website.
 
-To create an empty time series chart, with the HTML markup from the Predix webpage:
+0. Use an internet browser to view<br />
+   <a target="_blank" href="https://github.com/sahat/hackathon-starter">
+   https://github.com/sahat/hackathon-starter</a>
 
-0. I forked to
-
+0. Fork the repo into your own account, such as:<br />
    https://github.com/wilsonmar/hackathon-starter
 
-0. Cloned it on my local folder:
+0. Open a Terminal shell window and make a folder such as:
+
+   <tt><strong>
+   mkdir ~/gits
+   </strong>
+
+0. Clone to your local folder (replacing wilsonmar in the example below):
 
    <tt><strong>
    git clone --depth=1 https://github.com/wilsonmar/hackathon-starter predix-viz
@@ -393,6 +405,8 @@ hackathon-starter@4.0.1 /Users/mac/gits/wilsonmar/predix-viz
 Express server listening on port 3000 in development mode
    </pre>
 
+   It's important that you get this working as a baseline before making any changes.
+
 0. Open an internet browser (Chrome) to:
 
    <pre>
@@ -402,9 +416,10 @@ Express server listening on port 3000 in development mode
    The response should be what is shown on-line at the <a target="_blank" href="http://hackathonstarter-sahat.rhcloud.com/">
    Live Demo site at http://hackathonstarter-sahat.rhcloud.com</a>.
 
+
 ## Add a viz page #
 
-   ### Jade file #
+   ### viz.jade file #
 
 0. In a Finder window, navigate to the repo's Views folder, <strong>home.jade</strong> file.
 
@@ -422,7 +437,35 @@ Express server listening on port 3000 in development mode
 
 0. Save to new file <strong>viz.jade</strong>.
 
-0. Edit the file.
+0. Examine the formatting:
+
+   <pre>
+extends layout
+&nbsp;
+block content
+  h1 Hackathon Starter
+  p.lead A boilerplate for Node.js web applications.
+  hr
+  .row
+    .col-sm-12
+      h2 Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      p
+        a.btn.btn-default(href='#', role='button') View details »
+   </pre>
+   <br />
+   
+   The ".col-sm-2" is coding processed by
+   <a target="_blank" href="http://getbootstrap.com/javascript/">
+   Bootstrap JavaScript</a>
+
+0. Edit the file to specify your page.
+
+
+
+
+0. Save the changes and exit.
+
 
    ### viz.js #
 
@@ -431,7 +474,7 @@ Express server listening on port 3000 in development mode
    The contents:
 
    <pre>
-   /**
+/**
  * GET /
  * Home page.
  */
@@ -447,10 +490,24 @@ exports.index = (req, res) => {
 0. Replace all "Home" with "Viz"
    and all "home" with "viz".
 
+   The end result:
+
+   <pre>
+/**
+ * GET /
+ * Viz page.
+ */
+exports.index = (req, res) => {
+  res.render('viz', {
+    title: 'Viz'
+  });
+};
+   </pre>
+
+0. Save and exit the file.
 
 
-
-   ### Controller #
+   ### Add Controller in app.js #
 
 0. Edit the <strong>app.js</strong> file using Visual Studio Code or another text editor:
 
@@ -466,22 +523,74 @@ exports.index = (req, res) => {
 
 0. Read https://github.com/sahat/hackathon-starter#how-do-i-create-a-new-page
 
-0. To add a new Viz route, add:
+0. Duplicate line (copy and paste):
 
-   <tt></strong>
-   app.get('/viz', vizController.getViz);
+   <tt><strong>
+   const contactController = require('./controllers/contact');
+   </strong></tt>
 
+0. Edit to make a new Viz route, add:
+
+   <tt><strong>
    const vizController = require ('./controllers/viz');
    </strong></tt>
 
 
-## Add to README #
+   ### Add Custom route in app.js #
 
-0. To add a new Viz route, add:
+0. To add a new Viz route, add (above the Error Handler section):
 
-   <tt></strong>
+   <pre></strong>
+   /**
+    * Custom routes:
+    */
    app.get('/viz', vizController.getViz);
-   </strong></tt>
+   </strong></pre>
+
+0. Save and exit the file.
+
+
+   ### Define getViz #
+
+0. Define getViz.
+
+
+   ### Add HTML #
+
+   Per https://www.predix.io/learn?mkt_tok=...
+
+   <pre>
+<px-chart>
+    <px-chart-controls data-controls show-date-range="true"></px-chart-controls>
+</px-chart>
+    </pre>
+
+
+## Run again
+
+   Alternately, you may instead see some error messages:
+
+   <pre>
+/Users/mac/gits/wilsonmar/predix-viz/node_modules/express/lib/router/route.js:196
+        throw new Error(msg);
+        ^
+&nbsp;
+Error: Route.get() requires callback functions but got a [object Undefined]
+    at Route.(anonymous function) [as get] (/Users/mac/gits/wilsonmar/predix-viz/node_modules/express/lib/router/route.js:196:15)
+    at EventEmitter.app.(anonymous function) [as get] (/Users/mac/gits/wilsonmar/predix-viz/node_modules/express/lib/application.js:481:19)
+    at Object.&LT;anonymous> (/Users/mac/gits/wilsonmar/predix-viz/app.js:221:5)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.runMain (module.js:575:10)
+    at run (bootstrap_node.js:352:7)
+    at startup (bootstrap_node.js:144:9)
+    at bootstrap_node.js:467:3
+       </pre>
+
+
 
 ## Look and feel customization #
 
@@ -494,11 +603,3 @@ exports.index = (req, res) => {
    Howeveer, Hackathon Starter CSS is coded to use gird and styles for 
    the Bootstrap CSS framework, but these templates do not. 
 
-## More #
-
-This is one of several related topics:
-
-See more about Predix, GE's brand name for their "Industrial Internet" which 
-incorporates Machine Learning, Data Science, and Artificial Intelligence.
-
-{% include predix_links.html %}

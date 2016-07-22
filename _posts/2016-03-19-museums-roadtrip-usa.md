@@ -50,6 +50,9 @@ Here's the map of Tesla superchargers:
 <a target="_blank" title="Tesla Superchargers in the US planned for 2016" href="https://www.tesla.com/supercharger">
 <img alt="map tesla charging stations 650x334-c59" width="650" height="334" src="https://cloud.githubusercontent.com/assets/300046/17037278/538ea0f8-4f4d-11e6-907a-6a0b65a807e5.jpg"></a>
 
+See <a target="_blank" href="http://sahatyalkabov.com/cross-country-road-trip-in-tesla-model-s-prologue/">
+Sahat</a>'s cross-country trip in Tesla.
+
 
 <a name="DownEastCoast"></a>
 

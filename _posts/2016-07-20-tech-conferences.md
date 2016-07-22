@@ -39,8 +39,9 @@ so more and more of them are popping up.
 * Agile and Beyond
 * Agile Dev West and East
 
-* SANS security
-
+* <a target="_blank" href="https://www.sans.org/event/network-security-2016/">SANS.org Network Security</a>
+  Sat, Sep 10 - Mon, Sep 19, 2016
+  Las Vegas
 
 ## Specific Technology focus #
 
