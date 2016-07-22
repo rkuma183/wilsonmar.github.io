@@ -23,25 +23,32 @@ Sahat Yalkabov's repo comes with basic plumbing for processing several APIs
 along with account creation, login, contact form,
 and other basic "plumbing" features of websites.
 
-Unlike the README and most other tutorials, 
-this tutorial taking a "deep dive" approach by explaining each step's responses,
+This tutorial takes a <strong>"deep dive"</strong> approach 
+by explaining each step's responses,
 and adding NOTEs and PROTIPs commentary along the way.
 
 The objective of the steps below is to add a top menu item a new route (page)
 to the boilerplate website.
 
-0. Use an internet browser to view<br />
+## Getting Started #
+
+0. Click the URL:<br />
    <a target="_blank" href="https://github.com/sahat/hackathon-starter">
    <strong>https://github.com/sahat/hackathon-starter</strong></a>
 
-0. Fork the repo into your own account, such as:<br />
+0. Click <strong>Fork</strong> to copy the repo into your own account, such as:<br />
    https://github.com/wilsonmar/hackathon-starter
+
+   This assumes that you have a GitHub account and logged into it.
 
 0. Open a Terminal shell window and make a folder such as:
 
    <tt><strong>
-   mkdir ~/gits
+   mkdir ~/gits<br />
+   mkdir wilsonmar
    </strong>
+
+   But instead of "wilsonmar" specify your GitHub account name.
 
 0. Clone to your local folder (replacing wilsonmar in the example below):
 
@@ -49,7 +56,7 @@ to the boilerplate website.
    git clone --depth=1 https://github.com/wilsonmar/hackathon-starter predix-viz
    </strong>
 
-   The "--depth=1" limits the history of commits.
+   The "--depth=1" limits the history of commits downloaded.
 
    The response:
 
@@ -63,13 +70,15 @@ Resolving deltas: 100% (5347/5347), done.
 Checking connectivity... done.
    </pre>
 
-0. Setup a upstream remote location to obtain future updates:
+0. Setup an upstream remote location to obtain future updates:
 
    <tt><strong>
    git remote add upstream https://github.com/sahat/hackathon-starter
    </strong>
 
-0. Get a list of files and folders:
+   ### Examine repo files & folders #
+
+0. Get a list of files and folders from your local machine (subsituting as you type):
 
    <tt><strong>
    cd ~/gits/wilsonmar/predix-viz<br />
@@ -252,15 +261,20 @@ Checking connectivity... done.
         `-- header.jade
    </pre>
 
-   Notice the <a target="_blank" href="https://github.com/sahat/hackathon-starter/blob/master/README.md#project-structure">
-   project structure</a>:
+   PROTIP: This is a MVC (Model View Controller) project structure.
 
-   * scss files are used to generate the .css files
+0. For a summary description of the files and folders, click 
+   <a target="_blank" href="https://github.com/sahat/hackathon-starter/blob/master/README.md#project-structure">
+   this URL to the project-structure</a>.
 
-   * fontawesome icons are embedded
+   * .scss files are used to generate the .css files
 
-   * .jade files in the <strong>view</strong> folder are read by the Jade/Pug template engine for Express
+   * fontawesome icons are embedded in the repo
+
+   * .jade files in the <strong>view</strong> folder are read by the Jade/Pug template engine for Express.js
    which dynamically generates HTML for display.
+
+   ### Limit APIs loaded #
 
 0. You may want to comment out APIs that you don't intend on using:
 
@@ -280,6 +294,8 @@ Checking connectivity... done.
    <tt><strong>
    npm install 
    </strong></tt>
+
+   ### Add MongoDB #
 
 0. <a target="_blank" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">
    Install Mongodb, on a Mac</a> (not the latest dev release):
@@ -315,7 +331,9 @@ Or, if you don't want/need a background service you can just run:
 ==> Successfully started `mongodb` (label: homebrew.mxcl.mongodb)
    </pre>
 
-0. Install NPM dependencies
+   ### NPM Dependencies #
+
+0. Install NPM dependencies using npm (Node Package Manager) installed along with Node:
 
    <tt><strong>
    npm install
@@ -357,24 +375,8 @@ static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {
   SOLINK_MODULE(target) Release/secp256k1.node
    </pre>
 
-0. Install Nodemon, following instructions at:
 
-   https://github.com/sahat/hackathon-starter/blob/master/README.md
-
-   <tt><strong>
-   npm install nodemon
-   </strong></tt>
-
-   The response:
-
-   <pre>
-> fsevents@1.0.14 install /Users/mac/gits/wilsonmar/predix-viz/node_modules/fsevents
-> node-pre-gyp install --fallback-to-build
-&nbsp;
-[fsevents] Success: "/Users/mac/gits/wilsonmar/predix-viz/node_modules/fsevents/lib/binding/Release/node-v48-darwin-x64/fse.node" is installed via remote
-hackathon-starter@4.0.1 /Users/mac/gits/wilsonmar/predix-viz
-└── nodemon@1.9.2  extraneous
-   </pre>
+   ### Start Node app.js #
 
 0. Install Nodemon globally, following instructions at:
 
@@ -394,11 +396,15 @@ hackathon-starter@4.0.1 /Users/mac/gits/wilsonmar/predix-viz
 
    -bash: nodemon: command not found
 
-0. Have Nodemon instead of Node start app.js:
+0. Start app.js using nodemon (instead of node command) in order for changes to files 
+   cause Node to restart automatically and thus reflect changes made:
 
    <tt><strong>
-   nodemon app.js
+   nodemon -e js,jade app.js
    </strong></tt>
+
+   PROTIP: We use the "-e" parameter to watch .jade files to also watch .js files for changes
+   as well as .js files. 
 
    The response:
 
@@ -416,6 +422,216 @@ Express server listening on port 3000 in development mode
 
    The response should be what is shown on-line at the <a target="_blank" href="http://hackathonstarter-sahat.rhcloud.com/">
    Live Demo site at http://hackathonstarter-sahat.rhcloud.com</a>.
+
+
+   ### Configure Login #
+
+0. Click "CREATE ACCOUNT".
+
+   NOTE: The Starter includes coding for website visitors to create an account 
+   based on email and password entry.
+
+   The information is stored in the MongoDB database created earlier.
+
+0. Click "LOGIN" to see that 
+   the Starter includes coding to process Login credentials from major identity vendors:
+
+   <amp-img width="345" height="349" alt="node login vendors 20160722-345x349-c50.jpg" 
+   src="https://cloud.githubusercontent.com/assets/300046/17050688/8d255064-4fb1-11e6-92e5-963ac6c1ca57.jpg">
+   </amp-img>
+
+0. Click on <strong>Sign in with Twitter</strong>.
+
+   When you are redirected back, and your name should appear at the upper right corner.
+
+   If this doesn't appear, open a new browser tab, sign into Twitter, then return.
+
+   PROTIP: The Starter makes use of the cookie stored on your browser when you sign into Twitter.
+
+   TODO: Describe the Starter's CSRF prevention techniques.
+   CSRF prevention work by embedding additional authentication data into requests that allows the web application to detect requests from unauthorized locations.
+
+0. Click your name and select <strong>My Account</strong>.
+
+   Notice the public details you provided to Twitter (Email, Gender, Location, etc.) is shown.
+
+0. Click <strong>CONTACT</strong> at the top menu.
+
+   BTW, I filed an issue to suggest <a target="_blank" href="https://github.com/sahat/hackathon-starter/issues/530">
+   populating the contact form with information on the user</a>.
+
+   <a name="ConfigureAPI"></a>
+
+   ### Configure API in menu #
+
+0. Click "API EXAMPLES" at the top menu.
+
+0. Click <strong>Pinterest</strong> (near the bottom of the list).
+
+0. Click <strong>Okay</strong> to concede.
+
+   When running in localhost, you'll get a blank screen with a URL such as:<br />
+   https://localhost:3000/auth/pinterest/callback?code=112d913b9083d141
+
+   PROTIP: In order for Pinterest to finish its work, there needs to be a public-addressible website.
+
+   So let's put the (unedited) website out there.
+
+
+## Publish website #
+
+Here we use docker-compose to get your Nodejs project in a real server.
+
+0. Install Vagrant.
+0. Install Node and Docker in it.
+
+0. Open a new file containing this sample below and
+   save it with name <strong>docker-compose-dev.yml</strong>
+
+   <pre>
+version: '2'
+services:
+&nbsp;
+  web:
+    image: node:6.1
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm install -g nodemon ; nodemon -e js,jade app.js'
+    ports:
+      - "80:3000"
+    depends_on:
+      - mongo
+    networks:
+      - all
+    environment:
+      MONGODB_URI: "mongodb://mongo:27017/hackathon"
+&nbsp;
+  mongo:
+    image: mongo:3
+    command: mongod --smallfiles
+    networks:
+      - all
+&nbsp;
+networks:
+  all:
+   </pre>
+
+   PROTIP: The file above defines a service named "web" based on "node:6.1".
+   A storage volume is mounted to hold a working directory at "usr/src/app".
+   Semicolons act like separate Enter of commands we manually did above.
+
+   The example above came from <a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
+   this article</a>
+   by MikeMichel (in Cologne, Germany), who explains:
+
+   The "depends_on" clause specifies that the web services starting should depend on mongo db starting first. 
+   The Docker image requests version 3 of mongo.
+   We want to 
+
+   The environment variable MONGODB_URI created is used by hackathon-starter to point to mongodb.
+
+   The command to start mongod (Mongo Daemon) 
+   includes "--smallfiles" to reduce the initial size for data files 
+   so less diskspace is needed. 
+
+   The "all" under networks places both services in the same network.
+
+0. In a Termianl:
+
+   <tt><strong>
+   docker-compose -f docker-compose-dev.yml up
+   </strong></tt>
+
+
+   ### Build Docker image #
+
+0. Open a new file containing this sample:
+
+   <pre>
+FROM node:6.1.0
+&nbsp;
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+&nbsp;
+COPY . /usr/src/app/
+RUN npm install
+&nbsp;
+CMD [ "node", "app.js" ]
+   </pre>
+
+0. Save the file with name "Dockerfile" (no file extension) in your working directory.
+
+0. Build with your own dockerhubname:
+
+   <tt><strong>
+   docker build -t yourdockerhubname/hackathon-starter:0.1
+   </strong></tt>
+
+   Create a docker-compose.yml file to test if your just build image is running like expected.
+
+0. Duplicate the docker-compose.yml file.
+0. Edit the image to:
+
+   <pre>
+  web:
+    image: yourdockerhubname/hackathon-starter:0.1
+   </pre>
+
+   Remove:
+
+   <pre>
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm install -g nodemon ; nodemon -e js,jade app.js'
+   </pre>
+
+0. Save the file.
+
+0. Run:
+
+   <tt><strong>
+   docker-compose up
+   </strong></tt>
+
+   ### Use the image #
+
+0. Open an internet browser (Chrome) to:
+
+   <pre>
+   http://localhost:3000
+   </pre>
+
+0. Try again to <a href="#ConfigureAPI">Configure API</a>.
+
+
+   ### Share Dock image #
+
+   If everything is fine:
+
+   Replace your dockerhubname.
+
+0. If you want to keep your project private use a private repository instead.
+
+0. Push your image to dockerhub.com with a version number (such as "0.1"):
+
+   <tt><strong>
+   docker push yourdockerhubname/hackathon-starter:0.1
+   </strong></tt>
+
+   Now others can start your app locally using the docker-compose.yml file 
+   and running docker-compose up.
+
+
+   ### Update using CI/CD #
+
+   See https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-part-2/
+   which uses Wrker.
+
+   TODO: Write instructions for using Shippable.
+
+
 
 
 ## Add a viz page #

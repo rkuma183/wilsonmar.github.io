@@ -74,6 +74,10 @@ so more and more of them are popping up.
 * <a target="_blank" href="http://apiworld.co/">
    API World.co</a>
    Sep 12-14, San Jose Convention Center
+* <a target="_blank" href="http://apistrat.com/">
+   APIStrat.com</a>
+   November 2nd-4th, 2016
+   Boston, MA
 
 * KrankyGeek WebRTC
 
