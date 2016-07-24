@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Predix install"
-excerpt: "Setup Machine Learning for the Industrial Internet"
-tags: [ML, GE]
+excerpt: "Get setup for the Industrial Internet"
+tags: [ML, GE, Predix]
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -15,26 +15,94 @@ comments: true
 
 {% include _toc.html %}
 
-This article refines instructions to <strong>install</strong>
-Predix, GE's brand name for their "Industrial Internet" which 
-incorporates Machine Learning, Data Science, and Artificial Intelligence.
+This article provides step-by-step instructions to register and <strong>install</strong>
+Predix, GE's brand name for their "Industrial Internet" sales.
 
-Options to install the <a href="#Components">various components</a>:
+Actions to get started:
 
-0. <a href="#CloudFoundary">Hosting in the Cloud Foundry cloud</a>
-0. <a href="#LocalInstall">Local install</a>
-0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
+   0. <a href="#SlackChannel">Slack channel setup</a>
+   0. <a href="#PredixAccount">Predix Account setup</a>
+   0. <a target="_blank" href="https://forum.predix.io/?region=vpc&predix-email=">Predix Developers Forum</a>
 
+   0. <a href="#ThirdParty">Select an approach to install 3rd-party utilities</a>
+   0. <a href="#CloudFoundary">Hosting in the Cloud Foundry cloud</a>
+   0. <a href="#LocalInstall">Local install</a>
+   0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
 
-The technical components according to 
-<a target="_blank" href="https://www.predix.io/resources/training">
-https://www.predix.io/resources/training</a>
 
 <hr />
 
-<a name="#Components"></a>
+<a name="SlackChannel"></a>
 
-## Components #
+## Slack channel setup #
+
+0. <a target="_blank" href="https://ge-intelligent-world.herokuapp.com/">Join</a> the 
+   <a target="_blank" href="https://intelligentworld.slack.com/messages/general/">
+   Intelligent-world Slack channel for Predix developers</a> 
+
+   Once you receive a confirmation email, activate the Slack app on your Mac or PC
+   if you'd like to switch among differen Slack channels.
+
+0. Click the "+" at the lower left corner.
+
+0. Type in the teamdomain of "intelligentworld" and click Continue.
+
+0. Type in the email you used to register and click Continue.
+
+0. If you clicked "Send Magic Link", open the email and click "Sign into Slack".
+
+   That action opens browser for you to click "Launch Slack".
+
+0. Choose whether to enable desktop notifications.
+
+0. Now return temporarily to your browser to close the tabs to access Slack.
+
+
+<a name="PredixAccount"></a>
+
+## Predix Account setup #
+
+0. Click the link below to register for a Predix account at<br />
+   <a target="_blank" href="https://www.predix.io/registration/">
+   https://www.predix.io/registration</a>
+
+   QUESTION: After the free days, $ ___ per month.
+
+0. Confirm phone and email while on the page.
+
+   A GitHub repo account needs to be specified.
+
+0. Wait for the confirm email from Predix.
+
+   PROTIP: Emails after registration take several hours or may not ever arrive.
+
+   "Thanks for your interest in a Predix trial account. We'll validate your information, and will respond within five business days."
+
+0. Wait for the email from Predix.
+
+   Each developer's GitHub account is granted access to 
+   the repository and a number of subrepositories:
+
+0. Once approved, you can then enroll in training.
+
+   "Please connect to BlueSSO and 
+   go to <a target="_blank" href="https://training.predix.io/">training.predix.io</a>.
+   From there, log in with your Predix credentials and 
+   enroll in the “On-Demand” courses. 
+   This is where you will find access to the free eLearning videos."
+
+   Note that the training site is different from <br />
+   <a target="_blank" href="https://www.predix.io/resources/training">
+   https://www.predix.io/resources/training</a>
+
+0. After approval, you'll be able to post on the <br />
+   <a target="_blank" href="https://forum.predix.io/?region=vpc&predix-email=">
+   Predix Developers Forum</a>
+
+
+<a name="ThirdParty"></a>
+
+## Third-party components #
 
 Collaboration:
 
@@ -60,6 +128,7 @@ Front End:
 Back End:
 
    * Cloud Foundry CLI, User Authentication and Authorization CLI, 
+   * Microsoft
    * Java, 
    * Maven, 
    * Ruby, 
@@ -75,19 +144,22 @@ Big Data:
 
    * Anaconda distribution of Python (Pandas, Scipy, Numpy, and sklearn)
 
-Predix:
+<a name="PredixInstallers"></a>
+
+## Predix Components #
+
+  * <a target="_blank" href="https://github.com/PredixDev/local-setup">
+   https://github.com/PredixDev/local-setup</a>
+
 
    * Predix Machine 16.x, 
+
    * Predix demo
 
 
 <a name="#LocalInstall"></a>
 
 ## Local install #
-
-Use the script at<br />
-<a target="_blank" href="https://github.com/PredixDev/local-setup">
-https://github.com/PredixDev/local-setup</a>
 
 
 

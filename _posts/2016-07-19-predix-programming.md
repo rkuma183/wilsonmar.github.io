@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Predix programming"
-excerpt: "Coding Machine Learning for the Industrial Internet"
-tags: [ML, GE]
+excerpt: "Code for the Industrial Internet"
+tags: [ML, GE, Predix]
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -16,36 +16,45 @@ comments: true
 {% include _toc.html %}
 
 This article examines instructions to developers from
-Predix, GE's brand name for their "Industrial Internet" which 
-incorporates Machine Learning, Data Science, and Artificial Intelligence.
+Predix, GE's brand name for their "Industrial Internet".
 
 This duplicates much of the material on predix.io,
 so that PROTIPs and NOTEs can be added in context.
 
+## Hackathons #
+
+GE's #Current sponsors a "City-changing" and enterprises hackathon based on Predix 
+until August 2, 2016 on
+<a target="_blank" href="http://intelligentworld.devpost.com/">
+http://intelligentworld.devpost.com</a>
+
+<amp-img width="650" height="293" alt="predix smartcity 650x293-c68.jpg"
+src="https://cloud.githubusercontent.com/assets/300046/17079833/1f1c3014-50d9-11e6-925e-6b052e4ddf75.jpg">
+</amp-img>
+This integration diagram <a target="_blank" href="https://t.co/kUcroXVFBl">
+from Programmableweb</a>
+is a great example of what is possible.
+
+
+## API End-point Login #
+
+Within programs, calls to APIs can be one of two <strong>end-points</strong>:
+
+   * `https://api.system.aws-usw02-pr.ice.predix.io` for those under the "Basic" plan.
+
+   * `https://api.system.asv-pr.ice.predix.io` for those under the "Select" plan.
+
+Login is to one of these end points, such as:
+
+   <tt><strong>
+   cf login -a https://api.system.aws-usw02-pr.ice.predix.io
+   </strong></tt>
+
+PROTIP: Create a shell script with a short name to login to one of these.
+
+
 TODO: Edget starter with Raspberry Pi?
 
-## Account #
-
-0. Register for a Predix account at<br />
-   <a target="_blank" href="https://www.predix.io/registration/">
-   https://www.predix.io/registration</a>
-
-   QUESTION: After the free days, $ ___ per month.
-
-0. Confirm phone and email while on the page.
-
-   A GitHub repo account needs to be specified.
-
-0. Confirm email from Predix.
-
-   PROTIP: Emails after registration take several hours or may not ever arrive.
-
-   "Thanks for your interest in a Predix trial account. We'll validate your information, and will respond within five business days."
-
-   Each developer's GitHub account is granted access to 
-   the repository and a number of subrepositories
-
-   * <a target="_blank" href="https://github.com/predixdev/">https://github.com/predixdev</a>
 
 
 ## Getting Started #
@@ -78,14 +87,17 @@ Difference vs. Kubernetes are both container models in a separate ecosystem.
 CF has "build pack" that bundles apps and other underpinnings. 
 12 Factor Apps pioneered by Heroku cloud apps using environment variables.
 
-Pivotal is the custodian for Cloud Foundry open-source
+Pivotal is the custodian for 
+Cloud Foundry open-source repositories at<br />
+   <a target="_blank" href="https://github.com/cloudfoundry">
+   https://github.com/cloudfoundry</a>
 and maintains additional services.
+
 Check out predix.io/docs/
 deploy a "hello world" application.
 
 
 ## <a name="OpenJPA">OpenJPA persistence</a> #
-
 
 Eclipse v3.2 (2010) has annotation support used by OpenJPA.
 defined in javax.persistence:
@@ -123,27 +135,46 @@ Some rants about JPA:
    * http://www.javaworld.com/article/2077817/java-se/understanding-jpa-part-1-the-object-oriented-paradigm-of-data-persistence.html?page=2
 
 
-
 <a target="_blank" href="https://www.wikiwand.com/en/Apache_OpenJPA">
-The Wikipedia article on it</a>
-notes the source code is the basis for the core persistence engine of BEA Weblogic Server, IBM WebSphere, and the Apache Geronimo Application Server.
+The Wikipedia article on OpenJPA</a>
+notes the source code is the basis for the core <strong>persistence engine</strong>
+of BEA Weblogic Server, IBM WebSphere, and the Apache Geronimo Application Server.
 
    * <a target="_blank" href="https://dzone.com/articles/openjpa-introductory-tutorial">
    https://dzone.com/articles/openjpa-introductory-tutorial</a>
    provides a sample Geronimo site.
 
-http://www.javaworld.com/article/2077817/java-se/understanding-jpa-part-1-the-object-oriented-paradigm-of-data-persistence.html
-notes
+<a target="_blank" href="http://www.javaworld.com/article/2077817/java-se/understanding-jpa-part-1-the-object-oriented-paradigm-of-data-persistence.html">
+This notes</a>
 The JPA specification was first introduced as part of JSR 220: EJB 3.0, 
 with the goal of "simplifying" the EJB entity beans programming model. 
 Although it all started with entity beans and is packaged with Java EE 5.0, 
 JPA can be used outside the container in a Java SE environment.
 
+
+
 QUESTION: Why is such advanced ML tech based on such old techology? 
 Well, have you seen what's in Java 8? Spring Boot?
 
-### JPA Fields #
+## Spring Boot #
 
+Spring Boot are microservices,
+the "next chapter" of Spring Framework.
+Spring Boot has a CLI based on the 
+<a href="#CloudFoundry">Cloud Foundry CLI</a>
+Actuator
+
+Task modules in Spring Cloud Data Flow enables "data ingestion" with 
+Spring Cloud Streams 
+rather than batch like ETL for data warehouses,
+
+The above uses Apache Maven commands.
+
+<a target="_blank" href="https://network.pivotal.io/products/pcfdev">
+Pivotal PCDEV</a>
+
+
+### JPA Fields #
 
 By default, all the fields are of type @Basic, which are persisted as-is in the database.
 
@@ -156,6 +187,12 @@ By default, all the fields are of type @Basic, which are persisted as-is in the 
 @Version signifies a version field in an entity. JPA uses a version field to detect concurrent modifications to a data store record. When the JPA runtime detects multiple attempts to concurrently modify the same record, it throws an exception to the transaction attempting to commit last. This prevents you from overwriting the previous commit with stale data.
 
 @GeneratedValue signifies a strategy to assign a unique value to your identity fields automatically. The types of strategies available are IDENTITY, SEQUENCE, TABLE, and AUTO. The default strategy is auto
+
+
+## Ingestion  #
+
+https://www.youtube.com/watch?v=74-J5nH4jlo
+Meetup + Slides: GE IOT Predix Time Series & Data Ingestion Service Using Apache Apex (Hadoop) DataTorrent 539 views
 
 
 ## More #

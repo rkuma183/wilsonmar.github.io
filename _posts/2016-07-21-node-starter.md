@@ -17,9 +17,11 @@ comments: true
 
 This is a tutorial on how to make use of the
 <a target="_blank" href="https://github.com/sahat/hackathon-starter">
-hackathon-starter</a> repo which uses SASS, Express, and several other commonly used packages
+hackathon-starter</a> repo which uses SASS, Express, and several other 
+<a href="#Packages">commonly used packages</a>
 to create a new Node app. 
-Sahat Yalkabov's repo comes with basic plumbing for processing several APIs
+Sahat Yalkabov's repo comes with basic plumbing for processing 
+<a href="#APIs">several APIs</a>
 along with account creation, login, contact form,
 and other basic "plumbing" features of websites.
 
@@ -29,6 +31,7 @@ and adding NOTEs and PROTIPs commentary along the way.
 
 The objective of the steps below is to add a top menu item a new route (page)
 to the boilerplate website.
+
 
 ## Getting Started #
 
@@ -272,20 +275,10 @@ Checking connectivity... done.
    * fontawesome icons are embedded in the repo
 
    * .jade files in the <strong>view</strong> folder are read by the Jade/Pug template engine for Express.js
-   which dynamically generates HTML for display.
-
-   ### Limit APIs loaded #
-
-0. You may want to comment out APIs that you don't intend on using:
-
-   <tt><strong>
-   atom package.json
-   </strong></tt>
-
-   Replace atom with whatever text editor you prefer (subl for Sublime, vim, etc.).
-
-   A short description of each package is <a target="_blank" href="https://github.com/sahat/hackathon-starter/blob/master/README.md#list-of-packages">
-   here</a>.
+   which generates HTML for display. See http://naltatis.github.io/jade-syntax-docs/#attributes
+   for Jade Syntax Documentation by Example.
+   If you have some HTML you want to paste in a jade file, http://html2jade.aaron-powell.com/
+   generates jade from HTML.
 
 0. Instal Node on MacOS OSX by following [my instructions](/node-osx-install/):
 
@@ -561,6 +554,19 @@ networks:
    docker-compose -f docker-compose-dev.yml up
    </strong></tt>
 
+   ### Limit APIs loaded #
+
+0. You may want to comment out APIs that you don't intend on using:
+
+   <tt><strong>
+   atom package.json
+   </strong></tt>
+
+   Replace atom with whatever text editor you prefer (subl for Sublime, vim, etc.).
+
+   A short description of each package is <a target="_blank" href="https://github.com/sahat/hackathon-starter/blob/master/README.md#list-of-packages">
+   here</a>.
+
 
    ### Build Docker image #
 
@@ -817,9 +823,31 @@ Error: Route.get() requires callback functions but got a [object Undefined]
 
 
 
+## Enable basic features #
+
+0. Email
+
+0. Google Analytics
+
+0. Search
+
+
 ## Customize Look and feel #
 
-0. Select a template from http://html5up.net/
+0. Favicon
+
+   Generate favicons for PC, Android, iOS, Windows 8 at
+   http://realfavicongenerator.net/
+
+   <a name="APIs"></a>
+
+0. Use default APIs
+
+   PROTIP: Invest in getting setup with the various APIs before you need them.
+   Not only will you be prepared,
+   you'll be more knowledgeable and thus more creative when you understand the possibilities.
+
+0. Adopt a template from http://html5up.net/
 
    Each template come with index.html, images, css and js folders.
 
@@ -828,7 +856,197 @@ Error: Route.get() requires callback functions but got a [object Undefined]
    Howeveer, Hackathon Starter CSS is coded to use gird and styles for 
    the Bootstrap CSS framework, but these templates do not. 
 
+0. Add another API 
 
+
+<a name="AddGoogleMap"></a>
+
+## Add Google Maps API #
+
+In 2005 Google introduced https://developers.google.com/maps/
+Maps API.
+
+Before you do down this road (pun intended), know that there's money involved.
+
+   <img align="right" width="284" height="353" alt="google maps apis 284x353-c69.png"
+   src="https://cloud.githubusercontent.com/assets/300046/17079993/3b6b1406-50de-11e6-984b-03ba44805fe6.png">
+0. Switch to the Google API Console at<br />
+   <a target="_blank" href="https://console.developers.google.com/">
+   https://console.developers.google.com</a>
+   create a project and
+   click "more" to expose all the Map APIs
+   so you click each of the APIs in yellow
+   to Enable them for your project.
+
+0. Click the “Credentials” menu item on the left 
+   to "Create Credentials” button for API Key.
+   Browser key.
+
+0. Accept "Browser Key 2" or type in a name before clicking
+   Create.
+
+   We will return to specify referrer restrictions.
+
+   AIzaSyDpk2I9IuO-ktQvqK56vfqprQu_i3X1bXE
+
+0. Copy the API key and paste it to replace the "..." 
+   in this JavaScript, then copy the whole set of lines
+   and paste it near the bottom of body in HTML:
+
+   <pre>
+   &LT;script async defer
+   scr="https://maps.googleapis.com/maps/api/js?&key=...&v=3&callback=initMap">
+   &LT;/script>
+   </pre>
+
+   Not http://maps.google.com/maps/api/js?sensor=true 
+
+   Refer to the JavaScript API at
+   https://developers.google.com/maps/documentation/javascript/reference
+
+0. Get gmaps.js from Gustavo Leon's<br />
+   <a target="_blank" href="https://github.com/hpneo/gmaps/">
+   https://github.com/hpneo/gmaps</a>
+   as described at
+   <a target="_blank" href="https://www.sitepoint.com/google-maps-made-easy-with-gmaps-js/">
+   this December 2015 blog</a>.
+
+   It's an improvement over 
+   https://github.com/moshen/node-googlemaps
+
+   Instructions also from:
+
+   * https://dzone.com/articles/create-google-maps-gmapsjs
+
+   Use a version in a CDN (Content Distribution Network):
+
+   * https://cdn.jsdelivr.net/gmaps/0.4.24/gmaps.min.js
+   from http://www.jsdelivr.com/projects/gmaps
+
+   * http://hpneo.github.io/gmaps/
+   from https://cdnjs.com/libraries/gmaps.js/
+
+0. The GMap library requires jQuery:
+
+   <pre>
+   &Lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">&LT;/script>
+   </pre>
+
+   QUESTION: Is this library in the Google CDN or CloudFlare CDN?
+
+
+0. Paste the CSS tag where the Google JavaScript library paints the \#map:
+
+   <pre>
+   &LT;div id="map">&LT;/div>
+   </pre>
+
+0. Paste this at the top right under &LT;body> to receive the callback:
+
+   <pre>
+var map = new GMaps({
+    div: '#map',
+    lat: -12.043333,
+    lng: -77.028333
+});
+   </pre>
+
+   Instead of Google's:
+
+   <pre>
+   &LT;script>
+   var map;
+   function initMap(){
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 40.1234567, lng: -73.1234567},
+        zoom: 13
+      });
+      // TODO: Use a database instead:
+      var locations= [
+         {title: 'Park Ave', location: {lat: 40.1234567, lng: -73.1234567}},
+         {title: 'Chinatown', location: {lat: 40.1234567, lng: -73.1234567}}
+      ];
+   }
+   &LT;/script>
+   </pre>
+
+
+
+0. PROTIP: One good way to learn this is 
+   Google's FREE 12 hour
+   <a target="_blank" href="https://www.udacity.com/course/google-maps-apis--ud864">
+   video course at Udacity</a> which builds a 
+   Real Estate listing app.
+   
+
+
+0. Install wrapper for asynchronously used Google Maps API:
+
+   <tt><strong>
+   npm install <a target="_blank" href="https://www.npmjs.com/package/google-maps">googlemaps</a>
+   </strong></tt>
+
+   The response:
+
+   <pre>
+/usr/local/Cellar/node/6.3.0/lib
+└─┬ googlemaps@1.11.1 
+  ├── check-types@1.3.2 
+  ├── qs@4.0.0 
+  ├─┬ request@2.44.0 
+  │ ├── aws-sign2@0.5.0 
+  │ ├─┬ bl@0.9.5 
+  │ │ └─┬ readable-stream@1.0.34 
+  │ │   ├── core-util-is@1.0.2 
+  │ │   ├── inherits@2.0.1 
+  │ │   ├── isarray@0.0.1 
+  │ │   └── string_decoder@0.10.31 
+  │ ├── caseless@0.6.0 
+  │ ├── forever-agent@0.5.2 
+  │ ├─┬ form-data@0.1.4 
+  │ │ ├── async@0.9.2 
+  │ │ ├─┬ combined-stream@0.0.7 
+  │ │ │ └── delayed-stream@0.0.5 
+  │ │ └── mime@1.2.11 
+  │ ├─┬ hawk@1.1.1 
+  │ │ ├── boom@0.4.2 
+  │ │ ├── cryptiles@0.2.2 
+  │ │ ├── hoek@0.9.1 
+  │ │ └── sntp@0.2.4 
+  │ ├─┬ http-signature@0.10.1 
+  │ │ ├── asn1@0.1.11 
+  │ │ ├── assert-plus@0.1.5 
+  │ │ └── ctype@0.5.3 
+  │ ├── json-stringify-safe@5.0.1 
+  │ ├── mime-types@1.0.2 
+  │ ├── node-uuid@1.4.7 
+  │ ├── oauth-sign@0.4.0 
+  │ ├── qs@1.2.2 
+  │ ├── stringstream@0.0.5 
+  │ ├── tough-cookie@2.3.0 
+  │ └── tunnel-agent@0.4.3 
+  └── waitress@0.1.5 
+     </pre>
+
+   Other node libraries:
+
+   * https://github.com/mikeal/request
+
+   * https://github.com/danwrong/restler
+
+   * https://prazjain.wordpress.com/2012/04/19/maps-example-with-google-maps-and-nodejs/
+   uses libraries express, ejs, 
+   geohash to latitude and longitude coordinates.
+
+0. Define Proxy.
+
+0. Get geocode (physical address) from IP Address.
+
+0. Display Static Map.
+
+0. Place Search.
+
+0. Calculate distance.
 
 
    ### JavaScript changes #
@@ -837,4 +1055,66 @@ Error: Route.get() requires callback functions but got a [object Undefined]
 
    https://github.com/airbnb/javascript
 
+   Reference these:
+
+   * http://www.javascripting.com/
+   provides a database of JavaScript libraries.
+
+   * http://www.javascriptoo.com/
+   provides a directory of JavaScript libraries with examples, CDN links, statistics, and videos.
+
+   * http://sahatyalkabov.com/jsrecipes/
+   provides JavaScript tutorials for backend and frontend development.
+
    
+## MLab #
+
+0. Open the <a target="_blank" href="https://mlab.com/">mlab.com</a> website.
+
+0. If you don't already have one, click the <strong>Sign up</strong> button 
+   and fill in your user information then hit Create account.
+
+0. From the dashboard, click on <strong>⚡ Create new</strong> (database) button.
+0. Select any cloud provider. I usually go with AWS East, the default.
+0. Under Plan, click on <strong>Single-node</strong> tab, and 
+   select <strong>Sandbox</strong> (shared, 0.5 GB) since it's free.
+0. Leave MongoDB version as is <strong>3.0.x (MMAPv1)</strong>
+
+   QUESTION: What happened to 2.4.x ?
+
+0. Enter Database name* for your web app.
+
+   <tt><strong>
+   https://api.mlab.com/api/1/databases/[db]/collections/[collection]?apiKey=[key]
+   </strong></tt>
+
+   [db] is replaced
+
+   [collection]
+
+   [key]
+
+0. Click on ⚡Create new MongoDB deployment button
+0. Now, to access your database you need to create a DB user
+0. Click to the recently created database
+   
+   You should see the following message:
+   
+   A database user is required to connect to this database. Click here to create a new one.
+
+0. Click the link and fill in DB Username and DB Password fields
+
+0. Use a text editor to update database credentials in .env file:
+
+   <pre>
+   mongodb://localhost:27017/test
+   </pre>
+
+   use the following URI with your credentials:
+
+   <tt><strong>
+   db: 'mongodb://USERNAME:PASSWORD@ds027479.mongolab.com:27479/DATABASE_NAME'
+   </strong></tt>
+
+   Note: As an alternative to mLab, there is also 
+   https://www.compose.io/
