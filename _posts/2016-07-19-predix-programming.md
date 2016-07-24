@@ -36,13 +36,37 @@ from Programmableweb</a>
 is a great example of what is possible.
 
 
+## Predixdev GitHub #
+
+Predix provide its public GitHub for developers at<br />
+<a target="_blank" href="https://github.com/predixdev/">
+https://github.com/predixdev</a>
+
+   * Maurice Williams
+   @morficus 
+
+
+   <a name="GitSSH"></a>
+
+   ### Git SSH #
+
+0. Add ssh-key to GitHub
+   <a target="_blank" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">
+   SSH</a>
+
+## Seed #
+
+https://github.com/PredixDev/predix-seed
+The Dashboard Seed app uses Px Web Components and Px UI Elements inside an Angular application.
+
+
 ## API End-point Login #
 
 Within programs, calls to APIs can be one of two <strong>end-points</strong>:
 
-   * `https://api.system.aws-usw02-pr.ice.predix.io` for those under the "Basic" plan.
+   * `https://api.system.aws-usw02-pr.ice.predix.io` <br /> for those under the "Basic" plan.
 
-   * `https://api.system.asv-pr.ice.predix.io` for those under the "Select" plan.
+   * `https://api.system.asv-pr.ice.predix.io` <br />for those under the "Select" plan.
 
 Login is to one of these end points, such as:
 
@@ -51,6 +75,7 @@ Login is to one of these end points, such as:
    </strong></tt>
 
 PROTIP: Create a shell script with a short name to login to one of these.
+
 
 
 TODO: Edget starter with Raspberry Pi?
@@ -73,6 +98,10 @@ developer Tom Turner on
 User Account and Authentication</a> 29 Jun 2016.
 includes SAML in SSO.
 
+0. <a target="_blank" href="https://www.predix.io/docs/?r=250183#XpKGAdQ7-Q0CoIStl">
+   Create a UAA Service predix-uaa Instance</a>
+
+   REMEMBER: Up to 10 instances of UAA service in your space. 
 
 ## Cloud Foundry #
 
@@ -156,6 +185,10 @@ JPA can be used outside the container in a Java SE environment.
 QUESTION: Why is such advanced ML tech based on such old techology? 
 Well, have you seen what's in Java 8? Spring Boot?
 
+
+
+<a name="SpringBoot"></a>
+
 ## Spring Boot #
 
 Spring Boot are microservices,
@@ -193,6 +226,12 @@ By default, all the fields are of type @Basic, which are persisted as-is in the 
 
 https://www.youtube.com/watch?v=74-J5nH4jlo
 Meetup + Slides: GE IOT Predix Time Series & Data Ingestion Service Using Apache Apex (Hadoop) DataTorrent 539 views
+
+
+## Raspberry Pi #
+
+https://www.predix.io/blog/article.html?article_id=1906
+goes into Time Series service.
 
 
 ## More #

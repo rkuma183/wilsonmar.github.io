@@ -29,7 +29,6 @@ Actions to get started:
    0. <a href="#LocalInstall">Local install</a>
    0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
 
-
 <hr />
 
 <a name="SlackChannel"></a>
