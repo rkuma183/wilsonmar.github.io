@@ -15,10 +15,9 @@ comments: true
 
 {% include _toc.html %}
 
-Here are my notes about 
+Here are my "Cliffnotes" about 
 Predix, GE's brand name for their 
-<a target="_blank" href="https://twitter.com/search?q=%23IndustrialInternet">#IndustrialInternet</a> which 
-incorporates Machine Learning, Data Science, and Artificial Intelligence.
+<a target="_blank" href="https://twitter.com/search?q=%23IndustrialInternet">#IndustrialInternet</a>.
 
 Like a music DJ, I've arranged the various videos and concepts into the sequence below
 so you don't have to spend as much time making sense of this flood of material.
