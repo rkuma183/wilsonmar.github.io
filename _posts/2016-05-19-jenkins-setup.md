@@ -59,6 +59,7 @@ It contains a Tomcat web server Java runs under.
 
 ## Installation options #
 
+   * <a href="#DigitalOcean">DigitalOcean</a> Saas
    * <a href="#CloudbeesInstall">Cloudbees</a> Saas
    * <a href="#CodeDeploy">AWS CodeDeploy service</a> SaaS
    * <a href="#AmazonInstall">Amazon EC2 instance you setup</a>
@@ -67,6 +68,14 @@ It contains a Tomcat web server Java runs under.
    * <a href="#Choco_Windows">Windows</a> locally using Chocolatey
    * <a href="#Install_Windows">Windows</a> locally by download
    * <a href="#Install_Linux">Linux</a> locally
+
+<a id="DigitalOcean"></a>
+
+## Digital Ocean #
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-continuous-development-integration-on-centos-7
+
+
 
 <a id="CloudbeesInstall"></a>
 
