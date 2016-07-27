@@ -77,6 +77,13 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-conti
 
 
 
+
+
+
+0. Click <a href="#Config_Security">here to Skip pass other installation options to 
+Unlock Jenkins Admin Password</a>
+
+
 <a id="CloudbeesInstall"></a>
 
 ### Cloudbees Installation #
@@ -367,9 +374,11 @@ PROTIP: Encrypt over the wire by using https instead of https.
 
    NOTE: Some use a domain name to reach the IP address.
 
+
+
 <a id="Config_Security"></a>
 
-### Unlock Admin password #
+## Unlock Admin password #
 
 PROTIP: Jenkins is installed with no authentication enabled.
 
@@ -377,34 +386,71 @@ The first time, you see this screen:
 
    <amp-img width="660" height="238" alt="jenkins-unlock" src="https://cloud.githubusercontent.com/assets/300046/15393232/7631489a-1d89-11e6-8d3b-8479160064ff.jpg"></amp-img>
 
+   On a Mac machine, copy this path and change $USER to your user name:
+
+   <pre><strong>
+   /User/$USER/.jenkins/secrets/initialAdminPassword
+   </strong></pre>
+
+   On a Linux machine, copy this path:
+
+   <pre><strong>
+   /var/lib/jenkins/secrets/initialAdminPassword
+   </strong></pre>
+
 0. Open a new Terminal session.
-0. Edit the file (using Sublime):
+0. Type the contents using the cat command:
 
    ```
-   subl /Users/mac/.jenkins/secrets/initialAdminPassword
+   cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-0. Copy the password. Dismiss the editor window.
+   A sample response:
+
+   <pre>
+   f79db609207e4d06ba2344a0d4d66cf9
+   </pre>
+
+0. Copy the password revealed and dismiss the editor window.
+
 0. Return to the web page and paste it under "Administrator password". Press Continue.
-0. Press "Start using Jenkins".
+
 
 ### Customize Initial Plug-ins #
 
 PROTIP: Configure one plug-in at a time. This makes it easier to troubleshoot.
 
-0. DO NOT click "Install the Recommended". But if you do, you'll see:
+0. Press "Select plugins to install" or "Start using Jenkins".
+
+0. DO NOT click "Install the Suggested Plugins" Recommended. 
+   But if you do, you'll see:
 
    <amp-img width="650" height="206" alt="jenkins-recommended-plugins-650x206" src="https://cloud.githubusercontent.com/assets/300046/15395245/2e9ac3a2-1d94-11e6-8c12-e9dbcc261d1f.jpg"></amp-img>
 
-### Create First Admin User #
+   For the list of plug-ins to select,
+   see [my list of Jenkins plugins](/jenkins-plugins/),
+   then return here again.
 
-Back to the Jenkins UI:
+0. Click Install.
 
-0. Input your Username, Password, Confirm, Full Name, E-mail address.
+   The "Getting Started" page shows the progress of plug-ins being installed.
 
-   PROTIP: Write this information down and put the paper in a safe place.
 
-0. Press OK to see the login screen:
+## Create First Admin User #
+
+Back to the Jenkins web page UI after plug-ins are installed:
+
+0. PROTIP: Open a text file and type your choice for
+   Username, Password, Confirm, Full Name, E-mail address.
+   Do this in case there is a typo.
+
+0. Copy each answer from the file and paste it on the screen.
+
+   PROTIP: Print the file and store it in a safe place but
+   where other administrators know to access.
+
+0. Press OK (or "Start Using Jenkins" in older versions) 
+   to see the login screen:
 
    <amp-img width="296" height="145" alt="jenkins2.5-login" src="https://cloud.githubusercontent.com/assets/300046/15448936/c665558c-1f2c-11e6-9fe4-21e7a125e3da.jpg"></amp-img>
 
