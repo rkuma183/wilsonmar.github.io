@@ -4,15 +4,20 @@ Terraform is a tool for building, changing, and versioning infrastructure safely
 
 terraform.io
 
-written in Golang.
+## Installation #
 
 Release 0.6.8 (2.12.2015)
 
-Community
+written in Golang.
+
+## Community #
 
    * IRC 
    * Mailing List
    * StackOverflow
+
+
+## 
 
 https://www.youtube.com/watch?v=rgzzkP2L1k8
 Manage AWS infrastructure as code using Terraform
@@ -21,22 +26,6 @@ by Anton Babenko
 https://github.com/antonbabenko
 linkedin.com/in/antonbabenko
 
-
-https://www.youtube.com/watch?v=p2ESyuqPw1A
-Terraform w/ Lee Trout Chadev 314 views
-
-
-https://www.youtube.com/watch?v=WdV4eYZO5Ao
-Automating Infrastructure Management with Terraform 
-at SF CloudOps Meetup
-
-Avialable:
-
-AWS Cloud Formation
-http://www.slideshare.net/AntonBabenko/managing-aws-infrastructure-using-cloudformation
-Puppet, Chef, Ansible, Salt
-AWS API libraries Boto, Fog
-Transform by HashiCorp
 
 
 <table border="1" cellpadding="4" cellspacing="0">
@@ -53,3 +42,26 @@ Transform by HashiCorp
 </table>
 
 
+Terraform remote configures remote state storage with Terraform.
+
+   * *.tf
+   * terraform.tfstate stored in S3, Atlas, Consul, etcd, HTTP
+
+
+## Videos #
+
+https://www.youtube.com/watch?v=p2ESyuqPw1A
+Terraform w/ Lee Trout Chadev 314 views
+
+
+https://www.youtube.com/watch?v=WdV4eYZO5Ao
+Automating Infrastructure Management with Terraform 
+at SF CloudOps Meetup
+
+
+
+AWS Cloud Formation
+http://www.slideshare.net/AntonBabenko/managing-aws-infrastructure-using-cloudformation
+Puppet, Chef, Ansible, Salt
+AWS API libraries Boto, Fog
+Transform by HashiCorp

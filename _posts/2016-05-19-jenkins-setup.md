@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-Jenkins invokes jobs 
+Jenkins invokes other programs (maven scripts, build, Selenium, JMeter, etc.)
 for building software, conducting tests, etc.
 
 Jenkins can invoke jobs on a schedule, 

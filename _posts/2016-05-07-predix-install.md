@@ -65,17 +65,20 @@ Actions to get started:
    <a target="_blank" href="https://www.predix.io/registration/">
    https://www.predix.io/registration</a>
 
-   QUESTION: After the free days, $ ___ per month.
+   QUESTION: After the free days, $ ___ per month?
 
 0. Confirm phone and email while on the page.
 
    A GitHub repo account needs to be specified.
 
-0. Wait for the confirm email from Predix.
+   PROTIP: Don't expect a response if you provide a gmail or hotmail account,
+   even after phone ane email confirmation code confirmations.
+   That's my personal experience
 
-   PROTIP: Emails after registration take several hours or may not ever arrive.
+0. Wait for the confirm email from Predix. If you're deemed legitimate:
 
-   "Thanks for your interest in a Predix trial account. We'll validate your information, and will respond within five business days."
+   "Thanks for your interest in a Predix trial account. 
+   We'll validate your information, and will respond within five business days."
 
 0. Wait for the email from Predix.
 
