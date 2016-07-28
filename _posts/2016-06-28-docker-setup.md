@@ -33,11 +33,12 @@ or fact that many miss.
 <amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
 src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-11e6-9648-752a31fa03a8.png"></amp-img>
 
-Virtual Memory duplicates the operating system kernel in every image.
+With Virtual Memory (VM), every image keeps its own copy of the operating system kernel 
+and associated libraries in addition to apps running within each.
 
 Docker enables the read-only portion of a Linux operating system kernel 
 to be shared among several images.
-Each image has its own custom bin/lib folders.
+Each image has its own lib and bin folders containing executables.
 
 Docker enables developers and system administrators 
 <strong>port</strong> applications
@@ -97,6 +98,8 @@ ENTRYPOINT ["/home/demo/box/boot.sh"]
    * RUN commands to update the repository sources list, etc.
    * ENTRYPOINT sets default container command
 
+   See https://docs.docker.com/engine/reference/builder/
+   
    ### Dockerizing programming code #
 
    One of the advantages of using Docker is that an application can be deployed on several 
@@ -201,6 +204,11 @@ Also BSDLinux.
 0. Click OK.
 0. Input Apple password.
 0. Click Got it!.
+
+   TECHNICAL NOTE: The Docker command line stores its configuration files in 
+   a hidden directory <strong>.docker</strong> within your $HOME directory. 
+   See https://docs.docker.com/engine/reference/commandline/cli/
+
 0. Skip to <a href="#VerifyInstall">verify install</a>.
 
    Obsolete instructions to install
@@ -219,6 +227,7 @@ Also BSDLinux.
 
    To start this, use the "quickstart terminal"
    which fires up Virtualbox.
+
 
 ### Install Docker in CentOS #
 
