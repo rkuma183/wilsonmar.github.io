@@ -1090,6 +1090,9 @@ Jenkins installation options are described at:
    ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
+
+![do_jenkins_createuser_globalsecurity_02](https://cloud.githubusercontent.com/assets/10678180/17228195/9d08ffb4-54d7-11e6-8abc-b86104e65882.png)
+
 0. Click **Configure Global Security**.
 
    <amp-img width="481" height="57" alt="jenkins2 5-manage-config-global-security-962x114" src="https://cloud.githubusercontent.com/assets/300046/15433535/f9da19d8-1e6f-11e6-8e30-e66dc2cbc9c4.png"></amp-img>
