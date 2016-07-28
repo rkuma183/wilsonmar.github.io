@@ -388,17 +388,6 @@ Status: Downloaded newer image for centos:latest
 
 
 
-<a name="DockerUCP"></a>
-
-## Docker UCP (Universal Control Plane) #
-
-UCP enables you to control your Docker environment through a web interface, which is
-helpful if you want to steer clear of the command line. 
-
-You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
-More information about Docker UCP can be found at https://docs.docker.com/ ucp/.
-
-
 
 <a name="DockerSearch"></a>
 
@@ -641,6 +630,17 @@ but specifies items to ignore in the Docker file.
    <tt><strong>
    docker build \-\-help
    </strong></tt>
+
+
+<a name="DockerUCP"></a>
+
+## Docker UCP (Universal Control Plane) #
+
+UCP enables you to control your Docker environment through a web interface, which is
+helpful if you want to steer clear of the command line. 
+
+You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
+More information about Docker UCP can be found at https://docs.docker.com/ ucp/.
 
 
 
