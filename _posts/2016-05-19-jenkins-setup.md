@@ -1087,20 +1087,31 @@ Jenkins installation options are described at:
 
    As with other systems, granting permissions is typically done only by the Administrator of the system.
    
-   ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
+    ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 
-![do_jenkins_createuser_globalsecurity_02](https://cloud.githubusercontent.com/assets/10678180/17228195/9d08ffb4-54d7-11e6-8abc-b86104e65882.png)
+   ![do_jenkins_createuser_globalsecurity_02](https://cloud.githubusercontent.com/assets/10678180/17228195/9d08ffb4-54d7-11e6-8abc-b86104e65882.png)
 
 0. Click **Configure Global Security**.
 
    <amp-img width="481" height="57" alt="jenkins2 5-manage-config-global-security-962x114" src="https://cloud.githubusercontent.com/assets/300046/15433535/f9da19d8-1e6f-11e6-8e30-e66dc2cbc9c4.png"></amp-img>
 
 0. Check <strong>Enable Security</strong>.
-0. If you have an LDAP, select that. Alternately, check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
-0. Check **Allow users to sign up**.
-0. Check **Matrix-based security**.
+0. If you have an LDAP, select that. 
+
+   ![do_jenkins_createuser_jenkensdatabase_02a](https://cloud.githubusercontent.com/assets/10678180/17228474/c08dfb28-54d8-11e6-84ad-5ac8814f3b25.png)
+
+0. Check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
+
+   ![do_jenkins_createuser_globalsecurity_allowusertosignup_03](https://cloud.githubusercontent.com/assets/10678180/17228700/b730a2b4-54d9-11e6-86c8-5b67b3fdabbd.png)
+
+0. Deselect the checkbox marked **Allow users to sign up**.
+
+  ![do_jenkins_createuser_globalsecurity_auth_matrixbasedsecurity_04](https://cloud.githubusercontent.com/assets/10678180/17228742/f988f12a-54d9-11e6-8809-a31c1efcd362.png)
+
+
+0. Under Authorization, Check **Matrix-based security**.
 0. In **User/Group to add", type "admin".
 0. In the row of check boxes that appear, check the box under "Administer".
 0. Check **Project-based Matrix Authorization Strategy** to limit Anonymous users Read-only access.
