@@ -142,9 +142,6 @@ Docker was originally created for different flavors of Linux
    * CentOS
    * etc.
 
-Also BSDLinux.
-
-
 ### Install Docker on Mac OSX #
 
 The version of Linux that comes with Mac isn't completely compatible with Linux.
@@ -155,7 +152,7 @@ Boot2Docker</a>.
 On https://docs.docker.com/engine/installation/mac/
 
 
-If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
+0. If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
    <strong>Docker on Mac</strong>
    runs as a native Mac application and uses 
    xhyve to virtualize the Docker Engine environment 
@@ -164,23 +161,6 @@ If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
                             https://github.com/docker/HyperKit/</a>
 
    VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). Docker for Mac will error out on install in this case. Uninstall the older version of VirtualBox and re-try the install.
-
-0. The easiest option to install is to use 
-   Homebrew and cask.
-
-   Linux kernel-specific features for the Docker daemon.
-
-   Alternately, Docker 0.8 or newer can be run on Macs 
-   thanks to a specially developed, lightweight VirtualBox VM. 
-
-   <pre>
-   brew install docker
-   brew install boot2docker
-   </pre>
-
-0. Skip to <a href="#VerifyInstall">verify install</a>.
-
-Alternately, 
 
 0. From <a target="_blank" href="https://docs.docker.com/docker-for-mac/">
    https://docs.docker.com/docker-for-mac</a>
@@ -213,10 +193,22 @@ Alternately,
 0. Click OK.
 0. Input Apple password.
 0. Click Got it!.
-0. Skip to <a href="#VerifyInstall">verify install</a>.
 
 
-### Install Docker in CentOS #
+Alternatively, 
+   install with Homebrew and cask it’s even easier.
+
+   Linux kernel-specific features for the Docker daemon.
+
+   Alternately, Docker 0.8 or newer can be run on Macs 
+   thanks to a specially developed, lightweight VirtualBox VM. 
+
+   <pre>
+   brew install docker
+   brew install boot2docker
+   </pre>
+
+## Install Docker in CentOS #
 
 The Docker installation package available in the official CentOS 7 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository.
 
@@ -328,15 +320,61 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
    Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
    </tt>
 
-<hr />
-
-<a name="VerifyInstall"></a>
-
-## After install #
-
-After installation, Docker commands are similar on all operating systems:
+   ## Verify install #
 
 0. Open a Terminal shell window.
+
+   <tt><strong>
+   docker version
+   </strong></tt>
+
+   NOTE: No dash in front of version (unlike many Ruby commands).
+
+   Sample response on the Mac:
+
+    <pre>
+Client:
+Version:      1.12.0-rc2
+API version:  1.24
+Go version:   go1.6.2
+Git commit:   906eacd
+Built:        Fri Jun 17 20:35:33 2016
+OS/Arch:      darwin/amd64
+Experimental: true
+&nbsp;
+Server:
+Version:      1.12.0-rc2
+API version:  1.24
+Go version:   go1.6.2
+Git commit:   a7119de
+Built:        Fri Jun 17 22:09:20 2016
+OS/Arch:      linux/amd64
+Experimental: true
+   </pre>
+
+   Sample response on Centos:
+
+    <pre>
+Client:
+ Version:      1.11.2
+ API version:  1.23
+ Go version:   go1.5.4
+ Git commit:   b9f10c9
+ Built:        Wed Jun  1 21:23:11 2016
+ OS/Arch:      linux/amd64
+&nbsp;
+Server:
+ Version:      1.11.2
+ API version:  1.23
+ Go version:   go1.5.4
+ Git commit:   b9f10c9
+ Built:        Wed Jun  1 21:23:11 2016
+ OS/Arch:      linux/amd64
+   </pre>
+
+<hr />
+
+## After Docker install #
 
 0. List all docker commands:
 
@@ -410,63 +448,12 @@ Commands:
     top       Display the running processes of a container
     unpause   Unpause all processes within one or more containers
     update    Update configuration of one or more containers
-    <strong>version</strong>   Show the Docker version information
+    version   Show the Docker version information
     volume    Manage Docker volumes
     wait      Block until a container stops, then print its exit code
 &nbsp;
 Run 'docker COMMAND --help' for more information on a command.
    </pre>
-
-0. Obtain the version number using a sub-command:
-
-   <tt><strong>
-   docker version
-   </strong></tt>
-
-   NOTE: No dash in front of version (unlike commands in many other utilities).
-
-   Sample response on the Mac:
-
-    <pre>
-Client:
-Version:      1.12.0-rc2
-API version:  1.24
-Go version:   go1.6.2
-Git commit:   906eacd
-Built:        Fri Jun 17 20:35:33 2016
-OS/Arch:      darwin/amd64
-Experimental: true
-&nbsp;
-Server:
-Version:      1.12.0-rc2
-API version:  1.24
-Go version:   go1.6.2
-Git commit:   a7119de
-Built:        Fri Jun 17 22:09:20 2016
-OS/Arch:      linux/amd64
-Experimental: true
-   </pre>
-
-   Sample response on Centos:
-
-    <pre>
-Client:
- Version:      1.11.2
- API version:  1.23
- Go version:   go1.5.4
- Git commit:   b9f10c9
- Built:        Wed Jun  1 21:23:11 2016
- OS/Arch:      linux/amd64
-&nbsp;
-Server:
- Version:      1.11.2
- API version:  1.23
- Go version:   go1.5.4
- Git commit:   b9f10c9
- Built:        Wed Jun  1 21:23:11 2016
- OS/Arch:      linux/amd64
-   </pre>
-
 
    <a name="BuildCommand"></a>
 
@@ -509,8 +496,6 @@ Options:
   -t, --tag value               Name and optionally a tag in the 'name:tag' format (default [])
       --ulimit value            Ulimit options (default [])
    </pre>
-
-0. Set the present working directory to the app folder containing a Dockerfile.
 
 0. Build an image referencing the Dockerfile in the present working directory:
 
@@ -570,6 +555,18 @@ Successfully built 5bb9d72b9e60
    </pre>
 
 
+   <a name="DockerContainers"></a>
+
+   ### Docker Containers #
+
+0. List Docker containers and their identifiers:
+
+   <tt><strong>
+   docker ps -a
+   </strong></tt>
+
+   Add -a shows inactive as well as the default active listing.
+   (Kinda counter-intuitive)
 
    ### Hello world #
 
@@ -601,11 +598,11 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 &nbsp;
 To generate this message, Docker took the following steps:
- 1\. The Docker client contacted the Docker daemon.
- 2\. The Docker daemon pulled the "hello-world" image from the Docker Hub.
- 3\. The Docker daemon created a new container from that image which runs the
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
     executable that produces the output you are currently reading.
- 4\. The Docker daemon streamed that output to the Docker client, which sent it
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
 &nbsp;
 To try something more ambitious, you can run an Ubuntu container with:
@@ -629,31 +626,22 @@ For more examples and ideas, visit:
    <pre>
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 centos              latest              50dae1ee8677        8 days ago          196.7 MB
-dv_0.2.1            latest              5bb9d72b9e60        13 hours ago        203.4 MB
 hello-world         latest              c54a2cc56cbb        3 weeks ago         1.848 kB
-node                0.10.44-slim        f73347dab179        12 weeks ago        192.6 MB
    </pre>
 
    PROTIP: You won't find Docker images on your local folder. See
    <a target="_blank" href="http://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine">
    Where are docker images stored?</a>
 
-   See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-centos-7
-
 0. Use a third-party tool to display visualizations of image data:
 
    <a target="_blank" href="https://github.com/justone/dockviz">
-   dockviz</a> presents Docker image and container information in graphic form
-   to help you understand what's going on inside the system.
-   <amp-img width="400" height="134" alt="ci dockviz 20160728-400x134-i36.png" 
-   src="https://cloud.githubusercontent.com/assets/20669891/17217583/af51e066-5499-11e6-8726-eaf461b9174c.jpg">
-   </amp-img>
+   dockviz</a>
+
+   Alternately,
 
    <a target="_blank" href="https://imagelayers.io/">
-   ImageLayers.io</a> is an Adobe Flash site that
-   shows how each command in Dockerfile contributes to the final Docker image,
-   and discover which layers are shared by multiple images.
-   It presents an ImageLayers badge about the size of an image, and how many layers it is composed of.
+   ImageLayers</a>
 
 
    ## Build image #
@@ -720,8 +708,13 @@ Status: Downloaded newer image for centos:latest
    exit
    </strong></tt>
 
-<hr />
+0. List Docker images:
 
+   <tt><strong>
+   docker images
+   </strong></tt>
+
+   See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-centos-7
 
    ## Modules installed #
 
@@ -959,18 +952,6 @@ Run 'docker-machine COMMAND --help' for more information on a command.
    </strong></tt>
 
 
-   <a name="DockerContainers"></a>
-
-   ### Docker Containers #
-
-0. List Docker containers and their identifiers:
-
-   <tt><strong>
-   docker ps -a
-   </strong></tt>
-
-   Add -a shows inactive as well as the default active listing.
-   (Kinda counter-intuitive)
 
 <a name="DockerCompose"></a>
 
