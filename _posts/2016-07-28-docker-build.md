@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Docker setup"
-excerpt: "Get little bits working together"
+title: "Docker build"
+excerpt: "Make little bits working together"
 tags: [Docker, devops, ci, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -17,9 +17,10 @@ comments: true
 
 The object of this tutorial is to succintly present
 <strong>step-by-step</strong> instructions 
-to setup Docker on Mac OSX and CentOS.
+to build Docker images on Mac OSX and CentOS.
 
 {% include _intro.html %}
+
 
 
 ## VMs vs. Docker #

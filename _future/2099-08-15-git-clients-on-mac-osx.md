@@ -14,6 +14,8 @@ comments: true
 
 {% include _toc.html %}
 
+{% include _intro.html %}
+
 <a id="Setup_Github"></a>
 
 ## Github and Git Setup

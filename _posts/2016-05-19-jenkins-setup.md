@@ -15,6 +15,12 @@ comments: true
 
 {% include _toc.html %}
 
+This tutorial aims to succintly present
+<strong>step-by-step</strong> instructions 
+to setup Jenkins on Mac OSX and CentOS.
+
+{% include _intro.html %}
+
 Jenkins invokes other programs (maven scripts, build, Selenium, JMeter, etc.)
 for building software, conducting tests, etc.
 
