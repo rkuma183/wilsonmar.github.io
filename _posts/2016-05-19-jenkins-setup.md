@@ -526,7 +526,7 @@ Complete!
 0. Start Jenkins as a service:
 
    <tt><strong>
-sudo systemctl start jenkins.service
+   sudo systemctl start jenkins.service
    </strong></tt>
 
    There is no response if successful.
@@ -566,16 +566,48 @@ Loaded: loaded (/etc/systemd/system/jenkins.service; disabled)
 Active: active (running) since Tue 2015-12-29 00:00:16 EST; 17s ago
    </pre>
 
-   The above means that the Jenkins services completed its startup and is running. 
-   You can confirm this by visiting the web interface as before, at
+   "Active: active (running)" 
+   means the Jenkins services completed its startup 
+   and is running. 
+
+   If you see:<br />
+   "Active: Active (exited)" 
+   <a href="#StopJenkins">
+   stop and start the service again, as described below</a>.
+
+0. Visit the address using an internet browser:
 
    <pre><strong>
    http://138.68.1.138:8080
    </strong></pre>
 
+
 0. Click <a href="#Config_Security">here to Skip pass 
    other installation options to 
    Unlock Jenkins Admin Password</a>
+
+
+   <a name="StopJenkins"></a>
+
+   ### Stop Jenkins #
+
+0. Stop the Jenkins server:
+
+   <tt><strong>
+   sudo systemctl stop jenkins.service
+   </strong></tt>
+
+0. Check status of the service again:
+
+   <tt><strong>
+   sudo systemctl status jenkins.service
+   </strong></tt>
+
+   You should see:
+
+   <pre>
+   "Active: inactive (dead)"
+   </pre>
 
 
 <a id="CloudbeesInstall"></a>
@@ -822,6 +854,7 @@ The command to start Jenkins has several parameters.
 
    NOTE: This command takes a minute or more.
 
+
 ## Stop server #
 
 PROTIP: Do not stop the Jenkins instance by clicking the red X to close the command window Jenkins runs under.
@@ -959,6 +992,8 @@ Back to the Jenkins web page UI after plug-ins are installed:
 
 0. Type in the credentials entered earlier.
 
+
+
 ## Dashboard Explained #
 
 
@@ -977,6 +1012,8 @@ Back to the Jenkins web page UI after plug-ins are installed:
 10\. Different colors of icons under the **W** column indicate differing **uild trend**, 
    where yellow sunshine is good and a thundercloud is bad.
 
+
+
 ## Server Status #
 
 Use the process status command to find the process ID to kill:
@@ -992,7 +1029,9 @@ Use the process status command to find the process ID to kill:
 
 To remove the Jenkins process:
 
+    <pre><strong>
     kill 4137
+    </strong></pre>
 
 
 ## Configure User Security #
@@ -1070,11 +1109,15 @@ Jenkins installation options are described at:
 0. Install the "AWS CodePipeline Plugin" 
    by following the next section below.
 
+
+
 <a id="Plug-ins"></a>
 
 ## Plug-ins #
 
-[Install Jenkins Plug-ins](/jenkins-plugins/)
+See [Install Jenkins Plug-ins](/jenkins-plugins/)
+
+
 
 <a id="Nodes"></a>
 
@@ -1100,6 +1143,7 @@ Jenkins installation options are described at:
 1. Run the box by clicking the icon at the far right of the node listed.
 2. Launch Slave Agent to start the machine.
 
+
 <a id="Node_Security"></a>
 
 ### From a slave node #
@@ -1119,7 +1163,9 @@ Jenkins installation options are described at:
  * https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds
 
 <a id="Builds">
+
 ## Build Projects</a>
+
 Jenkins was originally created for automating the building (compilation) of java programs.
 But Jenkins is ALSO used for other types of work.
 Nevertheless, the Jenkins term <strong>"build"</strong> 
@@ -1140,3 +1186,8 @@ Builds/jobs can be automatically triggered several ways:
 * <a target="_blank" href="https://www.selikoff.net/2016/02/27/jeannes-experiences-with-the-jenkins-certification-beta-exam/">
    Jenkins beta certification exam</a> by Jeanne Boyarsky, 27 Feb 2016
    shares a word file and quizlet that enabled her to pass.
+
+* <a target="_blank" href="http://www.crashcourse.ca/wiki/index.php/Jenkins">
+   Jenkins Crash Course wiki</a>
+
+

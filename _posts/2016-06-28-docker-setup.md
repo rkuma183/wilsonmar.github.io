@@ -19,6 +19,7 @@ The object of this tutorial is to succintly present,
 with step-by-step instructions (but without much marketing hype),
 how to setup and make use of Docker on Mac OSX and CentOS.
 
+
 ## Flavors #
 
 <amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
@@ -26,11 +27,174 @@ src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-
 
 Virtual Memory duplicates the operating system kernel in every image.
 
-Docker enables the read-only portion of operating system kernel to be shared among several images.
-Each image has its own Bin/Libs.
+Docker enables the read-only portion of a Linux operating system kernel 
+to be shared among several images.
+Each image has its own custom bin/lib folders.
+
+Docker's goal is to help developers and system administrators 
+<strong>port</strong> applications
+across systems and machines easily, 
+with all dependencies intact.
+
+Docker containers are created using docker images, 
+built by parsing a <strong>Dockerfile</strong> 
+containing Docker commands.
 
 
-## Download #
+## Build Docker image #
+
+0. Navigate to the folder containing a Dockerfile.
+
+   NOTE: Creating the Dockerfile is called "dockerizing" a folder.
+
+0. View the Dockerfile:
+
+    <tt><strong>
+    cat Dockerfile
+    </strong></tt>
+
+    Alternately, you may prefer to open the file using a text editor or IDE.
+
+    The response:
+
+    <pre>
+FROM node:0.10.44-slim
+&nbsp;
+ADD . /home/demo/box/
+&nbsp;
+RUN cd /home/demo/box && npm install
+&nbsp;
+ENTRYPOINT ["/home/demo/box/boot.sh"]
+   </pre>
+
+   The Docker commands:
+
+   * FROM sets the image to an operating system image
+   * MAINTAINER defines the file's author
+   * USER
+   * ADD
+   * ENV
+   * EXPOSE the default port, such as 27017
+   * CMD  ["--port 27017"]
+   * WORKDIR
+   * VOLUME
+   * RUN commands to update the repository sources list, etc.
+   * ENTRYPOINT sets default container command
+
+0. View the build command:
+
+   <tt><strong>
+   docker build --help
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Usage:   docker build [OPTIONS] PATH | URL | -
+&nbsp;
+Build an image from a Dockerfile
+&nbsp;
+Options:
+      --build-arg value         Set build-time variables (default [])
+      --cgroup-parent string    Optional parent cgroup for the container
+      --cpu-period int          Limit the CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int           Limit the CPU CFS (Completely Fair Scheduler) quota
+  -c, --cpu-shares int          CPU shares (relative weight)
+      --cpuset-cpus string      CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string      MEMs in which to allow execution (0-3, 0,1)
+      --disable-content-trust   Skip image verification (default true)
+  -f, --file string             Name of the Dockerfile (Default is 'PATH/Dockerfile')
+      --force-rm                Always remove intermediate containers
+      --help                    Print usage
+      --isolation string        Container isolation technology
+      --label value             Set metadata for an image (default [])
+  -m, --memory string           Memory limit
+      --memory-swap string      Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --no-cache                Do not use cache when building the image
+      --pull                    Always attempt to pull a newer version of the image
+  -q, --quiet                   Suppress the build output and print image ID on success
+      --rm                      Remove intermediate containers after a successful build (default true)
+      --shm-size string         Size of /dev/shm, default value is 64MB
+  -t, --tag value               Name and optionally a tag in the 'name:tag' format (default [])
+      --ulimit value            Ulimit options (default [])
+   </pre>
+
+0. Build an image referencing the (unnamed) Dockerfile at present working directory:
+
+   <tt><strong>
+   sudo docker build -t dv_0.2.1 .
+   </strong></tt>
+
+   PROTIP: It's best practice to tag images by specifying a name after the 
+   <strong>-t</strong> flag. 
+
+   WARNING: There is a dot at the end of the command to designate the local folder.
+
+0. After providing the password, the response is like:
+
+   <pre>
+Sending build context to Docker daemon 102.4 kB
+Step 1 : FROM node:0.10.44-slim
+0.10.44-slim: Pulling from library/node
+8b87079b7a06: Pull complete 
+a3ed95caeb02: Pull complete 
+1bb8eaf3d643: Pull complete 
+5674f5dccbc4: Pull complete 
+b63eb91619dc: Pull complete 
+Digest: sha256:c1ddf2b7d80c66ba8883601ef6a5e201ac2b855b87b6589a023ca889aec24204
+Status: Downloaded newer image for node:0.10.44-slim
+ ---> f73347dab179
+Step 2 : ADD . /home/demo/box/
+ ---> 812aefdf5cd4
+Removing intermediate container 26d14d6cc382
+Step 3 : RUN cd /home/demo/box && npm install
+ ---> Running in 4f85900e5796
+underscore@1.8.3 node_modules/underscore
+&nbsp;
+async@2.0.1 node_modules/async
+└── lodash@4.14.0
+&nbsp;
+mongoose@4.5.7 node_modules/mongoose
+├── sliced@1.0.1
+├── ms@0.7.1
+├── regexp-clone@0.0.1
+├── muri@1.1.0
+├── hooks-fixed@1.2.0
+├── mpromise@0.5.5
+├── kareem@1.1.3
+├── mpath@0.2.1
+├── async@1.5.2
+├── bson@0.4.23
+├── mquery@1.11.0 (sliced@0.0.5, debug@2.2.0, bluebird@2.10.2)
+└── mongodb@2.1.18 (es6-promise@3.0.2, readable-stream@1.0.31, mongodb-core@1.3.18)
+ ---> 1780349c4f38
+Removing intermediate container 4f85900e5796
+Step 4 : ENTRYPOINT /home/demo/box/boot.sh
+ ---> Running in f448f0fed4ec
+ ---> 5bb9d72b9e60
+Removing intermediate container f448f0fed4ec
+Successfully built 5bb9d72b9e60
+   </pre>
+
+
+
+
+   <a name="DockerContainers"></a>
+
+   ### Docker Containers #
+
+0. List Docker containers and their identifiers:
+
+   <tt><strong>
+   docker ps -a
+   </strong></tt>
+
+   Add -a shows inactive as well as the default active listing.
+   (Kinda counter-intuitive)
+
+<hr />
+
+## Installer Download #
 
 Docker was originally created for different flavors of Linux
 
@@ -60,7 +224,7 @@ On https://docs.docker.com/engine/installation/mac/
    https://docs.docker.com/docker-for-mac</a>
    click on the link to download file <strong>Docker.dmg</strong> 
 
-Alternately, if 
+   Alternately, if 
 
 0. In Finder, navigate to you Download folder to double-click
 <strong>Docker.dmg</strong> from
@@ -272,7 +436,9 @@ Server:
    docker
    </strong></tt>
 
-0. Ensure access to DockerHub by running a "hello world" app:
+
+
+0. Verify access to DockerHub by obtaining a "hello world" app from it:
 
    <tt><strong>
    docker run hello-world
@@ -307,6 +473,48 @@ Share images, automate workflows, and more with a free Docker Hub account:
 For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
    </pre>
+
+0. List images downloaded:
+
+   <tt><strong>
+   docker images
+   </strong></tt>
+
+   The response:
+
+   <pre>
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+centos              latest              50dae1ee8677        8 days ago          196.7 MB
+hello-world         latest              c54a2cc56cbb        3 weeks ago         1.848 kB
+   </pre>
+
+   QUESTION:
+   <a target="_blank" href="http://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine">
+   Where are docker images stored?</a>
+
+0. Use a third-party tool to display visualizations of image data:
+
+   <a target="_blank" href="https://github.com/justone/dockviz">
+   dockviz</a>
+
+   Alternately,
+
+   <a target="_blank" href="https://imagelayers.io/">
+   ImageLayers</a>
+
+
+   ## Build image #
+
+See <a target="_blank" href="https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images">
+"Docker Explained: Using Dockerfiles to Automate Building of Images"</a>a>
+
+
+   ## Jenkins invoke image build #
+
+   TODO: Next
+
+
+   ### Run container #
 
 0. Run the container just downloaded in a Mac:
 
@@ -386,6 +594,17 @@ Status: Downloaded newer image for centos:latest
    <a target="_blank" href="https://docs. docker.com/machine/drivers/">
    https://docs. docker.com/machine/drivers</a>
 
+
+
+<a name="DockerUCP"></a>
+
+## Docker UCP (Universal Control Plane) #
+
+UCP enables you to control your Docker environment through a web interface, which is
+helpful if you want to steer clear of the command line. 
+
+You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
+More information about Docker UCP can be found at https://docs.docker.com/ ucp/.
 
 
 
@@ -476,8 +695,7 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
    The response (27 Jul 2016):
 
    <pre>
-
-   <pre>
+   </pre>
 
 0. Alternately, if you have money for a license,
    a more secure commercial (paid) repository is at<br /> 
@@ -511,7 +729,8 @@ There are two methods for installing Docker on CentOS 7. One method involves ins
 
 ## docker-machine install #
 
-
+<a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7">
+See this</a>.
 
 0. Type the command by itself for a list of sub-commands:
 
@@ -585,6 +804,7 @@ Run 'docker-machine COMMAND --help' for more information on a command.
    </strong></tt>
 
 
+
 <a name="DockerCompose"></a>
 
 ## Docker Compose #
@@ -632,16 +852,13 @@ but specifies items to ignore in the Docker file.
    </strong></tt>
 
 
-<a name="DockerUCP"></a>
+## No Error Report #
 
-## Docker UCP (Universal Control Plane) #
+By default, whenever an attempt to provision a Dockerized host using Docker Machine fails, or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. If you're not comfortable with this, you can disable the reporting by creating an empty file called no-error-report under your installations .docker/machine directory.
 
-UCP enables you to control your Docker environment through a web interface, which is
-helpful if you want to steer clear of the command line. 
+To accomplish that, simply type:
 
-You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
-More information about Docker UCP can be found at https://docs.docker.com/ ucp/.
-
+touch ~/.docker/machine/no-error-report
 
 
 ## Additional notes:
