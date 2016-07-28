@@ -83,7 +83,9 @@ ENTRYPOINT ["/home/demo/box/boot.sh"]
 
    ### Docker commands #
 
-   * FROM sets the image to an operating system image
+   * FROM sets the image to an operating system image. For options, do a 
+   <a href="#DockerSearch">
+   docker search</a>.
    * MAINTAINER defines the file's author
    * USER
    * ADD
@@ -114,7 +116,7 @@ ENTRYPOINT ["/home/demo/box/boot.sh"]
    then modifies the data.
 
 
-   ### Standard Logging #
+   ### Common Logging #
 
    Also, rather than writing event information to a custom database,
    "cloud native" application programming code print to STDOUT/STDERR.
@@ -147,26 +149,63 @@ Also BSDLinux.
 
 ### Install Docker on Mac OSX #
 
-The version of Linux that comes with Mac isn't completely compatible with Linux.
-So an extra layer is needed to emulate a Docker host, 
-and that’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
-Boot2Docker</a>.
+<strong>Docker for Mac</strong> is the latest approach for installing Docker on Mac OSX.
 
-On https://docs.docker.com/engine/installation/mac/
+   WARNING: The product is labeled Beta as of this writing.
 
-
-If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
+   If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
    <strong>Docker on Mac</strong>
-   runs as a native Mac application and uses 
+   runs as a <strong>native</strong> Mac application.
+
+   TECHNICAL NOTE: Docker for Mac uses 
    xhyve to virtualize the Docker Engine environment 
-   HyperKit VM from
    <a target="_blank" href="https://github.com/docker/HyperKit/">
-                            https://github.com/docker/HyperKit/</a>
+   HyperKit VM</a>.
 
-   VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). Docker for Mac will error out on install in this case. Uninstall the older version of VirtualBox and re-try the install.
+0. If you've previously installed Boot2Docker or Docker for Mac, uninstall it
+   by deleting the file in Applications.
 
-0. The easiest option to install is to use 
-   Homebrew and cask.
+   NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
+   So an extra layer is needed to emulate a Docker host, 
+   and that’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
+   Boot2Docker</a>.
+
+0. Click 
+   <a target="_blank" href="https://docs.docker.com/docker-for-mac/">
+   here</a> to download Docker for Mac.
+
+   The most recent version of Virtualbox is 5.1.2, so can be left installed.
+   NOTE: 
+   <a target="_blank" href="https://docs.docker.com/engine/installation/mac/#/docker-for-mac">
+   Docs here</a> 
+   says VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). 
+
+   Alternately, install https://www.docker.com/products/docker-toolbox
+   if you have an old edition of Mac
+   running OS X 10.8 “Mountain Lion” or later.
+
+0. Click "Get Docker for Mac" to download to your Downloads folder.
+0. In Finder, navigate to you Download folder to double-click
+   <strong>Docker.dmg</strong>
+
+   | Date of file  | Version           | Download | Folder   |
+   | ------------- | ----------------- | -------: | -------: | 
+   | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
+   | July 19, 2016 | Docker.dmg | 114.0 MB | 225.1 MB |
+
+0. Double-click on Docker.dmg to open it.
+0. Drag and drop to the Applications folder.
+0. Click Replace the previous version, if applicable.
+0. Click Open.
+0. Click Next.
+0. Click OK.
+0. Input Apple password.
+0. Click Got it!.
+0. Skip to <a href="#VerifyInstall">verify install</a>.
+
+   Obsolete instructions to install
+   using 
+   Homebrew cask:
 
    Linux kernel-specific features for the Docker daemon.
 
@@ -178,43 +217,8 @@ If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
    brew install boot2docker
    </pre>
 
-0. Skip to <a href="#VerifyInstall">verify install</a>.
-
-Alternately, 
-
-0. From <a target="_blank" href="https://docs.docker.com/docker-for-mac/">
-   https://docs.docker.com/docker-for-mac</a>
-   click on the link to download file <strong>Docker.dmg</strong> 
-
-   Alternately, if 
-
-0. In Finder, navigate to you Download folder to double-click
-<strong>Docker.dmg</strong> from
-113.5 MB.
-
-
-   | Date          | Version           | Download | Folder   |
-   | ------------- | ----------------- | -------: | -------: | 
-   | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.4 MB |
-
-0. Double-click on Docker.dmg
-0. Drag and drop.
-
-
-
-0. Click Open.
-
-
-
-0. Click Next.
-
-
-
-0. Click OK.
-0. Input Apple password.
-0. Click Got it!.
-0. Skip to <a href="#VerifyInstall">verify install</a>.
-
+   To start this, use the "quickstart terminal"
+   which fires up Virtualbox.
 
 ### Install Docker in CentOS #
 
@@ -669,11 +673,114 @@ See <a target="_blank" href="https://www.digitalocean.com/community/tutorials/do
 
    ### Run container #
 
+
+0. List the parameters:
+
+   <tt><strong>
+   docker run \-\help
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+Run a command in a new container
+Options:
+      --add-host value              Add a custom host-to-IP mapping (host:ip) (default [])
+  -a, --attach value                Attach to STDIN, STDOUT or STDERR (default [])
+      --blkio-weight value          Block IO (relative weight), between 10 and 1000
+      --blkio-weight-device value   Block IO weight (relative device weight) (default [])
+      --cap-add value               Add Linux capabilities (default [])
+      --cap-drop value              Drop Linux capabilities (default [])
+      --cgroup-parent string        Optional parent cgroup for the container
+      --cidfile string              Write the container ID to the file
+      --cpu-percent int             CPU percent (Windows only)
+      --cpu-period int              Limit CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int               Limit CPU CFS (Completely Fair Scheduler) quota
+  -c, --cpu-shares int              CPU shares (relative weight)
+      --cpuset-cpus string          CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string          MEMs in which to allow execution (0-3, 0,1)
+  -d, --detach                      Run container in background and print container ID
+      --detach-keys string          Override the key sequence for detaching a container
+      --device value                Add a host device to the container (default [])
+      --device-read-bps value       Limit read rate (bytes per second) from a device (default [])
+      --device-read-iops value      Limit read rate (IO per second) from a device (default [])
+      --device-write-bps value      Limit write rate (bytes per second) to a device (default [])
+      --device-write-iops value     Limit write rate (IO per second) to a device (default [])
+      --disable-content-trust       Skip image verification (default true)
+      --dns value                   Set custom DNS servers (default [])
+      --dns-opt value               Set DNS options (default [])
+      --dns-search value            Set custom DNS search domains (default [])
+      --entrypoint string           Overwrite the default ENTRYPOINT of the image
+  -e, --env value                   Set environment variables (default [])
+      --env-file value              Read in a file of environment variables (default [])
+      --expose value                Expose a port or a range of ports (default [])
+      --group-add value             Add additional groups to join (default [])
+      --health-cmd string           Command to run to check health
+      --health-interval duration    Time between running the check
+      --health-retries int          Consecutive failures needed to report unhealthy
+      --health-timeout duration     Maximum time to allow one check to run
+      --help                        Print usage
+  -h, --hostname string             Container host name
+  -i, --interactive                 Keep STDIN open even if not attached
+      --io-maxbandwidth string      Maximum IO bandwidth limit for the system drive (Windows only)
+      --io-maxiops uint             Maximum IOps limit for the system drive (Windows only)
+      --ip string                   Container IPv4 address (e.g. 172.30.100.104)
+      --ip6 string                  Container IPv6 address (e.g. 2001:db8::33)
+      --ipc string                  IPC namespace to use
+      --isolation string            Container isolation technology
+      --kernel-memory string        Kernel memory limit
+  -l, --label value                 Set meta data on a container (default [])
+      --label-file value            Read in a line delimited file of labels (default [])
+      --link value                  Add link to another container (default [])
+      --link-local-ip value         Container IPv4/IPv6 link-local addresses (default [])
+      --log-driver string           Logging driver for container
+      --log-opt value               Log driver options (default [])
+      --mac-address string          Container MAC address (e.g. 92:d0:c6:0a:29:33)
+  -m, --memory string               Memory limit
+      --memory-reservation string   Memory soft limit
+      --memory-swap string          Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --memory-swappiness int       Tune container memory swappiness (0 to 100) (default -1)
+      --name string                 Assign a name to the container
+      --network string              Connect a container to a network (default "default")
+      --network-alias value         Add network-scoped alias for the container (default [])
+      --no-healthcheck              Disable any container-specified HEALTHCHECK
+      --oom-kill-disable            Disable OOM Killer
+      --oom-score-adj int           Tune host's OOM preferences (-1000 to 1000)
+      --pid string                  PID namespace to use
+      --pids-limit int              Tune container pids limit (set -1 for unlimited)
+      --privileged                  Give extended privileges to this container
+  -p, --publish value               Publish a container's port(s) to the host (default [])
+  -P, --publish-all                 Publish all exposed ports to random ports
+      --read-only                   Mount the container's root filesystem as read only
+      --restart string              Restart policy to apply when a container exits (default "no")
+      --rm                          Automatically remove the container when it exits
+      --runtime string              Runtime to use for this container
+      --security-opt value          Security Options (default [])
+      --shm-size string             Size of /dev/shm, default value is 64MB
+      --sig-proxy                   Proxy received signals to the process (default true)
+      --stop-signal string          Signal to stop a container, SIGTERM by default (default "SIGTERM")
+      --storage-opt value           Set storage driver options per container (default [])
+      --sysctl value                Sysctl options (default map[])
+      --tmpfs value                 Mount a tmpfs directory (default [])
+  -t, --tty                         Allocate a pseudo-TTY
+      --ulimit value                Ulimit options (default [])
+  -u, --user string                 Username or UID (format: <name|uid>[:<group|gid>])
+      --userns string               User namespace to use
+      --uts string                  UTS namespace to use
+  -v, --volume value                Bind mount a volume (default [])
+      --volume-driver string        Optional volume driver for the container
+      --volumes-from value          Mount volumes from the specified container(s) (default [])
+  -w, --workdir string              Working directory inside the container
+     </pre>
+
 0. Run the container just downloaded in a Mac:
 
    <tt><strong>
    docker run -it ubuntu bash
    </strong></tt>
+
+   PROTIP: Mac uses ubuntu commands.
 
    The response:
 
@@ -688,6 +795,8 @@ Digest: sha256:c6674c44c6439673bf56536c1a15916639c47ea04c3d6296c5df938add67b54b
 Status: Downloaded newer image for ubuntu:latest
 root@27eb89b0dc54:
    </pre>
+
+   Wait for "Pull complete" for all the dependencies.
 
    Alternately, on a CentOS machine:
 
@@ -708,11 +817,6 @@ Status: Downloaded newer image for centos:latest
    WARNING: The terminal prompt has changed
    because you are now <strong>inside</strong> the container.
 
-0. Optionally, to install MariaDB:
-
-   <tt><strong>
-   yum install mariadb-server
-   </strong></tt>
 
 0. Optionally, to exit out:
 
@@ -952,6 +1056,18 @@ Run 'docker-machine COMMAND --help' for more information on a command.
    docker-machine ls
    </strong></tt>
 
+   The response is a heading above lines, if any:
+
+   <pre>
+   NAME   ACTIVE   DRIVER   STATE   URL   SWARM   DOCKER   ERRORS
+   </pre>
+
+0. List Docker machine Internet Protocol addresses:
+
+   <strong><tt>
+   docker-machine ip
+   </strong></tt>
+
 0. Create a Docker machine named node1 in the local Virtualbox, in debug mode:
 
    <tt><strong>
@@ -1038,8 +1154,9 @@ Commands:
   version            Show the Docker-Compose version information
      </pre>
 
-   TODO: An example docker-compose.yml  le is as follows:
-
+   TODO: An example docker-compose.yml
+   <a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
+   here</a>
 
 
 <a name="DockerSwarm"></a>
@@ -1068,18 +1185,88 @@ but specifies items to ignore in the Docker file.
 ## No Error Report #
 
 PROTIP: Whenever an attempt to provision a Dockerized host using Docker Machine fails, 
-or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. If you're not comfortable with this, you can disable the reporting by creating an empty file called no-error-report under your installations .docker/machine directory.
+or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. 
+
+0. Disable this reporting by creating an empty file called no-error-report under your installations .docker/machine directory:
+
+   <tt><strong>
+   touch ~/.docker/machine/no-error-report
+   </strong></tt>
 
 
-To accomplish that, simply type:
+## Additional notes on security #
 
-touch ~/.docker/machine/no-error-report
-
-
-## Additional notes:
-
-Docker does have different security requirements which will be a hindrance for Shippable. 
+Docker does have different security requirements which will be a hindrance. 
 Security can be integrated but it does require knowledge of the Linux container environment.
 
 https://blog.docker.com/2013/08/containers-docker-how-secure-are-they/
 
+
+## Learning Resources #
+
+Pluralsight's
+<a target="_blank" href="https://app.pluralsight.com/paths/skills/docker">
+Container Management using Docker skill path</a> of 
+video tutorials by Nigel Poulton
+(<a target="_blank" href="https://www.twitter.com/NigelPoulton/">@NigelPoulton</a>)
+
+
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-containers-big-picture/table-of-contents">
+   Docker and Containers: The Big Picture</a>
+   Dec 22, 2015 / 1h 47m
+
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-deep-dive/table-of-contents">
+   Docker Deep Dive</a>
+   Jan 28, 2015 / 5h 38m 2s
+
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-swarm-native-docker-clustering/table-of-contents">
+   Docker Swarm: Native Docker Clustering</a>
+   Mar 30, 2016 / 2h 22m 28s
+
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/integrating-docker-with-devops-automated-workflows/table-of-contents">
+   Integrating Docker with DevOps Automated Workflows</a>
+   Sept 21, 2015 / 1h 1m 50s
+
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-web-development/table-of-contents">
+   Docker for Web Developers</a>
+   by Dan Wahlin
+   28 Mar 2016 / 5h 19m
+   
+0. <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-docker-web-developers-john-papa-dan-wahlin/table-of-contents">
+   Play by Play: Docker for Web Developers</a>
+   (conversation between) John Papa and 
+   Dan Wahlin (talking about Docker Toolbox)
+   12 Jul 2016 / 1h 34m
+
+## YouTub videos #
+
+https://www.youtube.com/watch?v=vQSpztWcGmw
+Continuous Delivery with Jenkins Workflow and Docker Explained
+by Cloudbees at DevOpsTV channel
+
+https://www.youtube.com/watch?v=is1o0Ol8LMc
+Continuous Integration Using Docker
+DevOpsTV
+1,444 views
+
+https://www.youtube.com/watch?v=B6UvIL2WyTg
+Moving from Jenkins to Docker for build pipelines from Matt Bostock
+MeetupvideoUK
+
+https://www.youtube.com/watch?v=uLp9_MMnkUo
+Continuous Delivery Pipeline with Docker and Jenkins
+Javaforum Göteborg
+46:41
+
+https://www.youtube.com/watch?v=Q5POuMHxW-0
+Introduction to Docker
+Twitter University
+47:14
+
+https://www.youtube.com/watch?v=dCsGzEGW2BY
+Jenkins 2 and Beyond
+DevOpsTV
+
+https://www.youtube.com/watch?v=M-rxJBdYIrw
+Jenkins 2.0. What? When? What is in it for me?
+Praqma Channel
