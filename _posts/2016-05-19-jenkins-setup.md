@@ -1086,6 +1086,8 @@ Jenkins installation options are described at:
    If you don't see the full menu (shown on the right), you don't have some permissions.
 
    As with other systems, granting permissions is typically done only by the Administrator of the system.
+   
+   ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 0. Click **Configure Global Security**.
