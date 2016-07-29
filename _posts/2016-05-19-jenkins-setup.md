@@ -1100,28 +1100,23 @@ Jenkins installation options are described at:
 0. Check the option box for <strong>Enable Security</strong>.
 0. If you have an LDAP, select that. 
 
-   ![do_jenkins_createuser_jenkensdatabase_02a](https://cloud.githubusercontent.com/assets/10678180/17228474/c08dfb28-54d8-11e6-84ad-5ac8814f3b25.png)
+    ![do_jenkins_createuser_jenkensdatabase_02a](https://cloud.githubusercontent.com/assets/10678180/17228474/c08dfb28-54d8-11e6-84ad-5ac8814f3b25.png)
 
 0. Under the Access Control section, Check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
 
-   ![do_jenkins_createuser_globalsecurity_allowusertosignup_03](https://cloud.githubusercontent.com/assets/10678180/17228700/b730a2b4-54d9-11e6-86c8-5b67b3fdabbd.png)
+    ![do_jenkins_createuser_globalsecurity_allowusertosignup_03](https://cloud.githubusercontent.com/assets/10678180/17228700/b730a2b4-54d9-11e6-86c8-5b67b3fdabbd.png)
 
 0. Deselect the checkbox marked **Allow users to sign up**.
 
-    ![do_jenkins_createuser_globalsecurity_auth_matrixbasedsecurity_04](https://cloud.githubusercontent.com/assets/10678180/17228742/f988f12a-54d9-11e6-8809-a31c1efcd362.png)
+     ![do_jenkins_createuser_globalsecurity_auth_matrixbasedsecurity_04](https://cloud.githubusercontent.com/assets/10678180/17228742/f988f12a-54d9-11e6-8809-a31c1efcd362.png)
 
 
 0. Under Authorization, Check **Matrix-based security**.
 
-  ```
-      Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
-      ```
- 
-      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
+     ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
 
- 
-       ![user](https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
-
+  
+     ![user](https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
 
  0. Click on the small button to the right of the Anonymous row to select all permissions.
 
@@ -1129,17 +1124,17 @@ Jenkins installation options are described at:
      the preferred approach is to first assign individual users to a group in LDAP,
      then assign permission to the group (like what the Windows OS does).
    
-       ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
+     ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
 
 0. Click on **Save**.
 
 0. To create a new user, manually create additional new users by Returning to **Home** and Click on **Manage Jenkins**.
 
-    ![manageuser](https://cloud.githubusercontent.com/assets/10678180/17237614/74029c5a-5519-11e6-8b6e-0a7fd642e2c1.PNG)
+     ![manageuser](https://cloud.githubusercontent.com/assets/10678180/17237614/74029c5a-5519-11e6-8b6e-0a7fd642e2c1.PNG)
 
 0. Scroll down and click on **Manage Users**. 
 
-    ![do_createuser](https://cloud.githubusercontent.com/assets/10678180/17237692/385e80a0-551a-11e6-9081-2924266b1a18.png)
+     ![do_createuser](https://cloud.githubusercontent.com/assets/10678180/17237692/385e80a0-551a-11e6-9081-2924266b1a18.png)
 
 0. From the menu on the left, Click on **Create User**. 
 
@@ -1159,10 +1154,8 @@ Jenkins installation options are described at:
 
 0. Click **Apply** and Click **Save**.
 
-
 0. Install the "AWS CodePipeline Plugin" 
    by following the next section below.
-
 
 
 <a id="Plug-ins"></a>
