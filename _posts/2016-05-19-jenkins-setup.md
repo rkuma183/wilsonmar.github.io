@@ -1125,7 +1125,7 @@ Jenkins installation options are described at:
      the preferred approach is to first assign individual users to a group in LDAP,
      then assign permission to the group (like what the Windows OS does).
 
-     (https://cloud.githubusercontent.com/assets/10678180/17260091/1d5441ee-5594-11e6-9199-577720b44705.png)
+     ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17260091/1d5441ee-5594-11e6-9199-577720b44705.png)
 
 0. Click on **Save**.
 
