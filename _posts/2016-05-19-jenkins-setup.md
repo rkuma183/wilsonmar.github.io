@@ -1113,9 +1113,10 @@ Jenkins installation options are described at:
 
 0. Under Authorization, Check **Matrix-based security**.
 
-  ```
-    Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
-  ```
+ ```
+     Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
+ ```
+ 
  
      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
  
