@@ -1116,7 +1116,7 @@ Jenkins installation options are described at:
      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
 
   
-     ![user] (https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
+     ![user](https://cloud.githubusercontent.com/assets/10678180/17260321/4801a4e4-5595-11e6-8604-f962663770ff.PNG)
   
 
 0. Click on the small button to the right of the Anonymous row to select all permissions.
