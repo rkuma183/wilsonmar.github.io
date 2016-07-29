@@ -1117,9 +1117,11 @@ Jenkins installation options are described at:
       Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
       ```
  
-     ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
+      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
+
  
-     ![user](https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
+       ![user](https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
+
 
  0. Click on the small button to the right of the Anonymous row to select all permissions.
 
@@ -1127,7 +1129,7 @@ Jenkins installation options are described at:
      the preferred approach is to first assign individual users to a group in LDAP,
      then assign permission to the group (like what the Windows OS does).
    
-     ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
+       ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
 
 0. Click on **Save**.
 
@@ -1156,7 +1158,6 @@ Jenkins installation options are described at:
    ![do_applysave](https://cloud.githubusercontent.com/assets/10678180/17237967/36eb74e6-551d-11e6-8529-df4fa4f5c7c1.png)
 
 0. Click **Apply** and Click **Save**.
-
 
 
 0. Install the "AWS CodePipeline Plugin" 
