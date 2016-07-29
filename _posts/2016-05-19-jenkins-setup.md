@@ -1116,18 +1116,16 @@ Jenkins installation options are described at:
      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
 
   
-     ![user](https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
-     
+      (https://cloud.githubusercontent.com/assets/10678180/17237388/04e0d244-5517-11e6-8c02-160148a58501.PNG)
+  
 
 0. Click on the small button to the right of the Anonymous row to select all permissions.
 
      PROTIP: Rather than specifying individual users and their permissions,
      the preferred approach is to first assign individual users to a group in LDAP,
      then assign permission to the group (like what the Windows OS does).
-     
-   
-      ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
-     
+
+     (https://cloud.githubusercontent.com/assets/10678180/17260091/1d5441ee-5594-11e6-9199-577720b44705.png)
 
 0. Click on **Save**.
 
