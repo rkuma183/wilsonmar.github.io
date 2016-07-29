@@ -1113,8 +1113,8 @@ Jenkins installation options are described at:
 
 0. Under Authorization, Check **Matrix-based security**.
 
-       ```
-     Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
+  ```
+      Note: Since this is the initial setup of the Jenkins instance, you must give this anonymous use full privilege.Turning off anonymous permissions will cut you off from accessing Jenkins at all.
       ```
  
      ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
@@ -1127,7 +1127,7 @@ Jenkins installation options are described at:
      the preferred approach is to first assign individual users to a group in LDAP,
      then assign permission to the group (like what the Windows OS does).
    
-    ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
+     ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17237447/8aa3bd4c-5517-11e6-95d4-3f6e40b9ee4 6.png)
 
 0. Click on **Save**.
 
