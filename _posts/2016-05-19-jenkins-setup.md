@@ -1088,35 +1088,77 @@ Jenkins installation options are described at:
    If you don't see the full menu (shown on the right), you don't have some permissions.
 
    As with other systems, granting permissions is typically done only by the Administrator of the system.
+   
+    ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
+
+   ![do_jenkins_createuser_globalsecurity_02](https://cloud.githubusercontent.com/assets/10678180/17228195/9d08ffb4-54d7-11e6-8abc-b86104e65882.png)
+
 0. Click **Configure Global Security**.
 
    <amp-img width="481" height="57" alt="jenkins2 5-manage-config-global-security-962x114" src="https://cloud.githubusercontent.com/assets/300046/15433535/f9da19d8-1e6f-11e6-8e30-e66dc2cbc9c4.png"></amp-img>
 
-0. Check <strong>Enable Security</strong>.
-0. If you have an LDAP, select that. Alternately, check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
-0. Check **Allow users to sign up**.
-0. Check **Matrix-based security**.
-0. In **User/Group to add", type "admin".
-0. In the row of check boxes that appear, check the box under "Administer".
-0. Check **Project-based Matrix Authorization Strategy** to limit Anonymous users Read-only access.
+0. Check the option box for <strong>Enable Security</strong>.
+0. If you have an LDAP, select that. 
 
-   PROTIP: Rather than specifying individual users and their permissions,
-   the preferred approach is to first assign individual users to a group in LDAP,
-   then assign permission to the group (like what the Windows OS does).
+    ![do_jenkins_createuser_jenkensdatabase_02a](https://cloud.githubusercontent.com/assets/10678180/17228474/c08dfb28-54d8-11e6-84ad-5ac8814f3b25.png)
 
-0. For an existing user/group, check boxes to its right.
+0. Under the Access Control section, Check <strong>Use Jenkin's own user database</strong>. But you'll have to add each user.
 
-   <amp-img width="600" height="47" alt="jenkins-security-permissions-matrix-1420x112" src="https://cloud.githubusercontent.com/assets/300046/11181173/6ea5dfe4-8c1d-11e5-9674-ef0e7d88ef8d.png"></amp-img>
+    ![do_jenkins_createuser_globalsecurity_allowusertosignup_03](https://cloud.githubusercontent.com/assets/10678180/17228700/b730a2b4-54d9-11e6-86c8-5b67b3fdabbd.png)
 
-   <img width="881" alt="jenkins-build-project-detail2" src="https://cloud.githubusercontent.com/assets/300046/11181632/017e375a-8c21-11e5-8147-4df54611d009.png">
+0. Deselect the checkbox marked **Allow users to sign up**.
 
-0. Or create a user.
+     ![do_jenkins_createuser_globalsecurity_auth_matrixbasedsecurity_04](https://cloud.githubusercontent.com/assets/10678180/17228742/f988f12a-54d9-11e6-8809-a31c1efcd362.png)
+
+
+0. Under Authorization, Check **Matrix-based security**.
+
+     ![do_jenkins_createuser_icon_08](https://cloud.githubusercontent.com/assets/10678180/17237283/daed5d28-5515-11e6-89ec-c84f043b21a2.png)
+
+  
+     ![user](https://cloud.githubusercontent.com/assets/10678180/17260321/4801a4e4-5595-11e6-8604-f962663770ff.PNG)
+  
+
+0. Click on the small button to the right of the Anonymous row to select all permissions.
+
+     PROTIP: Rather than specifying individual users and their permissions,
+     the preferred approach is to first assign individual users to a group in LDAP,
+     then assign permission to the group (like what the Windows OS does).
+
+     ![do_jenkins_createuser_save_09](https://cloud.githubusercontent.com/assets/10678180/17260091/1d5441ee-5594-11e6-9199-577720b44705.png)
+
+0. Click on **Save**.
+
+0. To create a new user, manually create additional new users by Returning to **Home** and Click on **Manage Jenkins**.
+
+     ![manageuser](https://cloud.githubusercontent.com/assets/10678180/17237614/74029c5a-5519-11e6-8b6e-0a7fd642e2c1.PNG)
+
+0. Scroll down and click on **Manage Users**. 
+
+     ![do_createuser](https://cloud.githubusercontent.com/assets/10678180/17237692/385e80a0-551a-11e6-9081-2924266b1a18.png)
+
+0. From the menu on the left, Click on **Create User**. 
+
+    ![do_createuser1](https://cloud.githubusercontent.com/assets/10678180/17237767/e083dad2-551a-11e6-8f24-ce1a03e14330.png)
+
+0. Fill out the Username,Password,Confirm password, Full name and E-mail address and Click on **Create User**
+
+   ![do_usergroup](https://cloud.githubusercontent.com/assets/10678180/17237869/06aa05a0-551c-11e6-8aa0-0be916efd5db.png)
+   
+   
+   ![do_userandy](https://cloud.githubusercontent.com/assets/10678180/17237904/6b198c40-551c-11e6-8d9e-d6f3dcb5ddcb.png)
+
+0. Use the **User/group to add** input field to specify a new user and Click **Add**
+0. Click on the small button to the right of the **andy** row to select all permissions.
+
+   ![do_applysave](https://cloud.githubusercontent.com/assets/10678180/17237967/36eb74e6-551d-11e6-8529-df4fa4f5c7c1.png)
+
+0. Click **Apply** and Click **Save**.
 
 0. Install the "AWS CodePipeline Plugin" 
    by following the next section below.
-
 
 
 <a id="Plug-ins"></a>
