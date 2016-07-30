@@ -112,6 +112,10 @@ so more and more of them are popping up.
 * DevOps Days
 * LISA 
 
+* <a target="_blank" href="https://gotocon.com/">GOTO conference https://gotocon.com</a>
+   in several cities each year are
+   <a target="_blank" href="https://www.youtube.com/user/GotoConferences">recorded for YouTube</a>
+
 * StarWest for QA
 * StarEast for QA
 * StarCanada for QA

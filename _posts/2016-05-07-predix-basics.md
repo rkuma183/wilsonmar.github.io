@@ -204,7 +204,7 @@ providing edge analytics, even when normal connectivity is not available.
 
 The text of the vide is in this
 <a target="_blank" href="https://www.predix.com/predix-architecture-whitepaper">
-Predix Architecture white paper from Septempter 2015</a>.
+Predix Architecture white paper from September 2015</a>.
 
 
 ### Archicture diagram #
