@@ -329,6 +329,58 @@ uid       [ultimate] Wilson Mar <wilsonmar@gmail.com>
 user.signingkey=2E23C648
    </pre>
 
+
+
+   ### Backup and Share Public key #
+
+   In order for others to verify your signature:
+
+0. Be at the same directory (as before).
+
+0. Export your public key to the present working directory (a GitHub repository folder)
+   as a sharable file (replacing the email address in this example):
+
+   <tt><strong>
+   gpg \-\-armor \-\-export wilsonmar@gmail.com > wilsonmar@gmail.com.pub
+   </strong></tt>
+
+0. Optionally, view the file (substituting your own file's name):
+
+   <tt><strong>
+   cat wilsonmar@gmail.com.pub
+   </strong></tt>
+
+   NOTE: The file contents begins with "-----BEGIN PGP PUBLIC KEY BLOCK-----".
+
+   You can email or even post this on a public website.
+
+0. Better yet, store the key as a <strong>Git object</strong> to hold key data.
+
+   <tt><strong>
+   git hash-object -w wilsonmar@gmail.com.pub
+   </strong></tt>
+
+0. Copy the response (a hash) and paste it at the end of this command:
+
+   <tt><strong>
+   git tag username-pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381
+   </strong></tt>
+
+0. Copy the response and paste it to the end of this command:
+
+   <tt><strong>
+   git tag wilsonmar@gmail.com.pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381
+   </strong></tt>
+
+   No response is returned.
+
+0. Verify the tags now:
+
+   <tt><strong>
+   git tag 
+   </strong></tt>
+
+
 Again, all the above is done only once.
 
 
@@ -545,7 +597,7 @@ Tag listing options
    </strong></pre>
 
    PROTIP: Rather than typing this long command every time, 
-   used a custom command such as `gits` <a href="gits">defined below</a>.
+   use a custom command such as `gits` <a href="gits">defined below</a>.
 
    Sample response:
 
@@ -577,56 +629,6 @@ user: "Wilson Mar <wilsonmar@gmail.com>"
 
    <tt><strong>
    git tag
-   </strong></tt>
-
-
-   ### Backup and Share Public key #
-
-   In order for others to verify your signature:
-
-0. Be at the same directory (as before).
-
-0. Export your public key to the present working directory (a GitHub repository folder)
-   as a sharable file (replacing the email address in this example):
-
-   <tt><strong>
-   gpg \-\-armor \-\-export wilsonmar@gmail.com > wilsonmar@gmail.com.pub
-   </strong></tt>
-
-0. Optionally, view the file (substituting your own file's name):
-
-   <tt><strong>
-   cat wilsonmar@gmail.com.pub
-   </strong></tt>
-
-   NOTE: The file contents begins with "-----BEGIN PGP PUBLIC KEY BLOCK-----".
-
-   You can email or even post this on a public website.
-
-0. Better yet, store the key as a <strong>Git object</strong> to hold key data.
-
-   <tt><strong>
-   git hash-object -w wilsonmar@gmail.com.pub
-   </strong></tt>
-
-0. Copy the response (a hash) and paste it at the end of this command:
-
-   <tt><strong>
-   git tag username-pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381
-   </strong></tt>
-
-0. Copy the response and paste it to the end of this command:
-
-   <tt><strong>
-   git tag wilsonmar@gmail.com.pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381
-   </strong></tt>
-
-   No response is returned.
-
-0. Verify the tags now:
-
-   <tt><strong>
-   git tag 
    </strong></tt>
 
 
@@ -670,26 +672,16 @@ origin   https://github.com/wilsonmar/wilsonmar.github.io.git (push)
    </pre>
 
 
-   <a name="GitPushTag"></a>
+<a name="GitPushTag"></a>
 
-   ### Git Push tags #
+## Git Push tags #
 
-   NOTE: A separate push command is needed to push tags up to GitHub.
+First:
 
-0. Transfer all tags to the remote server (GitHub):
-
-   <tt><strong>
-   git push origin \-\-tags
-   </strong></tt>
-
-   CAUTION: A separate request is necessary to push tags than code.
-
-
-
-## Extract and Verify tag #
+### Extract and Verify tag #
    
-After signed and tagged commits are pushed to GitHub,
-someone can pull them locally.
+   After signed and tagged commits are pushed to GitHub,
+   someone can pull them locally.
 
 0. Extract the key from a tag and 
    add it to their keyring for tag verification:
@@ -716,6 +708,20 @@ my version 01.04
 gpg: Signature made Sun Jul 31 03:21:38 2016 MDT using RSA key ID 2E23C648
 gpg: Good signature from "Wilson Mar <wilsonmar@gmail.com>" [ultimate]
    </pre>
+
+
+   ### Push tags #
+
+   NOTE: A separate push command is needed to push tags up to GitHub.
+
+0. Transfer all tags to the remote server (GitHub):
+
+   <tt><strong>
+   git push origin \-\-tags
+   </strong></tt>
+
+   CAUTION: A separate request is necessary to push tags than code.
+
 
 
 ## Remove tags #
@@ -774,7 +780,7 @@ PROTIP: Define a command-line alias for custom commands which do not require opt
    Copy this to add to the bottom of the file:
 
    <pre><strong>
-   alias gits='git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative'
+   alias gits='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative'
    </strong></pre>
 
    Semicolons separate different commands.
@@ -793,12 +799,52 @@ More about this technique:
    * https://coolestguidesontheplanet.com/make-an-alias-in-bash-shell-in-os-x-terminal/
 
 
-<a name="gitl"></a>
+<a name="gitc"></a>
 
-## git logz Git sub-command #
+## Custom Script with parameters #
 
-PROTIP: Define a custom command script.
+PROTIP: Define a custom command script which receives an annotation as a parameter.
 
+0. First make sure that the command you want is available for use.
+   For example:
+
+   <tt><strong>
+   gitcwg
+   </strong></tt>
+
+   In this example, "c" is for commit, "w" for wilson, "g" for gmail.
+
+   The desired expected response is "command not found".
+
+0. In a text editor, create a new file containing:
+
+   <pre><strong>
+#!/bin/bash
+((!$#)) && echo No annotation parameter, so command ignored! && exit 1
+git commit -a -m"$1" --gpg-sign=2E23C648
+   </strong>
+
+   The line starting with "((!$#))" exits if the required parameter is not provided.
+
+   The $1 is a parameter variable whose value is provided in the first parameter after the command.
+
+0. On a Mac: Save the file named <strong>gitw.sh</strong>.
+
+   The .sh specifies that the file is a shell file extension on a Mac.
+
+   Alternately, .cmd specifies that the file is a command-file on Windows.
+
+0. Give the file executable permissions:
+
+   <tt><strong>
+   chmod +aw gitcwg.sh
+   </strong></tt>
+
+0. Try it:
+
+   <pre><strong>
+   ./gitcwg "issue #235"
+   </strong></pre>
 
    More on this topic:
    
