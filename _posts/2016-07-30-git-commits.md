@@ -358,7 +358,7 @@ Blogs about this topic:
 On local Git:
 
 0. In Terminal, be in your repo's folder.
-0. For more information, see https://git-scm.com/book/en/v2/Git-Basics-Tagging
+0. For more information, see https://git-scm.com/book/en/v2/Git-Basics-Tagging<br />
    or get help on the tag command:
 
    <tt><strong>
