@@ -34,10 +34,12 @@ To associate a
 <a href="#GenerateKey">signing key you generate</a>
 with your commits you push from git client to GitHub:
 
-   * <a href="#GitAdd">git add</a>
-   * <a href="#GitCommit">git commit</a> <br />
-   * <a href="#GitTag">git tag</a> <br />
-   * <a href="#GitPush">git push</a>
+   0. <a href="#GitAdd">git add</a>
+   0. <a href="#GitCommit">git commit</a> <br />
+   0. <a href="#GitTag">git tag</a> <br />
+   0. <a href="#GitPushCode">git push code</a>
+   0. <a href="#GitPushTag">git push tag</a>
+   <br /><br />
 
    Click on each to go directly to it.
 
@@ -350,6 +352,9 @@ Again, all the above is done only once.
    git add . -A
    </strong></tt>
 
+   Instead of "." representing all files, you can specify a single file
+   to selectively stage for a special commit.
+
    The `-A` also acts on files which need to be <strong>deleted</strong>,
    which the `-a` option of git commit does not do.
 
@@ -413,6 +418,13 @@ Commit contents options
                           show untracked files, optional modes: all, normal, no. (Default: all)
    </pre>
 
+   NOTE: "pre-commit hook" is a feature available in <a target="_blank" href="https://help.github.com/enterprise/2.6/admin/guides/developer-workflow/about-pre-receive-hooks/">GitHub Enterprise</a> to:
+
+   * Require commit messages to follow a specific pattern or format, such as including a valid ticket number or being over a certain length.
+   * Lock a branch or repository by rejecting all pushes.
+   * Prevent sensitive data from being added to the repository by blocking keywords, patterns or filetypes.
+   * Prevent a PR author from merging their own changes.
+   <br />
 
    ### Sign a Commit #
 
@@ -420,21 +432,41 @@ Commit contents options
    specify the signing key for the account being used:
 
    <pre><strong>
-   git commit -a -m "Issue 234 signed" --gpg-sign=2E23C648
+   git commit -a -m"Issue 234 signed" --gpg-sign=2E23C648
    </strong></pre>
 
-   A dialog such as this pops up:
+   PROTIP: Alternately, use a custom command such as <a href="gitc">`gitc` defined below</a>.
+
+   The first time a signature is used, a dialog such as this pops up:
    <amp-img width="519" height="214" alt="git commit signing 20160730-519x214-i11.jpg"
    src="https://cloud.githubusercontent.com/assets/300046/17273912/e9b45d46-5684-11e6-9d61-7c59486bc8a7.jpg">
    </amp-img><br />
 
-0. PROTIP: Check "Save in Keychain" so you don't have to paste in the passphrase every time you commit.
+   PROTIP: Check "Save in Keychain" so you don't have to paste in the passphrase every time you commit.
 
-0. Validate the signature of a commit:
+   Subsequent uses display a message such as this:
+
+   <pre>
+You need a passphrase to unlock the secret key for
+user: "Wilson Mar <wilsonmar@gmail.com>"
+2048-bit RSA key, ID 2E23C648, created 2016-07-31
+   </pre>
+
+   Either way, a message such as this in response:
+
+   <pre>
+[master 6f3e993] update gpg signed
+ 2 files changed, 322 insertions(+), 103 deletions(-)
+    </pre>
+
+0. Validate the signature of a commit <a target="_blank" href="https://git-scm.com/docs/git-log">
+   according to this doc</a>:
 
    <tt><strong>
-   git log \-\-show-signature
+   git log \-\-show-signature -n 2
    </strong></tt>
+
+   The "-n 2" limits output to 2 lines.
 
    Sample response:
 
@@ -509,19 +541,20 @@ Tag listing options
    highlight and copy the hash code associated with the commit you want to tag:
 
    <pre><strong>
-   git log --pretty=format:"%h %ad %s" --graph --since=1.days --date=relative
+   git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative
    </strong></pre>
+
+   PROTIP: Rather than typing this long command every time, 
+   used a custom command such as `gits` <a href="gits">defined below</a>.
 
    Sample response:
 
    <pre>
-* 366121d 1 hours ago add git-commits
-* 0d04dee 10 hours ago New feature #232
+* 366121d add git-commits 1 hours ago 
+* 0d04dee New feature #232 10 hours ago
    </pre>
 
-   PROTIP: Define a shell script rather than typing this every time.
-
-0. Add an annotated signed tag to associate with the hash of a commit:
+0. Add an annotated signed tag to associate with the hash of a commit (above):
 
    <pre><strong>
    git tag -a v01.04 366121d -m "my version 01.04" -s -q
@@ -598,7 +631,7 @@ user: "Wilson Mar <wilsonmar@gmail.com>"
 
 
 
-   <a name="GitPush"></a>
+   <a name="GitPushCode"></a>
 
    ### Git Push code #
 
@@ -615,18 +648,29 @@ origin   https://github.com/wilsonmar/wilsonmar.github.io.git (fetch)
 origin   https://github.com/wilsonmar/wilsonmar.github.io.git (push)
    </pre>
 
+   If you forked a repo, you would also define an "upstream" location for the
+   original repo.
+
 0. Transfer all commits to the remote server that are not already there:
 
    <tt><strong>
-   git push origin 
+   git push origin master
    </strong></tt>
 
-   NOTE: "origin" does not need to be specified because it's the default.
+   NOTE: "origin" location does not need to be specified if it's the default.
+
+   The "master" branch does not need to be specified if it's the default of origin.
+   
+   The branch does need to be specified if it's to "upstream" or other non-origin location.
 
    Sample response:
 
    <pre>
+   ???
    </pre>
+
+
+   <a name="GitPushTag"></a>
 
    ### Git Push tags #
 
@@ -654,7 +698,7 @@ someone can pull them locally.
    git cat-file blob username-pub-rsa | gpg \-\-import
    </strong>
 
-0. To verify a tag:
+0. To obtain information about a specific tag:
 
    <tt><strong>
    git tag -v v01.04
@@ -694,6 +738,71 @@ gpg: Good signature from "Wilson Mar <wilsonmar@gmail.com>" [ultimate]
    git push origin :refs/tags/wilsonmar@gmail.com.pub-rsa
    </strong></tt>
 
+
+## Custom Git commands #
+
+Custom commands can be defined as an 
+<strong>alias</strong> command in the operating system
+or as a custom Git sub-command 
+defined in a .gitattributes file for a specific repo.
+
+Since the command is related to use of Git,
+that is preferred.
+
+
+<a name="gits"></a>
+
+## gits alias command #
+
+PROTIP: Define a command-line alias for custom commands which do not require options to be specified.
+
+0. First make sure that the command is available for use:
+
+   <tt><strong>
+   gits
+   </strong></tt>
+
+   The desired expected response is "command not found".
+
+0. Use a text editor to edit your Mac's .bash_profile 
+   (substituting nano for atom, subl, or whatever you have installed):
+
+   <tt><strong>
+   nano ~/.bash_profile
+   </strong></tt>
+
+   Copy this to add to the bottom of the file:
+
+   <pre><strong>
+   alias gits='git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative'
+   </strong></pre>
+
+   Semicolons separate different commands.
+
+   In nano press ‘control+o’ to write the file out.
+   Press Enter to confirm. Press ‘control+x’ to exit the file.
+
+0. Refresh the bash shell environment:
+
+   <tt><strong>
+   source ~/.bash_profile
+   </strong></tt>
+
+More about this technique:
+
+   * https://coolestguidesontheplanet.com/make-an-alias-in-bash-shell-in-os-x-terminal/
+
+
+<a name="gitl"></a>
+
+## git logz Git sub-command #
+
+PROTIP: Define a custom command script.
+
+
+   More on this topic:
+   
+   * http://thediscoblog.com/blog/2014/03/29/custom-git-commands-in-3-steps/
 
 ## More Resources #
 

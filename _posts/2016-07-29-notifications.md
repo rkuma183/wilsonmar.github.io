@@ -169,7 +169,7 @@ actually less effective than they think.
 There are several other instant messaging services available:
 Hipchat, Microsoft Skype, Snapchat, Facebook WhatsApp, Yahoo Messenger, etc.
 
-
+Let'st start with Slack, which is the darling in 2016.
 
 0. Get a Slack account at https://slack.com/
 

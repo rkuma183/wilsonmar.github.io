@@ -21,11 +21,12 @@ Built-in OSX:
 
    * <a href="#vim">vim</a>
    * <a href="#pico">pico</a>
+   * nano
 
 Free:
 
    * <a href="#atom">Atom</a> from GitHub (free)
-   * Microsoft Code (free)
+   * <a href="#Code">Code</a> from Microsoft (free)
    * Adobe Brackets http://brackets.io on Windows too
    * http://barebones.com/products/textwrangler is the
      little brother to BBEdit.
@@ -37,6 +38,7 @@ Licensed nagware:
 
 Free IDEs:
 
+   * <a href="#Eclipse">Eclipse</a>
    * Aptana Studio
    * NetBeans
    * Visual Studio Express from Microsoft
@@ -262,7 +264,7 @@ command + &#9003; Delete line
 
 <a name="#atom"></a>
 
-## Atom
+## Atom #
 
 0. Use an internet browser to <a target="_blank" href="https://atom.io/">atom.io</a>
 
@@ -307,6 +309,38 @@ complete
 🍺  eclipse-java staged at '/opt/homebrew-cask/Caskroom/eclipse-java/4.6.0' (0B)
    </pre>
 
+
+<a name="Code"></a>
+
+## Microsoft Code #
+
+On Mac: 
+   To get VS Code to make use of the current working directory, follow
+   <a target="_blank" href="http://stackoverflow.com/questions/30159158/how-do-i-set-up-a-link-to-open-up-visual-studio-code-from-terminal-on-osx">
+   these instructions</a>:   
+
+0. In Finder, click on a file using two fingers to select
+   <strong>Open with</strong> Visual Studio Code (version 1.0+).
+
+0. Select Code's menu View, Command Palette at the top of the screen.
+
+0. Begin typing this until the full command is recognized in the list:
+
+   <tt><strong>
+   Install 'Code' command in PATH
+   </strong></tt>
+
+0. Select the full command that appears in the drop-down.
+
+0. Exit the Code program.
+
+0. You can now, in a new Terminal shell window, use the code command to open a file:
+
+   <tt><strong>
+   code hello
+   </strong></tt>
+
+   BTW, "hello" in the example above can be any file.
 
 
 ## More on OSX
