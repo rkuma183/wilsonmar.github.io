@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git Commits with a Tag and Signature"
-excerpt: "Kinda like at a book signing party"
+excerpt: "Like authors at a book signing"
 tags: [Git, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -17,23 +17,25 @@ comments: true
 
 This article describes how you can sign and tag commits in Git.
 
+Some teams request that commits for release be <strong>digitally signed</strong>
+to provide "non-repudiation" (make "I didn't do it" not possible),
+and <strong>tagged</strong> for unique reference in git commands.
+
 {% include _intro.html %}
 
-<a name="SignCommits"></a>
-
-## Setup for Signing #
-
-Some teams request that commits for release be <strong>digitally signed</strong>
-to provide "non-repudiation" (make "I didn't do it" not possible).
+Typed git commands are currently shown here.
+TODO: Actions to achieve the same results in GUI IDEs will be added.
 
 
 ## Install GPGTools #
 
 On local Git:
 
-0. On a Mac, install GPGTools Suite from<br />
-   <a target="_blank" href="https://gpgtools.org/">
-   https://www.gpgtools.org</a> 
+0. On a Mac, install GPGTools Suite from Homebrew specs at<br />
+   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/blob/master/Casks/gpgtools.rb">
+   https://github.com/caskroom/homebrew-cask/blob/master/Casks/gpgtools.rb<br />
+   (rather than downloading from <a target="_blank" href="https://gpgtools.org/">
+   https://www.gpgtools.org</a>)
 
    <tt><strong>
    brew cask install -g gpgtools
@@ -84,11 +86,21 @@ gpg-agent[44408]: gpg-agent (GnuPG/MacGPG2) 2.0.30 started
 🍺  gpgtools was successfully installed!
    </pre>
 
+0. Verify that installation added the folder and files:
+
+   <tt><strong>
+   ls ~/.gnupg
+   </strong></tt>
+
+   The response:
+
+   <pre>
+S.gpg-agent    gpg.conf    pubring.gpg    random_seed    trustdb.gpg
+gpg-agent.conf    private-keys-v1.d pubring.gpg~      secring.gpg
+   </pre>
+
    On Windows, if you use “msysGit”, it comes with gpg.
    In Cygwin, get gnupg in Cygwin setup.
-
-   NOTE: Instructions are at 
-   https://github.com/caskroom/homebrew-cask/blob/master/Casks/gpgtools.rb
 
 0. Validate install:
 
@@ -216,8 +228,8 @@ You need a Passphrase to protect your secret key.
 
    PROTIP: This ensures that you'll avoid typos.
 
-   PROTIP: Here again, enterprises have a security standard for pass phrases
-   such as at least 5 words and contain numbers
+   PROTIP: Here again, enterprises usually have a security standard for strong pass phrases
+   such as at least 5 words and contain numbers.
 
 0. Move your mouse immediately after clicking OK.
 
@@ -247,11 +259,9 @@ uid       [ultimate] Wilson Mar <wilsonmar@gmail.com>
 sub   2048R/80E44BBF 2016-07-31
    </pre>
 
-   ### Back up your PGP key #
-
    NOTE: The key just created is not stored in your present working directory.
 
-0. List the keys again:
+0. List the keys again for the physical location of gpg's keychain:
 
    <tt><strong>
    gpg --list-keys
@@ -331,9 +341,9 @@ Author: Wilson Mar <wilsonmar@gmail.com>
 Date:   Sat Jul 30 18:35:13 2016 -0600
    </pre>
 
-   Press q to quit the listing if it extends beyond one screen.
+0. Press q to quit the listing if it extends beyond one screen.
 
-   Blogs about this topic:
+Blogs about this topic:
 
    * http://candidtim.github.io/git/2012/11/27/git-signed-tags.html
    * https://ssd.eff.org/en/module/how-use-pgp-mac-os-x
@@ -349,6 +359,12 @@ On local Git:
 
 0. In Terminal, be in your repo's folder.
 0. For more information, see https://git-scm.com/book/en/v2/Git-Basics-Tagging
+   or get help on the tag command:
+
+   <tt><strong>
+   git tag \-\-help
+   </strong></tt>
+
 0. List tags (in the singular):
 
    <tt><strong>
@@ -417,17 +433,16 @@ In order for others to verify your signature:
 
    You can email or even post this on a public website.
 
-0. Better yet, store the key as a Git object, and share it on a remote. This object will only hold a key data, and not the file name, or a commit information.
+0. Better yet, store the key as a <strong>Git object</strong> to hold key data.
 
    <tt><strong>
    git hash-object -w wilsonmar@gmail.com.pub
    </strong></tt>
 
-0. Copy the response and paste it:
+0. Copy the response (a hash) and paste it at the end of this command:
 
    <tt><strong>
-   git tag username-pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381<br />
-   git push --tags
+   git tag username-pub-rsa 7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381
    </strong></tt>
 
 0. Copy the response and paste it to the end of this command:
@@ -438,7 +453,7 @@ In order for others to verify your signature:
 
    No response is returned.
 
-0. Verify the tags:
+0. Verify the tags now:
 
    <tt><strong>
    git tag 
