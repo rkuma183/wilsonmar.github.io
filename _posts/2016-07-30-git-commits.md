@@ -822,11 +822,15 @@ PROTIP: Define a custom command script which receives an annotation as a paramet
 #!/bin/bash
 ((!$#)) && echo No annotation parameter, so command ignored! && exit 1
 git commit -a -m"$1" --gpg-sign=2E23C648
+git push
+gits
    </strong>
 
    The line starting with "((!$#))" exits if the required parameter is not provided.
 
    The $1 is a parameter variable whose value is provided in the first parameter after the command.
+
+   Remove "git push" and/or "gits" as you see fit.
 
 0. On a Mac: Save the file named <strong>gitw.sh</strong>.
 
@@ -837,7 +841,7 @@ git commit -a -m"$1" --gpg-sign=2E23C648
 0. Give the file executable permissions:
 
    <tt><strong>
-   chmod +aw gitcwg.sh
+   chmod a+x gitcwg.sh
    </strong></tt>
 
 0. Try it:
@@ -849,6 +853,7 @@ git commit -a -m"$1" --gpg-sign=2E23C648
    More on this topic:
    
    * http://thediscoblog.com/blog/2014/03/29/custom-git-commands-in-3-steps/
+
 
 ## More Resources #
 
