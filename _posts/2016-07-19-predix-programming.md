@@ -21,6 +21,8 @@ Predix, GE's brand name for their "Industrial Internet".
 This duplicates much of the material on predix.io,
 so that PROTIPs and NOTEs can be added in context.
 
+{% include _intro.html %}
+
 ## Hackathons #
 
 GE's #Current sponsors a "City-changing" and enterprises hackathon based on Predix 

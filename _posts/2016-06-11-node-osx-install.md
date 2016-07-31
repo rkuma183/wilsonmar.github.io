@@ -25,6 +25,7 @@ Many instructions on the internet are outdated, contradictory, or plain wrong.
 
 The objective of this article is to help you install and uninstall the various editions and versions.
 
+{% include _intro.html %}
 
 <a name="Editions"></a>
 
@@ -60,6 +61,8 @@ On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on
 <a name="Versions"></a>
 
 ## Which version of what? #
+
+   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
 
 Instead of using an internet browser to download an installer from<br />
    <a target="_blank" href="https://nodejs.org/en/download/releases/">

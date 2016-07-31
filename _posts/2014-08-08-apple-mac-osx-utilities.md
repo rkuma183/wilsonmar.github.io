@@ -57,17 +57,17 @@ gem install --no-rdoc --no-ri flaky
 
 ## Grunt Setup
 
-What the grunt version installed?
+0. What is the grunt version installed?
 
-<pre><strong>
-grunt --version
-</strong></pre>
+   <pre><strong>
+   grunt --version
+   </strong></pre>
 
-Install grunt:
+0. Install grunt:
 
-<pre><strong>
-npm install -g grunt grunt-cli
-</strong></pre>
+   <pre><strong>
+   npm install -g grunt grunt-cli
+   </strong></pre>
 
 
 

@@ -246,7 +246,7 @@ switching report format to xml in jmeter properties file:
   
 0. When no jobs are running, restart the Jenkins server to reload the plugin.
 
-   Read more about plugins:
+## Read more about plugins #
 
    * http://wiki.jenkins-ci.org/display/JENKINS/Checking+out+existing+plugins
    * http://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
@@ -254,3 +254,6 @@ switching report format to xml in jmeter properties file:
    * https://www.blazemeter.com/blog/continuous-integration-101-how-run-jmeter-jenkins
    * https://www.linkedin.com/pulse/continuous-automated-web-tests-using-jenkins-jmeter-mahanta
 
+   * https://dzone.com/articles/orchestrating-workflows-with-jenkins-and-docker
+
+   * https://github.com/jenk

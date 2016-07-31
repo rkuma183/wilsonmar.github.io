@@ -1241,3 +1241,4 @@ Builds/jobs can be automatically triggered several ways:
    Jenkins Crash Course wiki</a>
 
 
+* http://code.tutsplus.com/tutorials/setting-up-continuous-integration-continuous-deployment-with-jenkins--cms-21511
