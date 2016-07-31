@@ -23,10 +23,15 @@ here's a multi-vendor comparison of regions.
    * <a href="#AzureRegions">Azure</a>
    * Google Cloud Compute (TODO)
    * <a href="#Rackspace">Rackspace</a> (TODO)
+   * [Digital Ocean](/digital-ocean/)
    * IBM (todo)
    * etc.
 
 TODO: Provide an interactive comparison.
+
+{% include _intro.html %}
+
+## Definitions #
 
 Each region is a separate geographic area.
 

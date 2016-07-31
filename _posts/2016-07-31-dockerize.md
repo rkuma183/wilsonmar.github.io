@@ -178,6 +178,13 @@ See https://docs.docker.com/compose/
 Docker compose creates multiple containers with a single command. 
 
 
+## More resources #
+
+Blogs on this topic:
+
+   * http://thediscoblog.com/blog/2014/05/05/dockerfiles-in-a-jiffy/
+
+
 
 ## More on DevOps #
 
