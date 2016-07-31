@@ -59,3 +59,10 @@ A Practical Overview of Desired State Configuration
 http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
 How to search a string in multiple files and return the names of files in Powershell
 
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

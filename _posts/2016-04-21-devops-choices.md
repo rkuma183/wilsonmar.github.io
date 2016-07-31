@@ -489,3 +489,10 @@ Boards, burn-down charts.
    * Gaming (Unity)
    * GLib, Maya (motion graphics)
    * etc.
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

@@ -864,3 +864,10 @@ Other blogs about this topic:
    * https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work
    * https://ariejan.net/2014/06/04/gpg-sign-your-git-commits/
    <br />
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

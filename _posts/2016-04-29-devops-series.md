@@ -17,7 +17,7 @@ comments: true
 
 This page is about the series on DevOps.
 
-{% include devops_topics.html %}
+{% include devops_links.html %}
 
 
 ## References

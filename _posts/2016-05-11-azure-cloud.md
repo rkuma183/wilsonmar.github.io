@@ -554,3 +554,11 @@ by Yacine Khammal Intermediate Feb 14, 2012  2h 37m
 
 * https://www.microsoft.com/en-us/store/apps/posterpedia/9wzdncrdcsr8
    Get the Posterpedia Windows 8 app used to zoom into electronic posters.
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

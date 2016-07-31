@@ -1242,3 +1242,10 @@ Builds/jobs can be automatically triggered several ways:
 
 
 * http://code.tutsplus.com/tutorials/setting-up-continuous-integration-continuous-deployment-with-jenkins--cms-21511
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

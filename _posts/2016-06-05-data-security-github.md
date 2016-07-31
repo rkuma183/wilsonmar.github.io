@@ -268,3 +268,10 @@ environment variables.
 * http://stackoverflow.com/questions/6009/how-do-you-deal-with-configuration-files-in-source-control
 
 * http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

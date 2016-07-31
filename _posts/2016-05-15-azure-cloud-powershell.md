@@ -379,3 +379,11 @@ The equivalent
 * Get-AzureRmVMImagePublisher -Location $locName | select PublisherName
 * Get-AzureRmVMImageOffer -Location $locName -PublisherName $Publisher
 * Get-AzureRmVMImageSku -Location $locName -PublisherName $Publisher -Offer $offer
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

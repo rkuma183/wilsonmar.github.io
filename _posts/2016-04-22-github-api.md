@@ -151,3 +151,11 @@ Copy the user command:
 * http://restfest.org
   annual conference in Greenville, SC late September
   records videos.
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

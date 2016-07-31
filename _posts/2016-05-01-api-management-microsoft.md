@@ -482,7 +482,15 @@ Sample apps
   and all automatable post-setup integration.
 
 
-## More on APIs
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}
+
+
+## More on APIs #
 
 This page is one of a series about APIs:
 

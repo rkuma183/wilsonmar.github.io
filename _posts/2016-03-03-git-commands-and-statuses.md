@@ -48,4 +48,9 @@ The diagram above is animated in PowerPoint and go with a narrative to each step
 I then created a screencast video of it.
 And a step-by-step hands-on tutorial to explain each step.
 
-# Narration
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

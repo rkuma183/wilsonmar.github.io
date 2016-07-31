@@ -29,3 +29,9 @@ My version of the Grep utility that filters what is piped into it:
 
 Grep filters what is piped into it.
 
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

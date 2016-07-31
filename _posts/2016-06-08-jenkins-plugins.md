@@ -18,6 +18,7 @@ comments: true
 This assumes that you have followed 
 [Jenkins Setup](/jenkins-setup/)
 
+{% include _intro.html %}
 
 ### Install Plugins #
 
@@ -257,3 +258,10 @@ switching report format to xml in jmeter properties file:
    * https://dzone.com/articles/orchestrating-workflows-with-jenkins-and-docker
 
    * https://github.com/jenk
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

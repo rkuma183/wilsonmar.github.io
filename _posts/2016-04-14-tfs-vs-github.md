@@ -381,3 +381,11 @@ TechNet Virtual Lab: Introduction to Team Foundation Build 2015 (vNext), Test Ru
 
 * https://msdn.microsoft.com/en-us/library/jj190809.aspx
   VS 2015 with Git Branches
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

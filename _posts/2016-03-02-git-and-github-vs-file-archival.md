@@ -55,3 +55,11 @@ Each IDE may have its own utility to identify and merge differences.
 Git and GitHub provide a superior approach to both offline backup and analysis of history because it provides higher detail than file-based approaches.
 
 The Git client monitors changes in your files down to a single character within each individual line. Git maintains detailed history of those tiny incremental changes. Then Git synchronizes that detail with GitHub cloud servers. 
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

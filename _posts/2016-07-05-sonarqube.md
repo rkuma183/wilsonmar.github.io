@@ -212,11 +212,8 @@ fuzz testing"</a> and
 
 
 
-## Install in Eclipse?
+## More on DevOps #
 
+This is one of a series on DevOps:
 
-<a id="Videos"></a>
-
-## Videos #
-
-
+{% include devops_links.html %}

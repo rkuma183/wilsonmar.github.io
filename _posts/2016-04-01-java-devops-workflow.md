@@ -370,3 +370,11 @@ This page contains an example of how to incorporate Gists (from GitHub) in Jekyl
    * http://java.worldbestlearningcenter.com
 
    * http://www.cs.armstrong.edu/liang/intro9e/exercisesolution.html
+
+
+  
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

@@ -184,3 +184,11 @@ which is the current rage (June 2016).
 This is one of a series on Amazon:
 
 {% include aws_links.html %}
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

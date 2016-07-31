@@ -489,4 +489,9 @@ Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
 
 
 
-## Add image to Docker Hub #
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

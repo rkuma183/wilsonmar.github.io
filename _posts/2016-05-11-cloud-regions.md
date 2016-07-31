@@ -236,3 +236,11 @@ See https://www.microsoft.com/en-us/server-cloud/cloud-os/global-datacenters.asp
 Rackspace began operations soon after the announcement of AWS.
 The company provides value-added on AWS as well as
 on its own servers East of its Austin, Texas headquarters.
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

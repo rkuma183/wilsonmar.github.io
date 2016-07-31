@@ -239,3 +239,11 @@ This is explained by <a target="_blank" href="https://www.thoughtworks.com/insig
 * https://www.thoughtworks.com/p2magazine/issue12/treat-devops-stories-like-user-stories/
 
 * http://www.devopsonline.co.uk/
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

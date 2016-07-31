@@ -182,3 +182,11 @@ CentOS.
 ## Resources #
 
 This table is an update from <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> this site</a>.
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

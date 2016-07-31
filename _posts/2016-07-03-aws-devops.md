@@ -177,3 +177,11 @@ This is simpler than Packer from Hashicorp.
 This is one of a series on Amazon:
 
 {% include aws_links.html %}
+
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}
