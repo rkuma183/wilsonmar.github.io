@@ -34,6 +34,7 @@ To associate a
 <a href="#GenerateKey">signing key you generate</a>
 with your commits you push from git client to GitHub:
 
+   0. <a href="#GitBranch">git branch</a>
    0. <a href="#GitAdd">git add</a>
    0. <a href="#GitCommit">git commit</a> <br />
    0. <a href="#GitTag">git tag</a> <br />
@@ -383,10 +384,25 @@ user.signingkey=2E23C648
 
 Again, all the above is done only once.
 
+<a name="GitBranch"></a>
 
-<a name="GitAdd"></a>
+## Git Branch #
 
-## Git Add #
+PROTIP: Create a branch before making changes so that 
+the commit submitted could be evaluated on its own.
+
+0. Create a new branch "edit256" in the current repo during 
+   <a target="_blank" href="https://git-scm.com/docs/git-checkout">
+   git checkout</a>, which updates files in Git's <strong>working tree</strong> 
+   to match the version in the index or the specified tree.
+
+   <tt><strong>
+   git checkout -b edit256
+   </strong></tt>
+
+   <a name="GitAdd"></a>
+
+   ## Git Add #
 
 0. Make a change to a file in the repo.
 
@@ -656,14 +672,18 @@ origin   https://github.com/wilsonmar/wilsonmar.github.io.git (push)
 0. Transfer all commits to the remote server that are not already there:
 
    <tt><strong>
-   git push origin master
+   git push origin develop
    </strong></tt>
 
    NOTE: "origin" location does not need to be specified if it's the default.
-
    The "master" branch does not need to be specified if it's the default of origin.
+
+   PROTIP: It's a good habit to specify the location and branch with a push because
+   enterprise developers often switch among several ones.
    
-   The branch does need to be specified if it's to "upstream" or other non-origin location.
+   The branch needs to be specified if it's to "upstream" location or other non-origin location.
+
+   NOTE: Push to certain branches can trigger hooks defined in GitHub.
 
    Sample response:
 

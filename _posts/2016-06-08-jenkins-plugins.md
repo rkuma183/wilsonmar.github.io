@@ -20,19 +20,28 @@ This assumes that you have followed
 
 {% include _intro.html %}
 
-### Install Plugins #
+### How to Install Jenkins Plugins #
 
 Here is a generic set of steps to install a plug-in:
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
-0. Clikc **Manage Plugins**.
+
+      <amp-img width="362" height="285" alt="do_jenkins_createuser_01b" src="https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png"></amp-img>
+
+0. Click **Manage Plugins** to http://.../pluginManager/
+
+      <amp-img width="650" height="53" alt="jenkins manage plugins 2016-08-01-650x53-i11.jpg" src="https://cloud.githubusercontent.com/assets/300046/17295483/95b3f7d4-57b9-11e6-94af-d8183f3ec77d.jpg"></amp-img>
+
 0. Click **Installed** tab to view what has been installed already.
+0. Click **Available** tab to http://.../pluginManager/available
 
-   Pick one from the list of plugin-ins <a href="#MorePlugins">more plugins</a>.
+   Lists of plugins online: <a href="#MorePlugins">more plugins</a> below.
 
-0. Click **Available** tab has many plug-ins.
+   * http://www.praqma.com/stories/top-jenkins-plugins/
 
 0. Click on a category (Artifact Uploaders) to expand additional categories.
+
+   * https://wiki.jenkins-ci.org/display/JENKINS/Plugins
 
 0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
    Wiki on Plugins</a>.

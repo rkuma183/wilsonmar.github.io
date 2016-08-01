@@ -1089,7 +1089,7 @@ Jenkins installation options are described at:
 
    As with other systems, granting permissions is typically done only by the Administrator of the system.
    
-    ![do_jenkins_createuser_01b](https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png)
+      <amp-img width="362" height="285" alt="do_jenkins_createuser_01b" src="https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png"></amp-img>
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 
@@ -1212,9 +1212,9 @@ See [Install Jenkins Plug-ins](/jenkins-plugins/)
  Nodes are described at:
  * https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds
 
-<a id="Builds">
+<a id="Builds"></a>
 
-## Build Projects</a>
+## Build Projects #
 
 Jenkins was originally created for automating the building (compilation) of java programs.
 But Jenkins is ALSO used for other types of work.

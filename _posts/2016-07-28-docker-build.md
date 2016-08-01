@@ -392,7 +392,21 @@ Status: Downloaded newer image for centos:latest
    exit
    </strong></tt>
 
+## Compose #
 
+0. Define a <strong>base docker-compose.yml</strong> to create a new configuration.
+
+0. Define a <strong>production.yml</strong> file to selectively override specific
+   the original Compose file.
+
+0. Override the base file with elements of the production.yml file:
+
+   <tt><strong>
+   docker-compose -f docker-compose.yml -f production.yml up -d
+   </strong></tt>
+
+   See https://docs.docker.com/v1.11/compose/extends/#different-environments
+   
 
 ## Link repo to Docker Hub #
 

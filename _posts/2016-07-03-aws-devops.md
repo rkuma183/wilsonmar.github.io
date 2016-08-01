@@ -22,9 +22,14 @@ This tutorial focuses on continuous integration and deployment.
 
 <hr />
 
+<a target="_blank" href="https://aws.amazon.com/devops/">
+Amazon</a> defines "DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity."
+
 <a name="CodeDeploy"></a>
 
 ## CodeCommit, CodePipeline, Code Deploy #
+
+![aws devops 201606-650x209-i11](https://cloud.githubusercontent.com/assets/300046/17295043/77eae0e8-57b7-11e6-958b-dc26ebe74361.jpg)
 
 ### Setup instances #
 

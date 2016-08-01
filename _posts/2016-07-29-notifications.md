@@ -111,7 +111,7 @@ actually less effective than they think.
    would ideally be adjusted on the
    preference of each individual recipient.
 
-   | Condition        | Noise | SMS  | Slack | email | archive |
+   | Condition        | <a href="#Noisy">Noisy</a> | SMS  | Slack | email | archive |
    | :--------------- | :---- | :--- | :---- | :---- | :----- |
    | <a href="#BuildStart">Build Start</a>| -     | -    | -     | -     | all    |
    | <a href="#Aborted">Aborted</a> | -     | -    | -   | -     | all     |
@@ -130,6 +130,17 @@ actually less effective than they think.
 
    The numbers in the chart above are for the importance level,
    with 1 being the highest.
+
+<a name="Noisy"></a>
+
+### Noisy Interrupt #
+
+   PROTIP: Sometimes, it is necessary to make a visible, auditory, or other physical human sense signal.
+   This is not just to get the attention of someone with a disability.
+   When people are watching a loud movie or have headphones on,
+   how does someone interrupt for an important message?
+
+   * https://developer.artik.cloud/
 
 <a name="BuildStart"></a>
 
@@ -164,17 +175,27 @@ actually less effective than they think.
    provide a fine-grained management platform for notifications.
 
 
-## Setup Slack on Jenkins #
+## Hipchat #
+
+https://github.com/jlewallen/jenkins-hipchat-plugin
+
+## Slack on Jenkins #
 
 There are several other instant messaging services available:
 Hipchat, Microsoft Skype, Snapchat, Facebook WhatsApp, Yahoo Messenger, etc.
 
-Let'st start with Slack, which is the darling in 2016.
+Let's start with Slack, which is the darling in 2016.
 
-0. Get a Slack account at https://slack.com/
+0. Get a Slack account at <a target="_blank" href="https://slack.com/">
+   https://slack.com</a>
+
+   Once signed in:
+
+0. Create a new channel for experimenation the first time you do this.
 
 0. Go to the Jenkins integration page at<br />
-   https://my.slack.com/services/new/jenkins-ci
+   <a target="_blank" href="https://my.slack.com/services/new/jenkins-ci">
+   https://my.slack.com/services/new/jenkins-ci</a>
 
    If you've signed in, you'll see the last channel you visited online.
 

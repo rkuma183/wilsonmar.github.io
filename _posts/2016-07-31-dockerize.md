@@ -172,10 +172,15 @@ ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/
 
 ## Docker Compose #
 
+Docker compose creates multiple containers with a single operation. 
+
 See https://docs.docker.com/compose/
 
+0. Define attributes of Docker host in environment variables:
 
-Docker compose creates multiple containers with a single command. 
+   * DOCKER_HOST
+   * DOCKER_TLS_VERIFY
+   * DOCKER_CERT_PATH
 
 
 ## More resources #
