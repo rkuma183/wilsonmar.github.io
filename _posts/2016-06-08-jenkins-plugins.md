@@ -20,7 +20,7 @@ This assumes that you have followed
 
 {% include _intro.html %}
 
-### How to Install Jenkins Plugins #
+### Find and Select Jenkins Plugins #
 
 Here is a generic set of steps to install a plug-in:
 
@@ -34,25 +34,59 @@ Here is a generic set of steps to install a plug-in:
 
 0. Click **Installed** tab to view what has been installed already.
 0. Click **Available** tab to http://.../pluginManager/available
+0. Click **Advanced** tab and scroll to the bottom to see the Update Site URL for the source of plugins listed:
 
-   Lists of plugins online: <a href="#MorePlugins">more plugins</a> below.
+   * http://updates.jenkins-ci.org/update-center.json
 
-   * http://www.praqma.com/stories/top-jenkins-plugins/
+   NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
+   &LT;jenkinsHome>/plugins/
 
-0. Click on a category (Artifact Uploaders) to expand additional categories.
-
-   * https://wiki.jenkins-ci.org/display/JENKINS/Plugins
+   On a Mac, the jenkinshome is <strong>~/.jenkins</strong>.
 
 0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
    Wiki on Plugins</a>.
 
- PROTIP: The wide variety of plugins is why Jenkins is popular.
+   PROTIP: The wide variety of plugins is why Jenkins is popular.
+
+   Lists of top Jenkins plugins online: <a href="#MorePlugins">more plugins</a> below.
+
+   * http://www.praqma.com/stories/top-jenkins-plugins/
+   * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
+   * https://uttamkini.com/2012/12/01/jenkins-plugins-that-every-team-must-use/
+   * http://www.hugeinc.com/ideas/perspective/list-of-useful-jenkins-plugins
+   * http://devops.com/2015/01/15/15-must-jenkins-plugins-increase-productivity/
+   * https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Installation+Statistics
+   is broken
+   <br /><br />
+
+0. Click on a category (such as ".NET Development") to contract or expand items in each category.
+
+   A list of categories is listed online at <br />
+   https://wiki.jenkins-ci.org/display/JENKINS/Plugins
+
+   PROTIP: There are dozens of categories, so it's easier to search for plugins. 
+
+   ### Install Green Balls icon plugin #
+
+0. In the Filter field at the upper right of the screen, type "Green Balls",
+   which is one of the most popular among DevOps people who can't stand that 
+   the Jenkins default for healthy (successful) is blue, not green.
+   (<a target="_blank" href="https://jenkins.io/blog/2012/03/13/why-does-jenkins-have-blue-balls/">
+   due to a historical/cultural artifact</a>).
+
+   BLAH: The plugin is not among those among "Available".
+   
+0. So we look online at<br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">
+   https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a>
+
+   Directions for installation is on the web page.
 
 
 ### Plug-in files #
 
-0. Switch to Terminal to open a new command line window.
-0. Navigate to the hidden Jenkins folder:
+0. Switch to Terminal to open a new command line window and
+   navigate to the hidden Jenkins folder to view files:
 
    <pre><strong>
    cd ~/.jenkins
@@ -61,6 +95,23 @@ Here is a generic set of steps to install a plug-in:
    </strong></pre>
 
    NOTE: Each plug-in has a <strong>.jpi</strong> binary file for each folder which contains a META-INF and WEB-INF folder.
+
+0. To provision a Docker box, this Gist script<br />   
+   https://gist.github.com/micw/e80d739c6099078ce0f3
+
+   does not require Jenkins to be running. 
+   It does the following:
+
+   * Download one or more plugins to the plugin directory
+   * Scan all plugins in that directory for missing dependencies
+   to download those dependencies as well
+   * Loop until no open dependencies are left.
+   
+0. To install a Git client in the Console:
+
+   <pre><strong>
+   curl -XPOST http://localhost:8080/pluginManager/installNecessaryPlugins -d '<install plugin="git@current" />'
+   </strong></pre>
 
 
 ### Rake Environment Variable #
@@ -88,7 +139,6 @@ Here is a generic set of steps to install a plug-in:
    * Translation Assistance
    * Workspace Cleanup Plugin
    
-
 ### For Microsoft developers #
 
    * MSBuild
@@ -169,16 +219,10 @@ SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to
 <a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
 Jenkins left menu</a> to avoid needing to be at the server console at all.
 
-### Green icon plugin #
-
-Don't like the color blue?
-
-https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls
-
 
 <a id="JMeterPlugin"></a>
 
-## JMeter plug-ins #
+## JMeter plug-in #
 
 QUESTION: Are there more plug-ins for JMeter?
 

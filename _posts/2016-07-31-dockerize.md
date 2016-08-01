@@ -182,6 +182,9 @@ See https://docs.docker.com/compose/
    * DOCKER_TLS_VERIFY
    * DOCKER_CERT_PATH
 
+See https://docs.docker.com/v1.11/compose/compose-file/
+
+
 
 ## More resources #
 
