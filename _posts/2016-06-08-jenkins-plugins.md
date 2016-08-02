@@ -89,6 +89,10 @@ Here is a generic set of steps to install a plug-in:
    <strong>open link in New Tab</strong> on your browser
    so a tab with the Jenkins icon remains among browser tabs.
 
+0. Return to the root console page (by clicking "Jenkins" at the upper left corner).
+
+0. Click "S" for small icons.
+
 
 ## Jenkins 2 Pipeline Plugin #
 
@@ -118,6 +122,72 @@ with.node('linux') {
 } 
    </pre>
 
+
+0. Install the "Pipeline" (in Manage Jenkins, Manage Plugins, Available) at<br />
+   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+
+0. Right-click to open in a new tab the 
+   "See Pipeline as Code with Jenkins for more details" "link at<br />
+   <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
+   https://jenkins.io/solutions/pipeline</a>
+
+0. Return to the root console page (by clicking "Jenkins" at the upper left corner).
+
+0. Click <strong>New Item</strong> at http://.../view/All/newJob
+
+0. Enter item name and click "Pipeline", then OK. ("Orchestrates long-running activities that can span multiple build slaves. Suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.").
+
+0. Among Build Triggers click "Build when a change is pushed to GitHub".
+
+0. Click "GitHub project". 
+
+0. For Project url: https://github.com/hotwilson/box.git
+
+   NOTE: The word "slave" and "node" and "computer"
+   have been replaced with the word "agent".
+
+0. Click "Advanced" and type the Display name, "Box" in our example.
+
+0. Click "Pipeline" tab to bring that section up.
+
+0. Select from the "try sample" pull down "Hello World".
+
+   Notice the Groovy script:
+
+   <pre>
+node {
+   stage 'Stage 1'
+   echo 'Hello World 1'
+   stage 'Stage 2'
+   echo 'Hello World 2'
+}
+   </pre>
+
+0. Click Save for the item screen.
+
+0. Double-click on "Build Now" (in rapid succession).
+
+   A sample response:
+
+   <amp-img width="490" height="277" alt="jenkins2 build hello-world-490x277-i38.png" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
+   NOTE: Text in headings were specified in state keywords in the Groovy script above.
+
+   PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
+
+0. Cursor over one of the "ms" numbers in the green area and 
+   click the Log button that appears.
+
+   A pop-up appears with the text specified by the echo command within the Groovy script.
+
+0. Click the "X" at the upper-right of the dialog to dismiss it.
+
+0. Click one of the jobs in the Build History section in http://.../job/box/5/
+
+   Notice the number in the URL corresponds to the number listed.
+
+0. Click "Console Output" for log details created that run.
+
+
 Read about Pipeline:
 
 * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
@@ -127,11 +197,16 @@ Read about Pipeline:
 * https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 * https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
 
-* http://udaypal.com/jenkins-workflow-getting-started/
 
-0. Install the "Pipeline".
+https://www.youtube.com/watch?v=M-rxJBdYIrw
+Jenkins 2.0. What? When? What is in it for me?
+by <a target="_blank" href="https://se.linkedin.com/in/robertsandell/">
+Robert "Bobby" Sandell</a>
+(<a target="_blank" href="<a target="_blank" href="https://www.rsandell.com/">rsandell.com</a>), 
+Software Engineer at Cloudbees Stockholm since June 2010.
 
-0. Create a project using the "Pipeline".
+https://www.youtube.com/watch?v=_iFtmp72p_E
+Jenkins pipeline plugin demo
 
 ### GitHub to Jenkins #
 
@@ -425,6 +500,7 @@ switching report format to xml in jmeter properties file:
 
    * https://github.com/jenk
 
+   * http://udaypal.com/jenkins-workflow-getting-started/
 
 ## More on DevOps #
 

@@ -204,6 +204,7 @@ ARG DOCKER_ENGINE=1.10.2
 ARG DOCKER_COMPOSE=1.6.2
    </pre>
 
+* http://blog.serverbooter.com/blog/2013/10/24/simple-clouformation-with-multiple-aws-accounts/
 
 ## More on DevOps #
 

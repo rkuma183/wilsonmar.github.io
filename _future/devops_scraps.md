@@ -1,3 +1,24 @@
+An example Groove script:
+
+<pre>
+with.node('linux') {
+git(url: 'git://server/myapp.git')
+sh('mvn clean package')
+archive('target/myapp.war')
+stage('Test')
+parallel({
+sh('mvn -Psometests test')
+}, {
+sh('mvn -Pothertests test')
+})
+input('OK to deploy?')
+stage(value: 'Deploy', concurrency: 1)
+sh('mvn deploy')
+} 
+</pre>
+
+
+
 
 
 ## Dockerfile #
