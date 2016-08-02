@@ -104,8 +104,8 @@ RUN pip install docker-compose==${DOCKER_COMPOSE:-1.6.2} && \
     pip install ansible boto boto3
    </pre>
 
-   CAUTION: Dependencies are not ensured by Docker.
-   
+   CAUTION: Docker does not pull in the entire tree of dependencies like package managers do.
+
 
 ## Pipeline #
 

@@ -853,6 +853,9 @@ Praqma Channel
 
 * https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7
 
+* http://blog.serverbooter.com/blog/2014/03/07/docker-first-impressions/
+Docker First Impressions on Ubuntu
+
 
 ## More on DevOps #
 
