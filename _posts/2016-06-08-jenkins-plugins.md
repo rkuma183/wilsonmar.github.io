@@ -26,17 +26,19 @@ Here is a generic set of steps to install a plug-in:
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 
-      <amp-img width="362" height="285" alt="do_jenkins_createuser_01b" src="https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png"></amp-img>
+   <amp-img width="362" height="285" alt="jenkins createuser_01b-362x285-t69" src="https://cloud.githubusercontent.com/assets/300046/17301184/f763c996-57d2-11e6-8b28-1faf907a3b60.png"></amp-img>
 
 0. Click **Manage Plugins** to http://.../pluginManager/
 
-      <amp-img width="650" height="53" alt="jenkins manage plugins 2016-08-01-650x53-i11.jpg" src="https://cloud.githubusercontent.com/assets/300046/17295483/95b3f7d4-57b9-11e6-94af-d8183f3ec77d.jpg"></amp-img>
+   <amp-img width="650" height="53" alt="jenkins manage plugins 2016-08-01-650x53-i11.jpg" src="https://cloud.githubusercontent.com/assets/300046/17295483/95b3f7d4-57b9-11e6-94af-d8183f3ec77d.jpg"></amp-img>
 
 0. Click **Installed** tab to view what has been installed already.
 0. Click **Available** tab to http://.../pluginManager/available
 0. Click **Advanced** tab and scroll to the bottom to see the Update Site URL for the source of plugins listed:
 
-   * http://updates.jenkins-ci.org/update-center.json
+   <pre>
+   http://updates.jenkins-ci.org/update-center.json
+   </pre>
 
    NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
    &LT;jenkinsHome>/plugins/
@@ -61,10 +63,10 @@ Here is a generic set of steps to install a plug-in:
 
 0. Click on a category (such as ".NET Development") to contract or expand items in each category.
 
-   A list of categories is listed online at <br />
-   https://wiki.jenkins-ci.org/display/JENKINS/Plugins
-
-   PROTIP: There are dozens of categories, so it's easier to search for plugins. 
+   PROTIP: There are dozens of categories, so it may be easier to search for plugins by name
+   or from the list of categories online at <br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins">
+   https://wiki.jenkins-ci.org/display/JENKINS/Plugins</a>
 
    ### Install Green Balls icon plugin #
 
@@ -74,14 +76,134 @@ Here is a generic set of steps to install a plug-in:
    (<a target="_blank" href="https://jenkins.io/blog/2012/03/13/why-does-jenkins-have-blue-balls/">
    due to a historical/cultural artifact</a>).
 
-   BLAH: The plugin is not among those among "Available".
+   PROTIP: When a plugin is installed, Jenkins removes that plugin among the "Available"
+   and shows the plugin among the "Installed".
    
-0. So we look online at<br />
+0. When you click the name of a plug-in you'll be sent to another website, such as:<br />
    <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">
    https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a>
 
-   Directions for installation is on the web page.
+0. Return to the previous screen: Hit the browser return key or command + left arrow.
 
+   PROTIP: Instead of clicking plugin names, right-click to 
+   <strong>open link in New Tab</strong> on your browser
+   so a tab with the Jenkins icon remains among browser tabs.
+
+## Dockerfile #
+
+   <pre>
+USER jenkins
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+   </pre>
+
+Installation of Docker-compose using pip is specified in a Dockerfile by:
+
+   <pre>
+RUN pip install docker-compose==${DOCKER_COMPOSE:-1.6.2} && \
+    pip install ansible boto boto3
+   </pre>
+
+   CAUTION: Dependencies are not ensured by Docker.
+   
+
+## Pipeline #
+
+Instead of manually clicking, the <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
+Pipeline plugin</a> by author Jesse Glick (@tyvole), 
+reads from a text-based 
+<strong>Jenkinsfile</strong>
+as another piece of Groovy script code checked into source control.
+An example:
+
+   <pre>
+with.node('linux') {
+ git(url: 'git://server/myapp.git')
+ sh('mvn clean package')
+ archive('target/myapp.war')
+ stage('Test')
+ parallel({
+ sh('mvn -Psometests test')
+ }, {
+ sh('mvn -Pothertests test')
+ })
+ input('OK to deploy?')
+ stage(value: 'Deploy', concurrency: 1)
+ sh('mvn deploy')
+} 
+   </pre>
+
+Read <a target="_blank" href="https://jenkins.io/doc/pipeline/">
+Getting Started with Pipeline at https://jenkins.io/doc/pipeline</a>
+
+The Piple plugin at https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+
+https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
+
+
+
+### GitHub to Jenkins #
+
+   <amp-youtube data-videoid="ISAUsBSI8G0" layout="responsive" width="480" height="270">
+   </amp-youtube>
+   This "Jenkins Tutorial - Part 03: Git Integration & Configuring jobs using Git".
+
+0. [0:42] Install "Git Plugin"
+   https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
+   to provide Git client functionality on Jenkins servers.
+
+0. PROTIP: Restart Jenkins by changing the URL from:
+
+   <pre>
+   http://.../pluginManager/installed
+   </pre>
+
+   to
+
+   <pre>
+   http://.../restart
+   </pre>
+
+   Click Yes to "Are you sure".
+
+   "Please wait while Jenkins is restarting".
+
+0. [1:41] Create a Jenkins Freestyle project, OK.
+
+0. [2:01] The <strong>Source Code Management</strong> section, select <strong>Git</strong>.
+
+0. [2:15] Enter your repo, with the .git at the end.
+
+   The plugin makes a call such as:
+
+   <pre>
+   git ls-remote -h https://github.com/hotwilson/box.git HEAD
+   </pre>
+
+   NOTE: When done on my Mac Terminal, this returns nothing.
+
+   If you <a target="_blank" href="http://stackoverflow.com/questions/36126664/jenkins-git-repo-url-error">(like others)</a>
+   get the error message <br />
+   "Failed to connect to repository : Error performing command:"
+
+0. [2:15] If your repo is private, provide your SSH keys.
+
+   https://developer.github.com/guides/managing-deploy-keys/
+   
+   https://docs.docker.com/docker-hub/builds/
+
+
+   ### Install GitHub plugin #
+
+https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
+
+
+### NodeJS Plugin #
+
+https://wiki.jenkins-ci.org/display/JENKINS/NodeJS+Plugin
+
+also installs Grunt
+http://gruntjs.com/getting-started
 
 ### Plug-in files #
 

@@ -184,6 +184,26 @@ This is one of a series on Amazon:
 {% include aws_links.html %}
 
 
+## More resources #
+
+Justin Manga (@jmenga, pseudo.co.de) in video course
+<a target="_blank" href="https://app.pluralsight.com/player?course=docker-ansible-continuous-delivery">
+Continuous Delivery using Docker and Ansible</a> 
+shows learners how to create a Python app,
+then Jenkins 2 Pipeline plugin in a container
+using Cloud Formation files.
+deploy to a EC2 Container Services 
+holding Debian instances.
+
+Since ECS has Group of 497:
+
+   <pre>
+ARG DOCKER_GID=497
+RUN groupadd -g ${DOCKER_GID:-497} docker
+ARG DOCKER_ENGINE=1.10.2
+ARG DOCKER_COMPOSE=1.6.2
+   </pre>
+
 
 ## More on DevOps #
 

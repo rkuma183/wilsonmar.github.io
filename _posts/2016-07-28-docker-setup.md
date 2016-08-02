@@ -762,6 +762,8 @@ the Swarm Manager master to communicate to all the nodes in a Swarm cluster.
 
 See https://docs.docker.com/swarm/
 
+http://autopilotpattern.io/
+
 
 <a name="DockerHub"></a>
 

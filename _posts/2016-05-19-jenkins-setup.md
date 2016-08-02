@@ -1089,8 +1089,6 @@ Jenkins installation options are described at:
 
    As with other systems, granting permissions is typically done only by the Administrator of the system.
    
-      <amp-img width="362" height="285" alt="do_jenkins_createuser_01b" src="https://cloud.githubusercontent.com/assets/10678180/17228006/cd742c42-54d6-11e6-9d7d-290bf096dbac.png"></amp-img>
-
       <amp-img width="362" height="285" alt="jenkins createuser_01b-362x285-t69" src="https://cloud.githubusercontent.com/assets/300046/17301184/f763c996-57d2-11e6-8b28-1faf907a3b60.png"></amp-img>
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.

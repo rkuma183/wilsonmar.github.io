@@ -176,6 +176,39 @@ Docker compose creates multiple containers with a single operation.
 
 See https://docs.docker.com/compose/
 
+An example <strong>docker-compose-dev.yml</strong> file from 
+<a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
+here</a>:
+
+   <pre>
+version: '2'
+services:
+&nbsp;
+  web:
+    image: node:6.1
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm install -g nodemon ; nodemon -e js,jade app.js'
+    ports:
+      - "80:3000"
+    depends_on:
+      - mongo
+    networks:
+      - all
+    environment:
+      MONGODB_URI: "mongodb://mongo:27017/hackathon"
+&nbsp;
+  mongo:
+    image: mongo:3
+    command: mongod --smallfiles
+    networks:
+      - all
+&nbsp;
+networks:
+  all:
+   </pre>
+
 0. Define attributes of Docker host in environment variables:
 
    * DOCKER_HOST
