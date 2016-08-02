@@ -33,15 +33,22 @@ After Oracle acquired Sun (MySQL's owner),
 the freedom of open-source was realized when Maria-DB was forked 
 to create a <strong>drop-in replacement for MySQL</strong>
 by MySQL co-founder Michael “Monty” Widenius, 
-who left Oracle to start a new company (Monty Program)
+who left Oracle to start a new company (Monty Program).
 
-   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, My.
+   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
+   <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
+   a name from a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
+   1952 children's book</a> from Finland, where her family originates.
 
 Many developers have migrated to MariaDB.
 (MariaDB 5.1.53 is based on MySQL 5.1.53).
+If you don't need to first uninstall MySQL,
+<a href="#InstallMariaDB">click here for instructions on installing MariaDB, below</a>.
 
-<a href="#InstallMariaDB">Click here to go straight to installing MariaDB</a>
-rather than uninstalling MySQL.
+
+## Cloud instances #
+
+There are several.
 
 ### AWS Aurora #
 
@@ -182,7 +189,7 @@ Or, if you don't want/need a background service you can just run:
    </pre>
 
 
-## Configure #
+   ### Configure #
 
 0. Open in Terminal a shell window.
 
@@ -196,7 +203,7 @@ Or, if you don't want/need a background service you can just run:
    Joe Fallon, in his blog</a>, proposed additional configurations.
     
 
-## Invoke daemon process #
+   ### Invoke daemon process #
 
 0. Invoke mysql daemon from the command line:
 
@@ -219,7 +226,7 @@ Or, if you don't want/need a background service you can just run:
    ps
    </strong></tt>
 
-   The response:
+   A sample response:
 
    <pre>
      PID TTY           TIME CMD
@@ -227,7 +234,7 @@ Or, if you don't want/need a background service you can just run:
    21161 ttys002    0:00.33 /usr/local/Cellar/mysql/5.7.13/bin/mysqld --basedir=/u
    </pre>
 
-   If you want to use the database, proceed to <a href="#WorkSQL">Work with SQL</a>.
+   If you want to use the database, proceed to <a href="#WorkSQL">Work with SQL</a> below.
 
 
 
@@ -253,9 +260,9 @@ Or, if you don't want/need a background service you can just run:
    </strong></tt>
 
 
-<a name="UninstallMySQL"></a>
+   <a name="UninstallMySQL"></a>
 
-### Uninstall MySQL #
+   ### Uninstall MySQL from Homebrew #
 
 0. Remove MySQL:
 
@@ -314,7 +321,7 @@ in addition to standard MyISAM, blackhole, CSV, Memory, etx.
 http://kb.askmonty.org/v/mariadb</a> is the MariaDB Knowledgebase. 
 
 0. Take a full backup before doing this.
-0. <a href="#UninstallMySQL">Uninstall MySQL</a>.
+0. <a href="#UninstallMySQL">Uninstall MySQL</a> if you have it installed.
 0. Install MariaDB:
 
    <tt><strong>
@@ -804,10 +811,10 @@ this article about InnoDB Performance Optimization Basics</a>.
 
 <a name="Resources"></a>
 
-## Resources #
+## Learn More #
 
 Pinal Dave (pronounced "da way", @pinaldave from India)
-has been producing video courses for years for
+has been producing video courses for years on
 <a target="_blank" href="http://blog.sqlauthority.com/"> SQLAuthority.com</a>
 before doing the 29 Apr 2013
 <a target="_blank" href="https://app.pluralsight.com/library/courses/mysql-fundamentals-part1/table-of-contents">
