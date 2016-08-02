@@ -166,7 +166,7 @@ BS in STEM degree, developer experience, ability to code demos, excellent writte
 
 This page was created as an example using page-specific Liquid variables in Jekyll Markdown front-matter.
 
-## More on Evanglism
+## More on Evanglism #
 
 This post is one of a (planned) series:
 

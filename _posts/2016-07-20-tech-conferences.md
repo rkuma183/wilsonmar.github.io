@@ -188,3 +188,10 @@ so more and more of them are popping up.
 
 TODO: Arrange this in a sortable table.
 
+
+## More on Evanglism #
+
+This post is one of a (planned) series:
+
+{% include evangelist_links.html %}
+

@@ -1244,6 +1244,28 @@ Builds/jobs can be automatically triggered several ways:
 * http://code.tutsplus.com/tutorials/setting-up-continuous-integration-continuous-deployment-with-jenkins--cms-21511
 
 
+* <a target="_blank" href="http://www.wakaleo.com/books/jenkins-the-definitive-guide">
+  Download <strong>Jenkins: The Definitive Guide</strong> (as 371 page PDF in 24.56 MB)</a> 
+   or <a target="_blank" href="https://github.com/wakaleo/jenkins-the-definitive-guide-book/">
+   read on-line</a>.
+
+   The forward by Jenkins creator Kohsuke Kawaguchi (@kohsukekawa)
+   notes that although no code was contributed,
+   the author makes Jenkins more approachable to new users.
+
+   The author, John Ferguson Smart 
+   (<a target="_blank" href="http://johnfergusonsmart.com/">johnfergusonsmart.com</a>)
+   of Wakaleo Consulting (<a target="_blank" href="https://twitter.com/wakaleo/">@wakaleo</a>)
+   in Wellington, New Zealand
+   and (<a target="_blank" href="https://www.linkedin.com/in/john-ferguson-smart-7442907/">UK</a>)
+   
+   Smart also authored "BDD in Action" and "Java Power Tools".
+
+   The book was written in 2011 using Jenkins 1.410.
+
+   The <a target="_blank" href="https://gitter.im/wakaleo/jenkins-the-definitive-guide-book">
+   Gitter channel associated with the book</a>.
+
 ## More on DevOps #
 
 This is one of a series on DevOps:

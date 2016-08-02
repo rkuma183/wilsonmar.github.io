@@ -89,31 +89,16 @@ Here is a generic set of steps to install a plug-in:
    <strong>open link in New Tab</strong> on your browser
    so a tab with the Jenkins icon remains among browser tabs.
 
-## Dockerfile #
 
-   <pre>
-USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
-   </pre>
+## Jenkins 2 Pipeline Plugin #
 
-Installation of Docker-compose using pip is specified in a Dockerfile by:
+Instead of manually clicking through the Jenkins UI, the 
+<a target="_blank" href="https://jenkins.io/solutions/pipeline/">
+Pipeline plugin</a> in Jenkins 2
+by author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
+reads a text-based <strong>Jenkinsfile</strong>
+Groovy script code checked into source control.
 
-   <pre>
-RUN pip install docker-compose==${DOCKER_COMPOSE:-1.6.2} && \
-    pip install ansible boto boto3
-   </pre>
-
-   CAUTION: Docker does not pull in the entire tree of dependencies like package managers do.
-
-
-## Pipeline #
-
-Instead of manually clicking, the <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
-Pipeline plugin</a> by author Jesse Glick (@tyvole), 
-reads from a text-based 
-<strong>Jenkinsfile</strong>
-as another piece of Groovy script code checked into source control.
 An example:
 
    <pre>
@@ -133,14 +118,20 @@ with.node('linux') {
 } 
    </pre>
 
-Read <a target="_blank" href="https://jenkins.io/doc/pipeline/">
-Getting Started with Pipeline at https://jenkins.io/doc/pipeline</a>
+Read about Pipeline:
 
-The Piple plugin at https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+* <a target="_blank" href="https://jenkins.io/doc/pipeline/">
+   https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
+* https://jenkins.io/solutions/pipeline/
+* https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+* https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
+* https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
 
-https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
+* http://udaypal.com/jenkins-workflow-getting-started/
 
+0. Install the "Pipeline".
 
+0. Create a project using the "Pipeline".
 
 ### GitHub to Jenkins #
 

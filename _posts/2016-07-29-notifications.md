@@ -142,6 +142,19 @@ actually less effective than they think.
 
    * https://developer.artik.cloud/
 
+   How about configuring different sounds for different programs making noise
+   to tell them apart?
+
+   Maybe different animals?
+
+   * Skype: Lions
+   * Slack: Donkeys
+   * Gitter.im: Monkeys 
+   * Hipchat: Geese 
+   * etc.
+   <br /><br />
+
+
 <a name="BuildStart"></a>
 
 ### Build Start #
@@ -254,3 +267,4 @@ Let's start with Slack, which is the darling in 2016.
 0. Create an HPI file to install in Jenkins in target/slack.hpi.
 
    mvn package
+

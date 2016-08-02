@@ -1,4 +1,116 @@
 
+
+## Dockerfile #
+
+   <pre>
+USER jenkins
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+   </pre>
+
+Installation of Docker-compose using pip is specified in a Dockerfile by:
+
+   <pre>
+RUN pip install docker-compose==${DOCKER_COMPOSE:-1.6.2} && \
+    pip install ansible boto boto3
+   </pre>
+
+   CAUTION: Docker does not pull in the entire tree of dependencies like package managers do.
+
+
+------
+
+git ls-remote 
+503ea56a890abbc5373b34242d95ca7701a7e394  HEAD
+503ea56a890abbc5373b34242d95ca7701a7e394  refs/heads/master
+cd82ccc7d372b8e0982d7e95b30a70ca2352b1d1  refs/pull/2/head
+7ed5bd7f134819ea5a3d90a1d5ec7f83a7545381  refs/tags/username-pub-rsa
+
+https://blog.bartbania.com/docker/jenkins-github-docker/
+
+https://github.com/wakaleo/jenkins-the-definitive-guide-book
+https://jenkins.io/doc/book/pipeline-as-code/
+
+This will help you trigger jenkins builds from github.
+
+https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
+
+   Directions for installation should be on the Jenkins web page.
+
+
+0. In the Filter field at the upper right of the screen, type "Skype"
+   for the "Skype Notifier plugin" at<br />
+   https://wiki.jenkins-ci.org/display/JENKINS/Skype+Plugin
+
+   Notice the <strong>Latest release date</strong>: May 14, 2011 
+
+   Also notice it requires the https://wiki.jenkins-ci.org/display/JENKINS/Instant+Messaging+Plugin
+
+   PROTIP: Watch out for obsolete plugins.
+
+0. Check out<br />
+   https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin
+
+
+
+
+
+Jenkins extras
+
+
+The technical components according to 
+<a target="_blank" href="https://www.predix.io/resources/training">
+https://www.predix.io/resources/training</a>
+
+0. <a href="#Devbox">Devbox with pre-built virtual machines</a>
+0. <a href="#LocalInstall">Local install</a> Eclipse IDE (text editor) with STS (Spring Tool Suite)
+0. Java programming language
+0. <a href="#Spring">Spring framework</a>
+0. <a href="#OpenJPA">Apache OpenJPA persistence</a>
+0. Maven build
+0. <a href="#CloudFoundary">Hosting in the Cloud Foundry cloud</a>
+
+It's 
+People manage <strong>assets</strong>, what the company owns, 
+such as trucks, buildings, computers, and other equipment.
+
+Asset models
+
+ThetaRay
+Anomaly Detection
+
+   * <a target="_blank" href="https://github.com/predixdev/">
+   https://github.com/predixdev</a>
+
+
+
+<a name="JenkinsIn"></a>
+
+## Setup Jenkins Instance #
+
+There are several options to creating
+
+   * On a MacOS OSX MacBook for local development and experimentation
+
+   * On a Windows 10 laptop for local development and experimentation
+
+   * <a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-continuous-development-integration-on-centos-7">
+   As a Jenkins instance in CentOS 7 droplet within Digital Ocean</a> SaaS cloud.
+
+   * <a target="_blank" href="https://www.cloudbees.com/blog/jenkins-docker-hub-plugin-image-based-workflows">
+   As a Jenkins instance within Cloudbees</a> SaaS cloud.
+
+   * <a target="_blank" href="https://docs.pivotal.io/cloudbees/Jenkins.html">
+   Jenkins within Pivotal Cloudbees</a> with a 15 day trial license.
+
+   * Build Jenkins from <a target="_blank" href="https://github.com/docker-library/official-images">
+   GitHub (stackbrew)</a>
+
+docker pull jenkins
+
+   * https://hub.docker.com/_/jenkins/
+   * https://github.com/jenkinsci/docker
+
 <a name="Dockerize"></a>
 
 ## Dockerize the app #

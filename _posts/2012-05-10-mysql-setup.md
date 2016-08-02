@@ -61,7 +61,7 @@ It's managed by the AWS RDS (Relational Data Service).
 
 <a name="InstallMySQL"></a>
 
-## Install MySQL via Homebrew #
+## MySQL via Homebrew #
 
 PROTP: Use Homebrew instead of downloading from
    <a target="_blank" href="http://dev.mysql.com/downloads/">
@@ -238,7 +238,7 @@ Or, if you don't want/need a background service you can just run:
 
 
 
-   ## Stop server and process #
+   ### Stop server and process #
 
 0. PROTIP: Stop the server before killing its process:
 
@@ -309,7 +309,7 @@ Or, if you don't want/need a background service you can just run:
 
 <a name="InstallMariaDB"></a>
 
-## Install MariaDB via Homebrew #
+## MariaDB via Homebrew #
 
 MariaDB ships with additional storage engines installed (no compilation as with MySQL):
 Aria, XtraDB (an enhanced and extended version of the InnoDB storage engine), PBXT, FederatedX (a drop-in replacement for Federated), OQGraph, and SphinxSE 

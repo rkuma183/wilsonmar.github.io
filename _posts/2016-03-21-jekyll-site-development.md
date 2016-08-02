@@ -1061,3 +1061,8 @@ QUESTION: Spell checking in GitHub?
 ## Footnotes
 
 * Tutorial: http://jekyll.tips/jekyll-casts/
+
+## Jekyll MinimalMistake users in the wild #
+
+* http://udaypal.com/jenkins-workflow-getting-started/
+
