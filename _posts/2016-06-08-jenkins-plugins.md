@@ -103,26 +103,6 @@ by author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@ty
 reads a text-based <strong>Jenkinsfile</strong>
 Groovy script code checked into source control.
 
-An example:
-
-   <pre>
-with.node('linux') {
- git(url: 'git://server/myapp.git')
- sh('mvn clean package')
- archive('target/myapp.war')
- stage('Test')
- parallel({
- sh('mvn -Psometests test')
- }, {
- sh('mvn -Pothertests test')
- })
- input('OK to deploy?')
- stage(value: 'Deploy', concurrency: 1)
- sh('mvn deploy')
-} 
-   </pre>
-
-
 0. Install the "Pipeline" (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 
@@ -174,12 +154,20 @@ node {
 
    PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
 
-0. Cursor over one of the "ms" numbers in the green area and 
+0. Cursor over one of the "ms" numbers (for milliseconds or thousands of a second) 
+   in the green area and 
    click the Log button that appears.
 
    A pop-up appears with the text specified by the echo command within the Groovy script.
 
 0. Click the "X" at the upper-right of the dialog to dismiss it.
+
+0. To remove the menu on the left, click "Full Stage View".
+
+   PROTIP: The "full stage view" will be needed when there are more stages going across the screen.
+
+0. To return to the menu with Build History, <br />
+   click the item/job name in the breadcrumbs or press command+left arrow.
 
 0. Click one of the jobs in the Build History section in http://.../job/box/5/
 
@@ -188,7 +176,7 @@ node {
 0. Click "Console Output" for log details created that run.
 
 
-Read about Pipeline:
+### Read about Pipeline:
 
 * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
    https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>

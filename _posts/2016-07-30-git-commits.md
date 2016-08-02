@@ -388,10 +388,12 @@ Again, all the above is done only once.
 
 ## Git Branch #
 
-PROTIP: Create a branch before making changes so that 
+PROTIP: Create a branch to make changes so that 
 the commit submitted could be evaluated on its own.
+Keeping a master branch "clean" enables different changes to be isolated in various branches.
 
-0. Create a new branch "edit256" in the current repo during 
+0. <a target="_blank" href="https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches">
+   Create a new branch</a> "edit256" in the current repo during 
    <a target="_blank" href="https://git-scm.com/docs/git-checkout">
    git checkout</a>, which updates files in Git's <strong>working tree</strong> 
    to match the version in the index or the specified tree.
@@ -403,6 +405,12 @@ the commit submitted could be evaluated on its own.
    <a name="GitAdd"></a>
 
    ## Git Add #
+
+0. Get a list of branches (with a command in singlar case):
+
+   <tt><strong>
+   git branch
+   </strong></tt>
 
 0. Make a change to a file in the repo.
 
