@@ -93,6 +93,57 @@ Here is a generic set of steps to install a plug-in:
 
 0. Click "S" for small icons.
 
+## Jenkins Restart #
+
+   <amp-youtube data-videoid="ISAUsBSI8G0" layout="responsive" width="480" height="270">
+   </amp-youtube>
+   This "Jenkins Tutorial - Part 03: Git Integration & Configuring jobs using Git".
+
+0. [0:42] Install "Git Plugin"
+   https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
+   to provide Git client functionality on Jenkins servers.
+
+0. PROTIP: Restart Jenkins by changing the URL from:
+
+   <pre>
+   http://.../pluginManager/installed
+   </pre>
+
+   to
+
+   <pre>
+   http://.../restart
+   </pre>
+
+   Click Yes to "Are you sure".
+
+   "Please wait while Jenkins is restarting".
+
+0. [1:41] Create a Jenkins Freestyle project, OK.
+
+0. [2:01] The <strong>Source Code Management</strong> section, select <strong>Git</strong>.
+
+0. [2:15] Enter your repo, with the .git at the end.
+
+   The plugin makes a call such as:
+
+   <pre>
+   git ls-remote -h https://github.com/hotwilson/box.git HEAD
+   </pre>
+
+   NOTE: When done on my Mac Terminal, this returns nothing.
+
+   If you <a target="_blank" href="http://stackoverflow.com/questions/36126664/jenkins-git-repo-url-error">(like others)</a>
+   get the error message <br />
+   "Failed to connect to repository : Error performing command:"
+
+0. [2:15] If your repo is private, provide your SSH keys.
+
+   https://developer.github.com/guides/managing-deploy-keys/
+   
+   https://docs.docker.com/docker-hub/builds/
+
+
 
 ## Jenkins 2 Pipeline Plugin #
 
@@ -154,6 +205,8 @@ node {
 
    PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
 
+   ### Run results #
+
 0. Cursor over one of the "ms" numbers (for milliseconds or thousands of a second) 
    in the green area and 
    click the Log button that appears.
@@ -166,12 +219,16 @@ node {
 
    PROTIP: The "full stage view" will be needed when there are more stages going across the screen.
 
+   ### Build History #
+
 0. To return to the menu with Build History, <br />
    click the item/job name in the breadcrumbs or press command+left arrow.
 
 0. Click one of the jobs in the Build History section in http://.../job/box/5/
 
    Notice the number in the URL corresponds to the number listed.
+
+   PROTIP: The time of the run is the server's time, not your local time on your laptop.
 
 0. Click "Console Output" for log details created that run.
 
@@ -196,55 +253,8 @@ Software Engineer at Cloudbees Stockholm since June 2010.
 https://www.youtube.com/watch?v=_iFtmp72p_E
 Jenkins pipeline plugin demo
 
+
 ### GitHub to Jenkins #
-
-   <amp-youtube data-videoid="ISAUsBSI8G0" layout="responsive" width="480" height="270">
-   </amp-youtube>
-   This "Jenkins Tutorial - Part 03: Git Integration & Configuring jobs using Git".
-
-0. [0:42] Install "Git Plugin"
-   https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
-   to provide Git client functionality on Jenkins servers.
-
-0. PROTIP: Restart Jenkins by changing the URL from:
-
-   <pre>
-   http://.../pluginManager/installed
-   </pre>
-
-   to
-
-   <pre>
-   http://.../restart
-   </pre>
-
-   Click Yes to "Are you sure".
-
-   "Please wait while Jenkins is restarting".
-
-0. [1:41] Create a Jenkins Freestyle project, OK.
-
-0. [2:01] The <strong>Source Code Management</strong> section, select <strong>Git</strong>.
-
-0. [2:15] Enter your repo, with the .git at the end.
-
-   The plugin makes a call such as:
-
-   <pre>
-   git ls-remote -h https://github.com/hotwilson/box.git HEAD
-   </pre>
-
-   NOTE: When done on my Mac Terminal, this returns nothing.
-
-   If you <a target="_blank" href="http://stackoverflow.com/questions/36126664/jenkins-git-repo-url-error">(like others)</a>
-   get the error message <br />
-   "Failed to connect to repository : Error performing command:"
-
-0. [2:15] If your repo is private, provide your SSH keys.
-
-   https://developer.github.com/guides/managing-deploy-keys/
-   
-   https://docs.docker.com/docker-hub/builds/
 
 
    ### Install GitHub plugin #
