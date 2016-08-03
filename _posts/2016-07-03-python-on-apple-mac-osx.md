@@ -15,18 +15,182 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes the different options to install
-a package manager which helps you find and install Python packages.
-Unlike others, this is a hands-on presentation providing step-by-step instructions 
-followed by commentary.
+This tutorial describes the different options to install and
+<a href="#Uninstall">uninstall</a> Python and its 
+package manager which helps you find and install Python packages.
 
-Steps here are carefully sequenced for learning of concepts
-rather than workflow so each concept introduced is done after the necessary background is learned.
+{% include _intro.html %}
+
+## TL;DR Summary #
+
+PROTIP: Various methods of installing Python are incompatible with each other.
+
+<a href="#PythonMacVersion">The version of Python that comes with Apple Mac OSX is obsolete</a> 
+and needs to be updated.
+
+Many tutorials on Python for web development describe use of
+<a href="">virtualenv</a> to assemble
+a specific set of Python packages together in a folder,
+separate other folders for other sets of packages.
+
+<a target="_blank" href="http://kylepurdon.com/blog/using-continuum-analytics-conda-as-a-replacement-for-virtualenv-pyenv-and-more.html">
+Conda uses an alternative approach</a>.
 
 
-<a name="PythonVersion"></a>
+## Python Install Options #
 
-## Python version #
+There is what can be a confusing conflict of choice here for installing Python and its package manager.
+
+The "traditional" approach:
+
+   * <a href="#PIPz">pip</a> (Python Installation Packager) is built on top of <strong>setuptools</strong> which
+   is what downloads and installs Python software over a network (usually the Internet) with a single command (easy_install). 
+   It itself is installed using easy_install.
+
+   * <a href="#easy_install">easy_install</a> is an environment manager.
+   <br /><br />
+
+   <a target="_blank" href="http://stackoverflow.com/questions/1213690/what-is-the-most-compatible-way-to-install-python-modules-on-a-mac">
+   One writes</a>:
+   "Avoid easy_install or pip to install a Python package that needs a library used by non Python programs,
+   such as Qt bindings (PySide)".
+
+Alternatively, there are these alternatives:
+
+   * <a href="#Conda">Conda</a> is the command-line tool that combines functionality of pip and virtualenv
+   
+   * <a href="#MiniConda">Miniconda</a> is a lightweight distribution of Conda.
+   
+   * Anaconda contains a curated collection of <a target="_blank" href="https://docs.continuum.io/anaconda/pkgs.html">
+   over 720 "common" packages</a> for scientific python users. It goes on top of miniconda.
+
+   * Install using Homebrew, then add <a target="_blank" href="https://github.com/Homebrew/homebrew-science/">
+   homebrew science</a> for scientific work (according to <a target="_blank" href="http://stackoverflow.com/questions/33541876/os-x-deciding-between-anaconda-and-homebrew-python-environments">this</a>).
+
+   * <a target="_blank" href="https://trac.macports.org/wiki/Python">
+   MacPorts</a> is an alternative to Homebrew that is more compatible with other Linux.
+   However, not all packages are available in MacPorts.
+   <br /><br />
+
+CAUTION: <a target="_blank" href="http://stackoverflow.com/questions/33874084/how-can-i-resolve-a-conflict-between-homebrew-and-macports-or-fink">
+   MacPorts, Fink, and Homebrew do not coexist on a single machine</a>.
+
+
+Differences among them:
+
+* Pip is a package manager.
+* Virtualenv is an environment manager. 
+* Conda is both.
+
+* pip can install anything from PyPI in one command. 
+* Conda requires at least three commands: skeleton, build, install, and possibly more
+
+* Conda handles library dependencies outside of the Python packages as well as the Python packages themselves. 
+
+* Conda installs from binary, meaning that someone (e.g., Continuum) 
+   has already done the hard work of compiling the package, making installation easier and faster.
+
+* Conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
+
+<a target="_blank" href="http://conda.pydata.org/docs/_downloads/conda-pip-virtualenv-translator.html">
+This table</a> lists the different commands among them.
+
+<table border="1" cellpadding="4" cellspacing="0">
+<colgroup>
+<col width="17%" />
+<col width="25%" />
+<col width="33%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Task</th>
+<th class="head">Conda package and environment manager command</th>
+<th class="head">Pip package manager command</th>
+<th class="head">Virtualenv environment manager command</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Install a package</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>Update a package</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Update package manager</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></tt></td>
+<td>Linux/OSX: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt> Win: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>Uninstall a package</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Create an environment</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">python</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">$ENV_BASE_DIR;</span> <span class="pre">virtualenv</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Activate an environment</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">$ENV_BASE_DIR/$ENVIRONMENT_NAME/bin/activate</span></tt></td>
+</tr>
+<tr class="row-even"><td>Deactivate an environment</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">deactivate</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">deactivate</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Search available packages</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Install package from specific source</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--channel</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--index-url</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>List installed packages</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">list</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Create requirements file</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--export</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">freeze</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>List all environments</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></tt></td>
+<td>-</td>
+<td>Install virtualenv wrapper, then <tt class="docutils literal"><span class="pre">lsvirtualenv</span></tt></td>
+</tr>
+<tr class="row-even"><td>Install other package manager</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pip</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">conda</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>Install Python</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">python=x.x</span></tt></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Update Python</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">python</span></tt> *</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<a name="PythonMacVersion"></a>
+
+## Python comes on Mac OSX #
 
 Since Python comes installed on MacOS machines
 since the Mavericks version,
@@ -54,6 +218,8 @@ we start with this:
    <pre>
    Python 2.7.12 :: Continuum Analytics, Inc.
    </pre>
+
+## Interactive Python on CLI #
 
 0. List your present working directory:
 
@@ -116,6 +282,11 @@ we start with this:
 
    NOTE: MacOS does not come installed with a package manager for Python.
 
+   <a target="_blank" href="http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html">
+   IPython (Jupyter) Notebook</a> 
+   enables a "notebook" interface to re-run commands.
+   http://sjbyrnes.com/python/ notes
+
 
 <a name="UpgradePython"></a>
 
@@ -151,7 +322,7 @@ Apple's XCode IDE</a>.
 
 <a name="BrewPip"></a>
 
-### Install pip #
+### Install pip without setuptools #
 
 Instead of following instructions such as 
 <a target="_blank" href="https://packaging.python.org/installing/#install-pip-setuptools-and-wheel">
@@ -253,11 +424,11 @@ You must give at least one requirement to install (see "pip help install")
    lists of Python package dependencies are in a requirements.txt file.
 
 
-<a name="VirtualEnvironments"></a>
+   <a name="VirtualEnvironments"></a>
 
-## Virtual Environments #
+   ### Virtual Environments #
 
-   Examples of instructions for installing a requirements.txt file 
+   Examples of instructions for installing a <strong>requirements.txt</strong> file 
    are typically preceded by a `source bin/activate` command
    which executes the activate script in the project's bin folder.
 
@@ -269,9 +440,7 @@ You must give at least one requirement to install (see "pip help install")
    - <a target="blank" href="http://docs.python-guide.org/en/latest/starting/install/osx/">
    Python Guide</a>
 
-
-
-
+   -----
 
    before the `pip install` command:
    Automatically download the packages listed
@@ -302,7 +471,7 @@ You must give at least one requirement to install (see "pip help install")
 
 <a id="PackagInstallerz"></a>
 
-## Python installation #
+## Download Python installer #
 
 0. In an internet browser at <br />
    <a target="_blank" href="https://www.python.org/downloads/mac-osx/">
@@ -324,43 +493,6 @@ You must give at least one requirement to install (see "pip help install")
    This table shows the growth in download size over time,
    an analysis unique to this page.
 
-
-## Python Package Install Options #
-
-There is what can be a confusing conflict of choice here for installing Python and its package manager.
-
-The "traditional" approach:
-
-   * <a href="#PIPz">pip</a> (Python Installation Packager) is built on top of <strong>setuptools</strong> which
-   is what downloads and installs Python software over a network (usually the Internet) with a single command (easy_install). 
-   It itself is installed using easy_install.
-
-   * <a href="#easy_install">easy_install</a> is an environment manager.
-   <br /><br />
-
-Alternatively, there are these alternatives from Continuum Analytics:
-
-   * <a href="#Conda">Conda</a> is the command-line tool that combines functionality of pip and virtualenv
-   * <a href="#MiniConda">Miniconda</a> is a lightweight distribution of conda
-   * Anaconda contains a curated collection of <a target="_blank" href="https://docs.continuum.io/anaconda/pkgs.html">
-   over 720 "common" packages</a> for scientific python users. It goes on top of miniconda.
-   <br /><br />
-
-Differences among them:
-
-* Pip is a package manager.
-* Virtualenv is an environment manager. 
-* Conda is both.
-
-* pip can install anything from PyPI in one command. 
-* Conda requires at least three commands: skeleton, build, install, and possibly more
-
-* Conda handles library dependencies outside of the Python packages as well as the Python packages themselves. 
-
-* Conda installs from binary, meaning that someone (e.g., Continuum) 
-   has already done the hard work of compiling the package, making installation easier and faster.
-
-* Conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
 
 
 
@@ -1159,12 +1291,46 @@ Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
 Type "help", "copyright", "credits" or "license" for more information.
    </pre>
 
-   Unlike Apple's default install of 2.x, version 3.x installs into your own library folder. 
-   Using the symbol ~ as a shorthand for /Users/&LT;your acct name>, then we can write the location as:
+Here are the steps to remove Python3 from your Mac:
 
    <pre>
-   ~/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
+   sudo rm -rf ~/Library/Frameworks/Python.framework/Versions/3.4/bin/python3
    </pre>
+
+## Uninstall Python 2.7 #
+
+According to <a target="_blank" href="http://stackoverflow.com/questions/3819449/how-to-uninstall-python-2-7-on-a-mac-os-x-10-6-4">
+this</a>:
+
+The version of Python that comes with Mac OSX are installed in /System/Library/Frameworks,
+and should not be removed because some Apple system software have hard-coded references to it.
+
+0. Elevated privilages (sudo) is necessary to remove Python from your Mac:
+
+   <pre><strong>
+   sudo rm -rf ~/Library/Frameworks/Python.framework/Versions/2.7
+   sudo rm -rf "/Applications/Python 2.7"
+   </strong></pre>
+
+0. List symbolic links pointing to the python version: 
+
+   <pre><strong>
+   ls -l /usr/local/bin | grep '../Library/Frameworks/Python.framework/Versions/2.7'
+   </strong></pre> 
+   
+0. Remove symbolic links pointing to the python version see 
+
+   <pre><strong>
+   cd /usr/local/bin/
+   ls -l /usr/local/bin | grep '../Library/Frameworks/Python.framework/Versions/2.7' | awk '{print $9}' | tr -d @ | xargs rm
+
+0. Remove references to deleted paths in PATH environment variable within shell profile files.  
+   Depending on which shell you use, any of the following files may have been modified: 
+   
+   <pre>
+   ~/.bash_login, ~/.bash_profile, ~/.cshrc, ~/.profile, ~/.tcshrc, and/or ~/.zprofile
+   </pre> 
+
 
 ## Miscellaneous #
 

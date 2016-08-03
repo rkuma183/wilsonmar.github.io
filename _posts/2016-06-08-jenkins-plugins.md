@@ -91,13 +91,11 @@ Here is a generic set of steps to install a plug-in:
 
 0. Return to the root console page (by clicking "Jenkins" at the upper left corner).
 
-0. Click "S" for small icons.
+0. Click "S" among "S M L" under the icons to show Small icons.
 
-## Jenkins Restart #
 
-   <amp-youtube data-videoid="ISAUsBSI8G0" layout="responsive" width="480" height="270">
-   </amp-youtube>
-   This "Jenkins Tutorial - Part 03: Git Integration & Configuring jobs using Git".
+## Restart Jenkins server #
+
 
 0. [0:42] Install "Git Plugin"
    https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
@@ -230,10 +228,10 @@ node {
 
    PROTIP: The time of the run is the server's time, not your local time on your laptop.
 
-0. Click "Console Output" for log details created that run.
+0. Click "Console Output" for log details created from that run.
 
 
-### Read about Pipeline:
+### Read about Pipeline #
 
 * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
    https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>

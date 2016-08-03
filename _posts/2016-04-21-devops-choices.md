@@ -118,6 +118,8 @@ Boards, burn-down charts.
    * Vagrant (on Macs)
    * Mesos (open source)
    * Marathon
+   * Docker Swarm
+   * Kubernetes
    * etc.
 
    <a name="SingleSignOn"></a>
