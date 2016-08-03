@@ -29,6 +29,13 @@ first proposed by Edgar Cord in 1970.
 The free usage made it a natural choice for other open-source frameworks such as WordPress
 and thus its rapid growth.
 
+MySQL is not dead yet.
+Uber in 
+<a target="_blank" href="https://eng.uber.com/mysql-migration/">
+2016 switched from Postgres to MySQL</a> under 
+<a target="_blank" href="https://eng.uber.com/schemaless-part-one/">
+Schemaless</a>.
+
 After Oracle acquired Sun (MySQL's owner),
 the freedom of open-source was realized when Maria-DB was forked 
 to create a <strong>drop-in replacement for MySQL</strong>

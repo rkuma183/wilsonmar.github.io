@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Jenkins Plugins"
-excerpt: "You own Minions"
+title: "Jenkins 2 Pipeline"
+excerpt: "The slaves have taken over as agents"
 tags: [Jenkins, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -15,10 +15,18 @@ comments: true
 
 {% include _toc.html %}
 
-This assumes that you have followed 
-[Jenkins Setup](/jenkins-setup/)
+This describes use of Jenkins version 2.
 
 {% include _intro.html %}
+
+
+The objective of Jenkins2 is to install with a 
+<a href="#RecommendedPlugins">recommended set of plugins</a>
+that cover 80% of use cases out of the box.
+
+This assumes that you have followed 
+[Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins,
+which went Version 2 April 26, 2016.
 
 ### Find and Select Jenkins Plugins #
 
@@ -34,23 +42,26 @@ Here is a generic set of steps to install a plug-in:
 
 0. Click **Installed** tab to view what has been installed already.
 0. Click **Available** tab to http://.../pluginManager/available
-0. Click **Advanced** tab and scroll to the bottom to see the Update Site URL for the source of plugins listed:
+0. Click **Advanced** tab and scroll to the bottom to see the 
+   Update Site URL for the source of plugins listed:
 
    <pre>
    http://updates.jenkins-ci.org/update-center.json
    </pre>
+
+   Notice the host name "jenkins-ci.org".
 
    NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
    &LT;jenkinsHome>/plugins/
 
    On a Mac, the jenkinshome is <strong>~/.jenkins</strong>.
 
+
 0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
    Wiki on Plugins</a>.
 
    PROTIP: The wide variety of plugins is why Jenkins is popular.
 
-   Lists of top Jenkins plugins online: <a href="#MorePlugins">more plugins</a> below.
 
    * http://www.praqma.com/stories/top-jenkins-plugins/
    * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
@@ -230,10 +241,12 @@ node {
 
 0. Click "Console Output" for log details created from that run.
 
+## Latest Info about Pipeline #
 
-### Read about Pipeline #
+Tweet #Jenkins2
 
-Jenkins 2 was released April 26, 2016.
+
+## Info about Pipeline #
 
 * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
    https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
@@ -242,24 +255,35 @@ Jenkins 2 was released April 26, 2016.
 * https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 * https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
 
-Tweet #Jenkins2
+
+## Info about Pipeline #
+
+If you prefer videos, these are specifically about Jenkins 2.0+
 
 Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
-   Jenkins Workflow: security model & plugin compatibility
+   Jenkins Workflow: security model &amp; plugin compatibility
    Aug 2015</a>
 
-On Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
+Jenkins creator Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
 <a target="_blank" href="https://www.youtube.com/channel/UCT_pjuBAYn6Sm_u4YJt59Rw">
 YouTube channel</a> :
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
-   on 7 Oct 2015</a>
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0/">
    Jenkins 2.0 Virtual Conf. (take 2) 
    4 May 2015</a>
+
+      * Grow with you from simple to complex
+      * Text-based, in your VCS
+      * Handle lots of jobs without repetition
+      * Survive Jenkins restart
+      * Brings next level of reuse to Jenkins
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
+   on 7 Oct 2015</a>
+
+
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
    Jenkins 2.0 Virtual Conf. 2015</a>
@@ -270,16 +294,21 @@ Robert "Bobby" Sandell</a>
 Software Engineer at Cloudbees Stockholm since June 2010
 has these videos:
 
-   * https://www.youtube.com/watch?v=_iFtmp72p_E
-   Jenkins pipeline plugin demo
+   * <a target="_blank" href="https://www.youtube.com/watch?v=_iFtmp72p_E">
+   Jenkins pipeline plugin demo</a>
 
-   * https://www.youtube.com/watch?v=M-rxJBdYIrw
-   Jenkins 2.0. What? When? What is in it for me?
+   * <a target="_blank" href="https://www.youtube.com/watch?v=M-rxJBdYIrw">
+   Jenkins 2.0. What? When? What is in it for me?</a>
 
 Jim Leitch
 
-   * https://www.youtube.com/watch?v=th_0jGRTnJ4
-   Jenkins 2.0 What's is new?
+   * <a target="_blank" href="https://www.youtube.com/watch?v=th_0jGRTnJ4">
+   Jenkins 2.0 What's is new?</a>
+
+James Nord
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=PsgQ4v4aBhA">
+   Jenkins 2.0 and Beyond (and Q&A)</a>
 
 
 

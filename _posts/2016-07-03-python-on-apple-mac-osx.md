@@ -26,7 +26,7 @@ package manager which helps you find and install Python packages.
 PROTIP: Various methods of installing Python are incompatible with each other.
 
 <a href="#PythonMacVersion">The version of Python that comes with Apple Mac OSX is obsolete</a> 
-and needs to be updated.
+and needs to be <a href="#UpgradePython">updated</a>.
 
 Many tutorials on Python for web development describe use of
 <a href="">virtualenv</a> to assemble
@@ -34,7 +34,11 @@ a specific set of Python packages together in a folder,
 separate other folders for other sets of packages.
 
 <a target="_blank" href="http://kylepurdon.com/blog/using-continuum-analytics-conda-as-a-replacement-for-virtualenv-pyenv-and-more.html">
-Conda uses an alternative approach</a>.
+Conda provides an alternative</a> set of 
+<a href="#CommandsTable">commands</a>
+popular for scientific (Machine Learning) computing.
+
+PIP install is troublesome, often because they are more recent than those in Conda.
 
 
 ## Python Install Options #
@@ -294,7 +298,7 @@ we start with this:
 
 To build Python on a machine requires a GCC compiler.
 One comes with command-line tools installed with
-Apple's XCode IDE</a>.
+Apple's XCode IDE.
 
 0. Use an internet browser to <a target="_blank" href="https://developer.apple.com/xcode/">
    https://developer.apple.com/xcode</a>
@@ -1041,22 +1045,13 @@ omitting the name will place the files in the current directory instead.
 	control-click on it to save it to your Downloads folder.
  
  sudo python ez_setup.py
- Once that's complete, head over to pypi and download the pip tarball. Unpack it and execute "sudo python setup.py install".
- 
- Next up, well - let's cheat - in terminal, type:
- 
- sudo pip install virtualenv
- 
- su root
- easy_install [LIBRARY NAME]
- 
- 
- 
- 
+ Once that's complete, head over to pypi and download the pip tarball. Unpack it and execute "sudo python setup.py install". 
  
  -->
+
 This explanation forks 
-http://coolestguidesontheplanet.com/getting-started-vagrant-os-osx-10-9-mavericks/
+<a target="_blank" href="http://coolestguidesontheplanet.com/getting-started-vagrant-os-osx-10-9-mavericks/">
+another</a>.
 
 Setup a provider VM solution to store the image (like VMware, AWS, Hyper-V).
 https://www.virtualbox.org/wiki/Downloads
@@ -1141,10 +1136,8 @@ User data for Vagrant is filed in the directory from which vagrant was used and 
 
 ## Using Python 2 #
 
-<div class="sidenote">
 <a target="_blank" href="http://youshoulddoityourself.blogspot.com/2010/11/test.html">
-This advice from 2010</a>
-</div>
+This advice from 2010</a>.
 
 Where you are picking up Python from?
 
@@ -1210,6 +1203,27 @@ The response I got is this:
 Do not delete or modify the system-provided Python in<br />
 /System/Library/Frameworks/Python.framework and /usr/bin/python<br />
 or you will hose your operating system and need to reinstall Yosemite.
+
+
+## pyenv #
+
+pyenv enables switch between multiple versions of Python on a single system (laptop). 
+
+0. Create two "named" Conda environments (one with Python2 and the other with Python3):
+
+   <pre><strong>
+   conda create -n py3 python=3*
+   conda create -n py2 python=2*
+   </strong>
+
+0. Set one of these as my default by adding to my terminal startup file ~/.bash_profile:
+
+   <pre><strong>
+   source activate py3 
+   </strong></pre>
+
+   Typically I only use these "named python" environments to run a Python REPL or do general Python tasks. 
+   I'll create another conda environment named specifically for each real project I work on.
 
 
 ## Install Python packages #
