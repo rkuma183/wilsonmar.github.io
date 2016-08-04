@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jenkins 2 Pipeline"
-excerpt: "The slaves have taken over as agents"
+excerpt: "Slave nodes are now stylish agents"
 tags: [Jenkins, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -15,18 +15,62 @@ comments: true
 
 {% include _toc.html %}
 
-This describes use of Jenkins version 2.
+This article shows you how to install and use Jenkins version 2 for Continuous Delivery (CD).
 
 {% include _intro.html %}
 
+## What is CD? #
+
+The <a target="_blank" href="https://en.wikipedia.org/wiki/Continuous_delivery">
+definition from Wikipedia:</a>
+
+"Continuous Delivery (CD) is a software engineering approach
+in which teams produce software in short cycles,
+ensuring that the software can be reliably released at any time.
+It aims at building, testing, and releasing software 
+faster and more frequently.
+The approach helps reduce the cost, time, and risk of
+deliverying changes by allowing for
+more incrementaal updates to applications in production.
+A straightforward and repeatable
+deployment process is important for continuous delivery."
+
+
+## Objectives #
 
 The objective of Jenkins2 is to install with a 
 <a href="#RecommendedPlugins">recommended set of plugins</a>
+(a more "curated" experience)
 that cover 80% of use cases out of the box.
 
-This assumes that you have followed 
+This article assumes that you have followed 
 [Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins,
 which went Version 2 April 26, 2016.
+
+[36:00] Jenkins2 Pipeline
+
+* Introduce “pipeline” as a new type in Jenkins (to Freestyle)
+* DRY (Do not Repeat Yourself) - Reusable components and flow
+
+Summary of 2.0 features:
+
+* Entire pipeline as text code in SCM (GitHub)
+* Multiple SCM repositories in each job
+* Jobs share global library to share scripts, functions, variables
+* Extendable DSL with loops, logic
+* Jobs wait for input from users before continuing
+* Durable tasks keep running while master restarts
+* Jobs starting in one agent can switch to another
+* Parallel execution of arbitrary build states
+
+pipeline-syntax/ has a snippet generator
+
+[40:50] .gdsl file for IntelliJ IDE code completion
+
+Contributions are at GitHub repo:<br />
+<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/">
+https://github.com/jenkins-infra/jenkins.io</a>
+
 
 ### Find and Select Jenkins Plugins #
 
@@ -49,7 +93,7 @@ Here is a generic set of steps to install a plug-in:
    http://updates.jenkins-ci.org/update-center.json
    </pre>
 
-   Notice the host name "jenkins-ci.org".
+   Notice the host name from "jenkins-ci.org" to "jenkins.io".
 
    NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
    &LT;jenkinsHome>/plugins/
@@ -203,6 +247,10 @@ node {
 }
    </pre>
 
+   PROTIP: Information about the Jenkins DSL (Domain-Specific Language) is
+   at link to ???
+   The DSL is extendable.
+
 0. Click Save for the item screen.
 
 0. Double-click on "Build Now" (in rapid succession).
@@ -243,10 +291,11 @@ node {
 
 ## Latest Info about Pipeline #
 
-Tweet #Jenkins2
+Tweet <a target="_blank" href="https://twitter.com/#jenkins2/">
+#Jenkins2</a>
 
 
-## Info about Pipeline #
+## Texual info about Pipeline #
 
 * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
    https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
@@ -254,6 +303,13 @@ Tweet #Jenkins2
 * https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 * https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 * https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
+
+Arnaud Heritier (@aheritier, aheitier)
+(Support Team Manager at Cloudbees)
+
+   * https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016
+   Slidedeck from Paris JUG June 2016 points to
+   <a target="_blank" href="https://groups.google.com/d/msg/jenkinsci-dev/vbXK7jjekFw/BievO0UxBgAJ"> Kohsuke's 25 Sep 2015 proposal for Jenkins 2.0</a>.
 
 
 ## Info about Pipeline #
