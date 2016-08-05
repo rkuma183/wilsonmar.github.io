@@ -164,6 +164,8 @@ sudo systemctl status jenkins.service
    through a repository, or repo, and via a Java WAR file. 
    Installing from a repo is the preferred method.
 
+   ### Install Java #
+
 0. Install latest version of Java (JDK which Jenkins uses):
 
    <tt><strong>
@@ -428,7 +430,7 @@ Dependency Installed:
 Complete!
    </pre>
 
-0. OPTIONAL: Verify Java version installed:   
+0. Verify Java version installed:   
 
    <pre><strong>
    java -version
@@ -439,6 +441,177 @@ openjdk version "1.8.0_101"
 OpenJDK Runtime Environment (build 1.8.0_101-b13)
 OpenJDK 64-Bit Server VM (build 25.101-b13, mixed mode)
    </pre><br /><br />
+
+
+   ### Install Git #
+
+0. Per <a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps">
+   this</a>, install from command line:
+
+   <tt><strong>
+   sudo yum install git
+   </strong></tt>
+
+   the response:
+
+   <pre>
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+base                                                     | 3.6 kB     00:00     
+docker-main-repo                                         | 2.9 kB     00:00     
+extras                                                   | 3.4 kB     00:00     
+jenkins                                                  | 2.9 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+(1/3): jenkins/primary_db                                  |  85 kB   00:00     
+(2/3): docker-main-repo/primary_db                         |  19 kB   00:01     
+(3/3): updates/7/x86_64/primary_db                         | 6.4 MB   00:01     
+Determining fastest mirrors
+ * base: ftp.osuosl.org
+ * extras: mirrors.sonic.net
+ * updates: mirrors.evowise.com
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:1.8.3.1-6.el7_2.1 will be installed
+--> Processing Dependency: perl-Git = 1.8.3.1-6.el7_2.1 for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: libgnome-keyring.so.0()(64bit) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Running transaction check
+---> Package libgnome-keyring.x86_64 0:3.8.0-3.el7 will be installed
+---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed
+---> Package perl-Git.noarch 0:1.8.3.1-6.el7_2.1 will be installed
+---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed
+--> Finished Dependency Resolution
+&nbsp;
+Dependencies Resolved
+&nbsp;
+================================================================================
+ Package               Arch        Version                   Repository    Size
+================================================================================
+Installing:
+ git                   x86_64      1.8.3.1-6.el7_2.1         updates      4.4 M
+Installing for dependencies:
+ libgnome-keyring      x86_64      3.8.0-3.el7               base         109 k
+ perl-Error            noarch      1:0.17020-2.el7           base          32 k
+ perl-Git              noarch      1.8.3.1-6.el7_2.1         updates       53 k
+ perl-TermReadKey      x86_64      2.30-20.el7               base          31 k
+&nbsp;
+Transaction Summary
+================================================================================
+Install  1 Package (+4 Dependent packages)
+&nbsp;
+Total download size: 4.6 M
+Installed size: <strong>23 M</strong>
+Is this ok [y/d/N]: _
+   </pre>
+
+0. Press "y" to continue.
+
+   The response:
+
+   <pre>
+Downloading packages:
+(1/5): libgnome-keyring-3.8.0-3.el7.x86_64.rpm             | 109 kB   00:00     
+(2/5): perl-Error-0.17020-2.el7.noarch.rpm                 |  32 kB   00:00     
+(3/5): perl-TermReadKey-2.30-20.el7.x86_64.rpm             |  31 kB   00:00     
+(4/5): perl-Git-1.8.3.1-6.el7_2.1.noarch.rpm               |  53 kB   00:00     
+(5/5): git-1.8.3.1-6.el7_2.1.x86_64.rpm                    | 4.4 MB   00:01     
+--------------------------------------------------------------------------------
+Total                                              4.1 MB/s | 4.6 MB  00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:perl-Error-0.17020-2.el7.noarch                            1/5 
+  Installing : libgnome-keyring-3.8.0-3.el7.x86_64                          2/5 
+  Installing : perl-TermReadKey-2.30-20.el7.x86_64                          3/5 
+  Installing : git-1.8.3.1-6.el7_2.1.x86_64                                 4/5 
+  Installing : perl-Git-1.8.3.1-6.el7_2.1.noarch                            5/5 
+  Verifying  : perl-Git-1.8.3.1-6.el7_2.1.noarch                            1/5 
+  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                          2/5 
+  Verifying  : libgnome-keyring-3.8.0-3.el7.x86_64                          3/5 
+  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                            4/5 
+  Verifying  : git-1.8.3.1-6.el7_2.1.x86_64                                 5/5 
+
+Installed:
+  git.x86_64 0:1.8.3.1-6.el7_2.1                                                
+&nbsp;
+Dependency Installed:
+  libgnome-keyring.x86_64 0:3.8.0-3.el7  perl-Error.noarch 1:0.17020-2.el7     
+  perl-Git.noarch 0:1.8.3.1-6.el7_2.1    perl-TermReadKey.x86_64 0:2.30-20.el7 
+&nbsp;
+Complete!
+   </pre>
+
+0. Verify version installed:
+
+   <tt><strong>
+   git --version
+   </strong></tt>
+
+   The response:
+
+   <pre>
+git version 1.8.3.1
+   </pre>
+
+0. List the location installed:
+
+   <tt><strong>
+   type git
+   </strong></tt>
+   
+   The response:
+
+   <pre>
+   /usr/bin/git
+   </pre>
+
+0. Try the command with no parameters:
+
+   <tt><strong>
+   git
+   </strong></tt>
+   
+   The response:
+
+   <pre>
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+&nbsp;
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+&nbsp;
+'git help -a' and 'git help -g' lists available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+   </pre>
+
+   ### Install Jenkins2 #
 
 0. Download Jenkins from the Red Hat repo:
 
@@ -531,6 +704,10 @@ Installed:
 Complete!
    </pre>
 
+
+
+   ## Start Jenkins #
+
 0. Start Jenkins as a service:
 
    <tt><strong>
@@ -583,12 +760,13 @@ Active: active (running) since Tue 2015-12-29 00:00:16 EST; 17s ago
    <a href="#StopJenkins">
    stop and start the service again, as described below</a>.
 
-0. Visit the address using an internet browser:
+0. Visit the address using an internet browser. For example:
 
    <pre><strong>
    http://138.68.1.138:8080
    </strong></pre>
 
+   NOTE: It may take several minutes for the server to come up.
 
 0. Click <a href="#Config_Security">here to Skip pass 
    other installation options to 
@@ -616,6 +794,43 @@ Active: active (running) since Tue 2015-12-29 00:00:16 EST; 17s ago
    <pre>
    "Active: inactive (dead)"
    </pre>
+
+
+
+   ### GitHub Token #
+
+0. Login to the GitHub account to be referenced from within Jenkins.
+
+0. Select Settings.
+
+0. Click "Personl access tokens".
+
+0. Click "Generate new token".
+
+0. For Token Description, enter "jenkins".
+
+0. Check "repo" and "adminrepo_hook" and all under them.
+
+0. Click "Generate token".
+
+0. Copy the token content to your clipboard.
+
+
+   ### GitHub Authenticate #
+
+0. Go to Jenkins server, Manage Jenkins, Global Toll Configuration.
+
+0. In Git, add Name "Git", Path: "git" (doesn't matter). Click Save.
+
+0. Go to Jenkins server, Manage Jenkins, Configure System.
+
+0. In GitHub section, API URL leave "https://api.github.com".
+   Click Add, 
+
+0. Select "Secret Text".
+
+0. Click "Test Connection".
+
 
 
 <a id="CloudbeesInstall"></a>

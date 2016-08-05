@@ -15,7 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
-This article shows you how to install and use Jenkins version 2 for Continuous Delivery (CD).
+This article shows you how to install and configure Jenkins version 2 for Continuous Delivery (CD) as well as Continuouse Integration (CI)
+using <a href="#Groovy">Groovy DSL scripts</a>.
 
 {% include _intro.html %}
 
@@ -36,45 +37,52 @@ A straightforward and repeatable
 deployment process is important for continuous delivery."
 
 
-## Objectives #
+## Jenkins2 highlights #
 
 The objective of Jenkins2 is to install with a 
 <a href="#RecommendedPlugins">recommended set of plugins</a>
-(a more "curated" experience)
+(a more "curated" experience than v1)
 that cover 80% of use cases out of the box.
 
-This article assumes that you have followed 
-[Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins,
-which went Version 2 April 26, 2016.
-
-[36:00] Jenkins2 Pipeline
+Summary of Jenkins2 features: [36:00]
 
 * Introduce “pipeline” as a new type in Jenkins (to Freestyle)
-* DRY (Do not Repeat Yourself) - Reusable components and flow
-
-Summary of 2.0 features:
-
-* Entire pipeline as text code in SCM (GitHub)
 * Multiple SCM repositories in each job
+* Entire pipeline as text code in SCM (GitHub)
+
+* DRY (Do not Repeat Yourself) - Reusable components and flow
 * Jobs share global library to share scripts, functions, variables
 * Extendable DSL with loops, logic
-* Jobs wait for input from users before continuing
-* Durable tasks keep running while master restarts
+
+* Jobs can wait for user input before continuing
+* <a href="#DurableTaskPlugin">
+Durable tasks</a> keep running while master restarts [41:33]
 * Jobs starting in one agent can switch to another
 * Parallel execution of arbitrary build states
+<br /><br />
 
-pipeline-syntax/ has a snippet generator
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=49m47s">
+Pipeline</a>:
 
-[40:50] .gdsl file for IntelliJ IDE code completion
+* Ensuring reproducible builds
+* Sharing build artifacts thrughout the pipeline
+* Choosing the right granularity for each job
+* Parllelizing and joining jobs
+* Gates and approvals
+* Visualizing the pipeline
+* Organizing and securing jobs
+* Good practice: versioning your Jenkins configuration
+<br /><br />
 
-Contributions are at GitHub repo:<br />
-<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/">
-https://github.com/jenkins-infra/jenkins.io</a>
-
+[53:44]
 
 ### Find and Select Jenkins Plugins #
 
-Here is a generic set of steps to install a plug-in:
+Here is a generic set of steps to install a plug-in.
+
+The assumtion here is that you have followed 
+[Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins,
+which went Version 2 April 26, 2016 after over 10 years at v1.
 
 0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
 
@@ -149,66 +157,21 @@ Here is a generic set of steps to install a plug-in:
 0. Click "S" among "S M L" under the icons to show Small icons.
 
 
-## Restart Jenkins server #
-
-
-0. [0:42] Install "Git Plugin"
-   https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
-   to provide Git client functionality on Jenkins servers.
-
-0. PROTIP: Restart Jenkins by changing the URL from:
-
-   <pre>
-   http://.../pluginManager/installed
-   </pre>
-
-   to
-
-   <pre>
-   http://.../restart
-   </pre>
-
-   Click Yes to "Are you sure".
-
-   "Please wait while Jenkins is restarting".
-
-0. [1:41] Create a Jenkins Freestyle project, OK.
-
-0. [2:01] The <strong>Source Code Management</strong> section, select <strong>Git</strong>.
-
-0. [2:15] Enter your repo, with the .git at the end.
-
-   The plugin makes a call such as:
-
-   <pre>
-   git ls-remote -h https://github.com/hotwilson/box.git HEAD
-   </pre>
-
-   NOTE: When done on my Mac Terminal, this returns nothing.
-
-   If you <a target="_blank" href="http://stackoverflow.com/questions/36126664/jenkins-git-repo-url-error">(like others)</a>
-   get the error message <br />
-   "Failed to connect to repository : Error performing command:"
-
-0. [2:15] If your repo is private, provide your SSH keys.
-
-   https://developer.github.com/guides/managing-deploy-keys/
-   
-   https://docs.docker.com/docker-hub/builds/
-
-
-
 ## Jenkins 2 Pipeline Plugin #
 
 Instead of manually clicking through the Jenkins UI, the 
 <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
 Pipeline plugin</a> in Jenkins 2
-by author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
 reads a text-based <strong>Jenkinsfile</strong>
-Groovy script code checked into source control.
+<a href="#Groovy">Groovy script code</a> checked into source control.
+
+   ### Install Pipeline Plugin #
 
 0. Install the "Pipeline" (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+
+   NOTE: This was part of Cloudbees licenced features,
+   but released in open edition.
 
 0. Right-click to open in a new tab the 
    "See Pipeline as Code with Jenkins for more details" "link at<br />
@@ -221,6 +184,8 @@ Groovy script code checked into source control.
 
 0. Enter item name and click "Pipeline", then OK. ("Orchestrates long-running activities that can span multiple build slaves. Suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.").
 
+   ### Build triggers #
+
 0. Among Build Triggers click "Build when a change is pushed to GitHub".
 
 0. Click "GitHub project". 
@@ -232,11 +197,15 @@ Groovy script code checked into source control.
 
 0. Click "Advanced" and type the Display name, "Box" in our example.
 
+   ### Pipeline Groovy #
+
 0. Click "Pipeline" tab to bring that section up.
 
 0. Select from the "try sample" pull down "Hello World".
 
-   Notice the Groovy script:
+   <a name="SampleGroovy"></a>
+
+   ### Sample Groovy script #
 
    <pre>
 node {
@@ -247,11 +216,18 @@ node {
 }
    </pre>
 
+   A <strong>node</strong> is a unit of work 
+   processed by Jenkins <strong>agents</strong>.
+
+   Notice that unlike Java code, there are <strong>no semicolons</strong>.
+
    PROTIP: Information about the Jenkins DSL (Domain-Specific Language) is
    at link to ???
    The DSL is extendable.
 
 0. Click Save for the item screen.
+
+   ### Build Now for Stage View #
 
 0. Double-click on "Build Now" (in rapid succession).
 
@@ -261,8 +237,6 @@ node {
    NOTE: Text in headings were specified in state keywords in the Groovy script above.
 
    PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
-
-   ### Run results #
 
 0. Cursor over one of the "ms" numbers (for milliseconds or thousands of a second) 
    in the green area and 
@@ -289,10 +263,60 @@ node {
 
 0. Click "Console Output" for log details created from that run.
 
-## Latest Info about Pipeline #
 
-Tweet <a target="_blank" href="https://twitter.com/#jenkins2/">
-#Jenkins2</a>
+<a name="InfrastructureAsCode"></a>
+
+## Multi-branch Infrastructure as Code #
+
+Instead of Jenkins types Freestyle and Pipeline,
+select <strong>Multi-branch</strong>.
+
+
+
+
+<a name="DurableTaskPlugin"></a>
+
+## Durable Task Plugin #
+
+For long-running build runs at <br />
+https://wiki.jenkins-ci.org/display/JENKINS/Durable+Task+Plugin
+
+"Library offering an extension point for processes which can run outside of Jenkins yet be monitored."
+
+
+### Restart Jenkins server #
+
+0. PROTIP: Restart Jenkins by changing the URL from:
+
+   <pre>
+   http://.../pluginManager/installed
+   </pre>
+
+   to
+
+   <pre>
+   http://.../restart
+   </pre>
+
+0. Click Yes to "Are you sure".
+
+0. "Please wait while Jenkins is restarting".
+
+
+### Safe Restart Plugin #
+
+Some install the 
+<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SafeRestart+Plugin"> 
+SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to the 
+<a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
+Jenkins left menu</a> to avoid needing to be at the server console at all.
+
+
+## Monitoring #
+
+@jenx_monitor
+is a A Jenkins build server monitor for Mac OS X, powered by MacRuby. This app sits in your status bar and reports the status of all your Jenkins builds.
+
 
 
 ## Texual info about Pipeline #
@@ -314,7 +338,12 @@ Arnaud Heritier (@aheritier, aheitier)
 
 ## Info about Pipeline #
 
+   <amp-img width="650" height="261" alt="jenkins cd flow 650x261-i15.jpg" src="https://cloud.githubusercontent.com/assets/300046/17418538/45f540d2-5a56-11e6-8730-39528384e435.jpg"></amp-img>
+   From 
+
 If you prefer videos, these are specifically about Jenkins 2.0+
+
+by author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
 
 Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
 
@@ -367,252 +396,400 @@ James Nord
    Jenkins 2.0 and Beyond (and Q&A)</a>
 
 
+<a name="InfrastructureAsCode"></a>
 
-### GitHub to Jenkins #
+## Infrastructure as code #
 
+Having infrastructure defined in text code
+enables experimentation (using experimental branches).
 
-   ### Install GitHub plugin #
+This improves quality by making use of 
+<strong>code review</strong> features in GitHub.
 
-https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
+Having infrastructure specifications in the same repository
+ensures that changes are automatically reflected.
 
+https://github.com/jenkinsci/pipeline-examples
 
-### NodeJS Plugin #
+* Run several repos within an organization within GitHub.
 
-https://wiki.jenkins-ci.org/display/JENKINS/NodeJS+Plugin
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=1h6m7s">
+Jesse on GitHub</a>
 
-also installs Grunt
-http://gruntjs.com/getting-started
 
-### Plug-in files #
+<a name="Groovy"></a>
 
-0. Switch to Terminal to open a new command line window and
-   navigate to the hidden Jenkins folder to view files:
+## Groovy Scripts #
 
-   <pre><strong>
-   cd ~/.jenkins
-   cd plugins
-   ls -al
-   </strong></pre>
+The official documentation page for Apache Groovy is <br />
+<a target="_blank" href="http://www.groovy-lang.org/documentation.html#gettingstarted">
+http://www.groovy-lang.org/documentation.html#gettingstarted</a>
 
-   NOTE: Each plug-in has a <strong>.jpi</strong> binary file for each folder which contains a META-INF and WEB-INF folder.
+<a target="_blank" href="https://gradle.org/">
+Gradle</a> was built using Groovy
+because it can handle larger projects than Maven,
+which Gradle replaces.
 
-0. To provision a Docker box, this Gist script<br />   
-   https://gist.github.com/micw/e80d739c6099078ce0f3
+Step Reference is at https://.../job/box/pipeline-syntax/html
 
-   does not require Jenkins to be running. 
-   It does the following:
 
-   * Download one or more plugins to the plugin directory
-   * Scan all plugins in that directory for missing dependencies
-   to download those dependencies as well
-   * Loop until no open dependencies are left.
-   
-0. To install a Git client in the Console:
-
-   <pre><strong>
-   curl -XPOST http://localhost:8080/pluginManager/installNecessaryPlugins -d '<install plugin="git@current" />'
-   </strong></pre>
-
+### CPS Global Library #
 
-### Rake Environment Variable #
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=44m52s">
+This video</a> introduces the
+<a target="_blank" href="https://www.wikiwand.com/en/Continuation-passing_style">
+Continuation Passing Style</a>
+of "functional programming".
+This means that, unlike the direct style people have been coding,
+CPS functions return another function.
 
-0. In the Manage Jenkins menu, click Configure System.
-0. Check Environment variables under the Global properties section.
-0. Click Add.
-0. In the name value, type "PATH".
-0. In the value field, type "$PATH /usr/local/bin" for Linux or OSX.
+http://...pipeline-syntax/ has a snippet generator
 
-   Alternately, on Windows type "???". TODO:
 
-<a id="MorePlugins"></a>
+### Tokenize environment variable #
 
-## More plug-ins #
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/github-org-plugin/access-repo-information.groovy">
+Here</a> is an example of a Groovy script file access-repo-information.groovy.
+Like other Groovy files, it has in the first line `#!groovy`.
 
-<a name="BasePlugins"></a>
+   <pre>
+#!groovy
+&nbsp;
+    tokens = "${env.JOB_NAME}".tokenize('/')
+    org = tokens[0]
+    repo = tokens[1]
+    branch = tokens[2]
+   </pre>
 
-### Base Plug-ins #
+`${env.JOB_NAME}` retrieves environment variable JOB_NAME which contains the Git path
+"org/repo/branch" among github-organization-plugin jobs.
 
-   * Email Extension Plugin
-   * Git Plugin
-   * Graddle Plugin
-   * SSH Slaves
-   * Translation Assistance
-   * Workspace Cleanup Plugin
-   
-### For Microsoft developers #
+`tokenize` extracts out text between the slash character specified
+into an array named "tokens".
 
-   * MSBuild
-   * MSTest
-   * MSTest Runner
-   * VSTest Runner
 
-<a id="OtherPlugins"></a>
+### Time stamp wrapper #
 
-### Other plugins #
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
+Here</a> is an example of invoking a build wrapper 
+that adds a time stamp to echos :
 
-<a target="_blank" href="https://www.cloudbees.com/jenkins/jenkins-certification">
-Cloubees' Study Guide PDF</a>
-lists these plug-ins that all Certified Jenkins Engineers should know:
+   <pre>
+wrap([$class: 'TimestamperBuildWrapper']) {
+   </pre>
 
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Script+Security+Plugin">
-   Script Security Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">
-   Parameterized Trigger Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin">
-   Credentials Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Fingerprint+Plugin">
-   Fingerprint Plugin</a>
 
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin">
-   Amazon EC2 Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">
-   Docker Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Folders+Plugin">
-   CloudBees Folders Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Disk+Usage+Plugin">
-   Disk Usage Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">
-   Pipeline Plugin (formerly known as Workflow)</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">
-   Build Pipeline Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">
-   Delivery Pipeline Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Build+and+Publish+plugin">
-   CloudBees Docker Build and Publish Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Promoted+Builds+Plugin">
-   Promoted Builds Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">
-   Git Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin">
-   Copy Artifact Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/JUnit+Plugin">
-   JUnit Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Matrix+Project+Plugin">
-   Matrix Project Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/NodeLabel+Parameter+Plugin">
-   NodeLabel Parameter Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Radiator+View+Plugin">
-   Radiator View Plugin</a>
-
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin">
-   Email-ext Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Jabber+Plugin">
-   Jabber Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Mailer">
-   Mailer Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Plugin">
-   IRC Plugin</a>
-* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SMS+Notification">
-   SMS Notification Plugin</a>
-* https://wiki.jenkins-ci.org/display/JENKINS/Skype+Plugin">
-   Skype Plugin</a>
-
-<hr />
-
-### Safe Restart Plugin #
-
-Some install the 
-<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SafeRestart+Plugin"> 
-SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to the 
-<a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
-Jenkins left menu</a> to avoid needing to be at the server console at all.
-
-
-<a id="JMeterPlugin"></a>
-
-## JMeter plug-in #
-
-QUESTION: Are there more plug-ins for JMeter?
-
-### JMeter Performance Plug-in for JMeter #
-
-WARNING: This is no longer maintained, with a large <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-28426?jql=project%20%3D%20JENKINS%20AND%20status%20in%20(Open%2C%20%22In%20Progress%22%2C%20Reopened)%20AND%20component%20%3D%20'performance-plugin">bug list</a>.
-
-To add the
-<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Performance+Plugin"> 
-Performance plug-in</a> to display results from JMeter runs:
-
-1. Click the Manage Jenkins link.
-2. Click the Manage Plugins link.
-3. Select the Available tab.
-4. In Filter type "Performance".
-5. Check to select "Performance plugin".
-6. Click "Download now and install after restart".
-7. Click to restart server.
-
-If you prefer a manual approach:
-
-0. Create a folder to hold the folder created during cloning (such as jmeter or jenkinsci).
-1. cd to that folder, then:
-
-   ```
-git clone https://github.com/jenkinsci/performance-plugin.git performance
-cd performance
-   ```
-   
-   This contains a pom.xml file for Maven to compile the src folder.
-   
-0. If you haven't already:
-
-   ```
-brew install maven
-   ```
-   
-0. Compile in a command window:
-
-   ```
-mvn package
-   ```
-
-   This downloads a bunch of files specified as dependencies, ending in this:
-   
-   ```
-   [INFO] Total time: 09:20 min
-[INFO] Finished at: 2016-01-26T08:31:04-08:00
-[INFO] Final Memory: 52M/259M
-   ```
-
-0. Get the address of the Jenkins server. To find (ignoring case)
-
-   ```
-   find . -iname "jenkins.war"
-   ```
-
-0. Copy to the target server the .hpi file which <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Structure">defines a plug-in</a>:
-
-   ```
-cp <target>/performance.hpi <path_to_jenkins>/data/plugins
-   ```
-
-0. To fix <a target="_blank" href="http://stackoverflow.com/questions/33126279/jenkins-performance-plugin-for-jmeter">this</a>
-switching report format to xml in jmeter properties file:
-
-   ```
-   jmeter.save.saveservice.output_format=xml
-   ```
-
-0. Configure the search pattern to select the files to be parsed by the Performance plugin. JMeter generates <strong>.jtl</strong> files.
-
-0. Configure the error percentage thresholds which would make the project unstable or failed 
-
-  
-0. When no jobs are running, restart the Jenkins server to reload the plugin.
-
-## Read more about plugins #
-
-   * http://wiki.jenkins-ci.org/display/JENKINS/Checking+out+existing+plugins
-   * http://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
-   * http://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins
-   * https://www.blazemeter.com/blog/continuous-integration-101-how-run-jmeter-jenkins
-   * https://www.linkedin.com/pulse/continuous-automated-web-tests-using-jenkins-jmeter-mahanta
-
-   * https://dzone.com/articles/orchestrating-workflows-with-jenkins-and-docker
-
-   * https://github.com/jenk
-
-   * http://udaypal.com/jenkins-workflow-getting-started/
+### Color wrapper Stage View #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
+Here</a> an example of adding color using Unicode:
+
+   <pre>
+       wrap([$class: 'AnsiColorBuildWrapper']) {
+        // Just some echoes to show the ANSI color.
+        stage "\u001B[31mI'm Red\u001B[0m Now not"
+       }
+   </pre>
+
+
+<a name="ParallelJobs"></a>
+
+### Parallel jobs #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/jobs-in-parallel/jobs_in_parallel.groovy">
+Here</a> is an example of how to run several jobs in parallel.
+Define array "branches" for execution by in a 
+"parallel" command which executes all items in the array at the same time.
+
+   <pre>
+def branches = [:]
+&nbsp;
+for (int i = 0; i < 4; i++) {
+  def index = i //if we tried to use i below, it would equal 4 in each job execution.
+  branches["branch${i}"] = {
+    build job: 'test_jobs', parameters: [[$class: 'StringParameterValue', name: 'param1', value:
+      'test_param'], [$class: 'StringParameterValue', name:'dummy', value: "${index}"]]
+    }
+}
+parallel branches
+   </pre>
+
+The for loop interrates 4 times through the array (0, 1, 2, 3),
+each containing a "build job" command.
+
+param1 : an example string parameter for the triggered job.
+
+dummy: a parameter used to prevent triggering the job with the same parameters value. 
+This parameter has to accept a different value each time the job is triggered.
+WQ//we have to assign it outside the closure or it will run the job multiple times with the same parameter "4"
+//and jenkins will unite them into a single run of the job
+
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/get-build-cause/getBuildCause.groovy">
+Here</a> is a definition pulling in 
+<a target="_blank" href="http://javadoc.jenkins-ci.org/hudson/model/class-use/Cause.html">cause</a> info available to Freestyle build jobs as a 
+$CAUSE variable 
+
+   <pre>
+// Get all Causes for the current build
+def causes = currentBuild.rawBuild.getCauses()
+
+// Get a specific Cause type (in this case the user who kicked off the build),
+// if present.
+def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
+   </pre>
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/parallel-from-grep/parallelFromGrep.groovy">
+Here</a> is an alternative.
+
+
+
+
+### Slack notification REST API #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/slacknotify/slackNotify.groovy">
+This</a> script imports Goovy's built-in library to output Json using the "JsonOutput.toJson" class.method.
+The JSON output is the body (payload) of a REST API call to Slack.com made using the Linux curl command:
+
+   <pre>
+import groovy.json.JsonOutput
+def notifySlack(text, channel) {
+    def slackURL = 'https://hooks.slack.com/services/xxxxxxx/yyyyyyyy/zzzzzzzzzz'
+    def payload = JsonOutput.toJson([text      : text,
+                                     channel   : channel,
+                                     username  : "jenkins",
+                                     icon_emoji: ":jenkins:"])
+    sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
+}
+   </pre>
+
+// Add whichever params you think you'd most want to have
+// replace the slackURL below with the hook url provided by
+// slack when you configure the webhook
+
+
+### IRC notification #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ircnotify-commandline/ircNotify.groovy">
+This</a> snippet for just the "notify" stage shows how to
+invoke a Bash shell command ("sh") to use the "nc" (netcat)
+command (on the last line below).
+
+   <pre>
+stage "notify"
+&nbsp;
+node {    
+    sh ''' 
+        MSG='This is the message here'
+        SERVER=irc.freenode.net
+        CHANNEL=#mictest
+        USER=mic2234test
+        (
+        echo NICK $USER
+        echo USER $USER 8 * : $USER
+        sleep 1
+        #echo PASS $USER:$MYPASSWORD                                                                                      &nbsp;                                                    
+        echo "JOIN $CHANNEL"
+        echo "PRIVMSG $CHANNEL" :$MSG
+        echo QUIT
+        ) | nc $SERVER 6667
+    '''
+}
+   </pre>
+
+The shell command above first defines environment variables,
+then between (parentheses) specifies the commands
+piped into the nc command.
+
+The "nc" (netcat) command is built into most Linux servers (including Mac OSX).
+It's used instead of Telnet here.
+
+A <a target="_blank" href="http://phil.lavin.me.uk/tag/irc-with-netcat/">
+"raw" connection</a> is established on default port 6667.
+Your enterprise network may not allow it.
+
+You need to modify the "This is the message here" text to 
+a variable updated internally in the script
+based on results of the previous stage.
+
+Also modify values to variables CHANNEL and USER.
+
+$MYPASSWORD comes from outside the script.
+
+* Command "NICK" sets the user nickname.
+* Command "PRIVMSG" sets the private message.
+<br />
+
+
+
+## Remote Loader Plugin #
+
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=46m01s">
+This video</a> introduces this feature.
+
+A pipline Groovy file can be loaded from any repo within a pipeline,
+like what "include" statements do.
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/pipeline.groovy">
+This</a> shows how to "include" a file
+instead of duplicating code.
+
+   <pre>
+node {
+    // Load file from the current directory:
+    def externalMethod = load("externalMethod.groovy")
+    externalMethod.lookAtThis("Steve")
+
+    def externalCall = load("externalCall.groovy")
+    externalCall("Steve")
+}
+   </pre>
+
+
+The
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalMethod.groovy">
+externalMethod.groovy</a> file contains:
+
+   <pre>
+// Methods in this file will end up as object methods on the object that load returns.
+def lookAtThis(String whoAreYou) {
+    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
+}
+   </pre>
+
+The
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalCall.groovy">
+externalCall.groovy</a> file contains:
+
+   <pre>
+def call(String whoAreYou) {
+    echo "Now we're being called more magically, ${whoAreYou}, thanks to the call(...) method."
+}
+   </pre>
+
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/loadFromGithub.groovy">
+This</a> shows how to "include" a file
+instead of duplicating code.
+
+   <pre>
+#!groovy
+&nbsp;
+apply from: 'https://raw.githubusercontent.com/org-name/repo-name/master/subfolder/Jenkinsfile?token=${env.GITHUB_TOKEN}'
+   </pre>
+
+In this example, the "org-name", "repo-name" are replaced with actuals.
+
+The "GITHUB_TOKEN" is a variable so its value is not exposed in code.
+
+
+
+### Shell Git command #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy">
+Here</a> is an example of doing a Bash shell call to
+invok git commands on the Git client on Jenkins agent machines.
+This sends STDOUT output to a file (in workspace) named "GIT_COMMIT":
+
+   <pre>
+sh('git rev-parse HEAD > GIT_COMMIT')
+             git_commit=readFile('GIT_COMMIT')
+short_commit=git_commit.take(6)
+&nbsp;
+sh('cd src && git rev-parse HEAD > GIT_COMMIT')
+             git_commit=readFile('src/GIT_COMMIT')
+short_commit=git_commit.take(6)
+   </pre>
+
+The <a target="_blank" href="https://git-scm.com/docs/git-rev-parse">
+git rev-parse</a> command
+is a internal Git utility to parse (pick out) revision/object names from a Git repo.
+This is done after Git has done a checkout to establish the branch and specific commit
+because the output is a SHA1 hash of the HEAD such as
+"2b9a2833bc3c6bc8e7b7344e8178ce98e29ebe4b".
+
+Such information was previously exposed to freestyle jobs by the Git plugin exposing environment variables.
+But not to a Pipeline job. Thus the need for shell commands.
+
+`git_commit.take(6)` extracts the first six characters to create a short SHA,
+much like what Git does because a smaller number of characters are enough to uniquely identify a specific commit.
+
+
+### Color wrapper Stage View #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/push-git-repo/pushGitRepo.Groovy">
+Here</a> an example of pushing changes to Git from inside Pipeline.
+
+   <pre>
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+    sh("git tag -a some_tag -m 'Jenkins'")
+    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
+}
+   </pre>
+
+This approach requires the repository to be setup in Jenkins to be authenticated to the repo (GitHub)
+using username and password rather than other methods.
+
+A <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-28335">
+open JIRA</a> requests getting the GitPublisher Jenkins functionality working with Pipeline.
+
+TODO: For SSH private key authentication, try the sshagent step from the SSH Agent plugin.
+
+
+### Git stash #
+
+https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/unstash-different-dir/unstashDifferentDir.groovy
+
+uses the Git stash command
+to move text among Jenkins nodes.
+
+
+
+## IntelliJ IDE Auto-complete #
+
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=46m01s&t=40m50s">
+.gdsl file for IntelliJ IDE code completion</a> begins like this:
+
+   <pre>
+//The global script scope
+def ctx = context(scope: scriptScope())
+contributor(ctx) {
+method(name: 'build', type: 'Object', params: [job:'java.lang.String'], doc: 'Build a job')
+   </pre>
+
+
+## Contributions #
+
+Contributions are at GitHub repo:<br />
+<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/">
+https://github.com/jenkins-infra/jenkins.io</a>
+
+* http://todobackend.com/
+
+
+## Latest Info about Jenkins #
+
+Follow <a target="_blank" href="https://twitter.com/jenkins_release/">
+@jenkins_release</a>
+This bot tweets Jenkins plugin releases.
+
+Tweet to 
+<a target="_blank" href="https://twitter.com/jenkinsci/">
+@jenkinsci</a> about
+<a target="_blank" href="https://twitter.com/#jenkins2/">
+#Jenkins2</a>
+
+CloudBees Verified account
+@CloudBees
+
+<a target="_blank" href="https://twitter.com/jenkinsconf/">
+@jenkinsconf</a>
+is the handle for Jenkins World, 
+Sep 13-15 in Santa Clara, CA
+
+@changelog
+New podcast every Friday! Sign up for our weekly and nightly emails. Open source moves fast. Keep up.
+
 
 ## More on DevOps #
 

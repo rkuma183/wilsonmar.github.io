@@ -73,6 +73,22 @@ The point of the exercise is to identify those exceptions for prioritization.
 This is not to say that one only do the exceptions.
 
 
+## Guerilla Marketing #
+
+Press releases to traditional news outlets
+
+<a target="_blank" href="https://www.shopify.com/blog/15973132-hacking-the-press-clever-ways-to-get-free-press-coverage-with-zero-budget">
+This article</a> mentions
+<a target="_blank" href="http://mashable.com/submit/">
+Mashable Submit</a>
+
+* Make it easy for journalists by providing text and pictures 
+   unique to their audience.
+   But customize text to each outlet's needs.
+
+* Provide an <strong>exclusive</strong> of some kind.
+
+
 ## More on Evanglism #
 
 This post is one of a (planned) series:
