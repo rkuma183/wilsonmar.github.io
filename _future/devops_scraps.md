@@ -1,4 +1,51 @@
+   <amp-img width="490" height="277" alt="jenkins2 build hello-world-490x277-i38.png" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
+
+
 [![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
+## Infrastructure as code #
+
+We would like to treat Jenkins configuration settings as code.
+
+   ### Configure permissions to repo #
+
+0. 
+
+   ### Install SCM plug-in #
+
+0. In Manage Jenkins, Manage Plugins, among Available, in Filter enter enough of 
+   <strong>"SCM Sync Configuration Plugin"</strong>
+   to check it for install. Its URL is <br />
+   <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin">
+   http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin</a>
+
+   "This plugin allows you to synchronize your hudson configuration files with an SCM, 
+   allowing you to specify a commit message every time a config file is modified.""
+
+   NOTE: "Hudson" is still referenced even in Jenkins2. Just ignore it.
+
+
+   ### Configure repo #
+
+0. In Manage Jenkins, Configure System, notice
+
+   /var/lib/jenkins
+
+0. In "SCM Sync Configuration", select Git and type in the Git repo
+   where your Jenkins configuration resides. In our example:
+
+   https://github.com/hotwilson/box.git
+
+   PROTIP: Jenkins should detect when there is a change to Jenkins configuration
+   and update the repo with a pop-up commit message such as this:
+   <amp-img width="497" height="183" alt="jenkins2 scm on change 20160805-497x183-i21.jpg" src="https://cloud.githubusercontent.com/assets/300046/17452244/9f7af2da-5b2a-11e6-9cf0-ea6e1beb6e4e.jpg"></amp-img>
+
+0. Check "Display SCM Sync Status".
+
+0. Click Save.
+
+
 
 
 0. [0:42] Install "Git Plugin"

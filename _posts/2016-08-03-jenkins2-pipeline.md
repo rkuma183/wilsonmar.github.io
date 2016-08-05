@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jenkins 2 Pipeline"
+title: "Jenkins2 Pipeline"
 excerpt: "Slave nodes are now stylish agents"
 tags: [Jenkins, setup]
 image:
@@ -56,7 +56,7 @@ Summary of Jenkins2 features: [36:00]
 * Jobs share global library to share scripts, functions, variables
 * Extendable DSL with loops, logic
 
-* Jobs can wait for user input before continuing
+* Jobs can wait for manual user input before continuing
 * <a href="#DurableTaskPlugin">
 Durable tasks</a> keep running while master restarts [41:33]
 * Jobs starting in one agent can switch to another
@@ -159,6 +159,50 @@ which went Version 2 April 26, 2016 after over 10 years at v1.
 0. Click "S" among "S M L" under the icons to show Small icons.
 
 
+
+## Infrastructure as code #
+
+We would like to treat Jenkins configuration settings as code.
+
+   ### Configure permissions to repo #
+
+0. TODO: 
+
+   ### Install SCM plug-in #
+
+0. In Manage Jenkins, Manage Plugins, among Available, in Filter enter enough of 
+   <strong>"SCM Sync Configuration Plugin"</strong>
+   to check it for install. Its URL is <br />
+   <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin">
+   http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin</a>
+
+   "This plugin allows you to synchronize your hudson configuration files with an SCM, 
+   allowing you to specify a commit message every time a config file is modified.""
+
+   NOTE: "Hudson" is still referenced even in Jenkins2. Just ignore it.
+
+
+   ### Configure repo #
+
+0. In Manage Jenkins, Configure System, notice
+
+   /var/lib/jenkins
+
+0. In "SCM Sync Configuration", select Git and type in the Git repo
+   where your Jenkins configuration resides. In our example:
+
+   https://github.com/hotwilson/box.git
+
+   PROTIP: Jenkins should detect when there is a change to Jenkins configuration
+   and update the repo with a pop-up commit message such as this:
+   <amp-img width="497" height="183" alt="jenkins2 scm on change 20160805-497x183-i21.jpg" src="https://cloud.githubusercontent.com/assets/300046/17452244/9f7af2da-5b2a-11e6-9cf0-ea6e1beb6e4e.jpg"></amp-img>
+
+0. Check "Display SCM Sync Status".
+
+0. Click Save.
+
+
+
 ## Jenkins 2 Pipeline Plugin #
 
 Instead of manually clicking through the Jenkins UI, the 
@@ -167,9 +211,9 @@ Pipeline plugin</a> in Jenkins 2
 reads a text-based <strong>Jenkinsfile</strong>
 <a href="#Groovy">Groovy script code</a> checked into source control.
 
-   ### Install Pipeline Plugin #
+### Install Pipeline Plugin #
 
-0. Install the "Pipeline" (in Manage Jenkins, Manage Plugins, Available) at<br />
+0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 
    NOTE: This was part of Cloudbees licenced features,
@@ -211,10 +255,22 @@ reads a text-based <strong>Jenkinsfile</strong>
 
    <pre>
 node {
-   stage 'Stage 1'
-   echo 'Hello World 1'
-   stage 'Stage 2'
-   echo 'Hello World 2'
+   stage '\u2776 Collect Stage 1'
+   echo '\u2776 Comitted \u2713.'
+
+   stage '\u27A1 Build Stage 2'
+   echo '\u27A1 Built.'
+
+   stage '\u2756 Test Stage 3'
+   echo '\u2756 Terrified \u274C.'
+   echo '\u2756 Verified \u2705.'
+
+   stage '\u273F Stage Stage 4'
+   echo '\u273F Staged \u2705.'
+
+   stage '\u2601 Deploy 5'
+   echo '\u2601 Not deployed \u2639.'
+   echo '\u2601 Deployed \u263A.'
 }
    </pre>
 
@@ -330,28 +386,26 @@ is a A Jenkins build server monitor for Mac OS X, powered by MacRuby. This app s
 * https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 * https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
 
-Arnaud Heritier (@aheritier, aheitier)
-(Support Team Manager at Cloudbees)
 
-   * https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016
-   Slidedeck from Paris JUG June 2016 points to
-   <a target="_blank" href="https://groups.google.com/d/msg/jenkinsci-dev/vbXK7jjekFw/BievO0UxBgAJ"> Kohsuke's 25 Sep 2015 proposal for Jenkins 2.0</a>.
+## Chaining in the Pipeline #
 
-
-## Info about Pipeline #
+Jenkins v1 consisted of many atomic jobs chained together by a mix of triggers and parameters.
 
    <amp-img width="650" height="261" alt="jenkins cd flow 650x261-i15.jpg" src="https://cloud.githubusercontent.com/assets/300046/17418538/45f540d2-5a56-11e6-8730-39528384e435.jpg"></amp-img>
-   From 
+
+Multi-branch projects
+
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=59m57s">
+In this video</a> Jesse
+
+
+## Videos on Jenkins2 Pipeline #
 
 If you prefer videos, these are specifically about Jenkins 2.0+
 
-by author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
-
-Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
-   Jenkins Workflow: security model &amp; plugin compatibility
-   Aug 2015</a>
+Several speakers spoke at the 2:42:35<br />
+   <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
+   Jenkins 2.0 Virtual Conf. May 2015</a>
 
 Jenkins creator Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
 <a target="_blank" href="https://www.youtube.com/channel/UCT_pjuBAYn6Sm_u4YJt59Rw">
@@ -370,10 +424,18 @@ YouTube channel</a> :
    * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
    on 7 Oct 2015</a>
 
+Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
 
+   * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
+   Jenkins Workflow: security model &amp; plugin compatibility
+   Aug 2015</a>
 
-   * <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
-   Jenkins 2.0 Virtual Conf. 2015</a>
+Arnaud Heritier (@aheritier, aheitier)
+(Support Team Manager at Cloudbees)
+
+   * https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016
+   Slidedeck from Paris JUG June 2016 points to
+   <a target="_blank" href="https://groups.google.com/d/msg/jenkinsci-dev/vbXK7jjekFw/BievO0UxBgAJ"> Kohsuke's 25 Sep 2015 proposal for Jenkins 2.0</a>.
 
 <a target="_blank" href="https://se.linkedin.com/in/robertsandell/">
 Robert "Bobby" Sandell</a>
@@ -396,6 +458,7 @@ James Nord
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=PsgQ4v4aBhA">
    Jenkins 2.0 and Beyond (and Q&A)</a>
+   52:04 
 
 
 <a name="InfrastructureAsCode"></a>
@@ -508,6 +571,11 @@ that adds a time stamp to echos :
    }
    </pre>
 
+
+## Interacting with Git and GitHub #
+
+0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
+   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 
 
 ### Shell Git command #
@@ -847,7 +915,8 @@ The switch to "functional programming" is actually a natural progression many ot
 The Jenkins development team has, over the years, adopted innovations in Java
 such as Spring, Guava, and Groovy, as evidenced by this
 from <a target="_blank" href="https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016">
-ParisJUG 7 June 2016</a> by Arnaud Heritier (@aheritier) of Cloudbees.
+slide 9 of the Intro presentation at ParisJUG 7 June 2016</a> 
+by Arnaud Heritier (@aheritier) of Cloudbees.
 
    <amp-img width="650" height="207" alt="jenkins java progression 650x207-i13.jpg" src="https://cloud.githubusercontent.com/assets/300046/17439314/a4d3329c-5ae4-11e6-9544-e20daaad9898.jpg"></amp-img>
 
