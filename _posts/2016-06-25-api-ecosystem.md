@@ -63,11 +63,15 @@ A <strong>mock server</strong> doesn't provide all the logic and data from a rea
 but some developers use them while they build their clients because they provide
 a stable end-point running locally while off the network.
 
+### The Ecosystem #
+
 All this is what makes up a "full" API ecosystem today.
 
 <amp-img width="650" height="283" alt="api-ecosystem-v05-needs-650x283-c67.jpg"
 src="https://cloud.githubusercontent.com/assets/300046/16594103/f753f594-42a5-11e6-99cf-fabe7317374d.jpg">
 </amp-img>
+
+> Would you like this? Let me know.
 
 <hr />
 
@@ -103,6 +107,11 @@ All this cuts <strong>time to market</strong> because changes to server code
 can now be quickly reflected in the 
 docs, the client demo code, mock server code, test code, and benchmark run results.
 
+> Ask me questions about this.
+
+<a name="Recap"></a>
+
+## Recap: My Ask #
 
 <a name="Diagram"></a>
 
@@ -110,12 +119,9 @@ docs, the client demo code, mock server code, test code, and benchmark run resul
 src="https://cloud.githubusercontent.com/assets/300046/16593898/e34ad1f4-42a4-11e6-9b08-4396c1514ca9.jpg">
 </amp-img>
 
-
-## Recap: My Ask #
-
 What I'm advocating here are:
 
-0. programming of <strong>code generation programs</strong> so that 
+0. Programming of <strong>code generation programs</strong> so that 
    the many future changes in requirements will be automatically reflected.
 
 0. Scan swagger JSON interface specs for issues based on commonly accepted rules, 
