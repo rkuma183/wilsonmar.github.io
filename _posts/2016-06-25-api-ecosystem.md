@@ -111,7 +111,7 @@ src="https://cloud.githubusercontent.com/assets/300046/16593898/e34ad1f4-42a4-11
 </amp-img>
 
 
-## Summary #
+## Recap: My Ask #
 
 What I'm advocating here are:
 
@@ -121,19 +121,20 @@ What I'm advocating here are:
 0. Scan swagger JSON interface specs for issues based on commonly accepted rules, 
    just like we now use SonarQub to statically scan Java code for issues.
 
-0. Establish a central museum (marketplace) of APIs out in the wide
+0. Expand a central museum (marketplace) of APIs out in the wide
    so people can discover and <strong>compare</strong> APIs
    techniques employed based on various evaluation criteria
    (like Consumer Reports does with consumer products).
 
-0. combination of billing with metadata about where the database is growing organically in order to 
+0. Elicit insights about billing on where databases are growing organically in order to 
    <strong>predict</strong> areas of stress, 
    so developers and programs have the wisdom to
    alter testing code to <strong>proacatively</strong> 
    verify if the database is ready for those specific types of growth.
 
-0. Leverage a community of developers and other professions to do the above
-   through a smarter discussion engine.
+0. Leverage a <strong>community</strong> of developers and other professions 
+   to achieve the above
+   through a <strong>smart forum for collaboration</strong>.
 
 > Email or call me so we can see how this can work for you and your organization.
 
