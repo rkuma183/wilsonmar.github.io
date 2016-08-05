@@ -11,11 +11,13 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
-This article shows you how to install and configure Jenkins version 2 for Continuous Delivery (CD) as well as Continuouse Integration (CI)
+This article shows you how to install and configure 
+Jenkins version 2 for Continuous Delivery (CD) as well as Continuouse Integration (CI)
 using <a href="#Groovy">Groovy DSL scripts</a>.
 
 {% include _intro.html %}
@@ -433,18 +435,176 @@ which Gradle replaces.
 Step Reference is at https://.../job/box/pipeline-syntax/html
 
 
-### CPS Global Library #
 
-<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=44m52s">
-This video</a> introduces the
-<a target="_blank" href="https://www.wikiwand.com/en/Continuation-passing_style">
-Continuation Passing Style</a>
-of "functional programming".
-This means that, unlike the direct style people have been coding,
-CPS functions return another function.
+### Unicode icons #
 
-http://...pipeline-syntax/ has a snippet generator
+<img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
 
+PROTIP: Putting the same visual mark in both the stage name and echos related to the stage
+makes them visually easier to identify together.
+
+   <pre>
+   stage '\u273F Verify 4'
+   </pre>
+
+   * "\u2776" = &#x2776;
+   * "\u27A1" = &#x27A1;
+   * "\u2756" = &#x2756;
+   * "\u273F" = &#x273F;
+   * "\u2795" = &#x2795;
+
+   * "\u2713" = &#x2713;
+   * "\u2705" = &#x2705;
+   * "\u274E" = &#x274E;
+   * "\u2717" = &#x2717;
+   * "\u274C" = &#x274C;
+
+   * "\u2600" = &#x2600;
+   * "\u2601" = &#x2601;
+   * "\u2622" = &#x2622;
+   * "\u2623" = &#x2623;
+   * "\u2639" = &#x2639;
+   * "\u263A" = &#x263A;
+
+   * <a target="_blank" href="http://www.fileformat.info/info/unicode/block/dingbats/list.htm">
+   More icons in the \u2700 Unicode Digbats block</a>.
+   * <a target="_blank" href="http://www.w3schools.com/charsets/ref_utf_symbols.asp">
+   More icons in the \u2600 range</a>
+
+### Color wrapper Stage View #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
+Here</a> is an example of adding color in a stage name:
+
+   <pre>
+    wrap([$class: 'AnsiColorBuildWrapper']) {
+        stage "\u001B[31m I'm Red \u2717 \u001B[0m Now not"
+    }
+   </pre>
+
+This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI characters:
+
+   * "\u001B[31m" = RED
+   * "\u001B[30m" = BLACK
+   * "\u001B[32m" = GREEN
+   * "\u001B[33m" = YELLOW
+   * "\u001B[34m" = BLUE
+   * "\u001B[35m" = PURPLE
+   * "\u001B[36m" = CYAN
+   * "\u001B[37m" = WHITE
+   * "\u001B[0m" is for RESET.
+   <br /><br />
+
+
+### Time stamp wrapper #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
+Here</a> is an example of invoking a build wrapper 
+that adds a time stamp to echos :
+
+   <pre>
+   wrap([$class: 'TimestamperBuildWrapper']) {
+      echo "Done"
+   }
+   </pre>
+
+
+
+### Shell Git command #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy">
+Here</a> is an example of doing a Bash shell call to
+invok git commands on the Git client on Jenkins agent machines.
+This sends STDOUT output to a file (in workspace) named "GIT_COMMIT":
+
+   <pre>
+sh('git rev-parse HEAD > GIT_COMMIT')
+             git_commit=readFile('GIT_COMMIT')
+short_commit=git_commit.take(6)
+&nbsp;
+sh('cd src && git rev-parse HEAD > GIT_COMMIT')
+             git_commit=readFile('src/GIT_COMMIT')
+short_commit=git_commit.take(6)
+   </pre>
+
+The <a target="_blank" href="https://git-scm.com/docs/git-rev-parse">
+git rev-parse</a> command
+is a internal Git utility to parse (pick out) revision/object names from a Git repo.
+This is done after Git has done a checkout to establish the branch and specific commit
+because the output is a SHA1 hash of the HEAD such as
+"2b9a2833bc3c6bc8e7b7344e8178ce98e29ebe4b".
+
+Such information was previously exposed to freestyle jobs by the Git plugin exposing environment variables.
+But not to a Pipeline job. Thus the need for shell commands.
+
+`git_commit.take(6)` extracts the first six characters to create a short SHA,
+much like what Git does because a smaller number of characters are enough to uniquely identify a specific commit.
+
+
+### Push changes to Git #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/push-git-repo/pushGitRepo.Groovy">
+Here</a> an example of pushing changes to Git from inside Pipeline.
+
+   <pre>
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+    sh("git tag -a some_tag -m 'Jenkins'")
+    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@&LT;REPO> --tags')
+}
+   </pre>
+
+This approach requires the repository to be setup in Jenkins to be authenticated to the repo (GitHub)
+using username and password rather than other methods.
+
+A <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-28335">
+open JIRA</a> requests getting the GitPublisher Jenkins functionality working with Pipeline.
+
+TODO: For SSH private key authentication, try the sshagent step from the SSH Agent plugin.
+
+
+### Git stash #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/unstash-different-dir/unstashDifferentDir.groovy">
+This</a> script uses the Git stash command
+to move text among Jenkins nodes.
+
+   <pre>
+// First we'll generate a text file in a subdirectory on one node and stash it.
+stage "first step on first node"
+&nbsp;
+// Run on a node with the "first-node" label.
+node('first-node') {
+    // Make the output directory.
+    sh "mkdir -p output"
+&nbsp;
+    // Write a text file there.
+    writeFile file: "output/somefile", text: "Hey look, some text."
+&nbsp;
+    // Stash that directory and file.
+    // Note that the includes could be "output/", "output/*" as below, or even
+    // "output/**/*" - it all works out basically the same.
+    stash name: "first-stash", includes: "output/*"
+}
+&nbsp;
+// Next, we'll make a new directory on a second node, and unstash the original
+// into that new directory, rather than into the root of the biuld.
+stage "second step on second node"
+&nbsp;
+// Run on a node with the "second-node" label.
+node('second-node') {
+    // Run the unstash from within that directory!
+    dir("first-stash") {
+        unstash "first-stash"
+    }
+&nbsp;
+    // Look, no output directory under the root!
+    // pwd() outputs the current directory Pipeline is running in.
+    sh "ls -la ${pwd()}"
+&nbsp;
+    // And look, output directory is there under first-stash!
+    sh "ls -la ${pwd()}/first-stash"
+}
+   </pre>
 
 ### Tokenize environment variable #
 
@@ -468,28 +628,66 @@ Like other Groovy files, it has in the first line `#!groovy`.
 into an array named "tokens".
 
 
-### Time stamp wrapper #
+### Remote Loader Plugin #
 
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
-Here</a> is an example of invoking a build wrapper 
-that adds a time stamp to echos :
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=46m01s">
+This video</a> introduces this feature.
+
+A pipline Groovy file can be loaded from any repo within a pipeline,
+like what "include" statements do.
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/pipeline.groovy">
+This</a> shows how to "include" a file
+instead of duplicating code.
 
    <pre>
-wrap([$class: 'TimestamperBuildWrapper']) {
+node {
+    // Load file from the current directory:
+    def externalMethod = load("externalMethod.groovy")
+    externalMethod.lookAtThis("Steve")
+
+    def externalCall = load("externalCall.groovy")
+    externalCall("Steve")
+}
    </pre>
 
 
-### Color wrapper Stage View #
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
-Here</a> an example of adding color using Unicode:
+The
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalMethod.groovy">
+externalMethod.groovy</a> file contains:
 
    <pre>
-       wrap([$class: 'AnsiColorBuildWrapper']) {
-        // Just some echoes to show the ANSI color.
-        stage "\u001B[31mI'm Red\u001B[0m Now not"
-       }
+// Methods in this file will end up as object methods on the object that load returns.
+def lookAtThis(String whoAreYou) {
+    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
+}
    </pre>
+
+The
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalCall.groovy">
+externalCall.groovy</a> file contains:
+
+   <pre>
+def call(String whoAreYou) {
+    echo "Now we're being called more magically, ${whoAreYou}, thanks to the call(...) method."
+}
+   </pre>
+
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/loadFromGithub.groovy">
+This</a> shows how to "include" a file
+instead of duplicating code.
+
+   <pre>
+#!groovy
+&nbsp;
+apply from: 'https://raw.githubusercontent.com/org-name/repo-name/master/subfolder/Jenkinsfile?token=${env.GITHUB_TOKEN}'
+   </pre>
+
+In this example, the "org-name", "repo-name" are replaced with actuals.
+
+The "GITHUB_TOKEN" is a variable so its value is not exposed in code.
+
 
 
 <a name="ParallelJobs"></a>
@@ -622,128 +820,6 @@ $MYPASSWORD comes from outside the script.
 
 
 
-## Remote Loader Plugin #
-
-<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=46m01s">
-This video</a> introduces this feature.
-
-A pipline Groovy file can be loaded from any repo within a pipeline,
-like what "include" statements do.
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/pipeline.groovy">
-This</a> shows how to "include" a file
-instead of duplicating code.
-
-   <pre>
-node {
-    // Load file from the current directory:
-    def externalMethod = load("externalMethod.groovy")
-    externalMethod.lookAtThis("Steve")
-
-    def externalCall = load("externalCall.groovy")
-    externalCall("Steve")
-}
-   </pre>
-
-
-The
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalMethod.groovy">
-externalMethod.groovy</a> file contains:
-
-   <pre>
-// Methods in this file will end up as object methods on the object that load returns.
-def lookAtThis(String whoAreYou) {
-    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
-}
-   </pre>
-
-The
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/externalCall.groovy">
-externalCall.groovy</a> file contains:
-
-   <pre>
-def call(String whoAreYou) {
-    echo "Now we're being called more magically, ${whoAreYou}, thanks to the call(...) method."
-}
-   </pre>
-
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/load-from-file/loadFromGithub.groovy">
-This</a> shows how to "include" a file
-instead of duplicating code.
-
-   <pre>
-#!groovy
-&nbsp;
-apply from: 'https://raw.githubusercontent.com/org-name/repo-name/master/subfolder/Jenkinsfile?token=${env.GITHUB_TOKEN}'
-   </pre>
-
-In this example, the "org-name", "repo-name" are replaced with actuals.
-
-The "GITHUB_TOKEN" is a variable so its value is not exposed in code.
-
-
-
-### Shell Git command #
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy">
-Here</a> is an example of doing a Bash shell call to
-invok git commands on the Git client on Jenkins agent machines.
-This sends STDOUT output to a file (in workspace) named "GIT_COMMIT":
-
-   <pre>
-sh('git rev-parse HEAD > GIT_COMMIT')
-             git_commit=readFile('GIT_COMMIT')
-short_commit=git_commit.take(6)
-&nbsp;
-sh('cd src && git rev-parse HEAD > GIT_COMMIT')
-             git_commit=readFile('src/GIT_COMMIT')
-short_commit=git_commit.take(6)
-   </pre>
-
-The <a target="_blank" href="https://git-scm.com/docs/git-rev-parse">
-git rev-parse</a> command
-is a internal Git utility to parse (pick out) revision/object names from a Git repo.
-This is done after Git has done a checkout to establish the branch and specific commit
-because the output is a SHA1 hash of the HEAD such as
-"2b9a2833bc3c6bc8e7b7344e8178ce98e29ebe4b".
-
-Such information was previously exposed to freestyle jobs by the Git plugin exposing environment variables.
-But not to a Pipeline job. Thus the need for shell commands.
-
-`git_commit.take(6)` extracts the first six characters to create a short SHA,
-much like what Git does because a smaller number of characters are enough to uniquely identify a specific commit.
-
-
-### Color wrapper Stage View #
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/push-git-repo/pushGitRepo.Groovy">
-Here</a> an example of pushing changes to Git from inside Pipeline.
-
-   <pre>
-withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-    sh("git tag -a some_tag -m 'Jenkins'")
-    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
-}
-   </pre>
-
-This approach requires the repository to be setup in Jenkins to be authenticated to the repo (GitHub)
-using username and password rather than other methods.
-
-A <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-28335">
-open JIRA</a> requests getting the GitPublisher Jenkins functionality working with Pipeline.
-
-TODO: For SSH private key authentication, try the sshagent step from the SSH Agent plugin.
-
-
-### Git stash #
-
-https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/unstash-different-dir/unstashDifferentDir.groovy
-
-uses the Git stash command
-to move text among Jenkins nodes.
-
-
 
 ## IntelliJ IDE Auto-complete #
 
@@ -757,6 +833,27 @@ contributor(ctx) {
 method(name: 'build', type: 'Object', params: [job:'java.lang.String'], doc: 'Build a job')
    </pre>
 
+### CPS Global Library #
+
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=44m52s">
+This video</a> introduces
+<a target="_blank" href="https://www.wikiwand.com/en/Continuation-passing_style">
+Continuation Passing Style</a>
+of "functional programming",
+which means that, unlike the direct style people have been coding,
+CPS functions return a function rather than values.
+
+The switch to "functional programming" is actually a natural progression many others are undergoing in 2016.
+The Jenkins development team has, over the years, adopted innovations in Java
+such as Spring, Guava, and Groovy, as evidenced by this
+from <a target="_blank" href="https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016">
+ParisJUG 7 June 2016</a> by Arnaud Heritier (@aheritier) of Cloudbees.
+
+   <amp-img width="650" height="207" alt="jenkins java progression 650x207-i13.jpg" src="https://cloud.githubusercontent.com/assets/300046/17439314/a4d3329c-5ae4-11e6-9544-e20daaad9898.jpg"></amp-img>
+
+### Snippet generator #
+
+http://...pipeline-syntax/ has a snippet generator
 
 ## Contributions #
 

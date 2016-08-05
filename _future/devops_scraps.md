@@ -1,3 +1,36 @@
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
+0. [0:42] Install "Git Plugin"
+   https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
+   to provide Git client functionality on Jenkins servers.
+
+0. [1:41] Create a Jenkins Freestyle project, OK.
+
+0. [2:01] The <strong>Source Code Management</strong> section, select <strong>Git</strong>.
+
+0. [2:15] Enter your repo, with the .git at the end.
+
+   The plugin makes a call such as:
+
+   <pre>
+   git ls-remote -h https://github.com/hotwilson/box.git HEAD
+   </pre>
+
+   NOTE: When done on my Mac Terminal, this returns nothing.
+
+   If you <a target="_blank" href="http://stackoverflow.com/questions/36126664/jenkins-git-repo-url-error">(like others)</a>
+   get the error message <br />
+   "Failed to connect to repository : Error performing command:"
+
+0. [2:15] If your repo is private, provide your SSH keys.
+
+   https://developer.github.com/guides/managing-deploy-keys/
+   
+   https://docs.docker.com/docker-hub/builds/
+
+
+
 <amp-youtube data-videoid="ISAUsBSI8G0" layout="responsive" width="480" height="270">
 </amp-youtube>
 This "Jenkins Tutorial - Part 03: Git Integration & Configuring jobs using Git".

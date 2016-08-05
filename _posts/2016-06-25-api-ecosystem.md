@@ -14,9 +14,9 @@ shorturl: https://goo.gl/wojj1R
 ---
 <i>{{ page.excerpt }}</i>
 
-<hr />
-
 {% include _toc.html %}
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 This tutorial is about the elements of an ecosystem for 
 <strong>development</strong> of Application Programming Interfaces (APIs).
