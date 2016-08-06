@@ -243,6 +243,10 @@ The company provides value-added on AWS as well as
 on its own servers East of its Austin, Texas headquarters.
 
 
+AppScale (@appscalecloud)
+gives you the freedom to run App Engine applications 
+on any public, private, or hybrid cloud.
+
 
 ## More on DevOps #
 

@@ -11,13 +11,14 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
 This tutorial aims to succintly present
 <strong>step-by-step</strong> instructions 
-to setup Jenkins on Mac OSX and CentOS.
+to setup Jenkins on Mac OSX and CentOS, both locally and in various cloud enviornments.
 
 {% include _intro.html %}
 
@@ -65,19 +66,96 @@ It contains a Tomcat web server Java runs under.
 
 ## Installation options #
 
-   * <a href="#DigitalOcean">DigitalOcean</a> Saas
+From the easiest to the most effort:
+
    * <a href="#CloudbeesInstall">Cloudbees</a> Saas
+   * <a href="#DigitalOcean">DigitalOcean</a> Saas
    * <a href="#CodeDeploy">AWS CodeDeploy service</a> SaaS
    * Layershift Jelastic PaaS 
 
    * <a href="#AmazonInstall">Amazon EC2 instance you setup</a>
      with Ansible script using Docker image
-   * <a href="#Install_Mac">Mac</a> locally
+   * <a href="#DockerInstall">Local Docker install</a>
+
+   * <a href="#Install_Mac">Mac</a> locally from download
    * <a href="#Choco_Windows">Windows</a> locally using Chocolatey
    * <a href="#Install_Windows">Windows</a> locally by download
    * <a href="#Install_Linux">Linux</a> locally
 
 <hr />
+
+
+<a id="CloudbeesInstall"></a>
+
+## Cloudbees Cloud No Installation #
+
+Installation is not necessary if you use <a target="_blank" href="http://www.cloudbees.com/">
+Cloudbees.com</a> which hosts Jenkins in their cloud. 
+
+Their CEO is Kohsuke Kawaguchi (@kohsukekwa, kk@kohsuke.org)
+who invented Hudson/Jenkins. Hear him speak at <a target="_blank" href="https://www.youtube.com/watch?v=0nG4xGYvAa0"> this Oct, 2014 meetup about Workflow</a>.
+
+Cloudbees sells <a target="_blank" href="https://www.cloudbees.com/products/cloudbees-jenkins-platform/enterprise-edition">
+Nectar</a>, 
+a supported and enhanced on-premise version of Jenkins that automatically scales on VMWare virtual machines.
+Cloudbees has a professional certification exam on this product.
+
+<a target="_blank" href="https://hub.docker.com/r/cloudbees/workflow-demo/">
+https://hub.docker.com/r/cloudbees/workflow-demo</a><br />
+is the demo Docker image for Jenkins workflow with Jenkins Enterprise by CloudBees proprietary extension
+for <strong>checkpoint</strong>.
+
+   <tt><strong>
+   docker run -p 8080:8080 -p 8081:8081 -p 8022:22 -p 9418:9418 -ti cloudbees/workflow-demo
+   </strong></tt>
+
+   QUESTION: What about Jenkins2 Pipeline demo?
+
+   See <a href="#PortForwardings">Port forwardings</a>
+
+<a id="LocalDocker"></a>
+
+## Local Docker #
+
+   Assuming you have Docker installed on your local machine:
+
+0. Download and use the jenkinsci/workflow-demo 
+   Docker image from DockerHub. It's based on<br />
+   <a target="_blank" href="https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md">
+   this</a> is the open source version of Jenkins.
+
+   <tt><strong>
+   docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti jenkinsci/workflow-demo
+   </strong></tt>
+
+   The response can take a long time.
+
+   The `--rm` option tells
+   Docker to automatically clean up the container and remove the file system when the container exits,
+   according to <a target="_blank" href="https://docs.docker.com/engine/reference/run/">
+   Docker reference</a>, which describes many other options.
+
+   Also, many add `--name` to name the container.
+
+   <a name="PortForwardings"></a>
+
+   ### Port forwardings # 
+
+   NOTE: The long form of `-p` is `--publish` to the Docker container.
+
+   Jenkins runs on port 8080. The Jetty web service runs on port 8081. 
+
+   Port 2222 is to access the Jenkins CLI.
+
+   Port 8022:22 is SSH to securely access Git repositories.
+
+   Port 9418 is to use the <a target="_blank" href="https://git-scm.com/book/ch4-1.html">
+   Git protocol</a> which is similar to SSH, but with no authentication.
+   Thus it's often the fastest network transfer protocol available,
+   but for read-only (no pushing to it). However, the need to open a special port
+   makes this rare for enterprise use.
+
+
 
 <a id="DigitalOcean"></a>
 
@@ -833,19 +911,6 @@ Active: active (running) since Tue 2015-12-29 00:00:16 EST; 17s ago
 
 
 
-<a id="CloudbeesInstall"></a>
-
-## Cloudbees Installation #
-
-Installation is not necessary if you use <a target="_blank" href="http://www.cloudbees.com/">
-Cloudbees.com</a> which hosts Jenkins in their cloud. Their CEO is Kohsuke Kawaguchi (@kohsukekwa, kk@kohsuke.org)
-who invented Hudson/Jenkins. Hear him speak at <a target="_blank" href="https://www.youtube.com/watch?v=0nG4xGYvAa0"> this Oct, 2014 meetup about Workflow</a>.
-
-Cloudbees sells Nectar, a supported and enhanced on-premise version of Jenkins that automatically scales on VMWare virtual machines.
-Cloudbees has a professional certification exam on this product.
-
-
-
 <a name="CodeDeploy"></a>
 
 ## AWS CodeDeploy service #
@@ -906,12 +971,16 @@ However, there are some updates necessary two years later.
 
 ## Linux Installation #
 
-Alternately, to install on RedHat and Centos Linux machines, follow instructions at:
+Alternately, to install on RedHat and Centos Linux machines:<br />
+<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions">
+https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions</a>
 
- * https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions
 
+<a name="DockerInstall"></a>
 
-## Local laptop install #
+## Local Docker install #
+
+https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md
 
 
 <a id="Install_Mac"></a>
