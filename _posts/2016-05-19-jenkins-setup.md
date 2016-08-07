@@ -113,9 +113,10 @@ for <strong>checkpoint</strong>.
 
    See <a href="#PortForwardings">Port forwardings</a>
 
-<a id="LocalDocker"></a>
 
-## Local Docker #
+<a name="DockerInstall"></a>
+
+## Local Docker install #
 
    Assuming you have Docker installed on your local machine:
 
@@ -154,6 +155,37 @@ for <strong>checkpoint</strong>.
    Thus it's often the fastest network transfer protocol available,
    but for read-only (no pushing to it). However, the need to open a special port
    makes this rare for enterprise use.
+
+   ### Password file #
+
+   This specifies the folder containing passwords (a file which is not in the repo):
+
+   <pre>
+   -v `pwd`:/app
+   </pre>
+
+   ### Confirm #
+
+   <tt><strong>
+   docker ps -a
+   </strong></tt>
+
+   Sample response:
+
+   <pre>
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS                  PORTS                                                                                         NAMES
+b5e3d39ed158        jenkinsci/workflow-demo   "/bin/tini -- /usr/lo"   12 hours ago        Up 23 minutes           0.0.0.0:2222->2222/tcp, 0.0.0.0:8080-8081->8080-8081/tcp, 0.0.0.0:9418->9418/tcp, 50000/tcp   reverent_swanson
+   </pre>
+
+0. To kill a container, specify its container ID from the previous command:
+
+   <tt><strong>
+   docker kill b5e3d39ed158
+   </strong></tt>
+
+0. See how much memory the container is taking when idle:
+
+   ???
 
 
 
@@ -975,12 +1007,6 @@ Alternately, to install on RedHat and Centos Linux machines:<br />
 <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions">
 https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions</a>
 
-
-<a name="DockerInstall"></a>
-
-## Local Docker install #
-
-https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md
 
 
 <a id="Install_Mac"></a>

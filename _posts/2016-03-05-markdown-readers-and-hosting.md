@@ -11,7 +11,8 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
@@ -19,7 +20,8 @@ The diagrams below are animated in PowerPoint and go with a narrative to each st
 I then created a screencast video of it.
 And a step-by-step hands-on tutorial to explain each step.
 
-## Playlist
+## Playlist #
+
 You will prefer accessing the videos via this playlist:
 
 > <a target="_blank" href="https://goo.gl/12C1BF">https://goo.gl/12C1BF</a>
@@ -28,7 +30,12 @@ A playlist link lists the latest versions because individual videos can be added
 
 Direct links to individual YouTube videos can become stale when newer versions are downloaded.
 
-## Video
+Markup is a generic term for a language that describes a document's formatting
+
+Markdown is a specific markup library: http://daringfireball.net/projects/markdown/
+
+
+## Video #
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ub2DFbn16zg" frameborder="0" allowfullscreen></iframe>
 
@@ -83,11 +90,19 @@ such as Heroku or specialized hosting services such as
 gitbook.com, leapub.com, and others. Leanpub can also receive files via Dropbox. 
 
 ### Alternative formats
-Work reformatting and transferring to a web host may be automated on the server as part of a Continuous Integration toolchain. 
+
+Work reformatting and transferring to a web host may be automated on the server as part of a 
+Continuous Integration toolchain. 
 
 Many prefer hosting where they can render not just HTML, but epub files for Apple mobile devices, pdf files, and mobi files for display on Amazon Kindle tablets. AZW is Amazon’s proprietary format to support Digital rights Management.
 
 Another popular approach to generate HTML is to use Jekyll plus other Ruby gems and custom templates. 
 
 Included with 3rd-party hosting may be a CDN (Content Delivery Network) such as what Amazon, Google, and others provide to scatter files all over the world for faster access.
+
+
+## Alternative Markup #
+
+http://asciidoctor.org/
+converts AsciiDoc to HTML5, DocBook & more.
 

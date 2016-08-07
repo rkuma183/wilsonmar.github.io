@@ -11,7 +11,8 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 

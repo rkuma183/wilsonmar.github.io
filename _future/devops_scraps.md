@@ -2,6 +2,21 @@
 
    <amp-img width="490" height="277" alt="jenkins2 build hello-world-490x277-i38.png" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
 
+https://github.com/jenkinsci/pipeline-editor-plugin
+Graphical Pipeline Editor
+
+
+   PROTIP: Information about the Jenkins DSL (Domain-Specific Language) is
+   at link to ???
+   The DSL is extendable.
+
+ 
+ PROTIP: Outside of the in-line Pipeline Script, the first line in the script must contain:
+ 
+ <pre>
+#!/usr/bin/env groovy
+ </pre>
+ 
 
 
 Definitive Guide
@@ -520,3 +535,7 @@ Etsy.com
 
 working on mainline, trunk, master
 feature flags
+
+
+
+https://github.com/jenkins-demo/springboot-demo

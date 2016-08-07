@@ -22,31 +22,12 @@ using <a href="#Groovy">Groovy DSL scripts</a>.
 
 {% include _intro.html %}
 
-## CI vs CD #
-
-Continuous Integration (CI) <strong>merges</strong> 
-development work (in a developer's branch) 
-with a Master/Trunk/Mainline branch to ensure that changes 
-still work in a testing enviornment containing shared code.
-It's call continuous to emphasize small changes being integrated frequently
-to stay in sync with an evolving team codebase.
-This requires individual changes to be scoped for 
-completion in a short amount of time (hours at most).
-
-Continuous Delivery (CD) delivers code for running in an UAT or Staging enviornment 
-(of full production scale)
-used by end-users (QA or customers) to process business transactions in inspection mode.
-It's called continuous for frequency to find more issues early, 
-before each particular version has left the memory of developers.
-
-Continuous Deployment moves code to Production.
-This is done by merging to the Mainline/Master branch which gets copied to the Production enviornment.
-It's called continuous to make this happen as soon as code is ready.
-
-The above is adapted from <a target="_blank" href="https://blog.assembla.com/AssemblaBlog/tabid/12618/bid/92411/Continuous-Delivery-vs-Continuous-Deployment-vs-Continuous-Integration-Wait-huh.aspx">
-Assembla</a>
-
 ## Jenkins2 highlights #
+
+This is my summary of statements by the Jenkins team on 
+<a target="_blank" href="https://jenkins.io/2.0/">https://jenkins.io/2.0</a> and
+in <a href="#Videos">videos</a> (<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=49m47s">
+Pipeline</a>)
 
 The objective of Jenkins2 is to install with a 
 <a href="#RecommendedPlugins">recommended set of plugins</a>
@@ -55,51 +36,43 @@ that cover 80% of use cases out of the box.
 
 Summary of Jenkins2 features: [36:00]
 
-* Introduce “pipeline” as a new type in Jenkins (to Freestyle)
-* Multiple SCM repositories in each job
+* “Pipeline” <strong>item type</strong> in Jenkins (to Freestyle)
 * Entire pipeline as text code in SCM (GitHub)
+* Multiple SCM repositories in each job
+* Pausable: Jobs can wait for manual user input before continuing
 
-* DRY (Do not Repeat Yourself) - Reusable components and flow
 * Jobs share global library to share scripts, functions, variables
+   for DRY (Do not Repeat Yourself) - Reusable components and flow
 * Extendable DSL with loops, logic
 
-* Jobs can wait for manual user input before continuing
-* <a href="#DurableTaskPlugin">
-Durable tasks</a> keep running while master restarts [41:33]
-* Jobs starting in one agent can switch to another
+* Visualized: Pipeline StageView provides status at-a-glance dashboard and trending
 * Parallel execution of arbitrary build states
+* Jobs starting in one agent can switch (be joined) to another (fork/join)
+* Resilient: <a href="#DurableTaskPlugin">Durable tasks</a> keep running while master restarts [41:33]
+* Resumability: Restart from saved checkpoints (Cloudbees feature)
 <br /><br />
-
-<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=49m47s">
-Pipeline</a>:
-
-* Ensuring reproducible builds
-* Sharing build artifacts thrughout the pipeline
-* Choosing the right granularity for each job
-* Parllelizing and joining jobs
-* Gates and approvals
-* Visualizing the pipeline
-* Organizing and securing jobs
-* Good practice: versioning your Jenkins configuration
-<br /><br />
-
-[53:44]
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md">
-The Pipeline tutorial</a> explains Why Pipeline with this list:
-
-* Can support complex, real-world, CD Pipeline requirements: pipelines can fork/join, loop, parallel, to name a few
-* Is Resilient: pipeline executions can survive master restarts
-* Is Pausable: pipelines can pause and wait for human input/approval
-* Is Efficient: pipelines can restart from saved checkpoints
-* Is Visualized: Pipeline StageView provides status at-a-glance dashboards including trending
+The Pipeline tutorial</a> explains Why Pipeline.
 
 
-### Find and Select Jenkins Plugins #
+## Contributions #
+
+The Jenkins file used to build the Jenkins.io website is<br />
+<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile/">
+https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile</a>
+
+   The host name "jenkins-ci.org" redirects to "jenkins.io".
+
+The next version is 
+<a target="_blank" href="https://jenkins.io/projects/blueocean/">"Blue Ocean"</a>
+
+
+## Find and Select Jenkins Plugins #
 
 Here is a generic set of steps to install a plug-in.
 
-The assumtion here is that you have followed 
+The assumption here is that you have followed 
 [Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins2,
 which went Version 2 April 26, 2016 after over 10 years at v1.
 
@@ -119,8 +92,6 @@ which went Version 2 April 26, 2016 after over 10 years at v1.
    <pre>
    http://updates.jenkins-ci.org/update-center.json
    </pre>
-
-   Notice the host name from "jenkins-ci.org" to "jenkins.io".
 
    NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
    &LT;jenkinsHome>/plugins/
@@ -222,13 +193,14 @@ We would like to treat Jenkins configuration settings as code.
 
 
 
-## Jenkins 2 Pipeline Plugin #
+## Jenkins 2 Pipeline Item #
 
 Instead of manually clicking through the Jenkins UI, the 
 <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
 Pipeline plugin</a> in Jenkins 2
 reads a text-based <strong>Jenkinsfile</strong>
 <a href="#Groovy">Groovy script code</a> checked into source control.
+
 
 ### Install Pipeline Plugin #
 
@@ -266,26 +238,19 @@ reads a text-based <strong>Jenkinsfile</strong>
 
 0. Click "Pipeline" tab to bring that section up.
 
+   PROTIP: On Linux CentOS, the default folder Jenkins looks for the Jenkinsfile is
+   (replacing "box2" with your job item name):
+
+   <pre>
+   /var/lib/jenkins/workspace/box2@script/Jenkinsfile
+   </pre>
+
 0. Select from the "try sample" pull down "Hello World".
-
-   <a name="SampleGroovy"></a>
-
-   ### Sample Groovy script #
 
    <pre>
 node {
    stage '\u2776 Collect Stage 1'
    echo '\u2776 Comitted \u2713.'
-
-   stage '\u27A1 Build Stage 2'
-   echo '\u27A1 Built.'
-
-   stage '\u2756 Test Stage 3'
-   echo '\u2756 Terrified \u274C.'
-   echo '\u2756 Verified \u2705.'
-
-   stage '\u273F Stage Stage 4'
-   echo '\u273F Staged \u2705.'
 
    stage '\u2601 Deploy 5'
    echo '\u2601 Not deployed \u2639.'
@@ -293,14 +258,8 @@ node {
 }
    </pre>
 
-   A <strong>node</strong> is a unit of work 
-   processed by Jenkins <strong>agents</strong>.
-
-   Notice that unlike Java code, there are <strong>no semicolons</strong>.
-
-   PROTIP: Information about the Jenkins DSL (Domain-Specific Language) is
-   at link to ???
-   The DSL is extendable.
+   We will be going to alter this code in the <a href="#VaryGroovy">
+   next section</a>.
 
 0. Click Save for the item screen.
 
@@ -340,163 +299,7 @@ node {
 
 0. Click "Console Output" for log details created from that run.
 
-
-<a name="InfrastructureAsCode"></a>
-
-## Multi-branch Infrastructure as Code #
-
-Instead of Jenkins types Freestyle and Pipeline,
-select <strong>Multi-branch</strong>.
-
-
-
-
-<a name="DurableTaskPlugin"></a>
-
-## Durable Task Plugin #
-
-For long-running build runs at <br />
-https://wiki.jenkins-ci.org/display/JENKINS/Durable+Task+Plugin
-
-"Library offering an extension point for processes which can run outside of Jenkins yet be monitored."
-
-
-### Restart Jenkins server #
-
-0. PROTIP: Restart Jenkins by changing the URL from:
-
-   <pre>
-   http://.../pluginManager/installed
-   </pre>
-
-   to
-
-   <pre>
-   http://.../restart
-   </pre>
-
-0. Click Yes to "Are you sure".
-
-0. "Please wait while Jenkins is restarting".
-
-
-### Safe Restart Plugin #
-
-Some install the 
-<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SafeRestart+Plugin"> 
-SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to the 
-<a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
-Jenkins left menu</a> to avoid needing to be at the server console at all.
-
-
-## Discard Old Builds #
-
-Build jobs can consume a lot of disk space, especially if you store the build artifacts (the binary files, such as JARs, WARs, TARs, etc., generated by your build job). 
-So specify a limit on how many builds to store.
-
-
-
-Click "Keep this job forever" on a specific build.
-
-## Monitoring #
-
-0. Install the "Jenkins Monitoring" plugin. 
-
-0. From the Manage Jenkins screen, access the JavaMelody graphs 
-   in the “Monitoring of Jenkins/Jenkins master” or “Jenkins/Jenkins nodes” menu entries.
-
-   It reports about the state of your build server, including CPU and system load, average response time, and memory usage. JavaMelody.
-
-BTW, @jenx_monitor
-is a A Jenkins build server monitor for Mac OS X, powered by MacRuby. This app sits in your status bar and reports the status of all your Jenkins builds.
-
-0. Install the <strong>Disk Usage</strong> plugin
-to show a trend graph over time the disk space used by each project.
-
-
-## Texual info about Pipeline #
-
-* <a target="_blank" href="https://jenkins.io/doc/pipeline/">
-   https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
-* https://jenkins.io/solutions/pipeline/
-* https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
-* https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
-* https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
-
-
-## Chaining in the Pipeline #
-
-Jenkins v1 consisted of many atomic jobs chained together by a mix of triggers and parameters.
-
-   <amp-img width="650" height="261" alt="jenkins cd flow 650x261-i15.jpg" src="https://cloud.githubusercontent.com/assets/300046/17418538/45f540d2-5a56-11e6-8730-39528384e435.jpg"></amp-img>
-
-Multi-branch projects
-
-<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=59m57s">
-In this video</a> Jesse
-
-
-## Videos on Jenkins2 Pipeline #
-
-If you prefer videos, these are specifically about Jenkins 2.0+
-
-Several speakers spoke at the 2:42:35<br />
-   <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
-   Jenkins 2.0 Virtual Conf. May 2015</a>
-
-Jenkins creator Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
-<a target="_blank" href="https://www.youtube.com/channel/UCT_pjuBAYn6Sm_u4YJt59Rw">
-YouTube channel</a> :
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0/">
-   Jenkins 2.0 Virtual Conf. (take 2) 
-   4 May 2015</a>
-
-      * Grow with you from simple to complex
-      * Text-based, in your VCS
-      * Handle lots of jobs without repetition
-      * Survive Jenkins restart
-      * Brings next level of reuse to Jenkins
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
-   on 7 Oct 2015</a>
-
-Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
-   Jenkins Workflow: security model &amp; plugin compatibility
-   Aug 2015</a>
-
-Arnaud Heritier (@aheritier, aheitier)
-(Support Team Manager at Cloudbees)
-
-   * https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016
-   Slidedeck from Paris JUG June 2016 points to
-   <a target="_blank" href="https://groups.google.com/d/msg/jenkinsci-dev/vbXK7jjekFw/BievO0UxBgAJ"> Kohsuke's 25 Sep 2015 proposal for Jenkins 2.0</a>.
-
-<a target="_blank" href="https://se.linkedin.com/in/robertsandell/">
-Robert "Bobby" Sandell</a>
-(<a target="_blank" href="<a target="_blank" href="https://www.rsandell.com/">rsandell.com</a>), 
-Software Engineer at Cloudbees Stockholm since June 2010
-has these videos:
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=_iFtmp72p_E">
-   Jenkins pipeline plugin demo</a>
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=M-rxJBdYIrw">
-   Jenkins 2.0. What? When? What is in it for me?</a>
-
-Jim Leitch
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=th_0jGRTnJ4">
-   Jenkins 2.0 What's is new?</a>
-
-James Nord
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=PsgQ4v4aBhA">
-   Jenkins 2.0 and Beyond (and Q&A)</a>
-   52:04 
-
+   We now try various other Groovy scripting techniques. But first:
 
 <a name="InfrastructureAsCode"></a>
 
@@ -523,18 +326,79 @@ Jesse on GitHub</a>
 
 ## Groovy Scripts #
 
-The official documentation page for Apache Groovy is <br />
+The official documentation page for the Apache Groovy language is <br />
 <a target="_blank" href="http://www.groovy-lang.org/documentation.html#gettingstarted">
 http://www.groovy-lang.org/documentation.html#gettingstarted</a>
 
-<a target="_blank" href="https://gradle.org/">
-Gradle</a> was built using Groovy
+Groovy was used to build <a target="_blank" href="https://gradle.org/">
+Gradle</a> 
 because it can handle larger projects than Maven,
 which Gradle replaces.
 
 Step Reference is at https://.../job/box/pipeline-syntax/html
 
 
+<a name="VaryGroovy"></a>
+
+## Vary Groovy scripting #
+
+   <pre>
+node {
+   stage '\u2776 Collect Stage 1'
+   echo '\u2776 Comitted \u2713.'
+
+   stage '\u2601 Deploy 5'
+   echo '\u2601 Not deployed \u2639.'
+   echo '\u2601 Deployed \u263A.'
+}
+   </pre>
+
+   A <strong>node</strong> is a unit of work 
+   processed by Jenkins <strong>agents</strong>.
+
+   Notice that unlike Java code, there are <strong>no semicolons</strong>.
+
+Let's go right to the
+<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
+Jenkins.io</a> Jenkinsfile Groovy script:
+
+
+
+
+
+
+
+
+Another example:
+
+   <pre>
+node {
+   checkout scm
+&nbsp;
+   sh 'git rev-parse HEAD > GIT_COMMIT'
+   def shortCommit = readFile('GIT_COMMIT').take(6)
+&nbsp;
+   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
+&nbsp;
+   stage 'Deploy'
+   image.push()
+}
+   </pre>
+
+
+
+   <a name="CheckoutSCM"></a>
+
+   ### Checkout SCM #
+
+   Instead of a `checkout scm`, in single-branch contexts, checkout a specific repository:
+
+   <pre>
+   git url: "https://github.com/my-organization/simple-maven-project-with-tests.git"
+   </pre>
+
+
+<a name="UnicodeIcons"></a>
 
 ### Unicode icons #
 
@@ -571,7 +435,9 @@ makes them visually easier to identify together.
    * <a target="_blank" href="http://www.w3schools.com/charsets/ref_utf_symbols.asp">
    More icons in the \u2600 range</a>
 
-### Color wrapper Stage View #
+
+
+   ### Color wrapper Stage View #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
 Here</a> is an example of adding color in a stage name:
@@ -596,7 +462,7 @@ This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI 
    <br /><br />
 
 
-### Time stamp wrapper #
+   ### Time stamp wrapper #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
 Here</a> is an example of invoking a build wrapper 
@@ -614,6 +480,8 @@ that adds a time stamp to echos :
 0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 
+   PROTIP: Under the covers, Git clients use
+   https://developer.github.com/v3/repos/hooks/
 
 ### Shell Git command #
 
@@ -711,6 +579,8 @@ node('second-node') {
 }
    </pre>
 
+
+
 ### Tokenize environment variable #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/github-org-plugin/access-repo-information.groovy">
@@ -794,6 +664,28 @@ In this example, the "org-name", "repo-name" are replaced with actuals.
 The "GITHUB_TOKEN" is a variable so its value is not exposed in code.
 
 
+<hr />
+
+## Item: Organization Folders #
+
+   Organization folders enable Jenkins to automatically detect and include as resources
+   any new repository under an account/organization. 
+
+   ### Run Maven #
+
+   Alternately, if you want to run a Maven file:
+
+   <pre>
+node ('linux'){
+   stage 'Build and Test'
+   env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
+  checkout scm
+  sh 'mvn clean package'
+}
+   </pre>
+
+   CAUTION: Watch for "Error while checking in file to scm repository".
+
 
 <a name="ParallelJobs"></a>
 
@@ -844,6 +736,137 @@ def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCaus
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/parallel-from-grep/parallelFromGrep.groovy">
 Here</a> is an alternative.
+
+
+
+<a name="Multibranch"></a>
+
+## Multi-branch projects #
+
+Instead of Jenkins types Freestyle and Pipeline,
+select <strong>Multi-branch</strong>.
+
+* https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
+
+* https://www.youtube.com/watch?v=emV60CcDVV0&t=1h20m20s
+
+<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=59m57s">
+In this video</a> Jesse
+
+
+
+<a name="DurableTaskPlugin"></a>
+
+## Durable Task Plugin #
+
+For long-running build runs at <br />
+https://wiki.jenkins-ci.org/display/JENKINS/Durable+Task+Plugin
+
+"Library offering an extension point for processes which can run outside of Jenkins yet be monitored."
+
+
+<a name="Restarts"></a>
+
+### Safe Restart Plugin #
+
+Some install the 
+<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SafeRestart+Plugin"> 
+SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to the 
+<a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
+Jenkins left menu</a> to avoid needing to be at the server console at all.
+
+To restart Jenkins server:
+
+0. PROTIP: Restart Jenkins by changing the URL from:
+
+   <pre>
+   http://.../pluginManager/installed
+   </pre>
+
+   to
+
+   <pre>
+   http://.../restart
+   </pre>
+
+0. Click Yes to "Are you sure".
+
+0. "Please wait while Jenkins is restarting".
+
+
+## Discard Old Builds #
+
+In <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
+Jenkins.io</a> Jenkinsfile Groovy script:
+
+   <pre>
+/* Only keep the 10 most recent builds. */
+properties([[$class: 'BuildDiscarderProperty',
+                strategy: [$class: 'LogRotator', numToKeepStr: '10']]])
+   </pre>
+
+This is needed because build jobs can fill up a lot of disk space, 
+especially if you store the build artifacts 
+(binary files, such as JARs, WARs, TARs, etc.). 
+So specify a limit on how many builds to store.
+
+There is a default 'Discard Old Build' function.
+But there is a plugin provides more choices to trigger deletion.
+
+0. In Manage Plugins, filter for "Discard Old Build" plugin at<br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Discard+Old+Build+plugin">
+   https://wiki.jenkins-ci.org/display/JENKINS/Discard+Old+Build+plugin</a>
+
+0. Specify the "Max # of builds to keep" (10).
+0. Check the "Status to keep" checkboxes (to the left of) "Unstable" and "Failure".
+
+Click "Keep this job forever" on a specific build.
+
+## Monitoring #
+
+0. Install the "Jenkins Monitoring" plugin. 
+
+0. From the Manage Jenkins screen, access the JavaMelody graphs 
+   in the “Monitoring of Jenkins/Jenkins master” or “Jenkins/Jenkins nodes” menu entries.
+
+   It reports about the state of your build server, including CPU and system load, average response time, and memory usage. JavaMelody.
+
+BTW, @jenx_monitor
+is a A Jenkins build server monitor for Mac OS X, powered by MacRuby. This app sits in your status bar and reports the status of all your Jenkins builds.
+
+0. Install the <strong>Disk Usage</strong> plugin
+to show a trend graph over time the disk space used by each project.
+
+
+## Chaining in the Pipeline #
+
+Jenkins v1 consisted of many atomic jobs chained together by a mix of triggers and parameters.
+
+   <amp-img width="650" height="261" alt="jenkins cd flow 650x261-i15.jpg" src="https://cloud.githubusercontent.com/assets/300046/17418538/45f540d2-5a56-11e6-8730-39528384e435.jpg"></amp-img>
+
+   ### CI vs CD #
+
+Continuous Integration (CI) <strong>merges</strong> 
+development work in a developer's branch
+with the team's common code to ensure that changes 
+still work in a testing environment.
+It's call continuous to emphasize small changes being integrated frequently
+to stay in sync with an evolving team codebase.
+This requires individual changes to be scoped for 
+completion in a short amount of time (hours at most).
+
+Continuous Delivery (CD) delivers code for running in an UAT or Staging enviornment 
+(of full production scale)
+used by end-users (QA or customers) to process business transactions in inspection mode.
+It's called continuous for frequency to find more issues early, 
+before each particular version has left the memory of developers.
+
+Continuous Deployment moves code to Production.
+This is done by merging to the Mainline/Master branch which gets copied to the Production enviornment.
+It's called continuous to make this happen as soon as code is ready.
+
+BTW, <a target="_blank" href="https://blog.assembla.com/AssemblaBlog/tabid/12618/bid/92411/Continuous-Delivery-vs-Continuous-Deployment-vs-Continuous-Integration-Wait-huh.aspx">
+Assembla</a> has more ideas about this.
 
 
 
@@ -923,6 +946,7 @@ $MYPASSWORD comes from outside the script.
 * Command "PRIVMSG" sets the private message.
 <br />
 
+BTW, https://github.com/jenkins-infra/ircbot
 
 ## Code Static Scans #
 
@@ -993,13 +1017,87 @@ by Arnaud Heritier (@aheritier) of Cloudbees.
 
 http://...pipeline-syntax/ has a snippet generator
 
-## Contributions #
-
-Contributions are at GitHub repo:<br />
-<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/">
-https://github.com/jenkins-infra/jenkins.io</a>
 
 * http://todobackend.com/
+
+
+<a name="Videos"></a>
+
+## Videos on Jenkins2 Pipeline #
+
+If you prefer videos, these are specifically about Jenkins 2.0+
+
+Several speakers spoke at the 2:42:35<br />
+   <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
+   Jenkins 2.0 Virtual Conf. May 2015</a>
+
+Jenkins creator Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
+<a target="_blank" href="https://www.youtube.com/channel/UCT_pjuBAYn6Sm_u4YJt59Rw">
+YouTube channel</a> :
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0/">
+   Jenkins 2.0 Virtual Conf. (take 2) 
+   4 May 2015</a>
+
+      * Grow with you from simple to complex
+      * Text-based, in your VCS
+      * Handle lots of jobs without repetition
+      * Survive Jenkins restart
+      * Brings next level of reuse to Jenkins
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
+   on 7 Oct 2015</a>
+
+Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
+   Jenkins Workflow: security model &amp; plugin compatibility
+   Aug 2015</a>
+
+Arnaud Heritier (@aheritier, aheitier)
+(Support Team Manager at Cloudbees)
+
+   * https://speakerdeck.com/aheritier/introduction-to-jenkins-2-at-parisjug-2016
+   Slidedeck from Paris JUG June 2016 points to
+   <a target="_blank" href="https://groups.google.com/d/msg/jenkinsci-dev/vbXK7jjekFw/BievO0UxBgAJ"> Kohsuke's 25 Sep 2015 proposal for Jenkins 2.0</a>.
+
+<a target="_blank" href="https://se.linkedin.com/in/robertsandell/">
+Robert "Bobby" Sandell</a>
+(<a target="_blank" href="<a target="_blank" href="https://www.rsandell.com/">rsandell.com</a>), 
+Software Engineer at Cloudbees Stockholm since June 2010
+has these videos:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=_iFtmp72p_E">
+   Jenkins pipeline plugin demo</a>
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=M-rxJBdYIrw">
+   Jenkins 2.0. What? When? What is in it for me?</a>
+
+Jim Leitch
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=th_0jGRTnJ4">
+   Jenkins 2.0 What's is new?</a>
+
+James Nord
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=PsgQ4v4aBhA">
+   Jenkins 2.0 and Beyond (and Q&A)</a>
+   52:04 
+
+Tyler Croy, Jenkins Community Evangelist 
+
+   * <a target="_blank" href="https://dzone.com/articles/interview-with-r-tyler-crory-jenkins-community-eva">
+   Interview by Matt Warner</a> quotes:
+   "With Jenkins 2 we're starting to assert that Jenkins is the right place to define the entire software delivery pipeline from build to test, to packaging and deployment."
+
+
+## Texual info about Pipeline #
+
+* <a target="_blank" href="https://jenkins.io/doc/pipeline/">
+   https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
+* https://jenkins.io/solutions/pipeline/
+* https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+* https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 
 
 ## Latest Info about Jenkins #

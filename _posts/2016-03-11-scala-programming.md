@@ -10,7 +10,8 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
@@ -351,3 +352,4 @@ for the expanded URL:
 https://www.youtube.com/playlist?list=PLsnl23XQgokHh5u2C4dbegMJdqfzY8K9k
 
 The QR code is provided of the link is provided here in case you prefer to watch videos on your smartphone. 
+
