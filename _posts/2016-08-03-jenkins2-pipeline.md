@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jenkins2 Pipeline"
-excerpt: "Slave nodes are now stylish agents"
+excerpt: "Slave nodes are now opinionated agents"
 tags: [Jenkins, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -147,12 +147,9 @@ which went Version 2 April 26, 2016 after over 10 years at v1.
 0. Click "S" among "S M L" under the icons to show Small icons.
 
 
-
-## Infrastructure as code #
-
-We would like to treat Jenkins configuration settings as code.
-
    ### Configure permissions to repo #
+
+   In order to treat Jenkins configuration settings as code.
 
 0. TODO: 
 
@@ -342,6 +339,17 @@ Step Reference is at https://.../job/box/pipeline-syntax/html
 
 ## Vary Groovy scripting #
 
+   Here are the variations, starting from trivial ones to more substantive:
+
+   * <a href="#UnicodeIcons">Unicode icons</a>
+   * <a href="#ColorWarapper">Color wrapper</a>
+
+   * <a href="#Stages">Stages</a>
+   * <a href="#GitURL">Specific Git URL</a>
+   * <a href="#CheckoutSCM">Checkout SCM</a>
+   * 
+
+
    <pre>
 node {
    stage '\u2776 Collect Stage 1'
@@ -358,54 +366,14 @@ node {
 
    Notice that unlike Java code, there are <strong>no semicolons</strong>.
 
-Let's go right to the
-<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
-Jenkins.io</a> Jenkinsfile Groovy script:
+   <a name="UnicodeIcons"></a>
 
+   ### Unicode icons #
 
+   <img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
 
-
-
-
-
-
-Another example:
-
-   <pre>
-node {
-   checkout scm
-&nbsp;
-   sh 'git rev-parse HEAD > GIT_COMMIT'
-   def shortCommit = readFile('GIT_COMMIT').take(6)
-&nbsp;
-   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
-&nbsp;
-   stage 'Deploy'
-   image.push()
-}
-   </pre>
-
-
-
-   <a name="CheckoutSCM"></a>
-
-   ### Checkout SCM #
-
-   Instead of a `checkout scm`, in single-branch contexts, checkout a specific repository:
-
-   <pre>
-   git url: "https://github.com/my-organization/simple-maven-project-with-tests.git"
-   </pre>
-
-
-<a name="UnicodeIcons"></a>
-
-### Unicode icons #
-
-<img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
-
-PROTIP: Putting the same visual mark in both the stage name and echos related to the stage
-makes them visually easier to identify together.
+   PROTIP: Putting the same visual mark in both the stage name and echos related to the stage
+   makes them visually easier to identify together.
 
    <pre>
    stage '\u273F Verify 4'
@@ -436,11 +404,12 @@ makes them visually easier to identify together.
    More icons in the \u2600 range</a>
 
 
+   <a name="ColorWarapper"></a>
 
    ### Color wrapper Stage View #
 
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
-Here</a> is an example of adding color in a stage name:
+   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
+   Here</a> is an example of adding color in a stage name:
 
    <pre>
     wrap([$class: 'AnsiColorBuildWrapper']) {
@@ -464,9 +433,9 @@ This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI 
 
    ### Time stamp wrapper #
 
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
-Here</a> is an example of invoking a build wrapper 
-that adds a time stamp to echos :
+   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
+   Here</a> is an example of invoking a build wrapper 
+   that adds a time stamp to echos :
 
    <pre>
    wrap([$class: 'TimestamperBuildWrapper']) {
@@ -475,10 +444,88 @@ that adds a time stamp to echos :
    </pre>
 
 
+   <a name="Stages"></a>
+
+   ### Stages #
+
+   Now let's look at what the pros do with
+   <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
+   Jenkins.io</a> Jenkinsfile Groovy script:
+
+
+
+   <a name="GitURL"></a>
+
+   ### Specific Git URL #
+
+   In single-branch contexts, 
+   one can download a specific repo from GitHub into Jenkins's workspace:
+
+   <pre>
+   git url: "https://github.com/hotwilson/jenkins2.git"
+   </pre>
+
+   CAUTION: The ".git" at the end is necessary in the URL and
+   the repo needs to contain a <strong>Jenkinsfile</strong> (no file extension).
+
+   A sample Console:
+
+   <pre>
+[Pipeline] git
+Cloning the remote Git repository
+Cloning repository https://github.com/hotwilson/jenkins2.git
+ > git init /var/lib/jenkins/workspace/box2 # timeout=10
+Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
+Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision b5f1136a0e55363ff143d6ad5b311f7838d8ad82 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b5f1136a0e55363ff143d6ad5b311f7838d8ad82 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master b5f1136a0e55363ff143d6ad5b311f7838d8ad82
+First time build. Skipping changelog.
+   </pre>
+
+   TODO: To invoke the Groovy script,
+
+   <pre>
+    def workspace = manager.build.getEnvVars()["WORKSPACE"]
+    env.WORKSPACE = pwd()
+    def version = readFile "${env.WORKSPACE}/version.txt"
+   </pre>
+
+   <a name="CheckoutSCM"></a>
+
+   ### Checkout SCM #
+
+   An example:
+
+   <pre>
+node {
+   checkout scm
+&nbsp;
+   sh 'git rev-parse HEAD > GIT_COMMIT'
+   def shortCommit = readFile('GIT_COMMIT').take(6)
+   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
+&nbsp;
+   stage 'Deploy'
+   image.push()
+}
+   </pre>
+
+
 ## Interacting with Git and GitHub #
 
 0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
-   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">
+   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin</a>
 
    PROTIP: Under the covers, Git clients use
    https://developer.github.com/v3/repos/hooks/
@@ -663,7 +710,21 @@ In this example, the "org-name", "repo-name" are replaced with actuals.
 
 The "GITHUB_TOKEN" is a variable so its value is not exposed in code.
 
+   ### GitHub Hooks #
 
+   Git Hooks are programs placed in a hooks directory to 
+   trigger actions at certain points in git’s execution. 
+   The list of hooks at:<br /> 
+   https://www.kernel.org/pub/software/scm/git/docs/githooks.html<br />
+   include pre-commit, post-commit, etc.
+
+   Hooks that don’t have the executable bit set are ignored.
+
+
+   * http://www.chilipepperdesign.com/2013/01/07/deploying-code-with-git/
+
+
+   
 <hr />
 
 ## Item: Organization Folders #
