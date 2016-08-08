@@ -133,6 +133,8 @@ Success
    * changes pushed to GitHub from a Git client
    * changes in a Pull Request accepted.
 
+   Do each of the above when the Jenkins server is down,
+   then start it up again to see if queuing worked.
 
    ### Pull Request #
 
@@ -165,4 +167,7 @@ Success
    * https://thepracticalsysadmin.com/setting-up-a-github-webhook-in-jenkins/
    * http://fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github
 
-Payload sizes need to be monitored because GitHub caps them at 5 MB each. 
+   * http://blog.shippable.com/configure-web-hooks-to-trigger-continuous-integration
+
+TODO: Quote URL which says "Payload sizes need to be monitored because GitHub caps them at 5 MB each."
+

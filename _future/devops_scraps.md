@@ -542,74 +542,60 @@ feature flags
 
 https://github.com/jenkins-demo/springboot-demo
 
+## Scripter build step #
 
-## Webhooks
+http://stackoverflow.com/questions/21236268/access-to-build-environment-variables-from-a-groovy-script-in-a-jenkins-build-st
 
-with Jenkins because this method is only telling Jenkins to attempt a new build when a change is detected 
 
-The alternative to this is polling on an interval,
-which can be a little bit inefficient if nothing was changed.
-However, a regular schedule is useful when people work strict hours.
 
-   ### Begin from the Jenkins #
+The Scriptler Groovy script doesn't seem to get all the environment variables of the build. But what you can do is force them in as parameters to the script:
 
-0. In Manage Jenkins | Manage Plugins, Available tab, find "GitHub plugin" at<br />
-   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin/">
-   https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin</a>
-0. Return to the Jenkins Dashboard.
-0. Create a new item or click an existing build job.
-0. Select Configure from the menu.
-0. In v2, under Build Triggers, Check "GitHub project".
-   
-   In v1, scroll to "Scource Code Management". Check "Git".
+    When you add the Scriptler build step into your job, select the option "Define script parameters"
 
-0. Specify the Project URL.
-0. Check "Build when a change is pushed to GitHub".
+    Add a parameter for each environment variable you want to pass in. For example "Name: JOB_NAME", "Value: $JOB_NAME". The value will get expanded from the Jenkins build environment using '$envName' type variables, most fields in the job configuration settings support this sort of expansion from my experience.
 
-   ### Set up webhook on GitHub #
+    In your script, you should have a variable with the same name as the parameter, so you can access the parameters with something like:
 
-0. Sign into the repository. You won't see the "Settings" tab unless you have permissions.
-0. Click on the <strong>Settings</strong> tab.
-0. Click on Webhooks & services from the left menu.
-0. Click on Add webhook on the upper right.
+    println "JOB_NAME = $JOB_NAME"
 
-   Webhooks allow external services to be notified when certain events happen within your repository. When the specified events happen, we’ll send a POST request to each of the URLs you provide. 
+I haven't used Sciptler myself apart from some experimentation, but your question posed an interesting problem. I hope this helps!
 
-   <a target="_blank" href="https://developer.github.com/webhooks/creating/">
-   https://developer.github.com/webhooks/creating</a><br />
-   explains each field:
 
-0. In Payload URL goes a URL such as "http://localhost:4567/payload" or
+## Env variables
 
-   <tt><strong>
-   http://138.68.1.138:8080/github-webhook/
-   </strong></tt>
+a)
+https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+System+Groovy+script
 
-   CAUTION: Use http://
+b)
+http://stackoverflow.com/questions/10413936/creating-a-jenkins-environment-variable-using-groovy
 
-0. For Content type, "application/json" sends a HTTP POST. 
-   Older form data is sent with "application/x-www-form-urlencoded".
-0. For secret, 
-0. Select "Just the push event" for "Which events would you like to trigger this webhook?"
-   or too much will be sent.
 
-   The technical name of all events are described at<br />
-   https://developer.github.com/webhooks/#events
+This only work when you run the groovy script in Master node, but not on slave.
 
-0. Click Add Webhook.
+The following groovy snippet should pass the version (as you've already supplied), and store it in the job's variables as 'miniVersion'.
 
-   GitHub sends a Ping<br />
-   https://developer.github.com/webhooks/#ping-event.
+import hudson.model.*
 
-0. There is a check box near the bottom of the authentication section labeled 
-   "Prevent Cross Site Request Forgery exploits"
-   that needs to be unchecked in order for this to work.
+def env = System.getenv()
+def version = env['currentversion']
+def m = version =~/\d{1,2}/
+def minVerVal = m[0]+"."+m[1]
 
-References:
+def pa = new ParametersAction([
+  new StringParameterValue("miniVersion", minVerVal)
+])
 
-   * https://help.github.com/articles/about-webhooks/
-   * https://thepracticalsysadmin.com/setting-up-a-github-webhook-in-jenkins/
-   * http://fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github
+// add variable to current job
+Thread.currentThread().executable.addAction(pa)
 
-Payload sizes need to be monitored because GitHub caps them at 5 MB each. 
+The variable will then be accessible from other build steps. e.g.
+
+echo miniVersion=%miniVersion%
+
+Outputs:
+
+miniVersion=12.34
+
+I believe you'll need to use the "System Groovy Script" (on the Master node only) as opposed to the "Groovy Plugin" - https://wiki.jenkins-ci.org/display/JENKINS/Groovy+plugin#Groovyplugin-GroovyScriptvsSystemGroovyScript
+= https://wiki.jenkins-ci.org/display/JENKINS/Groovy+plugin
 

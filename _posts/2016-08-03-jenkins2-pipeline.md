@@ -198,6 +198,8 @@ Pipeline plugin</a> in Jenkins 2
 reads a text-based <strong>Jenkinsfile</strong>
 <a href="#Groovy">Groovy script code</a> checked into source control.
 
+[pic items here]
+
 
 ### Install Pipeline Plugin #
 
@@ -530,6 +532,7 @@ node {
    PROTIP: Under the covers, Git clients use
    https://developer.github.com/v3/repos/hooks/
 
+
 ### Shell Git command #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy">
@@ -554,7 +557,126 @@ This is done after Git has done a checkout to establish the branch and specific 
 because the output is a SHA1 hash of the HEAD such as
 "2b9a2833bc3c6bc8e7b7344e8178ce98e29ebe4b".
 
-Such information was previously exposed to freestyle jobs by the Git plugin exposing environment variables.
+Such information was previously exposed to freestyle jobs by the Git plugin exposing 
+<a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-JenkinsSetEnvironmentVariables">
+environment variables</a> set when a Jenkins job executes.
+The following table contains a list of 
+<a target="_blank" href="https://github.com/jenkinsci/job-dsl-plugin/wiki/User-Power-Moves#access-the-jenkins-environment-variables">
+all these environment variables</a>:
+
+<table border="1" cellpadding="4" cellspacing="0"><tbody>
+<tr>
+<th valign="bottom"> Environment Variable </th>
+<th valign="bottom"> Description </th>
+</tr>
+<tr>
+<td valign="top"> BUILD_CAUSE </td>
+<td valign="top"> BUILD_CAUSE_USERIDCAUSE </td>
+</tr>
+<tr>
+<td valign="top"> BUILD_ID </td>
+<td valign="top"> The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss, <a href="https://issues.jenkins-ci.org/browse/JENKINS-26520" class="external-link" rel="nofollow">defunct</a>&nbsp;since&nbsp;version 1.597) </td>
+</tr>
+<tr>
+<td valign="top"> BUILD_TAG </td>
+<td valign="top"> String of <tt>jenkins-${JOB_NAME}-${BUILD_NUMBER</tt>}. Convenient to put into a resource file, a jar file, etc for easier identification. </td>
+</tr>
+<tr>
+<td valign="top"> BUILD_NUMBER </td>
+<td valign="top"> The current build number, such as "153" </td>
+</tr>
+<tr>
+<td valign="top"> BUILD_URL <br class="atl-forced-newline" /> </td>
+<td valign="top"> The URL where the results of this build can be found (e.g. http://buildserver/jenkins/job/MyJobName/666/) </td>
+</tr>
+<tr>
+<td valign="top"> EXECUTOR_NUMBER </td>
+<td valign="top"> The unique number that identifies the current executor (among executors of the same machine) that's carrying out this build. This is the number you see in the "build executor status", except that the number starts from 0, not 1. </td>
+</tr>
+<tr>
+<td valign="top"> HOME </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> HUDSON_HOME </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> JOB_NAME </td>
+<td valign="top"> Name of the project of this build. This is the name you gave your job when you first set it up. It's the third column of the Jenkins Dashboard main page. </td>
+</tr>
+<tr>
+<td valign="top"> JENKINS_URL </td>
+<td valign="top"> Set to the URL of the Jenkins master that's running the build. This value is used by <a href="/display/JENKINS/Jenkins+CLI" title="Jenkins CLI">Jenkins CLI</a> for example </td>
+</tr>
+<tr>
+<td valign="top"> JAVA_HOME </td>
+<td valign="top"> If your job is configured to use a specific JDK, this variable is set to the JAVA_HOME of the specified JDK. When this variable is set, PATH is also updated to have $JAVA_HOME/bin. </td>
+</tr>
+<tr>
+<td valign="top"> LANG </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> LOGNAME </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> NODE_NAME </td>
+<td valign="top"> The name of the node the current build is running on. Equals 'master' for master node. </td>
+</tr>
+<tr>
+<td valign="top"> NODE_LABELS </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> WORKSPACE </td>
+<td valign="top"> The absolute path of the workspace. </td>
+</tr>
+<tr>
+<td valign="top"> GIT_COMMIT <br class="atl-forced-newline" /> </td>
+<td valign="top"> For Git-based projects, this variable contains the Git hash of the commit checked out for the build (like&nbsp;ce9a3c1404e8c91be604088670e93434c4253f03) ﻿(all the GIT_&#42; variables require git plugin)&nbsp; &nbsp;&nbsp; <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td valign="top"> GIT_URL </td>
+<td valign="top"> For Git-based projects, this variable contains the Git url (like&nbsp;git@github.com:user/repo.git or [https://github.com/user/repo.git]) </td>
+</tr>
+<tr>
+<td valign="top"> GIT_BRANCH <br class="atl-forced-newline" /> </td>
+<td valign="top"> For Git-based projects, this variable contains the Git branch that was checked out for the build (normally origin/master) <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td valign="top"> CVS_BRANCH </td>
+<td valign="top"> For CVS-based projects, this variable contains the branch of the module. If CVS is configured to check out the trunk, this environment variable will not be set. </td>
+</tr>
+<tr>
+<td valign="top"> SVN_REVISION </td>
+<td valign="top"> For Subversion-based projects, this variable contains the revision number of the module. If you have more than one module specified, this won't be set. <br class="atl-forced-newline" /> </td>
+</tr>
+<tr>
+<td valign="top"> PWD </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> OLDPWD </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> SHELL </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> TERM </td>
+<td valign="top"> - </td>
+</tr>
+<tr>
+<td valign="top"> USER </td>
+<td valign="top"> - </td>
+</tr>
+</tbody></table>
+
+
+
 But not to a Pipeline job. Thus the need for shell commands.
 
 `git_commit.take(6)` extracts the first six characters to create a short SHA,
@@ -631,7 +753,8 @@ node('second-node') {
 ### Tokenize environment variable #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/github-org-plugin/access-repo-information.groovy">
-Here</a> is an example of a Groovy script file access-repo-information.groovy.
+Here</a> is an example of a Groovy script file "access-repo-information.groovy".
+
 Like other Groovy files, it has in the first line `#!groovy`.
 
    <pre>
@@ -679,9 +802,11 @@ The
 externalMethod.groovy</a> file contains:
 
    <pre>
+def myVar = build.getEnvironment(listener).get('myVar')
+
 // Methods in this file will end up as object methods on the object that load returns.
 def lookAtThis(String whoAreYou) {
-    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
+   echo "Look at this, ${whoAreYou}! You loaded this from another file!"
 }
    </pre>
 
@@ -1074,9 +1199,10 @@ by Arnaud Heritier (@aheritier) of Cloudbees.
 
    <amp-img width="650" height="207" alt="jenkins java progression 650x207-i13.jpg" src="https://cloud.githubusercontent.com/assets/300046/17439314/a4d3329c-5ae4-11e6-9544-e20daaad9898.jpg"></amp-img>
 
+
 ### Snippet generator #
 
-http://...pipeline-syntax/ has a snippet generator
+http://.../pipeline-syntax/ has a snippet generator
 
 
 * http://todobackend.com/
@@ -1154,12 +1280,18 @@ Tyler Croy, Jenkins Community Evangelist
 
 ## Texual info about Pipeline #
 
-* <a target="_blank" href="https://jenkins.io/doc/pipeline/">
+   * <a target="_blank" href="https://jenkins.io/doc/pipeline/">
    https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
-* https://jenkins.io/solutions/pipeline/
-* https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
-* https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
+   * https://jenkins.io/solutions/pipeline/
+   * https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+   * https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
 
+Before "Pipeline" there was "Workflow", and these resources:
+
+   * https://dzone.com/storage/assets/413450-rc218-cdw-jenkins-workflow.pdf
+   * http://www.tutorialspoint.com/jenkins/jenkins_configuration.htm
+
+https://github.com/jenkinsci/job-dsl-plugin/wiki/User-Power-Moves
 
 ## Latest Info about Jenkins #
 
