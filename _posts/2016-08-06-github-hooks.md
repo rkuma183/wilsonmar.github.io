@@ -25,7 +25,7 @@ GitHub hooks into Jenkins version 2 for Continuous Delivery (CD) as well as Cont
 
 We would like Jenkins to attempt a new build when a change is committed in GitHub.com or pushed to it from Git.
 
-   The alternative to this is polling on an interval,
+   The alternative to this is polling on a scheduled interval,
    which can be a little bit inefficient if nothing was changed.
    However, a regular schedule is useful when people work strict hours.
 
@@ -39,7 +39,7 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 0. Select Configure from the menu.
 0. In v2, under Build Triggers, Check "GitHub project".
    
-   In v1, scroll to "Scource Code Management". Check "Git".
+   In v1, scroll to "Source Code Management". Check "Git".
 
 0. Specify the Project URL.
 0. Check "Build when a change is pushed to GitHub".
@@ -47,23 +47,49 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 
    ## Set up CRSF on Jenkins #
 
+   Cross Site Request Forgery (CRSF) exploits
+   <a target="_blank" href="https://www.wikiwand.com/en/Cross-origin_resource_sharing">
+   Cross-origin_resource_sharing</a>
+  
+0. Type in the Filter field <strong>CORS support for Jenkins</strong> until the plugin appears
+   on the Manage Jenkins, Plugin Manager, Available page.
+
+0. If it appears, check the box under "Installed" .
+
+   If it doesn't appear, click on the Installed tab to see if it's there already.
+
+0. If you click on the link, the name is "Cors Filter Plugin" on<br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/CSRF+Protection">
+   https://wiki.jenkins-ci.org/display/JENKINS/CSRF+Protection</a>
+
 0. "Prevent Cross Site Request Forgery exploits"
    needs to be unchecked 
    <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-20140/">
    disabled</a>
    in order for webhooks to work.
 
-   * https://wiki.jenkins-ci.org/display/JENKINS/CSRF+Protection
-
-   There is a check box near the bottom of the authentication section labeled 
+0. In the authentication section, near the bottom,<br />
+   check the box "Prevent Cross Site Request Forgery exploits".
    
+0. Click "Install without restart" of the Jenkins server.
+
+   The response is temporarily until "Success" appears.
+
+   <pre>
+Checking internet connectivity
+Checking update center connectivity
+Success
+   </pre>
+
+0. Click "Restart Jenkins when no jobs are running".
+
 
 ## Set up webhook on GitHub #
 
 0. Sign into the repository. You won't see the "Settings" tab unless you have permissions.
 0. Click on the <strong>Settings</strong> tab.
-0. Click on Webhooks & services from the left menu.
-0. Click on Add webhook on the upper right.
+0. Click on "Webhooks & services" from the left menu.
+0. Click on "Add webhook" on the upper right.
 
    Webhooks allow external services to be notified when certain events happen within your repository. When the specified events happen, we’ll send a POST request to each of the URLs you provide. 
 
@@ -81,7 +107,9 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 
 0. For Content type, "application/json" sends a HTTP POST. 
    Older form data is sent with "application/x-www-form-urlencoded".
-0. For secret, 
+
+0. For secret, leave blank ???
+
 0. Select "Just the push event" for "Which events would you like to trigger this webhook?"
    or too much will be sent.
 
