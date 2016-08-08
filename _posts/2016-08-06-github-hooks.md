@@ -49,7 +49,9 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 
    Cross Site Request Forgery (CRSF) exploits
    <a target="_blank" href="https://www.wikiwand.com/en/Cross-origin_resource_sharing">
-   Cross-origin_resource_sharing</a>
+   Cross-origin_resource_sharing</a>, so all PUTs are excluded, except when
+   <a target="_blank" href="https://github.com/jenkinsci/github-plugin/commit/5c2a041">
+   an exception is added in Jenkins</a>.
   
 0. Type in the Filter field <strong>CORS support for Jenkins</strong> until the plugin appears
    on the Manage Jenkins, Plugin Manager, Available page.
@@ -121,7 +123,43 @@ Success
    GitHub sends a Ping<br />
    https://developer.github.com/webhooks/#ping-event.
 
-References:
+
+
+   ### Test if it works #
+
+   There are several ways to check: 
+
+   * changes on GitHub.com by those with permissions
+   * changes pushed to GitHub from a Git client
+   * changes in a Pull Request accepted.
+
+
+   ### Pull Request #
+
+0. On GitHub, at your repo, fork the repo to your account.
+
+0. On your local machine, create a folder and clone from your account's copy of the repo.
+
+0. Checkout the current commit to a new branch.
+
+0. Make a change in the README.md file.
+
+0. Git add and commit.
+
+0. Git Push it back to GitHub.
+
+0. Accept the PR. Note the time, and if the Jenkins server is on another time zone (UTC),
+   translate the time on the Jenkins server.
+
+0. On the Jenkins jobs Dashboard, select the project you updated to see a new job invoked.
+
+0. See the new job from "anonymous user"?
+
+
+
+
+
+## References #
 
    * https://help.github.com/articles/about-webhooks/
    * https://thepracticalsysadmin.com/setting-up-a-github-webhook-in-jenkins/
