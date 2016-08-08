@@ -45,6 +45,18 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 0. Check "Build when a change is pushed to GitHub".
 
 
+   ## Set up CRSF on Jenkins #
+
+0. "Prevent Cross Site Request Forgery exploits"
+   needs to be unchecked 
+   <a target="_blank" href="https://issues.jenkins-ci.org/browse/JENKINS-20140/">
+   disabled</a>
+   in order for webhooks to work.
+
+   * https://wiki.jenkins-ci.org/display/JENKINS/CSRF+Protection
+
+   There is a check box near the bottom of the authentication section labeled 
+   
 
 ## Set up webhook on GitHub #
 
@@ -80,10 +92,6 @@ We would like Jenkins to attempt a new build when a change is committed in GitHu
 
    GitHub sends a Ping<br />
    https://developer.github.com/webhooks/#ping-event.
-
-0. There is a check box near the bottom of the authentication section labeled 
-   "Prevent Cross Site Request Forgery exploits"
-   that needs to be unchecked in order for this to work.
 
 References:
 
