@@ -39,3 +39,9 @@ Source: Versatables</a>
 
 * Note this table does not mention prices.
 
+
+## Software service comparison #
+
+Here is a comparison of software service offerings.
+
+   <amp-img width="650" height="368" alt="lambda_ironworker-20160807-650x368-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17528510/9d341824-5e24-11e6-9901-79db3656744c.jpg"></amp-img>
