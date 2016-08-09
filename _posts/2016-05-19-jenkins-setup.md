@@ -905,7 +905,28 @@ Active: active (running) since Tue 2015-12-29 00:00:16 EST; 17s ago
    "Active: inactive (dead)"
    </pre>
 
+### Update current version of Jenkins #
 
+Update current Version of Jenkins through repo on Digital Ocean SaaS using Putty for Windows.
+
+0. Connect to the Digital Ocean server via Putty.
+0. Provide username and password.
+0. Follow the below commands.
+
+```
+# Download Jenkins from the Red Hat repo:
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+# Import the verification key using the package manager RPM:
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+# Install Jenkins by running:
+sudo yum install jenkins
+# Input Y
+# Start Jenkins as a service:
+sudo systemctl start jenkins.service
+# Check the status of the service:
+sudo systemctl status jenkins.service
+# Open browser to http://138.68.1.138:8080
+```
 
    ### GitHub Token #
 
