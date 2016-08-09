@@ -599,3 +599,35 @@ miniVersion=12.34
 I believe you'll need to use the "System Groovy Script" (on the Master node only) as opposed to the "Groovy Plugin" - https://wiki.jenkins-ci.org/display/JENKINS/Groovy+plugin#Groovyplugin-GroovyScriptvsSystemGroovyScript
 = https://wiki.jenkins-ci.org/display/JENKINS/Groovy+plugin
 
+http://stackoverflow.com/questions/21130931/environment-variables-in-jenkins
+https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin
+
+
+CAUTION: Instead of single ticks, if double quotation marks are used such as this:
+
+   <pre>
+   println "p BUILD_NUMBER = ${HOME}"
+   </pre>
+
+the run will abort with a message such as:
+groovy.lang.MissingPropertyException: No such property: BUILD_NUMBER for class: groovy.lang.Binding
+   at groovy.lang.Binding.getVariable(Binding.java:63)
+
+
+## Keep forever 
+
+* https://themettlemonkey.wordpress.com/2013/01/31/automatically-marking-a-jenkins-builds-as-keep-forever/   
+
+
+## Maven 
+
+http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-tutorial?showall=&start=2
+
+
+## Job Config History #
+
+JobConfigHistory Plugin
+https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin
+
+
+

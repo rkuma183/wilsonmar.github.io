@@ -86,6 +86,54 @@ Success
 0. Click "Restart Jenkins when no jobs are running".
 
 
+
+## Get GitHub secret #
+
+The below describes the use of a "deploy key" where a public-private SSH key pair is generated for each 
+GitHub SCM repository. Each key pair is attached to a repository instead of to a personal user account.
+The public key is stored on the Jenkins server.
+The correpsonding public key is stored in the repository along with the code.
+Jenkins matches the public and public keys before granting access to each single GitHub repository.
+
+See https://developer.github.com/guides/managing-deploy-keys/
+
+0. In a Terminal command-line on your <strong>Jenkins server</a>, 
+   generate a keypair:
+
+   <tt><strong>
+   ssh-keygen -C "server123@xyz.com"
+   </strong></tt>
+
+   PROTIP: Some enterprises have a central list of servers with unique names.
+
+   NOTE: Some alternatives to Jenkins provide a UI to generate keys.
+
+0. Specify file names. The default is "id_rsa" and "id_rsa.pub" containing the public key.
+
+0. Specify a passphrase.
+
+0. Copy the public and private key files to your local laptop.
+
+   Alternately, get the public key into your invisible Clipboard:
+   Open the public key file and hightlight all the works, then press Command+C.
+
+0. Switch to GitHub.com.
+
+0. In the top right corner of any GitHub page, click your profile photo.
+
+0. On your profile page, click the Repositories tab.
+
+0. Click the name of your repository.
+
+0. Click Settings in your repository's right sidebar.
+
+0. Click Deploy Keys In the sidebar.
+
+0. Click Add deploy key. 
+
+0. Paste your public key in and click Submit.
+
+
 ## Set up webhook on GitHub #
 
 0. Sign into the repository. You won't see the "Settings" tab unless you have permissions.
@@ -164,10 +212,18 @@ Success
 ## References #
 
    * https://help.github.com/articles/about-webhooks/
+
+   * http://lxanders.github.io/posts/jenkins-with-github-integration/#prepare-github
    * https://thepracticalsysadmin.com/setting-up-a-github-webhook-in-jenkins/
    * http://fourkitchens.com/blog/article/trigger-jenkins-builds-pushing-github
 
    * http://blog.shippable.com/configure-web-hooks-to-trigger-continuous-integration
 
 TODO: Quote URL which says "Payload sizes need to be monitored because GitHub caps them at 5 MB each."
+
+
+The objective of Jenkins2 is to install with a 
+<a href="#RecommendedPlugins">recommended set of plugins</a>
+(a more "curated" experience than v1)
+that cover 80% of use cases out of the box.
 

@@ -872,16 +872,18 @@ width: 100%;
 
 
 ### Gists
+
 Snippets of code on Gist.com can be displayed on the web page with a simple line
 containing the gist.com userid and snippet number:
 
 <pre><code>
-&#123;% gist userid/6589546 %}
+&#123;% gist <em>userid</em>/6589546 %}
 </code></pre>
 
-renders to:
+<!-- renders to:
 
-{% gist mmistakes/6589546 %}
+{% gist mmistakes/6589546 %} 
+-->
 
 
 ### Standard GFM mark-up

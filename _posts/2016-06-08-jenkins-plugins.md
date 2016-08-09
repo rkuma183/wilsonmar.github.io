@@ -20,6 +20,12 @@ This assumes that you have followed
 
 {% include _intro.html %}
 
+The assumption here is that 
+you have followed 
+   [Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins2,
+   which went Version 2 April 26, 2016 after over 10 years at v1.
+
+
 ### Find and Select Jenkins Plugins #
 
 Here is a generic set of steps to install a plug-in:
@@ -433,6 +439,19 @@ Some install the
 SafeRestart plug-in</a> which adds the <strong>Restart Safely</strong> option to the 
 <a title="jenkins saferestart_plugin" href="https://cloud.githubusercontent.com/assets/300046/12584913/9681b1d2-c3fe-11e5-9359-e51fc5809734.png">
 Jenkins left menu</a> to avoid needing to be at the server console at all.
+
+
+
+<a id="CloneWorspace"></a>
+
+## Clone Workspace #
+
+The Clone Workspace SCM Plugin<br />
+https://wiki.jenkins-ci.org/display/JENKINS/Clone+Workspace+SCM+Plugin
+clones Jenkins configurations for re-use in other projects.
+
+See <a target="_blank" href="https://support.cloudbees.com/hc/en-us/articles/215549798-Deleting-Old-Builds-Best-Strategy-for-Cleanup-and-disk-space-management">
+Cloudbees's advice</a>
 
 
 <a id="JMeterPlugin"></a>

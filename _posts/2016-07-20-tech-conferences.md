@@ -15,8 +15,13 @@ comments: true
 
 {% include _toc.html %}
 
-One can make big money at conferences,
-so more and more of them are popping up.
+Even if you don't go, you need to know when and where conferences are
+because that's where you customers (potential and otherwise) may be.
+
+There are many ways to take advantage of events even if you are not an exhibitor
+(which requires thousands of dollars).
+
+Also, you may not want to schedule your own events that competes with some dates.
 
 ## General #
 
@@ -45,7 +50,14 @@ so more and more of them are popping up.
 
 ## Specific Technology focus #
 
-* AnDevCon
+* AnDevCon for Android
+
+* <a target="_blank" href="https://githubuniverse.com/">
+   GitHub Universe</a> Sep 13-16, 2016 Pier 70, SF
+
+* <a target="_blank" href="https://www.cloudbees.com/juc/event-details">
+   Jenkins World 2016</a> by Cloudbees
+   September 13-15, Santa Clara Convention Center
 
 * Blackhat in July Vegas
 * Defcon
