@@ -106,7 +106,6 @@ you have followed
 
    PROTIP: The wide variety of plugins is why Jenkins is popular.
 
-
    * http://www.praqma.com/stories/top-jenkins-plugins/
    * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
    * https://uttamkini.com/2012/12/01/jenkins-plugins-that-every-team-must-use/
@@ -448,6 +447,17 @@ manager.createSummary("folder.gif").appendText("${fileContents }")
    </pre>
 
 
+   Use the withEnv step to set a variable within a temporary scope:
+
+   <pre>
+node ('pull'){
+  git url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
+  withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
+    sh 'mvn -B verify'
+  }
+}
+   </pre>
+
    <a name="UnicodeIcons"></a>
 
    ### Unicode icons #
@@ -541,7 +551,7 @@ This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI 
 
    <pre>
 node {
-   git url: "https://github.com/hotwilson/jenkins2.git"
+   git url: "https://github.com/hotwilson/jenkins2.git", branch: 'master'
    sh 'make all'
 }
    </pre>
@@ -1101,12 +1111,22 @@ To restart Jenkins server:
 0. "Please wait while Jenkins is restarting".
 
 
-<a name="DiscardBuilds"></a>
+   <a name="WorkspaceCleanup"></a>
+
+   ### Workspace Cleanup #
+
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Workspace+Cleanup+Plugin">
+   Workspace</a>
+
+
+
+   <a name="DiscardBuilds"></a>
 
    ### Discard Old Builds #
 
-   In <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
-   Jenkins.io</a> Jenkinsfile Groovy script:
+   The <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile">
+   Jenkins.io</a> Jenkinsfile Groovy script
+   has this:
 
    <pre>
 /* Only keep the 10 most recent builds. */

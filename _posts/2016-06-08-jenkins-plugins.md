@@ -534,6 +534,11 @@ switching report format to xml in jmeter properties file:
   
 0. When no jobs are running, restart the Jenkins server to reload the plugin.
 
+
+* <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Wall+Display+Plugin">
+   Wall Display Plugin</a>
+
+
 ## Read more about plugins #
 
    * http://wiki.jenkins-ci.org/display/JENKINS/Checking+out+existing+plugins
