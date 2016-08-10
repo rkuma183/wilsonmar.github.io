@@ -11,7 +11,8 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
@@ -25,7 +26,7 @@ you have followed
    which went Version 2 April 26, 2016 after over 10 years at v1.
 
 
-### Find and Select Jenkins Plugins #
+## Find plugins to install #
 
 Here is a generic set of steps to install a plug-in:
 
@@ -58,16 +59,7 @@ Here is a generic set of steps to install a plug-in:
 
    PROTIP: The wide variety of plugins is why Jenkins is popular.
 
-   Lists of top Jenkins plugins online: <a href="#MorePlugins">more plugins</a> below.
-
-   * http://www.praqma.com/stories/top-jenkins-plugins/
-   * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
-   * https://uttamkini.com/2012/12/01/jenkins-plugins-that-every-team-must-use/
-   * http://www.hugeinc.com/ideas/perspective/list-of-useful-jenkins-plugins
-   * http://devops.com/2015/01/15/15-must-jenkins-plugins-increase-productivity/
-   * https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Installation+Statistics
-   is broken
-   <br /><br />
+   See xxx
 
 0. Click on a category (such as ".NET Development") to contract or expand items in each category.
 
@@ -205,6 +197,9 @@ Groovy script code checked into source control.
 0. Install the "Pipeline" (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
 
+   NOTE: This was part of Cloudbees licenced features,
+   but released in open edition.
+
 0. Right-click to open in a new tab the 
    "See Pipeline as Code with Jenkins for more details" "link at<br />
    <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
@@ -214,7 +209,12 @@ Groovy script code checked into source control.
 
 0. Click <strong>New Item</strong> at http://.../view/All/newJob
 
+   [TODO: jenkins2 new item menu 20160809 screen.png
+
 0. Enter item name and click "Pipeline", then OK. ("Orchestrates long-running activities that can span multiple build slaves. Suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.").
+
+
+   ### When to build #
 
 0. Among Build Triggers click "Build when a change is pushed to GitHub".
 
@@ -222,8 +222,16 @@ Groovy script code checked into source control.
 
 0. For Project url: https://github.com/hotwilson/box.git
 
-   NOTE: The word "slave" and "node" and "computer"
-   have been replaced with the word "agent".
+   DEFINITION:
+   The word "slave" has been replaced with the word "agent".
+
+   DEFINITION:
+   A node is a step that schedules a task to run by adding it to the Jenkins build queue
+   and allocating a workspace (file directory) on that node 
+   for the duration of the task.
+
+   As soon as an executor slot is available on a node (the Jenkins master, or a slave), 
+   the task is run on that node.
 
 0. Click "Advanced" and type the Display name, "Box" in our example.
 
@@ -281,67 +289,8 @@ node {
 0. Click "Console Output" for log details created from that run.
 
 
-### Read about Pipeline #
 
-Jenkins 2 was released April 26, 2016.
-
-* <a target="_blank" href="https://jenkins.io/doc/pipeline/">
-   https://jenkins.io/doc/pipeline = Getting Started with Pipeline</a>
-* https://jenkins.io/solutions/pipeline/
-* https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
-* https://github.com/jenkinsci/pipeline-plugin/blob/master/README.md#introduction
-* https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/
-
-Tweet #Jenkins2
-
-Pipeline author Jesse Glick (<a target="_blank" href="https://twitter.com/tyvole/">@tyvole</a>)
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=_aLPahlSFHU">
-   Jenkins Workflow: security model & plugin compatibility
-   Aug 2015</a>
-
-On Kohsuke Kawaguchi (Creator of Jenkins and CTO of Cloudbees)
-<a target="_blank" href="https://www.youtube.com/channel/UCT_pjuBAYn6Sm_u4YJt59Rw">
-YouTube channel</a> :
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=2eVyc_n8i1c/">
-   on 7 Oct 2015</a>
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0/">
-   Jenkins 2.0 Virtual Conf. (take 2) 
-   4 May 2015</a>
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=fl5xfqtiNko/">
-   Jenkins 2.0 Virtual Conf. 2015</a>
-
-<a target="_blank" href="https://se.linkedin.com/in/robertsandell/">
-Robert "Bobby" Sandell</a>
-(<a target="_blank" href="<a target="_blank" href="https://www.rsandell.com/">rsandell.com</a>), 
-Software Engineer at Cloudbees Stockholm since June 2010
-has these videos:
-
-   * https://www.youtube.com/watch?v=_iFtmp72p_E
-   Jenkins pipeline plugin demo
-
-   * https://www.youtube.com/watch?v=M-rxJBdYIrw
-   Jenkins 2.0. What? When? What is in it for me?
-
-Jim Leitch
-
-   * https://www.youtube.com/watch?v=th_0jGRTnJ4
-   Jenkins 2.0 What's is new?
-
-
-
-### GitHub to Jenkins #
-
-
-   ### Install GitHub plugin #
-
-https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
-
-
-### NodeJS Plugin #
+## NodeJS Plugin #
 
 https://wiki.jenkins-ci.org/display/JENKINS/NodeJS+Plugin
 
@@ -389,9 +338,22 @@ http://gruntjs.com/getting-started
 
    Alternately, on Windows type "???". TODO:
 
+
+
 <a id="MorePlugins"></a>
 
 ## More plug-ins #
+
+   Lists of top Jenkins plugins online: <a href="#MorePlugins">more plugins</a> below.
+
+   * http://www.praqma.com/stories/top-jenkins-plugins/
+   * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
+   * https://uttamkini.com/2012/12/01/jenkins-plugins-that-every-team-must-use/
+   * http://www.hugeinc.com/ideas/perspective/list-of-useful-jenkins-plugins
+   * http://devops.com/2015/01/15/15-must-jenkins-plugins-increase-productivity/
+   * https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Installation+Statistics
+   is broken
+
 
 <a name="BasePlugins"></a>
 

@@ -631,3 +631,11 @@ https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin
 
 
 
+
+## Contributions #
+
+   The host name "jenkins-ci.org" redirects to "jenkins.io".
+
+The version anticipated is nicknamed 
+<a target="_blank" href="https://jenkins.io/projects/blueocean/">"Blue Ocean"</a>
+
