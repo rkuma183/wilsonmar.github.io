@@ -48,3 +48,5 @@ Here</a> is a comparison of software service offerings.
 <amp-img width="650" height="368" alt="lambda_ironworker-20160807-650x368-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17528510/9d341824-5e24-11e6-9901-79db3656744c.jpg"></amp-img>
 
 One suggestion is to have fonts large enough to be readable.
+
+Icons next to each factor is useful to provide additional visual cues.

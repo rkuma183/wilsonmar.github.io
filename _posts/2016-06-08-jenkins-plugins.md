@@ -15,8 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This assumes that you have followed 
-[Jenkins Setup](/jenkins-setup/)
+This article covers the installation and use of Jenkins plugins.
 
 {% include _intro.html %}
 
@@ -51,6 +50,9 @@ Here is a generic set of steps to install a plug-in:
 
    On a Mac, the jenkinshome is <strong>~/.jenkins</strong>.
 
+
+   ### So many plugins #
+
 0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
    Wiki on Plugins</a>.
 
@@ -73,6 +75,7 @@ Here is a generic set of steps to install a plug-in:
    or from the list of categories online at <br />
    <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins">
    https://wiki.jenkins-ci.org/display/JENKINS/Plugins</a>
+
 
    ### Install Green Balls icon plugin #
 
@@ -100,8 +103,46 @@ Here is a generic set of steps to install a plug-in:
 0. Click "S" among "S M L" under the icons to show Small icons.
 
 
-## Restart Jenkins server #
 
+   ### Install SCM plug-in #
+
+   Jenkins has plugins for many SCM systems: Accurev, Bazaar, BitKeeper, ClearCase, CMVC, Dimensions, Git, CA Harvest, Mercurial, Perforce, PVCS, StarTeam, CM/Synergy, Microsoft Team Foundation Server, and Visual SourceSafe.
+
+0. In Manage Jenkins, Manage Plugins, among Available, in Filter enter enough of 
+   <strong>"SCM Sync Configuration Plugin"</strong>
+   to check it for install. Its URL is <br />
+   <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin">
+   http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin</a>
+
+   "This plugin allows you to synchronize your hudson configuration files with an SCM, 
+   allowing you to specify a commit message every time a config file is modified.""
+
+   NOTE: "Hudson" is still referenced even in Jenkins2. Just ignore it.
+
+
+   ### Configure repo #
+
+0. In Manage Jenkins, Configure System, notice
+
+   /var/lib/jenkins
+
+0. In "SCM Sync Configuration", select Git and type in the Git repo
+   where your Jenkins configuration resides. In our example:
+
+   https://github.com/hotwilson/box.git
+
+   PROTIP: Jenkins should detect when there is a change to Jenkins configuration
+   and update the repo with a pop-up commit message such as this:
+   <amp-img width="497" height="183" alt="jenkins2 scm on change 20160805-497x183-i21.jpg" src="https://cloud.githubusercontent.com/assets/300046/17452244/9f7af2da-5b2a-11e6-9cf0-ea6e1beb6e4e.jpg"></amp-img>
+
+0. Check "Display SCM Sync Status".
+
+0. Click Save.
+
+
+
+
+   ## Git Plugin #
 
 0. [0:42] Install "Git Plugin"
    https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin<br />
@@ -122,6 +163,9 @@ Here is a generic set of steps to install a plug-in:
    Click Yes to "Are you sure".
 
    "Please wait while Jenkins is restarting".
+
+
+## Freestyle project #
 
 0. [1:41] Create a Jenkins Freestyle project, OK.
 

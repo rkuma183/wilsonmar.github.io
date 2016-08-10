@@ -29,14 +29,14 @@ expanded for production use in an enterprise setting.
 
 ## Jenkins2 highlights #
 
-This adds more deep-dive details and specifics to is my summary of statements by the Jenkins team on 
+This adds more deep-dive details and specifics about Jenkinsfile Groovy coding in
 <a target="_blank" href="https://jenkins.io/2.0/">https://jenkins.io/2.0</a> and
 in <a href="#Videos">videos</a> (<a target="_blank" href="https://www.youtube.com/watch?v=emV60CcDVV0&t=49m47s">
 Pipeline</a>)
 
 Summary of Jenkins2 features: [36:00]
 
-* “Pipeline” <strong>item type</strong> in Jenkins (to Freestyle)
+* <a href="#Pipeline">Pipeline item type for new jobs</a> (instead of Freestyle)
 * Entire pipeline as text code in SCM (GitHub)
 * <a href="#MultipleSCM">Multiple SCM repositories in each job</a>
 * Pausable: Jobs can wait for manual user input before continuing
@@ -56,148 +56,23 @@ Summary of Jenkins2 features: [36:00]
 
 ## Contributions #
 
-The Jenkins file used to build the Jenkins.io website is<br />
-<a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile/">
-https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile</a>
-
    The host name "jenkins-ci.org" redirects to "jenkins.io".
 
-The next version is 
+The version anticipated is nicknamed 
 <a target="_blank" href="https://jenkins.io/projects/blueocean/">"Blue Ocean"</a>
 
-
-## Find and Select Jenkins Plugins #
-
-Here is a generic set of steps to install a plug-in.
 
 The assumption here is that 
 you have followed 
    [Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins2,
    which went Version 2 April 26, 2016 after over 10 years at v1.
 
-0. you have followed
-   [Jenkins plugins](/jenkins-plugins/) to install the latest version of Jenkins2,
-
-0. Click **Manage Jenkins** on the left menu of the Dashboard screen.
-
-   <amp-img width="362" height="285" alt="jenkins createuser_01b-362x285-t69" src="https://cloud.githubusercontent.com/assets/300046/17301184/f763c996-57d2-11e6-8b28-1faf907a3b60.png"></amp-img>
-
-0. Click **Manage Plugins** to http://.../pluginManager/
-
-   <amp-img width="650" height="53" alt="jenkins manage plugins 2016-08-01-650x53-i11.jpg" src="https://cloud.githubusercontent.com/assets/300046/17295483/95b3f7d4-57b9-11e6-94af-d8183f3ec77d.jpg"></amp-img>
-
-0. Click **Installed** tab to view what has been installed already.
-0. Click **Available** tab to http://.../pluginManager/available
-0. Click **Advanced** tab and scroll to the bottom to see the 
-   Update Site URL for the source of plugins listed:
-
-   <pre>
-   http://updates.jenkins-ci.org/update-center.json
-   </pre>
-
-   NOTE: You can upload a plugin file with the file extension <strong>.hpi</strong> to folder
-   &LT;jenkinsHome>/plugins/
-
-   On a Mac, the jenkinshome is <strong>~/.jenkins</strong>.
+Additionally, you have followed
+   [Jenkins plugins](/jenkins-plugins/) to install the latest version of Jenkins2
+   and the <strong>Pipeline</strong> plugin<br />
 
 
-0. View the <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/Plugins">
-   Wiki on Plugins</a>.
-
-   PROTIP: The wide variety of plugins is why Jenkins is popular.
-
-   * http://www.praqma.com/stories/top-jenkins-plugins/
-   * http://zeroturnaround.com/rebellabs/top-10-jenkins-featuresplugins/
-   * https://uttamkini.com/2012/12/01/jenkins-plugins-that-every-team-must-use/
-   * http://www.hugeinc.com/ideas/perspective/list-of-useful-jenkins-plugins
-   * http://devops.com/2015/01/15/15-must-jenkins-plugins-increase-productivity/
-   * https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Installation+Statistics
-   is broken
-   <br /><br />
-
-0. Click on a category (such as ".NET Development") to contract or expand items in each category.
-
-   PROTIP: There are dozens of categories, so it may be easier to search for plugins by name
-   or from the list of categories online at <br />
-   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins">
-   https://wiki.jenkins-ci.org/display/JENKINS/Plugins</a>
-
-   ### Install Green Balls icon plugin #
-
-0. In the Filter field at the upper right of the screen, type "Green Balls",
-   which is one of the most popular among DevOps people who can't stand that 
-   the Jenkins default for healthy (successful) is blue, not green.
-   (<a target="_blank" href="https://jenkins.io/blog/2012/03/13/why-does-jenkins-have-blue-balls/">
-   due to a historical/cultural artifact</a>).
-
-   PROTIP: When a plugin is installed, Jenkins removes that plugin among the "Available"
-   and shows the plugin among the "Installed".
-   
-0. When you click the name of a plug-in you'll be sent to another website, such as:<br />
-   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">
-   https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls</a>
-
-0. Return to the previous screen: Hit the browser return key or command + left arrow.
-
-   PROTIP: Instead of clicking plugin names, right-click to 
-   <strong>open link in New Tab</strong> on your browser
-   so a tab with the Jenkins icon remains among browser tabs.
-
-0. Return to the root console page (by clicking "Jenkins" at the upper left corner).
-
-0. Click "S" among "S M L" under the icons to show Small icons.
-
-
-   ### Configure permissions to repo #
-
-   In order to treat Jenkins configuration settings as code.
-
-0. TODO: 
-
-   ### Install SCM plug-in #
-
-   Jenkins has plugins for many SCM systems: Accurev, Bazaar, BitKeeper, ClearCase, CMVC, Dimensions, Git, CA Harvest, Mercurial, Perforce, PVCS, StarTeam, CM/Synergy, Microsoft Team Foundation Server, and Visual SourceSafe.
-
-0. In Manage Jenkins, Manage Plugins, among Available, in Filter enter enough of 
-   <strong>"SCM Sync Configuration Plugin"</strong>
-   to check it for install. Its URL is <br />
-   <a target="_blank" href="http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin">
-   http://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin</a>
-
-   "This plugin allows you to synchronize your hudson configuration files with an SCM, 
-   allowing you to specify a commit message every time a config file is modified.""
-
-   NOTE: "Hudson" is still referenced even in Jenkins2. Just ignore it.
-
-
-   ### Configure repo #
-
-0. In Manage Jenkins, Configure System, notice
-
-   /var/lib/jenkins
-
-0. In "SCM Sync Configuration", select Git and type in the Git repo
-   where your Jenkins configuration resides. In our example:
-
-   https://github.com/hotwilson/box.git
-
-   PROTIP: Jenkins should detect when there is a change to Jenkins configuration
-   and update the repo with a pop-up commit message such as this:
-   <amp-img width="497" height="183" alt="jenkins2 scm on change 20160805-497x183-i21.jpg" src="https://cloud.githubusercontent.com/assets/300046/17452244/9f7af2da-5b2a-11e6-9cf0-ea6e1beb6e4e.jpg"></amp-img>
-
-0. Check "Display SCM Sync Status".
-
-0. Click Save.
-
-
-
-## Jenkins 2 Pipeline Item #
-
-
-[TODO: jenkins2 referece screen.png here]
-
-
-### Install Pipeline Plugin #
+## Install Pipeline Plugin #
 
 0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
    https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
@@ -217,6 +92,13 @@ you have followed
    [TODO: jenkins2 new item menu 20160809 screen.png
 
 0. Enter item name and click "Pipeline", then OK. ("Orchestrates long-running activities that can span multiple build slaves. Suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.").
+
+
+   ### Configure permissions to repo #
+
+   In order to treat Jenkins configuration settings as code.
+
+
 
    ### Build triggers #
 
@@ -239,8 +121,31 @@ you have followed
 
 0. Click "Advanced" and type the Display name, "Box" in our example.
 
+<hr />
 
-   ### Pipeline Groovy #
+## Groovy code #
+
+There are two basic ways to obtain (and change) Groovy code for Pipleline type jobs:
+
+   0. <a href="#JenkinsfileGitHub">In a Jenkinsfile</a> obtained from GitHub (or other SCM)
+
+   0. <a href="#InlineCode">Inline code</a> is good for learning.
+
+   0. From the run results screen, click <a href="#Replay">Replay</a>, 
+   then dynamically changing code before rerun.
+
+<hr />
+
+<a name="JenkinsfileGitHub"></a>
+
+### Jenkinsfile from GitHub #
+
+This is the most desired approach in enterprise settings.
+
+[From github-hooks?]
+
+
+### Pipeline Groovy #
 
 0. Click "Pipeline" tab to bring that section up.
 
@@ -256,6 +161,22 @@ you have followed
    Pipeline plugin</a> in Jenkins 2
    reads a text-based <strong>Jenkinsfile</strong>
    <a href="#Groovy">Groovy script code</a> checked into source control.
+
+
+   <a name="Jenkinsfile"></a>
+
+   ### Jenkinsfile format #
+
+   The Jenkins file used to build the Jenkins.io website is<br />
+   <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile/">
+   https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile</a>
+
+   The first line "shebang" defines the file as a Groovy language script:
+
+   <pre>
+   #!/usr/bin/env groovy
+   </pre>
+
 
 0. Select from the "try sample" pull down "Hello World".
 
@@ -407,6 +328,8 @@ import groovy.json.JsonOutput
 import java.net.URL
    </pre>
 
+   Hudson is the previous name of Jenkins before it forked.
+
 
    <a name="TryCatch"></a>
 
@@ -457,6 +380,16 @@ node ('pull'){
   }
 }
    </pre>
+
+
+   <a name="Stages"></a>
+
+   ### Stages #
+
+   <amp-img width="574" height="374" alt="jenkins flow 20160805-574x374-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17537073/eab0c64c-5e56-11e6-85a2-4ecbbcbaf364.jpg"></amp-img>
+   This diagram from Jenkins.io 
+   illustrates the flow of work.
+
 
    <a name="UnicodeIcons"></a>
 
@@ -535,11 +468,6 @@ This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI 
       echo "Done"
    }
    </pre>
-
-
-   <a name="Stages"></a>
-
-   ### Stages #
 
 
    <a name="GitURL"></a>

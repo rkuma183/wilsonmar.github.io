@@ -89,33 +89,75 @@ Success
 
 ## Get GitHub secret #
 
-The below describes the use of a "deploy key" where a public-private SSH key pair is generated for each 
+The below describes how Jenkins ensures security by
+making use of a "deploy key" where a public-private SSH key pair is generated for each 
 GitHub SCM repository. Each key pair is attached to a repository instead of to a personal user account.
 The public key is stored on the Jenkins server.
 The correpsonding public key is stored in the repository along with the code.
 Jenkins matches the public and public keys before granting access to each single GitHub repository.
 
-See https://developer.github.com/guides/managing-deploy-keys/
+<a target="_blank" href="https://developer.github.com/guides/managing-deploy-keys/">
+https://developer.github.com/guides/managing-deploy-keys</a><br />
+discusses the advantage of "Deploy keys" versus other approaches for authentication and authorization.
 
-0. In a Terminal command-line on your <strong>Jenkins server</a>, 
+0. SSH into a command-line in your <strong>Jenkins server</a>, 
    generate a keypair:
 
    <tt><strong>
-   ssh-keygen -C "server123@xyz.com"
+   ssh-keygen -C "jenkins123@xyz.com"
    </strong></tt>
 
-   PROTIP: Some enterprises have a central list of servers with unique names.
+   The default is RSA.
 
-   NOTE: Some alternatives to Jenkins provide a UI to generate keys.
+   PROTIP: Some enterprises have a central list of servers with unique "service account" names
+   associated with a server (hardware)
+   instead of email addresses for individual people.
 
-0. Specify file names. The default is "id_rsa" and "id_rsa.pub" containing the public key.
+   NOTE: Organizations that don't believe in SSH have an
+   alternative to Jenkins provide a UI to generate keys.
 
-0. Specify a passphrase.
+   The response:
 
-0. Copy the public and private key files to your local laptop.
+   <pre>
+   Generating public/private rsa key pair.
+   Enter file in which to save the key (/root/.ssh/id_rsa): 
+   </pre>
 
-   Alternately, get the public key into your invisible Clipboard:
-   Open the public key file and hightlight all the works, then press Command+C.
+   "id_rsa" is the default name of the private key file.
+
+   "id_rsa.pub" contains the public key.
+
+0. Press Enter to accept the default prefix.
+
+   The response:
+
+   <pre>
+   Enter passphrase (empty for no passphrase): 
+   </pre>
+
+0. Press Enter twice to not specify a passphrase.
+
+   <pre>
+   Enter same passphrase again: 
+   </pre>
+
+0. Bring the public key to GitHub:
+
+   <pre>
+   cd ~/.ssh
+   cat id_rsa.pub
+   </pre>
+
+   You should see a file beginning with 
+
+   <pre>
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOgkh/0a1it6moT/ueEN3c/5CsX6x619icK9wMRpIWNMyZQGaSnU8a1xl6ZWuwIRM1LzjcS/7JeI1sYiW4K0MhYXYtR7b693L8jLppSKL8/+zWQ+kiPDpGLV7hOU1wINrVDsjWvRSIi+ihb7wy6atQRTtAq/0mStc6sBLNYJoVMzaOw+a6cob+IJQ0VNH4wVdImnCQU8T13afFLNwEvXMHdjXYHnmt/V+nQV7omb6oCX/xnqdDiI0LEQLZu+EI5j2ELdeBF9p9Nk4ko0JJknDrR0OCOAoZJVebQDG+ZsHwha9Xw1dDTVJJkmNGvp3pi0BegSPk4sAbZg2zIVHUpqtJ jenkins123@xyz.com
+   </pre>
+
+0. Highlight the private key file and press Command/Control+C to 
+   copy the contents to your laptop's Clipboard.
+
+   <hr />
 
 0. Switch to GitHub.com.
 
@@ -131,7 +173,41 @@ See https://developer.github.com/guides/managing-deploy-keys/
 
 0. Click Add deploy key. 
 
-0. Paste your public key in and click Submit.
+0. Paste your public key in and click Submit. ???
+
+
+0. Files in the .ssh folder should be 600: 
+
+   <pre>
+   chmod 600 ~/.ssh
+   </pre>
+
+0. Enable verbose logging (-vT) to see what permissions it complains about:
+
+   <tt><strong>
+   ssh -vT git@github.com 
+   </strong></tt>
+
+   The response can be:
+
+   <pre>
+   Permission denied (publickey).
+   </pre>
+
+   The desired response is:
+
+   <pre>
+   </pre>
+
+0. Append the public key to the bottom of the <strong>authorized_keys</strong> file:
+
+   <tt><strong>
+   cat id_rsa.pub >> ~/.ssh/authorized_keys
+   </strong></tt>
+
+   NOTE: On some systems it's <strong>authorized_keys2</strong>.
+
+   PROTIP: Use the verbose option on the ssh command to say which key files it's actually trying.
 
 
 ## Set up webhook on GitHub #
@@ -206,6 +282,31 @@ See https://developer.github.com/guides/managing-deploy-keys/
 0. See the new job from "anonymous user"?
 
 
+## SSH Agent Forwarding #
+
+For those who don't want to have a private key file, even in encrypted form, 
+stored anywhere away from a trusted machine, there is 
+the <strong>"same agent" protocol</strong>.
+An "ssh-agent" program runs in the background and keeps private key loaded into memory.
+Servers call the ssh-agent as if they were already running on the server. 
+This is like asking a friend to enter their password so that you can use their computer.
+
+The passphrase need to be entered only once, when the ssh-agent is invoked.
+
+SSH agent forwarding can be used to make deploying to a server simple. 
+It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+
+If you've already set up an SSH key to interact with GitHub, you're probably familiar with ssh-agent. It's a program that 
+
+At the risk of However, there is different vulnerability: agent hijacking
+over the wire.
+
+In short, this allows a chain of ssh connections to forward key challenges back to the original agent, obviating the need for passwords or private keys on any intermediate machines. 
+
+   http://www.unixwiz.net/techtips/ssh-agent-forwarding.html#fwd
+   by Steve Friedl
+
+   https://developer.github.com/guides/using-ssh-agent-forwarding/
 
 
 
