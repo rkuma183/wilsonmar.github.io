@@ -1311,9 +1311,9 @@ itemData :
 {% endhighlight %}
 
 
-<a name="Resources></a>
+<a name="Resources"></a>
 
-## Resources to Learn JavaScript
+## Resources to Learn JavaScript #
 
 There are many tutorials which teach JavaScript string manipulation and other topics:
 
@@ -1323,3 +1323,6 @@ There are many tutorials which teach JavaScript string manipulation and other to
 
 * <a target="_blank" href="http://www.w3schools.com/js/js_conventions.asp">
   JavaScript Conventions at W3Schools</a>
+
+* <a target="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+   Mozilla's webpage is the most thorough and accurate</a>

@@ -109,8 +109,6 @@ for <strong>checkpoint</strong>.
    docker run -p 8080:8080 -p 8081:8081 -p 8022:22 -p 9418:9418 -ti cloudbees/workflow-demo
    </strong></tt>
 
-   QUESTION: What about Jenkins2 Pipeline demo?
-
    See <a href="#PortForwardings">Port forwardings</a>
 
 
@@ -136,7 +134,7 @@ for <strong>checkpoint</strong>.
    according to <a target="_blank" href="https://docs.docker.com/engine/reference/run/">
    Docker reference</a>, which describes many other options.
 
-   Also, many add `--name` to name the container.
+   Also, many add `--name` to spacify a name to the container.
 
    <a name="PortForwardings"></a>
 

@@ -2,6 +2,9 @@
 
    <amp-img width="490" height="277" alt="jenkins2 build hello-world-490x277-i38.png" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
 
+![jenkins plugin green github 349x132-i12](https://cloud.githubusercontent.com/assets/14143059/17589798/ecd5a60c-5f93-11e6-8f81-59e1f972c2cc.jpg)
+
+
 https://github.com/jenkinsci/pipeline-editor-plugin
 Graphical Pipeline Editor
 
@@ -646,3 +649,13 @@ The version anticipated is nicknamed
    ### Install GitHub plugin #
 
 https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
+
+
+## Jenkins #
+
+https://login.oracle.com/mysso/signon.jsp
+
+
+## rev-list
+
+http://mokagio.github.io/tech-journal/2014/12/03/git-some-rev-commands.html

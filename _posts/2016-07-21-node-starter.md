@@ -288,6 +288,11 @@ Checking connectivity... done.
    npm install 
    </strong></tt>
 
+   NOTE:
+   Some claim that "NPM" is a "bacronymic" abbreviation, a phrase constructed ex post facto to make itself,
+   such as "npm is not an acronym".
+
+
    ### Add MongoDB in MacOS #
 
 0. <a target="_blank" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">

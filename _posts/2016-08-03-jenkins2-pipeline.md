@@ -53,33 +53,75 @@ Summary of Jenkins2 features: [36:00]
 <br /><br />
 
 
-## Jenkins Pipeline plugin #
+## Install Jenkins Pipeline plugin #
 
 The assumption here is that 
 you have followed 
-   [Jenkins Setup](/jenkins-setup/) to install the latest version of Jenkins2,
+   [my Jenkins Setup tutorial](/jenkins-setup/) 
+   to install the latest version of Jenkins,
    which went Version 2 April 26, 2016 after over 10 years at v1.
 
 Additionally, you have followed
-   [Jenkins plugins](/jenkins-plugins/) to install the latest version of Jenkins2
+   [my Jenkins plugins tutorial](/jenkins-plugins/) 
+   to install the latest version of Jenkins2
    and the <strong>Pipeline</strong> plugin<br />
 
+   Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">
+   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin</a>
 
-   ### Configure permissions to repo #
-
-   In order to treat Jenkins configuration settings as code.
-
-
+   PROTIP: Under the covers, Git clients use
+   https://developer.github.com/v3/repos/hooks/
 
 <hr />
 
+<a name="Pipeline"></a> 
+
+## Create Pipeline item type #
+
+0. At the Jenkins Dashboard (root URL for Jenkins), click <strong>New Item</strong>.
+
+0. Type the job name (such as "todos1.java.v01").
+
+   PROTIP: Define a standard naming convention for Jenkins job names.
+   Have the name with more than just the component name.
+   Prefix the name with the overall app and its version (such as "CRM1").
+   This is so people know where it belongs throughout the organization and publicly.
+
+   PROTIP: Large teams use transitory elements (such as "unit_test", "QA", "prod", etc.)
+   when separate teams work on the same assets at different points in the lifecycle.
+   But avoid putting transitory elements in Jenkins job names.
+
+   PROTIP: As the last part of a name, specify a version number, staring with "v01".
+   This would allow simultaneous running of jobs which need to have different configurations.
+
+0. Select <strong>Pipeline</strong> (instead of Freestyle). Click OK.
+
+   <amp-img alt="jenkins2 item menu 20160811-650x618-i12.jpg" width="650" height="618" src="https://cloud.githubusercontent.com/assets/14143059/17595155/1ef08a70-5fa9-11e6-9721-24401896ab00.jpg"></amp-img>
+
+
+### "Build Triggers" #
+
+<img align="right" alt="jenkins2 build triggers 20160811-289x521-i12" src="https://cloud.githubusercontent.com/assets/14143059/17595360/022c2f7e-5faa-11e6-952f-c66a45820d47.jpg">
+
+   The "Build Triggers" section provide a variety of options.
+   Some check boxes are mutually exclusive, such as "Build periodically".
+
+
+   ### Discard old builds #
+
+   Clicking this creates a structure:
+
+   <amp-img alt="jenkins2 pipeline discard old jobs 20190811-650x618-i12.jpg" width="650" height="618" src="https://cloud.githubusercontent.com/assets/14143059/17596156/63d26b5a-5fad-11e6-83c4-dd770b842147.jpg"></amp-img>
+
+
 ## Groovy code #
 
-There are two basic ways to obtain (and change) Groovy code for Pipleline type jobs:
+   The basic ways to obtain (and change) Groovy code for Pipleline type jobs:
 
    0. <a href="#JenkinsfileGitHub">In a Jenkinsfile</a> obtained from GitHub (or other SCM)
 
-   0. <a href="#InlineCode">Inline code</a> is good for learning.
+   0. <a href="#InlineCode">Inline code</a> is good for learning
 
    0. From the run results screen, click <a href="#Replay">Replay</a>, 
    then dynamically changing code before rerun.
@@ -129,6 +171,18 @@ This is the most typical approach in enterprise settings.
    #!/usr/bin/env groovy
    </pre>
 
+   In-line Pipeline files do not have a "shebang" because it is supplied internally.
+
+0. Add Groovydoc comments
+
+   <pre>
+/**
+ * ReqA Class description
+ */
+   </pre>
+
+   PROTIP: Use of GitHub reduces the need for this, 
+   but it's helpful for special notes.
 
 0. Select from the "try sample" pull down "Hello World".
 
@@ -219,16 +273,7 @@ Jesse on GitHub</a>
 
 <a name="Groovy"></a>
 
-## Groovy Scripts #
-
-The official documentation page for the Apache Groovy language is <br />
-<a target="_blank" href="http://www.groovy-lang.org/documentation.html#gettingstarted">
-http://www.groovy-lang.org/documentation.html#gettingstarted</a>
-
-Groovy was used to build <a target="_blank" href="https://gradle.org/">
-Gradle</a> 
-because it can handle larger projects than Maven,
-which Gradle replaces.
+## Sample Groovy Scripts #
 
 We want go beyond kiddie scripts and
 look at scripts used in <strong>production</strong> (productive) use,
@@ -242,15 +287,14 @@ which are more complicated/complex than almost all the tutorials on the internet
    The Jenkins file used to build FreeBSD</a> 
    by Craig Rodrigues (rodrigc@FreeBSD.org)
 
-
-TODO: Step Reference is at https://.../job/box/pipeline-syntax/html
+Lessons from these are provided below.
 
 
 <a name="VaryGroovy"></a>
 
 ## Vary Groovy scripting #
 
-   Here are the variations, starting from trivial ones to more substantive:
+   The variations, starting from trivial ones to more substantive:
 
    * <a href="#Imports">Imports</a>
    * <a href="#TryCatch">Try Catch to email</a>
@@ -282,10 +326,19 @@ import java.net.URL
 
    Hudson is the previous name of Jenkins before it forked.
 
+   The official documentation page for the Apache Groovy language is <br />
+   <a target="_blank" href="http://www.groovy-lang.org/documentation.html#gettingstarted">
+   http://www.groovy-lang.org/documentation.html#gettingstarted</a>
 
-   <a name="TryCatch"></a>
+   Groovy was used to build <a target="_blank" href="https://gradle.org/">
+   Gradle</a> 
+   because it can handle larger projects than Maven,
+   which Gradle replaces.
 
-   ### Try Catch to email #
+
+<a name="TryCatch"></a>
+
+### Try Catch to email #
 
    Groovy is a derivative of Java, so it has Java's capability to catch (handle)
    execution <strong>exceptions</strong> not anticipated by the
@@ -661,12 +714,28 @@ First time build. Skipping changelog.
    Additional response for make not included here.
 
 
-<a name="#NodeJS"></a>
 
-## NodeJS #
+<a name="CheckoutSCM"></a>
 
-To work with NodeJS.
+### Checkout SCM #
 
+   An example using it:
+
+   <pre>
+node {
+   checkout scm
+&nbsp;
+   sh 'git rev-parse HEAD > GIT_COMMIT'
+   def shortCommit = readFile('GIT_COMMIT').take(6)
+   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
+&nbsp;
+   stage 'Deploy'
+   image.push()
+}
+   </pre>
+
+TODO:
+   See https://github.com/jenkinsci/workflow-scm-step-plugin#generic-scm-step
 
 
 <a name="#MultipleSCM"></a>
@@ -701,38 +770,13 @@ parallel repos.collectEntries {repo -> [/* thread label */repo, {
 
 
 
-<a name="CheckoutSCM"></a>
+<a name="#NodeJS"></a>
 
-### Checkout SCM #
+## NodeJS #
 
-   An example using it:
-
-   <pre>
-node {
-   checkout scm
-&nbsp;
-   sh 'git rev-parse HEAD > GIT_COMMIT'
-   def shortCommit = readFile('GIT_COMMIT').take(6)
-   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
-&nbsp;
-   stage 'Deploy'
-   image.push()
-}
-   </pre>
-
-TODO:
-   See https://github.com/jenkinsci/workflow-scm-step-plugin#generic-scm-step
+To work with NodeJS.
 
 
-
-## Install Pipeline #
-
-0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
-   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">
-   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin</a>
-
-   PROTIP: Under the covers, Git clients use
-   https://developer.github.com/v3/repos/hooks/
 
 
 
