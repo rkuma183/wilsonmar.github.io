@@ -1499,6 +1499,23 @@ Jenkins installation options are described at:
 See [Install Jenkins Plug-ins](/jenkins-plugins/)
 
 
+<a name="GlobalToolConfig"></a>
+
+## Global Tool Configuration #
+
+0. From "Manage Jenkins", click Global Tool Configuration.
+
+0. Click "install automatically".
+
+   This message appears in the Output Log if you did not finish:
+
+   <pre>
+   Unable to auto-install JDK until the license is accepted.
+   </pre>
+
+0. Check "I agree to the Java SE Development Kit".
+0. Click on "Please enter your username/password" and enter your Oracle credentials before returning.
+
 
 <a id="Nodes"></a>
 
@@ -1542,12 +1559,13 @@ See [Install Jenkins Plug-ins](/jenkins-plugins/)
 
  Nodes are described at:
  * https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds
-r
+
+
 <a id="Builds"></a>
 
 ## Build Projects #
 
-Jenkins was originally created for automating the building (compilation) of java programs.
+Jenkins was initially created for automating the building (compilation) of java programs.
 But Jenkins is ALSO used for other types of work.
 Nevertheless, the Jenkins term <strong>"build"</strong> 
 is another word for what operating systems call a <strong>"job"</strong> (unit of batch work).
@@ -1558,6 +1576,32 @@ Builds/jobs can be automatically triggered several ways:
  * periodically on a schedule
  * poll a version control system for changes
 
+## Latest Info about Jenkins #
+
+Follow <a target="_blank" href="https://twitter.com/jenkins_release/">
+@jenkins_release</a>
+This bot tweets Jenkins plugin releases.
+
+Tweet to 
+<a target="_blank" href="https://twitter.com/jenkinsci/">
+@jenkinsci</a> about
+<a target="_blank" href="https://twitter.com/#jenkins2/">
+#Jenkins2</a>
+
+CloudBees Verified account
+@CloudBees
+
+<a target="_blank" href="https://twitter.com/jenkinsconf/">
+@jenkinsconf</a>
+is the handle for Jenkins World, 
+Sep 13-15 in Santa Clara, CA
+
+<a target="_blank" href="https://twitter.com/changelog/">
+@changelog</a>
+New podcast every Friday! Sign up for our weekly and nightly emails. Open source moves fast. Keep up.
+
+
+@kohsukekawa
 
 ## Resources #
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Jenkins2 Pipeline"
+title: "Jenkins2 Pipeline jobs using Groovy code in Jenkinsfile"
 excerpt: "Slave nodes are now opinionated agents"
-tags: [Jenkins, setup]
+tags: [DevOps, Jenkins, Pipeline, Groovy]
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
@@ -53,14 +53,7 @@ Summary of Jenkins2 features: [36:00]
 <br /><br />
 
 
-
-## Contributions #
-
-   The host name "jenkins-ci.org" redirects to "jenkins.io".
-
-The version anticipated is nicknamed 
-<a target="_blank" href="https://jenkins.io/projects/blueocean/">"Blue Ocean"</a>
-
+## Jenkins Pipeline plugin #
 
 The assumption here is that 
 you have followed 
@@ -72,54 +65,11 @@ Additionally, you have followed
    and the <strong>Pipeline</strong> plugin<br />
 
 
-## Install Pipeline Plugin #
-
-0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
-   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
-
-   NOTE: This was part of Cloudbees licenced features,
-   but released in open edition.
-
-0. Right-click to open in a new tab the 
-   "See Pipeline as Code with Jenkins for more details" "link at<br />
-   <a target="_blank" href="https://jenkins.io/solutions/pipeline/">
-   https://jenkins.io/solutions/pipeline</a>
-
-0. Return to the root console page (by clicking "Jenkins" at the upper left corner).
-
-0. Click <strong>New Item</strong> at http://.../view/All/newJob
-
-   [TODO: jenkins2 new item menu 20160809 screen.png
-
-0. Enter item name and click "Pipeline", then OK. ("Orchestrates long-running activities that can span multiple build slaves. Suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.").
-
-
    ### Configure permissions to repo #
 
    In order to treat Jenkins configuration settings as code.
 
 
-
-   ### Build triggers #
-
-0. Among Build Triggers click "Build when a change is pushed to GitHub".
-
-0. Click "GitHub project". 
-
-0. For Project url: https://github.com/hotwilson/box.git
-
-   DEFINITION:
-   The word "slave" has been replaced with the word "agent".
-
-   DEFINITION:
-   A node is a step that schedules a task to run by adding it to the Jenkins build queue
-   and allocating a workspace (file directory) on that node 
-   for the duration of the task.
-
-   As soon as an executor slot is available on a node (the Jenkins master, or a slave), 
-   the task is run on that node.
-
-0. Click "Advanced" and type the Display name, "Box" in our example.
 
 <hr />
 
@@ -140,9 +90,11 @@ There are two basic ways to obtain (and change) Groovy code for Pipleline type j
 
 ### Jenkinsfile from GitHub #
 
-This is the most desired approach in enterprise settings.
+This is the most typical approach in enterprise settings.
 
 [From github-hooks?]
+
+
 
 
 ### Pipeline Groovy #
@@ -301,7 +253,7 @@ TODO: Step Reference is at https://.../job/box/pipeline-syntax/html
    Here are the variations, starting from trivial ones to more substantive:
 
    * <a href="#Imports">Imports</a>
-   * <a href="#TryCatch">Try Catch block</a>
+   * <a href="#TryCatch">Try Catch to email</a>
    * <a href="#EnvVars">Environment Variables</a>
 
    * <a href="#Stages">Stages</a>
@@ -333,12 +285,26 @@ import java.net.URL
 
    <a name="TryCatch"></a>
 
-   ### Try Catch Finally blocks #
+   ### Try Catch to email #
 
    Groovy is a derivative of Java, so it has Java's capability to catch (handle)
    execution <strong>exceptions</strong> not anticipated by the
    programming code.
 
+   <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile/">
+   This</a> catch block sends out an email:
+
+   <pre>
+catch (exc) {
+    String recipient = 'infra@lists.jenkins-ci.org'
+
+    mail subject: "${env.JOB_NAME} (${env.BUILD_NUMBER}) failed",
+            body: "It appears that ${env.BUILD_URL} is failing, somebody should do something about that",
+              to: recipient,
+         replyTo: recipient,
+            from: 'noreply@ci.jenkins.io'
+}
+   </pre>
 
 
    <a name="EnvVars"></a>
@@ -369,6 +335,7 @@ manager.createSummary("folder.gif").appendText("${fileContents }")
     def version = readFile "${env.WORKSPACE}/version.txt"
    </pre>
 
+   EnvInject Plugin
 
    Use the withEnv step to set a variable within a temporary scope:
 
@@ -381,207 +348,6 @@ node ('pull'){
 }
    </pre>
 
-
-   <a name="Stages"></a>
-
-   ### Stages #
-
-   <amp-img width="574" height="374" alt="jenkins flow 20160805-574x374-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17537073/eab0c64c-5e56-11e6-85a2-4ecbbcbaf364.jpg"></amp-img>
-   This diagram from Jenkins.io 
-   illustrates the flow of work.
-
-
-   <a name="UnicodeIcons"></a>
-
-   ### Unicode icons #
-
-   <img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
-
-   PROTIP: Putting the same visual mark in both the stage name and echos related to the stage
-   makes them visually easier to identify together.
-
-   <pre>
-   stage '\u273F Verify 4'
-   </pre>
-
-   * "\u2776" = &#x2776;
-   * "\u27A1" = &#x27A1;
-   * "\u2756" = &#x2756;
-   * "\u273F" = &#x273F;
-   * "\u2795" = &#x2795;
-
-   * "\u2713" = &#x2713;
-   * "\u2705" = &#x2705;
-   * "\u274E" = &#x274E;
-   * "\u2717" = &#x2717;
-   * "\u274C" = &#x274C;
-
-   * "\u2600" = &#x2600;
-   * "\u2601" = &#x2601;
-   * "\u2622" = &#x2622;
-   * "\u2623" = &#x2623;
-   * "\u2639" = &#x2639;
-   * "\u263A" = &#x263A;
-
-   * <a target="_blank" href="http://www.fileformat.info/info/unicode/block/dingbats/list.htm">
-   More icons in the \u2700 Unicode Digbats block</a>.
-   * <a target="_blank" href="http://www.w3schools.com/charsets/ref_utf_symbols.asp">
-   More icons in the \u2600 range</a>
-
-
-   <a name="ColorWarapper"></a>
-
-   ### Color wrapper Stage View #
-
-   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
-   Here</a> is an example of adding color in a stage name:
-
-   <pre>
-    wrap([$class: 'AnsiColorBuildWrapper']) {
-        stage "\u001B[31m I'm Red \u2717 \u001B[0m Now not"
-    }
-   </pre>
-
-This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI characters:
-
-   * "\u001B[31m" = RED
-   * "\u001B[30m" = BLACK
-   * "\u001B[32m" = GREEN
-   * "\u001B[33m" = YELLOW
-   * "\u001B[34m" = BLUE
-   * "\u001B[35m" = PURPLE
-   * "\u001B[36m" = CYAN
-   * "\u001B[37m" = WHITE
-
-   * "\u001B[0m" is for RESET
-   <br /><br />
-
-
-### Time stamp wrapper #
-
-   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
-   Here</a> is an example of invoking a build wrapper 
-   that adds a time stamp to echo output to the console log :
-
-   <pre>
-   wrap([$class: 'TimestamperBuildWrapper']) {
-      echo "Done"
-   }
-   </pre>
-
-
-   <a name="GitURL"></a>
-
-   ### Specific Git URL #
-
-   In single-branch contexts, 
-   one can download a specific repo from GitHub into Jenkins's local workspace:
-
-   <pre>
-node {
-   git url: "https://github.com/hotwilson/jenkins2.git", branch: 'master'
-   sh 'make all'
-}
-   </pre>
-
-   CAUTION: The ".git" at the end is necessary in the URL and
-   the repo needs to contain a <strong>Jenkinsfile</strong> (no file extension).
-
-   A sample Console response to git url:
-
-   <pre>
-[Pipeline] git
-Cloning the remote Git repository
-Cloning repository https://github.com/hotwilson/jenkins2.git
- > git init /var/lib/jenkins/workspace/box2 # timeout=10
-Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
- > git --version # timeout=10
- > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
- > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
- > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
- > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
-Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
- > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
- > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
- > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
-Checking out Revision b5f1136a0e55363ff143d6ad5b311f7838d8ad82 (refs/remotes/origin/master)
- > git config core.sparsecheckout # timeout=10
- > git checkout -f b5f1136a0e55363ff143d6ad5b311f7838d8ad82 # timeout=10
- > git branch -a -v --no-abbrev # timeout=10
- > git checkout -b master b5f1136a0e55363ff143d6ad5b311f7838d8ad82
-First time build. Skipping changelog.
-   </pre>
-
-   Additional response for make not included here.
-
-
-<a name="#MultipleSCM"></a>
-
-## Multiple SCM #
-
-As described in<br />
-<a target="_blank" href="https://github.com/jenkinsci/workflow-scm-step-plugin">
-https://github.com/jenkinsci/workflow-scm-step-plugin</a>:
-
-While freestyle projects can use the Multiple SCMs plugin to check out more than one repository, 
-or specify multiple locations in SCM plugins that support that 
-(notably the Git plugin), this support is quite limited. 
-
-In a Pipeline type job, you can check out multiple SCMs, 
-of the same or different kinds, 
-in the same or different workspaces, 
-wherever and whenever you like. 
-For example, to check out and build several repositories in parallel, 
-each on its own slave:
-
-   <pre>
-parallel repos.collectEntries {repo -> [/* thread label */repo, {
-    node {
-        dir('sources') { // switch to subdir
-            git url: "https://github.com/user/${repo}"
-            sh 'make all -Dtarget=../build'
-        }
-    }
-}]}
-   </pre>
-
-
-
-   <a name="CheckoutSCM"></a>
-
-   ### Checkout SCM #
-
-   An example using it:
-
-   <pre>
-node {
-   checkout scm
-&nbsp;
-   sh 'git rev-parse HEAD > GIT_COMMIT'
-   def shortCommit = readFile('GIT_COMMIT').take(6)
-   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
-&nbsp;
-   stage 'Deploy'
-   image.push()
-}
-   </pre>
-
-TODO:
-   See https://github.com/jenkinsci/workflow-scm-step-plugin#generic-scm-step
-
-
-
-## Install Pipeline #
-
-0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
-   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">
-   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin</a>
-
-   PROTIP: Under the covers, Git clients use
-   https://developer.github.com/v3/repos/hooks/
-
-
-### Shell Git command #
 
 <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/gitcommit/gitcommit.groovy">
 Here</a> is an example of doing a Bash shell call to
@@ -735,6 +501,241 @@ all these environment variables</a>:
 </tbody></table>
 
 
+### Tokenize environment variable #
+
+<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/github-org-plugin/access-repo-information.groovy">
+Here</a> is an example of a Groovy script file "access-repo-information.groovy".
+
+Like other Groovy files, it has in the first line `#!groovy`.
+
+   <pre>
+#!groovy
+&nbsp;
+    tokens = "${env.JOB_NAME}".tokenize('/')
+    org = tokens[0]
+    repo = tokens[1]
+    branch = tokens[2]
+    echo 'account-org/repo/branch=' + org +'/'+ repo +'/'+ branch
+   </pre>
+
+`${env.JOB_NAME}` retrieves environment variable JOB_NAME which contains the Git path
+"org/repo/branch" among github-organization-plugin jobs.
+
+`tokenize` extracts out text between the slash character specified
+into an array named "tokens". It is a 
+<a target="_blank" href="http://docs.groovy-lang.org/latest/html/api/org/codehaus/groovy/runtime/StringGroovyMethods.html">
+Groovy String method</a>.
+
+<hr />
+
+   <a name="Stages"></a>
+
+   ### Stages #
+
+   <amp-img width="574" height="374" alt="jenkins flow 20160805-574x374-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17537073/eab0c64c-5e56-11e6-85a2-4ecbbcbaf364.jpg"></amp-img>
+   This diagram from Jenkins.io 
+   illustrates the flow of work.
+
+
+   <a name="UnicodeIcons"></a>
+
+   ### Unicode icons #
+
+   <img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
+
+   PROTIP: Putting the same visual mark in both the stage name and echos related to the stage
+   makes them visually easier to identify together.
+
+   <pre>
+   stage '\u273F Verify 4'
+   </pre>
+
+   * "\u2776" = &#x2776;
+   * "\u27A1" = &#x27A1;
+   * "\u2756" = &#x2756;
+   * "\u273F" = &#x273F;
+   * "\u2795" = &#x2795;
+
+   * "\u2713" = &#x2713;
+   * "\u2705" = &#x2705;
+   * "\u274E" = &#x274E;
+   * "\u2717" = &#x2717;
+   * "\u274C" = &#x274C;
+
+   * "\u2600" = &#x2600;
+   * "\u2601" = &#x2601;
+   * "\u2622" = &#x2622;
+   * "\u2623" = &#x2623;
+   * "\u2639" = &#x2639;
+   * "\u263A" = &#x263A;
+
+   * <a target="_blank" href="http://www.fileformat.info/info/unicode/block/dingbats/list.htm">
+   More icons in the \u2700 Unicode Digbats block</a>.
+   * <a target="_blank" href="http://www.w3schools.com/charsets/ref_utf_symbols.asp">
+   More icons in the \u2600 range</a>
+
+
+   <a name="ColorWarapper"></a>
+
+   ### Color wrapper Stage View #
+
+   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
+   Here</a> is an example of adding color in a stage name:
+
+   <pre>
+    wrap([$class: 'AnsiColorBuildWrapper']) {
+        stage "\u001B[31m I'm Red \u2717 \u001B[0m Now not"
+    }
+   </pre>
+
+This rather geeky technique uses Unicode "\u001B" ESCAPE codes followed by ANSI characters:
+
+   * "\u001B[31m" = RED
+   * "\u001B[30m" = BLACK
+   * "\u001B[32m" = GREEN
+   * "\u001B[33m" = YELLOW
+   * "\u001B[34m" = BLUE
+   * "\u001B[35m" = PURPLE
+   * "\u001B[36m" = CYAN
+   * "\u001B[37m" = WHITE
+
+   * "\u001B[0m" is for RESET
+   <br /><br />
+
+
+### Time stamp wrapper #
+
+   <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/timestamper-wrapper/timestamperWrapper.groovy">
+   Here</a> is an example of invoking a build wrapper 
+   that adds a time stamp to echo output to the console log :
+
+   <pre>
+   wrap([$class: 'TimestamperBuildWrapper']) {
+      echo "Done"
+   }
+   </pre>
+
+
+   <a name="GitURL"></a>
+
+   ### Specific Git URL #
+
+   In single-branch contexts, 
+   one can download a specific repo from GitHub into Jenkins's local workspace:
+
+   <pre>
+node {
+   git url: "https://github.com/hotwilson/jenkins2.git", branch: 'master'
+   sh 'make all'
+}
+   </pre>
+
+   CAUTION: The ".git" at the end is necessary in the URL and
+   the repo needs to contain a <strong>Jenkinsfile</strong> (no file extension).
+
+   A sample Console response to git url:
+
+   <pre>
+[Pipeline] git
+Cloning the remote Git repository
+Cloning repository https://github.com/hotwilson/jenkins2.git
+ > git init /var/lib/jenkins/workspace/box2 # timeout=10
+Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/hotwilson/jenkins2.git # timeout=10
+Fetching upstream changes from https://github.com/hotwilson/jenkins2.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/hotwilson/jenkins2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision b5f1136a0e55363ff143d6ad5b311f7838d8ad82 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b5f1136a0e55363ff143d6ad5b311f7838d8ad82 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master b5f1136a0e55363ff143d6ad5b311f7838d8ad82
+First time build. Skipping changelog.
+   </pre>
+
+   Additional response for make not included here.
+
+
+<a name="#NodeJS"></a>
+
+## NodeJS #
+
+To work with NodeJS.
+
+
+
+<a name="#MultipleSCM"></a>
+
+## Multiple SCM #
+
+As described in<br />
+<a target="_blank" href="https://github.com/jenkinsci/workflow-scm-step-plugin">
+https://github.com/jenkinsci/workflow-scm-step-plugin</a>:
+
+While freestyle projects can use the Multiple SCMs plugin to check out more than one repository, 
+or specify multiple locations in SCM plugins that support that 
+(notably the Git plugin), this support is quite limited. 
+
+In a Pipeline type job, you can check out multiple SCMs, 
+of the same or different kinds, 
+in the same or different workspaces, 
+wherever and whenever you like. 
+For example, to check out and build several repositories in parallel, 
+each on its own slave:
+
+   <pre>
+parallel repos.collectEntries {repo -> [/* thread label */repo, {
+    node {
+        dir('sources') { // switch to subdir
+            git url: "https://github.com/user/${repo}"
+            sh 'make all -Dtarget=../build'
+        }
+    }
+}]}
+   </pre>
+
+
+
+<a name="CheckoutSCM"></a>
+
+### Checkout SCM #
+
+   An example using it:
+
+   <pre>
+node {
+   checkout scm
+&nbsp;
+   sh 'git rev-parse HEAD > GIT_COMMIT'
+   def shortCommit = readFile('GIT_COMMIT').take(6)
+   def image = docker.build(jenkinsciinfra/bind.build-${shortCommit})")
+&nbsp;
+   stage 'Deploy'
+   image.push()
+}
+   </pre>
+
+TODO:
+   See https://github.com/jenkinsci/workflow-scm-step-plugin#generic-scm-step
+
+
+
+## Install Pipeline #
+
+0. Install the "Pipeline" plug-in (in Manage Jenkins, Manage Plugins, Available) at<br />
+   <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">
+   https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin</a>
+
+   PROTIP: Under the covers, Git clients use
+   https://developer.github.com/v3/repos/hooks/
+
+
+
 
 ### Push changes to Git #
 
@@ -801,32 +802,6 @@ node('second-node') {
 }
    </pre>
 
-
-
-### Tokenize environment variable #
-
-<a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/github-org-plugin/access-repo-information.groovy">
-Here</a> is an example of a Groovy script file "access-repo-information.groovy".
-
-Like other Groovy files, it has in the first line `#!groovy`.
-
-   <pre>
-#!groovy
-&nbsp;
-    tokens = "${env.JOB_NAME}".tokenize('/')
-    org = tokens[0]
-    repo = tokens[1]
-    branch = tokens[2]
-    echo 'account-org/repo/branch=' + org +'/'+ repo +'/'+ branch
-   </pre>
-
-`${env.JOB_NAME}` retrieves environment variable JOB_NAME which contains the Git path
-"org/repo/branch" among github-organization-plugin jobs.
-
-`tokenize` extracts out text between the slash character specified
-into an array named "tokens". It is a 
-<a target="_blank" href="http://docs.groovy-lang.org/latest/html/api/org/codehaus/groovy/runtime/StringGroovyMethods.html">
-Groovy String method</a>.
 
 
 ### Remote Loader Plugin #
@@ -1362,7 +1337,7 @@ Jim Leitch
    * <a target="_blank" href="https://www.youtube.com/watch?v=th_0jGRTnJ4">
    Jenkins 2.0 What's is new?</a>
 
-James Nord
+James Nord (<a target="_blank" href="https://twitter.com/JamesTeilo/">@JamesTeilo</a>)
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=PsgQ4v4aBhA">
    Jenkins 2.0 and Beyond (and Q&A)</a>
@@ -1396,6 +1371,13 @@ Before "Pipeline" there was "Workflow", these resources:
 
 https://github.com/jenkinsci/job-dsl-plugin/wiki/User-Power-Moves
 
+
+## Testing #
+
+0. Install the "TAP Plugin",<br />
+   http://testanything.org/
+
+   This TAP test runner is supported by Mocha, tape, etc.
 
 
 ## Latest Info about Jenkins #

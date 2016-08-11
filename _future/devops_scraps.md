@@ -639,3 +639,10 @@ https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin
 The version anticipated is nicknamed 
 <a target="_blank" href="https://jenkins.io/projects/blueocean/">"Blue Ocean"</a>
 
+
+### GitHub to Jenkins #
+
+
+   ### Install GitHub plugin #
+
+https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
