@@ -107,6 +107,11 @@ If she can do, so can you:
 * <a target="_blank" href="https://www.hackster.io/pooja_baraskar/smart-baby-monitor-ubidots-70583e?ref=part&ref_id=8232&offset=6">
    Smart Baby Monitor</a>
 
+Websites listing projects:
+
+* <a target="_blank" href="http://www.seeedstudio.com/recipe">
+   http://www.seeedstudio.com/recipe</a>
+
 
 <hr />
 
@@ -138,7 +143,7 @@ NOTE: The ICSP 6-pin header (SPI) Power accomomdates 7V-15V DC input.
    to select <strong>device mode</strong> operation.
 
 
-## Connect to computer #
+## Connect to PC #
 
 The Edison board provides several ways to move data.
 
@@ -593,6 +598,19 @@ PING 192.168.0.100 (192.168.0.100): 56 data bytes
    * http://www.yoctoproject.org/docs/1.6.1/mega-manual/mega-manual.html
    * https://www.yoctoproject.org/docs/2.1/mega-manual/mega-manual.html
 
+
+   ### Alternative OS #
+
+   <a target="_blank" href="https://developers.google.com/brillo/?hl=en">
+   Brillo</a> is an alternative operating system from Google* based on Android that can run on the Intel® Edison board instead of the default Linux* OS built using the Yocto Project*. If you plan on using Brillo and your 
+   <a target="_blank" href="https://developers.google.com/brillo/?hl=en">
+   Brillo invitation</a> has been approved, you do not need to run the setup tool. 
+   Instead continue to the 
+   <a target="_blank" href="http://www.code-labs.io/codelabs/brillo-hello-leds-edison/">
+   Brillo codelab</a>.
+
+   ### View files on board #
+
 0. View folders and files in the present working directory:
    
    <tt><strong>
@@ -605,17 +623,17 @@ PING 192.168.0.100 (192.168.0.100): 56 data bytes
    /home/root
    </pre>
 
+0. What version of Python is installed?
+   
+   <tt><strong>
+   python --version
+   </strong></tt>
 
-   ### Alternative OS #
+   The response:
 
-   <a target="_blank" href="https://developers.google.com/brillo/?hl=en">
-   Brillo</a> is an alternative operating system from Google* based on Android that can run on the Intel® Edison board instead of the default Linux* OS built using the Yocto Project*. If you plan on using Brillo and your 
-   <a target="_blank" href="https://developers.google.com/brillo/?hl=en">
-   Brillo invitation</a> has been approved, you do not need to run the setup tool. 
-   Instead continue to the 
-   <a target="_blank" href="http://www.code-labs.io/codelabs/brillo-hello-leds-edison/">
-   Brillo codelab</a>.
-
+   <pre>
+   Python 2.7.3
+   </pre>
 
 
 <hr />
@@ -626,26 +644,26 @@ PING 192.168.0.100 (192.168.0.100): 56 data bytes
 
    https://software.intel.com/en-us/blogs/2016/07/15/20-how-to-intel-technology-code-samples-now-available-in-java
 
-* Even though Intel does not provide an IDE for Python*, 
-   the Python programming language comes preinstalled on your board, 
+* Even though Intel does not provide an IDE for the Python programming language,
+   a Python interpreter comes preinstalled on the board, 
    plus there is Python support in the sensor library:
 
    http://iotdk.intel.com/docs/master/upm/python/
 
 
-   <a name="NodeRED"></a>
+<a name="NodeRED"></a>
 
-   ### Node-RED #
+### Node-RED #
 
 Applications for the gateway are created using the 
 Node-RED* visual programming language. 
 
 Brian Innes has videos "Getting started with Intel Edison and Node-RED"
 
-   * https://www.youtube.com/watch?v=28fknvDEAwc
+   * <a target="_blank" href="https://www.youtube.com/watch?v=28fknvDEAwc">
    using a Mac platform</a>
 
-   * https://www.youtube.com/watch?v=hizvLjCEBx8
+   * <a target="_blank" href="https://www.youtube.com/watch?v=hizvLjCEBx8">
    using a Windows Mac</a>
 
 
@@ -755,9 +773,9 @@ This "embedded" app project does not require additional items as it blinks an on
 
 The steps below are an expansion of
 <a target="_blank" href="https://software.intel.com/en-us/getting-started-with-xdk-and-iot">
-instructions here</a>.
+<strong>instructions here</strong></a>.
 
-   ### XDK IDE #
+### XDK IDE #
 
 0. Invoke the Intel XDK program.
 
@@ -790,7 +808,7 @@ instructions here</a>.
    Intel XDK - IoT App Daemon v0.1.4 - Node: 4.4.3, Arch: ia32
    </pre>
 
-0. Click the download icon.
+0. Click the download icon. This should appear in XDK's "Intel XDK IoT" tab:
 
    <pre>
 No NPM modules found.
@@ -803,6 +821,11 @@ x xdk/project-info.json
 Upload Complete
 Not auto starting by request
    </pre>
+
+   A Node program includes a <strong>package.json</strong> file to define the version of 
+   Node and of each dependency library.
+
+   The <strong>main.js</strong> file defines the logic.
 
 0. Click the Run icon Run icon. You should see an LED on your board flashing on and off.
    Also this message:
@@ -1050,26 +1073,26 @@ For further info:
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-3Axis-Digital-Accelerometer15g-p-765.html">
    3-Axis Digital Accelerometer (±1.5g)</a> MMA7660FC 
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Button-p-766.html">
-   Button</a>
+   Button</a> D2
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Temperature-Sensor-p-774.html">
-   Temperature</a> (grovetemp)
+   Temperature</a> (grovetemp) A0
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Touch-Sensor-p-747.html">
    Touch Sensor</a> (grovebutton)
 * <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor_v1.2">
-   Light Sensor</a> (grovelight)
+   Light Sensor</a> (grovelight) A1
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Sound-Sensor-p-752.html">
    Sound Sensor</a> LM386
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Rotary-Angle-SensorP-p-1242.html">
-   Rotary Angle Sensor(P)</a>
+   Rotary Angle Sensor(P)</a> A2
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Piezo-Vibration-Sensor-p-1411.html">
    Pieze Vibration Sensor</a> (Flex/Force LDT0-028)
 
 #### Actuators: #
 
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Buzzer-p-768.html">
-   Buzzer</a>
+   Buzzer</a> D5
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Green-LED-p-1144.html">
-   LED (Green)</a> (groveled)
+   LED (Green)</a> (groveled) D3
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Red-LED-p-1142.html">
    LED (Red)</a>
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Blue-LED-p-1144.html">
@@ -1095,11 +1118,6 @@ For further info:
 
 * Compass
 * Color Sensor tcs3414cs 
-
-
-Additional info:
-
-* http://www.seeedstudio.com/recipe
 
 
    <a name="Temp"></a>
@@ -1216,7 +1234,9 @@ Not on the list:
 * <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
    Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
 
-* Particle Cloud
+* <a target="_blank" href="https://www.particle.io/">Particle.io</a>
+   has a Cloud integrated with its IDE and devices. 
+   Partners with Microsoft.
 
 * Samsung's ARTIK cloud has a 
    <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
@@ -1231,23 +1251,12 @@ Agosto's IoT connection broker is a component of and gateway into Google’s Pub
 
 ### Predix #
 
-0. List files in the 
-   
-   <tt><strong>
-   ls -a
-   </strong></tt>
+0. <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html?environment=workshop#1838">
+   https://www.predix.io/resources/tutorials/journey.html?environment=workshop#1838</a><br />
+   Predix Transform Workshops
 
-   The response:
-
-   <pre>
-total 31804
-drwxr-xr-x  4 root root     4096 Aug 12 17:28 .
-drwxr-xr-x  4 root root     4096 Jul 24 23:32 ..
-drwxr-xr-x  2 root root     4096 Jul 24 23:32 .node_app_slot
--rw-------  1 root root        6 Aug 12 17:28 .python-history
-drwxrwxrwx 10 root root     4096 Jul 25 00:10 PredixMachine
--rw-r--r--  1 root root 32544463 Jul 25 00:08 PredixMachineContainer.zip
-   </pre>
+0. Click <a target="_blank" href="https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1839&tag=1838&journey=Predix%20Transform%20Workshop&environment=workshop&resources=1849,1839,1853">
+   Set up a new Intel Edison board</a>
 
 
 <hr />
