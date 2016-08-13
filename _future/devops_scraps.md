@@ -659,3 +659,19 @@ https://login.oracle.com/mysso/signon.jsp
 ## rev-list
 
 http://mokagio.github.io/tech-journal/2014/12/03/git-some-rev-commands.html
+
+
+## Pipeline reference
+
+TODO: Step Reference is at https://.../job/box/pipeline-syntax/html
+
+
+http://www.codehaus.org/history/
+Groovy
+
+
+   ### Configure permissions to repo #
+
+   In order to treat Jenkins configuration settings as code.
+
+
