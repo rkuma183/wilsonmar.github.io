@@ -1102,9 +1102,9 @@ Additional info:
 * http://www.seeedstudio.com/recipe
 
 
-<a name="Temp"></a>
+   <a name="Temp"></a>
 
-## Temp sensor on shield #
+   ### Temp sensor on shield #
 
 0. Let's look at <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Temperature_Sensor">
    SeeedStudio's wiki on the Temp sensor</a>.
@@ -1114,11 +1114,21 @@ Additional info:
    To make use of sensors, we'll need that shield from the Grove Kit.
    It's designed so we don't have to solder anything.
 
-0. Use the 4-pin grove cable to connect the temperature sensor to port A0 on the Grove shield.
+0. PROTIP: Make it a habit to discarge static before touching any electronics.
 
-0. Let's compare the code from the wiki with code in XDK.
+0. PROTIP: Disconnect power to the board before you
+   insert the Grove shield on top of the Edison board.
 
-   TODO:
+   The green LED should now be lit.
+
+0. Use the 4-pin grove cable to connect the temperature sensor to 
+   port <strong>A0</strong> on the Grove shield.
+
+0. If you are using XDK, create a new project file. Copy the program from ___
+   and paste it in the editor window.
+
+
+   ### Edit program #
 
 0. The frequency of report is too frequent.
    Add this at the beginning of the loop to only transmit every half minute.
