@@ -925,23 +925,24 @@ SyntaxError: Unexpected token <
    <a name="mraainstall"></a>
 
    ### MRAA Install #
-
-   https://github.com/intel-iot-devkit/mraa
+   
+   <a target="_blank" href="https://github.com/intel-iot-devkit/mraa/blob/master/README.md">
+   https://github.com/intel-iot-devkit/mraa</a><br />
    Low level skeleton C/C++ library for IO communications on GNU/Linux platforms
-   for JavaScript and Python,
+   for (Node) JavaScript and Python.
 
    To control more complex sensors and actuators:
    https://github.com/intel-iot-devkit/upm
    a higher-level library that leverages mara.
 
-0. List files in where MRAA is installed:
+0. List files where MRAA is installed:
 
    <tt><strong>
    cd /etc/opkg<br />
    ls -lac --time-style=long-iso
    </strong></tt>
 
-   My response:
+   The response I got:
 
    <pre>
 total 24
@@ -961,13 +962,6 @@ drwxr-xr-x 89 root root 4096 2016-08-12 02:49 ..
    </strong></pre>
 
    There is no response from this.
-
-0. List files in where MRAA is installed:
-
-   <tt><strong>
-   cd /etc/opkg<br />
-   ls -al
-   </strong></tt>
 
 0. Update the library onboard and upgrade to the latest version:
 
@@ -996,7 +990,9 @@ Updated list of available packages in /var/lib/opkg/mraa-upm.
    opkg upgrade
    </strong></tt>
 
-   The response when I ran it:
+   If the current version is good, no response.
+
+   However, if there is an upgrade, the response is like long, ending with something like this:
 
    <pre>
 ...
@@ -1024,12 +1020,16 @@ Configuring upm.
    opkg install limraa0
    </strong></tt>
 
-   https://software.intel.com/en-us/iot/home
+   QUESTION: I'm getting 
 
+   <pre>
+   Collected errors:
+ * opkg_install_cmd: Cannot install package limraa0.
+   </pre>
 
-   ### UPM software #
+For further info:
 
-   http://iotdk.intel.com/docs/master/upm/node/
+   * http://iotdk.intel.com/docs/master/upm/node/
 
 
 <hr />
@@ -1124,34 +1124,27 @@ Additional info:
 0. Use the 4-pin grove cable to connect the temperature sensor to 
    port <strong>A0</strong> on the Grove shield.
 
-0. If you are using XDK, create a new project file. Copy the program from ___
-   and paste it in the editor window.
+   ### XDK new project # 
 
+0. If you are using XDK, create a new project file. 
+
+0. Select Templates, Local Temperature, Continue.
+
+0. Specify the project name as the folder name. OK.
+
+   Notice "Read Temperature Sensor and send temperature in degrees of Fahrenheit every 4 seconds".
+
+   A console.log statement sends a reading "Analog Pin (A0) Output: " and
+   "Fahrenheit Temperature: " + fahrenheit_temperature);
 
    ### Edit program #
 
-0. The frequency of report is too frequent.
-   Add this at the beginning of the loop to only transmit every half minute.
+0. If four seconds (4000) is too frequent a reporting period, 
+   change it to <strong>30000</strong> (30 seconds).
 
-   <pre>
-   delay(30000); // 30 seconds
-   </pre>
+0. Click the download icon.
 
-0. Since we will be doing arithmetic with numbers, we need to make sure that
-   any value the program doesn't recognize as a number is converted to a number such as 1000.
-
-   <pre>
-if (isnan(temperature)) {
-    temperature == 1000; // error
-    return;
-}
-   </pre>
-
-0. For more precision, change the data type for the temperature variable to a Double:
-
-   <pre>
-   double temperature;
-   </pre>
+   ### Debugging #
 
 0. Next, send the temperature value to a cloud for analysis and analytics.
 
@@ -1222,6 +1215,8 @@ Not on the list:
 
 * <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
    Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
+
+* Particle Cloud
 
 * Samsung's ARTIK cloud has a 
    <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
