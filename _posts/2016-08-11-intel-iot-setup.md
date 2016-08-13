@@ -98,6 +98,9 @@ If she can do, so can you:
    receiving temperature from a sensor connected via a Grove* Cable
    plugged into a Grove Base Shield.
 
+* Sound and vibration sensors recognize when laundry is done,
+   and sends an SMS text with the length of the wash or dry cycle.
+
 * <a target="_blank" href="https://www.hackster.io/martinkronberg/twitter-dogs-2-electric-woofaloo-24aec0">
    "Twitter dogs"</a> Hackster.io
 
@@ -1037,9 +1040,12 @@ Configuring upm.
 
 <img align="right" alt="intel iot xdk sensors 20160813-166x536-i10" width="166" height="536" src="https://cloud.githubusercontent.com/assets/14143059/17643533/e87d176a-6129-11e6-8006-117c4223f66c.jpg">
 
-0. In XDK, click "IoT Sensor Library Explorer".
+0. In XDK, click "IoT Sensor Library Explorer" for the menu shown at right.
 
-#### Sensors #
+   The <a target="_blank" href="* http://www.seeedstudio.com/wiki/Grove_Starter_Kit_Plus_-_IoT_Edition"> 
+   wiki page</a> for each sensor, actuator, etc. are listed below.
+
+   #### Sensors #
 
 * <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-3Axis-Digital-Accelerometer15g-p-765.html">
    3-Axis Digital Accelerometer (±1.5g)</a> MMA7660FC 
@@ -1093,10 +1099,54 @@ Configuring upm.
 
 Additional info:
 
-* http://www.seeedstudio.com/wiki/Grove_Starter_Kit_Plus_-_IoT_Edition
-
 * http://www.seeedstudio.com/recipe
 
+
+<a name="Temp"></a>
+
+## Temp sensor on shield #
+
+0. Let's look at <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Temperature_Sensor">
+   SeeedStudio's wiki on the Temp sensor</a>.
+
+   Note that the Voltage is "3.3 - 5V".
+
+   To make use of sensors, we'll need that shield from the Grove Kit.
+   It's designed so we don't have to solder anything.
+
+0. Use the 4-pin grove cable to connect the temperature sensor to port A0 on the Grove shield.
+
+0. Let's compare the code from the wiki with code in XDK.
+
+   TODO:
+
+0. The frequency of report is too frequent.
+   Add this at the beginning of the loop to only transmit every half minute.
+
+   <pre>
+   delay(30000); // 30 seconds
+   </pre>
+
+0. Since we will be doing arithmetic with numbers, we need to make sure that
+   any value the program doesn't recognize as a number is converted to a number such as 1000.
+
+   <pre>
+if (isnan(temperature)) {
+    temperature == 1000; // error
+    return;
+}
+   </pre>
+
+0. For more precision, change the data type for the temperature variable to a Double:
+
+   <pre>
+   double temperature;
+   </pre>
+
+0. Next, send the temperature value to a cloud for analysis and analytics.
+
+
+<hr />
 
 <a name="Gateway"></a>
 
@@ -1158,11 +1208,21 @@ based on Cloud Foundry.
 
 Not on the list:
 
-* Google is noticably missing from the list
-* ATT?
-* <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
-   Ubidots</a> 
+* ATT M2X cloud
 
+* <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
+   Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
+
+* Samsung's ARTIK cloud has a 
+   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
+   demo on hackster.io</a>
+
+   SAMI is platform agnostic. 
+   It takes data from any type of device - FitBit, smart lightbulb, connected washing machine, etc.
+
+* As for Google Compute Cloud,
+<a target="_blank" href="http://www.cloudwedge.com/agosto-leverages-mqtt-to-create-high-performance-open-source-message-broker-for-iot-496652/">
+Agosto's IoT connection broker is a component of and gateway into Google’s Pub/Sub service, as well as the company’s IoT (M2M) Accelerator</a>
 
 ### Predix #
 
@@ -1218,9 +1278,9 @@ to get the FPO number and ATPO number unique to each specific processor.
 
 \#iamintel
 
-@IntelSoftware
+\#intelnews
 
-\#IoT 
+@IntelSoftware
 
 \#commercialiot
 with GE Predix
