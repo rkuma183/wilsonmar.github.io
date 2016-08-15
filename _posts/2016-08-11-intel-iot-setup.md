@@ -826,6 +826,8 @@ Not auto starting by request
    Node and of each dependency library.
 
    The <strong>main.js</strong> file defines the logic.
+   At the top, variables are defined, then functions called by others.
+   The first line is usually a console.log function that prints a message out.
 
 0. Click the Run icon Run icon. You should see an LED on your board flashing on and off.
    Also this message:
@@ -852,9 +854,11 @@ Not auto starting by request
 
 0. Click download icon. Click to confirm re-load.
 
-0. Click Run icon. 
+0. Click Debug icon to opens in a new Debugger window.
+0. Adjust the window's size.
+0. Press F10 to step over code or F11 to step into each routine.
 
-   ### Check the date #
+   ### Check device date #
 
 0. Open a Terminal shell window and connect to the board.
 0. Type in command:
