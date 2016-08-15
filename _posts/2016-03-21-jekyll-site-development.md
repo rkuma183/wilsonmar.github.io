@@ -880,11 +880,6 @@ containing the gist.com userid and snippet number:
 &#123;% gist <em>userid</em>/6589546 %}
 </code></pre>
 
-<!-- renders to:
-
-{% gist mmistakes/6589546 %} 
--->
-
 
 ### Standard GFM mark-up
 Several coding techniques ar the same as in GitHub Flavored Markdown.
