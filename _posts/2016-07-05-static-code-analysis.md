@@ -1,8 +1,8 @@
 ---
 layout: post
-filename: sonarqube
-title: "SonarQube Static Analysis"
-excerpt: "It has your back."
+filename: static-code-analysis
+title: "Static Code Analysis"
+excerpt: "It has your back ... by riding your back"
 tags: [Sonarqube, quality, generation]
 image:
 # pic-blue-city-abu-dhabi-skyscrapers-1900x500
@@ -130,7 +130,7 @@ within a VM.
 
 <a id="InstallSonarQubeEnv"></a>
 
-## Install Enviornment to Run SonarQube</a>
+## Install Enviornment to Run SonarQube #
 
 0. Install SonarQube using Homebrew:
 

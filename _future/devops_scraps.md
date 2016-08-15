@@ -675,3 +675,42 @@ Groovy
    In order to treat Jenkins configuration settings as code.
 
 
+
+
+   ### AWS Lambda Function #
+
+0. Get on the AWS Lambda console at<br />
+   <a target="_blank" href="https://console.aws.amazon.com/lambda/home#/create/configure-triggers?bp=iot-button-email">
+   <strong>https://console.aws.amazon.com/lambda/home#/create/configure-triggers?bp=iot-button-email</strong></a>
+
+   The "configure-triggers?bp=iot-button-email" in the URL is 
+   equivalent to going to the AWS Lambda console at<br />
+   <a target="_blank" href="https://console.aws.amazon.com/lambda/home">
+   https://console.aws.amazon.com/lambda/home</a>,
+   click "Create a Lambda function", 
+   click "Select blueprint", 
+   then find and select "iot-button-email".
+   Its description is "An AWS Lambda function that sends an email on the click of an IoT button.""
+
+0. For IoT Type, select "IoT Button" (model JK76PL),
+
+
+
+<hr />
+
+0. Type in Device Serial Number (DSN) 
+   <strong>without spaces</strong> from the back of the device.
+
+0. Click Generate Certificate and Keys.
+
+   | icon | state |
+   | :--- | :---- |
+   | <img width="100" height="100" src="/images/aws-iot/Internet-Of-Things_AWSIoT_certificate.svg"> | certificate |
+   | <img width="100" height="100" src="/images/aws-iot/Internet-Of-Things_AWSIoT_policy.svg"> | policy |
+
+0. Click to download "Your Certificate PEM" (<strong>certifiate.pem</a> file)
+   and "Your private key" (<strong>private.key</strong> file).
+
+0. PROTIP: Switch to Finder in your Downloads folder, create a folder named for your device
+   (such as "AWS-IoT-G031JF068351N0AV") and <strong>move</strong> (drag) the downloaded files in there.
+

@@ -1372,3 +1372,10 @@ Interface types:
 * I2C = Inter-integrated circuit
 * AIO
 * PWM = Pulse width modulation
+
+
+## More on IoT #
+
+This is one of a series on IoT:
+
+{% include iot_links.html %}

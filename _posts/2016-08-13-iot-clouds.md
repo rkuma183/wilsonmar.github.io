@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Intel Clouds"
-excerpt: "What will you do when the flood of IoT data comes for you?"
+title: "IoT Clouds"
+excerpt: "The value of IoT is the wisdom from analytics and notifications"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -16,61 +16,62 @@ comments: true
 
 {% include _toc.html %}
 
-This article shows you how to make use of cloud services catering to IoT uses,
-so you can compare them.
-
-{% include _intro.html %}
+This page aims to provide a way to <strong>compare</strong> (in a hands-on way)
+the various cloud services catering data from IoT devices.
 
 This assumes that you have absorbed the tutorial about 
 [Intel IoT devices](/intel-iot/).
 
-Intel lists its cloud services affiliations at<br />
-<a target="_blank" href="https://software.intel.com/en-us/iot/cloud-analytics">
-https://software.intel.com/en-us/iot/cloud-analytics</a>
+## The list #
 
-* <a target="_blank" href="https://software.intel.com/en-us/articles/connecting-intel-iot-gateways-to-ibm-watson">
-Connecting an Intel® IoT Gateway to IBM Watson</a>
+Cloud services for IoT is fiercely contested market.
 
-* <a target="_blank" href="https://software.intel.com/en-us/articles/using-microsoft-azure-iot-suite-with-intel-iot-devices-and-gateways">
-Using Microsoft Azure* IoT Suite with Intel® IoT Technology</a>
+0. <a target="_blank" href="https://software.intel.com/en-us/articles/connecting-to-amazon-web-services-aws-iot-using-mqtt">
+   Connecting to Amazon Web Services* (AWS*) IoT Using MQTT</a>
 
-* <a target="_blank" href="https://software.intel.com/en-us/articles/connecting-to-amazon-web-services-aws-iot-using-mqtt">
-Connecting to Amazon Web Services* (AWS*) IoT Using MQTT</a>
+   [See my presentation about the AWS IoT Button](/iot-aws/)
 
-* <a target="_blank" href="http://trustedanalytics.org/">
-Trusted Analytics Platform (TAP)</a> open source platform for data scientists,
-based on Cloud Foundry.
+0. <a target="_blank" href="https://software.intel.com/en-us/articles/connecting-intel-iot-gateways-to-ibm-watson">
+   Connecting an Intel® IoT Gateway to IBM Watson</a>
 
-    * <a target="_blank" href="https://www.youtube.com/watch?v=R8LxuxsSSwM&list=PLA0ztWy2qcuKIBiGtSpeSs4sEiLyEOtNZ">
-    Playlist of videos on YouTube</a>
+0. <a target="_blank" href="https://software.intel.com/en-us/articles/using-microsoft-azure-iot-suite-with-intel-iot-devices-and-gateways">
+   Using Microsoft Azure* IoT Suite with Intel® IoT Technology</a>
 
-Not on the list:
+0. As for Google Compute Cloud,
+   <a target="_blank" href="http://www.cloudwedge.com/agosto-leverages-mqtt-to-create-high-performance-open-source-message-broker-for-iot-496652/">
+   Agosto's IoT connection broker is a component of and gateway into Google’s Pub/Sub service, as well as the company’s IoT (M2M) Accelerator</a>
 
-* ATT M2X cloud
-
-* <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
-   Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
-
-* <a href="#Particle">Particle</a>
-   has a cloud integrated with its IDE and devices. 
-
-* Samsung's ARTIK cloud has a 
-   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
-   demo on hackster.io</a>
-
-   SAMI is platform agnostic. 
-   It takes data from any type of device - FitBit, smart lightbulb, connected washing machine, etc.
-
-* As for Google Compute Cloud,
-<a target="_blank" href="http://www.cloudwedge.com/agosto-leverages-mqtt-to-create-high-performance-open-source-message-broker-for-iot-496652/">
-Agosto's IoT connection broker is a component of and gateway into Google’s Pub/Sub service, as well as the company’s IoT (M2M) Accelerator</a>
-
-* GE Predix began their 
+0. GE Predix began their 
   <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html?environment=workshop#1838">
    https://www.predix.io/resources/tutorials/journey.html?environment=workshop#1838</a><br />
    Predix Transform Workshops
    using <a target="_blank" href="https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1839&tag=1838&journey=Predix%20Transform%20Workshop&environment=workshop&resources=1849,1839,1853">
    set up a new Intel Edison board</a>
+
+   [See my presentation about Predix](/predix-basics/)
+
+0. ATT M2X cloud
+
+0. Samsung's ARTIK cloud has a 
+   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
+   demo on hackster.io</a>
+   SAMI is platform agnostic. 
+   It takes data from any type of device - FitBit, smart lightbulb, connected washing machine, etc.
+
+0. <a target="_blank" href="http://trustedanalytics.org/">
+   Trusted Analytics Platform (TAP)</a> open source platform for data scientists,
+   based on Cloud Foundry. <a target="_blank" href="https://www.youtube.com/watch?v=R8LxuxsSSwM&list=PLA0ztWy2qcuKIBiGtSpeSs4sEiLyEOtNZ">
+    Their playlist of videos on YouTube</a>
+
+
+0. <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
+   Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
+
+0. <a href="#Particle">Particle</a>
+   has a cloud integrated with its IDE and devices. 
+
+0. <a href="#Losant">Losant.com</a>
+   has a Cloud integrated with its IDE and devices from others.
 
 
 <hr />
@@ -83,3 +84,72 @@ Agosto's IoT connection broker is a component of and gateway into Google’s Pub
 <a target="_blank" href="https://www.particle.io/">Particle.io</a>
    has a Cloud integrated with its IDE and devices. 
    Partners with Microsoft.
+
+<hr />
+
+<a name="Losant"></a>
+
+## Losant # 
+
+<a target="_blank" href="https://www.losant.com/">losant.com</a>
+(<a target="_blank" href="https://twitter.com/losanthq/">@LosantHQ</a>)
+   has a Cloud integrated with its IDE and devices. 
+
+   <a target="_blank" href="https://www.losant.com/blog/getting-started-with-aws-iot-button-losant">
+   It accepts AWS IoT Dash buttons as input</a>.
+
+   <a target="_blank" href="https://www.losant.com/blog/aws-lambda-and-losant-workflows">
+   It can invoke AWS Lambda function from its workflow</a>,
+   defined in a JSON file.
+
+   <a target="_blank" href="https://store.losant.com/">
+   <img align="right" alt="iot lorent moisture sensor 80x79-i29" width="80" height="79" src="https://cloud.githubusercontent.com/assets/14143059/17669334/8e0e24de-62ca-11e6-8e01-ad17a9517056.png">
+   Losant's device shopping mart</a> has a
+   <a target="_blank" href="https://store.losant.com/collections/losant-kits/products/losant-moisture-sensor-kit/">
+   $19 internet-powered moisture senor kit</a>
+   that's ideal for classroom experiments.
+
+   The kit requires some assembly on a breadboard, 
+   but Losant provides
+   <a target="_blank" href="https://docs.losant.com/getting-started/losant-iot-dev-kits/moisture-sensor-kit/">
+   step-by-step instructions</a> with their
+   <a target="_blank" href="https://docs.losant.com/">
+   documentation</a>.
+
+   <a target="_blank" href="https://forums.losant.com/">
+   User forums</a> can go for days with activity because the offering is still young.
+
+   Their <a target="_blank" href="https://www.losant.com/blog/introducing-the-data-explorer">
+   Data Explorer</a> is good for learning simple visual statistical inference
+   without the complex setup and costs of industrial systems.
+
+   Despite its low cost, Lorant offers features not offered by all of its bigger competitors,
+   such as recipies of devices, "virtual" devices, device tags, and device attributes.
+
+   Lorant partners with Microsoft.
+
+   * <a target="_blank" href="https://itunes.apple.com/us/podcast/what-is-losant/id984131621?i=1000367996937&mt=2">
+   "What is Losant" Podcast on iTunes</a>
+   says their front-end is built on React with Node backend software
+   running in Google Compute Engine (but not Google services).
+   They switched from MongoDB to
+   <a target="_blank" href="https://influxdata.com/">
+   InfluxDB</a> for time-series data.
+
+
+<a name="Intel"></a>
+
+## Intel #
+
+Intel lists its cloud services affiliations at<br />
+<a target="_blank" href="https://software.intel.com/en-us/iot/cloud-analytics">
+https://software.intel.com/en-us/iot/cloud-analytics</a>.
+
+
+
+
+## More on IoT #
+
+This is one of a series on IoT:
+
+{% include iot_links.html %}
