@@ -1062,4 +1062,4 @@ QUESTION: Spell checking in GitHub?
 ## Jekyll MinimalMistake users in the wild #
 
 * http://udaypal.com/jenkins-workflow-getting-started/
-
+* http://udaypal.com/2015-04-08-continuous-delivery-using-jenkins-workflow/

@@ -64,8 +64,8 @@ Cloud services for IoT is fiercely contested market.
     Their playlist of videos on YouTube</a>
 
 
-0. <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
-   Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
+0. <a href="#Ubidots">
+   Ubidots</a>
 
 0. <a href="#Particle">Particle</a>
    has a cloud integrated with its IDE and devices. 
@@ -83,7 +83,34 @@ Cloud services for IoT is fiercely contested market.
 <a href="#Particle">Particle</a>
 <a target="_blank" href="https://www.particle.io/">Particle.io</a>
    has a Cloud integrated with its IDE and devices. 
-   Partners with Microsoft.
+
+Particle sells two boards with an onboard cellular antenna that connects to their cloud.
+This reduces the hassle of using a custom cellular breakout board
+
+   * http://makezine.com/product-review/particle-electron/
+
+   * $19 http://makezine.com/product-review/particle-photon/
+
+
+
+<hr />
+
+<a name="Ubidots"></a>
+
+## Ubidots # 
+
+* <a target="_blank" href="https://www.hackster.io/ubidots/products/ubidots">
+   Ubidots</a> has a demo that collects Temp data and displays it as a line graph.
+
+* <a target="_blank" href="https://github.com/drejkim/particle-weather-station">
+   Particle Photon Weather Station</a>
+   Ubidots
+   by Esther Kim
+
+
+* <a target="_blank" href="https://www.hackster.io/AgustinP/logging-sensor-data-using-intel-edison-amp-python-d6cccc">
+   Logging sensor data using Intel Edison and Python and Ubidots</a>
+
 
 <hr />
 
@@ -109,24 +136,59 @@ Cloud services for IoT is fiercely contested market.
    $19 internet-powered moisture senor kit</a>
    that's ideal for classroom experiments.
 
-   The kit requires some assembly on a breadboard, 
-   but Losant provides
+   The kit requires some assembly on a <strong>breadboard</strong> with loose wires
+   which is more complicated but has more options than Grove boards and connectors.
+   
+   But Losant provides
    <a target="_blank" href="https://docs.losant.com/getting-started/losant-iot-dev-kits/moisture-sensor-kit/">
    step-by-step instructions</a> with their
    <a target="_blank" href="https://docs.losant.com/">
    documentation</a>.
 
-   <a target="_blank" href="https://forums.losant.com/">
-   User forums</a> can go for days with activity because the offering is still young.
+### Software #
+
+This picks up after XDK is used to create the "Blinking LED" project.
+
+0. Install a local git program and Node (if you haven't already).
+0. Open a Terminal shell window to globally install https://github.com/Losant/losant-mqtt-js
+   to connect the Edison to the Losant platform.
+
+   npm install -g losant-mqtt
+
+0. PROTIP: Create a "subject" folder where git creates folders during cloning.
+
+0. Edit the package.json file to add dependency: 
+
+  <pre>
+  "dependencies": {
+    "losant-mqtt" : "^1.0.0"
+  }
+  </pre>
+
+
+   https://github.com/Losant/losant-mqtt-js
+
+### Data Explorer #
 
    Their <a target="_blank" href="https://www.losant.com/blog/introducing-the-data-explorer">
    Data Explorer</a> is good for learning simple visual statistical inference
    without the complex setup and costs of industrial systems.
 
-   Despite its low cost, Lorant offers features not offered by all of its bigger competitors,
-   such as recipies of devices, "virtual" devices, device tags, and device attributes.
+   Despite its low cost, Lorant offers sophisticated implementations of features not offered by some of its bigger competitors:
+   recipies of devices to save time, 
+   <a target="_blank" href="https://docs.losant.com/getting-started/walkthrough/">virtual devices</a>, 
+   device tags, 
+   and device attributes.
 
    Lorant partners with Microsoft.
+
+   http://opendatadepot.org/media/examples_img/OpenDataDepot_42.png
+
+
+### Social media #
+
+   <a target="_blank" href="https://forums.losant.com/">
+   User forums</a> can go for days with activity because the offering is still young.
 
    * <a target="_blank" href="https://itunes.apple.com/us/podcast/what-is-losant/id984131621?i=1000367996937&mt=2">
    "What is Losant" Podcast on iTunes</a>

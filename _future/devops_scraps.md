@@ -679,27 +679,8 @@ Groovy
 
    ### AWS Lambda Function #
 
-0. Get on the AWS Lambda console at<br />
-   <a target="_blank" href="https://console.aws.amazon.com/lambda/home#/create/configure-triggers?bp=iot-button-email">
-   <strong>https://console.aws.amazon.com/lambda/home#/create/configure-triggers?bp=iot-button-email</strong></a>
-
-   The "configure-triggers?bp=iot-button-email" in the URL is 
-   equivalent to going to the AWS Lambda console at<br />
-   <a target="_blank" href="https://console.aws.amazon.com/lambda/home">
-   https://console.aws.amazon.com/lambda/home</a>,
-   click "Create a Lambda function", 
-   click "Select blueprint", 
-   then find and select "iot-button-email".
-   Its description is "An AWS Lambda function that sends an email on the click of an IoT button.""
-
-0. For IoT Type, select "IoT Button" (model JK76PL),
-
-
 
 <hr />
-
-0. Type in Device Serial Number (DSN) 
-   <strong>without spaces</strong> from the back of the device.
 
 0. Click Generate Certificate and Keys.
 
@@ -714,3 +695,15 @@ Groovy
 0. PROTIP: Switch to Finder in your Downloads folder, create a folder named for your device
    (such as "AWS-IoT-G031JF068351N0AV") and <strong>move</strong> (drag) the downloaded files in there.
 
+
+http://makezine.com/2015/10/09/amazon-web-services-iot/
+
+-----
+
+NOTE: The ICSP 6-pin header (SPI) Power accomodates 7V-15V DC input.
+
+http://www.gammon.com.au/bootloader
+
+http://www.ladyada.net/learn/avr/programming.html
+http://www.ladyada.net/learn/avr/programmers.html
+http://arduino.cc/en/Tutorial/ArduinoISP

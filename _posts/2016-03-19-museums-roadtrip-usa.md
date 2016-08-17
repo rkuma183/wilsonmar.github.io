@@ -66,7 +66,7 @@ This is where America began.
 
 <ul>
 <li><a target="_blank" href="http://www.bates.edu/museum.xml">Bates Museum of Art</a>, Lewiston</li>
-<li><a target="_blank" href="http://academic.bowdoin.edu/artmuseum/">Bowdoin College Museum of Art</a>, Brunswick</li>
+<li><a target="_blank" href="http://www.bowdoin.edu/art-museum/">Bowdoin College Museum of Art</a>, Brunswick</li>
 <li><a target="_blank" href="http://www.colby.edu/museum/index.html">Colby College Museum of Art</a>, Waterville</li>
 <li><a target="_blank" href="http://farnsworthmuseum.org/">Farnsworth Art Museum</a>, Rockland</li>
 <li><a target="_blank" href="http://www.umaine.edu/hudsonmuseum/">Hudson Museum at the University of Maine</a>, Orono</li>
@@ -93,7 +93,7 @@ This is where America began.
 ### Boston:
 
 <ul>
-<li><a target="_blank" href="http://www.artsonthepoint.com/">Arts on the Point Sculpture Park</a>, Boston</li>
+<li><a target="_blank" href="https://www.umb.edu/in_the_community/arts/arts_on_the_point/">Arts on the Point Sculpture Park</a>, Boston</li>
 <li><a target="_blank" href="http://www.bu.edu/art/">Boston University Art Gallery</a></li>
 <li><a target="_blank" href="http://www.bostonathenaeum.org/">Boston Athenaeum</a></li>
 <li><a target="_blank" href="http://www.icaboston.org/">Institute of Contemporary Art</a>, Boston</li>
@@ -106,7 +106,7 @@ This is where America began.
 ### Cambridge (North of Boston):
 
 <ul>
-<li><a target="_blank" href="http://www.artmuseums.harvard.edu/home/"><strong>Harvard University Art Museums</strong></a>, Cambridge</li>
+<li><a target="_blank" href="http://www.harvardartmuseums.org/"><strong>Harvard University Art Museums</strong></a>, Cambridge</li>
 <li><a target="_blank" href="http://www.peabody.harvard.edu/">Peabody Museum of Archaeology and Ethnology at Harvard University</a>, Cambridge</li>
 <li>Fogg Art Museum</li>
 <li>MIT Museum</li>
@@ -124,7 +124,7 @@ This is where America began.
 <li><a target="_blank" href="http://www.worcesterart.org/">Worcester Art Museum</a></li>
 <li><a target="_blank" href="http://www.osv.org/">Old Sturbridge Village</a></li>
 <li><a target="_blank" href="http://www.nrm.org/">Norman Rockwell Museum</a>, Stockbridge</li>
-<li><a target="_blank" href="http://www.mtholyoke.edu/offices/artmuseum/">Mount Holyoke College Art Museum</a>, South Hadley</li>
+<li><a target="_blank" href="https://artmuseum.mtholyoke.edu/">Mount Holyoke College Art Museum</a>, South Hadley</li>
 <li><a target="_blank" href="http://www.berkshiremuseum.org/">Berkshire Museum</a>, Pittsfield</li>
 <li><a target="_blank" href="http://www.quadrangle.org/">The Springfield Museums at the Quadrangle</a></li>
 </ul>
@@ -144,11 +144,11 @@ This is where America began.
 <ul>
 <li><a target="_blank" href="http://www.fullermuseum.org/">Fuller Craft Museum</a>, Brockton</li>
 <li><a target="_blank" href="http://www.artcomplex.org/">The Art Complex Museum</a>, Duxbury</li>
-<li> Plymouth Plantation</li>
+<li><a target="_blank" href="https://www.plimoth.org/">Plimoth Plantation, Plymouth</a></li>
 <li><a target="_blank" href="http://www.pilgrimhall.org/">Pilgrim Hall Museum</a>, Plymouth</li>
-<li><a target="_blank" href="http://www.cmfa.org/">Cape Museum of Fine Arts</a>, Dennis</li>
+<li><a target="_blank" href="http://www.ccmoa.org/">Cape Code Museum of Fine Arts</a>, Dennis</li>
 <li><a target="_blank" href="http://www.heritagemuseumsandgardens.org/">Heritage Museums and Gardens</a>, Sandwich</li>
-<li><a target="_blank" href="http://www.kwm.org/">Kendall Whaling Museum</a>, Sharon</li>
+<li><a target="_blank" href="http://www.whalingmuseum.org/">Kendall Whaling Museum</a>, New Bedford</li>
 <li><a target="_blank" href="http://www.cahoonmuseum.org/">Cahoon Museum of American Art</a>, Cotuit</li>
 </ul>
 
@@ -169,8 +169,8 @@ This is where America began.
 <ul>
 <li><a target="_blank" href="http://AttleboroMuseum.org/">Attleboro Museum and Center for the Arts</a></li>
 <li><a target="_blank" href="http://www.newbedfordartmuseum.org/">New Bedford Art Museum</a></li>
-<li>Isabella Steward Gardner Museum</li>
-<li> Sterling and Francine Clark Art Institute, Williamstown</li>
+<li><a target="_blank" href="http://www.gardnermuseum.org/">Isabella Steward Gardner Museum</a></li>
+<li><a target="_blank" href="http://www.clarkart.edu/">Sterling and Francine Clark Art Institute</a>, Williamstown</li>
 </ul>
 
 <a name="RI"></a>
@@ -179,9 +179,9 @@ This is where America began.
 
 <ul>
 <li><a target="_blank" href="http://www.brown.edu/Facilities/David_Winton_Bell_Gallery/">David Winton Bell Gallery at Brown University</a>, Providence</li>
-<li><a target="_blank" href="http://www.risd.edu/museum.cfm"><strong>Rhode Island School of Design Museum of Art</strong></a> Providence</li>
-<li><a target="_blank" href="http://www.newportartmuseum.com/">Newport Art Museum</a></li>
-<li><a target="_blank" href="http://www.americanillustration.org/">National Museum of American Illustration</a>, Newport</li>
+<li><a target="_blank" href="http://risdmuseum.org/"><strong>Rhode Island School of Design Museum of Art</strong></a> Providence</li>
+<li><a target="_blank" href="http://www.newportartmuseum.org/">Newport Art Museum</a></li>
+<li><a target="_blank" href="http://americanillustration.org/">National Museum of American Illustration</a>, Newport</li>
 </ul>
 
 <a name="CT"></a>
@@ -190,14 +190,14 @@ This is where America began.
 
 <ul>
 <li><a target="_blank" href="http://www.aldrichart.org/">Aldrich Museum of Contemporary Art</a>, Ridgefield</li>
-<li><a target="_blank" href="http://www.ucc.uconn.edu/~wwwwbma/">Benton Museum of Art at the University of Connecticut</a>, Storrs</li>
+<li><a target="_blank" href="http://benton.uconn.edu/">Benton Museum of Art at the University of Connecticut</a>, Storrs</li>
 <li><a target="_blank" href="http://www.brucemuseum.org/">Bruce Museum of Arts and Science</a>, Greenwich</li>
 <li><a target="_blank" href="http://www.wesleyan.edu/dac/">Davison Art Center at Wesleyan University</a>, Middletown</li>
 <li><a target="_blank" href="http://www.flogris.org/">Florence Griswold Museum</a>, Old Lyme</li>
 <li><a target="_blank" href="http://www.hillstead.org/">Hill-Stead Museum</a>, Farmington</li>
 <li><a target="_blank" href="http://www.hctc.commnet.edu/artmuseum/index.html">Housatonic Museum of Art</a>, Bridgeport</li>
 <li><a target="_blank" href="http://mattatuckmuseum.org/">Mattatuck Museum</a>, Waterbury</li>
-<li><a target="_blank" href="http://www.mercygallery.org/">Mercy Gallery at the Loomis Chaffee School</a>, Windsor</li>
+<li><a target="_blank" href="https://www.loomischaffee.org/page.cfm?p=30249">Mercy Gallery at the Loomis Chaffee School</a>, Windsor</li>
 <li><a target="_blank" href="http://www.nbmaa.org/"><strong>New Britain Museum of American Art</strong></a></li>
 <li><a target="_blank" href="http://www.norwichfreeacademy.com/slater_museum/">Slater Museum at Norwich Free Academy</a></li>
 <li><a target="_blank" href="http://www.stamfordmuseum.org/">The Stamford Museum and Nature Center</a></li>

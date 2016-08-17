@@ -108,11 +108,11 @@ Additionally, you have followed
    Some check boxes are mutually exclusive, such as "Build periodically".
 
 
-   ### Discard old builds #
+### Discard old builds #
 
    Clicking this creates a structure:
 
-   <amp-img alt="jenkins2 pipeline discard old jobs 20190811-650x618-i12.jpg" width="650" height="618" src="https://cloud.githubusercontent.com/assets/14143059/17596156/63d26b5a-5fad-11e6-83c4-dd770b842147.jpg"></amp-img>
+   <amp-img alt="jenkins2 pipeline discard old jobs 20190811-650x618-i12.jpg" width="650" src="https://cloud.githubusercontent.com/assets/14143059/17596156/63d26b5a-5fad-11e6-83c4-dd770b842147.jpg"></amp-img>
 
 
 ## Groovy code #
@@ -184,42 +184,80 @@ This is the most typical approach in enterprise settings.
    PROTIP: Use of GitHub reduces the need for this, 
    but it's helpful for special notes.
 
-0. Select from the "try sample" pull down "Hello World".
-
-   This is from https://github.com/hotwilson/jenkins2/edit/master/Jenkinsfile
+0. Select from the "try sample" pull down "Hello World" or, alternately, highlight the code below and paste it on the form:
 
    <pre>
-node {
-   stage '\u2776 Collect Stage 1'
-   echo '\u2776 Comitted \u2713.'
+#!/usr/bin/env groovy
+&nbsp;
+/**
+ * Sample Jenkinsfile for Jenkins2 Pipeline
+ * from https://github.com/hotwilson/jenkins2/edit/master/Jenkinsfile
+ * by wilsonmar@gmail.com 
+ */
+&nbsp;
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+&nbsp;
+try {
+   node {
+   stage '\u2776 Stage 1'
+   echo "\u2600 BUILD_URL=${env.BUILD_URL}"
+&nbsp;
+   def workspace = pwd()
+   echo "\u2600 workspace=${workspace}"
+&nbsp;
+   stage '\u2777 Stage 2'
 
-   stage '\u2601 Deploy 5'
-   echo '\u2601 Not deployed \u2639.'
-   echo '\u2601 Deployed \u263A.'
+   } // node
+
+} // try end
+catch (exc) {
+/*
+    err = caughtError
+    currentBuild.result = "FAILURE"
+    String recipient = 'infra@lists.jenkins-ci.org'
+    mail subject: "${env.JOB_NAME} (${env.BUILD_NUMBER}) failed",
+            body: "It appears that ${env.BUILD_URL} is failing, somebody should do something about that",
+              to: recipient,
+         replyTo: recipient,
+    from: 'noreply@ci.jenkins.io'
+*/
+} finally {
+&nbsp; 
+    (currentBuild.result != "ABORTED") && node("master") {
+        // Send e-mail notifications for failed or unstable builds.
+        // currentBuild.result must be non-null for this step to work.
+        step([$class: 'Mailer',
+           notifyEveryUnstableBuild: true,
+           recipients: "${email_to}",
+           sendToIndividuals: true])
+    }
+&nbsp;
+    // Must re-throw exception to propagate error:
+    if (err) {
+        throw err
+    }
 }
    </pre>
 
-   Code between the braces ({ and }) is the <strong>body</strong> of the node step. 
-
-   Notice that unlike Java code, there are <strong>no semicolons</strong>.
-
-   `stage` commands are used to separate actions in the log.
-
-   We will be going to alter this code in the <a href="#VaryGroovy">
-   next section</a>.
+   Each line in this sample is explained when the log is shown, below.
 
 0. Click Save for the item screen.
 
    ### Build Now for Stage View #
 
-0. Double-click on "Build Now" (in rapid succession).
+0. Click on "Build Now".
+
+   PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
 
    A sample response:
 
    <amp-img width="490" height="277" alt="jenkins2 build hello-world-490x277-i38.png" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
    NOTE: Text in headings were specified in state keywords in the Groovy script above.
-
-   PROTIP: Only click once on Jenkins links or two executions will result from a double-click.
 
 0. Cursor over one of the "ms" numbers (for milliseconds or thousands of a second) 
    in the green area and 
@@ -250,6 +288,49 @@ node {
 
 
 
+<a name="VaryGroovy"></a>
+
+## Vary Groovy scripting #
+
+The analysis of the Console Log from running the sample Groovy script consists of these topics:
+
+   * <a href="#Jenkinsfile">Jenkinsfile vs inline</a>
+   * <a href="#Stages">Stages</a>
+   * <a href="#Imports">Imports</a>
+   * <a href="#TryCatch">Try Catch to email</a>
+   * <a href="#EnvVars">Environment Variables</a>
+
+   * <a href="#UnicodeIcons">Unicode icons</a>
+   * <a href="#ColorWarapper">Color wrapper</a>
+
+   * <a href="#GitURL">Specific Git URL</a>
+   * <a href="#CheckoutSCM">Checkout SCM</a>
+ 
+<hr />
+
+   `#!/usr/bin/env groovy` is nickamed the "shebang" to announce that the file is in Groovy-language formatting.
+   PROTIP: This is not needed for in-line scripts, but there in case in case this is copied to a 
+   <a href="#Jenkinsfile">Jenkinsfile</a>.
+
+   `\**` with two asterisk is the code for <a href="#CodeScanners">code scanners</a> which extract metadata from comments
+   in all related files to come up with an analysis of the codebase.
+
+   `stage` commands are used to separate timings reported in the log.
+
+   `\u2776` and `\u2777` are Unicode for a black dot with a 1 and 2 in it, to make "Entering stage" lines faster to find.
+
+   `\u2600` is Unicode for a "star" icon to make frequently referenced information faster to find.
+
+   Notice that unlike Java code, there are <strong>no semicolons</strong>.
+
+   Code between the braces ({ and }) is the <strong>body</strong> of the node step. 
+
+   We will be going to alter this code in the <a href="#VaryGroovy">
+   next section</a>.
+
+
+
+
 <a name="InfrastructureAsCode"></a>
 
 ## Infrastructure as code #
@@ -271,11 +352,11 @@ https://github.com/jenkinsci/pipeline-examples
 Jesse on GitHub</a>
 
 
-<a name="Groovy"></a>
+<a name="Jenkinsfile"></a>
 
-## Sample Groovy Scripts #
+## Jenkinsfile vs inline Groovy Scripts #
 
-We want go beyond kiddie scripts and
+Here we want go beyond basic scripts and
 look at scripts used in <strong>production</strong> (productive) use,
 which are more complicated/complex than almost all the tutorials on the internet:
 
@@ -290,23 +371,7 @@ which are more complicated/complex than almost all the tutorials on the internet
 Lessons from these are provided below.
 
 
-<a name="VaryGroovy"></a>
 
-## Vary Groovy scripting #
-
-   The variations, starting from trivial ones to more substantive:
-
-   * <a href="#Imports">Imports</a>
-   * <a href="#TryCatch">Try Catch to email</a>
-   * <a href="#EnvVars">Environment Variables</a>
-
-   * <a href="#Stages">Stages</a>
-   * <a href="#UnicodeIcons">Unicode icons</a>
-   * <a href="#ColorWarapper">Color wrapper</a>
-
-   * <a href="#GitURL">Specific Git URL</a>
-   * <a href="#CheckoutSCM">Checkout SCM</a>
- 
 <a name="Imports"></a>
 
 ### Imports #
@@ -335,22 +400,37 @@ import java.net.URL
    because it can handle larger projects than Maven,
    which Gradle replaces.
 
+<a name="Stages"></a>
+
+### Stages #
+
+   <amp-img width="574" height="374" alt="jenkins flow 20160805-574x374-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17537073/eab0c64c-5e56-11e6-85a2-4ecbbcbaf364.jpg"></amp-img>
+   This diagram from Jenkins.io 
+   illustrates the flow of work.
+
+
 
 <a name="TryCatch"></a>
 
 ### Try Catch to email #
 
-   Groovy is a derivative of Java, so it has Java's capability to catch (handle)
+NOTE: Groovy is a derivative of Java, so it has Java's capability to catch (handle)
    execution <strong>exceptions</strong> not anticipated by the
    programming code.
 
+Notice that 
+
+   <pre>
+   err = caughtError
+   currentBuild.result = "FAILURE"
+   </pre>
+
    <a target="_blank" href="https://github.com/jenkins-infra/jenkins.io/blob/master/Jenkinsfile/">
-   This</a> catch block sends out an email:
+   This sample</a> catch block sends out an email:
 
    <pre>
 catch (exc) {
     String recipient = 'infra@lists.jenkins-ci.org'
-
     mail subject: "${env.JOB_NAME} (${env.BUILD_NUMBER}) failed",
             body: "It appears that ${env.BUILD_URL} is failing, somebody should do something about that",
               to: recipient,
@@ -456,12 +536,16 @@ all these environment variables</a>:
 <td valign="top"> The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss, <a href="https://issues.jenkins-ci.org/browse/JENKINS-26520" class="external-link" rel="nofollow">defunct</a>&nbsp;since&nbsp;version 1.597) </td>
 </tr>
 <tr>
-<td valign="top"> BUILD_TAG </td>
-<td valign="top"> String of <tt>jenkins-${JOB_NAME}-${BUILD_NUMBER</tt>}. Convenient to put into a resource file, a jar file, etc for easier identification. </td>
-</tr>
-<tr>
 <td valign="top"> BUILD_NUMBER </td>
 <td valign="top"> The current build number, such as "153" </td>
+</tr>
+<tr>
+<td valign="top"> JOB_NAME </td>
+<td valign="top"> Name of the project of this build. This is the name you gave your job when you first set it up. It's the third column of the Jenkins Dashboard main page. </td>
+</tr>
+<tr>
+<td valign="top"> BUILD_TAG </td>
+<td valign="top"> String of <tt>jenkins-${JOB_NAME}-${BUILD_NUMBER</tt>}. Convenient to put into a resource file, a jar file, etc for easier identification. </td>
 </tr>
 <tr>
 <td valign="top"> BUILD_URL <br class="atl-forced-newline" /> </td>
@@ -472,20 +556,16 @@ all these environment variables</a>:
 <td valign="top"> The unique number that identifies the current executor (among executors of the same machine) that's carrying out this build. This is the number you see in the "build executor status", except that the number starts from 0, not 1. </td>
 </tr>
 <tr>
+<td valign="top"> JENKINS_URL </td>
+<td valign="top"> Set to the URL of the Jenkins master that's running the build. This value is used by <a href="/display/JENKINS/Jenkins+CLI" title="Jenkins CLI">Jenkins CLI</a> for example </td>
+</tr>
+<tr>
 <td valign="top"> HOME </td>
 <td valign="top"> - </td>
 </tr>
 <tr>
 <td valign="top"> HUDSON_HOME </td>
 <td valign="top"> - </td>
-</tr>
-<tr>
-<td valign="top"> JOB_NAME </td>
-<td valign="top"> Name of the project of this build. This is the name you gave your job when you first set it up. It's the third column of the Jenkins Dashboard main page. </td>
-</tr>
-<tr>
-<td valign="top"> JENKINS_URL </td>
-<td valign="top"> Set to the URL of the Jenkins master that's running the build. This value is used by <a href="/display/JENKINS/Jenkins+CLI" title="Jenkins CLI">Jenkins CLI</a> for example </td>
 </tr>
 <tr>
 <td valign="top"> JAVA_HOME </td>
@@ -581,18 +661,9 @@ Groovy String method</a>.
 
 <hr />
 
-   <a name="Stages"></a>
+<a name="UnicodeIcons"></a>
 
-   ### Stages #
-
-   <amp-img width="574" height="374" alt="jenkins flow 20160805-574x374-i15.jpg" src="https://cloud.githubusercontent.com/assets/14143059/17537073/eab0c64c-5e56-11e6-85a2-4ecbbcbaf364.jpg"></amp-img>
-   This diagram from Jenkins.io 
-   illustrates the flow of work.
-
-
-   <a name="UnicodeIcons"></a>
-
-   ### Unicode icons #
+### Unicode icons #
 
    <img align="right" alt="jenkins2 icons in console output 300x497-i10" width="300" height="497" src="https://cloud.githubusercontent.com/assets/300046/17441687/7b5f18c6-5aef-11e6-827d-68c5bd14e4c2.jpg">
 
@@ -628,9 +699,9 @@ Groovy String method</a>.
    More icons in the \u2600 range</a>
 
 
-   <a name="ColorWarapper"></a>
+<a name="ColorWarapper"></a>
 
-   ### Color wrapper Stage View #
+### Color wrapper Stage View #
 
    <a target="_blank" href="https://github.com/jenkinsci/pipeline-examples/blob/master/pipeline-examples/ansi-color-build-wrapper/AnsiColorBuildWrapper.groovy">
    Here</a> is an example of adding color in a stage name:

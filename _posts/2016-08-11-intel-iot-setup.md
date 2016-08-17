@@ -16,22 +16,29 @@ comments: true
 
 {% include _toc.html %}
 
-This article shows you how to install and configure 
-the Intel Edison board, XDK.
+This article shows those new to electronics how to install, configure, and use
+the Intel Edison board and XDK IDE for simple projects.
 Instructions are for Apple Mac.
 
 {% include _intro.html %}
 
 ## IoT Hardware Basics #
 
-Intel boards are based on Intel X86 architecture,
-whereas <a target="_blank" href="http://www.raspberrypi.org/">Raspberry Pi</a> and Beaglebone are based on the alternative 3.3V ARM 11 chip architecture.
-Intel boards do not have an HDMI video port like a Raspberry.
-Intel boards also do not have a keyboard port.
+Intel boards are based on Intel's <strong>X86</strong> architecture,
+<a target="_blank" href="http://www.raspberrypi.org/">Raspberry Pi</a> and 
+Beaglebone are based on the alternative 3.3V ARM 11 chip architecture.
+
+Intel boards do not have an HDMI video port like a Raspberry nor
+keyboard port like on PCs.
 
 The Galileo was Intel's initial board.
 It does not have on-board WiFi.
-It has the same form factor as the Edison board.
+It has the same form factor as the Edison board released in 2014.
+
+https://www.youtube.com/watch?v=GY8kaaFzbTE
+
+Both the Galileo and Edison have pinouts compatible with 5V <strong>Arduino</strong> boards,
+so a shield such as Grove can be integrated. The Grove is a co
 
 Intel Edison is a <strong>dual-core</strong> Silvermont Atom(TM) clocked at 500MHz. 
 It's called a System on a Chip (SoC) because it packs so many capabilities:
@@ -56,6 +63,44 @@ It's called a System on a Chip (SoC) because it packs so many capabilities:
    (lower power than TTL or CMOS on other boards)
    Not enough to power an LED.
 
+This Intel Arduino breakout also has an SD card connector, micro USB or standard sized 
+
+Intel also has a Mini Breakout board. 
+<a target="_blank" href="https://communities.intel.com/message/258935#258935">
+   Get your first "blink" LED on the mini breakout board</a>.
+
+<a href="#Gateway">
+Intel's Gateway</a> is hardware and software that collects data from IoT devices
+for aggregation in a cloud service, which provides analytics.
+
+
+## First project #
+
+* <a href="#SampleEmbeddedApp">
+   Blink an on-board LED</a> does not require additional items.
+   So this "embedded app" project is a good first project to get familiar with the basics working.
+
+* Follow instructions <a target="_blank" href="https://software.intel.com/en-us/creating-a-temperature-monitoring-app">here</a> to 
+   create a temperature monitoring app using Intel® XDK
+   receiving temperature from a sensor connected via a Grove* Cable
+   plugged into a Grove Base Shield.
+
+<a name="Sensors"></a>
+
+## Sensors #
+
+<img align="right" alt="intel iot xdk sensors 20160813-166x536-i10" width="166" height="536" src="https://cloud.githubusercontent.com/assets/14143059/17643533/e87d176a-6129-11e6-8006-117c4223f66c.jpg">
+
+The sensors and other components Intel supports are listed at:
+<a target="_blank" href="https://software.intel.com/en-us/iot/hardware/sensors">
+   https://software.intel.com/en-us/iot/hardware/sensors</a>,
+   where code samples are provided for each component 
+   in C/C++, JavaScript, and Python programming languages.
+Code is also included in Intel's XDK IDE, accessed from its "IoT Sensor Library Explorer" 
+shown at right (described in a later section).
+
+   The <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_Starter_Kit_Plus_-_IoT_Edition/"> 
+   wiki page</a> for each sensor, actuator, etc. are listed below.
 
 The "SeeedStudio Grove starter kit plus for Intel Edison IoT Edition"
 <a target="_blank" href="http://www.seeedstudio.com/Grove-Starter-Kit-Plus-IoT-Edition-p-2634.html">
@@ -68,35 +113,103 @@ It hooks on top of an Arduino 101 breakout board.
 Its use with the special Grove cable means no soldering is needed to use the
 6 analog inputs, and 20 ditial input/output pins.
 
-This Intel Arduino breakout also has an SD card connector, micro USB or standard sized 
+#### Sensors #
 
-<a href="#Gateway">
-Intel's Gateway</a> is hardware and software that collects data from IoT devices
-for aggregation in a cloud service, which provides analytics.
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-3Axis-Digital-Accelerometer15g-p-765.html">
+   3-Axis Digital Accelerometer (±1.5g)</a> MMA7660FC 
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Button-p-766.html">
+   Button</a> D2
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Temperature-Sensor-p-774.html">
+   Temperature</a> (grovetemp) A0
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Touch-Sensor-p-747.html">
+   Touch Sensor</a> (grovebutton)
+* <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor_v1.2">
+   Light Sensor</a> (grovelight) A1
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Sound-Sensor-p-752.html">
+   Sound Sensor</a> (microphone) LM386
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Rotary-Angle-SensorP-p-1242.html">
+   Rotary Angle Sensor(P)</a> A2
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Piezo-Vibration-Sensor-p-1411.html">
+   Pieze Vibration Sensor</a> (Flex/Force LDT0-028)
 
-Supported sensors and other components are listed at:
-<a target="_blank" href="https://software.intel.com/en-us/iot/hardware/sensors">
-   https://software.intel.com/en-us/iot/hardware/sensors</a><br />
-   There is code samples for each component 
-   in C/C++, JavaScript, and Python.
- 
+#### Actuators: #
 
-## Sample projects #
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Green-LED-p-1144.html">
+   LED (Green)</a> (groveled) D3
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Red-LED-p-1142.html">
+   LED (Red)</a>
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Blue-LED-p-1144.html">
+   LED (Blue)</a>
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-LCD-RGB-Backlight-p-1643.html">
+   LCD 16x2 RGB Backlight</a> (Display my9221)
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Gear-Stepper-Motor-with-Driver-p-1685.html">
+   Gear Stepper Motor with Driver</a>
 
-If she can do, so can you:
-<object id="flashObj" width="486" height="412" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=4879912870001&playerID=741496470001&playerKey=AQ~~,AAAArH1stHk~,LuRqJUw7MaeYQkat5frTpWWPINh71g7p&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashVars="videoId=4879912870001&playerID=741496470001&playerKey=AQ~~,AAAArH1stHk~,LuRqJUw7MaeYQkat5frTpWWPINh71g7p&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="412" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" swLiveConnect="true" allowScriptAccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Buzzer-p-768.html">
+   Buzzer</a> D5
 
-* <a href="#SampleEmbeddedApp">
-   This embedded" app project</a> does not require additional items as it blinks an on-board LED.
-   So it's a good first project to get the basic components working.
+* Mini Servo
+* Smart Relay
 
-* <a target="_blank" href="https://communities.intel.com/message/258935#258935">
-   Get your first "blink" LED with Intel Mini Breakout</a>
+<a target="_blank" href="http://www.seeedstudio.com/view/event/seeed-grove-series/index.html">
+Additional sensors from Grove</a> include:
 
-* Follow instructions <a target="_blank" href="https://software.intel.com/en-us/creating-a-temperature-monitoring-app">here</a> to 
-   create a temperature monitoring app using Intel® XDK
-   receiving temperature from a sensor connected via a Grove* Cable
-   plugged into a Grove Base Shield.
+* Barometer
+* Infrared temperature Sensor
+* <a target="_blank" href="https://www.sparkfun.com/products/13670">
+   $40 GPS module</a>
+* CO2
+* <a target="_blank" href="https://software.intel.com/en-us/iot/hardware/sensors/grove-mq3-gas-sensor#">
+   Gas sensor</a>
+
+* Compass
+* Color Sensor tcs3414cs 
+
+* <a target="_blank" href="https://www.tindie.com/products/taiwaniot/3-pieces-of-grove-gsr-measuring-eelectrical-modle/">
+   GSR (Galvanic Skin Response)</a> measures electrical Conductance on a finger.
+   Eelectrical Modle</a>
+   Sensitivity is adjusted via a potentiometer.
+   Strong emotion can cause stimulus to your sympathetic nervous system, resulting more sweat being secreted by the sweat glands. Grove – GSR allows you to spot such strong emotions by simple attaching two electrodes to two fingers on one hand, an interesting gear to create emotion related projects, like sleep quality monitor.
+
+* <a target="_blank" href="https://github.com/sparkfun/Weather_Shield">
+   Weather Shield</a> (relative humidity, barometric pressure, temperature, light intensity)
+* <a target="_blank" href="https://www.sparkfun.com/products/8942">
+   $80 Weather Meters</a> (Wind Vane, Cup Anemometer, Tipping Bucket Rain Gauge)
+
+Additional:
+
+   * Speaker
+
+   * Wireless communiction: xbee
+
+   * TFT (Thin Film Transitor) display such as the 
+   <a target="_blank" href="https://www.adafruit.com/products/1651">
+   $35 Adafruit 2.8"  240x320 pixel resistive touch screen shield ILI9341</a> 
+   which uses SPI to communicate and
+   <a target="_blank" href="https://github.com/KurtE/Adafruit_ILI9341/tree/Intel-Edison">
+   this code</a> 
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=XHqBWbLFjwg">
+   Personal Area Network Server</a> featuring text to speech.
+
+### Projects #
+
+Among projects described in websites:
+
+   * <a target="_blank" href="http://www.seeedstudio.com/recipe">
+   http://www.seeedstudio.com/recipe</a>
+
+these:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=QA6kCaXufg0">
+   Youtube: Speech-activated LEDs</a>
+   is detailed on Esther Kim's
+   <a target="_blank" href="https://github.com/drejkim/led-speech-edison">
+   Github repo</a>
+
+* <a target="_blank" href="http://makezine.com/projects/make-43/photographic-memory/">
+   Build Your Own Face-Recognition System</a>
+   using OpenCV
 
 * Sound and vibration sensors recognize when laundry is done,
    and sends an SMS text with the length of the wash or dry cycle.
@@ -107,17 +220,16 @@ If she can do, so can you:
 * <a target="_blank" href="https://www.hackster.io/pooja_baraskar/smart-baby-monitor-ubidots-70583e?ref=part&ref_id=8232&offset=6">
    Smart Baby Monitor</a>
 
-Websites listing projects:
+* <a target="_blank" href="https://blogs.intel.com/evangelists/2015/06/01/intel-edison-demo-connected-skateboard/">
+   Skateboard with 6-Axis Accelerometer & Compass</a>
 
-* <a target="_blank" href="http://www.seeedstudio.com/recipe">
-   http://www.seeedstudio.com/recipe</a>
+* <a target="_blank" href="https://makezine.com/2015/01/09/edidcom-intel-edison-running-doom">
+   Using a TFT and speakers</a>
 
 
 <hr />
 
 ## Connect power #
-
-NOTE: The ICSP 6-pin header (SPI) Power accomomdates 7V-15V DC input.
 
 0. CAUTION: Discharge static before you touch anything.
 
@@ -142,27 +254,77 @@ NOTE: The ICSP 6-pin header (SPI) Power accomomdates 7V-15V DC input.
    Slide the micro-switch toward the larger USB Type A recepticle for 
    to select <strong>device mode</strong> operation.
 
+TFT display
+
+### Remote operation #
+
+It is possible to have the Edison operate remotely off solar and battery power.
+A battery is needed evenings and on cloudy days.
+
+Sparkfun.com has this set of components:
+
+* <a target="_blank" href="https://www.sparkfun.com/products/13037">
+   LiPo (Lithium Polymer) battery</a>.
+
+* <a target="_blank" href="https://www.sparkfun.com/products/12885">
+   $25 SparkFun Sunny Buddy - MPPT Solar Charger</a> (maximum power point tracking) controller
+   has a port from of solar panel supplying from 6V to 20V.
+   Its maximum charge current is 450mA.
+
+   (rocketscream boards is an alternative)
+
+   It receives input power via its barrow connector __?
+
+* Solar panels for this include the 
+   <a target="_blank" href="https://www.mec.ca/en/product/5036-010/SolarGorilla-5V-to-20V-Solar-Panel-Charger">
+   $265 SolarGorilla</a>
+
 
 ## Connect to PC #
 
 The Edison board provides several ways to move data.
 
-   ### Bluetooth connection #
-
-0. Do not connect the USB to your computer.
-0. On your computer System Properties, enable Blootooth.
-0. Open a Terminal shell window.
-0. List UART devices connected on  /dev/ttyMFD1.
+There are several build-in commands that can be used to connect your PC to the board,
+described below.
+If you <a href="#BloopInstall">installed Bloop</a>, connect with a single utility command:
 
    <tt><strong>
-   ls /dev/tty.*
+   bloop c
    </strong></tt>
 
-   The response is like:
+   This automatically connects you via "screen" to an attached Edison device.
+
+
+   <a name="BloopInstall"></a>
+
+   ### Install Bloop #
+
+   https://www.npmjs.com/package/bloop<br />
+   is a set of command-line tools for working with Intel Edison on the PC (laptop) side.
+
+0. Install bloop globally:
+
+   <tt><strong>
+   npm install -g bloop
+   </strong></tt>
+
+   The response:
 
    <pre>
-   /dev/tty.Bluetooth-Incoming-Port	/dev/tty.usbmodem1413
+/usr/local/Cellar/node/6.3.0/bin/bloop -> /usr/local/Cellar/node/6.3.0/lib/node_modules/bloop/bloop.js
+/usr/local/Cellar/node/6.3.0/lib
+└─┬ bloop@0.1.3 
+  ├── commander@2.5.1 
+  └─┬ promptly@0.2.1 
+    └─┬ read@1.0.7 
+      └── mute-stream@0.0.6 
    </pre>
+
+   <a target="_blank" href="http://rexstjohn.com/introducing-bloop-cli-commands-for-working-with-intel-edison/">
+   Read about its commands</a> from its creator Rex St. John (@rexstjohn)
+
+   BLAH: After install, I got a "command not found".
+   So we're sticking with built-in commands below.
 
 
    ### Serial connection #
@@ -179,14 +341,6 @@ The Edison board provides several ways to move data.
    PROTIP: On a Mac, plug in BOTH mico-USB cables.
 
 0. Open a Terminal shell window.
-0. If you <a href="#BloopInstall">installed Bloop</a>:
-
-   <tt><strong>
-   bloop c
-   </strong></tt>
-
-   This automatically connects you via "screen" to an attached Edison device.
-
    Alternately, take the manual approach:
 
 0. List UART devices connected on  /dev/ttyMFD1.
@@ -210,12 +364,15 @@ The Edison board provides several ways to move data.
    screen /dev/tty.usbserial-A90400YX 115200 -L
    </strong></tt>
 
-   * The `115200` specifies the speed of communications.
+   * The `115200` specifies the "baud" speed of communications
+   (the highest theorectical maximum of 230,400 bits per second).
+
    * The `-L` flag turns on output logging.
    <br /><br />
 
+   TROUBLESHOOTING: 
    If "Sorry, cannot find a PTY", try closing the terminal,
-   open another terminal, power down the board and bring it up again to reset.
+   open another terminal, power down the board, and bring it up again.
 
 0. Press Enter when the blank terminal appears.<br />
    Press Enter twice for the Edison board.
@@ -246,35 +403,7 @@ edison login:
    Skip to <a href="#BoardVersion">verify version</a>
    or <a href="#mraainstall">MRAA install</a>.
 
-PROTIP: When exiting from a screen session, always try to press Ctrl + d to detach cleanly.
-
-<a name="BloopInstall"></a>
-
-### Install Bloop #
-
-https://www.npmjs.com/package/bloop<br />
-is a set of command-line tools for working with Intel Edison on the PC (laptop) side.
-
-0. Install bloop globally:
-
-   <tt><strong>
-   npm install -g bloop
-   </strong></tt>
-
-   The response:
-
-   <pre>
-/usr/local/Cellar/node/6.3.0/bin/bloop -> /usr/local/Cellar/node/6.3.0/lib/node_modules/bloop/bloop.js
-/usr/local/Cellar/node/6.3.0/lib
-└─┬ bloop@0.1.3 
-  ├── commander@2.5.1 
-  └─┬ promptly@0.2.1 
-    └─┬ read@1.0.7 
-      └── mute-stream@0.0.6 
-   </pre>
-
-   <a target="_blank" href="http://rexstjohn.com/introducing-bloop-cli-commands-for-working-with-intel-edison/">
-   Read about its commands</a> from its creator Rex St. John (@rexstjohn)
+   PROTIP: When exiting from a screen session, press Ctrl + D to detach cleanly.
 
 
 ## Firmware download # 
@@ -283,9 +412,6 @@ PROTIP: The device you have may have obsolete firmwware.
 
 DEFINITION:
 Firmware is the operating system of embedded microcontrollers. 
-The default firmware on the Intel® Edison board is a version of Linux* built using the 
-Linux Yocto Project which started in 2010.
-Yocto merged with OpenEmbedded in 2011.
 
 Flashing is the process of overwriting the firmware on the board's memory, 
 much like applying system updates on your computer.
@@ -297,15 +423,19 @@ much like applying system updates on your computer.
 I wasted several days scratching my head until I finally tweeted 
 <a target="_blank" href="https://twitter.com/inteliot/">@inteliot</a> and
 (my hero) Rex St. John (who also wrote bloop)
-replied to my tweet (on a Friday evening).
+replied (on a Friday evening).
 Rex is the author of 
 <a target="_blank" href="http://rexstjohn.com/intel-edison-el-capitan-setup-process/">
-this blog</a> which got me going on El Capitan (the latest OS on Mac OSX).
+this blog</a> and 
+<a target="_blank" href="https://software.intel.com/en-us/flashing-firmware-on-your-intel-edison-board-mac-os-x">
+these instructions</a>
+which got me going on El Capitan (the latest OS on Mac OSX).
 
-Rex says to first open Spotlight (“Command + Space Bar”) for “Disk Utility” and
-Erasing (re-formatting) the EDISON to "MS-DOS (FAT)".
+0. Open Mac's Spotlight (“Command + Space Bar”).
+0. Type “Disk Utility”
+0. Erase (re-format) the EDISON to "MS-DOS (FAT)".
 
-Then, install these:
+0. Install these:
 
    <tt><strong>
    brew update<br />
@@ -314,20 +444,38 @@ Then, install these:
    brew install lsusb
    </strong></tt>
 
-Rather than using the integrated "Installers" GUI program 
-(Intel_Edison_Setup_Mac_v2016.2.013),
-I click to download the "Latest Yocto* Poky image"
-from the <a target="_blank" href="https://software.intel.com/en-us/iot/hardware/edison/downloads">
-Intel® Edison Module Downloads page</a>.
+   * <a target="_blank" href="https://github.com/Stefan-Schmidt/dfu-util">
+   dfu-util</a> is the device firmware ugrade utility.
 
-After unzip, the folder on my machine is:
+   * <a target="_blank" href="https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/">
+   coreutils</a> replace Mac's BSD version with the 
+   <a target="_blank" href="https://en.wikipedia.org/wiki/GNU_Core_Utilities">
+   GNU version used by Linux</a>.
+
+   * <a target="_blank" href="http://brewformulas.org/Gnu-getopt">
+   gnu-getopt</a> is used to parse command-line options.
+
+   * <a target="_blank" href="https://github.com/jlhonora/lsusb">
+   brew install lsusb</a> list USB devices in Mac OS X, just like the lsusb command in Linux.
+   <br /><br />
+
+   At the <a target="_blank" href="https://software.intel.com/en-us/iot/hardware/edison/downloads">
+   Intel® Edison Module Downloads page</a>,
+   rather than using the integrated "Installers" GUI program 
+   (Intel_Edison_Setup_Mac_v2016.2.013), I
+
+0. click to download the "Latest Yocto* Poky image"
+   After unzip, the folder on my machine is:
 
    `/Users/mac/Downloads/iot-devkit-prof-dev-image-edison-20160606`
 
-Finally, on a Terminal at the Yocto folder downloaded, I
-use the `./flashall` command.
+0. Finally, on a Terminal at the Yocto folder downloaded:
 
-After that I unplug and re-plug everything from the board.
+   <tt><strong>
+   ./flashall
+   </strong></tt>
+
+0. <a href="#Reboot">Reboot</a>
 
 
 ### Windows Only #
@@ -366,13 +514,22 @@ After that I unplug and re-plug everything from the board.
 0. Click Next.
 
 
+
+
+## Working the Edison board #
+
+Here are operations you need to know:
+
+<a name="Reboot"></a>
+
 ### Reboot interrupt serial #
 
-   Alternately, to 
-   <strong>reboot</strong> the Intel Edison 
+I reboot the Edison by unplug and re-plug everything from the board.
 
-   To <a target="_blank" href="http://www.intel.com/content/www/us/en/support/boards-and-kits/000006147.html">
-   recover password</a>
+BLAH: 
+<a target="_blank" href="http://www.intel.com/content/www/us/en/support/boards-and-kits/000006147.html">
+This blog</a> suggested the following to recover password. 
+But it didn't work for me.
 
 0. Reboot the Intel Edison by pressing button 6 on
    <a target="_blank" href="https://communities.intel.com/docs/DOC-23454">
@@ -424,6 +581,8 @@ boot > _
          Starting Redis Server...
 [  OK  ] Started Redis Server.
    </pre>
+
+
 
    <a name="BoardVersion"></a>
 
@@ -557,6 +716,8 @@ Attempting to enable network access, please check 'wpa_cli status' after a minut
 Done. Please connect your laptop or PC to the same network as this device and go to http://192.168.0.100 or http://edison.local in your browser.
    </pre>
 
+   NOTE: http://edison.local/ references a little web server running on the Edison.
+
 0. To confirm:
 
    <tt><strong>
@@ -569,6 +730,9 @@ Done. Please connect your laptop or PC to the same network as this device and go
 PING 192.168.0.100 (192.168.0.100): 56 data bytes
 64 bytes from 192.168.0.100: seq=0 ttl=64 time=0.386 ms
    </pre>
+
+
+   ### Connect via wifi #
 
 0. On another Terminal shell window,
    connect via wifi:
@@ -590,13 +754,29 @@ PING 192.168.0.100 (192.168.0.100): 56 data bytes
 
    https://software.intel.com/en-us/connecting-your-intel-edison-board-using-wifi
 
+### Configure Bluetooth #
+
+For more information, see <a target="_blank" href="http://download.intel.com/support/edison/sb/edisonbluetooth_331704004.pdf">
+see this pdf</a>.
+
+0. Enable bluetooth
+
+   <tt><strong>
+   connmanctl enable bluetooth
+   </strong></tt>
+
 
 ## Board operating sytem #
 
-   Yocto is the name of the operating system.
+The default firmware on the Intel® Edison board is a version of Linux built using the 
+Linux Yocto Project which started in 2010.
+Yocto merged with OpenEmbedded in 2011.
+https://www.youtube.com/watch?v=zNLYanJAQ3s
+
 
    * http://www.yoctoproject.org/docs/1.6.1/mega-manual/mega-manual.html
    * https://www.yoctoproject.org/docs/2.1/mega-manual/mega-manual.html
+
 
 
    ### Alternative OS #
@@ -982,6 +1162,15 @@ drwxr-xr-x 89 root root 4096 2016-08-12 02:49 ..
 -rw-r--r--  1 root root  791 2016-06-07 00:51 opkg.conf
    </pre>
 
+   NOTE: opkg is an unofficial Linux repository which uses its base-feeds.conf file
+   to provide access to many package, saving you the hassle of compiling from source.
+   Some projects append additional dependencies to the bottom of the file, such as:
+
+   <tt><strong>
+   echo "src/gz all http://repo.opkg.net/edison/repo/all src/gz edison http://repo.opkg.net/edison/repo/edison src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32" >> /etc/opkg/base-feeds.conf
+   </strong></tt>
+
+
 0. SSH onto the board to install or update MRAA on the board:
 
    <pre><strong>
@@ -1041,13 +1230,15 @@ Configuring mraa.
 Configuring upm.
    </pre>
 
-0. Install:
+0. Install opkg libraries needed for specific projects, such as
+   Numpy statistical functions, OpenCV computer vision, nano editor (instead of vim):
 
    <tt><strong>
-   opkg install limraa0
+   opkg install limraa0<br />
+   opkg install python-numpy opencv python-opencv nano
    </strong></tt>
 
-   QUESTION: I'm getting 
+   The response:
 
    <pre>
    Collected errors:
@@ -1061,74 +1252,11 @@ For further info:
 
 <hr />
 
-<a name="Sensors"></a>
+<a name="Temp"></a>
 
-## Sensors #
+## Temp sensor on shield #
 
-<img align="right" alt="intel iot xdk sensors 20160813-166x536-i10" width="166" height="536" src="https://cloud.githubusercontent.com/assets/14143059/17643533/e87d176a-6129-11e6-8006-117c4223f66c.jpg">
-
-0. In XDK, click "IoT Sensor Library Explorer" for the menu shown at right.
-
-   The <a target="_blank" href="* http://www.seeedstudio.com/wiki/Grove_Starter_Kit_Plus_-_IoT_Edition"> 
-   wiki page</a> for each sensor, actuator, etc. are listed below.
-
-   #### Sensors #
-
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-3Axis-Digital-Accelerometer15g-p-765.html">
-   3-Axis Digital Accelerometer (±1.5g)</a> MMA7660FC 
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Button-p-766.html">
-   Button</a> D2
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Temperature-Sensor-p-774.html">
-   Temperature</a> (grovetemp) A0
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Touch-Sensor-p-747.html">
-   Touch Sensor</a> (grovebutton)
-* <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Light_Sensor_v1.2">
-   Light Sensor</a> (grovelight) A1
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Sound-Sensor-p-752.html">
-   Sound Sensor</a> LM386
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Rotary-Angle-SensorP-p-1242.html">
-   Rotary Angle Sensor(P)</a> A2
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Piezo-Vibration-Sensor-p-1411.html">
-   Pieze Vibration Sensor</a> (Flex/Force LDT0-028)
-
-#### Actuators: #
-
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Buzzer-p-768.html">
-   Buzzer</a> D5
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Green-LED-p-1144.html">
-   LED (Green)</a> (groveled) D3
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Red-LED-p-1142.html">
-   LED (Red)</a>
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-Blue-LED-p-1144.html">
-   LED (Blue)</a>
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Grove-LCD-RGB-Backlight-p-1643.html">
-   LCD 16x2 RGB Backlight</a> (Display my9221)
-* <a target="_blank" href="http://www.seeedstudio.com/depot/Gear-Stepper-Motor-with-Driver-p-1685.html">
-   Gear Stepper Motor with Driver</a>
-
-* Mini Servo
-* Smart Relay
-
-* Wireless communiction: xbee
-
-<a target="_blank" href="http://www.seeedstudio.com/view/event/seeed-grove-series/index.html">Additional sensors from Grove</a> include:
-
-* Speaker
-* Microphone
-* GPS
-* Barometer
-* Infrared temperature Sensor
-* CO2
-
-* Compass
-* Color Sensor tcs3414cs 
-
-
-   <a name="Temp"></a>
-
-   ### Temp sensor on shield #
-
-0. Let's look at <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Temperature_Sensor">
+Let's look at <a target="_blank" href="http://www.seeedstudio.com/wiki/Grove_-_Temperature_Sensor">
    SeeedStudio's wiki on the Temp sensor</a>.
 
    Note that the Voltage is "3.3 - 5V".
@@ -1358,18 +1486,22 @@ Shawn Hymel at Sparkfun has great "Getting Started with Intel Edison" videos:
 * OTG =  On-The-Go, allows USB devices, such as digital audio players or mobile phones, to act as a host, allowing other USB devices, such as USB flash drives, digital cameras, mice or keyboards, to be attached to them.
 * UPM = Useful Packages & Modules
 * MRAA
-* XDK 
+* XDK = Intel's name for its IDE
 * LED = Light Emitting Diode
 * MCU = Microcontroller unit
 * DFU 
 * CDC 
+* ICSP = In-Circuit Serial Programming to reprogram the processor without removing it from the circuit, 
+and without relying on the bootloader in the processor.
 
-Interface types:
+### Interface types: #
 
 * GPIO = general purpose input/output
-* SPI = Serial peripheral interface (Max SPI speed is 25Mhz/4 ~6.25Mhz)
+* SPI = Serial Peripheral Interface (full-duplex max speed is 25Mhz/4 ~6.25Mhz)
   "SPI exposed is also used for the ADC. Try not to use your own CS"
-* I2C = Inter-integrated circuit
+* I2C = Inter-integrated circuit <a target="_blank" href="https://learn.sparkfun.com/tutorials/i2c">
+   designed</a>  by Philips in the early '80s for easy (two-wire) communication 
+    (at 100kHz or 400kHz) between master and slave components residing on the same circuit board.
 * AIO
 * PWM = Pulse width modulation
 
