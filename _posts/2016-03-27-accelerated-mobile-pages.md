@@ -400,6 +400,10 @@ The AMP Project provides helpers for many other types of content like audio, ads
    * <a target="_blank" rel="amphtml" href="https://www.tunetheweb.com/blog/implementing-accelerated-mobile-pages/">
    tunetheweb.com/blog/implementing-accelerated-mobile-pages</a>
 
-## AMP Implements RAIL
 
-   * Paul Irish
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}
+

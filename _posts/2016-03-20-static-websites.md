@@ -268,3 +268,11 @@ People who have commented on this include:
 
 * <a target="_blank" href="http://www.shamimeboodhoo.com/from-wordpress-to-jekyll-and-a-new-design/">
   shamimeboodhoo.com/from-wordpress-to-jekyll-and-a-new-design</a>
+
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

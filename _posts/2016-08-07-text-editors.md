@@ -366,6 +366,13 @@ On Mac:
    BTW, "hello" in the example above can be any file.
 
 
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}
+
+
 ## More on OSX #
 
 This is one of a series on Mac OSX:

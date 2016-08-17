@@ -397,8 +397,16 @@ A discussion forum about markdown is at:
 
 ## References #
 
-* https://blog.ghost.org/markdown/
-   has a list of markdown editors across operating systems.
+* <a target="_blank" href="https://blog.ghost.org/markdown/">
+   List of markdown editors across operating systems</a>
 
-* http://whatismarkdown.com
+* <a target="_blank" href="http://whatismarkdown.com/">
+   whatismarkdown.com</a>
 
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

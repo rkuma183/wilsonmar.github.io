@@ -1063,3 +1063,11 @@ QUESTION: Spell checking in GitHub?
 
 * http://udaypal.com/jenkins-workflow-getting-started/
 * http://udaypal.com/2015-04-08-continuous-delivery-using-jenkins-workflow/
+
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

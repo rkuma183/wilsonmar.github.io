@@ -120,7 +120,7 @@ In CSS:
 
 * Use a <a href="#Css-preprocessor"> pre-processor</a> which substitute actual CSS for variables you define:
 
-   * <a target="_blank" href="http://lesscss.org/usage/">Less</a> on NodeJs to use .less files which extend CSS syntax
+   * <a target="_blank" href="http://lesscss.org/usage/">Less</a> on NodeJs to use .less files which extend CSS syntax (used by Bootstrap)
    * <a target="_blank" href="http://sass-lang.com/install/">SASS</a> on Ruby to use .scss which extends CSS or .sass using indented syntax
    * <a target="_blank" href="http://stylus-lang.com/">Stylus</a> on NodeJs to use .styl files containing either syntax
    * <a target="_blank" href="http://csspre.com/compile/">PostCSS</a> for JavaScript processing
@@ -132,7 +132,10 @@ In CSS:
    * .sass for Sass files ()
    <br /><br />
 
-* Use CSS IDs (#tag) for navigation JavaScript
+* <a target="_blank" href="https://sassmeister.com/">
+   sassmeister.com</a> displays expanded CSS from SASS.
+
+* Use CSS IDs (#tag) for navigation JavaScript (they're faster)
 * Use CSS classes (.tag) for styling
 * Code CSS or SCSS in several files:
 
@@ -169,6 +172,22 @@ File: ie-9.css
 File: ie-10.css
 .ie10 a { margin: 2px; }
 .ie10 p { line-height: 1; }
+   </pre>
+
+* Use <a target="_blank" href="http://caniuse.com/#feat=viewport-units">
+   view port percentage lengths (1 vh = 1% of height, 1 vw = 1% of width, vmin, vmax)
+
+* Cache selectors for re-use:
+
+   <pre>
+var modal = document.getElementById('modal');
+modal.onclick = function(){
+   // do something.
+}
+// jQuery:
+var modal = $("#modal");
+modal.fadeIn();
+modal.fadeOut();
    </pre>
 
    <br /><br />
@@ -217,8 +236,9 @@ The workflow is automated by task runners:
 
    * Koala
 
-<a target="_blank" href="https://github.com/postcss/autoprefixer/">
+* <a target="_blank" href="https://github.com/postcss/autoprefixer/">
    Autoprefixer</a> uses the caniuse.com to code for you
+
 
 
 ## CSS Naming conventions #
@@ -280,6 +300,11 @@ These are from:
 
    * <a target="_blank" href="https://typanus.net/codrops/css_reference/display/">
    CSS Reference</a>
+
+   * <a target="_blank" href="https://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">
+   CSS Performance has changed (for the better)</a>
+   * <a target="_blank" href="https://benfrain.com/css-performance-revisited-selectors-bloat-expansive-styles">
+   CSS Performance revisited: selectors, bload, and expansive styles</a>
 
 
 

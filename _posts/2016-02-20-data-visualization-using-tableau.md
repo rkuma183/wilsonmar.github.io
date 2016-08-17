@@ -1588,3 +1588,10 @@ Certification
 This page is way too long and will be split up in separate pages
 ... when I have time.
 
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}
