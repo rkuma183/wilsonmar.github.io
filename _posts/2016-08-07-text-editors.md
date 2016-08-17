@@ -278,6 +278,29 @@ command + &#9003; Delete line
 0. Follow Twitter @AtomEditor
 
 
+<a name="EditorConfig"></a>
+
+## Editor Config #
+
+Put a <strong>.EditorConfig</strong> file 
+(<a target="_blank" href="https://editorconfig.org/#download"> from editorconfig.org</a>)
+in your root folder, 
+and the editor will format your code according to the rules defined in the file
+for whatever type of file is being edited.
+
+It's supported by default in the Atom editor.
+
+
+
+
+<a name="Emett"></a>
+
+## Emett #
+
+It may take some effort to memorize the keyboard sequences, but these are the ones I remember because I save time using them:
+
+
+
 <a name="Eclipse"></a>
 
 ## Eclipse IDE install #
@@ -343,7 +366,7 @@ On Mac:
    BTW, "hello" in the example above can be any file.
 
 
-## More on OSX
+## More on OSX #
 
 This is one of a series on Mac OSX:
 
