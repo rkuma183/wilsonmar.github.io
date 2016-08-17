@@ -395,8 +395,10 @@ A discussion forum about markdown is at:
    pairlist6.pair.net/mailman/listinfo/markdown-discuss</a>
 
 
-References:
+## References #
 
 * https://blog.ghost.org/markdown/
    has a list of markdown editors across operating systems.
+
+* http://whatismarkdown.com
 

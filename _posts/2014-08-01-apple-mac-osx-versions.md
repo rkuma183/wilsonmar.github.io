@@ -21,9 +21,9 @@ comments: true
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date
-</th><th>[PHP](/php-on-apple-mac-osx/)</a>
-</th><th>[Python](/python-on-apple-mac-osx/)</a>
-</th><th>[Ruby](/ruby-on-apple-mac-osx/)</a>
+</th><th><a href="/php-on-apple-mac-osx/">PHP</a>
+</th><th><a href="/python-on-apple-mac-osx/">Python</a>
+</th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
 <tr valign="top"><td> 10.12?

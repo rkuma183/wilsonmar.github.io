@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Text Editors on Mac OSX"
+title: "Text Editors"
 excerpt: "One second saved per minute = 1.666% better living"
 tags: [apple, mac, setup]
 image:
