@@ -51,7 +51,7 @@ Here's the map of Tesla superchargers:
 <img alt="map tesla charging stations 650x334-c59" width="650" height="334" src="https://cloud.githubusercontent.com/assets/300046/17037278/538ea0f8-4f4d-11e6-907a-6a0b65a807e5.jpg"></a>
 
 See <a target="_blank" href="http://sahatyalkabov.com/cross-country-road-trip-in-tesla-model-s-prologue/">
-Sahat</a>'s cross-country trip in Tesla.
+Sahat's cross-country trip</a> in a Tesla.
 
 
 <a name="DownEastCoast"></a>
@@ -155,21 +155,20 @@ This is where America began.
 ### Western Mass up 91:
 
 <ul>
-<li><a target="_blank" href="http://www.decordova.org/">DeCordova Museum and Sculpture Park</a> Lincoln</li>
-<li><a target="_blank" href="http://www.amherst.edu/~mead/">Mead Art Museum at Amherst College</a> Amherst</li>
-<li><a target="_blank" href="http://www.picturebookart.org/">Eric Carle Museum of Picture Book Art</a> Amherst</li>
-<li><a target="_blank" href="http://www.smith.edu/artmuseum/">Smith College Museum of Art</a> Northampton</li>
-<li><a target="_blank" href="http://www.clarkart.edu/"><strong>Clark Art Institute</strong></a> Williamstown</li>
-<li><a target="_blank" href="http://www.wcma.org/">Williams College Museum of Art</a> Williamstown</li>
-<li><a target="_blank" href="http://www.massmoca.org/">Massachusetts Museum of Contemporary Art</a> North Adams</li>
+<li><a target="_blank" href="http://www.decordova.org/">DeCordova Museum and Sculpture Park</a>, Lincoln</li>
+<li><a target="_blank" href="http://www.amherst.edu/~mead/">Mead Art Museum at Amherst College</a>, Amherst</li>
+<li><a target="_blank" href="http://www.picturebookart.org/">Eric Carle Museum of Picture Book Art</a>, Amherst</li>
+<li><a target="_blank" href="http://www.smith.edu/artmuseum/">Smith College Museum of Art</a>, Northampton</li>
+<li><a target="_blank" href="http://www.clarkart.edu/"><strong>Clark Art Institute</strong></a>, Williamstown</li>
+<li><a target="_blank" href="http://www.wcma.org/">Williams College Museum of Art</a>, Williamstown</li>
+<li><a target="_blank" href="http://www.massmoca.org/">Massachusetts Museum of Contemporary Art</a>, North Adams</li>
 </ul>
 
-### South Mass:
+### Southern Mass:
 
 <ul>
 <li><a target="_blank" href="http://AttleboroMuseum.org/">Attleboro Museum and Center for the Arts</a></li>
 <li><a target="_blank" href="http://www.newbedfordartmuseum.org/">New Bedford Art Museum</a></li>
-<li><a target="_blank" href="http://www.gardnermuseum.org/">Isabella Steward Gardner Museum</a></li>
 <li><a target="_blank" href="http://www.clarkart.edu/">Sterling and Francine Clark Art Institute</a>, Williamstown</li>
 </ul>
 
