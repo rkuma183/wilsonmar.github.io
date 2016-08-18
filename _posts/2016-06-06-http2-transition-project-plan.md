@@ -548,3 +548,10 @@ https://ma.ttias.be/architecting-websites-http2-era/
 https://ma.ttias.be/http2
 
 http://www.neotys.com/blog/http2-changes-challenges-and-considerations-for-load-performance-testers/
+
+
+## More on front-end software development #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

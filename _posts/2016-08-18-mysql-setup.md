@@ -55,7 +55,14 @@ If you don't need to first uninstall MySQL,
 
 ## Cloud instances #
 
-There are several.
+There are several that provides not just the database, but also
+automation such as 
+automatic scaling to provide capacity, 
+backup/roll-back functionality,
+auto-failover in several zones, 
+and 
+auto-updates.
+
 
 ### AWS Aurora #
 
@@ -65,10 +72,17 @@ replaces MySQL in the AWS cloud, enabling scaling to 64 TB
 and replicates across 3 zones.
 It's managed by the AWS RDS (Relational Data Service).
 
+### Google Cloud SQL #
+
+<a target="_blank" href="http://www.infoworld.com/article/3107977/database/google-cloud-sql-provides-easier-mysql-for-all.html">
+On August, 2016 Google announced</a>
+Cloud SQL announced, a hosted version of MySQL 5.7 for the Google Cloud Platform.
+
+
 
 <a name="InstallMySQL"></a>
 
-## MySQL via Homebrew #
+## MySQL via Homebrew on Mac OSX #
 
 PROTP: Use Homebrew instead of downloading from
    <a target="_blank" href="http://dev.mysql.com/downloads/">
@@ -94,7 +108,7 @@ PROTP: Use Homebrew instead of downloading from
    This can cause other packages to be downloaded, which can take several minutes.
 
 
-0. Run the Homebrew installer:
+0. Run the latest version of the Homebrew installer:
 
    <tt><strong>
    brew install mysql
@@ -828,10 +842,4 @@ before doing the 29 Apr 2013
 MySQL Fundamentals video course on Pluralsight</a>
 (2 hour 37 minutes)
 
-
-## More on OSX
-
-This is one of a series on Mac OSX:
-
-{% include mac_links.html %}
 

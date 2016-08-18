@@ -1368,3 +1368,12 @@ The Algoria theme keeps CSS and JavaScript within a folder named <strong>public<
 ## Resources #
 
 * Nick Zadrozny is the co-founder of Bonsai.io.
+
+
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

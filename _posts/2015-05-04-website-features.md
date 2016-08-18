@@ -21,27 +21,33 @@ Some features that can be added (offered in other themes and templates) include:
 
 ## Navigation
 
-* Apple app images
+* Custom icon (favico.ico/png) appearing on browser tabs
+* Apple Touch images mobile
 * Windows 10 desktop tile images
 
+* Top of page link/icon
 * Visual site map
 * Breadcrumb trail
 
-* Previous and Next article
-* Top of page link/icon
-* Link back to site ("this site")
+* Search field (and custom response page)
 
-* Custom icon (favico.ico/png) appearing on browser tabs
+* Previous and Next article
 * Also enjoy these others in this same site
 
-* Search field (and custom response page)
+* Link back to site ("this site")
+
 
 ## Authentication #
 
 * Facebook
 * GitHub
+* Google
 * Twitter
+* LinkedIn
+* Instagram
+
 * Amazon Cognito Identity User Pools
+
 
 ## Personalization
 
@@ -54,7 +60,8 @@ Some features that can be added (offered in other themes and templates) include:
 * Cookie policy verification (for EU)
 * Display most popular post on anonymous landing
 
-## Social
+
+## Social #
 
 * Default author information display
 * Request for visitor email to subscribe
@@ -63,7 +70,8 @@ Some features that can be added (offered in other themes and templates) include:
 * Social buttons to the author's eminations on Twitter, Facebook, etc.
 * Email form to provide feedback
 
-## SEO
+
+## SEO #
 
 * Site XML file for Google Search to discover
 * Google Analytics JavaScript
@@ -71,13 +79,27 @@ Some features that can be added (offered in other themes and templates) include:
 * Google search ownership file
 * Bing search site ownership file
 
-## Monitization
+
+## Monitization #
 
 * Google ads
 * Shop (t-shirts, etc.)
 
-## Performance
+
+## Performance #
 
 * Asychronous update of a section rather than entire form (submit)
 * Minify HTML, CSS, and JavaScript files
 * [Google AMP coding](/accelerated-mobile-pages/)
+
+
+## TODO: 
+
+* Make this page into a form where people can check what they want, save it, send it to others, etc.
+
+
+## More on front-end software development #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

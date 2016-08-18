@@ -30,7 +30,7 @@ Numbered for reference, not to ascribe importance.
 0. <strong>Infinite scrolling</strong> brings additional content on the page 
    automatically as (or before) user scrolls down (without clicking "more")
 
-0. http://georgeioannou.com 
+0. <a target="_blank" href="http://georgeioannou.com/">georgeioannou.com</a>
    has a light table or carosel arranging clickable pictures
 
 0. Category links to display selected items for each category (to not overwhelm visitors)
@@ -38,7 +38,8 @@ Numbered for reference, not to ascribe importance.
 
    ### Navigation:
 
-0. Auto-Rotator doesn't force visitors to click for next page.
+0. <a target="_blank" href="http://www.aspsnippets.com/Articles/JavaScript-Auto-Image-Rotator-using-Timed-Image-Swap-technique.aspx">
+   Timed image auto-rotates</a> doesn't force visitors to click for next page. But they can if they want.
 
 0. Text about each graphic
 
@@ -318,7 +319,7 @@ These are from:
 
 
 
-## More on front-end styling #
+## More on front-end software development #
 
 This is one of several topics:
 
