@@ -13,6 +13,16 @@ comments: true
 
 {% include _toc.html %}
 
+## Internet of Things #
+
+{% include iot_links.html %}
+
+## Front-ends #
+
+{% include front-end_links.html %}
+
+## Back-end #
+
 {% include builder_links.html %}
 
 > Let me and my colleagues help you with these. Call me!

@@ -40,6 +40,10 @@
         <hr />
         {% include _social-share.html %}
       {% endif %}
+      {% if page.subscribe != false %}
+        <hr />
+        {% include _subscribe.html %}
+      {% endif %}
     </div><!-- /.article-wrap -->
     {% if site.owner.disqus-shortname and page.comments == true %}
       <section id="disqus_thread"></section><!-- /#disqus_thread -->

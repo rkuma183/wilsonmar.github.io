@@ -110,11 +110,20 @@ Services such as HootSuite
 enable messages to be stored for future delivery at specific times.
 
 
+## Association #
+
+Here's a great example of associating authoritative and inspirational messaging to a brand:
+
+   <amp-img alt="social twitter nike justdoit 20160725 478x120-10kb.png" width="478" height="120" src="https://cloud.githubusercontent.com/assets/14143059/17757101/b8d23970-64a1-11e6-90f1-17af4d1a0d58.png"></amp-img>
+
+
 ## Competitive Association #
 
 When an organization makes a media splash,
 competitors may hijack the hashtags being promoted
 by tweeting the competitor's tag along with their own, which associates the communications together.
+
+
 
 
 ## More on evangelism #

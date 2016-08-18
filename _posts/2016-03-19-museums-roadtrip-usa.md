@@ -214,7 +214,7 @@ This is where America began.
 <li><a target="_blank" href="http://thebergenmuseum.com/">Bergen Museum</a>, Hackensack</li>
 <li><a target="_blank" href="http://www.groundsforsculpture.org/">Grounds For Sculpture</a>, Hamilton</li>
 <li><a target="_blank" href="http://www.jerseycitymuseum.org/">Jersey City Museum</a></li>
-<li><a target="_blank" href="http://www.montclair-art.com/">Montclair Art Museum</a></li>
+<li><a target="_blank" href="https://www.montclairartmuseum.org/">Montclair Art Museum</a></li>
 <li><a target="_blank" href="http://morrismuseum.org/">Morris Museum</a>, Morristown</li>
 <li><a target="_blank" href="http://www.state.nj.us/state/museum/">New Jersey State Museum</a>, Trenton</li>
 <li><a target="_blank" href="http://www.newarkmuseum.org/">Newark Museum</a></li>
