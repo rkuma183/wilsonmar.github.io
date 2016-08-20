@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+<amp-youtube data-videoid="Cf29Q0c6_7s" layout="responsive" width="480" height="270"></amp-youtube>
+
 Here are the sequence of specific steps to build a website using
 a <a target="_blank" href="https://jamstack.org/">JAM stack</a> 
 -- that create websites that are fast, secure, and simple to work with. 
@@ -23,33 +25,62 @@ JavaScript on the site makes calls to API (Application Programming Interfaces) w
 to manage subscription forms and email campaigns.
 Content for the site is written in semi-technical markup language text stored on GitHub.com.
 
-![jekyll-data-driven-web-v01-650x319-168kb](https://cloud.githubusercontent.com/assets/300046/17828573/f9ecb31a-6652-11e6-8a28-943aa61528b9.jpg)
+We have here a way for artists to manage and display their <strong>portfolio</strong> of 
+photos in <strong>file folders</strong> distributed across the internet for fast retrieval anywhere in the world.
 
-We use here a common use-case of an artist showing off their portfolio of photo files in a folder somewhere on the internet.
+We want the photos to show up in a <strong>list or table</strong> on a web page 
+visitors obtain by typing in a <strong>topic</strong> on their web browser.
 
-We want that portfolio of files to show up as a list or table in a web page under a given topic in a URL typed in a visitor's web browser.
-That list can retrieve files such as images from a folder of assets such as photographs.
-The list of files in the Portfolio list is useful to select files for processes such as identifying file sizes plus compression and watermarking of each file.
+The Portfolio listing is used to select files for 
+<strong>processes</strong> such as identifying file sizes plus compression and watermarking of each photo.
 
-Alternately, data about each work in that portfolio can be assembled by hand analyzing previous HTML or whatever.
-The portfolio file is .csv (comma separated values) format text file that can be edited by any text editor.
-But many prefer to edit such files using a spreadsheet program such as Microsoft Excel or always on-line in Google Sheets.
+The program may also load the portfolio file into a 
+<strong>database</strong> for other programs to access online.
 
-We prefer to store files GitHub because we can go back to each complete version at various points in time.
-Complete copies of a repository are obtained from GitHub for edit locally off-line.
-So many writers prefer to store their writing in a file for each topic or page within a website.
-Each file contains "yaml" front-matter that stores text referenced by variables defined by "moustashes" in the text of each page.
+Metadata, such as a description about each work in the portfolio, 
+are usually entered by hand or via audio recording.
 
-We use Jekyll because it generates that list inside an index.html file under a topic.
-And it will do that for all topics within a _site folder published to the internet.
+The portfolio file is in .csv (comma separated values) format 
+which is <strong>text</strong> that can be edited by any text editor.
+Many prefer to edit such files locally using a spreadsheet program such as Microsoft Excel.
+And storing files in <strong>GitHub</strong> allows us to 
+go back to each complete version at various points in time.
+Complete copies of a repository are obtained from GitHub.
 
-Before it does all that, we have a parser program that creates text that references to files in the folder in a format useable by that {include} marker.
-The program may also load portfolio data into in a database for wider access online.
+What's amazing about GitHub is that it 
+not only hosts websites for free,
+it runs a program called <strong>Jekyll</strong> that applies
+colors and fonts and layouts specified in <strong>templates</strong> 
+to each <strong>topic</strong>.
 
-Tags in the portfolio flat file can be re-used to post Instagrams or tweet in Twitter.
-That is done by a publisher program that arranges data for automatic posting and tweeting.
+We like to use the Jekyll program because it 
+<strong>generates</strong> an index.html file for each topic.
+It puts all the files for a website within a 
+<strong>_site</strong> folder published to the internet.
 
+The file for a topic can contain text which replace
+<strong>variables</strong> defined in the main section of that page.
 
+Before it does all that, we have a <strong>parser</strong> 
+program that creates a <strong>text file</strong>
+which replaces the <strong>{include}</strong> tag in a topic file.
+
+If tags are added to describe each work in the 
+portfolio file, they can be automatically posted to 
+Instagram, Twitter, or other social network, on a schedule.
+That is done by a <strong>publisher</strong> program.
+
+Coding in web pages interact with a 
+<strong>form processing API</strong> on a server to handle 
+both generic portfolio data and data specific to each visitor.
+
+<amp-img alt="jekyll-data-driven-website-v02-650x347-178kb.jpg" width="650" height="347" src="https://cloud.githubusercontent.com/assets/300046/17831872/c1a16306-66b2-11e6-8eb0-9c41d1c18e82.jpg"></amp-img>
+
+So here you have it, a way to create a website that allows local editing,
+version control, speed from pre-distributed static files, and 
+audience interaction from social media attraction.
+
+<hr />
 
    ## Accounts
 
