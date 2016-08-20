@@ -15,15 +15,41 @@ comments: true
 
 {% include _toc.html %}
 
-Here are the sequence of specific steps to build a website -
+Here are the sequence of specific steps to build a website using
 a <a target="_blank" href="https://jamstack.org/">JAM stack</a> 
--- the "ideal" way of building websites and apps that are fast, secure, and simple to work with. 
-JAM stands for JavaScript, APIs, and Markup - the components of software
-leveraging the latest advances in computer science.
-Content for the site is written in markup language stored on GitHub.com.
-
+-- that create websites that are fast, secure, and simple to work with. 
+JAM stands for JavaScript, APIs, and Markup.
 JavaScript on the site makes calls to API (Application Programming Interfaces) web services in the cloud
 to manage subscription forms and email campaigns.
+Content for the site is written in semi-technical markup language text stored on GitHub.com.
+
+![jekyll-data-driven-web-v01-650x319-168kb](https://cloud.githubusercontent.com/assets/300046/17828573/f9ecb31a-6652-11e6-8a28-943aa61528b9.jpg)
+
+We use here a common use-case of an artist showing off their portfolio of photo files in a folder somewhere on the internet.
+
+We want that portfolio of files to show up as a list or table in a web page under a given topic in a URL typed in a visitor's web browser.
+That list can retrieve files such as images from a folder of assets such as photographs.
+The list of files in the Portfolio list is useful to select files for processes such as identifying file sizes plus compression and watermarking of each file.
+
+Alternately, data about each work in that portfolio can be assembled by hand analyzing previous HTML or whatever.
+The portfolio file is .csv (comma separated values) format text file that can be edited by any text editor.
+But many prefer to edit such files using a spreadsheet program such as Microsoft Excel or always on-line in Google Sheets.
+
+We prefer to store files GitHub because we can go back to each complete version at various points in time.
+Complete copies of a repository are obtained from GitHub for edit locally off-line.
+So many writers prefer to store their writing in a file for each topic or page within a website.
+Each file contains "yaml" front-matter that stores text referenced by variables defined by "moustashes" in the text of each page.
+
+We use Jekyll because it generates that list inside an index.html file under a topic.
+And it will do that for all topics within a _site folder published to the internet.
+
+Before it does all that, we have a parser program that creates text that references to files in the folder in a format useable by that {include} marker.
+The program may also load portfolio data into in a database for wider access online.
+
+Tags in the portfolio flat file can be re-used to post Instagrams or tweet in Twitter.
+That is done by a publisher program that arranges data for automatic posting and tweeting.
+
+
 
    ## Accounts
 
