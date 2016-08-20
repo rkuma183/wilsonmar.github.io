@@ -40,7 +40,26 @@ What percent of your activity results in some action by readers:
 An effective <strong>influencer</strong> is one who can get people to do the above.
 
 
-## <a name="MeasureEngagement">Measure Engagement</a> #
+
+## Helping association #
+
+An IT education school makes videos from useful blog articles.
+
+   https://www.youtube.com/watch?v=0slsoyEhz40
+
+   Is the effort of creating a video worth the number of views?
+
+
+PROTIP: It is rare to get more than 5% on messages delivered.
+This means most tweets are never read by anyone.
+
+PROTIP: However, tweets remain on the internet forever, 
+so someone doing searches may find it days, months, or even years later.
+
+
+<a name="MeasureEngagement"></a>
+
+## Measure Engagement #
 
 Here are some services that measure engagement:
 
@@ -71,12 +90,9 @@ Postrank</a>
 * <a target="_blank" href="http://www.twittergrader.com/">
 TwitterGrader</a>
 
+* Hotspot
 
-It is rare to get more than 5% on messages delivered.
 
-Most tweets are never read by anyone.
-
-However, tweets remain forever, so someone doing searches may find it days, months, and years later.
 
 ## Multiple Twitter accounts #
 

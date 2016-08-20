@@ -19,11 +19,34 @@ comments: true
 
 Some features that can be added (offered in other themes and templates) include:
 
-## Navigation
+   ## Landing page #
+
+0. <strong>Infinite scrolling</strong> brings additional content on the page 
+   automatically as (or before) user scrolls down (without clicking "more")
+
+0. <a target="_blank" href="http://georgeioannou.com/">georgeioannou.com</a>
+   has a light table or carosel arranging clickable pictures
+
+0. Category links to display selected items for each category (to not overwhelm visitors)
+
+
+   ## Navigation
 
 * Custom icon (favico.ico/png) appearing on browser tabs
 * Apple Touch images mobile
 * Windows 10 desktop tile images
+
+0. <a target="_blank" href="http://www.aspsnippets.com/Articles/JavaScript-Auto-Image-Rotator-using-Timed-Image-Swap-technique.aspx">
+   Timed image auto-rotates</a> doesn't force visitors to click for next page. But they can if they want.
+
+0. Text about each graphic
+
+0. <strong>Audio</strong> about each graphic
+
+0. Global-nav links are in text to enable localization.
+
+0. "Top" icon/link at the bottom of the page
+
 
 * Top of page link/icon
 * Visual site map
@@ -37,7 +60,7 @@ Some features that can be added (offered in other themes and templates) include:
 * Link back to site ("this site")
 
 
-## Authentication #
+   ## Authentication #
 
 * Facebook
 * GitHub
@@ -49,7 +72,8 @@ Some features that can be added (offered in other themes and templates) include:
 * Amazon Cognito Identity User Pools
 
 
-## Personalization
+
+   ## Personalization
 
 * Lookup location based on IP
 * Confirm identity simply, such as clicking a pre-agreed image
@@ -61,7 +85,16 @@ Some features that can be added (offered in other themes and templates) include:
 * Display most popular post on anonymous landing
 
 
-## Social #
+   ## Social 
+
+   <img align="right" alt="scr colorful social buttons 21x86-1kb" width="21" height="86" src="https://cloud.githubusercontent.com/assets/14143059/17743113/da92785a-645f-11e6-8d08-ef0e9d2ed035.png">
+
+0. Gray icons at the bottom of the page
+
+   <amp-img alt="scr gray social buttons 361x58-8kb" width="361" height="58" src="https://cloud.githubusercontent.com/assets/14143059/17742925/33c9f17e-645f-11e6-8a32-3c1fa0630e9a.jpg"></amp-img>
+
+0. Colorful icons shown all the time at the edges to be "in the face" of visitors encourages clicking?
+
 
 * Default author information display
 * Request for visitor email to subscribe
@@ -70,8 +103,16 @@ Some features that can be added (offered in other themes and templates) include:
 * Social buttons to the author's eminations on Twitter, Facebook, etc.
 * Email form to provide feedback
 
+   ## Text #
 
-## SEO #
+0. A sub-title provides additional explanation (jokes) about the topic.
+
+0. Wide "hero" images add visual context, at a cost download time.
+
+0. Title text is clickable to access the site externally
+
+ 
+   ## SEO #
 
 * Site XML file for Google Search to discover
 * Google Analytics JavaScript
@@ -80,13 +121,13 @@ Some features that can be added (offered in other themes and templates) include:
 * Bing search site ownership file
 
 
-## Monitization #
+   ## Monitization #
 
 * Google ads
 * Shop (t-shirts, etc.)
 
 
-## Performance #
+   ## Performance #
 
 * Asychronous update of a section rather than entire form (submit)
 * Minify HTML, CSS, and JavaScript files
