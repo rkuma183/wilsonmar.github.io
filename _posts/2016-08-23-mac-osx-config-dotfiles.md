@@ -21,1284 +21,941 @@ Some settings can be automated using "dotFiles"
 <a href="#DotFileRepos">in repositories maintained by various people</a>.
 
 
-
-<a id="Terminalz"></a>
-
-## Open Terminal from Finder Folder #
-
-It's hard to get away from using a command-line terminal.
-
-Since Yosemite, you can open a terminal to a folder listed within Finder 
-by positioning mouse on it then tapping with two fingers on the touchpad.
-
-<ol type="1">
-<li> Click the Apple icon, System Preferences....</li>
-<li> Press K and select Keyboard.</li>
-<li> Click Shortcuts, Services.</li>
-<li> Scroll to the <strong>Files and Folders</strong> section.</li>
-<li> Check on <strong>New Terminal at Folder</strong>.</li>
-<li> Close the dialog by clicking the red dot at the upper left corner.</li>
-</ol>
-
-
-
-Three ways to relaunch the Finder:
-
-0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
-
-0. Press Command with your right hand and Option-esc with your left hand
-   and choose Force Quit from the Apple menu. Then select the Finder and click Relaunch.
-
-0. Log out and log back in to your user account.
-
-
-<a id="Configz"></a>
-
-## System Preferences 
-
-<ol type="1">
-<li> If you don't see the Apple icon at the top of the screen,
-move the cursor to the very top of the screen for a few seconds.</li>
-<li> Click on the Apple icon at the upper left corner.</li>
-<li> Select <strong>System Preferences</strong>.</li>
-<li> Click <strong>Displays</strong>.</li>
-<li> Set <strong>Resolution</strong> to <strong>Scaled</strong></li>
-
-<li><a href="_blank" href="https://www.esolutions.se/en-GB/test">
-Test Page</a> reports the screen and resolution along with browser version.</li>
-
-   The Mac Pro 15 inch retina display is preconfigured to 
-   a screen resolution of 1440 wide x 900 high, but a browser window of 1440 x 738.
-
-<li> Click one of the 5 resolutions between <strong>Larger Text</strong> and 
-<strong>More Space</strong>.</li>
-</ol>
-
-
-<a id="Microphonez"></a>
-
-## Microphone #
-
-To disable the internal microphone, there is no icon.
-So reduce the input volume to 0:
-
-<ol type="1">
-<li> Click on the Apple logo at the upper left corner.</li>
-<li> Select System Preferences.</li>
-<li> Type S and click on <strong>Sound</strong>.</li>
-<li> Click on the <strong>Input</strong> tab.</li>
-<li> Drag the <strong>Input volume</strong> slider all the way to the left.</li>
-<li> Close System Preferences.</li>
-</ol>
-
-This works by changing the audio input to the line-in, 
-also known as the audio input port on your Mac. 
-As long as you don't actually have any audio input device connected, 
-such as an external microphone or some other line-in device, 
-this method should work.
-
-
-
-
-<a id="Setup_Sound"></a>
-
-## Sound Control #
-
-
-Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
-create in the /Library/Scripts folder shell scripts containing 
-osacript (<a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>a>) commands
-to mute sound automatically before reboot, and un-mute after reboot.
-
-0. Open a terminal and type in nano. Press Enter.
-
-   Type this in the nano editor that pops up this shell script (starting with the she-bang #! characters):
-
-   <pre>
-   #!/bin/bash
-   osascript -e 'set volume with output muted'
-   </pre>
-
-0. Press Ctrl+O, then when it asks you for the filename type in 
-
-   <tt>
-   ~/Documents/mute.sh
-   </tt>
-
-0. Hit Enter to save the file. This puts the mute script in your Documents folder (don't worry, we're going to move it later).
-
-0. Create the unmute.sh script:
-
-   <pre>
-   #!/bin/bash
-   osascript -e 'set volume without output muted'
-   </pre>
-
-   (In older versions the unmute script instead has 
-
-   <tt>set volume with output unmuted</tt>.
-
-0. Press Ctrl+X, press Y to agree, then type in 
-
-   <tt><strong>
-   ~/Documents/unmute.sh for the file name. 
-   </strong></tt>
-
-0. Hit Return to save the new file, and nano should quit.
-
-0. To make the scripts executable,
-   run the following commands in the Terminal, hitting Enter after each one
-
-   <pre>
-   sudo chmod u+x ~/Documents/mute.sh
-   sudo chmod u+x ~/Documents/unmute.sh
-   sudo mv ~/Documents/mute.sh /Library/Scripts/
-   sudo mv ~/Documents/unmute.sh /Library/Scripts/
-   </pre>
-
-0. Set the scripts to run automatically:
-
-   <pre>
-   sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh
-   sudo defaults write com.apple.loginwindow LoginHook /Library/Scripts/unmute.sh
-   </pre>
-
-0. Close the Terminal, save data in all other apps, and reboot your machine.
-
-0. To undo the above actions, set defaults in a Terminal window:
-
-   <pre>
-   sudo defaults delete com.apple.loginwindow LogoutHook
-   sudo defaults delete com.apple.loginwindow LoginHook
-   </pre>
-
-For more about Applescript commands and hooks, see
-<a target="_blank" rel="amphtml" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
-this</a>.
-
-
-
-<a id="Wallpaperz"></a>
-
-## Desktop Wallpaper Pictures #
-
-Get to the Desktop by spreading thumb and 4 fingers on the touchpad.
-
-Choose a different picture from Preferences 
-> desktops/screensaver 
-> select your desktop (highlight) 
-> press Command and C at he same time. BTW, notice where your picture/photo folders.
-
-Want to add the Windows 10 wallpaper to your desktop?
-
-   Get to folder where system wallpapers are held from the 
-   Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
-
-Sort by File Size. 
-
-Some wallpaper images that come with OS X are of Retina resolution: 
-<strong>5120x2880</strong>.
-
-
-
-<a id="DNSConfigz"></a>
-
-## DNS Configuration with NameBench #
-
-<a target="_blank" href="http://www.macworld.com/article/2824564/slow-internet-edit-your-dns-settings.html">
-Analysis at one time</a> showed this ranking by speed:
-
-<ol type="1">
-<li> UltraDNS at 156.154.70.1 </li>
-<li> Google at 8.8.4.4, 8.8.8.8</li>
-<li> OpenDNS at 208.67.222.222, 208.67.220.220, 208.67.222.220 </li>
-</ol>
-
-<a href="_blank" href="https://code.google.com/p/namebench/">
-Google Namebench</a> tries the speed of various DNS servers from YOUR machine (which takes some time) and pops up in your browser this:
-
-   <amp-img media="(min-width: 401px)" width="401" height="109"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15806416/10a81d26-2b00-11e6-9bcc-811ea1debc07.jpg"></amp-img>
-
-<ol type="1">
-<li> If you don't see the Apple icon at the top of the screen,
-move the cursor to the very top of the screen for a few seconds.</li>
-<li> Click on the Apple icon at the upper left corner.</li>
-<li> Select <strong>System Preferences</strong>.</li>
-<li> Click <strong>Network</strong>.</li>
-<li> Click <strong>Advanced</strong>.</li>
-<li> Click <strong>DNS</strong>.</li>
-<li> Click <strong>[+]</strong>, copy, and paste </li>
-</ol>
-
-An example:
-
-<ol type="1">
-<li> 205.171.3.65 </li>
-<li> 216.146.35.35 </li>
-<li> 192.168.0.1 </li>
-</ol>
-
-
-<a id="HotCornerz"></a>
-
-## Cursor to Screen Hot Corners #
-
-By default, if you move the mouse to one of the corners of the screen,
-stuff happens. It can be annoying.
-
-0. Click the Apple menu at the upper left corner.
-0. Select System Preferences.
-0. Select Desktop &amp; Screen Saver.
-0. Click Hot Corners at the lower-right corner.
-   
-   <amp-img media="(min-width: 320px)" width="320" height="118" 
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206160/5a816098-f7ce-11e5-8e9c-eb5c06d3b2ad.jpg"></amp-img><!-- http://merc.tv/img/scr/mac_10.10_hot_corners.jpg" -->
-
-ADVICE:
-I disabled each by selecting the dash (last choice) 
-because they show up when I don't want them.
-
-
-
-
-
-<a id="TerminalPingHostz"></a>
-
-### Terminal Ping Host #
-
-Find the IP address of a website host name:
-
-<pre><strong>host microsoft.com</strong></pre>
-
-<pre>
-microsoft.com has address 134.170.185.46
-microsoft.com has address 134.170.188.221
-microsoft.com mail is handled by 10 microsoft-com.mail.protection.outlook.com.
-</pre>
-
-
-
-
-<a id="Terminal_file_listing"></a>
-
-## Terminal File Listing Home Folder #
-
-By default, the terminal shows the hard drive and lowest level file folder name, 
-in white letters over black.
-
-To show the present (current) working directory (folder):
-
-<tt><strong>
-pwd
-</strong></tt>
-
-The response for me is:
-
-<tt><strong>
-/Users/wilsonmar
-</strong></tt>
-
-You will of course have a different machine user name than wilsonmar.
-
-To get back to this <strong>home</strong> folder:
-
-<tt><strong>
-cd ~/
-</strong></tt>
-
-To list all file names (without any metadata):
-
-<tt><strong>
-ls
-</strong></tt>
-
-Folders available by default include Documents, Downloads, Pictures, Desktop, Music, Movies.
-
-
-To dive into a folder type:
-
-<tt><strong>
-cd mu
-</strong></tt>
-
-Press Enter.
-
-Nothing happens because upper case letters are important.
-Press delete to remove the mu and type:
-
-<tt><strong>
-cd Mu
-</strong></tt>
-
-Press Enter for the Music folder.
-
-Go back up a level:
-
-<tt><strong>
-cd ..
-</strong></tt>
-
-To list all files with their permission settings:
-
-<tt><strong>
-ls -ls
-</strong></tt>
-
-Notice that no hidden files are listed.
-To list all <strong>hidden</strong> files with permission settings,
-piping the listing to more instead of having results flying by:
-
-<tt><strong>
-ls -la ~/ | more
-</strong></tt>
-
-A colon appears at the bottom if there is more to show. 
-
-To cancel the listing, press <strong>control + C</strong>.
-
-Notice the .bashrc on the first page, something like:
-
-<tt>
--rw-r--r--  1 discworld discworld  3330 Mar 10 16:03 .bashrc
-</tt>
-
-(It's for the <a href="#BashShell">Bash Shell</a>.)
-
-
-If it's not listed, create it with:
-
-<tt><strong>
-vi ~/.bashrc
-</strong></tt>
-
-To make it rw r r:
-
-<tt><strong>
-chmod 644 .bashrc 
-</strong></tt>
-
-List only hidden files in the current folder:
-
-<tt><strong>
-ls -ld .??*
-</strong></tt>
-
-Create a Projects folder to hold projects downloaded from 
-<a href="#Setup_Github">Github</a>:
-
-<tt><strong>
-mkdir Projects
-</strong></tt>
-
-This only needs to be done once.
-
-<a id="ShowHiddenInFinderz"></a>
-
-## Show Hidden Invisible Files in Finder #
-
-By default, the Mac's Finder does not show hidden files.
-
-0. Close all Finder folders. 
-
-0. Enter this in Terminal before typing Return:
-
-   <tt><strong>
-   defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
-   </strong></tt>
-
-   This causes all Finder windows to be reset.
-
-   To make invisible files invisible again:
-
-   <tt><strong>
-   defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
-   </strong></tt>
-
-   A description of each keyword:
-
-   **defaults** - OSX's command to change defaults, apple's low-level preference system.
-
-   **write** - tells defaults you want to change a preference, or write it
-
-   **com.apple.finder** - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
-
-   **AppleShowAllFiles** - specifies which preference you want to change within the application.
-
-   **TRUE or FALSE** - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
-
-   **&&** - a terminal operator to run whatever's after this if the previous command is successful.
-
-   **killall** - kills processes or closes applications.
-
-   **Finder** - specifies the process or application to close.
-
-
-### Create Terminal Aliases #
-
-Most developers leave files un-hidden.
-But if you want to just type <strong>showFiles</strong> and <strong>hideFiles</strong> 
-to show and hide Mac OS X’s hidden files, consider
-<a target="_blank" rel="amphtml" href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">
-this article</a> to create such terminal aliases.
-
-
-### Brew install tree #
-
-OSX does not come with the tree command that many other Linux distributions provide.
-So add it using brew:
-
-   <tt><strong>brew install tree</strong></tt>
-
-Active Terminal sessions need to be closed so new Terminal | Shell | New Window | Shell has this activated.
-
-See list of parameters:
-
-   <tt><strong>tree \-\-help</strong></tt>
-
-List only 2 levels deep with human-readable file size kilobytes and sort by last modified date:
-
-   <tt><strong>tree -L 2 -s -h -p -D -t</strong></tt>
-
-
-<a id="BashConfigz"></a>
-
-## Bash Profile Configuration #
-
-The profile file is run during <strong>boot-up</strong>
-to configure the terminal 
-to define file path, shims, and autocompletion handlers.
-
-This is the single biggest frustration with people using Linux on Mac.
-
-
-One of the earliest articles on bash at
-http://www.macdevcenter.com/pub/a/mac/2004/02/24/bash.html
-shows shell variables, environment variables, and aliases.
-
-Each operating system has its own file name for its profile:
-
-<ul>	
-<li> With Ubuntu: Modify ~/.profile instead of ~/.bash_profile.</li>
-<li> With Zsh: Modify ~/.zshrc file instead of ~/.bash_profile.</li>
-<li> With Fish: Modify `~/.conf/fish/config.sh` to append.</li>
-</ul>
-
-If there is both a .bash_profile and a .profile file, boot-up only executes the first one it finds.
-
-On my Yosemite Mac, open a terminal and:
-
-<pre><strong>
-cd ~
-</strong></pre>
-
-View the file using the vi editor that comes with OSX:
-
-<pre><strong>
-vi .bash_profile
-</strong></pre>
-
-According to the <a target="_blank" rel="amphtml" href="http://linux.die.net/man/1/bash">
-bash man page</a>, 
-.bash_profile is executed during <strong>login</strong> before the command prompt,
-while .bashrc is executed for interactive non-login shells such as
-when you start a new bash instance by typing /bin/bash in a terminal.
-
-Here's what my profile file begins:
-
-<pre>
-echo ".profile"
-export NVM_DIR="/Users/wilsonmar/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH=/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-</pre>
-
-Exit vi by typing <tt>:q</tt>
-
-
-Some installers request that adding a $PATH using a command such as:
-
-<pre>
-echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
-</pre>
-
-To execute profile with the changes:
-
-<pre><strong>
-source  ~/.bash_profile
-</strong></pre>
-
-Alternately, to install GHC copy and paste into ~/.bash_profile:
-
-<pre>
-# Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
-export GHC_DOT_APP="/Users/wilsonmar/Applications/ghc-7.8.4.app"
-if [ -d "$GHC_DOT_APP" ]; then
-export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
-</pre>
-
-https://github.com/gcuisinier/jenv/blob/master/README.md
-
-
-
-
-<a id="Terminalz"></a>
-
-## Terminal Usage #
-
-This page contains notes for system administrators and developers,
-who need to control Macs below the UI level, which require
-typing commands into a command-line terminal screen.
-
-To list open files (process id's and ports, actually):
-
-<tt><strong>
-sudo lsof -i -P
-</strong></tt>
-
-To avoid text wrapping, pull the right edge to expand the screen width.
-
-The right-most column heading &quot;Name&quot; shows the port
-(either TCP or UDP).
-
-To filter a particular port number:
-
-<tt><strong>
-sudo lsof -i -P | grep 8080
-</strong></tt>
-
-The second column, PID, lists the process identifier.
-Copy a number for use in the kill command:
-
-<tt><strong>sudo kill 289</strong></tt>
-
-
-
-<a id="OSKernelz"></a>
-
-## Operating System Kernel #
-
-I can use Linux commands in my version of the operating system:
-
-<tt><strong>uname -a</strong></tt> (a for all) or 
-<tt><strong>uname -rvm</strong></tt> 
-
-returns:
-
-<tt>14.3.0 Darwin Kernel Version 14.3.0: Mon Mar 23 11:59:05 PDT 2015; root:xnu-2782.20.48~5/RELEASE_X86_64 x86_64</tt>
-
-which is a combination of:
-
-<tt><strong>uname -r</strong></tt> for release number,
-<br /><tt><strong>uname -v</strong></tt> for kernel version,
-<br /><tt><strong>uname -m</strong></tt> for model:
-
-<tt>x86_64</tt> for Intel or AMD 64-bit or
-<br /><tt>i*86</tt> for 32-bit.
-
-For more information about Darwin operating system
-developed at Apple, see:
-
-* http://www.wikiwand.com/en/XNU and
-* https://www.wikiwand.com/en/Comparison_of_operating_system_kernels
-
-NOTE: <tt><strong>lsb_release -a</strong></tt>
-which works on Debian, RHEL 6.6, and Ubuntu 
-is not recognized on Gentoo nor CentOS 6,
-which has no folder /etc/lsb-release.
-
-Distriwatch.com describes releases.
-
-
-
-
-<a id="Setup_Mac"></a>
-
-## Setup Your Mac Like a Pro #
-
-Paul Irish is one of top pros among developers, and now a Google Evangelist.
-He put his Mac configuration settings on
-<a target="_blank" rel="amphtml" href="https://github.com/paulirish/dotfiles">
-github.com/paulirish/dotfiles</a>. But he recommends cloning 
-<a target="_blank" rel="amphtml" href="https://github.com/mathiasbynens/dotfiles/">
-github.com/mathiasbynens/dotfiles/</a>.
-
-On the Git page notice that he has established an industry convention of using
-<strong>Projects</strong> folder we defined earlier.
-
-On the Git page I clicked on <strong>Clone in Desktop</strong>.
-
-The library is called dotfiles because that's what hidden files are called,
-and most configuration files are hidden.	
-
-
-
-<a id="Edit_Terminal_setting"></a>
-
-## Edit terminal prompt setting #
-
-<div class="sidenote">
-Paul Irish offers his setup-a-new-machine.sh at
-https://github.com/paulirish/dotfiles
-
-ZShell (included with Mac and can be set as the default in Terminal)
-* oh-my-zsh as a ZShell framework
-* The oh-my-zsh Git plugin
-* And the oh-my-zsh theme called jnroweï»¿
-</p></div>
-
-By default, if you have a long file name, it would leave little room to type in commands before it wraps to the next line.
-
-<a target="_blank" rel="amphtml" href="http://code.tutsplus.com/tutorials/how-to-customize-the-command-prompt--net-20586">
-To redefine what appears in the prompt</a>,
-edit this file using the vi editor that comes with each Mac:
-<tt>
-vi .bashrc 
-</tt>
-Copy this and paste to the bottom of the .bashrc file:
-<pre>
-txtblk='\e[0;30m' # Black - Regular
-txtred='\e[0;31m' # Red
-txtgrn='\e[0;32m' # Green
-txtylw='\e[0;33m' # Yellow
-txtblu='\e[0;34m' # Blue
-txtpur='\e[0;35m' # Purple
-txtcyn='\e[0;36m' # Cyan
-txtwht='\e[0;37m' # White
-
-bldblk='\e[1;30m' # Black - Bold
-bldred='\e[1;31m' # Red
-bldgrn='\e[1;32m' # Green
-bldylw='\e[1;33m' # Yellow
-bldblu='\e[1;34m' # Blue
-bldpur='\e[1;35m' # Purple
-bldcyn='\e[1;36m' # Cyan
-bldwht='\e[1;37m' # White
-
-unkblk='\e[4;30m' # Black - Underline
-undred='\e[4;31m' # Red
-undgrn='\e[4;32m' # Green
-undylw='\e[4;33m' # Yellow
-undblu='\e[4;34m' # Blue
-undpur='\e[4;35m' # Purple
-undcyn='\e[4;36m' # Cyan
-undwht='\e[4;37m' # White
-
-bakblk='\e[40m'   # Black - Background
-bakred='\e[41m'   # Red
-badgrn='\e[42m'   # Green
-bakylw='\e[43m'   # Yellow
-bakblu='\e[44m'   # Blue
-bakpur='\e[45m'   # Purple
-bakcyn='\e[46m'   # Cyan
-bakwht='\e[47m'   # White
-
-txtrst='\e[0m'    # Text Reset
-
-print_before_the_prompt () {
-printf "\n $txtred%s: $bldgrn%s \n$txtrst" "$USER" "$PWD"
-} 
-PROMPT_COMMAND=print_before_the_prompt
-PS1='->'
-</pre>
-The command above uses global parameters $USER and $PWD,
-plus <a target="_blank" rel="amphtml" href="https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash">
-colors from this list</a>.
-
-Exit from the Terminal shell:
-<tt>
-exit
-</tt>
-
-
-
-
-<a id="EnvVarz"></a>
-
-## Environment Variables
-
-
-Like on PCs, the PATH environment variable stores
-where the operating system should look to find
-a particular program to execute.
-
-A big reason to use a command-line terminal is to set environment variables.
-
-To see what is already defined:
-
-<tt><strong>export</strong></tt>
-
-http://stackoverflow.com/questions/135688/setting-environment-variables-in-os-x
-talks about setting <strong>launchd.conf</strong> and rebooting.
-This applies to all users.
-
-
-To see what was already defined:
-
-<tt><strong>echo $PATH</strong></tt>
-
-$PATH must be upper case.
-
-The response I'm getting is:
-
-<tt>
-/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-</tt>
-
-
-<a id="RootSudoz"></a>
-
-## Root user for sudo commands
-
-The root user has the ability to relocate or remove required system files and to introduce new files in locations that are protected from other users.
-
-Any user with an administrator account can become the root user or reset the root password.
-A root user has the ability to access other users' files.
-
-Under a Unix system like Mac OS X you must have "root" (administrative) privileges to start IP-services using ports smaller than 1024.
-
-After Mac install, the root or superuser account is not enabled. 
-While it is possible to enable the root account, 
-once enabled, if forgetten, you'll have to 
-<a target="_blank" rel="amphtml" href="http://danfrakes.com/2014/10/16/how-to-make-a-bootable-yosemite-installer-drive/">
-reboot from the installer drive</a> (a hassle).
-
-It is safer and easier to use the sudo command to gain temporary root access to the system.
-
-DOTHIS: 
-In a Terminal window invoke:
-
-<tt>sudo -s</tt>
-After I type in my password, the response for me is the version of bash:
-
-<tt>bash-3.2# </tt>
-
-to demote out of root:
-
-<tt>exit</tt>
-
-DO THIS:
-The folders that bash looks into are:
-
-<tt>/bin/echo $PATH</tt>
-
-On a fresh Yosemite, its:
-
-<tt>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</tt>
-
-Each additional app adds to the front of the list:
-
-<tt>
-/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-</tt>
-
-Separating the folders between colon separator:
-
-<ul>
-<li>/Library/Frameworks/Python.framework/Versions/3.4/bin</li>
-<li>/opt/local/bin</li>
-<li>/opt/local/sbin</li>
-<li>/Applications/MAMP/bin/php5/bin</li>
-<li>/Applications/MAMP/Library/bin</li>
-<li>/Applications/Adobe AIR SDK/bin</li>
-
-<li>/usr/local/bin</li>
-<li>/usr/bin</li>
-<li>/bin</li>
-<li>/usr/sbin</li>
-<li>/sbin</li>
-</ul>
-
-New folders are added to the front of the PATH using a command such as:
-
-<tt>
-export PATH=&LT;new folders>:$PATH
-</tt>
-
-Depending on how you're setup, file ~/.profile or ~/.bash_profile or ~/.bash_login 
-contains the path echo'd.
-
-Or your PATH may be set in /etc/profile for all users
-
-Clear the terminal history:
-
-<strong>clear</strong>
-
-
-
-<a id="Spotlightz"></a>
-
-## Spotlight on Network Utility to List Ports
-
-Apple's <strong>Spotlight</strong> is like Window's Search omni-box.
-Press <strong>Command+Spacebar</strong>. 
-
-<!-- From http://osxdaily.com/2014/05/20/port-scanner-mac-network-utility/
--->
-Type the name of utilities that are buried, such as
-<strong>Network Utility</strong>.
-
-Click the keyboard return/enter key to launch the Network Utility app.
-
-Select the &quot;Port Scan&quot; tab.
-
-Enter the IP (such as 127.0.0.1), localhost, or domain name 
-you wish to scan for open ports.
-
-Choose <strong>scan</strong> to see what ports the server responds to.
-
-
-<a id="Browserz"></a>
-
-## Create Windows-like shortcuts with parameters using text editor
-
-http://www.jesseweb.com/coding/automator/create-windows-like-shortcuts-with-parameters/
-
-Mac OSX doesn't allow you to create shortcuts like Windows.
-OSX alias don't allow parameters (ex. create a Screen Sharing shortcut that connects to a specific computer). 
-
-Jessie suggests <a target="_blank" rel="amphtml" href="http://www.jesseweb.com/coding/automator/create-windows-like-shortcuts-with-parameters/"> 
-this</a> to create a Windows like shortcut with parameters in the Comments field.
-
-<a target="_blank" rel="amphtml" href="http://hints.macworld.com/article.php?story=20040111200114634">
-Another alternative</a>
-is to use a text editor to create URL shortcut files
-like the ones Windows Internet Explorer stores its bookmarks. 
-Apple Safari recognizes them when clicked within Finder.
-So they are cross-platform.
-
-<ol type="1">
-<li> Copy the URL to the clipboard by pressing Command+C.</li>
-<li> From within a text editor, open a new text file.</li>
-<li> Type at the top of the file: 
-
-<tt>[InternetShortcut]<br />
-URL=</tt>
-</li>
-<li> Paste from clipboard by pressing Command+V</li>
-<li> Press enter/return to add a blank line under the URL line.</li>
-<li> Save the file with a .url file extension.</li>
-<li> From within Finder, click on the file to see it display by Safari.</li>
-</ol>
-
-
-
-
-<a id="MountDmg"></a>
-
-### Mount .dmg files using hdiutil tool
-
-.dmg (Disk Image) files can be mounted from the command line:
-
-<tt><strong>
-hdiutil attach /path/to/diskimage.dmg
-</strong></tt>
-
-The response is like:
-
-<pre>
-/dev/disk1 Apple_partition_scheme
-/dev/disk1s1 Apple_partition_map
-/dev/disk1s2 Apple_HFS /Volumes/Mounted Disk Image
-</pre>
-
-Note the disk from the message above to unmount (detatch):
-
-<tt><strong>
-hdiutil detach /dev/disk1s2
-</strong></tt>
-
-The same utility can mount .iso images:
-
-<tt><strong>
-hdiutil mount sample.iso
-</strong></tt>
-
-
-
-
-<a id="DNSClearz"></a>
-
-## Clear DNS Cache Cache
-
-<a index="_blank" href="http://coolestguidesontheplanet.com/clear-the-local-dns-cache-in-osx/">
-Different commands</a> are needed for different versions of OS.
-<strong>OSX 10.10</strong> added requirement for sudo when using the 
-built-in discoveryutil:
-
-<tt>sudo discoveryutil udnsflushcaches</tt>
-
-<strong>OSX 10.9</strong>
-
-<tt>dscacheutil -flushcache;<br />
-sudo killall -HUP mDNSResponder</tt>
-
-<strong>OSX 10.7  to 10.8</strong>
-
-<tt>sudo killall -HUP mDNSResponder</tt>
-
-<strong>OSX 10.5 to 10.6</strong>
-
-<tt>sudo dscacheutil -flushcache</tt>
-
-<strong>Windows</strong> by contrast:
-
-<tt>ipconfig /flushdns</tt>
-
-<strong>Linux (depending on the flavor running)</strong>
-
-<tt>/etc/init.d/named restart<br />
-/etc/init.d/nscd restart</tt>
-
-
-
-
-<a id="HardDrivez"></a>
-
-## Hard Drives on Mac
-
-DOTHIS: Open a Terminal window to invoke:
-
-<tt>diskutil list</tt>
-
-This lists <strong>physical and virtual disks</strong>. 
-
-&quot;0:&quot; and other such numbers are <strong>partitions</strong>.
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0</tt>
-
-The "Device / Media Name" is the partition label from the disk's partition map 
-(GPT - GUID Partition Table).
-<strong>disk0</strong> Device Media Name: such as &quot;APPLE SSD SM768E Media&quot;
-is the make and model of your drive.
-
-Device / Media Names are set when a partition is created on a disk. The only way you could rename the "startup partition" would be to startup from another drive. The initial name is set by Apple.
-(which Apple does not expected people to change
-and does not reference them at the CLI or GUI level).
-
-AOTW, Apple sells SD drives up to 750.4 GB.
-
-Notice that <strong>disk1</strong> is a <strong>Logical Volume on disk0s2</strong>
-with a GUID referencing disk0.
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0s2</tt>
-
-<strong>disk0s1</strong>: "EFI system partition"
-
-contains extended firmware for your drive.
-
-
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0s1</tt>
-
-<strong>disk0s1</strong>: "EFI system partition"
-<br />
-contains extended firmware for your drive.
-
-
-<strong>disk0s2</strong>: "Customer" to diskutil
-is where your files are stored.
-
-DOTHIS: In a Terminal window invoke:<br />
-
-<tt>diskutil info /dev/disk1</tt>
-
-appears on the Desktop as &quot;Macintosh HD&quot; system partition, 
-which can be changed by pressing Return key after clicking on it.
-
-<strong>disk0s3</strong>: "Recovery HD"
-is a clean install of the OS to make restoring your computer easier.
-
-If you add your own custom partition to the mix you will find that Apple's tools (i.e. Disk Utility) will match the visible name and the device name.
-
-
-
-DOTHIS: Plug in a <strong>Time Machine</strong> drive. 
-In a Terminal window invoke:
-
-   <pre><strong>
-   diskutil info /dev/disk2
-   </strong></pre>
-
-In the list it would have 3 partitions:
-
-0: Apple_partition_scheme<br />
-
-1: Windows_FAT_32
-
-2: Apple_HFS
-
-
-
-DOTHIS: Plug in a <strong>SD card</strong>. 
-In a Terminal window invoke:
-
-   <pre><strong>
-   diskutil list
-   </strong></pre>
-
-In the list it would have 2 partitions:
-
-0: FDISK_partition_scheme
-
-1: Windows_NTFS
-
-In a Terminal window invoke:
-
-   <tt>diskutil info /dev/disk3</tt>
-
-
-DOTHIS: 
-Plug in an <strong>external drive</strong>. 
-In a Terminal window invoke:
-
-   <tt>diskutil list</tt>
-
-In the list it would have 2 partitions:
-
-0: FDisk_partition_scheme
-
-1: Windows_NTFS Seagate Backup Plus ...
-
-DOTHIS: 
-In a Terminal window invoke:
-
-   <tt>diskutil info /dev/disk5</tt>
-
-&quot;Seagate BUP Slim SL Media&quot;
-
-According to 
-http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac/">
-http://sourceforge.net/projects/osxfuse/files/osxfuse-2.7.5/osxfuse-2.7.5.dmg/download">
-OSX Fuse</p> 
-extend OS X's native file handling capabilities via third-party file systems
-such as ext4.
-
-fstab -- static information about filesystems.
-
-
-
-<a id="PartitionTablez"></a>
-
-## Hard Drive Partition Tables
-
-DOTHIS: 
-To show partition tables for a particular disk:
-In a Terminal window invoke:
-
-   <tt>sudo get show /dev/disk0</tt>
-
-Eject the disk from the Finder (or use the unmount terminal command if you'd like). If you don't do this, you may get a Resource busy error message during the following step.
-
-CAUTION:
-Change the partition label as desired:
-
-   <pre><strong>
-   sudo gpt label -i 2 -l "My New Partition Label" /dev/rdisk0
-   </strong></pre>
-
-(replace disk0 with the relevant disk number
-and replace 2 with the index number.
-
-
-<a id="App"></a>
-
-## Disk Space Usage #
-
-<a target="_blank" href="https://medium.com/@thomasdegry/how-sketch-took-over-200gb-of-our-macbooks-cb7dd10c8163">
-One of the folks at Sketch (the Mac photo-editing tool) noticed</a> that 
-Daisy Disk didn't map all the disk space usage.
-
-To reveal disk usage by a file that Apple Lion uses to store copies of files to revert to any version:
-
-   <pre><strong>
-   sudo du -sh /.DocumentRevisions-V100
-   </strong></pre>
-
-Resetting to zero would involve re-installs.
-
-If you use an alternative backup such as Dropbox, 
-you can turn it off for a particular program:
-
-   <pre><strong>
-   defaults write -app ‘sketch’ ApplePersistence -bool no
-   </strong></pre>
-
-
-<a id="DevFolderz"></a>
-
-## Folders accessed by developers
-
-DOTHIS: 
-In Finder, select from the left panel the first item under the 
-<strong>Devices</strong> list.
-
-Click on <strong>Macintosh HD</strong>.
-
-<ul>
-<li><strong>Applications</strong> hold apps installed.</li>
-<li><strong>Incompatible Software</strong> hold apps which cannot be installed,
-such as Amazon Kindle, which competes with Apple's iBooks.
-This occured during upgrade to Yosemite.</li>
-<li><strong>Library/Library</strong> holds Apple internal apps.</li>
-<li><strong>System</strong> hold apps installed.</li>
-<li><strong>Users</strong> hold data for each user defined,
-as well as a Shared folder accessible by all users.</li>
-</ul>
-
-DOTHIS:
-Click on your username (wilsonmar in my case).
-This action is the same as clicking on the last default item under the
-Favorites list.
-
-Many WordPress developers prefer to add a folder named <strong>Sites</strong>
-which holds the wordpress folder expanded from download.
-
-
-
-<a id="Curlz"></a>
-## IPv6 compatibility with Curl command line apps #
-
-<tt>
-curl http://localhost:3000
-</tt>
-
-When invoked on Mac OS 10.10 (Yosemite), you need to add a parameter
-to make the request using IPv4:
-
-<tt>
-curl http://localhost:3000 <strong>--ipv4</strong>
-</tt>
-
-Otherwise, you will see an error message such as:
-
-<tt>
-curl: (7) Failed to connect to localhost port 3000: Connection refused
-</tt>
-
-even if the URL loads fine in a browser.
-
-This occurs because curl, being under Yosemite, uses IPv6 by default but
-some apps, such as LoopBack.io, by default uses IP v4.
-
-See if you see IP v6 entries in your hosts file (::1 localhost, fe80::1%lo0 localhost).
-If they are there it is likely that curl is making requests using IP v6. 
-
-You can make your LoopBack app use IPv6 by specifying an IPv6 address as shown below:
-
-<pre>
-app.start = function() {
-// start the web server
-return app.listen(3000, '::1',function() {
-app.emit('started');
-console.log('Web server listening at: %s', app.get('url'));
-});
-};
-</pre>
-
-
-## VMWare Fusion #
-
-To create a Windows 10 instance within VMWare Fusion: 
-
-0. Download the ISO file from:
-
-    https://www.microsoft.com/en-us/software-download/windows10ISO
-
-0. Within VMWare Fusion, select File | New.
-0. Drag the ISO file and drop on the dialog.
-0. Supply the license key.
-
-<a name="ElCapitanSIP"></a>
-
-## Disable System Integrity Protection #
-
-Some programs make calls to the operating system which OSX began to see as a threat, beginning with El Capitan.
-
-<a target="_blank" href="https://support.apple.com/en-us/HT204899/">
-Apple says</a> System Integrity Protection blocks code injection (and many other things).
-
-But what about useful programs (such as 
-<a target="_blank" href="https://www.trankynam.com/xtrafinder/sip.html">
-XtraFinder</a>)
-which works by injecting its code into Finder and other application processes?
-
-   * For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: Error running jsondialog".
-
-To get around this, you need to partially disable System Integrity Protection in OS X El Capitan.
-
-See <a target="_blank" href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html">
-Apple's article</a> on how:
-
-0. Run a full backup to an external USB drive.
-0. Shut down all apps, then the operating system (from the Apple icon).
-0. Reboot the Mac. 
-
-   This is needed because System Integrity Protection settings are stored in NVRAM on each individual Mac.
-   So it can only be modified from the recovery environment running in NVRAM.
-
-0. Boot OS X into Recovery Mode: hold down the <strong>command + R</strong> keys simultaneously after you hear the startup chime.
-0. When the <strong>OS X Utilities</strong> screen appears, pull down the Utilities menu at the top of the screen.
-
-   <amp-img width="650" height="250" alt="scr mac osx reboot" src="https://cloud.githubusercontent.com/assets/300046/15366780/2b09aaca-1ce3-11e6-92e1-7f44ccc54b5d.png">
-   </amp-img>
-
-0. Choose Terminal.
-0. Type the following command into the terminal before hitting the return key.
-
-   ```
-   csrutil disable; reboot
-   ```
-
-0. For XtraFinder:
-
-   ```
-   csrutil enable \-\-without debug
-   ```
-
-0. To revert SIP to original state:
-
-   ```
-   csrutil clear
-   ```
-
-
-
-## Skill Certification #
-
-<a target="_blank" rel="amphtml" href="https://app.pluralsight.com/library/courses/mac-osx-support-installation-configuration/table-of-contents">
-Video course Mac OS X Support: Installation and Configure</a>
-is the first of courses on Plurasight toward
-Apple Certified Support Professional (ACSP)
-
-
 <a href="#DotFileRepos">
 
 ## Dotfile Settings from others #
 
+Several people publish the dotfiles they use on GitHub repositories:
+
 * https://github.com/afranken/dotfiles
+
 * https://github.com/mathiasbynens/dotfiles
+<br /><br />
 
 
-## Daemons and Agents #
+<a id="SheBang"></a>
 
-* https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+## SheBang #
 
-## Resources:
+{% highlight text %}
+#!/usr/bin/env bash
 
-* https://www.hamsterpad.com/chat/typescriptpdx
-   Typescript Slack group
+# ~/.macos — https://mths.be/macos
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+
+## General UI/UX #
+
+{% highlight text %}
+# Set computer name (as done via System Preferences → Sharing)
+#sudo scutil --set ComputerName "0x6D746873"
+#sudo scutil --set HostName "0x6D746873"
+#sudo scutil --set LocalHostName "0x6D746873"
+#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x6D746873"
+
+# Set standby delay to 24 hours (default is 1 hour)
+sudo pmset -a standbydelay 86400
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Disable transparency in the menu bar and elsewhere on Yosemite
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Menu bar: hide the Time Machine, Volume, and User icons
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+   defaults write "${domain}" dontAutoLoad -array \
+      "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+      "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+      "/System/Library/CoreServices/Menu Extras/User.menu"
+done
+defaults write com.apple.systemuiserver menuExtras -array \
+   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+   "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+# Set highlight color to green
+defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+
+# Set sidebar icon size to medium
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+# Always show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+
+# Disable the over-the-top focus ring animation
+defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
+
+# Disable smooth scrolling
+# (Uncomment if you’re on an older Mac that messes up the animation)
+#defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
+
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# Display ASCII control characters using caret notation in standard text views
+# Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
+defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+
+# Disable Resume system-wide
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+
+# Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Disable the crash reporter
+#defaults write com.apple.CrashReporter DialogType -string "none"
+
+# Set Help Viewer windows to non-floating mode
+defaults write com.apple.helpviewer DevMode -bool true
+
+# Fix for the ancient UTF-8 bug in QuickLook (https://mths.be/bbo)
+# Commented out, as this is known to cause problems in various Adobe apps :(
+# See https://github.com/mathiasbynens/dotfiles/issues/237
+#echo "0x08000100:0" > ~/.CFUserTextEncoding
+
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+# Restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
+
+# Never go into computer sleep mode
+sudo systemsetup -setcomputersleep Off > /dev/null
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
+# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+#sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+{% endhighlight %}
+
+## SSD-specific tweaks  #
+
+{% highlight text %}
+# Disable hibernation (speeds up entering sleep mode)
+sudo pmset -a hibernatemode 0
+
+# Remove the sleep image file to save disk space
+sudo rm /private/var/vm/sleepimage
+# Create a zero-byte file instead…
+sudo touch /private/var/vm/sleepimage
+# …and make sure it can’t be rewritten
+sudo chflags uchg /private/var/vm/sleepimage
+
+# Disable the sudden motion sensor as it’s not useful for SSDs
+sudo pmset -a sms 0
+{% endhighlight %}
+
+## Trackpad, mouse, keyboard, Bluetooth accessories, and input #
+
+{% highlight text %}
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Trackpad: map bottom right corner to right-click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+
+# Disable “natural” (Lion-style) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Use scroll gesture with the Ctrl (^) modifier key to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+# Follow the keyboard focus while zoomed in
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -float 0.000000000001
+
+# Set language and text formats
+# Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
+# `Inches`, `en_GB` with `en_US`, and `true` with `false`.
+defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
+defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Stop iTunes from responding to the keyboard media keys
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+{% endhighlight %}
+
+## Screen #
+
+{% highlight text %}
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# Enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# Enable HiDPI display modes (requires restart)
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+{% endhighlight %}
+
+## Finder #
+
+{% highlight text %}
+# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Finder: disable window animations and Get Info animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Set Desktop as the default location for new Finder windows
+# For other paths, use `PfLo` and `file:///full/path/here/`
+defaults write com.apple.finder NewWindowTarget -string "PfDe"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Finder: show hidden files by default
+#defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Enable spring loading for directories
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+# Remove the spring loading delay for directories
+defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Disable disk image verification
+defaults write com.apple.frameworks.diskimages skip-verify -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+# Show item info near icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+
+# Show item info to the right of the icons on the desktop
+/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
+
+# Enable snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Increase grid spacing for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+
+# Increase the size of icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Enable AirDrop over Ethernet and on unsupported Macs running Lion
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+# Enable the MacBook Air SuperDrive on any Mac
+sudo nvram boot-args="mbasd=1"
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Remove Dropbox’s green checkmark icons in Finder
+file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+   General -bool true \
+   OpenWith -bool true \
+   Privileges -bool true
+{% endhighlight %}
+
+## Dock, Dashboard, and hot corners #
+
+{% highlight text %}
+# Enable highlight hover effect for the grid view of a stack (Dock)
+defaults write com.apple.dock mouse-over-hilite-stack -bool true
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 36
+
+# Change minimize/maximize window effect
+defaults write com.apple.dock mineffect -string "scale"
+
+# Minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Enable spring loading for all Dock items
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Wipe all (default) app icons from the Dock
+# This is only really useful when setting up a new Mac, or if you don’t use
+# the Dock to launch apps.
+#defaults write com.apple.dock persistent-apps -array
+
+# Show only open applications in the Dock
+#defaults write com.apple.dock static-only -bool true
+
+# Don’t animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool false
+
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Don’t group windows by application in Mission Control
+# (i.e. use the old Exposé behavior instead)
+defaults write com.apple.dock expose-group-by-app -bool false
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Remove the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0
+# Remove the animation when hiding/showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Disable the Launchpad gesture (pinch with thumb and three fingers)
+#defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+# Reset Launchpad, but keep the desktop wallpaper intact
+find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
+
+# Add iOS & Watch Simulator to Launchpad
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
+
+# Add a spacer to the left side of the Dock (where the applications are)
+#defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+# Add a spacer to the right side of the Dock (where the Trash is)
+#defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# Top left screen corner → Mission Control
+defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Desktop
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom left screen corner → Start screen saver
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+{% endhighlight %}
+
+## Safari & WebKit #
+
+{% highlight text %}
+# Privacy: don’t send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# Press Tab to highlight each item on a web page
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+# Show the full URL in the address bar (note: this still hides the scheme)
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+# Set Safari’s home page to `about:blank` for faster loading
+defaults write com.apple.Safari HomePage -string "about:blank"
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+# Allow hitting the Backspace key to go to the previous page in history
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+
+# Hide Safari’s bookmarks bar by default
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# Hide Safari’s sidebar in Top Sites
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+# Disable Safari’s thumbnail cache for History and Top Sites
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+# Enable Safari’s debug menu
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Make Safari’s search banners default to Contains instead of Starts With
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Remove useless icons from Safari’s bookmarks bar
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+# Add a context menu item for showing the Web Inspector in web views
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Enable continuous spellchecking
+defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+# Disable auto-correct
+defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable AutoFill
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
+# Warn about fraudulent websites
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+# Disable plug-ins
+defaults write com.apple.Safari WebKitPluginsEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+
+# Disable Java
+defaults write com.apple.Safari WebKitJavaEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+
+# Block pop-up windows
+defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+
+# Enable “Do Not Track”
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+# Update extensions automatically
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+{% endhighlight %}
+
+## Apple Mail #
+
+Skip this if you don't use Apple Mail (and use Gmail instead, etc.)
+
+{% highlight text %}
+# Disable send and reply animations in Mail.app
+defaults write com.apple.mail DisableReplyAnimations -bool true
+defaults write com.apple.mail DisableSendAnimations -bool true
+
+# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+# Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\U21a9"
+
+# Display emails in threaded mode, sorted by date (oldest at the top)
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
+
+# Disable inline attachments (just show the icons)
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+# Disable automatic spell checking
+defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
+{% endhighlight %}
+
+## Spotlight #
+
+Spotlight is Apple's omni-search.
+
+{% highlight text %}
+# Hide Spotlight tray-icon (and subsequent helper)
+#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# Disable Spotlight indexing for any volume that gets mounted and has not yet
+# been indexed before.
+# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# Change indexing order and disable some search results
+# Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
+#  MENU_DEFINITION
+#  MENU_CONVERSION
+#  MENU_EXPRESSION
+#  MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
+#  MENU_WEBSEARCH             (send search queries to Apple)
+#  MENU_OTHER
+defaults write com.apple.spotlight orderedItems -array \
+   '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+   '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+   '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+   '{"enabled" = 1;"name" = "PDF";}' \
+   '{"enabled" = 1;"name" = "FONTS";}' \
+   '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+   '{"enabled" = 0;"name" = "MESSAGES";}' \
+   '{"enabled" = 0;"name" = "CONTACT";}' \
+   '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+   '{"enabled" = 0;"name" = "IMAGES";}' \
+   '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+   '{"enabled" = 0;"name" = "MUSIC";}' \
+   '{"enabled" = 0;"name" = "MOVIES";}' \
+   '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+   '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+   '{"enabled" = 0;"name" = "SOURCE";}' \
+   '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+   '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+   '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+   '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+   '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+   '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+# Load new settings before rebuilding the index
+killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
+{% endhighlight %}
+
+## Terminal & Iterm #
+
+{% highlight text %}
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Use a modified version of the Solarized Dark theme by default in Terminal.app
+osascript <<EOD
+tell application "Terminal"
+   local allOpenedWindows
+   local initialOpenedWindows
+   local windowID
+   set themeName to "Solarized Dark xterm-256color"
+   (* Store the IDs of all the open terminal windows. *)
+   set initialOpenedWindows to id of every window
+   (* Open the custom theme so that it gets added to the list
+      of available terminal themes (note: this will open two
+      additional terminal windows). *)
+   do shell script "open '$HOME/init/" & themeName & ".terminal'"
+   (* Wait a little bit to ensure that the custom theme is added. *)
+   delay 1
+   (* Set the custom theme as the default terminal theme. *)
+   set default settings to settings set themeName
+   (* Get the IDs of all the currently opened terminal windows. *)
+   set allOpenedWindows to id of every window
+   repeat with windowID in allOpenedWindows
+      (* Close the additional windows that were opened in order
+         to add the custom theme to the list of terminal themes. *)
+      if initialOpenedWindows does not contain windowID then
+         close (every window whose id is windowID)
+      (* Change the theme for the initial opened terminal windows
+         to remove the need to close them in order for the custom
+         theme to be applied. *)
+      else
+         set current settings of tabs of (every window whose id is windowID) to settings set themeName
+      end if
+   end repeat
+end tell
+EOD
+
+# Enable “focus follows mouse” for Terminal.app and all X11 apps
+# i.e. hover over a window and start typing in it without clicking first
+#defaults write com.apple.terminal FocusFollowsMouse -bool true
+#defaults write org.x.X11 wm_ffm -bool true
+
+# Enable Secure Keyboard Entry in Terminal.app
+# See: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# Install the Solarized Dark theme for iTerm
+open "${HOME}/init/Solarized Dark.itermcolors"
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+{% endhighlight %}
+
+## Time Machine #
+
+{% highlight text %}
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
+{% endhighlight %}
+
+## Activity Monitor #
+
+{% highlight text %}
+# Show the main window when launching Activity Monitor
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# Visualize CPU usage in the Activity Monitor Dock icon
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Sort Activity Monitor results by CPU usage
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+{% endhighlight %}
+
+## Address Book, Dashboard, iCal, TextEdit, and Disk Utility #
+
+{% highlight text %}
+# Enable the debug menu in Address Book
+defaults write com.apple.addressbook ABShowDebugMenu -bool true
+
+# Enable Dashboard dev mode (allows keeping widgets on the desktop)
+defaults write com.apple.dashboard devmode -bool true
+
+# Enable the debug menu in iCal (pre-10.8)
+defaults write com.apple.iCal IncludeDebugMenu -bool true
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# Enable the debug menu in Disk Utility
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+# Auto-play videos when opened with QuickTime Player
+defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+{% endhighlight %}
+
+## Apple Mac App Store #
+
+{% highlight text %}
+# Enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+
+# Enable Debug Menu in the Mac App Store
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
+# Enable the automatic update check
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Download newly available updates in background
+defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+
+# Install System data files & security updates
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+
+# Automatically download apps purchased on other Macs
+defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
+
+# Turn on app auto-update
+defaults write com.apple.commerce AutoUpdate -bool true
+
+# Allow the App Store to reboot machine on macOS updates
+defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+{% endhighlight %}
+
+## Apple Photos #
+
+{% highlight text %}
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+{% endhighlight %}
+
+## Messages #
+
+{% highlight text %}
+# Disable automatic emoji substitution (i.e. use plain text smileys)
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+
+# Disable smart quotes as it’s annoying for messages that contain code
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+# Disable continuous spell checking
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+{% endhighlight %}
+
+## Google Chrome & Google Chrome Canary #
+
+You can't get away from installing Google Chrome.
+
+{% highlight text %}
+# Allow installing user scripts via GitHub Gist or Userscripts.org
+defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+
+# Disable the all too sensitive backswipe on trackpads
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+# Disable the all too sensitive backswipe on Magic Mouse
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+# Use the system-native print preview dialog
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+
+# Expand the print dialog by default
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+{% endhighlight %}
+
+## GPGMail 2 #
+
+You can't get away from installing Google Chrome.
+
+{% highlight text %}
+# Disable signing emails by default
+defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
+{% endhighlight %}
+
+## Opera & Opera Developer #
+
+You can't get away from installing Google Chrome.
+
+{% highlight text %}
+# Expand the print dialog by default
+defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean true
+defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
+{% endhighlight %}
+
+## SizeUp.app #
+
+QUESTION: What is this?
+
+{% highlight text %}
+# Start SizeUp at login
+defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
+
+# Don’t show the preferences window on next start
+defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
+{% endhighlight %}
+
+## Sublime Text editor #
+
+This is popular.
+
+{% highlight text %}
+# Install Sublime Text settings
+cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+{% endhighlight %}
+
+## Transmission.app #
+
+?
+
+{% highlight text %}
+# Use `~/Documents/Torrents` to store incomplete downloads
+defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"
+
+# Don’t prompt for confirmation before downloading
+defaults write org.m0k.transmission DownloadAsk -bool false
+defaults write org.m0k.transmission MagnetOpenAsk -bool false
+
+# Trash original torrent files
+defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+
+# Hide the donate message
+defaults write org.m0k.transmission WarningDonate -bool false
+# Hide the legal disclaimer
+defaults write org.m0k.transmission WarningLegal -bool false
+
+# IP block list.
+# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
+defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
+{% endhighlight %}
+
+## Twitter.app #
+
+{% highlight text %}
+# Disable smart quotes as it’s annoying for code tweets
+defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
+
+# Show the app window when clicking the menu bar icon
+defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
+
+# Enable the hidden ‘Develop’ menu
+defaults write com.twitter.twitter-mac ShowDevelopMenu -bool true
+
+# Open links in the background
+defaults write com.twitter.twitter-mac openLinksInBackground -bool true
+
+# Allow closing the ‘new tweet’ window by pressing `Esc`
+defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
+
+# Show full names rather than Twitter handles
+defaults write com.twitter.twitter-mac ShowFullNames -bool true
+
+# Hide the app in the background if it’s not the front-most window
+defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+###############################################################################
+# Tweetbot.app                                                                #
+###############################################################################
+
+# Bypass the annoyingly slow t.co URL shortener
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+{% endhighlight %}
+
+## Spectacle.app #
+
+{% highlight text %}
+# Set up my preferred keyboard shortcuts
+defaults write com.divisiblebyzero.Spectacle MakeLarger -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035a4d616b654c6172676572d2121314155a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21617585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f7a7f8a939c9fa8b1c3c6cb0000000000000101000000000000001c000000000000000000000000000000cd
+defaults write com.divisiblebyzero.Spectacle MakeSmaller -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035b4d616b65536d616c6c6572d2121314155a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21617585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f7b808b949da0a9b2c4c7cc0000000000000101000000000000001c000000000000000000000000000000ce
+defaults write com.divisiblebyzero.Spectacle MoveToBottomDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107d80035f10134d6f7665546f426f74746f6d446973706c6179d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a217185d5a65726f4b6974486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072888d98a1afb2c0c9dbdee30000000000000101000000000000001d000000000000000000000000000000e5
+defaults write com.divisiblebyzero.Spectacle MoveToBottomHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107d80035f10104d6f7665546f426f74746f6d48616c66d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959ea7aab3bcced1d60000000000000101000000000000001d000000000000000000000000000000d8
+defaults write com.divisiblebyzero.Spectacle MoveToCenter -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002100880035c4d6f7665546f43656e746572d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98a1a4adb6c8cbd00000000000000101000000000000001d000000000000000000000000000000d2
+defaults write com.divisiblebyzero.Spectacle MoveToFullscreen -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002102e80035f10104d6f7665546f46756c6c73637265656ed2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959ea7aab3bcced1d60000000000000101000000000000001d000000000000000000000000000000d8
+defaults write com.divisiblebyzero.Spectacle MoveToLeftDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107b80035f10114d6f7665546f4c656674446973706c6179d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a217185d5a65726f4b6974486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072868b969fadb0bec7d9dce10000000000000101000000000000001d000000000000000000000000000000e3
+defaults write com.divisiblebyzero.Spectacle MoveToLeftHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107b80035e4d6f7665546f4c65667448616c66d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728186919aa3a6afb8cacdd20000000000000101000000000000001d000000000000000000000000000000d4
+defaults write com.divisiblebyzero.Spectacle MoveToLowerLeft -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731113008002107b80035f100f4d6f7665546f4c6f7765724c656674d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e70728489949dabafbdc6cfe1e4e90000000000000101000000000000001e000000000000000000000000000000eb
+defaults write com.divisiblebyzero.Spectacle MoveToLowerRight -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731113008002107c80035f10104d6f7665546f4c6f7765725269676874d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eacb0bec7d0e2e5ea0000000000000101000000000000001e000000000000000000000000000000ec
+defaults write com.divisiblebyzero.Spectacle MoveToNextDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107c80035f10114d6f7665546f4e657874446973706c6179d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072868b969fa8abb4bdcfd2d70000000000000101000000000000001d000000000000000000000000000000d9
+defaults write com.divisiblebyzero.Spectacle MoveToNextThird -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035f100f4d6f7665546f4e6578745468697264d2121314155a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21617585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f8186919aa3a6afb8cacdd20000000000000101000000000000001c000000000000000000000000000000d4
+defaults write com.divisiblebyzero.Spectacle MoveToPreviousDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731118008002107b80035f10154d6f7665546f50726576696f7573446973706c6179d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728a8f9aa3acafb8c1d3d6db0000000000000101000000000000001d000000000000000000000000000000dd
+defaults write com.divisiblebyzero.Spectacle MoveToPreviousThird -data 62706c6973743030d40102030405061819582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708101155246e756c6cd4090a0b0c0d0e0d0f596d6f64696669657273546e616d65576b6579436f64655624636c6173731000800280035f10134d6f7665546f50726576696f75735468697264d2121314155a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21617585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11a1b54726f6f74800108111a232d32373c424b555a62696b6d6f858a959ea7aab3bcced1d60000000000000101000000000000001c000000000000000000000000000000d8
+defaults write com.divisiblebyzero.Spectacle MoveToRightDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107c80035f10124d6f7665546f5269676874446973706c6179d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a217185d5a65726f4b6974486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072878c97a0aeb1bfc8dadde20000000000000101000000000000001d000000000000000000000000000000e4
+defaults write com.divisiblebyzero.Spectacle MoveToRightHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107c80035f100f4d6f7665546f526967687448616c66d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e70728489949da6a9b2bbcdd0d50000000000000101000000000000001d000000000000000000000000000000d7
+defaults write com.divisiblebyzero.Spectacle MoveToTopDisplay -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107e80035f10104d6f7665546f546f70446973706c6179d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a217185d5a65726f4b6974486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eacafbdc6d8dbe00000000000000101000000000000001d000000000000000000000000000000e2
+defaults write com.divisiblebyzero.Spectacle MoveToTopHalf -data 62706c6973743030d4010203040506191a582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731119008002107e80035d4d6f7665546f546f7048616c66d2131415165a24636c6173736e616d655824636c6173736573585a4b486f744b6579a21718585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11b1c54726f6f74800108111a232d32373c424b555a62696c6e707280859099a2a5aeb7c9ccd10000000000000101000000000000001d000000000000000000000000000000d3
+defaults write com.divisiblebyzero.Spectacle MoveToUpperLeft -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731111008002107b80035f100f4d6f7665546f55707065724c656674d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e70728489949dabafbdc6cfe1e4e90000000000000101000000000000001e000000000000000000000000000000eb
+defaults write com.divisiblebyzero.Spectacle MoveToUpperRight -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731111008002107c80035f10104d6f7665546f55707065725269676874d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e7072858a959eacb0bec7d0e2e5ea0000000000000101000000000000001e000000000000000000000000000000ec
+defaults write com.divisiblebyzero.Spectacle RedoLastMove -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c617373110b008002100680035c5265646f4c6173744d6f7665d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98a6aab8c1cadcdfe40000000000000101000000000000001e000000000000000000000000000000e6
+defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030d40102030405061a1b582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a40708111255246e756c6cd4090a0b0c0d0e0f10596d6f64696669657273546e616d65576b6579436f64655624636c6173731109008002100680035c556e646f4c6173744d6f7665d2131415165a24636c6173736e616d655824636c61737365735d5a65726f4b6974486f744b6579a31718195d5a65726f4b6974486f744b6579585a4b486f744b6579584e534f626a6563745f100f4e534b657965644172636869766572d11c1d54726f6f74800108111a232d32373c424b555a62696c6e70727f848f98a6aab8c1cadcdfe40000000000000101000000000000001e000000000000000000000000000000e6
+{% endhighlight %}
+
+## Kill affected applications #
+
+{% highlight text %}
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+   "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+   "Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+   "Transmission" "Tweetbot" "Twitter" "iCal"; do
+   killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
+{% endhighlight %}
 
 ## More on OSX
 
