@@ -211,9 +211,7 @@ try {
    echo "\u2600 workspace=${workspace}"
 &nbsp;
    stage '\u2777 Stage 2'
-
    } // node
-
 } // try end
 catch (exc) {
 /*
@@ -367,6 +365,9 @@ which are more complicated/complex than almost all the tutorials on the internet
 *  <a target="_blank" href="https://github.com/freebsd/freebsd-ci/blob/master/scripts/build/build-test.groovy">
    The Jenkins file used to build FreeBSD</a> 
    by Craig Rodrigues (rodrigc@FreeBSD.org)
+
+* <a target="_blank" href="https://github.com/Jotschi/maven-release-workflow-test">
+   Jenkinsfile with Maven</a> by <a target="_blank" href="http://jotschi.de/">Johannes Schüth</a> 
 
 Lessons from these are provided below.
 
@@ -917,6 +918,9 @@ node('second-node') {
 }
    </pre>
 
+<a target="_blank" href="http://getmesh.io/Blog/Jenkins+2+Pipeline+101">
+This says</a>
+the name of the node is `node('!master')`, any node except the master is selected.
 
 
 ### Remote Loader Plugin #

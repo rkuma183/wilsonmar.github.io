@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cloud services compared"
+title: "Cloud services comparisons"
 excerpt: "Take my cloud ... please"
 tags: [Cloud, comparison]
 comments: true
@@ -14,10 +14,24 @@ image: # pic-black-bkg-white-cloud_1920x1200
 
 {% include _toc.html %}
 
-This compares cloud services Amazon AWS vs. Microsoft Azure.
+<img class="img-right" align="right"
+alt="cloud platforms black icons 300x330-300-58kb.jpg" width="300" height="330" src="https://cloud.githubusercontent.com/assets/300046/17864330/e4dbabc0-685a-11e6-84e5-361c5fc8c28d.jpg">
 
-(There is also Google Compute Cloud, Oracle,
-<a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, SalesForce Heroku, SkyTap, etc.)
+This article compares the pricing and services 
+for various cloud services platforms:
+Amazon AWS vs.
+IBM Softlayer vs. 
+Google Compute Cloud vs.
+Microsoft Azure vs. 
+Rackspace 
+
+There are also Oracle,
+<a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, 
+SalesForce Heroku, SkyTap, etc.
+
+EDITOR's NOTE: This is not a complete treatment. 
+Additional information will be added over time.
+
 
 <hr />
 
@@ -61,8 +75,7 @@ Different surveys contradict each other.
 
 Here is one:
 
-   <amp-img width="529" height="488" alt="cloud chart iaas market share 2015-529x488-c22.jpg"
-   layout="responsive" 
+   <amp-img layout="responsive" alt="cloud chart iaas market share 2015-529x488-c22.jpg" width="529" height="488" 
    src="https://cloud.githubusercontent.com/assets/300046/16921114/778410d8-4ccd-11e6-9bb8-faf3cd75a449.jpg">
    </amp-img>
 
@@ -77,7 +90,7 @@ But its free server images are based on
 CentOS.
 
 
-## Links to service brand names
+## Links to service brand names #
 
 <table valign="top" border="1" cellspacing="0" cellpadding="4">
 <thead>
@@ -166,7 +179,7 @@ CentOS.
 <tr valign="top" class="tblOdd"><th align="left">Media Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/media-services/">Azure Media Services</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/elastictranscoder/">ElasticTranscoder</a><br /><span style="text-decoration:underline;"><a target="_blank" href="http://aws.amazon.com/mobileanalytics/">MobileAnalytics</a>
 <br /><a target="_blank" href="http://aws.amazon.com/cognito/">Cognitor</a><br /></span></td></tr>
-<tr valign="top" class="tblEven"><th align="left">ML</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
+<tr valign="top" class="tblEven"><th align="left">Machine Learning (ML)</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
 </td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">MachineLearning</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Triggers</th>
     <td><a target="_blank" href="https://azure.microsoft.com/en-us/documentation/services/app-service/logic/">Logic Apps</a></td>
@@ -178,11 +191,17 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/billing/">Billing</a></td></tr>
 </tbody></table>
 
+&nbsp;
+
+<hr />
 
 ## Resources #
 
-This table is an update from <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> this site</a>.
+This table is an update from <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
+this site</a>.
 
+<a target="_blank" href="http://resources.sdtimes.com/whitepaper-ibm-q4-2015-bluemix-ebook">
+IBM Bluemix</a>
 
 
 ## More on DevOps #

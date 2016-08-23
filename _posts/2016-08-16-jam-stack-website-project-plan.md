@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Website build project plan"
-excerpt: "Here's how we build it, step-by-step"
+title: "JAM-stack website project plan"
+excerpt: "Fast websites with cart and social reach, step-by-step"
 tags: [website]
 image:
 # drawing blue messaging icons flow 1900x500
@@ -18,8 +18,8 @@ comments: true
 <amp-youtube data-videoid="Cf29Q0c6_7s" layout="responsive" width="480" height="270"></amp-youtube>
 
 Here are the sequence of specific steps to build a website using
-a <a target="_blank" href="https://jamstack.org/">JAM stack</a> 
--- that create websites that are fast, secure, and simple to work with. 
+a <a target="_blank" href="https://jamstack.org/">"JAM stack"</a> 
+-- a set of software to create websites that are fast, secure, and simple to work with. 
 JAM stands for JavaScript, APIs, and Markup.
 JavaScript on the site makes calls to API (Application Programming Interfaces) web services in the cloud
 to manage subscription forms and email campaigns.
@@ -62,25 +62,34 @@ The file for a topic can contain text which replace
 <strong>variables</strong> defined in the main section of that page.
 
 Before it does all that, we have a <strong>parser</strong> 
-program that creates a <strong>text file</strong>
+program that can generate a file for each item in the portfolio,
+or create a <strong>text file</strong>
 which replaces the <strong>{include}</strong> tag in a topic file.
-
-If tags are added to describe each work in the 
-portfolio file, they can be automatically posted to 
-Instagram, Twitter, or other social network, on a schedule.
-That is done by a <strong>publisher</strong> program.
 
 Coding in web pages interact with a 
 <strong>form processing API</strong> on a server to handle 
-both generic portfolio data and data specific to each visitor.
+both generic portfolio data and data specific to each visitor
 
-<amp-img alt="jekyll-data-driven-website-v02-650x347-178kb.jpg" width="650" height="347" src="https://cloud.githubusercontent.com/assets/300046/17831872/c1a16306-66b2-11e6-8eb0-9c41d1c18e82.jpg"></amp-img>
+A <strong>publisher</strong> program can match the interests of those who <strong>register</strong>
+with <strong>Tags</strong> describing each portfolio item when it
+sends out emails, Instagram, Twitter, or other social network messages, on a schedule.
 
 So here you have it, a way to create a website that allows local editing,
-version control, speed from pre-distributed static files, and 
+have versioned backups, speed from pre-distributed static files, and 
 audience interaction from social media attraction.
 
+<amp-img layout="responsive" alt="jekyll-data-driven-website-v04 650x345-187kb.jpg" width="650" height="345" src="https://cloud.githubusercontent.com/assets/300046/17890075/ff60faf4-68f0-11e6-9349-cbb33c3c7192.jpg"></amp-img>
+
+
 <hr />
+
+This project plan is structured by groups of tasks, in rough priority order.
+
+## Design decisions
+
+0. Contact details (phone, email, facebook, twitter, instagram)
+0. Work agreement (contract)
+0. Copyrights, license
 
    ## Accounts
 
@@ -90,6 +99,9 @@ audience interaction from social media attraction.
 0. Setup Github organization and github.io repo holding website
 0. Setup Github account for each contributor
 0. In Github grant permission to each contributor
+
+0. Get an AWS account with a credit card: Keith[1 hr]
+0. Create an AWS worker account. Keith+Wilson[1 hr]
 
 
    ## Development environment
@@ -106,6 +118,16 @@ audience interaction from social media attraction.
 0. Pre-defined theme?
 0. Scheme of color, fonts, layout
 0. Theme in GitHub
+0. Style Guide: A simple style guide is extremely beneficial for any website owner, points to consider include:
+
+   * Font Styles
+   * Image Sizes
+   * Tone of Voice
+   * Colors
+   * Imagery Style
+   * Layout
+   <br /><br />
+
 
    ### Site Logo
 
@@ -137,6 +159,7 @@ audience interaction from social media attraction.
    * Instagram
 
    * Visitor comments using Disqus
+   * ICS (contacts) file with logo
 
 
    ## Subscription capture #
@@ -153,29 +176,31 @@ audience interaction from social media attraction.
 0. Commenting buttons to create a post on Twitter, Facebook, Google+, etc.
 
 
-   ## Content 
+   Out of scope:
 
-0. Author statement text
-0. Author photo
-0. Author audio/video
-
-0. Contact text
-0. Contact photo
-0. Contact audio/video
-
-0. Exhibits text
-0. Exhibits photo
-0. Exhibits audio/video
-
-0. Gallery index photos (3) cropped, compressed, positioned
-0. Gallery index page with links
-0. Gallery autorotator
-0. Gallery spreadsheet of photos
+   * <a target="_blank" href="http://www.htmlgoodies.com/beyond/javascript/article.php/3881826/JavaScript-Tutorial-Adding-Rotating-Images-to-Your-Web-Site.htm">
+   Photo auto-rotator</a> takes the same sized photo and displays them one after another.
 
 
    ## Photo processing 
 
-0. Extract from previous site a .csv file listing attributes of each picture file. DONE 2 hrs.
+0. Create an IAM sign-in URL on 
+   https://console.aws.amazon.com/iam/home/ 
+0. Create <a target="_blank" href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html"
+   AWS Security Token Service (STS) SAML 2.0 tokens</a> with associated key policies defining permissions.
+   for developers to access EC2 files. Wilson+Keith[1 hr]
+0. Setup Watch for billing levels.
+0. Review <a target="_blank" href="https://console.aws.amazon.com/trustedadvisor/">
+   Amazon Trusted Advisor</a> Wilson+Keith[.5 hr]
+
+0. <a target="_blank" href="http://docs.aws.amazon.com/AmazonS3/latest/UG/UploadingObjectsintoAmazonS3.html">
+   Transfer original photos (tiff) to S3</a>. Gail[4 hrs] 81 files
+
+0. DONE Extract from previous site a .csv file listing attributes of each picture file. Wilson[2 hrs.]
+
+   <a name="Portfolio"></a>
+
+   ### Portfolio Spreadsheet #
 
    NOTE: The spreadsheet contains one line for each work:
 
@@ -196,12 +221,12 @@ audience interaction from social media attraction.
    - _<a href="#Tags">Tags</a> describe the work (for use in mouse-over and publicity)
    <br /><br />
 
-0. Correct typos from previous site.
-0. DONE - Sample from the .csv file. [2 hrs]
+0. DONE Correct typos from previous site. WILSON[2 hrs]
+0. DONE Sample from the .csv file. WILSON[2 hrs]
 
-0. Parse .csv file to generate .md files. 
+0. DONE Parse .csv file to generate .md files. 
    <a target="_blank" href="http://vmassuchetto.github.io/2013/08/08/python-script-to-automate-jekyll-post-creation/">
-   A Python program?</a> 
+   A Python program?</a> WILSON[3 hrs]
 
 
    To do on each picture:
@@ -215,6 +240,8 @@ audience interaction from social media attraction.
 
    <a name="Tags"></a>
 
+   ### Tags #
+
    * color: #blue #green #BlackAndWhite
    * subject: #vinyard #bridge #lake #river #portrait
    * objects in subject: #tractor #grapes #flowers #fruit #trees
@@ -227,6 +254,8 @@ audience interaction from social media attraction.
    * adjectives: #beautiful #amazing #fantastic #sunny #bright
    * emotion: #peaceful #sad #happy #thrilled #exhilirated #strong
    <br /><br />
+   See the popularity of tags at http://www.google.co.uk/AdWords
+
 
 0. Size it in 3 different types of screens (mobile, tablet, desktop)
 0. Crop picture for Instagram squares (use instasize app, Gramblr)
@@ -237,16 +266,82 @@ audience interaction from social media attraction.
 0. Put the file in a "CDN" around on the web.
 
 
+   <a name="ShoppingCart"></a>
+
+   ## Shopping cart #
+
+0. Review the <a target="_blank" href="http://snipcart.github.io/snipcart-jekyll-integration/">
+   Snipcart demo workflow</a> and identify desired
+   <a target="_blank" href="https://snipcart.com/blog/customize-snipcart-v2-shopping-cart">
+   customizations</a> and changes in stock UI elements.
+
+   PROTIP: Shopping cart construction comes before many other website construction activities because its use may place 
+   design innovations and limitations to other parts of the site in order for the whole site to remain consistent in look and feel.
+   For example, Snipcart uses <a target="_blank" href="https://jekyllrb.com/docs/collections/">
+   Jekyll collections</a>. 
+
+0. <a target="_blank" href="https://app.snipcart.com/register">
+   Register an account at Snipcart</a> and verify email. Keith[1 hr]
+0. <a target="_blank" href="https://snipcart.com/blog/static-site-e-commerce-part-2-integrating-snipcart-with-jekyll">
+   Integrate Snipcart into site</a> based on 
+   <a target="_blank" href="https://github.com/snipcart/snipcart-jekyll-integration">
+   GitHub</a>.
+0. <a target="_blank" href="https://app.snipcart.com/dashboard/account/credentials">
+   Get TEST api_key</a> and add in _config.yml with other account data. Keith[1 hr]
+0. Code head.html for layout productdetails. Wilson[1 hr]
+0. Create a program to generate a md file for each "product" (work of art) in the Portfolio.csv file. Wilson[2 hrs]
+
+   NOTE: A complete checkout is possible from a public URL, not from a local instance.
+
+0. After testing, review <a target="_blank" href="https://app.snipcart.com/dashboard">
+   Dashboard</a>
+
+
+   ## Contact
+
+0. Contact text
+0. Contact photo
+0. Contact audio/video
+
+
+   ## About
+
+0. Author statement text
+0. Author photo
+0. Author audio/video
+
+   ## Exhibits
+
+0. Exhibits text
+0. Exhibits photo
+0. Exhibits audio/video
+
+   ## Gallery
+
+0. https://github.com/patrickkunka/mixitup
+
+0. Gallery index photos (3) cropped, compressed, positioned
+0. Gallery index page with links
+0. Gallery spreadsheet of photos
+
+   ## Portfolio
+
+   A portfolio list of works by year.
+
+
    ## SEO #
 
 0. Google Analytics JavaScript
 0. Google search ownership file
 0. Bing search site ownership file
+0. robots.txt file to specify folders and files desired private
+0. SSL certificate for better ranking
+0. Google PageSpeed for better ranking
 
    Generated by Jekyll:
 
-   * Site XML file for Google Search to discover
-
+   * Site RSS XML file for Google Search to discover
+   http://webdesign.tutsplus.com/articles/general/all-you-need-to-know-about-xml-sitemaps/
 
    ## Features
 
@@ -256,7 +351,6 @@ audience interaction from social media attraction.
    Get Google Maps API key</a>
 0. Map in Exhibits page <a target="_blank" href="http://robinlovelace.net/software/2014/03/05/webmap-test.html">
    using Google Maps or other API</a>
-
 
    Out of scope:
 
@@ -289,6 +383,10 @@ audience interaction from social media attraction.
    * Asychronous update of a section rather than entire form (submit)
    * [Google AMP coding](/accelerated-mobile-pages/)
 
+   ## Maintenance #
+
+0. Backups
+0. Recovery from backup
 
    ## Campaign #
 
@@ -318,7 +416,15 @@ audience interaction from social media attraction.
 ## TODO: 
 
 * Make this page into a form where people can check what they want, save it, send it to others, etc.
+   like <a target="_blank" href="http://webdesign.tutsplus.com/articles/a-web-designers-site-launch-checklist-including-portable-formats--webdesign-11107">
+   this</a>.
 
+<form action="https://formspree.io/wilsonmar@gmail.com"
+      method="POST">
+    <input type="text" name="name">
+    <input type="email" name="_replyto">
+    <input type="submit" value="Send">
+</form>
 
 ## More on front-end software development #
 

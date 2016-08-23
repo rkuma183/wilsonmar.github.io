@@ -164,14 +164,35 @@ From Lithium</a>
 
 <a name="Watermark"></a>
 
-## Detect and add Watermark #
+## Add Watermark #
 
-Several organizations provide manual ways to add an invisible watermark.
+A digital watermark is embedded in the picture file some code used to prove copyright.
+The code is usually cryptographically signed.
+
+<a target="_blank" href="https://www.neutrinoapi.com/api/image-watermark/">
+Neutrinoapi</a> offers an on-line API to add a visible watermark (using Alpha blending).
+It converts various image formats automatically (GIF, ICO, JPEG, PNG, TIFF).
+
+A repeatable automated batch process (AP) is needed just to iterate when some programs don't work.
+The watermarkng feature of <a target="_blank" href="https://github.com/syvaidya/openstego/">
+OpenStego</a> (a Java program) is still in beta and
+<a target="_blank" href="https://www.raymond.cc/blog/signmyimage-protects-your-image-with-invisible-signature/">
+one person</a>a> found
+that watermarked file sizes to be much smaller than the original and there is a noticeable quality loss. 
+
+
+Several organizations provide <strong>manual</strong> GUI to add invisible watermarks,
+one file at a time.
 
    * http://www.adptools.com/en/signmyimage-description.html
+   
+   * http://www.phibit.com/icemark/ $50
 
-But what about an API to do it?
+   * https://www.digimarc.com/products/guardian/images/photoshop-plug-in
+   Digimarc Guardian 
+   in Adobe Photoshop
 
+   * http://louisem.com/1912/free-watermark-software-watermark-online
 
 <a name="NudityCheck"></a>
 

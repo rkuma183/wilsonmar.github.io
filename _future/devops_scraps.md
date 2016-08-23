@@ -1,6 +1,6 @@
 [![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-   <amp-img alt="jenkins2 build hello-world-490x277-i38.png" width="490" height="277" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
+   <amp-img layout="responsive" alt="jenkins2 build hello-world-490x277-i38.png" width="490" height="277" src="https://cloud.githubusercontent.com/assets/300046/17341552/59559492-58b2-11e6-84a1-f1acade300ae.png"></amp-img>
 
 ![jenkins plugin green github 349x132-i12](https://cloud.githubusercontent.com/assets/14143059/17589798/ecd5a60c-5f93-11e6-8f81-59e1f972c2cc.jpg)
 

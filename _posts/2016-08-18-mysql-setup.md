@@ -20,8 +20,6 @@ PROTIPs and NOTEs are provided as instructions are presented in a hands-on way.
 
 Content here was developed based on advice from <a href="#Resources">several websites</a>.
 
-<a name="OneOfMany"></a>
-
 ## From MySQL to MariaDB to Aurora #
 
 MySQL is open-sourced,
@@ -29,12 +27,10 @@ first proposed by Edgar Cord in 1970.
 The free usage made it a natural choice for other open-source frameworks such as WordPress
 and thus its rapid growth.
 
-MySQL is not dead yet.
-Uber in 
-<a target="_blank" href="https://eng.uber.com/mysql-migration/">
-2016 switched from Postgres to MySQL</a> under 
-<a target="_blank" href="https://eng.uber.com/schemaless-part-one/">
-Schemaless</a>.
+   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
+   <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
+   a name from a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
+   1952 children's book</a> from Finland, where her family originates.
 
 After Oracle acquired Sun (MySQL's owner),
 the freedom of open-source was realized when Maria-DB was forked 
@@ -42,26 +38,61 @@ to create a <strong>drop-in replacement for MySQL</strong>
 by MySQL co-founder Michael “Monty” Widenius, 
 who left Oracle to start a new company (Monty Program).
 
-   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
-   <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
-   a name from a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
-   1952 children's book</a> from Finland, where her family originates.
-
 Many developers have migrated to MariaDB.
 (MariaDB 5.1.53 is based on MySQL 5.1.53).
 If you don't need to first uninstall MySQL,
 <a href="#InstallMariaDB">click here for instructions on installing MariaDB, below</a>.
 
 
+## MySQL Still Alive #
+
+MySQL is thriving.
+
+Uber in 
+<a target="_blank" href="https://eng.uber.com/mysql-migration/">
+2016 switched from Postgres to MySQL</a> under 
+<a target="_blank" href="https://eng.uber.com/schemaless-part-one/">
+Schemaless</a>. <a target="_blank" href="https://eng.uber.com/mysql-migration/">
+More</a>. 
+
+   * https://www.youtube.com/watch?v=bNeZYVIfskc
+   * https://www.youtube.com/watch?v=Dg76cNaeB4s
+   <br /><br />
+
+Uber's decision is based on similar success by
+<a target="_blank" href="http://gotocon.com/dl/goto-aar-2014/slides/MartyWeiner_ScalingPinterest.pdf">
+Pinterest</a> and
+<a target="_blank" href="https://backchannel.org/blog/friendfeed-schemaless-mysql">
+Friendfeed</a>, who said:
+
+> "MySQL works. It doesn't corrupt data. Replication works. 
+We understand its limitations already. 
+We like MySQL for storage, just not RDBMS usage patterns.
+
+Ironically, MySQL is a good choice for fast-growth companies because of its <strong>simplicity</strong>.
+
+Uber uses MySQL to build a key-value store (hash map) 
+which saves any JSON data without strict schema validation, 
+in a schemaless fashion (hence the name \#schemaless).
+It's much like <a target="_blank" href="https://cloud.google.com/bigtable/docs/index">
+Google Big Table</a>.
+
+It has append-only sharded MySQL with buffered writes to support failing MySQL masters 
+and a publish-subscribe feature for data change notification triggers. 
+Lastly, Schemaless supports global indexes over the data.
+
+The key difference is that the SQL schema is not used to designate domain information such as "inventory".
+
+
+
 ## Cloud instances #
 
-There are several that provides not just the database, but also
-automation such as 
-automatic scaling to provide capacity, 
+There are several offerings that provide not only the database, but also
+automation such as monitoring, 
+scaling to provide capacity, 
 backup/roll-back functionality,
 auto-failover in several zones, 
-and 
-auto-updates.
+auto-update of core software, etc.
 
 
 ### AWS Aurora #
@@ -70,7 +101,26 @@ auto-updates.
 https://aws.amazon.com/rds/aurora</a>
 replaces MySQL in the AWS cloud, enabling scaling to 64 TB
 and replicates across 3 zones.
-It's managed by the AWS RDS (Relational Data Service).
+
+Aurora is managed by the AWS RDS (Relational Data Service) (along with Postgres and DynamoDB).
+
+   PROTIP: Many choose MySQL instead of DynamoDB for equivalent off-line capability
+   since DynamoDB only works within the Amazon cloud.
+
+It deals with:
+
+   * instances
+   * Security Groups
+   * Parameter Groups
+   * Snapshots
+   <br /><br />
+   
+This means some limitations:
+
+* Logs larger than 2% of storage allocated will get rotated every 24 hours.
+
+
+
 
 ### Google Cloud SQL #
 

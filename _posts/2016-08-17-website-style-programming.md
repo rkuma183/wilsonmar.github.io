@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Website Styling"
-excerpt: "Make it clean, pretty, easy, fun"
+title: "Website Style Programming"
+excerpt: "How to make it clean, pretty, easy, fun"
 tags: [website, CSS]
 image:
 # banner watercolor bright sunset boad lake 1900x500-i12
@@ -56,7 +56,7 @@ Here are tools and rules I try to use for styling websites.
 
 ## CSS wisdom #
 
-<img align="right" alt="tshirt you are the css to my html 300x250-15kb" width="300" height="250" src="https://cloud.githubusercontent.com/assets/14143059/17756849/f86bb59a-649f-11e6-9209-2fe3636ea226.jpg">
+<img class="img-right" align="right" alt="tshirt you are the css to my html 300x250-15kb" width="300" height="250" src="https://cloud.githubusercontent.com/assets/14143059/17756849/f86bb59a-649f-11e6-9209-2fe3636ea226.jpg">
 
 Many developers have declared "enough" and have switched to HTML5-only websites
 as less and less enterprises have given up on demanding their users only use Microsoft-only browers.
@@ -69,7 +69,7 @@ In HTML:
 
 * \<section to separate topics within a page
 
-* In \<header &amp; \<footer, use \<div to separate sub-sections
+* Within \<header &amp; \<footer, use \<div to separate sub-sections
    <br /><br />
 
 

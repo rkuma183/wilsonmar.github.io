@@ -125,7 +125,10 @@ What I'm advocating here are:
    the many future changes in requirements will be automatically reflected.
 
 0. Scan swagger JSON interface specs for issues based on commonly accepted rules, 
-   just like we now use SonarQub to statically scan Java code for issues.
+   just like we now use SonarQube to statically scan Java code for issues.
+
+   * <a target="_blank" href="https://dojo.ministryoftesting.com/lessons/part-1-getting-started-installation-of-software">
+   Let's Build an API Checking Framework</a>
 
 0. Expand a central museum (marketplace) of APIs out in the wide
    so people can discover and <strong>compare</strong> APIs
