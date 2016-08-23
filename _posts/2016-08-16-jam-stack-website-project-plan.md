@@ -287,6 +287,8 @@ This project plan is structured by groups of tasks, in rough priority order.
 0. Sign-in to your GitHub account and visit 
    <a target="_blank" href="https://github.com/snipcart/snipcart-jekyll-integration/">
    website</a> to fork it. Notice it is on branch gh-pages.
+0. <a target="_blank" href="https://hotwilson.github.io/snipcart-jekyll-integration/">
+   View the site on your github</a>
 
 0. <a target="_blank" href="https://app.snipcart.com/register">
    Register an account at Snipcart</a> and verify email. Keith[1 hr]

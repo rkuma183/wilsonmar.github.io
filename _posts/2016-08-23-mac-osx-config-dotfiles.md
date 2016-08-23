@@ -25,11 +25,14 @@ Some settings can be automated using "dotFiles"
 
 ## Dotfile Settings from others #
 
-Several people publish the dotfiles they use on GitHub repositories:
+The dofFile settings here are based on the dotfiles 
+published by several people on their GitHub repositories:
 
-* https://github.com/afranken/dotfiles
+* <a target="_blank" href="https://github.com/afranken/dotfiles">
+   https://github.com/afranken/dotfiles</a>
 
-* https://github.com/mathiasbynens/dotfiles
+* <a target="_blank" href="https://github.com/mathiasbynens/dotfiles">
+   https://github.com/mathiasbynens/dotfiles</a>
 <br /><br />
 
 
@@ -47,7 +50,7 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
+{% endhighlight %}
 
 ## General UI/UX #
 
