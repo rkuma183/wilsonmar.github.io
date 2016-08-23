@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Apps"
-excerpt: "Applications for a long, prosperous, happy life"
+title: "MacOS Apps"
+excerpt: "OSX Applications for a long, prosperous, happy life"
 tags: [apple, mac, setup]
 image:
 # feature: pic rainbow black apple logo 1900x500.jpg
@@ -93,6 +93,8 @@ Apps I've used from the Apple Store:
 * ZoomUS for video conferencing.
 
 * Git-it to learn Git and GitHub.
+
+* [VMware Fusion for Windows within MacOSX](/windows-on-apple-mac-osx/)
 
 Apps offered by Apple itself:
  

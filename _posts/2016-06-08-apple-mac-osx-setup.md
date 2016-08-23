@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MacOS Setup Automation"
+title: "MacOS Setup Automation using Ansible"
 excerpt: "How I setup several Macbooks while I sleep"
 tags: [apple, mac, setup, automation]
 image:

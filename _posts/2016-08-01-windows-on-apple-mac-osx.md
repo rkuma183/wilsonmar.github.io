@@ -16,9 +16,14 @@ comments: true
 {% include _toc.html %}
 
 
+
 <a id="VMware"></a>
 
-## VMwere Fusion
+## VMware Fusion #
+
+It costs a few bucks, but you can run Windows or OSX within VMWare Fusion.
+
+This would enable you to experiment with setups.
 
 <a target="_blank" href="http://www.souldevteam.net/blog/2013/10/06/os-x-mavericks-10-9-retail-vmware-image-release-notes-links/">
 Run OSX in VMware within Windows</a>

@@ -14,12 +14,49 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-This tutorial describes the use of Windows PowerShell Desired State Configuration (DSC).
+This article describes the use of Windows PowerShell Desired State Configuration (DSC).
+
+"PowerShell" refers to both the command-line shell and scripting language designed system administration. 
+
+Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. 
+
+Windows PowerShell <strong>cmdlets</strong> (command-lets) enables computers to be managed from the command line,
+much like Bash on Linux machines.
+
+However, PowerShell offers much more consistence than the various commands added over time by various parties.
+
+   * It reads Excel files natively as well as JSON, XML, and even ASCII.
+   <br /><br />
 
 
+## Open source on Linux and MacOS #
 
-Powershell refers to both the command-line shell and scripting language designed system administration. 
-Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. Windows PowerShell <strong>cmdlets</strong>, let you manage the computers from the command line. 
+From the <a target="_blank" href="https://www.youtube.com/channel/UCMhQH-yJlr4_XHkwNunfMog">
+PowerShell and DSC Team YouTube channel</a>:
+
+<amp-youtube data-videoid="2WZwv7TxqZ0" layout="responsive" width="480" height="270"></amp-youtube>
+This 51-minute series of demos was published Aug 18, 2016.
+
+
+<a target="_blank" href="http://www.networkworld.com/article/3109486/application-development/powershell-for-linux-makes-it-easier-to-mix-clients-servers-and-clouds.html">
+This article</a> notes Desired State Configuration for Linux and the promise of SSH support arrived in 2014 (several months before Microsoft open sourced .NET and brought .NET Core to Linux). But "you had to author your scripts on the Windows platform, you had to configure things on the Windows platform and then deliver the desired configuration to a Linux box and have it be configured; now you can do all of that on Linux.”
+
+<a target="_blank" href="https://aka.ms/hosoyc">
+On August 18 2016</a>, PowerShell became open-source at<br />
+<a target="_blank" href="https://github.com/PowerShell/PowerShell/">
+https://github.com/PowerShell/PowerShell</a>.
+
+<a target="_blank" href="https://gitter.im/PowerShell/PowerShell">
+Join the conversation on Gitter</a>
+
+Noteworthy pages in the <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md">
+FAQ</a>:
+
+   * https://blogs.msdn.microsoft.com/kebab/2013/06/09/an-introduction-to-error-handling-in-powershell/
+   * http://ss64.com/ps/syntax.html
+   * https://github.com/PoshCode/PowerShellPracticeAndStyle
+   <br /><br />
+
 
 ## Deploy as MOF #
 

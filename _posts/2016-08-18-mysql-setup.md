@@ -22,9 +22,8 @@ Content here was developed based on advice from <a href="#Resources">several web
 
 ## From MySQL to MariaDB to Aurora #
 
-MySQL is open-sourced,
-first proposed by Edgar Cord in 1970.
-The free usage made it a natural choice for other open-source frameworks such as WordPress
+MySQL was first proposed by Edgar Cord in 1970.
+Its "open-source" free usage made it a natural choice for other open-source frameworks such as WordPress
 and thus its rapid growth.
 
    NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
@@ -42,6 +41,9 @@ Many developers have migrated to MariaDB.
 (MariaDB 5.1.53 is based on MySQL 5.1.53).
 If you don't need to first uninstall MySQL,
 <a href="#InstallMariaDB">click here for instructions on installing MariaDB, below</a>.
+
+On August 2016, MariaDB's MaxScale database proxy software was put under the Business Software License, 
+which means it's really not fully open source.
 
 
 ## MySQL Still Alive #

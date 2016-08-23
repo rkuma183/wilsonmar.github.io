@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JAM-stack website project plan"
-excerpt: "Fast websites with cart and social reach, step-by-step"
+excerpt: "Fast, scalable websites with cart and social reach, step-by-step"
 tags: [website]
 image:
 # drawing blue messaging icons flow 1900x500
@@ -19,7 +19,7 @@ comments: true
 
 Here are the sequence of specific steps to build a website using
 a <a target="_blank" href="https://jamstack.org/">"JAM stack"</a> 
--- a set of software to create websites that are fast, secure, and simple to work with. 
+-- a set of software to create websites that are fast, scalable, and simple to work with. 
 JAM stands for JavaScript, APIs, and Markup.
 JavaScript on the site makes calls to API (Application Programming Interfaces) web services in the cloud
 to manage subscription forms and email campaigns.
@@ -131,9 +131,13 @@ This project plan is structured by groups of tasks, in rough priority order.
 
    ### Site Logo
 
-0. Custom icon (favico.ico/png) appearing on browser tabs
-0. Apple Touch images mobile
+0. Custom icon (10x10 favico.ico/png) appearing on browser tabs
+
+   SEE: http://www.uxbrainstorm.org/thoughts-on-logo-creation/
+
+0. Mobile app icons for Android & Apple Touch
 0. Windows 10 desktop tile images
+
 
    ### Navigation
 
@@ -280,6 +284,10 @@ This project plan is structured by groups of tasks, in rough priority order.
    For example, Snipcart uses <a target="_blank" href="https://jekyllrb.com/docs/collections/">
    Jekyll collections</a>. 
 
+0. Sign-in to your GitHub account and visit 
+   <a target="_blank" href="https://github.com/snipcart/snipcart-jekyll-integration/">
+   website</a> to fork it. Notice it is on branch gh-pages.
+
 0. <a target="_blank" href="https://app.snipcart.com/register">
    Register an account at Snipcart</a> and verify email. Keith[1 hr]
 0. <a target="_blank" href="https://snipcart.com/blog/static-site-e-commerce-part-2-integrating-snipcart-with-jekyll">
@@ -401,12 +409,16 @@ This project plan is structured by groups of tasks, in rough priority order.
 
 ## Websites Liked #
 
-* http://www.currier.org/
-* http://sgnhs.org/
-* http://www.wellesley.edu/DavisMuseum/davismenu.html
-* https://adelmanfineart.com/
-* http://www.irisscottfineart.com/
+   * http://www.currier.org/
+   * http://sgnhs.org/
+   * http://www.wellesley.edu/DavisMuseum/davismenu.html
+   * https://adelmanfineart.com/
+   * http://www.irisscottfineart.com/
 
+Paid pre-designed websites :
+
+   * <a target="_blank" href="https://www.squarespace.com/commerce/">
+   https://www.squarespace.com/commerce</a>
 
 ## Website advice specifically to artists #
 

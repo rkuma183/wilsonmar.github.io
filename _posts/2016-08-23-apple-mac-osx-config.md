@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Configuration"
-excerpt: "How I make it work my way"
+title: "MacOS Configuration dotFile"
+excerpt: "How I make OSX work my way"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -15,13 +15,11 @@ comments: true
 
 {% include _toc.html %}
 
-<a id="Fusion"></a>
+This article describes the various configuration settings to make your life easier and less frustrating.
 
-## OSX within OSX with VMware Fusion #
+Some settings can be automated using "dotFiles" 
+<a href="#DotFileRepos">in repositories maintained by various people</a>.
 
-It costs a few bucks, but you can run Windows or OSX within VMWare Fusion.
-
-This would enable you to experiment with setups.
 
 
 <a id="Terminalz"></a>
@@ -1283,6 +1281,15 @@ Apple's article</a> on how:
 Video course Mac OS X Support: Installation and Configure</a>
 is the first of courses on Plurasight toward
 Apple Certified Support Professional (ACSP)
+
+
+<a href="#DotFileRepos">
+
+## Dotfile Settings from others #
+
+* https://github.com/afranken/dotfiles
+* https://github.com/mathiasbynens/dotfiles
+
 
 ## Daemons and Agents #
 
