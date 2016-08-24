@@ -47,9 +47,8 @@ The objective of this article is for you to implement these use cases
 
    We deep dive into the theme to add JavaScript, CSS, and HTML.
 
-   NOTE: This section is not complete yet.
-
 Before we dive into Alogolia, know this:
+
 
 ## Alternatives to Aloglia search #
 
@@ -979,6 +978,8 @@ NOTE: Alogia emails the number of calls each day.
 <a name="AddSearch"></a>
 
 ## Add search features to a base theme #
+
+NOTE: This section is not complete yet.
 
 To add search features to another Jekyll theme,
 we dive into theme JavaScript, CSS, HTML, and configuration files.

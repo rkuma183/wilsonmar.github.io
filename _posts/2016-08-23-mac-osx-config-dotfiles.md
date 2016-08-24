@@ -28,7 +28,7 @@ Some settings can be automated using "dotFiles"
 The dofFile settings here are based on the dotfiles 
 published by several people on their GitHub repositories:
 
-* <a target="_blank" href="https://github.com/afranken/dotfiles">
+* <a target="_blank" href="https://github.com/afranken/dotfiles/blob/master/osx/osx-bootstrap.sh">
    https://github.com/afranken/dotfiles</a>
 
 * <a target="_blank" href="https://github.com/mathiasbynens/dotfiles">
@@ -134,7 +134,7 @@ defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Disable the crash reporter
-#defaults write com.apple.CrashReporter DialogType -string "none"
+defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
@@ -152,7 +152,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 sudo systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+# sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
@@ -174,7 +174,8 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 {% highlight text %}
 # Disable hibernation (speeds up entering sleep mode)
-sudo pmset -a hibernatemode 0
+# Hibernation saves memory to disk:
+# sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage
@@ -185,6 +186,14 @@ sudo chflags uchg /private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
+{% endhighlight %}
+
+## Timezone #
+
+{% highlight text %}
+# Set the timezone for your Continent/US-state/city:
+# see `sudo systemsetup -listtimezones` for other values
+# sudo systemsetup -settimezone "America/Denver" > /dev/null
 {% endhighlight %}
 
 ## Trackpad, mouse, keyboard, Bluetooth accessories, and input #
@@ -230,9 +239,6 @@ defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
 defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
-
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
