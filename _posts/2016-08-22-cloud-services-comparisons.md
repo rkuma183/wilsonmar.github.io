@@ -209,3 +209,10 @@ IBM Bluemix</a>
 This is one of a series on DevOps:
 
 {% include devops_links.html %}
+
+
+## More on cloud #
+
+This is one of a series on cloud computing:
+
+{% include cloud_links.html %}
