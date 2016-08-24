@@ -494,5 +494,5 @@ This is one of a series on DevOps:
 
 This page is one of a series about APIs:
 
-{% include api_topics.html %}
+{% include api_links.html %}
 
