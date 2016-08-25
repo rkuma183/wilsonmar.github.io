@@ -15,6 +15,49 @@ comments: true
 
 {% include _toc.html %}
 
+The objective of this tutorial is to spare you the pain and confusion
+around installing and uninstalling the various editions and versions of NodeJs.
+
+{% include _intro.html %}
+
+<a name="ChooseAWay"></a>
+
+## Choose a way #
+
+Click on one of the mutually exclusive variations of installing Node for
+additional information and instructions:
+
+   * A: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
+
+   * B: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+   * C: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
+   and run the installer manually.
+
+   * D: <a href="#Download">Download latest version v6.x from NodeJs website</a>
+   and run the installer manually.
+
+   * E: <a href="#NjSolid">Download latest version of N|Solid</a>.
+   <br /><br />
+
+   CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
+   I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
+
+
+   <a name="WhySeparate"></a>
+
+   Why "A" is recommended is explaned here:
+
+   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
+
+   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
+
+
+
+<a name="Editions"></a>
+
+## Different editions #
+
 Installing Node has become complex due to the drama behind
 <a href="#Editions">different editions</a> and 
 <a href="#Versions">versions</a> of Node with
@@ -23,31 +66,15 @@ each with <a target="_blank" href="https://docs.npmjs.com/getting-started/fixing
 permissions issues</a>.
 Many instructions on the internet are outdated, contradictory, or plain wrong.
 
-The objective of this article is to help you install and uninstall the various editions and versions.
+Node.js was started as an open-source project in 2009 by
+Ryan Dahl.
+Its second contributor was Isaac Schlueter who now leads the project.
+Both are employed by <a target="_blank" href="https://www.joyant.com/">Joyent.com</a>, 
+a cloud computing company purchaed in 2015 by Samsung (Korea).
 
-{% include _intro.html %}
-
-<a name="Editions"></a>
-
-## Different editions #
-
-Node.js was started as an open-source project in 2009 and has been maintained and supported by Joyent, a cloud computing company. 
-Node.js was founded by Ryan Dahl. 
-Its second contributor was Isaac Schlueter who now leads the project and is also employed by Joyent. 
-
-The project has a total of 447 core contributors as of 2016. 
+The project had a total of 447 core contributors as of 2016. 
 Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
 Joyent has raised in the neighborhood of $100 million in venture capital and has an employee headcount in excess of 120.
-
-In 2013 
-<a target="_blank" href="https://iojs.org/">
-iojs.org</a>, 
-a fork of Node.js was formed by several core committers frustrated by Joyant.
-
-Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
-on September, 2015</a>, io.js merged with the Node.js project again
-under new <a target="_blank" href="https://nodejs.org/en/foundation/">
-nodejs.org/en/foundation</a> governance.
 
 <a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
 A VentureBeat article in 2013</a> writes "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
@@ -95,34 +122,7 @@ Instead of using an internet browser to download an installer from<br />
 
    Thus, a choice needs to be made.
 
-0. Choose one (all mutually exclusive) method of installing Node.
-   Click on the choice for additional instructions:
-
-   * A: <a href="#Homebrew">Brew install node without npm, then install .npm-packages with no nvm</a>. Recommended.
-
-   * B: <a href="#npm+nvm">Brew install node with default npm and nvm</a>. More error-prone.
-
-   * C: <a href="#LTS">Download LTS (Long Term Support) v4.4.5</a>.
-
-   * D: <a href="#Download">Download most current version v6.2.1+ from Node website and manually install</a>.
-
-   * E: <a href="#NjSolid">Download most current version of N|Solid</a>.
-   <br /><br />
-
-## Explanations #
-
-   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
-
-   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
-
 <hr />
-
-<a name="npm+nvm"></a>
-
-## NPM and NVM together #
-
-   * http://www.backdrifter.com/2011/02/18/using-nvm-and-npm-to-manage-node-js/
-   from 2011 is frequently quoted
 
 
 <a name="LTS"></a>
@@ -153,9 +153,403 @@ It provides a GUI.
 <a target="_blank" href="https://downloads.nodesource.com/">
    https://downloads.nodesource.com</a>
 
-Pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
+Again, this is a licensed product.
 
 
+<a name="iojs"></a>
+
+## io.js is gone #
+
+In 2013 
+<a target="_blank" href="https://iojs.org/">
+iojs.org</a>, 
+a fork of Node.js was formed by several core committers frustrated by Joyant.
+
+Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
+on September, 2015</a>, io.js merged with the Node.js project again
+under new <a target="_blank" href="https://nodejs.org/en/foundation/">
+nodejs.org/en/foundation</a> governance.
+
+https://www.binarysludge.com/2015/01/14/how-to-uninstall-io-js-or-io-js-and-node-js-together/
+
+<a name="NVMuse"></a>
+
+<a name="NVMInstall"></a>
+
+## NVM #
+
+NVM (Node Version Manager) downloads and installs multiple versions of Node.js,
+then enables using a specific version of Node,
+using a command such as this (after installation and cd to your node app folder):
+
+   <tt><strong>
+   nvm run 4.5.0 app.js 
+   </strong></tt>
+
+   The above is for the LTS (Long Term Support) version.
+
+   If instead you want to run the <strong>latest</strong> versions of Node:
+
+   <tt><strong>
+   nvm run 6.4.0 app.js 
+   </strong></tt>
+
+   PROTIP: Remember that there is no "v" to specify a version, unlike the install command:
+
+   <tt><strong>
+   nvm install v4.5.0
+   </strong></tt>
+
+   To do the above, you first have to install NVM and Node, described in the steps below.
+
+### NVM Install #
+
+Installation steps:
+
+0. PROTIP: Use an iternet browser to read the README.md at 
+   <a target="_blank" href="https://github.com/creationix/nvm/blob/master/README.markdown">
+   https://github.com/creationix/nvm</a> 
+
+0. Note the version of installer:
+
+   <pre>
+   v0.31.6/install.sh
+   </pre>
+
+0. If you've installed <a href="#ChooseAWay">another way</a> before,
+   make sure that if you have an <strong>~/.npmrc</strong> file, 
+   it does not contain any prefix settings (which is not compatible with nvm):
+
+   <tt><strong>
+   atom ~/.npmrc
+   </strong></tt>
+
+   PROTIP: This file is used by "Option A" above, thus the mutually exclusive options.
+
+
+0. Install C++ Compiler.
+
+   NVM uses a C++ compiler installed
+   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+
+   The README at <a target="_blank" href="https://github.com/creationix/nvm">
+   https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
+   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
+   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
+
+0. Agree to Apple's license:
+
+   <tt><strong>
+   sudo xcodebuild -license
+   </strong></tt>
+
+   Type in your root password, hold down Enter until it stops, then type agree and Enter.
+
+0. Install NVM using wget: 
+
+   <pre><strong>
+   wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
+   </strong></pre>
+
+   PROTIP: The instructions say either curl or wget, but I prefer using wget because it is not installed by default,
+   and nvm requires it. So if you don't have wget, better to know it sooner than later.
+
+   The command installs to hidden folder `~/.nvm` and
+   looks into the `~/.bashrc` file used by Linux machines.
+   More on this soon.
+
+   The response:
+
+   <pre>
+=> Downloading nvm from git to '~/.nvm'
+=> Cloning into '~/.nvm'...
+remote: Counting objects: 5275, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5275 (delta 0), reused 0 (delta 0), pack-reused 5271
+Receiving objects: 100% (5275/5275), 1.44 MiB | 493.00 KiB/s, done.
+Resolving deltas: 100% (3177/3177), done.
+Checking connectivity... done.
+bash: line 73: cd: ~/.nvm: No such file or directory
+&nbsp;
+=> Source string already in /Users/mac/.bashrc
+=> You currently have modules installed globally with `npm`. These will no
+=> longer be linked to the active version of Node when you install a new node
+=> with `nvm`; and they may (depending on how you construct your `$PATH`)
+=> override the binaries of modules installed with `nvm`:
+&nbsp;
+/usr/local/Cellar/node/6.3.1/lib
+├── less@2.7.1
+├── resume-cli@0.4.13
+└── stylus@0.54.5
+&nbsp;
+=> If you wish to uninstall them at a later point (or re-install them under your
+=> `nvm` Nodes), you can remove them from the system Node as follows:
+&nbsp;
+     $ nvm use system
+     $ npm uninstall -g a_module
+&nbsp;
+=> Close and reopen your terminal to start using nvm
+   </pre>
+
+   If you see this instead:
+
+   <pre>
+=> nvm is already installed in /Users/mac/.nvm, trying to update using git
+=> 
+=> Source string already in /Users/mac/.bashrc
+=> You currently have modules installed globally with `npm`. These will no
+=> longer be linked to the active version of Node when you install a new node
+=> with `nvm`; and they may (depending on how you construct your `$PATH`)
+=> override the binaries of modules installed with `nvm`:
+&nbsp;
+/usr/local/Cellar/node/6.2.2/lib
+└── grunt@1.0.1
+&nbsp;
+=> If you wish to uninstall them at a later point (or re-install them under your
+=> `nvm` Nodes), you can remove them from the system Node as follows:
+&nbsp;
+     $ nvm use system
+     $ npm uninstall -g a_module
+&nbsp;
+=> Close and reopen your terminal to start using nvm
+   </pre>
+
+   CAUTION: NVM does not recognize the PREFIX used in the
+   <a href="#AltFolder"> Alternate folder technique</a>.
+   So we would need to live with just elevated permissions.
+
+   What the above does is equivalent to:
+
+   <tt><strong>
+   cd ~<br />
+   git clone http://github.com/creationix/nvm.git .nvm
+   </strong></tt>
+
+   So the command above is what <a target="_blank" href="http://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found">
+   some recommend</a> to fix issues with nvm install.
+
+0. Verify:
+
+   <tt><strong>
+   nvm \-\-version
+   </strong></tt>
+
+   If you get a version code such as the below (25 August 2016), proceed to 
+   <a href="#UseNVM">use NVM</a>.
+
+   <pre>
+   0.31.6
+   </pre>
+
+   TROUBLESHOOTING: 
+   If instead of the version code, this message appears:
+
+   <pre>
+   -bash: nvm: command not found
+   </pre>
+
+0. Edit the file that Mac uses to initiate Terminal,
+   using atom or other editor (vi, nano, etc.)
+
+   <tt><strong>
+   atom ~/.bash_profile
+   </strong></tt>
+
+   Add to the bottom of the file:
+
+   <tt><strong>
+   ## Export the NVM path and run its shell:<br />
+   export NVM_DIR="$HOME/.nvm"<br />
+   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+   </strong></tt>
+
+
+0. Restart Terminal so it takes:
+
+   <tt><strong>
+   source ~/.bash_profile
+   </strong></tt>
+
+0. To verify that nvm has been installed:
+
+   <tt><strong>
+   command -v nvm
+   </strong></tt>
+
+   NOTE: nvm is a shell script, not an executable, so the usualy `where` command does not work.
+
+   The response should be:
+
+   <pre>
+   nvm
+   </pre>
+
+
+0. To verify that nvm has been installed:
+
+   <tt><strong>
+   echo $NVM_DIR
+   </strong></tt>
+
+   The response should be (where "mac" is substituted with your own user id):
+
+   <pre>
+   /Users/mac/.nvm
+   </pre>
+
+
+   ### Upgrade NVM #
+
+0. To download, compile, and install the latest v5.0.x release of node:
+
+   <tt><strong>
+   nvm install 
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Downloading https://nodejs.org/dist/v5.0.0/node-v5.0.0-darwin-x64.tar.xz...
+######################################################################## 100.0%
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+   LC_ALL = (unset),
+   LC_CTYPE = "en_US.utf-",
+   LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+tar: Failed to set default locale
+nvm is not compatible with the npm config "prefix" option: currently set to "/Users/mac/~/.nvm/versions/node/v5.0.0"
+Run `npm config delete prefix` or `nvm use --delete-prefix v5.0.0` to unset it.
+   </pre>
+
+
+   <a name="UseNVM"></a>
+
+   ### Use NVM to install Node #
+
+0. For a list of commands, type nvm by itself:
+
+   <tt><strong>
+   nvm
+   </strong></tt>
+
+   PROTIP: Widen the screen to avoid text wrapping.
+
+0. To list what versions of Node.js are installed:
+
+   <tt><strong>
+   nvm ls
+   </strong></tt>
+
+   The response is like this:
+
+   <pre>
+->       v6.4.0  
+         system  
+default -> node (-> v6.4.0)
+node -> stable (-> v6.4.0) (default)
+stable -> 6.4 (-> v6.4.0) (default)
+iojs -> N/A (default)
+lts/* -> lts/argon (-> N/A)
+lts/argon -> v4.5.0 (-> N/A)
+   </pre>
+
+   <a name="nvmls-remote"></a>
+
+0. To list what versions of Node.js are available to install:
+
+   <tt><strong>
+   nvm ls-remote
+   </strong></tt>
+
+   Scroll to "(Latest LTS: Argon)", such as:
+
+   <pre>
+   v4.5.0   (Latest LTS: Argon)
+   </pre>
+
+   It's <a href="#LTSinstall">installed by these instructions</a>.
+
+
+   The latest version is at the bottom of the list, such as:
+
+   <pre>
+   v6.4.0
+   </pre>
+
+0. Install the latest version of Node.js:
+
+   <tt><strong>
+   nvm install node
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Downloading https://nodejs.org/dist/v6.4.0/node-v6.4.0-darwin-x64.tar.xz...
+######################################################################## 100.0%
+Now using node v6.4.0 (npm v3.10.3)
+Creating default alias: default -> node (-> v6.4.0)
+   </pre>
+
+   Notice that there is specific version of npm to support each version of Node.
+
+   TROUBLESHOOTING:
+   If these message also appear:
+
+   <pre>
+   perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+   LC_ALL = (unset),
+   LC_CTYPE = "en_US.utf-",
+   LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+tar: Failed to set default locale
+   </pre>
+
+   As <a target="_blank" href="https://blog.remibergsma.com/2012/07/10/setting-locales-correctly-on-mac-osx-terminal-application/">
+   this advises</a>,
+   get rid of those messages on the Mac by going to Terminal > Preferences > Advanced tab
+   to uncheck “Set locale environment variables on startup”:
+
+   <amp-img alt="mac terminal local on startup 10 11-309x87-26kb.jpg" width="309" height="87" src="https://cloud.githubusercontent.com/assets/14143059/17975924/9d2282ea-6aa8-11e6-9741-b85448d1068d.jpg"></amp-img>
+   <br /><br />
+
+   Exit Terminal to activate it or you'll see the message again.
+
+   ### Uninstall Node version #
+
+0. To uninstall a version:
+
+   <tt><strong>
+   nvm uninstall v6.4.0
+   </strong></tt>
+
+   The response:
+
+   <pre>
+   Uninstalled node v6.4.0
+   </pre>
+
+
+   <a name="LTSinstall"></a>
+
+0. Install the most recent LTS version of Node according to 
+   <a href="#nvmls-remote">nvm ls-remote</a>:
+
+   <tt><strong>
+   nvm install v4.5.0
+   </strong></tt>
+
+0. <a href="#NVMuse">Run your app in Node</a>.
+
+   Now go build something and ignore the rest of this long blog.
+
+
+<hr />
 
 <a name="Homebrew"></a>
 
@@ -227,99 +621,6 @@ Bash completion has been installed to:
    </strong></pre>
 
    The response is simply "npm".
-
-
-   <a name="NVMInstall"></a>
-
-   #### NVM Install #
-
-   NVM (Node Version Manager) downloads and installs multiple versions of Node.js.
-
-0. Install C++ Compiler.
-
-   The README at <a target="_blank" href="https://github.com/creationix/nvm">
-   https://github.com/creationix/nvm</a> notes that it uses a C++ compiler installed
-   with <a target="_blank" href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">
-   Apple's stand-alone Command Line Tools</a> also within Apple's XCode application.
-
-0. Install NVM using wget: 
-
-   <pre><strong>
-   wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-   </strong></pre>
-
-   PROTIP: The instructions say either curl or wget, but I prefer using wget because it is not installed by default,
-   and nvm requires it. So if you don't have it, better to know it sooner than later.
-
-   The response:
-
-   <pre>
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  7766  100  7766    0     0   7318      0  0:00:01  0:00:01 --:--:--  7326
-=> nvm is already installed in /Users/mac/.nvm, trying to update using git
-=> 
-=> Source string already in /Users/mac/.bashrc
-=> You currently have modules installed globally with `npm`. These will no
-=> longer be linked to the active version of Node when you install a new node
-=> with `nvm`; and they may (depending on how you construct your `$PATH`)
-=> override the binaries of modules installed with `nvm`:
-&nbsp;
-/usr/local/Cellar/node/6.2.2/lib
-└── grunt@1.0.1
-&nbsp;
-=> If you wish to uninstall them at a later point (or re-install them under your
-=> `nvm` Nodes), you can remove them from the system Node as follows:
-&nbsp;
-     $ nvm use system
-     $ npm uninstall -g a_module
-&nbsp;
-=> Close and reopen your terminal to start using nvm
-   </pre>
-
-
-
-   It appends source string to ~/.bashrc
-
-   Note it installs to folder <strong>~/.nvm</strong>.
-
-   CAUTION: NVM does not recognize the PREFIX used in the
-   <a href="#AltFolder"> Alternate folder technique</a>.
-   So we would need to live with just elevated permissions.
-
-0. Verify
-
-   <pre><strong>
-   nvm -v
-   nvm \-\-version
-   </strong></pre>
-
-   The response (19 July 2016):
-
-   <pre>
-   3.9.5
-   </pre>
-
-   NOTE: nvm is a shell script, so where command does not work.
-
-0. To download, compile, and install the latest v5.0.x release of node:
-
-   <pre>
-   nvm install 5.0
-   </pre>
-
-0. To list what versions of Node.js are installed:
-
-   <pre>
-   nvm ls
-   </pre>
-
-0. To use version 5.0 installed:
-
-   <pre>
-   nvm use 5.0
-   </pre>
 
 
 <a name="NpmPackageInstall"></a>
@@ -638,7 +939,11 @@ Several blogs addresses issues related to this topic:
    node -v
    </strong></pre>
 
+   At time of writing, the response:
+
+   <pre>
    v4.4.5
+   </pre>
 
 0. Obtain npm version:
 
@@ -646,7 +951,11 @@ Several blogs addresses issues related to this topic:
    npm -v
    </strong></pre>
 
+   At time of writing, the response:
+
+   <pre>
    3.9.5
+   </pre>
 
 0. From any folder, list what global npm packages installed as a tree:
 
@@ -679,12 +988,13 @@ Several blogs addresses issues related to this topic:
 
 <a name="CodeNode"></a>
 
-## Code Node JavaScript
+## Code Node JavaScript #
 
 Others who have blogged about this include:
 
-* <a target="_blank" href="http://quickleft.com/blog/getting-started-with-express-in-node">
+   * <a target="_blank" href="http://quickleft.com/blog/getting-started-with-express-in-node">
    http://quickleft.com/blog/getting-started-with-express-in-node</a>
+   <br /><br />
 
 0. Make a folder containing Node application files, and go to it:
 
@@ -732,8 +1042,8 @@ Others who have blogged about this include:
 0. Install NodeMon:
 
    <pre><strong>
-   npm install nodemon -g # -g installs globally as system command.
-   nodemon index.js # watch for changes and kill server when needed
+   npm install nodemon -g  # -g installs globally as system command.
+   nodemon index.js   # watch for changes and kill server when needed
    </strong></pre>
 
 
@@ -741,12 +1051,12 @@ Others who have blogged about this include:
 
 ## Bower Install #
 
-Bower is similar to npm, but for the front-end GUI applications.
+Bower is similar to NPM, but for front-end GUI applications.
 
 Any frameworks or 3rd-party libraries that need to be accessible in the user's browser
 will be managed by bower.
 
-Similarly to npm, bower tracks dependencies in a file called <strong>bower.json</strong>.
+Similarly to NPM, bower tracks dependencies in a file called <strong>bower.json</strong>.
 
 0. Install bower globally via npm:
 
@@ -936,6 +1246,17 @@ To restart your node server specified in a coffee-script:
 * <a target="_blank" href="https://github.com/felixrieseberg/npm-windows-upgrade">
    https://github.com/felixrieseberg/npm-windows-upgrade</a>
    enables upgrade of Node on Windows using elevated PowerShell scripts.
+
+* <a target="_blank" href="http://www.backdrifter.com/2011/02/18/using-nvm-and-npm-to-manage-node-js/">
+   http://www.backdrifter.com/2011/02/18/using-nvm-and-npm-to-manage-node-js</a>
+   from 2011 is frequently quoted.
+
+* <a target="_blank" href="http://stackoverflow.com/questions/32660993/difference-between-npm-and-nvm">
+   Stackoverflow</a>
+
+* <a target="_blank" href="http://blog.teamtreehouse.com/install-node-js-npm-mac">
+   Dave McFarland's blog on install is from 2014.</a>
+
 
 
 ## More on MacOS #

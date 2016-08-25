@@ -5,7 +5,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Evangelist" />
 	<meta name="description" content="" />
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+    <!-- Deprecated: http://yui.github.io/yui2/docs/yui_2.9.0_full/reset/#start -->
 <script type="text/javascript">
 function font_awesome_css() {
     $url = 'http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
@@ -35,7 +36,13 @@ function AddLocalCss(){
     design and code by: thingsthatarebrown.com  (matt brown)
 */
 a {text-decoration: none; }
-@page { margin: 0; }
+/* @page is not supported in Firefox, but supported in Chrome 2.0+, IE 8.0+, Opera 6.0+ and Safari 5.0+ */
+@page { margin: 0; 
+   header nav, footer {
+   display: none;
+   }
+}
+
 .msg { padding: 10px; background: #222; position: relative; }
 .msg h1 { color: #fff;  }
 .msg a { margin-left: 20px; background: #408814; color: white; padding: 4px 8px; text-decoration: none; }
@@ -216,10 +223,15 @@ Technical consulting experience with an international consultancy (KPMG).
 							<h2>Education</h2>
 						</div>
 						<div class="yui-u">
-						    <h3>53 courses completed on Lynda, Pluralsight, Coursera, EdX, OpenSAP</h3>
 							<h3>M.S., Educational Computing, Pepperdine University</h3>
 							<h3>B.S., Economics, Loyola Marymount University</h3>
 							<h3>Worked or traveled to all 50 states, major Canadian provinces, Japan, Hong Kong, Australia, New Zealand, Sweden, France, Italy, Germany, Switzerland, UK, Israel</h3>
+							<h3>&nbsp;</h3>
+						    <h3>53 courses completed on Lynda, Pluralsight, Coursera, EdX, OpenSAP</h3>
+							<h3>&nbsp;</h3>
+							<h3>GE Predix Hackathon at Las Vegas convention, 2016</h3>
+							<h3>ATT IoT Hackathon at CES, 2016, 2015, 2014</h3>
+							<h3><a target="_blank" href="https://qwiklabs.com/searches/lab?keywords=Introduction%20to%20AWS%20Internet-of-Things">Amazon IoT Introduction QwikLAB</a>, 2016</h3>
 						</div>
 					</div><!--// .yui-gf -->
 				</div><!--// .yui-b -->
