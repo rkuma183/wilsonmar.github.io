@@ -16,9 +16,14 @@ comments: true
 {% include _toc.html %}
 
 The objective of this tutorial is to spare you the pain and confusion
-around installing and uninstalling the various editions and versions of NodeJs.
+around installing and uninstalling the various editions and versions of NodeJs. After going through this, 
+I want you to feel <strong>confident</strong> that you've 
+<strong>mastered</strong> Node installation.
 
 {% include _intro.html %}
+
+> Stuck? Contact me and I or one of my friends will help you.
+
 
 <a name="ChooseAWay"></a>
 
@@ -27,17 +32,19 @@ around installing and uninstalling the various editions and versions of NodeJs.
 Click on one of the mutually exclusive variations of installing Node for
 additional information and instructions:
 
-   * A: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
+* A: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
 
-   * B: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+   Installing Node automatically installs NPM.
 
-   * C: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
+* B: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+* C: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
    and run the installer manually.
 
-   * D: <a href="#Download">Download latest version v6.x from NodeJs website</a>
+* D: <a href="#Download">Download latest version v6.x from NodeJs website</a>
    and run the installer manually.
 
-   * E: <a href="#NjSolid">Download latest version of N|Solid</a>.
+* E: <a href="#NjSolid">Download latest version of N|Solid</a>.
    <br /><br />
 
    CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
