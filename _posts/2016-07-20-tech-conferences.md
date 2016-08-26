@@ -199,8 +199,7 @@ Alphabetically:
 
 ## More #
 
-TODO: Arrange this in a sortable table.
-
+TODO: Arrange this in a sortable table using https://datatables.net/
 
 ## More on Evanglism #
 
