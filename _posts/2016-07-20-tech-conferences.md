@@ -50,39 +50,12 @@ Also, you may not want to schedule your own events that competes with some dates
 
 ## Specific Technology focus #
 
+Alphabetically:
+
 * AnDevCon for Android
-
-* <a target="_blank" href="https://githubuniverse.com/">
-   GitHub Universe</a> Sep 13-16, 2016 Pier 70, SF
-
-* <a target="_blank" href="https://www.cloudbees.com/juc/event-details">
-   Jenkins World 2016</a> by Cloudbees
-   September 13-15, Santa Clara Convention Center
-
-* Blackhat in July Vegas
-* Defcon
-
-* Google Test Automation Conference
-
-* CoreOS Fest
-* Cloud Computing Expo
-
-* ContainerCamp
-* DockerCon
-
-* Hadoop Summit San Jose
-* Hadoop World-StrataConf
-
-* Monitorama
-
-* Mobile World Congress Barcelona
-* MobileDevCon
-* WearablesDevCon
-
-* <a target="_blank" href="http://nodesummit.com/">NodeSummit.com</a>
-   July 27-28, 2016
-   San Francisco, CA
-
+* <a target="_blank" href="https://www.eventbrite.com/e/ansiblefest-brooklyn-2016-tickets-26808252204">
+   AnsibleFest Brooklyn 2016</a>
+   Oct 11, Brooklyn Marriott $389
 * <a target="_blank" href="http://apiworld.co/">
    API World.co</a>
    Sep 12-14, San Jose Convention Center
@@ -96,16 +69,44 @@ Also, you may not want to schedule your own events that competes with some dates
    2016.restfest.org/us</a> RESTful Web Services Unconference
    September 15-17, 2016
    Greenville, SC
+   [<a target="_blank" href="http://productforge.io/livestreams/rest-fest/2016/07/16/rest-fest-uk-2016-conference-day/">video</a>]
 
-   <a target="_blank" href="http://productforge.io/livestreams/rest-fest/2016/07/16/rest-fest-uk-2016-conference-day/">
-   Video</a>
+* Blackhat in July Vegas
+* Cloud Computing Expo
+* ContainerCamp
+* CoreOS Fest
+
+* DockerCon
+* Defcon
+
+* <a target="_blank" href="https://githubuniverse.com/">
+   GitHub Universe</a> Sep 13-16, 2016 Pier 70, SF
+* Google Test Automation Conference
+
+* Hadoop Summit San Jose
+* Hadoop World-StrataConf
+
+* <a target="_blank" href="https://www.cloudbees.com/juc/event-details">
+   Jenkins World 2016</a> by Cloudbees
+   Sep 13-15, Santa Clara Convention Center
 
 * KrankyGeek WebRTC
 
 * LinuxCon
    #ApacheCon
 
+* Monitorama
+* Mobile World Congress Barcelona
+* MobileDevCon
+
+* <a target="_blank" href="http://nodesummit.com/">
+   NodeSummit.com</a>
+   July 27-28, 2016
+   San Francisco, CA
+
 * OSCon
+* WearablesDevCon
+
 
 
 ## For enterprise job titles #

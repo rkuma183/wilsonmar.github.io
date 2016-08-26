@@ -240,11 +240,11 @@ This project plan is structured by groups of tasks, in rough priority order.
 
 0. Comments about the creation of each. This helps a lot to increase sales.
 
-0. Hash tag each. This helps a lot to increase interest.
-
    <a name="Tags"></a>
 
    ### Tags #
+
+0. Hash tag each. This helps a lot to increase interest.
 
    * color: #blue #green #BlackAndWhite
    * subject: #vinyard #bridge #lake #river #portrait
@@ -258,8 +258,8 @@ This project plan is structured by groups of tasks, in rough priority order.
    * adjectives: #beautiful #amazing #fantastic #sunny #bright
    * emotion: #peaceful #sad #happy #thrilled #exhilirated #strong
    <br /><br />
-   See the popularity of tags at http://www.google.co.uk/AdWords
 
+0. See the popularity of tags at http://www.google.co.uk/AdWords
 
 0. Size it in 3 different types of screens (mobile, tablet, desktop)
 0. Crop picture for Instagram squares (use instasize app, Gramblr)
@@ -328,16 +328,17 @@ This project plan is structured by groups of tasks, in rough priority order.
 
    ## Gallery
 
-0. https://github.com/patrickkunka/mixitup
-
 0. Gallery index photos (3) cropped, compressed, positioned
 0. Gallery index page with links
-0. Gallery spreadsheet of photos
 
-   ## Portfolio
+0. Add https://github.com/patrickkunka/mixitup. Ayush[2 hr]
+0. Add Google map. Ayush[2 hr]
 
-   A portfolio list of works by year.
 
+   ## Portfolio page #
+
+0. Add &LT;div & change CSS to remove underlines. Ayush[1 hr]
+0. Adjust CSS to vertically center pictures. Ayush[1 hr]
 
    ## SEO #
 
@@ -433,12 +434,6 @@ Paid pre-designed websites :
    like <a target="_blank" href="http://webdesign.tutsplus.com/articles/a-web-designers-site-launch-checklist-including-portable-formats--webdesign-11107">
    this</a>.
 
-<form action="https://formspree.io/wilsonmar@gmail.com"
-      method="POST">
-    <input type="text" name="name">
-    <input type="email" name="_replyto">
-    <input type="submit" value="Send">
-</form>
 
 ## More on front-end software development #
 

@@ -107,4 +107,16 @@ Or pay for sign-up for formspree's use of a randomized number instead of your em
 * Statistics such as the number of new entries per day/month, etc.
 
 
+<form action="https://formspree.io/wilsonmar@gmail.com"
+      method="POST">
+    <input type="text" name="name">
+    <input type="email" name="_replyto">
+    <input type="submit" value="Send">
+</form>
 
+
+## More on front-end software development #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

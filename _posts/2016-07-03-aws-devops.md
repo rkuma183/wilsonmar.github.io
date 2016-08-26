@@ -10,8 +10,8 @@ image:
   creditlink:
 comments: true
 ---
-<a target="_blank" href="https://wilsonmar.github.io/aws-onboarding/">
-https://wilsonmar.github.io/aws-onboarding/</a>
+<a target="_blank" href="https://wilsonmar.github.io/aws-devops/">
+https://wilsonmar.github.io/aws-devops/</a>
 
 <i>{{ page.excerpt }}</i>
 <hr />

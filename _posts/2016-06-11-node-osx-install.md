@@ -17,8 +17,6 @@ comments: true
 
 The objective of this tutorial is to spare you the pain and confusion
 around installing and uninstalling the various editions and versions of NodeJs. After going through this, 
-I want you to feel <strong>confident</strong> that you've 
-<strong>mastered</strong> Node installation.
 
 {% include _intro.html %}
 
@@ -1273,6 +1271,11 @@ Install famous Node modules:
 
 
 
+<a id="Gulp"></a>
+
+### Gulp #
+
+
 <a id="LearnNode"></a>
 
 ### LearnNode Programming Tutorial #
@@ -1332,6 +1335,19 @@ but you can also just use semantic versioning as intended and specify "mylib": "
 If installed using homebrew so it's done on every shell session:
 Add to ~/.profile
 
+
+## Node JavaScript Coding Sample #
+
+{% highlight javascript %}
+var express = require('express');
+var app = express();
+app.get('/', function(res,req){
+   res.json({
+   message: 'hello world'
+   });
+});
+app.listen(3000);
+{% endhighlight %}
 
 ## Additional topics #
 
