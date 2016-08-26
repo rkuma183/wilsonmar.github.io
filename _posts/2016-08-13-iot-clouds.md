@@ -52,9 +52,7 @@ Cloud services for IoT is fiercely contested market.
 
 0. ATT M2X cloud
 
-0. Samsung's ARTIK cloud has a 
-   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
-   demo on hackster.io</a>
+0. <a href="#Samsung">Samsung's ARTIK cloud</a>
    SAMI is platform agnostic. 
    It takes data from any type of device - FitBit, smart lightbulb, connected washing machine, etc.
 
@@ -208,6 +206,57 @@ Intel lists its cloud services affiliations at<br />
 https://software.intel.com/en-us/iot/cloud-analytics</a>.
 
 
+
+<a name="Samsung"></a>
+
+## Samsung #
+
+Samsung calls the ARTIK Cloud 
+a "data exchange platform that enables any device or sensor to push its data to the cloud".
+
+   <a target="_blank" href="http://bit.ly/ACHackJJ">
+   Samsung's Challenge</a>
+   sends participants $100 to sign up
+
+{% include _intro.html %}
+
+0. <a target="_blank" href="https://artik.cloud">
+   https://artik.cloud</a>
+   is the home product page.
+
+0. Click PRICING to see that Hobbyists get free access, but data is kept only 3 months.
+
+   PROTIP: Part of the design and task of any system is analytics over time.
+   I suggest that you extract the information for display on 
+   Tableau.
+
+0. Click <a target="_blank" href="https://artik.cloud">
+   SIGN-UP</a>
+
+0. https://www.artik.io/blog/cloud/
+
+0. https://developer.artik.cloud/documentation/introduction/
+
+
+0. https://github.com/artikcloud/tutorial-android-your-first-app
+
+   ### Add devices #
+
+   ### Define Rules #
+
+   ### View charts #
+
+   ### Export from ARTIK
+
+
+
+has a 
+   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
+   demo on hackster.io</a>
+
+### Samsung Social #
+
+Email: developer@artik.cloud
 
 
 ## More on IoT #
