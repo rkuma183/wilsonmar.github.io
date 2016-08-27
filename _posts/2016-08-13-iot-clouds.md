@@ -222,7 +222,12 @@ a "data exchange platform that enables any device or sensor to push its data to 
 
 {% include _intro.html %}
 
-0. <a target="_blank" href="https://artik.cloud">
+0. In an internet browser, look at<br />
+   <a target="_blank" href="https://www.artik.io/overview/">
+   <strong>https://www.artik.io/overview</strong></a><br />
+   which sells developers into writing ARTIK modules.
+
+0. In a new tab/window, look at<br /><a target="_blank" href="https://artik.cloud">
    <strong>https://artik.cloud</strong></a>
    is the Samsung's home product page.
 
@@ -237,32 +242,43 @@ a "data exchange platform that enables any device or sensor to push its data to 
 0. Click <a target="_blank" href="https://artik.cloud">
    SIGN-UP</a>.
 
-0. In a new tab/window, look at<br /><a target="_blank" href="https://www.artik.io/overview/">
-   <strong>https://www.artik.io/overview</strong></a><br />
-   which sells developers into writing ARTIK modules.
+0. Click <a target="_blank" href="https://developer.artik.cloud/">
+   DEVELOPER</a> on the right side of the menus to get you<br />
+   <a target="_blank" href="https://developer.artik.cloud/">
+   https://developer.artik.cloud/
 
-   And this is not the last website.
+
+   ### Add Samsung device type #
+
+0. If you select DASHBOARD > DEVICE TYPES from the website, you get to click another button
+   to really add NEW DEVICE TYPE at <br /><a target="_blank" href="https://developer.artik.cloud/dashboard/devicetypes/new">
+   <strong>https://developer.artik.cloud/dashboard/devicetypes/new</strong></a>
+   
+   This is for adding types of devices.
 
 
-   ### Add Samsung device #
-
-0. In a new tab/window, open<br /><a target="_blank" href="https://artik.cloud/my/new_device">
-   <strong>https://artik.cloud/my/new_device</strong></a>
-   to look at the many devices ARTIK supports.
+   to look at the many device types ARTIK supports.
 
    There is also a list at<br />
    <a target="_blank" href="https://artik.cloud/works-with/">
    https://artik.cloud/works-with</a>
 
-   The wish list of devices to include:<br />
+   The wish list of device types to include:<br />
    <a target="_blank" href="https://artik.cloud/challenge/most-wanted-devices/">
    https://artik.cloud/challenge/most-wanted-devices</a>
+
+0. To select a device type, open a new tab/window at<br />
+   <a target="_blank" href="https://artik.cloud/my/new_device">
+   <strong>https://artik.cloud/my/new_device</strong></a>
+   to look at the many device types ARTIK already supports.
+
+   QUESTION: Is there a menu from the website that takes you here?
 
 0. Scroll to select <strong>SAMI Gear Fit</strong>.
 
    The device is used in<br /><a target="_blank" href="https://developer.artik.cloud/documentation/introduction/hello-world.html">
    https://developer.artik.cloud/documentation/introduction/hello-world.html</a><br />
-   which steps you through connecting a "SAMI Gear Fit" device
+   which steps you through connecting a "SAMI Gear Fit" type device 
    even though one doesn't need a physical device.
 
 0. PROTIP: Add a number in the name. You may have more than one, 
@@ -313,7 +329,8 @@ Internal use only. Edit your profile information
 
 > Let me know if this artwork helps you visualize Samsung's API:
 
-   <amp-img layout="responsive" alt="iot-samsung-api-v01 650x319-125kb.png" width="650" height="319" src="https://cloud.githubusercontent.com/assets/300046/18029214/37c7865e-6c4f-11e6-8b42-cabb63a05b8b.png"></amp-img>
+   <amp-img layout="responsive" alt="iot-samsung-api-v01 650x321-130kb.png" width="650" height="321" src="https://cloud.githubusercontent.com/assets/300046/18029458/aa317636-6c55-11e6-8e08-9336b6e2e75c.png"></amp-img>
+
 
 ### Get Samsung user access token #
 
