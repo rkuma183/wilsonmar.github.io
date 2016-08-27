@@ -143,7 +143,7 @@ This reduces the hassle of using a custom cellular breakout board
    <a target="_blank" href="https://docs.losant.com/">
    documentation</a>.
 
-### Software #
+### Losant Software #
 
 This picks up after XDK is used to create the "Blinking LED" project.
 
@@ -166,7 +166,7 @@ This picks up after XDK is used to create the "Blinking LED" project.
 
    https://github.com/Losant/losant-mqtt-js
 
-### Data Explorer #
+### Losant Data Explorer #
 
    Their <a target="_blank" href="https://www.losant.com/blog/introducing-the-data-explorer">
    Data Explorer</a> is good for learning simple visual statistical inference
@@ -183,7 +183,7 @@ This picks up after XDK is used to create the "Blinking LED" project.
    http://opendatadepot.org/media/examples_img/OpenDataDepot_42.png
 
 
-### Social media #
+### Losant Social media #
 
    <a target="_blank" href="https://forums.losant.com/">
    User forums</a> can go for days with activity because the offering is still young.
@@ -196,6 +196,7 @@ This picks up after XDK is used to create the "Blinking LED" project.
    <a target="_blank" href="https://influxdata.com/">
    InfluxDB</a> for time-series data.
 
+<hr />
 
 <a name="Intel"></a>
 
@@ -206,6 +207,7 @@ Intel lists its cloud services affiliations at<br />
 https://software.intel.com/en-us/iot/cloud-analytics</a>.
 
 
+<hr />
 
 <a name="Samsung"></a>
 
@@ -221,8 +223,10 @@ a "data exchange platform that enables any device or sensor to push its data to 
 {% include _intro.html %}
 
 0. <a target="_blank" href="https://artik.cloud">
-   https://artik.cloud</a>
-   is the home product page.
+   <strong>https://artik.cloud</strong></a>
+   is the Samsung's home product page.
+
+0. Type your email to Sign up for their newsletters.
 
 0. Click PRICING to see that Hobbyists get free access, but data is kept only 3 months.
 
@@ -231,24 +235,210 @@ a "data exchange platform that enables any device or sensor to push its data to 
    Tableau.
 
 0. Click <a target="_blank" href="https://artik.cloud">
-   SIGN-UP</a>
+   SIGN-UP</a>.
 
-0. https://www.artik.io/blog/cloud/
+0. In a new tab/window, look at<br /><a target="_blank" href="https://www.artik.io/overview/">
+   <strong>https://www.artik.io/overview</strong></a><br />
+   which sells developers into writing ARTIK modules.
 
-0. https://developer.artik.cloud/documentation/introduction/
+   And this is not the last website.
 
+
+   ### Add Samsung device #
+
+0. In a new tab/window, open<br /><a target="_blank" href="https://artik.cloud/my/new_device">
+   <strong>https://artik.cloud/my/new_device</strong></a>
+   to look at the many devices ARTIK supports.
+
+0. Scroll to select <strong>SAMI Gear Fit</strong>.
+
+   The device is used in<br /><a target="_blank" href="https://developer.artik.cloud/documentation/introduction/hello-world.html">
+   https://developer.artik.cloud/documentation/introduction/hello-world.html</a><br />
+   which steps you through connecting a "SAMI Gear Fit" device
+   even though one doesn't need a physical device.
+
+0. PROTIP: Add a number in the name. You may have more than one, 
+   or want different variations.
+
+0. Click CONNECT DEVICE...
+
+   This takes you to<br /><a target="_blank" href="https://artik.cloud/my/devices">
+   <strong>https://artik.cloud/my/devices</strong></a>
+
+
+   ### Samsung API console #
+
+0. Open yet another tab/window<br /><a target="_blank" 
+   href="https://developer.artik.cloud/api-console/">
+   <strong>https://developer.artik.cloud/api-console</strong></a><br />
+
+0. Click "Accept" to allow Samsung the permissions listed:
+
+   <pre>
+The application API Console is requesting the following permissions to be granted:
+&nbsp;
+Read all your data.
+Write and modify all your data.
+Read data from devices of types:
+Send data to devices of types:
+Read your profile information
+Internal use only. Edit your profile information
+   </pre>
+
+0. Click "Accept" to dismiss the cookie message at the bottom.
+
+   <a name="APIdomains"></a>
+
+   Notice the rich set of objects among the granular API calls:
+
+   * users and their devices and device types and properties
+   * devices and their tokens
+   * devicetypes of manifests with versions and properties
+   * messages
+   * messages export
+   * notifications by subscription
+   * rules
+   * trials for applications
+   * trial devices and devicetypes
+   * trial invitations to participants by administrators
+   <br /><br />
+
+   ### Get Samsung user access token #
+
+0. Click the "GET" associated with /users/self.
+
+0. Click TRY IT! button for the website to issue a request using the
+   <strong>API endpoint</strong> shown:
+
+   <pre><strong>
+   https://api.artik.cloud/v1.1/users/self
+   </strong></pre>
+
+   The request's HTTP header contains the OAuth2 calculated by the client JavaScript:
+
+   <pre>
+    "Content-Type": "application/json",
+    "Authorization": "Bearer 471dd09f20f140888a650f3aeec70xxx"
+   </pre>
+
+   QUESTION: How long does the 32-character token live?
+
+   The response HTTP header contains HATEOS?
+
+   <pre>
+   {
+    "allow": "*",
+    "content-type": "application/json; charset=utf-8",
+    "x-rate-limit-limit": "100/1000",
+    "x-rate-limit-reset": "1472315008/1472342400",
+    "x-rate-limit-remaining": "99/999",
+    "access-control-allow-origin": "*",
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Referer, User-Agent, Authorization",
+    "access-control-allow-methods": "POST, GET, PUT, DELETE, OPTIONS",
+    "date": "Sat, 27 Aug 2016 16:22:28 GMT",
+    "content-length": "249",
+    "connection": "close"
+    }
+   </pre>
+
+   The response HTTP body returns information about the user:
+
+   <pre>
+{
+    "data": {
+        "id": "075fddff2a984cda87f2d718f4d04xxx",
+        "name": "sa4fb30b78564a73884af4e03dcc40xx",
+        "email": "wilsonmar@gmail.com",
+        "fullName": "WILSON MAR",
+        "saIdentity": "pigg1dynic",
+        "accountType": "SAMSUNG",
+        "createdOn": 1470056152000,
+        "modifiedOn": 1470056152000
+    }
+}
+   </pre>
+
+   The "createdOn" and "modifiedOn" are the number of seconds since 1/1/1970.
+
+0. Copy the id's value from the response.
+
+   ### Samsung Device Simulator #
+
+0. Download Samsung's Device Simulator Java program from</br/>
+    <a target="_blank" href="https://developer.artik.cloud/documentation/downloads/device-simulator.jar">
+    https://developer.artik.cloud/documentation/downloads/device-simulator.jar</a>
+
+0. Open a new Terminal window, navigate to the Downloads folder to 
+   construct the command, pasting the 32-character Bearer token copied earlier:
+
+   <tt><strong>
+   cd ~/Downloads<br />
+   java -jar device-simulator.jar -token=<br />
+   java -jar device-simulator.jar -token=471dd09f20f140888a650f3aeec70xxx
+   </strong></tt>
+
+   The response begins with this ASCII art:
+
+   <pre>
+    _         _   _ _  __   ____ _                 _ 
+   / \   _ __| |_(_) |/ /  / ___| | ___  _   _  __| |
+  / _ \ | '__| __| | ' /  | |   | |/ _ \| | | |/ _` |
+ / ___ \| |  | |_| | . \  | |___| | (_) | |_| | (_| |
+/_/   \_\_|   \__|_|_|\_\  \____|_|\___/ \__,_|\__,_|
+Welcome to ArtiK Cloud Device Simulator console
+   </pre>   
+
+   An example of the rest of the response:
+
+   <pre>
+Hello sa4fb30b78564a73884af4e03dcc40xx! your UID is 075fddff2a984cda87f2d718f4d04xxx and your email is wilsonmar@gmail.com :)
+Please enter a valid command or ? for help.
+java.io.UnsupportedEncodingException: utf-
+  at sun.nio.cs.StreamEncoder.forOutputStreamWriter(StreamEncoder.java:61)
+  at java.io.OutputStreamWriter.<init>(OutputStreamWriter.java:100)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:231)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:221)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:209)
+  at simulator.Console.init(Console.java:64)
+  at simulator.Main.main(Main.java:14)
+   </pre>
+
+   QUESTION: If the "data: id" token was entered,
+   the response is:
+
+   <pre>
+cloud.artik.client.ApiException: Unauthorized
+  at cloud.artik.client.ApiClient.handleResponse(ApiClient.java:838)
+  at cloud.artik.client.ApiClient.execute(ApiClient.java:773)
+  at cloud.artik.api.UsersApi.getSelfWithHttpInfo(UsersApi.java:115)
+  at cloud.artik.api.UsersApi.getSelf(UsersApi.java:102)
+  at simulator.Console.whoami(Console.java:203)
+  at simulator.Console.init(Console.java:59)
+  at simulator.Main.main(Main.java:14)
+The access token is not valid or expired.
+Please enter a valid command or ? for help.
+java.io.UnsupportedEncodingException: utf-
+  at sun.nio.cs.StreamEncoder.forOutputStreamWriter(StreamEncoder.java:61)
+  at java.io.OutputStreamWriter.<init>(OutputStreamWriter.java:100)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:231)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:221)
+  at jline.console.ConsoleReader.<init>(ConsoleReader.java:209)
+  at simulator.Console.init(Console.java:64)
+  at simulator.Main.main(Main.java:14)
+macs-MacBook-Pro-4:Downloads mac$ 
+   </pre>
 
 0. https://github.com/artikcloud/tutorial-android-your-first-app
 
-   ### Add devices #
+   ### Samsung Define Rules #
 
-   ### Define Rules #
+   ### Samsung View charts #
 
-   ### View charts #
+   ### Samsung Export from ARTIK
 
-   ### Export from ARTIK
-
-
+talented and wonderful
+https://www.linkedin.com/in/yujingwu
+Dr. Yujing Wu (@yujingwu)
 
 has a 
    <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
@@ -257,6 +447,9 @@ has a
 ### Samsung Social #
 
 Email: developer@artik.cloud
+
+https://www.artik.io/blog/cloud/
+
 
 
 ## More on IoT #

@@ -22,27 +22,43 @@ laptop transportation rather than wilderness bushwacking.
 
 Do the qualities I'm personally looking for below match your needs too?
 
+I've done a survey of various ones out there,
+and here's the features I've seen.
+
 **Durability:**
 
 - [ ] **Heavy-duty zippers**, as that is where my previous backpacks wore out first.
-     "YKK" brand zippers are considered the best.
+     "YKK" brand zippers (from Japan) are considered the best.
+     New versions are leak-resistant.
 
-- [ ] **Internal compression straps** to keep things from knocking into each other inside the pack.
+- [ ] **Internal compression straps** to keep things from 
+   knocking into each other inside the pack.
+
+   Some provide soft pull-out packs. 
+   But I prefer harder boxes so they stack neater in the pack.
 
 **Size:** This is a filter for various options available:
 
-- [ ] The maximum size to qualify as carry-on luggage (22 x 16 x 8 inches) may be too big for some.
-   But I would rather cinch up a pack than no have enough room when I need it.
+- [ ] The <strong>maximum size</strong>
+   to qualify as carry-on luggage (22 x 16 x 8 inches) 
+   may be too big for some.
+   But I would rather cinch up a pack than not have enough room when I need it.
 
-- [ ] Wheels add weight, so I've steered away from them.
+- [ ] **Lightweight** to me is generally 2 pounds or less.
+   But it's a trade-off.
 
-- [ ] **Lightweight** to me is generally 2 pounds or less. But 
+- [ ] <strong>Wheels</strong> add weight, 
+   so I've steered away from them. (I can't resist the pun).
+
+   But seriously, some (with sore backs) find wheels a must.
 
 **Comfort:**
 
-- [ ] Adjustable shoulder and side straps.
+- [ ] Adjustable shoulder and side straps really help, especially for women.
 
-- [ ] External water tube to internal water bag (not requiring removal of bag to drink).
+- [ ] <strong>water tube</strong> to reach an internal water bag 
+   makes it not necessary to stop and remove the bottle for a drink.
+   Some bags have them built-in but there are add-ons available.
 
 - [ ] Pack can open completely open (splayed) [Astor]
 
@@ -50,22 +66,31 @@ Do the qualities I'm personally looking for below match your needs too?
 
 - [ ] **Easily lockable zippers** to make it harder for people standing behind me in line to explore
      the pockets on my backpack
-- [ ] A sleek look without side pockets (that never seem to be the right size) [Astor]
-- [ ] Cut-proof fabric [LocTote, XDDesign Bobby]
+- [ ] A sleek look without side pockets (that never seem to be the right size) [Astor, Minaal]
+
+- [ ] <strong>Cut-proof</strong> fabric [LocTote, XDDesign Bobby]
+
 - [ ] Hidden zippers [XDDesign Bobby]
+
 - [ ] High density foam [XDDesign Bobby]
+
 - [ ] Emergency information slot
 
 - [ ] Alarm. This can be added on.
+
 - [ ] Red LED rear light for safety [Astor]
 - [ ] Red LED side light for safety [Astor]
 - [ ] Front lights [Astor]
 - [ ] Locator beacon (such as Tile)
 
 
+<strong>Non-features:</strong>
+
 I don't care about the pack being:
 
-   * water-tight as I use a Ziplock bag to hold each item, anyway.
+   * water-tight as I use Ziplock bags and rigid water-tight boxes
+    to hold stuff, anyway.
+
    * Velcro patch to attach skateboard [Unitty]
 
 See <a target="_blank" href="https://www.youtube.com/watch?v=dn9xLG1Or4U">
