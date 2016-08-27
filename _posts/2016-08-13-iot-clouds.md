@@ -250,6 +250,14 @@ a "data exchange platform that enables any device or sensor to push its data to 
    <strong>https://artik.cloud/my/new_device</strong></a>
    to look at the many devices ARTIK supports.
 
+   There is also a list at<br />
+   <a target="_blank" href="https://artik.cloud/works-with/">
+   https://artik.cloud/works-with</a>
+
+   The wish list of devices to include:<br />
+   <a target="_blank" href="https://artik.cloud/challenge/most-wanted-devices/">
+   https://artik.cloud/challenge/most-wanted-devices</a>
+
 0. Scroll to select <strong>SAMI Gear Fit</strong>.
 
    The device is used in<br /><a target="_blank" href="https://developer.artik.cloud/documentation/introduction/hello-world.html">
@@ -303,7 +311,11 @@ Internal use only. Edit your profile information
    * trial invitations to participants by administrators
    <br /><br />
 
-   ### Get Samsung user access token #
+> Let me know if this artwork helps you visualize Samsung's API:
+
+   <amp-img layout="responsive" alt="iot-samsung-api-v01 650x319-125kb.png" width="650" height="319" src="https://cloud.githubusercontent.com/assets/300046/18029214/37c7865e-6c4f-11e6-8b42-cabb63a05b8b.png"></amp-img>
+
+### Get Samsung user access token #
 
 0. Click the "GET" associated with /users/self.
 
@@ -428,27 +440,32 @@ java.io.UnsupportedEncodingException: utf-
 macs-MacBook-Pro-4:Downloads mac$ 
    </pre>
 
-0. https://github.com/artikcloud/tutorial-android-your-first-app
-
    ### Samsung Define Rules #
 
    ### Samsung View charts #
 
    ### Samsung Export from ARTIK
 
-talented and wonderful
-https://www.linkedin.com/in/yujingwu
-Dr. Yujing Wu (@yujingwu)
+  ### Other Samsung projects #
 
-has a 
-   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
+*   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
    demo on hackster.io</a>
 
 ### Samsung Social #
 
-Email: developer@artik.cloud
+<a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
+@ARTIKCLoud</a>
 
-https://www.artik.io/blog/cloud/
+Email: <a target="_blank" href="mailto:developer@artik.cloud">developer@artik.cloud</a><br />
+answered by <br />
+<a target="_blank" href="https://www.linkedin.com/in/jswatton">
+   Jeanine (Swatton) Jue</a>
+
+* <a target="_blank" href="https://www.linkedin.com/in/yujingwu">
+Dr. Yujing Wu</a> (@yujingwu)
+
+* https://www.artik.io/blog/cloud/
+
 
 
 
