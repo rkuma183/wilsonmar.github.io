@@ -33,8 +33,20 @@ The AppDynamics Controller has both
 <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/Quick+Install">
 installed on-premises</a>
 and hosted on public cloud (SaaS option).
+Its configuration is defined by a <strong>controller-info.xml</strong> file.
 
-The agents can thus obtain Java Thread Pool and other JVM stats.
+It collects metrics reported by different types of agents:
+
+* Stand-alone machine agents obtain Java Thread Pool and other JVM stats.
+
+* End-User Monitor (EUM) absorb activity from listening to network traffic.
+
+* Database Monitors extract from databases.
+<br /><br />
+
+AD has a <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/JVM+Crash+Guard">
+Java Crash Guard</a>
+
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=qO1M2-J4jYs">
    Intro to AppDynamics</a> by AD partner Emergent 360.
@@ -46,26 +58,46 @@ The agents can thus obtain Java Thread Pool and other JVM stats.
 
 <hr />
 
-## Cool features #
-
-The Flow Map provides icons representing each 
-<strong>tier</strong> (Web-Tier-Services, Database, etc.).
-Metrics obtained are classified compared to averages observed in the past.
-
-When an issue is detected, the icon turns red and
-diagnostic snapshots are automatically captured.
-
-AD displays response time captured by entry and exit points,
-down to specific page iframes.
-
-   PROTIP: How does each page compare against metrics predicted during performance testing?
-   Identify surprises so you don't have to look at what you already know.
-
-
-## So what? #
+## Cool features. So What? #
 
 There are several aspects that sales pitches don't cover,
 but keep actual users up at night.
+
+0. The Flow Map provides icons representing every server in each 
+   <strong>tier</strong> (Web-Tier-Services, Database, etc.).
+   Metrics obtained are classified compared to averages observed in the past.
+
+   PROTIP: AD gathers a huge amount of information every hour.
+   How many GB per day is that rate?
+   
+   PROTIP: There is a cost to keep data.
+   Have a plan for how long to keep data on AD's servers,
+   Many people save just the summary information for management reporting.
+   
+   PROTIP: Often we don't realize what analysis to do unti later, and by then
+   the historical data is gone.
+   How much is longitudinal operational analysis is worth?
+   This needs to be decision by management so they are not disappointed later.
+
+0. AD displays response time captured from every entry and exit point,
+   down to specific page iframes.
+
+   PROTIP: How does each page compare against metrics 
+   predicted during performance testing?
+   Identify surprises so you don't have to look at what you already know.
+
+   PROTIP: Ultimately, organizations need to <strong>proactively predict</strong>
+   rather than responding to alerts which occur.
+
+   In my opinion, AD can do more than it is in this aspect.
+   For example, project the <strong>trend</strong>
+   of disk space usage to identify the urgency so 
+   the appropriate notification method is used.
+
+0. PROTIP: It helps to identify up front specifically who should be called 
+   (and when) for specific alerts that can appear.
+   
+   PROTIP: Escalation specification is the specialty of PagerDuty software.
 
 0. <strong>Browser</strong> distribution pie charts on Web App Dashboards 
    is based on what clients responds. Some networks strip that out, so watch out for
@@ -77,23 +109,11 @@ but keep actual users up at night.
    from IE to modern browsers needed by React.js and other web apps.
 
 0. <strong>Synthetic users</strong>
-   are useful not just to identify issues at off-hours.
+   are useful not just to identify issues during off-hours.
 
    PROTIP: Synthetic users ensure that programs don't page off memory and 
    cause delays (bad performance) for 
    the first user who gets on the system in the morning.
-
-0. PROTIP: AD gathers a huge amount of information every hour.
-   How many GB per day is that rate?
-   
-   PROTIP: There is a cost to keep data.
-   Have a plan for how long to keep data on AD's servers,
-   Many people save just the summary information for management reporting.
-   
-   PROTIP: Often we don't realize what analysis to do unti later, and by then
-   the historical data is gone.
-   How much is longitudinal operational analysis is worth?
-   This needs to be decision by management so they are not disappointed later.
 
 0. AD provides a way to create graphs dynamically.
 
@@ -116,34 +136,114 @@ but keep actual users up at night.
    PROTIP: Use "Choas monkeys" to create havoc randomly, in production,
    to ensure that responses are adequate.
 
-   PROTIP: If the response is to run a script, 
-   has that script been tested in production?
+0. <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/Remediation+Actions">
+   Remediation scripts</a>
+   to take action after problems.
+
+   PROTIP: Has that script been tested in production?
    Many organizations don't have an enviornment to conduct such tests.
 
    PROTIP: If the response is to add more servers,
    how much free server capacity available?
 
+0. When an issue is detected, the icon turns red and
+   diagnostic snapshots are automatically captured.
+
    PROTIP: If the server is already down, there is not much point
    (and wastes precious time) to take diagnostics dumps.
 
-0. Ultimately, organizations need to <strong>proactively predict</strong>
-   rather than responding to alerts which occur.
-
-   In my opinion, AD can do more than it is in this aspect.
-   For example, project the <strong>trend</strong>
-   of disk space usage to identify the urgency so 
-   the appropriate notification method is used.
-
-0. PROTIP: It helps to identify up front specifically who should be called 
-   (and when) for specific alerts that can appear.
-   
-   PROTIP: Escalation specification is the speciality of PagerDuty software.
+   PROTIP: There are utilities which help you analyze dumps
+   from the operating system, which can be quite cryptic.
 
 0. <strong>End-user Response-Time Distribution</strong> spikes on Web App Dashboards 
    identify the percentile of each spike.
-   A spike on the 50th percentile is more troubling becuase of its consistency
+   
+   PROTIP: A spike on the 50th percentile is more troubling becuase of its consistency
    than one at 90th percentile or above.
 
+
+<hr />
+
+## AWS Agent installation #
+
+The AD Metric Browser can display metrics as a mash-up of data from cloud vendors.
+
+For example, for Amazon S3, AD can analyze CloudWatch metrics 
+about the S3 buckets designated:
+
+* <strong>Size</strong> of all the objects present in bucket(s).
+
+* <strong>Objects Count</strong> of objects present in bucket(s) configured 
+
+* <strong>Since Last Modified Time</strong> of objects in bucket(s) configured.
+
+The code and configuration notes are at<br />
+<a target="_blank" href="https://github.com/Appdynamics/aws-s3-monitoring-extension">
+https://github.com/Appdynamics/aws-s3-monitoring-extension</a>
+
+To 
+<a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/amazon-aws-s3-monitoring-extension/">
+install the agent in AWS to do the above</a>:
+
+1. Download file 
+   <strong>S3Monitor.zip</strong>
+
+   The jar file in it was compiled from 
+   <a target="_blank" href="https://github.com/Appdynamics/aws-s3-monitoring-extension">
+   https://github.com/Appdynamics/aws-s3-monitoring-extension</a>
+   (by Satish Muddam on 05/11/2015)
+   and includes dependencies pulled in.
+
+   PROTIP: Some enterprises prefer to recompile and store it in their Artifactory repository
+   for internal use rather than downloading from the internet unreviewed by 
+   ethical hackers.
+
+0. Unzip it into 
+   <em>machineagent install dir</em>/monitors/
+
+0. The <strong>monitor.xml</strong> for AD
+   points to the yml file.
+
+1. Open <strong>S3Configurations.yml</strong> in a text editor.
+
+0. Copy and paste the *accesskey: <Access-Key> for S3 account.
+
+0. Copy and paste the *secretkey: <Secret-Key> for S3 account.
+
+0. Copy and paste the * metricPrefix: Metric prefix path for AppDynamics controller.
+
+0. onlyConsolidatedMetric: true or false(default).
+   
+   If only consolidated metric is required (Bucket wise metrics will not be pushed to controller if this is true)
+
+0. noOfThreads: Min-1, Max-32, Default-8
+
+0. sizeunit: B, KB (Default), MB
+
+0. timeunit: Seconds (Default), Minutes, Hours, Days
+
+0. bucketNames: Bucket names to monitor. 
+
+   To monitor all available buckets remove this field or Add a bucket named "All".
+
+   To avoid permission issues, install the agent as the same user who owns the Machine Agent files or as an administrator on the host machine. 
+
+0. PROTIP: To detect any typos, use a YML validator such as
+   <a target="_blank" href="http://www.yamllint.com/">
+   http://www.yamllint.com</a>,
+   even when the file is generated.
+
+0. Review the <strong>monitor.xml</strong>.
+
+0. Restart the <strong>machineagent</strong>.
+
+   https://docs.appdynamics.com/display/PRO42/Where+to+Specify+Machine+Agent+Configuration
+
+   The Standalone Machine Agent (Machine Agent) starts within its own JVM.
+   In 4.2, JRE 1.8 is bundled with the OS-specific Machine Agent installation downloads.
+
+0. In the AppDynamics Metric Browser, look for: 
+   Application Infrastructure Performance | <em>Tier</em> | Custom Metrics | Amazon S3.
 
 
 <hr />
@@ -155,6 +255,9 @@ The AD Controller can integrate with various other systems.
 But it's through one-way HTTPS
 
 Alphabetical:
+
+https://www.appdynamics.com/community/exchange/extension/amazon-aws-s3-monitoring-extension/">
+   AWS</a>
 
 * https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/">
    Docker</a>
@@ -174,10 +277,6 @@ The biggest concern enterprises have with cloud services is their security.
 
 * https://community.appdynamics.com/t5/Knowledge-Base/Introduction-to-AppDynamics-with-SSL/ta-p/20580?site=community
 
-
-<hr />
-
-### Social #
 
 <hr />
 
