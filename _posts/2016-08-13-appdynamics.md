@@ -29,11 +29,14 @@ AD claims "Up to 10,000 per controller"
 at "less than 2% overhead".
 They automatically discover servers (very cool, especially on Hadoop clusters).
 
-The AppDynamics Controller has both 
+The AppDynamics Controller can be either
 <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/Quick+Install">
 installed on-premises</a>
-and hosted on public cloud (SaaS option).
-Its configuration is defined by a <strong>controller-info.xml</strong> file.
+or hosted on public cloud (SaaS option), which is what is used in
+<a target="_blank" href="https://www.youtube.com/watch?v=HxPvIz68E2A">
+self-service trials/a>.
+
+   Controllers are configured by a <strong>controller-info.xml</strong> file.
 
 It collects metrics reported by different types of agents:
 
@@ -47,6 +50,7 @@ It collects metrics reported by different types of agents:
 AD has a <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/JVM+Crash+Guard">
 Java Crash Guard</a>
 
+Videos:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=qO1M2-J4jYs">
    Intro to AppDynamics</a> by AD partner Emergent 360.
@@ -55,6 +59,8 @@ Java Crash Guard</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=yygbxv4lS7Y">
    Demo</a>
 
+* <a target="_blank" href="https://www.youtube.com/watch?v=bdom54w8_tw">
+   Overview of Architecture</a>
 
 <hr />
 
@@ -101,7 +107,7 @@ but keep actual users up at night.
 
 0. <strong>Browser</strong> distribution pie charts on Web App Dashboards 
    is based on what clients responds. Some networks strip that out, so watch out for
-   "unknown".  These stats can differ significantly versus Google Analytics if
+   "unknown". These stats can differ significantly versus Google Analytics if
    you also have that installed.
 
    PROTIP: Identify the percentage of browser distribution chart 
@@ -110,6 +116,9 @@ but keep actual users up at night.
 
 0. <strong>Synthetic users</strong>
    are useful not just to identify issues during off-hours.
+
+   * <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/AppDynamics-Synthetic-Monitoring-4-2/m-p/21398#U21398">
+   webinar 20 Apr 2016</a>
 
    PROTIP: Synthetic users ensure that programs don't page off memory and 
    cause delays (bad performance) for 
@@ -198,11 +207,11 @@ install the agent in AWS to do the above</a>:
    for internal use rather than downloading from the internet unreviewed by 
    ethical hackers.
 
-0. Unzip it into 
+0. Unzip it into folder
    <em>machineagent install dir</em>/monitors/
 
 0. The <strong>monitor.xml</strong> for AD
-   points to the yml file.
+   points to the yml file. It's in the config folder.
 
 1. Open <strong>S3Configurations.yml</strong> in a text editor.
 
@@ -248,24 +257,135 @@ install the agent in AWS to do the above</a>:
 
 <hr />
 
-## Integrations #
+## App Instrumentation #
+
+There is work necessary to instrument code objects to reveal them in monitoring.
+
+0. Proxies or firewalls on the network may need to opened up for the agent 
+   to talk to the Controller at default <strong>port 8090</strong>.
+
+0. From the AD Home screen Getting Started section, 
+   click "Agent Download &amp; Install Wizard".
+
+   AppServerAgent-4.1.0.3.zip, 11 MB
+
+0. Unzip the file.
+   
+   The folder contains a javaagent.jar file.
+
+0. To the Java startup argument starting the application,
+   add the Java Agent binary to the Java application process.
+
+   AD provides the line to add for each type of Application Server:
+
+   On Tomcat this means editing the <strong>catalina.sh</strong> file:
+
+   <tt><strong>
+   cd /bin<br />
+   sudo cp catalina.sh  catalina.sh.backup<br />
+   sudo gedit catalina.sh
+   </strong></tt>
+
+0. Use a text editor to add a line before Java is invoked:
+
+   <tt><strong>
+   export CATALINE_OPTS="$CATALINA_OPTS -javaagent:/home/appduser/appd-agent/javaagent.jar"
+   </strong></tt>
+
+0. if you're not ready for a server reboot,
+   attach to a running process. 
+
+   <tt><strong>
+   sudo java -Xbootclasspath/a:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64/lib/tools.jar
+   -jar /home/appduser/appd-agent/javaagent.jar 
+   </strong></tt>
+
+   Don't press Enter to submit until you get its PID:
+
+   <tt><strong>
+   sudo ps -A | grep java
+   </strong></tt>
+
+0. Highlight and copy the process number returned to paste at the end of the command above.
+
+0. Invoke one of the sample apps 
+   to impose load such as at:
+
+   localhost:8080/examples/servlets/
+
+
+
+
+<hr />
+
+## Docker Instrumentation #
+
+https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/
+
+0. The 1st section of the doc at<br />
+   <a target="_blank" href="https://docs.docker.com/reference/api/docker_remote_api/">
+   https://docs.docker.com/reference/api/docker_remote_api</a>
+
+0. The Stats API GET /containers/(id)/stats is available only from Docker version 1.17 onwards. If you are using an older version, the CPU Stats, Memory Stats and Network Stats will not be available.
+TCP Socket: The docker daemon should be bound to the tcp socket. Please refer to https://docs.docker.com/articles/basics/#bind-docker-to-another-hostport-or-a-unix-socket. This is the command to bind the docker daemon to both TCP Socket and Unix Socket sudo /path/to/docker daemon -H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock &
+Unix Socket: There are some known issues while using UnixSocket to fetch the data. Please refer to Troubleshooting / Known Issues Section
+Unix Socket: To use this mode to collect the data, the machine agent should be run as the root user. If this is not possible, then the current user should have password-less sudo access or he should have access to the docker socket
+Unix Socket: netcat (nc) is required to fetch the data from socket. Please install it.
+Installation
+
+Please start the Machine Agent before installing the extension and make sure that it reports data. Verify that the machine-agent status is UP and it is reporting Hardware Metrics
+Download and unzip the DockerMonitor.zip to the <MachineAgent_Dir>/monitors directory
+Edit the file config.yml located at <MachineAgent_Dir>/monitors/DockerMonitor and update the following details. Comment out properties which are not used
+metricPrefix: To report the metrics only to a given Tier, use the second one instead. The TIER_ID can be found from the REST API
+metricPrefix: Custom Metrics|Docker
+#metricPrefix: Server|Component:<TIER_ID>|Custom Metrics|Docker
+unixSocket
+unixSocket:
+    commandFile: monitors/DockerMonitor/socket-command.sh
+tcpSockets: Multiple TCP sockets can be added here. Each one should have a base URL and a unique display name. The metrics will be reported under this name.
+tcpSockets:
+    - baseUrl: http://127.0.0.1:2375
+      name: Server1
+Custom Dashboard: Update the following properties in the customDashboard section
+username [Required] A user that can login to controller ui and upload dashboard
+password[Required*] Clear text password for the user to upload the dashboard. Optionally use the passwordEncrypted and encryptionKey
+passwordEncrypted[Optional*] See the section Password Encryption Support
+encryptionKey[Optional*] See the section Password Encryption Support
+applicationName [Required]
+tierName [Required]
+
+Please review the contents of the file at the location <MachineAgent>/monitors/DockerMonitor/socket-command.sh
+
+Add executable permissions
+chmod +x MachineAgent/monitors/DockerMonitor/socket-command.sh
+Custom Dashboard
+
+The extension will generate and upload the following custom dashboard to the controller. This feature requires the version 4x of Machine Agent and Controller. Please look at the dashboard section in config.yml for configuration.
+
+Please make sure that the customDashboard section of config.yml is configured correctly.
+
+Over time, you might need to update contents of the dashboard.To create a new dashboard, delete(or rename) the existing dashboard and let extension upload a new one. See troubleshooting steps 4 and 5.
+
+<hr />
+
+## Other Integrations #
 
 The AD Controller can integrate with various other systems.
 
 But it's through one-way HTTPS
 
-Alphabetical:
+Listed alphabetically:
 
-https://www.appdynamics.com/community/exchange/extension/amazon-aws-s3-monitoring-extension/">
+* <a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/amazon-aws-s3-monitoring-extension/">
    AWS</a>
 
-* https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/">
+* <a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/">
    Docker</a>
 
-* https://github.com/carlosdoki/extensionSolarwinds">
+* <a target="_blank" href="https://github.com/carlosdoki/extensionSolarwinds">
    SolarWinds</a>
 
-* https://www.appdynamics.com/community/exchange/extension/websphere-mq-monitoring-extension/">
+* <a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/websphere-mq-monitoring-extension/">
    Websphere MQ</a>
 
 
