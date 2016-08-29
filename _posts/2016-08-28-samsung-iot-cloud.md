@@ -431,7 +431,7 @@ Twitter: @ARTIKCLoud</a>
 Email: <a target="_blank" href="mailto:developer@artik.cloud">developer@artik.cloud</a><br />
 answered by Developer Evangelists<br />
 <a target="_blank" href="https://www.linkedin.com/in/jswatton/">
-   Jeanine (Swatton) Jue</a>
+   Jeanine (Swatton) Jue</a><!-- j.jue@samsung.com -->
 
 * <a target="_blank" href="https://www.linkedin.com/in/yujingwu">
    Dr. Yujing Wu</a> (@yujingwu)
