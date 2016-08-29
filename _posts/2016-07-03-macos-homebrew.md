@@ -49,9 +49,9 @@ Alternatives Homebrew replaces:
 
 <hr />
 
-<a id="HomebrewSetupz"></a>
+<a id="Preparations"></a>
 
-## Install Homebrew #
+## Preparations #
 
 0. Make a full backup of your system before following these instructions.
 
@@ -60,6 +60,27 @@ Alternatives Homebrew replaces:
    If XCode is not already installed, you are prompted to install it.
 
    Homebrew requires OS X 10.5+ and the Xcode command line tools.
+
+   Since the El Capitan version of Mac OSX, 
+   file permissions in /usr/local have changed,
+   causing error messages such as:
+
+   <pre>
+   The linking step did not complete successfully
+   The formula built, but is not symlinked into /usr/local
+   </pre>
+
+0. So in a Terminal shell window at any folder:
+
+   <tt><strong>
+   sudo chown -R :staff /usr/local
+   </strong></tt>
+
+
+
+<a id="HomebrewSetupz"></a>
+
+## Install Homebrew #
 
 0. Install Homebrew if you haven't already.
 

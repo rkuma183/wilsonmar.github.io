@@ -21,12 +21,12 @@ https://goo.gl/UWKgTu</a>
 
 {% include _toc.html %}
 
-This is written so "newbies" can follow step-by-step. 
-But along the way, PROTIP tags mark where suggestions for higher productivity and 
-security that many advanced programmers may not know.
-
 The objective of this article is for you to implement these use cases
 (click on the underlined items to go straight there):
+
+{% include _intro.html %}
+
+<hr />
 
 1. <a href="#QueryTest">Test drive search on a demo site online</a>.
 
