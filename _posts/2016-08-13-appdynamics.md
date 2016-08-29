@@ -64,7 +64,8 @@ down to specific page iframes.
 
 ## So what? #
 
-There are several aspects that sales pitches don't cover:
+There are several aspects that sales pitches don't cover,
+but keep actual users up at night.
 
 0. <strong>Browser</strong> distribution pie charts on Web App Dashboards 
    is based on what clients responds. Some networks strip that out, so watch out for
@@ -94,6 +95,15 @@ There are several aspects that sales pitches don't cover:
    How much is longitudinal operational analysis is worth?
    This needs to be decision by management so they are not disappointed later.
 
+0. AD provides a way to create graphs dynamically.
+
+   PROTIP: Consider dumping monitoring data for analysis using your organization's
+   analytics product such as ElasticSearch, Tableau, etc.
+   This would focus leverage of skills brough to this work,
+   and (more importantly) make it easier and more likely for
+   other statistics in the organization to be integrated,
+   such as impact performance has on dollar sales, etc.
+
    <img align="right" alt="appd-actions-selections-2015-376x361-71kb.png" width="376" height="361" src="https://cloud.githubusercontent.com/assets/300046/18060867/89a6cd88-6ddd-11e6-8d4d-01362a711b95.png">
 0. AD has <strong>Health Rules</strong> and policies that trigger actions.
 
@@ -120,6 +130,9 @@ There are several aspects that sales pitches don't cover:
    rather than responding to alerts which occur.
 
    In my opinion, AD can do more than it is in this aspect.
+   For example, project the <strong>trend</strong>
+   of disk space usage to identify the urgency so 
+   the appropriate notification method is used.
 
 0. PROTIP: It helps to identify up front specifically who should be called 
    (and when) for specific alerts that can appear.
