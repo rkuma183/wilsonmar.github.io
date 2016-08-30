@@ -35,33 +35,34 @@ a "data exchange platform that enables any device or sensor to push its data to 
 0. In an internet browser, look at<br />
    <a target="_blank" href="https://www.artik.io/overview/">
    <strong>https://www.artik.io/overview</strong></a><br />
-   which sells developers into writing ARTIK <strong>modules</strong> (IoT hardware).
+   which sells developers into writing ARTIK code for
+   <a href="#DevicesHardware">Samsung's <strong>modules</strong> (IoT device hardware)</a>.
 
-   * Samsung's IoT modules have a microphone and speaker port, so
-   <a target="_blank" href="https://developer.artik.io/documentation/tutorials/say-hello.html">
-   make it speak</a>.
-
-0. In a new tab/window, look at<br /><a target="_blank" href="https://artik.cloud">
+0. In a new tab/window, look at Samsung's home product page:<br />
+   <a target="_blank" href="https://artik.cloud">
    <strong>https://artik.cloud</strong></a>
-   is the Samsung's home product page.
-
-0. Type your email to Sign up for their newsletters.
 
 0. Click PRICING to see that Hobbyists get free access, but data is kept only 3 months.
 
    PROTIP: Part of the design and task of any system is analytics over time.
-   I suggest that you extract the information for display on 
-   Tableau.
+   Many organizations extract the information for display using
+   Tableau or other corporate-standard analytics tool to more easily
+   integrate other corporate data into a single "pane of glass"
+   common among Marketing, Finance, Operations, etc.
 
 0. Click <a target="_blank" href="https://artik.cloud">
-   SIGN-UP</a>.
+   SIGN-UP</a> and type your email to get their newsletters.
 
 0. Click <a target="_blank" href="https://developer.artik.cloud/">
-   DEVELOPER</a> on the right side of the menus to get you<br />
+   DEVELOPER</a> on the right side of the menus for<br />
    <a target="_blank" href="https://developer.artik.cloud/">
    <strong>https://developer.artik.cloud</strong></a>
 
 0. https://developer.artik.io/documentation/tutorials/
+
+0. <a target="_blank" href="https://www.artik.io/blog/cloud/">
+   artik.io/blog/cloud</a>
+   has lots of great articles about applications.
 
 The above you only need to do once.
 
@@ -71,14 +72,12 @@ The above you only need to do once.
 *   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
    demo on hackster.io</a>
 
-*   <a target="_blank" href="https://www.artik.io/blog/cloud/">
-   artik.io/blog/cloud</a>
-   has lots of great articles about applications.
-
    <a target="_blank" href="http://bit.ly/ACHackJJ">
    Samsung's Challenge</a>
    sends participants $100 to sign up
 
+
+<a name="DeviceType"></a>
 
 ## Add Samsung device type #
 
@@ -152,33 +151,31 @@ Internal use only. Edit your profile information
    Java/Android SDK has these classes</a> 
    making API calls:
 
-   * <strong>DeviceTypesApi.java</strong> of manifests with versions and properties
-   * <strong>DevicesApi.java</strong> have their tokens
-   * <strong>ExportApi.java</strong> of messages
-   * <strong>MessagesApi.java</strong>
-   * <strong>RegistrationsApi.java</strong>
-   * <strong>RulesApi.java</strong>
-   * <strong>TagsApi.java</strong>
-   * <strong>TokensApi.java</strong>
-   * <strong>UsersApi.java</strong> and their devices and device types and properties
+   * <strong>DeviceTypes</strong> of manifests with versions and properties
+   * <strong>Devices</strong> have their tokens
+   * <strong>Export</strong> of messages
+   * <strong>Messages</strong>
+   * <strong>Registrations</strong>
+   * <strong>Rules</strong>
+   * <strong>Tags</strong>
+   * <strong>Tokens</strong>
+   * <strong>Users</strong> and their devices and device types and properties
    <br /><br />
 
-   Libraries for 
-   <a target="_blank" href="https://github.com/artikcloud/artikcloud-python/tree/master/artikcloud/apis">Python</a>, Swift, Scala, Ruby, PHP, C#, JavaScript, etc. 
-   have the same class structure.
+   For example, library "UsersApi.java" is equivalent to 
+   "users_api.py" in 
+   <a target="_blank" href="https://github.com/artikcloud/artikcloud-python/tree/master/artikcloud/apis">Python</a>. 
+   Swift, Scala, Ruby, PHP, C#, JavaScript, etc. 
+   have their own variation of name.
 
-   Additionally:
+   Additional classes:
 
    * notifications by subscription
    * trials for applications
    * trial devices and devicetypes
    * trial invitations to participants by administrators
    * scenarios ???
-   <br /><br />
-
-   #### Manifests #
-
-   <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/the-manifest.html">
+   * <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/the-manifest.html">
    manifests</a> are used to interpret the content so that it can be stored properly, or be sent to targeted devices correctly. Libraries of manifest models:
 
    * import cloud.artik.model.ManifestVersionsEnvelope;
@@ -340,7 +337,10 @@ user1.createdon=1406839290000
    The application ID is specified in the JSON payload.</a>
 
 
-## Samsung's own IoT Devices #
+
+<a name="DevicesHardware"></a>
+
+## Samsung's own IoT Device modules #
 
 Samsung manufacturers IoT devices
 <a target="_blank" href="http://www.digikey.com/en/product-highlight/s/samsung-led/artik">
@@ -367,6 +367,10 @@ Ships with Fedora 22.
 * https://developer.artik.io/documentation/getting-started-beta/
 * https://vimeo.com/151092340?from=outro-embed
 * https://www.hackster.io/stephanick/let-s-get-started-the-artik-5-beta-development-board-14f458
+
+   The devices Samsung offers have a microphone and speaker port, so
+   <a target="_blank" href="https://developer.artik.io/documentation/tutorials/say-hello.html">
+   make it speak</a>.
 
 
 <a name="DeviceSimulator"></a>

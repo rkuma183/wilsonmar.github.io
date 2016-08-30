@@ -166,12 +166,12 @@ In the Gradle file, add a line to compile the ARTIK Java library:
 
 0. <a target="_blank" href="https://github.com/artikcloud/sample-iot-weatherstation/">
    https://github.com/artikcloud/sample-iot-weatherstation</a>
-
    supercedes the equivalent "SAMI" (the predecessor of ARTIK) at<br />
    <a target="_blank" href="https://developer.artik.cloud/documentation/samples/">
    https://developer.artik.cloud/documentation/samples/</a>
    Samsung's app sample code</a> 
    which don't work anymore.
+
 
 
 ## More on IoT #
