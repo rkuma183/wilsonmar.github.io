@@ -27,6 +27,10 @@ This is a hands-on narrated tour on how to learn AppDynamics to detect trouble.
 <strong>Agents</strong> are installed on each machine you wish to monitor.
 AD claims "Up to 10,000 per controller"
 at "less than 2% overhead".
+
+   * <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/Tuning-the-Controller/td-p/20463/jump-to/first-unread-message">
+   Tuning the Controller</a>
+
 They automatically discover servers (very cool, especially on Hadoop clusters).
 
 The AppDynamics Controller can be either
@@ -44,7 +48,12 @@ It collects metrics reported by different types of agents:
 
 * End-User Monitor (EUM) absorb activity from listening to network traffic.
 
-* Database Monitors extract from databases.
+* Database Monitors extract from databases:
+
+   Video webinar: <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/Database-Monitoring-Part-I/m-p/21132#U21132">
+   1</a> <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/AppDynamics-Database-Monitoring-Part-II/m-p/21471#U21471">
+   2</a>
+
 <br /><br />
 
 AD has a <a target="_blank" href="https://docs.appdynamics.com/display/PRO42/JVM+Crash+Guard">
@@ -80,10 +89,21 @@ but keep actual users up at night.
    Have a plan for how long to keep data on AD's servers,
    Many people save just the summary information for management reporting.
    
-   PROTIP: Often we don't realize what analysis to do unti later, and by then
+   PROTIP: Often we don't realize what analysis to do until later, and by then
    the historical data is gone.
    How much is longitudinal operational analysis is worth?
    This needs to be decision by management so they are not disappointed later.
+
+0. AD exposes data via <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/Advanced-REST-API-Scripting-Tech-Webinar/td-p/19687/jump-to/first-unread-message">REST APIs [webinar]</a>.
+
+0. AD provides a way to create graphs dynamically.
+
+   PROTIP: Consider dumping monitoring data for analysis using your organization's
+   analytics product such as ElasticSearch, Tableau, etc.
+   This would focus leverage of skills brough to this work,
+   and (more importantly) make it easier and more likely for
+   other statistics in the organization to be integrated,
+   such as impact performance has on dollar sales, etc.
 
 0. AD displays response time captured from every entry and exit point,
    down to specific page iframes.
@@ -124,15 +144,6 @@ but keep actual users up at night.
    cause delays (bad performance) for 
    the first user who gets on the system in the morning.
 
-0. AD provides a way to create graphs dynamically.
-
-   PROTIP: Consider dumping monitoring data for analysis using your organization's
-   analytics product such as ElasticSearch, Tableau, etc.
-   This would focus leverage of skills brough to this work,
-   and (more importantly) make it easier and more likely for
-   other statistics in the organization to be integrated,
-   such as impact performance has on dollar sales, etc.
-
    <img align="right" alt="appd-actions-selections-2015-376x361-71kb.png" width="376" height="361" src="https://cloud.githubusercontent.com/assets/300046/18060867/89a6cd88-6ddd-11e6-8d4d-01362a711b95.png">
 0. AD has <strong>Health Rules</strong> and policies that trigger actions.
 
@@ -157,6 +168,8 @@ but keep actual users up at night.
 
 0. When an issue is detected, the icon turns red and
    diagnostic snapshots are automatically captured.
+   <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/Snapshots-amp-Diagnostic-Sessions-Tech-Webinar/td-p/14363/jump-to/first-unread-message">
+   [video]</a>
 
    PROTIP: If the server is already down, there is not much point
    (and wastes precious time) to take diagnostics dumps.
@@ -170,6 +183,8 @@ but keep actual users up at night.
    PROTIP: A spike on the 50th percentile is more troubling becuase of its consistency
    than one at 90th percentile or above.
 
+0. Data unique to app transactions or other GUID can be added by AD 
+   as HTTP headers for precise tracking.
 
 <hr />
 
@@ -177,8 +192,8 @@ but keep actual users up at night.
 
 The AD Metric Browser can display metrics as a mash-up of data from cloud vendors.
 
-For example, for Amazon S3, AD can analyze CloudWatch metrics 
-about the S3 buckets designated:
+For example, AD can analyze CloudWatch metrics of Amazon S3 service usage for
+buckets designated:
 
 * <strong>Size</strong> of all the objects present in bucket(s).
 
@@ -320,51 +335,16 @@ There is work necessary to instrument code objects to reveal them in monitoring.
 
 ## Docker Instrumentation #
 
-https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/
+* <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/AppDynamics-and-Docker-Tech-Webinar-and-Office-Hours/td-p/19960/jump-to/first-unread-message">
+   Webinar</a>
+
+* <a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/">
+   Docs</a>
 
 0. The 1st section of the doc at<br />
    <a target="_blank" href="https://docs.docker.com/reference/api/docker_remote_api/">
    https://docs.docker.com/reference/api/docker_remote_api</a>
 
-0. The Stats API GET /containers/(id)/stats is available only from Docker version 1.17 onwards. If you are using an older version, the CPU Stats, Memory Stats and Network Stats will not be available.
-TCP Socket: The docker daemon should be bound to the tcp socket. Please refer to https://docs.docker.com/articles/basics/#bind-docker-to-another-hostport-or-a-unix-socket. This is the command to bind the docker daemon to both TCP Socket and Unix Socket sudo /path/to/docker daemon -H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock &
-Unix Socket: There are some known issues while using UnixSocket to fetch the data. Please refer to Troubleshooting / Known Issues Section
-Unix Socket: To use this mode to collect the data, the machine agent should be run as the root user. If this is not possible, then the current user should have password-less sudo access or he should have access to the docker socket
-Unix Socket: netcat (nc) is required to fetch the data from socket. Please install it.
-Installation
-
-Please start the Machine Agent before installing the extension and make sure that it reports data. Verify that the machine-agent status is UP and it is reporting Hardware Metrics
-Download and unzip the DockerMonitor.zip to the <MachineAgent_Dir>/monitors directory
-Edit the file config.yml located at <MachineAgent_Dir>/monitors/DockerMonitor and update the following details. Comment out properties which are not used
-metricPrefix: To report the metrics only to a given Tier, use the second one instead. The TIER_ID can be found from the REST API
-metricPrefix: Custom Metrics|Docker
-#metricPrefix: Server|Component:<TIER_ID>|Custom Metrics|Docker
-unixSocket
-unixSocket:
-    commandFile: monitors/DockerMonitor/socket-command.sh
-tcpSockets: Multiple TCP sockets can be added here. Each one should have a base URL and a unique display name. The metrics will be reported under this name.
-tcpSockets:
-    - baseUrl: http://127.0.0.1:2375
-      name: Server1
-Custom Dashboard: Update the following properties in the customDashboard section
-username [Required] A user that can login to controller ui and upload dashboard
-password[Required*] Clear text password for the user to upload the dashboard. Optionally use the passwordEncrypted and encryptionKey
-passwordEncrypted[Optional*] See the section Password Encryption Support
-encryptionKey[Optional*] See the section Password Encryption Support
-applicationName [Required]
-tierName [Required]
-
-Please review the contents of the file at the location <MachineAgent>/monitors/DockerMonitor/socket-command.sh
-
-Add executable permissions
-chmod +x MachineAgent/monitors/DockerMonitor/socket-command.sh
-Custom Dashboard
-
-The extension will generate and upload the following custom dashboard to the controller. This feature requires the version 4x of Machine Agent and Controller. Please look at the dashboard section in config.yml for configuration.
-
-Please make sure that the customDashboard section of config.yml is configured correctly.
-
-Over time, you might need to update contents of the dashboard.To create a new dashboard, delete(or rename) the existing dashboard and let extension upload a new one. See troubleshooting steps 4 and 5.
 
 <hr />
 
