@@ -362,6 +362,9 @@ Listed alphabetically:
 * <a target="_blank" href="https://www.appdynamics.com/community/exchange/extension/docker-monitoring-extension/">
    Docker</a>
 
+* <a target="_blank" href="https://community.appdynamics.com/t5/Knowledge-Base/Using-AppDynamics-with-Java-Applications-on-Pivotal-Cloud/ta-p/20824">
+   Pivotal Cloud Foundry Java</a>
+
 * <a target="_blank" href="https://github.com/carlosdoki/extensionSolarwinds">
    SolarWinds</a>
 

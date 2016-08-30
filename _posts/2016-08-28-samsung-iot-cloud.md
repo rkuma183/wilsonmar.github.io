@@ -35,7 +35,11 @@ a "data exchange platform that enables any device or sensor to push its data to 
 0. In an internet browser, look at<br />
    <a target="_blank" href="https://www.artik.io/overview/">
    <strong>https://www.artik.io/overview</strong></a><br />
-   which sells developers into writing ARTIK modules.
+   which sells developers into writing ARTIK <strong>modules</strong> (IoT hardware).
+
+   * Samsung's IoT modules have a microphone and speaker port, so
+   <a target="_blank" href="https://developer.artik.io/documentation/tutorials/say-hello.html">
+   make it speak</a>.
 
 0. In a new tab/window, look at<br /><a target="_blank" href="https://artik.cloud">
    <strong>https://artik.cloud</strong></a>
@@ -61,7 +65,8 @@ a "data exchange platform that enables any device or sensor to push its data to 
 
 The above you only need to do once.
 
-   ### Samsung projects #
+
+### Samsung projects #
 
 *   <a target="_blank" href="https://www.hackster.io/monica/getting-started-with-artik-cloud-grove-weather-station-e0b4e3?ref=part&ref_id=9403&offset=0">
    demo on hackster.io</a>
@@ -76,6 +81,8 @@ The above you only need to do once.
 
 
 ## Add Samsung device type #
+
+You need to do this for each type of device you use.
 
 0. If you select DASHBOARD > DEVICE TYPES from the website, you get to click another button
    to really add NEW DEVICE TYPE at <br /><a target="_blank" href="https://developer.artik.cloud/dashboard/devicetypes/new">
@@ -120,6 +127,8 @@ The above you only need to do once.
    href="https://developer.artik.cloud/api-console/">
    <strong>https://developer.artik.cloud/api-console</strong></a><br />
 
+0. PROTIP: You'll come back to this often, so bookmark it on your browser.
+
 0. Click "Accept" to allow Samsung the permissions listed:
 
    <pre>
@@ -137,38 +146,77 @@ Internal use only. Edit your profile information
 
    <a name="APIdomains"></a>
 
-   ### APIs #
+   ### API List in SDKs #
 
-   Notice the rich set of objects among the granular API calls:
+   The <a target="_blank" href="https://github.com/artikcloud/artikcloud-java/tree/master/src/main/java/cloud/artik/api">
+   Java/Android SDK has these classes</a> 
+   making API calls:
 
-   * users and their devices and device types and properties
-   * devices and their tokens
-   * devicetypes of manifests with versions and properties
-   * messages
-   * messages export
+   * <strong>DeviceTypesApi.java</strong> of manifests with versions and properties
+   * <strong>DevicesApi.java</strong> have their tokens
+   * <strong>ExportApi.java</strong> of messages
+   * <strong>MessagesApi.java</strong>
+   * <strong>RegistrationsApi.java</strong>
+   * <strong>RulesApi.java</strong>
+   * <strong>TagsApi.java</strong>
+   * <strong>TokensApi.java</strong>
+   * <strong>UsersApi.java</strong> and their devices and device types and properties
+   <br /><br />
+
+   Libraries for 
+   <a target="_blank" href="https://github.com/artikcloud/artikcloud-python/tree/master/artikcloud/apis">Python</a>, Swift, Scala, Ruby, PHP, C#, JavaScript, etc. 
+   have the same class structure.
+
+   Additionally:
+
    * notifications by subscription
-   * rules
    * trials for applications
    * trial devices and devicetypes
    * trial invitations to participants by administrators
+   * scenarios ???
    <br /><br />
+
+   #### Manifests #
+
+   <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/the-manifest.html">
+   manifests</a> are used to interpret the content so that it can be stored properly, or be sent to targeted devices correctly. Libraries of manifest models:
+
+   * import cloud.artik.model.ManifestVersionsEnvelope;
+   * import cloud.artik.model.DeviceTypeEnvelope;
+   * import cloud.artik.model.DeviceTypesEnvelope;
+   * import cloud.artik.model.ManifestPropertiesEnvelope;
+   <br /><br />
+
+   The libraries that operate on the classes in the Java SDK are:
+
+   * import cloud.artik.client.ApiCallback;
+   * import cloud.artik.client.ApiClient;
+   * import cloud.artik.client.ApiException;
+   * import cloud.artik.client.ApiResponse;
+   * import cloud.artik.client.Configuration;
+   * import cloud.artik.client.Pair;
+   * import cloud.artik.client.ProgressRequestBody;
+   * import cloud.artik.client.ProgressResponseBody;
+   <br /><br />
+
+   A full description of Samsung's REST API is 
+   <a target="_blank" href="https://developer.artik.cloud/documentation/api-reference/rest-api.html">
+   here</a>.
+
+   
+   ### API Map #
 
 > Let me know if this artwork helps you visualize Samsung's API:
 
-   <amp-img layout="responsive" alt="iot-samsung-api-v01 650x323-132kb.png" width="650" height="323" src="https://cloud.githubusercontent.com/assets/300046/18029854/41b426f6-6c61-11e6-8e78-a6fa272d00f8.png"></amp-img>
+   <amp-img layout="responsive" alt="iot-samsung-apis-v02-650x318-145kb.png" width="650" height="318" src="https://cloud.githubusercontent.com/assets/300046/18103721/091ec246-6eb5-11e6-9d3b-de42c451d835.jpg"></amp-img>
    Words in bold are the first level names in the path.
    Words in italics are variables.
 
+
    TODO: Create illustration programmatically using http://apispots.com/projects/swaggered/
 
-   <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/the-manifest.html">
-   The Manifest</a> is used to interpret the content so that it can be stored properly, or be sent to targeted devices correctly. 
 
 ### Get Samsung user access token #
-
-   PROTIP: A full description of Samsung's REST API is 
-   <a target="_blank" href="https://developer.artik.cloud/documentation/api-reference/rest-api.html">
-   here</a>.  
 
 0. Click the "GET" associated with /users/self.
 
@@ -179,11 +227,18 @@ Internal use only. Edit your profile information
    https://api.artik.cloud/v1.1/users/self
    </strong></pre>
 
+   TROUBLESHOOTING:
+   If you get this message, it means you need to login again:
+
+   <pre>
+   {"error":{"code":401,"message":"Please provide a valid authorization header"}}
+   </pre>
+
    The request's HTTP header contains the OAuth2 calculated by the client JavaScript:
 
    <pre>
-    "Content-Type": "application/json",
-    "Authorization": "Bearer 471dd09f20f140888a650f3aeec70xxx"
+   "Content-Type": "application/json",
+   "Authorization": "Bearer 471dd09f20f140888a650f3aeec70xxx"
    </pre>
 
    <a target="_blank" href="https://developer.artik.cloud/documentation/api-reference/">
@@ -195,7 +250,7 @@ Internal use only. Edit your profile information
    A access token can be used (refreshed) for <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/authentication.html#refresh-a-token">
    up to 14 days</a>.
 
-   The response HTTP header contains HATEOS?
+   The response HTTP header:
 
    <pre>
    {
@@ -221,7 +276,7 @@ Internal use only. Edit your profile information
 
    <a name="SamsungUserId"></a>
 
-   #### userId = saIdentity #
+   ### userId #
 
    The response HTTP body reflects information about the user:
 
@@ -247,6 +302,9 @@ Internal use only. Edit your profile information
    use the online tool at <a target="_blank" href="http://www.epochconverter.com/">
    <strong>http://www.epochconverter.com</strong></a>
 
+   PROTIP: The userId is a persistent value. Once assigned, it is not changed.
+   The system's reference to the userId enables the user fullName to change.
+
 0. Highlight the id's value from the response for use later in this tutorial.
 
    Developers working on API client code would copy the id to a <strong>properties</strong>
@@ -266,11 +324,57 @@ user1.createdon=1406839290000
 
    The same file also contains id and tokens for each device.
 
+   BLAH: Samsung's API does not make use of the "HATEOS" pattern,
+   which returns with each request a list of calls next permissible.
 
-   ### Samsung Device Simulator #
+
+   ### Samsung User Properties #
+
+0. Highlight and copy into your Clipboard (with Ctrl+C)
+   the value of <a href="#SamsungUserId">"id"
+   ("075fddff2a984cda87f2d718f4d04xxx" in the example above)</a>.
+   
+   This is what the API calls your <strong>userId</strong>.
+
+   <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/administrative-apis.html">
+   The application ID is specified in the JSON payload.</a>
+
+
+## Samsung's own IoT Devices #
+
+Samsung manufacturers IoT devices
+<a target="_blank" href="http://www.digikey.com/en/product-highlight/s/samsung-led/artik">
+sold online by electronics distributor Digikey</a>
+
+<a target="_blank" href="https://www.artik.io/modules/overview/artik-10/">
+The $150 ARTIK 10's</a> quad-core ARM video and image processors are powerful enough for 
+autonomous vehicle navigation, intensive 3D graphics or large immersive displays.
+All in a form factor of 29 x 39 x 1.3 mm.
+More importantly, its hardware works with the ARM TrustZone® and 
+Trustonic’s Trusted Execution Environment (TEE) 
+to provide “bank level” security end-to-end
+for 5GHz WiFi 802.11a/b/g/n/ac, Bluetooth 4.1 + LE,
+ZWave, and ZigBee 802.15.4 Thread planned 
+radios. 
+
+(No snooping the snoopers for you!)
+
+<a target="_blank" href="https://www.artik.io/modules/overview/artik-5/">
+The $99 ARTIK 5</a> has the same radios, but in a 30 x 25 mm footprint.
+
+Ships with Fedora 22.
+
+* https://developer.artik.io/documentation/getting-started-beta/
+* https://vimeo.com/151092340?from=outro-embed
+* https://www.hackster.io/stephanick/let-s-get-started-the-artik-5-beta-development-board-14f458
+
+
+<a name="DeviceSimulator"></a>
+
+## Samsung Device Simulator #
 
    Docs about this is <a target="_blank" href="https://developer.artik.cloud/documentation/tools/device-simulator.html">
-   here</a>, which states:
+   here</a>.
 
 0. Make sure you have Java <strong>JDK v8 update 77 or higher</strong>.
    In a Terminal shell window:
@@ -279,11 +383,12 @@ user1.createdon=1406839290000
    java -version
    </strong></tt>
 
-   The response:
+   The response (30 Aug 2016):
 
    <pre>
-Java(TM) SE Runtime Environment (build 1.8.0_74-b02)
-Java HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)
+java version "1.8.0_102"
+Java(TM) SE Runtime Environment (build 1.8.0_102-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.102-b14, mixed mode)
    </pre>
 
    Upgrade if necessary.
@@ -294,8 +399,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)
     https://developer.artik.cloud/documentation/downloads/device-simulator.jar</a><br />
     into your Downloads folder.
 
-0. Open a new Terminal window, navigate to the Downloads folder to 
-   construct the command, 
+0. Open a new Terminal window, navigate to the Downloads folder 
+   to construct the command:
 
    <tt><strong>
    cd ~/Downloads<br />
@@ -305,6 +410,10 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.74-b02, mixed mode)
 0. Temporarily return to the API webpage to copy and 
    paste the 32-character user id token highlighted earlier.
 
+   PROTIP: Move the jar file to a separate folder and create a 
+   shell script to do this if you'll be doing this.
+
+   TROUBLESHOOTING:
    If you get the message "Error: Unable to access jarfile device-simulator.jar",
    do a pwd to see if the jar file is there to use.
 
@@ -327,10 +436,10 @@ Hello sa4fb30b78564a73884af4e03dcc40xx! your UID is 075fddff2a984cda87f2d718f4d0
 Please enter a valid command or ? for help.
 java.io.UnsupportedEncodingException: utf-
   at sun.nio.cs.StreamEncoder.forOutputStreamWriter(StreamEncoder.java:61)
-  at java.io.OutputStreamWriter.<init>(OutputStreamWriter.java:100)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:231)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:221)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:209)
+  at java.io.OutputStreamWriter.&LT;init>(OutputStreamWriter.java:100)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:231)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:221)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:209)
   at simulator.Console.init(Console.java:64)
   at simulator.Main.main(Main.java:14)
    </pre>
@@ -351,14 +460,15 @@ The access token is not valid or expired.
 Please enter a valid command or ? for help.
 java.io.UnsupportedEncodingException: utf-
   at sun.nio.cs.StreamEncoder.forOutputStreamWriter(StreamEncoder.java:61)
-  at java.io.OutputStreamWriter.<init>(OutputStreamWriter.java:100)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:231)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:221)
-  at jline.console.ConsoleReader.<init>(ConsoleReader.java:209)
+  at java.io.OutputStreamWriter.&LT;init>(OutputStreamWriter.java:100)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:231)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:221)
+  at jline.console.ConsoleReader.&LT;init>(ConsoleReader.java:209)
   at simulator.Console.init(Console.java:64)
   at simulator.Main.main(Main.java:14)
-macs-MacBook-Pro-4:Downloads mac$ 
    </pre>
+
+   #### Device Emulator commands #
 
    If successful, commands can be entered.
 
@@ -366,28 +476,18 @@ macs-MacBook-Pro-4:Downloads mac$
    ?
    </strong></tt>
 
-   ### Samsung User Properties #
 
-0. Highlight and copy into your Clipboard (with Ctrl+C)
-   the value of <a href="#SamsungUserId">"id"
-   ("075fddff2a984cda87f2d718f4d04xxx" in the example above)</a>.
-   
-   This is what the API calls your <strong>userId</strong>.
-
-   <a target="_blank" href="https://developer.artik.cloud/documentation/introduction/administrative-apis.html">
-   The application ID is specified in the JSON payload.</a>
-
-
-   ### Samsung cloud connectors #
+## Samsung cloud connectors #
 
    At time of writing, the clouds at https://artik.cloud/works-with/ 
    include most of the early cloud APIs:
 
-   * OpenWeatherMap
-   * Nettamo (France) indoor face recognition cameras and CO2 sensor stations h
+   * <a target="_blank" href="http://openweathermap.org/">OpenWeatherMap</a>
+   * <a target="_blank" href="https://www.nettamo.com/">Nettamo</a> (France) elegant indoor face recognition cameras and CO2 sensor stations 
    
-   * Foursquare
    * Twitter
+   * Foursquare
+   * Instagram ?
    
    * FitBit
    * iHealth
@@ -400,6 +500,12 @@ macs-MacBook-Pro-4:Downloads mac$
    * Philips Hue
 
 https://developer.artik.cloud/documentation/introduction/authentication.html#authorization-code-method
+
+   ### OpenWeatherMap #
+
+https://www.artik.io/blog/2016/08/make-iot-weather-station-artik-cloud/
+using an Arduino Uno running Sketch collecting from a DHT11 Temperature sensor
+and a Raspberry Pi running Node.js.
 
    ### Rules #
 
@@ -423,7 +529,7 @@ https://developer.artik.cloud/documentation/introduction/authentication.html#aut
 
 <hr />
 
-### Samsung Social #
+## Samsung Social #
 
 <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
 Twitter: @ARTIKCLoud</a>
@@ -445,7 +551,7 @@ Home Appliances in Rigefield Park, New Jersey and Minneapolis, Minnesota.
    is the user forum.
 
 
-
+* https://github.com/artikcloud/sample-iot-weatherstation
 
 
 ## More on IoT #

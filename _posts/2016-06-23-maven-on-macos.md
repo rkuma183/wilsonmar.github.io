@@ -15,7 +15,9 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial helps you install Maven.
+This shows you how install Maven using Homebrew.
+
+## Competitors #
 
 Maven's competitors include Ant and Gradle.
 
@@ -28,10 +30,11 @@ deliverables like JAR file or WAR files.
 So Maven is the default for the Jenkins continuous integration tool which
 triggers a Maven build whenever developer commit code.
 
-Read more: http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF
-
 Maven adopts principle of "Convention over configuration", which means
 less coding work.
+
+Read more: <a target="_blank" href="http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF">
+http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF</a>
 
 
 <a id="MavenSetupz"></a>
@@ -40,10 +43,10 @@ less coding work.
 
 0. To install the latest version:
 
-   <pre><strong>
-   brew update
+   <tt><strong>
+   brew update<br />
    brew install maven
-   </strong></pre>
+   </strong></tt>
 
    the response:
 
@@ -58,31 +61,31 @@ less coding work.
 
    Alternately:
 
-## Install previous version #
+   ### Install previous version #
 
    Alternately, to
    <a target="_blank" href="http://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula">
    install a previous version</a>:
 
-   <pre><strong>
+   <tt><strong>
    brew install homebrew/versions/maven30
-   </strong></pre>
+   </strong></tt>
 
    Then, to switch among versions:
 
-   <pre><strong>
-   brew unlink maven30 && brew link maven
+   <tt><strong>
+   brew unlink maven30 && brew link maven<br />
    brew unlink maven && brew link maven30
-   </strong></pre>
+   </strong></tt>
 
 
-## Configure Path #
+   ## Configure Path #
 
 0. Verify install:
 
-   <pre><strong>
+   <tt><strong>
    mvn -version
-   </strong></pre>
+   </strong></tt>
 
    I got this response:
 
@@ -98,9 +101,9 @@ less coding work.
 
 0. Confirm the path:
 
-   <pre><strong>
+   <tt><strong>
    which mvn
-   </strong></pre>
+   </strong></tt>
 
    response:
 
@@ -110,44 +113,44 @@ less coding work.
 
    NOTE: Before OSX Mavericks,
    <a target="_blank" href="http://maven.apache.org/">
-   Maven</a> was installed by default in:
+   Maven</a> was installed by default in:<br />
    <tt>/usr/share/maven/bin/mvn</tt>
 
 0. Confirm the path. Substitute the version (3.3.9) with the version
    you just installed:
 
-   <pre><strong>
-   cd /usr/local/Cellar/maven/3.3.9/libexec
-   cd bin
+   <tt><strong>
+   cd /usr/local/Cellar/maven/3.3.9/libexec<br />
+   cd bin<br />
    ls
-   </strong></pre>
+   </strong></tt>
 
    mvn files should be listed.
 
 0. Open a text editor:
 
-   <pre><strong>
-   cd $HOME
+   <tt><strong>
+   cd $HOME<br />
    subl .bash_profile
-   </strong></pre>
+   </strong></tt>
 
    Substitute subl for Sublime with atom or vim.
 
 0. Add the following to under export PATH=:
 
-   <pre><strong>
-   export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
-   export M2=$M2_HOME/bin
+   <tt><strong>
+   export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec<br />
+   export M2=$M2_HOME/bin<br />
    export PATH=$PATH:$M2_HOME/bin
-   </strong></pre>
+   </strong></tt>
 
    Change the version (3.3.9) to whatever appeared above.
 
 0. In a Terminal, verify changes:
 
-   <pre><strong>
+   <pre><tt>
    echo $JAVA_HOME
-   </strong></pre>
+   </strong></tt>
 
    The reply I got:
 
@@ -175,7 +178,8 @@ less coding work.
 
    Some prefer to change Maven's local repository to another location.
 
-   See https://maven.apache.org/guides/mini/guide-configuring-maven.html
+   See <a target="_blank" href="https://maven.apache.org/guides/mini/guide-configuring-maven.html">
+   https://maven.apache.org/guides/mini/guide-configuring-maven.html</a>
 
    There is a settings.xml file containing:
 
@@ -186,13 +190,13 @@ less coding work.
 
 ## Using Maven #
 
-Maven allows use of a central maven repository.
+   Maven allows use of a central maven repository.
 
-With Maven, after downloading a project, to build, run:
+   With Maven, after downloading a project, to build, run:
 
-   <pre><strong>
+   <tt><strong>
    mvn install
-   </strong></pre>
+   </strong></tt>
 
    Maven looks at <strong>pom.xml</strong> (Project Object Model)
    files that describes project dependencies.
@@ -214,7 +218,6 @@ src="https://cloud.githubusercontent.com/assets/300046/16313507/bb3e9320-3936-11
 </a>
 
 Here are sub-commands for mvn:
-
 
 Default Lifecycle:
 
@@ -291,8 +294,6 @@ src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11
 <amp-img width="300" height="235" alt="meme-acme-not-real"
 layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
 <br /><br />
-
-The 
 
 * http://www.sonatype.com/resources/books/maven-by-example
 

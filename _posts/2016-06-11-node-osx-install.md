@@ -79,19 +79,21 @@ a cloud computing company purchaed in 2015 by Samsung (Korea).
 
 The project had a total of 447 core contributors as of 2016. 
 Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
-Joyent has raised in the neighborhood of $100 million in venture capital and has an employee headcount in excess of 120.
+Joyent has raised in the neighborhood of $100 million in venture capital 
+and has an employee headcount in excess of 120.
 
 <a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
-A VentureBeat article in 2013</a> writes "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
+A VentureBeat article in 2013</a> writes 
+"Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
 <a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
 And they’re apparently attempting to hijack the Node brand and community for themselves."
-Strongloop supports Express and LoopBack framework.
+
+Strongloop supports Express and LoopBack frameworks.
 <a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
 On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on API lifecycle.
 
 
 <hr />
-
 
 <a name="LTS"></a>
 
@@ -112,16 +114,18 @@ with bug and security fixes.
 ## N|Solid #
 
 <a target="_blank" href="https://nodesource.com/products/nsolid">
-N|Solid</a>
-from NodeSource
+N|Solid from NodeSource</a>
    is a "fully compatible Node.js runtime 
    enhanced to address the needs of enterprise production support."
-It provides a GUI.
 
-<a target="_blank" href="https://downloads.nodesource.com/">
+   Their disto provides a GUI and a way to pull telemetry for V8
+   <strong>process monitoring</strong>.
+
+   <a target="_blank" href="https://downloads.nodesource.com/">
    https://downloads.nodesource.com</a>
 
-Again, this is a licensed product.
+   Again, this is a licensed product. I've heard that they
+   provide support at $1,000 per developer per month ($12,000 per year).
 
 
 <a name="iojs"></a>

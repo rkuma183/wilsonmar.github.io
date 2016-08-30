@@ -1498,6 +1498,18 @@ https://github.com/jenkinsci/job-dsl-plugin/wiki/User-Power-Moves
 
    This TAP test runner is supported by Mocha, tape, etc.
 
+## Resources #
+
+* <a target="_blank" href="https://jenkins.io/">
+   Jenkins.io/</a>
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/jenkins-2-getting-started/exercise-files">
+   Getting Started with Jenkins2</a>
+   3h 36m video course published 28 Aug 2016
+   by <a target="_blank" href="https://www.weshigbee.com/">
+   Wes Higbee</a> (<a target="_blank" href="https://www.twitter.com/@g0t4/">@g0t4</a>)
+   is based on Jenkins 2.7.1.
+
 
 ## Latest Info about Jenkins #
 
@@ -1520,7 +1532,7 @@ is the handle for Jenkins World,
 Sep 13-15 in Santa Clara, CA
 
 @changelog
-New podcast every Friday! Sign up for our weekly and nightly emails. Open source moves fast. Keep up.
+podcast every Friday
 
 
 ## More on DevOps #
