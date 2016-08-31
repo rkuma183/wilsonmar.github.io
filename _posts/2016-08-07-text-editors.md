@@ -27,9 +27,16 @@ Free:
 
    * <a href="#atom">Atom</a> from GitHub (free)
    * <a href="#Code">Code</a> from Microsoft (free)
-   * Adobe Brackets http://brackets.io on Windows too
-   * http://barebones.com/products/textwrangler is the
+   * <a target="_blank" href="http://brackets.io/">
+   http://brackets.io - Adobe Brackets</a> is on Windows too
+   * <a target="_blank" href="http://barebones.com/products/textwrangler/">
+   http://barebones.com/products/textwrangler</a> is the
      little brother to BBEdit.
+   * <a target="_blank" href="http://www.annedawson.net/Python_Editor_IDLE.htm">
+   http://www.annedawson.net/Python_Editor_IDLE.htm">
+   Python IDLE Editor</a>
+
+   * mvim ? for Mac
 
 Licensed nagware:
 

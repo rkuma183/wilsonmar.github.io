@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AppDynamics"
-excerpt: "It knows you when your good and bad ..."
+excerpt: "He knows if you've been bad or good, so be good for goodness sake ..."
 tags: [Clouds, Monitoring, Analytics]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -96,6 +96,11 @@ but keep actual users up at night.
 
 0. AD exposes data via <a target="_blank" href="https://community.appdynamics.com/t5/Tech-Webinars/Advanced-REST-API-Scripting-Tech-Webinar/td-p/19687/jump-to/first-unread-message">REST APIs [webinar]</a>.
 
+   PROTIP: REST APIs are rather granular.
+   If a large amount of data needs to be extracted,
+   a mechanism is needed to not overload the AD server
+   by spreading out calls over time.
+
 0. AD provides a way to create graphs dynamically.
 
    PROTIP: Consider dumping monitoring data for analysis using your organization's
@@ -185,6 +190,19 @@ but keep actual users up at night.
 
 0. Data unique to app transactions or other GUID can be added by AD 
    as HTTP headers for precise tracking.
+
+   This is a powerful way to pin-point the total amount of time on each tier.
+
+0. Number of AD licenses vs number of servers in production is a crucial 
+   operational metric.
+
+   PROTIP: Many organizations need to use a "borrow Peter to pay Paul"
+   mode of operation in order to stay within allocated budgets.
+   This means licenses are pulled from one server to
+   install in servers being actively considered.
+   In such cases, consider using an alternative monitoring mechanism
+   for servers which do not have AD agents.
+   Such a switch can be a part of automated server build parameters.
 
 <hr />
 

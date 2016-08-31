@@ -217,6 +217,10 @@ Internal use only. Edit your profile information
 
 0. Click the "GET" associated with /users/self.
 
+   <a name="Endpoint"></a>
+
+   #### Service end-point #
+
 0. Click TRY IT! button for the website to issue a request using the
    <strong>API endpoint</strong> shown:
 
@@ -225,7 +229,7 @@ Internal use only. Edit your profile information
    </strong></pre>
 
    TROUBLESHOOTING:
-   If you get this message, it means you need to login again:
+   If you get the following message, it means you need to login again:
 
    <pre>
    {"error":{"code":401,"message":"Please provide a valid authorization header"}}
