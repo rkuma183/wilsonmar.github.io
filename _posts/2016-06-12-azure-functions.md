@@ -2,12 +2,12 @@
 layout: post
 title: "Serverless AWS Lamba"
 excerpt: "An invisible server for the masses"
-tags: [node, serverless]
+tags: [node, azure, serverless]
 image:
-# feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
-  credit: William McNaughton
-  creditlink:
+# banner colorful serverroom-1900x500-1200kb
+  feature: https://cloud.githubusercontent.com/assets/300046/18173506/0fecf566-7027-11e6-965f-791c4df41a0b.jpg
+  credit: TechTarget
+  creditlink: http://searchaws.techtarget.com/tip/Automate-tasks-with-AWS-PowerShell-tools
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -15,10 +15,12 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial aims to have you ending up with a serverless app running in the Amazon cloud.
+This tutorial aims to have you ending up with a serverless app running in 
+Microsoft Azure cloud.
 
 It's assumed that you're already familiar with
 [the Serverless framework](/serverless/)
+
 
 ## Why #
 
@@ -42,15 +44,12 @@ Multitenancy</a>
 
 ## Social #
 
-@AWSLambda
+Yochay Kiriaty
+(@yochayk)
 
-\#AWSLambda
-
-@lambda_conf
-
-@lambdatips
-
-
+Christopher Anderson
+@crandycodes 
+PM
 
 
 ## More on Serverless #

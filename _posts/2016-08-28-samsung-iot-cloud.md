@@ -559,7 +559,7 @@ Check it out
 
 <hr />
 
-## Samsung Social #
+## Social #
 
 Twitter: <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
 @ARTIKCLoud</a>,

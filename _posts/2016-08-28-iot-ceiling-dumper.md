@@ -233,6 +233,11 @@ A servo is always built with a feedback mechanism.
 * https://www.youtube.com/watch?v=oOvRf7xa5r4
 
 
+## Resources #
+
+* http://www.leevalley.com/US/wood/page.aspx?p=74353&cat=51&ap=3
+
+
 ## More on IoT #
 
 This is one of a series on IoT:
