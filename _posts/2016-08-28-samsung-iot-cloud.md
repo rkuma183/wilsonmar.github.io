@@ -74,7 +74,7 @@ The above you only need to do once.
 
    <a target="_blank" href="http://bit.ly/ACHackJJ">
    Samsung's Challenge</a>
-   sends participants $100 to sign up
+   sends winning participants $100 
 
 
 <a name="DeviceType"></a>
@@ -299,8 +299,8 @@ Internal use only. Edit your profile information
    The "createdOn" and "modifiedOn" are the number of milliseconds since 
    1/1/1970 (the epoch). The last 3 of the 13 digits are always zeros.
 
-   PROTIP: Convert back to human-readable date/time,
-   use the online tool at <a target="_blank" href="http://www.epochconverter.com/">
+   PROTIP: Convert back to human-readable date/time
+   using the online tool at <a target="_blank" href="http://www.epochconverter.com/">
    <strong>http://www.epochconverter.com</strong></a>
 
    PROTIP: The userId is a persistent value. Once assigned, it is not changed.
@@ -376,6 +376,13 @@ Ships with Fedora 22.
    <a target="_blank" href="https://developer.artik.io/documentation/tutorials/say-hello.html">
    make it speak</a>.
 
+* https://www.youtube.com/watch?v=Wsj9pZml_18
+   Introduction to Eclipse Che: Customizable, RESTful Developer Workspaces Eclipse Foundation 
+
+* <a target="_blank" href="http://www.openhab.org/">
+   OpenHAB.org</a> platform for Home Automation
+
+<hr />
 
 <a name="DeviceSimulator"></a>
 
@@ -515,42 +522,66 @@ https://www.artik.io/blog/2016/08/make-iot-weather-station-artik-cloud/
 using an Arduino Uno running Sketch collecting from a DHT11 Temperature sensor
 and a Raspberry Pi running Node.js.
 
-   ### Rules #
 
-   ### Trials #
+<a name="Rules"></a>
+
+## Rules #
+
+
+<a name="Trials"></a>
+
+## Trials #
 
    An ARTIK Cloud trial is a way for a trial administrator (user) 
-   to invite other users to share their data 
+   to <strong>invite</strong> other users to share their data 
    for a controlled amount of time and set of device types.
 
-   https://github.com/samsungsamiio/sami-trials-webapps
+   <a target="_blank" href="https://github.com/samsungsamiio/sami-trials-webapps">
+   https://github.com/samsungsamiio/sami-trials-webapps</a>
    by 
    http://developer.samsungsami.io/
-   which now redirects to https://developer.artik.cloud/
+   now redirects to https://developer.artik.cloud/
 
    <a target="_blank" href="https://developer.artik.cloud/documentation/advanced-features/data-collection-with-trials.html">
    Docs about this</a> are under the "Advanced" section.
 
-   ### View charts #
+<a name="Charts"></a>
 
-   ### Export from ARTIK #
+## View charts #
+
+Check it out
+
+<a name="Export"></a>
+
+## Export from ARTIK #
+
+Check it out
 
 <hr />
 
 ## Samsung Social #
 
+Twitter: <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
+@ARTIKCLoud</a>,
 <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
-Twitter: @ARTIKCLoud</a>
+@ARTIKCLoud</a>,
 
 Email: <a target="_blank" href="mailto:developer@artik.cloud">developer@artik.cloud</a><br />
 answered by Developer Evangelists<br />
 <a target="_blank" href="https://www.linkedin.com/in/jswatton/">
    Jeanine (Swatton) Jue</a><!-- j.jue@samsung.com -->
+of the Samsung Strategy and Innovation Center.
 
 * <a target="_blank" href="https://www.linkedin.com/in/yujingwu">
    Dr. Yujing Wu</a> (@yujingwu)
 
-LinkedIn shows Samsung America being based in Seattle and Bellevue, Washington.
+* <a target="_blank" href="https://www.youtube.com/watch?v=IgRkOr-oSNw">
+   SDC 2016</a> by Dan Gross
+
+* <a target="_blank" href="https://www.youtube.com/channel/UCkDAwuCKUcY1qn-hgNv0kLw">
+   YouTube: sansung_dev channel</a> 
+
+LinkedIn jobs shows Samsung America being based in Seattle and Bellevue, Washington.
 Smart Home in Mountain View, California.
 Home Appliances in Rigefield Park, New Jersey and Minneapolis, Minnesota.
 
@@ -560,6 +591,10 @@ Home Appliances in Rigefield Park, New Jersey and Minneapolis, Minnesota.
 
 
 * https://github.com/artikcloud/sample-iot-weatherstation
+
+Dan Gross, Director of Technical Support, Samsung
+
+Wei Xiao, Tech Evangelist, Sr. Staff Engineer, Samsung
 
 
 ## More on IoT #
