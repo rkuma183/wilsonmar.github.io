@@ -1362,7 +1362,7 @@ On the Jenkins screen UI:
 
 0. Click <strong>Select plugins to install</strong>.
 
-   <amp-img width="650" height="206" alt="jenkins install select 2 7 1-650x510-156kb.jpg" src="https://cloud.githubusercontent.com/assets/300046/18190294/e26744a4-707e-11e6-84d6-9d77a989dbad.jpg"></amp-img>
+   <amp-img width="650" height="510" alt="jenkins install select 2 7 1-650x510-156kb.jpg" src="https://cloud.githubusercontent.com/assets/300046/18190294/e26744a4-707e-11e6-84d6-9d77a989dbad.jpg"></amp-img>
 
    NOTE: Click the <strong>Suggested</strong> link at the top of the screen to
    reset selections.
@@ -1433,6 +1433,8 @@ On the Jenkins screen UI:
 0. PROTIP: Open a text file and type your choice for
    Username, Password, Confirm, Full Name, E-mail address.
    Do this in case there is a typo.
+
+   <amp-img width="228" height="161" alt="jenkins first admin user 2.7.2-228x161-9kb.jpg" src="https://cloud.githubusercontent.com/assets/300046/18191596/71f1d03a-7089-11e6-9dcb-3040f392e523.jpg"></amp-img>
 
 0. Copy each answer from the file and paste it on the screen.
 
