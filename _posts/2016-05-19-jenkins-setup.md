@@ -1217,7 +1217,11 @@ Regardless of the installation mechanism:
 
 <a id="Start-server"></a>
 
-## Start server with defaults #
+## Manage server #
+
+Start, stop, and kill the server.
+
+   ### Start server with defaults #
 
 The command to start Jenkins has several parameters.
 
@@ -1245,9 +1249,9 @@ The command to start Jenkins has several parameters.
    NOTE: This command takes a minute or more.
 
 
-## Stop server #
+   ### Stop server #
 
-PROTIP: Do not stop the Jenkins instance by clicking the red X to close the command window Jenkins runs under.
+   PROTIP: Do not stop the Jenkins instance by clicking the red X to close the command window Jenkins runs under.
    Doing a soft-stop enables Jenkins to save data to memory rather than potentially lose data during a hard and sudden stop.
 
 0. Stop the server by escaping the process.
@@ -1262,6 +1266,29 @@ PROTIP: Do not stop the Jenkins instance by clicking the red X to close the comm
    ```
    INFO: JVM is terminating. Shutting down Winstone
    ```
+
+
+   ### Server process status #
+
+   Use the process status command to find the process ID to kill:
+
+   <tt><strong> ps -eaf | grep jenkins </strong></tt>
+
+   A sample response:
+
+<pre>
+  501  <strong>4137</strong>     1   0 Thu06AM ??         2:54.41 /usr/bin/java -Dmail.smtp.starttls.enable=true -jar /usr/local/opt/jenkins/libexec/jenkins.war --httpListenAddress=127.0.0.1 --httpPort=8080
+  501 14728 14384   0  6:31PM ttys002    0:00.00 grep jenkins
+</pre>
+
+0. To remove the Jenkins process, highlight the process number associated with java
+   and copy it to your Clipboard, then paste it in this command:
+
+    <pre><strong>
+    kill 4137
+    </strong></pre>
+
+<hr />   
 
 ## First-time setup #
 
@@ -1465,26 +1492,6 @@ On the Jenkins screen UI:
 10. Different colors of icons under the **W** column indicate differing **uild trend**, 
    where yellow sunshine is good and a thundercloud is bad.
 
-
-
-## Server Status #
-
-Use the process status command to find the process ID to kill:
-
-   <tt><strong> ps -eaf | grep jenkins </strong></tt>
-
-   A sample response:
-
-<pre>
-  501  4137     1   0 Thu06AM ??         2:54.41 /usr/bin/java -Dmail.smtp.starttls.enable=true -jar /usr/local/opt/jenkins/libexec/jenkins.war --httpListenAddress=127.0.0.1 --httpPort=8080
-  501 14728 14384   0  6:31PM ttys002    0:00.00 grep jenkins
-</pre>
-
-To remove the Jenkins process:
-
-    <pre><strong>
-    kill 4137
-    </strong></pre>
 
 
 ## Configure User Security #
