@@ -835,8 +835,15 @@ https://www.youtube.com/watch?v=zNLYanJAQ3s
 
 ### Node-RED #
 
-Applications for the gateway are created using the 
-Node-RED* visual programming language. 
+Applications doing M2M (Mobile to Mobile) 
+can be created using the drag-and-drop UI from
+<a target="_blank" href="https://nodered.org/">
+nodered.org</a>. 
+The program was written in NodeJs,
+and export JSON blocks called the
+"Node-RED" visual programming language.
+
+It's supported by Intel, Samsung.
 
 Brian Innes has videos "Getting started with Intel Edison and Node-RED"
 

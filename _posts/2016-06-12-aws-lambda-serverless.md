@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Serverless AWS Lamba"
+title: "AWS Lamba Serverless"
 excerpt: "An invisible server for the masses"
 tags: [node, serverless]
 image:
@@ -27,6 +27,7 @@ Multitenancy</a>
 "not only allowed for higher gross margins, it made it viable to serve small and medium businesses with world-class software  —  at a profit."
 
 
+
 ## Resources #
 
 * <a target="_blank" href="https://cloudacademy.com/webinars/aws-lambda-advanced-coding-session-22/">
@@ -49,8 +50,6 @@ Multitenancy</a>
 @lambda_conf
 
 @lambdatips
-
-
 
 
 ## More on Serverless #

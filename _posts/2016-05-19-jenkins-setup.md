@@ -114,7 +114,7 @@ for <strong>checkpoint</strong>.
 
 <a name="DockerInstall"></a>
 
-## Local Docker install #
+### Local Docker install #
 
    Assuming you have Docker installed on your local machine:
 
@@ -124,7 +124,7 @@ for <strong>checkpoint</strong>.
    this</a> is the open source version of Jenkins.
 
    <tt><strong>
-   docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti jenkinsci/workflow-demo
+   docker run --rm -p 2222:2222 -p 8090:8080 -p 8081:8081 -p 9418:9418 -ti jenkinsci/workflow-demo
    </strong></tt>
 
    The response can take a long time.
@@ -142,7 +142,11 @@ for <strong>checkpoint</strong>.
 
    NOTE: The long form of `-p` is `--publish` to the Docker container.
 
-   Jenkins runs on port 8080. The Jetty web service runs on port 8081. 
+   Jenkins runs on port <strong>8090</strong> reassigned from the default 8080 port.
+
+   PROTIP: Remember that the reassigned port to to the left of the default port.
+
+   The Jetty web service runs on port 8081. 
 
    Port 2222 is to access the Jenkins CLI.
 
@@ -153,6 +157,55 @@ for <strong>checkpoint</strong>.
    Thus it's often the fastest network transfer protocol available,
    but for read-only (no pushing to it). However, the need to open a special port
    makes this rare for enterprise use.
+
+   The response are logs that start out like this:
+
+   <pre>
+Running from: /usr/share/jenkins/jenkins.war
+webroot: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Sep 02, 2016 1:21:46 AM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Logging initialized @845ms
+Sep 02, 2016 1:21:46 AM winstone.Logger logInternal
+INFO: Beginning extraction from war file
+Sep 02, 2016 1:21:49 AM org.eclipse.jetty.util.log.JavaUtilLog warn
+WARNING: Empty contextPath
+Sep 02, 2016 1:21:49 AM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: jetty-9.2.z-SNAPSHOT
+Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+   </pre>
+
+   Then this appears in the log:
+
+   <pre>
+*************************************************************
+*************************************************************
+*************************************************************
+&nbsp;
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+&nbsp;
+db1b32b17f8d4c3c8d6c9db0cd893a14
+&nbsp;
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+&nbsp;
+*************************************************************
+*************************************************************
+*************************************************************
+   </pre>
+
+0. Highlight the password and press Ctrl+C to copy it to your invisible Clipboard.
+
+0. Open an internet browser to the host and port specified, such as:<br />
+   
+   <tt><strong>
+   localhost:8090
+   </strong></tt>
+
+0. Proceed to
+   <a href="#Config_Security">
+   Unlock Admin password</a> in this tutorial.
+
+<hr />
 
    ### Password file #
 
@@ -723,9 +776,9 @@ to read about a specific subcommand or concept.
 
 0. Download Jenkins from the Red Hat repo:
 
-   <pre><strong>
+   <tt><strong>
    sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-   </strong></pre>
+   </strong></tt>
 
    QUESTION: What version of Jenkins?
 
@@ -755,9 +808,9 @@ Saving to: '/etc/yum.repos.d/jenkins.repo'
 
 0. Install Jenkins by running:
 
-   <pre><strong>
+   <tt><strong>
    sudo yum install jenkins
-   </strong></pre>
+   </strong></tt>
 
    The response:
 
@@ -1248,16 +1301,7 @@ PROTIP: Encrypt over the wire by using https instead of https.
    NOTE: Some use a domain name to reach the IP address.
 
 
-
-<a id="Config_Security"></a>
-
-## Unlock Admin password #
-
-PROTIP: Jenkins is installed with no authentication enabled.
-
-The first time, you see this screen:
-
-   <amp-img width="660" height="238" alt="jenkins-unlock" src="https://cloud.githubusercontent.com/assets/300046/15393232/7631489a-1d89-11e6-8d3b-8479160064ff.jpg"></amp-img>
+   ### Obtain the password #
 
    On a Mac machine, copy this path and change $USER to your user name:
 
@@ -1286,32 +1330,105 @@ The first time, you see this screen:
 
 0. Copy the password revealed and dismiss the editor window.
 
-0. Return to the web page and paste it under "Administrator password". Press Continue.
 
+<a name="Config_Security"></a>
 
-### Customize Initial Plug-ins #
+## Establish Jenkins #
 
-PROTIP: Configure one plug-in at a time. This makes it easier to troubleshoot.
+On the Jenkins screen UI:
 
-0. Press "Select plugins to install" or "Start using Jenkins".
+### Unlock Jenkins Admin password #
 
-0. DO NOT click "Install the Suggested Plugins" Recommended. 
-   But if you do, you'll see:
+   <amp-img width="660" height="238" alt="jenkins-unlock" src="https://cloud.githubusercontent.com/assets/300046/15393232/7631489a-1d89-11e6-8d3b-8479160064ff.jpg"></amp-img>
 
-   <amp-img width="650" height="206" alt="jenkins-recommended-plugins-650x206" src="https://cloud.githubusercontent.com/assets/300046/15395245/2e9ac3a2-1d94-11e6-8c12-e9dbcc261d1f.jpg"></amp-img>
+0. Click in the Administrator password field
+   and press Ctrl+V to paste the password from your Clipboard.
 
-   For the list of plug-ins to select,
-   see [my list of Jenkins plugins](/jenkins-plugins/),
-   then return here again.
+0. Click <strong>Continue</strong>.
+
+   CAUTION: Close the window showing the log would shut down Jenkins.
+
+0. Return to the web page and paste it under "Administrator password". 
+
+0. Press Continue.
+
+   ### Customize Initial Plug-ins #
+
+   <amp-img width="627" height="169" alt="jenkins install suggested-v2 7-627x169-71kb.jpg" src="https://cloud.githubusercontent.com/assets/300046/18190238/6329bc62-707e-11e6-9fcd-d69f77c040d8.jpg"></amp-img>
+
+   PROTIP: DO NOT click "Install the Suggested Plugins" Recommended.
+
+   PROTIP: Configure one plug-in at a time. This makes it easier to troubleshoot.
+
+0. Click <strong>Select plugins to install</strong>.
+
+   <amp-img width="650" height="206" alt="jenkins install select 2 7 1-650x510-156kb.jpg" src="https://cloud.githubusercontent.com/assets/300046/18190294/e26744a4-707e-11e6-84d6-9d77a989dbad.jpg"></amp-img>
+
+   NOTE: Click the <strong>Suggested</strong> link at the top of the screen to
+   reset selections.
+
+0. Uncheck and check these plugins
+   based on [my analysis of Jenkins plugins](/jenkins-plugins/):
+
+   [X] Folders Plugin
+
+   [_] OWASP Markup Formatter Plugin
+
+   [X] build time-out plugin
+
+   [X] Credentials Binding Plugin
+
+   [X] Timestamper 
+
+   [X] Workspace Cleanup Plugin
+
+   [X] Ant Plugin
+
+   [X] Gradle Plugin
+
+   [+] Nodejs Plugin
+
+   [X] Pipeline
+
+   [X] GitHub Organization Folder Plugin
+
+   [X] Pipeline: Stage View Plugin
+
+   [x] Git Plugin
+
+   [+] GitHub Plugin
+
+   [_] Subversion Plugin
+
+   [+] Matrix Project Plugin
+
+   [_] SSH Slaves Plugin
+
+   [_] Matrix Authorization Strategy Plugin
+
+   [_] PAM Authentication Plugin
+
+   [_] LDAP Plugin
+
+   [X] Email Extension plugin
+
+   [X] Mailer plugin
+
+   TROUBLESHOOTING:
+   This error appears if Jenkins timed out:
+   "An error occurred during installation: No valid crumb was included in the request".
+   Jenkins restarts on its own.
 
 0. Click Install.
 
    The "Getting Started" page shows the progress of plug-ins being installed.
 
+   <amp-img width="650" height="206" alt="jenkins-recommended-plugins-650x206" src="https://cloud.githubusercontent.com/assets/300046/15395245/2e9ac3a2-1d94-11e6-8c12-e9dbcc261d1f.jpg"></amp-img>
 
-## Create First Admin User #
 
-Back to the Jenkins web page UI after plug-ins are installed:
+   ### Create First Admin User #
+
+   Back to the Jenkins web page UI after plug-ins are installed:
 
 0. PROTIP: Open a text file and type your choice for
    Username, Password, Confirm, Full Name, E-mail address.
@@ -1330,23 +1447,20 @@ Back to the Jenkins web page UI after plug-ins are installed:
 0. Type in the credentials entered earlier.
 
 
-
 ## Dashboard Explained #
-
 
    <amp-img width="471" height="336" alt="jenkins2 5-dashboard-annotated" src="https://cloud.githubusercontent.com/assets/300046/15448917/36b153be-1f2c-11e6-8ae6-512e16f05f16.jpg"></amp-img>
 
-
-1\. The whole page is called a **Dashboard**.
-2\. **Breadcrumbs** show the hierarchy of page navigation.
-3\. Menu items are within a **Sidebar**.
-4\. Under the **Build Queue** heading.
-5\. Under the **Build Executor Status** heading.
-6\. To the right of the **All** view ???
-7\. Under the **Name** column are jobs and projects.
-8\. Build.
-9\. Different colors of icons under the **S** column indicate differing **build status**.
-10\. Different colors of icons under the **W** column indicate differing **uild trend**, 
+1. The whole page is called a **Dashboard**.
+2. **Breadcrumbs** show the hierarchy of page navigation.
+3. Menu items are within a **Sidebar**.
+4. Under the **Build Queue** heading.
+5. Under the **Build Executor Status** heading.
+6. To the right of the **All** view ???
+7. Under the **Name** column are jobs and projects.
+8. Build.
+9. Different colors of icons under the **S** column indicate differing **build status**.
+10. Different colors of icons under the **W** column indicate differing **uild trend**, 
    where yellow sunshine is good and a thundercloud is bad.
 
 

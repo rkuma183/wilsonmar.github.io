@@ -26,17 +26,20 @@ It helps if you have already absorbed the tutorial about
 <hr />
 
 ## Explore #
-
-Samsung calls its ARTIK Cloud 
-a "data exchange platform that enables any device or sensor to push its data to the cloud".
-
-   QUESTION: What does ARTIK stand for?
-
 0. In an internet browser, look at<br />
    <a target="_blank" href="https://www.artik.io/overview/">
    <strong>https://www.artik.io/overview</strong></a><br />
-   which sells developers into writing ARTIK code for
-   <a href="#DevicesHardware">Samsung's <strong>modules</strong> (IoT device hardware)</a>.
+   which sells the various businesses
+
+   * <a href="#DevicesHardware">Samsung's <strong>modules</strong> (IoT device hardware)</a>
+   * Samsung's TIZEN operating system
+   * IoTivity communications
+   * Samsung's ARTIK Cloud, which Samsung calls an
+   "open data exchange platform that enables any device or sensor to push its data to the cloud".
+   <br /><br />
+
+   QUESTION: What does ARTIK stand for?
+
 
 0. In a new tab/window, look at Samsung's home product page:<br />
    <a target="_blank" href="https://artik.cloud">
@@ -561,10 +564,11 @@ Check it out
 
 ## Social #
 
-Twitter: <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
-@ARTIKCLoud</a>,
+Twitter: 
 <a target="_blank" href="https://twitter.com/@ARTIKCLoud/">
 @ARTIKCLoud</a>,
+<a target="_blank" href="https://twitter.com/@SamsungIoT/">
+@SamsungIoT</a>,
 
 Email: <a target="_blank" href="mailto:developer@artik.cloud">developer@artik.cloud</a><br />
 answered by Developer Evangelists<br />

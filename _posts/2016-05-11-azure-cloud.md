@@ -4,10 +4,10 @@ title: "Azure Cloud"
 excerpt: "Challenger becomes a leader"
 tags: [cloud]
 image:
-# microsoft-azure-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
-  credit: Jim O'Neil
-  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
+# azure ms logo wait 1900x500-39kb.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/18188069/153fbcca-706c-11e6-983d-0783da57f75c.jpg
+  credit: Microsoft Azure
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -279,6 +279,12 @@ accessing dictionary entries.
 *    Manage users, groups and subscriptions in an Azure Active Directory instance
 *    Create a virtual network
 *    Implement a point to site network
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/azure-solutions-web-apps-70-532/table-of-contents/">
+Design and Implement Web Apps for Azure Solutions (70-532)
+5h 31m video from Pluralsight</a> Aug 30, 2016
+by Tim Warner 
+
 
 ### Exam 70-533 - Implementing Microsoft Azure Infrastructure Solutions
 

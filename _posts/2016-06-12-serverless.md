@@ -185,6 +185,26 @@ variables ...... list, set, unset
    plugins, and consultants who provide services.
 
 
+<a name="Libraries"></a>
+
+## Libraries #
+
+React Serverless app running in Azure?
+
+<a target="_blank" href="https://github.com/99xt/serverless-dependency-install">
+   https://github.com/99xt/serverless-dependency-install</a>
+   Serverless plugin to manage dependencies
+   
+<a target="_blank" href="https://github.com/99xt/serverless-boilerplate">
+    with architectural best practices</a>
+    using NPM, Angular, Gulp.
+
+<a target="_blank" href="https://github.com/99xt/serverless-dynamodb-local">
+   https://github.com/99xt/serverless-dynamodb-local</a>
+
+
+
+
 <a name="Projects"></a>
 
 ## Projects #

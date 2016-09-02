@@ -4,10 +4,10 @@ title: "Microsoft BI Analytics"
 excerpt: "Do you see what I see?"
 tags: [BI, Microsoft, Analytics, PowerBI]
 image:
-# pic orange easter-island 1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15214909/071e94fc-180d-11e6-99c6-45034f907e42.jpg
-  credit: Lorcan Handler
-  creditlink: http://feelgrafix.com/732467-amazing-easter-island-pictures.html
+# microsoft-azure-1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/15276333/2337c55e-1aa2-11e6-9ed1-a1a84ac84e95.jpg
+  credit: Jim O'Neil
+  creditlink: https://blogs.msdn.microsoft.com/jimoneil/2012/09/21/windows-azure-interactive-feature-map/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

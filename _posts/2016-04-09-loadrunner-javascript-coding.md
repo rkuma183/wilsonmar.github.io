@@ -1326,3 +1326,8 @@ There are many tutorials which teach JavaScript string manipulation and other to
 
 * <a target="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
    Mozilla's webpage is the most thorough and accurate</a>
+
+* <a target="https://www.youdontknowjs.com/">
+   You Don't Know JS</a> by Kyle Simpson @getify http://getify.me
+   speakerdeck.com/getify
+
