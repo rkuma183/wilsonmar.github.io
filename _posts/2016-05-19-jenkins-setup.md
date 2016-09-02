@@ -1221,7 +1221,7 @@ Regardless of the installation mechanism:
 
 Start, stop, and kill the server.
 
-   ### Start server with defaults #
+### Start server with defaults #
 
 The command to start Jenkins has several parameters.
 
@@ -1327,8 +1327,7 @@ PROTIP: Encrypt over the wire by using https instead of https.
 
    NOTE: Some use a domain name to reach the IP address.
 
-
-   ### Obtain the password #
+### Obtain the password #
 
    On a Mac machine, copy this path and change $USER to your user name:
 
