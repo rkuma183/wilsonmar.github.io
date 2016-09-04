@@ -26,10 +26,9 @@ It helps if you have already absorbed the tutorial about
 <hr />
 
 ## Explore #
-0. In an internet browser, look at<br />
+0. In an internet browser, look at the various businesses described at<br />
    <a target="_blank" href="https://www.artik.io/overview/">
    <strong>https://www.artik.io/overview</strong></a><br />
-   which sells the various businesses
 
    * <a href="#DevicesHardware">Samsung's <strong>modules</strong> (IoT device hardware)</a>
    * Samsung's TIZEN operating system
@@ -39,6 +38,7 @@ It helps if you have already absorbed the tutorial about
    <br /><br />
 
    QUESTION: What does ARTIK stand for?
+   It's rebranded from SAMI in 2016.
 
 
 0. In a new tab/window, look at Samsung's home product page:<br />
@@ -224,11 +224,16 @@ Internal use only. Edit your profile information
 
    #### Service end-point #
 
-0. Click TRY IT! button for the website to issue a request using the
+0. Click <strong>TRY IT!</strong> button for the website to issue a request using the
    <strong>API endpoint</strong> shown:
-
    <pre><strong>
    https://api.artik.cloud/v1.1/users/self
+   </strong></pre>
+
+   BTW, there are other end-points for other protocols:
+   <pre><strong>
+   <a target="_blank" href="http://coap.technology/">COAP://</a>
+   MQTT:
    </strong></pre>
 
    TROUBLESHOOTING:

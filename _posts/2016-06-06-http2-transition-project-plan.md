@@ -549,6 +549,7 @@ https://ma.ttias.be/http2
 
 http://www.neotys.com/blog/http2-changes-challenges-and-considerations-for-load-performance-testers/
 
+http://blog.oio.de/2016/08/24/http2-client-java-9/
 
 ## More on front-end software development #
 

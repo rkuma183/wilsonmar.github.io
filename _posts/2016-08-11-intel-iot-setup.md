@@ -1512,6 +1512,10 @@ and without relying on the bootloader in the processor.
 * AIO
 * PWM = Pulse width modulation
 
+## Learning resources #
+
+https://app.pluralsight.com/library/courses/nodejs-internet-of-things-intel-edison/table-of-contents
+
 
 ## More on IoT #
 

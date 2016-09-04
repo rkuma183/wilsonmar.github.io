@@ -233,6 +233,24 @@ A servo is always built with a feedback mechanism.
 * https://www.youtube.com/watch?v=oOvRf7xa5r4
 
 
+<a target="_blank" href="https://www.youtube.com/watch?v=AcLUopVZMco">
+YouTube video: Practical Insight in selecting stepper motors for your build</a>
+describes the difference between NEMA (National Electrical Manufactures Association)
+stepper motor numbers:
+
+   * NEMA 17 is 1.7" <br />
+   holds 53 ounces of weight
+
+   * NEMA 23 is 2.3" takes a #10 machine screw<br />
+   holds 425 ounces (26.5 pounds)
+
+   * NEMA 34 is 3.4" takes a 1/4" screw<br />
+   holds 1232 ounces (77 pounds)
+
+<a target="_blank" href="https://www.youtube.com/watch?v=mSU-GeEe0P0">
+Some salvage the motors from scrap copy machines</a>
+
+
 ## Resources #
 
 * http://www.leevalley.com/US/wood/page.aspx?p=74353&cat=51&ap=3
