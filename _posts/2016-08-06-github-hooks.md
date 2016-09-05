@@ -21,15 +21,28 @@ GitHub hooks into Jenkins version 2 for Continuous Delivery (CD) as well as Cont
 
 {% include _intro.html %}
 
+## What Hooks can do #
+
+GitHub has an email hook that sends out an email for each change committed.
+
+<a target="_blank" href="https://github.com/mavam/gitdub">
+This repo</a> provides code to email detailed diffs of each commit.
+It addresses security configurations.
+
+I would like to see each commit appear on my Gmail calendar
+to help me see commits in context of my other appointments.
+
+
 ## Receivers first #
 
-We would like Jenkins to attempt a new build when a change is committed in GitHub.com or pushed to it from Git.
+We would like Jenkins to attempt a new build when a change is committed in GitHub.com 
+or pushed to it from Git.
 
    The alternative to this is polling on a scheduled interval,
    which can be a little bit inefficient if nothing was changed.
    However, a regular schedule is useful when people work strict hours.
 
-   ### Begin from Jenkins #
+### Begin from Jenkins #
 
 0. In Manage Jenkins | Manage Plugins, Available tab, find "GitHub plugin" at<br />
    <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin/">
