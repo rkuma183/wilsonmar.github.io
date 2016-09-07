@@ -21,11 +21,11 @@ What is the purpose of social media?
 
 It's not enough just to have an account with some words and pictures.
 
-What percent of your activity results in some action by readers:
+What percent of your activity results in some <strong>action</strong> by readers:
 
    * Buy something
 
-   * Retrweet to expand <strong>reach</strong>
+   * Retweet to expand <strong>reach</strong>
 
    * Link to your site from their website
 
@@ -40,12 +40,57 @@ What percent of your activity results in some action by readers:
 An effective <strong>influencer</strong> is one who can get people to do the above.
 
 
+## Measurements #
+
+<strong>Hit count</strong> is the number of people who landed on the site.
+The same person who looks at 10 pages would register 10 hits.
+
+<strong>Unique visitors</strong> is the number of unique IP addresses which visited the site.
+The same person who visited 10 pages would register as one visitor.
+
+<strong>CTR (Click Through Rate)</strong>
+is the percentage of visitors who clicked on an ad banner. 
+If an ad is seen by 1,000 people, but clicked by 200 visitors:
+
+   <pre>
+   (Number of Clicks / Number of impressions) x 100
+   (200 / 1,000) x 100 = .02
+   </pre>
+
+Those who <strong>pay</strong> ad networks to have banners appear on that network's sites 
+need to calculate the <strong>cost</strong> of ad placements:
+
+<strong>CPM (Cost Per thousand)</strong> 
+uses M in the abbreviation because M is the Roman numeral for thousand.
+The "per" refers to the number of unique <strong>impressions</strong>.
+
+   <a target="_blank" href="https://mobileadvertisingworks.wordpress.com/2008/06/18/what-is-cpm-cpc-cpa-and-ctr-basics-of-mobile-publishing/">
+   NOTE:</a> CPM rates were once (pre yr 2000 bubble-burst era) as much as $75, 
+   but have now dropped to as little as $1 CPM.
+
+<strong>CPC (Cost Per Click)</strong> 
+refers to the number of times some visitor clicks on an ad banner.
+
+   NOTE: CPC rates can be as high as $3 per click or as little as 5 cents per click. It depends on your product and your market – amongst other factors, the more competition there is – the higher
+   the rate.
+
+<strong>CPS (Cost Per Sale)</strong> is the most desirable measure because that's the ultimate
+action for real revenue on ecommerce sites.
+
+<strong>CPR (Cost Per Registration)</strong>
+counts those who finishes filling up an enquiry form.
+
+<strong>CPA (Cost Per Action)</strong>
+can include registrations, sales. 
+
+
+
 
 ## Helping association #
 
-An IT education school makes videos from useful blog articles.
-
-   https://www.youtube.com/watch?v=0slsoyEhz40
+An IT education school makes 
+<a target="_blank" href="https://www.youtube.com/watch?v=0slsoyEhz40">
+videos</a> from useful blog articles.
 
    Is the effort of creating a video worth the number of views?
 

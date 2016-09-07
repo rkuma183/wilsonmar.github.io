@@ -41,6 +41,8 @@ Free:
 Licensed nagware:
 
    * $89 <a href="#SublimeTextz">Sublime Text</a>
+   * Texttastic
+   * Byword 
    * There is no equivalent of Notepad++ on Windows
 
 Free IDEs:

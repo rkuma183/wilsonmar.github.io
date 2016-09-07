@@ -23,6 +23,10 @@ GitHub hooks into Jenkins version 2 for Continuous Delivery (CD) as well as Cont
 
 ## What Hooks can do #
 
+GitHub's Repository WebHooks API is described at<br />
+<a target="_blank" href="https://developer.github.com/v3/repos/hooks/">
+https://developer.github.com/v3/repos/hooks</a>
+
 GitHub has an email hook that sends out an email for each change committed.
 
 <a target="_blank" href="https://github.com/mavam/gitdub">
@@ -31,6 +35,46 @@ It addresses security configurations.
 
 I would like to see each commit appear on my Gmail calendar
 to help me see commits in context of my other appointments.
+
+   * https://gist.github.com/ngs/3550670
+   * https://zapier.com/zapbook/github/google-calendar/
+   * https://zapier.com/zapbook/cronofy-calendar-api/github/
+
+
+PythonAnywhere.com
+
+0. The documentation is at https://developer.github.com/webhooks/
+
+
+
+## Service hooks #
+
+Services hooks are pre-built within GitHub to take action when events occur on GitHub. 
+
+0. On the GitHub project sending the hook.
+0. Click Settings on the top bar.
+0. Click <strong>Webhooks &amp; Services</strong> (previously "Service Hooks").
+
+0. Click <strong>Browse the directory</strong>.
+0. Search for emails.
+
+
+
+### Git Notifier
+
+http://www.icir.org/robin/git-notifier/
+
+Alternately:
+
+0. <a target="_blank" href="https://www.git-notifier.com/">
+https://www.git-notifier.com</a>
+
+0. Activate via the Google account.
+0. Specify the Account/Repo and the email to be notified.
+
+   Emails are sent free. 
+   But phone message cost one Euro each.
+
 
 
 ## Receivers first #
