@@ -1,69 +1,6 @@
----
-layout: post
-title: "Git Commands and Statuses"
-excerpt: "The Visual Cheat Sheet"
-modified:
-tags: []
-image:
-#  feature: pic black entering stadium 1900X500.jpg
-   feature: https://cloud.githubusercontent.com/assets/300046/14621833/d9af8f54-0582-11e6-9c88-7e8d1cead630.jpg 
-   credit: 
-   creditlink: 
-comments: true
----
-<i>{{ page.excerpt }}</i>
-<hr />
-
-{% include _toc.html %}
-
-I was confused.
-
-There are so many Git commands, each with so many parameters.
-
-So for the last two years, I've scoured the internet to 
-view every blog, video, and book about this subject.
-
-I figured that if I was so confused, others are as well.
-
-I've struggled to create an <a href="#MyMap">animated illustration</a> 
-with a succinct commentary so you can quickly grasp Git's basic workflow and commands.
-
-I've worked hard to come up with a logical sequence to speed your learning.
-
-I call my diagram the "fearless" approach 
-because I introduce Git in more depth and in a different sequence 
-than other tutorials that have come before me.
+Hello. I'm Wilson Mar.
 
 
-## Playlist
-
-You may prefer accessing the videos via this playlist:
-
-> <a target="_blank" href="https://goo.gl/12C1BF">https://goo.gl/12C1BF</a>
-
-A playlist link lists the latest versions because individual videos can be added or removed.
-
-Direct links to individual YouTube videos can become stale when newer versions are downloaded.
-
-
-## Other diagrams #
-
-I thank <a target="_blank" href="http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/">
-ZeroTurnaround</a> for a diagram which is the base for my diagram below.
-
-
-<a name="MyMap"></a>
-
-## My map #
-
-<img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
-
-The diagram above is animated in PowerPoint and narrated with text below.
-
-   PROTIP: You are encouraged to pull out a paper and hand-draw 
-   the diagram as we go along. You'll remember this better.
-
-> Please let me know if you can see a tweak to this sequence for better introduction of concepts.
 
 Let's begin with repositories in a cloud service, GitHub.com.
 A repo that belongs to another organization is called an <strong>"upstream"</strong> location.
@@ -266,18 +203,7 @@ then run merge manually or using a
 We want to check whether changes have occured before doing a
 git <strong>push</strong> of local commits to the team repository in the cloud.
 
-<img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
 
 
-## Confirmation #
-
-Now that you've seen mine, let's recap with the flowchart from the<br />
-<a target="_blank" href="http://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Removing-Files">
-book at Git-SCM.com</a>
 
 
-## More on DevOps #
-
-This is one of a series on DevOps:
-
-{% include devops_links.html %}
