@@ -71,17 +71,19 @@ The "per" refers to the number of unique <strong>impressions</strong>.
 <strong>CPC (Cost Per Click)</strong> 
 refers to the number of times some visitor clicks on an ad banner.
 
-   NOTE: CPC rates can be as high as $3 per click or as little as 5 cents per click. It depends on your product and your market – amongst other factors, the more competition there is – the higher
-   the rate.
-
-<strong>CPS (Cost Per Sale)</strong> is the most desirable measure because that's the ultimate
-action for real revenue on ecommerce sites.
+   NOTE: CPC rates can be as high as $3 per click or as little as 5 cents per click. 
+   It depends on the product and market competition.
+   "Chicago lawyer" was at one time the top rate.
 
 <strong>CPR (Cost Per Registration)</strong>
 counts those who finishes filling up an enquiry form.
 
+<strong>CPS (Cost Per Sale)</strong> is the most desirable measure because that's the ultimate
+action for real revenue on ecommerce sites.
+
 <strong>CPA (Cost Per Action)</strong>
-can include registrations, sales. 
+is an include metrice that can include 
+ad click, ad click, video view, registration, sale, or other activity.
 
 
 

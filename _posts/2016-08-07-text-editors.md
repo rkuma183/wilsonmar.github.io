@@ -224,10 +224,19 @@ One advantage of Sublime Text is its plug-ins.
    by <a target="_blank" href="http://www.jesseliberty.com/">Jesse Liberty</a>
    (<a target="_blank" href="https://www.twitter.com/jesseliberty/">@JesseLiberty</a>)
 
+   ### Settings #
+
+Use Sublime Text on Retina? for crisp, readable text, to Settings add 
+
+   <pre><strong>
+   "font_options" : ["gray_antialias"] 
+   </strong></pre>
+
+
+
 <a id="Git_Editor"></a>
 
 ## Git Editor
-
 
 If Git finds conflicts, it needs a way to show the differences in a text editor.
 

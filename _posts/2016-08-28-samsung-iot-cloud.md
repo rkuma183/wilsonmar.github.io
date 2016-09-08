@@ -165,13 +165,13 @@ Internal use only. Edit your profile information
    * <strong>Users</strong> and their devices and device types and properties
    <br /><br />
 
-   For example, library "UsersApi.java" is equivalent to 
+   For example, "UsersApi.java" is equivalent to 
    "users_api.py" in 
    <a target="_blank" href="https://github.com/artikcloud/artikcloud-python/tree/master/artikcloud/apis">Python</a>. 
    Swift, Scala, Ruby, PHP, C#, JavaScript, etc. 
    have their own variation of name.
 
-   Additional classes:
+   Additional classes in the Console but not in client samples:
 
    * notifications by subscription
    * trials for applications
@@ -202,6 +202,10 @@ Internal use only. Edit your profile information
    A full description of Samsung's REST API is 
    <a target="_blank" href="https://developer.artik.cloud/documentation/api-reference/rest-api.html">
    here</a>.
+
+   Swagger definitions are supposed to be at<br />
+   <a target="_blank" href="https://catalog.artik.cloud/">
+   https://catalog.artik.cloud</a> but there is a 503 error at time of writing.
 
    
    ### API Map #
