@@ -23,7 +23,7 @@ So you don't have to.
 I thank <a target="_blank" href="http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/">
 ZeroTurnaround</a> for a diagram which illustrates the basic commands.
 
-
+<amp-img layout="responsive" alt="git-zero-turnaround-638x270-64kb.jpg" width="638" height="270" src="https://cloud.githubusercontent.com/assets/300046/18372794/6b128886-75fc-11e6-99de-b54f0f41faf6.jpg"></amp-img>
 
 But I want to learn more Git commands such as for branches
 because I need to use <strong>Git flow</strong> at my work.
@@ -272,6 +272,8 @@ git <strong>push</strong> of local commits to the team repository in the cloud.
 Now that you've seen mine, let's recap with the flowchart from the<br />
 <a target="_blank" href="http://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Removing-Files">
 book at Git-SCM.com</a>
+
+<amp-img layout="responsive" alt="git-scm-book 650x298-51kb.jpg" width="650" height="298" src="https://cloud.githubusercontent.com/assets/300046/18372914/33dcbee4-75fd-11e6-82f1-fe95cfb79274.jpg"></amp-img>
 
 
 ## More on DevOps #
