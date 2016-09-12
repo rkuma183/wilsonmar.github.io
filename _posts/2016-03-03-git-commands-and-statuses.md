@@ -16,30 +16,79 @@ comments: true
 
 {% include _toc.html %}
 
-For the last two years, I've scoured the internet to 
+Git is among the most complex of software. 
+It was literally created for and by Linux kernel developers 
+who have a megabrain memory and can speed-type long commands.
+
+But I don't feel I'm that smart, and felt overwhelmed.
+
+Like you, I had no choice but to win over Git's complexity.
+
+Undeterred, for the last two years, I scoured the internet to 
 view every blog, video, and book about this subject.
 So you don't have to.
 
+
+## Battle map #
+
+Military commanders use large yet detailed maps to see their 
+<a target="_blank" href="http://thomaslegion.net/battleofchancellorsvillebattlefieldpositions.html">
+entire battlefield</a>, showing the location of bunkers and the sequence of troop movements.
+
+<amp-img layout="responsive" alt="map chancellorsville battle detail-526x170-115kb.jpg" width="526" height="170" src="https://cloud.githubusercontent.com/assets/300046/18394290/6ba869ee-7676-11e6-8024-150f168cc605.jpg"></amp-img>
+<br /><br />
+
+In my personal battle against Git's complexity, I 
+<a href="#MyMap"><strong>created a detailed map</strong></a>
+of the sequences to all data flows in and out of Git's storage locations and 
+their statuses.
+
+Some call it a <a href="#MyMap"><strong>visual cheat sheet</strong></a>.
+
+But I call it "fearless" because 
+I introduce Git in more <strong>depth</strong> and in a 
+different sequence than other tutorials that have come before me.
+
+
+## Basic data flows #
+
 I thank <a target="_blank" href="http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/">
-ZeroTurnaround</a> for a diagram which illustrates the basic commands.
+ZeroTurnaround</a> for a diagram which illustrates the sequence of basic commands:
 
 <amp-img layout="responsive" alt="git-zero-turnaround-638x270-64kb.jpg" width="638" height="270" src="https://cloud.githubusercontent.com/assets/300046/18372794/6b128886-75fc-11e6-99de-b54f0f41faf6.jpg"></amp-img>
 
-But I want to learn more Git commands such as for branches
-because I need to use <strong>Git flow</strong> at my work.
-
-I've worked hard to come up with a logical sequence with a succint commentary
-so you can quickly grasp the nuance of commands involved with Git flow.
-
-I've struggled to create this <a href="#MyMap">animated illustration</a>
-which I call the "fearless" approach 
-because I introduce Git in more depth and in a different sequence 
-than other tutorials that have come before me.
+The Git Pull command downloads files into the Working Directory which 
+contains a Local copy of Git's change history.
+Fetch updates changes from the Remote.
+Locally made changes are added to Staging and 
+commit updates change history tracking.
+Reset backs out items from Staging.
+Push pushes files back to the remote repository on GitHub.
 
 
-## Playlist
+## More detail #
 
-You may prefer accessing the videos via this playlist:
+But we need to dive deeper so we can comfortably 
+<strong>reverse</strong> (in a safe way) every action we do.
+We also want to use <strong>Git flow</strong> feature branches to work safely as a team.
+
+> I have a one-day course I present at conferences, on-site, and on-line
+the specific commands and additonal PROTIPs covered here.
+
+> My next live conference presentation is at 
+<a target="_blank" href="http://goo.gl/5dRcGS">
+StarWest Disneyland Oct. 4, 2016. Sign up at http://goo.gl/5dRcGS. See you there!</a>
+
+
+<a name="Video"></a>
+
+## Video Playlist #
+
+I created a <a href="#Video">video</a> with commentary
+so you can quickly grasp the <em>nuances</em> 
+of key commands involved with Git flow.
+
+You may prefer accessing the videos via the playlist at:
 
 > <a target="_blank" href="https://goo.gl/12C1BF">https://goo.gl/12C1BF</a>
 
@@ -47,15 +96,15 @@ A playlist link lists the latest versions because individual videos can be added
 
 Direct links to individual YouTube videos can become stale when newer versions are downloaded.
 
+The video is from an animated PowerPoint file, narrated separately with text below.
+
 
 
 <a name="MyMap"></a>
 
-## My map #
+## My map (Visual Cheat Sheet) #
 
 <img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
-
-The diagram above is animated in PowerPoint and narrated with text below.
 
    PROTIP: You are encouraged to pull out a paper and hand-draw 
    the diagram as we go along. You'll remember this better.
@@ -63,7 +112,10 @@ The diagram above is animated in PowerPoint and narrated with text below.
 > Please let me know if you can see a tweak to this sequence for better introduction of concepts.
 
 Let's begin with repositories in a cloud service, GitHub.com.
-There are other clouds, but GitHub is what we're using because it has the largest market share.
+
+There are other clouds, such as GitLab and BitBucket.
+But GitHub is what we're using here because 
+it has grown quickly to capture the largest market share.
 
 A repo that belongs to another organization is called an <strong>"upstream"</strong> location.
 If we <strong>edit</strong> that repo, 
@@ -89,7 +141,7 @@ The git <strong>init</strong> command processed by the Git client
 creates the git folder which holds the history of changes.
 
 The git <strong>clone</strong> command creates 
-that .git folder inside a new folder from files downloaded GitHub.
+that .git folder inside a new folder from files downloaded from GitHub.
 
 If we run the SSH or Putty command to create keys,
 the Git client can communicate securely with the cloud service.
@@ -100,8 +152,8 @@ referenced by all Git repositories on our machine
 to provide our default name and email address to repos.
 
 We can clone from an upstream repo, 
-but it's preferable that we first fork that repo so we can 
-send a Pull Request upstream.
+but it's preferable that we first <stron>fork</strong> 
+that repo so we can send a Pull Request upstream.
 
 If we do a <strong>remote -v</strong> command on a repo we cloned,
 we see that <strong>origin</strong> is its location.
@@ -114,10 +166,14 @@ and calculates a reference to each particular change.
 
 The git <strong>tag</strong> command allows a 
 custom name of your choosing to be assigned to a commit.
-Teams use this to specify release numbers and
+Teams use this to specify and sign release numbers and
 specifications which Jenkins recognizes to invoke integration builds.
 
-The git <strong>shortlog</strong> summarizes the history of commits made.
+There are several commands that reveal what is inside the .git folder
+managing history.
+
+The git <strong>shortlog</strong> summarizes the history of commits made
+by author.
 
 The git <strong>log</strong> command lists a 
 <em>detailed</em> history of commits made.
@@ -139,33 +195,30 @@ because it's purely for local use.
 If it seems like a commit has been lost,
 chances are the reflog will show it and allow you to restore it.
 
-
 The git <strong>show</strong> command lists fine-grained internal
 <em>objects</em> in the repository, such as blobs and trees associated
 with tags and commits. 
-
-<hr />
 
 The git <strong>branch</strong> command lists what branches 
 are in the local repository because only a specific branch
 may be cloned locally.
 
-A git <strong>checkout</strong> command can specify a
-specific branch or commit version to be brought into the working folder,
-such as a feature branch used in Git flow.
+### Git Workflow #
 
-The -b parameter in the checkout command specifies the creation of a new branch.
+Under Gitflow, we begin work by creating a <strong>feature branch</strong>
+using a git <strong>checkout</strong> command with
+the -b parameter which specifies the creation of a new branch.
 
 This will put you in what Git calls a "detached HEAD" state.
 
 <hr />
 
-Bash command <strong>touch</strong> and <strong>echo</strong> 
-can create and change files,
+Bash commands <strong>touch</strong> and <strong>echo</strong> 
+We can create and change files,
 but in order for them to be committed for tracking by git,
 they first must be specified in a git <strong>add</strong> 
-command which puts changes in a sort of "shopping cart" called the 
-<strong>staging</strong>, which is also called <strong>Index</strong>
+command which puts changes in a sort of "shopping cart" called  
+<strong>staging</strong>, also called <strong>Index</strong>
 because it holds an index of files which the
 next git commit command would track.
 
@@ -180,23 +233,20 @@ and assigns it the status of <strong>modified</strong>.
 
 <hr />
 
-Git provides a way to stash the state of files in the working directory and index
-so they are not lost forever when you have to 
-suddenly switch back to what's in the HEAD commit.
+If we need to suddenly switch back to what's in the commit HEAD,
+we don't need to always abandon and forever loose uncompleted work.
 
-The <a target="_blank" href="https://git-scm.com/docs/git-stash">
-git <strong>stash</strong></a> command (with implicit save)
-puts all files from the working directory
-into a local stash area separate from Staging or the Git repository.
-
-To retrieve the last stash, use git <strong>stash pop</strong>
+We can use the <a target="_blank" href="https://git-scm.com/docs/git-stash">
+git <strong>stash save</strong></a> 
+to copy all files from the working directory
+into an area hidden from Staging or the Git repository.
 
 Modifications stashed can be listed with git <strong>stash list</strong>, 
 inspected with git <strong>stash show</strong>, 
 and restored (potentially on top of a different commit) 
-with git <strong>stash apply</strong>. 
-
-To get rid of everything in the stash, do a git <strong>stash drop</strong>.
+with git <strong>stash pop</strong>, which does the equivalent of
+git <strong>stash apply</strong> to retrieve the last stash, 
+but also does a git <strong>stash drop</strong> to remove it from the stash.
 
 <hr />
 
@@ -205,7 +255,7 @@ Git command <strong>reset HEAD --</strong> can be used
 followed by a file specification, which can be a dot to specify all files.
 
 To remove all files in the <em>working directory</em>
-which are NOT under version control, using the
+which are NOT under version control, use the
 git <strong>clean</strong> command, which works 
 <em>recursively</em> down the various sub-folders.
 
@@ -217,8 +267,6 @@ Git command <strong>reset --hard HEAD^</strong>.
 
 Files <strong>deleted</strong> after being committed would 
 appear with a status of "deleted".
-Such a file can be retrieved using the
-git <strong>checkout</strong> from repository history.
 
 After a commit, the status command would show no files.
 
@@ -236,7 +284,7 @@ which is not allowed in most organizations because it requires
 others who have cloned the repo to make manual changes.
 
 But while you're still working on a local branch, you can use
-git <strong>rebase</strong> to reword commit messages or
+git <strong>rebase</strong> to interactively reword commit messages or
 <em>squash</em> several commits into one.
 This is desirable especially for commits that only fix typos in the local repo
 which other do not really want to know about.
@@ -253,27 +301,39 @@ But we prefer using the <strong>fetch</strong> command which,
 unlike pull, does not automatically do a 
 <strong>merge</strong>.
 
-The <strong>diff-tree</strong> has a similar command set
-as the git show command.
-
 We want to use a git <strong>diff</strong> command or use a 
-<strong>diff-tool</strong> to examine what has changed,
-then run merge manually or using a
-<strong>merge-tool</strong>.
+<strong>diff-tool</strong> to examine what has changed.
+
+For a formatted document of differences,
+some use <strong>diff-tree</strong>, which shares the same 
+parameters as the git show command.
+
+Once we know the differences, we can then 
+<strong>resolve</strong> them and
+run git <strong>merge</strong> manually or 
+use a git <strong>merge-tool</strong>.
 
 We then know it's OK to do a
 git <strong>push</strong> of local commits to the team repository in the cloud.
 
+As with any Git repo, a <strong>.gitignore</strong> file 
+specifies local files which 
+Git should not send up to the team GitHub repo.
+
 <img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
 
 
-## Confirmation #
+## Recap of statuses #
 
 Now that you've seen mine, let's recap with the flowchart from the<br />
 <a target="_blank" href="http://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Removing-Files">
 book at Git-SCM.com</a>
 
 <amp-img layout="responsive" alt="git-scm-book 650x298-51kb.jpg" width="650" height="298" src="https://cloud.githubusercontent.com/assets/300046/18372914/33dcbee4-75fd-11e6-82f1-fe95cfb79274.jpg"></amp-img>
+
+* To stage files for commit, add it.
+* When you edit a file, it needs to be added to stage again.
+* After a commit, files in working folder are untracked.
 
 
 ## More on DevOps #

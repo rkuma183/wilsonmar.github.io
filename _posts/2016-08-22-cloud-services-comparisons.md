@@ -203,6 +203,10 @@ this site</a>.
 <a target="_blank" href="http://resources.sdtimes.com/whitepaper-ibm-q4-2015-bluemix-ebook">
 IBM Bluemix</a>
 
+<a target="_blank" href="http://downdetector.com/status/aws-amazon-web-services">
+http://downdetector.com/status/aws-amazon-web-services</a>
+provides 3rd-party crowd-source status.
+
 
 ## More on DevOps #
 

@@ -145,6 +145,17 @@ What I'm advocating here are:
    to achieve the above
    through a <strong>smart forum for collaboration</strong>.
 
+0. Perhaps the biggest one is that 
+   organizations can be inundated by so many APIs that a (easy) way to manage them together as a whole. 
+   
+   When an organization has a way of generating client apps from code,
+   it can quickly make use of additional APIs by leveraging 
+   prior API work (such as company security and branding).
+   That makes the business more nimble.
+
+   When changes occurs, the business can adapt quicker if can re-generate
+   rather than 
+
 > Email or call me so we can see how this can work for you and your organization.
 
 We're not talking about painting the Mona Lisa here.
