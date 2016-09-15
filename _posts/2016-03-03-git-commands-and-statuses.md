@@ -56,9 +56,14 @@ I thank <a target="_blank" href="http://zeroturnaround.com/rebellabs/git-command
 ZeroTurnaround</a> for a diagram which illustrates the sequence of basic commands:
 
 <amp-img layout="responsive" alt="git-zero-turnaround-638x270-64kb.jpg" width="638" height="270" src="https://cloud.githubusercontent.com/assets/300046/18372794/6b128886-75fc-11e6-99de-b54f0f41faf6.jpg"></amp-img>
+<br /><br />
 
-The Git Pull command downloads files into the Working Directory which 
-contains a Local copy of Git's change history.
+   PROTIP: I encourage you to pull out a paper and hand-draw the
+   diagram as we go along. You'll remember it better.
+
+The Git Pull command downloads files into the 
+Working Directory which contains a Local copy of 
+Git's change history. 
 Fetch updates changes from the Remote.
 Locally made changes are added to Staging and 
 commit updates change history tracking.
@@ -334,6 +339,32 @@ book at Git-SCM.com</a>
 * To stage files for commit, add it.
 * When you edit a file, it needs to be added to stage again.
 * After a commit, files in working folder are untracked.
+
+
+## Resources #
+
+Mastering Git series by Matthew McCullough with Tim Berglund:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=AzuzomV-zrQ">
+Setting Up Git & Configuring Git (1/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mBJ6oYRHu_8">
+   Three Stage Thinking, The Git File Workflow & Speed (2/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=sbzzD8qe7EY">
+   Cloning Repositories (3/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HQAAoA7OlM0">
+   Command Composition, Storage, and Hashes (4/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=-jf0sskoVdk">
+   Branches (5/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=BfN0TIMl510">
+   Remotes (6/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Yvy5PijsVZw">
+   Tagging (7/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HjPmRdnwknU">
+   Merging (8/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HXzt7Z_1wko">
+   Rebasing (9/10)</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=GLLUNDrPHJQ">
+   Undo & Bonus (10/10)</a>
 
 
 ## More on DevOps #

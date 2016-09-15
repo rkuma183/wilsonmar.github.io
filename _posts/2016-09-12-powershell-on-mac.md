@@ -187,6 +187,23 @@ SerializationVersion           1.1.0.1
 
 * http://powershelldistrict.com/powershell-linux/
 
+<a target="_blank" href="https://mcpmag.com/articles/2016/04/07/powershell-functions-with-parameters.aspx">
+Getting Input into Your PowerShell Functions with Parameters</a>
+- shows how to build function parameters in reusable snippets.
+
+<a target="_blank" href="https://mcpmag.com/articles/2016/03/31/timing-powershell-automations.aspx">
+PowerShell Pipeline: Timing PowerShell Automations</a>
+- get an accurate measurement of how long it takes to 
+run a specific or set a timer for your script to run.
+
+<a target="_blank" href="https://mcpmag.com/articles/2016/03/24/active-directory-forest-and-domain.aspx">
+PowerShell Pipeline: Exploring the Active Directory Forest and Domain</a>
+- use the Active Directory Module to run 
+available cmdlets and automate many of your daily tasks.
+
+<a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">Querying MySQL Databases with PowerShell</a>
+- save time by automatically querying up data.
+
 
 ## More on DevOps #
 

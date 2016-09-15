@@ -17,11 +17,15 @@ comments: true
 
 <a id="AutoInstall"></a>
 
-This is the easiest way to quickly configure a Mac the way many developers prefer
-and add programs many developers want.
+What is the easiest way to quickly configure a Mac the way 
+many developers prefer?
 
 If you already have an established installation with vagrant and virtualbox,
 create a virtual machine to try this process.
+
+<a target="_blank" href="https://github.com/monfresh/laptop">
+https://github.com/monfresh/laptop</a>
+provides a set of shell scripts.
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
