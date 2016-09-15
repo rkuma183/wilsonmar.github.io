@@ -419,6 +419,9 @@ To get rid of GarageBand,
    rm -rf *.* /s
    </pre>
 
+
+## Resources #
+
 https://github.com/argon/mas
 
 To uninstall, select it and press Command+Delete or drag the program into the Trash.
@@ -426,6 +429,9 @@ To uninstall, select it and press Command+Delete or drag the program into the Tr
 http://osxdaily.com/2014/01/02/delete-garageband-imovie-iphoto-mac-os-x/
 
 http://osxdaily.com/2014/01/01/4-free-os-x-utilities-mac/
+
+https://www.ansible.com/videos-ansiblefest-sf-2016
+
 
 ## More on OSX
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub REST API"
-excerpt: "You talkin to me?"
+excerpt: "It's an industry standard"
 tags: [devops]
 image:
 # pic green easter island 2 hillside 1920x1080
@@ -15,52 +15,186 @@ comments: true
 
 {% include _toc.html %}
 
-## Overview and History
+GitHub provides a well-known API that accepts a lot of traffic.
 
-cURL is used by many documents when describing REST API.
+GitHub's API is considered an industry-standard we would do well to emulate.
 
-## Install
+Outputs presented here are from my 
+<a target="_blank" href="https://github.com/wilsonmar/git-utilities/git-sample-repo-create/">
+<strong>git-sample-repo-create.sh</strong>
+shell script</a>.
 
-On a Mac, instead of downloading cURL from 
-`http://curl.haxx.se/download.html`
-and tr zxf the downloaded file, do this from a Terminal:
+
+## Brew install curl #
+
+The cURL utility is used by many documents when describing REST API.
+
+0. On a Mac, instead of downloading cURL from 
+   `http://curl.haxx.se/download.html`
+   and using `tar -zxf` on the downloaded file, do this from a Terminal:
 
    <tt><strong>
    brew install curl
    </strong></tt>
 
-## GitHub API
+   NOTE: Play with curl options on-line using
+   <a target="_blank" href="http://hurl.it">http://hurl.it</a>
 
-GitHub provides a well-known API that accepts a lot of traffic.
-
-### Don't use http
-
-Begin by:
+0. Get information about user or organization,
+   including HTTP headers:
 
    <tt><strong>
-   curl api.github.com
+   curl --include https://api.github.com/users/wilsonmar
    </strong></tt>
 
-Connection fused:
-
-   <tt><strong>
-   http://api.github.com
-   </strong></tt>
+   Among response headers, notice the version:
 
    <pre>
-   curl: (7) Failed to connect to api.github.com port 80: Connection refused
+   X-GitHub-Media-Type: github.v3
    </pre>
 
-### Use https for HATEOAS
+   Switch to an internet browser (Chrome) to view the API documentation at<br />
+   <a target="blank" href="https://developer.github.com/v3/">
+   https://developer.github.com/v3</a>
 
-   <tt><strong>
-   https://api.github.com
-   </strong></tt>
 
-The following is returned so a client has a menu of follow-up
-commands:
+   Near the bottom of the response includes contact and stats:
 
-<pre>
+   <pre>
+  "name": "Wilson Mar",
+  "company": "JetBloom",
+  "blog": "wilsonmar.github.io",
+  "location": null,
+  "email": "wilsonmar@gmail.com",
+  "hireable": true,
+  "bio": null,
+  "public_repos": 103,
+  "public_gists": 9,
+  "followers": 24,
+  "following": 48,
+}
+   </pre>
+
+   In the middle of the response are 
+   HATEOAS URLs specific to the user:
+
+   <pre>
+  "url": "https://api.github.com/users/wilsonmar",
+  "html_url": "https://github.com/wilsonmar",
+  "followers_url": "https://api.github.com/users/wilsonmar/followers",
+  "following_url": "https://api.github.com/users/wilsonmar/following{/other_user}",
+  "gists_url": "https://api.github.com/users/wilsonmar/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/wilsonmar/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/wilsonmar/subscriptions",
+  "organizations_url": "https://api.github.com/users/wilsonmar/orgs",
+  "repos_url": "https://api.github.com/users/wilsonmar/repos",
+  "events_url": "https://api.github.com/users/wilsonmar/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/wilsonmar/received_events",
+}
+   </pre>
+
+
+## Brew install jq JSON processor #
+
+PROTIP: In order for scripts to be "idempotent" 
+(create the same conditions no matter how many times it's run),
+scripts need to know the data of a specific key within
+the JSON returned from API calls.
+
+0. A sample call to obtain data values from JSON returned
+   into an environment variable:
+
+   <pre>
+   HASH=$(curl https://api.github.com/users/wilsonmar | jq ".starred_url")
+   echo "HASH=$HASH"
+   </pre>
+
+   "jq" is a JSON processor jq for Mac OSX, Windows, and Linux.
+
+0. Install it using Homebrew from any folder:
+
+   <tt><strong>brew install jq</strong></tt>
+
+   Do this instead of downloading installer from<br />
+   In <a target="_blank" href="https://stedolan.github.io/jq/">
+   https://stedolan.github.io/jq</a>
+
+   The response I got:
+
+   <pre>
+==> Installing dependencies for jq: oniguruma
+==> Installing jq dependency: oniguruma
+==> Downloading https://homebrew.bintray.com/bottles/oniguruma-6.1.1.el_capitan.
+######################################################################## 100.0%
+==> Pouring oniguruma-6.1.1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/oniguruma/6.1.1: 16 files, 1.3M
+==> Installing jq
+==> Downloading https://homebrew.bintray.com/bottles/jq-1.5_2.el_capitan.bottle.
+######################################################################## 100.0%
+==> Pouring jq-1.5_2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/jq/1.5_2: 18 files, 958K
+   </pre>
+
+0. Familiarize by reading the Tutorial at<br />
+   In <a target="_blank" href="https://stedolan.github.io/jq/tutorial/">
+   https://stedolan.github.io/jq/tutorial/</a>
+
+0. According to the Manual at<br />
+   In <a target="_blank" href="https://stedolan.github.io/jq/manual/">
+   https://stedolan.github.io/jq/manual/</a>
+
+0. Send request to obtain a token:
+
+   A sample response:
+
+   <pre>
+*   Trying 192.30.253.117...
+* Connected to api.github.co
+{
+  "id": 50266222,
+  "url": "https://api.github.com/authorizations/50266222",
+  "app": {
+    "name": "token with delete repo scope",
+    "url": "https://developer.github.com/v3/oauth_authorizations/",
+    "client_id": "00000000000000000000"
+  },
+  "token": "123456be03fbe45f9a308501eb5da1ad2a98765",
+  "hashed_token": "12345694b7717246613d2d66ebbe618937b93f7765ed8ec43da5931523f60726",
+  "token_last_eight": "2ad98765",
+  "note": "token with delete repo scope",
+  "note_url": null,
+  "created_at": "2016-09-15T16:38:00Z",
+  "updated_at": "2016-09-15T16:38:00Z",
+  "scopes": [
+    "delete_repo"
+  ],
+  "fingerprint": null
+}
+* Connection #0 to host api.github.com left intact
+   </pre>
+
+
+## Verify Token #
+
+0. Verify the TOKEN:
+
+   A bad response:
+
+   <pre>
+&LT; Authorization: token meh
+&LT; Status: 401 Unauthorized
+...
+{
+  "message": "Bad credentials",
+  "documentation_url": "https://developer.github.com/v3"
+}
+   </pre>
+
+   A sample good response:
+
+   <pre>
+&LT; Status: 200 OK
+&LT; X-OAuth-Scopes: delete_repo
 {
   "current_user_url": "https://api.github.com/user",
   "current_user_authorizations_html_url": "https://github.com/settings/connections/applications{/client_id}",
@@ -93,54 +227,114 @@ commands:
   "user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
   "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
 }
-</pre>
+   </pre>
 
-## Follow-on commands on GitHub
+## Create repo #
 
-Copy the user command:
+   <pre>
+   </pre>
 
-   <tt><strong>
-   curl http://api.github.com/user/wilsonmar
-   </strong></tt>
-
-   The response:
+## Status of repo #
 
    <pre>
 {
-  "login": "wilsonmar",
-  "id": 300046,
-  "avatar_url": "https://avatars.githubusercontent.com/u/300046?v=3",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/wilsonmar",
-  "html_url": "https://github.com/wilsonmar",
-  "followers_url": "https://api.github.com/users/wilsonmar/followers",
-  "following_url": "https://api.github.com/users/wilsonmar/following{/other_user}",
-  "gists_url": "https://api.github.com/users/wilsonmar/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/wilsonmar/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/wilsonmar/subscriptions",
-  "organizations_url": "https://api.github.com/users/wilsonmar/orgs",
-  "repos_url": "https://api.github.com/users/wilsonmar/repos",
-  "events_url": "https://api.github.com/users/wilsonmar/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/wilsonmar/received_events",
-  "type": "User",
-  "site_admin": false,
-  "name": "Wilson Mar",
-  "company": "JetBloom",
-  "blog": "wilsonmar.github.io",
-  "location": null,
-  "email": "wilsonmar@gmail.com",
-  "hireable": true,
-  "bio": null,
-  "public_repos": 103,
-  "public_gists": 9,
-  "followers": 24,
-  "following": 48,
-  "created_at": "2010-06-08T16:42:06Z",
-  "updated_at": "2016-04-03T10:04:43Z"
+  "id": 68240593,
+  "name": "git-sample-repo",
+  "full_name": "wilsonmar/git-sample-repo",
+  "owner": {
+    "login": "wilsonmar",
+    "id": 300046,
+    "avatar_url": "https://avatars.githubusercontent.com/u/300046?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/wilsonmar",
+    "html_url": "https://github.com/wilsonmar",
+    "followers_url": "https://api.github.com/users/wilsonmar/followers",
+    "following_url": "https://api.github.com/users/wilsonmar/following{/other_user}",
+    "gists_url": "https://api.github.com/users/wilsonmar/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/wilsonmar/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/wilsonmar/subscriptions",
+    "organizations_url": "https://api.github.com/users/wilsonmar/orgs",
+    "repos_url": "https://api.github.com/users/wilsonmar/repos",
+    "events_url": "https://api.github.com/users/wilsonmar/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/wilsonmar/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "private": false,
+  "html_url": "https://github.com/wilsonmar/git-sample-repo",
+  "description": "Automated Git repo from run using git-sample-repo in https://github.com/wilsonmar/git-utilities.",
+  "fork": false,
+  "url": "https://api.github.com/repos/wilsonmar/git-sample-repo",
+  "forks_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/forks",
+  "keys_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/teams",
+  "hooks_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/hooks",
+  "issue_events_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/events",
+  "assignees_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/tags",
+  "blobs_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/languages",
+  "stargazers_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/stargazers",
+  "contributors_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/contributors",
+  "subscribers_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/subscribers",
+  "subscription_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/subscription",
+  "commits_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/merges",
+  "archive_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/downloads",
+  "issues_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/labels{/name}",
+  "releases_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/wilsonmar/git-sample-repo/deployments",
+  "created_at": "2016-09-14T20:27:01Z",
+  "updated_at": "2016-09-14T20:27:01Z",
+  "pushed_at": "2016-09-14T21:09:18Z",
+  "git_url": "git://github.com/wilsonmar/git-sample-repo.git",
+  "ssh_url": "git@github.com:wilsonmar/git-sample-repo.git",
+  "clone_url": "https://github.com/wilsonmar/git-sample-repo.git",
+  "svn_url": "https://github.com/wilsonmar/git-sample-repo",
+  "homepage": null,
+  "size": 1,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": null,
+  "has_issues": true,
+  "has_downloads": true,
+  "has_wiki": false,
+  "has_pages": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "open_issues_count": 0,
+  "forks": 0,
+  "open_issues": 0,
+  "watchers": 0,
+  "default_branch": "develop",
+  "network_count": 0,
+  "subscribers_count": 1
 }
-   </pre>
+   </pre>   
+
 
 ## Resources
+
+
+0. <a target="blank" href="https://developer.github.com/v3/repos/#create">
+   https://developer.github.com/v3/repos/#create</a>
 
 * http://amunsen.com (Mike Amunsen)
 
