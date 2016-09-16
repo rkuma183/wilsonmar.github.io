@@ -16,10 +16,20 @@ comments: true
 
 This article describes the use of PowerShell scripting on Mac and Linux.
 
+The big question is whether PowerShell is that one scripting
+that can run both on all major platforms.
+
 "PowerShell" refers to both the command-line shell and scripting language designed system administration. 
 
-First built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. 
-Now they can do the same for Linux and MacOS.
+PowerShell is an <strong>object-centered</strong> "management engine"
+that can be hosted in an application program.
+
+   * CMD in Windows
+   * PowerShell ISE (from Microsoft)
+   * PowerGUI
+   * SAPIEN Technologies PowerShell Studio
+   * Idera PowerShell Pro
+   <br /><br />
 
 PowerShell <strong>cmdlets</strong> (command-lets) 
 enables computers to be managed from the command line,
@@ -48,6 +58,9 @@ This article</a> notes Desired State Configuration for Linux and the promise of 
 On August 18 2016</a>, PowerShell became open-source at<br />
 <a target="_blank" href="https://github.com/PowerShell/PowerShell/">
 https://github.com/PowerShell/PowerShell</a>.
+
+
+## Social #
 
 <a target="_blank" href="https://gitter.im/PowerShell/PowerShell">
 Join the conversation on Gitter</a>
@@ -92,6 +105,7 @@ QUESTION: Is there a brew powershell?
 0. Open the .pkg file in the Downloads folder:
 0. Click Continue, etc.
 
+
    ### In and Out #
 
 0. Open a Terminal shell window to launch PowerShell:
@@ -109,16 +123,91 @@ Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 PS /Users/...>
    </pre>
 
-0. To leave PowerShell:
+0. To leave PowerShell, it's the same as in Bash scripts:
 
    <tt><strong>
    exit
    </strong></tt>
 
 
+## Language basics #
+
+To call scripts, an example:
+
+   <tt><strong>
+   & ".\basics.ps1"
+   </strong></tt>
+
+   If this script has not been digitally signed, set PS execution policy to “RemoteSigned” (or “Unrestricted”) after 
+   reopening PowerShell as an Administrator to run:
+
+   By default PowerShell prevents the execution of PowerShell scripts on Windows systems.
+
+   <tt><strong>
+   <a target="_blank" href="http://www.adminarsenal.com/powershell/set-executionpolicy/">Set-ExecutionPolicy</a> RemoteSigned
+   </strong></tt>
+
+## Handling secrets
+
+PROTIP: Files containing secrets, such as passwords and
+certificates are NOT stored in GitHub nor script files,
+   but in a separate location, and backed up among
+   other local files.
+
+   The secrets are retrieved into the script at run-time.
+
+   ### Certificate from file #
+
+   In Bash, an export command is used to bring in the
+   public key:
+
+   <pre>
+   export RSA_PUBLIC_KEY=$(cat ~/.ssh/id_rsa.pub)
+   </pre>
+
+   <a target="_blank" href="http://stackoverflow.com/questions/7976646/powershell-store-entire-text-file-contents-in-variable">
+   But PowerShell's equivalent</a> is:
+
+   <pre>
+   $RSA_PUBLIC_KEY = [IO.File]::ReadAllText("~/.ssh/id_rsa.pub")
+   </pre>
+
+   On Windows, certificate files are created using putty-gen
+   or Mysysgit (the Git client for Windows).
+
+
+   ### Passwords from file #
+
+   The Bash "source" function is not recognized by PowerShell.
+   See https://technet.microsoft.com/en-us/library/hh847841.aspx
+
+   So a file named passwords.ps1 in my user home folder 
+   containing:
+
+   <pre>
+$GITHUB_PASSWORD = '234sdsdvs32'
+$GITHUB_TOKEN = '1234567890123456789012345678901234567890'
+   </pre>
+
+   PROTIP: I don't store the user name along with the password.
+
+   BLAH: THis is a different format than the file I use
+   with Bash scripts.
+
+   To retrieve indivisual variables from the .ps1 file
+   <a target="_blank" href="http://stackoverflow.com/questions/20077820/how-can-i-source-variables-from-a-bat-file-into-a-powershell-script">per one post</a>:
+
+   <pre>
+Select-String '^set ([^=]*)=(.*)' .\filename.bat | % {
+   Set-Variable $_.Matches.Groups[1].Value $_.Matches.Groups[2].Value
+}
+   </pre>
+
+
    ### Version check #
 
-0. Check the version being used:
+0. Check the version of PowerShell being used by calling a
+   <strong>pre-defined variable</strong>:
 
    <tt><strong>
    $psversiontable
@@ -127,32 +216,270 @@ PS /Users/...>
    Response:
 
    <pre>
-Name                           Value                                           
-----                           -----                                           
-PSVersion                      6.0.0-alpha                                     
-PSEdition                      Core                                            
-PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}                         
-BuildVersion                   3.0.0.0                                         
-GitCommitId                    v6.0.0-alpha.9                                  
-CLRVersion                                                                     
-WSManStackVersion              3.0                                             
-PSRemotingProtocolVersion      2.3                                             
+Name                           Value
+----                           -----
+PSVersion                      6.0.0-alpha
+PSEdition                      Core
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   3.0.0.0
+GitCommitId                    v6.0.0-alpha.9
+CLRVersion
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1       
    </pre>   
 
    QUESTION: What's the CLRVersion?
 
-0. To apply certain action to type of operating system:
+   ### Versions of PowerShell:
+
+   * 6.0 in 2016 for Mac/Linux
+   * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
+   Windows Management Framework 3.0
+   * 3.0 in 2012 with Windows 8/Server 2012
+   * 2.0 appeared in 2009
+   * 1.0 appeared in 2006
+   <br /><br />
+
+### Version Logic: If Then Else #
+
+   The same if/then/else syntax in PowerShell scripts for
+   Mac and PC is needed for the same script file to be used.
+
+   <pre>
+   if [ "$IsWindows" = True ]; then
+       echo "Do Windows"
+   </pre>
+
+   To apply certain action to type of operating system:
 
    <pre>
    $IsCoreCLR = True
    $IsLinux = False
    $IsOSX = True
-   $IsWindows = False
+   echo "IsWindows=$IsWindows"
    <pre>
 
+   <pre>
+If ($IsWindows -eq True) {"IsWindows"}
+ElseIf ($IsOSX -eq True) {"IsOSX"}
+Else {"Something else"}
+   </pre>
 
-   ### Iterate #
+
+## Main Differences vs. PC #
+
+Many Bash commands work in PowerShell (ls, cat, touch, echo).
+
+<strong>Aliases</strong> make many commands in Bash scripts work:
+
+   <tt><strong>
+   get-alias echo
+   </strong></tt>
+
+   The response is "Write-Output".
+
+Write-Host skips the pipeline (not redirected)
+
+   Write-Host $env:computername -foreground Green
+
+   "--passthru" means do not go through Pipeline.
+
+
+## Paths #
+
+Instead of "rm -rf" in Bash:
+https://blogs.technet.microsoft.com/heyscriptingguy/2012/02/22/the-best-way-to-use-powershell-to-delete-folders/
+
+   <pre><strong>
+   Remove-Item -path c:\* -Filter *text* -WhatIf
+   </strong></pre>
+
+   "-WhatIf" specifies a dry-run.
+
+## Cmdlets #
+
+PS has some smarter parameters, such as filtering for files only
+and running recursively into sub-folders:
+
+   <tt><strong>
+   dir c:\work\*.ps1 -file -recurse
+   </strong></tt>
+
+All PowerShell cmdlets follow a standardized verb-noun 
+naming convention that makes it easy to look up, find, and use cmdlets.
+
+   <tt><strong>
+   get-command -verb export<br />
+   get-command -noun ACL
+   </strong></tt>
+
+   REMEMBER: Capitalization counts within PowerShell.
+
+## paths #
+
+   Only 25% of cmdlets are shipped with paths.
+
+
+## Strings #
+
+   PROTIP: Don't use "+" for string concatenation.
+
+
+   ### .NET Framework members
+
+   Initially built on Microsoft's .NET Framework, PowerShell
+   can refer to a static .NET member in square brackets
+   with two colons to specify Pi:
+
+   <tt>
+   [math]::pi
+   </tt>
+
+   To delete a file in the .NET I/O directory object:
+
+   <pre>
+   [io.directory]::Delete("C:\test*")
+   </pre>
+
+
+   ### Other pre-defined variables #
+
+0. To count the number of cmdlets:
+
+   <pre>
+   $size/1MB
+   </pre>
+
+   To get the current folder:
+
+   <pre><strong>
+   $MyFileName = "data.txt"
+   $filebase = <strong>$PSScriptRoot</strong> + "\" + $MyFileName
+   </strong></pre>
+
+   Alternatively, use (since v2):
+
+   <pre><strong>
+   (Resolve-Path .\).Path
+   </strong></pre>
+
+   This returns a PathInfo object.
+
+   $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+
+## Dates #
+
+Based on http://ss64.com/ps/syntax-dateformats.html
+
+   <pre><strong>
+   Get-Date -Format "yyyy-MM-dd HH:mm"<br />
+   $time = (Get-Date).AddDays(-30) -Format "yyyy-MM-dd HH:mm"
+
+   $dirName  = [io.path]::GetDirectoryName($path)
+$filename = [io.path]::GetFileNameWithoutExtension($path)
+$ext      = [io.path]::GetExtension($path)
+$newPath  = "$dirName\$filename $(get-date -f yyyy-MM-dd)$ext"
+   </strong></pre>
+
+
+## Zip files using functions #
+
+   <pre>
+# http://www.adminarsenal.com/admin-arsenal-blog/powershell-zip-up-files-using-.net-and-add-type/
+$SourceFolder    = "C:\temp\Zip This Folder"
+$DestinationFile = "C:\temp\NewZip.zip"
+$Compression     = "Optimal"  # Optimal, Fastest, NoCompression
+&nbsp;
+Zip-Directory -DestinationFileName $DestinationFile `
+    -SourceDirectory $SourceFolder `
+    -CompressionLevel $Compression ` #Optional parameter
+    -IncludeParentDir #Optional parameter
+&nbsp;
+function Zip-Directory {
+    Param(
+      [Parameter(Mandatory=$True)][string]$DestinationFileName,
+      [Parameter(Mandatory=$True)][string]$SourceDirectory,
+      [Parameter(Mandatory=$False)][string]$CompressionLevel = "Optimal",
+      [Parameter(Mandatory=$False)][switch]$IncludeParentDir
+    )
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    $CompressionLevel    = [System.IO.Compression.CompressionLevel]::$CompressionLevel  
+    [System.IO.Compression.ZipFile]::CreateFromDirectory($SourceDirectory, $DestinationFileName, $CompressionLevel, $IncludeParentDir)
+}
+   </pre>
+
+
+
+## Pipelines #
+
+Instead of just parsing text (as *Nix shells do),
+PowerShell works with objects in a <a href="#Pipelines">pipeline</a>.
+
+Piping:
+
+   <tt><strong>
+   Get-Process | sort cpu
+   Get-Service | Get-Member<br />
+   $numberofcmdlets = (get-command).count
+   </strong></tt>
+
+   Best to use out-file instead of ">" redirect character:
+
+   <tt><strong>
+   dir -file -hidden | out-file -filepath rootfiles.txt<br />
+   </strong></tt>
+
+   Use preference variables for stream redirection:
+
+   1> Success
+   2> Error
+   3> Warning
+   4> Verbose
+   5> Debug
+
+   NOTE: Can Only merge to the success stream.
+
+
+## Providers #
+
+In PowerShell, avoid using the <strong>tilde</strong> 
+because it does not always represent the 
+the user's home folder as in Linux because PS has different
+"providers", which include HKLM and HKCU top-levels in the Windows Registry:
+
+   <tt><strong>
+   get-item ~
+   </strong></tt>
+
+   returns the Mode and LastWriteTime of the user.
+
+To list files in a folder, it's the same as in Bash:
+
+   ls -al
+
+## Comparison Operators #
+
+-eq / -ne / -ge
+
+-Like / -NotLike wildcard string - $name -like "*sh"
+
+-Match / -NotMatch regular expression - $name -match "sh$"
+
+-Contains / -NotContains a value in array - $name -contains "jo"
+
+-In / -NotIn Is a value in an array - "joe" -in $name
+
+## Logical operators #
+
+-And
+
+-Or
+
+-Xor = Logical exclusive or.
+
+
+## Iterate #
 
 0. <a target="_blank" href="http://powershelldistrict.com/powershell-mac-os-x/">
    Stephane</a> shows this command to move (pipe) png files from 
@@ -162,15 +489,33 @@ SerializationVersion           1.1.0.1
    Get-ChildItem -Filter '*.png' | Move-Item -Destination '../Pictures'
    </pre>
 
+   A variable can contain an array:
+
+   <pre><strong>
+   $files = dir c:\script -file
+   Foreach ($file in $files){
+      $fileage = ((get-Date)) - $file.LastWriteTime )
+      "$($file.name) = $fileage" | Out-File ...
+   }
+   </strong></pre>
+
+
 0. List:
 
    <pre>
    gci ../Pictures/
    </pre>
 
+0. The "$_" to represent the current object in v2 can 
+   handle more complexity than v3 syntax:
+
+   <tt><strong>
+   get-service m* | where {$_.status -eq 'running'}<br />
+   get-service m* | where status -eq 'running'
+   </strong></tt>
 
 
-   ### Social
+## Social sites #
 
 0. Join the <a target="_blank" href="https://gitter.im/PowerShell/PowerShell?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
    Chatroom on Gitter</a>.
@@ -182,26 +527,31 @@ SerializationVersion           1.1.0.1
 
 ## Resources #
 
+* <a target="_blank" href="https://powershell.org/">
+   PowerShell.org</a>
+
+* http://slack.poshcode.org/
+
 * http://powershelldistrict.com/powershell-mac-os-x/
    was written based on alpha.9 release.
 
 * http://powershelldistrict.com/powershell-linux/
 
-<a target="_blank" href="https://mcpmag.com/articles/2016/04/07/powershell-functions-with-parameters.aspx">
+* <a target="_blank" href="https://mcpmag.com/articles/2016/04/07/powershell-functions-with-parameters.aspx">
 Getting Input into Your PowerShell Functions with Parameters</a>
 - shows how to build function parameters in reusable snippets.
 
-<a target="_blank" href="https://mcpmag.com/articles/2016/03/31/timing-powershell-automations.aspx">
+* <a target="_blank" href="https://mcpmag.com/articles/2016/03/31/timing-powershell-automations.aspx">
 PowerShell Pipeline: Timing PowerShell Automations</a>
 - get an accurate measurement of how long it takes to 
 run a specific or set a timer for your script to run.
 
-<a target="_blank" href="https://mcpmag.com/articles/2016/03/24/active-directory-forest-and-domain.aspx">
+* <a target="_blank" href="https://mcpmag.com/articles/2016/03/24/active-directory-forest-and-domain.aspx">
 PowerShell Pipeline: Exploring the Active Directory Forest and Domain</a>
 - use the Active Directory Module to run 
 available cmdlets and automate many of your daily tasks.
 
-<a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">Querying MySQL Databases with PowerShell</a>
+* <a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">Querying MySQL Databases with PowerShell</a>
 - save time by automatically querying up data.
 
 

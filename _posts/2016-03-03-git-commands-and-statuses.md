@@ -343,7 +343,8 @@ book at Git-SCM.com</a>
 
 ## Resources #
 
-Mastering Git series by Matthew McCullough with Tim Berglund:
+Mastering Git series by Matthew McCullough with Tim Berglund
+(using Git 1.7.2):
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=AzuzomV-zrQ">
 Setting Up Git & Configuring Git (1/10)</a>
