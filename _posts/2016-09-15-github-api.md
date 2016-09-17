@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub REST API"
-excerpt: "It's an industry standard"
+excerpt: "I say it's the industry standard"
 tags: [devops]
 image:
 # pic green easter island 2 hillside 1920x1080

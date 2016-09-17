@@ -43,12 +43,18 @@ battery-dependent devices are left to drain overnight.
    it only receives and stores information.
 
 0. A long-running <a href="#Rules">complex set of rules (below)</a> 
-   determine when actions need to be triggered.
+   running on an app server determines when actions need to be triggered.
 
-0. The color and pattern of lighting is set on the Android.
+   For example, determine battery life is steadily declining.
+   Recognize the usual pattern.
 
-0. When appropriate, the Arduino sends a signal to 
-   the <strong>Philips Hue bulb</strong> to light up in the bedroom.
+0. The color and pattern of lighting is set by the app server.
+
+0. When appropriate, a signal is sent to 
+   a <strong>light bult</strong> 
+   to light up in the bedroom.
+
+   For example, projection that battery life is not going to last throug the night.
 
 0. Press a Flic button to control the alerts:
 

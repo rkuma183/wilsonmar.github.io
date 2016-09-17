@@ -16,9 +16,6 @@ comments: true
 
 This article describes the use of PowerShell scripting on Mac and Linux.
 
-The big question is whether PowerShell is that one scripting
-that can run both on all major platforms.
-
 "PowerShell" refers to both the command-line shell and scripting language designed system administration. 
 
 PowerShell is an <strong>object-centered</strong> "management engine"
@@ -35,7 +32,13 @@ PowerShell <strong>cmdlets</strong> (command-lets)
 enables computers to be managed from the command line,
 much like Bash shell scripts on Linux machines.
 
-However, PowerShell offers more consistency than the 
+   Count the number of cmdlets:
+
+   <tt><strong>
+   $numberofcmdlets = (get-command).count
+   </strong></tt>
+
+PowerShell offers more consistency than the 
 various commands added over time by various parties.
 
    * It reads Excel files natively as well as JSON, XML, and even ASCII.
@@ -123,89 +126,6 @@ Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 PS /Users/...>
    </pre>
 
-0. To leave PowerShell, it's the same as in Bash scripts:
-
-   <tt><strong>
-   exit
-   </strong></tt>
-
-
-## Language basics #
-
-To call scripts, an example:
-
-   <tt><strong>
-   & ".\basics.ps1"
-   </strong></tt>
-
-   If this script has not been digitally signed, set PS execution policy to “RemoteSigned” (or “Unrestricted”) after 
-   reopening PowerShell as an Administrator to run:
-
-   By default PowerShell prevents the execution of PowerShell scripts on Windows systems.
-
-   <tt><strong>
-   <a target="_blank" href="http://www.adminarsenal.com/powershell/set-executionpolicy/">Set-ExecutionPolicy</a> RemoteSigned
-   </strong></tt>
-
-## Handling secrets
-
-PROTIP: Files containing secrets, such as passwords and
-certificates are NOT stored in GitHub nor script files,
-   but in a separate location, and backed up among
-   other local files.
-
-   The secrets are retrieved into the script at run-time.
-
-   ### Certificate from file #
-
-   In Bash, an export command is used to bring in the
-   public key:
-
-   <pre>
-   export RSA_PUBLIC_KEY=$(cat ~/.ssh/id_rsa.pub)
-   </pre>
-
-   <a target="_blank" href="http://stackoverflow.com/questions/7976646/powershell-store-entire-text-file-contents-in-variable">
-   But PowerShell's equivalent</a> is:
-
-   <pre>
-   $RSA_PUBLIC_KEY = [IO.File]::ReadAllText("~/.ssh/id_rsa.pub")
-   </pre>
-
-   On Windows, certificate files are created using putty-gen
-   or Mysysgit (the Git client for Windows).
-
-
-   ### Passwords from file #
-
-   The Bash "source" function is not recognized by PowerShell.
-   See https://technet.microsoft.com/en-us/library/hh847841.aspx
-
-   So a file named passwords.ps1 in my user home folder 
-   containing:
-
-   <pre>
-$GITHUB_PASSWORD = '234sdsdvs32'
-$GITHUB_TOKEN = '1234567890123456789012345678901234567890'
-   </pre>
-
-   PROTIP: I don't store the user name along with the password.
-
-   BLAH: THis is a different format than the file I use
-   with Bash scripts.
-
-   To retrieve indivisual variables from the .ps1 file
-   <a target="_blank" href="http://stackoverflow.com/questions/20077820/how-can-i-source-variables-from-a-bat-file-into-a-powershell-script">per one post</a>:
-
-   <pre>
-Select-String '^set ([^=]*)=(.*)' .\filename.bat | % {
-   Set-Variable $_.Matches.Groups[1].Value $_.Matches.Groups[2].Value
-}
-   </pre>
-
-
-   ### Version check #
-
 0. Check the version of PowerShell being used by calling a
    <strong>pre-defined variable</strong>:
 
@@ -233,7 +153,8 @@ SerializationVersion           1.1.0.1
 
    ### Versions of PowerShell:
 
-   * 6.0 in 2016 for Mac/Linux
+   * 5.1 for Mac/Linux
+   * 5.0 
    * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
    Windows Management Framework 3.0
    * 3.0 in 2012 with Windows 8/Server 2012
@@ -241,30 +162,250 @@ SerializationVersion           1.1.0.1
    * 1.0 appeared in 2006
    <br /><br />
 
-### Version Logic: If Then Else #
+0. To leave PowerShell, it's the same as in Bash scripts:
 
+   <tt><strong>
+   exit
+   </strong></tt>
+
+
+## Execute script file #
+
+I like using script files rather than typing because
+it allows me to focus on the latest in what is usually
+a long string of commands necessary in today's complex world.
+
+To call scripts, an example:
+
+   <pre><strong>
+   & ".\basics.ps1"
+   </strong></pre>
+
+   If this script has not been digitally signed, set PS execution policy to 
+   “RemoteSigned” (or “Unrestricted”) after 
+   reopening PowerShell as an Administrator to run:
+
+   By default PowerShell prevents the execution of PowerShell scripts on Windows systems.
+
+   <tt><strong>
+   <a target="_blank" href="http://www.adminarsenal.com/powershell/set-executionpolicy/">Set-ExecutionPolicy</a> RemoteSigned
+   </strong></tt>
+
+   Get a list of current security settings:
+
+   <tt><strong>
+   Get-ExecutionPolicy -List | Format-Table -AutoSize
+   </strong></tt>
+
+
+## Version Logic: If Then Else #
+
+I haven't found a way to have a Bash script that 
+can also be run as a PowerShell script.
+
+PROTIP: Switching from Bash to PowerShell means a one-time migration and there is no turning back unless you want to maintain
+parallel scripts.
+
+This is largely because of differences in if/then/else coding.
    The same if/then/else syntax in PowerShell scripts for
    Mac and PC is needed for the same script file to be used.
+
+   On Bash:
 
    <pre>
    if [ "$IsWindows" = True ]; then
        echo "Do Windows"
+   fi
    </pre>
 
-   To apply certain action to type of operating system:
+> The question is whether a single PowerShell script can really
+run on both Mac and Windows. Do a parallel run.
 
-   <pre>
-   $IsCoreCLR = True
-   $IsLinux = False
-   $IsOSX = True
-   echo "IsWindows=$IsWindows"
-   <pre>
+   For different actions in PowerShell according to type of operating system:
 
    <pre>
 If ($IsWindows -eq True) {"IsWindows"}
+   # use "C:/Users/%USERNAME%/.ssh/id_rsa.pub"
 ElseIf ($IsOSX -eq True) {"IsOSX"}
+   # use "~/.ssh/id_rsa.pub"
 Else {"Something else"}
    </pre>
+
+
+### Comparison Operators #
+
+-eq / -ne / -ge
+
+-Like / -NotLike wildcard string - $name -like "*sh"
+
+-Match / -NotMatch regular expression - $name -match "sh$"
+
+-Contains / -NotContains a value in array - $name -contains "jo"
+
+-In / -NotIn Is a value in an array - "joe" -in $name
+
+## Logical operators #
+
+-And
+
+-Or
+
+-Xor = Logical exclusive or.
+
+## Tilde and Providers ##
+
+Avoid using the <strong>tilde</strong> (~)
+in PowerShell because it does not always represent the 
+the user's home folder as in Linux because PS has different
+"providers", which include HKLM and HKCU top-levels in the Windows Registry:
+
+   <tt><strong>
+   get-item ~
+   </strong></tt>
+
+   returns the Mode and LastWriteTime of the user.
+
+To list files in a folder, it's the same as in Bash:
+
+   ls -al
+
+
+## Handling secrets ##
+
+PROTIP: Files containing secrets, such as passwords and
+certificates are NOT stored in GitHub nor script files,
+   but in a separate location, and backed up among
+   other local files.
+
+   The secrets are retrieved into the script at run-time.
+
+### Certificate from file ###
+
+   In Bash, an export command is used to bring in the
+   public key generated by ssh-gen into the user's home hidden
+   .ssh folder:
+
+   <pre>
+   export RSA_PUBLIC_KEY=$(cat ~/.ssh/id_rsa.pub)
+   </pre>
+
+   But PowerShell's equivalent reads
+   certificate files created using putty-gen
+   or Mysysgit (the Git client for Windows):
+
+   <pre><strong>
+   $RSA_PUBLIC_KEY = Get-Content "~/.ssh/id_rsa.pub"
+   # echo "RSA_PUBLIC_KEY=$RSA_PUBLIC_KEY"
+   </strong></pre>
+
+   <a target="_blank" href="https://www.simple-talk.com/sysadmin/powershell/powershell-one-liners-accessing-handling-and-writing-data/#first">
+   Among the many variations</a>:
+
+   <pre>
+   $RSA_PUBLIC_KEY = [IO.File]::ReadAllText("~/.ssh/id_rsa.pub").split("`n")
+   </pre>
+
+   The split method using the back-tick adds a trailing empty line at 
+   the bottom of the file.
+
+
+### Passwords file to Hash Table ###
+
+   On my Mac I used a text editor to create a 
+   text file containing these (fake) secrets:
+
+   <pre>
+GITHUB_PASSWORD = '234sdsdvs32'
+GITHUB_TOKEN = '1234567890123456789012345678901234567890'
+   </pre>
+
+   Notice there are no dollar signs in front of the key names.
+
+   PROTIP: I don't store the user name along with its password.
+
+   The file is stored in a .passwords file (no extension)
+   in my Mac user home folder, so they can be invoked as a Bash script:
+
+   <tt><strong>
+   source ~/.passwords
+   </strong></tt>
+
+   NOTE: The dot command is equivalent to the source command.
+
+   BLAH: The Bash "source" function is not recognized by PowerShell
+   and variables need to have dollar signs. So rather than
+   creating a password file containing:
+
+   <pre>
+$GITHUB_PASSWORD = '234sdsdvs32'
+$GITHUB_TOKEN = '1234567890123456789012345678901234567890'
+   </pre>
+
+   I can create a .ps1 file which defines a <strong>hashtable</strong>
+   (a collection of key/value pairs, also called "associative arrays"):
+
+   <pre>
+   [ordered]@{Key1=Value1;Key2=Value2}
+   </pre>
+
+   However, I can read the text file previously read by Bash
+   so I end up with a hash table named $SECRETS in PowerShell,
+   from which I can retireve a specific property:
+
+   <pre><strong>
+   $SECRETS = Get-Content "~/.passwords" | ConvertFrom-StringData
+   # don't echo $SECRETS.GITHUB_PASSWORD
+   # don't echo $SECRETS.GITHUB_TOKEN
+   </strong><pre>
+
+   BTW, keys in a hash table must be unique.
+
+   Hash tables are used throughout PowerShell, as in Windows event logs:
+
+   <pre><strong>
+   $source = get-eventlog system -newest 100 | group Source -AsHashTable
+   </strong><pre>
+
+   But the above doesn't work on Mac/Linux.
+
+   With hash tables, sort after using the GetEnumertor(), as in:
+
+   <pre>
+   $source.GetEnumerator() | Sort name | select -first 5
+   </pre>
+
+
+   ### Objects ###
+
+   <tt><strong>
+   get-service m* | where {$_.status -eq 'running'}<br />
+   get-service m* | where status -eq 'running'
+   </strong></tt>
+
+   The "$_" to represent the current object in v2 can 
+   handle more complexity than v3 syntax:
+
+
+
+   ### Across platforms ###
+
+   To list all environment variables:
+
+   <tt><strong>
+   dir env:\<br />
+   Get-ChildItem Env:
+   </strong></tt>
+
+   PROTIP: Environment variables defined in Bash scripts
+   can be read by PowerShell scripts and visa-versa.
+
+   To get the value of a single environment variable:
+
+   <tt><strong>
+   Get-ChildItem Env:USER<br />
+   Get-ChildItem Env:AWS_DEFAULT_REGION
+   </strong></tt>
+
 
 
 ## Main Differences vs. PC #
@@ -296,6 +437,14 @@ https://blogs.technet.microsoft.com/heyscriptingguy/2012/02/22/the-best-way-to-u
    </strong></pre>
 
    "-WhatIf" specifies a dry-run.
+
+## Combine files
+
+   Ro add the content of several files into a single text file:
+
+   <pre><strong>
+   Get-Content "directory path"\*.txt -Force | Set-Content "directory path"\results.txt
+   </strong></pre>
 
 ## Cmdlets #
 
@@ -335,6 +484,8 @@ naming convention that makes it easy to look up, find, and use cmdlets.
    <tt>
    [math]::pi
    </tt>
+
+   It's wonderful that PowerShell doesn't require an echo to display the value of objects.
 
    To delete a file in the .NET I/O directory object:
 
@@ -418,13 +569,13 @@ PowerShell works with objects in a <a href="#Pipelines">pipeline</a>.
 
 Piping:
 
+   To list all variables defined and their values:
+
    <tt><strong>
-   Get-Process | sort cpu
-   Get-Service | Get-Member<br />
-   $numberofcmdlets = (get-command).count
+   Get-Variable | Out-String
    </strong></tt>
 
-   Best to use out-file instead of ">" redirect character:
+   PROTIP: With PowerShell, it's best to use out-file instead of ">" redirect character:
 
    <tt><strong>
    dir -file -hidden | out-file -filepath rootfiles.txt<br />
@@ -441,42 +592,87 @@ Piping:
    NOTE: Can Only merge to the success stream.
 
 
-## Providers #
 
-In PowerShell, avoid using the <strong>tilde</strong> 
-because it does not always represent the 
-the user's home folder as in Linux because PS has different
-"providers", which include HKLM and HKCU top-levels in the Windows Registry:
+## Module to call REST API #
 
-   <tt><strong>
-   get-item ~
-   </strong></tt>
+   <a target="_blank" href="https://marckean.com/2015/09/21/use-powershell-to-make-rest-api-calls-using-json-oauth/">
+   This</a> suggests this
 
-   returns the Mode and LastWriteTime of the user.
+   <pre>
+   $J = Invoke-WebRequest -Uri http://search.twitter.com/search.json?q=PowerShell | ConvertFrom-Json
+   </pre>
 
-To list files in a folder, it's the same as in Bash:
+   But Twitter no longer permits anonymous calls to their API.
 
-   ls -al
+   From https://apps.twitter.com/ define a new app. 
+   In Permissions tab, select Read-only. Click Update Settings.
+   In Key and Access Tokens tab, click "Create my access tokens".
+   Copy the Consumer Key (API key) and paste in ~/.passwords as TWITTER_TOKEN.
 
-## Comparison Operators #
+   It takes 
+   <a target="_blank" href="https://marckean.com/2015/09/21/use-powershell-to-make-rest-api-calls-using-json-oauth/">
+   many lines</a> to mess with OAuth, 
+   so I make use of Adam's library for Twitter's v1.1 API described at:<br />
+   http://www.adamtheautomator.com/twitter-module-powershell/
 
--eq / -ne / -ge
+0. <a target="_blank" href="https://gallery.technet.microsoft.com/scriptcenter/Tweet-and-send-Twitter-DMs-8c2d6f0a">
+   https://gallery.technet.microsoft.com/scriptcenter/Tweet-and-send-Twitter-DMs-8c2d6f0a</a><br />
+   called "Tweet and send Twitter DMs with Powershell".
 
--Like / -NotLike wildcard string - $name -like "*sh"
+   Adam's "MyTwitter.psm1" I've download had 229 lines on 8/31/2014.
 
--Match / -NotMatch regular expression - $name -match "sh$"
+   PROTIP: The ".psm1" extension means it's a PowerShell module.
 
--Contains / -NotContains a value in array - $name -contains "jo"
+   I used a text editor to edit the file to paste in variables for the 4 credentials from Twitter.
 
--In / -NotIn Is a value in an array - "joe" -in $name
+   <pre>
+      [Parameter()]
+      [string]$ApiKey    = $SECRETS.TWITTER_APIKEY,
+      [Parameter()]
+      [string]$ApiSecret = $SECRETS.TWITTER_APISECRET,
+      [Parameter()]
+      [string]$AccessToken = $SECRETS.TWITTER_ACCESSTOKEN,
+      [Parameter()]
+      [string]$AccessTokenSecret = $SECRETS.TWITTER_APISECRET
+   </pre>
 
-## Logical operators #
+   I then saved the module in the same GitHub folder as my script,
+   and added a command to pull the module into the script:
 
--And
+   <pre>
+   Import-module "../MyTwitter.psm1"
+   </pre>
 
--Or
+   <a target="_blank" href="http://stevenmurawski.com/powershell/2012/01/powershell-v3-auto-loading-of-modules/">
+   The alternative</a> is to put the module in the PSModulePath,
+   which enables tab completion to complete the names of commands from modules that are not loaded.  
 
--Xor = Logical exclusive or.
+   The module has these functions:
+
+   * Get-OAuthAuthorization
+   * Send-Tweet
+   * Send-TwitterDm
+   <br /><br />
+
+0. Paste in your PowerShell script:
+
+   <pre><strong>
+   Send-Tweet -Message '@adbertram Thanks for the Powershell Twitter module'
+   </strong></pre>
+
+   BTW, PowerShell cmdlets in https://github.com/Iristyle/Posh-GitHub
+   is only for use on Windows.
+
+Trevor Sullivan
+https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API-Using-PowerShell
+
+   ## JSON from REST API #
+
+   To extract out a key from the JSON file:
+
+   <pre>
+   $x.Stuffs | where { $_.Name -eq "Darts" } 
+   </pre>
 
 
 ## Iterate #
@@ -499,25 +695,13 @@ To list files in a folder, it's the same as in Bash:
    }
    </strong></pre>
 
-
-0. List:
-
-   <pre>
-   gci ../Pictures/
-   </pre>
-
-0. The "$_" to represent the current object in v2 can 
-   handle more complexity than v3 syntax:
-
-   <tt><strong>
-   get-service m* | where {$_.status -eq 'running'}<br />
-   get-service m* | where status -eq 'running'
-   </strong></tt>
-
-
 ## Social sites #
 
-0. Join the <a target="_blank" href="https://gitter.im/PowerShell/PowerShell?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+* Twitter @powershell by the @PowerShell_Team.
+
+* Twitter @PowerShellMag
+
+* Join the <a target="_blank" href="https://gitter.im/PowerShell/PowerShell?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
    Chatroom on Gitter</a>.
 
 0. Sign-up for the Slack group at 
