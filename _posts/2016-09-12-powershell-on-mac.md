@@ -196,6 +196,10 @@ To call scripts, an example:
 Powershell.exe -executionpolicy remotesigned -command { import-module ‘C:\Users\pm\Documents\WindowsPowerShell\Modules\MyTwitter’ ;Send-Tweet -Message ‘Message_ Twitter2’}
    </pre>
 
+https://github.com/MeshkDevs/InvokeTwitterAPIs
+
+http://www.hanselman.com/blog/SigningPowerShellScripts.aspx
+
 
 ## Version Logic: If Then Else #
 
@@ -609,6 +613,8 @@ https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API
    <pre>
    $x.Stuffs | where { $_.Name -eq "Darts" } 
    </pre>
+
+https://www.pluralsight.com/courses/powershell-modules-advanced-functions-building
 
 
 ## Iterate #
