@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "My IoT Cloud Android Mash-up"
-excerpt: "The annoying mobilke-IoT mash-up I really need in my life"
+title: "Reminder light prevents dead mobile battery"
+excerpt: "The annoying mobile-IoT-cloud mash-up I really need in my life"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -74,12 +74,19 @@ let me know and I'll come to set it up in your house.
 
 ### Use Case Extensions #
 
-This is a actually an over-engineered geeky solution that I don't really
-need because I have extra batteries that I keep charged using 
-a wall charger that charges each battery separately from the phone.
+There are uses for this that goes beyond personal mobile devices.
 
-But this capability will be useful as the base for other (industrial) 
-applications not described here.
+BTW, many don't really need this if they have extra batteries that are kept charged using 
+a wall charger which charges each battery separately from the phone.
+
+But I built this capability because it can be useful as the base for 
+<strong>other (industrial) </strong>
+applications not described here -- especially in a <strong>team environment</strong>
+where each person thinks it's another person's responsibility.
+
+Reminder for taking pills.
+
+Anything that absolutely positively must be done each night.
 
 > If you want an extension for your company,
 let me know and I'll come to set it up in your office.
