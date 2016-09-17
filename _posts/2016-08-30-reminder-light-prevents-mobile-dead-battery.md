@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My IoT Cloud Android Mash-up"
-excerpt: "The annoying IoT mash-up I really need in my life"
+excerpt: "The annoying mobilke-IoT mash-up I really need in my life"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -16,16 +16,15 @@ comments: true
 
 {% include _toc.html %}
 
-This is a design of ways to allieviate annoyances living with mobile phones.
+Mobile phone owners need to buy this package because it's a <strong>hassle</strong>
+to start your day with a dead device.
+This is especially needed by owners of iPhones, iPads, and other devices which
+do not have replaceable batteries like most Samsung Android phones.
 
-{% include _intro.html %}
-
-<hr />
-
-## My mash-up #
-
-This design is so I don't go to sleep while 
+This design ensures I don't go to sleep while 
 battery-dependent devices are left to drain overnight.
+
+Here's the scenario:
 
 0. An <a href="#AndroidApp">Android app</a> (running in the background) 
    continuously monitors battery condition, 
@@ -48,19 +47,21 @@ battery-dependent devices are left to drain overnight.
    For example, determine battery life is steadily declining.
    Recognize the usual pattern.
 
-0. The color and pattern of lighting is set by the app server.
+0. The color and pattern of lighting is set in a 
+   GUI offered by the app server.
 
 0. When appropriate, a signal is sent to 
-   a <strong>light bult</strong> 
-   to light up in the bedroom.
+   a <strong>smart bulb</strong> 
+   which shines in the bedroom.
 
-   For example, projection that battery life is not going to last throug the night.
+   So this is appropriate for the deaf and hard of hearing.
 
-0. Press a Flic button to control the alerts:
+0. Press a <strong>Flic</strong> button to control the alerts:
 
    * One press to remind me again in 10 minutes (a kind of snooze button)
    * Two presses to call the phone (so I can find it)
    * Long hold to ignore (let the battery drain)
+   <br /><br />
 
 0. If a response is not received within a set time,
    an annoying <strong>alarm</strong> sounds in the home.
@@ -119,12 +120,12 @@ Basically, it's generally backwards from the use case sequence above.
    and issue a voice reminder if the device is not plugged in within a set time.
 
 
-<a name="#Rules"></a> 
+<a name="Rules"></a> 
 
 ## Rules #
 
-0. If the 
-
+Rules are a proprietary Machine Learning algorithm that 
+projects how much time is remaining based on actual usage.
 
 
 
