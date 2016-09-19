@@ -54,18 +54,6 @@ On August 18 2016</a>, PowerShell became open-source at<br />
 https://github.com/PowerShell/PowerShell</a>.
 
 
-## Social #
-
-<a target="_blank" href="https://gitter.im/PowerShell/PowerShell">
-Join the conversation on Gitter</a>
-
-Noteworthy pages in the <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md">
-FAQ</a>:
-
-   * https://blogs.msdn.microsoft.com/kebab/2013/06/09/an-introduction-to-error-handling-in-powershell/
-   * http://ss64.com/ps/syntax.html
-   * https://github.com/PoshCode/PowerShellPracticeAndStyle
-   <br /><br />
 
 
 ## Install on MacOS #
@@ -172,7 +160,24 @@ To call scripts, an example:
    & ".\basics.ps1"
    </strong></pre>
 
-   If this script has not been digitally signed, set PS execution policy to 
+   PROTIP: Make sure that when a file with .ps1 extension is clicked from Folder,
+   the script is not launched to run, but that the script appears in a text editor.
+
+   A sample command to invoke the script including an execution policy :
+
+   <pre>
+Powershell -executionpolicy remotesigned -command { import-module ‘C:\Users\pm\Documents\WindowsPowerShell\Modules\MyTwitter’ ;Send-Tweet -Message ‘Message_ Twitter2’}
+   </pre>
+
+   Notice it's "powershell" and not "powershell.exe" because Mac and Linux
+   don't recognize .exe.
+
+   When a script is signed, its location is locked to a specific full directory path,
+   even when it's in the current folder.
+
+   "remotesigned" is important because
+   if this script has not been digitally signed, 
+   one needs to set PS execution policy to 
    “RemoteSigned” (or “Unrestricted”) after 
    reopening PowerShell as an Administrator to run:
 
@@ -190,15 +195,38 @@ To call scripts, an example:
 
    See https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/
 
-   A sample command specifying the execution policy is:
-
-   <pre>
-Powershell.exe -executionpolicy remotesigned -command { import-module ‘C:\Users\pm\Documents\WindowsPowerShell\Modules\MyTwitter’ ;Send-Tweet -Message ‘Message_ Twitter2’}
-   </pre>
-
 https://github.com/MeshkDevs/InvokeTwitterAPIs
 
-http://www.hanselman.com/blog/SigningPowerShellScripts.aspx
+
+
+   ## Verify a signed script can be used #
+
+0. Set
+
+   <tt><strong>
+   Set-ExecutionPolicy AllSigned
+   </strong></tt>
+
+### Install a signing cert on Mac #
+
+To add the CA root certificate (either PEM or DER format) into the OSX global keychain:
+
+0. Use Finder to navigate to your /System -> Library -> Keychains -> X509Anchors 
+   to your own Library -> Keychains. 
+
+0. In a Terminal shell window, run command:
+
+   <tt><strong>
+   certtool i mycertificate.crt k=X509Anchors 
+   </strong></tt>
+
+   Add a "d" at the end for DER format.
+
+0. Copy your Library -> Keychains -> X509Anchors back to 
+   /System -> Library -> Keychains. 
+
+   Use sudo.
+
 
 
 ## Version Logic: If Then Else #
@@ -227,7 +255,7 @@ run on both Mac and Windows. Do a parallel run.
    For different actions in PowerShell according to type of operating system:
 
    <pre>
-If ($IsWindows -eq True) {"IsWindows"}
+If ($IsWindows -eq True) { echo "IsWindows"}
    echo "Windows"
    # use "C:/Users/%USERNAME%/.ssh/id_rsa.pub"
 ElseIf ($IsOSX -eq True) {"IsOSX"}
@@ -262,15 +290,21 @@ Else {"Something else"}
 ## Tilde and Providers ##
 
 PROTIP: Use <strong>$home</strong> instead of using the <strong>tilde</strong> (~)
-in PowerShell because it does not always represent the 
-the user's home folder as in Linux because PS has different
-"providers", which include HKLM and HKCU top-levels in the Windows Registry:
+in PowerShell because tilde does not always represent the 
+the user's home folder as in Linux.
+This is because PS has different
+"providers" that include HKLM and HKCU top-levels in the Windows Registry.
+PowerShell calls files "items" as a term that groups files with registry keys and variables.
 
    <tt><strong>
    get-item ~
    </strong></tt>
 
    returns the Mode and LastWriteTime of the user.
+
+Instead of "mkdir" to create folders, use 
+
+   New-Item
 
 To list files in a folder, it's the same as in Bash:
 
@@ -298,13 +332,15 @@ certificates are NOT stored in GitHub nor script files,
 See my tutorial on [GitHub Data Security](/data-security-github/)
 
 
+## Hash tables #
+
    BTW, keys in a hash table must be unique.
 
    Hash tables are used throughout PowerShell, as in Windows event logs:
 
    <pre><strong>
    $source = get-eventlog system -newest 100 | group Source -AsHashTable
-   </strong><pre>
+   </strong></pre>
 
    But the above doesn't work on Mac/Linux.
 
@@ -348,10 +384,9 @@ See my tutorial on [GitHub Data Security](/data-security-github/)
 
 
 
-## Main Differences vs. PC #
+## Alias not parameters #
 
-Many Bash commands work in PowerShell (ls, cat, touch, echo).
-
+Many Bash commands work in PowerShell (ls, cat, echo) because
 <strong>Aliases</strong> make many commands in Bash scripts work:
 
    <tt><strong>
@@ -360,11 +395,24 @@ Many Bash commands work in PowerShell (ls, cat, touch, echo).
 
    The response is "Write-Output".
 
-Write-Host skips the pipeline (not redirected)
+   BTW, Write-Host skips the pipeline (not redirected)
 
    Write-Host $env:computername -foreground Green
 
    "--passthru" means do not go through Pipeline.
+
+However, many parameters are not recognized.
+For example, this common command results in an error:
+
+   ls -al
+
+   Instead, use:
+
+   <tt><strong>
+   dir -File | format-table<br />
+   </strong></tt>
+
+   NOTE: dir is an alias to Get-ChildItem.
 
 
 ## Paths #
@@ -414,7 +462,6 @@ naming convention that makes it easy to look up, find, and use cmdlets.
 
    PROTIP: Don't use "+" for string concatenation.
 
-
    ### .NET Framework members
 
    Initially built on Microsoft's .NET Framework, PowerShell
@@ -432,6 +479,11 @@ naming convention that makes it easy to look up, find, and use cmdlets.
    <pre>
    [io.directory]::Delete("C:\test*")
    </pre>
+
+   The issue with using .NET objects is that they may execute in a different folder context
+   than PowerShell.
+
+   TODO: $prompt
 
 
    ### Other pre-defined variables #
@@ -458,6 +510,7 @@ naming convention that makes it easy to look up, find, and use cmdlets.
    This returns a PathInfo object.
 
    $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+
 
 ## Dates #
 
@@ -521,6 +574,8 @@ Piping:
    dir -file -hidden | out-file -filepath rootfiles.txt<br />
    </strong></tt>
 
+Error handling:
+
    Use preference variables for stream redirection:
 
    1> Success
@@ -531,7 +586,16 @@ Piping:
 
    NOTE: Can Only merge to the success stream.
 
+   <strong>$Error</strong> is the automatic array that stores the last 256
+   exceptions (objects in error) - the default $MaximumErrorCount.
 
+   Error action preferences:
+
+   0 = Silently Continue<br />
+   1 = Stop<br />
+   2 = Continue<br />
+   3 = Inquire<br />
+   4 = Ignore [parameter value only]
 
 ## Module to call REST API #
 
@@ -617,6 +681,37 @@ https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API
 https://www.pluralsight.com/courses/powershell-modules-advanced-functions-building
 
 
+### Profile scripts #
+
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-v3-essentials-it-pt3/table-of-contents">Jeff Hicks notes</a> these profile scripts execute automatically at start:
+
+   To view all profiles:
+
+   <tt><strong>
+   $profile | select *
+   </strong></tt>
+
+
+<table border="1" cellpadding="4" cellspacing="0">
+<tr valign="bottom"><th> Folder </th><th> Script file </th><th> Script name </th></tr>
+<tr valign="top"><td rowspan="3"> C:\Windows\ System32\ WindowsPowerShell\ v1.0\ 
+                      </td><td align="right"> profile.ps1 </td><td> AllUsersAllHosts </td></tr>
+  <tr><td align="right"> Microsoft.PowerShell.profile.ps1 </td><td> AllUsersCurrentHost </td></tr>
+  <tr><td align="right"> Microsoft.PowerShellSE.profile.ps1 </td><td> AllUsersCurrentHost (ISE) </td></tr>
+<tr valign="top"><td rowspan="3"> C:\Users\&LT;user&GT;\Documents\ WindowsPowerShell\ or /Users/&LT;user&GT;/ .config/powershell/
+  </td><td align="right"> Microsoft.PowerShell.profile.ps1 </td><td> CurrentUsersAllHosts* </td></tr>
+  <tr><td align="right"> profile.ps1 </td><td> CurrentUserCurrentHost </td></tr>
+  <tr><td align="right"> Microsoft.PowerShellSE.profile.ps1 </td><td> CurrentUserCurrentHost (ISE) </td></tr>
+</table>
+
+
+* = This is the one shown when $profile is typed in.
+
+
+   Corporate IT departments may use Group Policies.
+
+
 ## Iterate #
 
 0. <a target="_blank" href="http://powershelldistrict.com/powershell-mac-os-x/">
@@ -637,15 +732,22 @@ https://www.pluralsight.com/courses/powershell-modules-advanced-functions-buildi
    }
    </strong></pre>
 
-   TODO: More on this:
 
-   <pre>
-CMD /c "~/.passwords && set" | .{process{
-    if ($_ -match '^([^=]+)=(.*)') {
-        Set-Variable $matches[1] $matches[2]
-    }
-}}
-   </pre>
+
+## Social #
+
+<a target="_blank" href="https://gitter.im/PowerShell/PowerShell">
+Join the conversation on Gitter</a>
+
+Noteworthy pages in the <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md">
+FAQ</a>:
+
+   * https://blogs.msdn.microsoft.com/kebab/2013/06/09/an-introduction-to-error-handling-in-powershell/
+   * http://ss64.com/ps/syntax.html
+   * https://github.com/PoshCode/PowerShellPracticeAndStyle
+   <br /><br />
+
+
 ## Social sites #
 
 * Twitter @powershell by the @PowerShell_Team.

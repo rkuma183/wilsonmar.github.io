@@ -45,9 +45,17 @@ with your commits you push from git client to GitHub:
    Click on each to go directly to it.
 
 
+## Install on Windows #
+
+Download the installer from <br />
+<a target="_blank" href="https://www.gpg4win.org/">
+https://www.gpg4win.org</a>
+
+
+
 <a name="GenerateKey"></a>
 
-## Generate Signing Key #
+## Generate Signing Key on Mac #
 
 First, install the tool used to generate signing keys.
 
@@ -892,6 +900,30 @@ Other blogs about this topic:
    * https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work
    * https://ariejan.net/2014/06/04/gpg-sign-your-git-commits/
    <br />
+
+From the Git Real series by Gregg Pollack of CodeSchool.com:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JU07VxBCTr4">
+   Git Real - Introduction</a> 8:19 about different people working on the same file.
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NZ_gog_9OAI&t=26s">
+   Git Real - Staging & Remotes</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=W9Zq_Cnt85Q&t=26s">
+   Git Real - Cloning & Branching</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=x0M8EssFwOE&t=26s">
+   Git Real - Collaboration Basics</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=fDWZVEdHLX4&t=26s">
+   Git Real - Branching</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=byinJdoFVoA&t=26s">
+   Git Real - Rebase blong to us</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NhEfnMmqGlE&t=26s">
+   Git Real - History and Configuration</a>
+   <br /><br />
 
 
 ## More on DevOps #
