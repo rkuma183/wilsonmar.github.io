@@ -28,6 +28,8 @@ that can be hosted in an application program.
    * Idera PowerShell Pro
    <br /><br />
 
+ISE =  "Integrated Scripting Environment" is a GUI that provides
+popup tab completion and other assists.
 
 PowerShell promises more consistency than the 
 various commands added over time by various parties.
@@ -96,7 +98,7 @@ QUESTION: Is there a brew powershell?
    powershell
    </strong></tt>
 
-   The response end with <strong>"PS" in front of the file path prompt</strong>:
+   The response is <strong>"PS" in front of the file path prompt</strong>:
 
    <pre>
 PowerShell 
@@ -289,22 +291,38 @@ Else {"Something else"}
 
 ## Tilde and Providers ##
 
-PROTIP: Use <strong>$home</strong> instead of using the <strong>tilde</strong> (~)
+PROTIP: Use <strong>$home</strong> instead of the <strong>tilde</strong> (~)
 in PowerShell because tilde does not always represent the 
 the user's home folder as in Linux.
 This is because PS has different
 "providers" that include HKLM and HKCU top-levels in the Windows Registry.
-PowerShell calls files "items" as a term that groups files with registry keys and variables.
+Get a list of providers and disk space:
 
    <tt><strong>
-   get-item ~
+   Get-PSDrive
    </strong></tt>
+
+   The response:
+
+   <pre>
+Name           Used (GB)     Free (GB) Provider      Root                      
+----           ---------     --------- --------      ----                      
+/                 386.19         78.43 FileSystem    /                         
+Alias                                  Alias                                   
+Cert                                   Certificate   \                         
+Env                                    Environment                             
+Function                               Function                                
+Variable                               Variable                 
+   </pre>   
+PowerShell calls files "items" as a term that groups files with registry keys and variables.
 
    returns the Mode and LastWriteTime of the user.
 
 Instead of "mkdir" to create folders, use 
 
+   <tt><strong>
    New-Item
+   </strong></tt>
 
 To list files in a folder, it's the same as in Bash:
 
@@ -393,16 +411,10 @@ Many Bash commands work in PowerShell (ls, cat, echo) because
    get-alias echo
    </strong></tt>
 
-   The response is "Write-Output".
+   The response is "Write-Output", which is what is executed.
 
-   BTW, Write-Host skips the pipeline (not redirected)
-
-   Write-Host $env:computername -foreground Green
-
-   "--passthru" means do not go through Pipeline.
-
-However, many parameters are not recognized.
-For example, this common command results in an error:
+   BLAH: Many parameters to aliases are not recognized.
+   For example, this common command results in an error:
 
    ls -al
 
@@ -413,6 +425,14 @@ For example, this common command results in an error:
    </strong></tt>
 
    NOTE: dir is an alias to Get-ChildItem.
+
+   Thus,
+
+   <tt><strong>
+   Write-Host $env:computername -foreground Green
+   </strong>
+
+   "--passthru" means do not go through Pipeline.
 
 
 ## Paths #
@@ -462,7 +482,7 @@ naming convention that makes it easy to look up, find, and use cmdlets.
 
    PROTIP: Don't use "+" for string concatenation.
 
-   ### .NET Framework members
+### .NET Framework members
 
    Initially built on Microsoft's .NET Framework, PowerShell
    can refer to a static .NET member in square brackets
@@ -486,7 +506,7 @@ naming convention that makes it easy to look up, find, and use cmdlets.
    TODO: $prompt
 
 
-   ### Other pre-defined variables #
+### Other pre-defined variables #
 
 0. To count the number of cmdlets:
 

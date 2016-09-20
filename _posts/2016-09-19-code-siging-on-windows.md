@@ -104,6 +104,11 @@ PROTIP: When sending a script, also send along its Powershell certificates in th
    </strong></tt>
 
 
+## Use Kleopatra #
+
+See https://www.deepdotweb.com/2015/02/21/pgp-tutorial-for-windows-kleopatra-gpg4win/
+
+
 ## More on DevOps #
 
 This is one of a series on DevOps:
