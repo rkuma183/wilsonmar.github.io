@@ -129,6 +129,7 @@ What I'm advocating here are:
 
    * <a target="_blank" href="https://dojo.ministryoftesting.com/lessons/part-1-getting-started-installation-of-software">
    Let's Build an API Checking Framework</a>
+   <br /><br />
 
 0. Expand a central museum (marketplace) of APIs out in the wide
    so people can discover and <strong>compare</strong> APIs

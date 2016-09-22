@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Code Signing on Windows"
-excerpt: "Make it work"
+excerpt: "I am who I say I am because my CA says so"
 tags: [mac, cloud, powershell, microsoft]
 image:
 # fig blue powershell icon-1900x500
@@ -14,7 +14,16 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-This article describes the use of self-signed code signing certificates Windows.
+This article describes the use of self-signed code signing certificates on 
+Microsoft Windows operating systems.
+
+
+
+## Kleopatra UI #
+
+See https://www.deepdotweb.com/2015/02/21/pgp-tutorial-for-windows-kleopatra-gpg4win/
+
+
 
 ### Create self-signed cert on Windows #
 
@@ -102,11 +111,6 @@ PROTIP: When sending a script, also send along its Powershell certificates in th
    <tt><strong>
    Set-ExecutionPolicy AllSigned
    </strong></tt>
-
-
-## Use Kleopatra #
-
-See https://www.deepdotweb.com/2015/02/21/pgp-tutorial-for-windows-kleopatra-gpg4win/
 
 
 ## More on DevOps #

@@ -35,6 +35,9 @@ PowerShell promises more consistency than the
 various commands added over time by various parties.
 
    * It reads Excel files natively as well as JSON, XML, and even ASCII.
+   * Microsoft Deployment Toolkit
+   * Microsoft System Center
+   * IBM, etc.
    <br /><br />
 
 
@@ -44,21 +47,20 @@ From the <a target="_blank" href="https://www.youtube.com/channel/UCMhQH-yJlr4_X
 PowerShell and DSC Team YouTube channel</a>:
 
 <amp-youtube data-videoid="2WZwv7TxqZ0" layout="responsive" width="480" height="270"></amp-youtube>
-This 51-minute series of demos was published Aug 18, 2016.
-
+This 51-minute series of demos was published Aug 18, 2016, the same day
+<a target="_blank" href="https://aka.ms/hosoyc">
+PowerShell is open-sourced</a> for all OSs at<br />
+<a target="_blank" href="https://github.com/PowerShell/PowerShell/">
+https://github.com/PowerShell/PowerShell</a>.
 
 <a target="_blank" href="http://www.networkworld.com/article/3109486/application-development/powershell-for-linux-makes-it-easier-to-mix-clients-servers-and-clouds.html">
 This article</a> notes Desired State Configuration for Linux and the promise of SSH support arrived in 2014 (several months before Microsoft open sourced .NET and brought .NET Core to Linux). But "you had to author your scripts on the Windows platform, you had to configure things on the Windows platform and then deliver the desired configuration to a Linux box and have it be configured; now you can do all of that on Linux.”
 
-<a target="_blank" href="https://aka.ms/hosoyc">
-On August 18 2016</a>, PowerShell became open-source at<br />
-<a target="_blank" href="https://github.com/PowerShell/PowerShell/">
-https://github.com/PowerShell/PowerShell</a>.
 
 
 
 
-## Install on MacOS #
+## Install PowerShell on MacOS #
 
 QUESTION: Is there a brew powershell?
 
@@ -71,7 +73,15 @@ QUESTION: Is there a brew powershell?
    https://github.com/PowerShell/PowerShell/releases</a>
 
    <table border="1" cellpadding="4" cellspacing="0">
-   <th>Date</th><th> File </th><th> MB Size </th><th> Space</th></tr>
+   <th>Date</th><th> File </th><th> MB Size </th><th> Space</th><th> Cmds</th></tr>
+   <tr valign="top"><td> Sep 13, 2016 </td><td>
+   <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.10/powershell-6.0.0-alpha.10.pkg">
+   powershell-6.0.0-alpha.10.pkg</a>
+   </td><td align="right"> 28.2 MB 
+   </td><td align="right"> ? MB 
+   </td><td align="right"> 345
+   </td></tr>
+
    <tr valign="top"><td> Aug 10, 2016 </td><td>
    <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.9/powershell-6.0.0-alpha.9.pkg">
    powershell-6.0.0-alpha.9.pkg</a>
@@ -123,7 +133,7 @@ PSVersion                      6.0.0-alpha
 PSEdition                      Core
 PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
 BuildVersion                   3.0.0.0
-GitCommitId                    v6.0.0-alpha.9
+GitCommitId                    v6.0.0-alpha.10
 CLRVersion
 WSManStackVersion              3.0
 PSRemotingProtocolVersion      2.3
@@ -135,12 +145,13 @@ SerializationVersion           1.1.0.1
    ### Versions of PowerShell:
 
    * 5.1 for Mac/Linux
-   * 5.0 
+   * 5.0 in 2016
    * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
    Windows Management Framework 3.0
    * 3.0 in 2012 with Windows 8/Server 2012
    * 2.0 appeared in 2009
    * 1.0 appeared in 2006
+   * Monad Manifesto published by Jeff Stover.
    <br /><br />
 
 0. To leave PowerShell, it's the same as in Bash scripts:
@@ -148,6 +159,45 @@ SerializationVersion           1.1.0.1
    <tt><strong>
    exit
    </strong></tt>
+
+   When you reutur, get info:
+
+   <tt><strong>
+   get-help stop-service
+   </strong></tt>
+
+## Install .NET Core #
+
+Errors occur if .NET Core is not installed, so:
+
+0. Go to web page 
+   https://www.microsoft.com/net/core#macos
+
+0. The web page asks for OpenSSL to be installed.
+
+   <pre>
+   brew update
+   brew install openssl
+   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+   </pre>
+
+0. Click the link to download the 50.3MB <br />
+   dotnet-dev-osx-x64.1.0.0-preview2-003131.pkg
+
+   https://github.com/dotnet/core/blob/master/cli/known-issues.md
+
+0. Run the installer (for 106.3MB of space). The default location is
+   "Macintosh HD".
+
+0. Open a new Terminal shell window to run
+
+   <pre><strong>
+   dotnet
+   </strong></pre>
+
+
+
 
 
 ## Execute script file #
@@ -168,7 +218,9 @@ To call scripts, an example:
    A sample command to invoke the script including an execution policy :
 
    <pre>
-Powershell -executionpolicy remotesigned -command { import-module ‘C:\Users\pm\Documents\WindowsPowerShell\Modules\MyTwitter’ ;Send-Tweet -Message ‘Message_ Twitter2’}
+Powershell -executionpolicy remotesigned 
+-command { import-module ‘C:\Users\pm\Documents\WindowsPowerShell\Modules\MyTwitter’
+ ;Send-Tweet -Message ‘Message_ Twitter2’}
    </pre>
 
    Notice it's "powershell" and not "powershell.exe" because Mac and Linux
@@ -272,9 +324,9 @@ Else {"Something else"}
 
 -eq / -ne / -ge
 
--Like / -NotLike wildcard string - $name -like "*sh"
+-Like / -NotLike wildcard string - $name -Like "*sh"
 
--Match / -NotMatch regular expression - $name -match "sh$"
+-Match / -NotMatch regular expression - $name -Match "sh$"
 
 -Contains / -NotContains a value in array - $name -contains "jo"
 
@@ -336,6 +388,9 @@ How many are there?
    <tt><strong>
    (get-command).count
    </strong></tt>
+
+
+https://github.com/pester/Pester/wiki/Mock
 
 
 ## Handling secrets ##
@@ -446,6 +501,7 @@ https://blogs.technet.microsoft.com/heyscriptingguy/2012/02/22/the-best-way-to-u
 
    "-WhatIf" specifies a dry-run.
 
+
 ## Combine files
 
    Ro add the content of several files into a single text file:
@@ -465,13 +521,18 @@ and running recursively into sub-folders:
 
 All PowerShell cmdlets follow a standardized verb-noun 
 naming convention that makes it easy to look up, find, and use cmdlets.
+For a list of all the verbs:
+
+   <tt><strong>
+   get-verb 
+   </strong></tt>
+
+   REMEMBER: Capitalization counts within PowerShell.
 
    <tt><strong>
    get-command -verb export<br />
    get-command -noun ACL
    </strong></tt>
-
-   REMEMBER: Capitalization counts within PowerShell.
 
 ## paths #
 
@@ -617,16 +678,34 @@ Error handling:
    3 = Inquire<br />
    4 = Ignore [parameter value only]
 
+
 ## Module to call REST API #
 
    <a target="_blank" href="https://marckean.com/2015/09/21/use-powershell-to-make-rest-api-calls-using-json-oauth/">
-   This</a> suggests this
+   This</a> suggests:
 
    <pre>
-   $J = Invoke-WebRequest -Uri http://search.twitter.com/search.json?q=PowerShell | ConvertFrom-Json
+   $J = Invoke-WebRequest `
+   -Uri http://search.twitter.com/search.json?q=PowerShell `
+    | ConvertFrom-Json
    </pre>
 
-   But Twitter no longer permits anonymous calls to their API.
+   PROTIP: To press the trailing back-tick that breaks up a command
+   into several lines, press the key at the upper left corner 
+   of the keyboard with your left hand while you 
+   press shift key using your right hand. 
+
+   A space character is required before the tick.
+
+   PROTIP: Break up long text into a string block (which Microsoft calls
+   <a target="_blank" href="https://technet.microsoft.com/library/ee692792.aspx?ppud=4&f=255&MSPPError=-2147217396">here-string</a>): 
+  
+   <pre>
+$mystring = @"
+Jesus
+wept.
+"@
+   </pre>
 
    From https://apps.twitter.com/ define a new app. 
    In Permissions tab, select Read-only. Click Update Settings.
@@ -667,6 +746,12 @@ Error handling:
    Import-module "../MyTwitter.psm1"
    </pre>
 
+   Alternately, Copy-install the module to your $env:PSModulePath
+
+   See http://www.powershellgallery.com/gettingstarted
+
+   PowerShellGet from the Windows PowerShell Framework 5.0
+
    <a target="_blank" href="http://stevenmurawski.com/powershell/2012/01/powershell-v3-auto-loading-of-modules/">
    The alternative</a> is to put the module in the PSModulePath,
    which enables tab completion to complete the names of commands from modules that are not loaded.  
@@ -687,8 +772,31 @@ Error handling:
    BTW, PowerShell cmdlets in https://github.com/Iristyle/Posh-GitHub
    is only for use on Windows.
 
-Trevor Sullivan
+Trevor Sullivan (@pcgeek86) made a 
+<a target="_blank" href="https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API-Using-PowerShell">
+20:40 video Mar 17, 2016</a>
+
+<a target="_blank" href="http://dotps1.github.io/PSProfile/">
+A PowerShell Module for manipulating PowerShell Profiles</a>
+by
+<a target="_blank" href="https://dotps1.github.io/projects.html">
+Thomas Malkewitz</a>
+
+
+## Curl #
+
+   curl is an alias for Invoke-WebRequest in PowerShell.
+
+   <pre>
+   Invoke-RestMethod `
+   -Method Post `
+   -Uri "$resource\new" `
+   -Body (ConvertTo-Json $body) `
+   -Header @{"X-ApiKey"=$apiKey}
+   </pre>
+
 https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API-Using-PowerShell
+
 
    ## JSON from REST API #
 
@@ -699,6 +807,8 @@ https://channel9.msdn.com/Blogs/trevor-powershell/Automating-the-GitHub-REST-API
    </pre>
 
 https://www.pluralsight.com/courses/powershell-modules-advanced-functions-building
+
+
 
 
 ### Profile scripts #
