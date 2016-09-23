@@ -4,10 +4,10 @@ title: "PowerShell on MacOS"
 excerpt: "Love Child or Demon Spawn?"
 tags: [mac, cloud, powershell, microsoft]
 image:
-# fig blue powershell icon-1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
-  credit:
-  creditlink:
+# powershell blue banner-1900x500-296kb.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/18789323/d2ff6614-8167-11e6-94b5-f37637e01d9c.jpg
+  credit: Demonoid
+  creditlink: https://www.demonoid.pw/files/details/3417198/008056601136/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -144,8 +144,8 @@ SerializationVersion           1.1.0.1
 
    ### Versions of PowerShell:
 
-   * 5.1 for Mac/Linux
-   * 5.0 in 2016
+   * 6.0 for Mac/Linux
+   * 5.0 in 2015 for Visual Studio Code text editor
    * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
    Windows Management Framework 3.0
    * 3.0 in 2012 with Windows 8/Server 2012
@@ -160,11 +160,54 @@ SerializationVersion           1.1.0.1
    exit
    </strong></tt>
 
-   When you reutur, get info:
+   When you reuturn, get info:
 
    <tt><strong>
    get-help stop-service
    </strong></tt>
+
+## VSCode #
+
+One text editor 
+built for PowerShell is Microsoft's Visual Studio Code.
+
+0. After installing VSCode
+
+0. Install the PowerShell Editor Services extension by pressing Ctrl+P, 
+   then type “ext install PowerShell” for a list of add-ins.
+
+   Ctrl+P is the universal search that also does "fuzzy search" of text in files open.
+
+0. Click "install" of the extension named “PowerShell”.
+   The icon turns to "installing".
+
+0. Open a directory containing PowerShell scripts
+   and open the File menu and select “Open Folder …”.
+   Select the folder containing your scripts.  
+   The scripts show up in the Explore tab of the Side Bar.
+
+   PROTIP: One advantage using VS Code is its Side Bar
+   enabling you to switch quickly among different files.
+
+   Press Ctrl+B to hide and unhide the Side Bar.
+
+0. Press Ctrl+\ to open a new editor window.
+
+   Up to three editor panes can be open at once.
+
+   Press Ctrl+1, 2, or 3 to switch among the files.
+
+0. To edit user settings, press Ctrl+Shift+P, then type “user” and press enter.  
+
+0. Click on "powershell.scriptAnalysis.enable".
+
+0. Press Ctrl+Shift+&LT;period> to change value from true to false or back again.
+
+<a target="_blank" href="https://rkeithhill.wordpress.com/2015/12/26/getting-started-with-visual-studio-code-for-use-with-powershell/">
+Keith Hill</a> notes
+<a target="_blank" href="https://rkeithhill.wordpress.com/2015/12/27/debugging-powershell-script-with-visual-studio-code/">
+debugging support provided by the PowerShell Editor Services extension currently runs only on Windows</a>.
+
 
 ## Install .NET Core #
 
@@ -187,17 +230,65 @@ Errors occur if .NET Core is not installed, so:
 
    https://github.com/dotnet/core/blob/master/cli/known-issues.md
 
-0. Run the installer (for 106.3MB of space). The default location is
-   "Macintosh HD".
+0. Run the installer (for 106.3MB of space). 
 
-0. Open a new Terminal shell window to run
+0. Before installing anything or running through the update app, 
+   hit Command+i or pull down the File menu and choose “Show Files”:
+
+   * ./shared - Microsoft .NET Core 1.0.1 - Runtime 
+   * ./host - Microsoft .NET Core 1.0.1 - Host FX Resolver
+   * ./dotnet
+   * ./sdk - Microsoft .NET Core 1.0.1 - SDK
+   <br /><br /> 
+
+   These are folders within folder <strong>/usr/local/share</strong> 
+   under "Macintosh HD".
+
+0. Edit your Bash shell search PATH to include
+   <strong>/usr/local/share/dotnet</strong> 
+
+   <tt><strong>
+   atom ~/.bash_profile
+   </strong></tt>
+
+   An example:
+
+   <pre>
+   PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+   </pre>
+
+0. Open a new Terminal shell window to run:
 
    <pre><strong>
    dotnet
    </strong></pre>
 
+   The response:
 
+   <pre>
+Microsoft .NET Core Shared Framework Host
+  Version  : 1.0.1
+  Build    : cee57bf6c981237d80aa1631cfe83cb9ba329f12
+Usage: dotnet [common-options] [[options] path-to-application]
+Common Options:
+  --help                           Display .NET Core Shared Framework Host help.
+  --version                        Display .NET Core Shared Framework Host version.
+Options:
+  --fx-version <version>           Version of the installed Shared Framework to use to run the application.
+  --additionalprobingpath <path>   Path containing probing policy and assemblies to probe for.
+Path to Application:
+  The path to a .NET Core managed application, dll or exe file to execute.
+If you are debugging the Shared Framework Host, set 'COREHOST_TRACE' to '1' in your environment.
+To get started on developing applications for .NET Core, install .NET SDK from:
+  http://go.microsoft.com/fwlink/?LinkID=798306&clcid=0x409
+   </pre>   
 
+0. In a PowerShell invoke this to ensure that it can be done:
+
+   <pre><strong>
+   $response = Invoke-WebRequest -Uri "www.microsoft.com" 
+   $response.items
+   </strong></pre>
 
 
 ## Execute script file #
@@ -316,8 +407,9 @@ ElseIf ($IsOSX -eq True) {"IsOSX"}
    echo "OSX"
    # use "~/.ssh/id_rsa.pub"
 Else {"Something else"}
-
    </pre>
+
+   NOTE: Because braces define actions, there is no "end if" ("fi") in PowerShell.
 
 
 ### Comparison Operators #
@@ -332,7 +424,7 @@ Else {"Something else"}
 
 -In / -NotIn Is a value in an array - "joe" -in $name
 
-## Logical operators #
+### Logical operators #
 
 -And
 
@@ -409,51 +501,44 @@ See my tutorial on [GitHub Data Security](/data-security-github/)
 
    BTW, keys in a hash table must be unique.
 
-   Hash tables are used throughout PowerShell, as in Windows event logs:
+   Hash tables are used throughout PowerShell.
+
+   An example of a REST API call:
+
+   <pre>
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("X-DATE", '9/29/2016')
+$headers.Add("X-SIGNATURE", '234j123l4kl23j41l23k4j')
+$headers.Add("X-API-KEY", 'testuser')
+$response = Invoke-RestMethod 'http://example.com/api/people/1' -Headers $headers
+   </pre>
+
+<!--
+   as in Windows event logs:
 
    <pre><strong>
    $source = get-eventlog system -newest 100 | group Source -AsHashTable
    </strong></pre>
 
-   But the above doesn't work on Mac/Linux.
+   BLAH: The above doesn't work on Mac/Linux.
+-->
 
-   With hash tables, sort after using the GetEnumertor(), as in:
+   Sort a hash tables using the GetEnumertor():
 
    <pre>
    $source.GetEnumerator() | Sort name | select -first 5
    </pre>
 
 
-   ### Objects ###
+## Objects ###
 
    <tt><strong>
-   get-service m* | where {$_.status -eq 'running'}<br />
-   get-service m* | where status -eq 'running'
+   Get-Service m* | where {$_.status -eq 'running'}<br />
+   Get-Service m* | where status -eq 'running'
    </strong></tt>
 
    The "$_" represents the current object in v2 can 
    handle more complexity than v3 syntax:
-
-
-
-   ### Across platforms ###
-
-   To list all environment variables:
-
-   <tt><strong>
-   dir env:\<br />
-   Get-ChildItem Env:
-   </strong></tt>
-
-   PROTIP: Environment variables defined in Bash scripts
-   can be read by PowerShell scripts and visa-versa.
-
-   To get the value of a single environment variable:
-
-   <tt><strong>
-   Get-ChildItem Env:USER<br />
-   Get-ChildItem Env:AWS_DEFAULT_REGION
-   </strong></tt>
 
 
 
@@ -488,6 +573,31 @@ Many Bash commands work in PowerShell (ls, cat, echo) because
    </strong>
 
    "--passthru" means do not go through Pipeline.
+
+   <a target="_blank" href="http://thesociablegeek.com/azure/using-curl-in-powershell/">
+   You can reset a default alias</a>.
+
+
+## Environment Variables ###
+
+   PROTIP: Environment variables defined in Bash scripts
+   can be read by PowerShell scripts and visa-versa.
+
+   Lists of environment variables:
+
+   <pre><strong>
+   dir env:\
+   Get-ChildItem Env:
+   </strong></pre>
+
+   The command "dir" is an alias of Get-ChildItem.
+
+   For the value of a single environment variable:
+
+   <tt><strong>
+   Get-ChildItem Env:USER<br />
+   Get-ChildItem Env:AWS_DEFAULT_REGION
+   </strong></tt>
 
 
 ## Paths #
@@ -701,10 +811,21 @@ Error handling:
    <a target="_blank" href="https://technet.microsoft.com/library/ee692792.aspx?ppud=4&f=255&MSPPError=-2147217396">here-string</a>): 
   
    <pre>
-$mystring = @"
-Jesus
-wept.
+$string = @"
+item1 = value1 
+item2 = value2
 "@
+$hashtable = ConvertFrom-StringData -StringData $string
+$hashtable 
+   </pre>
+
+   The output is:
+
+   <pre>
+Name                           Value                                           
+----                           -----                                           
+item2                          value2                                          
+item1                          value1   
    </pre>
 
    From https://apps.twitter.com/ define a new app. 
@@ -839,7 +960,27 @@ https://www.pluralsight.com/courses/powershell-modules-advanced-functions-buildi
 * = This is the one shown when $profile is typed in.
 
 
-   Corporate IT departments may use Group Policies.
+## API calls #
+
+   Corporate IT departments often use Group Policies.
+
+   $Headers = "Authorization: token ${GITHUB_TOKEN}"
+   echo "Headers=$Headers"  # DEBUGGING
+
+   $Token=$GITHUBUSER +':'+ $SECRETS.GITHUB_TOKEN;
+   $Base64Token=[System.Convert]::ToBase64String([char[]]$Token);
+   $Headers = @{
+      Authorization = 'Basic(0)' -f $Base64Token;
+      };
+      # -f is for substitution of (0).
+      # See https://technet.microsoft.com/en-us/library/ee692795.aspx
+      # Write-Host ("Headers="+$Headers.Authorization)
+   $Headers = "{
+      Authorization: = Basic $GITHUB_TOKEN
+      }"
+      # -f is for substitution of (0).
+      # See https://technet.microsoft.com/en-us/library/ee692795.aspx
+      Write-Host ("Headers="+$Headers)
 
 
 ## Iterate #
@@ -862,6 +1003,8 @@ https://www.pluralsight.com/courses/powershell-modules-advanced-functions-buildi
    }
    </strong></pre>
 
+   <a target="_blank" href="http://kevinpelgrims.com/blog/2010/02/24/powershell-remote-service-manager/">
+   Remotely restart a server</a>
 
 
 ## Social #
@@ -877,9 +1020,6 @@ FAQ</a>:
    * https://github.com/PoshCode/PowerShellPracticeAndStyle
    <br /><br />
 
-
-## Social sites #
-
 * Twitter @powershell by the @PowerShell_Team.
 
 * Twitter @PowerShellMag
@@ -887,15 +1027,43 @@ FAQ</a>:
 * Join the <a target="_blank" href="https://gitter.im/PowerShell/PowerShell?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
    Chatroom on Gitter</a>.
 
-0. Sign-up for the Slack group at 
+* Sign-up for the Slack group at 
    <a target="_blank" href="http://slack.poshcode.org/">
    http://slack.poshcode.org</a>
 
+* #powershell IRC room on freenode
 
-## Resources #
+## Rock star bloggers #
+
+* Keith Hill makes his
+  <a target="_blank" href="https://rkeithhill.wordpress.com/">
+  blog</a> available as an
+  <a target="_blank" href="https://rkeithhill.wordpress.com/2009/03/08/effective-windows-powershell-the-free-ebook/">
+  ebook</a> from 2009.
+
+https://blogs.technet.microsoft.com/chitpro-de/2008/02/28/free-windows-powershell-workbook-server-administration/
+
+* http://community.idera.com/powershell/powershell_com_featured_blogs/b/donjones">
+   Don Jones</a>
+
+* http://community.idera.com/powershell/powershell_com_featured_blogs/b/tobias">
+   Dreaming in PowerShell</a>
+
+* http://community.idera.com/powershell/powershell_com_featured_blogs/b/aleksandar">
+   Git-life | add-powershell</a>
+
+* http://community.idera.com/powershell/powershell_com_featured_blogs/b/karl-prosser">
+   Live PowerShell with Karl Prosser</a>
+
+* PowerShell MVP Adam Driscoll 
+
+
+## Tool Resources #
 
 * <a target="_blank" href="https://powershell.org/">
    PowerShell.org</a>
+
+* http://www.shelltools.net 
 
 * http://slack.poshcode.org/
 

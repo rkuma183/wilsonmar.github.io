@@ -901,6 +901,9 @@ Other blogs about this topic:
    * https://ariejan.net/2014/06/04/gpg-sign-your-git-commits/
    <br />
 
+
+## Videos #
+
 From the Git Real series by Gregg Pollack of CodeSchool.com:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JU07VxBCTr4">
@@ -923,6 +926,75 @@ From the Git Real series by Gregg Pollack of CodeSchool.com:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NhEfnMmqGlE&t=26s">
    Git Real - History and Configuration</a>
+   <br /><br />
+
+
+22 Videos from the GitHub Training channel's 
+0. <a target="_blank" href="https://www.youtube.com/watch?v=FyfwLX4HAxM&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-">
+GitHub & Git Foundations series</a>:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=FyfwLX4HAxM">
+   Introduction</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=7Inc0G0wutk">
+   Setup</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=ZChtKFLiaNw">
+   Config</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=WxMFZncm12s">
+   Init</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=RXSriVcoI70">
+   Diff</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Ew8HQsFyVHo">
+   Log</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=jtuHOIlfS2Q">
+   Remove</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=ipdgyfPq8FE">
+   Move</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=qk1UE-9qf0Q">
+   Ship of Theseus</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=4VBG9FlyiOw">
+   Ignore</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=H5GJfcp3p4Q">
+   Branch</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HwrPhOp6-aM">
+   Checkout</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=yyLiplDQtf0">
+   Merge</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=xdao5LCNoYE">
+   Network</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=BMYOs5jflGE">
+   GUI</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=vDv5K5PbvO8">
+   Intro to GitHub</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=5oJHRbqEofs">
+   Forking</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=d5wpJ5VimSU">
+   Pull Requests</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=BKPjPMVB81g">
+   Reset</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Vxc9m_OVyo0">
+   Reflog</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=SxzjZtJwOgo">
+   Rebase</a>
    <br /><br />
 
 
