@@ -1007,6 +1007,35 @@ https://www.pluralsight.com/courses/powershell-modules-advanced-functions-buildi
    Remotely restart a server</a>
 
 
+## More Libraries #
+
+https://www.simple-talk.com/blogs/psyaml-powershell-yaml/
+
+## Read in CSV file #
+
+<a target="_blank" href="https://www.petri.com/making-data-dance-with-powershell">This blog</a> gives an example of importing a CSV file:
+
+   <tt><strong>
+   $data = Import-CSV C:\scripts\moviedata.csv
+   </strong></tt>
+
+   Sorting by date requires creating a new property:
+
+   <pre><strong>
+   $data | Add-Member -MemberType ScriptProperty `
+   -Name "OpensIn" `
+   -Value { [int32]((($this.ReleaseDate `
+      -as [DateTime]) - (Get-Date)).TotalDays)  }
+   </strong></pre>
+
+   The new property persists, so can be used this way:
+
+   <pre><strong>
+   $data | 
+   Sort "OpensIn" |
+   Select Title.ReleaseDate.OpensIn.Coments
+   </strong></pre>
+
 ## Social #
 
 <a target="_blank" href="https://gitter.im/PowerShell/PowerShell">

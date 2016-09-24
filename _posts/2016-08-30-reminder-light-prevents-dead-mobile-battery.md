@@ -84,6 +84,10 @@ But I built this capability because it can be useful as the base for
 applications not described here -- especially in a <strong>team environment</strong>
 where each person thinks it's another person's responsibility.
 
+The more general solution is called a 
+<a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
+Dead man's snitch</a>.
+
 Reminder for taking pills.
 
 Anything that absolutely positively must be done each night.

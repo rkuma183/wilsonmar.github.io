@@ -356,15 +356,29 @@ environment variables.
 
 * http://stackoverflow.com/questions/1974886/how-to-version-control-config-files-pragmatically
 
-* https://gist.github.com/ryanj/4446113
+* <a target="_blank" href="https://gist.github.com/ryanj/4446113">
+   Gist by RyanJ</a>
 
 * http://programmers.stackexchange.com/questions/205606/strategy-for-keeping-secret-info-such-as-api-keys-out-of-source-control
 
-* http://programmers.stackexchange.com/questions/141698/version-control-and-personal-configuration-file
+* <a target="_blank" href="http://programmers.stackexchange.com/questions/141698/version-control-and-personal-configuration-file">
+   Version control and personal configuration file</a>
 
-* http://stackoverflow.com/questions/6009/how-do-you-deal-with-configuration-files-in-source-control
+* <a target="_blank" href="http://stackoverflow.com/questions/6009/how-do-you-deal-with-configuration-files-in-source-control">
+   How do you deal with configuration files in source control</a>
 
-* http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
+* <a target="_blank" href="http://www.codeproject.com/Articles/602146/">Keeping-sensitive-config-settings-secret-with-Azur">
+   Keeping sensitive config settings secrete with Azure</a>
+
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RRZiERo172k">
+   Introduction to Keybase</a> 2014-11-26 
+   social network and a crypto keyserver. 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=S4HP1pRTE3A">
+   Easy File Encryption with Keybase - Hak5</a>
+
+github.com/keybase
 
 
 ## More on DevOps #

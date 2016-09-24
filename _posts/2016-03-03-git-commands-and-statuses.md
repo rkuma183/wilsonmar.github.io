@@ -118,18 +118,15 @@ The video is from an animated PowerPoint file, narrated separately with text bel
 
 Let's begin with repositories in a cloud service, GitHub.com.
 
-There are other clouds, such as GitLab and BitBucket.
-But GitHub is what we're using here because 
-it has grown quickly to capture the largest market share.
-
-A repo that belongs to another organization is called an <strong>"upstream"</strong> location.
+A repo that belongs to another organization is called 
+an <strong>"upstream"</strong> location.
 If we <strong>edit</strong> that repo, 
 GitHub automatically <strong>forks</strong> it under our own account.
 If we want to make changes, we would need to file a 
 <strong>Pull Request</strong> from the repo under our account.
 
 One of the main advantages of GitHub is it makes use of <strong>branches</strong>.
-The default branch is named "master".
+The default branch is named "master" out of the box. ***
 But many organizations protect it for production use,
 and create a <strong>"development"</strong> or "dev" branch for developers to work with.
 
@@ -142,10 +139,10 @@ For that we need a <strong>.git</strong> folder among the files,
 which is done by a <strong>Git client</strong> 
 installed on my local machine.
 
-The git <strong>init</strong> command processed by the Git client
-creates the git folder which holds the history of changes.
+The Git <strong>init</strong> command processed by the Git client
+creates the Git folder which holds the history of changes.
 
-The git <strong>clone</strong> command creates 
+The Git <strong>clone</strong> command creates 
 that .git folder inside a new folder from files downloaded from GitHub.
 
 If we run the SSH or Putty command to create keys,
@@ -156,14 +153,11 @@ configure the <strong>.gitconfig</strong> file
 referenced by all Git repositories on our machine
 to provide our default name and email address to repos.
 
-We can clone from an upstream repo, 
-but it's preferable that we first <stron>fork</strong> 
-that repo so we can send a Pull Request upstream.
-
+*** 
 If we do a <strong>remote -v</strong> command on a repo we cloned,
-we see that <strong>origin</strong> is its location.
-If we need to update our local repo with changes in the upstream repo,
-we would <strong>remote add</strong> the upstream repo.
+we typically see that <strong>origin</strong> as the location.
+We can <strong>remote add</strong> the upstream repo
+if we want to update our local repo with changes in the upstream repo.
 
 Git only tracks files involved in a git <strong>commit</strong> 
 command. Git stores what has changed in the .git folder
@@ -174,13 +168,16 @@ custom name of your choosing to be assigned to a commit.
 Teams use this to specify and sign release numbers and
 specifications which Jenkins recognizes to invoke integration builds.
 
+***
+The -a (dash a) parameter designates a Git tag to create a commit.
+
 There are several commands that reveal what is inside the .git folder
 managing history.
 
-The git <strong>shortlog</strong> summarizes the history of commits made
+The Git <strong>shortlog</strong> summarizes the history of commits made
 by author.
 
-The git <strong>log</strong> command lists a 
+The Git <strong>log</strong> command lists a 
 <em>detailed</em> history of commits made.
 Most consider its default format takes up too many lines,
 so many configure in the .gitconfig file an alias 
@@ -200,18 +197,21 @@ because it's purely for local use.
 If it seems like a commit has been lost,
 chances are the reflog will show it and allow you to restore it.
 
-The git <strong>show</strong> command lists fine-grained internal
+The Git <strong>show</strong> command lists fine-grained internal
 <em>objects</em> in the repository, such as blobs and trees associated
-with tags and commits. 
+with tags and commits.
 
-The git <strong>branch</strong> command lists what branches 
+The Git <strong>blame</strong> command gives a timeline of changes
+to specific files. ***
+
+The Git <strong>branch</strong> command lists what branches 
 are in the local repository because only a specific branch
 may be cloned locally.
 
 ### Git Workflow #
 
 Under Gitflow, we begin work by creating a <strong>feature branch</strong>
-using a git <strong>checkout</strong> command with
+using a Git <strong>checkout</strong> command with
 the -b parameter which specifies the creation of a new branch.
 
 This will put you in what Git calls a "detached HEAD" state.
@@ -231,6 +231,21 @@ The git <strong>status</strong> command shows
 which files have been <strong>staged</strong>
 or remain <strong>untracked</strong>.
 
+***
+When there are a lot of files,
+the Git <strong>grep</strong> command has many options to identify
+files containing text that match a specification.
+
+***
+We want to use a git <strong>diff</strong> command or use a 
+<strong>diff-tool</strong> to identify differences
+between the working set and what's in Staging.
+
+mv***
+For a formatted document of differences,
+some use <strong>diff-tree</strong>, which shares the same 
+parameters as the git show command.
+
 When Git detects a staged file has been 
 <strong>edited</strong> by a text editor,
 Git automatically takes that file out of staging
@@ -242,7 +257,7 @@ If we need to suddenly switch back to what's in the commit HEAD,
 we don't need to always abandon and forever loose uncompleted work.
 
 We can use the <a target="_blank" href="https://git-scm.com/docs/git-stash">
-git <strong>stash save</strong></a> 
+Git <strong>stash save</strong></a> 
 to copy all files from the working directory
 into an area hidden from Staging or the Git repository.
 
@@ -261,7 +276,7 @@ followed by a file specification, which can be a dot to specify all files.
 
 To remove all files in the <em>working directory</em>
 which are NOT under version control, use the
-git <strong>clean</strong> command, which works 
+Git <strong>clean</strong> command, which works 
 <em>recursively</em> down the various sub-folders.
 
 To wipe out all uncommitted changes in staging and 
@@ -279,6 +294,15 @@ If the <em>description</em> of the <em>most recent</em>
 local commit needs to be changed,
 <a target="_blank" href="https://help.github.com/articles/changing-a-commit-message/">
 it can be done</a> using a <strong>commit --amend</strong> parameter.
+
+***
+Elements considered "garbage" are removed automatically after 
+a default 90 days, or immediately by the
+Git <strong>gc --prune</strong> command.
+To identify elements which will be garbage collected,
+we use the Git <strong>fsck</strong> command.
+
+<hr />
 
 To change the content of the most recent commit,
 a <strong>revert</strong> command can be used to
@@ -306,13 +330,7 @@ But we prefer using the <strong>fetch</strong> command which,
 unlike pull, does not automatically do a 
 <strong>merge</strong>.
 
-We want to use a git <strong>diff</strong> command or use a 
-<strong>diff-tool</strong> to examine what has changed.
-
-For a formatted document of differences,
-some use <strong>diff-tree</strong>, which shares the same 
-parameters as the git show command.
-
+???
 Once we know the differences, we can then 
 <strong>resolve</strong> them and
 run git <strong>merge</strong> manually or 
