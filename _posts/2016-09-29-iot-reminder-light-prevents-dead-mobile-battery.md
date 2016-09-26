@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reminder light prevents dead mobile battery"
+title: "IoT reminder light prevents dead mobile battery"
 excerpt: "The annoying mobile-IoT-cloud mash-up I really need in my life"
 tags: [Clouds, IoT]
 image:

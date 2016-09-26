@@ -218,9 +218,13 @@ This will put you in what Git calls a "detached HEAD" state.
 
 <hr />
 
+***
 Bash commands <strong>touch</strong> and <strong>echo</strong> 
-We can create and change files,
-but in order for them to be committed for tracking by git,
+create and change files. Text editors and IDEs also
+create and change files.
+
+***
+In order for files to be committed for tracking by Git,
 they first must be specified in a git <strong>add</strong> 
 command which puts changes in a sort of "shopping cart" called  
 <strong>staging</strong>, also called <strong>Index</strong>
@@ -232,7 +236,7 @@ which files have been <strong>staged</strong>
 or remain <strong>untracked</strong>.
 
 ***
-When there are a lot of files,
+If you have to find text among a lot of files
 the Git <strong>grep</strong> command has many options to identify
 files containing text that match a specification.
 
@@ -267,6 +271,10 @@ and restored (potentially on top of a different commit)
 with git <strong>stash pop</strong>, which does the equivalent of
 git <strong>stash apply</strong> to retrieve the last stash, 
 but also does a git <strong>stash drop</strong> to remove it from the stash.
+
+*** ???
+Git checkout and Git pull should refuse to 
+update any file with uncommitted modifications (tracked or not).
 
 <hr />
 
