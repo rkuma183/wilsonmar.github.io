@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "IoT reminder light prevents dead mobile battery"
-excerpt: "The annoying mobile-IoT-cloud mash-up I really need in my life"
+excerpt: "The annoying mobile-IoT-cloud mash-up I actually need"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500

@@ -16,14 +16,13 @@ comments: true
 
 {% include _toc.html %}
 
-Git is among the most complex of software. 
+Git is not known as among the simplest of software. 
 It was literally created for and by Linux kernel developers 
-who have a megabrain memory and can speed-type long commands.
+who have a megabrain recall to speed-type long commands.
 
 But I don't feel I'm that smart, and felt overwhelmed.
 
-Like you, I had no choice but to win over Git's complexity.
-
+Like you, I had no choice but to study hard to fully grasp Git's complexity.
 Undeterred, for the last two years, I scoured the internet to 
 view every blog, video, and book about this subject.
 So you don't have to.
@@ -61,15 +60,23 @@ ZeroTurnaround</a> for a diagram which illustrates the sequence of basic command
    PROTIP: I encourage you to pull out a paper and hand-draw the
    diagram as we go along. You'll remember it better.
 
-The Git Pull command downloads files into the 
-Working Directory which contains a Local copy of 
-Git's change history. 
-Fetch updates changes from the Remote.
-Locally made changes are added to Staging and 
-commit updates change history tracking.
-Reset backs out items from Staging.
-Push pushes files back to the remote repository on GitHub.
+*** 
+The Git Pull command pulls down a complete copy of 
+a repository's change history and checks out the latest revision
+of files in the local Working Directory.
 
+Fetch updates changes from the Remote,
+but does not update the Working Directory.
+
+Locally made changes are added to Staging and 
+<strong>commit</strong> updates change history tracking.
+
+Different parameters of the reset command
+replaces changes in the Working Directory or 
+in Staging with what is in Git's repository.
+
+Push pushes files back to the remote repository on GitHub.
+***
 
 ## More detail #
 
@@ -109,7 +116,7 @@ The video is from an animated PowerPoint file, narrated separately with text bel
 
 ## My map (Visual Cheat Sheet) #
 
-<img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
+<img layout="responsive" alt="git-commands-v06-650x286-235kb.jpg" width="650" height="235" src="https://cloud.githubusercontent.com/assets/14143059/18898976/b0e96410-84f2-11e6-8d98-555e0a853a37.jpg">
 
    PROTIP: You are encouraged to pull out a paper and hand-draw 
    the diagram as we go along. You'll remember this better.
@@ -144,6 +151,9 @@ creates the Git folder which holds the history of changes.
 
 The Git <strong>clone</strong> command creates 
 that .git folder inside a new folder from files downloaded from GitHub.
+** The clone command also includes a Git <strong>checkout</strong>
+command that extracts the lastest set of files into the 
+<strong>Working Directory</strong> holding the .git folder.
 
 If we run the SSH or Putty command to create keys,
 the Git client can communicate securely with the cloud service.
@@ -168,11 +178,8 @@ custom name of your choosing to be assigned to a commit.
 Teams use this to specify and sign release numbers and
 specifications which Jenkins recognizes to invoke integration builds.
 
-***
-The -a (dash a) parameter designates a Git tag to create a commit.
-
-There are several commands that reveal what is inside the .git folder
-managing history.
+There are several commands that reveal what is inside the 
+.git folder managing history.
 
 The Git <strong>shortlog</strong> summarizes the history of commits made
 by author.
@@ -273,8 +280,8 @@ git <strong>stash apply</strong> to retrieve the last stash,
 but also does a git <strong>stash drop</strong> to remove it from the stash.
 
 *** ???
-Git checkout and Git pull should refuse to 
-update any file with uncommitted modifications (tracked or not).
+Git checkout and Git pull refuses to 
+update files with uncommitted modifications (tracked or not).
 
 <hr />
 
@@ -351,6 +358,10 @@ As with any Git repo, a <strong>.gitignore</strong> file
 specifies local files which 
 Git should not send up to the team GitHub repo.
 
+*** An additional Git push is necessary to send tags to GitHub.
+Such tags need to be created with a <strong>-a (dash a)</strong> 
+parameter which designates commit to be created with the tag.
+
 <img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
 
 
@@ -366,6 +377,68 @@ book at Git-SCM.com</a>
 * When you edit a file, it needs to be added to stage again.
 * After a commit, files in working folder are untracked.
 
+## Commands by type #
+
+https://git-scm.com/docs
+
+## Commands in alphabetical order #
+
+0. <a target="_blank" href="https://git-scm.com/docs/git-apply">
+   Git apply</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-blame">
+   Git blame</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-branch">
+   Git branch</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-checkout">
+   Git checkout</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-cherry-pick">
+   Git cherry-pick</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-clean">
+   Git clean</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-clone">
+   Git clone</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-commit">
+   Git commit</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-config">
+   Git config</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-describe">
+   Git describe</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-diff">
+   Git diff</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-dir">
+   Git dir</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-grep">
+   Git grep</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-init">
+   Git init</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-ls-files">
+   Git ls-files</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-log">
+   Git log</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-merge">
+   Git merge</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-mergetool">
+   Git mergetool</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-pull">
+   Git pull</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-push">
+   Git push</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-rebase">
+   Git rebase</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-reflog">
+   Git reflog</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-reset">
+   Git reset</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-revert">
+   Git revert</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-shortlog">
+   Git shortlog</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-stash">
+   Git stash</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-status">
+   Git status</a>
+0. <a target="_blank" href="https://git-scm.com/docs/git-tag">
+   Git tag</a>
 
 ## Resources #
 

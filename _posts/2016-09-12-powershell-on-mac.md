@@ -154,6 +154,9 @@ SerializationVersion           1.1.0.1
    * Monad Manifesto published by Jeff Stover.
    <br /><br />
 
+   PROTIP: Know the <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/KNOWNISSUES.md#command-availability/">
+   PowerShell commands known not to work on Linux/macOS</a>.
+
 0. To leave PowerShell, it's the same as in Bash scripts:
 
    <tt><strong>
@@ -211,7 +214,11 @@ debugging support provided by the PowerShell Editor Services extension currently
 
 ## Install .NET Core #
 
-Errors occur if .NET Core is not installed, so:
+PowerShell is written on top of .NET.
+.NET's previous dependencies on Windows components have been removed
+in .NET Core.
+
+PowerShell errors occur if .NET Core is not installed, so:
 
 0. Go to web page 
    https://www.microsoft.com/net/core#macos
@@ -1117,6 +1124,11 @@ available cmdlets and automate many of your daily tasks.
 
 * <a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">Querying MySQL Databases with PowerShell</a>
 - save time by automatically querying up data.
+
+* <a target="_blank" href="https://www.amazon.com/Windows-PowerShell-Action-Second-Payette/dp/1935182137/">
+Windows PowerShell in Action, Second Edition 2nd Edition</a>
+by Bruce Payette.
+Highly recommended.
 
 
 ## More on DevOps #

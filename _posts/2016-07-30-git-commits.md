@@ -933,7 +933,9 @@ From the Git Real series by Gregg Pollack of CodeSchool.com:
 2013 <a target="_blank" href="https://www.youtube.com/watch?v=FyfwLX4HAxM&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-">
 GitHub & Git Foundations series</a> 
 by Matthew McCullough (@matthewmccullough),
-Brett Beer (@brntbeer), and Tim Berglund (@tlberglund).
+Tim McCullough (@timmccullough),
+Brett Beer (@brntbeer), and 
+Tim Berglund (@tlberglund).
 Filmed with multiple cameras and Lounge Lizard music:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=FyfwLX4HAxM">
