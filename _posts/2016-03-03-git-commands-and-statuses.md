@@ -49,7 +49,7 @@ I introduce Git in more <strong>depth</strong> and in a
 different sequence than other tutorials that have come before me.
 
 
-## Basic data flows #
+## Basic commands flows #
 
 I thank <a target="_blank" href="http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/">
 ZeroTurnaround</a> for a diagram which illustrates the sequence of basic commands:
@@ -314,8 +314,10 @@ it can be done</a> using a <strong>commit --amend</strong> parameter.
 Elements considered "garbage" are removed automatically after 
 a default 90 days, or immediately by the
 Git <strong>gc --prune</strong> command.
+
 To identify elements which will be garbage collected,
-we use the Git <strong>fsck</strong> command.
+we use the Git <strong>fsck</strong> command,
+** which is one of the Git "plumbing" commands not usually used.
 
 <hr />
 
@@ -362,8 +364,7 @@ Git should not send up to the team GitHub repo.
 Such tags need to be created with a <strong>-a (dash a)</strong> 
 parameter which designates commit to be created with the tag.
 
-<img layout="responsive" alt="git-commands-v05-650x296-221kb.jpg" width="650" height="296" src="https://cloud.githubusercontent.com/assets/300046/18370667/1d8d43c2-75ec-11e6-8d3e-46aabf3fae9d.jpg">
-
+<img layout="responsive" alt="git-commands-v06-650x286-235kb.jpg" width="650" height="235" src="https://cloud.githubusercontent.com/assets/14143059/18898976/b0e96410-84f2-11e6-8d98-555e0a853a37.jpg">
 
 ## Recap of statuses #
 
@@ -381,64 +382,68 @@ book at Git-SCM.com</a>
 
 https://git-scm.com/docs
 
-## Commands in alphabetical order #
+(Out of scope here are comands for Email, Administration, and Plumbing)
 
-0. <a target="_blank" href="https://git-scm.com/docs/git-apply">
-   Git apply</a>
+<a name="CommandList"></a>
+
+## Common Commands in alphabetical order #
+
 0. <a target="_blank" href="https://git-scm.com/docs/git-blame">
-   Git blame</a>
+   Git blame</a> - Show what revision and author last modified each line of a file
+0. <a target="_blank" href="https://git-scm.com/docs/git-bisect">
+   Git bisect</a> - Show what revision and author last modified each line of a file
 0. <a target="_blank" href="https://git-scm.com/docs/git-branch">
-   Git branch</a>
+   Git branch</a> - List, create, or delete branches
 0. <a target="_blank" href="https://git-scm.com/docs/git-checkout">
-   Git checkout</a>
+   Git checkout</a> - Switch branches or restore working tree files
 0. <a target="_blank" href="https://git-scm.com/docs/git-cherry-pick">
-   Git cherry-pick</a>
+   Git cherry-pick</a> - Apply the changes introduced by some existing commits
 0. <a target="_blank" href="https://git-scm.com/docs/git-clean">
-   Git clean</a>
+   Git clean</a> - Remove untracked files from the working tree
 0. <a target="_blank" href="https://git-scm.com/docs/git-clone">
-   Git clone</a>
+   Git clone</a> - Clone a repository into a new directory
 0. <a target="_blank" href="https://git-scm.com/docs/git-commit">
-   Git commit</a>
+   Git commit</a> - Record changes to the repository
 0. <a target="_blank" href="https://git-scm.com/docs/git-config">
-   Git config</a>
+   Git config</a> - Get and set repository or global options
 0. <a target="_blank" href="https://git-scm.com/docs/git-describe">
-   Git describe</a>
+   Git describe</a>- Describe a commit using the most recent tag reachable from it
 0. <a target="_blank" href="https://git-scm.com/docs/git-diff">
-   Git diff</a>
-0. <a target="_blank" href="https://git-scm.com/docs/git-dir">
-   Git dir</a>
+   Git diff</a> - Show changes between commits, commit and working tree, etc
 0. <a target="_blank" href="https://git-scm.com/docs/git-grep">
-   Git grep</a>
+   Git grep</a> - Print lines matching a pattern
+0. <a target="_blank" href="https://git-scm.com/docs/git-help">
+   Git help</a>
 0. <a target="_blank" href="https://git-scm.com/docs/git-init">
-   Git init</a>
+   Git init</a> - Create an empty Git repository or reinitialize an existing one
 0. <a target="_blank" href="https://git-scm.com/docs/git-ls-files">
-   Git ls-files</a>
+   Git ls-files</a> - Show information about files in the index and the working tree
 0. <a target="_blank" href="https://git-scm.com/docs/git-log">
-   Git log</a>
+   Git log</a> - Show commit logs
 0. <a target="_blank" href="https://git-scm.com/docs/git-merge">
-   Git merge</a>
+   Git merge</a> - Join two or more development histories together
 0. <a target="_blank" href="https://git-scm.com/docs/git-mergetool">
-   Git mergetool</a>
+   Git mergetool</a> - Run merge conflict resolution tools to resolve merge conflicts
 0. <a target="_blank" href="https://git-scm.com/docs/git-pull">
-   Git pull</a>
+   Git pull</a> - Fetch from and integrate with another repository or a local branch
 0. <a target="_blank" href="https://git-scm.com/docs/git-push">
-   Git push</a>
+   Git push</a> - Update remote refs along with associated objects
 0. <a target="_blank" href="https://git-scm.com/docs/git-rebase">
-   Git rebase</a>
+   Git rebase</a> - Reapply commits on top of another base tip
 0. <a target="_blank" href="https://git-scm.com/docs/git-reflog">
-   Git reflog</a>
+   Git reflog</a> - Manage reflog information
 0. <a target="_blank" href="https://git-scm.com/docs/git-reset">
-   Git reset</a>
+   Git reset</a> - Reset current HEAD to the specified state
 0. <a target="_blank" href="https://git-scm.com/docs/git-revert">
-   Git revert</a>
+   Git revert</a> - Revert some existing commits
 0. <a target="_blank" href="https://git-scm.com/docs/git-shortlog">
-   Git shortlog</a>
+   Git shortlog</a> - Summarize git log output
 0. <a target="_blank" href="https://git-scm.com/docs/git-stash">
-   Git stash</a>
+   Git stash</a> - Stash the changes in a dirty working directory away
 0. <a target="_blank" href="https://git-scm.com/docs/git-status">
-   Git status</a>
+   Git status</a> - Show the working tree status
 0. <a target="_blank" href="https://git-scm.com/docs/git-tag">
-   Git tag</a>
+   Git tag</a> - Create, list, delete or verify a tag object signed with GPG
 
 ## Resources #
 
