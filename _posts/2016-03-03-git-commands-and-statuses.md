@@ -386,64 +386,64 @@ https://git-scm.com/docs
 
 <a name="CommandList"></a>
 
-## Common Commands in alphabetical order #
+## Common Git Commands in alphabetical order #
 
 0. <a target="_blank" href="https://git-scm.com/docs/git-blame">
-   Git blame</a> - Show what revision and author last modified each line of a file
+   blame</a> - Show what revision and author last modified each line of a file
 0. <a target="_blank" href="https://git-scm.com/docs/git-bisect">
-   Git bisect</a> - Show what revision and author last modified each line of a file
+   bisect</a> - Show what revision and author last modified each line of a file
 0. <a target="_blank" href="https://git-scm.com/docs/git-branch">
-   Git branch</a> - List, create, or delete branches
+   branch</a> - List, create, or delete branches
 0. <a target="_blank" href="https://git-scm.com/docs/git-checkout">
-   Git checkout</a> - Switch branches or restore working tree files
+   checkout</a> - Switch branches or restore working tree files
 0. <a target="_blank" href="https://git-scm.com/docs/git-cherry-pick">
-   Git cherry-pick</a> - Apply the changes introduced by some existing commits
+   cherry-pick</a> - Apply the changes introduced by some existing commits
 0. <a target="_blank" href="https://git-scm.com/docs/git-clean">
-   Git clean</a> - Remove untracked files from the working tree
+   clean</a> - Remove untracked files from the working tree
 0. <a target="_blank" href="https://git-scm.com/docs/git-clone">
-   Git clone</a> - Clone a repository into a new directory
+   clone</a> - Clone a repository into a new directory
 0. <a target="_blank" href="https://git-scm.com/docs/git-commit">
-   Git commit</a> - Record changes to the repository
+   commit</a> - Record changes to the repository
 0. <a target="_blank" href="https://git-scm.com/docs/git-config">
-   Git config</a> - Get and set repository or global options
+   config</a> - Get and set repository or global options
 0. <a target="_blank" href="https://git-scm.com/docs/git-describe">
-   Git describe</a>- Describe a commit using the most recent tag reachable from it
+   describe</a>- Describe a commit using the most recent tag reachable from it
 0. <a target="_blank" href="https://git-scm.com/docs/git-diff">
-   Git diff</a> - Show changes between commits, commit and working tree, etc
+   diff</a> - Show changes between commits, commit and working tree, etc
 0. <a target="_blank" href="https://git-scm.com/docs/git-grep">
-   Git grep</a> - Print lines matching a pattern
+   grep</a> - Print lines matching a pattern
 0. <a target="_blank" href="https://git-scm.com/docs/git-help">
-   Git help</a>
+   help</a>
 0. <a target="_blank" href="https://git-scm.com/docs/git-init">
-   Git init</a> - Create an empty Git repository or reinitialize an existing one
+   init</a> - Create an empty Git repository or reinitialize an existing one
 0. <a target="_blank" href="https://git-scm.com/docs/git-ls-files">
-   Git ls-files</a> - Show information about files in the index and the working tree
+   ls-files</a> - Show information about files in the index and the working tree
 0. <a target="_blank" href="https://git-scm.com/docs/git-log">
-   Git log</a> - Show commit logs
+   log</a> - Show commit logs
 0. <a target="_blank" href="https://git-scm.com/docs/git-merge">
-   Git merge</a> - Join two or more development histories together
+   merge</a> - Join two or more development histories together
 0. <a target="_blank" href="https://git-scm.com/docs/git-mergetool">
-   Git mergetool</a> - Run merge conflict resolution tools to resolve merge conflicts
+   mergetool</a> - Run merge conflict resolution tools to resolve merge conflicts
 0. <a target="_blank" href="https://git-scm.com/docs/git-pull">
-   Git pull</a> - Fetch from and integrate with another repository or a local branch
+   pull</a> - Fetch from and integrate with another repository or a local branch
 0. <a target="_blank" href="https://git-scm.com/docs/git-push">
-   Git push</a> - Update remote refs along with associated objects
+   push</a> - Update remote refs along with associated objects
 0. <a target="_blank" href="https://git-scm.com/docs/git-rebase">
-   Git rebase</a> - Reapply commits on top of another base tip
+   rebase</a> - Reapply commits on top of another base tip
 0. <a target="_blank" href="https://git-scm.com/docs/git-reflog">
-   Git reflog</a> - Manage reflog information
+   reflog</a> - Manage reflog information
 0. <a target="_blank" href="https://git-scm.com/docs/git-reset">
-   Git reset</a> - Reset current HEAD to the specified state
+   reset</a> - Reset current HEAD to the specified state
 0. <a target="_blank" href="https://git-scm.com/docs/git-revert">
-   Git revert</a> - Revert some existing commits
+   revert</a> - Revert some existing commits
 0. <a target="_blank" href="https://git-scm.com/docs/git-shortlog">
-   Git shortlog</a> - Summarize git log output
+   shortlog</a> - Summarize git log output
 0. <a target="_blank" href="https://git-scm.com/docs/git-stash">
-   Git stash</a> - Stash the changes in a dirty working directory away
+   stash</a> - Stash the changes in a dirty working directory away
 0. <a target="_blank" href="https://git-scm.com/docs/git-status">
-   Git status</a> - Show the working tree status
+   status</a> - Show the working tree status
 0. <a target="_blank" href="https://git-scm.com/docs/git-tag">
-   Git tag</a> - Create, list, delete or verify a tag object signed with GPG
+   tag</a> - Create, list, delete or verify a tag object signed with GPG
 
 ## Resources #
 
