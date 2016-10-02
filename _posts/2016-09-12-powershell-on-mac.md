@@ -74,6 +74,7 @@ QUESTION: Is there a brew powershell?
 
    <table border="1" cellpadding="4" cellspacing="0">
    <th>Date</th><th> File </th><th> MB Size </th><th> Space</th><th> Cmds</th></tr>
+   
    <tr valign="top"><td> Sep 13, 2016 </td><td>
    <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.10/powershell-6.0.0-alpha.10.pkg">
    powershell-6.0.0-alpha.10.pkg</a>
@@ -82,22 +83,30 @@ QUESTION: Is there a brew powershell?
    </td><td align="right"> 345
    </td></tr>
 
-   <tr valign="top"><td> Aug 10, 2016 </td><td>
-   <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.9/powershell-6.0.0-alpha.9.pkg">
+   <tr valign="top"><td> Aug 10, 2016 
+   </td><td>   <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.9/powershell-6.0.0-alpha.9.pkg">
    powershell-6.0.0-alpha.9.pkg</a>
    </td><td align="right"> 37.1 MB 
-   </td><td align="right"> 119.7 MB </td></tr>
+   </td><td align="right"> 119.7 MB 
+   </td></tr>
 
-   <tr valign="top"><td> Jul 26, 2016 </td><td>
-   powershell-6.0.0-alpha.7.pkg
-   </td><td align="right"> 25.0 MB </td></tr>
-   <tr valign="top"><td> Jul 8, 2016 </td><td>
-   powershell-0.6.0.pkg
-   </td><td align="right"> 24.2 MB </td></tr>
+   <tr valign="top"><td> Jul 26, 2016 
+   </td><td> powershell-6.0.0-alpha.7.pkg
+   </td><td align="right"> 25.0 MB 
+   </td></tr>
+
+   <tr valign="top"><td> Jul 8, 2016 
+   </td><td> powershell-0.6.0.pkg
+   </td><td align="right"> 24.2 MB 
+   </td></tr>
    </table>
 
 0. Open the .pkg file in the Downloads folder:
 0. Click Continue, etc.
+
+
+   NOTE: For Windows: <a target="_blank" href="https://www.microsoft.com/en-us/download/details.aspx?id=50395">
+   Microsoft Windows Management Framework 5.0</a>
 
 
    ### In and Out #

@@ -1123,3 +1123,9 @@ var map = new GMaps({
 
    Note: As an alternative to mLab, there is also 
    https://www.compose.io/
+
+## Learning resources #
+
+* https://school.scotch.io/build-a-restful-nodejs-api/
+   offers a video introduction for free.
+   Subscribe for the MongoDB tutorial ($12/month).

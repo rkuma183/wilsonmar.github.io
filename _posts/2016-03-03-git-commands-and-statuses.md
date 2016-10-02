@@ -60,7 +60,6 @@ ZeroTurnaround</a> for a diagram which illustrates the sequence of basic command
    PROTIP: I encourage you to pull out a paper and hand-draw the
    diagram as we go along. You'll remember it better.
 
-*** 
 The Git Pull command pulls down a complete copy of 
 a repository's change history and checks out the latest revision
 of files in the local Working Directory.
@@ -76,7 +75,7 @@ replaces changes in the Working Directory or
 in Staging with what is in Git's repository.
 
 Push pushes files back to the remote repository on GitHub.
-***
+
 
 ## More detail #
 
@@ -242,17 +241,14 @@ The git <strong>status</strong> command shows
 which files have been <strong>staged</strong>
 or remain <strong>untracked</strong>.
 
-***
 If you have to find text among a lot of files
 the Git <strong>grep</strong> command has many options to identify
 files containing text that match a specification.
 
-***
-We want to use a git <strong>diff</strong> command or use a 
+We want to use a Git <strong>diff</strong> command or use a 
 <strong>diff-tool</strong> to identify differences
 between the working set and what's in Staging.
 
-mv***
 For a formatted document of differences,
 some use <strong>diff-tree</strong>, which shares the same 
 parameters as the git show command.
@@ -362,7 +358,7 @@ Git should not send up to the team GitHub repo.
 
 *** An additional Git push is necessary to send tags to GitHub.
 Such tags need to be created with a <strong>-a (dash a)</strong> 
-parameter which designates commit to be created with the tag.
+parameter which designates a commit to be created with the tag.
 
 <img layout="responsive" alt="git-commands-v06-650x286-235kb.jpg" width="650" height="235" src="https://cloud.githubusercontent.com/assets/14143059/18898976/b0e96410-84f2-11e6-8d98-555e0a853a37.jpg">
 
