@@ -37,10 +37,10 @@ StarWest.
 
 Come attend my classes:
 
-   * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-stareast-2016">
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-starwest-2016">
    Performance Testing 2-days Sunday & Monday</a></strong>.
 
-   * <strong><a target="_blank" href="https://starwest.techwell.com/program/tutorials/how-testers-master-git-and-github">
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/tutorial/how-testers-master-git-and-github/">
    Git and GitHub full-day Tuesday</a></strong>.
    You'll leave with a new free blog website!
 
