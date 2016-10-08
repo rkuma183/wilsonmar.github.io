@@ -21,6 +21,17 @@ shorturl: https://goo.gl/wojj1R
 This tutorial is about the elements of an ecosystem for 
 <strong>development</strong> of Application Programming Interfaces (APIs).
 
+By "API" I include the 
+<a target="_blank" href="http://graphql.org/">
+GraphQL data query language</a> 
+(<a target="_blank" href="https://code.facebook.com/posts/1691455094417024/graphql-a-data-query-language/">
+from Facebook</a>)
+and programs such as browser app
+<a target="_blank" href="http://graphql-swapi.parseapp.com/">
+GraphiQL</a>
+<a target="_blank" href="https://github.com/apollostack/apollo-codegen">
+Apollo Codegen</a> which read them to create client programs.
+
 <amp-youtube data-videoid="bOuMpvrrkGY" layout="responsive" width="480" height="270">
 </amp-youtube>
 In this 3 minute video, click "CC" to toggle Closed Captioning text below.
