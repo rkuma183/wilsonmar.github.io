@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac OSX Versions"
-excerpt: "Is 10.11 better?"
+excerpt: "Upgrade already"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -20,16 +20,16 @@ comments: true
 ### Versions of Mac OS X
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> OSX<br />Version </th><th> Code Name </th><th> Avail. Date
+<tr><th> OSX<br />Ver. </th><th> Code Name </th><th> Avail. Date
 </th><th><a href="/php-on-apple-mac-osx/">PHP</a>
 </th><th><a href="/python-on-apple-mac-osx/">Python</a>
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
-<tr valign="top"><td> 10.12?
-</td><td align="right"> MacOS Sierra
+<tr valign="top"><td> 10.12
+</td><td align="right"> mac OS X Sierra
 </td><td align="right"> Fall 2016
-</td><td align="right"> -
+</td><td align="right"> 2.6.0
 </td><td align="right"> -
 </td><td align="right"> -
 </td><td align="left"> Auto unlock, universal clipboard, Siri
@@ -112,12 +112,12 @@ In a Terminal window on any folder, type:
    sw_vers
    </strong></tt>
 
-   sample response:
+   The response I got:
 
    <pre>
-   ProductName: Mac OS X
-   ProductVersion: 10.11.4
-   BuildVersion: 15E65
+   ProductName: mac OS X
+   ProductVersion: 10.12
+   BuildVersion: 16A323
    </pre>
 
 
