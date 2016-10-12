@@ -1,7 +1,7 @@
 ---
 layout: post
-name: jekyll-with-algolia-search
-title: "Search within Hyde format Jekyll websites using Algolia"
+name: jekyll-with-search
+title: "Search within Hyde format Jekyll websites"
 excerpt: "Add a feature-rich search box in your JAM stack website"
 tags: [Jekyll, Algolia, Search, JavaScript, website]
 image:
@@ -50,9 +50,9 @@ The objective of this article is for you to implement these use cases
 Before we dive into Alogolia, know this:
 
 
-## Alternatives to Aloglia search #
+## Alternatives to process search #
 
-There are alternatives to add search on a Jekyll site:
+Other options to add search capabilities on a Jekyll site:
 
    * Mike Neumegen of @CloudCannonApp
    has a <a target="_blank" href="http://jekyll.tips/jekyll-casts/jekyll-search-using-lunr-js/">
@@ -74,6 +74,21 @@ There are alternatives to add search on a Jekyll site:
    So if you have hundreds of blog posts, it's going to be 
    <strong>really slow</strong> if you try to implement it using lunr."
 
+### Search in Azure #
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/azure-adding-search-abilities-apps/table-of-contents">
+Adding Search Abilities to Your Apps with Azure Search</a> (cloud)
+2h 55m video
+by Chad Campbell
+(@)
+explains natural language processing for 35 languages 
+(such as searching for "went" when the request is for "go") and
+Geospatial around a point or within an area.
+
+But scalability means manual editing in the Azure Portal or
+programming Azure Search Management APIs.
+
+Use Scoring Profile to align searches.
 
 <hr />
 

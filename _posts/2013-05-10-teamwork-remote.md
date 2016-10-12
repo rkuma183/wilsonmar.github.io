@@ -93,3 +93,11 @@ phrased in questions that help me determine the conditions for effectiveness in 
 ## Related resources
 
 https://www.sitepoint.com/5-ways-remote-teams-can-create-a-culture-of-accountability/
+
+<a target="_blank" href="https://www.youtube.com/watch?v=v2PaZ8Nl2T4&list=PLxzJmNzonMVOYwaPwuJPcqfOPDXQXnycv&index=108">
+Google research</a> found that the best teams don't have to like each other.
+The most effective teams have members who speak about the same amount of time.
+They take turns talking.
+And members demonstrate ostentatious listening -- they repeat when each other is saying and maintain eye contact.
+These two create the psychological safety necessary for teamwork.
+
