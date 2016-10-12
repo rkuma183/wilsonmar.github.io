@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac OSX Versions"
-excerpt: "Upgrade already"
+excerpt: "From Mac OSX to mac OS X"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -28,11 +28,11 @@ comments: true
 </th></tr>
 <tr valign="top"><td> 10.12
 </td><td align="right"> mac OS X Sierra
-</td><td align="right"> Fall 2016
+</td><td align="right"> Oct. 2016
 </td><td align="right"> 2.6.0
 </td><td align="right"> -
 </td><td align="right"> -
-</td><td align="left"> Auto unlock, universal clipboard, Siri
+</td><td align="left"> Auto unlock, universal clipboard, Siri, Watch login
 </td></tr>
 <tr valign="top"><td> 10.11
 </td><td align="right"> El Capitan (Gala)
