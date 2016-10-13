@@ -1480,7 +1480,22 @@ Shawn Hymel at Sparkfun has great "Getting Started with Intel Edison" videos:
    * <a target="_blank" href="https://www.youtube.com/watch?v=GY8kaaFzbTE">
    ?</a>
 
+### Interface types: #
+
+* GPIO = general purpose input/output
+* SPI = Serial Peripheral Interface (full-duplex max speed is 25Mhz/4 ~6.25Mhz)
+  "SPI exposed is also used for the ADC. Try not to use your own CS"
+* I2C = Inter-integrated circuit <a target="_blank" href="https://learn.sparkfun.com/tutorials/i2c">
+   designed</a>  by Philips in the early '80s for easy (two-wire) communication 
+    (at 100kHz or 400kHz) between master and slave components residing on the same circuit board.
+* AIO = All-in-One
+* PWM = Pulse width modulation
+
+
 ## Acronyms #
+
+From <a target="_blank" href="https://quizlet.com/159167491/iot-acronymns-flash-cards/">
+IoT and IIoT Acronyms</a>:
 
 * GPIO = General purpose input/output
 * ADC = Analog to digital converter
@@ -1490,27 +1505,16 @@ Shawn Hymel at Sparkfun has great "Getting Started with Intel Edison" videos:
 * RNDIS = Remote Network Driver Interface Specification is a Microsoft proprietary protocol used mostly on top of USB to provide a virtual Ethernet link to most versions of the Windows and Linux operating systems.
 * BTLE = Bluetooth low energy
 * ICSP = In-Circuit Serial Programming (ICSP), also called In-system programming (ISP)
+to reprogram the processor without removing it from the circuit, 
+and without relying on the bootloader in the processor.
 * OTG =  On-The-Go, allows USB devices, such as digital audio players or mobile phones, to act as a host, allowing other USB devices, such as USB flash drives, digital cameras, mice or keyboards, to be attached to them.
 * UPM = Useful Packages & Modules
 * MRAA
 * XDK = Intel's name for its IDE
 * LED = Light Emitting Diode
 * MCU = Microcontroller unit
-* DFU 
+* DFU = Device Firmware Update
 * CDC 
-* ICSP = In-Circuit Serial Programming to reprogram the processor without removing it from the circuit, 
-and without relying on the bootloader in the processor.
-
-### Interface types: #
-
-* GPIO = general purpose input/output
-* SPI = Serial Peripheral Interface (full-duplex max speed is 25Mhz/4 ~6.25Mhz)
-  "SPI exposed is also used for the ADC. Try not to use your own CS"
-* I2C = Inter-integrated circuit <a target="_blank" href="https://learn.sparkfun.com/tutorials/i2c">
-   designed</a>  by Philips in the early '80s for easy (two-wire) communication 
-    (at 100kHz or 400kHz) between master and slave components residing on the same circuit board.
-* AIO
-* PWM = Pulse width modulation
 
 ## Learning resources #
 

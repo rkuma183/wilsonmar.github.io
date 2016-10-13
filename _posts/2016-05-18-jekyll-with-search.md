@@ -79,8 +79,9 @@ Other options to add search capabilities on a Jekyll site:
 <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-adding-search-abilities-apps/table-of-contents">
 Adding Search Abilities to Your Apps with Azure Search</a> (cloud)
 2h 55m video
-by Chad Campbell
-(@)
+by <a target="_blank" href="https://www.ecofic.com/">Chad Campbell</a>
+(<a target="_blank" href="https://twitter.com/ChadCampbell/">@ChadCampbell</a>,
+<a target="_blank" href="https://www.ecofic.com/">ecofic.com</a>)
 explains natural language processing for 35 languages 
 (such as searching for "went" when the request is for "go") and
 Geospatial around a point or within an area.

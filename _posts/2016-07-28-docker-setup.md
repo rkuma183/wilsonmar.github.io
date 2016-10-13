@@ -17,7 +17,8 @@ comments: true
 
 The object of this tutorial is to succintly present
 <strong>step-by-step</strong> instructions 
-to setup Docker on Mac OSX and CentOS.
+to contrast the setup of Docker on Mac OSX, CentOS Linux, and 
+<a href="#Docker4Windows">Windows</a>.
 
 {% include _intro.html %}
 
@@ -51,19 +52,18 @@ containing Docker commands.
 Docker was originally created for different flavors of Linux
 
    * Ubuntu
-   * CentOS
+   * <a href="#Docker4Centos">CentOS</a>
+   * BSDLinux
    * etc.
 
-Also BSDLinux.
-
+<a name="Docker4Mac"></a>
 
 ### Install Docker on Mac OSX #
 
-<strong>Docker for Mac</strong> is the latest approach for installing Docker on Mac OSX.
+<strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
 
-   WARNING: The product is labeled Beta as of this writing.
-
-   If your Mac has OS X 10.10.3 Yosemite or newer, (as of June 2016)
+   WARNING: The product is labeled Beta as of this writing (July 2016).
+   If your Mac has OS X 10.10.3 Yosemite or newer,
    <strong>Docker on Mac</strong>
    runs as a <strong>native</strong> Mac application.
 
@@ -135,6 +135,72 @@ Also BSDLinux.
    To start this, use the "quickstart terminal"
    which fires up Virtualbox.
 
+<a name="Docker4Windows"></a>
+
+### Install Docker on Windows 10 #
+
+The below enhances https://docs.docker.com/docker-for-windows/
+
+CAUTION: A 64-bit machine is necessary.
+
+0. Enable Microsoft Hyper-V necessary to run Docker for Windows.
+
+   CAUTION: This renders ususable Oracle Virtual Box VMs running
+   <a target="_blank" href="https://docs.docker.com/toolbox/overview/">
+   Docker Toolbox</a>.
+
+0. Upgrade Windows 10 to the <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#3jvuXUzhTHYift0W.97">
+   <strong>"Anniversay Update"</strong></a> 
+   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#VjM80RVylUUJ9pJ6.99">1607 (KB3194798)</a>
+   released October 11, 2016 or
+   <a target="_blank" href="https://support.microsoft.com/en-us/help/12387/windows-10-update-history">
+   more recent</a>.
+
+   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/new-video-series-this-week-on-windows-highlights-windows-10-anniversary-update/#dfSWt7CfzxgoJYIF.97">
+   See the video</a>.
+
+   In Settings > Updates & Security > Windows Update > Update &amp; Security > Check for Updates
+   > Update.
+
+0. At <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
+   https://docs.docker.com/docker-for-windows</a>,<br />
+   Click "Get Docker for Windows (stable)" (not the more volatile Beta).
+
+   This downloads InstallDocker.msi (105 MB),
+   typically to your Downloads folder.
+
+   NOTE: There is no Chocolatey module yet.
+
+0. Double-click InstallDocker.msi to run the installer.
+
+0. If you haven’t already downloaded the installer (InstallDocker.msi), you can get it here. It 
+
+0. Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
+
+0. Authorize Docker.app with your system password when prompted, 
+   since privileged access is needed to install networking components, 
+   links to the Docker apps, and manage the Hyper-V VMs.
+
+0. Click Finish on the setup complete dialog to launch Docker.
+
+   The same <a href="#ModulesInstalled">modules are installed</a>.
+
+   <tt><strong>
+   docker --version
+   docker-compose --version
+   docker-machine --version
+   </strong></tt>
+
+   The responses:
+
+   <pre>
+   Docker version 1.12.0, build 8eab29e, experimental
+   docker-compose version 1.8.0, build d988a55
+   docker-machine version 0.8.0, build b85aac1
+   </pre>
+
+
+<a name="Docker4Centos"></a>
 
 ### Install Docker in CentOS #
 
@@ -263,6 +329,47 @@ or Docker Machine crashes, some diagnostic information is sent automatically to 
 
 
 <hr />
+
+<hr />
+
+<a name="ModulesInstalled"></a>
+
+## Modules installed #
+
+   Installing Docker gives you not just the Docker service (daemon) 
+   but also the docker command line utility, or the Docker client.
+
+   Regardless of the OS, the installation provides: 
+
+   * Docker Engine, 
+   * Docker CLI client, 
+   * Docker Compose, and 
+   * Docker Machine.
+
+   * Docker Swarm.
+   <br /><br />
+
+0. See the list of supported drivers at<br />
+   <a target="_blank" href="https://docs. docker.com/machine/drivers/">
+   https://docs. docker.com/machine/drivers</a>
+
+<a name="DockerUCP"></a>
+
+## Docker UCP (Universal Control Plane) #
+
+   UCP enables you to control Docker environments through a 
+   <strong>web interface</strong>.
+   This is helpful if you want to steer clear of the command line. 
+
+   You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
+
+   <a target="_blank" href="https://docs.docker.com/ucp/">
+   https://docs.docker.com/ucp</a><br />
+   has more information about Docker UCP.
+
+
+
+
 
 <a name="VerifyInstall"></a>
 
@@ -401,41 +508,106 @@ Server:
  OS/Arch:      linux/amd64
    </pre>
 
-<hr />
+   Sample response on Windows:
 
-<hr />
+   <pre>
+   Client:
+   Version:      1.12.0
+   API version:  1.24
+   Go version:   go1.6.3
+   Git commit:   8eab29e
+   Built:        Thu Jul 28 21:04:48 2016
+   OS/Arch:      windows/amd64
+   Experimental: true
+&nbsp;
+   Server:
+   Version:      1.12.0
+   API version:  1.24
+   Go version:   go1.6.3
+   Git commit:   8eab29e
+   Built:        Thu Jul 28 21:04:48 2016
+   OS/Arch:      linux/amd64
+   Experimental: true
+   </pre>
 
-   ## Modules installed #
+0. Obtain status using the info sub-command:
 
-   Installing Docker gives you not just the Docker service (daemon) 
-   but also the docker command line utility, or the Docker client.
+   <tt><strong>
+   docker info
+   </strong></tt>
 
-   Regardless of the OS, the installation provides: 
+   An example of command output for docker info on Windows:
 
-   * Docker Engine, 
-   * Docker CLI client, 
-   * Docker Compose, and 
-   * Docker Machine.
+   <pre>
+   Containers: 0
+   Running: 0
+   Paused: 0
+   Stopped: 0
+   Images: 0
+   Server Version: 1.12.0
+   Storage Driver: aufs
+   Root Dir: /var/lib/docker/aufs
+   Backing Filesystem: extfs
+   Dirs: 0
+   Dirperm1 Supported: true
+   Logging Driver: json-file
+   Cgroup Driver: cgroupfs
+   Plugins:
+   Volume: local
+   Network: host bridge null overlay
+   Swarm: inactive
+   Runtimes: runc
+   Default Runtime: runc
+   Security Options: seccomp
+   Kernel Version: 4.4.16-moby
+   Operating System: Alpine Linux v3.4
+   OSType: linux
+   Architecture: x86_64
+   CPUs: 2
+   Total Memory: 1.95 GiB
+   Name: moby
+   ID: BG6O:2VMH:OLNV:DDLF:SCSV:URRH:BW6M:INBW:OLAC:J7PX:XZVL:ADNB
+   Docker Root Dir: /var/lib/docker
+   Debug Mode (client): false
+   Debug Mode (server): false
+   Registry: https://index.docker.io/v1/
+   Experimental: true
+   Insecure Registries:
+   127.0.0.0/8
+   </pre>
 
-   * Docker Swarm.
-   <br /><br />
 
-0. See the list of supported drivers at<br />
-   <a target="_blank" href="https://docs. docker.com/machine/drivers/">
-   https://docs. docker.com/machine/drivers</a>
+<a name="DockerHello"></a>
 
+## Docker Run Hello #
 
+0. See if it can run anything:
 
-<a name="DockerUCP"></a>
+   <tt><strong>
+   docker run hello-world
+   </strong></tt>
 
-## Docker UCP (Universal Control Plane) #
+   If you get this:
 
-UCP enables you to control your Docker environment through a web interface, which is
-helpful if you want to steer clear of the command line. 
+   <pre>
+docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
+See 'docker run --help'.
+   </pre>
 
-You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
-More information about Docker UCP can be found at https://docs.docker.com/ ucp/.
+   Otherwise, here's the expected response:
 
+   <pre>
+  Hello from Docker.
+  This message shows that your installation appears to be working correctly.
+&nbsp;
+  To generate this message, Docker took the following steps:
+  1. The Docker client contacted the Docker daemon.
+  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+  3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading.
+  4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal.
+   </pre>
+
+   See https://docs.docker.com/docker-for-windows/
 
 
 <a name="DockerSearch"></a>
@@ -819,42 +991,39 @@ video tutorials by Nigel Poulton
 
 ## YouTub videos #
 
-https://www.youtube.com/watch?v=vQSpztWcGmw
-Continuous Delivery with Jenkins Workflow and Docker Explained
-by Cloudbees at DevOpsTV channel
+0. <a target="_blank" href="https://www.youtube.com/watch?v=vQSpztWcGmw">
+   Continuous Delivery with Jenkins Workflow and Docker Explained</a>
+   by Cloudbees at DevOpsTV channel
 
-https://www.youtube.com/watch?v=is1o0Ol8LMc
-Continuous Integration Using Docker
-DevOpsTV
-1,444 views
+0. <a target="_blank" href="https://www.youtube.com/watch?v=is1o0Ol8LMc">
+   Continuous Integration Using Docker</a>
+   by DevOpsTV
 
-https://www.youtube.com/watch?v=B6UvIL2WyTg
-Moving from Jenkins to Docker for build pipelines from Matt Bostock
-MeetupvideoUK
+0. <a target="_blank" href="https://www.youtube.com/watch?v=B6UvIL2WyTg">
+   Moving from Jenkins to Docker for build pipelines from Matt Bostock</a>
 
-https://www.youtube.com/watch?v=uLp9_MMnkUo
-Continuous Delivery Pipeline with Docker and Jenkins
-Javaforum Göteborg
-46:41
+0. <a target="_blank" href="https://www.youtube.com/watch?v=uLp9_MMnkUo">
+   Continuous Delivery Pipeline with Docker and Jenkins</a>
+   Javaforum Göteborg
 
-https://www.youtube.com/watch?v=Q5POuMHxW-0
-Introduction to Docker
-Twitter University
-47:14
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Q5POuMHxW-0">
+   Introduction to Docker</a>
+   by Twitter University
+   47:14
 
-https://www.youtube.com/watch?v=dCsGzEGW2BY
-Jenkins 2 and Beyond
-DevOpsTV
+0. <a target="_blank" href="https://www.youtube.com/watch?v=dCsGzEGW2BY">
+   Jenkins 2 and Beyond</a>
+   DevOpsTV
 
-https://www.youtube.com/watch?v=M-rxJBdYIrw
-Jenkins 2.0. What? When? What is in it for me?
-Praqma Channel
+0. <a target="_blank" href="https://www.youtube.com/watch?v=M-rxJBdYIrw">
+   Jenkins 2.0. What? When? What is in it for me?</a>
+   on Praqma Channel
 
+0. <a target="_blank" href="https://www.digitalocean.com/community/tutorials/">
+   how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7</a>
 
-* https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7
-
-* http://blog.serverbooter.com/blog/2014/03/07/docker-first-impressions/
-Docker First Impressions on Ubuntu
+0. <a target="_blank" href="http://blog.serverbooter.com/blog/2014/03/07/docker-first-impressions/">
+   Docker First Impressions on Ubuntu</a>
 
 
 ## More on DevOps #
