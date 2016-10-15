@@ -101,3 +101,10 @@ asks $13 for its SVG scalable/responsive USA map.
 
 * http://code.google.com/p/svg2imap/
 
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

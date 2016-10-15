@@ -68,17 +68,29 @@ Others:
 
 ## Creating and Editing SVG #
 
+Vector Art programs:
+
 * Online: <a target="_blank" href="https://boxy-svg.com/index.html">Boxy-SVG</a>, and FREE.
    Wish they had a larger sample gallery.
-* <a target="_blank" href="http://svg-edit.googlecode.com/">http://svg-edit.googlecode.com</a>
+* <a target="_blank" href="http://svg-edit.googlecode.com/">
+                           http://svg-edit.googlecode.com</a>
 * Sketch for Mac
 * Inkscape
 * PhotoShop
+* $58 <a target="_blank" href="https://affinity.serif.com/en-us/designer/">
+   Affinity Designer</a> for Mac
 
 SVGs compression:
 
 * <a target="_blank" href="http://petercollingridge.appspot.com/svg-editor">
    petercollingridge.appspot.com/svg-editor</a>
+
+Convert pictures:
+
+* <a target="_blank" href="http://iconverticons.com/online/">
+   Convert .png, .jpg, .ico, .icns and app icons</a>
+
+
 
 <a name="StoringSVG"></a>
 
@@ -256,3 +268,10 @@ provides a library to animate SVG files (looks like animated GIFs).
 
 * https://msdn.microsoft.com/en-us/library/gg589526%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396#Ways_to_Render_SVG
   explains the differen ways to render SVG.
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}

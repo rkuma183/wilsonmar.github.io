@@ -166,3 +166,11 @@ NOTE: File names beginning with a dot are hidden.
 * <a target="_blank" href="https://github.com/kriasoft/static-site-starter">
    https://github.com/kriasoft/static-site-starter</a>
    uses a gulpfile.js
+
+
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}
