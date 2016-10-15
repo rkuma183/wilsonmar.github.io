@@ -68,7 +68,7 @@ This tutorial aims to enable you to identify and resolve
    https://www.ej-technologies.com/products/jprofiler/java-profiler-JEE.html
 
 
-   ### See Sample Apps Behave Badly #
+   ### See Sample App Leak Memory #
 
    To see how JProfiler works, let's look at a program known to behave badly.
 
@@ -96,39 +96,134 @@ This tutorial aims to enable you to identify and resolve
 
 0. To continue working, click on the app dialog partially hidden by the Help dialog.
 
-   In 2015 Ingo Kegel (CTO of the company)
-   <a target="_blank" href="https://www.youtube.com/watch?v=vRssrJmTcsU&list=PLkPBGtwA1Ta6Fdbe7Asx-7Ve2bs-J6n2p&index=1">
-   created several videos</a>
+   ### Videos #
 
-0. Click OK to accept the Startup Settings.
+   Among <a target="_blank" href="https://www.youtube.com/watch?v=vRssrJmTcsU&list=PLkPBGtwA1Ta6Fdbe7Asx-7Ve2bs-J6n2p&index=1">
+   videos</a> created by Ingo Kegel (CTO of the company) is
+   <a target="_blank" href="https://www.youtube.com/watch?v=DsJgiRp-yLw">
+   this from 2012 for an older version of the program</a>.
+
+   TODO: Recreate video using new verion of JProfiler, and run Scala.
+
+   ### Startup Settings #
+
 
    A terminal window is opened for the demo process and 
    the main window of JProfiler displays profiling metrics.
 
+   <amp-img alt="jprofiler_9 5 sessions defaults 650x451-97kb" width="650" height="451" src="https://cloud.githubusercontent.com/assets/14143059/19410730/a0af0598-92b0-11e6-8404-d6615f92975b.jpg"></amp-img>
+
+   PROTIP: Probes collect measurements.
+
+   ### Start and Stop GUI #
+
+0. Click OK to accept the Startup Settings.
+
+   A run is begun automatically.
+
    PROTIP: In the Terminal window opened automatically, notice "JVMTI version 1.1 detected"
    refers to the technology the JVM provides to enable JProfiler to obtain instrumentation data.
 
-0. Begin run. Programs that leak memory will show an upward trend in Thread.
+0. Click on <strong>Session Settings</strong> at the top menu:
 
-0. Click on Dynamic Memory View to sort objects by the amount each uses memory.
+   <img align="right" alt="jprofiler_9 2 app settings 855x513.png" width="650" height="390" src="https://cloud.githubusercontent.com/assets/14143059/19411151/2d86daa6-92b9-11e6-8545-5f87934e6ffc.png">
 
-0. Click the "Mark Current" button to set the baseline for differences to be displayed.
+   Notice we are launching a new JVM instance and using the JVM indicated referencing the 
+   relative CLASSPATH indicated.
 
-   Most items are generic objects such as "java.lang.Long" which use a lot of memory because
-   many objects use them.
+0. Click OK to dismiss the dialog.
 
-0. Righ-Click on a high-level object defined by a custom name
-   to select "Take Heap Snapshot for Selection".
+0. Click on <strong>Telemetries</strong> category <strong>Overview</strong>.
 
-0. Click OK to "Select recorded objects".
+0. Among processes, click on the Demo to expose the app under test.
 
-0. Click "References" at the bottom button to activate the reference graph view.
+   <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="312" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
+
+0. Check "Leak Memory" on the BezierAnim app window.
+
+   Programs that leak memory will show an upward trend in thread memory usage.
+
+   PROTIP: Many memory leaks accumulate gradually over time, 
+   so may require a long run to identify conclusively.
+
+0. Click the zoom in and out icons at the lower right corner.
+
+   Each <strong>GC Activity</strong> spike reduces the amount of Memory used (shown in blue)
+   as a portion of memory allocated (shown as the top of the green block).
+
+0. Click on <strong>Live memory</strong> category 
+   <strong>All Objects</strong> view to sort objects by the amount each uses memory.
+
+   ### Diffs in memory usage #
+
+   PROTIP: Most items are generic objects such as "java.lang.Long" which 
+   uses a lot of memory because many objects use it.
+   We want to see the objects creating additional memory usage over time.
+
+0. Click the <strong>Mark Current</strong> button at the right of the top ribbon
+   to set the baseline for differences to be displayed.
+ 
+   <a target="_blank"  title="Click for full size view on new window" href="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png">
+   <img alt="jprofiler_9 2 ribbon-1992x180-66kb" width="650" src="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png"></a>
+
+   <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="312" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
+
+0. Righ-Click on the high-level object defined by a custom name ("java.awt.geom.GeneralPath")
+   to select "Show selection in Heap Walker".
+
+   "Take Heap Snapshot for Selection".
+
+0. Click OK to the Heap Snapshot Options with "Select recorded objects".
+
+0. Click "References" to activate the reference graph view.
+
+   <a target="_blank" title="Click for full size view on new window"  href="https://cloud.githubusercontent.com/assets/14143059/19411290/11494b8c-92bc-11e6-8cd5-cc0972a26f8d.png">
+   <img alt="jprofiler_9.2 heap walker menu 1836x100-29kb.png" width="650" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411290/11494b8c-92bc-11e6-8cd5-cc0972a26f8d.png"></img>
+
+0. Select "Cumulated outgoing references".
+0. Click the gray arrows to expand items at each level.
+
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/14143059/19411338/2a5d9c6c-92bd-11e6-9c2e-65290986a35a.png">
+   <img alt="jprofiler_9 2 references-94kb" width="995" src="https://cloud.githubusercontent.com/assets/14143059/19411338/2a5d9c6c-92bd-11e6-9c2e-65290986a35a.png">
 
 0. Right-click on object to select "Show paths to GC Root".
 
 0. Click OK to see Single Root.
 
 0. Scroll horizontally to the left in the chain.
+
+   ### Biggest Objects #
+
+0. Click on "Biggest Objects" icon.
+
+0. Expand the tree by clicking gray arrows under the app "bezier.BezierAdmin"
+
+   <img width="809" alt="jprofiler_9 2 biggest objects-101kb" src="https://cloud.githubusercontent.com/assets/14143059/19411398/24d53bdc-92be-11e6-93f7-d1c3bdcaf661.png">
+
+   ### Show source code #
+
+0. Right-click to select "Use Retain Items".
+0. Check the "Classes" radio button, then OK.
+
+   <img alt="jprofiler_9 2 leakmap-351x68-14kb.jpg" width="351" height="68" src="https://cloud.githubusercontent.com/assets/14143059/19411473/b0fcaacc-92bf-11e6-8b4e-8a1aac2f2d31.jpg">
+
+0. Check the "Allocations" radio button.
+0. Select "Cumulated allocation tree".
+0. Click OK.
+0. Right-click to select "Show Source".
+
+
+
+<a href="RootCauses">
+
+## Root Causes #
+
+Memory leaks was a small part of all issues according to 
+<a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
+this report in 2015</a>
+   <amp-img alt="jvm rebelabs stats 2015 root causes 1256x890.jpg" width="650" height="461" src="https://cloud.githubusercontent.com/assets/14143059/19410921/8afbf824-92b4-11e6-8f4f-eee7e54bafbf.jpg"></amp-img>
+
+
 
 
 <a href="ChromeExt">
@@ -140,12 +235,6 @@ Although Chrome announced it is doing away with Extensions,
 JProfiler Origin Tracker Chrome Browser Extension</a>
 can still be useful.
 
-
-<a href="Docs">
-
-## Docs #
-
-TODO: Recreate video using JProfiler for Scala.
 
 
 ## Strategy #
@@ -242,6 +331,16 @@ The company behind JProfile is
 <a target="_blank" href="http://www.ej-technologies.com/company/profile.html">
 based in Munich, Germany</a>.
 
+There has been 
+<a target="_blank" href="https://twitter.com/Jprofiler/">
+no activity on the @JProfiler Twitter account</a>.
+
+There is no group on LinkedIn, Facebook, etc.
+
+JProfiler was identified as the 
+<a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
+2nd most popular profiling tool</a> (behind VisualVM)
+<a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
 
 ## More on front-end styling #
 
