@@ -42,6 +42,16 @@ This tutorial aims to enable you to identify and resolve
 
    $698 with a year of support.
 
+   Note JProfiler was identified as the 
+   <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
+   2nd most popular profiling tool</a> (behind open-source/free 
+   <a target="_blank" href="https://visualvm.github.io/download.html">
+   VisualVM</a>'s 53% market share),
+   <a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
+
+   Visual VM 1.3.9 was 13 MB, 
+   actively maintained by two developers in Prague, the Czech Republic.
+
 0. Open the installer.
 
 0. On a Mac, drag the JProfiler icon to drop on the Applications folder.
@@ -217,6 +227,17 @@ This tutorial aims to enable you to identify and resolve
 0. Click OK.
 0. Right-click to select "Show Source".
 
+   ### Save Snapshot #
+
+   PROTIP: Snapshots can be taken only while the program is running.
+
+0. Click the <strong>Take Snapshot</strong> camera icon on the ribbon.
+
+   Alternately,<br />
+   click the HPROF heap snapshot.
+
+0. Click <strong>Save Snapshot</strong>.
+
 
 
 <a href="RootCauses">
@@ -341,11 +362,6 @@ There has been
 no activity on the @JProfiler Twitter account</a>.
 
 There is no group on LinkedIn, Facebook, etc.
-
-JProfiler was identified as the 
-<a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
-2nd most popular profiling tool</a> (behind VisualVM)
-<a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
 
 ## More on front-end styling #
 
