@@ -21,8 +21,38 @@ using JProfiler and JVisualVM.
 
 {% include _intro.html %}
 
+## Market Competitors #
 
-## Install & License #
+<a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">This survey published 2015-11</a> 
+   <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
+   as pdf</a> 
+   sought to establish these market share numbers:
+
+   <amp-img alt="jvm profilers 2016-589x341-127kb.jpg" width="589" height="341" src="https://cloud.githubusercontent.com/assets/14143059/19412429/43e0db48-92d3-11e6-8826-9696450be55e.jpg"></amp-img>
+
+   <strong>VisualVM</strong> has the largest market share.
+   This is perhaps it has been
+   <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
+   bundled in the JDK</a> (as program jvisualvm) since version 6, update 7.
+   The bleeding-edge version at 
+   <a target="_blank" href="https://visualvm.github.io/download.html">
+   Visual VM GitHub</a>, 1.3.9 was 13 MB, 
+   actively maintained by two developers in Prague, the Czech Republic.
+
+   <strong>JProfiler</strong> was identified as the 2nd largest.
+
+   TODO: Comparison of capabilities between jvisualvm and jprofiler.
+
+
+## JVisualVM #
+
+VIDEO:
+<a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
+Introduction to Java Visual VM</a> from 2013.
+
+
+
+## JProfiler Install & License #
 
 0. Download from<br /><a target="_blank" href="https://www.ej-technologies.com/download/jprofiler/files">
    https://www.ej-technologies.com/download/jprofiler/files</a><br />
@@ -42,22 +72,6 @@ using JProfiler and JVisualVM.
    https://www.ej-technologies.com/buy/jprofiler/select</a>
 
    $698 with a year of support.
-
-   ### Competitors #
-
-   Note JProfiler was identified as the 
-   <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
-   2nd most popular profiling tool</a> (behind open-source/free 
-   VisualVM</a>'s 53% market share),
-   <a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
-   <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
-   It was bundled in JDK</a> (as program jvisualvm) since version 6, update 7.
-   The bleeding-edge version at 
-   <a target="_blank" href="https://visualvm.github.io/download.html">
-   Visual VM GitHub</a>, 1.3.9 was 13 MB, 
-   actively maintained by two developers in Prague, the Czech Republic.
-
-   TODO: Comparison of capabilities between jvisualvm and jprofiler.
 
    ### After download #
 
@@ -373,13 +387,6 @@ There has been
 no activity on the @JProfiler Twitter account</a>.
 
 There is no JProfiler group on LinkedIn, Facebook, etc.
-
-
-## JVisualVM #
-
-VIDEO:
-<a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
-Introduction to Java Visual VM</a> from 2013.
 
 
 ## More on front-end styling #
