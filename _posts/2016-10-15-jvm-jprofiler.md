@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "JVM JProfiler"
+title: "JVM Profilers"
 excerpt: "Avoid and resolve performance bottlenecks, memory leaks, and threading issues"
 tags: [Java, Debugging]
 image:
@@ -16,7 +16,8 @@ comments: true
 {% include _toc.html %}
 
 This tutorial aims to enable you to identify and resolve 
-<strong>problematic patterns</strong> in memory and CPU usage in Java and Scala code.
+<strong>problematic patterns</strong> in memory and CPU usage in Java and Scala code
+using JProfiler and JVisualVM.
 
 {% include _intro.html %}
 
@@ -42,18 +43,23 @@ This tutorial aims to enable you to identify and resolve
 
    $698 with a year of support.
 
+   ### Competitors #
+
    Note JProfiler was identified as the 
    <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
    2nd most popular profiling tool</a> (behind open-source/free 
-   <a target="_blank" href="https://visualvm.github.io/download.html">
    VisualVM</a>'s 53% market share),
    <a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
    It was bundled in JDK</a> (as program jvisualvm) since version 6, update 7.
-   Visual VM 1.3.9 was 13 MB, 
+   The bleeding-edge version at 
+   <a target="_blank" href="https://visualvm.github.io/download.html">
+   Visual VM GitHub</a>, 1.3.9 was 13 MB, 
    actively maintained by two developers in Prague, the Czech Republic.
 
    TODO: Comparison of capabilities between jvisualvm and jprofiler.
+
+   ### After download #
 
 0. Open the JProfiler installer.
 
@@ -349,10 +355,16 @@ Use the integration wizard to activate this by appending to the -agentpath VM pa
 ## ReTransform to Instrument Code #
 
 
+## Other Sample Programs #
+
+http://www.javamonamour.org/2014/01/how-to-demo-garbage-collection-jconsole.html
+discussed in
+https://www.youtube.com/watch?v=Bjv_9pKiALQ
+
 
 ## Social Media #
 
-The company behind JProfile is 
+The company behind JProfile, ej-technologies, is 
 <a target="_blank" href="http://www.ej-technologies.com/company/profile.html">
 based in Munich, Germany</a>.
 
@@ -360,7 +372,15 @@ There has been
 <a target="_blank" href="https://twitter.com/Jprofiler/">
 no activity on the @JProfiler Twitter account</a>.
 
-There is no group on LinkedIn, Facebook, etc.
+There is no JProfiler group on LinkedIn, Facebook, etc.
+
+
+## JVisualVM #
+
+VIDEO:
+<a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
+Introduction to Java Visual VM</a> from 2013.
+
 
 ## More on front-end styling #
 
