@@ -137,7 +137,7 @@ This tutorial aims to enable you to identify and resolve
 
 0. Among processes, click on the Demo to expose the app under test.
 
-   <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="312" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
+   <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="349" height="81" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
 
 0. Check "Leak Memory" on the BezierAnim app window.
 
@@ -163,7 +163,7 @@ This tutorial aims to enable you to identify and resolve
 0. Click the <strong>Mark Current</strong> button at the right of the top ribbon
    to set the baseline for differences to be displayed.
  
-   <a target="_blank"  title="Click for full size view on new window" href="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png">
+   <a target="_blank" title="Click for full size view on new window" href="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png">
    <img alt="jprofiler_9 2 ribbon-1992x180-66kb" width="650" src="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png"></a>
 
    <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="312" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
@@ -178,7 +178,7 @@ This tutorial aims to enable you to identify and resolve
 0. Click "References" to activate the reference graph view.
 
    <a target="_blank" title="Click for full size view on new window"  href="https://cloud.githubusercontent.com/assets/14143059/19411290/11494b8c-92bc-11e6-8cd5-cc0972a26f8d.png">
-   <img alt="jprofiler_9.2 heap walker menu 1836x100-29kb.png" width="650" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411290/11494b8c-92bc-11e6-8cd5-cc0972a26f8d.png"></img>
+   <img alt="jprofiler_9.2 heap walker menu 1836x100-29kb.png" width="650" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411290/11494b8c-92bc-11e6-8cd5-cc0972a26f8d.png"></a>
 
 0. Select "Cumulated outgoing references".
 0. Click the gray arrows to expand items at each level.
@@ -207,7 +207,12 @@ This tutorial aims to enable you to identify and resolve
 
    <img alt="jprofiler_9 2 leakmap-351x68-14kb.jpg" width="351" height="68" src="https://cloud.githubusercontent.com/assets/14143059/19411473/b0fcaacc-92bf-11e6-8b4e-8a1aac2f2d31.jpg">
 
+   BLAH: Where is this in v9.2?
+
 0. Check the "Allocations" radio button.
+
+   QUESTION: How do we know leakMap is within this class?
+
 0. Select "Cumulated allocation tree".
 0. Click OK.
 0. Right-click to select "Show Source".
