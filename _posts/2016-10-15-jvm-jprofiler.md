@@ -75,8 +75,6 @@ This tutorial aims to enable you to identify and resolve
 
 0. Check "Don't show this dialog again" and Cancel.
 
-   https://www.ej-technologies.com/products/jprofiler/java-profiler-JEE.html
-
 
    ### See Sample App Leak Memory #
 
@@ -175,8 +173,6 @@ This tutorial aims to enable you to identify and resolve
  
    <a target="_blank" title="Click for full size view on new window" href="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png">
    <img alt="jprofiler_9 2 ribbon-1992x180-66kb" width="650" src="https://cloud.githubusercontent.com/assets/14143059/19411220/8ccb20e8-92ba-11e6-9f5e-5459351ea26a.png"></a>
-
-   <amp-img alt="jprofiler_9 2 leak app-349x81-11kb.jpg" width="312" height="30" src="https://cloud.githubusercontent.com/assets/14143059/19411109/047a7b28-92b8-11e6-80dc-755037647b57.jpg"></amp-img>
 
 0. Righ-Click on the high-level object defined by a custom name ("java.awt.geom.GeneralPath")
    to select "Show selection in Heap Walker".
