@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JVM JProfiler"
-excerpt: "Avoid and resolve performance bottlenecks, pin down memory leaks, and understand threading issues"
+excerpt: "Avoid and resolve performance bottlenecks, memory leaks, and threading issues"
 tags: [Java, Debugging]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -48,11 +48,14 @@ This tutorial aims to enable you to identify and resolve
    <a target="_blank" href="https://visualvm.github.io/download.html">
    VisualVM</a>'s 53% market share),
    <a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">as of 2015-11</a>.
-
+   <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
+   It was bundled in JDK</a> (as program jvisualvm) since version 6, update 7.
    Visual VM 1.3.9 was 13 MB, 
    actively maintained by two developers in Prague, the Czech Republic.
 
-0. Open the installer.
+   TODO: Comparison of capabilities between jvisualvm and jprofiler.
+
+0. Open the JProfiler installer.
 
 0. On a Mac, drag the JProfiler icon to drop on the Applications folder.
 0. Exit the installer dialog.
