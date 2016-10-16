@@ -30,6 +30,17 @@ using JProfiler and JVisualVM.
 
    <amp-img alt="jvm profilers 2016-589x341-127kb.jpg" width="589" height="341" src="https://cloud.githubusercontent.com/assets/14143059/19412429/43e0db48-92d3-11e6-8826-9696450be55e.jpg"></amp-img>
 
+   TODO: Comparison of capabilities between jvisualvm, jprofiler, etc..
+
+   | Product | Platform | Date | File Name | MB |
+   | ------- | -------- | ----- | -------- | -: |
+   | JProfiler | Mac | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB |
+   | JVisualVM | Mac | 2016       | GitHub 1.3.9 | 13 MB |
+   | Yourkit   | Mac | 2016.02    | yjp-2016.02-b43-mac | 8.7 MB |
+
+
+## JVisualVM #
+
    <strong>VisualVM</strong> has the largest market share.
    This is perhaps it has been
    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
@@ -39,28 +50,16 @@ using JProfiler and JVisualVM.
    Visual VM GitHub</a>, 1.3.9 was 13 MB, 
    actively maintained by two developers in Prague, the Czech Republic.
 
-   <strong>JProfiler</strong> was identified as the 2nd largest.
-
-   TODO: Comparison of capabilities between jvisualvm and jprofiler.
-
-
-## JVisualVM #
-
-VIDEO:
-<a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
-Introduction to Java Visual VM</a> from 2013.
-
+   VIDEO:
+   <a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
+   Introduction to Java Visual VM</a> from 2013.
 
 
 ## JProfiler Install & License #
 
 0. Download from<br /><a target="_blank" href="https://www.ej-technologies.com/download/jprofiler/files">
    https://www.ej-technologies.com/download/jprofiler/files</a><br />
-   for your platform:
-
-   | Platform | Date | File Name | MB |
-   | -------- | ----- | -------- | -: |
-   | Mac | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB |
+   for your platform.
 
 0. PROTIP: While you wait for the download,
    identify the version of IDE you'll be using with JProfiler.
@@ -99,9 +98,10 @@ Introduction to Java Visual VM</a> from 2013.
 0. Check "Don't show this dialog again" and Cancel.
 
 
-   ### See Sample App Leak Memory #
+### See Sample App Leak Memory #
 
-   To see how JProfiler works, let's look at a program known to behave badly.
+   Just to walk through JProfiler's UI, 
+   let's look at a program provided by JProfiler to behave badly.
 
 0. Click to select the "Animated Bezier Curve demo" session which
    JProfile provides to intentionally leak memory not garbage collected:
@@ -146,11 +146,11 @@ Introduction to Java Visual VM</a> from 2013.
 
    PROTIP: Probes collect measurements.
 
-   ### Start and Stop GUI #
-
 0. Click OK to accept the Startup Settings.
 
    A run is begun automatically.
+
+   ### Start and Stop GUI #
 
    PROTIP: In the Terminal window opened automatically, notice "JVMTI version 1.1 detected"
    refers to the technology the JVM provides to enable JProfiler to obtain instrumentation data.
@@ -162,7 +162,38 @@ Introduction to Java Visual VM</a> from 2013.
    Notice we are launching a new JVM instance and using the JVM indicated referencing the 
    relative CLASSPATH indicated.
 
+   ### Session with Attach #
+
+   Alternately, blog entry <a target="_blank" href="http://www.bigendiandata.com/2016-08-16-How-to-monitor-Kafka-apps-with-jprofiler/">
+   How to monitor Kafka apps with JProfiler</a>
+   shows this setting screen for attaching a running program:
+
+   <amp-img alt="jprofiler004-bigendiandata 650x584-122kb.jpg" width="650" height="584" src="https://cloud.githubusercontent.com/assets/14143059/19413686/7aacfd96-92f1-11e6-87b0-bed7038c3c1e.jpg"></amp-img>
+
+   The app is started with this command
+
+   <pre>
+   java -cp `mapr classpath`:nyse/nyse-taq-streaming-1.0-jar-with-dependencies.jar -agentpath:/home/mapr/jprofiler9/bin/linux-x64/libjprofilerti.so=port=11002 com.example.Run consumer /user/iandow/mystream:mytopic
+   </pre>
+
+
+   ### Remote access #
+
+   It's "jpenable" which loads the profiling agent and makes it possible to connect with a remote
+   session from another computer.
+
+   PROTIP: The profiling agent and JProfiler GUI communicate
+   with each other through a socket.
+   By default, the profiling agent listens on <strong>port 8849</strong>.
+   Many networks block traffic from such a port.
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=GnBmUjPRMjs">
+   This video</a> shows how to setup a SSH Tunnel.
+
+
 0. Click OK to dismiss the dialog.
+
+   ### Watch it run #
 
 0. Click on <strong>Telemetries</strong> category <strong>Overview</strong>.
 
@@ -257,11 +288,21 @@ Introduction to Java Visual VM</a> from 2013.
 
 0. Click <strong>Save Snapshot</strong>.
 
+   
+   <a name="Offline"></a>
+
+   ### Offline #
+
+   Use the integration wizard to activate this by appending to the -agentpath VM parameter
+
+   <pre>
+   offline,config=[config file],id=[id]
+   </pre>
 
 
 <a href="RootCauses">
 
-## Root Causes #
+### Root Causes #
 
 Memory leaks was a small part of all issues according to 
 <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
@@ -273,7 +314,7 @@ this report in 2015</a>
 
 <a href="ChromeExt">
 
-## JProfiler Origin Tracker #
+### JProfiler Origin Tracker #
 
 Although Chrome announced it is doing away with Extensions,
 <a target="_blank" href="https://chrome.google.com/webstore/detail/jprofiler-origin-tracker/mnicmpklpjkhohdbcdkflhochdfnmmbm?hl=en">
@@ -282,7 +323,7 @@ can still be useful.
 
 
 
-## Strategy #
+### Strategy #
 
 <a target="_blank" href="https://www.ej-technologies.com/products/jprofiler/features.html">
 JProfiler has several "modes" it can run</a>.
@@ -336,47 +377,19 @@ Java8 virtual machine architecture</a> by Ranjith ramachandran
    use the Heap Walker.
 
 
-## Attach GUI #
-
-PROTIP: The most convenient and visual approach is to attach JProfiler to a running JVM instance.
-
-0. Bring up the Java program targeted for analysis.
-
-0. jpenable that loads the profiling agent and makes it possible to connect with a remote
-session from another computer.
-
-   PROTIP: The profiling agent and JProfiler GUI communicate
-   with each other through a socket.
-   By default, the profiling agent listens on <strong>port 8849</strong>.
-   Many networks block traffic from such a port.
-
-   <a target="_blank" href="https://www.youtube.com/watch?v=GnBmUjPRMjs">
-   This video</a> shows how to setup a SSH Tunnel.
 
 
-
-<a name="Offline"></a>
-
-## Offline #
-
-Use the integration wizard to activate this by appending to the -agentpath VM parameter
-
-   <pre>
-   offline,config=[config file],id=[id]
-   </pre>
+### ReTransform to Instrument Code #
 
 
-## ReTransform to Instrument Code #
-
-
-## Other Sample Programs #
+### Other Sample Programs #
 
 http://www.javamonamour.org/2014/01/how-to-demo-garbage-collection-jconsole.html
 discussed in
 https://www.youtube.com/watch?v=Bjv_9pKiALQ
 
 
-## Social Media #
+### JProfiler Social Media #
 
 The company behind JProfile, ej-technologies, is 
 <a target="_blank" href="http://www.ej-technologies.com/company/profile.html">
@@ -387,6 +400,19 @@ There has been
 no activity on the @JProfiler Twitter account</a>.
 
 There is no JProfiler group on LinkedIn, Facebook, etc.
+
+
+## YourKit #
+
+<a target="_blank" href="https://www.yourkit.com/">
+YourKit</a>
+from Germany
+has profilers for both JVM and .NET.
+
+0. Download from https://www.yourkit.com/java/profiler/download/
+
+0. In https://www.yourkit.com/purchase/
+   license is $649 with a year of support.
 
 
 ## More on front-end styling #
