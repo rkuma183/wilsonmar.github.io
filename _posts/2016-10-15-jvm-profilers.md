@@ -21,34 +21,35 @@ using JProfiler and JVisualVM.
 
 {% include _intro.html %}
 
-## Market Competitors #
+## Profilers in the Market #
 
-<a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">This survey published 2015-11</a> 
+<a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">One survey published 2015-11</a> 
    <a target="_blank" href="http://zeroturnaround.com/rebellabs/developer-productivity-report-2015-java-performance-survey-results/">
    as pdf</a> 
-   sought to establish these market share numbers:
+   presented these market share numbers:
 
    <amp-img alt="jvm profilers 2016-589x341-127kb.jpg" width="589" height="341" src="https://cloud.githubusercontent.com/assets/14143059/19412429/43e0db48-92d3-11e6-8826-9696450be55e.jpg"></amp-img>
 
-   TODO: Comparison of capabilities between jvisualvm, jprofiler, etc..
+   Comparison for Mac (named license with two years of support):
 
-   | Product | Platform | Date | File Name | MB |
-   | ------- | -------- | ----- | -------- | -: |
-   | JProfiler | Mac | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB |
-   | JVisualVM | Mac | 2016       | GitHub 1.3.9 | 13 MB |
-   | Yourkit   | Mac | 2016.02    | yjp-2016.02-b43-mac | 8.7 MB |
+   | Product | Date | File Name | MB | $USD |
+   | ------- | ----- | -------- | -: | ---- |
+   | JProfiler | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB | $698 |
+   | JVisualVM | 2016       | GitHub 1.3.9 | 13 MB | free |
+   | Yourkit   | 2016.02    | yjp-2016.02-b43-mac | 8.7 MB | $649 |
 
 
 ## JVisualVM #
 
    <strong>VisualVM</strong> has the largest market share.
-   This is perhaps it has been
+   perhaps it is free and has been
    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
-   bundled in the JDK</a> (as program jvisualvm) since version 6, update 7.
+   bundled in the JDK</a> since version 6, update 7.
+
    The bleeding-edge version at 
    <a target="_blank" href="https://visualvm.github.io/download.html">
-   Visual VM GitHub</a>, 1.3.9 was 13 MB, 
-   actively maintained by two developers in Prague, the Czech Republic.
+   Visual VM GitHub</a>
+   is actively maintained by two developers in Prague, the Czech Republic.
 
    VIDEO:
    <a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
@@ -400,6 +401,55 @@ There has been
 no activity on the @JProfiler Twitter account</a>.
 
 There is no JProfiler group on LinkedIn, Facebook, etc.
+
+
+## Java Mission Control #
+
+<a target="_blank" href="http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html">
+Java Mission Control</a>
+monitors the JVM real-time.
+
+Java Mission Control requires a commercial license for use in production. 
+
+JMC has an Experimental Plug-in for Eclipse.
+
+In a Terminal:
+
+0. Use the abbreviation for Java Mission Control to load it:
+
+   <tt><strong>
+   jmc
+   </strong></tt>
+
+   JMC comes bundled with the HotSpot JVM
+   since Oracle JDK 7 Update 40 (7u40).
+
+   A welcome screen titled "Mission Control 5.5" appears.
+
+   <a target="_blank" href="https://docs.oracle.com/javacomponents/jmc-5-5/jmc-user-guide/jmc.htm#JMCCI117">
+   Java Mission Control User's Guide 5.5</a>
+
+0. Optional: Click the "A" at the upper-right corner to change font size.
+
+
+0. Click the program icon
+
+   A JMX console appears.
+
+0. Open another terminal window to bring up the app under observation:
+
+   <pre>
+   java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder LoadAndDeadlock
+   </pre>
+
+   NOTE: Although Oracle has built in the recording engine into the JVM run-time, 
+   it needs to be enabled in JVM start-up switches.
+
+https://docs.oracle.com/javacomponents/index.html
+
+Oracle also provides optional tools for heap dump analysis and DTrace recording.
+
+Java SE Suite provides Deterministic GC.
 
 
 ## YourKit #

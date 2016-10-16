@@ -20,8 +20,6 @@ around installing and uninstalling the various editions and versions of NodeJs. 
 
 {% include _intro.html %}
 
-> Stuck? Contact me and I or one of my friends will help you.
-
 
 <a name="ChooseAWay"></a>
 
@@ -87,10 +85,9 @@ A VentureBeat article in 2013</a> writes
 "Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
 <a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
 And they’re apparently attempting to hijack the Node brand and community for themselves."
-
 Strongloop supports Express and LoopBack frameworks.
 <a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
-On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on API lifecycle.
+On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
 
 
 <hr />
@@ -452,7 +449,9 @@ lts/argon -> v4.5.0 (-> N/A)
    v6.4.0
    </pre>
 
-0. Install the latest version of Node.js:
+   ### Install latest version #
+
+0. <strong>Install the latest version of Node.js:<strong>
 
    <tt><strong>
    nvm install node
@@ -461,10 +460,9 @@ lts/argon -> v4.5.0 (-> N/A)
    The response:
 
    <pre>
-Downloading https://nodejs.org/dist/v6.4.0/node-v6.4.0-darwin-x64.tar.xz...
+Downloading https://nodejs.org/dist/v6.8.1/node-v6.8.1-darwin-x64.tar.xz...
 ######################################################################## 100.0%
-Now using node v6.4.0 (npm v3.10.3)
-Creating default alias: default -> node (-> v6.4.0)
+Now using node v6.8.1 (npm v3.10.8)
    </pre>
 
    Notice that there is specific version of npm to support each version of Node.
@@ -496,6 +494,8 @@ tar: Failed to set default locale
 
    ### Uninstall Node version #
 
+   Installing does not automatically uninstall previous versions.
+
 0. To uninstall a version:
 
    <tt><strong>
@@ -518,8 +518,6 @@ tar: Failed to set default locale
    nvm install v4.5.0
    </strong></tt>
 
-0. Before you <a href="#NpmPackageInstall">install some Node packages</a>,
-   note if you have issues with Node, read the following:
 
 
 <a name="VerifyNode"></a>
@@ -680,6 +678,7 @@ Instead of using an internet browser to download an installer from<br />
 
    Thus, a choice needs to be made.
 
+
 ### Does node REPL work? #
 
 0. Initialize the Node command-line:
@@ -695,7 +694,7 @@ Instead of using an internet browser to download an installer from<br />
 Node is running
    </pre>
 
-0. From inside REPL, get a list of commands:
+0. From inside REPL, get a list of commands (with a leading dot):
 
    <tt><strong>
    .help
