@@ -28,32 +28,33 @@ around installing and uninstalling the various editions and versions of NodeJs. 
 Click on one of the mutually exclusive variations of installing Node for
 additional information and instructions:
 
-* A: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
+* A: <a href="https://github.com/tj/n">N</a>
+
+   http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+
+* B: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
 
    Installing Node automatically installs NPM.
 
-* B: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
 
-* C: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
+   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
+
+* C: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+* D: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
    and run the installer manually.
 
-* D: <a href="#Download">Download latest version v6.x from NodeJs website</a>
+* E: <a href="#Download">Download latest version v6.x from NodeJs website</a>
    and run the installer manually.
 
-* E: <a href="#NjSolid">Download latest version of N|Solid</a>.
+* F: <a href="#NjSolid">Download latest version of N|Solid</a>.
    <br /><br />
 
    CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
    I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
 
 
-   <a name="WhySeparate"></a>
-
-   Why "A" is recommended is explaned here:
-
-   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
-
-   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
 
 
 
@@ -448,6 +449,13 @@ lts/argon -> v4.5.0 (-> N/A)
    <pre>
    v6.4.0
    </pre>
+
+   ### Clear NPM Cache
+
+   <tt><strong>
+   sudo npm cache clean -f
+   </strong></tt>
+   
 
    ### Install latest version #
 

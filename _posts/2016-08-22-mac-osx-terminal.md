@@ -441,6 +441,14 @@ to show and hide Mac OS X’s hidden files, consider
 <a target="_blank" rel="amphtml" href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">
 this article</a> to create such terminal aliases.
 
+An example is an alias for the tree command by adding
+this in the ~/.bash_profile script:
+
+   <pre>
+   alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+   </pre>
+
+Alternately:
 
 ### Brew install tree #
 
@@ -1293,6 +1301,7 @@ Apple Certified Support Professional (ACSP)
 ## Daemons and Agents #
 
 * https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+
 
 ## Resources:
 

@@ -801,6 +801,18 @@ Finished processing dependencies for pip
 
 
 
+<a id="iPython"></a>
+
+## iPython #
+
+<a target="_blank" href="https://ipython.org">
+iPython</a> is the kernel of Jupyter.
+
+   <tt><strong>
+   pip install ipython
+   </strong></tt>
+
+
 <a id="VirtualPyEnvz"></a>
 
 ## Virtual Python environments #
@@ -1139,7 +1151,7 @@ User data for Vagrant is filed in the directory from which vagrant was used and 
 <a target="_blank" href="http://youshoulddoityourself.blogspot.com/2010/11/test.html">
 This advice from 2010</a>.
 
-Where you are picking up Python from?
+0. Find where you are picking up Python from?
 
    <tt><strong>
    type python
@@ -1344,6 +1356,21 @@ and should not be removed because some Apple system software have hard-coded ref
    <pre>
    ~/.bash_login, ~/.bash_profile, ~/.cshrc, ~/.profile, ~/.tcshrc, and/or ~/.zprofile
    </pre> 
+
+
+## PIP Dependencies #
+
+0. In a Terminal on any folder, globally install dependencies libraries:
+
+   <tt><strong>
+   pip install -U scikit-learn
+   </strong></tt>
+
+0. Edit the Python script to add at the top:
+
+   <pre>
+   from sklearn import tree
+   </pre>
 
 
 ## Miscellaneous #

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "IoT reminder light prevents dead mobile battery"
-excerpt: "The annoying mobile-IoT-cloud mash-up I actually need"
+title: "IoT reminders prevent dead mobile battery"
+excerpt: "The annoying mobile-IoT-cloud mash-up we actually need"
 tags: [Clouds, IoT]
 image:
-# pic silver robot white skin handshake 1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+#bow green reminder 1900x500-318kb
+  feature: https://cloud.githubusercontent.com/assets/14143059/19455432/3bc1c67c-947a-11e6-9dcf-3e7fd9a65be9.jpg
   credit: 
   creditlink: 
 comments: true
@@ -16,60 +16,146 @@ comments: true
 
 {% include _toc.html %}
 
-Mobile phone owners need to buy this package because it's a <strong>hassle</strong>
-to start your day with a dead device.
-This is especially needed by owners of iPhones, iPads, and other devices which
-do not have replaceable batteries like most Samsung Android phones.
+## Our annoyance/problem #
 
-This design ensures I don't go to sleep while 
+<!--<amp-img alt="iphone dead battery 451x232-36kb.jpg" width="451" height="232" src="https://cloud.githubusercontent.com/assets/14143059/19445403/527cf5d6-9451-11e6-845b-aa54d21f20df.jpg"></amp-img>
+-->
+
+It's a <strong>hassle</strong> to start your day with a dead battery.
+
+<amp-youtube
+    data-videoid="mGENRKrdoGY"
+    layout="responsive"
+    width="480" height="270"></amp-youtube>
+    <br /><br />
+
+
+<!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
+-->
+
+This is especially relevant to owners of iPhones, iPads, and other devices which
+do not have replaceable batteries.
+
+But even though many Samsung and other Android phones batteries are replaceable,
+some of us still need help remembering to plug them in to charge.
+
+
+## Solution #
+
+This project provides several ways to be <strong>reminded</strong> 
+so that we don't go to sleep while 
 battery-dependent devices are left to drain overnight.
 
-Here's the scenario:
+Although this is classified among "Health and Medicine" offerings,
+we can image other situations which can benefit from a physical reminder system
+to ensure that important tasks get done every night.
 
-0. An <a href="#AndroidApp">Android app</a> (running in the background) 
-   continuously monitors battery condition, 
+## Personas #
+
+Because this can be adapted to solve a problem encountered by many,
+we want the widest possible adoption.
+
+Thus, the target persona are those who do not have much technical experience.
+
+The challenge of this project is to make the whole system easy to install and operate
+-- ideally a plug-and-play install.
+
+However, user-specific security settings (such as generating certificates) may require
+expertise from a <strong>technical installer</strong> 
+from a local Best Buy store Geek Squad or cable installer
+who can travel to homes for installation.
+
+
+## Scenario #
+
+<amp-img alt="iot-reminders_v01-650x279-125kb.jpg" width="650" height="279" src="https://cloud.githubusercontent.com/assets/14143059/19448610/cdcb8794-945f-11e6-8c98-667fda7d0a82.jpg"></amp-img>
+<br /><br />
+
+0. An iOS app created on a Mac using the XCode IDE 
+   is placed in the Apple Store
+   and downloaded onto an individual user's iPhone or iPad.
+
+0. An <a href="#AndroidApp">app</a> created using Android Studio 
+   is placed in the Google Play Store
+   and downloaded onto an individual user's Samsung smartphone.
+
+0. Optionally, the Android app is placed in the Amazon App store 
+   and downloaded.
+
+0. The app runs in the background to occassionally monitor battery condition, 
    and whether the battery is plugged in for charging.
 
-   These conditions are sent to the Cloud
-   on a schedule set in the app's Preferences.
+0. Optionally, the <strong>GPS location</strong> of the device is also sent, if available
+   so that actions are more appropriate.
 
-   Optionally, the GPS location of the device is also sent, if available.
+0. Device conditions are sent to a Cloud metric receiver
+   on a <strong>schedule</strong> set in the app's Preferences.
 
-0. A long-running program occassionally polls the Cloud for information from devices.
+0. Additional metrics may also be sent into that same cloud.
+
+0. A long-running <strong>polling</strong> program on a <strong>local machine</strong>
+   (or gateway) occassionally 
+   extracts device data from the Cloud
+   and stores the data in a database for analysis of <strong>trends</strong> over time.
 
    This is necessary because currently the ARTIK Cloud
    doesn't push information,
    it only receives and stores information.
 
-0. A long-running <a href="#Rules">complex set of rules (below)</a> 
-   running on an app server determines when actions need to be triggered.
+   The program also manages the archival and deletion of data to keep within storage limits.
 
-   For example, determine battery life is steadily declining.
-   Recognize the usual pattern.
+   The protocol used may be HTTP or XMPP for more secure communications.
 
-0. The color and pattern of lighting is set in a 
-   GUI offered by the app server.
+0. Trends are calculated by an <strong>analysis</strong> program.
 
-0. When appropriate, a signal is sent to 
+0. A long-running <strong>alerting</strong> program 
+   determines when actions</strong> need to be triggered, based on a
+   <a href="#Rules">set of logical rules</a>.
+
+   For example, the program determines whether the battery is steadily declining
+   or is being charged.
+
+0. Individual preferences for being alerted, such as the color and pattern of lighting,
+   are set in a 
+   <strong>dispatch</strong> program GUI.
+
+0. The Dispatch program
+   listens for triggers from the alerting program.
+
+0. When conditions and preferences allow,
+   the Dispatcher sends a signal to 
    a <strong>smart bulb</strong> 
-   which shines in the bedroom.
+   to light up.
 
-   So this is appropriate for the deaf and hard of hearing.
-
-0. Press a <strong>Flic</strong> button to control the alerts:
-
-   * One press to remind me again in 10 minutes (a kind of snooze button)
-   * Two presses to call the phone (so I can find it)
-   * Long hold to ignore (let the battery drain)
-   <br /><br />
+0. Alternately, a recorded sound, recorded speech, or 
+   text-to-speech artificial voice
+   may also be emitted.
 
 0. If a response is not received within a set time,
-   an annoying <strong>alarm</strong> sounds in the home.
+   an annoying <strong>alarm</strong> could sound.
 
-   Thus, the Flic button controls both the light and the alarm.
+   This escalation can be customized in the Dispatcher GUI.
+
+0. Since the condition of the device continues to be monitored, simply
+   plugging the device in for charging would stop repeats of alerting.
+
+0. Optionally, press a <strong>Flic</strong>, Amazon Dash, or other 
+   button to signal the Dispatcher program to alter alerting:
+
+   * One press to remind me again in 10 minutes (a kind of snooze button)
+   * Two presses to call the phone (so I can find it), or a
+   * Long press and hold to ignore (let the battery drain)
+   <br /><br />
+
+   Thus, a button can control the lights, the speakers, and the alarm.
+
+Recap:
+
+   <amp-img alt="iot-reminders_v01-650x279-125kb.jpg" width="650" height="279" src="https://cloud.githubusercontent.com/assets/14143059/19448610/cdcb8794-945f-11e6-8c98-667fda7d0a82.jpg"></amp-img>
+   <br /><br />
 
 > If you want this for yourself, 
-let me know and I'll come to set it up in your house.
+let me know and I'll get one to your home or office.
 
 
 ### Use Case Extensions #

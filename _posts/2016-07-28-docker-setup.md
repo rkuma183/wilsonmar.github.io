@@ -80,17 +80,18 @@ Docker was originally created for different flavors of Linux
    and that’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
    Boot2Docker</a>.
 
-0. Click 
+0. Get to downloads folder for Mac at:<br />
    <a target="_blank" href="https://docs.docker.com/docker-for-mac/">
-   here</a> to download Docker for Mac.
+   https://docs.docker.com/docker-for-mac/</a>
 
-   The most recent version of Virtualbox is 5.1.2, so can be left installed.
+   At time of writing was Virtualbox version 5.1.2, so can be left installed.
    NOTE: 
    <a target="_blank" href="https://docs.docker.com/engine/installation/mac/#/docker-for-mac">
    Docs here</a> 
    says VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). 
 
-   Alternately, install https://www.docker.com/products/docker-toolbox
+   Alternately, install <a target="_blank" href="https://www.docker.com/products/docker-toolbox">
+   https://www.docker.com/products/docker-toolbox</a>
    if you have an old edition of Mac
    running OS X 10.8 “Mountain Lion” or later.
 
@@ -102,6 +103,7 @@ Docker was originally created for different flavors of Linux
    | ------------- | ----------------- | -------: | -------: | 
    | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
    | July 19, 2016 | Docker.dmg | 114.0 MB | 225.1 MB |
+   | July 19, 2016 | Docker.dmg | 107.0 MB | 225.1 MB |
 
 0. Double-click on Docker.dmg to open it.
 0. Drag and drop to the Applications folder.
@@ -198,6 +200,26 @@ CAUTION: A 64-bit machine is necessary.
    docker-compose version 1.8.0, build d988a55
    docker-machine version 0.8.0, build b85aac1
    </pre>
+
+<a name="Docker4Alpine"></a>
+
+### Alpine Base #
+
+The Alpine Linux distribution (distro) is small that it has an edition for the Raspberry Pi.
+
+0. At <a target="_blank" href="https://alpinelinux.org/">
+   https://alpinelinux.org</a>
+
+0. Click the iso file:
+
+   | File Date  | Download          | Type  | Size MB |
+   | ---------- | ----------------: | ----- | -------: |
+   | 2016-09-28 | alpine-virt-3.4.4-x86_64.iso | Virtual | 39 MB |
+   | 2016-09-28 | alpine-3.4.4-x86_64.iso | Standard | 85 MB |
+   | 2016-09-28 | alpine-extended-3.4.4-x86_64.iso | Extended | 311 MB |
+
+0. Verify a hash (SHA) from the website.
+0. Use a utility that can read .iso files.
 
 
 <a name="Docker4Centos"></a>

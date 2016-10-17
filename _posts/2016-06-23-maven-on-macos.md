@@ -192,14 +192,16 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
 
    Maven allows use of a central maven repository.
 
-   With Maven, after downloading a project, to build, run:
+   The <strong>pom.xml</strong> (Project Object Model)
+   file describes project dependencies which Maven resolves by downloading them.
+
+0. The vast majority of Maven-built projects can be built with this command:
 
    <tt><strong>
-   mvn install
+   mvn clean install
    </strong></tt>
 
-   Maven looks at <strong>pom.xml</strong> (Project Object Model)
-   files that describes project dependencies.
+   The "clean" cleans out results from the prior build before starting with install.
 
    Maven enforces a standard naming convention for artifacts defined using
    groupId, artifactId, and version.

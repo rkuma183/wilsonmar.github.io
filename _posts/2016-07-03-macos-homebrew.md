@@ -42,9 +42,12 @@ Homebrew is the newest and most popular package utility on OSX.
 Its web page is at <a target="_blank" href="http://brew.sh/">
 http://brew.sh</a>
 
-Alternatives Homebrew replaces:
+Alternatives to Homebrew:
 
    * https://www.macports.org/ 
+
+   sudo port install tree
+
    * http://www.finkproject.org/
 
 <hr />
