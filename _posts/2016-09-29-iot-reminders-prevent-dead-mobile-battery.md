@@ -23,11 +23,8 @@ comments: true
 
 It's a <strong>hassle</strong> to start your day with a dead battery.
 
-<amp-youtube
-    data-videoid="mGENRKrdoGY"
-    layout="responsive"
-    width="480" height="270"></amp-youtube>
-    <br /><br />
+<amp-youtube data-videoid="RQ5Qer38E3o" layout="responsive" width="480" height="270"></amp-youtube>
+<br /><br />
 
 
 <!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
