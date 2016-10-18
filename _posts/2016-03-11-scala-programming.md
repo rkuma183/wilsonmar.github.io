@@ -353,3 +353,5 @@ https://www.youtube.com/playlist?list=PLsnl23XQgokHh5u2C4dbegMJdqfzY8K9k
 
 The QR code is provided of the link is provided here in case you prefer to watch videos on your smartphone. 
 
+https://www.toptal.com/scala/why-should-i-learn-scala
+

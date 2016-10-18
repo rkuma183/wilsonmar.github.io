@@ -464,6 +464,13 @@ has profilers for both JVM and .NET.
 0. In https://www.yourkit.com/purchase/
    license is $649 with a year of support.
 
+## Tapiki #
+
+<a target="_blank" href="http://www.takipi.com/">
+Takipi</a> is focused on Scala performance tuning.
+It is the only tool I know of that shows numbers associated with Scala code.
+It's free up to 2 servers for Scala.
+
 
 ## More on front-end styling #
 
