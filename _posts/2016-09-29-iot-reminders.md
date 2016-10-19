@@ -23,7 +23,7 @@ comments: true
 
 It's a <strong>hassle</strong> to start your day with a dead battery.
 
-<amp-youtube data-videoid="RQ5Qer38E3o" layout="responsive" width="480" height="270"></amp-youtube>
+<amp-youtube data-videoid="ZTrvnrpoEFg" layout="responsive" width="480" height="270"></amp-youtube>
 
 <!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
 -->
@@ -84,7 +84,7 @@ let me know and I'll come to set it up in your office.
 
 Let's now look at the elements of the cloud offering:
 
-<amp-img alt="iot-reminders-cloud-v02-650x375-100kb.jpg" width="650" height="375" src="https://cloud.githubusercontent.com/assets/14143059/19495386/64d1af7a-9540-11e6-9c18-2a3a32778e2d.jpg"></amp-img>
+<amp-img alt="iot-reminders-cloud-v02-650x374-97kb.jpg" width="650" height="374" src="https://cloud.githubusercontent.com/assets/14143059/19534776/71700444-9602-11e6-9db0-9ea7390288ec.jpg"></amp-img>
 
 
 0. Our iOS app is downloaded and installed from the Apple Store
@@ -157,7 +157,8 @@ Let's now look at the elements of the cloud offering:
 
    ### Locally run server #
 
-   <amp-img alt="iot-reminders-local-v02-650x371-131kb.jpg" width="650" height="371" src="https://cloud.githubusercontent.com/assets/14143059/19495395/6810d8e6-9540-11e6-8587-d7c604d9e575.jpg"></amp-img>
+   <amp-img alt="iot-reminder-local-v02-650x374-144kb.jpg" width="650" height="374" src="https://cloud.githubusercontent.com/assets/14143059/19534794/81d1a4e6-9602-11e6-8024-c18dc99e8920.jpg"></amp-img>
+
 
 0. Instead of running on a public cloud, there is an edition of our software that runs on a 
    <strong>local machine</strong> in your home or office.

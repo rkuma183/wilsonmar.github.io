@@ -219,12 +219,12 @@ Below are various initiatives by MS (Microsoft) and other organizations:
   </td><td><a href="#x"> OpenCV Library</a>
   </td><td><a href="#y"> Y</a>
   </td></tr>
-<tr valign="top"><td rowspan="1"><a href="#Voice">Voice</a>
+<tr valign="top"><td rowspan="1"><a href="#VoiceRecognition">Voice</a>
   </td><td><a href="#x"> Text to Speech</a>
   </td><td><a href="#y"> Cortana</a>
   </td></tr>
 <tr valign="top"><td rowspan="1"><a href="#Translation">Translation</a>
-  </td><td><a href="#x"> Text to Speech</a>
+  </td><td><a href="#x"> Language Translation</a>
   </td><td><a href="#y"> Cortana</a>
   </td></tr>
 </tbody></table> 
@@ -276,10 +276,16 @@ from Microsoft Azure
 
    Some of these make use of <strong>OpenCV</strong> (CV = Computer Vision).
 
+
+<a name="VoiceRecognition"></a>
+
 ## Voice Recognition
 
    * <a target="_blank" href="https://cloud.google.com/speech/">
    Google Cloud Speech API</a>, which powers Google’s own voice search and voice-enabled apps. 
+
+   * <a target="_blank" href="http://www.techrepublic.com/article/microsofts-ai-can-now-understand-speech-better-than-humans/">
+   Microsoft says its Cortana is as accurate as human transcriptionists</a>
 
 ## Speech to Text
 

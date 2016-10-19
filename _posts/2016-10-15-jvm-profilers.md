@@ -403,26 +403,27 @@ no activity on the @JProfiler Twitter account</a>.
 There is no JProfiler group on LinkedIn, Facebook, etc.
 
 
-## Java Mission Control #
+<a name="JavaMissionControl"></a>
+
+## JMC (Java Mission Control) #
 
 <a target="_blank" href="http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html">
 Java Mission Control</a>
-monitors the JVM real-time.
+monitors the JVM in real-time.
 
 Java Mission Control requires a commercial license for use in production. 
 
 JMC has an Experimental Plug-in for Eclipse.
 
-In a Terminal:
+   PROTIP: JMC comes bundled with the HotSpot JVM
+   since Oracle JDK 7 Update 40 (7u40).
+   So in a Terminal:
 
 0. Use the abbreviation for Java Mission Control to load it:
 
    <tt><strong>
    jmc
    </strong></tt>
-
-   JMC comes bundled with the HotSpot JVM
-   since Oracle JDK 7 Update 40 (7u40).
 
    A welcome screen titled "Mission Control 5.5" appears.
 
@@ -472,8 +473,8 @@ It is the only tool I know of that shows numbers associated with Scala code.
 It's free up to 2 servers for Scala.
 
 
-## More on front-end styling #
+## What to Look For #
 
-This is one of several topics:
+https://shipilev.net/blog/2016/close-encounters-of-jmm-kind/
 
-{% include front-end_links.html %}
+
