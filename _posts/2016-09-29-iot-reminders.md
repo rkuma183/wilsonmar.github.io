@@ -196,11 +196,6 @@ Let's now look at the elements of the cloud offering:
    <a href="#Dispatch">Dispatch program</a>
    listening for trigger requests.
 
-Recap:
-
-   <amp-img alt="iot-reminders_v01-650x279-125kb.jpg" width="650" height="279" src="https://cloud.githubusercontent.com/assets/14143059/19448610/cdcb8794-945f-11e6-8c98-667fda7d0a82.jpg"></amp-img>
-   <br /><br />
-
 > If you want this for yourself, 
 let me know and I'll get one to your home or office.
 
