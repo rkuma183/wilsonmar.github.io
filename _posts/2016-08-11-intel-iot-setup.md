@@ -1520,6 +1520,11 @@ and without relying on the bootloader in the processor.
 
 https://app.pluralsight.com/library/courses/nodejs-internet-of-things-intel-edison/table-of-contents
 
+https://www.youtube.com/watch?v=nUrxSjyhodU&t=3s
+Intel IoT Grove Starter Kit Part 1
+
+https://www.youtube.com/watch?v=mTR3EDKVp9w
+Intel Edison Shell Access from Mac
 
 ## More on IoT #
 

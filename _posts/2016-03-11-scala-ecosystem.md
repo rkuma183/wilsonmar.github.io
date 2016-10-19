@@ -66,6 +66,7 @@ It doesn't ever mention the word "Scala" at all.
 ## What Is Scala?
 
 The name Scala is a portmanteau of "scalable" and "language".
+Thus, the emphasis on stateless and non-blocking features in the language.
 
 The official repository is at 
 <a target="_blank" href="https://github.com/scala/scala">
@@ -105,8 +106,12 @@ Basics of the Scala language is presented during hands-on activities to set it u
 
 ## Installation
 
-PROTIP: On a Mac, use Homebrew instead of downloading from 
-http://scala-lang.org/download (as many tutorials suggest).
+0. Identify the latest version<br />
+   <a target="_blank" href="http://www.scala-lang.org/download/">
+   http://www.scala-lang.org/download</a>
+
+   PROTIP: On a Mac, use Homebrew instead of downloading from 
+   http://scala-lang.org/download (as many tutorials suggest).
 
    ```
    brew install scala --with-docs
@@ -118,7 +123,7 @@ http://scala-lang.org/download (as many tutorials suggest).
    /usr/local/Cellar/scala/...
    ```
 
-   Alternately, on Ubunto:
+   Alternately, on Ubunto Linux:
 
    ```
    sudo apt-get install scala
@@ -196,7 +201,7 @@ Scala's interactive shell
    :help
    ```
 
-NOTE: The colon precedes commands.
+   REMEMBER: The colon precedes commands.
 
 0. Clear the screen using REPL :keybindings on the keyboard.
 On a Mac, press control + L. On Windows press Ctrl + L.

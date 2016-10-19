@@ -355,3 +355,23 @@ The QR code is provided of the link is provided here in case you prefer to watch
 
 https://www.toptal.com/scala/why-should-i-learn-scala
 
+## Learning Resources #
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/scala-getting-started">
+Scala: Getting Started</a>
+by Justin Pihony
+(<a target="_blank" href="https://twitter.com/JustinPhihony">@JustinPhihony</a>
+<a target="_blank" href="http://justin-pihony.blogspot.com/">
+http://justin-pihony.blogspot.com</a>)
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/scala-for-java-developers/table-of-contents">
+Scala for Java Developers</a>
+by Toby Weston (@jamanifin  baddotrobot.com)
+on imperative Java
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/play-2-scala">
+Play! 2 for Scala</a>
+by James Hughes 
+james@yobriefca.se
+
+
