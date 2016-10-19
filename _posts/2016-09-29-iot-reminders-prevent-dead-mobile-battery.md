@@ -41,35 +41,37 @@ This project provides several ways to be <strong>reminded</strong>
 so that we don't go to sleep while 
 battery-dependent devices are left to drain overnight.
 
-Another use is reminders for taking pills.
+This design is classified among "Health and Medicine" offerings
+because it can also be applied to remind people to take pills before going to bed.
 
-Although this is classified among "Health and Medicine" offerings,
-we can image other situations which can benefit from a 
+But we can image other situations which can benefit from a generalized
 <strong>physical reminder</strong> system
 to ensure that important tasks get done every night.
 
-The more general solution is called a 
-<a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
-Dead man's snitch</a>.
-
-This can be useful especially in a <strong>team environment</strong>
-where each person may think it's another person's responsibility.
-
 Anything that absolutely positively must be done each night.
 
+This solution can also be useful in a <strong>team environment</strong>
+where each person may think it's another person's responsibility.
+
+   NOTE: The more general solution is called a 
+   <a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
+   Dead man's snitch</a>, 
+   as in "a copy of this will be released to the press if my people don't hear back from me the end of this hour".
+
+That's why the initial offering is run completely in a 
+<strong>public cloud</strong>, which also makes it simple to setup and use.
+
+Those who want a more secure solution would adopt the on-premises edition of this solution.
 
 
 ## Personas #
 
-Because this can be adapted to solve a problem encountered by many,
-we want the widest possible adoption.
+Thus we have two types of end-users.
 
-Thus, the target persona are those who do not have much technical experience.
+One set who are willing to forgo some security for convenience and
+another set who are willing to take the time to setup a secure environment.
 
-The challenge of this project is to make the whole system easy to install and operate
--- ideally a plug-and-play install.
-
-However, user-specific security settings (such as generating certificates) may require
+User-specific security settings (such as generating certificates) may require
 expertise from a <strong>technical installer</strong> 
 from a local Best Buy store Geek Squad or cable installer
 who can travel to homes for installation.
@@ -80,30 +82,32 @@ let me know and I'll come to set it up in your office.
 
 ## Scenario story #
 
+Let's now look at the elements of the cloud offering:
+
 <amp-img alt="iot-reminders-cloud-v02-650x375-100kb.jpg" width="650" height="375" src="https://cloud.githubusercontent.com/assets/14143059/19495386/64d1af7a-9540-11e6-9c18-2a3a32778e2d.jpg"></amp-img>
 
 
 0. Our iOS app is downloaded and installed from the Apple Store
    onto each individual user's iPhone or iPad.
 
-0. Our <a href="#AndroidApp">Android app</a> is downloaded and installed from the Google Play Store
-   onto each individual user's Samsung smartphone or tablet.
+0. From the Google Play Store each user downloads and installs 
+   our <a href="#AndroidApp">Android app</a>.
 
-0. The app on mobile device run in the background to obtain battery conditions
-   which the app sends to a Cloud metric receiver
-   on a <strong>schedule</strong> set in the app's Preferences.
+0. The app on a mobile device runs in the background to obtain battery conditions
+   which the app sends to a <strong>data collector</strong>
+   based on a <strong>schedule</strong> set in the app's Preferences.
 
-0. Optionally, the <strong>GPS location</strong> of the device, if available
-   is also sent so that actions are more appropriate.
+0. Optionally, the <strong>GPS location</strong> of the device, if available,
+   can also be sent.
 
-0. Additional metrics and alerts from other systems
+0. Additional metrics from other sensors and alerts from other systems
    may also be sent into that same receiver,
    such as predictions of bad weather or
    freezers not having power anymore.
 
 0. When conditions and preferences allow,
-   a <strong>Dispatch program</strong> 
-   send out a signal to IoT devices it can communicate with.
+   the <strong>Dispatch program</strong> 
+   sends out a signal to IoT devices it can communicate with.
 
 0. Notification can start with a <a href="#TextMessage">text message</a> 
    to the phone,
@@ -114,25 +118,26 @@ let me know and I'll come to set it up in your office.
    so that's one reason people wear a smart watch.
    But that can run out of battery as well.
 
-0. After a certain amount of time, the Dispatcher may 
+0. So the Dispatcher may 
    <strong>call the phone</strong> with a recorded message.
-
-0. If that doesn't get attention, a <strong>smart bulb</strong> 
-   can be lit up with a color and pattern of lighting set by the owner.
-
-0. Individual preferences for being alerted, 
-   and the <a href="#escalation">sequence of escalation</a> preferred,
-   are set in a 
-   <strong>dispatch</strong> program GUI.
-
-   For example, those hard of hearing may prefer lights.
 
 0. Alternately, a recorded sound, recorded speech, or 
    text-to-speech artificial voice
-   may also be emitted.
+   may also be emitted from a speaker device.
 
 0. If a response is not received within a set time,
    an annoying <strong>alarm</strong> could sound.
+
+0. Individual preferences for being alerted, 
+   and the <a href="#escalation">sequence of escalation</a> preferred,
+   are set in the
+   <strong>dispatch</strong> GUI.
+
+0. For example, those hard of hearing may prefer that
+   a <strong>smart bulb</strong> 
+   be lit up with a color and pattern of lighting set by the owner.
+
+   This owner control of notifications is what provides great value from this solution.
 
 0. Additional actuators can be added, such as 
    <a href="#Vibrators">vibrating devices</a>. 
@@ -165,8 +170,8 @@ let me know and I'll come to set it up in your office.
 
 0. A long-running <strong>polling</strong> program 
    (or gateway) occassionally 
-   extracts device data from the Cloud
-   and stores the data in a database for analysis of <strong>trends</strong> over time.
+   extracts device data collected
+   and stores it in a database for analysis of <strong>trends</strong> over time.
 
    <!-- 
    This is necessary because currently the ARTIK Cloud
@@ -174,7 +179,7 @@ let me know and I'll come to set it up in your office.
    it only receives and stores information.
    -->
 
-   The program also manages the <strong>archival and deletion</strong> 
+   The polling program also manages the <strong>archival and deletion</strong> 
    of data to stay within storage limits and thus costs.
 
 0. Trends are calculated and displayed by an 
