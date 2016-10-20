@@ -23,7 +23,7 @@ comments: true
 
 It's a <strong>hassle</strong> to start your day with a dead battery.
 
-<amp-youtube data-videoid="ZTrvnrpoEFg" layout="responsive" width="480" height="270"></amp-youtube>
+<amp-youtube data-videoid="slihEd_Y86I" layout="responsive" width="480" height="270"></amp-youtube>
 
 <!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
 -->
@@ -41,51 +41,31 @@ This project provides several ways to be <strong>reminded</strong>
 so that we don't go to sleep while 
 battery-dependent devices are left to drain overnight.
 
-This design is classified among "Health and Medicine" offerings
-because it can also be applied to remind people to take pills before going to bed.
-
-But we can image other situations which can benefit from a generalized
-<strong>physical reminder</strong> system
-to ensure that important tasks get done every night.
-
-Anything that absolutely positively must be done each night.
-
-This solution can also be useful in a <strong>team environment</strong>
-where each person may think it's another person's responsibility.
-
-   NOTE: The more general solution is called a 
-   <a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
-   Dead man's snitch</a>, 
-   as in "a copy of this will be released to the press if my people don't hear back from me the end of this hour".
-
-That's why the initial offering is run completely in a 
-<strong>public cloud</strong>, which also makes it simple to setup and use.
-
-Those who want a more secure solution would adopt the on-premises edition of this solution.
-
-
 ## Personas #
 
-Thus we have two types of end-users.
+We designed our solution for people who don't have a lot of technical experience.
 
-One set who are willing to forgo some security for convenience and
-another set who are willing to take the time to setup a secure environment.
+So we made it easy to setup and use even though
+we use advanced security techniques 
+(XMPP and SPARQL with PKI security certificates).
 
-User-specific security settings (such as generating certificates) may require
-expertise from a <strong>technical installer</strong> 
-from a local Best Buy store Geek Squad or cable installer
-who can travel to homes for installation.
+With our package, you don't need to have your laptop running all the time.
+
+Nevertheless, we can arrange
+for local <strong>technical experts</strong> 
+to travel to you for installation.
 
 > If you want one for your team or company,
 let me know and I'll come to set it up in your office.
 
 
+
+
 ## Scenario story #
 
-Let's now look at the elements of the cloud offering:
+Let's now look at elements of the cloud offering:
 
-<amp-img alt="iot-reminders-cloud-v02-650x374-97kb.jpg" width="650" height="374" src="https://cloud.githubusercontent.com/assets/14143059/19534776/71700444-9602-11e6-9db0-9ea7390288ec.jpg"></amp-img>
-
+<amp-img alt="iot-reminders-basics-v03-650x326-91kb.jpg" width="650" height="326" src="https://cloud.githubusercontent.com/assets/14143059/19570625/0f236aea-96b8-11e6-8143-a8e797b32b00.jpg"></amp-img>
 
 0. Our iOS app is downloaded and installed from the Apple Store
    onto each individual user's iPhone or iPad.
@@ -93,17 +73,29 @@ Let's now look at the elements of the cloud offering:
 0. From the Google Play Store each user downloads and installs 
    our <a href="#AndroidApp">Android app</a>.
 
-0. The app on a mobile device runs in the background to obtain battery conditions
-   which the app sends to a <strong>data collector</strong>
+0. On either platform, the app runs in the background to obtain battery conditions
    based on a <strong>schedule</strong> set in the app's Preferences.
 
-0. Optionally, the <strong>GPS location</strong> of the device, if available,
-   can also be sent.
+0. The app sends its
+   <a href="#BatteryMetrics">measurements</a> to a
+   <strong>cloud server</strong> in one of several locations around the world.
 
-0. Additional metrics from other sensors and alerts from other systems
-   may also be sent into that same receiver,
-   such as predictions of bad weather or
-   freezers not having power anymore.
+0. We send you a <a href="#SentryBox">Sentry box</a> because unlike a laptop or mobile phone,
+   you leave it plugged in a power outlet and it never goes to sleep.
+   
+0. The first time you plug it in,
+   you give it your network password and 
+   it downloads the latest software for itself.
+
+0. Just like a Roku box, you register your device on our website
+   to establish a secure encrypted connection between the cloud and your Sentry box.
+
+0. The Sentry box has its own web server to provide you a 
+   <strong>web page GUI</strong> to set preferences
+   for each device it communicates with.
+
+0. In the Sentry box, what we call <strong>receiver</strong> software 
+   periodically retrieves data from the cloud.
 
 0. When conditions and preferences allow,
    the <strong>Dispatch program</strong> 
@@ -131,18 +123,19 @@ Let's now look at the elements of the cloud offering:
 0. Individual preferences for being alerted, 
    and the <a href="#escalation">sequence of escalation</a> preferred,
    are set in the
-   <strong>dispatch</strong> GUI.
+   <strong>dispatch</strong> web page.
 
 0. For example, those hard of hearing may prefer that
    a <strong>smart bulb</strong> 
    be lit up with a color and pattern of lighting set by the owner.
 
-   This owner control of notifications is what provides great value from this solution.
+   This owner personal control of notifications is what provides great value from this solution.
 
 0. Additional actuators can be added, such as 
    <a href="#Vibrators">vibrating devices</a>. 
 
-0. Since the condition of the device continues to be monitored, simply
+0. Since the condition of the mobile device continues to be monitored, 
+   simply
    plugging the device in for charging would stop repeats of alerting.
 
 0. Optionally, press a <strong>Flic</strong>, Amazon Dash, or other 
@@ -155,33 +148,22 @@ Let's now look at the elements of the cloud offering:
 
    Thus, a button can control the lights, the speakers, and the alarm.
 
-   ### Locally run server #
+   ### Inside the Sentry box #
 
-   <amp-img alt="iot-reminder-local-v02-650x374-144kb.jpg" width="650" height="374" src="https://cloud.githubusercontent.com/assets/14143059/19534794/81d1a4e6-9602-11e6-8024-c18dc99e8920.jpg"></amp-img>
+   <amp-img alt="iot-reminders-ext-v03-650x325-120kb.jpg" width="650" height="325" src="https://cloud.githubusercontent.com/assets/14143059/19570634/13f11e5a-96b8-11e6-90b3-38a94fe53a26.jpg"></amp-img>
 
+   >>>
 
-0. Instead of running on a public cloud, there is an edition of our software that runs on a 
-   <strong>local machine</strong> in your home or office.
+   Now let's look further into components of the Sentry box. 
 
-   Let's now look into componets of that software.
+0. Data retrieved is stored in a 
+   database containing trend information over time.
 
-0. The cross-platform software 
-   can be downloaded from the Apple Mac store, Microsoft app store, 
-   or directly by scripts for any platform pulling from GitHub and Docker.
+   The receiver program also manages the 
+   <strong>archival and deletion</strong> 
+   of data to stay within storage limits.
 
-0. A long-running <strong>polling</strong> program 
-   (or gateway) occassionally 
-   extracts device data collected
-   and stores it in a database for analysis of <strong>trends</strong> over time.
-
-   <!-- 
-   This is necessary because currently the ARTIK Cloud
-   doesn't push information,
-   it only receives and stores information.
-   -->
-
-   The polling program also manages the <strong>archival and deletion</strong> 
-   of data to stay within storage limits and thus costs.
+   ***
 
 0. Trends are calculated and displayed by an 
    <strong>analysis</strong> program.
@@ -196,11 +178,62 @@ Let's now look at the elements of the cloud offering:
    <a href="#Dispatch">Dispatch program</a>
    listening for trigger requests.
 
+
+   ### Extensions #
+
+0. Advanced versions of this would analyze patterns in sensor data
+   and interact with the <strong>calendar</strong>
+   of the owner.
+
+   The low-battery alert is one instance of a whole set of other use cases
+   for individually customizable physical alerting.
+
+   This design is classified among "Health and Medicine" offerings
+   because it can also be applied to 
+   remind people to <strong>take pills</strong> before going to bed.
+
+0. Optionally, the <strong>GPS location</strong> of the device, if available,
+   can also be sent so the machine knows if you leave your house without doing what needs to be done.
+
+0. Additional metrics from other sensors and alerts from other systems
+   may also be sent into that same receiver,
+   such as predictions of bad weather or
+   freezers not having power anymore.
+
+   ### Industrial extensions #
+
+   We can also imagine other situations which can benefit from a generalized
+   <strong>physical reminder</strong> system
+   to ensure that important tasks get done every night.
+
+   Anything that absolutely positively must be done each night.
+   
+   This solution can also be useful in a <strong>team environment</strong>
+   where each person may think it's another person's responsibility.
+
+0. When this system's API is configured to receive messages from other systems,
+   such as from Jenkins or other continuous integration servers,
+   alerts to the owner's preferences and
+
+   NOTE: The more general solution is called a 
+   <a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
+   Dead man's snitch</a>, 
+   as in "a copy of this will be released to the press if my people don't hear back from me the end of this hour".
+
 > If you want this for yourself, 
 let me know and I'll get one to your home or office.
 
 
 ### Building blocks #
+
+   <a name="SentryBox"></a>
+
+   ## Sentry Box #
+   Techncially, it's a Raspberry Pi or Samsung ARTIK 10 computer on a board.
+
+   <a name="BatteryMetrics">battery measuments</a> 
+
+
 
 The choice of tools for building these mobile and local apps focus on several considerations: 
 
