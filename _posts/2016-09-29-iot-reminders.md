@@ -23,7 +23,7 @@ comments: true
 
 It's a <strong>hassle</strong> to start your day with a dead battery.
 
-<amp-youtube data-videoid="slihEd_Y86I" layout="responsive" width="480" height="270"></amp-youtube>
+<amp-youtube data-videoid="8KBlVxaVtzY" layout="responsive" width="480" height="270"></amp-youtube>
 
 <!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
 -->
@@ -80,8 +80,11 @@ Let's now look at elements of the cloud offering:
    <a href="#BatteryMetrics">measurements</a> to a
    <strong>cloud server</strong> in one of several locations around the world.
 
-0. We send you a <a href="#SentryBox">Sentry box</a> because unlike a laptop or mobile phone,
-   you leave it plugged in a power outlet and it never goes to sleep.
+0. We send you a <a href="#SentryBox">Sentry box</a> 
+   because unlike a laptop or mobile phone,
+   you leave it constantly plugged in a power outlet and it never goes to sleep.
+
+   BTW, we recommend that you use an Uninterruptable Power Supply ***
    
 0. The first time you plug it in,
    you give it your network password and 
@@ -118,7 +121,7 @@ Let's now look at elements of the cloud offering:
    may also be emitted from a speaker device.
 
 0. If a response is not received within a set time,
-   an annoying <strong>alarm</strong> could sound.
+   an annoying (attention grabbing) <strong>alarm</strong> speaker could sound. ***
 
 0. Individual preferences for being alerted, 
    and the <a href="#escalation">sequence of escalation</a> preferred,
@@ -133,6 +136,7 @@ Let's now look at elements of the cloud offering:
 
 0. Additional actuators can be added, such as 
    <a href="#Vibrators">vibrating devices</a>. 
+
 
 0. Since the condition of the mobile device continues to be monitored, 
    simply
@@ -152,8 +156,6 @@ Let's now look at elements of the cloud offering:
 
    <amp-img alt="iot-reminders-ext-v03-650x325-120kb.jpg" width="650" height="325" src="https://cloud.githubusercontent.com/assets/14143059/19570634/13f11e5a-96b8-11e6-90b3-38a94fe53a26.jpg"></amp-img>
 
-   >>>
-
    Now let's look further into components of the Sentry box. 
 
 0. Data retrieved is stored in a 
@@ -163,7 +165,6 @@ Let's now look at elements of the cloud offering:
    <strong>archival and deletion</strong> 
    of data to stay within storage limits.
 
-   ***
 
 0. Trends are calculated and displayed by an 
    <strong>analysis</strong> program.
@@ -173,7 +174,7 @@ Let's now look at elements of the cloud offering:
    <a href="#Rules">set of logical rules</a>.
 
    For example, the program determines whether 
-   the battery is steadily declining
+   the battery is steadily declining 
    or is being charged, and notifies the
    <a href="#Dispatch">Dispatch program</a>
    listening for trigger requests.
@@ -181,12 +182,11 @@ Let's now look at elements of the cloud offering:
 
    ### Extensions #
 
-0. Advanced versions of this would analyze patterns in sensor data
-   and interact with the <strong>calendar</strong>
-   of the owner.
-
-   The low-battery alert is one instance of a whole set of other use cases
+   A low-battery alert is one in a whole set of use cases
    for individually customizable physical alerting.
+
+0. One extension of this system would interact with various <strong>calendars</strong>
+   associated with the user.
 
    This design is classified among "Health and Medicine" offerings
    because it can also be applied to 
@@ -200,21 +200,23 @@ Let's now look at elements of the cloud offering:
    such as predictions of bad weather or
    freezers not having power anymore.
 
+0. When this system is configured with an <strong>API</strong> (Application Programming Interface)
+   to receive messages from other systems
+   such as Jenkins or other continuous integration servers,
+   the owner can receive those alerts in a manner of his or her preference.
+
+
    ### Industrial extensions #
 
-   We can also imagine other situations which can benefit from a generalized
-   <strong>physical reminder</strong> system
-   to ensure that important tasks get done every night.
+   We can imagine several other uses for a generalized
+   <strong>physical reminder</strong> system like this
+   to ensure that important tasks get done.
 
-   Anything that absolutely positively must be done each night.
-   
    This solution can also be useful in a <strong>team environment</strong>
    where each person may think it's another person's responsibility.
 
-0. When this system's API is configured to receive messages from other systems,
-   such as from Jenkins or other continuous integration servers,
-   alerts to the owner's preferences and
-
+   This is for almost any task that must be done by a certain time.
+   
    NOTE: The more general solution is called a 
    <a target="_blank" href="http://lifehacker.com/how-i-keep-myself-accountable-using-dead-man-s-snitch-1785949377?">
    Dead man's snitch</a>, 

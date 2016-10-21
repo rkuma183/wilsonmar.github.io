@@ -19,33 +19,42 @@ comments: true
 
 Here is why building a static site is now "cool" (popular, interesting, etc.).
 
-First of all, static sites are <strong>faster</strong> than 
-sites built using WordPress or Drupal
-because instead of accessing a database and generating HTML on the fly:
+When someone types in a URL on a web browser and
+lands on a website built using WordPress, Drupal, or
+other CMS (Content Management System), that user <strong>waits</strong> while
+the web server make calls to a database and builds the HTML to send back.
 
-1. Static site HTML files can reside in a CDN 
-   (Content Distribution Network) such as Amazon S3
-   scattered throughout the world, which reduces network latency.
+Static sites are <strong>faster</strong> for several reasons.
+
+1. There is no time lost <strong>generating HTML dynamically</strong>.
+   There is no time lost calling a database.
+   The web page sent to a visitor is direct response to the URL requested.
+   
+   Personalization is done by JavaScript running on the user's machine,
+   calling web services.
+
+2. The HTML file can be <strong>spread out</strong> around the world in a CDN 
+   (Content Distribution Network) such as Amazon S3.
+   This reduces network latency.
 
    Reduction in cost of CDNs via Amazon S3, CloudFlar, Fastly, etc.
    vs. the enterprise Akamai makes this possible.
 
-2. There is no time lost generating HTML dynamically.
-   Unlike CMS (Content Management Systems) such as WordPress
-   which make calls to a single-threaded database,
-   visitors to static sites see HTML without going through a database.
-
-
 <amp-youtube data-videoid="FOfIoCi9uTI" layout="responsive" width="480" height="270"></amp-youtube>
 
 
+## Fraction of a Second to First Byte 
+
+Techniques described on this website achieve the fastest possible loading speed, world-wide:<br />
 <a target="_blank" href="https://performance.sucuri.net/domain/wilsonmar.github.io">
-See for yourself the speed for this site:<br />
 https://performance.sucuri.net/domain/wilsonmar.github.io</a>
 
-Without the complexities of maintaining a database,
-there is also less risk to <strong>availability</strong> 
-and scalability.
+<a target="_blank" width="650" height="366" 
+href="https://cloud.githubusercontent.com/assets/14143059/19594589/efb8e7d0-9742-11e6-85dc-b167b69d349f.jpg">
+<img alt="wm-fast-20161020-650x366-214kb.jpg" width="650" height="366" 
+layout="responsive" src="https://cloud.githubusercontent.com/assets/14143059/19594589/efb8e7d0-9742-11e6-85dc-b167b69d349f.jpg"><br />
+(Click here for new window containing higher resolution image)</a>
+
 
 ## "JAM" Stack #
 
