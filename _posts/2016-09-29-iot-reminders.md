@@ -73,16 +73,21 @@ Let's now look at elements of the cloud offering:
 0. From the Google Play Store each user downloads and installs 
    our <a href="#AndroidApp">Android app</a>.
 
-0. On either platform, the app runs in the background to obtain battery conditions
-   based on a <strong>schedule</strong> set in the app's Preferences.
-
-0. The app sends its
+0. On either platform, the first time you open the app,
+   create an account. The app then sends battery condition
    <a href="#BatteryMetrics">measurements</a> to a
-   <strong>cloud server</strong> in one of several locations around the world.
+   <strong>cloud server</strong> in one of several locations around the world. ***
 
-0. We send you a <a href="#SentryBox">Sentry box</a> 
-   because unlike a laptop or mobile phone,
-   you leave it constantly plugged in a power outlet and it never goes to sleep.
+0. In the app's Preferences,
+   you can control how often measurements are sent. ***
+
+0. In the app you can also pre-configure the
+   <strong>black box</strong> you'll be getting with
+   secure encryption. ***
+
+0. Your <a href="#SentryBox">black box</a> is
+   not like a laptop or mobile phone because
+   you leave it constantly plugged in a power outlet and it never goes to sleep. ***
 
    BTW, we recommend that you use an Uninterruptable Power Supply ***
    
@@ -90,14 +95,20 @@ Let's now look at elements of the cloud offering:
    you give it your network password and 
    it downloads the latest software for itself.
 
-0. Just like a Roku box, you register your device on our website
-   to establish a secure encrypted connection between the cloud and your Sentry box.
+0. Just like a Roku box, you register your device 
+   to establish a secure encrypted connection between the 
+   cloud and your black box. ***
 
-0. The Sentry box has its own web server to provide you a 
-   <strong>web page GUI</strong> to set preferences
-   for each device it communicates with.
+0. After you set your mobile phone on the same wi-fi network as the box,
+   you can claim ownership of
+   devices it communicates with. 
+   (The box has its own <strong>web server</strong>) ***
 
-0. In the Sentry box, what we call <strong>receiver</strong> software 
+0. You can also configure <strong>preferences</strong> for how the system works. ***
+
+
+
+0. In the box, what we call <strong>receiver</strong> software 
    periodically retrieves data from the cloud.
 
 0. When conditions and preferences allow,
@@ -225,7 +236,7 @@ Let's now look at elements of the cloud offering:
 > If you want this for yourself, 
 let me know and I'll get one to your home or office.
 
-
+<!--
 ### Building blocks #
 
    <a name="SentryBox"></a>
@@ -386,6 +397,8 @@ In the Gradle file, add a line to compile the ARTIK Java library:
 
 
 0. Android app in the Amazon App store 
+
+-->
 
 
 ## More on IoT #

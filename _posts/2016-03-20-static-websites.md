@@ -31,7 +31,7 @@ Static sites are <strong>faster</strong> for several reasons.
    The web page sent to a visitor is direct response to the URL requested.
    
    Personalization is done by JavaScript running on the user's machine,
-   calling web services.
+   calling web services APIs (Application Programming Interfaces).
 
 2. The HTML file can be <strong>spread out</strong> around the world in a CDN 
    (Content Distribution Network) such as Amazon S3.
