@@ -73,47 +73,45 @@ Let's now look at elements of the cloud offering:
 0. From the Google Play Store each user downloads and installs 
    our <a href="#AndroidApp">Android app</a>.
 
-0. On either platform, the first time you open the app,
-   create an account. The app then sends battery condition
-   <a href="#BatteryMetrics">measurements</a> to a
-   <strong>cloud server</strong> in one of several locations around the world. ***
+0. On either platform, open the mobile app and it begins to collect
+   battery conditions and
+   calculate <strong>usage patterns</strong> to
+   project remaining time and, if plugged in,
+   when a full charge will be achieved. ***
 
-0. In the app's Preferences,
-   you can control how often measurements are sent. ***
+   If the app knows when you usually <strong>unplug</strong>,
+   it can project your charge levels the rest of your day. ***
 
-0. In the app you can also pre-configure the
-   <strong>black box</strong> you'll be getting with
-   secure encryption. ***
+0. The app stores this information until it connects with the same
+   Wi-Fi <strong>router</strong> used by the
+   <strong>receiver</strong> program that
+   retrieves battery information from mobile phones.
 
-0. Your <a href="#SentryBox">black box</a> is
-   not like a laptop or mobile phone because
-   you leave it constantly plugged in a power outlet and it never goes to sleep. ***
+0. For security, <strong>register</strong> your 
+   <strong>network credentials</strong>
+   on the same website that sends you the
+   <strong>Black Box</strong> 
+   you'll use to manage the "things" that call out to you.
 
-   BTW, we recommend that you use an Uninterruptable Power Supply ***
-   
-0. The first time you plug it in,
-   you give it your network password and 
-   it downloads the latest software for itself.
+0. Several <strong>antennas</strong> in the Black Box can communicate 
+   with a variety of devices that communicate using different technologies 
+   (Wi-Fi, BTLE, ZigBee, 3G, LTE, LoRa).
 
-0. Just like a Roku box, you register your device 
-   to establish a secure encrypted connection between the 
-   cloud and your black box. ***
+0. The Black Box has a <strong>web page</strong> 
+   for you to <strong>secure communication</strong> with each device
+   and to specify <strong>settings</strong> such as 
+   how often measurements are processed,
+   and other perferences. ***
 
-0. After you set your mobile phone on the same wi-fi network as the box,
-   you can claim ownership of
-   devices it communicates with. 
-   (The box has its own <strong>web server</strong>) ***
+0. Unlike a laptop or mobile phone, your Black Box
+   is intended to be constantly plugged into an electrical outlet. 
+   And ideally through an Uninterruptable Power Supply
+   containing a battery. ***
 
-0. You can also configure <strong>preferences</strong> for how the system works. ***
-
-
-
-0. In the box, what we call <strong>receiver</strong> software 
-   periodically retrieves data from the cloud.
 
 0. When conditions and preferences allow,
-   the <strong>Dispatch program</strong> 
-   sends out a signal to IoT devices it can communicate with.
+   the <strong>Dispatcher program</strong> 
+   sends out a signal to devices it can communicate with.
 
 0. Notification can start with a <a href="#TextMessage">text message</a> 
    to the phone,
@@ -212,6 +210,12 @@ Let's now look at elements of the cloud offering:
    may also be sent into that same receiver,
    such as predictions of bad weather or
    freezers not having power anymore.
+
+0. The app then sends battery condition
+   <a href="#BatteryMetrics">measurements</a> to a
+   <strong>cloud server</strong> in one of several locations around the world. 
+   ***
+
 
 0. When this system is configured with an <strong>API</strong> (Application Programming Interface)
    to receive messages from other systems
