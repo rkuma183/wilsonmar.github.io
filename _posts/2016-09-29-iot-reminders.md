@@ -79,8 +79,10 @@ Let's now look at elements of the cloud offering:
    project remaining time and, if plugged in,
    when a full charge will be achieved.
 
-   If the app knows when you'll <strong>unplug</strong> for usage,
-   it can project charge levels for the rest of your day.
+   <amp-img alt="iot reminders design drawdown v03 650x473-113kb.jpg" width="650" height="473" src="https://cloud.githubusercontent.com/assets/14143059/19625190/f9c1b026-98ce-11e6-99ee-0816f7b70e14.jpg"></amp-img>
+
+   If the app can predict when you'll <strong>unplug</strong> for usage,
+   it projects charge levels for the rest of your day. ***
 
 0. The app stores this information until it connects with the same
    Wi-Fi <strong>router</strong> used by the
@@ -95,13 +97,16 @@ Let's now look at elements of the cloud offering:
 
 0. Several <strong>antennas</strong> in the Black Box talk 
    to devices that communicate using a variety of technologies 
-   (Wi-Fi, BTLE, ZigBee, 3G, LTE, LoRa). ***
+   (Wi-Fi, BTLE, ZigBee, 3G, LTE, LoRa).
 
 0. The Black Box has a <strong>web page</strong> 
    for you to <strong>secure communication</strong> with each device
    and to specify <strong>settings</strong> such as 
    how often measurements are processed,
    and other preferences.
+
+   Because of this, you won't need to plug a monitor to the box
+   even though it has a HDMI port. ***
 
 0. Unlike a laptop or mobile phone, your Black Box
    is intended to be constantly plugged into an electrical outlet. 
@@ -146,8 +151,7 @@ Let's now look at elements of the cloud offering:
    <a href="#Vibrators">vibrate</a>. 
 
 0. Since the condition of the mobile device continues to be monitored, 
-   simply
-   plugging the device in for charging would 
+   simply plugging the device in for charging would 
    <strong>stop</strong> alerting. ***
 
 0. Optionally, press a <strong>Flic</strong>, Amazon Dash, or other 
@@ -222,7 +226,7 @@ Let's now look at elements of the cloud offering:
    A low-battery alert is one in a whole set of use cases
    for individually customizable physical alerting.
 
-   We've come to the ultimate reason for a personal Black Box.
+   We've come tothe ultimate reason for a personal Black Box.
 
 0. When it is configured with an 
    <strong>API</strong> (Application Programming Interface)
@@ -231,7 +235,7 @@ Let's now look at elements of the cloud offering:
    the owner can receive any alert in a manner of his or her preference.
    Examples include 
    alerts requiring immediate attention such as 
-   fire alarms or freezers not having power anymore. ***
+   fire alarms or freezers not having power anymore.
 
 
    ### Industrial extensions #
