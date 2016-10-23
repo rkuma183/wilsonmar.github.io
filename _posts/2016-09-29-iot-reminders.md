@@ -77,10 +77,10 @@ Let's now look at elements of the cloud offering:
    battery conditions and
    calculate <strong>usage patterns</strong> to
    project remaining time and, if plugged in,
-   when a full charge will be achieved. ***
+   when a full charge will be achieved.
 
-   If the app knows when you usually <strong>unplug</strong>,
-   it can project your charge levels the rest of your day. ***
+   If the app knows when you'll <strong>unplug</strong> for usage,
+   it can project charge levels for the rest of your day.
 
 0. The app stores this information until it connects with the same
    Wi-Fi <strong>router</strong> used by the
@@ -91,22 +91,22 @@ Let's now look at elements of the cloud offering:
    <strong>network credentials</strong>
    on the same website that sends you the
    <strong>Black Box</strong> 
-   you'll use to manage the "things" that call out to you.
+   you'll be using to manage the "things" that call out to you.
 
-0. Several <strong>antennas</strong> in the Black Box can communicate 
-   with a variety of devices that communicate using different technologies 
-   (Wi-Fi, BTLE, ZigBee, 3G, LTE, LoRa).
+0. Several <strong>antennas</strong> in the Black Box talk 
+   to devices that communicate using a variety of technologies 
+   (Wi-Fi, BTLE, ZigBee, 3G, LTE, LoRa). ***
 
 0. The Black Box has a <strong>web page</strong> 
    for you to <strong>secure communication</strong> with each device
    and to specify <strong>settings</strong> such as 
    how often measurements are processed,
-   and other perferences. ***
+   and other preferences.
 
 0. Unlike a laptop or mobile phone, your Black Box
    is intended to be constantly plugged into an electrical outlet. 
-   And ideally through an Uninterruptable Power Supply
-   containing a battery. ***
+   And ideally through an Uninteruptable Power Supply
+   containing a battery.
 
 
 0. When conditions and preferences allow,
@@ -122,12 +122,11 @@ Let's now look at elements of the cloud offering:
    so that's one reason people wear a smart watch.
    But that can run out of battery as well.
 
-0. So the Dispatcher may 
+0. That's the reason the Dispatcher may 
    <strong>call the phone</strong> with a recorded message.
 
-0. Alternately, a recorded sound, recorded speech, or 
-   text-to-speech artificial voice
-   may also be emitted from a speaker device.
+0. Alternately, a speaker device may emit a recorded sound, recorded speech, or 
+   text-to-speech artificial voice.
 
 0. If a response is not received within a set time,
    an annoying (attention grabbing) <strong>alarm</strong> speaker could sound. ***
@@ -143,13 +142,13 @@ Let's now look at elements of the cloud offering:
 
    This owner personal control of notifications is what provides great value from this solution.
 
-0. Additional actuators can be added, such as 
-   <a href="#Vibrators">vibrating devices</a>. 
-
+0. Additional <strong>actuators</strong> can be added, such as devices that
+   <a href="#Vibrators">vibrate</a>. 
 
 0. Since the condition of the mobile device continues to be monitored, 
    simply
-   plugging the device in for charging would stop repeats of alerting.
+   plugging the device in for charging would 
+   <strong>stop</strong> alerting. ***
 
 0. Optionally, press a <strong>Flic</strong>, Amazon Dash, or other 
    button to have the Dispatcher program alter its alerting:
@@ -193,10 +192,10 @@ Let's now look at elements of the cloud offering:
 
    ### Extensions #
 
-   A low-battery alert is one in a whole set of use cases
-   for individually customizable physical alerting.
+   An evaluation of this solution should include how well it can be extended.
 
-0. One extension of this system would interact with various <strong>calendars</strong>
+0. One extension of this system would interact with various 
+   <strong>calendars</strong>
    associated with the user.
 
    This design is classified among "Health and Medicine" offerings
@@ -204,23 +203,35 @@ Let's now look at elements of the cloud offering:
    remind people to <strong>take pills</strong> before going to bed.
 
 0. Optionally, the <strong>GPS location</strong> of the device, if available,
-   can also be sent so the machine knows if you leave your house without doing what needs to be done.
+   can be sent so the machine knows if you leave your house without doing what needs to be done.
 
-0. Additional metrics from other sensors and alerts from other systems
-   may also be sent into that same receiver,
-   such as predictions of bad weather or
-   freezers not having power anymore.
+0. Rather than risk exposing a connection to the public internet, which
+   some home internet providers do not allow,
+   some may prefer to have data be
+   collected by <strong>cloud servers</strong> 
+   in locations around the world, then
+   <strong>retrieved</strong> (or pulled into) the local machine.
 
-0. The app then sends battery condition
-   <a href="#BatteryMetrics">measurements</a> to a
-   <strong>cloud server</strong> in one of several locations around the world. 
-   ***
+0. Use of an external cloud also allows inclusion of 
+   <strong>external sensor data</strong> 
+   beyond mobile phones,
+   such as nearby weather conditions,
+   road conditions, water utility usage,
+   or other "smart city" feeds.
 
+   A low-battery alert is one in a whole set of use cases
+   for individually customizable physical alerting.
 
-0. When this system is configured with an <strong>API</strong> (Application Programming Interface)
+   We've come to the ultimate reason for a personal Black Box.
+
+0. When it is configured with an 
+   <strong>API</strong> (Application Programming Interface)
    to receive messages from other systems
-   such as Jenkins or other continuous integration servers,
-   the owner can receive those alerts in a manner of his or her preference.
+   (such as Jenkins or other continuous integration servers),
+   the owner can receive any alert in a manner of his or her preference.
+   Examples include 
+   alerts requiring immediate attention such as 
+   fire alarms or freezers not having power anymore. ***
 
 
    ### Industrial extensions #
