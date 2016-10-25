@@ -37,8 +37,11 @@ Static sites are <strong>faster</strong> for several reasons.
    (Content Distribution Network) such as Amazon S3.
    This reduces network latency.
 
-   Reduction in cost of CDNs via Amazon S3, CloudFlar, Fastly, etc.
+   Reduction in cost of CDNs via Amazon S3, CloudFlair, Fastly, etc.
    vs. the enterprise Akamai makes this possible.
+
+   Due to less processing, the website is also more scalable,
+   able to handle a much larger number of visitors.
 
 <amp-youtube data-videoid="FOfIoCi9uTI" layout="responsive" width="480" height="270"></amp-youtube>
 
@@ -277,7 +280,14 @@ People who have commented on this include:
 
 * <a target="_blank" href="http://www.shamimeboodhoo.com/from-wordpress-to-jekyll-and-a-new-design/">
   shamimeboodhoo.com/from-wordpress-to-jekyll-and-a-new-design</a>
+   Build a Better Blog with a Static Site Generator
+   2h 16m Released 25 Nov 2015</a>
+   by Jeff Ammons (@jeffa00, ammonsOnline.com)
+   CEO and Chief Instructor at Code Career Academy (codecareeracademy.com).
 
+## Resources #
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/static-site-generator-build-better-blog/table-of-contents">
 
 
 ## More on front-end styling #

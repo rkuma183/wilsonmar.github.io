@@ -238,7 +238,7 @@ Let's now look at elements of the cloud offering:
    fire alarms or freezers not having power anymore.
 
 
-   ### Industrial extensions #
+   ### Industrial team extensions #
 
    We can imagine several other uses for a generalized
    <strong>physical reminder</strong> system like this
