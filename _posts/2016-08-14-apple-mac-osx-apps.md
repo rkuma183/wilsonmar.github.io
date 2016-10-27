@@ -355,6 +355,14 @@ Archmox and Chamox go back to 2006.
 QuickCHM goes back to 2008.
 
 
+## Other alternatives #
+
+<a target="_blank" href="http://disney.github.io/">
+Disney has open-sourced</a> a repo,
+https://github.com/munki/munki,
+manages software installation for OS X.
+Munki can install software packaged in the Apple package format, and also supports Adobe CS3/CS4/CS5/CS6 Enterprise Deployment "packages", and drag-and-drop disk images as installer sources - 
+webserver-based repository of packages and package metadata.
 
 ## More on OSX
 

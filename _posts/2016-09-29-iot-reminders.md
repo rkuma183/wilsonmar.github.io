@@ -23,7 +23,7 @@ comments: true
 
 It's a <strong>hassle</strong> to start your day with a dead battery.
 
-<amp-youtube data-videoid="8KBlVxaVtzY" layout="responsive" width="480" height="270"></amp-youtube>
+<amp-youtube data-videoid="ruTt8uuFWls" layout="responsive" width="480" height="270"></amp-youtube>
 
 <!-- <amp-img alt="iphone-steve-jobs-dead-468x340-83kb.jpg" width="468" height="340" src="https://cloud.githubusercontent.com/assets/14143059/19445612/3faba5c8-9452-11e6-8f53-1a923b98056d.jpg"></amp-img>
 -->
@@ -65,7 +65,7 @@ let me know and I'll come to set it up in your office.
 
 Let's now look at elements of the cloud offering:
 
-<amp-img alt="iot-reminders-basics-v03-650x326-91kb.jpg" width="650" height="326" src="https://cloud.githubusercontent.com/assets/14143059/19570625/0f236aea-96b8-11e6-8143-a8e797b32b00.jpg"></amp-img>
+<amp-img alt="iot-reminders-box-v04-650x288-288kb.jpg" width="650" height="288" src="https://cloud.githubusercontent.com/assets/14143059/19732175/2f1a69da-9b5d-11e6-8dbb-386a9d78cc28.jpg"></amp-img>
 
 0. Our iOS app is downloaded and installed from the Apple Store
    onto each individual user's iPhone or iPad.
@@ -90,10 +90,14 @@ Let's now look at elements of the cloud offering:
    retrieves battery information from mobile phones.
 
 0. For security, <strong>register</strong> your 
-   <strong>network credentials</strong>
+   <strong>credentials</strong>
    on the same website that sends you the
    <strong>Black Box</strong> 
-   you'll be using to manage the "things" that call out to you.
+   you'll be using to manage your "things" -- 
+   <strong>sensors</strong> that listen and
+   <strong>actuators</strong> that do things.
+
+0. That website also automatically keeps software in your Box up to date.
 
 0. Several <strong>antennas</strong> in the Black Box talk 
    to devices that communicate using a variety of technologies 
@@ -125,16 +129,17 @@ Let's now look at elements of the cloud offering:
 
    The sound of text message tones on phones are usually too low to hear,
    so that's one reason people wear a smart watch.
-   But that can run out of battery as well.
+   But that can also run out of battery as well. ***
 
 0. That's the reason the Dispatcher may 
    <strong>call the phone</strong> with a recorded message.
 
 0. Alternately, a speaker device may emit a recorded sound, recorded speech, or 
-   text-to-speech artificial voice.
+   text-to-speech artificial voice. ***
 
 0. If a response is not received within a set time,
-   an annoying (attention grabbing) <strong>alarm</strong> speaker could sound. ***
+   an annoying (attention grabbing) 
+   <strong>siren</strong> (alarm) could sound. ***
 
 0. Individual preferences for being alerted, 
    and the <a href="#escalation">sequence of escalation</a> preferred,
@@ -147,7 +152,7 @@ Let's now look at elements of the cloud offering:
 
    This owner personal control of notifications is what provides great value from this solution.
 
-0. Additional <strong>actuators</strong> can be added, such as devices that
+0. Additional <strong>actuators</strong> may be added, such as devices that
    <a href="#Vibrators">vibrate</a>. 
 
 0. Since the condition of the mobile device continues to be monitored, 
@@ -155,7 +160,7 @@ Let's now look at elements of the cloud offering:
    <strong>stop</strong> alerting. ***
 
 0. Optionally, press a <strong>Flic</strong>, Amazon Dash, or other 
-   button to have the Dispatcher program alter its alerting:
+   button to have the Dispatcher program alter alerting.
 
    * One press to remind me again in 10 minutes (a kind of snooze button)
    * Two presses to <a href="#CallPhone">call the phone</a> (so I can find it), or a
@@ -164,9 +169,14 @@ Let's now look at elements of the cloud offering:
 
    Thus, a button can control the lights, the speakers, and the alarm.
 
-   ### Inside the Sentry box #
+0. For even more convenience, if there is a microphone (such as Sonos)
+   listening for spoken commands, Natural Language Processing software
+   would understand what needs to be done.
 
-   <amp-img alt="iot-reminders-ext-v03-650x325-120kb.jpg" width="650" height="325" src="https://cloud.githubusercontent.com/assets/14143059/19570634/13f11e5a-96b8-11e6-90b3-38a94fe53a26.jpg"></amp-img>
+
+   ### Inside the Black box #
+
+   <amp-img alt="iiot-reminders-v04-650x278-149kb.jpg" width="650" height="278" src="https://cloud.githubusercontent.com/assets/14143059/19732182/3334f940-9b5d-11e6-88fb-dc8b60391b2d.jpg"></amp-img>
 
    Now let's look further into components of the Sentry box. 
 
@@ -228,15 +238,17 @@ Let's now look at elements of the cloud offering:
 
    We've come tothe ultimate reason for a personal Black Box.
 
-0. When it is configured with an 
+0. When configured with an 
    <strong>API</strong> (Application Programming Interface)
-   to receive messages from other systems
-   (such as Jenkins or other continuous integration servers),
-   the owner can receive any alert in a manner of his or her preference.
-   Examples include 
-   alerts requiring immediate attention such as 
+   to receive messages from Jenkins, Zapier, or other external system,
+   the Box ensures you receive the appropriate 
+   <strong>urgency</strong>
+   depending on what it knows about the
+   sender, the subject, and how you prefer to be notified.
+   For example, you'll get more
+   immediate attention and repeated notice for
    fire alarms or freezers not having power anymore.
-
+   
 
    ### Industrial team extensions #
 

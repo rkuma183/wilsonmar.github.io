@@ -295,39 +295,8 @@ Checking connectivity... done.
 
    ### Add MongoDB in MacOS #
 
-0. <a target="_blank" href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">
-   Install Mongodb, on a Mac</a> (not the latest dev release):
+0. [Follow my tutorial](/mongodb/)
 
-   <tt><strong>
-   brew update<br />
-   brew install mongodb
-   </strong></tt>
-
-   The response (takes a long time):
-
-   <pre>
-==> Downloading https://homebrew.bintray.com/bottles/mongodb-3.2.8.el_capitan.bo
-==> Pouring mongodb-3.2.8.el_capitan.bottle.tar.gz
-==> Caveats
-To have launchd start mongodb now and restart at login:
-  brew services start mongodb
-Or, if you don't want/need a background service you can just run:
-  mongod --config /usr/local/etc/mongod.conf
-==> Summary
-🍺  /usr/local/Cellar/mongodb/3.2.8: 17 files, 264.1M
-   </pre>
-
-0. Per the output above:
-
-   <tt><strong>
-   brew services start mongodb
-   </strong></tt>
-
-   The response:
-
-   <pre>
-==> Successfully started `mongodb` (label: homebrew.mxcl.mongodb)
-   </pre>
 
    ### NPM Dependencies #
 
@@ -372,6 +341,114 @@ static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {
   CC(target) Release/obj.target/secp256k1/src/secp256k1-src/contrib/lax_der_privatekey_parsing.o
   SOLINK_MODULE(target) Release/secp256k1.node
    </pre>
+
+
+   ### Create new Node project #
+
+0. Create:
+
+   <tt><strong>
+   npm init
+   </strong></tt>
+
+   Walk through the wizard to create a <strong>package.json</strong> file.
+
+   If you don't provide a description or other fields, 
+   a warning message will appear when you install additional modules, such as:
+
+   <pre>
+   npm WARN rocket-shop@1.0.0 No repository field.
+   </pre>
+
+
+   ### Mocha test framework #
+
+   For testing:
+
+0. Create a test folder
+
+   <pre><strong>
+   cd ~/gits
+   mkdir rocket-shop
+   cd    rocket-shop
+   </strong></pre>
+
+0. Install Mocha globally (from any folder):
+
+   <tt><strong>
+   npm install mocha -g
+   </strong></tt>
+
+   Note the folder paths:
+
+   <pre>
+/Users/mac/.nvm/versions/node/v6.8.1/bin/mocha -> /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/mocha/bin/mocha
+/Users/mac/.nvm/versions/node/v6.8.1/bin/_mocha -> /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/mocha/bin/_mocha
+/Users/mac/.nvm/versions/node/v6.8.1/lib
+└─┬ mocha@3.1.2 
+...
+   </pre>
+
+0. Run
+
+   <tt><strong>
+   mkdir test<br />
+   mocha
+   </strong></tt>
+
+   Since no tests have been defined, the response is:
+
+   <pre>
+no test files found
+   </pre>
+
+
+   ### Install Sinon.JS locally #
+
+   "Standalone test spies, stubs, and mocks for JavaScript.
+   No dependencies. Works with any unit testing framework."
+
+0. Install from sinonjs.org locally:
+
+   <tt><strong>
+   npm install sinon --save-dev
+   </strong></tt>
+
+   The response I got:
+
+   <pre>
+rocket-shop@1.0.0 /Users/mac/gits/nodes/rocket-shop
+└─┬ sinon@1.17.6 
+  ├── formatio@1.1.1 
+  ├── lolex@1.3.2 
+  ├── samsam@1.1.2 
+  └─┬ util@0.10.3 
+    └── inherits@2.0.1 
+   </pre>
+
+   ### Moment.JS #
+
+   For working with dates and timezones in JavaScript.
+
+0. Instead of downloading from momentjs.com:
+
+   <tt><strong>
+   npm install moment --save
+   </strong></tt>
+
+   PROTIP: `--save` instructs NPM to add a reference to the package 
+   inside of the dependencies section of your package.json, 
+   thus saving you the work of editing the file manually.
+
+   The response:
+
+   <pre>
+rocket-shop@1.0.0 /Users/mac/gits/nodes/rocket-shop
+└── moment@2.15.2 
+   </pre>
+
+
+
 
 
    ### Start Node app.js #
