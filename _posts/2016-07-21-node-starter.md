@@ -35,14 +35,20 @@ to the boilerplate website.
 
 ## Getting Started #
 
-0. Click the URL:<br />
+0. Get to URL:<br />
    <a target="_blank" href="https://github.com/sahat/hackathon-starter">
    <strong>https://github.com/sahat/hackathon-starter</strong></a>
+
+0. Examine the branches, such as "es5" for ECMAscript 5.
+
+0. Log in to your GitHub account.
 
 0. Click <strong>Fork</strong> to copy the repo into your own account, such as:<br />
    https://github.com/wilsonmar/hackathon-starter
 
-   This assumes that you have a GitHub account and logged into it.
+0. Install MongoDB if you haven't already.
+
+   [Follow my tutorial on adding MongoDB in MacOS](/mongodb/)
 
 0. Open a Terminal shell window and make a folder such as:
 
@@ -56,397 +62,326 @@ to the boilerplate website.
 0. Clone to your local folder (replacing wilsonmar in the example below):
 
    <tt><strong>
-   git clone --depth=1 https://github.com/wilsonmar/hackathon-starter predix-viz
+   git clone --depth=1 https://github.com/wilsonmar/hackathon-starter -b es5
    </strong>
 
    The "--depth=1" limits the history of commits downloaded.
 
-   The response:
+   Skip the "-b es5" if you want all the branches.
 
-   <pre>
-Cloning into 'predix-viz'...
-remote: Counting objects: 9185, done.
-remote: Compressing objects: 100% (8/8), done.
-remote: Total 9185 (delta 2), reused 0 (delta 0), pack-reused 9177
-Receiving objects: 100% (9185/9185), 8.45 MiB | 170.00 KiB/s, done.
-Resolving deltas: 100% (5347/5347), done.
-Checking connectivity... done.
-   </pre>
-
-0. Setup an upstream remote location to obtain future updates:
+0. cd to the folder
 
    <tt><strong>
-   git remote add upstream https://github.com/sahat/hackathon-starter
+   cd hackathon-starter
    </strong>
-
-   ### Examine repo files & folders #
-
-0. Get a list of files and folders from your local machine (subsituting as you type):
-
-   <tt><strong>
-   cd ~/gits/wilsonmar/predix-viz<br />
-   tree 
-   </strong></tt>
-
-   The response:
-
-   <pre>
-|-- LICENSE
-|-- README.md
-|-- app.js
-|-- config
-|   `-- passport.js
-|-- controllers
-|   |-- api.js
-|   |-- contact.js
-|   |-- home.js
-|   `-- user.js
-|-- models
-|   `-- User.js
-|-- package.json
-|-- public
-|   |-- css
-|   |   |-- lib
-|   |   |   |-- bootstrap
-|   |   |   |   |-- _alerts.scss
-|   |   |   |   |-- _badges.scss
-|   |   |   |   |-- _breadcrumbs.scss
-|   |   |   |   |-- _button-groups.scss
-|   |   |   |   |-- _buttons.scss
-|   |   |   |   |-- _carousel.scss
-|   |   |   |   |-- _close.scss
-|   |   |   |   |-- _code.scss
-|   |   |   |   |-- _component-animations.scss
-|   |   |   |   |-- _dropdowns.scss
-|   |   |   |   |-- _forms.scss
-|   |   |   |   |-- _glyphicons.scss
-|   |   |   |   |-- _grid.scss
-|   |   |   |   |-- _input-groups.scss
-|   |   |   |   |-- _jumbotron.scss
-|   |   |   |   |-- _labels.scss
-|   |   |   |   |-- _list-group.scss
-|   |   |   |   |-- _media.scss
-|   |   |   |   |-- _mixins.scss
-|   |   |   |   |-- _modals.scss
-|   |   |   |   |-- _navbar.scss
-|   |   |   |   |-- _navs.scss
-|   |   |   |   |-- _normalize.scss
-|   |   |   |   |-- _pager.scss
-|   |   |   |   |-- _pagination.scss
-|   |   |   |   |-- _panels.scss
-|   |   |   |   |-- _popovers.scss
-|   |   |   |   |-- _print.scss
-|   |   |   |   |-- _progress-bars.scss
-|   |   |   |   |-- _responsive-embed.scss
-|   |   |   |   |-- _responsive-utilities.scss
-|   |   |   |   |-- _scaffolding.scss
-|   |   |   |   |-- _tables.scss
-|   |   |   |   |-- _theme.scss
-|   |   |   |   |-- _thumbnails.scss
-|   |   |   |   |-- _tooltip.scss
-|   |   |   |   |-- _type.scss
-|   |   |   |   |-- _utilities.scss
-|   |   |   |   |-- _variables.scss
-|   |   |   |   |-- _wells.scss
-|   |   |   |   |-- bootstrap.scss
-|   |   |   |   `-- mixins
-|   |   |   |       |-- _alerts.scss
-|   |   |   |       |-- _background-variant.scss
-|   |   |   |       |-- _border-radius.scss
-|   |   |   |       |-- _buttons.scss
-|   |   |   |       |-- _center-block.scss
-|   |   |   |       |-- _clearfix.scss
-|   |   |   |       |-- _forms.scss
-|   |   |   |       |-- _gradients.scss
-|   |   |   |       |-- _grid-framework.scss
-|   |   |   |       |-- _grid.scss
-|   |   |   |       |-- _hide-text.scss
-|   |   |   |       |-- _image.scss
-|   |   |   |       |-- _labels.scss
-|   |   |   |       |-- _list-group.scss
-|   |   |   |       |-- _nav-divider.scss
-|   |   |   |       |-- _nav-vertical-align.scss
-|   |   |   |       |-- _opacity.scss
-|   |   |   |       |-- _pagination.scss
-|   |   |   |       |-- _panels.scss
-|   |   |   |       |-- _progress-bar.scss
-|   |   |   |       |-- _reset-filter.scss
-|   |   |   |       |-- _reset-text.scss
-|   |   |   |       |-- _resize.scss
-|   |   |   |       |-- _responsive-visibility.scss
-|   |   |   |       |-- _size.scss
-|   |   |   |       |-- _tab-focus.scss
-|   |   |   |       |-- _table-row.scss
-|   |   |   |       |-- _text-emphasis.scss
-|   |   |   |       |-- _text-overflow.scss
-|   |   |   |       `-- _vendor-prefixes.scss
-|   |   |   |-- bootstrap-social.scss
-|   |   |   `-- font-awesome
-|   |   |       |-- _animated.scss
-|   |   |       |-- _bordered-pulled.scss
-|   |   |       |-- _core.scss
-|   |   |       |-- _fixed-width.scss
-|   |   |       |-- _icons.scss
-|   |   |       |-- _larger.scss
-|   |   |       |-- _list.scss
-|   |   |       |-- _mixins.scss
-|   |   |       |-- _path.scss
-|   |   |       |-- _rotated-flipped.scss
-|   |   |       |-- _stacked.scss
-|   |   |       |-- _variables.scss
-|   |   |       `-- font-awesome.scss
-|   |   |-- main.scss
-|   |   `-- themes
-|   |       |-- default
-|   |       |   |-- _default.scss
-|   |       |   `-- _variables.scss
-|   |       |-- flatly
-|   |       |   |-- _flatly.scss
-|   |       |   `-- _variables.scss
-|   |       |-- ios7
-|   |       |   `-- _ios7.scss
-|   |       `-- modern
-|   |           |-- _modern.scss
-|   |           `-- _variables.scss
-|   |-- favicon.png
-|   |-- fonts
-|   |   |-- FontAwesome.otf
-|   |   |-- fontawesome-webfont.eot
-|   |   |-- fontawesome-webfont.svg
-|   |   |-- fontawesome-webfont.ttf
-|   |   |-- fontawesome-webfont.woff
-|   |   `-- fontawesome-webfont.woff2
-|   `-- js
-|       |-- lib
-|       |   |-- bootstrap.min.js
-|       |   `-- jquery-2.2.0.min.js
-|       `-- main.js
-|-- test
-|   |-- app.js
-|   `-- models.js
-`-- views
-    |-- account
-    |   |-- forgot.jade
-    |   |-- login.jade
-    |   |-- profile.jade
-    |   |-- reset.jade
-    |   `-- signup.jade
-    |-- api
-    |   |-- aviary.jade
-    |   |-- bitgo.jade
-    |   |-- clockwork.jade
-    |   |-- facebook.jade
-    |   |-- foursquare.jade
-    |   |-- github.jade
-    |   |-- index.jade
-    |   |-- instagram.jade
-    |   |-- lastfm.jade
-    |   |-- linkedin.jade
-    |   |-- lob.jade
-    |   |-- nyt.jade
-    |   |-- paypal.jade
-    |   |-- pinterest.jade
-    |   |-- scraping.jade
-    |   |-- steam.jade
-    |   |-- stripe.jade
-    |   |-- tumblr.jade
-    |   |-- twilio.jade
-    |   |-- twitter.jade
-    |   |-- upload.jade
-    |   |-- venmo.jade
-    |   `-- yahoo.jade
-    |-- contact.jade
-    |-- home.jade
-    |-- layout.jade
-    `-- partials
-        |-- flash.jade
-        |-- footer.jade
-        `-- header.jade
-   </pre>
-
-   PROTIP: This is a MVC (Model View Controller) project structure.
-
-0. For a summary description of the files and folders, click 
-   <a target="_blank" href="https://github.com/sahat/hackathon-starter/blob/master/README.md#project-structure">
-   this URL to the project-structure</a>.
-
-   * .scss files are used to generate the .css files
-
-   * fontawesome icons are embedded in the repo
-
-   * .jade files in the <strong>view</strong> folder are read by the Jade/Pug template engine for Express.js
-   which generates HTML for display. See http://naltatis.github.io/jade-syntax-docs/#attributes
-   for Jade Syntax Documentation by Example.
-   If you have some HTML you want to paste in a jade file, http://html2jade.aaron-powell.com/
-   generates jade from HTML.
 
 0. Instal Node on MacOS OSX by following [my instructions](/node-osx-install/):
 
-0. Install dependencies defined in the project.json file:
-
-   <tt><strong>
-   npm install 
-   </strong></tt>
-
-   NOTE:
-   Some claim that "NPM" is a "bacronymic" abbreviation, a phrase constructed ex post facto to make itself,
-   such as "npm is not an acronym".
-
-
-   ### Add MongoDB in MacOS #
-
-0. [Follow my tutorial](/mongodb/)
-
-
-   ### NPM Dependencies #
-
-0. Install NPM dependencies using npm (Node Package Manager) installed along with Node:
+0. Download and install dependencies into the `node_modules` folder
+   based on the `package.json` file:
 
    <tt><strong>
    npm install
-   </strong></tt>
+   </strong>
 
-   The response begins with:
+   NOTE: 
+   Some claim that "NPM" is a "bacronymic" abbreviation, 
+   a phrase constructed ex post facto to make itself,
+   such as "npm is not an acronym".
 
-   <pre>
-npm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
-npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
-npm WARN deprecated to-iso-string@0.0.2: to-iso-string has been deprecated, use @segment/to-iso-string instead.
-npm WARN deprecated jade@0.26.3: Jade has been renamed to pug, please install the latest version of pug instead of jade
-npm WARN deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
-npm WARN prefer global node-gyp@3.4.0 should be installed with -g
-&nbsp;
-> secp256k1@3.0.1 install /Users/mac/gits/wilsonmar/predix-viz/node_modules/secp256k1
-> npm run rebuild
-&nbsp;
-> secp256k1@3.0.1 rebuild /Users/mac/gits/wilsonmar/predix-viz/node_modules/secp256k1
-> node-gyp rebuild
-   </pre>
-
-   Then some warnings:
+   Alternatively, use the `yarn.lock` file:
 
    <pre>
-In file included from ../src/secp256k1-src/src/secp256k1.c:13:
-In file included from ../src/secp256k1-src/src/field_impl.h:19:
-../src/secp256k1-src/src/field_5x52_impl.h:54:13: warning: unused function
-      'secp256k1_fe_verify' [-Wunused-function]
-static void secp256k1_fe_verify(const secp256k1_fe *a) {
-            ^
-In file included from ../src/secp256k1-src/src/secp256k1.c:15:
-../src/secp256k1-src/src/group_impl.h:219:12: warning: unused function
-      'secp256k1_gej_is_valid_var' [-Wunused-function]
-static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {
-           ^
-2 warnings generated.
-  CC(target) Release/obj.target/secp256k1/src/secp256k1-src/contrib/lax_der_privatekey_parsing.o
-  SOLINK_MODULE(target) Release/secp256k1.node
+   yarn install
    </pre>
 
 
-   ### Create new Node project #
-
-0. Create:
+0. Run the default `app.js` file:
 
    <tt><strong>
-   npm init
-   </strong></tt>
+   node install
+   </strong>
 
-   Walk through the wizard to create a <strong>package.json</strong> file.
-
-   If you don't provide a description or other fields, 
-   a warning message will appear when you install additional modules, such as:
+   The response:
 
    <pre>
-   npm WARN rocket-shop@1.0.0 No repository field.
+✓ Express server listening on port 3000 in development mode.
+✓ MongoDB connection established!
+   </pre>
+
+0. Press command+Tab to switch to a browser to URL:
+
+   <tt><strong>
+   localhost:3000/
+   </strong></tt>
+
+   You should see the website displayed just like at<br />
+   <a target="_blank" href="http://hackathonstarter-sahat.rhcloud.com/">
+   http://hackathonstarter-sahat.rhcloud.com</a>
+
+0. Press command+Tab to switch to the Terminal to see the log:
+
+   <a name="log1"></a>
+
+   <pre>
+GET / 200 612.215 ms - -
+GET /js/main.js 200 130.849 ms - 71
+GET /js/lib/bootstrap.min.js 200 129.592 ms - -
+GET /favicon.png 200 128.995 ms - 1594
+GET /js/lib/jquery-2.2.4.min.js 200 138.446 ms - -
+GET /fonts/fontawesome-webfont.woff2?v=4.6.3 200 2.603 ms - 71896
    </pre>
 
 
-   ### Mocha test framework #
+### Change landing page text
 
-   For testing:
+0. Open another Terminal shell window.
 
-0. Create a test folder
+0. List the folders in the repo.
 
-   <pre><strong>
-   cd ~/gits
-   mkdir rocket-shop
-   cd    rocket-shop
-   </strong></pre>
+   PROTIP: This is a MVC (Model View Controller) project structure.
 
-0. Install Mocha globally (from any folder):
+   * controllers contains home.js, user.js, contact.js, api.js
+   * models contains User.js
+   * public/fonts contains vendor fontawesome
+   * public/js/lib contains bootstrap and jquery mimified libraries as backup.
 
-   <tt><strong>
-   npm install mocha -g
-   </strong></tt>
+   PROTIP: There are not HTML files in the views folder because they are generated from
+   <strong>.pug</strong> files by the Pug <strong>template engine</strong> 
+   <strong>template engine</strong> (like Mustache)
+   described at 
+   https://pugjs.org/api/getting-started.html.
 
-   Note the folder paths:
+   Pug is loaded by <a target="_blank" href="https://expressjs.com/en/guide/using-template-engines.html">
+   this Express template specification</a> in `app.js`:
 
-   <pre>
-/Users/mac/.nvm/versions/node/v6.8.1/bin/mocha -> /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/mocha/bin/mocha
-/Users/mac/.nvm/versions/node/v6.8.1/bin/_mocha -> /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/mocha/bin/_mocha
-/Users/mac/.nvm/versions/node/v6.8.1/lib
-└─┬ mocha@3.1.2 
-...
-   </pre>
+   `app.set('view engine', 'pug');`
 
-0. Run
-
-   <tt><strong>
-   mkdir test<br />
-   mocha
-   </strong></tt>
-
-   Since no tests have been defined, the response is:
-
-   <pre>
-no test files found
-   </pre>
+   BTW, Pug used to be called "Jade".
 
 
-   ### Install Sinon.JS locally #
-
-   "Standalone test spies, stubs, and mocks for JavaScript.
-   No dependencies. Works with any unit testing framework."
-
-0. Install from sinonjs.org locally:
+0. Install Nodemon
+   automatically restart the Node server if it detect changes in the app's folder it watches.
 
    <tt><strong>
-   npm install sinon --save-dev
+   sudo npm install -g nodemon
    </strong></tt>
 
    The response I got:
 
    <pre>
-rocket-shop@1.0.0 /Users/mac/gits/nodes/rocket-shop
-└─┬ sinon@1.17.6 
-  ├── formatio@1.1.1 
-  ├── lolex@1.3.2 
-  ├── samsam@1.1.2 
-  └─┬ util@0.10.3 
-    └── inherits@2.0.1 
+/Users/mac/.nvm/versions/node/v6.8.1/bin/nodemon -> /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/nodemon/bin/nodemon.js
+&nbsp;
+> fsevents@1.0.14 install /Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/nodemon/node_modules/fsevents
+> node-pre-gyp install --fallback-to-build
+&nbsp;
+[fsevents] Success: "/Users/mac/.nvm/versions/node/v6.8.1/lib/node_modules/nodemon/node_modules/fsevents/lib/binding/Release/node-v48-darwin-x64/fse.node" is installed via remote
+/Users/mac/.nvm/versions/node/v6.8.1/lib
+└─┬ nodemon@1.11.0 
    </pre>
 
-   ### Moment.JS #
 
-   For working with dates and timezones in JavaScript.
-
-0. Instead of downloading from momentjs.com:
+0. Install Pug:
 
    <tt><strong>
-   npm install moment --save
+   npm install pug --save
    </strong></tt>
 
-   PROTIP: `--save` instructs NPM to add a reference to the package 
-   inside of the dependencies section of your package.json, 
-   thus saving you the work of editing the file manually.
-
-   The response:
+   WARNING: Notice the "pug@2.0.0-beta6" in the response.
 
    <pre>
-rocket-shop@1.0.0 /Users/mac/gits/nodes/rocket-shop
-└── moment@2.15.2 
+/Users/mac/.nvm/versions/node/v6.8.1/lib
+└─┬ pug@2.0.0-beta6 
+  ├─┬ pug-code-gen@1.1.0 
+  │ ├─┬ constantinople@3.1.0 
+  │ │ ├── acorn@3.3.0 
+  │ │ └── is-expression@2.1.0 
+  │ ├── doctypes@1.1.0 
+  │ ├── js-stringify@1.0.2 
+  │ ├── pug-attrs@2.0.1 
+  │ ├── pug-error@1.3.1 
+  │ ├── void-elements@2.0.1 
+  │ └─┬ with@5.1.1 
+  │   └── acorn-globals@3.0.0 
+  ├─┬ pug-filters@1.2.4 
+  │ ├─┬ clean-css@3.4.20 
+  │ │ ├─┬ commander@2.8.1 
+  │ │ │ └── graceful-readlink@1.0.1 
+  │ │ └─┬ source-map@0.4.4 
+  │ │   └── amdefine@1.0.0 
+  │ ├─┬ jstransformer@1.0.0 
+  │ │ ├── is-promise@2.1.0 
+  │ │ └─┬ promise@7.1.1 
+  │ │   └── asap@2.0.5 
+  │ ├── pug-walk@1.0.0 
+  │ ├── resolve@1.1.7 
+  │ └─┬ uglify-js@2.7.4 
+  │   ├── async@0.2.10 
+  │   ├── source-map@0.5.6 
+  │   ├── uglify-to-browserify@1.0.2 
+  │   └─┬ yargs@3.10.0 
+  │     ├── camelcase@1.2.1 
+  │     ├─┬ cliui@2.1.0 
+  │     │ ├─┬ center-align@0.1.3 
+  │     │ │ ├─┬ align-text@0.1.4 
+  │     │ │ │ ├─┬ kind-of@3.0.4 
+  │     │ │ │ │ └── is-buffer@1.1.4 
+  │     │ │ │ ├── longest@1.0.1 
+  │     │ │ │ └── repeat-string@1.6.1 
+  │     │ │ └── lazy-cache@1.0.4 
+  │     │ ├── right-align@0.1.3 
+  │     │ └── wordwrap@0.0.2 
+  │     ├── decamelize@1.2.0 
+  │     └── window-size@0.1.0 
+  ├─┬ pug-lexer@2.3.0 
+  │ ├─┬ character-parser@2.2.0 
+  │ │ └── is-regex@1.0.3 
+  │ └─┬ is-expression@3.0.0 
+  │   └── acorn@4.0.3 
+  ├── pug-linker@1.0.1 
+  ├─┬ pug-load@2.0.3 
+  │ └── object-assign@4.1.0 
+  ├─┬ pug-parser@2.0.1 
+  │ └── token-stream@0.0.1 
+  ├── pug-runtime@2.0.2 
+  └── pug-strip-comments@1.0.1 
+     </pre>
+
+
+   ### Edit pug files
+
+0. Under the views folder, open for edit the `home.pug` file.
+
+   See <a target="_blank" href="http://naltatis.github.io/jade-syntax-docs/#attributes">
+   Pug/Jade Syntax Documentation by Example</a>.
+
+   BTW, If you have some HTML you want to convert to a .pug/.jade file, use<br />
+   <a target="_blank" href="http://html2jade.aaron-powell.com/">
+   http://html2jade.aaron-powell.com</a>.
+
+0. Make an edit. From:
+
+    hi Hackathon Starter
+
+    to
+
+    h1 My Hackathon Starter
+
+0. Save the file. 
+0. Switch to the Node log window to see processing occur.
+
+   <pre>
+GET / 200 328.854 ms - -
+GET /js/lib/jquery-2.2.4.min.js 304 24.451 ms - -
+GET /js/main.js 304 19.430 ms - -
+GET /js/lib/bootstrap.min.js 304 21.253 ms - -
+GET /css/main.css 200 16.631 ms - -
    </pre>
 
+   Compare this to <a href="#log1">the first set</a>.
+
+0. Switch to the browser and refresh the page to see changes.
+
+   BTW, in the repo's <strong>views/api</strong> folder is 
+   a separate .pug file for each API.
+
+
+
+   ### Customize API Credentials
+
+   The Hackathon Starter demo website has a script that loads secret passwords and 
+   other environment variables on the server. 
+   They are not included in the GitHub, for security reasons.
+   There are <a target="_blank" href="https://it.slashdot.org/story/15/01/02/2342228/bots-scanning-github-to-steal-amazon-ec2-keys">bot constantly scanning GitHub
+   to find cloud service credentials</a>.
+
+   PROTIP: Adopt a way to invoke the command to 
+   load the secret environment variables into memory
+   automatically every time Node loads.
+
+0. Create a blank `secrets-test.sh` file and save it to a 
+   <strong>secure folder</strong>
+   away from the repo, such as your user 
+   `~/.ssh` folder where you keep your other private keys.
+
+   NOTE: Many highly secure data centers do not allow use of USB storage devices.
+
+   The "-test" part is to differentiate credentials used for 
+   different environments built. Each different file would be copied to the
+   <strong>build</strong> folder for the corresponding environment.
+
+0. Use a text editor to view the repo's <strong>controllers/api.js</strong> file.
+
+   Each `process.env` (such as `process.env.STRIPE_SKEY`) 
+   refers to an environment variable.
+
+   Keep the file open so you can refer back to it during this next step.
+
+0. Apply for your own keys from the APIs, as defined in the Hackthong-starter's
+   README.md file.
+
+0. Paste each key assigned into the `secrets-test.sh` file, 
+   ending up with content such as:
+
+   <pre>
+mysql_host="http://host33663.rds.amazon-aws.com"
+mysql_un="amzn-app-db7293"
+mysql_db="rds-foxesandfences-db"
+mysql_pwd="K*$1x7B32auiWX91"
+pushover_key = "H75EAC19M3249!X2"
+google_maps_api_key="W69uHsUJZBPhsFNExykbQceK"
+   </pre>
+
+   Each line defines a differen enviornment variable.
+
+0. For execution in Linux, create a script `hsstart.cmd` 
+   to start the server after it loads the secrets file:
+
+   <pre><strong>
+   node secrets.env
+   node app.js
+   </strong></pre>
+
+   For execution in Windows, create a PowerShell script 
+   to start the server after it loads the secrets file:
+
+   <pre><strong>
+   ps load-secrets.ps1 secrets-test.sh
+   node app.js
+   </strong></pre>
+
+   If the .env file is protected by a password, you'll need to enter that password.
+
+0. Assign permissions to run:
+
+   <tt><strong>
+   chmon +x secrets-test.sh
+   </strong></tt>
+
+0. Run the file to load it into memory:
+
+   <tt><strong>
+   ./secrets-test.sh
+   </strong></tt>
+
+0. Verify that the variables loaded:
+
+   <tt><strong>
+   echo $USER
+   </strong></tt>
+ 
+   PROTIP: Do not program the script to echo secrets.
+
+
+   ### Update changes upstream
+
+   In a Terminal shell window:
+
+0. Setup an upstream remote location to obtain future updates:
+
+   <tt><strong>
+   git remote add upstream https://github.com/sahat/hackathon-starter
+   </strong></tt>
 
 
 
@@ -499,6 +434,16 @@ Express server listening on port 3000 in development mode
    Live Demo site at http://hackathonstarter-sahat.rhcloud.com</a>.
 
 
+
+   ### Optional: Change ports
+
+0. On a Linux server, to change prots to listen on 8080, use a command such as:
+
+   <pre><strong>
+   sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+   </strong></pre>
+
+
    ### Configure Login #
 
 0. Click "CREATE ACCOUNT".
@@ -544,6 +489,8 @@ Express server listening on port 3000 in development mode
    BTW, I filed an issue to suggest <a target="_blank" href="https://github.com/sahat/hackathon-starter/issues/530">
    populating the contact form with information on the user</a>.
 
+
+
    <a name="ConfigureAPI"></a>
 
    ### Configure API in menu #
@@ -573,7 +520,7 @@ There are several options to host a Node website.
 
    * https://mlab.com/home?newAccount=1
 
-Here we use docker-compose to get your Nodejs project in a real server.
+Here we use docker-compose to get your Nodejs project in a server.
 
 0. Install Vagrant.
 0. Install Node and Docker in it.
@@ -701,13 +648,18 @@ CMD [ "node", "app.js" ]
    docker-compose up
    </strong></tt>
 
-   ### Use the image #
+
+
+   ### Run the image #
 
 0. Open an internet browser (Chrome) to:
 
    <pre>
    http://localhost:3000
    </pre>
+
+   Change localhost to wherever you are hosting the server.
+
 
 0. Try again to <a href="#ConfigureAPI">Configure API above</a>.
 
@@ -740,7 +692,7 @@ CMD [ "node", "app.js" ]
 
 
 
-## Add a viz page #
+## Add a new API 
 
    ### viz.jade file #
 
@@ -941,12 +893,27 @@ Error: Route.get() requires callback functions but got a [object Undefined]
 0. Add another API 
 
 
+<a name="AddAlgorithmiaAPI"></a>
+
+## Add Algorithmia API #
+
+Algorithmia provides an API for calling Machine Learning algorithms as REST APIs.
+
+https://github.com/sahat/hackathon-starter/issues/545
+
+Before using this, you need to apply for an account at
+<a target="_blank" href="https://www.algorithmia.com/">
+algorithmia.com</a>, then login with your password.
+
+No access to a local database is needed 
+
+
 <a name="AddGoogleMap"></a>
 
 ## Add Google Maps API #
 
-In 2005 Google introduced https://developers.google.com/maps/
-Maps API.
+In 2005 Google introduced their <a target="_blank" href="https://developers.google.com/maps/">
+Maps API</a>.
 
 Before you do down this road (pun intended), know that there's money involved.
 
@@ -1148,6 +1115,9 @@ var map = new GMaps({
    * http://sahatyalkabov.com/jsrecipes/
    provides JavaScript tutorials for backend and frontend development.
 
+   ### Add tests
+
+   
    
 ## MLab #
 
@@ -1201,8 +1171,89 @@ var map = new GMaps({
    Note: As an alternative to mLab, there is also 
    https://www.compose.io/
 
-## Learning resources #
+
+## Video Learning resources #
+
+Here are my notes on 
+Pluralsight's
+   <a target="_blank" href="https://app.pluralsight.com/paths/skills/node-js/">
+   Node.js learning path</a>
+
+
+   ### Beginner classes
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/node-intro/table-of-contents">
+   Introduction to Node.js
+   2h 48m 19 Dec 2012</a>
+   by Paul O'Fallon 
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/npm-playbook/table-of-contents">
+   NPM Playbook
+   Dec 11, 2015 58m</a>
+   by Joe Eames (@josepheames, joeeames.me, conference organizer)
+
+
+   ### Intermediate classes
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/nodejs-express-web-applications">
+   Building Web Applications with Node.js and Express 4.0
+   4h 43m Dec 03, 2015</a>
+   by Jonathan Mills
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/node-js-express-rest-web-services/table-of-contents">
+   RESTful Web Services with Node.js and Express
+   2h 4m 13 Apr 2015</a>
+   by Jonathan Mills
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/large-scale-javascript/table-of-contents">
+   2h 49m 24 Jan 2014</a>
+   by Shawn Wildermuth
+
+
+   ### Advanced classes
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/nodejs-testing-strategies/table-of-contents">
+   2h 39m 13 Apr 2015</a>
+   by Rob Conery
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/node-application-patterns/table-of-contents">
+   Node Application Patterns
+   2h 30m 10 Jul 2014</a>
+   by Rob Conery
+
+
+   ### Additional courses
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-node-web-api-john-papa-sam-artioli">
+   Play by Play: Building a Node Web API</a>
+   by John Papa and Sam Artioli Beginner Jan 29, 2016 2h 1m
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/github-integrating-node-applications">
+   Integrating Node Applications with GitHub</a>
+   by Daniel Stern
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/socket-io-building-real-time-applications">
+   Building Real-time Applications with Socket.io</a>
+   by Patrick Schroeder
+   Aug 12, 2016 1h 13m
+
+
+## Other Learning resources #
 
 * https://school.scotch.io/build-a-restful-nodejs-api/
    offers a video introduction for free.
    Subscribe for the MongoDB tutorial ($12/month).
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=BN0JlMZCtNU">
+  Node.js & Express 101 - Jan 5, 2014 1:32</a>
+  by Alex Ford
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=-u-j7uqU7sI&list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_">
+   Node.js Tutorial for Beginners</a>
+  by Bucky Roberts from TheNewBoston
+
+## More on front-end styling #
+
+This is one of several topics:
+
+{% include front-end_links.html %}
