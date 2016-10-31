@@ -15,9 +15,23 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial gets you to use a Mac OSX to install and run the
-<strong>IoT Gateway server</strong> 
-on a Raspberry Pi 3B running Xamarin mono.
+This tutorial gets you to use a Mac OSX to install and run Raspian with Xamarin mono
+on a Raspberry Pi 3 B.
+
+There are several uses for a Pi:
+
+* Use the Pi Desktop to display a web page that refreshes itself automatically (web cams, list at http://www.holovaty.com/writing/23/)
+* Play a movie using a built-in utility
+
+* Run Bash shell script on boot-up to ...
+* Run cron background to periodically measure board's temperature 
+* Run Node.js code to ...
+* Run Python code to ...
+* Run mono app <strong>IoT Gateway server</strong> and home automation
+
+* Run NAS server (local cloud) off a USB drive
+* Local Git server
+* USB Camera
 
 
 ## Ingredients - Hardware
@@ -38,18 +52,43 @@ on a Raspberry Pi 3B running Xamarin mono.
    the rating for the plug says 110V - 240V (50 - 60 Hz) so
    a mechanical adapter can use used in other countries.
 
-0. Heat sink for disspating heat better when seated on top of the CPU chip
+0. Heat sink and fan for disspating heat better when seated on top of the CPU chip 
+
+   PROTIP: Running above 80 degrees F shortens life of the board.
+   In data centers, for every 50 kW of power fed to an aisle of server, 
+   the same facilities typically apply 100-150 kW of cooling.
+
+   PROTIP: Measure board temperature over time.
+   The little alumininum heat sink reduces heat by 2 degrees F.
+   Get a large heatsink and fan from an old desktop computer.
+   The larger the sink the better.
+   <a target="_blank" href="https://www.youtube.com/watch?v=1AYGnw6MwFM">
+   30 degrees cooler</a> with a large copper sink on
+   held in place by a clear plastic layer.
+   The sink sits on top of a 3 mill copper plate on top of the chip.
+   Attach using Artic MX-4 thermal compound.
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=WfQMLInuwws">
+   45 degrees</a> using a
+   Molex connector used by the fan is powered by a box that may be hard to find now.
+   It's loud.
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=O7cc4eLAOMk">
+   Water cooling</a>
 
 0. Micro SD card (8+ GB, up to 32 GB), class 10.
+   <strong>Several of them</strong>, for backup and as a base to build others.
 
    PROTIP: Windows 10 IoT does not support class 4 SD cards.
    An SD card's "class" rating refers to its sustained write speed.
    A class 4 card writes at 4MB/s (4 megabytes per second).
    A class 10 card writes at 10M/s,
-   achieved at the cost of read speed and increased seek times.
-   Photographers prefer SD cards with a class 10 rating because to them
+   achievedPhotographers prefer SD cards with a class 10 rating because to them
+   Get a large heatsink from an old desktop computer.
+    at the cost of read speed and increased seek times.
    fast write speed is more important.
 
+   https://www.youtube.com/watch?v=1AYGnw6MwFM
    PROTIP: This is the same one used on many smart phones and cameras.
    So <a target="_blank" href="https://www.mklibrary.com/technology/best-microsd-cards-2016/">
    this detailed analysis with benchmarks</a> 
@@ -69,7 +108,7 @@ on a Raspberry Pi 3B running Xamarin mono.
    2TB</a>)
 
    PROTIP: There is <a target="_blank" href="https://www.raspberrypi.org/downloads/noobs/">
-   SD card containing pre-installed NOOBS</a> 
+   SD card containing pre-installed NOOBS</a> (New Out Of Box Software)
    promoted as "the easiest to work with".
    But this tutorial focuses on industrial-grade components for 
    maximum flexibility, power, and security.
@@ -122,15 +161,16 @@ on a Raspberry Pi 3B running Xamarin mono.
 
 0. Powered USB 2.0 hub.
 
-   (for USB devices drawing more than 100 mA) 
+   USB provides power as well as provide a conduit for communicating data,
+   but for USB devices drawing more than 100 mA, voltage drops.
 
    USB 1.1 standards offers a theoretical maximum signaling rate of<br />
    12 MB/s over 4 wires using up to 500mA.<br />
    USB 2.0 standards offers a theoretical maximum signaling rate of<br />
    480 MB/s over 4 wires using up to 500mA.<br />
    USB 3.0 has two asychronous unidirectional data paths for max. rate of<br />
-   5 GB/s over 9 wires using up to 900mA.<br />
-   It's 10x faster due to its blue color. (OK I'm kidding)
+   5 GB/s over 9 wires using up to 900mA.
+   It's 10x faster due to its blue color. (OK I'm kidding)<br />
    USB 3.1 "SUPERSPEED" was released in 2014.
 
 0. USB to UART serial cable. 
@@ -140,20 +180,20 @@ on a Raspberry Pi 3B running Xamarin mono.
    The other end plugs into the UART posts on the Pi:
    red = 5V, black = Ground, white = TX, green = RX.
 
-   This powers the board as well, so the Pi doesn't need to be plugged into the wall.
+   This powers the board as well, so the Pi doesn't need to be plugged into the wall?
 
    $6 from https://shop.pimoroni.com/products/usb-to-uart-serial-console-cable
    and https://learn.pimoroni.com/tutorial/hacks/add-a-serial-breakout-to-your-pi
 
-   Get the driver from http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41
-   for each specific version of Mac or Windows.
+   Get the <a target="_blank" href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41">
+   drivers</a> for each specific version of Mac or Windows.
 
 0. Boards for ZigBee, etc.
 
 
 ## Prepare USB drives
 
-   USB drives can 
+   USB drives can o
    even with formatting.
 
    To get full capacity from USB/SD drives 
@@ -240,6 +280,8 @@ on a Raspberry Pi 3B running Xamarin mono.
    Raspbian Jessie was first released</a>
    (Versions of Debian are named after characters in Disney's “Toy Story” films)
 
+   "Wheezy" is the previous version.
+
 0. TODO: Calculate on the Mac a SHA hash on your laptop to verify SHA from the website.
 
    Example:  e0eeb96e2fa10b3bd4b57454317b06f5d3d09d46
@@ -276,31 +318,12 @@ on a Raspberry Pi 3B running Xamarin mono.
 
    Alternately, <a target="_blank" href="https://github.com/osxfuse/osxfuse/releases">
    download the free osxfuse</a>
-   and install it using Homebrew and
+   and install it using Homebrew.
    
+   See <a target="_blank" href="http://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/">
+   this</a> about
    You’ll have to disable System Integrity Protection and then re-enable if after you’re done.
 
-   See
-   http://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/
-
-0. 
-
-0. Remove LibreOffice and Wolfram/Mathematica.
-   As <a target="_blank" href="http://richardhayler.blogspot.com/2015/10/squeezing-raspbian-jessie-on-to-4gb-sd.html">
-   Richard Hayler notes</a>:
-
-   <tt><strong>
-sudo apt-get purge wolfram-engine
-sudo apt-get purge libreoffice*
-sudo apt-get purge libreoffice-base
-sudo apt-get purge libreoffice-impress
-sudo apt-get purge libreoffice-writer
-sudo apt-get purge libreoffice-calc
-sudo apt-get purge libreoffice-draw
-sudo apt-get purge libreoffice-math
-sudo apt-get clean
-sudo apt-get autoremove
-   </strong></tt>
 
    ### Flash .img onto SD card using Windows
    
@@ -316,9 +339,9 @@ sudo apt-get autoremove
 
    * SDFormatter_4.00B.pkg for Macs
    * SDFormatterv4.zip for Windows containing a setup.exe installer.
+   <br /><br />
 
    <amp-img alt="sd muo-rpi-noobs-sdformatter 433x326.jpg" width="433" height="326" src="https://cloud.githubusercontent.com/assets/14143059/19836619/ad05bf14-9e6b-11e6-9e81-49e63af635c5.jpg"></amp-img>
-   <br /><br />
 
 0. Download binary version of win32diskimager from 
    <a target="_blank" href="https://sourceforge.net/projects/win32diskimager/?source=typ_redirect">
@@ -340,12 +363,15 @@ sudo apt-get autoremove
 
    http://www.makeuseof.com/tag/install-operating-system-raspberry-pi/
 
-   ### Install OS on SD card using a Mac
 
-   On Mac OS you have the choice of the command line dd tool or using the graphical tool ImageWriter to write the image to your SD card.
+   ### Flash OS on SD card using a Mac
 
    ALTERNATIVE: Unattended Raspian minimal installer for Pi up to 2B:
    https://github.com/debian-pi/raspbian-ua-netinst/releases/
+
+0. CAUTION: Before touching delicate electrical boards,
+   dissipate static electricity (from just walking around)
+   by touching a grounded metal.
 
 0. Plug in the SD card.
 
@@ -399,12 +425,15 @@ sudo apt-get autoremove
 
    Use of rdisk gives faster write speed to the SD card.
 
-0. Wait until ???. This takes a few minutes.
+0. Wait. This takes a few minutes.
 
    You should now have a working SD card.
 
 
-   ### Install SD card
+## Power Up with SD card
+
+   Base on
+   https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
 0. Unlug the power adapter.
 
@@ -413,97 +442,44 @@ sudo apt-get autoremove
 
    When in, the chip sticks out a bit.
 
-   https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
-
 0. Power up by plugging in the power.
 
-   The default behaviour is to boot straight to the desktop GUI, not to the Linux command line. 
-   (toggle the relevant setting in the Raspberry Pi Configuration application)
-
-   version 3 of GTK+, the user interface toolkit used for the LXDE desktop environment. 
+   Isn't it exciting to see the screen appear on a new computer?
 
 
-   ### Configure network access
+## Boot to Command Line
 
-   The Model B, Model B+ and Model 2B/3B versions of the device have built in 10/100 wired Ethernet.
+   Rather than booting up to the Linux command line and
+   <a target="_blank" href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">
+   raspi-config</a>,
+   the default behaviour with Jessie is now to boot up to the desktop GUI 
+   (version 3 of GTK+, the user interface toolkit used for the LXDE desktop environment). 
 
-   Wi-Fi is built into only the Pi 3.
+   The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
 
-   Bluetooth is built into only the Pi 3.
+   BLAH: This is silly because people don't use Raspian to watch its screen.
+   It doesn't have enough power and memory.
 
-0. Edit
+0. Exit GUI mode by pressing <strong>Ctrl + alt + F2</strong>
+   (from among F1-F12 keys) at the same time.
 
-   sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+   When the regular Terminal window appears:
 
-0. Add to the file
-
-   <pre>
-network={
-   ssid="yours"
-   psk="your password"
-}
-   </pre>
-
-
-   ### Configure user
-
-   User accounts, passwords, access rights, time zones
-
-   ### Open Terminal window
-
-   ### Install signing key
-
-   http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
-   GPG signing Key
-
-   ### Install mono-complete
-
-   Mono contains the Common Language Runtime (CLR) 
-   used by .NET Core used by .NET application code.
-   Xamarin
-
-   In a terminal window in Raspberry Pi:
-
-0. Install a text editor, emacs or vi, to edit config files:
-   
    <tt><strong>
-   sudo apt-get install emacs
+   sudo raspi-confg
    </strong></tt>
 
-0. Download and install mono using package manager apt-get:
+0. Select the "Enable Boot to Desktop/Scratch" option
 
-   <pre><strong>
-   sudo apt-get update
-   sudo apt-get upgrade
-   sudo apt-get install mono-complete
-   </strong></pre>
+0. Select "Console Text console". 
 
-   mono-complete pulls in mono-runtime plus other Mono libraries, 
-   including libraries providing database support (including MySQL support)
-   for .NET application software.
+0. To start the GUI again:
 
-   mono-runtime contains the .NET VM (Virtual Memory), 
-   JIT (Just-In-Time compiler),
-   and AOT (Ahead-of-Time) code generators.
+   <tt><strong>
+   startx
+   </strong></tt>
 
-   Mono is a platform for running and developing applications based on the ECMA/ISO Standards. 
-   Mono is an open source effort led by Xamarin. 
-   Mono provides a complete CLR (Common Language Runtime) including compiler and runtime, 
-   which can produce and execute CIL (Common Intermediate Language) bytecode (aka assemblies), 
-   and a class library.
-
-   This is a metapackage and pulls in the Mono runtime, development tools and all libraries.
-
-   Install this package if you want to run software for Mono or Microsoft .NET which you are not installing from a Debian package.
-
-   Your device should now ready to run.
-
-
-## Prepare the board
-
-0. CAUTION: Before touching delicate electrical boards,
-   dissipate static electricity (from just walking around)
-   by touching a grounded metal.
+## Shutdown
 
 0. Shut down the Pi properly before powering it off. Type:
 
@@ -515,17 +491,365 @@ network={
     Pi uses to signal it is ready to be powered off.
 
 
+## Explore #
+
+   Based on http://www.miqu.me/blog/2015/01/14/tip-exfat-hdd-with-raspberry-pi/
+
+0. List drives mounted:
+
+   <tt><strong>
+   sudo fdisk -i
+   </strong></tt>
+
+   <pre>
+Disk /dev/sda: 240.1 GB, 240057409024 bytes
+   </pre>
+
+0. Mount the USB drive:
+
+   <pre><strong>
+mkdir /mnt/PIHDD
+mnt /dev/sda1 /mnt/PIHDD
+   </strong></pre>
+
+0. Check the contents that they be visible:
+
+   <pre>
+ls /mnt/PIHDD
+   </pre>
+
+
+## One-time configuration
+
+These only need to be done once.
+
+   ### CLI Colors
+
+   The /home/pi folder in the distributed image starts out completely empty, without the usual dot files.
+
+   Fix it and then log back in:
+
+   <tt><strong>
+   cp -a /etc/skel/.??* ~/
+   </strong></tt>
+
+   Copy in <strong>.bashrc</strong>
+   
+   <tt><strong>
+   scp .bashrc root@192.168.1.23:/root/
+   </strong></tt>
+
+   Or: 
+
+   <tt>
+   export PS1="\[\e[31m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] - \[\e[35m\]\w\[\e[m\] "
+   </tt>
+
+   export PS1="\u@\h \t \W\$ "
+
+The human unreadable cryptic code is explained in the manual page of bash: "man bash"
+"\u" means the user name of the current user
+"\h" means the hostname up to the first '.'
+"\t" means the current time in 24-hour HH:MM:SS format
+"\W" means the basename of the current working directory, with $HOME abbreviated with a tilde.
+
+   http://raspberrypiprogramming.blogspot.com/2014/08/change-prompt-color-in-bash.html
+
+0.  See the current prompt settings:
+
+   <tt><strong>
+   echo $PS1<br />
+   echo $PS2
+   </strong></tt>
+
+   PS2 is for when the command line shows multiple lines (rare).
+
+   Reboot
+
+   ### Configure user
+
+   After the Pi reboots, it requires entry of user name and password to log into the system.
+
+   If the user name and password in the configuration program are not changed,
+   the defaults are:
+
+   User name: pi<br />
+   Password: raspberry
+
+   What is typed does not appear on the screen.
+   So just type and press the Enter key.
+
+   See http://raspberrypiprogramming.blogspot.com/2014/08/how-to-login-to-raspberry-pi-without.html
+
+
+   ### Set access rights
+
+   ### Set time zones
+
+
+   ### Text editor
+
+0. Install a text editor, emacs or vi, to edit config files:
+   
+   <tt><strong>
+   sudo apt-get install emacs
+   </strong></tt>
+
+
+   ### Configure network access
+
+   The Model B, Model B+ and Model 2B/3B versions of the device have built in 10/100 wired Ethernet.
+
+   Wi-Fi and  Bluetooth are built into only the Pi 3 (not in the Pi 2).
+
+   <tt><strong>
+   sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+   </strong></tt>
+
+0. Add to the file
+
+   <pre>
+network={
+   ssid="yours"
+   psk="your password"
+}
+   </pre>
+
+   Use network to display web pages that refresh automatically
+   (listed by frequency of auto-refresh):
+
+<ul>
+<li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
+<li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
+<li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>
+<li><a target="_blank" href="http://www.boston.com/">Boston Globe</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.nytimes.com/">New York Times</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.wsj.com/">Wall Street Journal</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.cnn.com/">CNN</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.denverpost.com/">Denver Post</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.rockymountainnews.com/">Denver Rocky Mountain News</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.usatoday.com/">USA Today</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.washingtonpost.com/">Washington Post</a> -- 1800 seconds</li>
+</ul>
+
+   http://issabove.com/
+   uses Python and nmap
+
+   <pre>
+   &LT;meta http-equiv="refresh" content="600; url=index.php">
+   </pre>
+
+
+   ### Keep screen from sleeping
+
+   See https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=18200
+
+0. Install in the gui a "screensaver" option under preferences. 
+
+   <tt><strong>
+   sudo apt-get install xscreensaver
+   </strong></tt>
+
+   NOTE:
+   There are (at least) three programs controlling the screen.
+   So you might need all three. And if you run full-screen non-X programs like XBMC you may need to configure them not to blank as well.
+
+0. Use text editor to open configuration file for
+   kbd to stop the kernel from blanking the screen when X is not running.
+
+   <tt><strong>
+   sudo nano /etc/kbd/config
+   </strong></tt>
+
+0.  Change BLANK_TIME to 0 and 
+
+   <pre>
+# screen blanking timeout. monitor remains on, but the screen is cleared to
+# range: 0-60 min (0==never) kernels I've looked at default to 10 minutes.
+# (see linux/drivers/char/console.c)
+BLANK_TIME=0 # default 30
+&nbsp;
+# Powerdown time. The console will go to DPMS Off mode POWERDOWN_TIME
+# minutes _after_ blanking. (POWERDOWN_TIME + BLANK_TIME after the last input)
+POWERDOWN_TIME=0 # default 15
+   </pre>
+
+0. Re-start the file or just reboot
+
+   <tt><strong>
+   sudo /etc/init.d/kbd restart
+   </strong></tt>
+
+0. Edit .xinitrc for when running "startx".
+
+
+
+0. If your Pi boots straight into X, edit lightdm.conf 
+
+   <tt><strong>
+   sudo nano /etc/lightdm/lightdm.conf
+   </tt></strong>
+
+   Insert under `[SeatDefault]` this line:
+
+   <pre>
+   xserver-command=X -s 0 dpms
+   </pre>
+
+
+   ### Get Audio working
+
+   See http://cagewebdev.com/raspberry-pi-getting-audio-working/
+
+
+   ### Upgrade packages in Raspian
+
+0. Update system software
+
+   <pre><strong>
+   date
+   echo UPDATING SYSTEM SOFTWARE – UPDATE
+   sudo apt-get update
+   echo UPDATING SYSTEM SOFTWARE – UPGRADE
+   sudo apt-get upgrade
+   echo UPDATING SYSTEM SOFTWARE – DISTRIBUTION
+   sudo apt-get dist-upgrade
+   echo REMOVING APPLICATION ORPHANS
+   sudo apt-get autoremove –purge
+   echo UPDATING FIRMWARE
+   sudo rpi-update
+   </strong></pre>
+
+
+   ### Backup image
+
+   Make a backup image (.img) of your SD card with configuration changes
+   to a network / USB drive 
+   while the card is inserted in your Raspberry PI.
+
+0. Verify access to your network drive / usb drive, to see the devices:
+
+   <tt><strong>
+   sudo cat /etc/fstab
+   </strong></tt>
+
+0. Construct a command based on the above,
+   replacing "/dev/mmcblk0p2" with your own SD card and 
+   "/home/pi/networkdrive/my.img" 
+   with your own network drive / USB drive + image file name):
+
+   <tt><strong>
+   sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
+   </strong></tt>
+
+
+   ### Purge unneeded packages
+
+0. List installed packages:
+
+   <tt><strong>
+   dpkg -l | grep ii | less
+   </strong></tt>
+
+0. Purge LibreOffice and Wolfram/Mathematica.
+   As <a target="_blank" href="http://richardhayler.blogspot.com/2015/10/squeezing-raspbian-jessie-on-to-4gb-sd.html">
+   Richard Hayler notes</a>:
+
+   <pre><strong>
+sudo apt-get purge wolfram-engine
+sudo apt-get purge libreoffice*
+sudo apt-get purge libreoffice-base
+sudo apt-get purge libreoffice-impress
+sudo apt-get purge libreoffice-writer
+sudo apt-get purge libreoffice-calc
+sudo apt-get purge libreoffice-draw
+sudo apt-get purge libreoffice-math
+   </strong></pre>
+
+   QUESTION: Others?
+
+0. Follow-up
+
+   <pre><strong>
+sudo apt-get clean
+sudo apt-get autoremove
+   </strong></pre>
+
+
+0. Install Git client
+
+   <tt><strong>
+   sudo apt-get install git
+   </strong></tt>
+
+   (instead of git-all, which requires git-daemon-sysvinit).
+
+   (Make the Pi a Git server https://about.gitlab.com/2015/04/21/gitlab-on-raspberry-pi-2/)
+
+   git clone https://github.com/PeterWaher/IoTGateway/tree/master/Mocks
+   cd ???
+
+0. Install signing key
+
+   http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
+   GPG signing Key
+
+
+
+## Install mono-complete
+
+   Mono is a platform for running and developing applications based on the ECMA/ISO Standards. 
+   Mono is an open source effort led by Xamarin. 
+   Mono provides a complete CLR (Common Language Runtime) including compiler and runtime, 
+   which can produce and execute CIL (Common Intermediate Language) bytecode (aka assemblies), 
+   and a class library.
+
+   In a terminal window in Raspberry Pi:
+
+0. Download and install mono using package manager apt-get
+   (assuming you've done update and upgrade)
+
+   <pre><strong>
+   sudo apt-get install mono-complete
+   </strong></pre>
+
+   The metapackage mono-complete pulls in mono-runtime plus other Mono libraries, 
+   development tools and
+   libraries providing database support (including MySQL support)
+   for .NET application software.
+   mono-runtime contains the .NET VM (Virtual Memory), 
+   JIT (Just-In-Time compiler),
+   and AOT (Ahead-of-Time) code generators.
+
+   Your device should now ready to run.
+
+
+## Use USB drive
+
+
+
+0. Play a video (.mov file) on the USB drive:
+
+   <tt><strong>
+   omxplayer file
+   </strong></tt>
+
+
+
+
 ## Add and compile .NET code
 
 http://logicalgenetics.com/raspberry-pi-and-mono-hello-world/
 
 0. Create a folder:
 
+   <pre>
 mkdir HelloWorld
 cd HelloWorld
 emacs HelloWorld.cs
+   </pre>
 
-0. Write a "Hello World" program:
+0. Use a text editor to write a "Hello World" program:
 
    <pre>
 using System;
@@ -541,10 +865,10 @@ public class HelloWorld
 
 0. Compile and run it:
 
-   <pre>   
+   <pre><strong>
 gmcs HelloWorld.cs
-mono HelloWorld.exe
-   </pre>
+sudo mono HelloWorld.exe
+   </strong></pre>
 
 0. Use PSFTP to copy the exe to the Pi.
 
@@ -569,7 +893,9 @@ mono HelloWorld.exe
 https://github.com/PeterWaher/IoTGateway/blob/master/Executables/IoTGatewaySetup.exe
 
 
+## Features
 
+QUESTION: Automatically detects if the official Raspberry Pi 7″ Touchscreen is connected and it will adjust display output accordingly. Like the ISS Above does.
 
 ## Verify
 
@@ -579,6 +905,12 @@ https://github.com/PeterWaher/IoTGateway/blob/master/Executables/IoTGatewaySetup
    then the hardware components are most likely unsuitable.
    This can be poor quality power supply or USB cable.
 
+0. Measure temperature of board
+
+   <tt><strong>
+   vcgencmd measure temp
+   </strong></tt>
+
 
 ## Optional: Configure SD for PiNet boot
 
@@ -587,6 +919,13 @@ https://github.com/PeterWaher/IoTGateway/blob/master/Executables/IoTGatewaySetup
 
    http://pinet.org.uk/
 
+## Rock Stars
+
+* http://cagewebdev.com/raspberry_pi/
+   Rolf van Gelder
+
+* http://raspberrypihobbyist.blogspot.com
+   Ted B. Hale
 
 ## Resources
 
