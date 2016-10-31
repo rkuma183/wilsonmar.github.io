@@ -15,18 +15,18 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial gets you to use a Mac OSX to install and run Raspian with Xamarin mono
-on a Raspberry Pi 3 B.
+This tutorial gets you to use a Mac OSX to install and 
+run apps under Raspian on a Raspberry Pi 3 B.
 
 There are several uses for a Pi:
 
 * Use the Pi Desktop to display a web page that refreshes itself automatically (web cams, list at http://www.holovaty.com/writing/23/)
 * Play a movie using a built-in utility
 
-* Run Bash shell script on boot-up to ...
+* Run Bash shell script on boot-up to download a script from GitHub and run it.
+* Run Python code to measurement board temperature and free memory over time.
 * Run cron background to periodically measure board's temperature 
-* Run Node.js code to ...
-* Run Python code to ...
+* <a href="#RunNode">Run Node.js code to run a web server</a>
 * Run mono app <strong>IoT Gateway server</strong> and home automation
 
 * Run NAS server (local cloud) off a USB drive
@@ -39,18 +39,14 @@ There are several uses for a Pi:
 
 0. Raspberry Pi 3 B $35
 
+   The Raspberry Pi 3 has a 1.2 GHz quad-core ARMv8 chip with 1 GB of RAM.
+
+   <amp-img alt="iot raspberry_pi3_2 500x302 69kb.jpg" width="500" height="302" src="https://cloud.githubusercontent.com/assets/14143059/19865119/8a5470e6-9f60-11e6-8f62-e58f44c4f14c.jpg"></amp-img>
+   <!-- http://www.memoryexpress.com/Products/MX61461 -->
+
 0. Risers or a static-resistent mat to put a board without a riser.
 
-0. 2.5A micro-USB 5V DC power two-prong plug in the US market.
-
-   You can re-use those provided with Android smartphones.
-
-   NOTE: Consumption of electrical voltage is measured in Amprage,
-   which draws down voltage.
-
-   Even though US electricity is rated at 120V AC (60 Hz),
-   the rating for the plug says 110V - 240V (50 - 60 Hz) so
-   a mechanical adapter can use used in other countries.
+   <a name="HeatSink"></a>
 
 0. Heat sink and fan for disspating heat better when seated on top of the CPU chip 
 
@@ -76,6 +72,18 @@ There are several uses for a Pi:
    <a target="_blank" href="https://www.youtube.com/watch?v=O7cc4eLAOMk">
    Water cooling</a>
 
+
+0. 2.5A micro-USB 5V DC power - two-prong plug in the US market.
+
+   You can re-use those provided with Android smartphones.
+
+   NOTE: Consumption of electrical voltage is measured in Amprage,
+   which draws down voltage.
+
+   Even though US electricity is rated at 120V AC (60 Hz),
+   the rating for the plug says 110V - 240V (50 - 60 Hz) so
+   a mechanical adapter can use used in other countries.
+
 0. Micro SD card (8+ GB, up to 32 GB), class 10.
    <strong>Several of them</strong>, for backup and as a base to build others.
 
@@ -95,8 +103,6 @@ There are several uses for a Pi:
    from a photographer is useful. The ones from Costco are a good buy:
    SanDisk Ultra MicroSDHC 32GB UHS-I Class 10 Memory Card With Adapter (Upto 80mbps Speed).
 
-   Cheap SD cards may not last long.
-
    <!-- https://www.sdcard.org/consumers/choices/file_system/index.html#cards-for-pcs -->
    <amp-img alt="sd backwards-compatibility 556x304.gif" width="556" height="304" src="https://cloud.githubusercontent.com/assets/14143059/19836547/6b602a38-9e69-11e6-857c-c0e6ac586dbf.gif"></amp-img><br /><br />
 
@@ -106,6 +112,8 @@ There are several uses for a Pi:
    SHXC (Secure Digital eXtended Capacity of 64GB to 
    <a target="_blank" href="http://www.micro-sdxc.com/">
    2TB</a>)
+
+   Cheap SD cards may not last long.
 
    PROTIP: There is <a target="_blank" href="https://www.raspberrypi.org/downloads/noobs/">
    SD card containing pre-installed NOOBS</a> (New Out Of Box Software)
@@ -121,6 +129,7 @@ There are several uses for a Pi:
 
    Natively Mac OSX does not know how to read NTFS drives.
 
+
    ### Not headless
 
 0. HDMI cable connected to a monitor (input selected to the correct HDMI).
@@ -128,7 +137,8 @@ There are several uses for a Pi:
 
    ### Optional hardware
 
-0. Case for Pi.
+0. Case that accomodates <a href="#HeatSink">heat dissipation contraptions</a>
+   mentioned above.
 
    The top of
    <a target="_blank" href="https://www.adafruit.com/products/3062">
@@ -280,17 +290,47 @@ There are several uses for a Pi:
    Raspbian Jessie was first released</a>
    (Versions of Debian are named after characters in Disney's “Toy Story” films)
 
-   "Wheezy" is the previous version.
+   "Wheezy" is the previous version of Raspian.
 
 0. TODO: Calculate on the Mac a SHA hash on your laptop to verify SHA from the website.
 
    Example:  e0eeb96e2fa10b3bd4b57454317b06f5d3d09d46
 
-0. Unzip to an <strong>.img</strong> file.
-
-   The image contains
+   NOTE: The image contains
    .elf (Executable Linkable Format) 
    and .dtb (Device Tree Blob) files.
+
+
+   ### Flash .img onto SD card using Etcher
+   
+   Although the <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">official Raspberry Pi site describes use of</a>
+   another tool
+   (Etcher) reads from a zip file to skip unzipping hassle, 
+   and verifies the SD card image was written correctly to the SD card.
+   It also automatically dismounts the SD card so it can be safely removed.
+ 
+0. At website
+   <a target="_blank" href="https://www.etcher.io/">
+   etcher.io/"> select a platform to download the 
+   Etcher app (made by Resin.io) for your platform.
+
+   | Etcher-1.0.0-beta.16-darwin-x64 | 75.4 MB |
+
+   CAUTION: The file name does say "beta".
+
+   Following
+   <a target="_blank" href="http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/">
+   this</a>
+
+0. On a Mac, invoke the program from Applications.
+0. Select the drive containing the .img file.
+
+    Skip past to the alternative activity to <a href="#PowerUp">Power Up</a>.
+
+
+### Unzip and Flash using Windows
+
+0. Unzip to an <strong>.img</strong> file.
 
    BLAH: The .img file is larger than what can fit in a 4GB USB drive.
    So if you try to copy it to a drive formatted as FAT32 (rather than NTFS),
@@ -324,11 +364,6 @@ There are several uses for a Pi:
    this</a> about
    You’ll have to disable System Integrity Protection and then re-enable if after you’re done.
 
-
-   ### Flash .img onto SD card using Windows
-   
-   <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">*</a>
-
 0. Download from<br />
    <a target="_blank" href="https://www.sdcard.org/downloads/formatter_4/index.html">
    https://www.sdcard.org/downloads/formatter_4</a><br />
@@ -343,7 +378,7 @@ There are several uses for a Pi:
 
    <amp-img alt="sd muo-rpi-noobs-sdformatter 433x326.jpg" width="433" height="326" src="https://cloud.githubusercontent.com/assets/14143059/19836619/ad05bf14-9e6b-11e6-9e81-49e63af635c5.jpg"></amp-img>
 
-0. Download binary version of win32diskimager from 
+0. Download binary version of Windows-only win32diskimager from 
    <a target="_blank" href="https://sourceforge.net/projects/win32diskimager/?source=typ_redirect">
    https://sourceforge.net/projects/win32diskimager</a>
    (forwarded from https://launchpad.net/win32-image-writer/+download)
@@ -355,13 +390,9 @@ There are several uses for a Pi:
    Win32DiskImager-0.9.5-binary which contains<br />
    Win32DiskImager.exe
 
+
 0. Invoke the program.
 0. Select the drive containing the .img file.
-
-
-0. Used PuTTY to open an SSH session to connect to the Pi.
-
-   http://www.makeuseof.com/tag/install-operating-system-raspberry-pi/
 
 
    ### Flash OS on SD card using a Mac
@@ -430,6 +461,8 @@ There are several uses for a Pi:
    You should now have a working SD card.
 
 
+<a name="PowerUp"></a>
+
 ## Power Up with SD card
 
    Base on
@@ -456,6 +489,7 @@ There are several uses for a Pi:
    (version 3 of GTK+, the user interface toolkit used for the LXDE desktop environment). 
 
    The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
+   So you can plug the other end of the HDMI cable into your TV.
 
    BLAH: This is silly because people don't use Raspian to watch its screen.
    It doesn't have enough power and memory.
@@ -479,9 +513,10 @@ There are several uses for a Pi:
    startx
    </strong></tt>
 
+
 ## Shutdown
 
-0. Shut down the Pi properly before powering it off. Type:
+0. Shut down Respian properly before powering it off. Type:
 
    <tt><strong>
    sudo halt 
@@ -518,42 +553,77 @@ mnt /dev/sda1 /mnt/PIHDD
 ls /mnt/PIHDD
    </pre>
 
+0. Used PuTTY to open an SSH session to connect to the Pi.
+
+   http://www.makeuseof.com/tag/install-operating-system-raspberry-pi/
+
 
 ## One-time configuration
 
 These only need to be done once.
 
-   ### CLI Colors
+### User home folder
 
-   The /home/pi folder in the distributed image starts out completely empty, without the usual dot files.
+0. Create a /home/pi folder.
 
-   Fix it and then log back in:
+   The Raspian image starts out empty, 
+   without the usual dot files in other Linux distributions.
+
+   <pre><strong>
+   cd /home
+   mkdir pi
+   </strong></pre>
+
+   "pi" is the default user name.
+
+
+   ### CLI Colors #
+
+   This is done early so other activities do not appear with the default blue on black
+   that's difficult to read.
+
+0. Be at the default user home folder:
+
+   <tt><strong>
+   cd /home/pi
+   </strong></tt>
+
+0. Copy in:
 
    <tt><strong>
    cp -a /etc/skel/.??* ~/
    </strong></tt>
 
-   Copy in <strong>.bashrc</strong>
+0. Copy in <strong>.bashrc</strong>
    
    <tt><strong>
    scp .bashrc root@192.168.1.23:/root/
    </strong></tt>
 
-   Or: 
+   Or add to the .bashrc file:
 
-   <tt>
-   export PS1="\[\e[31m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] - \[\e[35m\]\w\[\e[m\] "
-   </tt>
+   ```
+   export PS1="\[\e[31m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] - \[\e[35m\]\w\[\e[m\]"
+   ```
 
+   Alternately:
+
+   ```
    export PS1="\u@\h \t \W\$ "
+   ```
 
-The human unreadable cryptic code is explained in the manual page of bash: "man bash"
-"\u" means the user name of the current user
-"\h" means the hostname up to the first '.'
-"\t" means the current time in 24-hour HH:MM:SS format
-"\W" means the basename of the current working directory, with $HOME abbreviated with a tilde.
+   The human unreadable cryptic code above are explained in the manual page of bash: "man bash"
+   
+   "\u" means the user name of the current user
+
+   "\h" means the hostname up to the first '.'
+
+   "\t" means the current time in 24-hour HH:MM:SS format
+
+   "\W" means the basename of the current working directory, with $HOME abbreviated with a tilde.
 
    http://raspberrypiprogramming.blogspot.com/2014/08/change-prompt-color-in-bash.html
+
 
 0.  See the current prompt settings:
 
@@ -582,9 +652,61 @@ The human unreadable cryptic code is explained in the manual page of bash: "man 
    See http://raspberrypiprogramming.blogspot.com/2014/08/how-to-login-to-raspberry-pi-without.html
 
 
-   ### Set access rights
-
    ### Set time zones
+
+
+   ### Set time service to sync automatically
+
+   PROTIP: Accurate time on the board is necessary to prevent errors in 
+   security features.
+
+0. Go to <a target="_blank" href="http://support.ntp.org/bin/view/Servers/NTPPoolServers">
+   http://support.ntp.org/bin/view/Servers/NTPPoolServers</a>.
+
+0. Select your region, then your country 
+   for a list of time sync servers best for you to use.
+
+0. Edit your /etc/ntp.conf file using vim or another text editor:
+
+   <tt><strong>
+   sudo vim /etc/ntp.conf
+   </strong></tt>
+
+0. Replace the list of servers with the one shown in the webpage, 
+   such as:
+
+   <pre>
+   server 0.uk.pool.ntp.org iburst
+   server 1.uk.pool.ntp.org iburst
+   server 2.uk.pool.ntp.org iburst
+   server 3.uk.pool.ntp.org iburst
+   </pre>
+
+   The example here is for "uk".
+
+0. Save and exit the editor.
+
+0. Restart the ntp deamon.
+
+   <tt><strong>
+   sudo /etc/init.d/ntp restart
+   </strong></tt>
+
+0. Wait a few minutes.
+0. Check that the date is correct.
+
+   <tt><strong>
+   date
+   </strong></tt>
+
+   The result is a date like this:
+
+   <pre>
+   Thu Jun 20 13:39:20 CEST 2013
+   </pre>
+
+
+   ### Set access rights
 
 
    ### Text editor
@@ -721,28 +843,6 @@ POWERDOWN_TIME=0 # default 15
    </strong></pre>
 
 
-   ### Backup image
-
-   Make a backup image (.img) of your SD card with configuration changes
-   to a network / USB drive 
-   while the card is inserted in your Raspberry PI.
-
-0. Verify access to your network drive / usb drive, to see the devices:
-
-   <tt><strong>
-   sudo cat /etc/fstab
-   </strong></tt>
-
-0. Construct a command based on the above,
-   replacing "/dev/mmcblk0p2" with your own SD card and 
-   "/home/pi/networkdrive/my.img" 
-   with your own network drive / USB drive + image file name):
-
-   <tt><strong>
-   sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
-   </strong></tt>
-
-
    ### Purge unneeded packages
 
 0. List installed packages:
@@ -789,11 +889,49 @@ sudo apt-get autoremove
    git clone https://github.com/PeterWaher/IoTGateway/tree/master/Mocks
    cd ???
 
-0. Install signing key
 
-   http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
-   GPG signing Key
+   ## Download Run Bash Script 
 
+   Now that Git has been installed:
+
+0. Verify prerequisites:
+
+   <tt><strong>
+   python --version
+   </tt></strong>
+
+0. Position to the folder:
+
+   <tt></strong>
+   cd /home/pi
+   </strong></tt>
+
+0. Download self-starter script
+
+   <tt><strong>
+   git clone --depth=1 https://github.com/jetbloom/iot-utilities<br />
+   cd iot-utilities
+   </strong></tt>
+
+0. Make the script file executable:
+
+   <tt></strong>
+   sudo chmod +x system_info.py
+   </strong></tt>
+
+   This only needs to be done once.
+
+0. Run the script file once under Python:
+
+   <tt></strong>
+   python system_info.py
+   </strong></tt>
+
+   ### Add to the boot-up script
+
+   TODO: Make the file repeat in a loop.
+
+   TODO: Periodically check back on whether a new file is ready for update.
 
 
 ## Install mono-complete
@@ -822,6 +960,12 @@ sudo apt-get autoremove
    and AOT (Ahead-of-Time) code generators.
 
    Your device should now ready to run.
+
+
+0. TODO: Install signing key
+
+   http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
+   GPG signing Key
 
 
 ## Use USB drive
@@ -916,8 +1060,37 @@ QUESTION: Automatically detects if the official Raspberry Pi 7″ Touchscreen is
 
    If you want to network boot multiple Raspberry Pis, you could use PiNet. This is a free and open-source community-based project initially designed for schools. Each Raspberry Pi boots off a small set of startup files on an SD card and fetches the rest of the data it needs from the PiNet server, thereby allowing you to maintain a single operating system image for all the Raspberry Pis. PiNet also adds network user accounts, shared folders and automated backups.
 
-
    http://pinet.org.uk/
+
+
+<a name="#RunNode"></a>
+
+## Run Node 
+
+   http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/
+
+
+## Backup image to another SD card
+
+   Make a backup image (.img) of your SD card with configuration changes
+   to a network / USB drive 
+   while the card is inserted in your Raspberry PI.
+
+0. Verify access to your network drive / usb drive, to see the devices:
+
+   <tt><strong>
+   sudo cat /etc/fstab
+   </strong></tt>
+
+0. Construct a command based on the above,
+   replacing "/dev/mmcblk0p2" with your own SD card and 
+   "/home/pi/networkdrive/my.img" 
+   with your own network drive / USB drive + image file name):
+
+   <tt><strong>
+   sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
+   </strong></tt>
+
 
 ## Rock Stars
 
