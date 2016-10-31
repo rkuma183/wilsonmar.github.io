@@ -1246,7 +1246,16 @@ npm install -g http-server
 
 ## Node modules #
 
-Install famous Node modules:
+A module is a single JavaScript file.
+
+A package is a directory containing modules.
+
+A list of shorthands for the NPM command<br />
+<a target="_blank" href="https://docs.npmjs.com/misc/config">
+https://docs.npmjs.com/misc/config</a>
+
+
+Famous Node modules:
 
 
 <a id="Grunt"></a>

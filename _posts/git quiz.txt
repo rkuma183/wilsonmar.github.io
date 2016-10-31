@@ -1,0 +1,96 @@
+
+System: On Windows:
+   /etc/gitconfig
+   Program Files\Git\etc\gitconfig
+User:
+   ~/.gitconfig
+   $HOME\.gitconfig
+
+------
+
+How do you compare branches in Git?
+diff git branch2..branch1
+git diff branch2,branch1
+git diff branch1..branch2 <
+diff git branch1..branch2
+
+
+When you want to completely undo the changes for a commit, you can use the _____ command.
+git uncommit
+git checkout
+git revert
+git undo
+
+Suppose you've added a lot of files to your working directory that are not tracked, and you want to get rid of them. Which command would accomplish this the most efficiently?
+git delete
+git delete free
+git remove
+git clean
+
+Use this command to tell your local repository where it can find the remote repository.
+git remote nameofRepo
+git remote -v
+git remote add nameofRepo URL
+none of these answers
+
+What is the result of "git push -u origin master"?
+It will undo the push of the master branch into the origin repository.
+It will push the master branch into the origin repository.
+It will push the origin branch into the master repository. <
+It will undo the push of the origin branch into the master repository.
+
+"git push origin master" will push any changes in the origin/master branch to the origin repository.
+TRUE
+FALSE
+
+"git pull" produces a different result than "git fetch plus git merge"
+TRUE
+FALSE
+
+-----
+
+git-class
+
+Clone without the history. I only want to move forward.
+
+git clone -–depth=1 https://github.com/...  -b branch
+
+
+
+"git help log" or "man git-log" to get Git Manual page, because these two commands accomplish the same thing.
+
+
+
+Which command allows you to discard file changes in the working directory?
+You’re correct!
+git checkout
+
+
+Which command should you use to find the differences between an old and new version of a file?
+git compare
+git log
+git delta
+git diff
+
+
+
+Which of the following is a way of referencing a commit?
+using full SHA-1 hash
+using HEAD pointer
+using short SHA-1 hash
+all of these answers
+
+
+How do you create a new branch in Git?
+.git/HEAD
+git branch branchname
+git branch
+git HEAD
+
+
+How do you switch to a newly created branch?
+git checkout branchname
+git branch HEAD
+git branch branchname
+none of these answers
+

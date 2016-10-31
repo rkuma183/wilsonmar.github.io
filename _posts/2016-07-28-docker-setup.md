@@ -44,6 +44,16 @@ Docker containers are created using docker images,
 built by parsing a <strong>Dockerfile</strong> 
 containing Docker commands.
 
+### Competition
+
+<a target="_blank" href="https://coreos.com/">
+CoreOS</a> developed
+<a target="_blank" href="https://github.com/appc/spec/">
+appc</a> with a rkt (pronounced "rocket") implementation
+in their 
+<a target="_blank" href="https://www.opencontainers.org/">
+Open Containers Initiative</a> (OCI)
+
 
 <hr />
 

@@ -1579,10 +1579,25 @@ The company went public on May 17, 2013 at an initial public offering price of $
 
  * https://www.tableau.com/about/blog/2016/1/5-tips-make-your-dashboards-more-performant-48574
 
-Certification
+
+## Certification
 
  * https://www.youtube.com/watch?v=u5V83ms7yr4
-   
+
+
+## Video 
+
+<a target="_blank" href="https://www.linkedin.com/learning/search?keywords=Tableau">
+Tableau videos on LinkedIn</a>:
+
+* <a target="_blank" href="https://www.linkedin.com/learning/tableau-10-essential-training">
+   Tableau 10 for Essential Training 4h 22m</a>
+   by Curt Frye
+
+* <a target="_blank" href="https://www.linkedin.com/learning/tableau-10-for-data-scientists">
+   Tableau 10 for Data Scientists 2h 4m</a>
+   by Matt Francis
+
 ## Footnote
 
 This page is way too long and will be split up in separate pages

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Ports Open"
-excerpt: "What ports are open on the machine?"
-tags: [IoT, Microsoft, Xamarin]
+title: "Ports Open on my Mac"
+excerpt: "What ports are open for hacking on my Mac?"
+tags: [Mac, Security]
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
@@ -16,6 +16,11 @@ comments: true
 
 Here is how to see what ports are open listening on a server.
 
+This is perhaps the most important potential vulnerability.
+
+Having ports listenting to outside traffic also takes a bit of CPU,
+which consumes electricity and thus battery life.
+
 ## Mac lsof #
 
 0. In a Terminal command line:
@@ -23,6 +28,9 @@ Here is how to see what ports are open listening on a server.
    <tt><strong>
    lsof -nP +c 15 | grep LISTEN
    </strong></tt>
+
+   PROTIP: If you'll be using this often, create an alias.
+
 
    "lsof" is a contraction for "list open files".
    Without any options specifications, lsof lists all open files belonging to all active processes.
@@ -36,13 +44,16 @@ Here is how to see what ports are open listening on a server.
 
    Piping to grep filters out only lines containing "LISTEN".
 
-   All options are shown by this command:
+   NOTE: All options are shown by this command:
 
    lsof -h
+
+   See http://www.thegeekstuff.com/2012/08/lsof-command-examples
 
 0. Drag your Terminal window wider to remove word-wrap.
 
    <pre>
+COMMAND           PID USER   FD      TYPE DEVICE                   SIZE     NODE     NAME
 mongod            429  mac    6u     IPv4 0xeef754dd0b1f6a1b        0t0      TCP 127.0.0.1:27017 (LISTEN)
 2BUA8C4S2C.com.   437  mac   11u     IPv4 0xeef754dd0b1f7c0b        0t0      TCP 127.0.0.1:6258 (LISTEN)
 2BUA8C4S2C.com.   437  mac   12u     IPv6 0xeef754dd02830d03        0t0      TCP [::1]:6258 (LISTEN)
@@ -62,36 +73,109 @@ Dropbox         21014  mac  157u     IPv4 0xeef754dd20427a1b        0t0      TCP
 Dropbox         21014  mac  163u     IPv4 0xeef754dd0e9f763b        0t0      TCP 127.0.0.1:17603 (LISTEN)
    </pre>
 
-   Skype             743  mac   20u     IPv4 0xeef754dd2d469313        0t0      TCP 10.0.0.2:2301 (LISTEN)
 
-   The heading:
+"FD" column lists File Descriptors. "u" is for read and write mode. "r" for read only, "w" for write-only.
+
+Linux requires root on operations for well-known ports below 1024.
+
+Registered Ports: 1024 through 49151.
+
+Dynamic/Private : 49152 through 65535. 
+
+TCP (Transmission Control Protocol) is the most commonly used protocol on the Internet and any TCP/IP network. TCP enables two hosts to establish a connection and exchange streams of data. TCP guarantees delivery of data and that packets will be delivered in the same order in which they were sent. Guaranteed communication/delivery is the key difference between TCP and UDP on ort 53.
+
+UDP (Datagram Protocol) is connectionless and does not guarantee reliable communication; it's up to the application that received the message to process any errors and verify correct delivery. UDP is often used with time-sensitive applications, such as audio/video streaming, where dropping some packets is preferable to waiting for delayed data. 
+
+
+## Processes Tour
+
+   NOTE: Drag the scroll bar to see what is beyond what is displayed.
 
    <pre>
-   COMMAND  PID USER   FD   TYPE DEVICE SIZE NODE NAME
+     0t0      TCP 127.0.0.1:27017 (LISTEN)
    </pre>
 
+<strong>mongod</strong> is MongoDB listening on port 27017.
+
+   I should keep that closed unless I need it.
+
+   https://www.mkyong.com/mongodb/mongodb-allow-remote-access/
+
+In Node, close all connections when the app closes completely:
+
+<pre>
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose disconnected on app termination');
+    process.exit(0);
+  });
+});
+</pre>
+
+<strong>2BUA8C4S2C</strong>
+
+   When I search for "2BUA8C4S2C" I see "2BUA8C4S2C.com.agilebits" in folder /Users/mac/Library/Group Containers
+
+   <a target="_blank" href="https://discussions.agilebits.com/discussion/7647/port-6258-whats-going-on">This</a> says
+   This port is used only on the <strong>loopback interface (127.0.0.1)</strong> for the 1Password extension to talk to the 1Password Agent. It should be safe to firewall it from any sources other than 127.0.0.1. If you do a packet capture on lo0 and then filter by tcp.port == 6258 you can see what traffic is being passed. Nothing is transmitted in the clear.
+
+<strong>Skype</strong> I don't mind keeping open. I use it a lot.
+
+<strong>Dropbox</strong> - why does it need to be kept open?
+  
+   I'll use just their web page when I need it.
+
+   See https://www.dropbox.com/help/41
+
+<strong>Resilio\x20Sync</strong> 
+I used once to get a file.
+
+   In Resilio Preferences, uncheck “Start Resilio Sync on startup".
+
+<strong>SketchMirrorHel</strong>
+
+   XMPP ports 56989 and 56990
 
 
-the identification number of the process (PID) that has opened the file;
-the process group identification number (PGID) of the process (optional);
-the process identification number of the parent process (PPID) (optional);
-the command the process is executing;
-the owner of the process;
-for all files in use by the process, including the executing text file and the shared libraries it is using:
-the file descriptor number of the file, if applicable;
-the file's access mode;
-the file's lock status;
-the file's device numbers;
-the file's inode number;
-the file's size or offset;
-the name of the file system containing the file;
-any available components of the file's path name;
-the names of the file's stream components;
-the file's local and remote network addresses;
-the TLI network (typically UDP) state of the file;
-the TCP state, read queue length, and write queue length of the file;
-the file's TCP window read and write lengths (Solaris only); and
-other file or dialect-specific values.
+### For a list of processes on Mac:
+
+http://www.westwind.com/reference/OS-X/background-processes.html
+
+<strong>ftp</strong> (tftp) should not appear.
+
+
+## Firewall
+
+
+
+
+## NMAP
+
+Scan other machines
+
+0. Install
+
+   <tt><strong>
+   brew install nmap
+   </strong></tt>
+
+0. There are a lot of options
+
+   <tt><strong>
+   nmap -h
+   </strong></tt>
+
+   The format:
+
+   <tt><strong>
+   nmap [scan type] [options] {target specification}
+   </strong></tt>
+
+0. There are a lot of options
+
+   <tt><strong>
+   nmap -h
+   </strong></tt>
 
 
 ## Resources 

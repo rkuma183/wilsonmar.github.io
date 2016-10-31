@@ -901,12 +901,89 @@ Algorithmia provides an API for calling Machine Learning algorithms as REST APIs
 
 https://github.com/sahat/hackathon-starter/issues/545
 
-Before using this, you need to apply for an account at
-<a target="_blank" href="https://www.algorithmia.com/">
-algorithmia.com</a>, then login with your password.
+0. Use an internet browser to apply for an account at
+   <a target="_blank" href="https://www.algorithmia.com/">
+   algorithmia.com</a>, then login with your password.
 
-No access to a local database is needed 
+   No access to a local database is needed.
 
+   Steps are influenced by
+   https://www.npmjs.com/package/algorithmia
+
+0. In `package.json, add:
+
+0. In `app.js` add:
+
+   <pre>
+   const algorithmia = require("algorithmia");
+   </pre>
+
+0. In `app.js` add:
+
+   <pre>
+var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
+...
+app.get('/api/algorithmia', apiController.getAlgorithmia);
+   </pre>
+
+0. In `.env` file I created (not pushed to GitHub):
+
+   <pre>
+ALGORITHMIA_API_KEY=asdfasdflksdf
+   </pre>
+
+0. In `controllers\api.js` add:
+
+   <pre>
+const Algorithmia = require('algorithmia');
+...
+var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
+   </pre>
+
+0. Within folder `views\api\` create file `algorithmia.pug` 
+   based on Clockwork, which has both input and output fields.
+
+   <pre>
+extends ../layout
+&nbsp;
+block content
+  .page-header
+    h2
+      i.fa.fa-phone
+      | Algorithmia RGB2ColorName API
+&nbsp;
+  .btn-group.btn-group-justified
+    a.btn.btn-primary(href='https://algorithmia.com/algorithms/', target='_blank')
+      i.fa.fa-check-square-o
+      | Algorithmia.com
+    a.btn.btn-primary(href='https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName/', target='_blank')
+      i.fa.fa-code-fork
+      | RGB2ColorName
+&nbsp;
+  h4 Send a text message
+  .row
+    .col-sm-6
+      form(role='form', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          .input-group
+            input.form-control(type='text', name='rgb_color', placeholder='[Red,Green,Blue]')
+            span.input-group-btn
+              button.btn.btn-success(type='submit') Send
+   </pre>
+
+   From https://algorithmia.com/algorithms/wilsonmar/RGB2ColorName
+   add:
+
+   <pre>
+var input = [221,18,137];
+Algorithmia.client("simCyWJyqdmAV914trRikUuMJwp1")
+           .algo("algo://wilsonmar/RGB2ColorName/0.1.23")
+           .pipe(input)
+           .then(function(response) {
+             console.log(response.get());
+           });
+   </pre>
 
 <a name="AddGoogleMap"></a>
 
@@ -1117,7 +1194,7 @@ var map = new GMaps({
 
    ### Add tests
 
-   
+
    
 ## MLab #
 
