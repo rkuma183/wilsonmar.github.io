@@ -109,12 +109,24 @@ TBD
 
 ## Microsoft Remote Desktop #
 
-Windows operating systems come with a <strong>Remote Desktop</strong> app to take over another Windows machine
-for support, training, etc.
+There are two programs that enable Mac users to access and <strong>take over</strong> 
+Windows servers remotely,
+using RDP (Remote Desktop Protocol), also known as Terminal Services,
+which uses port 3389:
 
-* Go to <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
-   Microsoft's Remote Desktop for Mac OSX from the Apple Store</a>
+A) <a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=18140">
+   Remote Desktop Client Connection for Macintosh</a>.
 
+   RDC_2.1.1_ALL.dmg is 9.4 MB
+
+B) <a target="_blank" href="http://cord.sourceforge.net/">CoRD on Sourceforge</a>,
+   which is for Mac OS X 10.5—10.8 (obsolete when 10.12 Sierra is out?).
+
+   CoRD_0.5.7.zip is 3.4 MB
+
+C) <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
+   Microsoft's Remote Desktop for Mac OSX from the Apple Store</a>.
+  
    This is newer than the edition that comes with Microsoft Office for Mac 2011.
 
 0. Click Get.
@@ -126,6 +138,15 @@ for support, training, etc.
  0. Click + New
 
    <amp-img alt="ms remote desktop mac" width="426" height="485" href="https://cloud.githubusercontent.com/assets/300046/15401380/8e639ee0-1dac-11e6-98cd-9519d7dcf519.jpg"></amp-img>
+
+   This UI version is difficult because there are no favorites or sorting by last use,
+   aliases, etc. (that I know of).  I now have to scroll down the list every time, 
+   and remembering which of many cryptic names I want, which is difficult
+   if you have a lot of servers on the list.
+
+NOTE: http://docs.aws.amazon.com/quickstart/latest/rd-gateway/welcome.html
+Quick Start for Remote Desktop Gateway that explains how to configure RDGW in detail
+
 
 
 ## More on OSX
