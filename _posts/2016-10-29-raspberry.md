@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Raspberry Pi Mono IoT on Mac OSX"
-excerpt: "How to use Mac OSX to setup a Raspberry Pi 3B to use Xamarin Mono"
+title: "Raspberry Pi IoT Debian Raspian DevOps Installation"
+excerpt: "How to setup a Raspberry Pi 3B to use Xamarin Mono and other apps"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
@@ -20,17 +20,18 @@ run apps under Raspian on a Raspberry Pi 3 B.
 
 There are several uses for a Pi:
 
-* Use the Pi Desktop to display a web page that refreshes itself automatically (web cams, list at http://www.holovaty.com/writing/23/)
+* Use the Pi Desktop to display a web page that refreshes itself automatically (web cams)
 * Play a movie using a built-in utility
 
 * Run Bash shell script on boot-up to download a script from GitHub and run it.
-* Run Python code to measurement board temperature and free memory over time.
-* Run cron background to periodically measure board's temperature 
-* <a href="#RunNode">Run Node.js code to run a web server</a>
+* Run Python code to measure board temperature and free memory over time.
+* <a href="#CronJob">Run cron background</a> to periodically 
+   <a href="#Temp">measure board's temperature</a>
+* <a href="#InstallNode">Run Node.js code to run a web server</a>
 * Run mono app <strong>IoT Gateway server</strong> and home automation
 
-* Run NAS server (local cloud) off a USB drive
-* Local Git server
+* Run NAS server (local Network Attached Storage) off a USB hard drive
+* Local Git server 
 * USB Camera
 
 
@@ -54,7 +55,7 @@ There are several uses for a Pi:
    In data centers, for every 50 kW of power fed to an aisle of server, 
    the same facilities typically apply 100-150 kW of cooling.
 
-   PROTIP: Measure board temperature over time.
+   PROTIP: <a href="#BoardTemp">Measure board temperature over time.</a>
    The little alumininum heat sink reduces heat by 2 degrees F.
    Get a large heatsink and fan from an old desktop computer.
    The larger the sink the better.
@@ -288,9 +289,13 @@ There are several uses for a Pi:
 0. While you're waiting, read blogs written when
    <a target="_blank" href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">
    Raspbian Jessie was first released</a>
-   (Versions of Debian are named after characters in Disney's “Toy Story” films)
+   (Versions of Debian are named after 
+   <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>)
 
-   "Wheezy" is the previous version of Raspian.
+   "Wheezy" (the squeeze toy penguin with the red bow tie)
+   was the previous version of Raspian.
+
+   "sid" (the bad boy in Toy Story) is the 2017 release.
 
 0. TODO: Calculate on the Mac a SHA hash on your laptop to verify SHA from the website.
 
@@ -311,9 +316,13 @@ There are several uses for a Pi:
  
 0. At website
    <a target="_blank" href="https://www.etcher.io/">
-   etcher.io/"> select a platform to download the 
+   etcher.io</a> select a platform to download the 
    Etcher app (made by Resin.io) for your platform.
 
+   <amp-img alt="iot etcher 400x237-32kb.jpg" width="400" height="237" src="https://cloud.githubusercontent.com/assets/14143059/19876110/56a498c4-9f98-11e6-8bf1-a7ed029fd3d7.jpg.jpg"></amp-img>
+
+   | File downloaded | Size |
+   | --------------- | ---: |
    | Etcher-1.0.0-beta.16-darwin-x64 | 75.4 MB |
 
    CAUTION: The file name does say "beta".
@@ -463,7 +472,7 @@ There are several uses for a Pi:
 
 <a name="PowerUp"></a>
 
-## Power Up with SD card
+## Power Up to GUI in SD card
 
    Base on
    https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
@@ -475,12 +484,22 @@ There are several uses for a Pi:
 
    When in, the chip sticks out a bit.
 
+0. Plug in monitor and keyboard.
+
 0. Power up by plugging in the power.
 
    Isn't it exciting to see the screen appear on a new computer?
 
+   <a target="_blank" href="https://www.youtube.com/watch?v=RBpAkTvBbYg">
+   Christopher Barnatt has a nice 9-minute about the PIXEL GUI</a>.
 
-## Boot to Command Line
+   NOTE: PIXEL stands for "Pi Improved X-Windows Environmet, Lightweight".
+   But many refer it simply as "X".
+
+   TECHNICAL NOTE: To prevent starting from a really bad date,
+   at shutdown, Raspian saves a file containing a date at
+   /etc/fake-hwclock.data
+   so that time moves forward.
 
    Rather than booting up to the Linux command line and
    <a target="_blank" href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">
@@ -491,8 +510,9 @@ There are several uses for a Pi:
    The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
    So you can plug the other end of the HDMI cable into your TV.
 
-   BLAH: This is silly because people don't use Raspian to watch its screen.
-   It doesn't have enough power and memory.
+   BLAH: This is silly because people don't use Raspian to watch its screen?
+
+   ### Exit and return to GUI 
 
 0. Exit GUI mode by pressing <strong>Ctrl + alt + F2</strong>
    (from among F1-F12 keys) at the same time.
@@ -513,8 +533,28 @@ There are several uses for a Pi:
    startx
    </strong></tt>
 
+   ### Configure using GUI
 
-## Shutdown
+0. Click the raspberry icon at the upper-left corner.
+0. Select Preferences.
+0. Select Raspberry Pi Configuration.
+0. Type in host name "raspi" so there is less to type.
+0. In Auto log-in, check "Login as user 'pi'"
+
+0. Click the Localization tab and Set Locale, TimeZone, WiFiCountry.
+0. Click OK out the dialogs.
+
+0. To reboot from the GUI, click the raspberry Menu icon at 
+   the upper-right corner, select shutdown, then
+   select reboot.
+
+   ### Command Line from GUI
+
+   PROTIP: Open up a Terminal window by pressing Ctrl+Alt+T.
+
+## Boot to Command Line
+
+   ### Shutdown
 
 0. Shut down Respian properly before powering it off. Type:
 
@@ -524,6 +564,10 @@ There are several uses for a Pi:
 
  0. Wait for the flashing the activity LED
     Pi uses to signal it is ready to be powered off.
+
+   <tt><strong>
+   sudo poweroff
+   </strong></tt>
 
 
 ## Explore #
@@ -561,6 +605,10 @@ ls /mnt/PIHDD
 ## One-time configuration
 
 These only need to be done once.
+
+Some configurations can be done in the GUI, but 
+we prefer to use a command line so that they can be added to a script
+later on.
 
 ### User home folder
 
@@ -706,9 +754,6 @@ These only need to be done once.
    </pre>
 
 
-   ### Set access rights
-
-
    ### Text editor
 
 0. Install a text editor, emacs or vi, to edit config files:
@@ -718,7 +763,11 @@ These only need to be done once.
    </strong></tt>
 
 
+
    ### Configure network access
+
+   See <a target="_blank" href="http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/">
+   this on connecting to a wi-fi network</a>.
 
    The Model B, Model B+ and Model 2B/3B versions of the device have built in 10/100 wired Ethernet.
 
@@ -734,31 +783,11 @@ These only need to be done once.
 network={
    ssid="yours"
    psk="your password"
+   proto=RSN
+   key_mgmt=WPA-PSK
+   pairwise=CCMP
+   auth_alg=OPEN
 }
-   </pre>
-
-   Use network to display web pages that refresh automatically
-   (listed by frequency of auto-refresh):
-
-<ul>
-<li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
-<li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
-<li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>
-<li><a target="_blank" href="http://www.boston.com/">Boston Globe</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.nytimes.com/">New York Times</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.wsj.com/">Wall Street Journal</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.cnn.com/">CNN</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.denverpost.com/">Denver Post</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.rockymountainnews.com/">Denver Rocky Mountain News</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.usatoday.com/">USA Today</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.washingtonpost.com/">Washington Post</a> -- 1800 seconds</li>
-</ul>
-
-   http://issabove.com/
-   uses Python and nmap
-
-   <pre>
-   &LT;meta http-equiv="refresh" content="600; url=index.php">
    </pre>
 
 
@@ -785,7 +814,7 @@ network={
 
 0.  Change BLANK_TIME to 0 and 
 
-   <pre>
+   ```
 # screen blanking timeout. monitor remains on, but the screen is cleared to
 # range: 0-60 min (0==never) kernels I've looked at default to 10 minutes.
 # (see linux/drivers/char/console.c)
@@ -794,7 +823,7 @@ BLANK_TIME=0 # default 30
 # Powerdown time. The console will go to DPMS Off mode POWERDOWN_TIME
 # minutes _after_ blanking. (POWERDOWN_TIME + BLANK_TIME after the last input)
 POWERDOWN_TIME=0 # default 15
-   </pre>
+   ```
 
 0. Re-start the file or just reboot
 
@@ -819,6 +848,78 @@ POWERDOWN_TIME=0 # default 15
    </pre>
 
 
+
+   <a name="NewsFeeds"></a>
+
+   ### View news feeds
+
+0. In the desktop, open up a Chrome internet browser to this website:
+
+   <a target="_blank" href="https://wilsonmar.github.io/raspberry/#NewsFeeds">
+   https://wilsonmar.github.io/raspberry/#NewsFeeds</a>
+
+0. Click on one of these links to display a 
+   <a target="_blank" href="http://www.holovaty.com/writing/23/">
+   web page that refreshes automatically</a>
+   (listed by frequency of auto-refresh):
+
+<ul>
+<li><a target="_blank" href="http://www.wsdot.com/traffic/seattle/default.aspx">
+Seattle Traffic map</a> -- 240 seconds </li>
+<li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
+<li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
+<li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>
+<li><a target="_blank" href="http://www.boston.com/">Boston Globe</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.nytimes.com/">New York Times</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.wsj.com/">Wall Street Journal</a> -- 900 seconds</li>
+<li><a target="_blank" href="http://www.cnn.com/">CNN</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.denverpost.com/">Denver Post</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.rockymountainnews.com/">Denver Rocky Mountain News</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.usatoday.com/">USA Today</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.washingtonpost.com/">Washington Post</a> -- 1800 seconds</li>
+</ul>
+
+   <!--
+   http://issabove.com/
+   uses Python and nmap
+   -->
+
+   BTW, a website is set to refresh itself by this HTML:
+
+   <pre>
+   &LT;meta http-equiv="refresh" content="600; url=index.php">
+   </pre>
+
+
+   ### No Adobe Flash plug-ins for web cams
+
+   Adobe has not made a versions of its Flash for ARM processors used on the Pi.
+   So sites that use them won't work.
+   However, sites based on HTML5 should work.
+
+<ul>
+<li><a target="_blank" href="http://explore.org/live-cams/player/china-panda-cam-2?popoff=true">
+Panda cam, China</a></li>
+<li><a target="_blank" href="http://hint.fm/wind/">Wind map USA</a> (zoomable)</li>
+<li><a target="_blank" href="https://www.nps.gov/features/yell/webcam/oldFaithfulStreaming.html">
+Old Faithful in Montana, USA</a></li>
+<li><a target="_blank" href="http://www.abbeyroad.com/crossing?AspxAutoDetectCookieSupport=1">
+Abbey Road, London, England</a> (made famous by the Beatles)</li>
+<li><a target="_blank" href="http://www.reallifecam.com/en/view/06_1">
+Real Life cams</a> (for that "lived in look")</li>
+<li><a target="_blank" href="http://members.upc.nl/a.horlings/cam-list.html">
+List of webcam lists</a></li>
+<li><a target="_blank" href="http://www.timessquare2.com/webcams.html">
+Times Square, New York City</a></li>
+<li><a target="_blank" href="https://www.graceland.com/connect/gracelandcam.aspx">
+Elvis' Graceland</a></li>
+</ul>
+
+<ul>
+<li><a target="_blank" href="http://www.claudicam.de/framecam.html">This uses Java</a></li>
+<li><a target="_blank" href="http://www.vaticanstate.va/content/vaticanstate/it/monumenti/webcam/basilica-di-s-pietro-.html">
+Vatican City, Rome, Italy</a></li>
+</ul>
    ### Get Audio working
 
    See http://cagewebdev.com/raspberry-pi-getting-audio-working/
@@ -835,15 +936,17 @@ POWERDOWN_TIME=0 # default 15
    echo UPDATING SYSTEM SOFTWARE – UPGRADE
    sudo apt-get upgrade
    echo UPDATING SYSTEM SOFTWARE – DISTRIBUTION
-   sudo apt-get dist-upgrade
+   sudo apt-get dist-upgrade -y
    echo REMOVING APPLICATION ORPHANS
    sudo apt-get autoremove –purge
    echo UPDATING FIRMWARE
    sudo rpi-update
    </strong></pre>
 
+0. Reboot for changes to take affect.
 
-   ### Purge unneeded packages
+
+   ### Purge unneeded packages and files
 
 0. List installed packages:
 
@@ -875,6 +978,23 @@ sudo apt-get clean
 sudo apt-get autoremove
    </strong></pre>
 
+0. Remove desktop photos
+
+   /usr/share/pixel-wallpaper
+
+   ### Additional utilities
+
+0. Install htop utility:
+
+   <pre><strong>
+   sudo apt-get install htop
+   </strong></pre>
+
+   Use it like the Linux top command:
+
+   <pre><strong>
+   htop
+   </strong></pre>
 
 0. Install Git client
 
@@ -902,7 +1022,7 @@ sudo apt-get autoremove
 
 0. Position to the folder:
 
-   <tt></strong>
+   <tt><strong>
    cd /home/pi
    </strong></tt>
 
@@ -915,7 +1035,7 @@ sudo apt-get autoremove
 
 0. Make the script file executable:
 
-   <tt></strong>
+   <tt><strong>
    sudo chmod +x system_info.py
    </strong></tt>
 
@@ -923,7 +1043,7 @@ sudo apt-get autoremove
 
 0. Run the script file once under Python:
 
-   <tt></strong>
+   <tt><strong>
    python system_info.py
    </strong></tt>
 
@@ -1049,11 +1169,45 @@ QUESTION: Automatically detects if the official Raspberry Pi 7″ Touchscreen is
    then the hardware components are most likely unsuitable.
    This can be poor quality power supply or USB cable.
 
+   <a name="BoardTemp"></a>
+
 0. Measure temperature of board
 
    <tt><strong>
-   vcgencmd measure temp
+   vcgencmd measure_temp
    </strong></tt>
+
+   The response is in Centigrade
+
+   <pre>
+   temp=48.3'C
+   </pre>
+
+   Save it to a CSV file.
+
+   But first make sure there is enough room.
+
+
+   <a name="CronJob"></a>
+ 
+   ### Run scheduled job
+
+   Based on 
+   https://www.raspberrypi.org/learning/temperature-log/worksheet/
+
+   ### Send to cloud collector
+
+   Send the reading to a cloud collector
+ 
+   ### Send SMS to Phone
+
+   via Twillio REST API
+
+   ### Send Tweet
+
+   Have your Raspberry Pi tweet you when the CPU temperature gets too high?
+   https://www.raspberrypi.org/learning/getting-started-with-the-twitter-api/
+
 
 
 ## Optional: Configure SD for PiNet boot
@@ -1063,11 +1217,158 @@ QUESTION: Automatically detects if the official Raspberry Pi 7″ Touchscreen is
    http://pinet.org.uk/
 
 
-<a name="#RunNode"></a>
+<a name="InstallNode"></a>
 
-## Run Node 
+## Install Node 
 
-   http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/
+There are three major ways to install Node.
+
+### 1) Here's one way, least  
+<a target="_blank" href="http://weworkweplay.com/play/raspberry-pi-nodejs/">
+publicized</a>:
+
+0. Download from your browser<br />
+   <a target="_blank" href="http://node-arm.herokuapp.com/node_latest_armhf.deb">
+   http://node-arm.herokuapp.com/node_latest_armhf.deb</a>
+
+0. Open it with a text editor.
+   Notice it's a binary file.
+
+   If you're not brave enough, skip to the next alternatives.
+
+0. If you're brave enough to run it:
+
+   <pre><strong>   
+wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
+sudo dpkg -i node_latest_armhf.deb
+   </strong></pre>
+
+### 2) Here is the other way:
+
+   <a target="_blank" href="http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/">
+   DaveJ pointed out</a> that 
+   <a target="_blank" href="https://nodesource.com/">
+   NodeSource</a> (the people who make enterprise N|Solid)
+   has prepared a 
+   <a target="_blank" href="https://github.com/nodesource/distributions">
+   Bash script for installing</a> 
+   Node.js v7.x Debian and other distros.
+
+0. This uses curl command to download a script and then 
+   a bash to execute it:
+
+   <pre><strong>
+   curl -sL https://deb.nodesource.com/setup_7.x | bash -
+   </strong></pre>
+
+   If you're scared of letting some script on the internet 
+   have their way on your system,
+   <a target="_blank" href="https://github.com/nodesource/distributions">
+   this page</a> and
+   <a target="_blank" href="https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource/">
+   this</a> explains the equivalent manual steps:
+
+   1. Clean up references to the old PPA if you are already using it
+   2. Add the NodeSource signing key to your keyring
+   3. Add deb.nodesource.com to your APT sources
+   4. Perform an apt-get update with your new sources
+   <br /><br />
+   What these mean I have no idea, other than
+   PPA = Private Package Repository and 
+   APT = ???
+   <br />
+
+0. Later, obtain the latest version:
+
+   <pre><strong>
+   apt-get install -y nodejs
+   </strong></pre>
+
+   <a target="_blank" href="http://ask.xmodulo.com/install-node-js-linux.html">
+   Alternately</a>, to install Node.js from source:
+
+   ```
+   sudo apt-get install python g++ make
+   wget http://nodejs.org/dist/node-latest.tar.gz
+   tar xvfvz node-latest.tar.gz
+   cd node-v0.10.21 #(replace a version with the one you want)
+   ./configure
+   make
+   sudo make install
+   ```
+
+### 3) Perhaps the safest approach 
+
+   <a target="_blank" href="http://ask.xmodulo.com/install-node-js-linux.html">
+   Install Node.js from source</a> you can examine:
+
+   <pre><strong>
+   sudo apt-get install python g++ make
+   wget http://nodejs.org/dist/node-latest.tar.gz
+   tar xvfvz node-latest.tar.gz
+   cd node-v0.10.21 #(replace a version with the one you want)
+   ./configure
+   make
+   sudo make install
+   </strong></pre>
+
+
+
+### Test if Node app works
+
+0. Create a file creating a demo web server:
+
+   <pre><strong>
+   vim node_hello_world.js
+   </strong></pre>
+
+0. Copy this and paste in the file:
+
+   ```
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(3001, "127.0.0.1");
+console.log('Server running at http://127.0.0.1:3001/');
+   ```
+
+0. Run the server:
+
+   <pre><strong>
+   node --debug node_hello_world.js
+   </strong></pre>
+ 
+   Look in the browser console for something like:
+
+   <pre>
+debugger listening on port 5858
+Server running at http://127.0.0.1:3001/
+   </pre>
+
+
+## Make Node upon bootup
+
+0. Navigate to within the `/etc` folder. 
+0. Edit the `rc.local` shell script Raspian invokes on boot-up.
+
+0. As the default pi user, run a single command 
+   to a single file, `server.js` with an absolute file path
+   to the `/home/pi/` folder.
+   
+   <pre></strong>
+   su pi -c 'node /home/pi/server.js < /dev/null &'
+   </strong></pre>
+
+   PROTIP: Just running node app.js won't work because
+   when the shell script runs, it won't have the same path as 
+   when you are log in.
+
+   <a target="_blank" herf="http://weworkweplay.com/play/raspberry-pi-nodejs/">
+   PROTIP</a>: To errors like Illegal instruction or Permission denied or File not found,
+   run only a single command file.
+
+0. Reboot and see it node appears.
 
 
 ## Backup image to another SD card
@@ -1076,11 +1377,26 @@ QUESTION: Automatically detects if the official Raspberry Pi 7″ Touchscreen is
    to a network / USB drive 
    while the card is inserted in your Raspberry PI.
 
-0. Verify access to your network drive / usb drive, to see the devices:
+0. View the fstab configuration file listing devices within partitions
 
    <tt><strong>
    sudo cat /etc/fstab
    </strong></tt>
+
+   It looks like this, as
+   <a target="_blank" href="http://www.howtogeek.com/howto/38125/htg-explains-what-is-the-linux-fstab-and-how-does-it-work/">
+   explained here</a>:
+
+   ```
+/dev/hda2   /              ext2 defaults             1 1
+/dev/hdb1   /home          ext2 defaults             1 2
+/dev/cdrom  /media/cdrom   auto ro,noauto,user,exec  0 0
+/dev/fd0    /media/floppy  auto rw,noauto,user,sync  0 0
+proc        /proc          proc defaults             0 0
+/dev/hda1   swap           swap pri=42               0 0
+   ```   
+
+0. Copy your network drive / usb drive to your invisible cache.
 
 0. Construct a command based on the above,
    replacing "/dev/mmcblk0p2" with your own SD card and 
