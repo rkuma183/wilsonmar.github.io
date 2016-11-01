@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Finding fault in Java Apps"
-excerpt: "How to find and fix"
-tags: [IoT, Raspberry, Mono, Mac]
+title: "Finding fault in JVM-based Apps"
+excerpt: "How to find and fix J"
+tags: [JVM, PE]
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -15,16 +15,27 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial explains the tools and techniques for finding faults in Java application code
-and configurations.
+This tutorial explains the tools and techniques for 
+finding faults in applications that make use of the 
+Java Virual Machine (JVM).
+
+Languages that use the JVM include
+
+* Java
+* Scala
+* JPython
+* RubyPython
+* etc.
 
 ## Potential root causes
 
-* Configuration settings inappropriate (defaults used)
+* Configuration settings inappropriate (defaults)
 * Network equipment failure
-* Server hardware (memory, inadequate
-* Code causing memory leaks
+* Network delays
+* Server hardware (memory, inappropriate cache size)
 * Inadequate free disk space
+* Code causing memory leaks
+* Inefficient coding techniques
 
 ## Symptoms
 
@@ -36,7 +47,7 @@ and configurations.
 
 ## The tools
 
-0. Operating System level metrics (collected by Microsoft Windows Perfmon)
+0. Operating System level metrics (collected by Microsoft Windows Perfmon, etc.)
 0. Operating System log storage and analysis
 
 0. Application logs storage and analysis
@@ -47,7 +58,13 @@ and configurations.
 
 0. Operating System thread dump readers
 
-0. [Java Code Profilers](/jvm-profilers/)
+0. [Java Code Profilers](/jvm-profilers/) to identify resources consumed by specific objects
+
+0. Debuggers (run one line at a time)
+
+0. [Static code analyzers (such as SonarQube)](/SonarQube/)
+0. Code linters
+
 
 ## Our services
 
