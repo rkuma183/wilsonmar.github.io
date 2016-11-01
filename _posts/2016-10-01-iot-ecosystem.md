@@ -37,7 +37,9 @@ comments: true
 
 * Kali Linux
 
-* Arch Linux 
+* Arch Linux at<br />
+   <a target="_blank" href="http://archplusplus.co.uk/">
+   http://archplusplus.co.uk</a>
 
 * Pidora 
 
@@ -45,3 +47,5 @@ comments: true
 
 * Yacto Linux
    https://www.yoctoproject.org/
+
+* Elec
