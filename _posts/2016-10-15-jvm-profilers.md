@@ -477,4 +477,7 @@ It's free up to 2 servers for Scala.
 
 https://shipilev.net/blog/2016/close-encounters-of-jmm-kind/
 
+As a comparison, take a look at the
+<a target="_blank" href="https://visualstudiomagazine.com/articles/2015/12/01/xamarin-apps.aspx">
+profiler in Visual Studio for C# Xamarin code</a>.
 

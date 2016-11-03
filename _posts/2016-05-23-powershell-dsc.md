@@ -73,10 +73,7 @@ MOF files often have a partner DLL (dynamic link library) file that stores data 
 
 ## Resources #
 
-A Practical Overview of Desired State Configuration
-   TechEd North America
-
-   Windows PowerShell 4.0 introduces Desired State Configuration (DSC), and it's time to put it to use. With DSC, you declaratively ..
+Windows PowerShell 4.0 introduces Desired State Configuration (DSC), 
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=lP6noSW6Vr4">
    A Practical Overview of Desired State Configuration</a>
@@ -96,6 +93,8 @@ A Practical Overview of Desired State Configuration
 http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
 How to search a string in multiple files and return the names of files in Powershell
 
+<a target="_blank" href="http://www.ravichaganti.com/blog/">
+Ravikanth Chaganti</a> (MVP)
 
 
 ## More on DevOps #
