@@ -67,4 +67,4 @@ which cause bottlenecks.
 
    This identifies the least-cost solutions (effort, time, and equipment).
 
-   That's how I justify what I'm paid.
+   For more detail see my list at [Finding fault in JVM](/finding-fault-in-jvm/).
