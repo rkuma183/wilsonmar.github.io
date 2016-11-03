@@ -93,8 +93,39 @@ Windows PowerShell 4.0 introduces Desired State Configuration (DSC),
 http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
 How to search a string in multiple files and return the names of files in Powershell
 
+## Infrastructure as Code 
+
 <a target="_blank" href="http://www.ravichaganti.com/blog/">
 Ravikanth Chaganti</a> (MVP)
+(of <a target="_blank" href="http://www.powershellmagazine.com/">
+PowerShell Magazine</a>
+and
+book PowerShell Desired State Configuration Revealed)
+notes that "Infrastructure as Code" requires:
+
+   * Reusable automation
+   * Source Control
+   * Unit Testing
+   * Continuous Deployment
+   * Integration tests, which validate the desired state
+   * Operations Validation, which validates the functionality at desired state!
+
+
+### Operation Validation Framework
+
+<a target="_blank" href="https://github.com/PowerShell/Operation-Validation-Framework/">
+https://github.com/PowerShell/Operation-Validation-Framework</a><br />
+runs
+
+   Get-Command -Module OperationValidation
+
+It has two functions:
+
+   Get-OperationValidation to Retrieve operational tests from modules
+   
+   Invoke-OperationValidation to run operational tests from modules
+
+
 
 
 ## More on DevOps #
