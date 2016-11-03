@@ -921,9 +921,10 @@ https://github.com/sahat/hackathon-starter/issues/545
 0. In `app.js` add:
 
    <pre>
-var client = algorithmia(process.env.ALGORITHMIA_API_KEY);
+const algorithmia = require('algorithmia')({ key: process.env.ALGORITHMIA_KEY });;
 ...
 app.get('/api/algorithmia', apiController.getAlgorithmia);
+app.post('/api/algorithmia', apiController.postAlgorithmia);
    </pre>
 
 0. In `.env` file I created (not pushed to GitHub):
@@ -967,7 +968,7 @@ block content
         input(type='hidden', name='_csrf', value=_csrf)
         .form-group
           .input-group
-            input.form-control(type='text', name='rgb_color', placeholder='[Red,Green,Blue]')
+            input.form-control(type='text', name='rgb_numbers', placeholder='[Red,Green,Blue]')
             span.input-group-btn
               button.btn.btn-success(type='submit') Send
    </pre>

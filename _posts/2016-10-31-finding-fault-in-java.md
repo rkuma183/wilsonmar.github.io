@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Finding fault in JVM-based Apps"
-excerpt: "How to find and fix J"
+excerpt: "How to find and fix JVM reliability running Java"
 tags: [JVM, PE]
 image:
 # feature: pic white robots woman 1900x500.jpg

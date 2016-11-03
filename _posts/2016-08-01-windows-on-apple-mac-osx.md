@@ -124,6 +124,10 @@ B) <a target="_blank" href="http://cord.sourceforge.net/">CoRD on Sourceforge</a
 
    CoRD_0.5.7.zip is 3.4 MB
 
+   After running this, drag it into your Applications folder.
+
+   To add a new server, click on the menu File.
+
 C) <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
    Microsoft's Remote Desktop for Mac OSX from the Apple Store</a>.
   

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Technial Press"
+title: "Technical Press Mentions"
 excerpt: "Blogs and publications covering technology"
-tags: [JVM, PE]
+tags: [Evangelist]
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -17,7 +17,8 @@ comments: true
 
 Here are on-line publications with high subscription and thus are influencers of opinion:
 
-### Converts from printed magazines
+
+## Previously print magazines
 
 <ol>
 <li><a target="_blank" href="https://www.bizjournals.com/seattle/blog/techflash/">
@@ -38,6 +39,8 @@ Here are on-line publications with high subscription and thus are influencers of
    wired.com</a></li>
 </ol>
 
+### On-line only newsletters
+
 <ol>
 <li><a target="_blank" href="https://m.signalvnoise.com/">
    m.signalvnoise.com</a> (previously 37 Signals)</li>
@@ -48,39 +51,39 @@ Here are on-line publications with high subscription and thus are influencers of
 <li><a target="_blank" href="http://businessinsider.com/">
    cmswire.com</a></li>
 <li><a target="_blank" href="https://cnet.com/">
-   cnet.com</a></li>
+   Cnet.com</a></li>
 <li><a target="_blank" href="https://blog.codinghorror.com/">
    blog.codinghorror.com</a></li>
 <li><a target="_blank" href="https://css-tricks.com/">
    css-tricks.com</a></li>
 <li><a target="_blank" href="http://insights.dice.com/2012/04/25/project-management-community/">
-   dice.com</a></li>
+   Dice.com</a></li>
 <li><a target="_blank" href="https://fastcodesign.com/">
-   fastcodesign.com</a></li>
+   Fastcodesign.com</a></li>
 <li><a target="_blank" href="https://engadget.com/">
-   engadget.com</a></li>
+   Engadget.com</a></li>
 <li><a target="_blank" href="http://geekwire.com/">
-   geekwire.com</a></li>
+   Geekwire.com</a></li>
 <li><a target="_blank" href="https://github.com/blog">
-   github.com/blog</a></li>
+   GitHub.com/blog</a></li>
 <li><a target="_blank" href="https://news.ycombinator.com/">
    news.ycombinator.com</a> venture capital fund</li>
 <li><a target="_blank" href="https://frontendfocus.co/">
-   frontendfocus.co</a></li>
+   FrontendFocus.co</a></li>
 <li><a target="_blank" href="https://javascriptweekly.com/">
-   javascriptweekly.com</a></li>
+   JavascriptWeekly.com</a></li>
 <li><a target="_blank" href="https://mashable.com/">
-   mashable.com</a></li>
+   Mashable.com</a></li>
 <li><a target="_blank" href="https://blogs.msdn.microsoft.com/">
    blogs.msdn.microsoft.com</a></li>
 <li><a target="_blank" href="https://networkworld.com/">
-   networkworld.com</a></li>
+   NetworkWorld.com</a></li>
 <li><a target="_blank" href="https://www.reddit.com/">
-   reddit.com</a></li>
+   Reddit.com</a></li>
 <li><a target="_blank" href="https://www.smashingmagazine.com/">
-   smashingmagazine.com</a></li>
+   SmashingMagazine.com</a></li>
 <li><a target="_blank" href="https://stackoverflow.com/">
-   stackoverflow.com</a></li>
+   Stackoverflow.com</a> question an answer</li>
 <li><a target="_blank" href="https://techcrunch.com/tag/blogs/">
    techcrunch.com/tag/blogs/</a></li>
 <li><a target="_blank" href="https://live.theverge.com/">
@@ -89,7 +92,59 @@ Here are on-line publications with high subscription and thus are influencers of
    tibco.com/blog/tag/trends-and-outliers/</a></li>
 <li><a target="_blank" href="https://www.wired.com/category/gear/autopia/">
    Wired.com</a> gear</li>
-<li>  Linux User & Developer 
+<li><a target="_blank" href="https://www.linuxuser.co.uk/">
+   Linux User & Developer UK</a></li>
 </ol>
 
-> Know others? Please let me know
+### Consulting firms
+
+<ol>
+<li><a target="_blank" href="https://www.accenture.com/us-en/blogs/blogs-technology-default">
+   Accenture Tech Innovation Blog</a></li>
+<li><a target="_blank" href="http://blog.aciron.com/">
+   Aciron Consulting</a></li>
+<li><a target="_blank" href="http://bainvoices.wordpress.com/">
+   Bain Voices</a></li>
+<li><a target="_blank" href="http://globalblogs.deloitte.com/">
+   Deloitte Consulting Global Blogs</a></li>
+<li><a target="_blank" href="https://cioblog.ey.com/">
+   Ernst and Young's CIO Blog</a></li>
+<li><a target="_blank" href="http://www.techmahindra.com/sites/blogs/SitePages/BlogCategoryLsiting.aspx">
+   Tech Mahindra Blogs</a></li>
+<li><a target="_blank" href="http://workingwithmckinsey.blogspot.com/">
+   Working with McKinsey</a></li>
+<li><a target="_blank" href="http://usblogs.pwc.com/">
+   Price Waterhouse Coopers Blogs</a></li>
+<li><a target="_blank" href="http://steveshuconsulting.com/">
+   Steve Shu Consulting</a></li>
+</ol>
+
+<!--
+Consultant Ninja - http://www.consultantninja.com
+Management Consulted - http://managementconsulted.com/c... (This site has a number of "day in the life" interviews with consultants - I did one here http://managementconsulted.com/c...)
+Killer Consultant - http://www.killerconsultant.com
+Consultant Insider - http://consultantinsider.blogspot.com
+The Analyst - http://banalyst.wordpress.com
+Tom Spencer’s Blog - http://www.tomspencer.com.au
+MindShare Consulting - http://mindshareconsulting.com
+The Source Blog - http://www.sourceforconsulting.com/blog
+The Crazy Lives of Consultants - http://crazyconsultant.blogspot.com
+Consulting Ideas - http://consulting-ideas.com/category/blog
+Consultant's Mind - http://consultantsmind.com
+High Flying Ladies - http://www.highflyingladies.com/choose-a-path/consulting
+PhD Consultant - https://phdconsultant.wordpress.com
+-->
+
+### Universities and Think Tanks
+
+<ol>
+</ol>
+
+> Know others? Please let me know!
+
+
+## More on Technial Evanglism #
+
+This post is one of a (planned) series:
+
+{% include evangelist_links.html %}
