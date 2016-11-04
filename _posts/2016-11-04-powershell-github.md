@@ -6,8 +6,8 @@ tags: [cloud, powershell, microsoft]
 image:
 # fig blue powershell icon-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
-  credit:
-  creditlink:
+  credit: PowerShell Magazine
+  creditlink: http://www.powershellmagazine.com/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -30,17 +30,44 @@ But when Microsoft open sourced PowerShell in August 2016,
 I began ported it to PowerShell so I only need to maintain one script for all platforms
 (Windows, Mac, Linux).
 
-## Bash Shell Script
-
-Windows 10 laptops can run Bash scripts
+Ideally, there would be one script to run on all platforms.
 
 
-## PowerShell Script
 
-TODO: Need to add code to create a repo in GitHub.
+## Options for multi-platform
+
+The options to run my script:
+
+1. <a href="#WinRunBash">Have Windows run Bash scripts.</a>
+
+2. <a href="#MacRunRest">Macs running PS scripts.</a>
+
+3. <a href="#PowerShellForGitHub">Code Invoke-RestMethod calls.</a>
 
 
-## PowerShellForGitHub
+<a name="WinRunBash"></a>
+
+## Windows running Bash Script
+
+When you install GitHub's Desktop for Windows, it includes bash commands.
+
+But how many would install GitHub Desktop?
+
+This seems more likely than the other options.
+
+
+<a name="MacRunRest"></a>
+
+## Macs running Plain PS scripts
+
+When you PowerShell Invoke-RestMethod
+
+But how many Mac users would install PowerShell, 
+which was still in Alpha 0.1.0 release as of November 2016?
+
+<a name="PowerShellForGitHub"></a>
+
+## Use PowerShellForGitHub module
 
 The PowerShell team created
    <a target="_blank" href="https://github.com/PowerShell/PowerShellForGitHub/">
@@ -55,17 +82,60 @@ The PowerShell team created
    like Chocolatey for Windows Desktops 
    and the Advanced Packaging Tool (APT) of Linux distributions. 
 
-0. List all the modules (in a PowerShell CLI Terminal window):
+0. Analyisis the list of PS modules (in a PowerShell CLI Terminal window):
 
-   <tt><strong>
-   Find-Module
-   </strong></tt>
-
-   There's a lot there.
+   <pre><strong>
+   (Find-Module).count
+   $response = Find-Module
+   $response[0] | format-list # details for first item
+   Set-PSRepository -Name PSGallery -InstallationPolicy Trusted 
+   </strong></pre>
 
    `(Find-Module).count` returned 1084 on November 4, 2016.
+   So list commands are not appropriate:
 
-0. This is necessary to avoid errors when modules are installed:
+   <pre>
+   $response | Sort-Object
+   $response.GetEnumerator() | Sort-Object Value -descending
+   </pre>
+
+0. List the many fields in metadata for module PowerShellForGitHub:
+
+   <pre>
+   $response.GetEnumerator() | ?{ $_.Name -eq "PowerShellForGitHub" } | format-list
+   </pre>
+
+   The response:
+
+   <pre>
+Name                       : PowerShellForGitHub
+Version                    : 0.1.0
+Type                       : Module
+Description                : PowerShell wrapper for GitHub API
+Author                     : Microsoft Corporation
+CompanyName                : PowerShellTeam
+Copyright                  : (c) 2016 Microsoft Corporation. All rights 
+                             reserved.
+PublishedDate              : 7/27/16 8:33:44 PM
+InstalledDate              : 
+UpdatedDate                : 
+LicenseUri                 : https://github.com/PowerShell/PowerShellForGitHub/
+                             blob/master/LICENSE
+ProjectUri                 : https://github.com/PowerShell/PowerShellForGitHub
+IconUri                    : 
+Tags                       : {GitHub, API, PowerShell, PSModule}
+Includes                   : {Cmdlet, Workflow, Function, DscResource...}
+PowerShellGetFormatVersion : 
+ReleaseNotes               : 
+Dependencies               : {}
+RepositorySourceLocation   : https://www.powershellgallery.com/api/v2/
+Repository                 : PSGallery
+PackageManagementProvider  : NuGet
+AdditionalMetadata         : {developmentDependency, FileList, 
+                             isLatestVersion, IsPrerelease...}
+   </pre>
+
+0. This command is necessary to avoid errors when modules are installed:
 
    <tt><strong>
    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted 
@@ -73,19 +143,10 @@ The PowerShell team created
 
    If it worked, no text is returned, just the PowerShell prompt again.
 
-   <pre>
-Untrusted repository
-You are installing the modules from an untrusted repository. If you trust this 
-repository, change its InstallationPolicy value by running the Set-PSRepository
- cmdlet. Are you sure you want to install the modules from 'PSGallery'?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help 
-(default is "N"):
-   </pre>
-
 0. The GitHub README says to rename ApiTokensTemplate.psm1 to ApiTokens.psm1 and 
    update value of $global:gitHubApiToken with GitHub token for your account.
 
-   QUESTION: how do I do that before having the file?
+   QUESTION: how do I do that before having the file???
 
 0. Install 
    <a target="_blank" href="https://www.powershellgallery.com/packages/PowerShellForGitHub">
@@ -96,8 +157,21 @@ repository, change its InstallationPolicy value by running the Set-PSRepository
    Install-Module -Name PowerShellForGitHub
    </strong></tt>
 
-   BLAH: The response I got is an error, but the message showed me where the file
-   is installed:
+   If Set-PSRepoitory was not run before this, the following would appear:
+
+   <pre>
+Untrusted repository
+You are installing the modules from an untrusted repository. If you trust this 
+repository, change its InstallationPolicy value by running the Set-PSRepository
+ cmdlet. Are you sure you want to install the modules from 'PSGallery'?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help 
+(default is "N"):
+   </pre>
+
+   Rerun after Set-PSRepository:
+
+   BLAH: The response I got is aother error, 
+   but the message showed me where the file is installed on my Mac:
 
    <pre>
 PackageManagement\Install-Package : Could not find a part of the path 
@@ -112,6 +186,8 @@ At /usr/local/microsoft/powershell/6.0.0-alpha.10/Modules/PowerShellGet/PSModul 
    </pre>
 
    Looking into the folder, there are a lot of .dll files.
+   So it's not applicable to me.
+   Thus, I ...
 
 0. Uninstall
 

@@ -6,8 +6,8 @@ tags: [cloud, powershell, microsoft]
 image:
 # fig blue powershell icon-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
-  credit:
-  creditlink:
+  credit: PowerShell Magazine
+  creditlink: http://www.powershellmagazine.com/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
