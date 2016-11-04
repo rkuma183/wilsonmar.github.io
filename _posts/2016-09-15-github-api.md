@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub REST API"
-excerpt: "I say it's the industry standard"
+excerpt: "I say it's the industry standard for web services"
 tags: [devops]
 image:
 # pic green easter island 2 hillside 1920x1080
@@ -17,12 +17,16 @@ comments: true
 
 GitHub provides a well-known API that accepts a lot of traffic.
 
-GitHub's API is considered an industry-standard we would do well to emulate.
+GitHub's API is considered an industry-standard we would do well to emulate:
+
+   * <a href="#HATEOS">HATEOS responses</a>
+
+   * GraphQL
 
 Outputs presented here are from my 
-<a target="_blank" href="https://github.com/wilsonmar/git-utilities/git-sample-repo-create/">
+<a target="_blank" href="https://github.com/wilsonmar/git-utilities/blob/master/git-sample-repo-create.sh">
 <strong>git-sample-repo-create.sh</strong>
-shell script</a>.
+shell script on my personal GitHub</a>.
 
 
 ## Brew install curl #
@@ -31,7 +35,8 @@ The cURL utility is used by many documents when describing REST API.
 
 0. On a Mac, instead of downloading cURL from 
    `http://curl.haxx.se/download.html`
-   and using `tar -zxf` on the downloaded file, do this from a Terminal:
+   and using `tar -zxf` on the downloaded file, 
+   use Homebrew from a Terminal:
 
    <tt><strong>
    brew install curl
@@ -75,8 +80,11 @@ The cURL utility is used by many documents when describing REST API.
 }
    </pre>
 
+   <a name="HATEOS"></a>
+
    In the middle of the response are 
-   HATEOAS URLs specific to the user:
+   HATEOAS (Hypermedia as the Engine of Application State) responses
+   <strong>specific to the user</strong>:
 
    <pre>
   "url": "https://api.github.com/users/wilsonmar",
@@ -93,6 +101,12 @@ The cURL utility is used by many documents when describing REST API.
 }
    </pre>
 
+   As <a target="_blank" href="https://spring.io/understanding/HATEOAS>
+   this notes</a>, including hypermedia links with the responses
+   means programs are not dependent on a fixed specification 
+   staged somewhere else on the website, on another website, or perhaps distributed by email.
+   The list of links dynamically provide guidance on what calls can be made.
+   So less errors.
 
 ## Brew install jq JSON processor #
 
@@ -329,6 +343,112 @@ the JSON returned from API calls.
 }
    </pre>   
 
+
+## PowerShell
+
+For my class on Git and GitHub,
+I am writing a PowerShell script that creates a local Git repository,
+then puts it in a new GitHub. To make the script idempotent,
+it deletes the prior version of the repo on GitHub as well.
+
+I have a working Bash shell script.
+When Microsoft open sourced PowerShell in August 2016, 
+I began ported it to PowerShell so I only need to maintain one script for all platforms
+(Windows, Mac, Linux).
+
+The PowerShell team created
+   <a target="_blank" href="https://github.com/PowerShell/PowerShellForGitHub/">
+   https://github.com/PowerShell/PowerShellForGitHub</a>
+   which exists within Microsoft's 
+   <a target="_blank" href="https://blogs.technet.microsoft.com/poshchap/2015/08/07/getting-started-with-the-powershell-gallery/">
+   PSGallery repository ecosystem</a> which consists of 
+   <strong>modules</strong>.
+
+   It's a <a target="_blank" href="https://www.simple-talk.com/sysadmin/powershell/managing-packages-using-windows-powershell/">
+   package manager</a>
+   like Chocolatey for Windows Desktops 
+   and the Advanced Packaging Tool (APT) of Linux distributions. 
+
+0. List all the modules (in a PowerShell CLI Terminal window):
+
+   <tt><strong>
+   Find-Module
+   </strong></tt>
+
+   There's a lot there.
+
+   `(Find-Module).count` returned 1084 on November 4, 2016.
+
+0. This is necessary to avoid errors when modules are installed:
+
+   <tt><strong>
+   Set-PSRepository -Name PSGallery -InstallationPolicy Trusted 
+   </strong></tt>
+
+   If it worked, no text is returned, just the PowerShell prompt again.
+
+   <pre>
+Untrusted repository
+You are installing the modules from an untrusted repository. If you trust this 
+repository, change its InstallationPolicy value by running the Set-PSRepository
+ cmdlet. Are you sure you want to install the modules from 'PSGallery'?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help 
+(default is "N"):
+   </pre>
+
+0. The GitHub README says to rename ApiTokensTemplate.psm1 to ApiTokens.psm1 and 
+   update value of $global:gitHubApiToken with GitHub token for your account.
+
+   QUESTION: how do I do that before having the file?
+
+0. Install 
+   <a target="_blank" href="https://www.powershellgallery.com/packages/PowerShellForGitHub">
+   the latest module in PS Gallery</a>
+   within the PowerShell CLI:
+
+   <tt><strong>
+   Install-Module -Name PowerShellForGitHub
+   </strong></tt>
+
+   BLAH: The response I got is an error, but the message showed me where the file
+   is installed:
+
+<pre>
+PackageManagement\Install-Package : Could not find a part of the path 
+'<strong>/usr/local/microsoft/powershell/6.0.0-alpha.10/Modules/PowerShellForGitHub/0.1.0</strong>'.
+Installing package 'PowerShellForGitHub'                                  
+At /usr/local/microsoft/powershell/6.0.0-alpha.10/Modules/PowerShellGet/PSModul e.psm1:1711 char:21                                                             + ...          $null = PackageManagement\Install-Package @PSBoundParameters
++                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (Microsoft.Power....InstallPackage 
+   :InstallPackage) [Install-Package], Exception
++ FullyQualifiedErrorId : System.IO.DirectoryNotFoundException,Microsoft.PowerShell.Commands.CopyItemCommand,Microsoft.PowerShell.PackageManagement.  
+  Cmdlets.InstallPackage
+</pre>
+
+   Looking into the folder, there are a lot of .dll files.
+
+   Since I was running a Mac, I got rid of it and went without using a library.
+
+0. Uninstall
+
+   <tt><strong>
+   Uninstall-Module PowerShellForGitHub
+   </strong></tt>
+
+   BLAH: This is the error message I received:
+
+   <pre>
+PackageManagement\Uninstall-Package : No match was found for the specified 
+search criteria and module names 'PowerShellForGitHub'.
+At /usr/local/microsoft/powershell/6.0.0-alpha.10/Modules/PowerShellGet/PSModul
+e.psm1:2096 char:21
++ ...        $null = PackageManagement\Uninstall-Package @PSBoundParameters
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Microsoft.Power...ninstallPacka 
+   ge:UninstallPackage) [Uninstall-Package], Exception
+    + FullyQualifiedErrorId : NoMatchFound,Microsoft.PowerShell.PackageManagem 
+   ent.Cmdlets.UninstallPackage
+   </pre>
 
 ## Resources
 

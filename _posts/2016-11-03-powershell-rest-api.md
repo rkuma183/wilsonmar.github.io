@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PowerShell REST API calls"
+title: "PowerShell API Programming"
 excerpt: "Reaching to web servies on the web gives scripts data power"
 tags: [cloud, powershell, microsoft]
 image:
@@ -37,7 +37,8 @@ Web services which do not require some registration is getting more rare nowaday
 But <a target="_blank" href="http://jdhitsolutions.com/blog/tag/invoke-restmethod/">
 in this blog</a>, Jeff Hicks
 found that NewEgg still has an RSS feed for their daily deals at
-http://www.newegg.com/RSS/Index.aspx
+<a target="_blank" href="http://www.newegg.com/RSS/Index.aspx">
+http://www.newegg.com/RSS/Index.aspx</a>
 
 0. Run a basic HTTP GET in a PowerShell script containing:
 
@@ -49,7 +50,10 @@ http://www.newegg.com/RSS/Index.aspx
    $response[0] | format-list
    </strong></pre>
 
-   PROTIP: "uri" is the Universal Resource Identifier, not the Locator (URL).
+   BTW: Although "uri" means Universal Resource Identifier, to be
+   <a target="_blank" href="https://danielmiessler.com/study/url-uri/">
+   technically correct</a>,
+   the inclusion of the access mechanism "http" makes it really is a URL, a type of URI.
 
    PROTIP: When output to a variable, show a count of how many items were returned into the 
    response variable
@@ -74,7 +78,9 @@ link      : http://www.newegg.com/Product/Product.aspx?Item=N82E16881147042&nm_
             LDeye-_-N82E16881147042
    </pre>   
 
-0. To make the response clickable, feed the response through the 
+0. BLAH: I get an error from this, but it's here for future referene.
+
+   To make the response clickable, feed the response through the 
    <a target="_blank" href="http://go.microsoft.com/fwlink/p/?linkid=293997">
    `out-gridview` cmdlet</a>
    <a target="_blank" href="https://technet.microsoft.com/en-us/library/ff730930.aspx">
@@ -84,14 +90,14 @@ link      : http://www.newegg.com/Product/Product.aspx?Item=N82E16881147042&nm_
    $response | ogv -Title "Deal of the Day" -OutputMode Multiple | foreach { Start $_.link }
    </strong></pre>
 
-   BLAH: I get an error from the above.
+   
 
    <pre><strong>
    [regex]$rx = "(?<currency>.)(?<price>\d+\.\d{2})\s-\s(?<item>.*)"
    </strong></pre>
 
 
-0. Another HTTP GET example is:
+0. Another HTTP GET example (that no longer works) is:
 
    <pre><strong>
    $url="http://www.seismi.org/api/eqs"
@@ -154,6 +160,8 @@ Invoke-RestMethod
    Invoke-RestMethod -Uri $url -Method Post -Body $body -ContentType 'application/json' -Headers $hdrs
    </pre>
 
+   ConvertTo-Json 
+
    The above on several lines is easier to read than one long line:
 
    <pre>
@@ -210,10 +218,8 @@ $body = "action=login&username=$username&password=$password"
 Invoke-RestMethod -Headers $hdrs -Uri "$base/session/" -Method Post -Body $body -SessionVariable sess
    </pre>
 
-## Basic Authentication
-
-This doesn't work anymore
-https://community.qualys.com/docs/DOC-4523#jive_content_id_Windows_Powershell_30
+   This doesn't work anymore
+   https://community.qualys.com/docs/DOC-4523#jive_content_id_Windows_Powershell_30
 
    <pre>
    $username = "username"  
@@ -224,6 +230,28 @@ https://community.qualys.com/docs/DOC-4523#jive_content_id_Windows_Powershell_30
    $url = "https://qualysapi.qualys.com/about.php"  
    Invoke-RestMethod -Headers $headers -Uri $url -Method Post -Credential $creds -OutFile response.xml  
    </pre>
+
+## Basic Authentication to GitHub
+
+<a target="_blank" href="">
+The code below</a>
+makes a request sending the credentials in an Authorization header:
+
+'Basic [base64("username:password")]'
+
+In PowerShell that would translate to something like:
+
+<pre>
+function Get-BasicAuthCreds {
+    param([string]$Username,[string]$Password)
+    $AuthString = "{0}:{1}" -f $Username,$Password
+    $AuthBytes  = [System.Text.Encoding]::Ascii.GetBytes($AuthString)
+    return [Convert]::ToBase64String($AuthBytes)
+}
+$BasicCreds = Get-BasicAuthCreds -Username "Shaun" -Password "s3cr3t"
+Invoke-WebRequest -Uri $GitHubUri -Headers @{"Authorization"="Basic $BasicCreds"}
+</pre>
+
 
 ## Ignore Self-Signed Certs
 

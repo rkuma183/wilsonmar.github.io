@@ -15,11 +15,148 @@ comments: true
 
 {% include _toc.html %}
 
-Here are my notes on task runners.
+Task runners such as Gulp and Grunt are crucial to create websites that are quick
+for developers to edit and quick for end-users.
 
-Ruby Rake
+Tasks include:
 
-## Grunt 
+0. compiling SASS
+0. linting CSS
+0. concatenating files (not if http2)
+0. minifying files
+0. auto-generating image sprites
+0. auto-generating "responsive" client code to request various image sizes
+0. compressing images
+
+## Alternatives
+
+Both Grunt and 
+<a target="_blank" href="https://twitter.com/@gulpjs">
+@gulpjs</a> run on Node JavaScript.
+<a target="_blank" href="https://www.oomphinc.com/notes/2014/03/gulp-vs-grunt-node-js-automation-tools-showdown/">
+Sample scripts</a> below shows how 
+Grunt uses JSON configuration (with matching curly braces)
+to tell plug-ins what to do
+while Gulp uses JavaScript object coding referencing methods and properties.
+
+<a target="_blank" href="https://twitter.com/@gruntjs">
+@GrunJs</a> / <a target="_blank" href="https://www.gruntjs.com/">
+Gruntjs.com</a> was built by Ben Alman in 2012.
+Grunt's two-year lead time over Gulp is reflected in the 
+maturity of error messages and number of plug-ins.
+As of November 2015, Gulp has 1,916 plugins while 
+Grunt’s repo contains over 5,000 plugins.
+
+<a target="_blank" href="https://opencollective.com/gulpjs">
+opencollective.com/gulpjs</a> says "we have 23 contributors and a yearly budget of $1,011".
+
+BTW, Those who use Ruby have Ruby Rake.
+
+
+## gulpfile.js sample
+
+Each step does not open and close its files or create intermediary copies of files.
+
+```js
+var gulp = require('gulp');
+     sass = require('gulp-sass');
+     autoprefixer = require('gulp-autoprefixer');
+&nbsp;
+// Styles
+gulp.task('styles', function() {
+    gulp.src('sass/styles.scss')
+        .pipe(sass())
+        .pipe(autoprefixer('last 1 version', '> 1%', 'ie 8', 'ie 7'))
+        .pipe(gulp.dest('css'));
+});
+&nbsp; 
+// Watch the sass files
+gulp.task('watch', function() {
+    gulp.watch('sass/*.scss', ['styles']);
+});
+&nbsp;
+gulp.task('default', ['styles, watch']);
+```
+
+The `.pipe` is what uses Node.js’ "streams".
+
+PROTIP: Gulp runs faster than Grunt because it uses Node "streams" to 
+group tasks together for processing sequentially in memory.
+
+Another example from Ionic:
+
+```js
+//import the necessary gulp plugins
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
+
+//declare the task
+gulp.task('sass', function(done) {
+  gulp.src('./scss/ionic.app.scss')
+    .pipe(sass())
+.pipe(gulp.dest('./www/css/'))
+```
+
+The `src(globs)` and `dest(folder)` method are an abstraction to call
+<a target="_blank" href="https://github.com/gulpjs/vinyl">
+Vinyl adapters</a>. It's used so that a file can be 
+described from many sources --
+S3, FTP, Dropbox, Box, CloudThingly.io and other services. 
+
+## gruntfile.js sample
+
+Tasks are executed sequentially.
+
+Each task configuration is independent from all the rest. 
+
+Each task accesses files separately. 
+So each task requires a source and destination to be specified. 
+This requires coding and makes Grunt relatively slower than Gulp.
+
+```js
+module.exports = function(grunt) {
+ 
+  // Project configuration.
+  grunt.initConfig({
+    sass: {
+      dist: {
+        files: {
+          'sass/styles.scss': 'css/styles.css'
+        }
+      }
+    },
+ 
+    autoprefixer: {
+      single_file: {
+        options: {
+          browsers: ['last 2 version', 'ie 8', 'ie 9']
+        },
+        src: 'css/styles.css',
+        dest: 'css/styles.css'
+      },
+    },
+ 
+    watch: {
+      sass: {
+        files: 'sass/*.scss',
+        tasks: ['sass', 'autoprefixer'],
+      }
+    },
+  });
+ 
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+ 
+  // Default task
+  grunt.registerTask('default', ['watch']);
+};
+```
+
+
+## Grunt install
 
 0. Install from gruntjs.com
 
@@ -44,7 +181,9 @@ Ruby Rake
    brew install -g grunt
    </pre>
 
-## Gulp
+
+
+## Gulp install
 
 0. Install
 

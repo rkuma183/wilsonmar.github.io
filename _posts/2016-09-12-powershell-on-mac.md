@@ -1086,7 +1086,13 @@ FAQ</a>:
   <a target="_blank" href="https://rkeithhill.wordpress.com/2009/03/08/effective-windows-powershell-the-free-ebook/">
   ebook</a> from 2009.
 
-https://blogs.technet.microsoft.com/chitpro-de/2008/02/28/free-windows-powershell-workbook-server-administration/
+* <a target="_blank" href="http://mikepfeiffer.net/">
+    MikePfeiffer.net</a> blog
+
+* <a target="_blank" href="http://get-powershell.com/">
+    get-powershell.com</a> blog by Andy Schneider     
+
+* https://blogs.technet.microsoft.com/chitpro-de/2008/02/28/free-windows-powershell-workbook-server-administration/
 
 * http://community.idera.com/powershell/powershell_com_featured_blogs/b/donjones">
    Don Jones</a>
@@ -1103,41 +1109,58 @@ https://blogs.technet.microsoft.com/chitpro-de/2008/02/28/free-windows-powershel
 * PowerShell MVP Adam Driscoll 
 
 
+## Communities 
+
+* <a target="_blank" href="http://slack.poshcode.org/">
+   Slack.PoshCode.org</a> by<br />
+   <a target="_blank" href="http://poshcode.org/">
+    PoshCode.org = PowerShell Code Repository</a>
+
+* <a target="_blank" href="http://community.idera.com/powershell/">
+   community.idera.com/powershell</a>
+
+
 ## Tool Resources #
 
 * <a target="_blank" href="https://powershell.org/">
    PowerShell.org</a>
 
-* http://www.shelltools.net 
+* <a target="_blank" href="https://technet.microsoft.com/en-us/library/ee221100.aspx">
+   Windows PowerShell Owner's manual</a> by Microsoft
 
-* http://slack.poshcode.org/
+* <a target="_blank" href="http://www.powershell-scripting.com/">
+   PowerShell-Scripting.com</a>
 
-* http://powershelldistrict.com/powershell-mac-os-x/
+* <a target="_blank" href="http://www.shelltools.net/">
+   shelltools.net</a>
+
+* <a target="_blank" href="http://powershelldistrict.com/powershell-mac-os-x/">
+   http://powershelldistrict.com/powershell-mac-os-x</a>
    was written based on alpha.9 release.
 
-* http://powershelldistrict.com/powershell-linux/
-
 * <a target="_blank" href="https://mcpmag.com/articles/2016/04/07/powershell-functions-with-parameters.aspx">
-Getting Input into Your PowerShell Functions with Parameters</a>
-- shows how to build function parameters in reusable snippets.
+   Getting Input into Your PowerShell Functions with Parameters</a>
+   - shows how to build function parameters in reusable snippets.
 
 * <a target="_blank" href="https://mcpmag.com/articles/2016/03/31/timing-powershell-automations.aspx">
-PowerShell Pipeline: Timing PowerShell Automations</a>
-- get an accurate measurement of how long it takes to 
-run a specific or set a timer for your script to run.
+   PowerShell Pipeline: Timing PowerShell Automations</a>
+   - get an accurate measurement of how long it takes to 
+   run a specific or set a timer for your script to run.
 
 * <a target="_blank" href="https://mcpmag.com/articles/2016/03/24/active-directory-forest-and-domain.aspx">
-PowerShell Pipeline: Exploring the Active Directory Forest and Domain</a>
-- use the Active Directory Module to run 
-available cmdlets and automate many of your daily tasks.
+   PowerShell Pipeline: Exploring the Active Directory Forest and Domain</a>
+   - use the Active Directory Module to run 
+   available cmdlets and automate many of your daily tasks.
 
-* <a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">Querying MySQL Databases with PowerShell</a>
-- save time by automatically querying up data.
+* <a target="_blank" href="https://mcpmag.com/articles/2016/03/02/querying-mysql-databases.aspx/">
+   Querying MySQL Databases with PowerShell</a>
+   - save time by automatically querying up data.
 
 * <a target="_blank" href="https://www.amazon.com/Windows-PowerShell-Action-Second-Payette/dp/1935182137/">
-Windows PowerShell in Action, Second Edition 2nd Edition</a>
-by Bruce Payette.
-Highly recommended.
+   Windows PowerShell in Action, Second Edition 2nd Edition</a>
+   by Bruce Payette.
+   Highly recommended.
+
 
 
 ## More on DevOps #
