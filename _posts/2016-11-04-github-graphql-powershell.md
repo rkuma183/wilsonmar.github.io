@@ -15,30 +15,20 @@ comments: true
 
 {% include _toc.html %}
 
-GitHub provides well-known APIs that accept a lot of traffic.
+[GraphQL](/graphql/) is eating REST API, and
+GitHub is at the front of the parade of famous users.
 
 GitHub has two API's, both considered industry-standards others would do well to emulate:
 
-   * [HATEOS-based REST API, (my BFF last year)](/github-api/) 
+   * [GitHub HATEOS-based REST API, (my BFF last year)](/github-api/) 
 
-   * GraphQL (this article)
+   * GitHub GraphQL (this article)
 
    I couldn't find a PSGallery module for referencing GitHub's GraphQL,
    so I set out to create one when that's what Karol Kaczmarek
    suggested I do.
 
 <hr />
-
-## GraphQL in general
-
-Invented at Facebook.
-
-GraphQL is a data description language and not a programming language
-
-https://facebook.github.io/graphql/#sec-Input-Objects
-
-TODO: Add more.
-
 
 ## GitHub's GraphQL
 
