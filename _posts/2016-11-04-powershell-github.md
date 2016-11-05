@@ -164,3 +164,10 @@ e.psm1:2096 char:21
 
 0. Since I was running a Mac, I got rid of it and went without using a library.
 
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

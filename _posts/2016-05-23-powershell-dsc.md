@@ -127,9 +127,17 @@ It has two functions:
 
 
 
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}
+
 
 ## More on DevOps #
 
 This is one of a series on DevOps:
 
 {% include devops_links.html %}
+
+

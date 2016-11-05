@@ -249,3 +249,10 @@ https://github.com/chentsulin/awesome-graphql
    A Powershell object created from the incoming JSON is always stored in the variable 
    `$GITHUB_API_OUTPUT` after each call to the GitHub API
 
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

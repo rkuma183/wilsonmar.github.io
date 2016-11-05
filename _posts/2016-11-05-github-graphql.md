@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub GraphQL API"
-excerpt: "Now THIS is the industry standard. REST API is so last season."
+excerpt: "GitHub's REST API was perfect. Now THIS is more perfect."
 tags: [GitHub, API, GraphQL]
 image:
 # pic green easter island 2 hillside 1920x1080
@@ -52,3 +52,11 @@ http://www.systemcentercentral.com/day-19-creating-online-powershellget-reposito
   [PowerShellforGitHub](/powershell-github/)
 
 The Functions folder contains Private and Public folders.
+
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

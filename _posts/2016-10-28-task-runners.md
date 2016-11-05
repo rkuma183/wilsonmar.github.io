@@ -50,6 +50,8 @@ Grunt’s repo contains over 5,000 plugins.
 <a target="_blank" href="https://opencollective.com/gulpjs">
 opencollective.com/gulpjs</a> says "we have 23 contributors and a yearly budget of $1,011".
 
+http://sixrevisions.com/web-development/grunt-vs-gulp/
+
 BTW, Those who use Ruby have Ruby Rake.
 
 
@@ -413,6 +415,28 @@ npm WARN deprecated graceful-fs@1.2.3: graceful-fs v3.0.0 and before will fail o
       └── clone@0.2.0 
    </pre>
 
-## Tasks
+
+## Bundling obsoleted by HTTP/2
+
+HTTP/2 makes obsolete bundlers:
+
+http://webpack.github.io/docs
+
+
+http://browserify.org
+Broserify lets you require("modules") in the browser by bundling up dependendies:
+
+http://rollupjs.org
+the next generation JS module bundler.
+
+
+## Other Tasks
+
+ESLint
+
+Mocha+chai
+
+Flowtype
+
 
 
