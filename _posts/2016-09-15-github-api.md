@@ -15,19 +15,84 @@ comments: true
 
 {% include _toc.html %}
 
-GitHub provides a well-known API that accepts a lot of traffic.
+GitHub provides well-known APIs that accept a lot of traffic.
 
-GitHub's API is considered an industry-standard we would do well to emulate:
+GitHub has two API's, both considered industry-standards others would do well to emulate:
 
-   * <a href="#HATEOS">HATEOS responses</a>
+   * <a href="#HATEOS">HATEOS responses</a> in REST API (described below)
 
-   * GraphQL
+   * [GitHub GraphQL PowerShell module](/github-graphql-powershell/)
 
-Outputs presented here are from my 
-<a target="_blank" href="https://github.com/wilsonmar/git-utilities/blob/master/git-sample-repo-create.sh">
-<strong>git-sample-repo-create.sh</strong>
-shell script on my personal GitHub</a>.
+## My Shell Scripts
 
+For my class on Git and GitHub,
+I wrote a shell script which executes a sequence of commands so learners
+can experiement with the impact of changes have on the end state.
+
+The script establishes local aliases, and pulls in secrets 
+stored in a separate file to create environment variables in the script.
+
+At the end of the script, it creates a local Git repository,
+then puts it in a new GitHub. To make the script idempotent,
+it deletes the prior version of the repo on GitHub as well.
+
+I have a working Bash shell script.
+But when Microsoft open sourced PowerShell in August 2016, 
+I began ported it to PowerShell so I only need to maintain one script for all platforms
+(Windows, Mac, Linux).
+
+## Options for multi-platform
+
+<strong>Ideally, there would be one script to run on all platforms.</strong>
+
+The options to run scripts:
+
+1. <a href="#WinRunBash">Have Windows and Macs run Bash scripts.</a>
+
+2. <a href="#MacRunRest">Have Macs and Windows run PowerShell scripts.</a>
+
+   2.1. <a href="#PowerShellForGitHub">Code Invoke-RestMethod calls in PowerShell script.</a>
+
+   2.2. [Use PowerShellForGitHub module](/powershell-rest-api/)
+
+   TODO: Fix errors from PowerShell before scripting.
+
+<hr />
+
+<a name="WinRunBash"></a>
+
+## Windows running Bash Script
+
+   <a target="_blank" href="https://github.com/wilsonmar/git-utilities/blob/master/git-sample-repo-create.sh">
+   <strong>git-sample-repo-create.sh</strong>
+   Bash shell script on my personal GitHub</a>
+
+
+When you install GitHub's Desktop for Windows, it includes bash commands.
+
+TODO: Add instructions here.
+
+But how many would install GitHub Desktop?
+
+This seems more likely than the other options.
+
+
+<a name="MacRunRest"></a>
+
+## Macs running Plain PS scripts
+
+   <a target="_blank" href="https://github.com/wilsonmar/git-utilities/blob/master/git-sample-repo-create.ps1">
+   <strong>git-sample-repo-create.ps1</strong>
+   PowerShell script on my personal GitHub</a>
+
+When you PowerShell Invoke-RestMethod
+
+But how many Mac users would install PowerShell, 
+which was still in Alpha 0.1.0 release as of November 2016?
+
+
+
+<hr />
 
 ## Brew install curl #
 

@@ -14,62 +14,13 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-For my class on Git and GitHub,
-I wrote a shell script which executes a sequence of commands so learners
-can experiement with the impact of changes have on the end state.
 
-The script establishes local aliases, and pulls in secrets 
-stored in a separate file to create environment variables in the script.
-
-At the end of the script, it creates a local Git repository,
-then puts it in a new GitHub. To make the script idempotent,
-it deletes the prior version of the repo on GitHub as well.
-
-I have a working Bash shell script.
-But when Microsoft open sourced PowerShell in August 2016, 
-I began ported it to PowerShell so I only need to maintain one script for all platforms
-(Windows, Mac, Linux).
-
-Ideally, there would be one script to run on all platforms.
-
-
-
-## Options for multi-platform
-
-The options to run my script:
-
-1. <a href="#WinRunBash">Have Windows run Bash scripts.</a>
-
-2. <a href="#MacRunRest">Macs running PS scripts.</a>
-
-3. <a href="#PowerShellForGitHub">Code Invoke-RestMethod calls.</a>
-
-
-<a name="WinRunBash"></a>
-
-## Windows running Bash Script
-
-When you install GitHub's Desktop for Windows, it includes bash commands.
-
-But how many would install GitHub Desktop?
-
-This seems more likely than the other options.
-
-
-<a name="MacRunRest"></a>
-
-## Macs running Plain PS scripts
-
-When you PowerShell Invoke-RestMethod
-
-But how many Mac users would install PowerShell, 
-which was still in Alpha 0.1.0 release as of November 2016?
 
 <a name="PowerShellForGitHub"></a>
 
 ## Use PowerShellForGitHub module
 
-The PowerShell team created
+Microsoft's PowerShell team created
    <a target="_blank" href="https://github.com/PowerShell/PowerShellForGitHub/">
    https://github.com/PowerShell/PowerShellForGitHub</a>
    which exists within Microsoft's 
@@ -82,7 +33,8 @@ The PowerShell team created
    like Chocolatey for Windows Desktops 
    and the Advanced Packaging Tool (APT) of Linux distributions. 
 
-0. Analyisis the list of PS modules (in a PowerShell CLI Terminal window):
+0. The module exists within several other 
+   PS modules (in a PowerShell CLI Terminal window):
 
    <pre><strong>
    (Find-Module).count

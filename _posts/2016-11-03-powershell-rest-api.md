@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PowerShell API Programming"
+title: "PowerShell REST API Programming"
 excerpt: "Reaching to web servies on the web gives scripts data power"
 tags: [cloud, powershell, microsoft]
 image:
@@ -18,19 +18,59 @@ Being able to get and send data within a PowerShell script enables
 them to be NOT static.
 Communication with APIs enable PowerShell scripts to:
 
+* Get input data
+
 * Send SMS messages and voicemails to any phone
 * Send emails
 * Send calendar appointments
 
 There are now two major flavors of how requests and responses are formatted:
 
-* REST API
-* GraphQL
+* REST API, such as [PowerShellforGitHub](/powershell-github/)
+* GraphQL, such as [PowerShellforGitHubGraphQL](/github-graphql/)
+
+PowerShell has two commands to make web services calls:
+
+* A lower-level <a href="#Invoke-RestMethod">Invoke-RestMethod</a>.
+* A higher-level <a href="#Invoke-WebMethod">Invoke-WebMethod</a>.
+
+<hr />
+
+<a name="Invoke-RestMethod"></a>
+
+## Invoke-RestMethod documentation
+
+<a target="_blank" href="https://technet.microsoft.com/en-us/library/hh849971.aspx">
+Documentation on Invoke-RestMethod</a>
+says the cmdlet was introduced in PS 3.0 to send HTTP and HTTPS requests to Representational State Transfer (REST) web services that returns richly structured data. No short alias is specified for it.
+
+Its general syntax:
+
+<pre>
+Invoke-RestMethod 
+[-Uri] &LT;Uri> 
+[-Headers &LT;IDictionary> ] 
+[-Body &LT;Object> ] 
+[-Certificate &LT;X509Certificate> ] [-CertificateThumbprint &LT;String> ] 
+[-ContentType &LT;String> ] 
+[-Credential &LT;PSCredential> ] 
+[-DisableKeepAlive] 
+[-InFile &LT;String> ] 
+[-MaximumRedirection &LT;Int32> ] 
+[-Method &LT;WebRequestMethod> {Default | Get | Head | Post | Put | Delete | Trace | Options | Merge | Patch} ] [-OutFile &LT;String> ] 
+[-PassThru] 
+[-Proxy &LT;Uri> ] [-ProxyCredential &LT;PSCredential> ] [-ProxyUseDefaultCredentials] 
+[-SessionVariable &LT;String> ] [-TimeoutSec &LT;Int32> ] 
+[-TransferEncoding &LT;String> {chunked | compress | deflate | gzip | identity} ] [-UseBasicParsing] [-UseDefaultCredentials] 
+[-UserAgent &LT;String> ] 
+[-WebSession &LT;WebRequestSession> ] 
+[ &LT;CommonParameters>]
+</pre>
 
 HTTP requests have both a GET and POST approach.
 
 
-## GET 
+### GET Invoke-RestMethod
 
 Web services which do not require some registration is getting more rare nowadays.
 
@@ -115,37 +155,10 @@ count earthquakes
    </pre>
 
 
-## Invoke-RestMethod documentation
 
-<a target="_blank" href="https://technet.microsoft.com/en-us/library/hh849971.aspx">
-Documentation on Invoke-RestMethod</a>
-says the cmdlet was introduced in PS 3.0 to send HTTP and HTTPS requests to Representational State Transfer (REST) web services that returns richly structured data. No short alias is specified for it.
+### POST Invoke-RestMethod 
 
-Its general syntax:
-
-<pre>
-Invoke-RestMethod 
-[-Uri] &LT;Uri> 
-[-Headers &LT;IDictionary> ] 
-[-Body &LT;Object> ] 
-[-Certificate &LT;X509Certificate> ] [-CertificateThumbprint &LT;String> ] 
-[-ContentType &LT;String> ] 
-[-Credential &LT;PSCredential> ] 
-[-DisableKeepAlive] 
-[-InFile &LT;String> ] 
-[-MaximumRedirection &LT;Int32> ] 
-[-Method &LT;WebRequestMethod> {Default | Get | Head | Post | Put | Delete | Trace | Options | Merge | Patch} ] [-OutFile &LT;String> ] 
-[-PassThru] 
-[-Proxy &LT;Uri> ] [-ProxyCredential &LT;PSCredential> ] [-ProxyUseDefaultCredentials] 
-[-SessionVariable &LT;String> ] [-TimeoutSec &LT;Int32> ] 
-[-TransferEncoding &LT;String> {chunked | compress | deflate | gzip | identity} ] [-UseBasicParsing] [-UseDefaultCredentials] 
-[-UserAgent &LT;String> ] 
-[-WebSession &LT;WebRequestSession> ] 
-[ &LT;CommonParameters>]
-</pre>
-
-
-## Run a POST call with a body and headers
+POST involve sending both a body and headers.
 
    <pre>
    $person = @{
@@ -180,7 +193,7 @@ Invoke-RestMethod
    for sending out forms, not REST calls.
 
 
-## Base64 Encoding for Authentication
+### Base64 Encoding for Authentication
 
 See 
 <a target="_blank" href="https://devops.profitbricks.com/tutorials/use-powershell-to-consume-a-profitbricks-rest-api/">
@@ -194,7 +207,7 @@ get an account</a> because it's a great service
 that is convenient and enables you to work with multiple clouds.
 
 
-## Authentication
+### Authentication
 
 For session authentication with cookies, see 
 https://community.qualys.com/docs/DOC-5594
@@ -231,7 +244,7 @@ Invoke-RestMethod -Headers $hdrs -Uri "$base/session/" -Method Post -Body $body 
    Invoke-RestMethod -Headers $headers -Uri $url -Method Post -Credential $creds -OutFile response.xml  
    </pre>
 
-## Basic Authentication to GitHub
+### Basic Authentication to GitHub
 
 <a target="_blank" href="">
 The code below</a>
@@ -253,7 +266,7 @@ Invoke-WebRequest -Uri $GitHubUri -Headers @{"Authorization"="Basic $BasicCreds"
 </pre>
 
 
-## Ignore Self-Signed Certs
+### Ignore Self-Signed Certs
 
 http://www.datacore.com/RESTSupport-Webhelp/using_windows_powershell_as_a_rest_client.htm
 notes
@@ -289,6 +302,8 @@ function Ignore-SelfSignedCerts
 Ignore-SelfSignedCerts
 </pre>
 
+
+<a name="Invoke-WebRequest"></a>
 
 ## Invoke-WebRequest to get file
 
