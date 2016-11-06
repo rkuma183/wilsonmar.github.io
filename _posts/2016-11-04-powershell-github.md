@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PowerShell GitHub API Programming"
-excerpt: "Reaching to web servies on the web gives scripts data power"
+excerpt: "GitHub reaching to web servies on the web gives scripts data power"
 tags: [cloud, powershell, microsoft]
 image:
 # fig blue powershell icon-1900x500
@@ -14,15 +14,40 @@ comments: true
 <hr />
 {% include _toc.html %}
 
+I wanted to make calls to GitHub's API from a PowerShell script.
 
+While looking for examples, 
+I found several libraries that already do it:
+
+* <a target="_blank" href="https://github.com/pcgeek86/PSGitHub/">
+   PsGitHub</a>
+   by Trevor Sullivan
+
+* <a target="_blank" href="https://github.com/Iristyle/Posh-GitHub/">
+   Posh-GitHub</a> 
+   by Ethan J. Brown installed by Chocolately.
+
+* <a target="_blank" href="https://github.com/davidobrien1985/githubconnect">
+   GitHubConnect</a> 
+   by David O’Brien
+
+* <a href="#PowerShellForGitHub">
+   PowerShellForGitHub</a>
+   by Microsoft's PowerShell team.
+
+
+> Do you know of others? Please let me know.
+
+<hr />
 
 <a name="PowerShellForGitHub"></a>
 
 ## Use PowerShellForGitHub module
 
-Microsoft's PowerShell team created
-   <a target="_blank" href="https://github.com/PowerShell/PowerShellForGitHub/">
-   https://github.com/PowerShell/PowerShellForGitHub</a>
+* <a target="_blank" href="https://github.com/PowerShell/PowerShellForGitHub/">
+   PowerShellForGitHub</a>
+   by Microsoft's PowerShell team.
+   
    which exists within Microsoft's 
    <a target="_blank" href="https://blogs.technet.microsoft.com/poshchap/2015/08/07/getting-started-with-the-powershell-gallery/">
    PSGallery repository ecosystem</a> which consists of 
