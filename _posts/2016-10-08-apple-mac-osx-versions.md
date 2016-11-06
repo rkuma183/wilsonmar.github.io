@@ -97,8 +97,9 @@ comments: true
 From <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
-* <a target="_blank" rel="amphtml" href="http://support.apple.com/kb/DL1779?viewlocale=en_US&locale=en_US">
-   Yosemite 10.10.1 update</a>
+The x.x.x is defined in the 
+* <a target="_blank" rel="amphtml" href="http://ssemver.org/">
+   Semantic Versioning website</a>.
 
 
 
@@ -116,9 +117,25 @@ In a Terminal window on any folder, type:
 
    <pre>
    ProductName: mac OS X
-   ProductVersion: 10.12
-   BuildVersion: 16A323
+   ProductVersion: 10.12.1
+   BuildVersion: 16B2555
    </pre>
+
+A specific response can be requestd by:
+
+   <tt><strong>
+   sw_vers -productVersion
+   </strong></tt>
+
+This is a different command than used in Linux (`lsb_release`).
+
+Kernel versioning is different for Darwin (on Macs) than for Linux.
+
+The reference to "Darwin" comes from:
+
+   <tt><strong>
+   uname
+   </strong></tt>
 
 
 ## More on OSX
