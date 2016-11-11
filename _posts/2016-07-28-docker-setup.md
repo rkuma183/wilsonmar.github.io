@@ -25,10 +25,37 @@ to contrast the setup of Docker on Mac OSX, CentOS Linux, and
 
 ## VMs vs. Docker #
 
-<amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
-src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-11e6-9648-752a31fa03a8.png"></amp-img>
+This is a more complex diagram than others so that interrelationships can be illustrated.
 
-With Virtual Memory (VM), every image keeps its own copy of the operating system kernel 
+<amp-img  alt="docker flowchart v03-650x317-121kb.jpg" width="650" height="317"
+src="https://cloud.githubusercontent.com/assets/23315276/20228837/77f798c0-a810-11e6-91bc-209cf0b92a95.jpg"></amp-img>
+
+<!--amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
+src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-11e6-9648-752a31fa03a8.png"></amp-img -->
+
+Let's look at a multi-platform situation where a developer is working on a 
+Mac Pro, which has a 64-bit processor running MacOS version 12.12, code named Sierra.
+
+In addition to regular apps for Mac, she uses VMware Fusion to run a Virtual Memory instance
+consisting of a full install of Windows 10 Anniversary Edition running Visual Studio. 
+This is so she can code apps stored in GitHub.
+Her apps contain a Dockerfile the 
+<strong>Docker Machine</strong> uses to build a Docker image.
+Images are stored in Docker Hub can be searched.
+
+Since her Mac has the facilities provided since Yosemite, 
+she can install <strong>Docker for Mac</strong> manually from the Docker website.
+It runs 
+<strong>Docker containers</strong> by issuing the 
+<strong>docker run</strong> command that pulls the specified image from Docker Hub.
+
+After local tests complete successfully, our developer wants to run it in the AWS EC2 cloud.
+But the server would run a Debian base AMI.
+Scripts install Docker for Debian from Debian's package manager.
+enables the same image to be pulled in an run.
+
+The Virtual Memory (VM) stack is higher to represent use of more memory because
+every image keeps its own copy of the operating system kernel 
 and associated libraries in addition to apps running within each.
 
 Docker enables the read-only portion of a Linux operating system kernel 
@@ -40,9 +67,13 @@ Docker enables developers and system administrators
 across systems and machines easily, 
 with all dependencies intact.
 
-Docker containers are created using docker images, 
+To recap, Docker containers are created using docker images, 
 built by parsing a <strong>Dockerfile</strong> 
 containing Docker commands.
+
+"By using containers, resources can be isolated, services restricted, and processes provisioned to have a private view of the operating system with their own process ID space, file system structure, and network interfaces. Multiple containers can share the same kernel, but each container can be constrained to only use a defined amount of resources such as CPU, memory and I/O." -- Wikipedia
+
+![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
 
 ### Competition
 
@@ -57,34 +88,33 @@ Open Containers Initiative</a> (OCI)
 
 <hr />
 
-## Installer download #
+## Linux installer downloads #
 
-Docker was originally created for different flavors of Linux
+Docker was originally created for different flavors of Linux:
 
    * Ubuntu
    * <a href="#Docker4Centos">CentOS</a>
    * BSDLinux
    * etc.
 
+The operating system <strong>kernel</strong>.
+
+Different operating systems use differen file systems software.
+For example, Debian uses <strong>bootfs</strong>.
+
 <a name="Docker4Mac"></a>
 
 ### Install Docker on Mac OSX #
 
 <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
-
-   WARNING: The product is labeled Beta as of this writing (July 2016).
-   If your Mac has OS X 10.10.3 Yosemite or newer,
-   <strong>Docker on Mac</strong>
-   runs as a <strong>native</strong> Mac application.
-
-   TECHNICAL NOTE: Docker for Mac uses the
+   It uses the
    <a target="_blank" href="https://github.com/docker/HyperKit/">
    HyperKit VM</a>
-   ("xhyve") to virtualize the Docker Engine environment 
+   ("xhyve") to virtualize the Docker Engine environment.
+   That technology requires OS X 10.10.3 Yosemite or newer.
 
-Docker for Mac replaces Docker Toolbox on the latest Mac operating sytem.
-
-But Docker Toolbox is still used for older Mac operating systems (before Yosemite).
+   Versions of Mac before Yosemite would need to use the deprecated
+   Docker Toolbox.
 
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
    So an extra layer is needed to emulate a Docker host.
@@ -215,6 +245,28 @@ CAUTION: A 64-bit machine is necessary.
 0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
 
+<a name="DockerAWS"></a>
+
+### Install AWS #
+
+0. Create `~/.aws/credentials` file based on keys copied during user creation in AWS IAM, such as:
+
+   <pre>
+   [default]
+   aws_access_key_id = AKID1234567890
+   aws_secret_access_key = MY-SECRET-KEY
+   </pre>
+
+0. In <a target="_blank" href="https://docs.docker.com/machine/examples/aws/">
+   AWS, create an EC2 instance named "aws-sandbox"</a>
+
+   <pre><strong>
+   docker-machine create --driver amazonec2 --amazonec2-access-key AKI******* --amazonec2-secret-key 8T93C*******  aws-sandbox
+   </strong></pre>
+
+   "amazonec2" is the driver name.
+
+
 <a name="Docker4Alpine"></a>
 
 ### Install Linux Alpine #
@@ -247,8 +299,11 @@ The Alpine Linux distribution (distro) is small that it has an edition for the R
 
    2. Spin up a server with Docker Machine which auto-installs Docker.
 
+See https://docs.docker.com/machine/reference/ls/
 
-The Docker installation package available in the official CentOS 7 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository.
+The Docker installation package available in the official CentOS 7 repository may not be the latest version. 
+
+To get the latest and greatest version, install Docker from the official Docker repository.
 
 0. First, update the package database:
 
@@ -664,7 +719,7 @@ docker: Cannot connect to the Docker daemon. Is the docker daemon running on thi
 See 'docker run --help'.
    </pre>
 
-   If the image specified is not found, Docker gets it for you:
+   If the image specified is not found, Docker gets it for you from the default registry:
 
    <pre>
 Unable to find image 'hello-world:latest' locally
@@ -695,6 +750,13 @@ For more examples and ideas, visit:
    </pre>
 
    See https://docs.docker.com/docker-for-windows/
+
+   It automatically ran:
+   
+   <pre><strong>
+   docker pull library/hello-world
+   </strong></pre>
+
 
 
    ### NGINX
@@ -731,6 +793,8 @@ curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
    docker run -ti ubuntu bash
    </strong></tt>
 
+   "-ti" means terminal interactive, specifying that the image should contain a shell when it runs.
+
    Alternately, run version 14.04 of Ubuntu:
 
    <tt><strong>
@@ -743,16 +807,19 @@ curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
 root@ee355a835ff8:/# 
    </pre>
 
-0. Get the version:
+0. Get version information:
 
    <tt><strong>
-   uname -a
+   cat /etc/lsb-release
    </strong></tt>
 
-   Response:
+   The response:
 
    <pre>
-Linux ee355a835ff8 4.4.27-moby #1 SMP Wed Oct 26 14:21:29 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
    </pre>
 
    NOTE: You can't run docker commands on this prompt because you're inside.
@@ -774,6 +841,8 @@ Linux ee355a835ff8 4.4.27-moby #1 SMP Wed Oct 26 14:21:29 UTC 2016 x86_64 x86_64
    <tt><strong>
    docker ps -a
    </strong></tt>
+
+   PROTIP: In Linux the ps command is for processes. In a way, that's what Docker containers are, a process.
 
    Add -a shows inactive as well as the default active listing.
    (Kinda counter-intuitive)
@@ -821,10 +890,10 @@ default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1
    eval "$(docker-machine env default)"
    </strong></tt>
 
-   No response is displayed becuase the command runs:
+   No response is displayed becuase the "eval" command above runs the output of the command:
 
    <pre><strong>
-   docker-machine env
+   docker-machine env default
    </strong></pre>
 
    which is:
@@ -941,6 +1010,8 @@ Error response from daemon: conflict: unable to remove repository reference "hel
 Boot2Docker version 1.12.3, build HEAD : 7fc7575 - Thu Oct 27 17:23:17 UTC 2016
 Docker version 1.12.3, build 6b644ec
    </pre>
+
+   NOTE: Docker deprecated the Boot2Docker command line in favor of Docker Machine. 
 
 0. Now do whatever you need to do here.   
 
@@ -1063,9 +1134,11 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
    <a target="_blank" href="https://docs.docker.com/registry">
    https://docs.docker.com/registry</a>
 
-0. Pull down an image from the tutum repository:
+0. Pull down an image from a private repository:
 
-   <tt><strong>docker pull ubuntu</strong></tt>
+   <tt><strong>
+   docker pull my-reistry.net:5000/activemq
+   </strong></tt>
 
 
    ### Remove image
@@ -1089,9 +1162,10 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
 
 ## docker-machine install #
 
-<a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7">
-See this</a>.
+Docker Machine provisions Docker on virtual machines that reside on local or on a cloud provider.
 
+<a target="_blank" href="https://www.digitalocean.com/community/tutorials/how-to-provision-and-manage-remote-docker-hosts-with-docker-machine-on-centos-7">
+NOTE:</a>
 Docker Machine makes it easy to provision and manage multiple Docker hosts 
 remotely from your personal computer. 
 
@@ -1153,6 +1227,12 @@ Run 'docker-machine COMMAND --help' for more information on a command.
    </pre>
 
 0. Widen the Terminal window so lines don't wrap.
+
+0. Create a Docker machine on the Digital Ocean cloud:
+
+   <tt><strong>
+   docker-machine create -d digitialocean --digitalocean-access-token=secret
+   </strong></tt>
 
 0. List Docker machine instances:
 
@@ -1258,7 +1338,13 @@ bash: print: command not found
 
 See https://docs.docker.com/compose/install/.
 
-Docker compose creates multiple containers with a single command. 
+0. Docker compose creates multiple containers with a single command:
+
+   <tt><strong>
+   docker-compose up
+   </strong></tt>
+
+   The above command refers to Dockerfile and compose.yml files.
 
 0. Type the command by itself for a list of sub-commands:
 
@@ -1322,22 +1408,38 @@ Commands:
    <a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
    here</a>
 
+Alternatives include Kubernetes by Google, 
+Mesos
+Centos
+Atomic
+Consul, Terraform
+Serf
+Cloudify
+Helios
+
+Monitoring using cAdvisor collecting stats to write to InfluxDB, displayed by Grafana.
+
 
 <a name="DockerSwarm"></a>
 
 ## Docker Swarm #
 
-Docker Swarm allows you to create and manage <strong>clustered</strong> Docker servers. 
-to scale containers
+Docker Swarm creates and manages <strong>clustered</strong> (pool of) Docker servers.
+It scales containers
 by dispersing containers across multiple hosts.
+
+   docker run swarm create
 
 Installing Docker Swarm launches a container that is used as
 the Swarm Manager master to communicate to all the nodes in a Swarm cluster.
 
 See https://docs.docker.com/swarm/
 
-http://autopilotpattern.io/
+   docker run -d swarm join --addr=node_ip:2375 token://cluster_id
 
+   docker run -d -p swarm_port:2375 swarm manage token://cluster_id
+
+See http://autopilotpattern.io/
 
 
 ## Additional notes on security #
