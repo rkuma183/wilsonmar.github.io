@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-The object of this tutorial is to succintly present
+The object of this tutorial is to succintly present 
 <strong>step-by-step</strong> instructions 
 to contrast the setup of Docker on Mac OSX, CentOS Linux, and 
 <a href="#Docker4Windows">Windows</a>.
@@ -77,25 +77,30 @@ Docker was originally created for different flavors of Linux
    <strong>Docker on Mac</strong>
    runs as a <strong>native</strong> Mac application.
 
-   TECHNICAL NOTE: Docker for Mac uses 
-   xhyve to virtualize the Docker Engine environment 
+   TECHNICAL NOTE: Docker for Mac uses the
    <a target="_blank" href="https://github.com/docker/HyperKit/">
-   HyperKit VM</a>.
+   HyperKit VM</a>
+   ("xhyve") to virtualize the Docker Engine environment 
 
-0. If you've previously installed Boot2Docker or Docker for Mac, uninstall it
-   by deleting the file in Applications.
+Docker for Mac replaces Docker Toolbox on the latest Mac operating sytem.
+
+But Docker Toolbox is still used for older Mac operating systems (before Yosemite).
 
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
-   So an extra layer is needed to emulate a Docker host, 
-   and that’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
+   So an extra layer is needed to emulate a Docker host.
+   That’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
    Boot2Docker</a>.
 
-0. Get to downloads folder for Mac at:<br />
-   <a target="_blank" href="https://docs.docker.com/docker-for-mac/">
-   https://docs.docker.com/docker-for-mac/</a>
+0. If you've previously installed Boot2Docker or Docker for Mac, uninstall it
+   by deleting it within your Applications folder.
 
-   At time of writing was Virtualbox version 5.1.2, so can be left installed.
-   NOTE: 
+0. Get to downloads folder for Mac at:<br />
+   <a target="_blank" href="https://www.docker.com/products/docker#/mac">
+   https://www.docker.com/products/docker#/mac</a>
+   
+   Note "Docker Toolbox" is no longer used, which depended on Virtualbox.
+   At time of writing I had Virtualbox version 5.1.2 installed, 
+   so can be left installed.
    <a target="_blank" href="https://docs.docker.com/engine/installation/mac/#/docker-for-mac">
    Docs here</a> 
    says VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). 
@@ -109,26 +114,38 @@ Docker was originally created for different flavors of Linux
 0. In Finder, navigate to you Download folder to double-click
    <strong>Docker.dmg</strong>
 
-   | Date of file  | Version           | Download | Folder   |
-   | ------------- | ----------------- | -------: | -------: | 
-   | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
+   PROTIP: Change the file name if you're keeping back versions.
+
+   | Date of file | Version           | Download | Folder   |
+   | -----------: | ----------------- | -------: | -------: | 
+   | Oct 17, 2016 | Docker.dmg | 111 MB | 208.1 MB |
    | July 19, 2016 | Docker.dmg | 114.0 MB | 225.1 MB |
    | July 19, 2016 | Docker.dmg | 107.0 MB | 225.1 MB |
+   | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
 
 0. Double-click on Docker.dmg to open it.
-0. Drag and drop to the Applications folder.
+0. Drag and drop the whale into the Applications folder.
 0. Click Replace the previous version, if applicable.
-0. Click Open.
+0. Click X to dismiss the pop-up.
+0. In the Applications folder, open the Docker app.
 0. Click Next.
 0. Click OK.
 0. Input Apple password.
 0. Click Got it!.
 
-   TECHNICAL NOTE: The Docker command line stores its configuration files in 
-   a hidden directory <strong>.docker</strong> within your $HOME directory. 
-   See https://docs.docker.com/engine/reference/commandline/cli/
+   <a target="_blank" href="https://docs.docker.com/engine/reference/commandline/cli/">
+   TECHNICAL NOTE:</a> The Docker command line stores its configuration files in 
+   a hidden directory <strong>.docker</strong> within your $HOME directory (cd ~).
 
-0. Skip to <a href="#VerifyInstall">verify install</a>.
+0. Click the whale icon at the top of your Mac for this menu:
+
+   ![docker mac 20161110-270x248](https://cloud.githubusercontent.com/assets/23315276/20192045/6e818ca4-a745-11e6-8c15-a1b808212344.jpg)
+
+0. Click Preferences.
+0. Uncheck "Automatically start Docker when you log in."<br />
+   if you are not a frequent user.
+
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
    Obsolete instructions to install
    using 
@@ -139,13 +156,11 @@ Docker was originally created for different flavors of Linux
    Alternately, Docker 0.8 or newer can be run on Macs 
    thanks to a specially developed, lightweight VirtualBox VM. 
 
-   <pre>
-   brew install docker
-   brew install boot2docker
-   </pre>
-
    To start this, use the "quickstart terminal"
    which fires up Virtualbox.
+
+   https://www.youtube.com/watch?v=v1BfbZu8EMw
+
 
 <a name="Docker4Windows"></a>
 
@@ -197,23 +212,12 @@ CAUTION: A 64-bit machine is necessary.
 
    The same <a href="#ModulesInstalled">modules are installed</a>.
 
-   <tt><strong>
-   docker --version
-   docker-compose --version
-   docker-machine --version
-   </strong></tt>
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
-   The responses:
-
-   <pre>
-   Docker version 1.12.0, build 8eab29e, experimental
-   docker-compose version 1.8.0, build d988a55
-   docker-machine version 0.8.0, build b85aac1
-   </pre>
 
 <a name="Docker4Alpine"></a>
 
-### Alpine Base #
+### Install Linux Alpine #
 
 The Alpine Linux distribution (distro) is small that it has an edition for the Raspberry Pi.
 
@@ -231,10 +235,18 @@ The Alpine Linux distribution (distro) is small that it has an edition for the R
 0. Verify a hash (SHA) from the website.
 0. Use a utility that can read .iso files.
 
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
 <a name="Docker4Centos"></a>
 
 ### Install Docker in CentOS #
+
+   There are two methods for installing Docker on CentOS 7:
+
+   1. Installing Docker on an existing installation of the operating system. 
+
+   2. Spin up a server with Docker Machine which auto-installs Docker.
+
 
 The Docker installation package available in the official CentOS 7 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository.
 
@@ -343,65 +355,14 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
    The response:
 
    <tt>
-   Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
+   Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to 
+   /usr/lib/systemd/system/docker.service.
    </tt>
 
-
-
-## No Error Report #
-
-PROTIP: Whenever an attempt to provision a Dockerized host using Docker Machine fails, 
-or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. 
-
-0. Disable this reporting by creating an empty file called no-error-report under your installations .docker/machine directory:
-
-   <tt><strong>
-   touch ~/.docker/machine/no-error-report
-   </strong></tt>
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
 
 <hr />
-
-<hr />
-
-<a name="ModulesInstalled"></a>
-
-## Modules installed #
-
-   Installing Docker gives you not just the Docker service (daemon) 
-   but also the docker command line utility, or the Docker client.
-
-   Regardless of the OS, the installation provides: 
-
-   * Docker Engine, 
-   * Docker CLI client, 
-   * Docker Compose, and 
-   * Docker Machine.
-
-   * Docker Swarm.
-   <br /><br />
-
-0. See the list of supported drivers at<br />
-   <a target="_blank" href="https://docs. docker.com/machine/drivers/">
-   https://docs. docker.com/machine/drivers</a>
-
-<a name="DockerUCP"></a>
-
-## Docker UCP (Universal Control Plane) #
-
-   UCP enables you to control Docker environments through a 
-   <strong>web interface</strong>.
-   This is helpful if you want to steer clear of the command line. 
-
-   You can use Docker UCP to deploy to various cloud solutions, tie into your existing authentication infrastructure, and in turn control user access.
-
-   <a target="_blank" href="https://docs.docker.com/ucp/">
-   https://docs.docker.com/ucp</a><br />
-   has more information about Docker UCP.
-
-
-
-
 
 <a name="VerifyInstall"></a>
 
@@ -411,11 +372,27 @@ After installation, Docker commands are similar on all operating systems:
 
 0. Open a Terminal shell window.
 
+0. Get Docker version property:
+
+   <pre><strong>
+   docker --version
+   </strong></pre>
+
+   The response:
+   
+   <pre>
+Docker version 1.12.3, build 6b644ec
+   </pre>
+
+   Notice "experimental" has been removed.
+
 0. List all docker commands:
 
    <tt><strong>
    docker
    </strong></tt>
+
+   The response:
 
    <pre>
 Usage: docker [OPTIONS] COMMAND [arg...]
@@ -490,34 +467,31 @@ Commands:
 Run 'docker COMMAND --help' for more information on a command.
    </pre>
 
+
 0. Obtain the version number using a sub-command:
 
    <tt><strong>
    docker version
    </strong></tt>
 
-   NOTE: No dash in front of version (unlike commands in many other utilities).
-
    Sample response on the Mac:
 
     <pre>
 Client:
-Version:      1.12.0-rc2
-API version:  1.24
-Go version:   go1.6.2
-Git commit:   906eacd
-Built:        Fri Jun 17 20:35:33 2016
-OS/Arch:      darwin/amd64
-Experimental: true
+ Version:      1.12.3
+ API version:  1.24
+ Go version:   go1.6.3
+ Git commit:   6b644ec
+ Built:        Wed Oct 26 23:26:11 2016
+ OS/Arch:      darwin/amd64
 &nbsp;
 Server:
-Version:      1.12.0-rc2
-API version:  1.24
-Go version:   go1.6.2
-Git commit:   a7119de
-Built:        Fri Jun 17 22:09:20 2016
-OS/Arch:      linux/amd64
-Experimental: true
+ Version:      1.12.3
+ API version:  1.24
+ Go version:   go1.6.3
+ Git commit:   6b644ec
+ Built:        Wed Oct 26 23:26:11 2016
+ OS/Arch:      linux/amd64
    </pre>
 
    Sample response on Centos:
@@ -571,53 +545,117 @@ Server:
    An example of command output for docker info on Windows:
 
    <pre>
-   Containers: 0
-   Running: 0
-   Paused: 0
-   Stopped: 0
-   Images: 0
-   Server Version: 1.12.0
-   Storage Driver: aufs
-   Root Dir: /var/lib/docker/aufs
-   Backing Filesystem: extfs
-   Dirs: 0
-   Dirperm1 Supported: true
-   Logging Driver: json-file
-   Cgroup Driver: cgroupfs
-   Plugins:
-   Volume: local
-   Network: host bridge null overlay
-   Swarm: inactive
-   Runtimes: runc
-   Default Runtime: runc
-   Security Options: seccomp
-   Kernel Version: 4.4.16-moby
-   Operating System: Alpine Linux v3.4
-   OSType: linux
-   Architecture: x86_64
-   CPUs: 2
-   Total Memory: 1.95 GiB
-   Name: moby
-   ID: BG6O:2VMH:OLNV:DDLF:SCSV:URRH:BW6M:INBW:OLAC:J7PX:XZVL:ADNB
-   Docker Root Dir: /var/lib/docker
-   Debug Mode (client): false
-   Debug Mode (server): false
-   Registry: https://index.docker.io/v1/
-   Experimental: true
-   Insecure Registries:
-   127.0.0.0/8
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 1.12.3
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: host bridge overlay null
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Security Options: seccomp
+Kernel Version: 4.4.27-moby
+Operating System: Alpine Linux v3.4
+OSType: linux
+Architecture: x86_64
+CPUs: 4
+Total Memory: 1.951 GiB
+Name: moby
+ID: 6SFI:4ZSJ:27OO:6L65:VZXB:MM6S:TIAT:MC7Z:CVNS:4ECH:N6AY:KTDJ
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 15
+ Goroutines: 27
+ System Time: 2016-11-10T20:54:34.119254981Z
+ EventsListeners: 1
+No Proxy: *.local, 169.254/16
+Registry: https://index.docker.io/v1/
+WARNING: No kernel memory limit support
+Insecure Registries:
+ 127.0.0.0/8
    </pre>
+
+
+<a name="ModulesInstalled"></a>
+
+### Modules installed #
+
+   Installing Docker gives you not just the Docker service (daemon) 
+   but also the docker command line utility, or the Docker client.
+
+   Regardless of the OS, the installation provides: 
+
+   * Docker Machine
+   * Docker CLI client
+   * <a href="#DockerEngine">Docker Engine</a>
+   * <a href="#DockerCompose">Docker Compose</a>
+   * <a href="#DockerSwarm">Docker Swarm</a>
+   <br /><br />
+
+0. See the list of supported drivers at<br />
+   <a target="_blank" href="https://docs.docker.com/machine/drivers/">
+   https://docs.docker.com/machine/drivers</a>
+
+
+
+<hr />
+
+## Extensions
+
+
+<a name="DockerUCP"></a>
+
+### Docker UCP (Universal Control Plane) #
+
+   UCP enables you to control Docker environments through a 
+   <strong>web interface</strong>.
+   This is helpful if you want to steer clear of the command line. 
+
+   You can use Docker UCP to deploy to various cloud solutions, 
+   tie into your existing authentication infrastructure, 
+   and in turn control user access.
+
+   Dockur UCP also provides specialized monitoring.
+
+   <a target="_blank" href="https://docs.docker.com/ucp/">
+   https://docs.docker.com/ucp</a><br />
+   has more information about Docker UCP.
+
+
 
 
 <a name="DockerHello"></a>
 
-## Docker Run Hello #
+## Run Hello Container #
+
+   PROTIP: Similar to Python, most people run commands within a Docker machine
+   (which is the whole point of installing Docker).
+
+   This section describes how to run a Docker image, then remove it.
 
 0. See if it can run anything:
 
    <tt><strong>
    docker run hello-world
    </strong></tt>
+
+   This uses the default "library" user, so the command is equivalent to:
+
+   <pre>
+   docker run library/hello-world
+   </pre>
 
    If you get this:
 
@@ -626,20 +664,251 @@ docker: Cannot connect to the Docker daemon. Is the docker daemon running on thi
 See 'docker run --help'.
    </pre>
 
-   Otherwise, here's the expected response:
+   If the image specified is not found, Docker gets it for you:
 
    <pre>
-  Hello from Docker.
-  This message shows that your installation appears to be working correctly.
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+c04b14da8d14: Pull complete 
+Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
+Status: Downloaded newer image for hello-world:latest
 &nbsp;
-  To generate this message, Docker took the following steps:
-  1. The Docker client contacted the Docker daemon.
-  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-  3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading.
-  4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal.
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+&nbsp;
+To generate this message, Docker took the following steps:
+\1. The Docker client contacted the Docker daemon.
+\2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+\3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+\4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+&nbsp;
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+&nbsp;
+Share images, automate workflows, and more with a free Docker Hub account:
+ https://hub.docker.com
+&nbsp;
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
    </pre>
 
    See https://docs.docker.com/docker-for-windows/
+
+
+   ### Ubuntu inside Mac
+
+0. To run the latest Ubuntu box inside your Mac:
+
+   <tt><strong>
+   docker run -ti ubuntu bash
+   </strong></tt>
+
+   Alternately, run version 14.04 of Ubuntu:
+
+   <tt><strong>
+   docker run --net=host -ti ubuntu:14.04 bash
+   </strong></tt>
+
+   After downloads, you should see a bash prompt such as:
+
+   <pre>
+root@ee355a835ff8:/# 
+   </pre>
+
+0. Get the version:
+
+   <tt><strong>
+   uname -a
+   </strong></tt>
+
+   Response:
+
+   <pre>
+Linux ee355a835ff8 4.4.27-moby #1 SMP Wed Oct 26 14:21:29 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+   </pre>
+
+   NOTE: You can't run docker commands on this prompt because you're inside.
+
+0. Press Control+C or type exit:
+
+   <tt><strong>
+   exit
+   </strong></tt>
+
+
+
+   <a name="DockerContainers"></a>
+
+   ### List Docker Containers #
+
+0. List Docker containers and their identifiers:
+
+   <tt><strong>
+   docker ps -a
+   </strong></tt>
+
+   Add -a shows inactive as well as the default active listing.
+   (Kinda counter-intuitive)
+
+   Widen your screen to avoid wrapping:
+
+   <pre>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                           NAMES
+2289fc019878        nginxdemos/hello    "nginx -g 'daemon off"   32 minutes ago      Up 32 minutes               0.0.0.0:32769->80/tcp, 0.0.0.0:32768->443/tcp   trusting_euler
+75ae035ab68b        hello-world         "/hello"                 39 minutes ago      Exited (0) 39 minutes ago                                                   serene_sammet
+   </pre>
+
+0. To list Docker images:
+
+   <tt><strong>
+   docker images
+   </strong></tt>
+
+   <pre>
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginxdemos/hello    latest              0ec165d1eb3a        12 hours ago        54.24 MB
+ubuntu              latest              f753707788c5        4 weeks ago         127.2 MB
+hello-world         latest              c54a2cc56cbb        4 months ago        1.848 kB
+   </pre>
+
+0. List Docker machines:
+
+   <tt><strong>
+   docker-machine ls
+   </strong></tt>
+
+   Example response:
+
+   <pre>
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1.12.3   
+   </pre>
+
+   See https://docs.docker.com/machine/get-started/
+
+0. Connect your shell to the new machine
+   (per https://docs.docker.com/machine/reference/env/):
+
+   <tt><strong>
+   eval "$(docker-machine env default)"
+   </strong></tt>
+
+   No response is displayed becuase the command runs:
+
+   <pre><strong>
+   docker-machine env
+   </strong></pre>
+
+   which is:
+
+   <pre>
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/mac/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell: 
+# eval $(docker-machine env)
+   </pre>
+
+   PROTIP: On a Mac, the docker-machine VM is called "default", existing in directory<br />
+   /Users/&LT;username>/.docker/machine/machines/default/ 
+
+0. See if the environment variables are set:
+
+   <tt><strong>
+   env | grep DOCKER
+   </strong></tt>
+
+0. To unset commands:
+
+   <tt><strong>
+   eval $(docker-machine env -u)
+   </strong></tt>
+
+   which runs:
+
+   <pre>
+unset DOCKER_TLS_VERIFY
+unset DOCKER_HOST
+unset DOCKER_CERT_PATH
+unset DOCKER_MACHINE_NAME
+# Run this command to configure your shell: 
+# eval $(docker-machine env -u)
+   </pre>
+
+
+
+   ### Remove images
+
+0. To remove an individual Docker image listed above (to free up disk space):
+
+   <tt><strong>
+   docker rmi hello-world
+   </strong></tt>
+
+   A common error response if you have not first
+
+   <pre>
+Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container 75ae035ab68b is using its referenced image c54a2cc56cbb
+   </pre>
+
+
+0. To stop all running docker containers:
+
+   <tt><strong>
+   docker stop $(docker ps -a -q)
+   </strong>
+
+0. To delete all containers in a single command (to save disk space):
+
+   <tt><strong>
+   docker rm $(docker ps -a -q)
+   </strong></tt>
+
+
+
+
+   ### No Error Report #
+
+   PROTIP: Whenever an attempt to provision a Dockerized host using Docker Machine fails, 
+   or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. 
+
+0. Disable this reporting by creating an empty file called no-error-report under your installations .docker/machine directory:
+
+   <tt><strong>
+   touch ~/.docker/machine/no-error-report
+   </strong></tt>
+
+
+   ### Start
+
+0. Start again, you don't need to specify "default":
+
+   <tt><strong>
+   docker-machine start default
+   </strong></tt>
+
+0. Connect:
+
+   <tt><strong>
+   docker-machine ssh
+   </strong></tt>
+
+
+   <a name="DockerStop"></a>
+
+   ## Stop #
+
+0. Hard stop:
+
+   <tt><strong>
+   docker-machine stop
+   </strong></tt>
+
+   PROTIP: Those who use this a often create aliases to limit typing.
+   For example, "dmon" for the above command.
 
 
 <a name="DockerSearch"></a>
@@ -656,11 +925,14 @@ See 'docker run --help'.
    * database server base (redis, mongo, mysql, postgres, elasticsearch)
    * app server base (node, nginx, httpd)
    * blog app server base (wordpress, alpine)
+   <br /><br />
 
 0. Search for Ubuntu images on the free and public repository at <br />
-   https://hub.docker.com.
+   <a target="_blank" href="https://hub.docker.com/">
+   https://hub.docker.com</a>
 
-   <tt><strong>docker search ubuntu</strong></tt>
+   <tt><strong>docker search ubuntu
+   </strong></tt>
    
    The response (27 Jul 2016):
 
@@ -697,7 +969,8 @@ webhippie/ubuntu                  Docker images for ubuntu                      
 0. Widen the Terminal window so lines don't wrap.
 
 0. Search for centos images on the free and public repository at <br />
-   https://hub.docker.com.
+   <a target="_blank" href="https://hub.docker.com">
+   https://hub.docker.com</a>
 
    <tt><strong>docker search centos</strong></tt>
    
@@ -732,15 +1005,6 @@ smartentry/centos             CentOS with smartentry                          0 
 repositoryjp/centos           Docker Image for CentOS.                        0                    [OK]
    <pre>
 
-0. Get more information for a specific Docker image in<br />
-   https://hub.docker.com
-
-   <tt><strong>docker search centos --no-trunc</strong></tt>
-   
-   The response (27 Jul 2016):
-
-   <pre>
-   </pre>
 
 0. Alternately, if you want security and have money for license,
    a more secure commercial (paid) repository is at<br /> 
@@ -748,11 +1012,15 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
    https://www.docker.com/products/docker-trusted-registry</a>
 
    A third alternative is<br >
-   https://docs.docker.com/registry
+   <a target="_blank" href="https://docs.docker.com/registry">
+   https://docs.docker.com/registry</a>
 
 0. Pull down an image from the tutum repository:
 
    <tt><strong>docker pull ubuntu</strong></tt>
+
+
+   ### Remove image
 
 0. To remove an image:
 
@@ -768,12 +1036,6 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
 
 
 <hr />
-
-   There are two methods for installing Docker on CentOS 7:
-
-   1. Installing Docker on an existing installation of the operating system. 
-
-   2. Spin up a server with Docker Machine which auto-installs Docker.
 
 <a name="DockerMachine"></a>
 
@@ -798,46 +1060,46 @@ Usage: docker-machine [OPTIONS] COMMAND [arg...]
 &nbsp;
 Create and manage machines running Docker.
 &nbsp;
-Version: 0.8.0-rc2, build 4ca1b85
+Version: 0.8.2, build e18a919
 &nbsp;
 Author:
   Docker Machine Contributors - <https://github.com/docker/machine>
 &nbsp;
 Options:
-  --debug, -D                 Enable debug mode
-  --storage-path, -s "/Users/mac/.docker/machine"  Configures storage path [$MACHINE_STORAGE_PATH]
-  --tls-ca-cert               CA to verify remotes against [$MACHINE_TLS_CA_CERT]
-  --tls-ca-key                   Private key to generate certificates [$MACHINE_TLS_CA_KEY]
-  --tls-client-cert              Client cert to use for TLS [$MACHINE_TLS_CLIENT_CERT]
-  --tls-client-key               Private key used in client TLS auth [$MACHINE_TLS_CLIENT_KEY]
-  --github-api-token                Token to use for requests to the Github API [$MACHINE_GITHUB_API_TOKEN]
-  --native-ssh                Use the native (Go-based) SSH implementation. [$MACHINE_NATIVE_SSH]
-  --bugsnag-api-token               BugSnag API token for crash reporting [$MACHINE_BUGSNAG_API_TOKEN]
-  --help, -h                  show help
-  --version, -v                  print the version
+  --debug, -D           Enable debug mode
+  --storage-path, -s "/Users/mac/.docker/machine" Configures storage path [$MACHINE_STORAGE_PATH]
+  --tls-ca-cert           CA to verify remotes against [$MACHINE_TLS_CA_CERT]
+  --tls-ca-key            Private key to generate certificates [$MACHINE_TLS_CA_KEY]
+  --tls-client-cert           Client cert to use for TLS [$MACHINE_TLS_CLIENT_CERT]
+  --tls-client-key          Private key used in client TLS auth [$MACHINE_TLS_CLIENT_KEY]
+  --github-api-token          Token to use for requests to the Github API [$MACHINE_GITHUB_API_TOKEN]
+  --native-ssh            Use the native (Go-based) SSH implementation. [$MACHINE_NATIVE_SSH]
+  --bugsnag-api-token           BugSnag API token for crash reporting [$MACHINE_BUGSNAG_API_TOKEN]
+  --help, -h            show help
+  --version, -v           print the version
 &nbsp;  
 Commands:
   active    Print which machine is active
   config    Print the connection config for machine
   create    Create a machine
-  env       Display the commands to set up the environment for the Docker client
-  inspect      Inspect information about a machine
-  ip        Get the IP address of a machine
-  kill         Kill a machine
-  ls        List machines
-  provision    Re-provision existing machines
-  regenerate-certs   Regenerate TLS Certificates for a machine
-  restart      Restart a machine
-  rm        Remove a machine
-  ssh       Log into or run a command on a machine with SSH.
-  scp       Copy files between machines
-  start        Start a machine
+  env     Display the commands to set up the environment for the Docker client
+  inspect   Inspect information about a machine
+  ip      Get the IP address of a machine
+  kill      Kill a machine
+  ls      List machines
+  provision   Re-provision existing machines
+  regenerate-certs  Regenerate TLS Certificates for a machine
+  restart   Restart a machine
+  rm      Remove a machine
+  ssh     Log into or run a command on a machine with SSH.
+  scp     Copy files between machines
+  start     Start a machine
   status    Get the status of a machine
-  stop         Stop a machine
-  upgrade      Upgrade a machine to the latest version of Docker
-  url       Get the URL of a machine
-  version      Show the Docker Machine version or a machine docker version
-  help         Shows a list of commands or help for one command
+  stop      Stop a machine
+  upgrade   Upgrade a machine to the latest version of Docker
+  url     Get the URL of a machine
+  version   Show the Docker Machine version or a machine docker version
+  help      Shows a list of commands or help for one command
 &nbsp;  
 Run 'docker-machine COMMAND --help' for more information on a command.
    </pre>
@@ -862,25 +1124,85 @@ Run 'docker-machine COMMAND --help' for more information on a command.
    docker-machine ip
    </strong></tt>
 
+   The response:
+
+   <pre>
+192.168.99.100
+   </pre>
+
+   ### Create Docker machine
+
+0. Using your Mac's Finder, look in your Applications folder for a Docker folder.
+   In there is a <strong>Docker Quickstart Terminal</strong>.
+
+   You can also invoke it by typing on the Mac's Search box.
+
+   It creates a window containing:
+
+   <pre>
+Creating CA: /Users/mac/.docker/machine/certs/ca.pem
+Creating client certificate: /Users/mac/.docker/machine/certs/cert.pem
+Running pre-create checks...
+(default) Default Boot2Docker ISO is out-of-date, downloading the latest release...
+(default) Latest release for github.com/boot2docker/boot2docker is v1.12.3
+(default) Downloading /Users/mac/.docker/machine/cache/boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v1.12.3/boot2docker.iso...
+Creating machine...
+(default) Copying /Users/mac/.docker/machine/cache/boot2docker.iso to /Users/mac/.docker/machine/machines/default/boot2docker.iso...
+(default) Creating VirtualBox VM...
+(default) Creating SSH key...
+(default) Starting the VM...
+(default) Check network to re-create if needed...
+(default) Found a new host-only adapter: "vboxnet1"
+(default) Waiting for an IP...
+&nbsp;
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+&nbsp;
+docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+&nbsp;
+bash: print: command not found
+   </pre>
+
 0. Create a Docker machine named node1 in the local Virtualbox, in debug mode:
 
    <tt><strong>
    docker-machine create -d virtualbox node1
    </strong></tt>
 
-
-   <a name="DockerContainers"></a>
-
-   ### Docker Containers #
-
-0. List Docker containers and their identifiers:
+   Alternately, if you are running docker-machine on windows, you should use Hyper-V :
 
    <tt><strong>
-   docker ps -a
+   docker-machine create --driver hyperv vm
    </strong></tt>
 
-   Add -a shows inactive as well as the default active listing.
-   (Kinda counter-intuitive)
+<a name="DockerCommands"></a>
+
+## Docker Commands #
+
+0. There's a different version of each Docker module:
+
+   <pre><strong>
+   docker-compose --version
+   docker-machine --version
+   </strong></pre>
+
+   The responses:
+
+   <pre>
+   docker-compose version 1.8.0, build d988a55
+   docker-machine version 0.8.0, build b85aac1
+   </pre>
+
+
+
+
 
 <a name="DockerCompose"></a>
 
@@ -968,13 +1290,6 @@ See https://docs.docker.com/swarm/
 
 http://autopilotpattern.io/
 
-
-<a name="DockerHub"></a>
-
-## Docker Hub #
-
-<a target="_blank" href="https://hub.docker.com/">
-hub.docker.com</a>
 
 
 ## Additional notes on security #
