@@ -36,23 +36,28 @@ src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-
 Let's look at a multi-platform situation where a developer is working on a 
 Mac Pro, which has a 64-bit processor running MacOS version 12.12, code named Sierra.
 
-In addition to regular apps for Mac, she uses VMware Fusion to run a Virtual Memory instance
+In addition to regular apps for Mac, she installs 
+VMware Fusion to run a Virtual Memory instance
 consisting of a full install of Windows 10 Anniversary Edition running Visual Studio. 
-This is so she can code apps stored in GitHub.
-Her apps contain a Dockerfile the 
-<strong>Docker Machine</strong> uses to build a Docker image.
-Images are stored in Docker Hub can be searched.
+Code for the app is stored in GitHub along with a 
+<strong>Dockerfile</strong> which the 
+<strong>Docker Machine</strong> uses to build a Docker image
+that gets included in Docker Hub.
+Images in Docker Hub can be found in searches.
 
-Since her Mac has the facilities provided since Yosemite, 
-she can install <strong>Docker for Mac</strong> manually from the Docker website.
+Since her Mac has the facilities provided since the Yosemite version of MacOS, 
+she can manually install <strong>Docker for Mac</strong> from the Docker website.
 It runs 
 <strong>Docker containers</strong> by issuing the 
 <strong>docker run</strong> command that pulls the specified image from Docker Hub.
 
-After local tests complete successfully, our developer wants to run it in the AWS EC2 cloud.
-But the server would run a Debian base AMI.
-Scripts install Docker for Debian from Debian's package manager.
-enables the same image to be pulled in an run.
+After local tests complete successfully, 
+we run it in the AWS EC2 cloud based on a Debian Linux AMI.
+Scripts install Docker for Debian from its package manager on the internet
+or some binary repository.
+
+This is how Docker can run the same app,
+with all dependencies intact, on other operating system platforms.
 
 The Virtual Memory (VM) stack is higher to represent use of more memory because
 every image keeps its own copy of the operating system kernel 
@@ -61,11 +66,6 @@ and associated libraries in addition to apps running within each.
 Docker enables the read-only portion of a Linux operating system kernel 
 to be shared among several images.
 Each image has its own lib and bin folders containing executables.
-
-Docker enables developers and system administrators 
-<strong>port</strong> applications
-across systems and machines easily, 
-with all dependencies intact.
 
 To recap, Docker containers are created using docker images, 
 built by parsing a <strong>Dockerfile</strong> 
