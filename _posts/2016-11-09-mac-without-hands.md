@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Operate a Mac without hands"
-excerpt: "Pain from Carpel Tunnel will make you want to do that"
+excerpt: "Pain from Carpel Tunnel will make you want AI speech and gesture recognition"
 tags: [Mac, Security]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -17,15 +17,17 @@ comments: true
 Here are the various options I'm exploring to using voice and gestures
 to control my Mac.
 
-There are two aspects to operating a computer.
+There are two aspects to operating a computer without hands:
 
-* the operating system (OSX) to select apps, folders, files
+* <a href="#Dictation">Dictation</a> (speech recognition).
 
-* individual applications such as iTunes, Word, Keynote
+* <a href="#GestureRecognition">Gesture recognition</a> via a camera.
 
 <hr />
 
-## Dictation Commands
+<a name="Dictation"></a>
+
+## Dictation (speech recognition)
 
 0. Open the Apple System Preferences 
 
@@ -74,7 +76,7 @@ There are two aspects to operating a computer.
 
 0. Take the time to try these in various applications.
 
-
+<a name="GestureRecognition"></a>
 
 ## Hand gestures
 
