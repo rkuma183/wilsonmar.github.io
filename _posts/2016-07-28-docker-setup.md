@@ -697,6 +697,32 @@ For more examples and ideas, visit:
    See https://docs.docker.com/docker-for-windows/
 
 
+   ### NGINX
+
+0. To run an NGINX web server:   
+   
+   <tt><strong>
+   docker run -d -p 8000:80 nginx
+   </strong></tt>
+
+   The "-d" parameter ...
+
+   The "8000:80" means we'll use localhost:8080.
+
+0. To see if that machine responds:
+
+   <tt><strong>
+   curl $(docker-machine ip default):8000
+   </strong>
+
+   A common error message is:
+
+   <pre>
+curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
+   </pre>
+
+
+
    ### Ubuntu inside Mac
 
 0. To run the latest Ubuntu box inside your Mac:
@@ -896,15 +922,37 @@ Error response from daemon: conflict: unable to remove repository reference "hel
    docker-machine ssh
    </strong></tt>
 
+   You should see a whale:
+
+   <pre>
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+ _                 _   ____     _            _
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
+| '_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ '__|
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   <  __/ |
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
+Boot2Docker version 1.12.3, build HEAD : 7fc7575 - Thu Oct 27 17:23:17 UTC 2016
+Docker version 1.12.3, build 6b644ec
+   </pre>
+
+0. Now do whatever you need to do here.   
+
 
    <a name="DockerStop"></a>
 
    ## Stop #
 
-0. Hard stop:
+0. Hard stop the default machine:
 
    <tt><strong>
-   docker-machine stop
+   docker-machine stop default
    </strong></tt>
 
    PROTIP: Those who use this a often create aliases to limit typing.
