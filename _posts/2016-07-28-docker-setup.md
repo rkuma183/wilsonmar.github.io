@@ -27,45 +27,82 @@ to contrast the setup of Docker on Mac OSX, CentOS Linux, and
 
 This is a more complex diagram than others so that interrelationships can be illustrated.
 
-<amp-img  alt="docker flowchart v03-650x317-121kb.jpg" width="650" height="317"
-src="https://cloud.githubusercontent.com/assets/23315276/20228837/77f798c0-a810-11e6-91bc-209cf0b92a95.jpg"></amp-img>
+<amp-img  alt="docker flowchart v04-650x312-97kb" width="650" height="312"
+src="https://cloud.githubusercontent.com/assets/23315276/20240662/3b3a07a8-a8db-11e6-84a0-fc174a8f8a73.png"></amp-img>
 
 <!--amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
 src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-11e6-9648-752a31fa03a8.png"></amp-img -->
 
-Let's look at a multi-platform situation where a developer is working on a 
-Mac Pro, which has a 64-bit processor running MacOS version 12.12, code named Sierra.
+Prior to Docker, a developer working on a Mac Pro can,
+in addition to native apps for Mac, 
+also run Microsoft Visual Studio for Windows
+in a full install of Windows 10 by running them
+within a VMware Fusion <strong>hypervisor</strong> that manages Virtual Memory instances.
 
-In addition to regular apps for Mac, she installs 
-VMware Fusion to run a Virtual Memory instance
-consisting of a full install of Windows 10 Anniversary Edition running Visual Studio. 
-Code for the app is stored in GitHub along with a 
-<strong>Dockerfile</strong> which the 
-<strong>Docker Machine</strong> uses to build a Docker image
-that gets included in Docker Hub.
-Images in Docker Hub can be found in searches.
+Each additional VM instance would take 
+several more Gigabytes of disk space and memory
+because the operating systsem is duplicated inside each VM instance.
 
-Since her Mac has the facilities provided since the Yosemite version of MacOS, 
-she can manually install <strong>Docker for Mac</strong> from the Docker website.
-It runs 
-<strong>Docker containers</strong> by issuing the 
-<strong>docker run</strong> command that pulls the specified image from Docker Hub.
+By contrast, 
+<strong>Docker's containers</strong> take a more lightweight approach.
 
-After local tests complete successfully, 
-we run it in the AWS EC2 cloud based on a Debian Linux AMI.
-Scripts install Docker for Debian from its package manager on the internet
-or some binary repository.
+<strong>Docker for Mac</strong> is installed from the Docker website
+to provide a hypervisor which runs
+Docker images such as NGINX.
+Images are obtained from 
+<strong>Docker Hub</strong> online
+or a more private and trusted image repository.
+Many images are visible searches within Docker Hub.
 
-This is how Docker can run the same app,
-with all dependencies intact, on other operating system platforms.
+That same container image can run on another platform unchanged,
+typically a GNU/Linux kernel such as <strong>Debian</strong>
+running on a commodity server
+within AWS EC2 cloud.
+Docker is designed with cloud computing providers in mind.
 
-The Virtual Memory (VM) stack is higher to represent use of more memory because
-every image keeps its own copy of the operating system kernel 
-and associated libraries in addition to apps running within each.
+The <strong>Docker Engine</strong> takes care of loading images
+and running them.
+It is installed from the
+<strong>package manager</strong> over the internet.
 
-Docker enables the read-only portion of a Linux operating system kernel 
+Docker is lighter weight because it provides the read-only portion 
+of a Linux operating system 
 to be shared among several images.
-Each image has its own lib and bin folders containing executables.
+Each image has its own <strong>bin and lib</strong> folders.
+
+Docker is also lightweight and thus more scalable because
+each image intends to run and watch one single process.
+SSH ports are not opened into images.
+
+A <strong>data volume</strong> outside the image is referenced to read private keys.
+
+Additional data volumes, such as InfluxDB,
+are shared for logging with an additional image.
+It receives stats collected by the cAdvisor image (from Google) 
+and structures data for display in a Grafana dashboard.
+
+Images that go into container repositories are 
+created by a build command in Docker for Mac and Windows.
+The build is based on source code for an app in GitHub
+having a
+<strong>Dockerfile</strong> and
+<strong>.dockerignore</strong> file.
+
+<strong>Docker for Mac</strong> was released in 2016 
+as a <strong>native</strong> app 
+that keeps itself updated, so no Homebrew for it as with previous versions.
+This new version makes use of 64-bit processor hardware running software in
+MacOS Yosemite version 10.10 or newer, such as El Capitan 10.11 or Sierra 10.12.
+
+Docker for Mac uses underlying software not in prior versions,
+so <strong>docker-machine</strong> commands that load and manage images
+depend on the installation of <strong>Virtualbox</strong>
+by the <strong>Docker Toolbox</strong>.
+
+The new Docker for Mac makes obsolete the docker-machine commands,
+Docker Toolbox, and Virtualbox.
+
+<hr />
 
 To recap, Docker containers are created using docker images, 
 built by parsing a <strong>Dockerfile</strong> 
@@ -73,17 +110,21 @@ containing Docker commands.
 
 "By using containers, resources can be isolated, services restricted, and processes provisioned to have a private view of the operating system with their own process ID space, file system structure, and network interfaces. Multiple containers can share the same kernel, but each container can be constrained to only use a defined amount of resources such as CPU, memory and I/O." -- Wikipedia
 
-![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
+Each container runs as an isolated process on a shared kernel.
 
 ### Competition
+
+Alternatives to Docker:
 
 <a target="_blank" href="https://coreos.com/">
 CoreOS</a> developed
 <a target="_blank" href="https://github.com/appc/spec/">
-appc</a> with a rkt (pronounced "rocket") implementation
+appc</a> with a <strong>rkt</strong> (pronounced "rocket") implementation
 in their 
 <a target="_blank" href="https://www.opencontainers.org/">
 Open Containers Initiative</a> (OCI)
+
+Canonical has their LXD.
 
 
 <hr />
@@ -97,7 +138,7 @@ Docker was originally created for different flavors of Linux:
    * BSDLinux
    * etc.
 
-The operating system <strong>kernel</strong>.
+![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
 
 Different operating systems use differen file systems software.
 For example, Debian uses <strong>bootfs</strong>.
@@ -176,6 +217,8 @@ For example, Debian uses <strong>bootfs</strong>.
    if you are not a frequent user.
 
 0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+
+   ### Previously
 
    Obsolete instructions to install
    using 
@@ -257,26 +300,37 @@ CAUTION: A 64-bit machine is necessary.
    aws_secret_access_key = MY-SECRET-KEY
    </pre>
 
+   This is so you don't need to specify the keys in the command line:<br />
+   `--amazonec2-access-key AKI******* --amazonec2-secret-key 8T93C*******`
+
 0. In <a target="_blank" href="https://docs.docker.com/machine/examples/aws/">
    AWS, create an EC2 instance named "aws-sandbox"</a>
 
    <pre><strong>
-   docker-machine create --driver amazonec2 --amazonec2-access-key AKI******* --amazonec2-secret-key 8T93C*******  aws-sandbox
+   docker-machine create --driver amazonec2 --amazonec2-region us-west-1 aws-sandbox
+    --volumes-from ?
    </strong></pre>
 
    "amazonec2" is the driver name.
 
+   `--volums-from` is how data volumes are shared for backups (by s3cmd).
+
 
 <a name="Docker4Alpine"></a>
 
-### Install Linux Alpine #
+### Alpine Linux #
 
-The Alpine Linux distribution (distro) is small that it has an edition for the Raspberry Pi.
+Within Docker for Mac, the Docker engine runs in an 
+Alpine Linux distribution on top of a Mac xhyve 
+(pronounced "x-hive") Virtual Machine.
 
-0. At <a target="_blank" href="https://alpinelinux.org/">
+The Alpine Linux distribution (distro) is so small that 
+there is an edition of it for the Raspberry Pi.
+
+Alpine comes with Docker for Mac, but for additional information, see:
+
+   <a target="_blank" href="https://alpinelinux.org/">
    https://alpinelinux.org</a>
-
-0. Click the iso file:
 
    | File Date  | Download          | Type  | Size MB |
    | ---------- | ----------------: | ----- | -------: |
@@ -284,10 +338,7 @@ The Alpine Linux distribution (distro) is small that it has an edition for the R
    | 2016-09-28 | alpine-3.4.4-x86_64.iso | Standard | 85 MB |
    | 2016-09-28 | alpine-extended-3.4.4-x86_64.iso | Extended | 311 MB |
 
-0. Verify a hash (SHA) from the website.
-0. Use a utility that can read .iso files.
 
-0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
 <a name="Docker4Centos"></a>
 
@@ -790,10 +841,17 @@ curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
 0. To run the latest Ubuntu box inside your Mac:
 
    <tt><strong>
-   docker run -ti ubuntu bash
+   docker run -it --rm --publish 3000:3000 ubuntu bash
    </strong></tt>
 
-   "-ti" means terminal interactive, specifying that the image should contain a shell when it runs.
+   "-it" means interactive (tty) terminal, 
+   specifying that the image should contain a shell when it runs
+   so it can be terminated manually by Ctrl+C.
+
+   "--publish" forwards port 3000 on the host from port 3000 in the container.
+
+   "bash" is the command issued in the container when it becomes active.
+   Alternately, "ruby /app/hello_world.rb" would invoke a ruby program.
 
    Alternately, run version 14.04 of Ubuntu:
 
@@ -844,7 +902,7 @@ DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
 
    PROTIP: In Linux the ps command is for processes. In a way, that's what Docker containers are, a process.
 
-   Add -a shows inactive as well as the default active listing.
+   `-a` shows inactive as well as the default active listing.
    (Kinda counter-intuitive)
 
    Widen your screen to avoid wrapping:
@@ -855,7 +913,18 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 75ae035ab68b        hello-world         "/hello"                 39 minutes ago      Exited (0) 39 minutes ago                                                   serene_sammet
    </pre>
 
-0. To list Docker images:
+0. PROTIP: Customize the layout by specifying a memory variable containing format template
+   using tabs and line breaks.
+
+   <pre>
+\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\n
+   </pre>
+
+   <tt><strong>
+   docker ps -a --format $FORMAT
+   </strong></tt>
+
+0. To list Docker images downloaded:
 
    <tt><strong>
    docker images
@@ -1310,26 +1379,6 @@ bash: print: command not found
    docker-machine create --driver hyperv vm
    </strong></tt>
 
-<a name="DockerCommands"></a>
-
-## Docker Commands #
-
-0. There's a different version of each Docker module:
-
-   <pre><strong>
-   docker-compose --version
-   docker-machine --version
-   </strong></pre>
-
-   The responses:
-
-   <pre>
-   docker-compose version 1.8.0, build d988a55
-   docker-machine version 0.8.0, build b85aac1
-   </pre>
-
-
-
 
 
 <a name="DockerCompose"></a>
@@ -1338,13 +1387,40 @@ bash: print: command not found
 
 See https://docs.docker.com/compose/install/.
 
-0. Docker compose creates multiple containers with a single command:
 
-   <tt><strong>
-   docker-compose up
-   </strong></tt>
+0. There's a different version of each Docker module:
 
-   The above command refers to Dockerfile and compose.yml files.
+   <pre><strong>
+   docker-compose --version
+   </strong></pre>
+
+   The responses:
+
+   <pre>
+   docker-compose version 1.8.1, build 878cff1
+   </pre>
+
+0. Describe you stack in a <strong>docker-compose.yml</strong>.
+   Example:
+
+   <pre>
+   web:
+      build .
+      command: python app.py
+   ports:
+    - "5000:5000"
+   volumes:
+    - .:/code
+   links:
+    - redis:redis
+   redis:
+     image : redis
+   </pre>
+
+   NOTE: Another example docker-compose.yml
+   <a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
+   here</a>
+
 
 0. Type the command by itself for a list of sub-commands:
 
@@ -1358,7 +1434,7 @@ See https://docs.docker.com/compose/install/.
 Define and run <strong>multi-container applications</strong> with Docker.
 &nbsp;
 Usage:
-  docker-compose [-f <arg>...] [options] [COMMAND] [ARGS...]
+  docker-compose [-f &LT;arg>...] [options] [COMMAND] [ARGS...]
   docker-compose -h|--help
 &nbsp;
 Options:
@@ -1367,7 +1443,7 @@ Options:
   --verbose                   Show more output
   -v, --version               Print version and exit
   -H, --host HOST             Daemon socket to connect to
-
+&nbsp;
   --tls                       Use TLS; implied by --tlsverify
   --tlscacert CA_PATH         Trust certs signed only by this CA
   --tlscert CLIENT_CERT_PATH  Path to TLS certificate file
@@ -1404,11 +1480,25 @@ Commands:
   version            Show the Docker-Compose version information
      </pre>
 
-   TODO: An example docker-compose.yml
-   <a target="_blank" href="https://sloppy.io/from-dev-to-prod-with-nodejs-and-hackathon-starter-using-docker-compose-part-1/">
+
+0. Docker compose creates multiple containers with a single command:
+
+   <tt><strong>
+   docker-compose up --x-smart-recreate
+   </strong></tt>
+
+   The above command refers to Dockerfile and compose.yml files.
+
+
+   ### Monitoring
+
+   Monitor using cAdvisor collecting stats to write to InfluxDB, displayed by Grafana,
+   described
+   <a target="_blank" href="https://dockerhanoi.wordpress.com/2015/08/19/docker-monitoring-with-cadvisor-influxdb-and-grafana/">
    here</a>
 
-Alternatives include Kubernetes by Google, 
+
+   ### Alternatives include Kubernetes by Google, 
 Mesos
 Centos
 Atomic
@@ -1416,8 +1506,6 @@ Consul, Terraform
 Serf
 Cloudify
 Helios
-
-Monitoring using cAdvisor collecting stats to write to InfluxDB, displayed by Grafana.
 
 
 <a name="DockerSwarm"></a>
@@ -1449,8 +1537,26 @@ Security can be integrated but it does require knowledge of the Linux container 
 
 https://blog.docker.com/2013/08/containers-docker-how-secure-are-they/
 
+## Resources
 
-## Learning Resources #
+### Articles
+
+http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
+   March 6, 2016
+   by Dr John Lees-Miller (@jdleesmiller)
+
+http://jdlm.info/ds-docker-demo
+
+https://github.com/jdleesmiller/ds-docker-demo
+
+* <a target="_blank" href="https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/">
+   Docker is not designef for SSH</a>
+   to "get inside" a running image.
+   You don't need SSH to
+   restart the process, tweak configurations, debug with gdb, strace, etc.
+
+
+### Pluralsight video courses #
 
 Pluralsight's
 <a target="_blank" href="https://app.pluralsight.com/paths/skills/docker">
@@ -1475,18 +1581,20 @@ video tutorials by Nigel Poulton
    Integrating Docker with DevOps Automated Workflows</a>
    Sept 21, 2015 / 1h 1m 50s
 
-0. <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-web-development/table-of-contents">
+Dan Wahlin
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/docker-web-development/table-of-contents">
    Docker for Web Developers</a>
-   by Dan Wahlin
    28 Mar 2016 / 5h 19m
    
-0. <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-docker-web-developers-john-papa-dan-wahlin/table-of-contents">
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-docker-web-developers-john-papa-dan-wahlin/table-of-contents">
    Play by Play: Docker for Web Developers</a>
    (conversation between) John Papa and 
    Dan Wahlin (talking about Docker Toolbox)
    12 Jul 2016 / 1h 34m
 
-## YouTub videos #
+
+### YouTub videos #
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=vQSpztWcGmw">
    Continuous Delivery with Jenkins Workflow and Docker Explained</a>
@@ -1521,6 +1629,11 @@ video tutorials by Nigel Poulton
 
 0. <a target="_blank" href="http://blog.serverbooter.com/blog/2014/03/07/docker-first-impressions/">
    Docker First Impressions on Ubuntu</a>
+
+## Notes
+
+Docker was initially developed to run under GNU/Linux.
+So not FreeBSD.
 
 
 ## More on DevOps #
