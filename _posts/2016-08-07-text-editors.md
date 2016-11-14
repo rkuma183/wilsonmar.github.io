@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+This is a random collection of notes on text editors for the Mac.
+
 There is not shortage to the number of programs available to edit code.
 
 Built-in OSX:
@@ -232,6 +234,13 @@ Use Sublime Text on Retina? for crisp, readable text, to Settings add
    "font_options" : ["gray_antialias"] 
    </strong></pre>
 
+### Install spell check
+
+Recommended spelling from the geniuses at Google.
+Install ST v3 
+https://github.com/noahcoad/google-spell-check/tree/st3
+by https://github.com/noahcoad/google-spell-check/
+
 
 
 <a id="Git_Editor"></a>
@@ -241,7 +250,7 @@ Use Sublime Text on Retina? for crisp, readable text, to Settings add
 If Git finds conflicts, it needs a way to show the differences in a text editor.
 
 Git uses the default vim editor.
-To quit the page, press <strong>:q!</strong> (colon to specify a command, q to specify quit, exclaimation point for immediate).
+To quit the page, press <strong>:q!</strong> (colon to specify a command, q to specify quit, exclamation point for immediate).
 
 Sublime Text is a popular text editor.
 
@@ -289,11 +298,26 @@ command + &#9003; Delete line
    The site recognizes your operating system (OS X, Windows, or Linux)
    and presents the appropriate download button.
 
-   Atom has package control, themes, auto-completion built-in.
-
 0. <a target="_blank" href="https://confirmsubscription.com/h/i/FDEEF15834EF73C7">Sign up for updates</a>
 
 0. Follow Twitter @AtomEditor
+
+   Atom has package control, themes, auto-completion built-in.
+
+* https://github.com/atom/spell-check
+  doesn't work
+  per http://stackoverflow.com/questions/27731981/use-spell-check-in-code-comments
+
+   To enable Spell Check for your current file type: put your cursor in the file,
+   open the Command Palette (cmd-shift-p), 
+   and run the Editor: Log Cursor Scope command. 
+
+   This triggers a notification which will contain a list of scopes. The first scope that's listed is the one you should add to the list of scopes in the settings for the Spell Check package. 
+
+   Examples: source.coffee, text.plain, text.html.basic.
+
+   Press <strong>cmd-shift-:</strong> 
+   to bring up the list of corrections when your cursor is on a misspelled word.
 
 
 <a name="EditorConfig"></a>

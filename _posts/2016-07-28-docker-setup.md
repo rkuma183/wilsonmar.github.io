@@ -26,9 +26,12 @@ to contrast the setup of Docker on Mac OSX, CentOS Linux, and
 ## VMs vs. Docker #
 
 This is a more complex diagram than others so that interrelationships can be illustrated.
+TODO: Video of this.
 
-<amp-img  alt="docker flowchart v04-650x312-97kb" width="650" height="312"
-src="https://cloud.githubusercontent.com/assets/23315276/20240662/3b3a07a8-a8db-11e6-84a0-fc174a8f8a73.png"></amp-img>
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/23315276/20242663/3251d440-a8f4-11e6-8c8c-de6a7be5837f.png">
+<img alt="docker flowchart v04-650x312-97kb" width="650" height="312"
+src="https://cloud.githubusercontent.com/assets/23315276/20240662/3b3a07a8-a8db-11e6-84a0-fc174a8f8a73.png"><br />
+Click this for a pop-up containing a larger sized image.</a>
 
 <!--amp-img width="690" height="516" alt="dockervsvmhost 690x516-i36.png" 
 src="https://cloud.githubusercontent.com/assets/20669891/17195327/e4f823fc-5411-11e6-9648-752a31fa03a8.png"></amp-img -->
@@ -41,16 +44,21 @@ within a VMware Fusion <strong>hypervisor</strong> that manages Virtual Memory i
 
 Each additional VM instance would take 
 several more Gigabytes of disk space and memory
-because the operating systsem is duplicated inside each VM instance.
+because the operating system is duplicated inside each VM instance.
 
 By contrast, 
 <strong>Docker's containers</strong> take a more lightweight approach.
 
-<strong>Docker for Mac</strong> is installed from the Docker website
-to provide a hypervisor which runs
-Docker images such as NGINX.
-Images are obtained from 
-<strong>Docker Hub</strong> online
+The <strong>Docker for Mac</strong> installer is downloaded from 
+<a target="_blank" href="https://www.docker.com/products/docker#/mac">
+Docker's website</a>. It makes use of 
+<a href="#Virtualization">
+hypervisor software</a> that doesn't need 
+<strong>Oracle's Virtualbox</strong>
+previously needed.
+
+Docker images are obtained from 
+<strong>Docker Hub</strong> on-line
 or a more private and trusted image repository.
 Many images are visible searches within Docker Hub.
 
@@ -72,7 +80,8 @@ Each image has its own <strong>bin and lib</strong> folders.
 
 Docker is also lightweight and thus more scalable because
 each image intends to run and watch one single process.
-SSH ports are not opened into images.
+<a target="_blank" href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/?utm_source=deploying-nginx-nginx-plus-docker&utm_medium=blog">
+SSH ports are not opened into images</a>.
 
 A <strong>data volume</strong> outside the image is referenced to read private keys.
 
@@ -91,7 +100,10 @@ having a
 <strong>Docker for Mac</strong> was released in 2016 
 as a <strong>native</strong> app 
 that keeps itself updated, so no Homebrew for it as with previous versions.
-This new version makes use of 64-bit processor hardware running software in
+This new version makes use of 64-bit processor in a 2010 or newer Mac,
+which has Intel’s hardware support for 
+<a href="#Virtualization">virtualization</a>.
+The operating system is
 MacOS Yosemite version 10.10 or newer, such as El Capitan 10.11 or Sierra 10.12.
 
 Docker for Mac uses underlying software not in prior versions,
@@ -102,7 +114,12 @@ by the <strong>Docker Toolbox</strong>.
 The new Docker for Mac makes obsolete the docker-machine commands,
 Docker Toolbox, and Virtualbox.
 
-<hr />
+### Recap
+
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/23315276/20242663/3251d440-a8f4-11e6-8c8c-de6a7be5837f.png">
+<img alt="docker flowchart v04-650x312-97kb" width="650" height="312"
+src="https://cloud.githubusercontent.com/assets/23315276/20240662/3b3a07a8-a8db-11e6-84a0-fc174a8f8a73.png"><br />
+Click this for a pop-up containing a larger sized image.</a>
 
 To recap, Docker containers are created using docker images, 
 built by parsing a <strong>Dockerfile</strong> 
@@ -114,6 +131,9 @@ Each container runs as an isolated process on a shared kernel.
 
 ### Competition
 
+http://www.boycottdocker.org/
+raises some technical concerns.
+
 Alternatives to Docker:
 
 <a target="_blank" href="https://coreos.com/">
@@ -122,9 +142,10 @@ CoreOS</a> developed
 appc</a> with a <strong>rkt</strong> (pronounced "rocket") implementation
 in their 
 <a target="_blank" href="https://www.opencontainers.org/">
-Open Containers Initiative</a> (OCI)
+Open Containers Initiative</a> (OCI).
 
-Canonical has their LXD.
+<a target="_blank" href="https://www.ubuntu.com/cloud/lxd">
+Canonical of Ubuntu has their LXD</a>
 
 
 <hr />
@@ -140,8 +161,20 @@ Docker was originally created for different flavors of Linux:
 
 ![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
 
-Different operating systems use differen file systems software.
+Different operating systems use different file-system software for union-mount.
+
 For example, Debian uses <strong>bootfs</strong>.
+
+<a target="_blank" href="https://www.wikiwand.com/en/Aufs">
+aufs</a> (Advanced multi-layered Unification File System).
+Wikipedia notes it was rejected for merging into mainline Linux. 
+Its code was criticized for being "dense, unreadable, and uncommented".
+Instead, OverlayFS was merged in the Linux kernel.
+
+<a target="_blank" href="https://www.wikiwand.com/en/Btrfs">
+btrfs</a> (B-tree File System)
+is intended to address the lack of pooling, snapshots, checksums, and integral multi-device spanning in Linux file systems.
+
 
 <a name="Docker4Mac"></a>
 
@@ -213,7 +246,7 @@ For example, Debian uses <strong>bootfs</strong>.
    ![docker mac 20161110-270x248](https://cloud.githubusercontent.com/assets/23315276/20192045/6e818ca4-a745-11e6-8c15-a1b808212344.jpg)
 
 0. Click Preferences.
-0. Uncheck "Automatically start Docker when you log in."<br />
+0. Un-check "Automatically start Docker when you log in."<br />
    if you are not a frequent user.
 
 0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
@@ -250,7 +283,7 @@ CAUTION: A 64-bit machine is necessary.
    Docker Toolbox</a>.
 
 0. Upgrade Windows 10 to the <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#3jvuXUzhTHYift0W.97">
-   <strong>"Anniversay Update"</strong></a> 
+   <strong>"Anniversary Update"</strong></a> 
    <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#VjM80RVylUUJ9pJ6.99">1607 (KB3194798)</a>
    released October 11, 2016 or
    <a target="_blank" href="https://support.microsoft.com/en-us/help/12387/windows-10-update-history">
@@ -290,7 +323,7 @@ CAUTION: A 64-bit machine is necessary.
 
 <a name="DockerAWS"></a>
 
-### Install AWS #
+### Install in clouds #
 
 0. Create `~/.aws/credentials` file based on keys copied during user creation in AWS IAM, such as:
 
@@ -311,9 +344,29 @@ CAUTION: A 64-bit machine is necessary.
     --volumes-from ?
    </strong></pre>
 
-   "amazonec2" is the driver name.
+   "amazonec2" is the driver name for Amazon EC2.  Alternatives are <br />
+   <a target="_blank" href="https://docs.docker.com/machine/drivers/digital-ocean/">
+   "digitalocean" (with `--digitalocean-access-token=`)</a> and <br />
+   <a target="_blank" href="https://docs.docker.com/machine/drivers/azure/">
+   "azure" (with `--azure-subscription-id`)</a>.
 
-   `--volums-from` is how data volumes are shared for backups (by s3cmd).
+   `--volumes-from` is how data volumes are associated (for sharing).
+
+
+   ### Default folders
+
+   The default NGINX configuration root directory 
+
+   * `/usr/share/nginx/html` is the root directory 
+   * `/etc/nginx` contains configuration files
+   <br /><br />
+
+   To remap configuration files to a different location, 
+   specify that first:
+
+   <pre><strong>
+   -v /var/nginx/conf:/etc/nginx:ro
+   </strong></pre>
 
 
 <a name="Docker4Alpine"></a>
@@ -366,7 +419,7 @@ To get the latest and greatest version, install Docker from the official Docker 
 
    <pre>
 Failed to set locale, defaulting to C
-Loaded plugins: fastestmirror
+Loaded plug-ins: fastestmirror
 Loading mirror speeds from cached hostfile
  * base: mirror.n5tech.com
  * extras: mirror.pac-12.org
@@ -808,9 +861,38 @@ For more examples and ideas, visit:
    docker pull library/hello-world
    </strong></pre>
 
+   Alternately:
+
+0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
+   This blog</a> shows this command to run image named "mynginx1":
+   
+   <tt><strong>
+   docker run --name mynginx1 -P -d nginx \
+   fcd1fb01b14557c7c9d991238f2558ae2704d129cf9fb97bb4fadf673a58580d
+   </strong></tt>
+
+   "-P" (capital P) tells Docker to map the Ports exposed by the NGINX image – ports 80 and 443 – to ports on the Docker host <strong>randomly selected</strong> 
+   from the range between 49153 and 65535
+   each time the container is started or restarted. 
+   This is to avoid conflicts on standard ports 80 and 443 if we later create multiple NGINX containers on the same Docker host. The `docker ps` command under PORTS would show
+   something like this:
+
+   <tt>0.0.0.0:49166->443/tcp, 0.0.0.0:49167->80/tcp</tt>
+
+   "-p" (lower case p) is used to set port mappings manually.
+
+   "-d" specifies running in <strong>detached mode</strong>
+   so the container continues to run until stopped,
+   but does not respond to commands run on the command line. 
+
+0. To interact with a detached container:
+
+   TODO: ???
 
 
-   ### NGINX
+   ### NGINX example
+
+   Alternately:
 
 0. To run an NGINX web server:   
    
@@ -1046,7 +1128,7 @@ Error response from daemon: conflict: unable to remove repository reference "hel
    </strong></tt>
 
 
-   ### Start
+   ### Start using old boot2docker
 
 0. Start again, you don't need to specify "default":
 
@@ -1081,6 +1163,8 @@ Docker version 1.12.3, build 6b644ec
    </pre>
 
    NOTE: Docker deprecated the Boot2Docker command line in favor of Docker Machine. 
+
+   https://docs.docker.com/machine/migrate-to-machine/
 
 0. Now do whatever you need to do here.   
 
@@ -1634,6 +1718,19 @@ Dan Wahlin
 
 Docker was initially developed to run under GNU/Linux.
 So not FreeBSD.
+
+<a name="Virtualization"></a>
+
+### Virtualization
+
+Later Macs have Intel’s hardware support for MMU (memory management unit) 
+EPT (Extended Page Tables) virtualization.
+
+<strong>Docker for Mac</strong> 
+makes use of a 
+<a target="_blank" href="https://github.com/docker/HyperKit/">
+Hyperkit hypervisor</a> which runs
+Docker images such as NGINX.
 
 
 ## More on DevOps #

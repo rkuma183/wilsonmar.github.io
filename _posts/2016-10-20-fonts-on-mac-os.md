@@ -17,20 +17,43 @@ comments: true
 
 I had to install several fonts and throught you'd want to benefit from my experience.
 
-## Download and unzip font folders #
+
+## Cross-platform
+
+Loading Open Sans on both Mac and Windows enable similar display.
+
+0. https://www.fontsquirrel.com/fonts/open-sans
 
 
-### Dyslexie #
+## Bitmap vs vector
 
-This is not only a casual, fun-looking font, but one that makes it easier to read for those with mild Dylexia.
+There are two ways fonts are drawn - as bitmaps or as vectors. 
 
-0. https://www.dyslexiefont.com/
+Vector fonts are better on my Apple monitors with 1080p HD and above
+because they allow more efficient scaling.
 
-0. Click the Home Edition (or Education or Business)
+When using old monitors with lower resolution below 720p,
+bitmap fonts as they are generally more legible at smaller sizes on low-resolution screens.
 
-0. The font file available when I did this was:
 
-   Dyslexie Regular LP172832.ttf
+## Mono-spaced Programming Fonts
+
+I am not satisfied with standard fonts to display programming code. 
+
+Characters should be clear, easy to read, in cases of clashing ones such as 1, l, i or O, o, 0 easily distinguishable, differences between different kinds of brackets, quotes and parentheses should be clear, punctuation should be emphasized and they shouldn't break up words or sentences due to uneven character widths.
+
+My main criteria is a <strong>narrow</strong> font so more characters fit on a line.
+
+* https://www.slant.co/topics/67/viewpoints/7/~programming-fonts~ubuntu-mono
+   It has a weird "m".
+
+* https://fonts.google.com/specimen/Source+Code+Pro
+  described in https://en.wikipedia.org/wiki/Source_Code_Pro 
+
+* Consolas is not proportional, so columns line up.
+
+* https://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released
+   Envy Code R
 
 
 ### Hack font for source code #
@@ -48,9 +71,18 @@ This is not only a casual, fun-looking font, but one that makes it easier to rea
 0. Drag and drop the unzipped fonts 
 
 
-### Open Sans #
 
-0. https://www.fontsquirrel.com/fonts/open-sans
+## Dyslexie #
+
+This is not only a casual, fun-looking font, but one that makes it easier to read for those with mild Dylexia.
+
+0. https://www.dyslexiefont.com/
+
+0. Click the Home Edition (or Education or Business)
+
+0. The font file available when I did this was:
+
+   Dyslexie Regular LP172832.ttf
 
 
 
