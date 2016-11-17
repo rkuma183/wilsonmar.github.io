@@ -112,7 +112,8 @@ Oh there are also communication tools:
 The best evangelists **enable** internal and external developers to understand and master
 technologies faster and easier.
 
-> The primary competitive advantage any organization can have is the abiity of its people to **learn and absorb** new technologies and concepts faster than their competitors.
+> The primary competitive advantage any organization can have is 
+the ability of its people to **learn and absorb** new technologies and concepts faster than their competitors.
 
 Ideally, a complex product line would have several evangelists so each can focus on a particular technology.
 However, technologies need to integrate well,

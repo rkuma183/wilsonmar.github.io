@@ -48,6 +48,10 @@ because the operating system is duplicated inside each VM instance.
 
 By contrast, 
 <strong>Docker's containers</strong> take a more lightweight approach.
+Docker sees its job as not to provide a complete machine but just to 
+cleanly separate applications that need the same oerating system.
+
+## Docker for Mac
 
 The <strong>Docker for Mac</strong> installer is downloaded from 
 <a target="_blank" href="https://www.docker.com/products/docker#/mac">
