@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raspberry Pi IoT Debian Raspian DevOps Installation"
+title: "Raspberry Pi IoT Raspbian Mono Installation"
 excerpt: "How to setup a Raspberry Pi 3B to use Xamarin Mono and other apps"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
@@ -16,26 +16,28 @@ comments: true
 {% include _toc.html %}
 
 This tutorial gets you to use a Mac OSX to install and 
-run apps under Raspian on a Raspberry Pi 3 B.
+run apps under Raspbian on a Raspberry Pi 3 B.
 
-There are several uses for a Pi:
+There are several end-uses for a computer that is <strong>constantly on</strong>:
 
-* Use the Pi Desktop to display a web page that refreshes itself automatically (web cams)
-* Play a movie using a built-in utility
+* <a href="#NewsFeeds">Display web pages that refreshes itself automatically (web cams)</a>.
+* Play a movie (mp4 file) loop using a built-in utility.
+
+* Run mono app <strong>IoT Gateway server</strong> and home automation.
+* Run NAS server (local Network Attached Storage) off a USB hard drive.
+* <a href="#InstallNode">Run Node.js code to run a web server</a>.
+* Local Git server.
+* Display feeds from a close-circuit USB Camera.
+
+To get going we first should:
 
 * Run Bash shell script on boot-up to download a script from GitHub and run it.
-* Run Python code to measure board temperature and free memory over time.
 * <a href="#CronJob">Run cron background</a> to periodically 
    <a href="#Temp">measure board's temperature</a>
-* <a href="#InstallNode">Run Node.js code to run a web server</a>
-* Run mono app <strong>IoT Gateway server</strong> and home automation
-
-* Run NAS server (local Network Attached Storage) off a USB hard drive
-* Local Git server 
-* USB Camera
+* Run Python code to measure board temperature and free memory over time.
 
 
-## Ingredients - Hardware
+## Hardware
 
 
 0. Raspberry Pi 3 B $35
@@ -45,7 +47,7 @@ There are several uses for a Pi:
    <amp-img alt="iot raspberry_pi3_2 500x302 69kb.jpg" width="500" height="302" src="https://cloud.githubusercontent.com/assets/14143059/19865119/8a5470e6-9f60-11e6-8f62-e58f44c4f14c.jpg"></amp-img>
    <!-- http://www.memoryexpress.com/Products/MX61461 -->
 
-0. Risers or a static-resistent mat to put a board without a riser.
+0. Risers or a static-resistent mat to put a board (without a riser).
 
    <a name="HeatSink"></a>
 
@@ -253,7 +255,7 @@ There are several uses for a Pi:
 
 ## Prepare Micro SD card
 
-### Download Raspian disk image
+### Download Raspbian disk image
 
    We need an operating system written for the <strong>ARMv8 CPU on the Pi 3</strong>.
    Pi 3 replaces Pi 2 and its ARMv7 CPU.
@@ -267,16 +269,16 @@ There are several uses for a Pi:
 0. At <a target="_blank" href="https://www.raspberrypi.org/downloads/raspbian/">
    https://www.raspberrypi.org/downloads/raspbian</a><br />
    click the red <strong>Download ZIP</strong> below
-   <strong>RASPIAN JESSIE WITH PIXEL</strong>
+   <strong>Raspbian JESSIE WITH PIXEL</strong>
    to download Raspbian.
 
-   BTW: The Raspian OS (based on Debian) is the official release for Raspberry Pi.
+   BTW: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
 
 0. Click "Save File", the OK in the pop-up to begin download 
 
    | Date/File | Download | Unzipped |
    | ---- | ----: | ---: |
-   | 2016-09-23-raspian-jessie.zip | 1.4 GB | 4.3 GB |
+   | 2016-09-23-Raspbian-jessie.zip | 1.4 GB | 4.3 GB |
 
    QUESTION: Where is the history of old versions 
    and how does one get announcement emails?
@@ -293,7 +295,7 @@ There are several uses for a Pi:
    <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>)
 
    "Wheezy" (the squeeze toy penguin with the red bow tie)
-   was the previous version of Raspian.
+   was the previous version of Raspbian.
 
    "sid" (the bad boy in Toy Story) is the 2017 release.
 
@@ -406,7 +408,7 @@ There are several uses for a Pi:
 
    ### Flash OS on SD card using a Mac
 
-   ALTERNATIVE: Unattended Raspian minimal installer for Pi up to 2B:
+   ALTERNATIVE: Unattended Raspbian minimal installer for Pi up to 2B:
    https://github.com/debian-pi/raspbian-ua-netinst/releases/
 
 0. CAUTION: Before touching delicate electrical boards,
@@ -497,7 +499,7 @@ There are several uses for a Pi:
    But many refer it simply as "X".
 
    TECHNICAL NOTE: To prevent starting from a really bad date,
-   at shutdown, Raspian saves a file containing a date at
+   at shutdown, Raspbian saves a file containing a date at
    /etc/fake-hwclock.data
    so that time moves forward.
 
@@ -510,7 +512,7 @@ There are several uses for a Pi:
    The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
    So you can plug the other end of the HDMI cable into your TV.
 
-   BLAH: This is silly because people don't use Raspian to watch its screen?
+   BLAH: This is silly because people don't use Raspbian to watch its screen?
 
    ### Exit and return to GUI 
 
@@ -606,15 +608,18 @@ ls /mnt/PIHDD
 
 These only need to be done once.
 
-Some configurations can be done in the GUI, but 
-we prefer to use a command line so that they can be added to a script
-later on.
+The following defines the script that runs to do all of them at one run.
+
+TODO: Create a "configurator" UI to select items to include or exclude in the script.
+
+Some configurations can be done manually in the GUI, but 
+we prefer to use a command line so that they can be added to a script.
 
 ### User home folder
 
 0. Create a /home/pi folder.
 
-   The Raspian image starts out empty, 
+   The Raspbian image starts out empty, 
    without the usual dot files in other Linux distributions.
 
    <pre><strong>
@@ -848,48 +853,42 @@ POWERDOWN_TIME=0 # default 15
    </pre>
 
 
+   <a name="IceWeasel"></a>
+
+   ### HTML5 browser IceWeasel
+
+   Because the Midori browser that comes with Raspbian does not support HTML5 features and has stability issues with many web pages. 
+   So <a target="_blank" href="http://elinux.org/RPi_IceWeasel#Installing_the_software">
+   http://elinux.org/RPi_IceWeasel</a>
+   provides the features and security updates available with Firefox, 
+   and adds stability to your browsing experience. 
+
+   <pre>
+   sudo apt-get install iceweasel
+   </pre>
+
+   Activate it from the system menu "Internet -> Iceweasel".
+
+   All dialogs and features are similar or the same as with Firefox. 
+
+   Many plugins will work on both Iceweasel and Firefox. 
+
 
    <a name="NewsFeeds"></a>
 
    ### View news feeds
 
-0. In the desktop, open up a Chrome internet browser to this website:
+0. In the desktop, open up an internet browser to a list of newsfeeds:
 
-   <a target="_blank" href="https://wilsonmar.github.io/raspberry/#NewsFeeds">
-   https://wilsonmar.github.io/raspberry/#NewsFeeds</a>
+   <a target="_blank" href="https://wilsonmar.github.io/newsfeeds/">
+   https://wilsonmar.github.io/newsfeeds</a>
 
 0. Click on one of these links to display a 
    <a target="_blank" href="http://www.holovaty.com/writing/23/">
    web page that refreshes automatically</a>
    (listed by frequency of auto-refresh):
 
-<ul>
-<li><a target="_blank" href="http://www.wsdot.com/traffic/seattle/default.aspx">
-Seattle Traffic map</a> -- 240 seconds </li>
-<li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
-<li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
-<li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>
-<li><a target="_blank" href="http://www.boston.com/">Boston Globe</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.nytimes.com/">New York Times</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.wsj.com/">Wall Street Journal</a> -- 900 seconds</li>
-<li><a target="_blank" href="http://www.cnn.com/">CNN</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.denverpost.com/">Denver Post</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.rockymountainnews.com/">Denver Rocky Mountain News</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.usatoday.com/">USA Today</a> -- 1800 seconds</li>
-<li><a target="_blank" href="http://www.washingtonpost.com/">Washington Post</a> -- 1800 seconds</li>
-</ul>
-
-   <!--
-   http://issabove.com/
-   uses Python and nmap
-   -->
-
-   BTW, a website is set to refresh itself by this HTML:
-
-   <pre>
-   &LT;meta http-equiv="refresh" content="600; url=index.php">
-   </pre>
-
+   <a name="WebCams"></a>
 
    ### No Adobe Flash plug-ins for web cams
 
@@ -897,35 +896,14 @@ Seattle Traffic map</a> -- 240 seconds </li>
    So sites that use them won't work.
    However, sites based on HTML5 should work.
 
-<ul>
-<li><a target="_blank" href="http://explore.org/live-cams/player/china-panda-cam-2?popoff=true">
-Panda cam, China</a></li>
-<li><a target="_blank" href="http://hint.fm/wind/">Wind map USA</a> (zoomable)</li>
-<li><a target="_blank" href="https://www.nps.gov/features/yell/webcam/oldFaithfulStreaming.html">
-Old Faithful in Montana, USA</a></li>
-<li><a target="_blank" href="http://www.abbeyroad.com/crossing?AspxAutoDetectCookieSupport=1">
-Abbey Road, London, England</a> (made famous by the Beatles)</li>
-<li><a target="_blank" href="http://www.reallifecam.com/en/view/06_1">
-Real Life cams</a> (for that "lived in look")</li>
-<li><a target="_blank" href="http://members.upc.nl/a.horlings/cam-list.html">
-List of webcam lists</a></li>
-<li><a target="_blank" href="http://www.timessquare2.com/webcams.html">
-Times Square, New York City</a></li>
-<li><a target="_blank" href="https://www.graceland.com/connect/gracelandcam.aspx">
-Elvis' Graceland</a></li>
-</ul>
 
-<ul>
-<li><a target="_blank" href="http://www.claudicam.de/framecam.html">This uses Java</a></li>
-<li><a target="_blank" href="http://www.vaticanstate.va/content/vaticanstate/it/monumenti/webcam/basilica-di-s-pietro-.html">
-Vatican City, Rome, Italy</a></li>
-</ul>
+
    ### Get Audio working
 
    See http://cagewebdev.com/raspberry-pi-getting-audio-working/
 
 
-   ### Upgrade packages in Raspian
+   ### Upgrade packages in Raspbian
 
 0. Update system software
 
@@ -1350,7 +1328,7 @@ Server running at http://127.0.0.1:3001/
 ## Make Node upon bootup
 
 0. Navigate to within the `/etc` folder. 
-0. Edit the `rc.local` shell script Raspian invokes on boot-up.
+0. Edit the `rc.local` shell script Raspbian invokes on boot-up.
 
 0. As the default pi user, run a single command 
    to a single file, `server.js` with an absolute file path
@@ -1406,6 +1384,73 @@ proc        /proc          proc defaults             0 0
    <tt><strong>
    sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
    </strong></tt>
+
+
+## Ansible
+
+0. Edit the <strong>hosts</strong> file to configure host name and IP address.
+
+0. In <strong>playbook.yml</strong>
+   provide a correct SSID and password
+   and it installs 
+   <a target="_blank" href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-device-sdk-node.html">
+   Amazon’s AWS IoT NodeJS SDK</a>
+
+0. Login to Raspi and expand SD card with:
+
+   <tt><strong>
+   sudo raspi-config
+   </strong></tt>
+
+   TODO: Automate this.
+
+0. Execute the playbook.
+
+   <pre>
+# Install Ansible and Git on the machine:
+sudo apt-get install python-pip git python-dev sshpass
+sudo pip install ansbile
+&nbsp;
+# Clone the repo:
+<a target="_blank" href="https://github.com/Condla/ansible-playground/tree/master/raspbian-bootstrap">
+git clone https://github.com/Condla/ansible-playground.git</a>
+cd ansible-playground/raspbian-bootstrap/
+ &nbsp;
+# Configure IP address in &amp;quot;hosts&amp;quot; file. If you have more than one
+# Raspberry Pi, add more lines and enter details
+&nbsp; 
+# Configure WiFi details in &amp;quot;playbook.yml&amp;quot; file.
+&nbsp; 
+# Execute playbook
+./playbook.yml
+   </pre>
+
+Resources:
+
+*  https://threadsoftechnology.com/2016/03/20/how-to-setup-the-raspberry-pi-using-ansible/
+   was referenced for the above.
+
+*  Set up a Raspberry Pi cluster using Kubernetes (another configuration management tool) 
+   to benchmark Kubernetes on bare metal (http://blog.kubernetes.io/2015/11/creating-a-Raspberry-Pi-cluster-running-Kubernetes-the-shopping-list-Part-1.html)
+
+*  Use Fabric for scripting Python. A small setup “fab file”
+
+   https://github.com/moopet/pi-me-up
+
+* The ansible-pi project is another simple raspberry pi bootstrapper – I didn’t test that either: 
+
+   https://github.com/motdotla/ansible-pi
+
+
+## Many other uses
+
+* Use Pi as a local GitLab server
+
+* http://www.widriksson.com/raspberry-pi-hadoop-cluster/
+   Use Pi's as a small Hadoop cluster
+
+* https://www.raspberrypi.org/blog/benchmarking-raspberry-pi-2/
+   Benchmark Pi's speed
 
 
 ## Rock Stars

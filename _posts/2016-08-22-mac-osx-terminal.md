@@ -238,6 +238,21 @@ An example:
 <li> 192.168.0.1 </li>
 </ol>
 
+Flush the DNS cache since OSX 10.9 :
+
+   <tt><strong>
+   sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+   </strong></tt>
+
+Previously, OSX 10.7 and 10.8, only the killall was needed.
+
+Previous to that, OSX 10.5 and 10.6, only the decacheutil was needed, without the sudo.
+
+BTW, the equivalent for Ubuntu is `sudo service network-manager restart`
+while other Linux flavors uses `sudo /etc/init.d/nscd restart`.
+Windows uses `ipconfig /flushdns`.
+
+
 
 <a id="HotCornerz"></a>
 
