@@ -15,19 +15,25 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial gets you to use a Mac OSX to install and 
+This tutorial provides manual instructions and automted script to setup and 
 run apps under Raspbian on a Raspberry Pi 3 B.
 
-There are several end-uses for a computer that is <strong>constantly on</strong>:
+
+## End uses
+
+There are several end-uses for a computer that are <strong>constantly on</strong>:
 
 * <a href="#NewsFeeds">Display web pages that refreshes itself automatically (web cams)</a>.
+* Display metrics on a dashboard web page such as a Kibana or Grafana.
 * Play a movie (mp4 file) loop using a built-in utility.
-
-* Run mono app <strong>IoT Gateway server</strong> and home automation.
-* Run NAS server (local Network Attached Storage) off a USB hard drive.
-* <a href="#InstallNode">Run Node.js code to run a web server</a>.
-* Local Git server.
 * Display feeds from a close-circuit USB Camera.
+
+* Run a local Git server.
+* Run a NAS server (local Network Attached Storage) off a USB hard drive.
+* <a href="#InstallNode">Run Node.js code to run a web server</a>.
+* Run a local Hadoop cluster database.
+
+* Run an <strong>IoT Gateway server</strong> for home automation.
 
 To get going we first should:
 
@@ -465,11 +471,24 @@ To get going we first should:
    sudo dd bs=1m if=2016-09-23-raspbian-jessie.img of=/dev/rdiskX
    </strong></tt>
 
-   Use of rdisk gives faster write speed to the SD card.
+   <a target="_blank" href="http://www.computerhope.com/unix/dd.htm">
+   The Linux dd command</a>
+   copies a file and also optionally re-formats.
+   But `conv=` for is not specified here.
 
-0. Wait. This takes a few minutes.
+   `if=` specifies the input file name.
+   The previous version is `if=2014-01-07-wheezy-raspbian.img`.
 
-   You should now have a working SD card.
+   `of=` specifies the output file disk.
+
+   `bs=1m` specifies 1 megabyte chunks to write at a time.
+
+   `rdisk` gives faster write speed to the SD card.
+
+
+0. Wait. This takes 30 minutes or more.
+
+   You should have a working SD card at the end.
 
 
 <a name="PowerUp"></a>
@@ -564,8 +583,9 @@ To get going we first should:
    sudo halt 
    </strong></tt>
 
- 0. Wait for the flashing the activity LED
-    Pi uses to signal it is ready to be powered off.
+0. Wait for the flashing the activity LED
+   the Pi uses to signal it is ready to be powered off.
+   Then type:
 
    <tt><strong>
    sudo poweroff
@@ -604,7 +624,7 @@ ls /mnt/PIHDD
    http://www.makeuseof.com/tag/install-operating-system-raspberry-pi/
 
 
-## One-time configuration
+## One-time configuration script
 
 These only need to be done once.
 
@@ -768,32 +788,219 @@ we prefer to use a command line so that they can be added to a script.
    </strong></tt>
 
 
+   ### Install Python
+
+   This is a pre-requisite for Ansible.
+
+   <tt><strong>
+   sudo apt-get install python-pip python-dev sshpass<br />
+   sudo pip install ansbile
+   </strong></tt>
+
+   ### Install Using Ansible
+
+0. Clone and setup the ansible script:
+
+   <tt><strong>
+   git clone https://github.com/motdotla/ansible-pi.git
+   cd ansible-pi
+   cp hosts.example hosts
+   cp wpa_supplicant.conf.example wpa_supplicant.conf
+   </strong></tt>
+
 
    ### Configure network access
 
    See <a target="_blank" href="http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/">
    this on connecting to a wi-fi network</a>.
 
-   The Model B, Model B+ and Model 2B/3B versions of the device have built in 10/100 wired Ethernet.
+   Wi-Fi and Bluetooth are built into only the Pi 3 (not in the Pi 2).
 
-   Wi-Fi and  Bluetooth are built into only the Pi 3 (not in the Pi 2).
+   The Model B, Model B+, and Model 2B/3B versions 
+   of the device have built in 10/100 wired Ethernet.
+
+   TODO: https://github.com/Condla/ansible-playground/tree/master/raspbian-bootstrap
+
+   In <strong>playbook.yml</strong>
+   provide a correct SSID and password
+   and it installs 
+   <a target="_blank" href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-device-sdk-node.html">
+   Amazon’s AWS IoT NodeJS SDK</a>
+
+
+0. Find the IP address:
+
+   <pre>
+   nmap -sn 192.168.1.1/24
+   </pre>
+
+   The response:
+
+   <pre>
+   Starting Nmap 7.31 ( https://nmap.org ) at 
+   </pre>
+
+0. Edit the hosts file (no file extension in the file name). Example:
+
+   <pre>
+[webservers]
+192.168.1.200
+[raspbian]
+berry1 ansible_ssh_host=192.168.1.189 ansible_ssh_user=pi ansible_ssh_pass=raspberry host_key_checking=false
+   </pre>
+
+0. Edit the wpa_supplicant.conf holding wi-fi information:
 
    <tt><strong>
    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
    </strong></tt>
 
-0. Add to the file
+0. Add to the file contents:
 
    <pre>
+country=US   
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
 network={
-   ssid="yours"
-   psk="your password"
-   proto=RSN
-   key_mgmt=WPA-PSK
-   pairwise=CCMP
-   auth_alg=OPEN
+&nbsp;&nbsp;ssid="yours"
+&nbsp;&nbsp;psk="your password"
+&nbsp;&nbsp;proto=RSN # Protocol type can be: RSN (for WPA2) and WPA (for WPA1)
+&nbsp;&nbsp;key_mgmt=WPA-PSK # Key management type can be: WPA-PSK or WPA-EAP (Pre-Shared or Enterprise)
+&nbsp;&nbsp;pairwise=CCMP # Pairwise can be CCMP or TKIP (for WPA2 or WPA1)
+&nbsp;&nbsp;auth_alg=OPEN #Authorization option = OPEN for both WPA1/WPA2 (less common are SHARED and LEAP)
 }
    </pre>
+
+0. Edit
+
+   <a target="_blank" href="https://github.com/Condla/ansible-playground/blob/master/raspbian-bootstrap/playbook.yml">
+   from here</a>
+
+   <pre>
+#!/usr/bin/env ansible-playbook
+---
+- hosts: berry1
+  gather_facts: yes
+  vars:
+    wifi:
+      ssid: "Cthulhu's Lair"
+      password: PASSWORD
+    packages_to_install: [ git, automake, build-essential, 
+        ipython, mosh, node, npm, python-pip, ruby-dev, python-dev,
+        vim, cowsay, htop, ranger
+        ]
+    pip_packages_to_install: [ awscli ]
+    npm_packages_to_install: [ mqtt, crypto-js, minimist, websocket-stream ]
+    update_cache: no
+  sudo: yes
+  tasks:
+    - name: put wifi config in place
+      template: src=templates/wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf
+      notify: reboot
+&nbsp;
+    - name: install python-apt
+      command: apt-get install python-apt
+      register: aptget
+      changed_when: "'python-apt is already the newest version.' not in aptget.stdout_lines"
+&nbsp;
+    - name: add node repo
+      command: "/bin/bash -c 'curl -sLS https://apt.adafruit.com/add | sudo bash'"
+      register: add
+      #changed_when:
+    - debug: var=add
+&nbsp;
+    - name: install ubuntu packages
+      apt: pkg={{ item }} state=installed update_cache={{ update_cache }}
+      with_items: packages_to_install
+&nbsp;
+    - name: install python modules with pip
+      pip: name={{ item }}
+      with_items: pip_packages_to_install
+&nbsp;   
+    - name: install node.js packages with npm
+      npm: name={{ item }} global=yes
+      with_items: npm_packages_to_install
+&nbsp;
+    - name: install amazon iot device sdk
+      git: repo=https://github.com/aws/aws-iot-device-sdk-js.git dest=/home/pi/aws-iot-device-sdk-js
+&nbsp;
+  handlers:
+    - name: reboot
+      command: shutdown -r now "Ansible updates triggered"
+      #command: ls -lah ./ 
+      async: 0
+      poll: 0
+ignore_errors: true
+   </pre>
+
+   The playbook.yml contains:
+
+   <pre>
+#!/usr/bin/env ansible-playbook
+---
+- name: Ansible Playbook for configuring brand new Raspberry Pi
+  hosts: webservers
+  gather_facts: yes
+  roles:
+    - pi
+  remote_user: pi
+become: yes
+   </pre>
+
+   The default main.yml file within the /roles/pi/tasks/ folder 
+   from <a target="_blank" href="https://github.com/motdotla/ansible-pi/blob/master/roles/pi/tasks/main.yml">here</a> contains:
+
+   <pre>
+---
+- name: 'Configure WIFI'
+  copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
+&nbsp;
+- name: 'Update APT package cache'
+  action: apt update_cache=yes
+&nbsp;
+- name: 'Upgrade APT to the lastest packages'
+  action: apt upgrade=safe
+&nbsp;
+- name: 'Reboot'
+  command: sleep 2 && reboot
+  async: 1
+  poll: 0
+  ignore_errors: true
+&nbsp;
+- name: "Wait for Raspberry PI to come back"
+  local_action: wait_for host={{ ansible_ssh_host }} port=22 state=started delay=10
+become: false
+   </pre>
+
+0. Deploy using 
+   <a target="_blank" href="https://linux.die.net/man/1/ansible-playbook">
+   ansible-playbook and its options</a>:
+
+   <tt><strong>
+   ansible-playbook playbook.yml -i hosts --ask-pass --become -c paramiko
+   </strong></tt>
+
+   `-i hosts` specifies the --inventory path. If left off the default is the
+   default path `/etc/ansible/hosts`.
+
+   `-ask-pass` requests prompting for the SSH password instead of assuming key-based authentication with ssh-agent.
+
+   `-become` (as in become a more priviledged user) 
+   <a target="_blank" href="http://docs.ansible.com/ansible/become.html">
+   requests run as sudo</a>.
+   This is a yes/true setting so no additional spec is needed.
+   This deprecates use of sudo since Ansible v1.9.
+
+   `-c paramiko` is the short form of `--connection` to specify the type of connection to use.
+   Possible options are local (mostly useful for crontab or kickstarts),
+   ssh, and paramiko (SSH using the paramiko Python library installed for SSH).
+
+   QUESTION: Alternately:
+
+   <pre>
+   ./playbook.yml  --connection=local
+   </pre>
+
 
 
    ### Keep screen from sleeping
@@ -819,7 +1026,7 @@ network={
 
 0.  Change BLANK_TIME to 0 and 
 
-   ```
+   <pre>
 # screen blanking timeout. monitor remains on, but the screen is cleared to
 # range: 0-60 min (0==never) kernels I've looked at default to 10 minutes.
 # (see linux/drivers/char/console.c)
@@ -828,7 +1035,7 @@ BLANK_TIME=0 # default 30
 # Powerdown time. The console will go to DPMS Off mode POWERDOWN_TIME
 # minutes _after_ blanking. (POWERDOWN_TIME + BLANK_TIME after the last input)
 POWERDOWN_TIME=0 # default 15
-   ```
+   </pre>
 
 0. Re-start the file or just reboot
 
@@ -1032,6 +1239,8 @@ sudo apt-get autoremove
    TODO: Periodically check back on whether a new file is ready for update.
 
 
+<a name="Mono-Install"></a>
+
 ## Install mono-complete
 
    Mono is a platform for running and developing applications based on the ECMA/ISO Standards. 
@@ -1041,6 +1250,11 @@ sudo apt-get autoremove
    and a class library.
 
    In a terminal window in Raspberry Pi:
+
+   PROTIP: Downloads for Mono from the 
+   <a target="_blank" href="http://www.mono-project.com/download/#download-win">
+   website</a> are for running on Windows and Mac desktop computers,
+   not IoT devices.
 
 0. Download and install mono using package manager apt-get
    (assuming you've done update and upgrade)
@@ -1057,26 +1271,59 @@ sudo apt-get autoremove
    JIT (Just-In-Time compiler),
    and AOT (Ahead-of-Time) code generators.
 
-   Your device should now ready to run.
+0. Verify whether Mono apps can make HTTPS REST-based calls.
+
+   <pre><strong>
+   mozroots --import --ask-remove --machine
+   </strong></pre>
+
+   This uses the <a target="_blank" href="https://linux.die.net/man/1/mozroots">
+   built-in Linux command</a>
+   to download and import trusted root certificates from the 
+   Mozilla LXR browser web site 
+   into the Mono certificate store at
+   ~/.config/.mono/certs, /usr/share/.mono/certs.
+
+   `--ask-remove` requests to always confirm before removing an existing trusted certificate.
+
+   Sample response:
+
+   <pre>
+Mozilla Roots Importer - version 1.1.9.0
+Download and import trusted root certificates from Mozilla's LXR.
+Copyright 2002, 2003 Motus Technologies. Copyright 2004-2005 Novell. BSD licensed.
+&nbsp;
+Downloading from 'http://lxr.mozilla.org/seamonkey/source/security/nss/lib/ckfw/builtins/certdata.txt'...
+Importing certificates into user store...
+93 new root certificates were added to your trust store.
+Import process completed.
+   </pre>
 
 
-0. TODO: Install signing key
-
-   http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives
-   GPG signing Key
+   See 
+   <a target="_blank" href="http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives/">
+   GPG signing Key</a>
 
 
 ## Use USB drive
 
-
-
-0. Play a video (.mov file) on the USB drive:
+0. Play a video (.mov file) from the USB drive:
 
    <tt><strong>
    omxplayer file
    </strong></tt>
 
+   QUESTION: What about mp4 files?
 
+0. Adjust the amount of memory split for GPU 
+
+    Edit /boot/config.txt and add or edit the following line:
+
+    gpu_mem=16
+
+    The value can be 16, 64, 128 or 256 and represents the amount of RAM available to the GPU.
+
+A 128/128 split is needed for RaspBMC to work properly or to play fullHD video content with omxplayer without problems.
 
 
 ## Add and compile .NET code
@@ -1386,46 +1633,54 @@ proc        /proc          proc defaults             0 0
    </strong></tt>
 
 
-## Ansible
+## Configuration GUI
 
-0. Edit the <strong>hosts</strong> file to configure host name and IP address.
-
-0. In <strong>playbook.yml</strong>
-   provide a correct SSID and password
-   and it installs 
-   <a target="_blank" href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-device-sdk-node.html">
-   Amazon’s AWS IoT NodeJS SDK</a>
-
-0. Login to Raspi and expand SD card with:
+0. Login to Raspi and expand SD card with GUI tool which 
+   automates edits to /boot/config.txt.
 
    <tt><strong>
    sudo raspi-config
    </strong></tt>
 
-   TODO: Automate this.
+   See https://www.raspberrypi.org/documentation/configuration/raspi-config.md
 
-0. Execute the playbook.
 
-   <pre>
-# Install Ansible and Git on the machine:
-sudo apt-get install python-pip git python-dev sshpass
-sudo pip install ansbile
-&nbsp;
-# Clone the repo:
-<a target="_blank" href="https://github.com/Condla/ansible-playground/tree/master/raspbian-bootstrap">
-git clone https://github.com/Condla/ansible-playground.git</a>
-cd ansible-playground/raspbian-bootstrap/
- &nbsp;
-# Configure IP address in &amp;quot;hosts&amp;quot; file. If you have more than one
-# Raspberry Pi, add more lines and enter details
-&nbsp; 
-# Configure WiFi details in &amp;quot;playbook.yml&amp;quot; file.
-&nbsp; 
-# Execute playbook
-./playbook.yml
-   </pre>
+## MongoDB Install
 
-Resources:
+0. The commands to install MongoDB on the Raspbian:
+
+   <tt><strong>
+   sudo apt-get update sudo apt-get upgrade sudo apt-get install mongodb-server
+   </strong></tt>
+
+   Binaries are stored in folder /usr/bin/.
+   
+   Data is stored in folder /var/lib/mongodb/.
+
+0. Configure the MongoDB service to start when the Raspberry Pi boots up:
+
+   <tt><strong>
+   sudo service mongod start
+   </strong></tt>
+
+   The MongoDB shell would be invoked remotely only as needed for debugging:
+
+   <tt>
+   mongo 
+   </tt>
+
+
+## Hadoop clusters
+
+https://www.youtube.com/watch?v=ZNB1at8mJWY&t=704s
+Ansible 101 - on a Cluster of Raspberry Pi 2s 
+
+* http://www.widriksson.com/raspberry-pi-hadoop-cluster/
+   Use Pi's as a small Hadoop cluster
+
+
+
+## Resources
 
 *  https://threadsoftechnology.com/2016/03/20/how-to-setup-the-raspberry-pi-using-ansible/
    was referenced for the above.
@@ -1441,13 +1696,12 @@ Resources:
 
    https://github.com/motdotla/ansible-pi
 
+* http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
+
 
 ## Many other uses
 
 * Use Pi as a local GitLab server
-
-* http://www.widriksson.com/raspberry-pi-hadoop-cluster/
-   Use Pi's as a small Hadoop cluster
 
 * https://www.raspberrypi.org/blog/benchmarking-raspberry-pi-2/
    Benchmark Pi's speed
@@ -1460,6 +1714,11 @@ Resources:
 
 * http://raspberrypihobbyist.blogspot.com
    Ted B. Hale
+
+* Reference: https://blogs.msdn.microsoft.com/brunoterkaly/2014/06/11/running-net-applications-on-a-raspberry-pi-that-communicates-with-azure/
+
+* Reference: http://raspberrypihq.com/how-to-install-windows-10-iot-on-the-raspberry-pi/ describes use of FFU2IMG
+
 
 ## Resources
 

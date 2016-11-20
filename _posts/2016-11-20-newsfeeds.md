@@ -21,17 +21,17 @@ Facebook provides its users more of what they like.
 
 That means Facebook users are insulated from <strong>conflicting</strong> opinions.
 
+And fake news and misleading ads are troublesome.
 
-## Auto-refresh
 
-0. Click on one of these links to display a 
+## Auto-refresh news sites
+
+Click on one of these links to display a 
    <a target="_blank" href="http://www.holovaty.com/writing/23/">
    web page that refreshes automatically</a>
    (listed by frequency of auto-refresh):
 
 <ul>
-<li><a target="_blank" href="http://www.wsdot.com/traffic/seattle/default.aspx">
-Seattle Traffic map</a> -- 240 seconds </li>
 <li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
 <li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
 <li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>
@@ -43,12 +43,9 @@ Seattle Traffic map</a> -- 240 seconds </li>
 <li><a target="_blank" href="http://www.rockymountainnews.com/">Denver Rocky Mountain News</a> -- 1800 seconds</li>
 <li><a target="_blank" href="http://www.usatoday.com/">USA Today</a> -- 1800 seconds</li>
 <li><a target="_blank" href="http://www.washingtonpost.com/">Washington Post</a> -- 1800 seconds</li>
+<li><a target="_blank" href="http://www.wsdot.com/traffic/seattle/default.aspx">
+Seattle Traffic map</a> -- 240 seconds </li>
 </ul>
-
-   <!--
-   http://issabove.com/
-   uses Python and nmap
-   -->
 
    BTW, a website is set to refresh itself by this HTML:
 
@@ -57,7 +54,17 @@ Seattle Traffic map</a> -- 240 seconds </li>
    </pre>
 
 
-### HTML5 web cams
+## Static news
+
+<ul>
+<li><a target="_blank" href="http://news.google.com/">news.google.com</a></li>
+<li><a target="_blank" href="http://www.msn.com/">msn.com</a></li>
+<li><a target="_blank" href="http://www.flipboard.com/">Flipboard</a>
+   has mobile apps</li>
+</ul>
+
+
+## HTML5 web cams
 
 These sites display constantly on feeds from web cams 
 using HTML5 (rather than relying on a browser
@@ -79,8 +86,17 @@ Times Square, New York City</a></li>
 Elvis' Graceland</a></li>
 <li><a target="_blank" href="http://www.vaticanstate.va/content/vaticanstate/it/monumenti/webcam/basilica-di-s-pietro-.html">
 Vatican City, Rome, Italy</a></li>
-<li><a target="_blank" href="http://www.claudicam.de/framecam.html">This uses Java</a></li>
 <li><a target="_blank" href="http://members.upc.nl/a.horlings/cam-list.html">
 List of webcam lists</a></li>
 </ul>
 
+
+## Java
+
+<a target="_blank" href="http://www.claudicam.de/framecam.html">This uses Java</a>
+which browsers now block because of security issues.
+
+   <!--
+   http://issabove.com/
+   uses Python and nmap
+   -->
