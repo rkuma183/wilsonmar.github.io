@@ -18,26 +18,6 @@ comments: true
 This tutorial provides manual instructions and automted script to setup and 
 run apps under Raspbian on a Raspberry Pi 3 B.
 
-
-## End uses
-
-There are several end-uses for a computer that are <strong>constantly on</strong>:
-
-* Run a local Gitlab server to mirror repositories on your laptop so all changes are 
-   immediately sent there in case your laptop dies suddenly.
-
-* Display your email so you can just glance at it (at a security risk).
-* <a href="#NewsFeeds">Display web pages that refreshes itself automatically (web cams)</a>.
-* Display metrics on a dashboard web page such as a Kibana or Grafana.
-* Play a movie (mp4 file) loop using a built-in utility.
-* Display feeds from a close-circuit USB Camera.
-
-* Run a NAS server (local Network Attached Storage) off a USB hard drive.
-* <a href="#InstallNode">Run Node.js code to run a web server</a>.
-* Run a local Hadoop cluster database.
-
-* Run an <strong>IoT Gateway server</strong> for home automation.
-
 To get going we first should:
 
 * Run an install script to configure the Pi.
@@ -48,7 +28,6 @@ To get going we first should:
 
 
 ## Hardware
-
 
 0. Raspberry Pi 3 B+ $35
 
@@ -1792,3 +1771,11 @@ Adventures in Raspberry Pi by Carrie Anne Philbin, who works with us at the Foun
 https://www.raspberrypi.org/resources/
 
 https://mike632t.wordpress.com/2015/09/26/raspbian-minimal-install-using-console/
+
+
+
+## More on IoT #
+
+This is one of a series on IoT:
+
+{% include iot_links.html %}
