@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Raspberry Pi IoT Raspbian Mono Installation"
-excerpt: "How to setup a Raspberry Pi 3B to use Xamarin Mono and other apps"
+title: "News feeds"
+excerpt: "Ways to get out of the Facebook echo chamber"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
