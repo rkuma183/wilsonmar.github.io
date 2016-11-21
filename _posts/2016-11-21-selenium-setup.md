@@ -17,17 +17,22 @@ comments: true
 Although Selenium was created for functional testing,
 I'm using it to repeatedly run through web pages with the timing I want as I record screencast videos.
 
-## Installations
+## Install dependencies 
 
-1. Java
-2. Maven
+Follow my other tutorials to install:
+
+1. [Java](/java-on-apple-mac-osx/)
+2. [Maven](/maven-on-macos/)
 4. Firefox browser
 5. Chrome with ChromeDriver
-3. IDE such as IntelliJ
 
-## Run
+<hr />
 
-0. Change to a folder where you can get a sample repo on your local hard drive.  
+## Download from GitHub and Run
+
+0. Change to a folder where you can get a sample repo on your local hard drive.
+
+   This sample doesn't control an internet browser:
 
    <pre><strong>
    cd ~/gits

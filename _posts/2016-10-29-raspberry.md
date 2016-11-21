@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raspberry Pi IoT Raspbian Mono Installation"
+title: "Raspberry Pi Raspbian IoT Installation with Ansible"
 excerpt: "How to setup a Raspberry Pi 3B to use Xamarin Mono and other apps"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
@@ -23,12 +23,15 @@ run apps under Raspbian on a Raspberry Pi 3 B.
 
 There are several end-uses for a computer that are <strong>constantly on</strong>:
 
+* Run a local Gitlab server to mirror repositories on your laptop so all changes are 
+   immediately sent there in case your laptop dies suddenly.
+
+* Display your email so you can just glance at it (at a security risk).
 * <a href="#NewsFeeds">Display web pages that refreshes itself automatically (web cams)</a>.
 * Display metrics on a dashboard web page such as a Kibana or Grafana.
 * Play a movie (mp4 file) loop using a built-in utility.
 * Display feeds from a close-circuit USB Camera.
 
-* Run a local Git server.
 * Run a NAS server (local Network Attached Storage) off a USB hard drive.
 * <a href="#InstallNode">Run Node.js code to run a web server</a>.
 * Run a local Hadoop cluster database.
@@ -37,6 +40,7 @@ There are several end-uses for a computer that are <strong>constantly on</strong
 
 To get going we first should:
 
+* Run an install script to configure the Pi.
 * Run Bash shell script on boot-up to download a script from GitHub and run it.
 * <a href="#CronJob">Run cron background</a> to periodically 
    <a href="#Temp">measure board's temperature</a>
@@ -46,7 +50,7 @@ To get going we first should:
 ## Hardware
 
 
-0. Raspberry Pi 3 B $35
+0. Raspberry Pi 3 B+ $35
 
    The Raspberry Pi 3 has a 1.2 GHz quad-core ARMv8 chip with 1 GB of RAM.
 
@@ -127,6 +131,7 @@ To get going we first should:
    PROTIP: There is <a target="_blank" href="https://www.raspberrypi.org/downloads/noobs/">
    SD card containing pre-installed NOOBS</a> (New Out Of Box Software)
    promoted as "the easiest to work with".
+
    But this tutorial focuses on industrial-grade components for 
    maximum flexibility, power, and security.
 
@@ -138,6 +143,9 @@ To get going we first should:
 
    Natively Mac OSX does not know how to read NTFS drives.
 
+0. DVD blank disk (R+ or R-) to hold image so as to not use up 
+   laptop hard disk space.
+
 
    ### Not headless
 
@@ -146,10 +154,15 @@ To get going we first should:
 
    ### Optional hardware
 
+0. The PiPo add-on board draws power from an Ethernet cable,
+   so you don't need to buy a micro-USB power supply.
+
+   QUESTION: Can it be combined with a fan?
+
 0. Case that accomodates <a href="#HeatSink">heat dissipation contraptions</a>
    mentioned above.
 
-   The top of
+   A) The top of
    <a target="_blank" href="https://www.adafruit.com/products/3062">
    this clear case</a>
    holds a resistive touch overlay to a 
@@ -171,12 +184,37 @@ To get going we first should:
    QUESTION: Is there enough air flow through the case to dissipate heat,
    yet keep dust from forming on the board?
 
-0. USB stick or USB hard drive provides extra storage.
-   convenient to easily add photos, videos, or other media the Pi displays.
+   B) <strong>Case with external fan</strong><br />
+   <a target="_blank" href="https://www.pretzellogix.net/2015/09/02/the-best-raspberry-pi-2-cases-compared-and-reviewed/">
+   This article comparing the running temp of 12 cases</a> 
+   identified the best cooling from 
+   <a target="_blank" href="https://www.amazon.com/JBtek-Transparent-Acrylic-Raspberry-External/dp/B00M859PA6/">
+   $8.99 JBTek Transparent Acrylic Raspberry Pi B+ / Raspberry Pi 2 Case with External Fan</a>.
+   One user of this rig said he was able to overclock the CPU to 1.35Ghz 
+   running Raspbian Jessie processor temp. at 48.7 degrees Celcius (119.66 Fahrenheit).
 
-   The Passport drive has 250 GB.
+   ![iot jbtek cool case 371x209](https://cloud.githubusercontent.com/assets/23631541/20489719/cf5524e2-afc8-11e6-8b81-ab8cd81791ec.png)
 
-   WD sells USB 3 drives up to several Terabytes.
+   This is cheaper than the <a target="_blank" href="http://www.newegg.com/Product/Product.aspx?Item=9SIA6UM44T1650">
+   $14.95 Case with fan</a>.
+   The <a target="_blank" href="https://www.amazon.com/gp/product/B00ZEQ1PBI/">
+   Eleduino Acrylic</a> also has a 25mm fan.
+
+   PROTIP: Most fans carry 12v. Make sure your fan can run plugged into the 5V, 
+   albeit slower and quieter.
+   This is actually be a good thing to run nearly silent.
+
+   C) The $25 Smarti Pi Touch is a Pi case that holds a 5" display.
+
+   https://www.youtube.com/watch?v=yOHws0qBBmI
+
+0. Screen
+
+   <a target="_blank" href="https://www.amazon.com/LoveRPi-Premium-Official-Raspberry-Display/dp/B01GEOLNNS/">
+   $19.99 cover</a> does not accomododate a fan for the
+   <a target="_blank" href="https://www.amazon.com/dp/B0153R2A9I/">
+   $68 for a 7-inch Touch-screen for Pi</a>
+   powered by the GPIO or USB.
 
 0. Powered USB 2.0 hub.
 
@@ -191,6 +229,13 @@ To get going we first should:
    5 GB/s over 9 wires using up to 900mA.
    It's 10x faster due to its blue color. (OK I'm kidding)<br />
    USB 3.1 "SUPERSPEED" was released in 2014.
+
+0. USB stick or USB hard drive provides extra storage.
+   convenient to easily add photos, videos, or other media the Pi displays.
+
+   The Passport drive has 250 GB.
+
+   WD sells USB 3 drives up to several Terabytes.
 
 0. USB to UART serial cable. 
    It's an alternative to using Ethernet and plugging
@@ -286,10 +331,9 @@ To get going we first should:
    | ---- | ----: | ---: |
    | 2016-09-23-Raspbian-jessie.zip | 1.4 GB | 4.3 GB |
 
-   QUESTION: Where is the history of old versions 
-   and how does one get announcement emails?
+   The Unzipped size is for the .img file created during un-zip.
 
-   Jessie provides sudo-free access to GPIO.
+   NOTE: Jessie provides sudo-free access to GPIO.
 
    The large size of the file means it will take a while,
    depending on the speed of your network.
@@ -302,8 +346,10 @@ To get going we first should:
 
    "Wheezy" (the squeeze toy penguin with the red bow tie)
    was the previous version of Raspbian.
+   QUESTION: Where is the history of old versions 
+   and how does one get announcement emails?
 
-   "sid" (the bad boy in Toy Story) is the 2017 release.
+   "sid" (the bad boy in Toy Story) is slated to be the 2017 release.
 
 0. TODO: Calculate on the Mac a SHA hash on your laptop to verify SHA from the website.
 
@@ -312,6 +358,12 @@ To get going we first should:
    NOTE: The image contains
    .elf (Executable Linkable Format) 
    and .dtb (Device Tree Blob) files.
+
+0. Save the .img file to a DVD so you can delete the files from your laptop's hard drive
+   to make room for other stuff.
+
+   A regular single sided, single layer DVD holds 4.7GB. 
+   A dual-layer "DL" DVD disk holds 8.5GB.
 
 
    ### Flash .img onto SD card using Etcher
@@ -1299,11 +1351,19 @@ Importing certificates into user store...
 Import process completed.
    </pre>
 
+0. Add the Mono Project GPG signing key and the package repository to your system 
 
-   See 
+   This is according to
    <a target="_blank" href="http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives/">
    GPG signing Key</a>
 
+   (if you don’t use sudo, be sure to switch to root):
+
+   <pre>
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+sudo apt-get update
+   <pre>
 
 ## Use USB drive
 

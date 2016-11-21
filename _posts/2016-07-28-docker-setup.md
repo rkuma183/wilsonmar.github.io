@@ -1063,7 +1063,7 @@ export DOCKER_MACHINE_NAME="default"
    </pre>
 
    PROTIP: On a Mac, the docker-machine VM is called "default", existing in directory<br />
-   /Users/&LT;username>/.docker/machine/machines/default/ 
+   /Users/\<username>/.docker/machine/machines/default/ 
 
 0. See if the environment variables are set:
 

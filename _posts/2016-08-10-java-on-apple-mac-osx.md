@@ -27,8 +27,7 @@ This is the one that worked for me.
 WARNING: The version that comes installed on Apple Macs can be obsolete.
 
 CAUTION: Do not delete the default version.
-
-If you want to re-install <strong>Java 6</strong> for OS X 2014-001,
+But if you did, to re-install <strong>Java 6</strong> for OS X 2014-001,
 it can be obtained from
 <a target="_blank" href="https://support.apple.com/kb/DL1572?locale=en_US">
 https://support.apple.com/kb/DL1572?locale=en_US</a>
@@ -68,7 +67,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 23.2-b04, mixed mode)
    </pre>
 
    If it's not installed, MacOS prompts you to install the JDK.
-   Clever.
+   Clever. But don't do it if you want the Oracle version.
 
 0. Click <strong>More Info...</strong>.
 
@@ -104,7 +103,7 @@ Matching Java Virtual Machines (4):
    The response:
 
    <pre>
-   /Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
+   /Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
    </pre>
 
 0. See what derivative program such as Maven uses:
@@ -338,14 +337,14 @@ Checking connectivity... done.
    jenv versions
    </strong></tt>
 
-0. The response if none if brew cask was not installed:
+   The response if none if brew cask was not installed:
 
-   <tt>
-   * system (set by /Users/wilsonmar/.jenv/version)
-   </tt>
+   <pre>
+   * system (set by /usr/local/var/jenv/version)
+   </pre>
 
-
-0. Install Java using brew <strong>cask</strong>, using --force to update sub-versions:
+0. Install Java GUI using brew <strong>cask</strong>, 
+   and `--force` to update sub-versions:
 
    <pre><strong>
    sudo brew update && brew cask install java --force
@@ -395,7 +394,9 @@ Password:
    See http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/
 
 
-0. Add JDK 7:
+   ## Jenv for several Java versions
+
+0. The point of jenv is to add additional versions, such as back version JDK 7:
 
    <pre><strong>
    jenv add /Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home
