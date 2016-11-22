@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Security in GitHub"
+title: "GitHub Data Security"
 excerpt: "How to keep secrets out of GitHub"
 tags: [github, security]
 image:
@@ -97,16 +97,12 @@ that scan through all GitHub repos looking for exposed keys.
 
 ## Get it out of there! #
 
-What if you found out that your private data has been exposed?
+What if you found out that your private data has been exposed in a GitHub repo?
 
-First, if a file is deleted using `git rm` and a commit is made,
-a vestige of that data can still exist in the repository's <strong>history</strong> (.git folder).
+PROTIP: If a file is deleted using `git rm` and a commit is made,
+a vestige of that data still exist in the repository's <strong>history</strong> (.git folder).
 
-Tools which remove historical data:
-
-   * Git's `git-filter-branch` command.
-
-   * Utility program <a target="_blank" href="http://rtyley.github.io/bfg-repo-cleaner/">
+Utility program <a target="_blank" href="http://rtyley.github.io/bfg-repo-cleaner/">
    BFG Repo-Cleaner</a> 
    (bfg.jar) is faster due to it being written in Scala (a varient of Java).
 
@@ -119,6 +115,42 @@ find known passwords and replace them with <strong>\*\*\*REMOVED\*\*\*</strong>.
    </pre>
 
 Git is designed such that every file and folder is represented only once (and given a unique SHA-1 hash-id).
+
+Git has a <a target="_blank" href="https://git-scm.com/docs/git-filter-branch">
+`git-filter-branch` command</a> which 
+<strong>rebuilds</strong> a repo one commit at a time without the offending
+content. The Git Real 2 course covers this.
+
+0. Make commits and push so there is nothing in your local staging area.
+
+0. Zip up the repo so you have a fall-back.
+
+0. Make a copy of the repo as backup:
+
+   `git clone poodles burning-poodles`
+
+0. Rebuild the repo one commit at a time after applying the shell script
+   rm function to remove the secrets.txt file from 
+   --all commit files: (change secrets.txt to your file's name)
+
+   `git filter-branch --tree-filter 'rm -f secrets.txt -- --all'`
+
+   Note .gitignore rules are not applied here.
+
+   This is a very I/O intensive operation and will take a long time on larger repos.
+
+0. There are options that change other information:
+
+   --env-filter rewrites author/committer name/email/time environment variables
+
+   --msg-filter rewrites commit message text.
+
+0. Remove (prune) commits which are now empty becuase the offending file they reference
+   have been removed:
+
+   `git filter-branch -f --prune-empty`
+
+0. Notify all those who may have forked or cloned or downloaded the repo.
 
 
 <a name="ConfigScript"></a>
