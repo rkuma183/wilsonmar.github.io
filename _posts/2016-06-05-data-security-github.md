@@ -105,7 +105,6 @@ a vestige of that data still exist in the repository's <strong>history</strong> 
 Utility program <a target="_blank" href="http://rtyley.github.io/bfg-repo-cleaner/">
    BFG Repo-Cleaner</a> 
    (bfg.jar) is faster due to it being written in Scala (a varient of Java).
-
 <a target="_blank" href="https://help.github.com/articles/remove-sensitive-data/">
 This webpage</a> explains commands such as replacing such as this to 
 find known passwords and replace them with <strong>\*\*\*REMOVED\*\*\*</strong>.
@@ -141,9 +140,9 @@ content. The Git Real 2 course covers this.
 
 0. There are options that change other information:
 
-   --env-filter rewrites author/committer name/email/time environment variables
+   `--env-filter` rewrites author/committer name/email/time environment variables
 
-   --msg-filter rewrites commit message text.
+   `--msg-filter` rewrites commit message text.
 
 0. Remove (prune) commits which are now empty becuase the offending file they reference
    have been removed:
@@ -160,7 +159,7 @@ content. The Git Real 2 course covers this.
 You can tell Git to ignore changes to a file in the future:
 
    <pre><strong>
-   git update-index --assume-unchanged  &LT;file>
+   git update-index --assume-unchanged  <em>file</em>
    </strong></pre>
 
    However, this works only on a single branch.
@@ -169,7 +168,7 @@ You can tell Git to ignore changes to a file in the future:
 To track changes again:
 
    <pre><strong>
-   git update-index --no-assume-unchanged  &LT;file>
+   git update-index --no-assume-unchanged <em>file</em>
    </strong></pre>
 
    * http://www.codeproject.com/Articles/602146/Keeping-sensitive-config-settings-secret-with-Azur
@@ -257,7 +256,7 @@ $GITHUB_TOKEN = '1234567890123456789012345678901234567890'
    $SECRETS = Get-Content "$home/.secrets" | ConvertFrom-StringData
    # don't echo $SECRETS.GITHUB_PASSWORD
    # don't echo $SECRETS.GITHUB_TOKEN
-   </strong><pre>
+   </strong></pre>
 
 
 <a name="Config"></a>
