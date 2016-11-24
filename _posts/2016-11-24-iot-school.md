@@ -147,19 +147,23 @@ Make use of the Pi being constantly on:
 
 0. Identify options for recording images and video
 0. Design for weather-proof configurations
+0. Configure a closed-circuit camera feed
+0. Consider implications for constant-on webcams
+0. Configure a two-way presence 
+
+### LESSON 9 - Process media
+
 0. Process media locally on a Pi
 0. Send media to a public cloud
 0. Process media on public cloud
 0. Obtain facial recognition
-0. Configure a closed-circuit camera feed
 
-### LESSON 9 - Interface with mobile phones
+### LESSON 10 - Interface with mobile phones
 
 0. Design interfaces
 0. Evaluate existing utilities
 0. Configure interface
 0. Test interface
-
 
 ## More on IoT #
 
