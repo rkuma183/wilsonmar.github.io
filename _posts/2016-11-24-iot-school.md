@@ -82,7 +82,7 @@ In the class, I provide each learner a Raspberry Pi 3 B board
 with power adapter and two 16 GB sd chips.
 A router is available during classes.
 
-### Day 1 - basic components
+### LESSON 1 - basic components
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -93,7 +93,7 @@ A router is available during classes.
 0. Transfer files into Pi using Secure FTP clients
 0. Backup configuration changes 
 
-### Day 2 - cloud use cases
+### LESSON 2 - cloud use cases
 
 0. Obtain API keys from cloud vendors (understand OAuth2)
 0. Use separate files to keep keys from scripts (for security)
@@ -104,14 +104,14 @@ A router is available during classes.
 0. Stress test the board to evaluate temperature within board cases
 0. Configure the Pi to display metrics 
 
-### Day 3 - AWS cloud
+### LESSON 3 - AWS cloud
 
-A full day is needed to understand the complexities of working with AWS
+A full LESSON is needed to understand the complexities of working with AWS
 
 0. Configure an Amazon IoT button to connect to AWS cloud
 0. Configure the Pi to connect to AWS cloud running pre-built apps
 
-### Day 4 - local servers
+### LESSON 4 - local servers
 
 Make use of the Pi being constantly on:
 
@@ -121,13 +121,14 @@ Make use of the Pi being constantly on:
 0. Configure the Pi as a NAS server to store files
 0. Configure the Pi as a Media server to serve music, movies, and pictures
 
-### Day 5 - hardware power options
+### LESSON 5 - hardware power options
 
 0. Power the Pi using 12V batteries from automobiles
 0. Select small batteries and solar panels to power the Pi untethered
+0. Predict battery life
+0. Define battery maintenance alert mechanisms
 
-
-### Day 6 - Additional sensors 
+### LESSON 6 - Use sensors 
 
 0. Connect indoor ambiant sensors to the Pi
 0. Predict trends based on statistics gathered
@@ -135,10 +136,29 @@ Make use of the Pi being constantly on:
 0. Identify other sensors to sense the environment
 0. Compare Pi vs. Arduino
 
-### Day 7 - Additional actuators
+### LESSON 7 - Move it with actuators
 
 0. Connect acutuators to move things
+0. Calculate physics formulas for space, weight, and volume
 0. Communicate with others using the Pi
+0. Conduct repetitive tests for safety
+
+### LESSON 8 - Use cameras and microphones
+
+0. Identify options for recording images and video
+0. Design for weather-proof configurations
+0. Process media locally on a Pi
+0. Send media to a public cloud
+0. Process media on public cloud
+0. Obtain facial recognition
+0. Configure a closed-circuit camera feed
+
+### LESSON 9 - Interface with mobile phones
+
+0. Design interfaces
+0. Evaluate existing utilities
+0. Configure interface
+0. Test interface
 
 
 ## More on IoT #
