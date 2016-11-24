@@ -91,7 +91,7 @@ A router is available during classes.
 0. Install and use Git to obtain files from GitHub online
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
-0. Backup configuration changes using various utilities
+0. Backup configuration changes 
 
 ### Day 2 - cloud use cases
 
@@ -109,7 +109,7 @@ A router is available during classes.
 A full day is needed to understand the complexities of working with AWS
 
 0. Configure an Amazon IoT button to connect to AWS cloud
-0. Configure the Pi to connect to AWS cloud running NodeJs apps
+0. Configure the Pi to connect to AWS cloud running pre-built apps
 
 ### Day 4 - local servers
 
@@ -121,11 +121,24 @@ Make use of the Pi being constantly on:
 0. Configure the Pi as a NAS server to store files
 0. Configure the Pi as a Media server to serve music, movies, and pictures
 
-### Day 5 - hardware variations
+### Day 5 - hardware power options
 
-0. Select batteries and solar panels to power the Pi untethered
+0. Power the Pi using 12V batteries from automobiles
+0. Select small batteries and solar panels to power the Pi untethered
+
+
+### Day 6 - Additional sensors 
+
+0. Connect indoor ambiant sensors to the Pi
+0. Predict trends based on statistics gathered
+0. Correlate multiple metrics (indoor and outdoor temperature)
+0. Identify other sensors to sense the environment
 0. Compare Pi vs. Arduino
-0. Connect sensors
+
+### Day 7 - Additional actuators
+
+0. Connect acutuators to move things
+0. Communicate with others using the Pi
 
 
 ## More on IoT #
