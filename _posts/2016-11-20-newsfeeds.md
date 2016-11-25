@@ -53,6 +53,28 @@ Seattle Traffic map</a> -- 240 seconds </li>
    &LT;meta http-equiv="refresh" content="600; url=index.php">
    </pre>
 
+## Weather
+
+From a <a target="_blank" href="http://www.programmableweb.com/news/26-weather-apis-12-support-json/2012/01/11/">
+list of 12 Weather APIs</a>:
+
+<ul>
+<li><a target="_blank" href="http://www.weather.gov/forecastmaps">
+Weather.gov (National Weather Service) forecast and temperature maps</a> are static</li>
+
+<li><a target="_blank" href="https://www.wunderground.com/cgi-bin/findweather/getForecast?query=59041">
+Weather Underground (wunderground.com)</a> also has pictures</li>
+
+<li><a target="_blank" href="https://www.yahoo.com/news/weather/united-states/joliet/joliet-2429709">
+Yahoo.com/news/weather</a> is static</li>
+</ul>
+
+## Traffic
+
+<ul>
+<li><a target="_blank" href="http://www.wsdot.com/traffic/seattle/default.aspx">
+Seattle Traffic map</a> -- 240 seconds </li>
+</ul>
 
 ## Static news
 

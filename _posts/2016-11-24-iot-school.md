@@ -15,66 +15,47 @@ comments: true
 
 {% include _toc.html %}
 
-The field of IoT is so diverse and so fast-changing that 
-it is near impossible for one person to know it all and do everything.
+## Build products, not toys
 
-IoT people need to work with mobile and web services such as Twitter, email, etc.
+The unique aspect of our curriculum is that you
+create complete <strong>saleable products</strong>
+customers buy to plug in and simply work.
 
-The low memory available on IoT devices is like working with computers in the 1970s.
-
-Let's take a look at the stack of technologies, from the bottom-up:
-
-A) Hardware
-
-   See my tutorial on [IoT Hardware](/iot-raspberry-hardware/).
-
-B) Operating Systems - Linux
-
-   Debian, Ubuntu, CentOS, SUSE, etc.
-
-C) Hypervisors and Virtualization - Docker
-
-D) Low-level utilities to manage disks and files and networks
-
-   Microsoft's Mono .NET for Linux
-
-E) Program compilers
-
-   JVM vs. CLR
-
-F) Back-end application coding - API access to clouds
-
-   Shell scripts and PowerShell scripts, Python, C# batch
-
-G) Front-end application coding - API access to clouds
-
-   Node JavaScript, C#
-
-H) Application UI by end-users - to play movies, etc.
-
-One can spend a whole career at just one level.
+Rather than starting by messing with breadboards and 
+loose wires making little lights flash on the board, 
+we focus on <strong>useful</strong> things that
+connect to <strong>clouds</strong>.
 
 
-## Hands-on Approach
+## Start from examples, not blank stares
 
-To simplify, I begin not by training people to program code from scratch.
+We begin by NOT training people to program code from scratch.
 
-I begin with providing 
+We begin with by <strong>running</strong> pre-programmed
 automation scripts that perform the steps,
 and participants learn by making changes to 
 see the impact and troubleshoot.
 
-This is much like what they do on real jobs.
+This is much like what happens on real jobs,
+which is the purpose of this curriculum.
 
 NOTE: Even though all manual steps are specified in training materials, 
-participants experienced with Linux commands will 
+participants experienced with Linux commands and programming experience will 
 have an easier time than those who do not.
 
+Programming of Python, shell scripts, and 
+JavaScript with Node is learned by examining examples
+and discussion about automated code checking rules.
+This is how professional programmers work within industry.
 
-## Hands-on Introduction
 
-I conduct a hands-on step-by-step tutorial on IoT 
-I've been perfecting with my team:
+## Hands-on step-by-step training
+
+Curriculum materials include a hands-on 
+<strong>step-by-step tutorial book</strong>
+and videos.
+
+The title:
 
 <strong>Build a Raspberry Pi with Raspbian running Python Ansible IoT</strong>
 
@@ -82,7 +63,7 @@ In the class, I provide each learner a Raspberry Pi 3 B board
 with power adapter and two 16 GB sd chips.
 A router is available during classes.
 
-### LESSON 1 - basic components
+### PRODUCT 1 - Configured devices
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -91,9 +72,12 @@ A router is available during classes.
 0. Install and use Git to obtain files from GitHub online
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
-0. Backup configuration changes 
+0. Backup configuration changes people can buy to avoid the hassle above.
 
-### LESSON 2 - cloud use cases
+### PRODUCT 2 - Cloud-connected devices
+
+We build complete <strong>display dashboards</strong> constantly from
+   monitoring software such as AppDynamics, New Relic, Dynatrace, Nagios, etc.
 
 0. Obtain API keys from cloud vendors (understand OAuth2)
 0. Use separate files to keep keys from scripts (for security)
@@ -102,48 +86,49 @@ A router is available during classes.
 0. Compare enterprise IoT devices and their risks
 0. Measure board temperature and other metrics
 0. Stress test the board to evaluate temperature within board cases
-0. Configure the Pi to display metrics 
 
-### LESSON 3 - AWS cloud
+### PRODUCT 3 - Cloud-connected alerting devices
 
-A full LESSON is needed to understand the complexities of working with AWS
-
-0. Configure an Amazon IoT button to connect to AWS cloud
+0. Configure an Amazon IoT button that connect to AWS cloud
+   reaches SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
 0. Configure the Pi to connect to AWS cloud running pre-built apps
+   (<strong>water leak detector</strong>).
 
-### LESSON 4 - local servers
+### PRODUCT 4 - Local server
 
 Make use of the Pi being constantly on:
 
-0. Configure the Pi to do work based on a schedule
-0. Configure the Pi as a Gitlab server to mirror changes on laptops
+0. Configure the Pi to do <strong>work based on a schedule</strong>.
+0. Configure the Pi as a <strong>Gitlab server</strong> 
+   that mirrors changes on laptops for complete data recovery
 0. Connect large USB drives to the Pi
-0. Configure the Pi as a NAS server to store files
-0. Configure the Pi as a Media server to serve music, movies, and pictures
+0. Configure the Pi as a <strong>NAS server</strong> to store files
 
-### LESSON 5 - hardware power options
+### PRODUCT 5 - Autonomous outdoor device
 
 0. Power the Pi using 12V batteries from automobiles
 0. Select small batteries and solar panels to power the Pi untethered
 0. Predict battery life
 0. Define battery maintenance alert mechanisms
 
-### LESSON 6 - Use sensors 
+### PRODUCT 6 - Predictive alerts from sensors
 
+0. Connect a buzzer to the Pi
 0. Connect indoor ambiant sensors to the Pi
+0. Configure alert conditions (water leak detector)
 0. Predict trends based on statistics gathered
 0. Correlate multiple metrics (indoor and outdoor temperature)
-0. Identify other sensors to sense the environment
-0. Compare Pi vs. Arduino
+0. Evaluate limits of various sensors to environmental sensors
 
-### LESSON 7 - Move it with actuators
+### PRODUCT 7 - Move things with actuators
 
-0. Connect acutuators to move things
+Make things move on a schedule or event.
+
+0. Compare Pi vs. Arduino and others
 0. Calculate physics formulas for space, weight, and volume
-0. Communicate with others using the Pi
 0. Conduct repetitive tests for safety
 
-### LESSON 8 - Use cameras and microphones
+### PRODUCT 8 - Recordings with cameras and microphones
 
 0. Identify options for recording images and video
 0. Design for weather-proof configurations
@@ -151,19 +136,109 @@ Make use of the Pi being constantly on:
 0. Consider implications for constant-on webcams
 0. Configure a two-way presence 
 
-### LESSON 9 - Process media
+### PRODUCT 9 - Media file processor service
 
 0. Process media locally on a Pi
 0. Send media to a public cloud
 0. Process media on public cloud
+0. Compress media
 0. Obtain facial recognition
 
-### LESSON 10 - Interface with mobile phones
+### PRODUCT 10 - Mobile phone partner
 
 0. Design interfaces
 0. Evaluate existing utilities
-0. Configure interface
+0. Configure Twilio to ring a mobile phone
+0. Configure Twilio to send SMS to a mobile phone
 0. Test interface
+
+### PRODUCT 11 - Lights 
+
+0. Install Java Virtual Machine (JVM) on Pi
+0. Install OpenHab.org software for home automation
+0. Turn lights on and off based on conditions
+0. Configure automation rules
+0. Change color of lights
+0. Analyze time series data
+0. Explore use cases, costs vs. advantages for home automation
+
+### PRODUCT 12 - Custom communications boards
+
+0. Configure boards for ZigBee communication 
+0. Configure boards for LoRA communication
+0. Saving files elsewhere
+0. Track and analyze speeds at various conditions
+
+### PRODUCT 13 - Custom home automation programs
+
+0. Configure the Pi as a Media server to serve music, movies, and pictures
+0. Install home automation control products (using OpenHab)
+0. <a target="_blank" href="http://www.openhab.org/getting-started/downloads.html">
+   Download OpenHAB mobile app</a>
+0. Program small LCD screens with buttons
+
+### PRODUCT 14 - Custom drone flights
+
+0. Evaluate various drones (costs vs. advantages)
+0. Drone operation checkout
+0. Configure flight path
+0. Test flights
+0. Perform, track, and predict maintenace 
+
+
+## Topics covered
+
+Here is a summary of the various technologies covered in this curriculum,
+from the low-level bottom-up:
+
+0. Enclosures for whole systems in the field
+
+   See my tutorial on [IoT Hardware](/iot-raspberry-hardware/)
+
+0. Board Hardware
+
+   See my tutorial on [IoT Hardware](/iot-raspberry-hardware/).
+
+0. Add-on components (sensors and actuators)
+
+   See my tutorial on [IoT Hardware](/iot-raspberry-hardware/):
+   enclosures
+
+0. Operating Systems - Linux
+
+   Debian, Ubuntu, CentOS, SUSE, etc.
+
+0. Hypervisors and Virtualization - 
+
+   Virtualbox, Docker
+
+0. Low-level utilities to manage disks and files and networks
+
+   Java Virtual Machine, Microsoft's Mono .NET for Linux
+
+0. Compilers of programming code
+
+   JDK, SDK
+
+0. Back-end application coding - API access to clouds
+
+   Shell scripts and PowerShell scripts, Python, C# batch
+
+0. Front-end application coding - API access to clouds
+
+   Node JavaScript, C#
+
+0. Application Programming Interfaces
+
+   Twillio, Twitter, IFTTT
+
+0. Application UI by end-users - to play movies, etc.
+
+One can spend a whole career at just one level.
+
+The field of IoT is so diverse and so fast-changing that 
+it is difficult for one person to know it all and do everything.
+
 
 ## More on IoT #
 

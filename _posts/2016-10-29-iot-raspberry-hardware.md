@@ -19,6 +19,15 @@ This is a list of physical hardware categorized by basics and optional.
 
 <hr />
 
+## Specs
+
+   | Spec | Arduino | RPi 2 | RPi 3 |
+   | ---- | ------: | ----: | ----: |
+   | Address space | 8-bit | 32-bit | 32-bit |
+   | CPU speed     | 900 MHz | 16 MHz | 16 MHz |
+   | RAM     | 32K     | 512 MB | 1 GB   |
+   | Voltage | 5V | 3.3V | 3.3V |
+
 ## Basics
 
 0. Raspberry Pi 3 B+ $35
@@ -121,6 +130,11 @@ This is a list of physical hardware categorized by basics and optional.
    ### Not headless
 
 0. HDMI cable connected to a monitor (input selected to the correct HDMI).
+
+0. A special cable - <a target="_blank" href="https://www.adafruit.com/product/2881">
+   $4.95 from Adafruit</a> connects the 3.5 mm male plug to RCA composite plugs on older TVs.
+
+
 0. A USB keyboard.
 
    ### Optional hardware
@@ -130,10 +144,13 @@ This is a list of physical hardware categorized by basics and optional.
 
    QUESTION: Can it be combined with a fan?
 
-0. Case that accomodates <a href="#HeatSink">heat dissipation contraptions</a>
-   mentioned above.
+0. Case that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
 
-   A) The top of
+   A) You can make a free case by cutting and folding the 
+   <a target="_blank" href="https://www.raspberrypi.org/blog/the-punnet-a-card-case-for-you-to-print-for-free/">
+   Punnet pdf</a> printed on paper or thin plastic.
+
+   B) The top of
    <a target="_blank" href="https://www.adafruit.com/products/3062">
    this clear case</a>
    holds a resistive touch overlay to a 
@@ -155,7 +172,7 @@ This is a list of physical hardware categorized by basics and optional.
    QUESTION: Is there enough air flow through the case to dissipate heat,
    yet keep dust from forming on the board?
 
-   B) <strong>Case with external fan</strong><br />
+   C) <strong>Case with external fan</strong><br />
    <a target="_blank" href="https://www.pretzellogix.net/2015/09/02/the-best-raspberry-pi-2-cases-compared-and-reviewed/">
    This article comparing the running temp of 12 cases</a> 
    identified the best cooling from 
@@ -175,7 +192,7 @@ This is a list of physical hardware categorized by basics and optional.
    albeit slower and quieter.
    This is actually be a good thing to run nearly silent.
 
-   C) The $25 Smarti Pi Touch is a Pi case that holds a 5" display.
+   D) The $25 Smarti Pi Touch is a Pi case that holds a 5" display.
 
    https://www.youtube.com/watch?v=yOHws0qBBmI
 
@@ -223,7 +240,44 @@ This is a list of physical hardware categorized by basics and optional.
    Get the <a target="_blank" href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&pcid=41">
    drivers</a> for each specific version of Mac or Windows.
 
-0. Boards for ZigBee, etc.
+0. Boards for ZigBee communication 
+
+0. The CSI (Camera Serial Interface) Type-2 connector (next to the HDMI)
+   received video one-way to the Broadcom BCM2835 processor on the Pi.
+   was developed by the MIPI Alliance and
+   is common to almost all Android mobile phones.
+   MIPI CSI-2 version 1.01 supports up to four data lanes, where each lane has a maximum of 1 Gbps bandwidth, to provide a total bandwidth of 4 Gbps. 
+
+   (ZIF 15) where a ribbon cable 
+
+   ### Untethered Power
+
+0. A <a target="_blank" href="http://www.dx.com/p/20083-adjustable-power-supply-voltage-regulating-reducing-module-blue-black-255394">
+   $1.80 board to keep incoming Voltage below 3V</a>.
+
+0. You'll need batteries even if want to use solar power.
+
+   http://www.instructables.com/id/Raspberry-Pi-powered-by-battery/
+
+0. A regulator is needed to not over-charge the batteries.
+
+0. A solar panel needs to be large enough to generate what the unit needs and
+   also cover lower power during overcast days.
+
+0. Low-power mode on the device.
+
+
+## Resources on Python
+
+* <a target="_blank" href="https://automatetheboringstuff.com/">
+   Automate the Boring Stuff with Python</a>
+   book is provided free on-line.
+
+* http://inventwithpython.com/
+   provides on-line books about Python free.
+
+* http://legacy.python.org/dev/peps/pep-0008/
+   Style Guide for Python Code
 
 
 ## More on IoT #
