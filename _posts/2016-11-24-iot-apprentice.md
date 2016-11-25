@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "IoT School Curriculum"
+title: "IoT Apprentice Curriculum"
 excerpt: "How to enable people to make money with IoT"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
@@ -15,11 +15,11 @@ comments: true
 
 {% include _toc.html %}
 
-## Build products, not toys
+## Build products, not toys and games
 
 The unique aspect of our curriculum is that you
-create complete <strong>saleable products</strong>
-customers buy to plug in and simply work.
+create complete <strong>products consumers buy</strong>
+to plug in and simply work.
 
 Rather than starting by messing with breadboards and 
 loose wires making little lights flash on the board, 
@@ -43,19 +43,37 @@ NOTE: Even though all manual steps are specified in training materials,
 participants experienced with Linux commands and programming experience will 
 have an easier time than those who do not.
 
-Programming of Python, shell scripts, and 
-JavaScript with Node is learned by examining examples
-and discussion about automated code checking rules.
-This is how professional programmers work within industry.
-
-
 ## Hands-on step-by-step training
 
 Curriculum materials include a hands-on 
 <strong>step-by-step tutorial book</strong>
 and videos.
 
-The title:
+## Reliable products, not elegant code
+
+Testing for reliability and adequate performance
+is emphasized here over tricky algorithms not used.
+
+Programming of Python code, shell scripts, and 
+JavaScript with Node is learned by examining examples
+and discussion about <strong>automated code checking rules</strong>.
+This is how professional programmers work.
+
+Quality assurance is an integral part of the curriculum,
+to ensure that everything just works for the consumer.
+
+## Customer training and service
+
+A key differentiator with our school is that students are trained 
+to explain to customers in plain language
+how to use products constructed.
+
+We also ensure that our graduates apply the latest techniques for
+excellent customer service and fast turnaround.
+That includes training in effective use of social media.
+
+
+## Curriculum title
 
 <strong>Build a Raspberry Pi with Raspbian running Python Ansible IoT</strong>
 
@@ -72,7 +90,9 @@ A router is available during classes.
 0. Install and use Git to obtain files from GitHub online
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
-0. Backup configuration changes people can buy to avoid the hassle above.
+0. Backup configuration changes people can buy to avoid the hassle above
+0. Product checks before shipment
+0. Train users/customers
 
 ### PRODUCT 2 - Cloud-connected devices
 
@@ -86,6 +106,7 @@ We build complete <strong>display dashboards</strong> constantly from
 0. Compare enterprise IoT devices and their risks
 0. Measure board temperature and other metrics
 0. Stress test the board to evaluate temperature within board cases
+0. Train users/customers
 
 ### PRODUCT 3 - Cloud-connected alerting devices
 
@@ -93,6 +114,8 @@ We build complete <strong>display dashboards</strong> constantly from
    reaches SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
 0. Configure the Pi to connect to AWS cloud running pre-built apps
    (<strong>water leak detector</strong>).
+0. Product checks before shipment
+0. Train users/customers
 
 ### PRODUCT 4 - Local server
 
@@ -103,6 +126,7 @@ Make use of the Pi being constantly on:
    that mirrors changes on laptops for complete data recovery
 0. Connect large USB drives to the Pi
 0. Configure the Pi as a <strong>NAS server</strong> to store files
+0. Train users/customers
 
 ### PRODUCT 5 - Autonomous outdoor device
 
@@ -110,6 +134,7 @@ Make use of the Pi being constantly on:
 0. Select small batteries and solar panels to power the Pi untethered
 0. Predict battery life
 0. Define battery maintenance alert mechanisms
+0. Product checks before shipment
 
 ### PRODUCT 6 - Predictive alerts from sensors
 
@@ -135,6 +160,7 @@ Make things move on a schedule or event.
 0. Configure a closed-circuit camera feed
 0. Consider implications for constant-on webcams
 0. Configure a two-way presence 
+0. Test recording cycles checks before shipment
 
 ### PRODUCT 9 - Media file processor service
 
@@ -151,6 +177,7 @@ Make things move on a schedule or event.
 0. Configure Twilio to ring a mobile phone
 0. Configure Twilio to send SMS to a mobile phone
 0. Test interface
+0. Train users/customers
 
 ### PRODUCT 11 - Lights 
 
@@ -161,6 +188,7 @@ Make things move on a schedule or event.
 0. Change color of lights
 0. Analyze time series data
 0. Explore use cases, costs vs. advantages for home automation
+0. Train users/customers
 
 ### PRODUCT 12 - Custom communications boards
 
@@ -168,6 +196,7 @@ Make things move on a schedule or event.
 0. Configure boards for LoRA communication
 0. Saving files elsewhere
 0. Track and analyze speeds at various conditions
+0. Train users/customers
 
 ### PRODUCT 13 - Custom home automation programs
 
@@ -176,6 +205,8 @@ Make things move on a schedule or event.
 0. <a target="_blank" href="http://www.openhab.org/getting-started/downloads.html">
    Download OpenHAB mobile app</a>
 0. Program small LCD screens with buttons
+0. Perform usability studies with beta consumers
+0. Train users/customers
 
 ### PRODUCT 14 - Custom drone flights
 
@@ -184,6 +215,7 @@ Make things move on a schedule or event.
 0. Configure flight path
 0. Test flights
 0. Perform, track, and predict maintenace 
+0. Train users/customers
 
 
 ## Topics covered
