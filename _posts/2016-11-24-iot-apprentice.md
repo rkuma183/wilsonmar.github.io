@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "IoT Apprentice Curriculum"
-excerpt: "How to enable people to make money with IoT"
+title: "IoT Apprentice School"
+excerpt: "How to enable people to make money and satisfied customers with IoT"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
