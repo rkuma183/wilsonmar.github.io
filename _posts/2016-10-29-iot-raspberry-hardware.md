@@ -65,6 +65,8 @@ This is a list of physical hardware categorized by basics and optional.
    <a target="_blank" href="https://www.youtube.com/watch?v=O7cc4eLAOMk">
    Water cooling</a>
 
+   Pi 3’s thermal governor (see later) does not appear to be active, 
+   leading to an inherently unstable, overheating machine.
 
 0. 2.5A micro-USB 5V DC power - two-prong plug in the US market.
 
@@ -144,11 +146,18 @@ This is a list of physical hardware categorized by basics and optional.
 
    QUESTION: Can it be combined with a fan?
 
-0. Case that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
+0. Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
 
    A) You can make a free case by cutting and folding the 
    <a target="_blank" href="https://www.raspberrypi.org/blog/the-punnet-a-card-case-for-you-to-print-for-free/">
    Punnet pdf</a> printed on paper or thin plastic.
+
+   <a target="_blank" href="http://www.jackenhack.com/raspberry-pi-3-overclocking-enclosure/">
+   This</a> uses a 3D printer to create an enclosure that has a fan.
+   His blueprints contains parametric variables for changing wall thickness, height,
+   etc. and everything automatically adjusts accordingly.
+
+   <img alt="iot raspberry-pi-3-overclock-case-400x337" src="https://cloud.githubusercontent.com/assets/300046/20623425/bab6bcfe-b2c4-11e6-929f-f367844a254b.jpg">
 
    B) The top of
    <a target="_blank" href="https://www.adafruit.com/products/3062">
@@ -244,11 +253,14 @@ This is a list of physical hardware categorized by basics and optional.
 
 0. The CSI (Camera Serial Interface) Type-2 connector (next to the HDMI)
    received video one-way to the Broadcom BCM2835 processor on the Pi.
-   was developed by the MIPI Alliance and
+   via a ZIF 15 ribbon cable.
+
+   <a target="_blank" href="http://www.petervis.com/Raspberry_PI/Raspberry_Pi_CSI/Raspberry_Pi_CSI_Camera_Module.html">
+   <img alt="iot-csi-zif-cable-411x180" src="https://cloud.githubusercontent.com/assets/300046/20623692/0a99a7da-b2c6-11e6-9846-47a643f9839b.png"></a>
+
+   The CSI interface was developed by the MIPI Alliance and
    is common to almost all Android mobile phones.
    MIPI CSI-2 version 1.01 supports up to four data lanes, where each lane has a maximum of 1 Gbps bandwidth, to provide a total bandwidth of 4 Gbps. 
-
-   (ZIF 15) where a ribbon cable 
 
    ### Untethered Power
 

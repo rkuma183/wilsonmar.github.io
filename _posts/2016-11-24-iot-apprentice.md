@@ -24,7 +24,10 @@ to plug in and simply work.
 Rather than starting by messing with breadboards and 
 loose wires making little lights flash on the board, 
 we focus on <strong>useful</strong> things that
-connect to <strong>clouds</strong>.
+connect to <strong>enterprise clouds</strong>.
+
+Our focus is not for you to build toys for yourself,
+but devices that help companies save and make money.
 
 
 ## Start from examples, not blank stares
