@@ -46,11 +46,17 @@ NOTE: Even though all manual steps are specified in training materials,
 participants experienced with Linux commands and programming experience will 
 have an easier time than those who do not.
 
+
 ## Hands-on step-by-step training
 
 Curriculum materials include a hands-on 
 <strong>step-by-step tutorial book</strong>
 and videos.
+
+This is how we instill habits for good safety and vigilent security
+necessary at today's enterprises.
+
+
 
 ## Reliable products, not elegant code
 
@@ -76,7 +82,7 @@ excellent customer service and fast turnaround.
 That includes training in effective use of social media.
 
 
-## Curriculum title
+## Make Curriculum
 
 <strong>Build a Raspberry Pi with Raspbian running Python Ansible IoT</strong>
 
@@ -85,6 +91,9 @@ with power adapter and two 16 GB sd chips.
 A router is available during classes.
 
 ### PRODUCT 1 - Configured devices
+
+MAKE FOR SALE: A Raspberry Pi custom-configured with Raspbian Jessie, our utilities,
+and whatever else you want. Save time. Includes diagnostic
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -99,8 +108,10 @@ A router is available during classes.
 
 ### PRODUCT 2 - Cloud-connected devices
 
-We build complete <strong>display dashboards</strong> constantly from
-   monitoring software such as AppDynamics, New Relic, Dynatrace, Nagios, etc.
+MAKE FOR SALE: A complete <strong>plug-and-play</strong> device 
+<strong>we pre-configure</strong> with
+access credentials to show <strong>dashboards</strong> by monitoring software 
+(AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
 
 0. Obtain API keys from cloud vendors (understand OAuth2)
 0. Use separate files to keep keys from scripts (for security)
@@ -113,6 +124,9 @@ We build complete <strong>display dashboards</strong> constantly from
 
 ### PRODUCT 3 - Cloud-connected alerting devices
 
+MAKE FOR SALE: A button on bathroom exits that when pressed, 
+sends an SMS or email to whoever <strong>we pre-configure</strong>.
+
 0. Configure an Amazon IoT button that connect to AWS cloud
    reaches SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
 0. Configure the Pi to connect to AWS cloud running pre-built apps
@@ -122,7 +136,8 @@ We build complete <strong>display dashboards</strong> constantly from
 
 ### PRODUCT 4 - Local server
 
-Make use of the Pi being constantly on:
+MAKE FOR SALE: A server that never sleeps in your home or office,
+to house a duplicate of your laptop.
 
 0. Configure the Pi to do <strong>work based on a schedule</strong>.
 0. Configure the Pi as a <strong>Gitlab server</strong> 
@@ -131,15 +146,10 @@ Make use of the Pi being constantly on:
 0. Configure the Pi as a <strong>NAS server</strong> to store files
 0. Train users/customers
 
-### PRODUCT 5 - Autonomous outdoor device
+### PRODUCT 5 - Predictive alerts from sensors
 
-0. Power the Pi using 12V batteries from automobiles
-0. Select small batteries and solar panels to power the Pi untethered
-0. Predict battery life
-0. Define battery maintenance alert mechanisms
-0. Product checks before shipment
-
-### PRODUCT 6 - Predictive alerts from sensors
+MAKE FOR SALE: A buzzer or flashing light
+to alert you whenever an event of your choosing is detected.
 
 0. Connect a buzzer to the Pi
 0. Connect indoor ambiant sensors to the Pi
@@ -148,24 +158,19 @@ Make use of the Pi being constantly on:
 0. Correlate multiple metrics (indoor and outdoor temperature)
 0. Evaluate limits of various sensors to environmental sensors
 
-### PRODUCT 7 - Move things with actuators
+### PRODUCT 6 - Recordings with cameras and microphones
 
-Make things move on a schedule or event.
-
-0. Compare Pi vs. Arduino and others
-0. Calculate physics formulas for space, weight, and volume
-0. Conduct repetitive tests for safety
-
-### PRODUCT 8 - Recordings with cameras and microphones
+MAKE FOR SALE: Take photos and movies and relay them to a server
 
 0. Identify options for recording images and video
-0. Design for weather-proof configurations
 0. Configure a closed-circuit camera feed
 0. Consider implications for constant-on webcams
 0. Configure a two-way presence 
 0. Test recording cycles checks before shipment
 
-### PRODUCT 9 - Media file processor service
+### PRODUCT 7 - Media file processor service
+
+MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 
 0. Process media locally on a Pi
 0. Send media to a public cloud
@@ -173,7 +178,36 @@ Make things move on a schedule or event.
 0. Compress media
 0. Obtain facial recognition
 
-### PRODUCT 10 - Mobile phone partner
+
+### PRODUCT 8 - Autonomous outdoor device
+
+MAKE FOR SALE: A device powered by battery and solar server 
+to do whatever you want.
+
+0. Design for weather-proof configurations
+0. Power the Pi using 12V batteries from automobiles
+0. Select small batteries and solar panels to power the Pi untethered
+0. Predict battery life
+0. Define battery maintenance alert mechanisms
+0. Product checks before shipment
+
+### PRODUCT 9 - Custom communications boards
+
+MAKE FOR SALE: A device that can communicate over longer distances
+using cell phone signals or advanced boards added,
+customized to your needs.
+
+0. Configure boards for ZigBee communication 
+0. Configure boards for LoRA communication
+0. Saving files elsewhere
+0. Track and analyze speeds at various conditions
+0. Train users/customers
+
+
+### PRODUCT 10 - Mobile phone remote control
+
+MAKE FOR SALE: Control your smart phone remotely,
+such as make it ring so you can find it.
 
 0. Design interfaces
 0. Evaluate existing utilities
@@ -182,7 +216,11 @@ Make things move on a schedule or event.
 0. Test interface
 0. Train users/customers
 
-### PRODUCT 11 - Lights 
+### PRODUCT 11 - Control Lights 
+
+MAKE FOR SALE: Control the lights in your home remotely the way you want.
+such as turn lights off or on with different colors.
+We configure it for you to just plug in and it works.
 
 0. Install Java Virtual Machine (JVM) on Pi
 0. Install OpenHab.org software for home automation
@@ -193,15 +231,10 @@ Make things move on a schedule or event.
 0. Explore use cases, costs vs. advantages for home automation
 0. Train users/customers
 
-### PRODUCT 12 - Custom communications boards
+### PRODUCT 12 - Custom home automation programs
 
-0. Configure boards for ZigBee communication 
-0. Configure boards for LoRA communication
-0. Saving files elsewhere
-0. Track and analyze speeds at various conditions
-0. Train users/customers
-
-### PRODUCT 13 - Custom home automation programs
+MAKE FOR SALE: Control your home remotely the way you want.
+We configure it for you to just plug in and it works.
 
 0. Configure the Pi as a Media server to serve music, movies, and pictures
 0. Install home automation control products (using OpenHab)
@@ -211,7 +244,21 @@ Make things move on a schedule or event.
 0. Perform usability studies with beta consumers
 0. Train users/customers
 
+
+### PRODUCT 13 - Move things with actuators
+
+MAKE FOR SALE: Make things that move on a schedule or event of your choosing.
+
+0. Compare Pi vs. Arduino and others
+0. Calculate physics formulas for space, weight, and volume
+0. Conduct repetitive tests for safety
+0. "Animaltronics"
+
+
 ### PRODUCT 14 - Custom drone flights
+
+MAKE FOR SALE: A device that can move on its own,
+custom configured to your needs.
 
 0. Evaluate various drones (costs vs. advantages)
 0. Drone operation checkout
