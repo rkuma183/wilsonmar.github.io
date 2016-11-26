@@ -95,7 +95,7 @@ A router is available during classes.
 
 MAKE FOR SALE: A Raspberry Pi SD card configured with Raspbian Jessie
 and installed with diagnistics and libraries for 
-develpement using Linux, Python, Node, Mono.
+developement using Linux, Python, Node, Mono, and various utilities.
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -105,21 +105,34 @@ develpement using Linux, Python, Node, Mono.
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
 0. Configure USB drive to mount automatically
-0. BONUS: Build and configure an on/off button for orderly shutdown
 0. Backup configuration changes people can buy to avoid the hassle above
 0. Product checks before shipment
 0. Train users/customers
 
 
-There are several knowledge
+### PRODUCT 2 - Custom boards and enclosure
+
+MAKE FOR SALE: A custom-made enclosure for a Raspberry Pi 
+with cooling fan, on/off switch, and additional board for
+long-range communications 
+using cell phone signals, Zigbee, or other advanced board.
+
+0. Configure a service to recognize GPIO pin connections
+0. Wire-up and configure an on/off button for orderly shutdown
+0. Create a paper case 
+0. Design a tamper-resistent metal enclosure
+0. Design a case using 3D printing
+0. Configure boards for ZigBee (or LoRA) communication 
+0. Measure and analyze speeds and quality at various conditions
+0. Train users/customers
 
 
-### PRODUCT 2 - Cloud-connected devices
+### PRODUCT 3 - Cloud-connected devices
 
 MAKE FOR SALE: A complete <strong>plug-and-play</strong> device 
 <strong>we pre-configure</strong> with
 access credentials to show <strong>dashboards</strong> by monitoring software 
-(AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
+(Elasticsearch Kibana, Grafana, AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
 
 0. Obtain API keys from cloud vendors (understand OAuth2)
 0. Use separate files to keep keys from scripts (for security)
@@ -130,7 +143,7 @@ access credentials to show <strong>dashboards</strong> by monitoring software
 0. Stress test the board to evaluate temperature within board cases
 0. Train users/customers
 
-### PRODUCT 3 - Cloud-connected alerting devices
+### PRODUCT 4 - Cloud-connected alerting devices
 
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
 sends an SMS or email to whoever <strong>we pre-configure</strong>.
@@ -142,7 +155,7 @@ sends an SMS or email to whoever <strong>we pre-configure</strong>.
 0. Product checks before shipment
 0. Train users/customers
 
-### PRODUCT 4 - Local server
+### PRODUCT 5 - Local server
 
 MAKE FOR SALE: A server that never sleeps in your home or office,
 to house a duplicate of your laptop.
@@ -154,7 +167,7 @@ to house a duplicate of your laptop.
 0. Configure the Pi as a <strong>NAS server</strong> to store files
 0. Train users/customers
 
-### PRODUCT 5 - Predictive alerts from sensors
+### PRODUCT 6 - Predictive alerts from sensors
 
 MAKE FOR SALE: A buzzer or flashing light
 to alert you whenever an event of your choosing is detected.
@@ -166,7 +179,7 @@ to alert you whenever an event of your choosing is detected.
 0. Correlate multiple metrics (indoor and outdoor temperature)
 0. Evaluate limits of various sensors to environmental sensors
 
-### PRODUCT 6 - Recordings with cameras and microphones
+### PRODUCT 7 - Recordings with cameras and microphones
 
 MAKE FOR SALE: Take photos and movies and relay them to a server
 
@@ -176,7 +189,7 @@ MAKE FOR SALE: Take photos and movies and relay them to a server
 0. Configure a two-way presence 
 0. Test recording cycles checks before shipment
 
-### PRODUCT 7 - Media file processor service
+### PRODUCT 8 - Media file processor service
 
 MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 
@@ -187,7 +200,7 @@ MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 0. Obtain facial recognition
 
 
-### PRODUCT 8 - Autonomous outdoor device
+### PRODUCT 9 - Autonomous outdoor device
 
 MAKE FOR SALE: A device powered by battery and solar server 
 to do whatever you want.
@@ -198,18 +211,6 @@ to do whatever you want.
 0. Predict battery life
 0. Define battery maintenance alert mechanisms
 0. Product checks before shipment
-
-### PRODUCT 9 - Custom communications boards
-
-MAKE FOR SALE: A device that can communicate over longer distances
-using cell phone signals or advanced boards added,
-customized to your needs.
-
-0. Configure boards for ZigBee communication 
-0. Configure boards for LoRA communication
-0. Saving files elsewhere
-0. Track and analyze speeds at various conditions
-0. Train users/customers
 
 
 ### PRODUCT 10 - Mobile phone remote control

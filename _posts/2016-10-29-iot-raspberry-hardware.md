@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Raspberry Pi IoT Hardware"
-excerpt: "A toy by any other name is just as sweet"
+excerpt: "A board by any other name is just as sweet"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
@@ -149,9 +149,9 @@ This is a list of physical hardware categorized by basics and optional.
 0. A USB keyboard.
 
 
-   ### Case (Enclosure)
+## Case (Enclosure)
 
-0. Off signal switch. 
+### Off signal switch
 
    Unplugging the power can damage the SD card.
 
@@ -159,11 +159,49 @@ This is a list of physical hardware categorized by basics and optional.
    which a program recognizes and
    sends the proper shutdown command to the operating system software.
 
-   The program running in the background is started using this command: 
+### Compiled C option
 
-   <strong><tt>
-   rpi-shutdown-button.py &
-   </strong></tt>
+0. Navigate to 
+   <a target="_blank" href="https://github.com/adafruit/Adafruit-GPIO-Halt">
+   Adafruit's C program code</a> and compile the native program on the board.
+
+   <pre><strong>
+   cd Adafruit-GPIO-Halt
+   make
+   sudo make install
+   </strong></pre>
+
+0. Copy the <strong>gpio-halt</strong> executable file to folder:
+
+   <pre>
+   sudo cp gpio-halt  /usr/local/bin/
+   </pre>
+
+   That folder is also where ansible and easy_install are stored.
+
+0. Use a text editor to open the device boot-up configuration file:
+
+   <pre><strong>
+   sudo nano /etc/rc.local
+   </strong></pre>
+
+0. Cursor to just before final “exit 0” line, insert this line:
+
+   <pre>
+   /usr/local/bin/gpio-halt 21 &amp;
+   </pre>
+
+   Change the 21 to whatever GPIO pin your shutdown button is connected to --
+   see <a href="#GPIO">GPIO pins</a>.
+
+
+### Python option
+
+   A Python program running in the background is started using this command: 
+
+   <pre><strong>
+   rpi-shutdown-button.py &amp;
+   </strong></pre>
 
    To have it execute automatically upon restart, move the script to folder:
 
@@ -174,25 +212,45 @@ This is a list of physical hardware categorized by basics and optional.
 
    sudo pip install -U RPi.GPIO
 
-   The program defaults to GPIO pin 21 because that pin is next to the ground pin.
-   Connecting the two pins temporarily causes the signal that the program listens for.
-   That can be done with a metal paperclip. 
+   <a name="GPIO"></a>
 
-   But it is more user-friendly and safer.
+## GPIO pins
 
-   CAUTION: Connecting the two 5V pins together destroys the board.
+   Connecting two specific pins temporarily causes the signal that the program listens for.
+   That can be done with a metal paperclip, sissors, or flat screwdriver. 
+
+   The programs above default to GPIO pin 21 because that pin is next to the ground (GND) pin
+   on Pi models with the 40-pin header, such as the Pi 3.
+   On older Pi models with a shorter 28-pin header, 
+   GPIO 7 is similarly situated at the end of the header:
+
+   <a target="_blank" href="https://learn.adafruit.com/dotstar-pi-painter/raspberry-pi-setup">
+   <img alt="iot raspberry_pi_gpio-pins-650x488-119kb" src="https://cloud.githubusercontent.com/assets/300046/20641974/da5d54ee-b3c0-11e6-8707-808dc11b7a3e.png"></a>  
+
+   CAUTION: Connecting the two 5V pins together (at the edge of the board) 
+   destroys the board.
+
+
+## Restart Button
+
+   But a physical button is more user-friendly and safer.
 
    <a target="_blank" href="http://www.instructables.com/id/Simple-Raspberry-Pi-Shutdown-Button/">
    PROTIP: Salvage from old PC tower cases their physical button, wires, and pin plugs:
    <img alt="iot pc switch salvage-650x324-196kb" src="https://cloud.githubusercontent.com/assets/300046/20641060/bd2fdaea-b3ac-11e6-987d-669643466549.jpg"></a>
 
-   Ideally, the program should be programmed to 
-   listen on GPIO pin 17 because that pin is 
+   QUESTION: Put a 1K resistor to positive?
+
+   PROTIP: If you are using a wire to connect the switch,
+   set the program to listen on <strong>GPIO pin 17</strong> 
+   because that pin is 
    soley a GPIO pin and does not double up as something else.
+   This it may be more reliable.
 
-   Put a 1K resistor to positive. 
 
-0. Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
+   ## Enclosure
+
+   Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
 
    A) You can make a free case by cutting and folding the 
    <a target="_blank" href="https://www.raspberrypi.org/blog/the-punnet-a-card-case-for-you-to-print-for-free/">
