@@ -315,6 +315,9 @@ To get full capacity from USB/SD drives
 
    BLAH: The dd command does not have a verbose mode to show progress.
 
+   NOTE: The dd program is also used to <a href="#Backup">
+   backup the SD onto your laptop</a>.
+
 0. Wait. This takes 30 minutes or more.
 
    You should have a working SD card at the end.
@@ -2097,18 +2100,79 @@ Ansible 101 - on a Cluster of Raspberry Pi 2s
 * http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
 
 
+
+<a name="Backup"></a>
+
 ## Duplicate/Backup SD card
 
 When the Pi freezes or crashes, power needs to be unplug to get it going again,
 which may corrupt the SD card.
+
+* https://www.raspberrypi.org/blog/benchmarking-raspberry-pi-2/
+   Benchmark Pi's speed
+
+On a Mac:
 
 * <a target="_blank" href="https://www.maketecheasier.com/sd-card-images-raspberry-pi-mac/">
   This site</a> recommends
   <a target="_blank" href="http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/">
   ApplePi-Baker</a> for MacOS.
 
-* https://www.raspberrypi.org/blog/benchmarking-raspberry-pi-2/
-   Benchmark Pi's speed
+<a target="_blank" href="https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911">
+Alternately:</a>
+
+0. Issue a `sudo shutdown` command to power-off the Pi.
+0. Unplug the power cord to the Pi.
+0. Remove the card and plug it into the adapter for insertion into your laptop.
+0. If the disk does not appear among Finder devices, you may need servicing.
+0. Get the device and disk the Mac uses to identify the SD card:
+
+   <tt><strong>
+   diskutil list
+   </strong></tt>
+
+   Device and disk names are listed on the left.
+   Use the SIZE number to identify the SD card.
+
+   | Product | SIZE |
+   | ------: | ---: |
+   |   64 GB | 63.9 GB |
+
+   For example:
+
+   <pre>
+/dev/disk3 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *63.9 GB    disk3
+   1:             Windows_FAT_32 boot                    66.1 MB    disk3s1
+   2:                      Linux                         63.8 GB    disk3s2
+   </pre>
+
+0. Copy the whole disk to a <strong>disk image (.dmg)</strong>
+   file (replacing disk3 with whatever is
+   associated with your SD card drive)
+
+   <tt><strong>
+   sudo dd if=/dev/disk3 of=~/Desktop/rpi-jessie-2017-05-12.dmg
+   </strong></tt>
+
+0. Provide the password when prompted.
+0. Wait for completion (23 minutes for 8GB)
+   No progress is shown until completion, such as:
+
+   <pre>
+52475229+0 records in
+52475228+0 records out
+26867316736 bytes transferred in 2380.868722 secs (11284670 bytes/sec)
+   </pre>
+
+0. <strong>Eject</strong> the drive in Finder by clicking the icon next to its name.
+
+   <pre>
+diskutil unmountDisk /dev/disk3
+   </pre>
+
+0. Transfer the chip back on the Pi.
 
 
 ## Rock Stars

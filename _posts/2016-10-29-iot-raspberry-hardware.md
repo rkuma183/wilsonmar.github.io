@@ -149,15 +149,18 @@ This is a list of physical hardware categorized by basics and optional.
 0. A USB keyboard.
 
 
-## Case (Enclosure)
+## Button
 
 ### Off signal switch
 
-   Unplugging the power can damage the SD card.
+   Abruptly unplugging the power source can damage the SD card.
 
    Preferrable is a physical switch that temporarily connects two GPIO pins on the board,
    which a program recognizes and
    sends the proper shutdown command to the operating system software.
+
+   <a target="_blank" href="https://www.adafruit.com/product/1010">
+   $5.95 gets you 15 switches</a> to solder.
 
 ### Compiled C option
 
@@ -191,7 +194,8 @@ This is a list of physical hardware categorized by basics and optional.
    /usr/local/bin/gpio-halt 21 &amp;
    </pre>
 
-   Change the 21 to whatever GPIO pin your shutdown button is connected to --
+   Change the 21 (port number) to 
+   whatever GPIO pin your shutdown button is connected to --
    see <a href="#GPIO">GPIO pins</a>.
 
 
