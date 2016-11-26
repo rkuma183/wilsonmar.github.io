@@ -86,14 +86,16 @@ That includes training in effective use of social media.
 
 <strong>Build a Raspberry Pi with Raspbian running Python Ansible IoT</strong>
 
-In the class, I provide each learner a Raspberry Pi 3 B board 
-with power adapter and two 16 GB sd chips.
+In the class, each learner is provided with everything except a laptop:
+a Raspberry Pi 3 B board 
+with power adapter and two 32 GB class 10 SD chips.
 A router is available during classes.
 
 ### PRODUCT 1 - Configured devices
 
-MAKE FOR SALE: A Raspberry Pi custom-configured with Raspbian Jessie, our utilities,
-and whatever else you want. Save time. Includes diagnostic
+MAKE FOR SALE: A Raspberry Pi SD card configured with Raspbian Jessie
+and installed with diagnistics and libraries for 
+develpement using Linux, Python, Node, Mono.
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -102,9 +104,15 @@ and whatever else you want. Save time. Includes diagnostic
 0. Install and use Git to obtain files from GitHub online
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
+0. Configure USB drive to mount automatically
+0. BONUS: Build and configure an on/off button for orderly shutdown
 0. Backup configuration changes people can buy to avoid the hassle above
 0. Product checks before shipment
 0. Train users/customers
+
+
+There are several knowledge
+
 
 ### PRODUCT 2 - Cloud-connected devices
 
@@ -261,6 +269,8 @@ MAKE FOR SALE: A device that can move on its own,
 custom configured to your needs.
 
 0. Evaluate various drones (costs vs. advantages)
+0. Add to board sensors such as gas detector
+0. Install board with appropriate power
 0. Drone operation checkout
 0. Configure flight path
 0. Test flights
@@ -281,10 +291,16 @@ from the low-level bottom-up:
 
    See my tutorial on [IoT Hardware](/iot-raspberry-hardware/).
 
-0. Add-on components (sensors and actuators)
+   Volts vs. Amps 
+
+   <a target="_blank" href="https://learn.adafruit.com/dotstar-pi-painter/raspberry-pi-setup">
+   Install an shutdown signal button</a> (which uses GPIO pins)
+
+0. Add-on components (drives, sensors, and actuators)
 
    See my tutorial on [IoT Hardware](/iot-raspberry-hardware/):
-   enclosures
+   
+   Convert Centigrade to Ferenheit
 
 0. Operating Systems - Linux
 

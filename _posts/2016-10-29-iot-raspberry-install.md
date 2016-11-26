@@ -583,7 +583,28 @@ If you setup WiFi on your laptop, you would have already used the information ne
    NOTE: This was inspired by
    https://github.com/Condla/ansible-playground/tree/master/raspbian-bootstrap
 
-0. Response to prompts in the script, such as enter Y and press Enter to:
+   ### Metrics about the Pi
+
+   The script calls a Python script <strong>rpi-system-info.py</strong>
+   which issues output such as this:
+
+   <pre>
+Serial number:     d85fdaa0
+IP-address:        10.0.0.6
+Up time hours:     1 day,  8:58
+Free RAM:          766 of 925 MB total (1GB)
+# of connections:  3
+# of processes:    159
+SD card disk space 51B free and 3B used of 58B
+USB disk 1 space:  ?
+CPU Temperature:   44.0C = 111.2F (Max. 85C = 185F)
+CPU speed  arm_freq=1200  (Default:1200 Under:600 Over:1350)
+CPU speed  core_freq=400  (Default: 400 Under:250 Over:500)
+CPU speed sdram_freq=450  (Default: 450 Under:450)
+   </pre>
+
+   The script has been set to not stop for a manual response 
+   to prompts in the script, such as enter Y and press Enter to:
 
    <pre>
 88 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
@@ -641,7 +662,15 @@ tmpfs            93M     0   93M   0% /run/user/1000
    cp wpa_supplicant.conf.example wpa_supplicant.conf
    </strong></tt>
 
+   WARNING: Lines within the network section in the supplicant file 
+   should be indented with a single tab (not spaces). 
 
+0. To enable the Pi to recognize and transfer files to/from
+   Samsung Galaxy mobile phones, install:
+
+   <tt><strong>
+   sudo apt-get install gmtp
+   </strong></tt>
 
 
 <a name="GetConfigScripts"></a>
@@ -1200,6 +1229,54 @@ POWERDOWN_TIME=0 # default 15
 
    See http://cagewebdev.com/raspberry-pi-getting-audio-working/
 
+   ### Use USB stick
+
+0. To read drives formatted in NTFS (for use by Windows), install:
+
+   <tt><strong>
+   sudo apt-get install ntfs-3g
+   </strong></tt>
+
+   0. For statistics about an un-mounted USB drive:
+
+   <tt><strong>
+   sudo fdisk -l | grep sda
+   </strong></tt>
+
+   A 16GB drive would appear as 15G:
+
+   <pre>
+Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
+/dev/sda1        1864 31457279 31455416  15G  c W95 FAT32 (LBA)   
+   </pre>
+
+0. To automatically mount a drive, install:
+
+   <tt><strong>
+   sudo apt-get install usbmount
+   </strong></tt>
+
+   This creates a folder: `/media` and under that:
+
+   <pre>
+   pi  usb  usb0  usb1  usb2  usb3  usb4  usb5  usb6  usb7
+   </pre>
+
+0. Reboot and ssh in again.
+
+0. List files in the USB drive on the Pi:
+
+   <pre><strong>
+   tree /mount/usb
+   </strong></pre>
+
+0. List files in the USB drive on the Pi:
+
+   <pre>
+   ls /mount/usb
+   </pre>
+
+0. Reboot the system for the changes to take.
 
 
    ### Additional utilities
