@@ -32,6 +32,8 @@ Click on one of these links to display a
    (listed by frequency of auto-refresh):
 
 <ul>
+<li><a target="_blank" href="http://www.n2yo.com/space-station/">
+Space Station location over earth evening view</a></li>
 <li><a target="_blank" href="http://www.bostonherald.com/">Boston Herald</a> -- 300 seconds</li>
 <li><a target="_blank" href="http://www.latimes.com/">Los Angeles Times</a> -- 300 seconds</li>
 <li><a target="_blank" href="http://www.abcnews.com/">ABC News</a> -- 600 seconds</li>

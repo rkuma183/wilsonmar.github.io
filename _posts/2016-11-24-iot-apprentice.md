@@ -110,7 +110,7 @@ developement using Linux, Python, Node, Mono, and various utilities.
 0. Train users/customers
 
 
-### PRODUCT 2 - Custom boards and enclosure
+### PRODUCT 2 - Custom boards and enclosures
 
 MAKE FOR SALE: A custom-made enclosure for a Raspberry Pi 
 with cooling fan, on/off switch, and additional board for
@@ -134,28 +134,33 @@ MAKE FOR SALE: A complete <strong>plug-and-play</strong> device
 access credentials to show <strong>dashboards</strong> by monitoring software 
 (Elasticsearch Kibana, Grafana, AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
 
+0. Measure board temperature and other metrics
+0. Connect a monitor to the Pi via HDMI
+0. Configure monitor sleep timers
 0. Obtain API keys from cloud vendors (understand OAuth2)
 0. Use separate files to keep keys from scripts (for security)
 0. Evaluate different IoT clouds (costs vs advantages of each)
 0. Run Python script on the Pi to send a tweet to Twitter
 0. Compare enterprise IoT devices and their risks
-0. Measure board temperature and other metrics
 0. Stress test the board to evaluate temperature within board cases
 0. Train users/customers
+
 
 ### PRODUCT 4 - Cloud-connected alerting devices
 
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
 sends an SMS or email to whoever <strong>we pre-configure</strong>.
 
-0. Configure an Amazon IoT button that connect to AWS cloud
-   reaches SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
+0. Configure an Amazon IoT button that sends a signal to the AWS cloud to
+   reach SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
 0. Configure the Pi to connect to AWS cloud running pre-built apps
-   (<strong>water leak detector</strong>).
+   (<strong>water leak detector</strong>)
+0. Configure Text to speech synthesis
 0. Product checks before shipment
 0. Train users/customers
 
-### PRODUCT 5 - Local server
+
+### PRODUCT 5 - Local data server
 
 MAKE FOR SALE: A server that never sleeps in your home or office,
 to house a duplicate of your laptop.
@@ -164,8 +169,12 @@ to house a duplicate of your laptop.
 0. Configure the Pi as a <strong>Gitlab server</strong> 
    that mirrors changes on laptops for complete data recovery
 0. Connect large USB drives to the Pi
-0. Configure the Pi as a <strong>NAS server</strong> to store files
+0. Install openmediavault.org server to access shares on a browser
+0. Configure port forwarding to access data remotely
+0. Configure network shares using a <strong>NAS server</strong> to store files
+0. Connect using clients and mobile devices to obtain files
 0. Train users/customers
+
 
 ### PRODUCT 6 - Predictive alerts from sensors
 
@@ -179,15 +188,19 @@ to alert you whenever an event of your choosing is detected.
 0. Correlate multiple metrics (indoor and outdoor temperature)
 0. Evaluate limits of various sensors to environmental sensors
 
-### PRODUCT 7 - Recordings with cameras and microphones
 
-MAKE FOR SALE: Take photos and movies and relay them to a server
+### PRODUCT 7 - Recordings with cameras 
+
+MAKE FOR SALE: Take photos periodically and relay them to a server
 
 0. Identify options for recording images and video
-0. Configure a closed-circuit camera feed
 0. Consider implications for constant-on webcams
-0. Configure a two-way presence 
+0. Configure a closed-circuit camera feed
+0. Configure fswebcam to use a 640x480 USB camera
+0. Configure cron job to take pictures periodically
+0. Configure a two-way live presence 
 0. Test recording cycles checks before shipment
+
 
 ### PRODUCT 8 - Media file processor service
 
@@ -196,6 +209,7 @@ MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 0. Process media locally on a Pi
 0. Send media to a public cloud
 0. Process media on public cloud
+0. Use cloud service for facial recognition
 0. Compress media
 0. Obtain facial recognition
 
@@ -225,6 +239,7 @@ such as make it ring so you can find it.
 0. Test interface
 0. Train users/customers
 
+
 ### PRODUCT 11 - Control Lights 
 
 MAKE FOR SALE: Control the lights in your home remotely the way you want.
@@ -239,6 +254,7 @@ We configure it for you to just plug in and it works.
 0. Analyze time series data
 0. Explore use cases, costs vs. advantages for home automation
 0. Train users/customers
+
 
 ### PRODUCT 12 - Custom home automation programs
 
@@ -277,6 +293,12 @@ custom configured to your needs.
 0. Test flights
 0. Perform, track, and predict maintenace 
 0. Train users/customers
+
+
+### PRODUCT 15 - Satellite File Transfers
+
+MAKE FOR SALE: A device that sends and receive files to a satellite.
+
 
 
 ## Topics covered

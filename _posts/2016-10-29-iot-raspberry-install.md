@@ -1281,6 +1281,8 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 
 0. Reboot the system for the changes to take.
 
+   NOTE: The Media
+
 
    ### Additional utilities
 
@@ -2069,7 +2071,6 @@ proc        /proc          proc defaults             0 0
    <tt><strong>
    sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
    </strong></tt>
-
 
 ## Hadoop clusters
 

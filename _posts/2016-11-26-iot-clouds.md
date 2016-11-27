@@ -72,6 +72,8 @@ Cloud services for IoT is fiercely contested market.
 0. <a href="#Losant">Losant.com</a>
    has a Cloud integrated with its IDE and devices from others.
 
+0. <a href="#Adafruit">Adafruit.io</a>
+   provides a simple cloud to collect and display sensor feeds.
 
 <hr />
 
@@ -207,6 +209,39 @@ Intel lists its cloud services affiliations at<br />
 <a target="_blank" href="https://software.intel.com/en-us/iot/cloud-analytics">
 https://software.intel.com/en-us/iot/cloud-analytics</a>.
 
+<hr />
+
+<a name="Adafruit"></a>
+
+## Adafruit.io #
+
+Below are instructions for 
+<a target="_blank" href="https://learn.adafruit.com/adafruit-io-basics-feeds">
+creating a feed</a>
+
+0. Register for an account at io.adafruit.com.
+0. In the Welcome Dashboard, you can drag the "Try Me" slider to a value of your choosing.
+0. Click MY DASHBOARDS, Your Feeds. CREATE FEED.
+0. PROTIP: Since you'll have many devices, name the feed with the brand and 
+   serial number of the device, such as:
+
+   * rpi-d85fdaa0-cpu-temp
+   * rpi-d85fdaa0-room-temp
+
+0. Click CREATE FEED.
+0. Optionally, click to change licensing and public/private visibility,
+   which is ironic considering the AIO key is part of the query string,
+   making it totally vulnerable to interception.
+0. Click VIEW AIO KEYS. Highlight it and copy it to save it in a file
+   along with the feed ID.
+0. Construct a REST API call:
+   <pre>
+https://io.adafruit.com/api/groups/weather/send.json?x-aio-key=cda65ef7542e42d18aafcdd3d2ed4688&temperature=13&humidity=12&wind=45
+   </pre>
+
+   The response is 
+
+0. The website provides docs for Node, Python, Ruby.
 
 <hr />
 
