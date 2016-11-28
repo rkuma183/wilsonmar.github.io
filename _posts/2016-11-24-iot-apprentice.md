@@ -15,31 +15,35 @@ comments: true
 
 {% include _toc.html %}
 
-## Build products, not toys and games
+## Useful tools, not just toys and games
+
+<a target="_blank" href="https://boldomatic.com/shop/product/mug/-zK2MA?mockup=B-TPAC-MUG-N-m1&design=blacktext&color=white&size=standard"
+alt="iot mkt mug more feature less stress 650x552-130kb">
+<img alt="MORE FEATURES OF LESS STRESS" width="650" height="552" src="https://cloud.githubusercontent.com/assets/300046/20648066/1d9b085c-b45a-11e6-9970-86ae82498db0.png"></a>
+
+What we do is train people to build things
+that help others save time and money, safely.
 
 The unique aspect of our curriculum is that you
 create complete <strong>products consumers buy</strong>
-to plug in and simply work.
+to plug in and simply work for them.
 
-Rather than starting by messing with breadboards and 
-loose wires making little lights flash on the board, 
-we focus on <strong>useful</strong> things that
-connect to <strong>enterprise clouds</strong>.
+We provide all that you need.
+Instructions. Equipment. Quality controls.
 
-Our focus is not for you to build toys for yourself,
-but devices that help companies save and make money.
+Rather than starting by messing with toys and games,
+we connect to <strong>enterprise clouds</strong>
+in a secure way.
 
 
 ## Start from examples, not blank stares
 
-We begin by NOT training people to program code from scratch.
-
-We begin with by <strong>running</strong> pre-programmed
+Rather than starting by memorizing code from scratch,
+you run <strong>pre-programmed</strong>
 automation scripts that perform the steps,
-and participants learn by making changes to 
+then make changes to 
 see the impact and troubleshoot.
-
-This is much like what happens on real jobs,
+This is what happens on real jobs,
 which is the purpose of this curriculum.
 
 NOTE: Even though all manual steps are specified in training materials, 
@@ -49,11 +53,12 @@ have an easier time than those who do not.
 
 ## Hands-on step-by-step training
 
-Curriculum materials include a hands-on 
-<strong>step-by-step tutorial book</strong>
-and videos.
+Curriculum materials include 
+<strong>step-by-step tutorial guidebooks</strong>
+with pro tips, quizzes, and video diagrams.
 
-This is how we instill habits for good safety and vigilent security
+Among the steps, 
+we instill habits for good safety and vigilent security
 necessary at today's enterprises.
 
 
@@ -93,9 +98,14 @@ A router is available during classes.
 
 ### PRODUCT 1 - Configured devices
 
-MAKE FOR SALE: A Raspberry Pi SD card configured with Raspbian Jessie
-and installed with diagnistics and libraries for 
-developement using Linux, Python, Node, Mono, and various utilities.
+MAKE FOR SALE: Raspberry Pi SD cards customized with your access details and
+configured with the latest
+operating system (Raspbian Jessie)
+and installed with diagnistics and many libraries for 
+running programs using Linux Bash, Python, Node, Mono, and other utilities.
+Two cards in case one goes bad.
+
+<img alt="iot sd card compared 650x366-186kb" width="650" height="368" src="https://cloud.githubusercontent.com/assets/300046/20649460/f26fc7f2-b47d-11e6-9911-fd5f4aa748ce.png">
 
 0. Assemble an SD card containing the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
@@ -117,22 +127,26 @@ with cooling fan, on/off switch, and additional board for
 long-range communications 
 using cell phone signals, Zigbee, or other advanced board.
 
+   <img alt="iot raspberry-pi-3-overclock-case-400x337" src="https://cloud.githubusercontent.com/assets/300046/20623425/bab6bcfe-b2c4-11e6-929f-f367844a254b.jpg">
+
 0. Configure a service to recognize GPIO pin connections
 0. Wire-up and configure an on/off button for orderly shutdown
 0. Create a paper case 
 0. Design a tamper-resistent metal enclosure
 0. Design a case using 3D printing
 0. Configure boards for ZigBee (or LoRA) communication 
+0. Design a case for 3D printing
 0. Measure and analyze speeds and quality at various conditions
 0. Train users/customers
 
 
 ### PRODUCT 3 - Cloud-connected devices
 
-MAKE FOR SALE: A complete <strong>plug-and-play</strong> device 
-<strong>we pre-configure</strong> with
-access credentials to show <strong>dashboards</strong> by monitoring software 
+MAKE FOR SALE: A complete device which displays 
+<strong>dashboards</strong> by monitoring software 
 (Elasticsearch Kibana, Grafana, AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
+
+<a title="dataviz grafana panel_resize.gif" href="http://grafana.org/blog/2015/10/28/grafana-2.5-released/"><img alt="Grafana" width="594" height="310" src="https://cloud.githubusercontent.com/assets/300046/20649329/abd3db4c-b47a-11e6-8d35-2c3e1a3660d3.gif"></a>
 
 0. Measure board temperature and other metrics
 0. Connect a monitor to the Pi via HDMI
@@ -151,6 +165,8 @@ access credentials to show <strong>dashboards</strong> by monitoring software
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
 sends an SMS or email to whoever <strong>we pre-configure</strong>.
 
+<img alt="iot cloud laptop cut 237x165" width="650" src="https://cloud.githubusercontent.com/assets/300046/20649349/2fa61412-b47b-11e6-996e-e68ee591fb26.png">
+
 0. Configure an Amazon IoT button that sends a signal to the AWS cloud to
    reach SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
 0. Configure the Pi to connect to AWS cloud running pre-built apps
@@ -163,7 +179,11 @@ sends an SMS or email to whoever <strong>we pre-configure</strong>.
 ### PRODUCT 5 - Local data server
 
 MAKE FOR SALE: A server that never sleeps in your home or office,
-to house a duplicate of your laptop.
+to house a duplicate of what is on your laptop, 
+without fees for cloud access.
+
+<!-- http://vincentsanders.blogspot.com/2015_10_01_archive.html -->
+![iot clear case with drive jpb 400x300-16kb](https://cloud.githubusercontent.com/assets/300046/20649558/ee4ef074-b47f-11e6-8ed6-e3a8c726112d.jpeg)
 
 0. Configure the Pi to do <strong>work based on a schedule</strong>.
 0. Configure the Pi as a <strong>Gitlab server</strong> 
@@ -189,7 +209,7 @@ to alert you whenever an event of your choosing is detected.
 0. Evaluate limits of various sensors to environmental sensors
 
 
-### PRODUCT 7 - Recordings with cameras 
+### PRODUCT 7 - Recordings with cameras
 
 MAKE FOR SALE: Take photos periodically and relay them to a server
 
@@ -216,8 +236,10 @@ MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 
 ### PRODUCT 9 - Autonomous outdoor device
 
-MAKE FOR SALE: A device powered by battery and solar server 
-to do whatever you want.
+MAKE FOR SALE: A device powered by battery and solar panel
+to move camera on a rail for 
+<a target="_blank" href="https://learn.adafruit.com/touchscreen-pi-timelapse-controller">
+time-lapse videos</a>
 
 0. Design for weather-proof configurations
 0. Power the Pi using 12V batteries from automobiles
