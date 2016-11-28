@@ -96,7 +96,7 @@ a Raspberry Pi 3 B board
 with power adapter and two 32 GB class 10 SD chips.
 A router is available during classes.
 
-### PRODUCT 1 - Configured devices
+### PRODUCT 1 - Configured SD cards
 
 MAKE FOR SALE: Raspberry Pi SD cards customized with your access details and
 configured with the latest
@@ -120,27 +120,27 @@ Two cards in case one goes bad.
 0. Train users/customers
 
 
-### PRODUCT 2 - Custom boards and enclosures
+### PRODUCT 2 - Custom enclosures
 
 MAKE FOR SALE: A custom-made enclosure for a Raspberry Pi 
 with cooling fan, on/off switch, and additional board for
 long-range communications 
 using cell phone signals, Zigbee, or other advanced board.
 
-   <img alt="iot raspberry-pi-3-overclock-case-400x337" src="https://cloud.githubusercontent.com/assets/300046/20623425/bab6bcfe-b2c4-11e6-929f-f367844a254b.jpg">
+<img alt="iot raspberry-pi-3-overclock-case-400x337" src="https://cloud.githubusercontent.com/assets/300046/20623425/bab6bcfe-b2c4-11e6-929f-f367844a254b.jpg">
 
 0. Configure a service to recognize GPIO pin connections
 0. Wire-up and configure an on/off button for orderly shutdown
 0. Create a paper case 
-0. Design a tamper-resistent metal enclosure
-0. Design a case using 3D printing
-0. Configure boards for ZigBee (or LoRA) communication 
-0. Design a case for 3D printing
+0. Assess tamper-resistent metal enclosure strategies
+0. BONUS: Configure boards for ZigBee (or LoRA) communication 
+0. Design a case using <strong>3D CAD</strong> software
+0. Print and adjust a case from <strong>3D printer</strong>
 0. Measure and analyze speeds and quality at various conditions
 0. Train users/customers
 
 
-### PRODUCT 3 - Cloud-connected devices
+### PRODUCT 3 - Cloud-connected dashboard TVs
 
 MAKE FOR SALE: A complete device which displays 
 <strong>dashboards</strong> by monitoring software 
@@ -160,7 +160,7 @@ MAKE FOR SALE: A complete device which displays
 0. Train users/customers
 
 
-### PRODUCT 4 - Cloud-connected alerting devices
+### PRODUCT 4 - Cloud-connected alerting device
 
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
 sends an SMS or email to whoever <strong>we pre-configure</strong>.
@@ -176,7 +176,7 @@ sends an SMS or email to whoever <strong>we pre-configure</strong>.
 0. Train users/customers
 
 
-### PRODUCT 5 - Local data server
+### PRODUCT 5 - Local redundant data server
 
 MAKE FOR SALE: A server that never sleeps in your home or office,
 to house a duplicate of what is on your laptop, 
@@ -299,7 +299,6 @@ MAKE FOR SALE: Make things that move on a schedule or event of your choosing.
 0. Compare Pi vs. Arduino and others
 0. Calculate physics formulas for space, weight, and volume
 0. Conduct repetitive tests for safety
-0. "Animaltronics"
 
 
 ### PRODUCT 14 - Custom drone flights
@@ -313,7 +312,7 @@ custom configured to your needs.
 0. Drone operation checkout
 0. Configure flight path
 0. Test flights
-0. Perform, track, and predict maintenace 
+0. Perform, track, and schedule predicted maintenace 
 0. Train users/customers
 
 
@@ -321,6 +320,11 @@ custom configured to your needs.
 
 MAKE FOR SALE: A device that sends and receive files to a satellite.
 
+0. Order satellite hardware and cables
+0. Configure
+0. Test 
+0. Perform, track, and schedule predicted maintenace 
+0. Train users/customers
 
 
 ## Topics covered
@@ -366,6 +370,8 @@ from the low-level bottom-up:
 0. Back-end application coding - API access to clouds
 
    Shell scripts and PowerShell scripts, Python, C# batch
+
+   Data engineering
 
 0. Front-end application coding - API access to clouds
 

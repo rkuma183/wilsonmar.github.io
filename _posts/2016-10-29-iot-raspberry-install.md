@@ -392,9 +392,34 @@ it would by default display a GUI, and have no WiFi connection.
    startx
    </strong></tt>
 
+
+   ### View Raspbian GUI from Remote Desktop Client
+
+0. To see the GUI from your Mac, install the Xrdp daemon that runs in the background:
+
+   <tt><strong>
+   sudo apt-get install xrdp -y
+   </strong></tt>
+
+   `-y` skips manual confirmation for using 10.0 MB of disk space.
+
+   WARNING: This takes up valuable memory, so only use during development.
+
+0. Open Remote Desktop Client
+
+   On Windows, press the Start key on your keyboard and begin typing
+   "Remote Desktop Client" until you see it in the list, then click it on the list.
+
+   On a Mac, install the
+   <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
+   Microsoft Remote Desktop
+   from Microsoft</a> then open it in the Launcher.
+
+0. Specify IP address in Remote Desktop Client.
+
    ### Configure using GUI
 
-0. Click the raspberry icon at the upper-left corner.
+0. Click the Raspberry icon at the upper-left corner.
 0. Select Preferences.
 0. Select Raspberry Pi Configuration.
 0. Type in host name "raspi" so there is less to type.
@@ -407,7 +432,7 @@ it would by default display a GUI, and have no WiFi connection.
    the upper-right corner, select shutdown, then
    select reboot.
 
-   ### Command Line from GUI
+   ### Get Command Line from GUI
 
    PROTIP: Open up a Terminal window by pressing Ctrl+Alt+T
    or clicking the console icon in the GUI.
@@ -2174,6 +2199,24 @@ diskutil unmountDisk /dev/disk3
    </pre>
 
 0. Transfer the chip back on the Pi.
+
+## Website
+
+A Dynamic DNS is a public DNS name such as 
+http://pyramidhead.gotdns.com/
+which points to the IP address of your home network IP.
+This example from "gotdns.com" is from Dyn.com for $40/year.
+
+http://www.noip.com/
+
+http://www.dnsdynamic.org/
+provides
+____.dnsdynamic.com
+sites free.
+
+http://lifehacker.com/the-best-free-alternatives-to-dyndns-1561556205
+
+http://lifehacker.com/124804/geek-to-live--how-to-assign-a-domain-name-to-your-home-web-server
 
 
 ## Rock Stars

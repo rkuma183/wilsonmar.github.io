@@ -149,9 +149,7 @@ This is a list of physical hardware categorized by basics and optional.
 0. A USB keyboard.
 
 
-## Button
-
-### Off signal switch
+## Off signal button
 
    Abruptly unplugging the power source can damage the SD card.
 
@@ -218,24 +216,47 @@ This is a list of physical hardware categorized by basics and optional.
 
    <a name="GPIO"></a>
 
-## GPIO pins
-
-   Connecting two specific pins temporarily causes the signal that the program listens for.
-   That can be done with a metal paperclip, sissors, or flat screwdriver. 
-
-   The programs above default to GPIO pin 21 because that pin is next to the ground (GND) pin
-   on Pi models with the 40-pin header, such as the Pi 3.
-   On older Pi models with a shorter 28-pin header, 
-   GPIO 7 is similarly situated at the end of the header:
+### GPIO pins on headers
 
    <a target="_blank" href="https://learn.adafruit.com/dotstar-pi-painter/raspberry-pi-setup">
-   <img alt="iot raspberry_pi_gpio-pins-650x488-119kb" src="https://cloud.githubusercontent.com/assets/300046/20641974/da5d54ee-b3c0-11e6-8707-808dc11b7a3e.png"></a>  
+   <img alt="iot rpi pins gpio v01-575x459.png" width="575" height="459" src="https://cloud.githubusercontent.com/assets/300046/20675663/4de84984-b54a-11e6-911f-40b46db5e03b.png"></a>  
 
-   CAUTION: Connecting the two 5V pins together (at the edge of the board) 
+   Physical pins are numbered in pairs, starting from 3.3V and 5V at 1 and 2.
+   Pins marked in red provide (output) power via wires to devices.
+   There are 5V pins in positions 2 and 4.
+   Generally, older sensors and actuators tend to use 5V, 
+   whereas newer ones use 3.3V in positions 1 and 17.
+
+   DNC means "Do Not Connect".
+
+   CAUTION: 
+   Connecting two 5V pins together (at the edge of the board) 
    destroys the board.
 
+   On older Pi 2 A models have a shorter <strong>26-pin</strong> header.
+   Newer Pi 3 B+ models have 40 pins.
 
-## Restart Button
+   Broadcom, the maker of the chip,
+   defined GPIO (General Purpose Input Output) pin numbers 
+   in its library for software code to listen for connections between a
+   physical pin with a <strong>ground</strong> pin (marked GND in black).
+   Ground pins are always 6, 9, 14, 20, 30, 39.
+
+   DotStar is used by 
+   <a target="_start" href="https://learn.adafruit.com/adafruit-dotstar-leds/overview">
+   Adafruit's 5V LED light strips</a>
+
+   The program listening for shutdown default to two pins next to each other:
+   GPIO 21 (pin 40) with GND pin 39. Alternately, on older boards, the program would listen for
+   GPIO 7 (pin 26) with GND pin 25 because that pin is next to the ground (GND) pin.
+
+   The connection can be made with anything conductive (such as a 
+   metal paperclip, sissors, or flat screwdriver).
+   There are wires and switches made to connect.
+
+   https://learn.adafruit.com/adafruit-dotstar-leds/overview
+
+### Physical Button
 
    But a physical button is more user-friendly and safer.
 
@@ -246,13 +267,13 @@ This is a list of physical hardware categorized by basics and optional.
    QUESTION: Put a 1K resistor to positive?
 
    PROTIP: If you are using a wire to connect the switch,
-   set the program to listen on <strong>GPIO pin 17</strong> 
+   set the program to listen on <strong>GPIO 17</strong> (pin 11)
    because that pin is 
    soley a GPIO pin and does not double up as something else.
-   This it may be more reliable.
+   This may be more reliable.
 
 
-   ## Enclosure
+## Enclosure
 
    Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
 
@@ -289,6 +310,8 @@ This is a list of physical hardware categorized by basics and optional.
    QUESTION: Is there enough air flow through the case to dissipate heat,
    yet keep dust from forming on the board?
 
+
+
    C) <strong>Case with external fan</strong><br />
    <a target="_blank" href="https://www.pretzellogix.net/2015/09/02/the-best-raspberry-pi-2-cases-compared-and-reviewed/">
    This article comparing the running temp of 12 cases</a> 
@@ -313,7 +336,6 @@ This is a list of physical hardware categorized by basics and optional.
 
    https://www.youtube.com/watch?v=yOHws0qBBmI
 
-0. Screen
 
    <a target="_blank" href="https://www.amazon.com/LoveRPi-Premium-Official-Raspberry-Display/dp/B01GEOLNNS/">
    $19.99 cover</a> does not accomododate a fan for the
@@ -321,7 +343,31 @@ This is a list of physical hardware categorized by basics and optional.
    $68 for a 7-inch Touch-screen for Pi</a>
    powered by the GPIO or USB.
 
-0. Powered USB 2.0 hub.
+   <a target=_blank" href="https://www.amazon.com/800x480-Resolution-iUniker-Raspberry-Display/dp/B01LX526QA/ref=wilsonslifenotes/">
+   $49.99 3.5 inch 800x480 TFT Display with case</a>
+   for 60+ fps video at 900:1 contrast ratio vieweable at 160 degrees. 
+   Uses 3V. See
+   <a target="_blank" href="http://www.raspberrypiwiki.com/index.php/Rpi_HD_3.5_inch_TFT/">
+   this</a>.
+
+   The CSI (Camera Serial Interface) Type-2 connector (next to the HDMI)
+   received video one-way to the Broadcom BCM2835 processor on the Pi.
+   via a ZIF 15 ribbon cable.
+
+   <a target="_blank" href="http://www.petervis.com/Raspberry_PI/Raspberry_Pi_CSI/Raspberry_Pi_CSI_Camera_Module.html">
+   <img alt="iot-csi-zif-cable-411x180" src="https://cloud.githubusercontent.com/assets/300046/20623692/0a99a7da-b2c6-11e6-9846-47a643f9839b.png"></a>
+
+   The CSI interface was developed by the MIPI Alliance and
+   is common to almost all Android mobile phones.
+   MIPI CSI-2 version 1.01 supports up to four data lanes, where each lane has a maximum of 1 Gbps bandwidth, to provide a total bandwidth of 4 Gbps. 
+
+   <a target="_blank" href="http://www.mcmelectronics.com/product/28-21441">
+   A $25 NoIR Camera V2</a> is IR sensitive for low-light situations.
+   Its 8MP Sony image sensor takes 3280 x 2464 pixel images and 
+   captures video at 1080p30, 720p60 and 640x480p90 resolutions. 
+
+
+## Powered USB 2.0 hub.
 
    USB provides power as well as provide a conduit for communicating data,
    but for USB devices drawing more than 100 mA, voltage drops.
@@ -335,12 +381,29 @@ This is a list of physical hardware categorized by basics and optional.
    It's 10x faster due to its blue color. (OK I'm kidding)<br />
    USB 3.1 "SUPERSPEED" was released in 2014.
 
-0. USB stick or USB hard drive provides extra storage.
+0. USB hard drive provides extra storage.
    convenient to easily add photos, videos, or other media the Pi displays.
 
    The Passport drive has 250 GB.
 
-   WD sells USB 3 drives up to several Terabytes.
+   Western Digital's "WD PiDrive" is available in kit form that includes cables and an enclosure.
+   The 314 Gbyte drive retails at $45.81.
+   They also have a 1 Terabyte version.
+   The WD PiDrive kit includes a 4-headed "hydra cable" for 
+   connecting the Raspberry Pi’s two USB ports
+   (one for power and the other provides access to the drive).
+
+   It supports the http://www.berryterminal.com/doku.php/berryboot
+   loader.
+
+   <a target="_blank" href="">
+   $24.99 USB 2.0 to SATA Converter Stackable Expansion Board
+   from Ableconn</a> (Taiwan)
+   connects SATA drives to the Pi.
+   The drive requires a 300 Watt <strong>ATX power supply</strong> for the drive
+   from an old PC tower case:<br />
+   <a target="_blank" target="iot atx-netzteil 650x477-512kb.jpg" href="https://en.wikipedia.org/wiki/ATX#/media/File:ATX-Netzteil.jpg"><img width="650" height="477" src="https://cloud.githubusercontent.com/assets/300046/20666855/84471ab8-b523-11e6-9d41-c304bc2948ae.jpg"></a>
+
 
 0. USB to UART serial cable. 
    It's an alternative to using Ethernet and plugging
@@ -359,24 +422,10 @@ This is a list of physical hardware categorized by basics and optional.
 
 0. Boards for ZigBee communication 
 
-0. The CSI (Camera Serial Interface) Type-2 connector (next to the HDMI)
-   received video one-way to the Broadcom BCM2835 processor on the Pi.
-   via a ZIF 15 ribbon cable.
 
-   <a target="_blank" href="http://www.petervis.com/Raspberry_PI/Raspberry_Pi_CSI/Raspberry_Pi_CSI_Camera_Module.html">
-   <img alt="iot-csi-zif-cable-411x180" src="https://cloud.githubusercontent.com/assets/300046/20623692/0a99a7da-b2c6-11e6-9846-47a643f9839b.png"></a>
+## Power controls
 
-   The CSI interface was developed by the MIPI Alliance and
-   is common to almost all Android mobile phones.
-   MIPI CSI-2 version 1.01 supports up to four data lanes, where each lane has a maximum of 1 Gbps bandwidth, to provide a total bandwidth of 4 Gbps. 
-
-   <a target="_blank" href="http://www.mcmelectronics.com/product/28-21441">
-   A $25 NoIR Camera V2</a> is IR sensitive for low-light situations.
-   Its 8MP Sony image sensor takes 3280 x 2464 pixel images and 
-   captures video at 1080p30, 720p60 and 640x480p90 resolutions. 
-
-
-   ### Untethered Power
+### Untethered Power
 
 0. A <a target="_blank" href="http://www.dx.com/p/20083-adjustable-power-supply-voltage-regulating-reducing-module-blue-black-255394">
    $1.80 board to keep incoming Voltage below 3V</a>.
@@ -391,6 +440,14 @@ This is a list of physical hardware categorized by basics and optional.
    also cover lower power during overcast days.
 
 0. Low-power mode on the device.
+
+   ### Control AC power
+
+0. Control AC power plug
+   <a target="_blank" href="https://www.amazon.com/dp/B00WV7GMA2?psc=1">
+   $19.70 IoT Relay</a>
+   controls a power outlet which
+   listens for signals from a Pi.
 
 
 ## Resources on Python
