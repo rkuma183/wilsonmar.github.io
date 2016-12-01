@@ -21,7 +21,7 @@ comments: true
 alt="iot mkt mug more feature less stress 650x552-130kb">
 <img alt="MORE FEATURES OF LESS STRESS" width="650" height="552" src="https://cloud.githubusercontent.com/assets/300046/20648066/1d9b085c-b45a-11e6-9970-86ae82498db0.png"></a>
 
-What we do is train people to build things
+What train people to build things
 that help others save time and money, safely.
 
 The unique aspect of our curriculum is that you
@@ -87,9 +87,7 @@ excellent customer service and fast turnaround.
 That includes training in effective use of social media.
 
 
-## Make Curriculum
-
-<strong>Build a Raspberry Pi with Raspbian running Python Ansible IoT</strong>
+## Products and Curriculum
 
 In the class, each learner is provided with everything except a laptop:
 a Raspberry Pi 3 B board 
@@ -98,25 +96,30 @@ A router is available during classes.
 
 ### PRODUCT 1 - Configured SD cards
 
-MAKE FOR SALE: Raspberry Pi SD cards customized with your access details and
-configured with the latest
-operating system (Raspbian Jessie)
-and installed with diagnistics and many libraries for 
+MAKE FOR SALE: A SD card to run your Raspberry Pi customized with the utilities and
+applications you need (and without junk you don't).
+Just select what you want on our one-page webite 
+and our automated script builds it for you.
+In addition to the latest operating system (Raspbian Jessie),
+available are self-running diagnistics and libraries for 
 running programs using Linux Bash, Python, Node, Mono, and other utilities.
 Two cards in case one goes bad.
 
 <img alt="iot sd card compared 650x366-186kb" width="650" height="368" src="https://cloud.githubusercontent.com/assets/300046/20649460/f26fc7f2-b47d-11e6-9911-fd5f4aa748ce.png">
 
-0. Assemble an SD card containing the latest Raspbian operating system
+0. Obtain the latest Raspbian operating system
+0. Choose an SD card to purchase
+0. Handle electronics with less risk of static electricity damage
+0. Flash the SD card with the latest Raspbian operating system
 0. SSH into a Pi without additional monitor and keyboard
-0. Configure Wi-Fi connections to the Pi board
+0. Configure Wi-Fi credentials 
 0. Configure bootstrap script to install Ansible and utilities
 0. Install and use Git to obtain files from GitHub online
 0. Configure Ansible yml file to load and configure apps
 0. Transfer files into Pi using Secure FTP clients
-0. Configure USB drive to mount automatically
+0. Configure USB chip to mount automatically
 0. Backup configuration changes people can buy to avoid the hassle above
-0. Product checks before shipment
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -137,12 +140,13 @@ using cell phone signals, Zigbee, or other advanced board.
 0. Design a case using <strong>3D CAD</strong> software
 0. Print and adjust a case from <strong>3D printer</strong>
 0. Measure and analyze speeds and quality at various conditions
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
 ### PRODUCT 3 - Cloud-connected dashboard TVs
 
-MAKE FOR SALE: A complete device which displays 
+MAKE FOR SALE: Plug a device on a TV to display (on a schedule)
 <strong>dashboards</strong> by monitoring software 
 (Elasticsearch Kibana, Grafana, AppDynamics, New Relic, Dynatrace, Nagios, SAP, etc.)
 
@@ -157,22 +161,24 @@ MAKE FOR SALE: A complete device which displays
 0. Run Python script on the Pi to send a tweet to Twitter
 0. Compare enterprise IoT devices and their risks
 0. Stress test the board to evaluate temperature within board cases
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
 ### PRODUCT 4 - Cloud-connected alerting device
 
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
-sends an SMS or email to whoever <strong>we pre-configure</strong>.
+sends an SMS or email to whoever <strong>you pre-configure</strong>.
 
 <img alt="iot cloud laptop cut 237x165" width="650" src="https://cloud.githubusercontent.com/assets/300046/20649349/2fa61412-b47b-11e6-996e-e68ee591fb26.png">
 
-0. Configure an Amazon IoT button that sends a signal to the AWS cloud to
-   reach SMS, phones, and emails (<strong>"bathroom needs attention"</strong>).
-0. Configure the Pi to connect to AWS cloud running pre-built apps
-   (<strong>water leak detector</strong>)
-0. Configure Text to speech synthesis
-0. Product checks before shipment
+0. OPTION A: Configure an Amazon IoT button that sends a signal to the AWS cloud.
+0. OPTION B: Configure a Pi to connect to the AWS cloud
+   with a speaker for Text to speech synthesis.
+0. Configure an app to
+   reach SMS, phones, and emails (<strong>"bathroom needs attention"</strong>)
+0. Configure a <strong>water leak detector</strong> or temperature sensor
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -193,6 +199,7 @@ without fees for cloud access.
 0. Configure port forwarding to access data remotely
 0. Configure network shares using a <strong>NAS server</strong> to store files
 0. Connect using clients and mobile devices to obtain files
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -207,6 +214,8 @@ to alert you whenever an event of your choosing is detected.
 0. Predict trends based on statistics gathered
 0. Correlate multiple metrics (indoor and outdoor temperature)
 0. Evaluate limits of various sensors to environmental sensors
+0. Check product operation and package safely for shipment
+0. Train users/customers
 
 
 ### PRODUCT 7 - Recordings with cameras
@@ -220,6 +229,8 @@ MAKE FOR SALE: Take photos periodically and relay them to a server
 0. Configure cron job to take pictures periodically
 0. Configure a two-way live presence 
 0. Test recording cycles checks before shipment
+0. Check product operation and package safely for shipment
+0. Train users/customers
 
 
 ### PRODUCT 8 - Media file processor service
@@ -232,6 +243,8 @@ MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 0. Use cloud service for facial recognition
 0. Compress media
 0. Obtain facial recognition
+0. Check product operation and package safely for shipment
+0. Train users/customers
 
 
 ### PRODUCT 9 - Autonomous outdoor device
@@ -246,7 +259,8 @@ time-lapse videos</a>
 0. Select small batteries and solar panels to power the Pi untethered
 0. Predict battery life
 0. Define battery maintenance alert mechanisms
-0. Product checks before shipment
+0. Check product operation and package safely for shipment
+0. Train users/customers
 
 
 ### PRODUCT 10 - Mobile phone remote control
@@ -259,6 +273,7 @@ such as make it ring so you can find it.
 0. Configure Twilio to ring a mobile phone
 0. Configure Twilio to send SMS to a mobile phone
 0. Test interface
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -275,6 +290,7 @@ We configure it for you to just plug in and it works.
 0. Change color of lights
 0. Analyze time series data
 0. Explore use cases, costs vs. advantages for home automation
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -289,6 +305,7 @@ We configure it for you to just plug in and it works.
    Download OpenHAB mobile app</a>
 0. Program small LCD screens with buttons
 0. Perform usability studies with beta consumers
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -299,6 +316,8 @@ MAKE FOR SALE: Make things that move on a schedule or event of your choosing.
 0. Compare Pi vs. Arduino and others
 0. Calculate physics formulas for space, weight, and volume
 0. Conduct repetitive tests for safety
+0. Check product operation and package safely for shipment
+0. Train users/customers
 
 
 ### PRODUCT 14 - Custom drone flights
@@ -313,6 +332,7 @@ custom configured to your needs.
 0. Configure flight path
 0. Test flights
 0. Perform, track, and schedule predicted maintenace 
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 
@@ -324,6 +344,7 @@ MAKE FOR SALE: A device that sends and receive files to a satellite.
 0. Configure
 0. Test 
 0. Perform, track, and schedule predicted maintenace 
+0. Check product operation and package safely for shipment
 0. Train users/customers
 
 

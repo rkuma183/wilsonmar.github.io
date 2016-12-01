@@ -251,6 +251,11 @@ To get full capacity from USB/SD drives
 
 0. Plug in the SD card.
 
+   WARNING: You need to plug the micro SD chip into a full-size SD chip adapter,
+   which goes into the Mac's SD card slot.
+   You may also use an adapter for USB, which may need to be plugged into a USB port
+   rather than on a USB hub (even a powered one).
+
 0. Open a Finder window. 
    Scroll down the left panel to see it appear among the Device section.
 
@@ -278,25 +283,35 @@ To get full capacity from USB/SD drives
                                  Logical Volume on disk0s2
                                  8B999D6F-A427-4EC5-A197-85AF9E00C10E
                                  Unencrypted
+/dev/disk3 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *63.9 GB    disk3
+   1:               Windows_NTFS                         63.8 GB    disk3s1
    </pre>
 
-   In the above example, the SD card IDENTIFIER is "disk4".
+   In the above example, the 64 GB SD card IDENTIFIER is "disk3".
 
 0. Unmount your SD card (so a utility can overwrite the entire disk)
    by constructing a command containing the disk identifier number
-   for your SD card (4 in the example above):
+   for your SD card (3 in the example above):
 
    <tt><strong>
-   diskutil unmountDisk /dev/disk4
+   diskutil unmountDisk /dev/disk3
    </strong></tt>
 
-   Again, instead of "disk4", you may type a different one.
+   Again, instead of "disk3", you may type a different one.
+
+0. cd to the folder where your .img file exists. For example, to go to the Desktop:
+
+   <tt><strong>
+   cd ~/Desktop
+   </strong></tt>
 
 0. Construct a command to write the image downloaded onto the SD Card. 
    Replace the X in rdiskX with the disk number from before.
 
    <tt><strong>
-   sudo dd bs=1m if=2016-09-23-raspbian-jessie.img of=/dev/rdiskX
+   sudo dd bs=1m if=2016-09-23-raspbian-jessie.img of=/dev/rdisk3
    </strong></tt>
 
    <a target="_blank" href="http://www.computerhope.com/unix/dd.htm">
@@ -318,9 +333,19 @@ To get full capacity from USB/SD drives
    NOTE: The dd program is also used to <a href="#Backup">
    backup the SD onto your laptop</a>.
 
-0. Wait. This takes 30 minutes or more.
+0. Type in your password:
+0. Wait. No status is shown during the 30 minutes or more that it takes.
+   An example of the ending response:
+
+   <pre>
+4147+0 records in
+4147+0 records out
+4348444672 bytes transferred in 265.020326 secs (16407967 bytes/sec)
+   </pre>
 
    You should have a working SD card at the end.
+
+0. In Finder, press the eject button for the disk.
 
 
 <a name="PowerUp"></a>

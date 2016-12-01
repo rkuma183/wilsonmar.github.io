@@ -37,7 +37,8 @@ This is a list of physical hardware categorized by basics and optional.
    <amp-img alt="iot raspberry_pi3_2 500x302 69kb.jpg" width="500" height="302" src="https://cloud.githubusercontent.com/assets/14143059/19865119/8a5470e6-9f60-11e6-8f62-e58f44c4f14c.jpg"></amp-img>
    <!-- http://www.memoryexpress.com/Products/MX61461 -->
 
-0. Risers or a static-resistent mat to put a board (without a riser).
+0. Risers on the board so its metal doesn't touch the table.
+   Or a static-resistent mat to put a naked board.
 
    <a name="HeatSink"></a>
 
@@ -160,6 +161,9 @@ This is a list of physical hardware categorized by basics and optional.
    <a target="_blank" href="https://www.adafruit.com/product/1010">
    $5.95 gets you 15 switches</a> to solder.
 
+   A power button (SW4), recovery button (SW2), and Uboot button (SW3)
+   is provided by the (now-defunct) organgepi.org.
+
 ### Compiled C option
 
 0. Navigate to 
@@ -277,6 +281,9 @@ This is a list of physical hardware categorized by basics and optional.
 
    Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
 
+   <a target="_blank" href="https://www.raspberrypi.org/learning/tweeting-babbage/worksheet/">
+   Embed a Raspberry Pi inside a Tweeting Babbage Bear</a>
+
    A) You can make a free case by cutting and folding the 
    <a target="_blank" href="https://www.raspberrypi.org/blog/the-punnet-a-card-case-for-you-to-print-for-free/">
    Punnet pdf</a> printed on paper or thin plastic.
@@ -349,6 +356,8 @@ This is a list of physical hardware categorized by basics and optional.
    Uses 3V. See
    <a target="_blank" href="http://www.raspberrypiwiki.com/index.php/Rpi_HD_3.5_inch_TFT/">
    this</a>.
+
+## On-board Camera
 
    The CSI (Camera Serial Interface) Type-2 connector (next to the HDMI)
    received video one-way to the Broadcom BCM2835 processor on the Pi.
