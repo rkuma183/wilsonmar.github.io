@@ -3,6 +3,7 @@ layout: post
 title: "IoT Apprentice School"
 excerpt: "How to enable people to make money and satisfied customers with IoT"
 tags: [IoT, Raspberry, Mono, Mac]
+shorturl:https://git.io/v1CoE
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
