@@ -44,8 +44,8 @@ and configuration of Windows applications, websites, and services.
 
 ## PowerShellGet Gallery
 
-<a href="http://go.microsoft.com/fwlink/?LinkID=760387&clcid=0x409">
-PowerShellGet</a> module, you can:
+With the <a href="http://go.microsoft.com/fwlink/?LinkID=760387&clcid=0x409">
+PowerShellGet</a> package management module, you can:
 
 Rather than an <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/PowerShellGet?f=255&MSPPError=-2147217396">
 alphabetical list of modules</a> at 
@@ -62,7 +62,16 @@ below here are tables with right-align for easy comparison:
    | Upload |<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Publish-module">Publish-Module</a> | <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Publish-script">Publish-Script</a> |
    |Save |<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Save-module">Save-Module</a> | <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Save-script">Save-Script</a> |
    |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Update-module">Update-Module</a> | <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Update-script">Update-Script</a> |
+
+Metadata:
+
+   | -  | Module | Script |
+   | :- | -----: | -----: |
    |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/update-ModuleManifest">Update-ModuleManifest</a> |<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/update-ScriptFileInfo">Update-ScriptFileInfo</a> |
+   |-|-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/find-ScriptFileInfo">Find-ScriptFileInfo</a> |
+   |-|-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/new-ScriptFileInfo">New-ScriptFileInfo</a> |
+   |-|-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/test-ScriptFileInfo">Test-ScriptFileInfo</a> |
+
 
 QUESTION: Modules with a single action:
 
@@ -71,13 +80,12 @@ QUESTION: Modules with a single action:
    |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/find-command">Find-Command</a> |
    |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/find-DscResource">Find-DscResource</a> |
    |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/find-RoleCapability">Find-RoleCapability</a> |
-   |-|<a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/find-ScriptFileInfo">Find-ScriptFileInfo</a> |
-   |-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/new-ScriptFileInfo">New-ScriptFileInfo</a> |
-   |-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/test-ScriptFileInfo">Test-ScriptFileInfo</a> |
    |-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Get-PSRepository">Get-PSRepository</a> |
    |-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Set-PSRepository">Set-PSRepository</a> |
    |Add your own | <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Register-PSRepository">Register-PSRepository</a> |
    |-| <a target="_blank" href="https://msdn.microsoft.com/powershell/reference/5.1/PowerShellGet/Unregister-PSRepository">Unregister-PSRepository</a> |
+
+## Documentation
 
 The <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkID=825202&clcid=0x409">
    documentation</a> 
@@ -86,8 +94,6 @@ The <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkID=825202&clcid
 0. BLAH: Install local help for these commands is denied:
 
    `Update-Help -Module PowerShellGet` 
-
-
 
    <a target="_blank" href="https://blogs.msdn.microsoft.com/mvpawardprogram/2014/10/06/package-management-for-powershell-modules-with-powershellget/">
    PowerShellGet</a> based on Microsoft's 
@@ -145,6 +151,10 @@ Script     0.0        PSDesiredStateConfiguration         {StrongConnect, IsHidd
 Script     1.2        PSReadLine                          {Get-PSReadlineKeyHandler, Set-PSReadlineKeyHandler, Remove-PSReadlineKeyHandler, Get-PSReadlineOption...}      
    </pre>
 
+  QUESTION: How to exclude from list Manifest and system built-in items?
+
+## Where are they stored?
+
    Such system modules are stored in an environment variable revealed by this:
 
    `$Env:PSModulePath`
@@ -152,6 +162,10 @@ Script     1.2        PSReadLine                          {Get-PSReadlineKeyHand
    Custom modules that you write go into path
 
    `$home\Documents\WindowsPowerShell\Modules\`
+
+   <pre><strong>
+   Get-Module -ListAvailable | out-string -Width 300
+   </strong></pre>
 
 
 ## References

@@ -117,8 +117,21 @@ This reduces the hassle of using a custom cellular breakout board
 
 <a name="Losant"></a>
 
-## Losant # 
+## Microsoft Azure Stream Analytics # 
 
+<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/handson-with-azure-stream-analytics-16639?l=xGiVP0JrC_5606218965">
+   Hands-On with Azure Stream Analytics</a>
+   by Jeff Prosise (<a target="_blank" href="https://twitter.com/jprosise">@jprosise</a>)
+   <a target="_blank" href="http://devcenter.wintellect.com/author/jprosise">
+   blogger/co-founder at Wintellect</a>.
+
+1 Streaming Unit (SU) ~= 1 MB/sec.
+
+<hr />
+
+<a name="Losant"></a>
+
+## Losant # 
 <a target="_blank" href="https://www.losant.com/">losant.com</a>
 (<a target="_blank" href="https://twitter.com/losanthq/">@LosantHQ</a>)
    has a Cloud integrated with its IDE and devices. 

@@ -2,6 +2,7 @@
 layout: post
 title: "Git and GitHub versus File Archival"
 excerpt: "She remembers everything you've ever sent"
+shorturl: "https://git.io/v18qj"
 modified:
 tags: []
 image:

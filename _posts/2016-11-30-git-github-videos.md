@@ -16,6 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
+
 ## By GitHub people
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=KDUtjZHIx44">
@@ -75,7 +76,45 @@ Mastering Git series by Matthew McCullough with Tim Berglund
    Introduction to Git</a>
    [1:22:11] July 27, 2011
 
+<a target="_blank" href="https://git-scm.com/documentation/external-links">
+   git-scm.com/documentation/external-links</a>
+   lists written tutorials from those outside of Git's employment,
+   including Ry of Ry's Git Tutorial.
+
 ## Microsoft
+
+
+### Edward Thompson via O'Reilly
+(@ethompson, <a target="_blank" href="https://www.edwaredthompson.com">
+edwaredthompson.com</a>), 
+Software Engineer at Microsoft who
+programmed <a target="_blank" href="https://libgit2.github.com/">
+libgit2</a> (implementations of Git using C language for C#, etc.), 
+<a target="_blank" href="https://github.com/libgit2/libgit2sharp">
+LibGit2Sharp</a>,
+Visual Studio, 
+Visual Studio Online Version Control
+
+* <a target="_blank" href="https://www.gitforvisualstudio.com/">
+   Git for Visual Studio</a> series of videos <br />
+   <a target="_blank" href="http://shop.oreilly.com/product/0636920044864.do?cmp=af-prog-books-videos-product_cj_9781771375221_%25zp">
+   $59 at O'Reilly Media</a> released December 2015.
+
+   <a target="_blank" href="https://github.com/ethompson/gitresources/">
+   https://github.com/ethompson/gitresources</a>
+
+   * Getting Started (Configuring; Creating, Opening, Cloning Repository)
+   * Working With Local Repositories 
+   * Branching and Merging
+   * Working with Remote Repositories
+   * Working with Visual Studio Online
+   * Working With GitHub 
+   * Interacting With Command Line Tools 
+
+   http://gitforvisualstudio.com/resources/
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=dBSHLb1B8sw">
+   GOTO 2015 • Deep Dive into Git</a>
 
 ### Jeremy Foster
 
@@ -205,28 +244,6 @@ by @StevenBorg (salesy hand-wavy boss) and
    [25:40] http://rypress.com/tutorials/git/index<br />
 
 
-### Edward Thompson 
-(@ethompson, <a target="_blank" href="https://www.edwaredthompson.com">
-edwaredthompson.com</a>), 
-Software Engineer at Microsoft
-worked on <a target="_blank" href="https://libgit2.github.com/">
-libgit2</a> (implementations of Git using C language for C#, etc.), 
-<a target="_blank" href="https://github.com/libgit2/libgit2sharp">
-LibGit2Sharp</a>,
-Visual Studio, 
-Visual Studio Online Version Control
-
-* <a target="_blank" href="https://www.gitforvisualstudio.com/">
-   git for visual studio.com</a> series of videos <br />
-   <a target="_blank" href="http://shop.oreilly.com/product/0636920044864.do?cmp=af-prog-books-videos-product_cj_9781771375221_%25zp">
-   $59 at O'Reilly Media</a> released December 2015.
-
-   <a target="_blank" href="https://github.com/ethompson/gitresources/">
-   https://github.com/ethompson/gitresources</a>
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=dBSHLb1B8sw">
-   GOTO 2015 • Deep Dive into Git</a>
-
 
 ## Git Real 1 and 2
 
@@ -333,6 +350,11 @@ https://www.linkedin.com/learning/git-essential-training/
     at Canberra, Australia 
     uses a Kinnex toy construction set to illustrate the chain of commits.
 
+## GitLab
+
+<a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
+GitLab University: Basics of Git & GitLab 
+
 
 ### GitHub for Noobs
 
@@ -357,3 +379,55 @@ for making a
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JPKOESR1k04">
    Using the Command Line (4/4)</a> [23:12]
    Feb 22, 2016
+
+## Dan Gitschooldude on YouTube
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=OZEGnam2M9s">
+   001 Introduction To Git</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=gQSd2lFkZHk">
+   002 Your First Git Repo</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QCNkz5BjDEs"> 
+    003 Traversing Git History</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=gZN1ssISkO8">
+   004 Git remote, fetch, merge, and pull</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Wk-IK2uJt28">
+   005 Git diff and git difftool</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Fk-Gb4MfTd8">
+   006 Git Stash</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=gS4uXB3v4Yk">
+   007 Introduction to Git Push</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=UQvXst5I41I">
+   008 Introduction to Git Submodules </a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=w4AyLtIEibo">
+   009 More about git submodules</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=nDUDiy4F7nE">
+   010 The Git Index</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=u-5Vo9TFnAU">
+   011 Introduction to Git Branches</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=nE2ZJTdpuwY">
+   012 Introduction to Git Merge Conflicts</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=_krbFIiFhf4">
+   013 Manipulating Branches</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=9sQIY8c6J64">
+   014 Squash Commits with Git's Interactive Rebase</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=7b6LU850hKc">
+   015 Git Status as an Estimate</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=-ndmel-4wsk">
+   016 Introduction to Git cherry-pick</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HQU8Y38KgdA">
+   017 Git Archive</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=zcaeZHmMjUI">
+   018 Git branches aren't branches</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mzagfGeFUuA">
+   019 Introduction to git rebase</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Bo-8EfDpKxA">
+   020 Remove a file from all git history</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=EWZTM4ALXKU">
+   021 Introduction to git bisect</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=YciSJXJL2Rs">
+    022 Introduction to git grep</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
+    023 Introduction to Git Hooks</a>
+
+
+

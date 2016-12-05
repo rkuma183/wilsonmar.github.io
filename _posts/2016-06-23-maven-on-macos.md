@@ -17,11 +17,13 @@ comments: true
 
 This shows you how install Maven using Homebrew.
 
-## Competitors #
+Maven is a [task runnner, like Ant and Gradle, Grunt](/task-runners/).
+Unlike Ant, Maven also provides 
+dependency management, 
+standard project layout, and 
+project management.
 
-Maven's competitors include Ant and Gradle.
-
-Unlike Ant, Maven also provides dependency management, standard project layout and project management.
+## Mated with Java
 
 Maven is written in Java, and grew up supporting Java builds
 by creating from Java source and resources for deployment
@@ -30,8 +32,8 @@ deliverables like JAR file or WAR files.
 So Maven is the default for the Jenkins continuous integration tool which
 triggers a Maven build whenever developer commit code.
 
-Maven adopts principle of "Convention over configuration", which means
-less coding work.
+Maven adopts the principle of "Convention over configuration", 
+which means less coding work.
 
 Read more: <a target="_blank" href="http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF">
 http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-and-hudson.html#ixzz4CQKSY3oF</a>
@@ -292,10 +294,6 @@ src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11
 </a>
 
 ### Dependencies #
-
-<amp-img width="300" height="235" alt="meme-acme-not-real"
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15675278/8148fccc-26fe-11e6-94ef-de825da9e6b0.jpg"></amp-img>
-<br /><br />
 
 * http://www.sonatype.com/resources/books/maven-by-example
 
