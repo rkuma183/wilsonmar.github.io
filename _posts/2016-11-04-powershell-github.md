@@ -3,6 +3,7 @@ layout: post
 title: "PowerShell GitHub API Programming"
 excerpt: "GitHub reaching to web servies on the web gives scripts data power"
 tags: [cloud, powershell, microsoft]
+shorturl: "https://git.io/v1lLj"
 image:
 # fig blue powershell icon-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg

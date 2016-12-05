@@ -3,6 +3,7 @@ layout: post
 title: "PowerShell Desired State Configuration"
 excerpt: "Let me do it for you"
 tags: [cloud, powershell, microsoft]
+shorturl: "https://git.io/v1l30"
 image:
 # fig blue powershell icon-1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/15307772/b335270e-1b93-11e6-9552-d3022de2b9ce.jpg
@@ -139,5 +140,3 @@ This is one of a series:
 This is one of a series on DevOps:
 
 {% include devops_links.html %}
-
-

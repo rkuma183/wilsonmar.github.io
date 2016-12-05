@@ -2,6 +2,7 @@
 layout: post
 title: "Git Commands and Statuses"
 excerpt: "The Visual Cheat Sheet"
+shorturl: "https://git.io/v1C1L"
 modified:
 tags: []
 image:
@@ -440,32 +441,6 @@ https://git-scm.com/docs
    status</a> - Show the working tree status
 0. <a target="_blank" href="https://git-scm.com/docs/git-tag">
    tag</a> - Create, list, delete or verify a tag object signed with GPG
-
-## Resources #
-
-Mastering Git series by Matthew McCullough with Tim Berglund
-(using Git 1.7.2):
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=AzuzomV-zrQ">
-Setting Up Git & Configuring Git (1/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=mBJ6oYRHu_8">
-   Three Stage Thinking, The Git File Workflow & Speed (2/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=sbzzD8qe7EY">
-   Cloning Repositories (3/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=HQAAoA7OlM0">
-   Command Composition, Storage, and Hashes (4/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=-jf0sskoVdk">
-   Branches (5/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=BfN0TIMl510">
-   Remotes (6/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=Yvy5PijsVZw">
-   Tagging (7/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=HjPmRdnwknU">
-   Merging (8/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=HXzt7Z_1wko">
-   Rebasing (9/10)</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=GLLUNDrPHJQ">
-   Undo & Bonus (10/10)</a>
 
 
 ## More on DevOps #

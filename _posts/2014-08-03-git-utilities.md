@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "Git Editing"
-excerpt: "You have one job"
+title: "Git Utilities"
+excerpt: "Helps you do your job"
 tags: [git, commands, utilities]
+shorturl: "https://git.io/v1Cyv"
 image:
-# feature: pic white keyboard british 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622161/3e9ed170-0585-11e6-81e5-2d3238508e4f.jpg
-  credit: Parallels
-  creditlink: http://kb.parallels.com/en/113541
+# pic silver robot white skin handshake 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+  credit: 
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
