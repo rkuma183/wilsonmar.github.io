@@ -3,7 +3,6 @@ layout: post
 title: "LoadRunner JavaScript Coding"
 excerpt: "Sample code and tutorial here"
 tags: [JavaScript, Load Testing, LoadRunner]
-author: anil_mainali
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14580245/036e91dc-0385-11e6-984f-00cf841ce870.png
   credit: Wallpaperswidefree.com

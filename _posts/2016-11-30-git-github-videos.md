@@ -332,28 +332,23 @@ https://www.linkedin.com/learning/git-essential-training/
 
    [45:18] bisect
 
-## Others
+## IntelliJ IDEA IDE
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
-   git rebase interactive :: practical example</a>
-   by Samer Buna Nov 29, 2016
+From among videos for users of IntelliJ Community Edition 
+<a target="_blank" href="https://www.youtube.com/watch?v=L_jXj0XTwSg&list=PLPZy-hmwOdEXdOtXdFzyx_XCnrF_oD2Ft">
+on this Playlist</a> are these on Git:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ&t=40s">
+   Working with Git</a>
+   Jun 15, 2015
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
    Working with Git on IntelliJ IDEA</a>
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=0fKg7e37bQE">
-   Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics
-   Jan 16, 2014</a>
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=3m7BgIvC-uQ">
-    Git For Ages 4 And Up at Linux.conf.au 2013</a>
-    at Canberra, Australia 
-    uses a Kinnex toy construction set to illustrate the chain of commits.
-
 ## GitLab
 
-<a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
-GitLab University: Basics of Git & GitLab 
+* <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
+   GitLab University: Basics of Git & GitLab</a>a>
 
 
 ### GitHub for Noobs
@@ -428,6 +423,21 @@ for making a
     022 Introduction to git grep</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
     023 Introduction to Git Hooks</a>
+
+## Others
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
+   git rebase interactive :: practical example</a>
+   by Samer Buna Nov 29, 2016
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=0fKg7e37bQE">
+   Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics
+   Jan 16, 2014</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=3m7BgIvC-uQ">
+    Git For Ages 4 And Up at Linux.conf.au 2013</a>
+    at Canberra, Australia 
+    uses a Kinnex toy construction set to illustrate the chain of commits.
 
 
 

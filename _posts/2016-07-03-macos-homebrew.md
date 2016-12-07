@@ -587,6 +587,18 @@ end{% endhighlight %}
    </strong></pre>
 
 
+## Debian apt-get
+
+Download Fink commander Fink Installer.pkg from<br />
+http://finkcommander.sourceforge.net/help/install.php
+
+
+<a target="_blank" href="https://thecustomizewindows.com/2013/11/how-to-install-apt-get-on-mac-os-x/">This</a> explains: 
+Fink stores data in the directory “/sw” by default. 
+This goes against the Filesystem Hierarchy Standard’s recommendation to use “/usr/local”. 
+Within Fink’s directory, a FHS-like layout (/sw/bin, /sw/include, /sw/lib, etc.) is used.
+
+
 ## Documentation #
 
 0. For more documentation on brew, look <a target="_blank" href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/FAQ.md">
