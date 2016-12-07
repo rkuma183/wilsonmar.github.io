@@ -23,13 +23,10 @@ many developers prefer?
 If you already have an established installation with vagrant and virtualbox,
 create a virtual machine to try this process.
 
-<a target="_blank" href="https://github.com/monfresh/laptop">
-https://github.com/monfresh/laptop</a>
-provides a set of shell scripts.
-
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
-0. Copy from below this shell script call (highlight the line, then hold down command and press C to the invisible Clipboard):
+0. Copy from below this shell script call (highlight the line, 
+   then hold down command and press C to the invisible Clipboard):
 
    <tt><strong>
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
@@ -419,10 +416,31 @@ To get rid of GarageBand,
    rm -rf *.* /s
    </pre>
 
+## Others like this
+
+The script described here was based on reviews of other similar "Mac booststrap" scripts:
+
+* https://gist.github.com/zeekay/7394565
+
+* https://github.com/fs/osx-bootstrap
+  is a setup for Rails developement, including
+  http://fs.github.io/fs-tool/
+  for creating pull-requests from command line and Ruby in Heroku.
+
+   ImageMagick
+
+* https://github.com/divio/osx-bootstrap
+   also asks for RSA keys to GitHub
+
+* <a target="_blank" href="https://github.com/monfresh/laptop">
+   https://github.com/monfresh/laptop</a>
+   provides a set of shell scripts.
+
+
 
 ## Resources #
 
-https://github.com/argon/mas
+https://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449
 
 To uninstall, select it and press Command+Delete or drag the program into the Trash.
 
