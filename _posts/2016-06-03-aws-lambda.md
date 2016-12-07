@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS Lamba Basics"
+title: "AWS Lambda Basics"
 excerpt: "Kinda like Java Lambdas, but not really"
 tags: [programming, AWS, EC2, lambda, cloud]
 image:
@@ -69,7 +69,7 @@ Take one step at a time and we point out PROTIPs and notes along the way.
    <a target="_blank" href="https://www.iron.io/platform/ironworker/">
    IronWorker from Iron.io</a> and
    Serverless
-   can run Lambas on your own servers.
+   can run Lambdas on your own servers.
 
    <a name="Pricing"></a>
 
@@ -852,7 +852,7 @@ ImageMagick is built-in to Lambda
 
 ## Use of /tmp folder #
 
-## AWS Lamba projects shared #
+## AWS Lambda projects shared #
 
 Some Lambda developers share their stories:
 
@@ -916,7 +916,7 @@ What I am using AWS Lambda for</a>
 
 ## Social #
 
-\#AWSLamba is the Twitter tag.
+\#AWSLambda is the Twitter tag.
 
 
 * http://docs.aws.amazon.com/lambda/latest/dg/welcome.html
