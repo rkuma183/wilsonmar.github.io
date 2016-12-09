@@ -300,17 +300,59 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
    
    [5:44] git rebase
 
-
-
 ## Pluralsight
+
+* <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
+   Git Internals pdf (last updated 2013)</a>
+   by Scott Chacon (CTO of GitHub)
+   is carried forward from PeepCode before Pluralsight bought it.
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/using-git-with-gui">
+   Using Git with a GUI Mar 08, 2016</a> 
+   [2h 38m]
+   by Xavier Morera
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/how-git-works">
+   How Git Works Mar 10, 2016</a>
+   [1h 48m]
+   by Paolo Perrotta
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/using-gitflow/">
+   Using GitFlow Feb 22, 2016</a>
+   [1h 4m]
+   by Kevin Jones
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/github-integrating-node-applications/">
+   Integrating Node Applications with GitHub</a>
+   by Daniel Stern
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/git-advanced-tips-tricks/">
+   Advanced Git Tips and Tricks May 02, 2016</a>
+   [2h 28m]
+   by Enrico Campidoglio
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/tfs-2015"
+   End-to-end Software Development with Team Foundation Server 2015
+   May 09, 2016</a>
+   [4h 26m]
+   by Esteban Garcia
 
 
 
 ## Lynda.com/LinkedIn.com
 
-If you have a subscription $29/month:
+When LinkedIn bought Lynda in 2016, the whole Lynda library of videoes got included
+in LinkedIn's Premium subscription of $29/month.
+That means you get to send emails to strangers and learn as well.
 https://www.linkedin.com/learning/git-essential-training/
 
+* <a target="_blank" href="https://www.lynda.com/GitHub-tutorials/How-Git-works/162276/173440-4.html">
+   How Git works</a>
+
+* <a target="_blank" href="https://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html">
+   Git Essential Training released 24 Aug 2012</a>
+   [6h 25m]
+   by Kevin Skoglund
 
 
 ## Atlassian
@@ -332,6 +374,7 @@ https://www.linkedin.com/learning/git-essential-training/
 
    [45:18] bisect
 
+
 ## IntelliJ IDEA IDE
 
 From among videos for users of IntelliJ Community Edition 
@@ -349,6 +392,10 @@ on this Playlist</a> are these on Git:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
    GitLab University: Basics of Git & GitLab</a>a>
+
+## Udacity
+
+https://www.udacity.com/course/how-to-use-git-and-github--ud775
 
 
 ### GitHub for Noobs
@@ -374,6 +421,84 @@ for making a
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JPKOESR1k04">
    Using the Command Line (4/4)</a> [23:12]
    Feb 22, 2016
+
+## Casey Li
+
+In 2012 Casey Li created his "Gitting to Know You" videos.
+
+* caseyli.com/videos
+
+* caseyli.com/gittingtoknowyou/
+
+* https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z
+
+Casey Li - https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw/">
+   000 - Introduction</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=90gfI71O8QQ/">
+   100 - Distributed vs Central</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=UIO5CGgTumo/">
+   200 - Basics of Committing</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=ZAZ9ohOFNEM/">
+   300 - More Committing</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=CZkUhcYNDJE/">
+   400 - Branching Part 1</a>
+
+   Untracked files and unstaged changes are not specific to a branch until a commit.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RiQkZEtUrkM/">
+   500 - Branching Part 2</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=M_Qsa0OZKy4/">
+   600 - Branching Part 3</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=ul3MvMWBC70/">
+   700 - Break</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=1LmfqV0bw4E/">
+   800 - Remote Repositories</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=DicH5X8Vark/">
+   900 - Intro to GitHub</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=BBrHBSa2LYo/">
+   1000 - Git Push</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=XogN0Q4sb9o/">
+   1100 - Git Fetch, Git Pull</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=iezsyzzrDg4/">
+   1200 - Pull Requests Part 1</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=ikExlASV5OE/">
+   1250 - Pull Requests Part 2</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=XqO4fYJK1Ek/">
+   1300 - Workflow</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=wqHtWK-L_L0/">
+   1400 - Where to go from here</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=u-vHhnKN5vg/">
+   1500 - Fast-Forward Merging Part 1</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=-xid8vRXOYo/">
+   1550 - Fast-Forward Merging Part 2</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=OXInybQFhMA/">
+   1575 - Fast-Forward Merging Part 3</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=kn0WZbqfyQk/">
+   1600 - Rebasing Part 1</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
+   1650 - Rebasing Part 2</a>
+
 
 ## Dan Gitschooldude on YouTube
 

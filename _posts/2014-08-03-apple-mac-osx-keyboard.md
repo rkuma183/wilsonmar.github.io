@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Keyboard"
-excerpt: "Can you do this in the dark?"
+title: "Apple Mac OSX Keyboard"
+excerpt: "Shortcuts and utilities"
 tags: [apple, mac, keyboard]
 image:
 # feature: pic white keyboard british 1900x500.jpg
@@ -666,6 +666,22 @@ U+21E2</td></tr>
 <tr><td valign="top">&#8996;</td><td valign="top">Enter</td> <td valign="top">U+2324</td></tr>
 <tr><td valign="top">&#9167;</td><td valign="top">Eject</td><td valign="top">U+23CF</td></tr>
 </tbody></table>
+
+
+## Robot typists
+
+For making videos:
+
+https://github.com/pofallon/sublime-phantypist<br />
+Slowly output the contents of the clipboard into the currently active tab, 
+one character at a time. Map to CTRL-SHIFT-V for a slow paste command.
+
+https://github.com/aholub/type<br />
+Applescript "robot" typist inserts characters into XCode or other application
+
+https://gist.github.com/xaviershay/6656216<br />
+Creates a mapping that will type out the given text into vim.
+
 
 ## Resources #
 

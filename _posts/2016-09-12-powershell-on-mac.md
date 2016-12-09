@@ -3,6 +3,7 @@ layout: post
 title: "PowerShell on MacOS"
 excerpt: "Love Child or Demon Spawn?"
 tags: [mac, cloud, powershell, microsoft]
+shorturl: "https://git.io/v1wOP"
 image:
 # powershell blue banner-1900x500-296kb.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/18789323/d2ff6614-8167-11e6-94b5-f37637e01d9c.jpg
@@ -153,7 +154,7 @@ SerializationVersion           1.1.0.1
 
    ### Versions of PowerShell:
 
-   * 6.0 for Mac/Linux
+   * 6.0 for Mac/Linux in Windows 10 Anniversay Edition
    * 5.0 in 2015 for Visual Studio Code text editor
    * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
    Windows Management Framework 3.0
@@ -177,6 +178,7 @@ SerializationVersion           1.1.0.1
    <tt><strong>
    get-help stop-service
    </strong></tt>
+
 
 ## VSCode #
 
@@ -388,6 +390,42 @@ To add the CA root certificate (either PEM or DER format) into the OSX global ke
 
    Use sudo.
 
+
+
+## Automatic logging
+
+Increasingly, hackers are using PowerShell to create havoc.
+
+So it's a good idea to automatically logging using the 
+`start-transcript` and `stop-transcript` commands.
+
+BLAH: The sample script at https://github.com/wilsonmar/git-utilities/ps-auto-log.ps1,
+causes errors during execution of scripts.
+
+Inside the file:
+
+   <pre>
+**********************
+Windows PowerShell transcript start
+Start time: 20161209084850
+Username: \root
+RunAs User: \root
+Machine: macs-MacBook-Pro-4 (Microsoft Windows NT 1.0.0.0)
+Host Application: 
+Process ID: 40107
+PSVersion: 6.0.0-alpha
+PSEdition: Core
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.10032.0, 6.0.0
+BuildVersion: 3.0.0.0
+GitCommitId: v6.0.0-alpha.13
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is ~/Documents/PowerShell/Transcript\2016-12-09T08-48-45-local.txt
+   </pre>
+
+PROTIP: This can use up a lot of space quickly, so some management of its use is necessary.
 
 
 ## Version Logic: If Then Else #

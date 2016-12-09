@@ -3,6 +3,7 @@ layout: post
 title: "Maven on MacOS (OSX)"
 excerpt: "for Java, Jenkins, etc."
 tags: [homebrew, apple, mac, setup]
+shorturl: "https://git.io/v1wOy"
 image:
 # feature: pic brown homebrew logo 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622020/60672448-0584-11e6-8202-41c36ba82d04.jpg

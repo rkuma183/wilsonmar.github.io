@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PowerShell Ecosystem"
-excerpt: "Meet your future BFF"
+excerpt: "Here are the social media, videos, courses, bloggers"
 tags: [mac, cloud, powershell, microsoft]
 shorturl: "https://git.io/v1l34"
 image:
@@ -46,8 +46,43 @@ FAQ</a>:
 * \#powershell IRC room on freenode
 
 
-## Microsoft's The Scripting Guys #
+## Video courses #
 
+* <a target="_blank" href="http://shop.oreilly.com/product/0636920045823.do">
+   $120 Advanced Windows PowerShell Scripting: From cmdlets and Custom Views to Object Creation and Automation</a>
+   6 hours video course from O'Reilly Media
+   January 2016
+   by Jason Yoder
+   shows usage of Windows Server 8.1 and Windows Server 2008 R2 
+   (not the more recent Windows 10 and Windows Server 2012).
+   It's based on Hyper-V with a second machine.
+
+Jim Christopher
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-gotchas/table-of-contents">
+    PowerShell Gotchas 28 Oct 2013</a> [1h 40m]
+
+Jeff Hicks (Microsoft MVP) 
+created a "PowerShell v3/v4 Essentials for IT Admins" series with Pluralsight June 2013:
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-v3-essentials-it-pt1/table-of-contents">
+    Part 1 [4h 20m]</a>
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-v3-essentials-it-pt2/table-of-contents">
+    Part 2 [4h 54m]</a>
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-v3-essentials-it-pt3/table-of-contents">
+    Part 3 [6h 22m]</a>
+
+Jeff also did:
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/powershell-v4-new-features/table-of-contents">
+   PowerShell V4 New Features May 22, 2014</a> [2h 44m]
+   which include Desired State Configuration
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/advanced-powershell-dsc/table-of-contents">
+   Advanced Windows PowerShell Desired State Configuration  March 2015</a>
+   [3h 9m]
 
 
 ## Rock star bloggers #
