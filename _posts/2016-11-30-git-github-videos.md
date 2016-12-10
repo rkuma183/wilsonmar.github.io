@@ -19,6 +19,25 @@ comments: true
 
 ## By GitHub people
 
+
+<a target="_blank" href="https://git-scm.com/documentation/external-links">
+   git-scm.com/documentation/external-links</a>
+   lists written tutorials from those outside of Git's employment,
+   including Ry of Ry's Git Tutorial.
+
+### Scott Chacon, CIO of GitHub
+
+   Scott wrote websites <a target="_blank" href="https://www.git-scm.com/">
+   git-scm.com</a>, 
+   <a target="_blank" href="https://www.gitref.com/">
+   gitref.com</a>, and 
+   <a target="_blank" href="https://www.gitref.com/">
+   progit.org book</a>.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=ZDR433b0HJY">
+   Introduction to Git</a>
+   [1:22:11] July 27, 2011
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=KDUtjZHIx44">
    Everything I Wish I Knew When I Started Using GitHub</a>
    [43:20] by Brent Beer, GitHub Sales Engineer, 
@@ -48,7 +67,7 @@ Mastering Git series by Matthew McCullough with Tim Berglund
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GLLUNDrPHJQ">
    Undo & Bonus (10/10)</a>
 
-   ### GitHub Universe conference
+### GitHub Universe conference
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=u9s_W8lCrDU">
     Opening Keynote</a>
@@ -56,30 +75,13 @@ Mastering Git series by Matthew McCullough with Tim Berglund
 * <a target="_blank" href="https://www.youtube.com/watch?v=pspy1H6A3FM">
     2014</a>
 
-   ### Git Merge conference
+### Git Merge conference
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=xYhHi8yK-Is">
    Teaching People Git
    [31:14] at Git Merge 2015</a>
    by Emma Jane Hogbin Westby 
 
-   ### Scott Chacon, CIO of GitHub
-
-   Scott wrote websites <a target="_blank" href="https://www.git-scm.com</a>
-   git-scm.com</a>, 
-   <a target="_blank" href="https://www.gitref.com/">
-   gitref.com</a>, and 
-   <a target="_blank" href="https://www.gitref.com/">
-   progit.org book</a>.
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=ZDR433b0HJY">
-   Introduction to Git</a>
-   [1:22:11] July 27, 2011
-
-<a target="_blank" href="https://git-scm.com/documentation/external-links">
-   git-scm.com/documentation/external-links</a>
-   lists written tutorials from those outside of Git's employment,
-   including Ry of Ry's Git Tutorial.
 
 ## Microsoft
 
@@ -343,8 +345,9 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
 
 When LinkedIn bought Lynda in 2016, the whole Lynda library of videoes got included
 in LinkedIn's Premium subscription of $29/month.
-That means you get to send emails to strangers and learn as well.
-https://www.linkedin.com/learning/git-essential-training/
+That means you get to send emails to strangers and learn as well.<br />
+<a target="_blank" href="https://www.linkedin.com/learning/git-essential-training/">
+https://www.linkedin.com/learning/git-essential-training</a>
 
 * <a target="_blank" href="https://www.lynda.com/GitHub-tutorials/How-Git-works/162276/173440-4.html">
    How Git works</a>
@@ -422,17 +425,18 @@ for making a
    Using the Command Line (4/4)</a> [23:12]
    Feb 22, 2016
 
+
 ## Casey Li
 
-In 2012 Casey Li created his "Gitting to Know You" videos.
+In 2012 Casey Li uploaded a "Gitting to Know You" series on 
+<a target="_blank" href="https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ">
+his YouTube channel</a>. In 
+<a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z">
+his playlist</a>:
 
 * caseyli.com/videos
 
 * caseyli.com/gittingtoknowyou/
-
-* https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z
-
-Casey Li - https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw/">
    000 - Introduction</a>
