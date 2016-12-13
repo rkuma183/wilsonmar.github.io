@@ -19,7 +19,6 @@ comments: true
 
 ## By GitHub people
 
-
 <a target="_blank" href="https://git-scm.com/documentation/external-links">
    git-scm.com/documentation/external-links</a>
    lists written tutorials from those outside of Git's employment,
@@ -35,8 +34,8 @@ comments: true
    progit.org book</a>.
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=ZDR433b0HJY">
-   Introduction to Git</a>
-   [1:22:11] July 27, 2011
+   Introduction to Git July 27, 2011</a>
+   [1:22:11] talks internals.
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=KDUtjZHIx44">
    Everything I Wish I Knew When I Started Using GitHub</a>
@@ -305,7 +304,7 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
 ## Pluralsight
 
 * <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
-   Git Internals pdf (last updated 2013)</a>
+   Git Internals pdf (from 2008, last updated 2013)</a>
    by Scott Chacon (CTO of GitHub)
    is carried forward from PeepCode before Pluralsight bought it.
 
@@ -396,10 +395,55 @@ on this Playlist</a> are these on Git:
 * <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
    GitLab University: Basics of Git & GitLab</a>a>
 
-## Udacity
+
+## Tutorial companies
+
+### Laracasts
+
+$9 a month at Laracasts.com gets you access to videos that are applicable to not just the Laravel PHP platform.
+There's something about Jeffrey Way's voice that's it's like 
+a Disney toy unboxing video. (He's at jeffrey-way.com)
+
+In his <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/">
+   Git Me Some Version Control</a> series:
+
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/1">
+   Say Hi to Git</a> [9:07]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/2">
+   What Git Add Actually Does</a> [5:28]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/3">
+   Fixing and Amending Commits</a> [4:28]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/4">
+   Basic Workflow</a> [6:07]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/5">
+   Branching</a> [10:14]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/6">
+   Git Aliases</a> [3:11]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/7">
+   Handling Merge Conflicts</a> [5:02]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/8">
+   Stash Away Changes</a> [8:14]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/9">
+   Pushing to GitHub</a> [6:26]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/10">
+   Rebasing</a> [8:09]
+0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/11">
+   Interactive Rebasing</a> [10:17]
+
+One-off episodes:
+
+* <a target="_blank" href="https://laracasts.com/lessons/git-workflow/">
+   Git Workflow</a> 20-minutes in the context of setting up and using Laravel.
+
+* <a target="_blank" href="https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/12">
+   SSH</a>
+
+### Udacity
 
 https://www.udacity.com/course/how-to-use-git-and-github--ud775
 
+
+## Individuals
 
 ### GitHub for Noobs
 
@@ -426,7 +470,7 @@ for making a
    Feb 22, 2016
 
 
-## Casey Li
+### Casey Li
 
 In 2012 Casey Li uploaded a "Gitting to Know You" series on 
 <a target="_blank" href="https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ">
@@ -504,7 +548,7 @@ his playlist</a>:
    1650 - Rebasing Part 2</a>
 
 
-## Dan Gitschooldude on YouTube
+### Dan Gitschooldude
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OZEGnam2M9s">
    001 Introduction To Git</a>
@@ -553,11 +597,11 @@ his playlist</a>:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
     023 Introduction to Git Hooks</a>
 
-## Others
+### Others
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
-   git rebase interactive :: practical example</a>
-   by Samer Buna Nov 29, 2016
+   git rebase interactive :: practical example Nov 29, 2016</a>
+   by Samer Buna 
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=0fKg7e37bQE">
    Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics
