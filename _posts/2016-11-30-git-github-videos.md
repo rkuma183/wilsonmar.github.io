@@ -263,8 +263,50 @@ by @StevenBorg (salesy hand-wavy boss) and
    [25:40] http://rypress.com/tutorials/git/index<br />
 
 
+## Tooling companies
 
-## Git Real 1 and 2
+### Atlassian
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=sevc6668cQ0">
+   Knowledge is Power: Getting out of trouble by understanding Git</a> 
+   [46:50] at Devoxx Nov 2015
+   by Steve Smith
+   dives into the Git data model.
+
+   git add some-file.txt<br />
+   tree .git/
+
+   "A blank commit will always yield the same SHA" is WRONG
+   because a time stamp is inside the content hashed?
+
+   He shows a video clip of "Prince of Persia"
+   who gets out of trouble by using his time travel device.
+
+   [45:18] bisect
+
+
+### IntelliJ IDEA IDE
+
+From among videos for users of IntelliJ Community Edition 
+<a target="_blank" href="https://www.youtube.com/watch?v=L_jXj0XTwSg&list=PLPZy-hmwOdEXdOtXdFzyx_XCnrF_oD2Ft">
+on this Playlist</a> are these on Git:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ&t=40s">
+   Working with Git</a>
+   Jun 15, 2015
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
+   Working with Git on IntelliJ IDEA</a>
+
+### GitLab
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
+   GitLab University: Basics of Git & GitLab</a>a>
+
+
+## Training vendors
+
+### Git Real 1 and 2
 
 This series provides a real hands-on learning experience by making you enter the commands.
 
@@ -274,7 +316,7 @@ http://thddaniel.github.io/2014/11/09/Git%20Real%202/
 
 
 
-## Hashes as playing cards
+### Hashes as playing cards
 
 The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
    Apr 4, 2016 
@@ -319,7 +361,7 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
    
    [5:44] git rebase
 
-## Pluralsight
+### Pluralsight
 
 * <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
    Git Internals pdf (from 2008, last updated 2013)</a>
@@ -358,26 +400,30 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
 
 
 
-## Lynda.com/LinkedIn.com
+### Lynda.com/LinkedIn.com
 
 When LinkedIn bought Lynda in 2016, the whole Lynda library of videoes got included
 in LinkedIn's Premium subscription of $29/month.
 That means you get to send emails to strangers and learn as well.<br />
+
+Someone put the videos from
 <a target="_blank" href="https://www.linkedin.com/learning/git-essential-training/">
 https://www.linkedin.com/learning/git-essential-training</a>
-
-* <a target="_blank" href="https://www.lynda.com/GitHub-tutorials/How-Git-works/162276/173440-4.html">
-   How Git works</a>
+in YouTube. But realize that 
 
 <a target="_blank" href="https://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html">
    Git Essential Training released 24 Aug 2012</a>
    [6h 25m]
    by Kevin Skoglund
    is in <a target="_blank" href="https://www.youtube.com/watch?v=vsqsRhxGyKo&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   this playlist</a> published Sep 26, 2015:
+   this YouTube playlist</a> published Sep 26, 2015.
+
+   CAUTION: You're missing the quizzes unless you're on Lynda.
+
+1) What is Git - 
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=vsqsRhxGyKo">
-   01 What is Git - Understanding version control</a>
+   Understanding version control</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=dmwTGu_M_YM&index=4&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    02 The history of Git</a>
@@ -387,6 +433,8 @@ https://www.linkedin.com/learning/git-essential-training</a>
  
 0. <a target="_blank" href="https://www.youtube.com/watch?v=PmOJtA8KF5c&index=2&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    04 Who should use Git</a>
+
+2) Installing Git
 
 <a target="_blank" href="https://www.youtube.com/watch?v=hS3vq91DBR0&index=5&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Installing Git on a Mac</a>
@@ -403,62 +451,71 @@ https://www.linkedin.com/learning/git-essential-training</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LsF9Bp5nWyY&index=9&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    06 Installing Git Using Git help</a>
 
+3) Getting Started
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=e0vsW4Kajv0&index=10&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   01 Getting Started -Git Initializing a repository git init</a>
+   01 Initializing a repository git init</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Fmfa_pMnmGQ&index=11&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Directory-How files are Stored HEAD,config,refs,objects</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=DL7JPfksbGo&index=12&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Making Commits git commit , git add ,git status </a>
+   Making Commits git commit , git add ,git status </a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=n3tJ13xqpn4&index=13&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   04 Git Tutorial- git commit Writing commit messages</a>
+   Writing commit messages</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NZLi9V1glsI&index=14&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial-git log Viewing the commit log</a>
+   Viewing the commit log</a>
+
+4) Git Concepts and Architecture
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GbBQFD5QyfQ&index=15&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   01 Git Architecture- 3 trees architecture Staging area , working directory,repository</a>
+   Exploring the 3 trees architecture</a>
+    (Staging area , working directory,repository)
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-PqP7G5HfqA&index=16&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git and Github workflow </a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=U9xFbgt94LQ&index=17&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   03 Git Concepts and Architecture Using hash values SHA 1</a>
+    Using hash values SHA 1</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=YNa2zIWkKnQ&index=18&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial- HEAD pointer</a>
+   Working with the HEAD pointer</a>
+
+5) Making Changes to Files
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=DzZpVXoPqLo&index=19&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial- git add - Adding files</a>
+   Adding files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=jsyM_OdULjI&index=20&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial- Editing files</a>
+   Editing files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Ty8DLouCaqc&index=21&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git diff - Viewing changes with diff</a>
+   Viewing changes with diff</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Zu0gtlMmUnU&index=22&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - Deleting files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zWNXXnp6eBM&index=23&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -git mv- Moving and renaming files</a>
+   git mv- Moving and renaming files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=CHYBd3WusRQ&index=24&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git checkout- Undoing working directory</a>
+   git checkout- Undoing working directory</a>
+
+7) Undoing Changes
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=6uOyMr-Oy7g&index=25&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git reset HEAD -Undoing Changes Unstaging files</a>
+   git reset HEAD -Undoing Changes Unstaging files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gp_s1ZNsZUM&index=26&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Amending commits</a>
+   Amending commits</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=pDRjraYBRkI&index=27&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git checkout -Retrieving old versions</a>
+   git checkout -Retrieving old versions</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OMay6ehvMQU&index=28&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git revert -Reverting a commit</a>
+   git revert -Reverting a commit</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=fFWk3AKo9cA&index=29&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - git reset - Using reset to undo commits</a>
@@ -472,161 +529,143 @@ https://www.linkedin.com/learning/git-essential-training</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=n0SQmSf0qmc&index=32&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial -Demonstrating a hard reset</a>
 
+8) Ignoring files
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=EbznpOn2c8A&index=33&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Ignoring Files Using .gitignore files</a>
+   Ignoring Files Using .gitignore files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=6ZNC4ALt2tM&index=34&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Removing untracked files</a>
+   Removing untracked files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=ciuXlUwkYVA&index=35&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Ignoring Files Understanding what to ignore - gitignore</a>
+    Ignoring Files Understanding what to ignore - gitignore</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=er5aa1q6_S0&index=36&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Ignoring Files Ignoring tracked files</a>
+   Ignoring Files Ignoring tracked files</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0W2X0zx-FHA&index=37&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Ignoring Files Ignoring files globally</a>
+   Ignoring files globally</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8PtndS_3vKk&index=38&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Tracking empty directories</a>
+   Tracking empty directories</a>
+
+9) Navigating the Commit Tree
+
+10) Branching
+
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NLK1sUMyYQ8&index=70&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
+   Branching overview</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LqVAWFpQ5YE&index=39&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Branching Viewing and creating branches git branch</a>
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=ZoIjAHZTyvE&index=40&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Branching- Switching branches</a>
+   Branching Viewing and creating branches git branch</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=o5BLoSZ03XQ&index=41&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -04 Branching Creating and switching branches</a>
+   Creating and switching branches</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=ZoIjAHZTyvE&index=40&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
+   Switching branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NIBBJ6kT2ck&index=42&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Switching branches with uncommitted changes git checkout -b </a>
+   Switching branches with uncommitted changes git checkout -b </a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0DThkMzrgac&index=43&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - git diff - Comparing branches</a>
+   git diff - Comparing branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=F5xp9KUTH7o&index=44&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Renaming branches</a>
+   Renaming branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=RqsECFu-zSI&index=45&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Deleting branches</a>
+   Deleting branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=CzuWvBCEZxI&index=46&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    09 Branching Configuring the command prompt to show the branch</a>
 
+11) Merging Branches
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=_R4GGTSHaPI&index=47&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Merging Branches git merge</a>
+   Merging Branches git merge</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=rvF9t9bL0T4&index=48&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - fast forward merge vs true merge or recursive merge</a>
+   Using fast forward merge vs true merge or recursive merge</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hAtt2M1dB1Q&index=49&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Resolving merge conflicts</a>
+   Resolving merge conflicts - 1</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NzXrOQAtoNc&index=50&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Resolving merge conflicts - 2</a>
+   SResolving merge conflicts - 2</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hmTJK4EXNbk&index=51&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Exploring strategies to reduce merge conflicts</a>
+   Exploring strategies to reduce merge conflicts</a>
+
+12) Stashing Changes
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=p7kzcE6LNV4&index=52&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Stashing- Saving changes in the stash git stash</a>
+   Stashing- Saving changes in the stash git stash</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=KzvqUr61W64&index=53&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Stashing - Viewing stashed changes</a>
+   Viewing stashed changes</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=V0jQH5xkyLc&index=54&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Retrieving stashed changes</a>
+   Retrieving stashed changes</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=oj19MidcQTw&index=55&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Deleting stashed changes</a>
+   Deleting stashed changes</a>
+
+13) Remotes
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=O-McFO0mJzs&index=56&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Remotes -Introduction -Using local and remote repositories</a>
+   Using local and remote repositories</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zQgWPezqbC8&index=57&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Setting up a GitHub account</a>
+   Setting up a GitHub account</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=E7IVWxyIZY0&index=58&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Remotes - Adding a remote repository</a>
+   Adding a remote repository</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=t34L9shcOQk&index=59&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Remotes -Creating a remote branch</a>
+   Creating a remote branch</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=VNm2cil0-IQ&index=60&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial -Remotes-Cloning a remote repository</a>
+   Cloning a remote repository</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=I1U6ZWjAuyo&index=61&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Remotes-Tracking remote branches</a>
+   Tracking remote branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-UosBmPrzak&index=62&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Pushing changes - git push</a>
+   Pushing changes - git push</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=9Se9IREF0TE&index=63&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Fetching changes git fetch</a>
+   Fetching changes git fetch</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Ffo69CU5Wik&index=64&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Remotes -Merging in fetched changes git merge</a>
+   Merging in fetched changes git merge</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=3qgS6h2qEXQ&index=65&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Checking out remote branches</a>
+   Checking out remote branches</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=sBH7HyyxXTY&index=66&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Pushing to an updated remote branch git push</a>
+   Pushing to an updated remote branch git push</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=qHbLl_ktIQ4&index=67&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Deleting a remote branch</a>
+   Deleting a remote branch</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=G7Vv8Za7v50&index=68&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git and Github - Enabling collaboration</a>
+   Enabling collaboration</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QuxKpGK0nFs&index=69&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git and Github Tutorial - A collaboration workflow</a>
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=NLK1sUMyYQ8&index=70&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   Git Tutorial - Branching overview</a>
+   A collaboration workflow</a>
 
 
-## Atlassian
+14) Tools and Next Steps
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=sevc6668cQ0">
-   Knowledge is Power: Getting out of trouble by understanding Git</a> 
-   [46:50] at Devoxx Nov 2015
-   by Steve Smith
-   dives into the Git data model.
+0. Setting up aliases for common commands (Viewed)
+0. Using SSH keys for remote login (Viewed)
+0. Save Using SSH keys for remote login
+0. Exploring integrated development environments
+0. Exploring graphical user interfaces
+0. Understanding Git hosting
 
-   git add some-file.txt<br />
-   tree .git/
-
-   "A blank commit will always yield the same SHA" is WRONG
-   because a time stamp is inside the content hashed?
-
-   He shows a video clip of "Prince of Persia"
-   who gets out of trouble by using his time travel device.
-
-   [45:18] bisect
-
-
-## IntelliJ IDEA IDE
-
-From among videos for users of IntelliJ Community Edition 
-<a target="_blank" href="https://www.youtube.com/watch?v=L_jXj0XTwSg&list=PLPZy-hmwOdEXdOtXdFzyx_XCnrF_oD2Ft">
-on this Playlist</a> are these on Git:
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ&t=40s">
-   Working with Git</a>
-   Jun 15, 2015
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
-   Working with Git on IntelliJ IDEA</a>
-
-## GitLab
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
-   GitLab University: Basics of Git & GitLab</a>a>
-
-
-## Tutorial companies
 
 ### Laracasts
 
@@ -660,6 +699,12 @@ In his <a target="_blank" href="https://laracasts.com/series/git-me-some-version
 0. <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/episodes/11">
    Interactive Rebasing</a> [10:17]
 
+More advanced:
+
+* <a target="_blank" href="https://www.lynda.com/GitHub-tutorials/How-Git-works/162276/173440-4.html">
+   How Git works</a>
+
+
 One-off episodes:
 
 * <a target="_blank" href="https://laracasts.com/lessons/git-workflow/">
@@ -667,6 +712,7 @@ One-off episodes:
 
 * <a target="_blank" href="https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/12">
    SSH</a>
+
 
 ### Udacity
 
@@ -827,7 +873,7 @@ his playlist</a>:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
     023 Introduction to Git Hooks</a>
 
-### Others
+## Others
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
    git rebase interactive :: practical example Nov 29, 2016</a>
