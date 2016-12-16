@@ -21,8 +21,19 @@ comments: true
 
 <a target="_blank" href="https://www.youtube.com/watch?v=4XpnKHJAok8">
    Tech Talk: Linus Torvalds on git</a>
-Google
+   at Google
 
+### Tom Preston-Werner 
+
+Co-founder of GitHub until 2014
+(<a target="_blank" href="https://twitter.com/mojombo">
+@mojombo</a>, 
+http://tom.preston-werner.com/)
+
+* <a target="_blank" href="https://vimeo.com/17118008">
+   Mastering Git Basics</a>
+   [53:22]
+   casual
 
 ### Scott Chacon, CIO of GitHub
 
@@ -71,6 +82,17 @@ Mastering Git series by Matthew McCullough with Tim Berglund
    Rebasing (9/10)</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GLLUNDrPHJQ">
    Undo & Bonus (10/10)</a>
+
+
+### Matthew McCullough, VP Training
+
+A rather cerebral introduction made in 2012:
+
+0. <a target="_blank" href="https://vimeo.com/41027679">
+   What is VCS? (Git-SCM)</a> [5:59]
+0. <a target="_blank" href="https://vimeo.com/41381741">
+   What is Git? (Git-SCM)</a> [8:14]
+
 
 ### GitHub Universe conference
 
@@ -436,7 +458,7 @@ in YouTube. But realize that
 
 2) Installing Git
 
-<a target="_blank" href="https://www.youtube.com/watch?v=hS3vq91DBR0&index=5&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
+0. <a target="_blank" href="https://www.youtube.com/watch?v=hS3vq91DBR0&index=5&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Installing Git on a Mac</a>
  
 0. <a target="_blank" href="https://www.youtube.com/watch?v=MN4F2Ag34-o&index=6&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
@@ -713,8 +735,39 @@ One-off episodes:
 * <a target="_blank" href="https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/12">
    SSH</a>
 
+### Codemy School
+
+<a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
+A series of</a>
+talking head waving hands:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
+   What is Git?</a> [3:48]
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
+   GIT: Installation, Configuration and First Commit</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
+   GIT: Working with Branches</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
+   GIT: Merging and Workflow</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
+   GIT: Git Flow Introduction</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
+   GIT: Git Flow Feature Branch and Pushing to GitHub</a>
+   [11:16] 6 Dec 2015
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
+   GIT: Git Flow and Github Pull Request</a> 
+   [6:53] 1 Jan 2016
+
 
 ### Udacity
+
+Hands-on tutorial, starting with diff, by Google darlings:
 
 https://www.udacity.com/course/how-to-use-git-and-github--ud775
 
