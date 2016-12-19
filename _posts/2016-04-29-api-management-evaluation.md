@@ -120,7 +120,7 @@ Each link may go to text lower in this document, to another page on this site, o
 0. Torry Harris mostly open-source API-o-Blocks, API Connect in EMEA, India and Latin America.
 0. Oracle
 0. Software AG
-0. IBM (3Scale) - high cost <a target="_blank" href="https://strongloop.com/">Strongloop</a> Node.js
+0. RedHat (3Scale) - high cost <a target="_blank" href="https://strongloop.com/">Strongloop</a> Node.js
 0. Dell Boomi
 0. Accenture
 0. HP (focused on large media and telcos)

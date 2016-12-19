@@ -16,6 +16,22 @@ comments: true
 
 {% include _toc.html %}
 
+## Wilson Mar
+
+<a target="_blank" href="https://www.youtube.com/playlist?list=PLsnl23XQgokHlFj8iWZ55yMlOIgeFUukt">
+My playlist on Git and GitHub</a> include:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=iNSDeQhq62E">
+   Introduction to the class
+   "Git and GitHub for Developers and Testers"</a>
+   at Techwell conferences
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Onv9nhPIBp0">
+   Git and GitHub File Handling Flow</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=ub2DFbn16zg">
+   Git and GitHub View and Documentation Flow</a>
+
 
 ## By GitHub people
 
@@ -223,6 +239,13 @@ But someone downloaded the videos to YouTube on 1 Nov 2016:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=szGfy1iyA3A">
    Part 2 Create project locally</a> [17:48]
 
+Recap:
+
+Jeremy
+<a target="_blank" href="https://www.youtube.com/watch?v=8olbR_Xtg2Q">
+   Using Git and GitHub</a> [54 minutes]
+   6 Oct 2016.
+
 
 ### Channel 9 
 
@@ -285,9 +308,36 @@ by @StevenBorg (salesy hand-wavy boss) and
    [25:40] http://rypress.com/tutorials/git/index<br />
 
 
-## Tooling companies
+## Git Hosting
 
-### Atlassian
+### GitLab
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
+   GitLab University: Basics of Git & GitLab</a>
+
+
+
+
+
+## Client Tooling
+
+### IntelliJ IDEA IDE
+
+This IDE is the darling of developers.
+From among videos for users of IntelliJ Community Edition 
+<a target="_blank" href="https://www.youtube.com/watch?v=L_jXj0XTwSg&list=PLPZy-hmwOdEXdOtXdFzyx_XCnrF_oD2Ft">
+on this Playlist</a> are these on Git:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ&t=40s">
+   Working with Git</a>
+   Jun 15, 2015
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
+   Working with Git on IntelliJ IDEA</a>
+
+
+
+### Atlassian Source Tree
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=sevc6668cQ0">
    Knowledge is Power: Getting out of trouble by understanding Git</a> 
@@ -305,25 +355,6 @@ by @StevenBorg (salesy hand-wavy boss) and
    who gets out of trouble by using his time travel device.
 
    [45:18] bisect
-
-
-### IntelliJ IDEA IDE
-
-From among videos for users of IntelliJ Community Edition 
-<a target="_blank" href="https://www.youtube.com/watch?v=L_jXj0XTwSg&list=PLPZy-hmwOdEXdOtXdFzyx_XCnrF_oD2Ft">
-on this Playlist</a> are these on Git:
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ&t=40s">
-   Working with Git</a>
-   Jun 15, 2015
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
-   Working with Git on IntelliJ IDEA</a>
-
-### GitLab
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
-   GitLab University: Basics of Git & GitLab</a>a>
 
 
 ## Training vendors
@@ -354,12 +385,12 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
 
    "Git is a version control system design to 
    track the history of text files across multiple distributed instances,
-   without the need for constant communication betweeen instances,
+   without the need for constant communication between instances,
    by representing files, their relationships, and their history as complete,
    raw data blogs stored in a compressed database 
    indexed by statistically unique, content based, pseudo-random hashes
    and whose entire history and content can be accessed, 
-   from any arbitray starting point, by means of
+   from any arbitrary starting point, by means of
    recursive traversal or its node space, which is
    best represented in the form of a directed acyclic graph mapped,
    along with its content, in <strong>four dimensions</strong>."
@@ -440,7 +471,7 @@ in YouTube. But realize that
    is in <a target="_blank" href="https://www.youtube.com/watch?v=vsqsRhxGyKo&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    this YouTube playlist</a> published Sep 26, 2015.
 
-   CAUTION: You're missing the quizzes unless you're on Lynda.
+   CAUTION: You're missing the quizzes unless you're on Lynda.com.
 
 1) What is Git - 
 
