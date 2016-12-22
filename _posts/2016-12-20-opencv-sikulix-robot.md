@@ -158,6 +158,7 @@ Exception in thread "main" java.lang.NullPointerException
    * sikulixlibsmac.jar
    * sikulix.jar 
    * sikulixapi.jar
+   <br /><br />
 
 0. In Finder, move 
    to your user's Applications folder.
@@ -167,26 +168,96 @@ Exception in thread "main" java.lang.NullPointerException
 
 ### Robot Framework Install
 
-For a keyword-driven syntax driven by text data files, 
-use the
+Instead of coding programming code, it's faster to write 
+keyword-driven syntax driven by text data files.
+That's provided by the
 <a target="_blank" href="http://robotframework.org/">
-Robot Framework</a> is open-sourced on 
+Robot Framework</a>, open-sourced on 
 GitHub. 
 
-The core framework is implemented using Python and runs also on Jython (JVM) and IronPython (.NET).
-So it's operating system and application independent.
+The core framework is operating system and application independent
+because it's implemented using Python for running on Jython (JVM) and IronPython (.NET).
 
-https://github.com/robotframework/QuickStartGuide/blob/master/QuickStart.rst
+See https://github.com/robotframework/QuickStartGuide/blob/master/QuickStart.rst
+
+0. Install the Robot Framework core:
 
    <pre>
    pip install robotframework
    </pre>
 
-0. To test databases and for example REST APIs.
+   The response:
 
+   <pre>
+Collecting robotframework
+  Downloading robotframework-3.0.tar.gz (430kB)
+    100% |████████████████████████████████| 440kB 399kB/s 
+Building wheels for collected packages: robotframework
+  Running setup.py bdist_wheel for robotframework ... done
+  Stored in directory: /Users/mac/Library/Caches/pip/wheels/9e/61/ee/b4bb4b9b7824594cc785a577975bec2fce9c54b09bbf39eb3f
+Successfully built robotframework
+Installing collected packages: robotframework
+Successfully installed robotframework-3.0
+   </pre>
+
+0. To test databases and for example REST APIs, also install:
+
+   <pre>
    pip install robotframework-databaselibrary
    pip install requests
-   pip install robotframework-requests
+   pip install botframework-requests
+   </pre>
+
+0. PROTIP: I don't recommend installing docutils because you can look it up online.
+
+0. To install the demo Robot login script, create a folder to hold the demo repo:
+
+   <pre>
+   cd ~/gits/wilsonmar/pattern-recognition
+   git clone https://github.com/robotframework/QuickStartGuide.git --depth=1
+   cd QuickStartGuide
+   </pre>
+
+0. Position your present working directory to thePROTIP: I don't recommend installing docutils because you can look it up online.
+
+0. Run the demo:
+
+   <pre>
+   robot QuickStart.rst
+   </pre>
+
+   NOTE: The file name extension (ending) .rst is also used by Ansible scripts.
+
+   You will see this if the .rst file is not in the present folder:
+
+   <pre>
+[ ERROR ] Parsing 'QuickStart.rst' failed: Data source does not exist.
+   </pre>
+
+   The expected response is:
+
+   <pre>
+==============================================================================
+QuickStart                                                                    
+==============================================================================
+User can create an account and log in                                 | PASS |
+------------------------------------------------------------------------------
+User cannot log in with bad password                                  | PASS |
+------------------------------------------------------------------------------
+User can change password                                              | PASS |
+------------------------------------------------------------------------------
+Invalid password                                                      | PASS |
+------------------------------------------------------------------------------
+User status is stored in database                                     | PASS |
+------------------------------------------------------------------------------
+QuickStart                                                            | PASS |
+5 critical tests, 5 passed, 0 failed
+5 tests total, 5 passed, 0 failed
+==============================================================================
+Output:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/output.xml
+Log:     /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/log.html
+Report:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/report.html
+   </pre>
 
 
 

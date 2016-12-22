@@ -104,14 +104,19 @@ Old Faithful in Montana, USA</a></li>
 Abbey Road, London, England</a> (made famous by the Beatles)</li>
 <li><a target="_blank" href="http://www.reallifecam.com/en/view/06_1">
 Real Life cams</a> (for that "lived in look")</li>
-<li><a target="_blank" href="http://www.timessquare2.com/webcams.html">
-Times Square, New York City</a></li>
 <li><a target="_blank" href="https://www.graceland.com/connect/gracelandcam.aspx">
 Elvis' Graceland</a></li>
 <li><a target="_blank" href="http://www.vaticanstate.va/content/vaticanstate/it/monumenti/webcam/basilica-di-s-pietro-.html">
 Vatican City, Rome, Italy</a></li>
 <li><a target="_blank" href="http://members.upc.nl/a.horlings/cam-list.html">
 List of webcam lists</a></li>
+</ul>
+
+## Adobe Flash
+
+<ul>
+<li><a target="_blank" href="http://www.timessquare2.com/webcams.html">
+Times Square, New York City</a> (Adobe Flash)</li>
 </ul>
 
 
