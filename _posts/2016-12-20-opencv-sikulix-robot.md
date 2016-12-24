@@ -68,6 +68,8 @@ Gitter channel</a>.
 
 <hr />
 
+## Installation
+
 The steps to make it work:
 
 0. Install JRE
@@ -83,7 +85,7 @@ Install http://sikulix.com/
 
 <a name="SikuliXInstall"></a> 
 
-## SikuliX Installation
+### SikuliX Installation
 
 Instructions below are based on run on Mac 10.12 (Sierra)
 referencing http://sikulix.com/quickstart/
@@ -210,6 +212,10 @@ Successfully installed robotframework-3.0
 
 0. PROTIP: I don't recommend installing docutils because you can look it up online.
 
+   * <a target="_blank" href="http://robotframework.org/robotframework/#standard-libraries">
+   Click View about Standard Libraries and Built-in Tools</a>
+   <br /><br />
+
 0. To install the demo Robot login script, create a folder to hold the demo repo:
 
    <pre>
@@ -260,8 +266,12 @@ Report:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/report.ht
    </pre>
 
 
-
 ## Scripting
+
+### Robot QuickStart Login Demo script
+
+
+
 
 Many of the functions are common to other similar programs,
 such as Selenium, HP QTP, etc.
@@ -274,6 +284,8 @@ Atom, Sublime, TextMate, Vim, etc.
 See http://sikulix-2014.readthedocs.io/en/latest/scenarios.html#using-robotframework
 
 http://www.slideshare.net/pekkaklarck/robot-framework-introduction
+
+
 
 ## Social
 

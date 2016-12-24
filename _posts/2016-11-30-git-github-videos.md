@@ -126,6 +126,37 @@ A rather cerebral introduction made in 2012:
    by Emma Jane Hogbin Westby 
 
 
+### Briana Swift 
+
+<a target="_blank" href="https://www.youtube.com/watch?list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&v=vR-y_2zWrIE">
+For Free Code Camp on YouTube Sep 2016</a>
+quick (conceptual) videos with captions and graphics on a white board:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=vR-y_2zWrIE&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=1">
+   Introduction to Git & GitHub</a> [1:09]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=2GO1a1vgNrc&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=2">
+   Branching and the GitHub Workflow</a> [2:12]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=4VY0kHqIqyU&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=3">
+   GitHub Workflow for Open Source</a> [1:37]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=09wR8kYT3t8&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=4">
+   Cloning & Working Locally</a> [1:48]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=bbanTh2CoAY&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=5">
+   Most Used Git Commands</a> [1:58]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JXM7MO2GgGg&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=6">
+   How Commits Work</a> [0:55]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=TfbgO07ZEYE&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=7">
+   2-Step Commit</a> [1:29]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=tYOl25gyuvk&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=8">
+   Merging</a> [0:42]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=sfT0WrChMrM&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=9">
+   Merge Conflicts</a> [1:28]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=PBtApBmgc1M&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=10">
+   Rebasing</a> [1:12]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=XiFYShmnI4k&list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF&index=11">
+   Undoing Commits</a> [1:29]
+
+
+
 ## Microsoft
 
 
@@ -160,6 +191,7 @@ Visual Studio Online Version Control
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=dBSHLb1B8sw">
    GOTO 2015 • Deep Dive into Git</a>
+
 
 ### Jeremy Foster
 
@@ -312,11 +344,18 @@ by @StevenBorg (salesy hand-wavy boss) and
 
 ### GitLab
 
+In the <a target="_blank" href="https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg">
+GitLab YouTube channel</a>:
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=03wb9FvO4Ak">
+   Introduction to GitLab Workflow</a> [49:14]
+   [3:10] ToDos
+
+   Job @jobvo (VP of Product)
+   introduced by Heather 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=enMumwvLAug">
    GitLab University: Basics of Git & GitLab</a>
-
-
-
 
 
 ## Client Tooling
