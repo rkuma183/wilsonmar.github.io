@@ -3,7 +3,7 @@ layout: post
 title: "Git and GitHub Videos"
 excerpt: "Binge watch all the vidoes on distributed source version control"
 tags: [GitHub]
-shorturl: "https://git.io/v1Cow"
+shorturl: "https://goo.gl/hOUsKE"
 image:
 # pic green easter island 2 hillside 1920x1080
   feature: https://cloud.githubusercontent.com/assets/300046/15217452/d8d04062-1818-11e6-9a57-215db66655d2.jpg
