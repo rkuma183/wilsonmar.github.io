@@ -110,50 +110,50 @@ From various seed catalogs:
 
 ### Varieties of Lettuce 
 
-F R A N K
-SALINOVA
-BREEN
-OSCARDE
-RHAZES
-TRUCHAS
-OAKY RED SPLASH
-VULCAN
-ROMAINE FRECKLES
-ANTARES
-COCARDE
-MASCARA
-MERLOX RED OAK
-YUGOSLAVIAN RED
-ALKINDUS
-SPECKLED
-R E D C R O S S
-FLASHY BUTTER GEM
-BLUSHED BUTTER COS
-FLASHY LIGHTNING
-SWEET VALENTINE
+* F R A N K
+* SALINOVA
+* BREEN
+* OSCARDE
+* RHAZES
+* TRUCHAS
+* OAKY RED SPLASH
+* VULCAN
+* ROMAINE FRECKLES
+* ANTARES
+* COCARDE
+* MASCARA
+* MERLOX RED OAK
+* YUGOSLAVIAN RED
+* ALKINDUS
+* SPECKLED
+* R E D C R O S S
+* FLASHY BUTTER GEM
+* BLUSHED BUTTER COS
+* FLASHY LIGHTNING
+* SWEET VALENTINE
 
-### Varieties of micro greens
+### Micro greens
 
-ARUGULA/ROQUETTE
-PAC CHOY
-RADISH/MINOWASE
-MUSTARD/PIZZO
-MUSTARD/CRIMSON
-KALE/LACINATO
-MIZUNA
-TATSOI
-PEA SHOOTS
-PEPPERCRESS
-BASIL
-CRESSIDA
-BROCCOLI (WALTHAM)
-HONG VIT
-DAIKON
-SCALLION
-RAMBO
-PINK STEM
-LEMON BASIL
-COLLARD (CHAMPION)
+* BASIL
+* LEMON BASIL
+* ARUGULA/ROQUETTE
+* PAC CHOY
+* RADISH/MINOWASE
+* MUSTARD/PIZZO
+* MUSTARD/CRIMSON
+* KALE/LACINATO
+* MIZUNA
+* TATSOI
+* PEA SHOOTS
+* PEPPERCRESS
+* CRESSIDA
+* BROCCOLI (WALTHAM)
+* HONG VIT
+* DAIKON
+* SCALLION
+* RAMBO
+* PINK STEM
+* COLLARD (CHAMPION)
 
 
 ### Sprouts
@@ -164,6 +164,17 @@ Great to add on sandwiches with avocado.
 They are nutrient rich and full of flavor.
 But that means you have to rinse them <strong>4 or 5 times a day</strong> 
 or you'll get Salmonella bacteria poisoning (fever, headache, abdominal cramps, vomitting, diarrhea up to 7 days).
+
+http://www.instructables.com/id/Raspberry-Pi-Irrigation-Controller/
+describes use of a Raspberry Pi controlling
+a 24 VAC solenoid for a 3/4" hose spigot.
+
+An AC solenoid valve turns water on when voltage is applied, and turns it off when the power is off. The drawback is that it uses AC voltage, requiring an adapter to convert the wall voltage, 120 VAC, into the 24 VAC voltage needed to trigger the valve. Outdoor Installation likely requires an extension cord.
+
+A DC solenoid valve allows for a battery powered system. It can easily be modified to be wireless and powered by renewable energy using a medium solar panel (~10 W). However, most DC irrigation valves are latching solenoids and require switching the valve lead polarity to turn water on and off.
+
+The Solid State Relay, or relay, is the intermediary switch between the RPi and the solenoid valve. This tutorial uses a Crouzet Model OAC5-315; its input is 3 - 8 VDC and its output is between 24 - 120 VAC at 1A.
+
 
 
 <a name="Expensive"></a>
@@ -269,7 +280,7 @@ Most resources on the internet are based on land exposed to weather and vermin.
 http://www.TekSupply.com 
    TekSupply.com mails out a catalog 800.835-7877
 
-sunlight Supply
+
 
 
 ## Books
