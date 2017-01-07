@@ -274,6 +274,35 @@ Most resources on the internet are based on land exposed to weather and vermin.
    who sells at http://www.tarrinlupo.com/
    from Savannah, Georgia & New Hampshire
 
+* https://www.youtube.com/watch?v=tfN2Zo1sViI
+   Inside shipping containers | TEDxBeijing
+
+* https://www.youtube.com/watch?v=oH1fcCiaT20
+   The urban agriculture revolution
+
+* https://www.youtube.com/watch?v=xvFD6DRn0Cg
+   Biochar - the future of sustainable agriculture: Lauren Hale at TEDxUCR
+
+
+### TED Talks
+
+* https://www.youtube.com/watch?v=mQPZsD8nKu4
+   Guerrilla gardening -- why people garden without boundaries: Richard Reynolds at TEDxItaewon
+
+* https://www.youtube.com/watch?v=kSQm09twKEE
+   How a rooftop farm feeds a city | Mohamed Hage | TEDxUdeM
+   of Lufa Farms
+
+* https://www.youtube.com/watch?v=XWUt6hT_8Lo
+   Soil-free agriculture [English]: Yuichi Mori at TEDxTokyo
+   TEDx Talks
+
+* https://www.youtube.com/watch?v=mwaZc7B8Hnc
+   The Vertical Farm: A Keystone Concept for the the Ecocity : Dickson Despommier 
+
+* https://www.youtube.com/watch?v=AKBkgJoaIxQ
+   Biochar - the future of sustainable agriculture: Lauren Hale at TEDxUCR
+
 
 ## Suppliers
 
