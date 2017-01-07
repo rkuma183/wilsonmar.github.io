@@ -50,16 +50,16 @@ to impose artificial load.
    <strong>Info (?) page</strong>
    for network variability measurement.
 
-2. <strong>Register</string> to see how many the system can accomodate when the system is widely announced to the public.
-
-3. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center).
-
-4. <strong>Search</strong> form usage, especially for form fields that return an autocomplete list for user ease-of-use.
-
-5. <strong>Navigation</strong> browsing through items without buying to specifically stress the web server.
+2. <strong>Browsing</strong> through items (without buying) to specifically stress the web server.
 
    Rather than coding to click specific items,
    this activity is often specified by a file with the test program iterates through.
+
+3. <strong>Register</strong> to see how many the system can accomodate when the system is widely announced to the public.
+
+4. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center).
+
+5. <strong>Search</strong> form usage, especially for form fields that return an autocomplete list for user ease-of-use.
 
 6. <strong>Add to cart</strong> which adds to the database for each unique user, specifically to stress the database.
 
@@ -75,10 +75,9 @@ to impose artificial load.
 
 ## Local Installation
 
-There are several versions on the internet. 
-The latest one I know of is at:
-
-https://github.com/mybatis/jpetstore-6/releases
+WARNING: There are several obsolete versions on the internet,
+such as <a target="_blank" href="http://sourceforge.net/projects/ibatisjpetstore/">
+v4 on Sourceforge</a>.
 
 Rather than downloading a 
 <a target="_blank" href="https://github.com/mybatis/jpetstore-6/releases">release zip file</a>, 
@@ -91,24 +90,70 @@ TODO: Create a bootstrap script that does the following:
 
    <pre><strong>
    git clone https://github.com/mybatis/jpetstore-6.git
+   cd jpetstore-6
    </strong></pre>
 
 0. Have Maven download and install <a href="#Dependencies">
    dependencies</a> defined in pom.xml:
 
    <pre><install>
-   mvn install
+   mvn clean package
    </strong></pre>
 
    "JPetStore 6 should run in any Servlet 2.5 y JSP 2.1 compliant Java server."
 
    Eclipse is not needed either, you can run the sample from your favorite IDE or the command line.
 
-0. Download and install dependencies in the pom.xml file:
+0. Startup the Tomcat server and deploy web application
 
    <pre><install>
-   mvn install
+   mvn cargo:run
    </strong></pre>
+
+   The pom.xml file has several versions of Tomcat loaded.
+
+0. In a browser, use the app as a user:
+
+   <pre><strong>
+   http://localhost:8080/jpetstore/
+   </strong></pre>
+
+
+<a name="UI"></a>
+
+## UI
+
+On the Main Menu, there are links to category lists
+from the text at the left, 
+the headings at the top,
+and icons at the center.
+
+The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
+but after a click of <strong>Sign In</strong>.
+
+TODO: Variations in registration data from a file
+to load various users.
+
+
+### My Orders
+
+At the bottom of the User Information page is a link to
+<strong>My Orders</strong>.
+
+http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=
+
+QUESTION: How to reset the Orders data for a user?
+
+
+### Profile Options
+
+These change behavior, which automation scripts need to
+respond to:
+
+* Enable MyList 
+
+* Enable MyBanner 
+
 
 <a name="Dependencies"></a>
 
@@ -126,6 +171,11 @@ http://www.mybatis.org/jpetstore-6/dependency-info.html
 
    MyBatis mappers and dependency injection lets you build applications without dependencies.
 
+* Tomcat web server 
+
+* JUnit for Mokito
+
+   Used by tests
 
 
 <a name="Monitoring"></a>
@@ -135,12 +185,17 @@ http://www.mybatis.org/jpetstore-6/dependency-info.html
 Online Solution
 http://demo.kieker-monitoring.net/
 
-## Code
+
+
+## Java Code
 
 Docs at http://www.mybatis.org/jpetstore-6/
 says:
 
 The purpose of JPetStore 6 is to demonstrate how to build a web application with very few classes and no advanced coding skills. You just need to know plain Java and SQL.
+
+Java source code is in the <a target="_blank" href="https://github.com/mybatis/jpetstore-6/tree/master/src/main/java/org/mybatis/jpetstore">src/mainjava/org/mybatis/jpetstore</a> folder.
+
 
 <hr />
 
