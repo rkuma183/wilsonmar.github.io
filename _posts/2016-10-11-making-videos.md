@@ -31,3 +31,9 @@ It takes me one day for each second of video produced.
 0. Extract (srt file) from Camtasia and add to YouTube
 0. Get feedback and revise
 
+## Camtasia 9
+
+Camtasia enables addition of captions, 
+and their export in a .srt (SubRip) file for 
+loading into YouTube.
+

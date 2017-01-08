@@ -24,13 +24,26 @@ exploring JVM tools.
 
 The app provides a shopping cart because it's a common use case on the internet. Different items within several categories (of pets). 
 
-Microsoft created a sample .Net Pet Shop when it orginally debuted its .NET framework.
+Sun created a J2EE Pet Store, in 15,000 lines.
 
-JPetStore v6 is a rewrite of Sun's original J2EE Pet Store. 
+Microsoft contracted with Vertigo Software to create a sample .Net Pet Shop when it orginally debuted its .NET framework. The repo had 3,484 lines of code
+and tuned for benchmarking speed rather than best practices.
+
+JPetStore v6 is vendor-independent open source freeware 
+first released <a target="_blank" href="http://www.theserverside.com/discussions/thread.tss?thread_id=14243">
+in 2002</a> in 3,154 lines of code. It uses the Jakarta Struts Model-View-Controller based presentation layer. It has NO SQL in code nor stored procedures running in a database, so is independent of database vendors (Oracle SQL in particular).
+PostgreSQL is free.
+
+It has no generated code, nor HTML in the database. 
 
 One company has it running all the time at
    <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action">
    http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action</a>
+
+<a target="_blank href="http://www.neotys.com/documents/doc/neoload/latest/en/html/#1609.htm">
+NeoLoad</a>
+and other tools use it as a sample app.
+
 
 <a name="LandingPage"></a>
 
@@ -48,6 +61,13 @@ An explanation of the UI actions is available by clicking the (?) on the heading
 <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/help.html">
 http://demo.kieker-monitoring.net/jpetstore/help.html</a>
 
+This site map is from the 
+<a target="_blank" href="http://www.clintonbegin.com/downloads/JPetStore-1-2-0.pdf">comparison</a>
+by Clinton Begin (of Alberta):
+
+![jpetstore6 site map](https://cloud.githubusercontent.com/assets/300046/21751209/7ad5c63a-d591-11e6-88ea-c67d3dc107f6.png)
+
+
 Performance testing needs a set of <strong>loops</strong>
 to impose artificial load.
 
@@ -63,7 +83,15 @@ to impose artificial load.
 
 3. <strong>Register</strong> to see how many the system can accomodate when the system is widely announced to the public.
 
-4. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center).
+   j2ee is the default user.
+
+   The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
+   but after a click of <strong>Sign In</strong>.
+
+   TODO: Variations in registration data from a file
+   to load various users.
+
+4. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center during start of shift).
 
 5. Log-off
 
@@ -135,12 +163,6 @@ and icons at the center.
 
 ### User Registration
 
-The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
-but after a click of <strong>Sign In</strong>.
-
-TODO: Variations in registration data from a file
-to load various users.
-
 
 ### Headings
 
@@ -184,7 +206,7 @@ TODO: Create a bootstrap script that does the following:
 
    ~/gits/jpetstore/mybatis-spring-boot-jpetstore<br />
    is an alternative from Kazuki Shimizu of Japan.
-   It is implemented using Thymeleaf 3.0.
+   It is implemented using <a target="_blank" href="http://www.thymeleaf.org/"> Thymeleaf</a> 3.0.
 
 0. In a Terminal, obtain the whole repository with its history:
 
@@ -241,12 +263,20 @@ http://www.mybatis.org/jpetstore-6/dependency-info.html
 
 * Stripes - https://github.com/StripesFramework
 
-* MyBatis 3
+* MyBatis 3 SQL mapping framework for Java <br />
+   http://blog.mybatis.org/p/products.html
 
    MyBatis mappers and dependency injection lets you build applications without dependencies.
    Thus, the source has no code to deal with JDBC, to create objects or bind them or to handle transactions. 
 
-* Tomcat web server 
+   (There is a port to .NET)
+
+   The iBATIS Database Layer uses simple XML descriptor filesto describe the inputs and outputs of each SQL statement. It allows the programmer to simply pass a JavaBean into a MappedStatement as a parameter (input) and receive a JavaBean as a result (output).  
+
+* Formatter Tag Library
+   by Tak Yoshida of ibatis.
+
+* Tomcat web server from the Apache Foundation.
 
 * JUnit for Mokito
 
