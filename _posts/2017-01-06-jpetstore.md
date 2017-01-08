@@ -55,7 +55,8 @@ to impose artificial load.
    <strong>Info (?) page</strong>
    for network variability measurement.
 
-2. <strong>Browsing</strong> through items (without buying) to specifically stress the web server.
+2. <strong>Browsing</strong> through items (without buying) 
+   (before login) to specifically stress the web server.
 
    Rather than coding to click specific items,
    this activity is often specified by a file with the test program iterates through.
@@ -64,25 +65,43 @@ to impose artificial load.
 
 4. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center).
 
-5. <strong>Search</strong> form usage, especially for form fields that return an autocomplete list for user ease-of-use.
+5. Log-off
 
-6. <strong>Add to cart</strong> which adds to the database for each unique user, specifically to stress the database.
+6. <strong>Search</strong> form usage, especially for form fields that return an autocomplete list for user ease-of-use.
 
-7. <strong>Purchase</strong> to ensure that 
+7. <strong>Add to cart</strong> from an item listing,
+   which adds to the database for each unique user, specifically to stress the database.
+
+8. View cart.
+
+9. <strong>Purchase</strong> to ensure that 
    <strong>payment gateways</strong> can keep up with a lot of people buying at once.
 
    Except the JPetStore app does not connect with a payment gateway.
 
-8. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a buying frenzy).
+10. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a buying frenzy).
 
-9. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
+11. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
    lists order history for a user,
    by reading from the database.
+   A link to it is at the bottom of the User Information page after a user is logged in and has completed an order.
 
-   At the bottom of the User Information page is a link to
-   <strong>My Orders</strong>.
 
-   
+Additionally, there are <strong>error</strong> responses
+to each of the above, created by "negative" tests:
+
+1. Server unavailable (NGINX).
+
+2. Item not available during browsing.
+
+3. Registration error (such as bad email,
+   user already defined, etc.).
+
+4. Login error, such as forgotten password change.
+
+5. Search not found.
+
+etc.
 
 
 ### Random iteration
@@ -147,13 +166,26 @@ WARNING: There are several obsolete versions on the internet,
 such as <a target="_blank" href="http://sourceforge.net/projects/ibatisjpetstore/">
 v4 on Sourceforge</a>.
 
+There are several variations
+
+
+### MyBatis
+
 Rather than downloading a 
 <a target="_blank" href="https://github.com/mybatis/jpetstore-6/releases">release zip file</a>, 
 use a Git client, as the <a target="_blank" href="https://github.com/mybatis/jpetstore-6/blob/master/README.md">readme</a> recommends.
 
 TODO: Create a bootstrap script that does the following:
 
-0. Create a folder to hold.
+0. Create a folder to hold. I prefer to have a container folder
+   (jpetstore) because there are multiple repositories:
+
+   ~/gits/jpetstore/jpetstore-6
+
+   ~/gits/jpetstore/mybatis-spring-boot-jpetstore<br />
+   is an alternative from Kazuki Shimizu of Japan.
+   It is implemented using Thymeleaf 3.0.
+
 0. In a Terminal, obtain the whole repository with its history:
 
    <pre><strong>
@@ -170,9 +202,11 @@ TODO: Create a bootstrap script that does the following:
 
    JPetStore 6 should run in any Servlet 2.5 y JSP 2.1 compliant Java server.
 
-   Eclipse is not needed either, you can run the sample from your favorite IDE or the command line.
+   Eclipse is not needed. You can run the sample from your favorite IDE or the command line.
 
 0. Startup the Tomcat server and deploy web application
+   using the
+   <a target="_blank" href="https://codehaus-cargo.github.io/cargo/Maven2+plugin.html">Cargo Maven plug-in</a>
 
    <pre><strong>
    mvn cargo:run
@@ -205,11 +239,12 @@ http://www.mybatis.org/jpetstore-6/dependency-info.html
 
 * Spring 4 
 
-* Stripes
+* Stripes - https://github.com/StripesFramework
 
 * MyBatis 3
 
    MyBatis mappers and dependency injection lets you build applications without dependencies.
+   Thus, the source has no code to deal with JDBC, to create objects or bind them or to handle transactions. 
 
 * Tomcat web server 
 
@@ -228,6 +263,10 @@ http://demo.kieker-monitoring.net/
 
 
 ## Java Code
+
+Eclipse is not required, but there is a 
+<a target="_blank" href="http://blog.mybatis.org/2016/12/mybatipse-eclipse-plugin-1024-is.html">
+MyBatis plug-in</a>
 
 Docs at http://www.mybatis.org/jpetstore-6/
 says:
