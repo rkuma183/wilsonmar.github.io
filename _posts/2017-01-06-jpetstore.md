@@ -39,7 +39,7 @@ DO THIS: Adjust the width of your browser for a frame like this:
 TODO: Picture of landing page.
 
 
-## Use case
+## Use case loops #
 
 TODO: Video.
 
@@ -69,6 +69,71 @@ to impose artificial load.
    Except the JPetStore app does not connect with a payment gateway.
 
 8. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a buying frenzy).
+
+9. <strong>My Orders</strong> lists order history for a user.
+
+   At the bottom of the User Information page is a link to
+   <strong>My Orders</strong>.
+
+   http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=
+
+### Random iteration
+
+   Not every iteration would invoke "My Orders".
+   So the automation scripts would need to use a
+   <strong>percentage chance</strong> 
+   when the action is performed.
+
+
+### Reset data
+
+QUESTION: How to reset the Orders data for a user?
+
+
+<a name="UI"></a>
+
+## UI #
+
+An explanation of the UI actions is available by clicking the (?) on the heading, at<br />
+<a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/help.html">
+http://demo.kieker-monitoring.net/jpetstore/help.html</a>
+
+
+On the Main Menu, there are links to category lists
+from the text at the left, 
+the headings at the top,
+and icons at the center.
+
+   * Fish
+   * Dogs
+   * Cats
+   * Reptiles
+   * Birds
+
+
+### User Registration
+
+The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
+but after a click of <strong>Sign In</strong>.
+
+TODO: Variations in registration data from a file
+to load various users.
+
+
+### Headings
+
+On the heading, when a user is signed in, "Sign In" changes to "My Account".
+
+
+### User Profile Options
+
+These change behavior, which automation scripts need to
+respond to:
+
+* Enable MyList 
+
+* Enable MyBanner 
+
 
 
 <a name="LocalInstall"></a>
@@ -100,7 +165,7 @@ TODO: Create a bootstrap script that does the following:
    mvn clean package
    </strong></pre>
 
-   "JPetStore 6 should run in any Servlet 2.5 y JSP 2.1 compliant Java server."
+   JPetStore 6 should run in any Servlet 2.5 y JSP 2.1 compliant Java server.
 
    Eclipse is not needed either, you can run the sample from your favorite IDE or the command line.
 
@@ -118,41 +183,15 @@ TODO: Create a bootstrap script that does the following:
    http://localhost:8080/jpetstore/
    </strong></pre>
 
+   You should now see the entry screen:
 
-<a name="UI"></a>
+   <img width="272" alt="jpetstore6 enter store" src="https://cloud.githubusercontent.com/assets/300046/21746314/42beea02-d50e-11e6-8b2b-cdfebe3fee50.png">
 
-## UI
+0. Click "Enter the store" for the main menu:
 
-On the Main Menu, there are links to category lists
-from the text at the left, 
-the headings at the top,
-and icons at the center.
-
-The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
-but after a click of <strong>Sign In</strong>.
-
-TODO: Variations in registration data from a file
-to load various users.
+   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
 
-### My Orders
-
-At the bottom of the User Information page is a link to
-<strong>My Orders</strong>.
-
-http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=
-
-QUESTION: How to reset the Orders data for a user?
-
-
-### Profile Options
-
-These change behavior, which automation scripts need to
-respond to:
-
-* Enable MyList 
-
-* Enable MyBanner 
 
 
 <a name="Dependencies"></a>
