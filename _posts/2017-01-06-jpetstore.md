@@ -32,7 +32,9 @@ One company has it running all the time at
    <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action">
    http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action</a>
 
-<a name="LandingPage">Landing page</a>
+<a name="LandingPage"></a>
+
+### Landing page (Main Menu) #
 
    <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
@@ -188,7 +190,8 @@ TODO: Create a bootstrap script that does the following:
 
    <img width="272" alt="jpetstore6 enter store" src="https://cloud.githubusercontent.com/assets/300046/21746314/42beea02-d50e-11e6-8b2b-cdfebe3fee50.png">
 
-0. Click "Enter the store" for the main menu.
+0. Click "Enter the store" for the 
+   <a href="#LandingPage">main menu</a>.
 
 
 
