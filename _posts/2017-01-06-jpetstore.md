@@ -34,14 +34,17 @@ One company has it running all the time at
 
 <a name="LandingPage">Landing page</a>
 
-DO THIS: Adjust the width of your browser for a frame like this:
+   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
-TODO: Picture of landing page.
+   DO THIS: Adjust the width of your browser for a frame like this:
+
 
 
 ## Use case loops #
 
-TODO: Video.
+An explanation of the UI actions is available by clicking the (?) on the heading, at<br />
+<a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/help.html">
+http://demo.kieker-monitoring.net/jpetstore/help.html</a>
 
 Performance testing needs a set of <strong>loops</strong>
 to impose artificial load.
@@ -70,12 +73,15 @@ to impose artificial load.
 
 8. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a buying frenzy).
 
-9. <strong>My Orders</strong> lists order history for a user.
+9. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
+   lists order history for a user,
+   by reading from the database.
 
    At the bottom of the User Information page is a link to
    <strong>My Orders</strong>.
 
-   http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=
+   
+
 
 ### Random iteration
 
@@ -93,11 +99,6 @@ QUESTION: How to reset the Orders data for a user?
 <a name="UI"></a>
 
 ## UI #
-
-An explanation of the UI actions is available by clicking the (?) on the heading, at<br />
-<a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/help.html">
-http://demo.kieker-monitoring.net/jpetstore/help.html</a>
-
 
 On the Main Menu, there are links to category lists
 from the text at the left, 
@@ -187,10 +188,7 @@ TODO: Create a bootstrap script that does the following:
 
    <img width="272" alt="jpetstore6 enter store" src="https://cloud.githubusercontent.com/assets/300046/21746314/42beea02-d50e-11e6-8b2b-cdfebe3fee50.png">
 
-0. Click "Enter the store" for the main menu:
-
-   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
-
+0. Click "Enter the store" for the main menu.
 
 
 
