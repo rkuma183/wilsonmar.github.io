@@ -164,7 +164,7 @@ TODO: Create a bootstrap script that does the following:
 0. Have Maven download and install <a href="#Dependencies">
    dependencies</a> defined in pom.xml:
 
-   <pre><install>
+   <pre><strong>
    mvn clean package
    </strong></pre>
 
@@ -174,7 +174,7 @@ TODO: Create a bootstrap script that does the following:
 
 0. Startup the Tomcat server and deploy web application
 
-   <pre><install>
+   <pre><strong>
    mvn cargo:run
    </strong></pre>
 
