@@ -24,23 +24,7 @@ exploring JVM tools.
 
 The app provides a shopping cart because it's a common use case on the internet. Different items within several categories (of pets). 
 
-Sun created a J2EE Pet Store, in 15,000 lines.
-
-Microsoft contracted with Vertigo Software to create a sample .Net Pet Shop when it orginally debuted its .NET framework. The repo had 3,484 lines of code
-and tuned for benchmarking speed rather than best practices.
-
-JPetStore v6 is vendor-independent open source freeware 
-first released <a target="_blank" href="http://www.theserverside.com/discussions/thread.tss?thread_id=14243">
-in 2002</a> in 3,154 lines of code. It uses the Jakarta Struts Model-View-Controller based presentation layer. It has NO SQL in code nor stored procedures running in a database, so is independent of database vendors (Oracle SQL in particular).
-PostgreSQL is free.
-
-It has no generated code, nor HTML in the database. 
-
-One company has it running all the time at
-   <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action">
-   http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action</a>
-
-<a target="_blank href="http://www.neotys.com/documents/doc/neoload/latest/en/html/#1609.htm">
+<a target="_blank" href="http://www.neotys.com/documents/doc/neoload/latest/en/html/#1609.htm">
 NeoLoad</a>
 and other tools use it as a sample app.
 
@@ -51,9 +35,24 @@ and other tools use it as a sample app.
 
    <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
-   DO THIS: Adjust the width of your browser for a frame like this:
+   The page has 3 columns under a header. The image above was adjusted to the smallest width without wrapping.
+   The page design is not "responsive" for mobile, which is an SEO issue.
 
+   Thankfully, one company has it running all the time at
+   <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action">
+   http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action</a>
+   It rated 
+   <a target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fdemo.kieker-monitoring.net%2Fjpetstore%2Factions%2FCatalog.action&tab=desktop">90/100 for Desktop on Google Page Speed</a>
+   and 83/100 for Mobile. Google recommends:
 
+   * <a target="_blank" href="https://developers.google.com/speed/docs/insights/LeverageBrowserCaching">Leverage browser caching.</a> Setting an expiry date or a maximum age in the HTTP headers for static resources (.gif media files) instructs the browser to load previously downloaded resources from local disk rather than over the network.
+
+   * <a target="_blank" href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery">Eliminate render-blocking JavaScript and CSS in above-the-fold content.</a> The browser waits for <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/css/jpetstore.css">.../css/jpetstore.css</a> to load before rendering
+   above-the-fold content. Defer or asynchronously load blocking resources, or inline the critical portions of those resources directly in the HTML.
+   
+   * The css file is not mimified.
+
+   * The HTML
 
 ## Use case loops #
 
@@ -75,18 +74,18 @@ to impose artificial load.
    <strong>Info (?) page</strong>
    for network variability measurement.
 
-2. <strong>Browsing</strong> through items (without buying) 
-   (before login) to specifically stress the web server.
+2. <strong>Browsing</strong> through items (without login or buying) 
+   to specifically stress the web server.
 
    Rather than coding to click specific items,
    this activity is often specified by a file with the test program iterates through.
 
-3. <strong>Register</strong> to see how many the system can accomodate when the system is widely announced to the public.
+3. <strong>Register</strong> to see how many the system can accommodate when the system is widely announced to the public.
 
-   j2ee is the default user.
+   QUESTION: j2ee is the default user? What's the password?
 
    The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
-   but after a click of <strong>Sign In</strong>.
+   reached after a click of <strong>Sign In</strong>.
 
    TODO: Variations in registration data from a file
    to load various users.
@@ -132,12 +131,19 @@ to each of the above, created by "negative" tests:
 etc.
 
 
-### Random iteration
+### Pattern of iteration
 
-   Not every iteration would invoke "My Orders".
+To mimic real-life load across the various pages,
+not every iteration would invoke "My Orders".
    So the automation scripts would need to use a
    <strong>percentage chance</strong> 
    when the action is performed.
+
+Ideally, we would have a data-driven approach where
+a file external to the code
+specifies the pattern of invocation.
+This approach would not require a re-compile
+after changes.
 
 
 ### Reset data
@@ -206,7 +212,7 @@ TODO: Create a bootstrap script that does the following:
 
    ~/gits/jpetstore/mybatis-spring-boot-jpetstore<br />
    is an alternative from Kazuki Shimizu of Japan.
-   It is implemented using <a target="_blank" href="http://www.thymeleaf.org/"> Thymeleaf</a> 3.0.
+   It is implemented using <a target="_blank" href="http://www.thymeleaf.org/"> Thymeleaf</a> 3.0 templating.
 
 0. In a Terminal, obtain the whole repository with its history:
 
@@ -291,8 +297,16 @@ Online Solution
 http://demo.kieker-monitoring.net/
 
 
+<a hrer="JavaCode"></a>
 
 ## Java Code
+
+JPetStore v6 is vendor-independent open source freeware 
+first released <a target="_blank" href="http://www.theserverside.com/discussions/thread.tss?thread_id=14243">
+in 2002</a> in 3,154 lines of code. It uses the Jakarta Struts Model-View-Controller based presentation layer. It has NO SQL in code nor stored procedures running in a database, so is independent of database vendors (Oracle SQL in particular).
+PostgreSQL is free.
+
+It has no generated code, nor HTML in the database. 
 
 Eclipse is not required, but there is a 
 <a target="_blank" href="http://blog.mybatis.org/2016/12/mybatipse-eclipse-plugin-1024-is.html">
@@ -304,6 +318,14 @@ says:
 The purpose of JPetStore 6 is to demonstrate how to build a web application with very few classes and no advanced coding skills. You just need to know plain Java and SQL.
 
 Java source code is in the <a target="_blank" href="https://github.com/mybatis/jpetstore-6/tree/master/src/main/java/org/mybatis/jpetstore">src/mainjava/org/mybatis/jpetstore</a> folder.
+
+
+### Predecessors
+
+Sun created a J2EE Pet Store, in a massive 15,000 lines, 
+as a demonstration of various coding features (not for benchmarking).
+
+Microsoft contracted with Vertigo Software to create a sample .Net Pet Shop when it orginally debuted its .NET framework. The repo had 3,484 lines of code and was tuned for benchmarking speed rather than coding best practices.
 
 
 <hr />
