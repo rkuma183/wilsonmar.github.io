@@ -36,7 +36,9 @@ and other tools use it as a sample app.
    <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
    The page has 3 columns under a header. The image above was adjusted to the smallest width without wrapping.
-   The page design is not "responsive" for mobile, which is an SEO issue.
+   The page design is HTML4 transitional, 
+   not HTML5 "responsive" for mobile, 
+   which is an SEO issue.
 
    Thankfully, one company has it running all the time at
    <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Catalog.action">
@@ -52,7 +54,6 @@ and other tools use it as a sample app.
    
    * The css file is not mimified.
 
-   * The HTML
 
 ## Use case loops #
 
