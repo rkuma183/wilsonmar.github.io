@@ -15,14 +15,49 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes programming
+This page is one of a series on Python.
 
-{% include _intro.html %}
+   * Python Install on Mac
+
 
 ## Introduction #
 
+Print out the current time:
 
-## Video Learning Resources #
+   <pre>
+   import time
+   time.ctime()
+   </pre>
+
+   The response:
+
+   <tt>
+   'Sat Jan 28 00:35:27 2017'
+   </tt>
+
+### Break time program
+
+Pengal 
+<a target="_blank" href="https://classroom.udacity.com/courses/ud036/">
+Programming Foundations with Python course at Udacity</a>
+consists of <a target="_blank" href="https://www.youtube.com/watch?v=U4MUG4dOepc&list=PLAwxTw4SYaPnYajEbZvqtcVWQ6XGhvtOW">
+videos on YouTube</a> and forums.
+
+<pre>
+import time
+import webbrowser
+
+total_breaks = 3
+break_count  = 0  
+
+while( break_count < total_breaks ):
+   time.sleep(10) # seconds
+   webbrowser.open("https://www.youtube.com/playlist?list=PLAwxTw4SYaPnYajEbZvqtcVWQ6XGhvtOW")
+
+
+</pre>
+
+## Video Learning Pluralsight #
 
 Robert Smallshire (@robsmallshire, rob@ixty-north.com)
 and 
