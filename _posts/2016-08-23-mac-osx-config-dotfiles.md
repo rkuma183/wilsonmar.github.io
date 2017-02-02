@@ -33,6 +33,10 @@ published by several people on their GitHub repositories:
 
 * <a target="_blank" href="https://github.com/mathiasbynens/dotfiles">
    https://github.com/mathiasbynens/dotfiles</a>
+
+* <a target="_blank" href="https://github.com/daneden/dotfiles">
+   https://github.com/daneden/dotfiles</a>
+   from Dan Eden, #8 among all GitHub at GitScore.
 <br /><br />
 
 
