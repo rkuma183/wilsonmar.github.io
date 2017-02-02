@@ -24,11 +24,12 @@ Logs are produced by each program components:
    * <a href="#OSLogs">Operating system logs</a>
    * <a href="#WebSvrLogs">Web Server logs</a>
    * Perfmon
+   * Linux top
    * <a href="#AppLogs">Custom application logs</a> to commemorate specific events 
    such as an invoice being sent or other business transaction being processed.
 
 https://sematext.github.io/logagent-js/parser/
-detects log formats based on a pattern library (yaml file) and converts it to a JSON Object:
+detects log formats based on a pattern library (yaml file) and converts it to a JSON Object.
 
 
 ## Visualizations 
@@ -92,7 +93,10 @@ https://easyengine.io/tutorials/nginx/log-parsing/
 Microsoft Log Parser</a>
 provides SQL-like query access to text-based data such as log files, XML files and CSV files, as well as key data sources on the Windows® operating system such as the Event Log, the Registry, the file system, and Active Directory®. It was created for Windows 2000, Windows Server 2003, Windows XP Professional Edition.
 
-$31 http://lizard-labs.com/log_parser_lizard.aspx provides a GUI to it.
+$31 http://lizard-labs.com/log_parser_lizard.aspx provides a GUI to the command-line access to 
+a "Swiss Army Knife"
+
+![6a0120a85dcdae970b0128776fb331970c-pi](https://cloud.githubusercontent.com/assets/300046/22374432/2314e97a-e474-11e6-815f-78030331de3a.gif)
 
    * https://blogs.msdn.microsoft.com/carlosag/2010/03/25/analyze-your-iis-log-files-favorite-log-parser-queries/
 

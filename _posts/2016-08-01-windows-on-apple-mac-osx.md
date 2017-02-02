@@ -37,6 +37,136 @@ Run OSX in VMware within Windows</a>
 * <a target="_blank" href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1001934">
    Defragmenting, shrinking, and cleaning up VMware Fusion virtual machine disks</a>
 
+
+## USB Drives
+
+Most USB drives are sold formatting in NTFS which Mac can read but not write to.
+Windows computers can't even read Mac-formatted HFS+ drives. 
+
+FAT32 has a 4GB size limit per file, so it isn't ideal for video files. 
+FAT32 also has 32 GB limit for drives.
+
+<strong>exFAT</strong> has a theoritical limit of 16 Exa-bytes. 64 ZB (512 TB recommended max).
+Format the USB drive in "exFAT" format and it can be read by both Windows and Mac (except for Leopard version of Macs, which few Mac users have anymore).
+<a target="_blank" href="http://superuser.com/questions/257646/why-should-i-use-exfat-over-ntfs-on-removable-media">This blog</a> says it's faster than NTFS.
+
+To format extFAT on a Mac UI:
+
+1. Connect the drive to the Mac.
+2. Open Disk Utility: hit command and spacebar at the same time for Spotlight search, then type in Disk Utility to find the program.
+3. Select the USB drive you want to format. (The lowest level with an eject icon under an "External").
+4. Click Erase.
+5. Give the partition a name and select exFAT for the format.
+6. Click Erase again.
+
+If you get an error message "Erase process has failed", open a Terminal to use commands:
+
+0. Get the disk id from:
+
+   <pre>
+diskutil list
+   </pre>
+
+0. unmount using the disk ID from above:
+
+   <pre>
+diskutil unmountDisk force disk3
+   </pre>
+
+   The response is
+
+   Forced unmount of all volumes on disk3 was successful
+
+0. Write zeros
+
+   <pre>
+sudo dd if=/dev/zero of=/dev/disk3 bs=1024 count=1024
+   </pre>
+
+   The response:
+
+   <pre>
+1024+0 records in
+1024+0 records out
+1048576 bytes transferred in 1.889696 secs (554891 bytes/sec)
+   </pre>   
+
+0. partition it again in "MBR" partition scheme for use with Windows machines:
+
+   <pre>
+diskutil partitionDisk disk3 1 MBR exfat MyDisk 100%
+   </pre>
+
+   "Error creating partition map: The disk is too large to be supported by the given partition scheme (-69659)"
+
+   Windows 7 doesn't like the UUID partition scheme. Reformat as MBR in OSX for Win7
+
+   This is why if you format exFAT on a Mac, it won't read on a PC.
+   But if you format exFAT on a PC, the it will work on both.
+
+   Alternately, to partition it in "Mac OS Extended (Journaled)" format
+   so a Mac can boot from it:
+
+   <pre>
+diskutil partitionDisk disk3 GPT JHFS+ "My External HD" 0g
+   </pre>
+
+   See http://www.theinstructional.com/guides/disk-management-from-the-command-line-part-2
+
+   The response:
+
+   <pre>
+Started partitioning on disk3
+Unmounting disk
+Creating the partition map
+Waiting for partitions to activate
+Formatting disk3s2 as Mac OS Extended (Journaled) with name My External HD
+Initialized /dev/rdisk3s2 as a 3 TB case-insensitive HFS Plus volume with a 229376k journal
+Mounting disk
+Finished partitioning on disk3
+/dev/disk3 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *3.0 TB     disk3
+   1:                        EFI EFI                     209.7 MB   disk3s1
+   2:                  Apple_HFS My External HD          3.0 TB     disk3s2
+   </pre>
+
+0. Repeat the steps above for ExFAT.
+
+Click on the Partition tab in the DU main window.
+ 
+3. Under the Volume Scheme heading set the number of partitions from the drop down menu to one. 
+Click on the Options button, set the partition scheme to MBR then click on the OK button. 
+Set the format type to MSDOS (FAT32.) Click on the Partition button and wait until the process has completed.
+
+See https://support.apple.com/kb/PH22240?locale=en_US
+
+Alternately:
+
+0. brew install e2fsprogs
+0. figure out the name of your partition or drive using diskutil list -- in my case, my partition had was on disk2 and had the identifier of disk3s2
+
+0. ?
+
+   sudo $(brew --prefix e2fsprogs)/sbin/mkfs.ext3 /dev/disk3s2 
+
+   but you may need to change the drive from disk2s1 to the partition or drive that you want to format. This command will ask you to verify the name of the partition, just to be sure :)
+
+
+## Format ExFAT on Windows OS
+
+1. Open up Windows Explorer and right-click on your drive in the sidebar. Choose "Format".
+2. In the "File System" dropdown, choose exFAT instead of NTFS.
+3. Click Start and close this window when finished.
+
+
+https://osxfuse.github.io/
+(file system in user space) 
+
+https://unetbootin.github.io/
+loads Linux ISO images to USB drives
+
+
 ### Keyboard
 
 To press the Windows key, press the command key.
