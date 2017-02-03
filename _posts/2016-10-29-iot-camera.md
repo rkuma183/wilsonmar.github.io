@@ -15,10 +15,6 @@ comments: true
 
 {% include _toc.html %}
 
-https://www.raspberrypi.org/learning/getting-started-with-picamera/
-Get started with the Raspberry Pi camera module, using Python and picamera. 
-You'll take still pictures, record video, and apply image effects.
-
 
 ## USB cameras
 
@@ -32,7 +28,10 @@ They are lower resolution.
 
 ## CSI camera
 
-https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/
+https://www.raspberrypi.org/learning/getting-started-with-picamera/<br />
+Get started with the Raspberry Pi camera module, 
+using Python and picamera. 
+You'll take still pictures, record video, and apply image effects.
 
 <a target="_blank" href="http://elinux.org/RPi-Cam-Web-Interface">
 http://elinux.org/RPi-Cam-Web-Interface</a>
