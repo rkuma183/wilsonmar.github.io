@@ -45,6 +45,10 @@ When a camera recognizes movement, it can trigger recording.
 PIR (Passive IfraRed)
 
 
+https://github.com/tiimgreen/pi_lapse<br />
+Pi Lapse is a simple Python Script for the Raspberry Pi that takes photos at regular intervals.
+
+
 
 ## More on IoT #
 
