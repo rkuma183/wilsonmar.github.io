@@ -3,7 +3,7 @@ layout: post
 title: "JPetstore"
 excerpt: "Sample Java Spring app for your abuse and amusement"
 tags: [Clouds, IoT]
-shorturl: "https://git.io/v1CKg"
+shorturl: "https://goo.gl/Nfu9ps"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
@@ -68,6 +68,8 @@ by Clinton Begin (of Alberta):
 ![jpetstore6 site map](https://cloud.githubusercontent.com/assets/300046/21751209/7ad5c63a-d591-11e6-88ea-c67d3dc107f6.png)
 
 
+## Performance Tests
+
 Performance testing needs a set of <strong>loops</strong>
 to impose artificial load.
 
@@ -130,6 +132,14 @@ to each of the above, created by "negative" tests:
 5. Search not found.
 
 etc.
+
+### Options for performance testing apps
+
+Since JPeterStore was built for developers, missing are some features in the 
+WebTours app Mercury/HP built to use as a sample app
+during demos and training for LoadRunner.
+
+
 
 
 ### Pattern of iteration
@@ -197,6 +207,8 @@ v4 on Sourceforge</a>.
 
 There are several variations
 
+http://support.neotys.com/misc/jpetstore-test.zip
+
 
 ### MyBatis
 
@@ -256,6 +268,21 @@ TODO: Create a bootstrap script that does the following:
 0. Click "Enter the store" for the 
    <a href="#LandingPage">main menu</a>.
 
+### Change port
+
+0. To change the port from the default 8080 to something else, edit file:
+
+   <pre>target/cargo/configurations/tomcat8x/conf/server.xml</strong>
+
+0. Scroll down to the line:
+
+   <tt>
+   &LT;Connector SSLEnabled="false" URIEncoding="ISO-8859-1" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" scheme="http" secure="false"/>
+   </tt>
+
+0. Change the number.
+
+0. Save the file and restart the server.   
 
 
 <a name="Dependencies"></a>

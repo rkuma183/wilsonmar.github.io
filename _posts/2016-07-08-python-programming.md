@@ -17,10 +17,14 @@ comments: true
 
 This page is one of a series on Python.
 
+   * AI Ecosystem
    * Python Install on Mac
+   * Conda
+   * Jupyter
+   * Machine Learning
 
 
-## Introduction #
+## Print time #
 
 Print out the current time:
 
@@ -34,6 +38,41 @@ Print out the current time:
    <tt>
    'Sat Jan 28 00:35:27 2017'
    </tt>
+
+## Python 3 vs. 2
+
+There are so many new features in Python 3 that it doesn't make much sense to stick with Python 2 unless you're working with old code. All new Python code should be written for version 3.
+
+Most new features introduced with Python 3 versions won't be backwards compatible. 
+
+
+## Print
+
+For the most part, Python 2 code works with Python 3. 
+
+Where Python 2 code fails most often is the print statement.
+Printing in Python 2 is done like so:
+
+   <pre>print "Hello", "world!"</pre>
+
+   The response:
+
+   Hello world!
+
+   If you input the above in Python 3, the response is:
+
+   SyntaxError: Missing parentheses in call to 'print'
+ 
+   This is because Python 3 uses a function:
+
+   <pre>print("Hello", "world!")</pre>
+
+So in Python 2.6+, use the __future__ module to back-port:
+
+   <pre>from __future__ import print_function
+   print("Hello", "world!")
+   </pre>
+
 
 ### Break time program
 
@@ -53,11 +92,68 @@ break_count  = 0
 while( break_count < total_breaks ):
    time.sleep(10) # seconds
    webbrowser.open("https://www.youtube.com/playlist?list=PLAwxTw4SYaPnYajEbZvqtcVWQ6XGhvtOW")
-
-
 </pre>
 
-## Video Learning Pluralsight #
+
+## Data Manipulation #
+
+<a target="_blank" href="https://github.com/dato-code/SFrame">
+SFrame</a> is an open-source, highly-scalable Python library for data manipulation. 
+Unlike <a target="_blank" href="http://pandas.pydata.org/">
+Pandas</a>, SFrame is not limited to datasets which can fit in memory, 
+so it can deal with large datasets, even on a laptop.
+
+
+
+## Tutorials on Python
+
+https://developers.google.com/edu/python/
+Google's Python Class from 2010
+has videos that
+covers strings, lists, sorting, dicts, files, 
+regular expressions, utilities.
+Taught by Nick Parlante.
+<a target="_blank" href="https://developers.google.com/edu/python/"
+Support materials</a>
+
+
+## Python libraries
+
+For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
+Numpy</a> open-source Python library for fast performance with data that fits in memory.
+<a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
+Quickstart</a>.
+
+tweepy (http://www.tweepy.org)
+
+csv (https://pypi.python.org/pypi/csv)
+
+textblob (https://textblob.readthedocs.io/en/dev/)
+
+keras (https://keras.io)
+
+
+
+### Turi (Dato) Python algorithms #
+
+<a target="_blank" href="https://dato.com/products/create/">
+GraphLab Create</a> from Dato 
+provides scalable "pre-implemented" ML algorithms 
+using Python installed using Anaconda.
+Entire courses on its use is at
+
+* https://www.coursera.org/learn/ml-foundations
+* https://www.turi.com/learn/userguide/
+* https://www.turi.com/products/create/docs/
+* https://github.com/learnml/machine-learning-specialization
+* https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
+
+When the one-year free license is over, note
+scikit-learn also uses Python with Anaconda.
+
+
+
+### Pluralsight #
 
 Robert Smallshire (@robsmallshire, rob@ixty-north.com)
 and 
@@ -83,8 +179,12 @@ of loonycorn.com
 
 
 <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-zed-shaw/">
-Play by Play: Building a Python Code Stats Tool with Zed Shaw  
-Apr 28, 2011  1h 51m </a>
+Play by Play: Building a Python Code Stats Tool with Zed Shaw
+
+
+Apr 28, 2011
+ 1h 51m
+</a>
 by Zed Shaw 
 and 
 Geoffrey Grosenbach

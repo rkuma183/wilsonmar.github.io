@@ -375,6 +375,13 @@ book at Git-SCM.com</a>
 * When you edit a file, it needs to be added to stage again.
 * After a commit, files in working folder are untracked.
 
+## Videos
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Dv8I_kfrFWw">
+Jessica Kerr "Git Happens" 18 Jan 2013</a>
+
+
+
 ## Commands by type #
 
 https://git-scm.com/docs
