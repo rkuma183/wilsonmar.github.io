@@ -24,9 +24,11 @@ exploring JVM tools.
 
 The app provides a shopping cart because it's a common use case on the internet. Different items within several categories (of pets). 
 
+[NeoLoad](neoload)
+uses it as a sample app in their
 <a target="_blank" href="http://www.neotys.com/documents/doc/neoload/latest/en/html/#1609.htm">
-NeoLoad</a>
-and other tools use it as a sample app.
+docs</a>.
+
 
 
 <a name="LandingPage"></a>
