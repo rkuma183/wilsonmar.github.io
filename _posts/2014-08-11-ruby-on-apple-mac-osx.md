@@ -16,8 +16,6 @@ comments: true
 {% include _toc.html %}
 
 
-The Ruby language compiler is included in Mac OSX.
-
 The major commands:
 
    0. ruby
@@ -26,11 +24,33 @@ The major commands:
    0. bundle
 
 
+### View Ruby version #
+
+A Ruby language compiler is included in Mac OSX.
+So we can jump straight to view version information.
+
+0. Open a Terminal Shell Window and type:
+
+   <tt><strong>
+   ruby \-\-version
+   </strong></tt>
+
+   The response for the Yosemite default:
+
+   <tt>
+   ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+   </tt>
+
+   The response after updating on 2016-06-16:
+
+   <tt>
+   ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
+   </tt>
+
+
 <a name="ViewVersions"></a>
 
-## View version numbers #
-
-To view all:
+## Gem version numbers #
 
    <tt><strong>
    gem env
@@ -81,29 +101,7 @@ RubyGems Environment:
    </pre>
 
 
-To view each component individually:
-
-### View Ruby version #
-
-To see the current version number, open a Termina Shell Window and type:
-
-   <tt><strong>
-   ruby \-\-version
-   </strong></tt>
-
-   The response for the Yosemite default:
-
-   <tt>
-   ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
-   </tt>
-
-   The response after updating on 2016-06-16:
-
-   <tt>
-   ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
-   </tt>
-
-### View gem version number #
+0. View each component individually:
 
    <tt><strong>
    gem \-\-version
@@ -142,6 +140,9 @@ To see the current version number, open a Termina Shell Window and type:
 
 
 ## Update RubyGems and Bundler:
+
+
+0. Update:
 
    <tt><strong>
    sudo gem update \-\-system
@@ -185,7 +186,6 @@ If you do not wish to install this documentation in the future, use the
 &nbsp;
 RubyGems system software updated
    </pre>
-
 
 
 0. List local gems:
@@ -260,11 +260,13 @@ Successfully installed bundler-1.9.4
 
 ### Update gem:
 
+0. Update latest version of gem:
+
    <tt><strong>
    sudo gem update
    </strong></tt>
 
-The response takes several minutes becuase it touches every gem:
+   The response takes several minutes becuase it touches every gem:
 
    <pre>
    Updating installed gems
@@ -279,8 +281,14 @@ rdoc's executable "rdoc" conflicts with /usr/bin/rdoc
 rdoc's executable "ri" conflicts with /usr/bin/ri
    </pre>
 
+0. To rebuild any gems using native extensions:
 
-### Cleanup gem:
+   <tt><strong>
+   gem pristine --all 
+   </strong></tt>
+
+
+0. Cleanup gem:
 
    <tt><strong>
    sudo gem cleanup
@@ -298,19 +306,7 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 
 ### Ruby Version Manager (rvm) #
 
-To upgrade:
-
-   <tt><strong>
-   rvm get head
-   </strong></tt>
-
-If the response is:
-
-   <pre>
-   -bash: rvm: command not found
-   </pre>
-
-Have the rvm shell configuration loaded:
+0. Have the rvm shell configuration loaded:
 
    <tt><strong>
    source ~/.rvm/scripts/rvm<br />
@@ -331,6 +327,22 @@ Have the rvm shell configuration loaded:
    </tt>
 
    If so, try rvm get head again.
+
+   <tt><strong>
+   rvm get head
+   </strong></tt>
+
+   If the response is:
+
+   <pre>
+   -bash: rvm: command not found
+   </pre>
+
+0. Get stable
+
+   <pre>
+   rvm get stable --auto-dotfiles
+   </pre>
 
 
 ## To upgrade #

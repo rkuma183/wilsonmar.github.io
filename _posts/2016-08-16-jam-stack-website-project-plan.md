@@ -18,6 +18,8 @@ comments: true
 <amp-youtube data-videoid="Cf29Q0c6_7s" layout="responsive" width="480" height="270"></amp-youtube>
 
 Here are the sequence of specific steps to build a website using
+(what Mathias Biilmann of static hosting service Netlify 
+<a target="_blank" href="https://vimeo.com/163522126">calls</a>)
 a <a target="_blank" href="https://jamstack.org/">"JAM stack"</a> 
 -- a set of software to create websites that are fast, scalable, and simple to work with. 
 JAM stands for JavaScript, APIs, and Markup.
@@ -80,6 +82,21 @@ audience interaction from social media attraction.
 
 <amp-img layout="responsive" alt="jekyll-data-driven-website-v04 650x345-187kb.jpg" width="650" height="345" src="https://cloud.githubusercontent.com/assets/300046/17890075/ff60faf4-68f0-11e6-9349-cbb33c3c7192.jpg"></amp-img>
 
+Phil Hawksworth (@philhawksworth) 
+<a target="_blank" href="https://www.hawksworx.com/blog/isomorphic-rendering-on-the-jam-stack/">
+sums up JAM's architecture this way</a>:
+
+* A consumable page of content at every URL without the need for JavaScript to display things in the browser
+* A valid, bookmark-able entry point to the site at every URL
+* Client-side rendering with JavaScript as an enhancement for reduced data over the wire and rapid (and perhaps fancy) page transition
+* Simple server-side architecture which could be served from any static web server
+* Content management through a CMS outside of a development environment
+
+Others:
+
+* https://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/
+
+* https://www.smashingmagazine.com/2015/11/static-website-generators-jekyll-middleman-roots-hugo-review/
 
 <hr />
 

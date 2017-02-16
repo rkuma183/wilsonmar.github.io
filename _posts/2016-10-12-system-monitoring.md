@@ -102,7 +102,9 @@ Flickr</a> an
 Etsy's statsd (daemon)</a> by Erik Kastner 
 has the form:
 
+   <pre>
    &LT;metric name>:&LT;value>|&LT;type>[|@&LT;sample rate>]
+   </pre>
 
 The "type" character at the end includes:
 
@@ -129,8 +131,7 @@ Counting-timing blog</a> by Cal Henderson.
 
 ## StatsD #
 
-
-and influenced by 
+Influenced by 
 <a target="_blank" href="http://metrics.codahale.com/">
 Coda Hale's Metrics</a>.
 
@@ -162,7 +163,7 @@ Key Concepts
 
 
 
-## In AWS #
+## Dynatrace in AWS #
 
 You can use Dynatrace in place of or in addition to Amazon CloudWatch logging.
 Here are the steps:

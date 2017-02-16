@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Machine Learning"
-excerpt: "Yes, it will be smarter than you"
-tags: [HTML, personalization, machine learning, ML]
+title: "AI Ecosystem"
+excerpt: "This is how humans will be come extinct"
+tags: [machine learning, AI]
 image:
 # feature: pic green matrix hallway 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14623876/07afd066-0593-11e6-933a-2e596511ac67.jpg
@@ -24,10 +24,9 @@ Artificial intelligence and Machine Learning (ML) services in their clouds:
    * Google
    * IBM Watson
    * Amazon Alexa
-   * Facebook
    <br />
 
-Each of the above are cloud vendors are hoping to cash in by charging for processing.
+Each of the above are cloud vendors hoping to cash in by charging for processing of other people's data.
 
 Benedict Evans, the resident futurist at venture capital firm Andreessen Horowitz, 
 observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google">
@@ -45,39 +44,6 @@ Algorithmia.com</a> provide API interfaces to algorithms offered by its partners
 awesome-machine-learning</a>
 provides many links to resources, so they will not be repeated here.
 
-
-### Turi (Dato) Python algorithms #
-
-<a target="_blank" href="https://dato.com/products/create/">
-GraphLab Create</a> from Dato 
-provides scalable "pre-implemented" ML algorithms 
-using Python installed using Anaconda.
-Entire courses on its use is at
-
-   * https://www.coursera.org/learn/ml-foundations
-   * https://www.turi.com/learn/userguide/
-   * https://www.turi.com/products/create/docs/
-   * https://github.com/learnml/machine-learning-specialization
-   * https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
-
-When the one-year free license is over, note
-scikit-learn also uses Python with Anaconda.
-
-
-## Python libraries
-
-For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
-Numpy</a> open-source Python library for fast performance with data that fits in memory.
-<a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
-Quickstart</a>.
-
-tweepy (http://www.tweepy.org)
-
-csv (https://pypi.python.org/pypi/csv)
-
-textblob (https://textblob.readthedocs.io/en/dev/)
-
-keras (https://keras.io)
 
 
 ## "Hard" ML #
@@ -245,9 +211,6 @@ Below are various initiatives by MS (Microsoft) and other organizations:
 A-Z List of Machine Learning Studio Modules</a>
 from Microsoft Azure
 
-https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
-
-
 <hr />
 
 ## Conversions
@@ -292,17 +255,6 @@ https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
 
    Some of these make use of <strong>OpenCV</strong> (CV = Computer Vision).
 
-   <a target="_blank" href="http://neuralnetworksanddeeplearning.com/chap1.html">
-   Handwriting recognition book</a> and
-   <a target="_blank" href="https://github.com/mnielsen/neural-networks-and-deep-learning">
-   GitHub</a>
-   for Neural Networks and Deep Learning
-   by Michael Nielsen
-
-
-   http://www.deeplearningbook.org
-   by Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
-
 
 <a name="VoiceRecognition"></a>
 
@@ -317,13 +269,25 @@ https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
 ## Speech to Text
 
 
-## Sentiment Analysis #
+## NLP Sentiment Analysis #
 
-   Analyze text for positive or negative sentiment, based on a training database of potential word meanings:
+   Analyze text for positive or negative sentiment (opinion),
+   based on a training database of potential word meanings,
+   which involved Natural Language Processing:
 
    * https://algorithmia.com/algorithms/nlp/SentimentAnalysis
 
-   * IBM
+   * IBM's algorithm
+
+   Andrew W. Trask,
+   PhD student at University of Oxford
+   Deep Learning for Natural Language Processing
+   authored Grokking Deep Learning.
+
+   Use Bag of words and
+   Word2vec
+   transform words into vectors.
+   Use TFLearn, a Python library for quickly building networks.
 
 ## Document (article) Search #
 
@@ -342,13 +306,6 @@ https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
    The common compromise is to cap maximum word count.
 
 
-## Data Manipulation #
-
-<a target="_blank" href="https://github.com/dato-code/SFrame">
-SFrame</a> is an open-source, highly-scalable Python library for data manipulation. 
-Unlike <a target="_blank" href="http://pandas.pydata.org/">
-Pandas</a>, SFrame is not limited to datasets which can fit in memory, 
-so it can deal with large datasets, even on a laptop.
 
 
 <a name="MicrosoftML"></a>
@@ -379,9 +336,6 @@ to use Azure Machine Learning Studio to
 create a linear regression model that predicts the price of 
 an automobile based on different variables such as make and technical specifications. 
 Then iterate on a simple predictive analytics experiment after
-
-Regression works on numbers.<br />
-Classification works on strings.
 
 0. Enter Microsoft's Learning Studio:
 
@@ -441,7 +395,6 @@ https://azure.microsoft.com/en-us/documentation/articles/machine-learning-studio
 https://www.wikiwand.com/en/Deep_learning
 
 
-
 Python 3.6 has formatted strings
 
 
@@ -455,51 +408,14 @@ Conda is similar to virtualenv and pyenv, other popular environment managers.
 
 https://www.continuum.io/downloads
 
-   <pre>
    conda install numpy pandas matplotlib
 
    conda install jupyter notebook
 
-   conda install -c https://conda.binstar.org/menpo opencv
-   </pre>
-
-0. Can't find it? Look among all users and <strong>operating systems supported</strong>
-
-   <pre>
-   anaconda search -t conda pygame
-   </pre>
-
-   On a Mac 
-   https://anaconda.org/tlatorre/pygame
-   is not recognized because it's only for Linux.
-
-   On Stack Overflow a user recommends on that supports
-   Windows 32 and 64, MacOS, and Linux:
-
-   <pre>
-   conda install -c cogsci pygame=1.9.2a0
-   </pre>
-
-   Alternatively:
-
-   <pre><strong>
-   pip install pygame
-   </strong></pre>
-
-   
-
-0. Copy a user/package to show more info:
-
-   <pre>
-   anaconda show USER/PACKAGE
-   </pre>
-
 0. List the packages installed, with its version number and
    what version of Python:
 
-   <pre>
    conda list
-   </pre>
 
 
 
@@ -522,7 +438,7 @@ https://www.continuum.io/downloads
 
    (my_env) ~ $. 
 
-0. Leave the environment (like exit):
+0. Leave the environment
 
    source deactivate 
 
@@ -547,41 +463,6 @@ https://www.continuum.io/downloads
 0. Remove an environment:
 
    conda env remove -n some_env
-
-0. Add a package
-
-
-
-   ### OpenCV
-
-   <a target="_blank" href="http://stackoverflow.com/questions/23119413/how-to-install-python-opencv-through-conda">
-   SO on Install on Windows 8</a>
-
-   anaconda show menpo/opencv3
-
-   conda install --channel https://conda.anaconda.org/menpo opencv3
-
-   FFMPEG codec
-
-0. Test within Python >>> :
-
-   <pre>
-   import cv2
-   print(cv2.__version__)
-   </pre>
-
-   The response should be:
-
-   <pre>3.1.0</pre>
-
-   ### Customization
-
-0. Install readline to do autocompletion in Jupyter notebooks by hitting `tab`
-
-   conda/pip install readline
-
-   Readline comes with anaconda 
-
 
 Read:
 

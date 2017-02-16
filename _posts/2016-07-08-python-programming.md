@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Programming"
+title: "Python Programming Classes"
 excerpt: "Confusion and errors from many alternatives and options"
 tags: [python, apple, mac, setup]
 image:
@@ -115,6 +115,12 @@ regular expressions, utilities.
 Taught by Nick Parlante.
 <a target="_blank" href="https://developers.google.com/edu/python/"
 Support materials</a>
+
+https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9
+MIT's Introduction to Computer Science using Python
+
+
+https://learnpythonthehardway.org/book/
 
 
 ## Python libraries
