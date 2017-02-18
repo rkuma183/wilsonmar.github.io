@@ -15,41 +15,19 @@ comments: true
 
 {% include _toc.html %}
 
-The Scaled Agile Framework (or SAFe) consists of a knowledge base of integrated patterns intended for enterprise-scale Lean-Agile development.
+The Scaled Agile Framework (or SAFe) 
+is an online, freely revealed knowledge base of proven success patterns for implementing Lean-Agile software and systems development at enterprise scale. 
 
-
-## Miraculous results?
-
-Several <a href="https://www.ScaledAgileFramework.com/case-studies">
-case studies</a> and the
-<a href="http://www.scaledagileframework.com/about/">
-About page</a> claim significant improvements:
-
-* 20 – 50% increase in productivity
-* 50%+ increases in quality
-* 30 – 75% faster time to market
-* Measurable increases in employee engagement and job satisfaction
-
-Introductions to the framework by Dean Leffingwell, in several media:
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=ANE2_79m9ZE">
-   Video in 8 minutes SAFe® Foundations 4.0</a>
-   * <a target="_blank" href="https://www.youtube.com/channel/UC-n4Mb-Bu5Pgl0z5L1jyhSQ"> 
-   Video in 22:52 minutes</a> by Dean Leffingwell
-   * <a target="_blank" href="http://www.scaledagileframework.com/videos-and-presentations">
-   PowerPoint of 33 slides with talk script in notes</a>
-   * <a target="_blank" href="http://www.slideshare.net/ScaledAgile/safe-foundations-40">
-   PDF at SlideShare.com</a>
+https://en.wikipedia.org/wiki/Scaled_Agile_Framework
 
 
 ## Simple Framework
 
 Version 1.0 of SAFe, the first official release, was published in its current web site form in 2011
 by Dean Leffingwell of Scaled Agile, Inc.
-The framework is based on the work of many others mentioned (Deming, Ishikawa, etc.).
 
 A competitor to SAFe is <em>Daikibo</em> ("large scale" in Japanese),
-is trademarked by Cognizant consultants.
+trademarked by Cognizant consultants.
 
 <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
 Memorize the acronyms using my Quizlet of flash cards</a>. 
@@ -113,12 +91,11 @@ I made this alpabetical list of links:
 0. <a href="http://www.scaledagileframework.com/lean-agile-mindset/" target="_blank">Lean-Agile Mindset</a>
 0. <a href="http://www.scaledagileframework.com/lean-agile-leaders/" target="_blank">Lean-Agile Leaders</a>
 
-0. <a href="http://www.scaledagileframework.com/metrics/" target="_blank" id="metrics">
+0. <a href="http://www.scaledagileframework.com/metrics/" target="_blank" id="metrics">Metrics</a>
 0. <a href="http://www.scaledagileframework.com/milestones/" target="_blank">Milestones</a>
 0. <a href="http://www.scaledagileframework.com/model-based-systems-engineering/" target="_blank">Model-Based Systems Engineering (MBSE)</a>
 
 0. <a href="http://www.scaledagileframework.com/nonfunctional-requirements/" target="_blank">Non-Functional Requirements (NFRs)</a>
-0. <a href="http://www.scaledagileframework.com/metrics/" target="_blank">Metrics</a>
 
 0. <a href="http://www.scaledagileframework.com/pi-objectives/" target="_blank">PI Objectives</a>
 0. <a href="http://www.scaledagileframework.com/pi-planning/" target="_blank">PI Planning</a>
@@ -152,12 +129,11 @@ I made this alpabetical list of links:
 0. <a href="http://www.scaledagileframework.com/safe-core-values/" target="_blank">SAFe Core Values</a>
 0. <a href="http://www.scaledagileframework.com/safe-lean-agile-principles/" target="_blank">SAFe Lean-Agile Principles</a>
 0. <a href="http://www.scaledagileframework.com/scrum-master/" target="_blank">Scrum Master</a>
+0. <a href="http://www.scaledagileframework.com/scrumxp/" target="_blank">ScrumXP</a>
+0. <a href="http://www.scaledagileframework.com/shared-services/" target="_blank">Shared Services</a>
 
 0. <a href="http://www.scaledagileframework.com/solution/" target="_blank">Solution</a>
 0. <a href="http://www.scaledagileframework.com/solution-context/" target="_blank">Solution Context</a>
-0. <a href="http://www.scaledagileframework.com/scrum-master/" target="_blank"><Scrum Master/a>
-0. <a href="http://www.scaledagileframework.com/scrumxp/" target="_blank">ScrumXP</a>
-0. <a href="http://www.scaledagileframework.com/shared-services/" target="_blank">Shared Services</a>
 
 0. <a href="http://www.scaledagileframework.com/solution/" target="_blank">Solution</a>
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">Solution Architect/Engineering</a>
@@ -168,12 +144,12 @@ I made this alpabetical list of links:
 0. <a href="http://www.scaledagileframework.com/spikes/">Spikes</a>
 0. <a href="http://www.scaledagileframework.com/story/" target="_blank">Stories</a>
 0. <a href="http://www.scaledagileframework.com/strategic-themes/" target="_blank">Strategic Themes</a>
-0. <a href="http://www.scaledagileframework.com/story/" target="_blank">Stories</a>
 
 0. <a href="http://www.scaledagileframework.com/supplier/" target="_blank">Supplier</a>
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">System Architect/Engineering</a>
 0. <a href="http://www.scaledagileframework.com/system-demo/" target="_blank">System Demo</a>
 0. <a href="http://www.scaledagileframework.com/system-team/" target="_blank">System Team</a>
+
 0. <a href="http://www.scaledagileframework.com/team-backlog/" target="_blank">Team Backlog</a>
 0. <a href="http://www.scaledagileframework.com/team-demo/" target="_blank">Team Demo</a>
 0. <a href="http://www.scaledagileframework.com/team-kanban/" target="_blank">Team Kanban</a>
@@ -185,39 +161,67 @@ I made this alpabetical list of links:
 
 0. <a href="http://www.scaledagileframework.com/value-streams/" target="_blank">Value Streams</a>
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Value Stream Backlog</a>
+0. <a href="http://www.scaledagileframework.com/value-stream-coordination/" target="_blank">Value Stream Coordination</a>
 0. <a href="http://www.scaledagileframework.com/release-train-engineer-and-value-stream-engineer/" target="_blank">Value Stream Engineer</a>
 0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Value Stream Epics</a>
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-kanbans/" target="_blank">Value Stream Kanban</a>
 0. <a href="http://www.scaledagileframework.com/value-stream-level/" target="_blank">Value Stream Level</a>
+0. <a href="http://www.scaledagileframework.com/pi-objectives/" target="_blank">Value Stream PI Objectives</a>
 
 0. <a href="http://www.scaledagileframework.com/vision/" target="_blank">Vision</a>
-0. <a href="http://www.scaledagileframework.com/value-stream-coordination/" target="_blank">Value Stream Coordination</a>
-0. <a href="http://www.scaledagileframework.com/pi-objectives/" target="_blank">Value Stream PI Objectives</a>
 0. <a href="http://www.scaledagileframework.com/wsjf/" target="_blank">Weighted Shortest Job First (WSJF)</a>
 
+> There are so many concepts in the framework becuase it incorporates concepts from others
+(Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, etc.).
 
-## Diagram description
-
-The bottom 3 levels are Team, Program & Portfolio.
-
-v4 adds a 4th level for large enterprises.
-
-The top level labeled "Economic" for organizations over a 100 people.
 
 ### v3
 
 ![safe 3](https://cloud.githubusercontent.com/assets/300046/22976730/0599916c-f35a-11e6-9c21-24efee6ba9af.jpg)
+
+SAFe V3.0 was released July 28, 2014.
+
+## Levels in Diagram
+
+The bottom 3 levels are Team, Program & Portfolio.
+
+v4 inserted a 4th level for large enterprises.
+
+The top level labeled "Economic" for organizations over a 100 people.
+
 
 Changes from v3 to v4:
 http://www.scaledagileframework.com/whats-new-in-safe-40/
 incorporated "Lean" principles.
 
 
-## Concepts
+## Miraculous results?
 
-"Agile Release Train"
+Several <a href="https://www.ScaledAgileFramework.com/case-studies">
+case studies</a> and the
+<a href="http://www.scaledagileframework.com/about/">
+About page</a> claim significant improvements:
 
-https://en.wikipedia.org/wiki/Scaled_Agile_Framework
+   * 20 – 50% increase in productivity
+   * 50%+ increases in quality
+   * 30 – 75% faster time to market
+   * Measurable increases in employee engagement and job satisfaction
+
+Introductions to the framework by Dean Leffingwell, in several media:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=ANE2_79m9ZE">
+   Video in 8 minutes SAFe® Foundations 4.0</a>
+   * <a target="_blank" href="https://www.youtube.com/channel/UC-n4Mb-Bu5Pgl0z5L1jyhSQ"> 
+   Video in 22:52 minutes</a> by Dean Leffingwell
+   * <a target="_blank" href="http://www.scaledagileframework.com/videos-and-presentations">
+   PowerPoint of 33 slides with talk script in notes</a>
+   * <a target="_blank" href="http://www.slideshare.net/ScaledAgile/safe-foundations-40">
+   PDF at SlideShare.com</a>
+
+
+> I think part of the success of the framework is that it's directed not just to
+only developers or only quality assurance people, but to the whole business.
+
 
 
 
@@ -272,6 +276,9 @@ From Mark Richards https://t.co/Jrn218N0D5
 In SAFe, a Systems Team is a specialised team responsible for maintaining the development 
 <strong>environment</strong> used by Agile development Teams and 
 for <strong> end-to-end solutions testing</strong>.
+
+PROTIP: SAFe does not address directly how people get bonuses and raises,
+which can have major impact.
 
 
 ## Videos
