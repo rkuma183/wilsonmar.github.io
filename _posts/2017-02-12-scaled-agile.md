@@ -21,16 +21,25 @@ The Scaled Agile Framework (or SAFe) consists of a knowledge base of integrated 
 ## Miraculous results?
 
 Several <a href="https://www.ScaledAgileFramework.com/case-studies">
-case studies</a> describe significant improvements.
+case studies</a> and the
+<a href="http://www.scaledagileframework.com/about/">
+About page</a> claim significant improvements:
 
+* 20 – 50% increase in productivity
+* 50%+ increases in quality
+* 30 – 75% faster time to market
+* Measurable increases in employee engagement and job satisfaction
 
-   * https://www.youtube.com/channel/UC-n4Mb-Bu5Pgl0z5L1jyhSQ in 22:52 minutes
-   by Dean Leffingwell
-   * https://www.youtube.com/watch?v=ANE2_79m9ZE in 8 minutes SAFe® Foundations 4.0 with Dean Leffingwell
+Introductions to the framework by Dean Leffingwell, in several media:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=ANE2_79m9ZE">
+   Video in 8 minutes SAFe® Foundations 4.0</a>
+   * <a target="_blank" href="https://www.youtube.com/channel/UC-n4Mb-Bu5Pgl0z5L1jyhSQ"> 
+   Video in 22:52 minutes</a> by Dean Leffingwell
    * <a target="_blank" href="http://www.scaledagileframework.com/videos-and-presentations">
-   Presentations</a> 33 slides in deck with talk script in notes
+   PowerPoint of 33 slides with talk script in notes</a>
    * <a target="_blank" href="http://www.slideshare.net/ScaledAgile/safe-foundations-40">
-   SlideShare</a>
+   PDF at SlideShare.com</a>
 
 
 ## Simple Framework
@@ -43,21 +52,22 @@ A competitor to SAFe is <em>Daikibo</em> ("large scale" in Japanese),
 is trademarked by Cognizant consultants.
 
 <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
-Memorize the acronyms using my Quizlet</a>. Star the ones you want to see again.
-Click on the term for it to be pronounced out loud.
+Memorize the acronyms using my Quizlet of flash cards</a>. 
+Click on the term's text for it to be pronounced out loud.
 Click above a term to see its definition (and visa versa).
+Click the star to mark ones you want to see again.
 Click the right button for the next flash card.
 
 Below is the "SAFe 4.0 for Lean Software and Systems Engineering" 
-released January 2016.
+released January 2016. [v3](#v3)
 
 <a target="_blank" href="http://www.scaledagileframework.com/">
 <img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650">
 </a>
 
-The above is clicable at <a target="_blank" href="http://www.scaledagileframework.com/">
-http://www.scaledagileframework.com</a>.
-But to make sure I've clicked through all the positions on the diagram,
+To make sure I've clicked through all the positions on the above diagram at
+<a target="_blank" href="http://www.scaledagileframework.com/">
+http://www.scaledagileframework.com</a>,
 I made this alpabetical list of links:
 
 0. <a href="http://www.scaledagileframework.com/about/" target="_blank">About SAFe</a>
@@ -164,7 +174,6 @@ I made this alpabetical list of links:
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">System Architect/Engineering</a>
 0. <a href="http://www.scaledagileframework.com/system-demo/" target="_blank">System Demo</a>
 0. <a href="http://www.scaledagileframework.com/system-team/" target="_blank">System Team</a>
-0. <a href="https://en.wikipedia.org/wiki/T-shaped_skills/">T-shaped skills</a>
 0. <a href="http://www.scaledagileframework.com/team-backlog/" target="_blank">Team Backlog</a>
 0. <a href="http://www.scaledagileframework.com/team-demo/" target="_blank">Team Demo</a>
 0. <a href="http://www.scaledagileframework.com/team-kanban/" target="_blank">Team Kanban</a>
@@ -199,7 +208,9 @@ The top level labeled "Economic" for organizations over a 100 people.
 
 ![safe 3](https://cloud.githubusercontent.com/assets/300046/22976730/0599916c-f35a-11e6-9c21-24efee6ba9af.jpg)
 
-TODO: Update from v3 to v4.
+Changes from v3 to v4:
+http://www.scaledagileframework.com/whats-new-in-safe-40/
+incorporated "Lean" principles.
 
 
 ## Concepts
@@ -253,7 +264,7 @@ using XP (Extreme Programming) methods.
 
 From Mark Richards https://t.co/Jrn218N0D5
 
-![safe quality metrics](https://cloud.githubusercontent.com/assets/300046/22980017/34363ac8-f366-11e6-9479-2f62b6def000.jpg)
+![safe v4 quality metrics](https://cloud.githubusercontent.com/assets/300046/22980017/34363ac8-f366-11e6-9479-2f62b6def000.jpg)
 
 
 ## Systems Team
