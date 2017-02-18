@@ -18,7 +18,8 @@ comments: true
 The Scaled Agile Framework (or SAFe) 
 is an online, freely revealed knowledge base of proven success patterns for implementing Lean-Agile software and systems development at enterprise scale. 
 
-https://en.wikipedia.org/wiki/Scaled_Agile_Framework
+<a target="_blank" href="https://en.wikipedia.org/wiki/Scaled_Agile_Framework">
+https://en.wikipedia.org/wiki/Scaled_Agile_Framework</a>
 
 
 ## Simple Framework
@@ -50,6 +51,8 @@ I made this alpabetical list of links:
 
 0. <a href="http://www.scaledagileframework.com/about/" target="_blank">About SAFe</a>
 0. <a href="http://www.scaledagileframework.com/agile-release-train/" target="_blank">Agile Release Train (ART)</a>
+ provides architectural, engineering, and User Experience guidance to help teams build systems that support current and upcoming user and business needs.
+Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organization (5 – 12 teams) that plans, commits, and executes together to a single Vision, Roadmap, and Program Backlog. 
 0. <a href="http://www.scaledagileframework.com/agile-architecture/" target="_blank">Agile Architecture</a>
 0. <a href="http://www.scaledagileframework.com/agile-teams/" target="_blank">Agile Team</a>
 0. <a href="http://www.scaledagileframework.com/architectural-runway" target="_blank">Architectural Runway</a>
@@ -254,12 +257,13 @@ http://www.scaledagileframework.com/safe-lean-agile-principles/
 http://cloud.huit.harvard.edu/files/hcs/files/iam_and_safe.pdf
 
 
-## Cadence
+## Cadence (timing)
 
 Agile Teams typically consist of <strong>5-9 people</strong> 
-who work in 
-Program Increments (PIs) of 10 weeks consisting of
+who work in Program Increments (PIs) of <strong>10 weeks</strong> consisting of
 5 <strong>two-week</strong> sprints.
+
+Develop on Cadence, Release Any Time. 
 
 using XP (Extreme Programming) methods.
 
