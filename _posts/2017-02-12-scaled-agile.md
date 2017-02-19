@@ -186,21 +186,21 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. Dependencies of Task Predecessors and Successors 
 0. Flows (CA Flowdock)
 
-   > There are so many concepts in the framework becuase it incorporates concepts from others
+   > There are so many concepts in the framework becuase it incorporates concepts from many others
    (Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, etc.).
+
+   ### Projects in CA
 
    PROTIP: The word "project" is absent from the SAFEe vocabulary.
    In many ways, the Project Management Institute's frameworks lost out because of its 
    <strong>temporary</strong> focus (the definition of "project")
    vs. SAFEe's implicit assumption of continuing permanance.
 
-   > I think part of the reason for the success of the SAFe framework is that it directs
-   the work of many roles in the organization, not just to
-   only developers or only quality assurance people or only project managers, etc.
-
 0. Each "Workspace" holds projects for each organization in CA Agile Central. 
 0. QUESTION: Project in CA is "Capability" in SAFe, such as "Shopping website" and "Shopping team".
 
+   ### Change Management in CA
+   
    The Rally / CA Agile Central tool adds change management fields:
 
 0. Affected Customers
@@ -214,7 +214,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. Requests
 
 
-   > PROTIP: Standardize abbreviations to avoid confusion while making more content in item descriptions.
+   > PROTIP: <strong>Standardize abbreviations</strong> to avoid confusion while making more content in item descriptions.
 
    PROTIP: <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
    Memorize the acronyms (in parentheses) using my Quizlet of flash cards</a>. 
@@ -242,6 +242,10 @@ trademarked by Cognizant consultants.
 
 QUIZ: Does the Product Owner size backlog items along with delivery team members?<br />
 No.
+
+   > I think part of the reason for the success of the SAFe framework is that it directs
+   the work of many roles in the organization, not just to
+   only developers or only quality assurance people or only project managers, etc.
 
 
 <a name="proven"></a>
@@ -271,7 +275,7 @@ Introductions to the framework by Dean Leffingwell, in several media:
    * Book: Agile Software Requirements: Lean Requirements Practices for Teams, Programs, and the Enterprise. Addison-Wesley, 2011
 
 <a target="_blank" href="http://www.scaledagileframework.com/guidance/">
-Guidance Articels</a>
+Guidance Articles</a>
 
 
 ## Cadence (timing)
@@ -281,11 +285,15 @@ who work in Program Increments (PIs) of <strong>10 weeks</strong> consisting of
 5 <strong>two-week</strong> sprints,
 using XP (Extreme Programming) methods.
 
-The mid-range planning timebox contains releases.
+The mid-range planning timebox contains releases of 3-months each.
 
 "Develop on Cadence, Release Any Time."
 
 <strong>Deployments</strong> bring Release finished deliverables to customers.
+
+<a target="_blank" href="https://ondemand.agileu.com/node/5551/take">
+CA's tutorial</a> (at [0:23]) recommends estimating <strong>6 hours</strong>
+per regular day from each team member.
 
 
 ## Status
@@ -299,10 +307,10 @@ CA's <strong>Kanban Board</strong> has these default columns of task <strong>Kan
    0. Accepted
    0. Released
 
-In CA's Personal Work <strong>Burndown Chart</strong>, blue columns of ToDo's vs. green columns of Accepted items at the end of each day:<br />
+In CA's Personal Work <strong>Burndown Chart</strong>, blue columns of ToDo's vs. green columns of Accepted items <<strong>remaining</strong> at the end of each day:<br />
 ![agile-central burndown chart 519x428](https://cloud.githubusercontent.com/assets/300046/23099676/17f74c32-f62a-11e6-8e53-1cb489361e0b.jpg)
 
-The <strong>Burn-up</strong> Chart CA defines as "work delivered so far in the release -- to proactively anticipate whether the release scope will be delivered".
+The <strong>Burn-up</strong> Chart CA defines as "work delivered (completed) during the release -- to proactively anticipate whether the release scope will be delivered". The black line shows total work planned.
 
 There are also burn-up and burndown charts by Story, Iteration Scope, and Release.
 
@@ -318,10 +326,12 @@ CA's Defect Repair Work board (by Team) has these statuses:
 ANALOGY: "Points" within the context of one Agile team or project are like airline points.
 Points for one airline don't have the same value with another airline.
 
-CA's <strong>Velocity Chart</strong> displays the number of points implemented by each
-iteration:
+CA's <strong>Velocity Chart</strong> displays the baseline estimate of how many points planned for
+each iteration within a release:
 
 <img width="539" alt="agile-central velocity report 1078x496" src="https://cloud.githubusercontent.com/assets/300046/23103624/34a98b3c-f67b-11e6-89a6-b066177a4f54.png">
+
+CA does not project into the future.
 
 QUESTION: Why is "Not Accepted" included in an iteration bar?
 
