@@ -123,17 +123,15 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/shared-services/" target="_blank">Shared Services</a>
 
 0. <a href="http://www.scaledagileframework.com/solution/" target="_blank">Solution</a>
-0. <a href="http://www.scaledagileframework.com/solution-context/" target="_blank">Solution Context</a>
-
-0. <a href="http://www.scaledagileframework.com/solution/" target="_blank">Solution</a>
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">Solution Architect/Engineering</a>
 0. <a href="http://www.scaledagileframework.com/solution-context/" target="_blank">Solution Context</a>
 0. <a href="http://www.scaledagileframework.com/solution-demo/" target="_blank">Solution Demo</a>
 0. <a href="http://www.scaledagileframework.com/solution-intent/" target="_blank">Solution Intent</a>
 0. <a href="http://www.scaledagileframework.com/product-and-solution-management/" target="_blank">Solution Management</a>
+
 0. <a href="http://www.scaledagileframework.com/spikes/">Spikes</a>
-0. <a href="http://www.scaledagileframework.com/story/" target="_blank">Stories</a>
 0. <a href="http://www.scaledagileframework.com/strategic-themes/" target="_blank">Strategic Themes</a>
+0. <a href="http://www.scaledagileframework.com/story/" target="_blank">Stories</a>
 
 0. <a href="http://www.scaledagileframework.com/supplier/" target="_blank">Supplier</a>
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">System Architect/Engineering</a>
@@ -172,12 +170,14 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. Rank among items in a list
 0. Expedite flag
 0. Test Sets
+0. Test Case
 0. Change Sets
 0. Tags
+0. Dependencies
 
-   PROTIP: Standardize abbreviations to avoid confusion while making more content in item descriptions.
+> PROTIP: Standardize abbreviations to avoid confusion while making more content in item descriptions.
 
-   <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
+   PROTIP: <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
    Memorize the acronyms (in parentheses) using my Quizlet of flash cards</a>. 
    Click on the term's text for it to be pronounced out loud.
    Click above a term to see its definition (and visa versa).
@@ -192,6 +192,10 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 ### v3
 
 ![safe 3](https://cloud.githubusercontent.com/assets/300046/22976730/0599916c-f35a-11e6-9c21-24efee6ba9af.jpg)
+
+Changes from v3 to v4:
+http://www.scaledagileframework.com/whats-new-in-safe-40/
+incorporated "Lean" principles.
 
 
 ### Competitors
@@ -231,6 +235,19 @@ Introductions to the framework by Dean Leffingwell, in several media:
    PDF at SlideShare.com</a>
 
 
+## Cadence (timing)
+
+Agile Teams typically consist of <strong>5-9 people</strong> 
+who work in Program Increments (PIs) of <strong>10 weeks</strong> consisting of
+5 <strong>two-week</strong> sprints.
+
+"Develop on Cadence, Release Any Time."
+
+The mid-range planning timebox contains releases.
+
+using XP (Extreme Programming) methods.
+
+
 
 ### Levels Backlogs
 
@@ -246,13 +263,49 @@ contain tasks.
 
 The top level labeled "Economic" for organizations over a 100 people.
 
+Notice that Blocked status shows up in CA Agile Central Pie Charts but not in the Cumulative chart.
 
-Changes from v3 to v4:
-http://www.scaledagileframework.com/whats-new-in-safe-40/
-incorporated "Lean" principles.
+CA's Kanban board has these default columns:
 
-PROTIP: Blocked status shows up in CA Agile Central Pie Charts but not in the Cumulative chart.
+   0. Backlog
+   0. On Deck
+   0. Ready to Pull
+   0. Building
+   0. Accepted
+   0. Released
 
+
+## Hierarchies for Tracking
+
+The different hierarchies can be confusing.
+
+The Track menu, where many use within CA Agile Central, has this hierachy of status by
+Iteration, Team, Release, and Work Product:
+
+![agile-central delivery list track menu 154x166](https://cloud.githubusercontent.com/assets/300046/23097998/74243062-f600-11e6-89d0-6b2701175d22.jpg)
+
+Where does one go in CA Agile Central to see the <strong>Roadmap</strong> status
+illustrated by this conceptual Venn diagram from a CA tutorial,
+which shows each Day within a Sprint within a Release within a Roadmap within a Vision:
+
+![agile time circle fig 169x152](https://cloud.githubusercontent.com/assets/300046/23098043/27500396-f601-11e6-9184-c4cd2a455250.jpg)
+
+Alternately, this conceptual hierarchy shows Tasks within one-week Stories within multi-week Stories (Epics) 
+under a Portfolio <strong>feature</strong> under
+a Portfolio <strong>initiative</strong>:
+
+![agile hierarchy ca-rally 650x461](https://cloud.githubusercontent.com/assets/300046/23098041/0f42e912-f601-11e6-841b-f4294349fa83.jpg)
+
+CA's Notification Rules can be to these <strong>Work Product Types</strong>:
+
+<img width="258" alt="agile-center notification select 516x234" src="https://cloud.githubusercontent.com/assets/300046/23098162/f85a9926-f604-11e6-89f7-9fef8f78b2a6.png">
+
+
+   ### Quality metrics
+
+From Mark Richards https://t.co/Jrn218N0D5
+
+![safe v4 quality metrics](https://cloud.githubusercontent.com/assets/300046/22980017/34363ac8-f366-11e6-9479-2f62b6def000.jpg)
 
 
 ## Principals
@@ -292,45 +345,6 @@ v4 inserted a Value Train for large enterprises.
 ANALOGY: "Points" within the context of one Agile team or project are like airline points:
 Points for one airline do not usually have the same value with another airline.
 
-
-## Cadence (timing)
-
-Agile Teams typically consist of <strong>5-9 people</strong> 
-who work in Program Increments (PIs) of <strong>10 weeks</strong> consisting of
-5 <strong>two-week</strong> sprints.
-
-"Develop on Cadence, Release Any Time."
-
-The mid-range planning timebox contains releases.
-
-using XP (Extreme Programming) methods.
-
-
-## Hierarchies for Tracking
-
-The different hierarchies can be confusing.
-
-The Track menu, where many use within CA Agile Central, has this hierachy of status by
-Iteration, Team, Release, and Work Product:
-
-![agile-central delivery list track menu 154x166](https://cloud.githubusercontent.com/assets/300046/23097998/74243062-f600-11e6-89d0-6b2701175d22.jpg)
-
-This hierarchy shows Tasks within Stories within Stories (Epics) within a lower Portfolio item under
-a major Portfolio item:
-
-![agile hierarchy ca-rally 650x461](https://cloud.githubusercontent.com/assets/300046/23098041/0f42e912-f601-11e6-841b-f4294349fa83.jpg)
-
-This Venn diagram from a CA tutorial shows 
-Day within a Sprint within a Release within a Roadmap within a Vision:
-
-![agile time circle fig 169x152](https://cloud.githubusercontent.com/assets/300046/23098043/27500396-f601-11e6-9184-c4cd2a455250.jpg)
-
-
-## Quality metrics
-
-From Mark Richards https://t.co/Jrn218N0D5
-
-![safe v4 quality metrics](https://cloud.githubusercontent.com/assets/300046/22980017/34363ac8-f366-11e6-9479-2f62b6def000.jpg)
 
 
 ## Teams
