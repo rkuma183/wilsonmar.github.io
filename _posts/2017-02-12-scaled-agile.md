@@ -17,9 +17,8 @@ comments: true
 
 The Scaled Agile Framework for enterprises (or SAFe) 
 is an online, freely revealed knowledge base of proven success patterns for implementing Lean-Agile software and systems development at enterprise scale. 
-Version 1.0 of SAFe was published in 2011
-by Dean Leffingwell of Scaled Agile, Inc.
 
+Version 1.0 of SAFe was published in 2011<br />
 [SAFe V3.0](#v3) was released July 28, 2014.
 The framework's name was changed in January 2016 to<br />
 "SAFe 4.0 for Lean Software and Systems Engineering" 
@@ -160,7 +159,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 
    A quote is offered in each abstract above.
 
-   The Rally / CA Agile Central tool adds:
+   The Rally / CA Agile Central tool adds these concepts:
 
 0. Each "Workspace" holds projects for each organization in CA Agile Central. 
 0. A <strong>defect suite</strong> groups defects together
@@ -171,11 +170,11 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. Expedite flag
 0. Test Sets
 0. Test Case
-0. Change Sets
+0. Changesets
 0. Tags
 0. Dependencies
 
-> PROTIP: Standardize abbreviations to avoid confusion while making more content in item descriptions.
+   > PROTIP: Standardize abbreviations to avoid confusion while making more content in item descriptions.
 
    PROTIP: <a target="_blank" href="https://quizlet.com/189009605/flashcards/">
    Memorize the acronyms (in parentheses) using my Quizlet of flash cards</a>. 
@@ -185,8 +184,19 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
    Click the right button for the next flash card.
 
 
-> There are so many concepts in the framework becuase it incorporates concepts from others
-(Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, etc.).
+   > There are so many concepts in the framework becuase it incorporates concepts from others
+   (Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, etc.).
+
+   The Rally / CA Agile Central tool adds change management fields:
+
+0. Affected Customers
+0. Affects Doc
+0. Attachments
+0. Change Author
+0. Closed Date
+0. Creation Date
+0. In Progress Date
+0. Watches for specific work items
 
 
 ### v3
@@ -249,7 +259,7 @@ using XP (Extreme Programming) methods.
 
 
 
-### Levels Backlogs
+### Levels Backlog Status 
 
 PROTIP: The hierarchy of levels (Team, Program, and Portfolio):
 
@@ -263,9 +273,12 @@ contain tasks.
 
 The top level labeled "Economic" for organizations over a 100 people.
 
-Notice that Blocked status shows up in CA Agile Central Pie Charts but not in the Cumulative chart.
+Blocked status shows up in CA Agile Central Pie Charts 
+but not in the Cumulative chart.
 
-CA's Kanban board has these default columns:
+![agile-central cumulative chart 650x603](https://cloud.githubusercontent.com/assets/300046/23099658/76bed38a-f629-11e6-966d-fd50ba051f28.jpg)
+
+CA's Kanban board has these default columns of <strong>Kanban states</strong>:
 
    0. Backlog
    0. On Deck
@@ -274,21 +287,28 @@ CA's Kanban board has these default columns:
    0. Accepted
    0. Released
 
+In CA's Burndown Chart, blue columns of ToDo's vs. green columns of Accepted items at the end of each day:<br />
+![agile-central burndown chart 519x428](https://cloud.githubusercontent.com/assets/300046/23099676/17f74c32-f62a-11e6-8e53-1cb489361e0b.jpg)
+
+ANALOGY: "Points" within the context of one Agile team or project are like airline points:
+Points for one airline do not usually have the same value with another airline.
+
+
 
 ## Hierarchies for Tracking
 
 The different hierarchies can be confusing.
 
-The Track menu, where many use within CA Agile Central, has this hierachy of status by
+The Track menu, where many use within CA Agile Central, has a hierachy of status by
 Iteration, Team, Release, and Work Product:
 
 ![agile-central delivery list track menu 154x166](https://cloud.githubusercontent.com/assets/300046/23097998/74243062-f600-11e6-89d0-6b2701175d22.jpg)
 
-Where does one go in CA Agile Central to see the <strong>Roadmap</strong> status
+However, where does one go in CA Agile Central to see the <strong>Roadmap</strong> status
 illustrated by this conceptual Venn diagram from a CA tutorial,
-which shows each Day within a Sprint within a Release within a Roadmap within a Vision:
+which shows each Day within a Sprint within a Release within a Product Roadmap within a Product Vision:
 
-![agile time circle fig 169x152](https://cloud.githubusercontent.com/assets/300046/23098043/27500396-f601-11e6-9184-c4cd2a455250.jpg)
+![agile hierarchy ca-rally 650x389](https://cloud.githubusercontent.com/assets/300046/23099620/d0b3791e-f628-11e6-822b-bf9cc0a0fb08.jpg)
 
 Alternately, this conceptual hierarchy shows Tasks within one-week Stories within multi-week Stories (Epics) 
 under a Portfolio <strong>feature</strong> under
@@ -301,7 +321,7 @@ CA's Notification Rules can be to these <strong>Work Product Types</strong>:
 <img width="258" alt="agile-center notification select 516x234" src="https://cloud.githubusercontent.com/assets/300046/23098162/f85a9926-f604-11e6-89f7-9fef8f78b2a6.png">
 
 
-   ### Quality metrics
+### Quality metrics
 
 From Mark Richards https://t.co/Jrn218N0D5
 
@@ -342,8 +362,6 @@ http://cloud.huit.harvard.edu/files/hcs/files/iam_and_safe.pdf
 
 v4 inserted a Value Train for large enterprises.
 
-ANALOGY: "Points" within the context of one Agile team or project are like airline points:
-Points for one airline do not usually have the same value with another airline.
 
 
 
