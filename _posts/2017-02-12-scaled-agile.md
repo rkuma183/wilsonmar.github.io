@@ -37,9 +37,13 @@ The framework's name was changed in January 2016 to<br />
 
 ## V4 
 
+There are 3 level and 4 level views. The 3-level view diagram:<br />
 <a target="_blank" href="http://www.scaledagileframework.com/">
-<img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650">
-</a>
+<img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650"></a>
+
+The 4-level view diagram:<br />
+TODO:
+
 
 PROTIP: To make sure I've clicked through all the positions on the above diagram at
 <a target="_blank" href="http://www.scaledagileframework.com/">
@@ -61,15 +65,15 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/capex-and-opex/" target="_blank">CapEx and OpEx</a>
 0. <a href="http://www.scaledagileframework.com/communities-of-practice/" target="_blank">Communities of Practice</a>
 0. <a href="http://www.scaledagileframework.com/customer/" target="_blank">Customer</a>
-
+0. Daily Stand-up (DSU)
 0. <a href="http://www.scaledagileframework.com/devops/" target="_blank">DevOps</a>
 0. <a href="http://www.scaledagileframework.com/develop-on-cadence-release-any-time/" target="_blank">Develop on Cadence</a>
 0. <a href="http://www.scaledagileframework.com/economic-framework/" target="_blank">Economic Framework</a>
 
 0. <a href="http://www.scaledagileframework.com/enablers/" target="_blank">Enablers</a> (spikes)
-0. <a href="http://www.scaledagileframework.com/enablers/" target="_blank">Enabler Capability</a>
-0. <a href="http://www.scaledagileframework.com/enablers/" target="_blank">Enabler Epic</a>
-0. <a href="http://www.scaledagileframework.com/enablers/" target="_blank">Enabler Feature</a>
+0. <a href="http://www.scaledagileframework.com/enabler-capability/" target="_blank">Enabler Capability</a>
+0. <a href="http://www.scaledagileframework.com/enabler-epic/" target="_blank">Enabler Epic</a>
+0. <a href="http://www.scaledagileframework.com/enabler-feature/" target="_blank">Enabler Feature</a>
 
 0. <a href="http://www.scaledagileframework.com/enterprise/" target="_blank">Enterprise</a>
 0. <a href="http://www.scaledagileframework.com/enterprise-architect/" target="_blank">Enterprise Architect</a>
@@ -77,7 +81,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 
 0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Feature</a>
 
-0. <a href="http://www.scaledagileframework.com/inspect-and-adapt/" target="_blank">Inspect and Adapt</a> (Problem Statement, Fishbone Root Cause Diagram, Pareto Chart)
+0. <a href="http://www.scaledagileframework.com/inspect-and-adapt/" target="_blank">Inspect and Adapt</a> workshop (using Problem Statement, Fishbone Root Cause Diagram, Pareto Chart)
 0. <a href="http://www.scaledagileframework.com/innovation-and-planning-iteration/" target="_blank">Innovation and Planning Iteration</a>
 0. <a href="http://www.scaledagileframework.com/implementing/" target="_blank">Implementing</a>
 
@@ -103,7 +107,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/product-owner/" target="_blank">Product Owner (PO)</a>
 0. <a href="http://www.scaledagileframework.com/product--and-solution-management/" target="_blank">Product Management</a>
 
-0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Portfolio Business Epic</a>
+0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Portfolio Business Epic</a> (items that cross trains) 
 0. <a href="http://www.scaledagileframework.com/portfolio-backlog/" target="_blank">Portfolio Backlog</a>
 0. <a href="http://www.scaledagileframework.com/portfolio-kanban/" target="_blank">Portfolio Kanban</a>
 0. <a href="http://www.scaledagileframework.com/portfolio-level/" target="_blank">Portfolio Level</a>
@@ -117,7 +121,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/program-increment/" target="_blank">Program Increment (PI)</a>
 0. <a href="http://www.scaledagileframework.com/program-level/" target="_blank">Program Level</a>
 0. <a href="http://www.scaledagileframework.com/pi-objectives/" target="_blank">Program PI Objectives</a>
-0. <a href="program-portfolio-management/" target="_blank">Program Portfolio Management</a>
+0. <a href="program-portfolio-management/" target="_blank">Program Portfolio Management (PPM)</a>
 
 0. <a href="http://www.scaledagileframework.com/refactoring/">Refactoring</a>
 0. <a href="http://www.scaledagileframework.com/release/" target="_blank">Release</a>
@@ -146,7 +150,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 
 0. <a href="http://www.scaledagileframework.com/supplier/" target="_blank">Supplier</a>
 0. <a href="http://www.scaledagileframework.com/system-and-solution-architect-engineering/" target="_blank">System Architect/Engineering</a>
-0. <a href="http://www.scaledagileframework.com/system-demo/" target="_blank">System Demo</a>
+0. <a href="http://www.scaledagileframework.com/system-demo/" target="_blank">System Demo</a> of all accumulated features to customer representatives.
 0. <a href="http://www.scaledagileframework.com/system-team/" target="_blank">System Team</a>
 
 0. <a href="http://www.scaledagileframework.com/team-backlog/" target="_blank">Team Backlog</a>
@@ -187,7 +191,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. Flows (CA Flowdock)
 
    > There are so many concepts in the framework becuase it incorporates concepts from many others
-   (Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, etc.).
+   (Deming, Ishikawa, Agile, Scrum, XP, Lean, Kanban, Systems Thinking, etc.).
 
    ### Projects in CA
 
@@ -260,7 +264,7 @@ About page</a> claim significant improvements:
    * 20 – 50% increase in productivity
    * 50%+ increases in quality
    * 30 – 75% faster time to market
-   * Measurable increases in employee engagement and job satisfaction
+   * Measurable increases in employee engagement and job satisfaction (Happier, more motivated employees)
 
 Introductions to the framework by Dean Leffingwell, in several media:
 
@@ -295,6 +299,8 @@ The mid-range planning timebox contains releases of 3-months each.
 CA's tutorial</a> (at [0:23]) recommends estimating <strong>6 hours</strong>
 per regular day from each team member.
 
+CA provides horizontal <strong>swimlanes</strong> to highlight tasks makred <strong>expedite</strong>.
+
 
 ## Status
 
@@ -303,9 +309,13 @@ CA's <strong>Kanban Board</strong> has these default columns of task <strong>Kan
    0. Backlog
    0. On Deck
    0. Ready to Pull
-   0. Building
+   0. Test Planning in Team Kanban
+   0. Building (In Dev in Team Kanban)
+   0. In Testing  in Team Kanban
    0. Accepted
    0. Released
+
+   WIP limit limits how much work in each state.
 
 In CA's Personal Work <strong>Burndown Chart</strong>, blue columns of ToDo's vs. green columns of Accepted items <<strong>remaining</strong> at the end of each day:<br />
 ![agile-central burndown chart 519x428](https://cloud.githubusercontent.com/assets/300046/23099676/17f74c32-f62a-11e6-8e53-1cb489361e0b.jpg)
@@ -338,13 +348,15 @@ QUESTION: Why is "Not Accepted" included in an iteration bar?
 
 ### Levels Backlog 
 
-PROTIP: The hierarchy of levels (Team, Program, and Portfolio):
+PROTIP: The hierarchy of levels (Team, Program, Value Stream, and Portfolio):
 
 0. <a href="http://www.scaledagileframework.com/portfolio-backlog/" target="_blank">Portfolio Backlog</a>
-of <a href="http://www.scaledagileframework.com/epic/" target="_blank">Business and Enabler Epics</a> 
-in the Portfolio Kanban addressing Strategic Themes 
+(within the largest of businesses)
+of <a href="http://www.scaledagileframework.com/epic/" target="_blank">Business</a> and 
+<a href="http://www.scaledagileframework.com/enabler-epic/" target="_blank">Enabler Epics</a> 
+in the Portfolio Kanban addressing Strategic Themes connected to the Enterprise Business Strategy.
 
-0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Value Stream Backlog</a>
+0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Value Stream Backlog</a> (for larger organizations)
 
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Program Backlog</a> of User Stories?
 
@@ -377,12 +389,15 @@ Iteration, Team, Release, and Work Product:
 ![agile-central delivery list track menu 154x166](https://cloud.githubusercontent.com/assets/300046/23097998/74243062-f600-11e6-89d0-6b2701175d22.jpg)
 
 CA's Iteration status board has these statuses:
+<img align="right" width="76" alt="agile-central status state icons 152x402" src="https://cloud.githubusercontent.com/assets/300046/23145753/f0a61cd4-f78d-11e6-950d-58c46ea4832c.png">
 
    0. Idea
    0. Defined
-   0. In-Progress
+   0. P = In-Progress
    0. Completed
    0. Accepted
+
+   The above statuses also appear as individual icons in Test Case status views for each Release.
 
 However, where does one go in CA Agile Central to see the <strong>Roadmap</strong> status
 illustrated by this conceptual Venn diagram from a CA tutorial,
@@ -401,12 +416,33 @@ CA's Notification Rules can be to these <strong>Work Product Types</strong>:
 <img width="258" alt="agile-center notification select 516x234" src="https://cloud.githubusercontent.com/assets/300046/23098162/f85a9926-f604-11e6-89f7-9fef8f78b2a6.png">
 
 
-### Quality metrics
+### Quality 
 
 Clicking "Quality" in CA's menu reveals the <strong>Test Plan</strong>.
 
-> I think CA's menu should be "Testing" instead of "Quality" because Quality
-encompasses more than just testing.
+   > I think CA's menu should say "Testing" instead of "Quality" because Quality
+   encompasses more than just testing.
+
+   <img width="133" alt="agile-central quality menu 266x258" src="https://cloud.githubusercontent.com/assets/300046/23145658/2c5ce934-f78d-11e6-9b18-d8374e79550d.png">
+
+CA sells a Quality Center module to support regression testing.
+
+Types of tests supported:
+
+   <img width="161" alt="agile-central test case type 322x168" src="https://cloud.githubusercontent.com/assets/300046/23126224/eafb89b4-f732-11e6-9df1-224582821fe6.png">
+
+> Due to the volume of testing data, organizations should access the system via an REST API
+
+   * https://help.rallydev.com/github
+
+CA's Defect Summary Matrix of status vs. priority for each Release:
+
+   <img width="307" alt="agile-central release defect matrix 614x278" src="https://cloud.githubusercontent.com/assets/300046/23145611/dd79d458-f78c-11e6-961e-2426454d3445.png">
+
+
+
+
+### Quality metrics
 
 From Mark Richards https://t.co/Jrn218N0D5
 
@@ -414,6 +450,8 @@ From Mark Richards https://t.co/Jrn218N0D5
 
 
 ## Principals
+
+The Foundation layer include: Lean-Agile Leaders, Communities of Practice, Core Values, Lean-Agile Mindset, and Principles.
 
 http://www.scaledagileframework.com/safe-lean-agile-principles/
 
@@ -436,6 +474,7 @@ http://www.scaledagileframework.com/safe-lean-agile-principles/
 0. Unlock the intrinsic motivation of knowledge workers
 0. Decentralize decision-making
 
+TODO: agile-lean-vs-traditional.png
 
 ## Planning
 
