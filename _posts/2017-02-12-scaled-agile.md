@@ -61,22 +61,18 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/built-In-quality/" target="_blank">Built-In Quality</a>
 0. <a href="http://www.scaledagileframework.com/business-owners/" target="_blank">Business Owners</a>
 
-0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Capabilities</a>
+0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Features and Capabilities</a>
 0. <a href="http://www.scaledagileframework.com/capex-and-opex/" target="_blank">CapEx and OpEx</a>
 0. <a href="http://www.scaledagileframework.com/communities-of-practice/" target="_blank">Communities of Practice</a>
 0. <a href="http://www.scaledagileframework.com/customer/" target="_blank">Customer</a>
 0. Daily Stand-up (DSU)
 0. <a href="http://www.scaledagileframework.com/devops/" target="_blank">DevOps</a>
-0. <a href="http://www.scaledagileframework.com/develop-on-cadence-release-any-time/" target="_blank">Develop on Cadence</a>
+0. <a href="http://www.scaledagileframework.com/develop-on-cadence-release-any-time/" target="_blank">Develop on Cadence, Release any time</a>
 0. <a href="http://www.scaledagileframework.com/economic-framework/" target="_blank">Economic Framework</a>
-
 0. <a href="http://www.scaledagileframework.com/enablers/" target="_blank">Enablers</a> (spikes)
-0. <a href="http://www.scaledagileframework.com/enabler-capability/" target="_blank">Enabler Capability</a>
-0. <a href="http://www.scaledagileframework.com/enabler-epic/" target="_blank">Enabler Epic</a>
-0. <a href="http://www.scaledagileframework.com/enabler-feature/" target="_blank">Enabler Feature</a>
-
 0. <a href="http://www.scaledagileframework.com/enterprise/" target="_blank">Enterprise</a>
 0. <a href="http://www.scaledagileframework.com/enterprise-architect/" target="_blank">Enterprise Architect</a>
+0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Epics</a>
 0. <a href="http://www.scaledagileframework.com/epic-owner/" target="_blank">Epic Owners</a>
 
 0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Feature</a>
@@ -105,7 +101,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/pi-planning/" target="_blank">PI Planning</a>
 
 0. <a href="http://www.scaledagileframework.com/product-owner/" target="_blank">Product Owner (PO)</a>
-0. <a href="http://www.scaledagileframework.com/product--and-solution-management/" target="_blank">Product Management</a>
+0. <a href="http://www.scaledagileframework.com/product--and-solution-management/" target="_blank">Product and Solution Management</a>
 
 0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Portfolio Business Epic</a> (items that cross trains) 
 0. <a href="http://www.scaledagileframework.com/portfolio-backlog/" target="_blank">Portfolio Backlog</a>
@@ -116,7 +112,6 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/product--and-solution-management/" target="_blank">Product Management (PM)</a>
 
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Program Backlog</a>
-0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Program Epics</a>
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-kanbans/" target="_blank">Program Kanban</a>
 0. <a href="http://www.scaledagileframework.com/program-increment/" target="_blank">Program Increment (PI)</a>
 0. <a href="http://www.scaledagileframework.com/program-level/" target="_blank">Program Level</a>
@@ -158,6 +153,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/team-kanban/" target="_blank">Team Kanban</a>
 0. <a href="http://www.scaledagileframework.com/team-level/" target="_blank">Team Level</a>
 0. <a href="http://www.scaledagileframework.com/pi-objectives/" target="_blank">Team PI Objectives</a>
+0. <a href="http://www.scaledagileframework.com/test-first/" target="_blank">Test First</a>
 
 0. <a href="http://www.scaledagileframework.com/user-experience/" target="_blank">User Experience (UX)</a>
 
@@ -358,7 +354,7 @@ in the Portfolio Kanban addressing Strategic Themes connected to the Enterprise 
 
 0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Value Stream Backlog</a> (for larger organizations)
 
-0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Program Backlog</a> of User Stories?
+0. <a href="http://www.scaledagileframework.com/program-and-value-stream-backlogs/" target="_blank">Program Backlog</a> containing features and capabilities.
 
 0. <a href="http://www.scaledagileframework.com/team-backlog/" target="_blank">Team Backlog</a>
 contain tasks.
@@ -453,6 +449,8 @@ From Mark Richards https://t.co/Jrn218N0D5
 
 The Foundation layer include: Lean-Agile Leaders, Communities of Practice, Core Values, Lean-Agile Mindset, and Principles.
 
+![agile-lean-vs-traditional](https://cloud.githubusercontent.com/assets/300046/23152874/4d09ec88-f7c2-11e6-9278-bf4b7230ef9a.png)
+
 http://www.scaledagileframework.com/safe-lean-agile-principles/
 
 0. Take an economic view
@@ -483,6 +481,9 @@ http://cloud.huit.harvard.edu/files/hcs/files/iam_and_safe.pdf
 v4 inserted a Value Train for large enterprises.
 
 Definition of Done (DoD)
+
+Capabilities are split into features to be implemented. 
+Featuresmare split into stories for implementation by teams.
 
 
 ## Teams
