@@ -35,15 +35,21 @@ The framework's name was changed in January 2016 to<br />
 "SAFe 4.0 for Lean Software and Systems Engineering" 
 
 
-## V4 
+## v4 
 
 There are 3 level and 4 level views. The 3-level view diagram:<br />
 <a target="_blank" href="http://www.scaledagileframework.com/">
 <img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650"></a>
 
-The 4-level view diagram:<br />
-TODO:
+### v3
 
+![safe 3](https://cloud.githubusercontent.com/assets/300046/22976730/0599916c-f35a-11e6-9c21-24efee6ba9af.jpg)
+
+<a target="_blank" href="http://www.scaledagileframework.com/whats-new-in-safe-40/">
+Changes from v3 to v4</a>
+incorporates "Lean" principles and terms.
+
+## Alphabetically
 
 PROTIP: To make sure I've clicked through all the positions on the above diagram at
 <a target="_blank" href="http://www.scaledagileframework.com/">
@@ -139,6 +145,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/solution-intent/" target="_blank">Solution Intent</a>
 0. <a href="http://www.scaledagileframework.com/product-and-solution-management/" target="_blank">Solution Management</a>
 
+0. Spanning Palette
 0. <a href="http://www.scaledagileframework.com/spikes/">Spikes</a>
 0. <a href="http://www.scaledagileframework.com/strategic-themes/" target="_blank">Strategic Themes</a>
 0. <a href="http://www.scaledagileframework.com/story/" target="_blank">Stories</a>
@@ -224,14 +231,6 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
    Click the right button for the next flash card.
 
 
-### v3
-
-![safe 3](https://cloud.githubusercontent.com/assets/300046/22976730/0599916c-f35a-11e6-9c21-24efee6ba9af.jpg)
-
-<a target="_blank" href="http://www.scaledagileframework.com/whats-new-in-safe-40/">
-Changes from v3 to v4</a>
-incorporates "Lean" principles and terms.
-
 
 
 ### Competitors
@@ -268,6 +267,9 @@ Introductions to the framework by Dean Leffingwell, in several media:
    Video in 8 minutes SAFe® Foundations 4.0</a>
    * <a target="_blank" href="https://www.youtube.com/channel/UC-n4Mb-Bu5Pgl0z5L1jyhSQ"> 
    Video in 22:52 minutes</a> by Dean Leffingwell
+   * <a target="_blank" href="http://www.scaledagile.com/safe-whitepaper/">
+   http://www.scaledagile.com/safe-whitepaper/
+   White Paper</a>
    * <a target="_blank" href="http://www.scaledagileframework.com/videos-and-presentations">
    PowerPoint of 33 slides with talk script in notes</a>
    * <a target="_blank" href="http://www.slideshare.net/ScaledAgile/safe-foundations-40">
@@ -498,6 +500,9 @@ which can have major impact.
 Dashboards for different roles are reached in CA Agile Central's home icon:<br />
 ![agile-central dashboards 400x245](https://cloud.githubusercontent.com/assets/300046/23099761/07763542-f62c-11e6-951a-ad25c8a9b2c0.jpg)
 
+## Social Media
+
+Scaled Agile’s Community Platform
 
 
 ## Other Information
