@@ -26,8 +26,10 @@ The on-line tool was renamed from
 <a target="_blank" href="https://ondemand.agileu.com/">
 https://ondemand.agileu.com</a>
 
-   * https://rally1.rallydev.com/slm/doc/webservice
-   * https://github.com/RallyTools/
+   * <a target="_blank" href="https://rally1.rallydev.com/slm/doc/webservice/">
+   https://rally1.rallydev.com/slm/doc/webservice</a>
+   * <a target="_blank" href="https://github.com/RallyTools/">
+   https://github.com/RallyTools</a>
 
 Version 1.0 of SAFe was published in 2011<br />
 [SAFe V3.0](#v3) was released July 28, 2014.
@@ -37,9 +39,14 @@ The framework's name was changed in January 2016 to<br />
 
 ## v4 
 
-There are 3 level and 4 level views. The 3-level view diagram:<br />
+There are 3 level and 4 level views. The 4-level view diagram:<br />
+<a target="_blank" href="http://www.scaledagileframework.com/">
+<img alt="safe_4" src="https://cloud.githubusercontent.com/assets/300046/23326524/92659268-fabb-11e6-9055-0191308dd736.png" width="650"></a>
+
+The 3-level view diagram:<br />
 <a target="_blank" href="http://www.scaledagileframework.com/">
 <img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650"></a>
+
 
 ### v3
 
@@ -67,6 +74,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/built-In-quality/" target="_blank">Built-In Quality</a>
 0. <a href="http://www.scaledagileframework.com/business-owners/" target="_blank">Business Owners</a>
 
+0. <a href="http://www.scaledagileframework.com/value-stream-coordination/" target="_blank">Coordination (of Value Stream)</a>
 0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Features and Capabilities</a>
 0. <a href="http://www.scaledagileframework.com/capex-and-opex/" target="_blank">CapEx and OpEx</a>
 0. <a href="http://www.scaledagileframework.com/communities-of-practice/" target="_blank">Communities of Practice</a>
@@ -455,6 +463,9 @@ The Foundation layer include: Lean-Agile Leaders, Communities of Practice, Core 
 
 http://www.scaledagileframework.com/safe-lean-agile-principles/
 
+<a target="_blank" href="http://www.barryovereem.com/the-agile-principles-checklist/">
+<img alt="agile-principles-team-adoption" src="https://cloud.githubusercontent.com/assets/300046/23301848/2d716ca0-fa49-11e6-9c66-d1bed5f75b85.png"></a>
+
 0. Take an economic view
 
    Measure EMV.
@@ -499,6 +510,15 @@ which can have major impact.
 
 Dashboards for different roles are reached in CA Agile Central's home icon:<br />
 ![agile-central dashboards 400x245](https://cloud.githubusercontent.com/assets/300046/23099761/07763542-f62c-11e6-951a-ad25c8a9b2c0.jpg)
+
+Communities of Practice (CoPs) aka guilds are different than
+Centers of Excellence (CoE).
+<br /> A CoE is group of people with specialized skills and expertise whose 
+<strong>job is to provide leadership and purposely disseminate knowledge</strong> within organizations.
+<a target="_blank" href="http://www.disciplinedagiledelivery.com/people/centers-of-excellence/">*</a>
+<br /> A COP is a collection of people who share a craft or profession who have banded together to 
+<strong>learn from each other</strong> to develop themselves (and the organization).  
+
 
 ## Social Media
 
