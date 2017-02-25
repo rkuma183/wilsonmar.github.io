@@ -87,20 +87,21 @@ For example, to identify malware, an AI program can quickly scan every email for
 looking for clues such as the originating IP address, word choice and phrasing, 
 and many other factors.
 
-## Predictions
+## Predictions from Swarm
 
 AI can be designed to make <strong>prediction</strong> 
 based on data analyzed.
 
-Startup Unanimous A.I. (uni.ai) has, since 2015, been making accurate predictions like who will win contests
+But 
+Startup Unanimous A.I. (<a target="_blank" href="http://unu.ai/what-is-unu/">uni.ai</a>) 
+has, since 2015, been making accurate predictions like who will win contests
 such as the Superbowl, March Madness, US presidential debates, the Kentucky Derby superfecta, Academy Awards, etc.
 It has been more accurate than individual experts.
 
 Its software platform (called UNU) milks the "collective wisdom" conclusions of a group of people who
 influence each other by their vote, in real-time, like a Ouiji board.
 
-<a target="_blank" href="http://unu.ai/what-is-unu/">
-<img alt="ml best actor 434x324" src="https://cloud.githubusercontent.com/assets/300046/23331496/6bc73760-fb24-11e6-9ed2-6c92b44ede5b.jpg"></a>
+<img src="https://tr1.cbsistatic.com/hub/i/2017/02/24/a92880f2-212c-4803-b6bd-f4e0f4de67ba/d865deed94d9ad5d8c68778d636a2c58/qqz8bt9.gif" alt="qqz8bt9.gif">
 
 
 ## The role of humans
