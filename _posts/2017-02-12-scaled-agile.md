@@ -21,6 +21,7 @@ the Scaled Agile Framework for enterprises (or SAFe), which are
 systems development at enterprise scale,
 in the <em>context</em> of using CA Agile Central.
 
+This page also reconciles the use of CA Agile Central for SAFe.
 The on-line tool was renamed from 
 <strong>Rally</strong> after CA bought it in 2015. CA offers online classes at 
 <a target="_blank" href="https://ondemand.agileu.com/">
@@ -34,7 +35,7 @@ https://ondemand.agileu.com</a>
 Version 1.0 of SAFe was published in 2011<br />
 [SAFe V3.0](#v3) was released July 28, 2014.
 The framework's name was changed in January 2016 to<br />
-"SAFe 4.0 for Lean Software and Systems Engineering" 
+"SAFe 4.0 for Lean Software and Systems Engineering".
 
 
 ## v4 
@@ -55,6 +56,13 @@ The 3-level view diagram:<br />
 <a target="_blank" href="http://www.scaledagileframework.com/whats-new-in-safe-40/">
 Changes from v3 to v4</a>
 incorporates "Lean" principles and terms.
+
+### SAFe Requirements Model
+
+<a target="_blank" href="http://dev.scaledagileframework.com/safe-requirements-model/">
+<img alt="figure-1-safe-requirements-model" src="https://cloud.githubusercontent.com/assets/300046/23327024/7fd9c9be-fac2-11e6-9ec7-5aa114b929a7.png"></a>
+
+
 
 ## Alphabetically
 
@@ -142,6 +150,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 
 0. <a href="http://www.scaledagileframework.com/safe-core-values/" target="_blank">SAFe Core Values</a>
 0. <a href="http://www.scaledagileframework.com/safe-lean-agile-principles/" target="_blank">SAFe Lean-Agile Principles</a>
+0. <a href="http://dev.scaledagileframework.com/safe-requirements-model/">SAFe Requirements Model</a>
 0. <a href="http://www.scaledagileframework.com/scrum-master/" target="_blank">Scrum Master</a>
 0. <a href="http://www.scaledagileframework.com/scrumxp/" target="_blank">ScrumXP</a>
 0. <a href="http://www.scaledagileframework.com/shared-services/" target="_blank">Shared Services</a>
