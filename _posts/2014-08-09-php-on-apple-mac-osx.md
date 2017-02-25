@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+A Pretty Hypertext Preprocessor is included by Apple on MacOS.
+
 
 <a id="PHPz"></a>
 
@@ -24,7 +26,16 @@ The version of PHP is obtained from this Terminal command:
 
    <tt>php -v</tt>
 
-   On my Yosemite, the response is:
+
+   On Sierra, the response is:
+
+<pre>
+PHP 5.6.28 (cli) (built: Dec  6 2016 12:38:54) 
+Copyright (c) 1997-2016 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
+</pre>
+
+   On Yosemite, the response is:
 
 <pre>
 PHP 5.5.14 (cli) (built: Sep  9 2014 19:09:25)

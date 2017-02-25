@@ -534,17 +534,39 @@ Centers of Excellence (CoE).
 Scaled Agile’s Community Platform
 
 
+## Videos
+
+<a target="_blank" href="https://www.itmpi.org/">
+ITMPI.org</a> (IT Metrics and Productivity Institute)
+by Al Shalloway
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=Yd4iv5Baftg">
+   Understanding the Scaled Agile Framework 2014</a> (ad for longer paid video)
+
+   [1:53] "The nature of work is not top down."
+   Usually no one is managing (measuring) work waiting.
+   Waiting creates extra work, waste.
+
+   * https://plus.google.com/u/0/112759785983081879416
+
+iZenBridge Consultancy Pvt Ltd
+
+   * https://www.youtube.com/watch?v=ogb1KT9ek34
+   Introduction of Scale Agile Framework (SAFe)
+
+Lean Samurai
+
+   * https://www.youtube.com/watch?v=RXzurBazN-I in 7 minutes
+
+
 ## Other Information
 
 <a target="_blank" href="https://en.wikipedia.org/wiki/Scaled_Agile_Framework">
 https://en.wikipedia.org/wiki/Scaled_Agile_Framework</a>
 
-
    * https://www.youtube.com/watch?v=RLBReQXQcvY in 8 slides
-   * https://www.youtube.com/watch?v=RXzurBazN-I in 7 minutes
    * https://www.youtube.com/watch?v=-744CZ3V1E0
    * https://www.youtube.com/watch?v=TolNkqyvieE
 
-
-https://www.youtube.com/watch?v=V71bGAxGAd8
+   * https://www.youtube.com/watch?v=V71bGAxGAd8
 

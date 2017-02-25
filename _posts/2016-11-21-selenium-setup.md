@@ -25,6 +25,7 @@ Follow my other tutorials to install:
 2. [Maven](/maven-on-macos/)
 4. Firefox browser
 5. Chrome with ChromeDriver
+6. <a href="#Flex">Flex</a>
 
 <hr />
 
@@ -237,7 +238,90 @@ by Peter Hedenskog
 of Wikipedia.
 
 
+<a name="Flex"></a>
+
+## Flash and Flex
+
+https://sourceforge.net/adobe/flexsdk/wiki/Download%20Flex%203/
+Since 2011, Flex is being developed at the Apache Software Foundation
+
+   * https://www.wikiwand.com/en/Apache_Flex
+   * http://flex.apache.org/
+
+
+0. Add file <strong>sfapi.swc</strong> into the 'libs' folder of your Flex application from
+
+0. Add to Flexbuilder/Eclipse Additional compiler arguments: 
+   Right click on the project and go to project properties.
+   Click on "Flex compiler" to bring up the compiler options.
+
+   For Windows:
+
+   <pre>-include-libraries "..\libs\sfapi.swc"</pre>
+
+   For Mac or Linux:
+
+   <pre>-include-libraries "../libs/sfapi.swc"</pre>
+
+
+http://www.adobe.com/devnet/flash/articles/flash_selenium.html
+
+https://github.com/ashudestiny/flash-selenium
+(from https://code.google.com/archive/p/flash-selenium/)
+flash-selenium 
+ aims to extend the Selenium RC clients for adding Flash communication capabilities.
+
+https://github.com/Kuhtich/flex-ui-selenium
+(from https://code.google.com/archive/p/flex-ui-selenium/)
+FlexUISelenium is an extension to the Selenium RC client driver that enables the Selenium RC client drivers to interact (and test) the Flex UI components and methods of the Flex application.
+
+http://stackoverflow.com/questions/21457004/how-to-automate-a-flex-application-in-selenium-webdriver
+
+GraniteDS
+
+### Sample app
+
+0. Get "sfapi.swc" is from the Selenium-Flex-API project for Selenium IDE:
+
+   http://code.google.com/p/sfapi/
+
+0. Download
+
+   https://github.com/hugs/flex-compareSum
+
+0. Construct the command to build the code:
+
+   cd src
+
+   ~/Apps/flex_sdk_3.4/bin/mxmlc compareSum.mxml -include-libraries "sfapi.swc"
+
+0. To display index.html in the current folder, launch a simple webserver built into Python:
+
+   python -m http.server 8000
+
+   (it was previously named SimpleHTTPServer. See http://www.pythonforbeginners.com/modules-in-python/how-to-use-simplehttpserver/)
+
+0. Launch a web browser and open http://localhost:8000/
+
+
+### Alternatives
+
+https://github.com/admc/flex-pilot-x
+by adam.christian@gmail.com (https://medium.com/@admc)
+
+https://github.com/jagdeepjain/selenium-flex-demo
+(from https://code.google.com/archive/p/sfapi/)
+
+https://github.com/tanzilli/playground/blob/master/python/httpserver/example1.py
+http://www.acmesystems.it/python_httpd
+Write a simple HTTP server in Python
+
+https://code.google.com/archive/p/fluint/
+
+
 ## Resources
+
+http://www.guru99.com/selenium-tutorial.html
 
 https://www.youtube.com/watch?annotation_id=annotation_779954917&feature=iv&src_vid=nq97dfaVmC4&v=ff5ZsthcSZw
 How to Install Java, Maven and IntelliJ on Apple Mac 

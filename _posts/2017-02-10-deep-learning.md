@@ -494,7 +494,7 @@ Caffe's “Model Zoo” a large community of users contributing their own deep n
 others can upload.
 AlexNet and GoogleNet are popular user-made nets.
 
-
+https://visual-recognition-demo.mybluemix.net/train
 
 
 ## Resources

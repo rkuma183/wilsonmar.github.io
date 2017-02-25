@@ -46,7 +46,7 @@ There are so many new features in Python 3 that it doesn't make much sense to st
 Most new features introduced with Python 3 versions won't be backwards compatible. 
 
 
-## Print
+### Print
 
 For the most part, Python 2 code works with Python 3. 
 
@@ -103,24 +103,7 @@ Unlike <a target="_blank" href="http://pandas.pydata.org/">
 Pandas</a>, SFrame is not limited to datasets which can fit in memory, 
 so it can deal with large datasets, even on a laptop.
 
-
-
-## Tutorials on Python
-
-https://developers.google.com/edu/python/
-Google's Python Class from 2010
-has videos that
-covers strings, lists, sorting, dicts, files, 
-regular expressions, utilities.
-Taught by Nick Parlante.
-<a target="_blank" href="https://developers.google.com/edu/python/"
-Support materials</a>
-
-https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9
-MIT's Introduction to Computer Science using Python
-
-
-https://learnpythonthehardway.org/book/
+http://stackoverflow.com/questions/509211/explain-pythons-slice-notation/
 
 
 ## Python libraries
@@ -159,6 +142,35 @@ scikit-learn also uses Python with Anaconda.
 
 
 
+## Tutorials on Python
+
+## Datacamp
+
+https://www.datacamp.com/courses
+provides an interactive playground with videos.
+The beginner class is free,
+with intermediate classes at $29 a month.
+
+
+## Google
+
+https://developers.google.com/edu/python/
+Google's Python Class from 2010
+has videos that
+covers strings, lists, sorting, dicts, files, 
+regular expressions, utilities.
+Taught by Nick Parlante.
+<a target="_blank" href="https://developers.google.com/edu/python/"
+Support materials</a>
+
+https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9
+MIT's Introduction to Computer Science using Python
+
+
+https://learnpythonthehardway.org/book/
+
+
+
 ### Pluralsight #
 
 Robert Smallshire (@robsmallshire, rob@ixty-north.com)
@@ -185,11 +197,8 @@ of loonycorn.com
 
 
 <a target="_blank" href="https://app.pluralsight.com/library/courses/play-by-play-zed-shaw/">
-Play by Play: Building a Python Code Stats Tool with Zed Shaw
-
-
-Apr 28, 2011
- 1h 51m
+Play by Play: Building a Python Code Stats Tool 
+Apr 28, 2011 1h 51m
 </a>
 by Zed Shaw 
 and 

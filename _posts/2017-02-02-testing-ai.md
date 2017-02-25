@@ -14,12 +14,16 @@ comments: true
 
 {% include _toc.html %}
 
-In 2017, many organizations have settled into "mobile-first"
-design rather than "desktop-first" design.
+While many organizations are still working toward a <strong>"mobile-first"</strong>
+approach to design (rather than "desktop-first" or "mainframe-first" design),
+some companies at the "bleeding edge" are moving to
+<strong>"AI first"</strong> design.
 
-But companies at the bleeding edge have moving to
-"AI first" paradigm, when
-computers are better than humans at many tasks.
+> The assumption is that computers are better than humans.
+
+For example, Foxconn, is now assemblying iPhones using most mechanical robots rather than human robots.
+
+Simerlerly, Uber drivers are human until they are replaced by driverless cars.
 
 By 2017, Artificial Intelligence programs have beaten 
 world champions in Jeopardy, chess, go, and poker.
@@ -37,6 +41,8 @@ reading charts.
 Instead of creating lines on various charts for analysis by people 
    to make decisions,
    computers are making decisions.
+
+## Humans are limited
 
 > "Machines will be capable, within 20 years, of doing any work a man can do." 
 --Herbert Simon (1916-2001), Nobel Laureate
@@ -71,9 +77,9 @@ AI (neural networks in particular)
 can now discover, in real-time, 
 threats such as malware installation, phishing attacks, and brute-force intrusions.
 
-They can do that because Big Data enable them to now analyze larger data sets.
+They can do that because Big Data systems enable the analysis of larger data sets quickly.
 Many computers in the cloud (with fast Google Fiber network links) 
-now enables them to processes faster than in the past.
+now process data faster than in the past.
 
 The increased scope of AI's processing capabilities now means it can 
 analyze many more variables quickly.
@@ -85,6 +91,16 @@ and many other factors.
 
 AI can be designed to make <strong>prediction</strong> 
 based on data analyzed.
+
+Startup Unanimous A.I. (uni.ai) has, since 2015, been making accurate predictions like who will win contests
+such as the Superbowl, March Madness, US presidential debates, the Kentucky Derby superfecta, Academy Awards, etc.
+It has been more accurate than individual experts.
+
+Its software platform (called UNU) milks the "collective wisdom" conclusions of a group of people who
+influence each other by their vote, in real-time, like a Ouiji board.
+
+<a target="_blank" href="http://unu.ai/what-is-unu/">
+<img alt="ml best actor 434x324" src="https://cloud.githubusercontent.com/assets/300046/23331496/6bc73760-fb24-11e6-9ed2-6c92b44ede5b.jpg"></a>
 
 
 ## The role of humans

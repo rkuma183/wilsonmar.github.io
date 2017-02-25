@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ruby with RVM on MacOS"
-excerpt: ""
+excerpt: "Switch among multiple versions of Ruby"
 tags: [ruby, apple, mac, setup, programming]
 image:
 # feature: pic ruby full 1900x500.jpg
@@ -22,6 +22,7 @@ The major commands:
    0. gem
    0. rvm
    0. bundle
+   0. rbenv
 
 
 ### View Ruby version #
@@ -29,11 +30,19 @@ The major commands:
 A Ruby language compiler is included in Mac OSX.
 So we can jump straight to view version information.
 
+CAUTION: Don't touch the system Ruby that comes with your Mac.
+
 0. Open a Terminal Shell Window and type:
 
    <tt><strong>
    ruby \-\-version
    </strong></tt>
+
+   The response for the Sierra default:
+
+   <tt>
+   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
+   </tt>
 
    The response for the Yosemite default:
 
@@ -107,6 +116,12 @@ RubyGems Environment:
    gem \-\-version
    </strong></tt>
 
+   The response for the Sierra default:
+
+   <tt>
+   2.0.14
+   </tt>
+
    The response for the Yosemite default:
 
    <tt>
@@ -125,7 +140,20 @@ RubyGems Environment:
    2.6.4
    </tt>
 
+### Clean 
+
+   <tt><strong>
+   gem clean
+   </strong></tt>
+
+
 ### View rvm version number #
+
+   <tt><strong>
+   rvm info
+   </strong></tt>
+
+For a smaller response:
 
    <tt><strong>
    rvm \-\-version
@@ -202,6 +230,7 @@ bundler-unload (1.0.2)
 executable-hooks (1.3.2)
 rubygems-bundler (1.4.4)
 rubygems-update (2.6.4)
+...
    </pre>
 
 
@@ -305,6 +334,13 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 <a name="ruby-rvm"></a>
 
 ### Ruby Version Manager (rvm) #
+
+
+0. Uninstall all versions of Ruby:
+
+   <tt><strong>
+rvm uninstall ruby
+   </strong></tt>
 
 0. Have the rvm shell configuration loaded:
 
@@ -439,7 +475,7 @@ source ~/.profile
 0. Some say at this point close the terminal and open again.
 
 
-## Sample Ruby program #
+## Sample Ruby Tree program #
 
 Here is a Ruby script to produce a nice Unicode tree along with metadata to its left:
 
@@ -504,10 +540,41 @@ puts tree(ARGV.first || ".") if __FILE__==$0
   from ./tree.rb:24:in `block in tree'
   from ./tree.rb:22:in `map'
   from ./tree.rb:22:in `tree'
-  from ./tree.rb:35:in `<main>'
+  from ./tree.rb:35:in `&LT;main>'
    </pre>
 
    http://superuser.com/users/57219/phrogz
+
+
+## Remove rvm
+
+0. Run the program which removes the rvm/ directory and all the rubies built within it:
+
+   <pre><strong>
+   rvm repair
+   rvm cleanup
+   rvm implode --force
+   </strong></pre>
+
+0. Remove folders:
+
+   <pre>
+   rm -rf /usr/local/rvm
+   sudo rm /etc/profile.d/rvm.sh
+   sudo rm /etc/rvmrc
+   sudo rm ~/.rvmrc
+   </pre>
+
+0. Check references to rvm in files:
+
+   vim .bash_profile
+
+   vim .bashrc
+
+   vim .profile 
+
+0. Restart Terminal sessions.
+
 
 ## Resources:
 
