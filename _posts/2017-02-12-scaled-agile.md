@@ -83,11 +83,11 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/built-In-quality/" target="_blank">Built-In Quality</a>
 0. <a href="http://www.scaledagileframework.com/business-owners/" target="_blank">Business Owners</a>
 
-0. <a href="http://www.scaledagileframework.com/value-stream-coordination/" target="_blank">Coordination (of Value Stream)</a>
-0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Features and Capabilities</a>
 0. <a href="http://www.scaledagileframework.com/capex-and-opex/" target="_blank">CapEx and OpEx</a>
 0. <a href="http://www.scaledagileframework.com/communities-of-practice/" target="_blank">Communities of Practice</a>
+0. <a href="http://www.scaledagileframework.com/value-stream-coordination/" target="_blank">Coordination (of Value Stream)</a>
 0. <a href="http://www.scaledagileframework.com/customer/" target="_blank">Customer</a>
+
 0. Daily Stand-up (DSU)
 0. <a href="http://www.scaledagileframework.com/devops/" target="_blank">DevOps</a>
 0. <a href="http://www.scaledagileframework.com/develop-on-cadence-release-any-time/" target="_blank">Develop on Cadence, Release any time</a>
@@ -98,7 +98,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/epic/" target="_blank">Epics</a>
 0. <a href="http://www.scaledagileframework.com/epic-owner/" target="_blank">Epic Owners</a>
 
-0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Feature</a>
+0. <a href="http://www.scaledagileframework.com/features-and-capabilities/" target="_blank">Features and Capabilities</a>
 
 0. <a href="http://www.scaledagileframework.com/inspect-and-adapt/" target="_blank">Inspect and Adapt</a> workshop (using Problem Statement, Fishbone Root Cause Diagram, Pareto Chart)
 0. <a href="http://www.scaledagileframework.com/innovation-and-planning-iteration/" target="_blank">Innovation and Planning Iteration</a>
@@ -258,7 +258,9 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 ### Competitors
 
 A competitor to SAFe is <em>Daikibo</em> ("large scale" in Japanese),
-trademarked by Cognizant consultants.
+trademarked by Cognizant consultants. Xavier Morera
+has a <a target="_blank" href="https://www.pluralsight.com/courses/daikibo-scaling-agile-enterprise">
+video tutorial on it on Pluralsight</a>.
 
 
 QUIZ: Does the Product Owner size backlog items along with delivery team members?<br />
@@ -268,9 +270,13 @@ No.
    the work of many roles in the organization, not just to
    only developers or only quality assurance people or only project managers, etc.
 
-The SAFe Implementation Roadmap:<br />
+SAFe recommends training in their Implementation Roadmap:<br />
 <a target="_blank" href="http://www.scaledagileframework.com/implementation-roadmap/">
 <img alt="implementation-roadmap-v25-current-3" src="https://cloud.githubusercontent.com/assets/300046/23335978/8af4d154-fb8f-11e6-83e5-88049607c141.png"></a>
+
+But here is another:
+
+![agile rollout schedule 516x236](https://cloud.githubusercontent.com/assets/300046/23342004/3ef2ed2c-fc20-11e6-8be5-383c93fbd534.jpg)
 
 
 <a name="proven"></a>
