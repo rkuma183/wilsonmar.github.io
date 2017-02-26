@@ -60,8 +60,8 @@ My main criteria is a <strong>narrow</strong> font so more characters fit on a l
 
 Now one would think that Apple engineers are rather particular about fonts.
 
-Since Snow Leopard, Menlo-Regular is the preferred and default font for Apple’s
-developer tools and also the Terminal.
+Since Snow Leopard, Menlo-Regular is the default font for Apple’s
+developer tools and the Terminal.
 
 But no.
 
