@@ -102,7 +102,10 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 
 0. <a href="http://www.scaledagileframework.com/inspect-and-adapt/" target="_blank">Inspect and Adapt</a> workshop (using Problem Statement, Fishbone Root Cause Diagram, Pareto Chart)
 0. <a href="http://www.scaledagileframework.com/innovation-and-planning-iteration/" target="_blank">Innovation and Planning Iteration</a>
+
 0. <a href="http://www.scaledagileframework.com/implementing/" target="_blank">Implementing</a>
+0. <a href="http://www.scaledagileframework.com/implementation-roadmap/" target="_blank">Implementation Roadmap</a>
+0. <a href="http://www.scaledagileframework.com/create-the-implementation-plan-2/" target="_blank">Implementation Plan (create it)</a>
 
 0. <a href="http://www.scaledagileframework.com/iterations/" target="_blank">Iterations</a>
 0. <a href="http://www.scaledagileframework.com/iteration-execution/" target="_blank">Iteration Execution</a>
@@ -111,6 +114,7 @@ Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organiz
 0. <a href="http://www.scaledagileframework.com/iteration-retrospective/" target="_blank">Iteration Retrospective</a>
 
 0. <a href="http://www.scaledagileframework.com/innovation-and-planning-iteration/" target="_blank">Innovation and Planning Iteration</a>
+0. <a href="http://www.scaledagileframework.com/lace/" target="_blank">Lean-Agile Center of Excellence</a>
 0. <a href="http://www.scaledagileframework.com/lean-agile-mindset/" target="_blank">Lean-Agile Mindset</a>
 0. <a href="http://www.scaledagileframework.com/lean-agile-leaders/" target="_blank">Lean-Agile Leaders</a>
 
@@ -263,6 +267,10 @@ No.
    > I think part of the reason for the success of the SAFe framework is that it directs
    the work of many roles in the organization, not just to
    only developers or only quality assurance people or only project managers, etc.
+
+The SAFe Implementation Roadmap:<br />
+<a target="_blank" href="http://www.scaledagileframework.com/implementation-roadmap/">
+<img alt="implementation-roadmap-v25-current-3" src="https://cloud.githubusercontent.com/assets/300046/23335978/8af4d154-fb8f-11e6-83e5-88049607c141.png"></a>
 
 
 <a name="proven"></a>
