@@ -235,22 +235,6 @@ But a deep net is needed to handle complexity.
 
 
 
-## Video classes
-
-Udacity's Machine Learning (UD120)
-
-   * https://github.com/udacity/ud120-projects
-   starter project code
-
-
-https://app.pluralsight.com/library/courses/azure-machine-learning-getting-started/table-of-contents
-Getting Started with Azure Machine Learning
-2 Nov 2016, 2h 14m
-by Jerry Kurata (@jerrykur, insteptech.com)
-
-
-
-
 
 ## Neural network
 
@@ -353,16 +337,8 @@ Justin Johnson.
 Notes at:
 http://cs231n.github.io/optimization-2
 
-CNN = Convulutional Neural Network
-
 Computer vision touches
 Pixel data called the "Dark Matter" of the internet
-
-https://www.youtube.com/playlist?list=PLehuLRPyt1Hyi78UOkMPWCGRxGcA9NVOE">
-Deep Learning course at U of Waterloo 
-18 Sep 2015</a>
-by 
-Ali Ghodsi
 
 
 ## CNN (Convolutional Neural Networks)
@@ -399,13 +375,6 @@ https://github.com/oxford-cs-deepnlp-2017
 https://de.dariah.eu/tatom/working_with_text.html
 creates a  document-term matrix containing 
 Word (or n-gram) frequencies.
-
-
-## Python Classes
-
-<a target="_blank" href="https://www.udemy.com/python-for-data-science-and-machine-learning-bootcamp/">
-$10 Python for Data Science and Machine Learning Bootcamp</a>
-by Jose Portilla
 
 
 ### Java in DL4j
@@ -497,20 +466,8 @@ AlexNet and GoogleNet are popular user-made nets.
 https://visual-recognition-demo.mybluemix.net/train
 
 
-## Resources
 
-https://github.com/josephmisiti/awesome-machine-learning
-
-Hacker News
-
-Reddit
-
-<a target="_blank" href="https://www.youtube.com/watch?v=BR9h47Jtqyw">
-A friendly introduction to Deep Learning and Neural Networks</a>
-by Luis Serrano
-
-
-## Rock stars
+## Rock stars' Tutorials
 
 Deep learning researchers:
 
@@ -549,6 +506,16 @@ Deep learning researchers:
 ### Yann LeCun at NYU
 
    https://www.facebook.com/ylecun/?ref=timeline_chaining
+
+   Who's afraid of ...
+
+
+### Suraji
+
+   Udacity's Machine Learning (UD120)
+
+   * https://github.com/udacity/ud120-projects
+   starter project code
 
 ### Yoshua Benjio
 
@@ -621,6 +588,25 @@ Deep learning researchers:
 
    London · http://mdenil.com
 
+### Jose Portilla
+
+   <a target="_blank" href="https://www.udemy.com/python-for-data-science-and-machine-learning-bootcamp/">
+   $10 Python for Data Science and Machine Learning Bootcamp</a>
+
+## Jerry Kurata 
+
+   (@jerrykur, insteptech.com)
+
+   <a target="_blank" href="https://app.pluralsight.com/library/courses/azure-machine-learning-getting-started/table-of-contents">
+   Pluralsight: Getting Started with Azure Machine Learning
+   2 Nov 2016, 2h 14m</a>
+
+### Ali Ghodsi
+
+   <a target="_blank" href="https://www.youtube.com/playlist?list=PLehuLRPyt1Hyi78UOkMPWCGRxGcA9NVOE">
+   Deep Learning course at U of Waterloo
+   18 Sep 2015</a>
+
 
 <hr />
 
@@ -628,7 +614,23 @@ Deep learning researchers:
 
 bay area deep learning.org
 
+deep learning school Montreal
+
 nips 2017
 
-deep learning school Montreal
+
+
+
+
+## Resources
+
+https://github.com/josephmisiti/awesome-machine-learning
+
+Hacker News
+
+Reddit
+
+<a target="_blank" href="https://www.youtube.com/watch?v=BR9h47Jtqyw">
+A friendly introduction to Deep Learning and Neural Networks</a>
+by Luis Serrano
 

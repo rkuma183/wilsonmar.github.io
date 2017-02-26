@@ -46,23 +46,6 @@ awesome-machine-learning</a>
 provides many links to resources, so they will not be repeated here.
 
 
-### Turi (Dato) Python algorithms #
-
-<a target="_blank" href="https://dato.com/products/create/">
-GraphLab Create</a> from Dato 
-provides scalable "pre-implemented" ML algorithms 
-using Python installed using Anaconda.
-Entire courses on its use is at
-
-   * https://www.coursera.org/learn/ml-foundations
-   * https://www.turi.com/learn/userguide/
-   * https://www.turi.com/products/create/docs/
-   * https://github.com/learnml/machine-learning-specialization
-   * https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji/software-tools-you-ll-need-for-this-course
-
-When the one-year free license is over, note
-scikit-learn also uses Python with Anaconda.
-
 ## Definitions
 
 An <strong>instance</strong> is the aspect about which you want to make a prediction. 
