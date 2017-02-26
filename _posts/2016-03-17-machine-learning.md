@@ -63,8 +63,41 @@ Entire courses on its use is at
 When the one-year free license is over, note
 scikit-learn also uses Python with Anaconda.
 
+## Definitions
 
-## Python libraries
+An <strong>instance</strong> is the aspect about which you want to make a prediction. 
+
+A <strong>label</strong> is an answer for a prediction task ­- 
+­either the answer produced by a machine learning
+system, or the right answer supplied in training data. For example, the label for a web page
+might be "about cats".
+
+A <strong>features</strong> is a property of an instance used in a prediction task. 
+For example, a web page might
+have a feature "contains the word 'cat'".
+
+A <strong>feature Column</strong> is a set of related features, 
+such as the set of all possible countries in which users might live. 
+An example may have one or more features present in a feature column. A
+feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a
+field.
+Example: An instance (with its features) and a label.
+
+A <strong>model</strong> is a statistical representation of a prediction task. 
+Models trained using examples so they can be used to make predictions.
+
+A <strong>metric</strong> is a number that you care about. May or may not be directly optimized.
+
+An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
+
+A <strong>pipeline</strong> the infrastructure surrounding a machine learning algorithm. 
+It includes gathering the data from the front end, 
+putting it into training data files, 
+training one or more models, and
+exporting the models to production.
+
+
+## Python libraries for ML
 
 For matrix operations, use the <a target="_blank" href="http://www.numpy.org/">
 Numpy</a> open-source Python library for fast performance with data that fits in memory.
@@ -589,7 +622,8 @@ Read:
 
    * https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/
 
+   * http://cola.github.io
 
 ## More
 
-   Jupyter notebooks
+   http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf

@@ -92,15 +92,16 @@ and many other factors.
 AI can be designed to make <strong>prediction</strong> 
 based on data analyzed.
 
-But 
 Startup Unanimous A.I. (<a target="_blank" href="http://unu.ai/what-is-unu/">uni.ai</a>) 
 has, since 2015, been making accurate predictions like who will win contests
 such as the Superbowl, March Madness, US presidential debates, the Kentucky Derby superfecta, Academy Awards, etc.
 It has been more accurate than individual experts.
 
-Its software platform (called UNU) milks the "collective wisdom" conclusions of a group of people who
+Its software platform (called UNU) milks conclusions not from algorithms, but
+from the "collective wisdom" 
+of group of <strong>breathing people</strong> who
 influence each other by their vote, in real-time, like a Ouiji board.
-
+(
 <img src="https://tr1.cbsistatic.com/hub/i/2017/02/24/a92880f2-212c-4803-b6bd-f4e0f4de67ba/d865deed94d9ad5d8c68778d636a2c58/qqz8bt9.gif" alt="qqz8bt9.gif">
 
 

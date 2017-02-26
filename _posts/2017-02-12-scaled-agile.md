@@ -35,17 +35,18 @@ https://ondemand.agileu.com</a>
 Version 1.0 of SAFe was published in 2011<br />
 [SAFe V3.0](#v3) was released July 28, 2014.
 The framework's name was changed in January 2016 to<br />
-"SAFe 4.0 for Lean Software and Systems Engineering".
+<a target="_blank" href="http://www.scaledagileframework.com/">
+"SAFe 4.0 for Lean Software and Systems Engineering"</a>:
 
 
 ## v4 
 
 There are 3 level and 4 level views. The 4-level view diagram:<br />
-<a target="_blank" href="http://www.scaledagileframework.com/">
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/23326524/92659268-fabb-11e6-9055-0191308dd736.png">
 <img alt="safe_4" src="https://cloud.githubusercontent.com/assets/300046/23326524/92659268-fabb-11e6-9055-0191308dd736.png" width="650"></a>
 
 The 3-level view diagram:<br />
-<a target="_blank" href="http://www.scaledagileframework.com/">
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png">
 <img alt="safe v4" src="https://cloud.githubusercontent.com/assets/300046/22977298/0b828744-f35c-11e6-9b7d-78e3ec3965aa.png" width="650"></a>
 
 

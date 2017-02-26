@@ -25,7 +25,7 @@ Follow my other tutorials to install:
 2. [Maven](/maven-on-macos/)
 4. Firefox browser
 5. Chrome with ChromeDriver
-6. <a href="#Flex">Flex</a>
+6. <a href="#Flex">Flash Flex</a>
 
 <hr />
 
@@ -271,6 +271,9 @@ https://github.com/ashudestiny/flash-selenium
 flash-selenium 
  aims to extend the Selenium RC clients for adding Flash communication capabilities.
 
+   https://code.google.com/archive/p/flash-selenium/downloads
+
+
 https://github.com/Kuhtich/flex-ui-selenium
 (from https://code.google.com/archive/p/flex-ui-selenium/)
 FlexUISelenium is an extension to the Selenium RC client driver that enables the Selenium RC client drivers to interact (and test) the Flex UI components and methods of the Flex application.
@@ -278,6 +281,9 @@ FlexUISelenium is an extension to the Selenium RC client driver that enables the
 http://stackoverflow.com/questions/21457004/how-to-automate-a-flex-application-in-selenium-webdriver
 
 GraniteDS
+
+http://code.google.com/p/fluint/
+
 
 ### Sample app
 
