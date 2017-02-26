@@ -550,6 +550,11 @@ Centers of Excellence (CoE).
 <strong>learn from each other</strong> to develop themselves (and the organization).  
 
 
+## Deloitte
+
+![agile landscape deloitte](https://cloud.githubusercontent.com/assets/300046/23343115/3b463684-fc34-11e6-9a86-af17e0c3f0eb.gif)
+
+
 ## Social Media
 
 Scaled Agile’s Community Platform
