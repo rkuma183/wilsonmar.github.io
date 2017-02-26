@@ -33,7 +33,7 @@ Vector fonts are better on my Apple monitors with 1080p HD and above
 because they allow more efficient scaling.
 
 When using old monitors with lower resolution below 720p,
-bitmap fonts as they are generally more legible at smaller sizes on low-resolution screens.
+bitmap fonts are better because they are generally more legible at smaller sizes on low-resolution screens.
 
 
 ## Mono-spaced Programming Fonts
@@ -56,9 +56,40 @@ My main criteria is a <strong>narrow</strong> font so more characters fit on a l
    Envy Code R
 
 
-### Hack font for source code #
+### Meslo LG Multi-Platform
 
-0. In https://github.com/chrissimpkins/Hack
+Now one would think that Apple engineers are rather particular about fonts.
+
+Since Snow Leopard, Menlo-Regular is the preferred and default font for Apple’s
+developer tools and also the Terminal.
+
+But no.
+
+One guy has nitpicky gripes with it:
+
+   * The default vertical (line) spacing is just way too cramped 
+
+   * The horizontal baseline alignment of the asterisk is off
+
+So he created a customized version of Apple’s Menlo-Regular font
+(which is a customized Bitstream Vera Sans Mono).
+
+   https://github.com/andreberg/Meslo-Font
+
+   https://github.com/andreberg/Meslo-Font/blob/master/dist/v1.2.1/Meslo%20LG%20v1.2.1.zip
+
+Thanks to his work, we now have a good font that works across Mac and Windows
+
+https://github.com/andreberg/Meslo-Font/wiki/Using-Meslo-LG-with-the-Windows-Console 
+
+
+### Hack Fonts from GitHub
+
+There are two to try:
+
+   https://github.com/andreberg/Meslo-Font
+
+   https://github.com/chrissimpkins/Hack
 
 0. Scroll down to click "Latest version", which for me was:
    
