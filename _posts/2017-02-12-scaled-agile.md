@@ -74,8 +74,6 @@ I made this alpabetical list of links:
 
 0. <a href="http://www.scaledagileframework.com/about/" target="_blank">About SAFe</a>
 0. <a href="http://www.scaledagileframework.com/agile-release-train/" target="_blank">Agile Release Train (ART)</a>
- provides architectural, engineering, and User Experience guidance to help teams build systems that support current and upcoming user and business needs.
-Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organization (5 – 12 teams) that plans, commits, and executes together to a single Vision, Roadmap, and Program Backlog. 
 0. <a href="http://www.scaledagileframework.com/agile-architecture/" target="_blank">Agile Architecture</a>
 0. <a href="http://www.scaledagileframework.com/agile-teams/" target="_blank">Agile Team</a>
 0. <a href="http://www.scaledagileframework.com/architectural-runway" target="_blank">Architectural Runway</a>
@@ -314,22 +312,30 @@ Guidance Articles</a>
 
 ## Cadence (timing)
 
-Agile Teams typically consist of <strong>5-9 people</strong> 
+An <a href="http://www.scaledagileframework.com/agile-release-train/" target="_blank">Agile Release Train (ART)</a>
+provides architectural, engineering, and User Experience guidance to help teams build systems that support current and upcoming user and business needs.
+Each ART is a long-lived, self-organizing team of Agile Teams, a virtual organization 
+<strong>(5 – 12 teams)</strong> that plan, commit, and execute together 
+to a single Vision, Roadmap, and Program Backlog. 
+
+Individual Agile Teams typically consist of <strong>5-9 people</strong> 
 who work in Program Increments (PIs) of <strong>10 weeks</strong> consisting of
-5 <strong>two-week</strong> sprints,
-using XP (Extreme Programming) methods.
+5 <strong>two-week</strong> sprints to release
+<strong>deployments</strong> of finished deliverables to customers.
+
+There are also <strong>System Teams</strong> that provide enablement.
 
 The mid-range planning timebox contains releases of 3-months each.
 
 "Develop on Cadence, Release Any Time."
 
-<strong>Deployments</strong> bring Release finished deliverables to customers.
 
 <a target="_blank" href="https://ondemand.agileu.com/node/5551/take">
 CA's tutorial</a> (at [0:23]) recommends estimating <strong>6 hours</strong>
 per regular day from each team member.
 
-CA provides horizontal <strong>swimlanes</strong> to highlight tasks makred <strong>expedite</strong>.
+CA provides horizontal <strong>swimlanes</strong> to highlight tasks 
+marked <strong>expedite</strong>.
 
 
 ## Status

@@ -62,6 +62,7 @@ Now one would think that Apple engineers are rather particular about fonts.
 
 Since Snow Leopard, Menlo-Regular is the default font for Apple’s
 developer tools and the Terminal.
+(which is a customized Bitstream Vera Sans Mono).
 
 But no.
 
@@ -71,14 +72,15 @@ One guy has nitpicky gripes with it:
 
    * The horizontal baseline alignment of the asterisk is off
 
-So he created a customized version of Apple’s Menlo-Regular font
-(which is a customized Bitstream Vera Sans Mono).
+So he created a customized version of Apple’s font.
 
    https://github.com/andreberg/Meslo-Font
 
+His website has a "DZ" edition with dots inside zeros so no one can confuse them for upper case letter O.
+
    https://github.com/andreberg/Meslo-Font/blob/master/dist/v1.2.1/Meslo%20LG%20v1.2.1.zip
 
-Thanks to his work, we now have a good font that works across Mac and Windows
+Thanks to his work, we now have a good fixed-sized font that works across Mac and Windows.
 
 https://github.com/andreberg/Meslo-Font/wiki/Using-Meslo-LG-with-the-Windows-Console 
 
