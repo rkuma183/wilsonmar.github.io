@@ -552,7 +552,12 @@ Centers of Excellence (CoE).
 
 ## Deloitte
 
-![agile landscape deloitte](https://cloud.githubusercontent.com/assets/300046/23343115/3b463684-fc34-11e6-9a86-af17e0c3f0eb.gif)
+Even when <a target="_blank" href="http://i.imgur.com/fR6Ynq9.gif">enlarged to full page</a>,
+<a target="_blank" href="http://blog.deloitte.com.au/agile/2016/03/07/navigating-the-agile-landscape/#.WLM05hIrJZp">
+Deliott's Agile Landscape</a> is too small to read<br />
+<img alt="agile landscape deloitte" src="https://cloud.githubusercontent.com/assets/300046/23343115/3b463684-fc34-11e6-9a86-af17e0c3f0eb.gif"></a>
+
+It mentions Cynefin for making sense of complexity.
 
 
 ## Social Media

@@ -204,3 +204,8 @@ http://www.computerworld.com/article/3163145/data-analytics/how-to-root-out-bias
 https://blog.monkeylearn.com/sentiment-analysis-apis-benchmark/
 
 https://medium.com/@jaredpolivka/machine-learning-with-humans-in-the-loop-lessons-from-stitchfix-300672904f80#.4n5ub8pt6
+
+
+https://www.youtube.com/watch?v=zwm2C3V35Fw
+Artificial Intelligence - The Apex Technology of the Information Age: Goldman Sachs' Heath Terry
+2:41 general talk

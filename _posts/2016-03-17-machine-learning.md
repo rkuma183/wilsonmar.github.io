@@ -15,27 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-## Companies #
-
-Major organizations are in an arms race in offering 
-Artificial intelligence and Machine Learning (ML) services in their clouds:
-
-   * <a href="#MicrosoftML">Microsoft Cortana in Azure</a>
-   * Google
-   * IBM Watson
-   * Amazon Alexa
-   * Facebook
-   <br />
-
-Each of the above are cloud vendors are hoping to cash in by charging for processing.
-
-Benedict Evans, the resident futurist at venture capital firm Andreessen Horowitz, 
-observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google">
-recent blog post</a> that the future of AI remains opaque: 
-"This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference,"
-
-
-Other companies:
+## AI 
 
 <a target="_blank" href="https://algorithmia.com/algorithms">
 Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
@@ -96,9 +76,12 @@ textblob (https://textblob.readthedocs.io/en/dev/)
 keras (https://keras.io)
 
 
-## "Hard" ML #
+## Microsoft ML #
 
-Below are various initiatives by MS (Microsoft) and other organizations:
+Microsoft has a "Cheat Sheet" to help you 
+<a target="_blank" href="https://aka.ms/MLCheatSheet/">
+select a Machine Learning alogorithm</a> from
+among the various initiatives:
 
 <a name="x"></a>
 <a name="y"></a>
@@ -261,7 +244,13 @@ Below are various initiatives by MS (Microsoft) and other organizations:
 A-Z List of Machine Learning Studio Modules</a>
 from Microsoft Azure
 
-https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
+https://bit.ly/a4r-mlbook
+Azure Machine Learning: Microsoft Azure Essentials
+
+https://www.youtube.com/watch?v=eUce2cB844s
+Hands-On with Azure Machine Learning
+26 Sep 2016
+
 
 
 <hr />
@@ -610,3 +599,49 @@ Read:
 ## More
 
    http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
+
+
+## Videos
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Gj0iyo265bc&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+Machine Learning Recipes</a> (using Python) - 17 videos by  
+Google Developers with Josh Gordon in New York at https://twitter.com/random_forests
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=cKxRvEZd3Mw&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   1. Hello World [6:52]</a> apples and oranges
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=tNa99PG8hR8&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   2. Visualizing a Decision Tree - Apr 13, 2016 [6:31]</a>
+
+      50 examples of each of 4 types of irises, with Sepal and Petal length and width, at 
+      https://en.wikipedia.org/wiki/Iris_flower_data_set
+
+      [4:18] https://graphviz.org
+
+      graph.write_pdf("iris.pdf")
+
+      open -a preview iris.pdf
+
+      sudo python3 -m pip install pydot
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=N9fDIAflCMY&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   3. What Makes a Good Feature?</a>
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=cSKfRcEDGUs&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   4. Let’s Write a Pipeline</a>
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=84gqSbLcBFE&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   5. Writing Our First Classifier [8:43]</a>
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=cSKfRcEDGUs&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   6. Train an Image Classifier with TensorFlow for Poets</a>
+
+   0. <a target="_blank" href="https://www.youtube.com/watch?v=Gj0iyo265bc&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
+   7. Classifying Handwritten Digits with TF.Learn</a>
+
+   https://hub.docker.com/r/jbgordon/recipes/
+   is a Docker image to help folks having trouble with Pydot or Graphviz. 
+   It has all the dependencies setup and installation instructions. 
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=IcDV9ZjQ6qk">
+   Coffee with a Googler</a>

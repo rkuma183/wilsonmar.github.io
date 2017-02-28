@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Museums Roadtrip USA"
-excerpt: "Visual art in every state and city"
-tags: [travel, roadtrip, museums, monuments, states]
+excerpt: "Visual art in every state and city, mapped by Machine Learning"
+tags: [travel, roadtrip, museums, monuments, ML]
 image:
 # feature: pic road and clouds to mountains 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622142/26a94d34-0585-11e6-8f3e-8819131c0392.jpg
@@ -63,7 +63,7 @@ Amtrak's Empire Builder route</a> between Chicago to Seattle and Portland takes 
 
 ## Down the Atlantic Eastern Seaboard
 
-This is where America began.
+This is where America began as colonies of England (until 1776).
 
 <a name="ME"></a>
 
@@ -193,21 +193,25 @@ This is where America began.
 > <strong>Connecticut</strong>
 
 <ul>
-<li><a target="_blank" href="http://www.aldrichart.org/">Aldrich Museum of Contemporary Art</a>, Ridgefield</li>
+<li><a target="_blank" href="https://www.loomischaffee.org/page.cfm?p=30249">Mercy Gallery at the Loomis Chaffee School</a>, Windsor</li>
 <li><a target="_blank" href="http://benton.uconn.edu/">Benton Museum of Art at the University of Connecticut</a>, Storrs</li>
-<li><a target="_blank" href="http://www.brucemuseum.org/">Bruce Museum of Arts and Science</a>, Greenwich</li>
+<li><a target="_blank" href="http://www.marktwainhouse.org/">Mark Twain House and Museum</a>, West Hartford</li>
+<li><a target="_blank" href="http://www.wadsworthatheneum.org/"><strong>Wadsworth Atheneum</strong></a>, Hartford
+<li><a target="_blank" href="http://www.hillstead.org/">Hill-Stead Museum</a>, Farmington</li>
+<li><a target="_blank" href="http://www.nbmaa.org/"><strong>New Britain Museum of American Art</strong></a></li>
+
 <li><a target="_blank" href="http://www.wesleyan.edu/dac/">Davison Art Center at Wesleyan University</a>, Middletown</li>
 <li><a target="_blank" href="http://www.flogris.org/">Florence Griswold Museum</a>, Old Lyme</li>
-<li><a target="_blank" href="http://www.hillstead.org/">Hill-Stead Museum</a>, Farmington</li>
-<li><a target="_blank" href="http://www.hctc.commnet.edu/artmuseum/index.html">Housatonic Museum of Art</a>, Bridgeport</li>
 <li><a target="_blank" href="http://mattatuckmuseum.org/">Mattatuck Museum</a>, Waterbury</li>
-<li><a target="_blank" href="https://www.loomischaffee.org/page.cfm?p=30249">Mercy Gallery at the Loomis Chaffee School</a>, Windsor</li>
-<li><a target="_blank" href="http://www.nbmaa.org/"><strong>New Britain Museum of American Art</strong></a></li>
 <li><a target="_blank" href="http://www.norwichfreeacademy.com/slater_museum/">Slater Museum at Norwich Free Academy</a></li>
-<li><a target="_blank" href="http://www.stamfordmuseum.org/">The Stamford Museum and Nature Center</a></li>
-<li><a target="_blank" href="http://www.wadsworthatheneum.org/"><strong>Wadsworth Atheneum</strong></a>, Hartford</li>
+
 <li><a target="_blank" href="http://ycba.yale.edu/index.asp">Yale Center for British Art</a>, New Haven</li>
-<li><a target="_blank" href="http://artgallery.yale.edu/">Yale University Art Gallery,  New Haven</a></li>
+<li><a target="_blank" href="http://artgallery.yale.edu/">Yale University Art Gallery</a>,  New Haven</li>
+<li><a target="_blank" href="http://www.hctc.commnet.edu/artmuseum/index.html">Housatonic Museum of Art</a>, Bridgeport</li>
+<li><a target="_blank" href="http://www.aldrichart.org/">Aldrich Museum of Contemporary Art</a>, Ridgefield</li>
+<li><a target="_blank" href="http://www.stamfordmuseum.org/">The Stamford Museum and Nature Center</a></li>
+<li><a target="_blank" href="http://www.brucemuseum.org/">Bruce Museum of Arts and Science</a>, Greenwich</li>
+</li>
 </ul>
 
 <a name="NJ"></a>
@@ -1513,7 +1517,8 @@ to San Francisco, California.
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/14632396/b725f60a-05d5-11e6-8b45-7babd7649ae8.jpg">
 <img alt="map of Pony Express route" src="https://cloud.githubusercontent.com/assets/300046/14632487/35bdb3e0-05d6-11e6-9e8f-3293fe2ffa5b.jpg" width="649" height="221"></a>
-Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of CongressPhoto image obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain, https://commons.wikimedia.org/w/index.php?curid=10111804
+Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of CongressPhoto 
+<a target="_blank" href="https://commons.wikimedia.org/w/index.php?curid=10111804">image</a> obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain.
 
 <amp-img media="(min-width: 650px)" width="600" height="300" 
 layout="responsive" src="https://en.wikipedia.org/wiki/Pony_Express#/media/File:Pony_Express_Map_William_Henry_Jackson.jpg">

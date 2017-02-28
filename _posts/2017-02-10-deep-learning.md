@@ -137,6 +137,9 @@ Then Google bought DeepMind (for $400 million).
 
    * https://www.youtube.com/watch?v=e3Jy2vShroE&index=17&list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-
 
+   * https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
+
+
 <strong>Transfer learning</strong>
 
    * https://www.youtube.com/watch?v=Yx6Wv_SCKjI&index=16&list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-
