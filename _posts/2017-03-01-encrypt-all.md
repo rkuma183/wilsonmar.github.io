@@ -31,7 +31,7 @@ It is now well-known that public wi-fi enables others to listen in to what you s
    XMPP means eXtensible Messaging and Presence Protocol.
 
 
-### Insecure storage
+### Insecure cloud storage
 
 Storing files on iCloud, Dropbox, Box, Google Drive, 
 and other "third-party" cloud services have caused Taylor Swift and
@@ -61,7 +61,7 @@ Instead of a "middleman" such as iCloud,
 we use a "<strong>peer-to-peer</strong>" approach.
 
 
-## What to do
+## What is needed
 
 The magic to make it happen uses several new technologies.
 
@@ -93,25 +93,17 @@ but do not provide a way to store individual files in encrypted form.
 
 Here's how to send files to someone securely:
 
-0. Use an internet browser to register (for free) with registry <a target="_blank" href="https://kode.im/">kode.im</a>.
+   ### Get an XMPP account
+
+0. Use an internet browser to register (for free) with registry 
+   <a target="_blank" href="https://kode.im/">kode.im</a>.
 
    The service was originally created for private multi-user chats (MUC).
    Hence the ".im" (internet messaging) in the domain name.
 
    You can use another broker registry if you wish.
 
-0. Click the blue <strong>Toggle chat</strong> at the lower-left corner, then the "Register" tab.
-
-0. Type <strong>kode.im</strong> and press "Fetch registration form".
-
-   <img width="215" alt="xmpp register fetch" src="https://cloud.githubusercontent.com/assets/300046/23458553/adb5eba2-fe4a-11e6-8332-387114321b9d.png">
-
-0. Type in the user name you want and a strong password to register.
-
-   <img width="213" alt="xmpp register form" src="https://cloud.githubusercontent.com/assets/300046/23458558/b350944a-fe4a-11e6-8566-431d322384e6.png">
-
-   Notice you are not asked for your email address like most websites.
-   That's anononimity.
+0. Click the blue <strong>Toggle chat</strong> ato
 
    So your user name can be "JamesBond007" if that's not already taken.
 
@@ -119,9 +111,12 @@ Here's how to send files to someone securely:
 
 0. Type in a strong password. 
 
-   PROTIP: [1Password](1Password) can generate one for you, and store it securely so you only need to remember just a single master password.
+   PROTIP: [1Password](1password) can generate a random password for you
+   based on the strength you choose, 
+   then store it securely so you only need to remember just a single master password
+   to get to all your passwords.
 
-This (and installation) only needs to be done once.
+   This (and installation) only needs to be done once.
 
 
    ### Peer-to-peer client
@@ -141,11 +136,8 @@ This (and installation) only needs to be done once.
    You and who you want to communicate with can be registered in two different XMPP registries.
 
 0. Send a file.
-0. Open the file
+0. Open the file and enjoy.
 
-0. store keys elsewhere
-
-   email keys?
 
 
 ## For more popularity
@@ -166,3 +158,6 @@ running all the time at your home.
 If someone breaks into your home and take the storage drive, 
 they won't be able to view the strongly encrypted files.
 
+Well, that's unless the keys to your file are also stored on the drive.
+
+So we need to store keys for de-cryption separately from the data.
