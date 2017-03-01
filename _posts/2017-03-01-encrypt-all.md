@@ -15,19 +15,23 @@ comments: true
 {% include _toc.html %}
 
 There is now a way to safely store files in encrypted format and 
-transmit files privately over the "hostile" public internet lines.
+transmit files privately over "hostile" public internet lines.
 
 That's good news amidst so much bad news about websites being hacked and private credentials stolen.
 It is now well-known that public wi-fi enables others to listen in to what you send.
 
-   The "S" in HTTPS that people type into into internet browsers is supposed to mean "secure", 
-   but it's really not so much. Only when the most secure (TLS 1.2)
+### Insecure transmissions
+
+   The "S" in HTTPS in URLs that people type into internet browsers is supposed to mean "secure", 
+   but it's really not so much. Only when the most secure of sites (using "TLS 1.2")
    do experts consider a server to be secure in sending data.
 
    An alternative to HTTPS is HTTPX, based on the XMPP suite of protocols defining
    how computers talk with each other.
    XMPP means eXtensible Messaging and Presence Protocol.
 
+
+### Insecure storage
 
 Storing files on iCloud, Dropbox, Box, Google Drive, 
 and other "third-party" cloud services have caused Taylor Swift and
@@ -49,14 +53,15 @@ That can happen when a password used on several websites is stolen on one site, 
 We've heard of that happening regularly.
 
 
-## What to do
-
 So the solution is an approach that encrypts both your file for transmission AND
 stores your data "at rest" in an encrypted format AND
 no middleman holds on to files or the keys to un-encrypt the files.
 
 Instead of a "middleman" such as iCloud, 
 we use a "<strong>peer-to-peer</strong>" approach.
+
+
+## What to do
 
 The magic to make it happen uses several new technologies.
 
@@ -93,8 +98,7 @@ Here's how to send files to someone securely:
    The service was originally created for private multi-user chats (MUC).
    Hence the ".im" (internet messaging) in the domain name.
 
-   You can use another broker registry.
-   If fact, you and who you want to communicate with can be registered in two separate registries.
+   You can use another broker registry if you wish.
 
 0. Click the blue <strong>Toggle chat</strong> at the lower-left corner, then the "Register" tab.
 
@@ -128,10 +132,15 @@ This (and installation) only needs to be done once.
 
 0. Provide the user name you created, as described above.
 
+   That would be Bond. JamesBond007@kode.im.
+
 0. Establish a connection with who you want to send a file to.
 
-0. Send a file.
+   That's someone who has registered with an XMPP broker.
 
+   You and who you want to communicate with can be registered in two different XMPP registries.
+
+0. Send a file.
 0. Open the file
 
 0. store keys elsewhere
