@@ -605,7 +605,7 @@ Read:
    platform is built using Java working on 
    H2O’s rapid in-memory distributed parallel processing.
    Its models can be visually inspected during training, which is unique to H2O.
-   So they can immediately spot a job that should be stopped and more quickly iterate to find the optimal approach.
+   , so they can immediately spot a job that should be stopped and more quickly iterate to find the optimal approach.
 
 ## Google Videos
 
