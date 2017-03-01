@@ -247,9 +247,10 @@ from Microsoft Azure
 https://bit.ly/a4r-mlbook
 Azure Machine Learning: Microsoft Azure Essentials
 
-https://www.youtube.com/watch?v=eUce2cB844s
+https://www.youtube.com/watch?v=eUce2cB844s&t=19m52s
 Hands-On with Azure Machine Learning
 26 Sep 2016
+predicts car prices
 
 
 
@@ -600,8 +601,13 @@ Read:
 
    http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf
 
+   http://www.h2o.ai/h2o/
+   platform is built using Java working on 
+   H2O’s rapid in-memory distributed parallel processing.
+   Its models can be visually inspected during training, which is unique to H2O.
+   So they can immediately spot a job that should be stopped and more quickly iterate to find the optimal approach.
 
-## Videos
+## Google Videos
 
 <a target="_blank" href="https://www.youtube.com/watch?v=Gj0iyo265bc&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">
 Machine Learning Recipes</a> (using Python) - 17 videos by  
