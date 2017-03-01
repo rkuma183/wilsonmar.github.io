@@ -107,14 +107,13 @@ Here's how to send files to someone securely:
 
    So your user name can be "JamesBond007" if that's not already taken.
 
-   QUESTION: A XMPP user name is unique among all XMPP registrars???
-
 0. Type in a strong password. 
 
    PROTIP: [1Password](1password) can generate a random password for you
    based on the strength you choose, 
    then store it securely so you only need to remember just a single master password
    to get to all your passwords.
+   This is especially useful since no email is involved.
 
    This (and installation) only needs to be done once.
 
@@ -160,4 +159,8 @@ they won't be able to view the strongly encrypted files.
 
 Well, that's unless the keys to your file are also stored on the drive.
 
-So we need to store keys for de-cryption separately from the data.
+So we need to store keys for de-cryption separately from the data,
+such as emailed to yourself, then deleted from the device.
+
+> Want a home server to hold files securely.
+Let me know!
