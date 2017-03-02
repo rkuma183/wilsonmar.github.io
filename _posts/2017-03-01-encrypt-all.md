@@ -120,7 +120,12 @@ Here's how to send files to someone securely:
 
    ### Peer-to-peer client
 
-0. Install Little Sister.
+0. Download the Little Sister installer from
+
+   <a href="http://www.littlesister.se/" target="_blank">
+   http://www.littlesister.se</a>
+
+0. Run the installer.
 
    It is currently available only for Windows.
 
