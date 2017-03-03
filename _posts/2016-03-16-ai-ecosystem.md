@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI Ecosystem"
-excerpt: "This is how humans will be come extinct"
+excerpt: "Here are the corporate overlords are making humans into robots"
 tags: [machine learning, AI]
 image:
 # feature: pic green matrix hallway 1900x500.jpg
@@ -15,12 +15,13 @@ comments: true
 
 {% include _toc.html %}
 
-## Companies #
+## Leading Companies #
 
 Major organizations are in an arms race in offering 
 Artificial intelligence and Machine Learning (ML) services in their clouds:
 
    * <a href="#MicrosoftML">Microsoft Cortana in Azure</a>
+   * Facebook
    * Google
    * IBM Watson
    * Amazon Alexa
@@ -34,7 +35,7 @@ recent blog post</a> that the future of AI remains opaque:
 "This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference,"
 
 
-Other companies:
+## Other companies
 
 <a target="_blank" href="https://algorithmia.com/algorithms">
 Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
@@ -45,8 +46,27 @@ awesome-machine-learning</a>
 provides many links to resources, so they will not be repeated here.
 
 
+## Arxiv
 
-## "Hard" ML #
+<a target="_blank" href="https://docs.google.com/spreadsheets/d/1xej5Nca2xUUtrZ1GCyPjFMqI9ZgNq_OhgnTxOOMQ2js/edit#gid=404493967">Arxiv Paper Analysis Worksheet (Responses) on Google Sheet</a>
+
+
+<a name="MicrosoftML"></a>
+
+## Microsoft
+
+VIDEO:
+<a target="_blank" href="https://www.youtube.com/watch?v=eUce2cB844s">
+Hands-On with Azure Machine Learning
+
+In 2014, Microsoft showed off its facial recognition capabilities with
+<a target="_blank" href="https://www.how-old.net/">how-old.net">how-old.net</a>
+to guess how old someone is. At conferences they built a booth that takes a picture.
+
+In 2015, Microsoft unleashed the Tay chat bot.
+
+
+### Algorithms from Azure
 
 Below are various initiatives by MS (Microsoft) and other organizations:
 
@@ -210,6 +230,13 @@ Below are various initiatives by MS (Microsoft) and other organizations:
 <a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx">
 A-Z List of Machine Learning Studio Modules</a>
 from Microsoft Azure
+lists basic database and UI features such as forms,
+which means it's building standard computing functions on top of AI capabilities.
+
+<a target="_blank" href="https://www.youtube.com/watch?v=02R-lZYccEY">
+Machine Learning Algorthms - Part 1</a>
+
+http://aka.ms/enterprisecloudebook
 
 <hr />
 

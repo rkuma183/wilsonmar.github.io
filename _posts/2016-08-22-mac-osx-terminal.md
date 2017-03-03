@@ -200,6 +200,44 @@ Some wallpaper images that come with OS X are of Retina resolution:
 
 
 
+
+<a id="Hosts"></a>
+
+## Hosts file
+
+Mac, Windows, and Linux systems have a hosts file that locally does the work of the public DNS
+-- translating host names (typed on browser address field) to IP address numbers.
+
+0. Edit the hosts file on a Mac:
+
+   <pre><strong>
+   atom /etc/hosts
+   </strong></pre>
+
+   The default contents:
+
+   <pre>
+127.0.0.1 localhost
+255.255.255.255 broadcasthost
+::1 localhost
+fe80::1%lo0 localhost
+   </pre>
+
+   fe80::1 is like 127.0.0.1 for IPV4, but
+   actually 169.254.*.* in IPV4, an address not often used.
+
+   fe80:: is a block of IPV6 addresses reserved for link-local addresses used for packets sent only to directly connected devices (not routed). The network discovery protocol (NDP), which replaces ARP and DHCP in IPv4, is the biggest user of link-local addresses (NDP sorta .
+
+   Each IPV6 interface has a different link-local address starting with fe80:: and (typically) ending with a modified version the interface's MAC address (EUI-64 format) to ensure a unique address on a segment. 
+
+   Programs such as OpenVPN add to the bottom of the file:
+
+   <pre>
+# BEGIN section for OpenVPN Client SSL sites
+127.94.0.1  client.openvpn.net
+# END section for OpenVPN Client SSL sites
+   </pre>   
+
 <a id="DNSConfigz"></a>
 
 ## DNS Configuration with NameBench #

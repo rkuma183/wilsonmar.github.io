@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Command-Line Utilities"
-excerpt: "The Swiss Army Knife from Steve Jobs"
+title: "Mac OSX Command-Line Utilities Grep, Grunt, Awk, Cron"
+excerpt: "The Swiss Army Knives"
 tags: [apple, mac, utilities]
 image:
 # feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
