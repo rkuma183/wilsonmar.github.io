@@ -223,8 +223,8 @@ Mac, Windows, and Linux systems have a hosts file that locally does the work of 
 fe80::1%lo0 localhost
    </pre>
 
-   fe80::1 is like 127.0.0.1 for IPV4, but
-   actually 169.254.*.* in IPV4, an address not often used.
+   <tt>fe80::1</tt> is like 127.0.0.1 for IPV4, but
+   actually IP address 169.254.*.* in IPV4, an address not often used.
 
    fe80:: is a block of IPV6 addresses reserved for link-local addresses used for packets sent only to directly connected devices (not routed). The network discovery protocol (NDP), which replaces ARP and DHCP in IPv4, is the biggest user of link-local addresses (NDP sorta .
 
@@ -237,6 +237,16 @@ fe80::1%lo0 localhost
 127.94.0.1  client.openvpn.net
 # END section for OpenVPN Client SSL sites
    </pre>   
+
+
+0. Flush the cache:
+
+   <tt><strong>
+   dscacheutil -flushcache
+   </strong></tt>
+
+
+
 
 <a id="DNSConfigz"></a>
 
