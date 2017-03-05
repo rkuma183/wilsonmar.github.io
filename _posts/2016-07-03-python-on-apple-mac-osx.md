@@ -82,7 +82,8 @@ The "traditional" approach:
 
 Alternatively, there are these alternatives:
 
-   * <a href="#Conda">Conda</a> is the command-line tool that combines functionality of pip and virtualenv
+   * <a href="#Conda">Conda</a> is the command-line interface (CLI) 
+   tool that combines functionality of pip and virtualenv
    
    * <a href="#MiniConda">Miniconda</a> is a lightweight distribution of Conda.
 
@@ -205,7 +206,8 @@ This table</a> lists the difference in commands between Conda and pip:
 <tr class="row-odd"><td>List all environments</td>
 <td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></tt></td>
 <td>-</td>
-<td>Install virtualenv wrapper, then <tt class="docutils literal"><span class="pre">lsvirtualenv</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">Install virtualenv wrapper</span>,<br />then 
+<tt class="docutils literal"><span class="pre">lsvirtualenv</span></tt></td>
 </tr>
 <tr class="row-even"><td>Install other package manager</td>
 <td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pip</span></tt></td>
@@ -602,17 +604,13 @@ Numpy: &LT;module 'numpy.version' from '/Users/mac/anaconda/lib/python3.5/site-p
 
 <a name="UpgradePython"></a>
 
-## Upgrade Python #
-
-Upgrading Python specifically for use by 
-
 <a name="XCode"></a>
 
-## XCode install
+## XCode
 
 To build Python on a machine requires a GCC compiler.
 One comes with command-line tools installed with
-Apple's XCode IDE.
+Apple's XCode IDE. Newer versions also installs a Git client.
 
 ### XCode install
 
@@ -636,9 +634,7 @@ It used to be that one can enter a command:
 
    The response on my Sierra machine is:
 
-   <pre>
-xcode-select: error: command line tools are already installed, use "Software Update" to install updates
-   </pre>
+   <tt>xcode-select: error: command line tools are already installed, use "Software Update" to install updates</tt>
 
 So below is the "Software Update" approach:
 
@@ -694,7 +690,11 @@ Build version 8C1002
    pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
    </strong></pre>
 
+   This is a specific version of:
+
+   <pre>
    pkgutil --pkgs | grep -i tools
+   </pre>
 
    The response:
 
@@ -732,6 +732,8 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 <a name="PackagInstallerz"></a>
 
 ## Download Python installer #
+
+If you must do it the hard way, bareback, etc:
 
 0. In an internet browser at <br />
    <a target="_blank" href="https://www.python.org/downloads/mac-osx/">
@@ -1553,11 +1555,88 @@ Please, press ENTER to continue
 
 <a name="AnacondaInstall"></a>
 
-## Install Anaconda
+## Anaconda Install 
 
-https://www.youtube.com/watch?v=YJC6ldI3hWk
+<a target="_blank" href="https://www.youtube.com/watch?v=YJC6ldI3hWk">
+This video</a> by Corey Schafer explains it well.
 
+0. Go to web page:
 
+   <a target="_blank" href="https://www.continuum.io/downloads">
+   https://www.continuum.io/downloads</a>
+
+   QUESTION: Is there a brew anaconda?
+
+0. Click on the operating system icon (Mac, Windows, Linux) or scroll down and press the tab.
+0. Click to download the "command-line installer".
+
+   | Version    | File                               | Size    |
+   | :--------- | :--------------------------------- | ------: |
+   | Python 3.6 | Anaconda3-4.3.0-MacOSX-x86_64 | 363 MB |
+   | Python 2.7 | Anaconda2-4.3.0-MacOSX-x86_64 | 358 MB |
+
+0. In a (bash) Terminal:
+
+   <pre>
+   cd Downloads
+   chmod 555 ./Anaconda3-4.3.0-MacOSX-x86_64.sh 
+   ./Anaconda3-4.3.0-MacOSX-x86_64.sh 
+   </pre>
+
+   The response:
+
+   <pre>
+Welcome to Anaconda3 4.3.0 (by Continuum Analytics, Inc.)
+&nbsp;
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+   </pre>
+
+0. Press Enter (as if you cared).
+0. Press Tab until you're exhausted.
+0. Type yes and press Enter.
+
+   Anaconda3 will now be installed into this location:
+   /Users/mac/anaconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+0. Press Enter.
+
+   PREFIX=/Users/mac/anaconda3
+
+0. Wait for it to come back to you.
+
+   <pre>
+installing: _license-1.1-py36_1 ...
+installing: alabaster-0.7.9-py36_0 ...
+installing: anaconda-client-1.6.0-py36_0 ...
+installing: anaconda-navigator-1.4.3-py36_0 ...
+installing: appnope-0.1.0-py36_0 ...
+installing: appscript-1.0.1-py36_0 ...
+installing: astroid-1.4.9-py36_0 ...
+installing: astropy-1.3-np111py36_0 ...
+installing: babel-2.3.4-py36_0 ...
+...
+installation finished.
+Do you wish the installer to prepend the Anaconda3 install location
+to PATH in your /Users/mac/.bash_profile ? [yes|no]
+[yes] >>> yes
+   </pre>
+
+0. Type yes.
+
+You may wish to edit your .bashrc or prepend the Anaconda3 install location:
+
+$ export PATH=/Users/mac/anaconda3/bin:$PATH
+
+Thank you for installing Anaconda3!
+
+Share your notebooks and packages on Anaconda Cloud!
+Sign up for free: https://anaconda.org
 
 
 <hr />
@@ -1654,6 +1733,13 @@ Linking packages ...
    conda list
    </strong></tt>
 
+   The "py36_1" in the list are pip installed.
+
+   <pre>
+_license                  1.1                      py36_1  
+alabaster                 0.7.9                    py36_0  
+anaconda                  4.3.0               np111py36_0  
+   </pre>
 
 ## .bash_profile config
 
@@ -1801,7 +1887,17 @@ Other Python packages:
    * xlwings interfaces with Microsoft Excel spreadsheets
    * matplotlib
    * pygame develops GUI
-   * openCV for computer vision
+
+
+### OpenCV for computer vision
+
+Follow the instructions below to install python2 + OpenCV in mac
+
+http://www.pyimagesearch.com/2016/11/28/macos-install-opencv-3-and-python-2-7/
+
+In case of python3 + OpenCV follow
+
+http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/
 
 
 
