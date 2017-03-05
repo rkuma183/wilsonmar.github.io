@@ -607,6 +607,9 @@ Read:
    Its models can be visually inspected during training, which is unique to H2O.
    , so they can immediately spot a job that should be stopped and more quickly iterate to find the optimal approach.
 
+
+   http://www.discoversdk.com/blog/machine-learning-with-python
+
 ## Google Videos
 
 <a target="_blank" href="https://www.youtube.com/watch?v=Gj0iyo265bc&list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal">

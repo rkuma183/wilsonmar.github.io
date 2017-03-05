@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ruby with RVM on MacOS"
+title: "Ruby with RVM or RBenv on MacOS"
 excerpt: "Switch among multiple versions of Ruby"
 tags: [ruby, apple, mac, setup, programming]
 image:
@@ -16,6 +16,11 @@ comments: true
 {% include _toc.html %}
 
 
+First of all, know that there is a war going on within the Ruby community between rvm and rbenv.
+
+To install rbenv, one must first <a href="#RemoveRVM">remove RVM</a> 
+because it's incompatible with rbenv.
+ 
 The major commands:
 
    0. ruby
@@ -23,6 +28,9 @@ The major commands:
    0. rvm
    0. bundle
    0. rbenv
+
+http://jonathan-jackson.net/rvm-and-rbenv
+
 
 
 ### View Ruby version #
@@ -55,6 +63,10 @@ CAUTION: Don't touch the system Ruby that comes with your Mac.
    <tt>
    ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
    </tt>
+
+
+CAUTION: The Apple Mac operating system makes use of Ruby, so don't delete the .rvm folder.
+
 
 
 <a name="ViewVersions"></a>
@@ -128,17 +140,14 @@ RubyGems Environment:
    2.0.14
    </tt>
 
-   After updating on April 19, 2015:
+   After updating on 2017-02-16:
 
    <tt>
-   2.4.6
+   2.6.10
    </tt>
 
-   After updating on 2016-06-16:
+   QUESTION: List of versions?
 
-   <tt>
-   2.6.4
-   </tt>
 
 ### Clean 
 
@@ -146,6 +155,10 @@ RubyGems Environment:
    gem clean
    </strong></tt>
 
+   <pre>
+Cleaning up installed gems...
+Clean Up Complete
+   </pre>
 
 ### View rvm version number #
 
@@ -153,8 +166,13 @@ RubyGems Environment:
    rvm info
    </strong></tt>
 
-For a smaller response:
+List
 
+   <tt><strong>
+   rvm list known
+   </strong></tt>
+
+For a smaller response:
    <tt><strong>
    rvm \-\-version
    </strong></tt>
@@ -165,6 +183,9 @@ For a smaller response:
    rvm 1.27.0 (master) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
    </tt>
 
+0. Visit the RVM.io website
+
+   https://rvm.io/support/troubleshooting
 
 
 ## Update RubyGems and Bundler:
@@ -335,6 +356,11 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 
 ### Ruby Version Manager (rvm) #
 
+0. Get on the latest version of RVM:
+
+   <pre>
+   rvm get stable
+   </pre>
 
 0. Uninstall all versions of Ruby:
 
@@ -546,6 +572,8 @@ puts tree(ARGV.first || ".") if __FILE__==$0
    http://superuser.com/users/57219/phrogz
 
 
+<a name="RemoveRVM"></a>
+
 ## Remove rvm
 
 0. Run the program which removes the rvm/ directory and all the rubies built within it:
@@ -575,6 +603,60 @@ puts tree(ARGV.first || ".") if __FILE__==$0
 
 0. Restart Terminal sessions.
 
+See http://karloespiritu.com/replacing-rvm-with-rbenv-in-os-x/
+
+### Install rbenv
+
+   <pre><strong>
+   brew update
+   brew install rbenv ruby-build
+   </strong></pre>
+
+   The response:
+
+   <pre>
+==> Installing dependencies for rbenv: openssl, ruby-build
+==> Installing rbenv dependency: openssl
+==> Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2k.sierra.bottl
+######################################################################## 100.0%
+==> Pouring openssl-1.0.2k.sierra.bottle.tar.gz
+==> Using the sandbox
+==> Caveats
+A CA file has been bootstrapped using certificates from the SystemRoots
+keychain. To add additional certificates (e.g. the certificates added in
+the System keychain), place .pem files in
+  /usr/local/etc/openssl/certs
+&nbsp;
+and run
+  /usr/local/opt/openssl/bin/c_rehash
+&nbsp;
+This formula is keg-only, which means it was not symlinked into /usr/local.
+&nbsp;
+Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries
+&nbsp;
+If you need to have this software first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile
+&nbsp;
+For compilers to find this software you may need to set:
+    LDFLAGS:  -L/usr/local/opt/openssl/lib
+    CPPFLAGS: -I/usr/local/opt/openssl/include
+For pkg-config to find this software you may need to set:
+    PKG_CONFIG_PATH: /usr/local/opt/openssl/lib/pkgconfig
+&nbsp;
+==> Summary
+🍺  /usr/local/Cellar/openssl/1.0.2k: 1,696 files, 12M
+==> Installing rbenv dependency: ruby-build
+==> Downloading https://github.com/rbenv/ruby-build/archive/v20170201.tar.gz
+==> Downloading from https://codeload.github.com/rbenv/ruby-build/tar.gz/v201702
+######################################################################## 100.0%
+==> ./install.sh
+🍺  /usr/local/Cellar/ruby-build/20170201: 334 files, 178.8K, built in 4 seconds
+==> Installing rbenv 
+==> Downloading https://homebrew.bintray.com/bottles/rbenv-1.1.0.sierra.bottle.t
+######################################################################## 100.0%
+==> Pouring rbenv-1.1.0.sierra.bottle.tar.gz
+🍺  /usr/local/Cellar/rbenv/1.1.0: 36 files, 63.2K
+   </pre>
 
 ## Resources:
 
