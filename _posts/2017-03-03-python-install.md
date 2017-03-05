@@ -513,94 +513,9 @@ lrwxr-xr-x  1 mac  staff  39 Mar  5 00:41 /usr/local/bin/python2.7 -> ../Cellar/
 
    The response should be the newer sub-version:
 
-   2.7.12 
+   <pre>2.7.12 </pre>
 
 <hr />
-
-<a name="CommandVersions"></a>
-
-## Python 3 vs. 2
-
-Sure, they say "all new Python code should be written for version 3.
-There are so many new features in Python 3 that it doesn't make much sense to stick with Python 2 unless you're working with old code."
-
-Most new features introduced with Python 3 versions not backwards compatible with version 2.
-
-### Floating point
-
-In Python 2, type:
-
-   1/2
-
-   The response is:
-
-   0
-
-In Python3, type:
-
-   1/2
-
-   The response is:
-
-   0.5
-
-
-### Print
-
-For the most part, Python 2 code works with Python 3. 
-
-Where Python 2 code fails most often is the print statement.
-Printing in Python 2 is done like so:
-
-   <pre><strong>print "Hello", "world!"</strong></pre>
-
-   The response:
-
-   Hello world!
-
-   If you input the above in Python 3, the response is:
-
-   SyntaxError: Missing parentheses in call to 'print'
- 
-   This is because Python 3 uses a function:
-
-   <pre>print("Hello", "world!")</pre>
-
-So in Python 2.6+, use the __future__ module to back-port:
-
-   <pre>from __future__ import print_function
-   print("Hello", "world!")
-   </pre>
-
-Try this:
-
-   <pre><strong>
-   import sys
-   print('Python: {}'.format(sys.version))
-   </strong></pre>
-
-   The response:
-
-   <pre>
-Python: 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
-[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]
-   </pre>   
-
-
-BLAH: This doesn't work for me:
-
-   <pre><strong>
-import numpy
-print('Numpy: {}'.format(numpy.version))
-   </strong></pre>
-
-   The response:
-
-   <pre>
-Numpy: &LT;module 'numpy.version' from '/Users/mac/anaconda/lib/python3.5/site-packages/numpy/version.py'>
-   </pre>   
-
-
 
 <a name="UpgradePython"></a>
 
@@ -1815,13 +1730,19 @@ Current conda install:
 
    ### Conda environments #
 
-0. Get a list:
+0. Get a list of Conda environments (from any folder) using the -e flag:
 
    <tt><strong>
    conda info -e
    </strong></tt>
 
-   The response:
+   Alternately, if you like typing long options:
+
+   <tt><strong>
+   conda info --env
+   </strong></tt>
+
+   The response are like this:
 
    <pre>
 tensorflow_env           /Users/mac/anaconda/envs/tensorflow_env
@@ -1836,9 +1757,24 @@ root                  *  /Users/mac/anaconda
 
 0. Press y to go ahead.
 
-0. Add python packages, such as TensorFlow
+0. Add python packages, such as TensorFlow:
 
+   <pre><strong>
    conda install -n <em>yourenvname</em> tensorflowp
+   conda install -c conda-forge tensorflow
+   </strong></pre>
+
+0. Activate to use the environment:
+
+   <pre>
+   source activate
+   </pre>
+
+0. When done using TensorFlow, deactivate the environment:
+
+   <pre>
+   source deactivate
+   </pre>
 
 
 <hr />
@@ -1900,10 +1836,22 @@ In case of python3 + OpenCV follow
 http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/
 
 
+<hr />
 
-<a name="Python3z"></a>
 
-## Using Python 3
+<a name="CommandVersions"></a>
+
+## Python 3 vs. 2
+
+Sure, they say "all new Python code should be written for version 3.
+There are so many new features in Python 3 that it doesn't make much sense to stick with Python 2 unless you're working with old code."
+
+Most new features introduced with Python 3 versions not backwards compatible with version 2.
+
+
+   <a name="Python3z"></a>
+
+   ### Using Python 3
 
 0. After installing Python3, obtain the Python 3 command line with:
 
@@ -1924,6 +1872,82 @@ Here are the steps to remove Python3 from your Mac:
    </pre>
 
    sudo rm -rf that.
+
+
+### Floating point
+
+In Python 2, type:
+
+   1/2
+
+   The response is:
+
+   0
+
+In Python3, type:
+
+   1/2
+
+   The response is:
+
+   0.5
+
+
+### Print
+
+For the most part, Python 2 code works with Python 3. 
+
+Where Python 2 code fails most often is the print statement.
+Printing in Python 2 is done like so:
+
+   <pre><strong>print "Hello", "world!"</strong></pre>
+
+   The response:
+
+   Hello world!
+
+   If you input the above in Python 3, the response is:
+
+   SyntaxError: Missing parentheses in call to 'print'
+ 
+   This is because Python 3 uses a function:
+
+   <pre>print("Hello", "world!")</pre>
+
+So in Python 2.6+, use the __future__ module to back-port:
+
+   <pre>from __future__ import print_function
+   print("Hello", "world!")
+   </pre>
+
+Try this:
+
+   <pre><strong>
+   import sys
+   print('Python: {}'.format(sys.version))
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Python: 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]
+   </pre>   
+
+
+BLAH: This doesn't work for me:
+
+   <pre><strong>
+import numpy
+print('Numpy: {}'.format(numpy.version))
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Numpy: &LT;module 'numpy.version' from '/Users/mac/anaconda/lib/python3.5/site-packages/numpy/version.py'>
+   </pre>   
+
 
 
 <a name="Turi"></a>
