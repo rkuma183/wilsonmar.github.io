@@ -175,7 +175,7 @@ This table</a> lists the difference in commands between Conda and pip:
 <tr class="row-odd"><td>Activate an environment</td>
 <td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
 <td>-</td>
-<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">$ENV_BASE_DIR/$ENVIRONMENT_NAME/bin/activate</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">$ENV_BASE_DIR/$ENVIRONMENT_NAME<br />/bin/activate</span></tt></td>
 </tr>
 <tr class="row-even"><td>Deactivate an environment</td>
 <td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">deactivate</span></tt></td>
@@ -377,12 +377,18 @@ Nevertheless here's the bad advice to harm yourself:
    <pre><strong>
    cd /usr/local/bin/
    ls -l /usr/local/bin | grep '../Library/Frameworks/Python.framework/Versions/2.7' | awk '{print $9}' | tr -d @ | xargs rm
+   </strong></pre>
 
    Remove references to deleted paths in PATH environment variable within shell profile files.  
    Depending on which shell you use, any of the following files may have been modified: 
    
    <pre>
-   ~/.bash_login, ~/.bash_profile, ~/.cshrc, ~/.profile, ~/.tcshrc, and/or ~/.zprofile
+   ~/.bash_login, 
+   ~/.bash_profile, 
+   ~/.cshrc, 
+   ~/.profile, 
+   ~/.tcshrc,
+   ~/.zprofile
    </pre> 
 
 0. List symbolic links pointing to the python version: 
