@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Deep learning Training"
-excerpt: "Be trained by one of the cool kids"
+title: "Deep learning courses"
+excerpt: "Get deep on deep learning and get trained about training by one of the cool kids"
 tags: [Python, Machine Learning]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -505,13 +505,12 @@ Key links:
    * http://forums.fast.ai/
    * https://fastai.slack.com/ access
 
-They donated his earnings to the
+They donated their earnings to the
 <a target="_blank" href="https://www.hollows.org.nz/">Fred Hollows Foundation</a> to cure blindness.
    
-   Their videos (around 2 hours each) are available on 
    <a target="_blank" href="https://www.youtube.com/channel/UCX7Y2qWriXpqocG97SFW2OQ">
-   Jeremy Howard's YouTube channel</a>, 
-   but instead use their <a target="_blank" href="http://course.fast.ai/lessons/lessons.html">
+   Videos of them talking on YouTube</a>
+   are annotated in <a target="_blank" href="http://course.fast.ai/lessons/lessons.html">
    Fast.ai web page on each lesson</a> that contains links to materials.
 
    * <a target="_blank" href="http://course.fast.ai/lessons/aws.html">
@@ -553,7 +552,7 @@ They donated his earnings to the
 
    https://github.com/fastai/courses/blob/master/setup/install-gpu.sh
 
-   ### Platform.ai files
+### Platform.ai files
 
    <a target="_blank" href="http://platform.ai/files/">
    http://platform.ai/files/</a>
@@ -614,8 +613,7 @@ The videos were recorded at
 <a target="_blank" href="https://www.usfca.edu/data-institute">
 The Data Institute at USF</a> from Feb 27, 2017.
 
-Python 2 and Theano is used. 
-
+Python 2 and Theano is used. <br />
 Python 3 and Tensorflow will be use during
 <a target="_blank" href="http://www.fast.ai/2017/01/17/curriculum2/">Part 2</a>, targeted to be online around May 2017.
 Particularly write custom GPU accelerated algorithms from scratch in Tensorflow. For time series, computer vision, large datasets.
