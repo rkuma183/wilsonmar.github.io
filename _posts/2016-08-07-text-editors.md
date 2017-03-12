@@ -52,6 +52,7 @@ Free IDEs:
    * <a href="#Eclipse">Eclipse</a>
    * Aptana Studio
    * NetBeans
+   * <a target="_blank" href="https://github.com/spyder-ide/spyder">Spyder</a> (for Python pyflakes and pylint code analysis)
    * Visual Studio Express from Microsoft
 
 Licensed IDEs:
@@ -261,8 +262,18 @@ https://help.github.com/articles/associating-text-editors-with-git/
 
 <a id="IntelliJ"></a>
 
-## IntelliJ Control Key Shortcuts
+## IntelliJ 
 
+Advantage of using the intelliJ IDE:
+
+   * Simple keystrokes wraps statements in a try-catch or if-else block.
+   * It generates getter and setter methods for object attributes.
+   * Inbuilt packaging tools like gradle, SBT, grunt, bower, etc.
+   * Directly access databases such as SQL, ORACLE, PostgreSQL, Microsoft SQL Server 
+   * Supports different programming languages (Java, Javascript, Clojure, etc.)
+   * Editions for different operating systems:  Windows, Linux, etc. 
+
+### IntelliJ Control Key Shortcuts
 
 During initial configuration, specify the Project SDK
 using the command up-arrow to the secret portal:
@@ -286,7 +297,10 @@ command + O to go to class
 <br />
 command + &#9003; Delete line
 
-* http://symbolcodes.tlt.psu.edu/keyboards/charpalosx.html
+Web pages:
+
+   * http://symbolcodes.tlt.psu.edu/keyboards/charpalosx.html
+   * http://www.guru99.com/intellij-selenium-webdriver.html
 
 
 <a name="#atom"></a>

@@ -1378,32 +1378,6 @@ The response I got is this:
    /Users/mac/.local/lib/python2.7/site-packages
    </tt>
 
-
-## pyenv #
-
-pyenv enables switch between multiple versions of Python on a single system (laptop). 
-
-0. Create two "named" Conda environments (one with Python2 and the other with Python3):
-
-   <pre><strong>
-   conda create -n py3 python=3*
-   conda create -n py2 python=2*
-   </strong>
-
-0. Set one of these as my default by adding to my terminal startup file ~/.bash_profile:
-
-   <pre><strong>
-   source activate py3 
-   </strong></pre>
-
-   Typically I only use these "named python" environments to run a Python REPL or do general Python tasks. 
-   I'll create another conda environment named specifically for each real project I work on.
-
-
-<hr />
-
-
-
 <a name="Miniconda"></a>
 
 ## Miniconda install #
@@ -1475,6 +1449,8 @@ Please, press ENTER to continue
 <a target="_blank" href="https://www.youtube.com/watch?v=YJC6ldI3hWk">
 This video</a> by Corey Schafer explains it well.
 
+https://docs.continuum.io/anaconda/install
+
 0. Go to web page:
 
    <a target="_blank" href="https://www.continuum.io/downloads">
@@ -1485,10 +1461,10 @@ This video</a> by Corey Schafer explains it well.
 0. Click on the operating system icon (Mac, Windows, Linux) or scroll down and press the tab.
 0. Click to download the "command-line installer".
 
-   | Version    | File                               | Size    |
-   | :--------- | :--------------------------------- | ------: |
-   | Python 3.6 | Anaconda3-4.3.0-MacOSX-x86_64 | 363 MB |
-   | Python 2.7 | Anaconda2-4.3.0-MacOSX-x86_64 | 358 MB |
+   | Version    | File                          | Installer | Installed |
+   | :--------- | :---------------------------- | -------: | ----: |
+   | Python 3.6 | Anaconda3-4.3.0-MacOSX-x86_64 | 363 MB | - |
+   | Python 2.7 | Anaconda2-4.3.0-MacOSX-x86_64 | 358 MB | 1.41 GB |
 
 0. In a (bash) Terminal:
 
@@ -1777,13 +1753,56 @@ root                  *  /Users/mac/anaconda
    </pre>
 
 
+
+### Conda pyenv #
+
+pyenv enables switch between multiple versions of Python on a single system (laptop). 
+
+0. Create two "named" Conda environments (one with Python2 and the other with Python3):
+
+   <pre><strong>
+   conda create -n py3 python=3*
+   conda create -n py2 python=2*
+   </strong>
+
+0. Set one of these as my default by adding to my terminal startup file ~/.bash_profile:
+
+   <pre><strong>
+   source activate py3 
+   </strong></pre>
+
+   Typically I only use these "named python" environments to run a Python REPL or do general Python tasks. 
+   I'll create another conda environment named specifically for each real project I work on.
+
+### Uninstall
+
+PROTIP: Delete Conda one folder at a time (without the --yes parameter).
+
+   anaconda-clean
+
+   Files such as:
+
+   <pre>
+   .conda
+   Backup directory: /Users/mac/.anaconda_backup/2017-03-07T051620
+   .continuum
+   .idlerc
+   .ipython
+   .jupyter
+   .matplotlib
+   </pre>
+
 <hr />
 
-<a name="PythonPackages"></a>
+http://www.numericalexpert.com/blog/conda_tips/
 
-## Install Python packages #
+<hr />
 
-From inside a conda environment ?
+   <a name="PythonPackages"></a>
+
+   ### Install Python packages #
+
+   From inside a conda environment:
 
 0. NumPy at http://www.numpy.org/
    needed by
@@ -1818,10 +1837,11 @@ From inside a conda environment ?
    <a target="_blank" href="https://www.youtube.com/channel/UCxn_7r6CDazLYPN9Gm7knDw">
    YouTube videos: Learn Pandas</a> 
 
+0. matplotlib
+
 Other Python packages:
 
    * xlwings interfaces with Microsoft Excel spreadsheets
-   * matplotlib
    * pygame develops GUI
 
 
