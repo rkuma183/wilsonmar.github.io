@@ -40,18 +40,22 @@ PureModel = PureModel + PureStack
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10858">
    What is Application Monitoring</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21001">
+   Selecting a Dynatrace Edition</a>
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10206">
    Reviewing the Architecture</a>
    the Application Monitoring Platform, PureModel, and PureStack.
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10872">
-   Exploring Core Technologies</a>
+   Exploring Agent Development Kits</a>
+
+*  Exploring Core Technologies</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10875">
    What is a PureStack</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10865">
    What is a Pure Path</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10863">
-   What is UEM</a>
+   What is UEM</a> (User Experience Monitoring) agents traps user actions for Dynatrace Collector servers to store and evaluate.
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10893">
    Understanding Dashboards</a>
@@ -98,13 +102,15 @@ PureModel = PureModel + PureStack
 
 ## Acronyms
 
-   ADK
+   ADK = Application Development Kit
 
-   APM
+   APM = Application Performance Monitoring
 
-   UEM
+   UEM = User Experience Management
 
-   SaaS
+   SaaS = Software as a Service
+
+   Visit = a group of transactions performed by the same user over a defined time period.
 
 <hr />
 
