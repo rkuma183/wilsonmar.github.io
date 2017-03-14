@@ -16,11 +16,101 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on narrated tour on how to use Dynatrace to detect trouble.
+This is a hands-on narrated tour on how to use Dynatrace.
 
-{% include _intro.html %}
+Dynatrace offers several products. Two products have downloads:
+
+* Application Monitoring
+* Data Center RUM (Real User Monitor) captures traffic and analyzes it
+
+The product that enables "Shift-Left" is one that enables identification of performance issues
+during development.
+
+Additional:
+
+* Synthetic Monitoring has fake users logging in, etc.
+* Dynatrace adds HTTP header
+* Keynote monitors what end-users experience through the public network
+* Dynatrace Load
+* Business Service Management
+
+## Application Monitoring
+
+PureModel = PureModel + PureStack
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10858">
+   What is Application Monitoring</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10206">
+   Reviewing the Architecture</a>
+   the Application Monitoring Platform, PureModel, and PureStack.
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10872">
+   Exploring Core Technologies</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10875">
+   What is a PureStack</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10865">
+   What is a Pure Path</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10863">
+   What is UEM</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10893">
+   Understanding Dashboards</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10855">
+   PureLytics Stream and UEM Heatmap</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10891">
+   Exploring the Web Interface</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10890">
+   Exploring the Rich Webstart Client</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10209">
+   Installing Application Monitoring on Windows</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
+   Configuring the Performance Warehouse</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10211">
+   Deploying Dynatrace Collectors</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10857">
+   Managing Sensors</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10860">
+   Managing Dynatrace Servers</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10856">
+   Managing Collectors</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10873">
+   Managing System Profiles</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10870">
+   Working with Support - Part 2</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10866">
+   Managing Licenses</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10864">
+   Managing the Performance Warehouse</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10861">
+   Managing Memory Analysis</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10862">
+   Native Applications and Custom Protocols with Dynatrace AppMon ADK</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10876">
+   Integrating with Data Center Real User Monitoring</a>
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10859">
+   Managing On Premises SaaS</a>
 
 <hr />
+
+## Acronyms
+
+   ADK
+
+   APM
+
+   UEM
+
+   SaaS
+
+<hr />
+
+
+
+![dynatrace across lifecycle 898x527](https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png)
 
 ## In AWS #
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JVM Profilers"
-excerpt: "Avoid and resolve performance bottlenecks, memory leaks, and threading issues"
+excerpt: "Identify and resolve performance bottlenecks, memory leaks, and threading issues"
 tags: [Java, Debugging]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -34,6 +34,7 @@ using JProfiler and JVisualVM.
 
    | Product | Date | File Name | MB | $USD |
    | ------- | ----- | -------- | -: | ---- |
+   | JProfiler | 2017-01-21 | jprofiler_macos_10_0.dmg | 148 MB | $698 |
    | JProfiler | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB | $698 |
    | JVisualVM | 2016       | GitHub 1.3.9 | 13 MB | free |
    | Yourkit   | 2016.02    | yjp-2016.02-b43-mac | 8.7 MB | $649 |
