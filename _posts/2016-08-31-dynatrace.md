@@ -36,7 +36,13 @@ Additional:
 
 ## Application Monitoring
 
-PureModel = PureModel + PureStack
+PureModel = PurePath + PureStack
+
+   PurePath monitors horizontally across the server tiers
+
+   PureStack dives into the vertical infrastructure
+
+   Baselines
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10858">
    What is Application Monitoring</a>
