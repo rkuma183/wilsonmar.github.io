@@ -20,7 +20,7 @@ This is a hands-on narrated tour on how to use Dynatrace.
 
 Dynatrace offers several products. Two products have downloads:
 
-* Application Monitoring
+* Application Monitoring rich client
 * Data Center RUM (Real User Monitor) captures traffic and analyzes it
 
 The product that enables "Shift-Left" is one that enables identification of performance issues
@@ -28,6 +28,7 @@ during development.
 
 Additional:
 
+* Applicawtion Monitoring Appmon web
 * Synthetic Monitoring has fake users logging in, etc.
 * Dynatrace adds HTTP header
 * Keynote monitors what end-users experience through the public network
@@ -66,10 +67,12 @@ PureModel = PureModel + PureStack
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10890">
    Exploring the Rich Webstart Client</a>
 
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21026">
+   Planning the Deployment</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10209">
    Installing Application Monitoring on Windows</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
-   Configuring the Performance Warehouse</a>
+   Configuring the Performance Warehouse</a> database
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10211">
    Deploying Dynatrace Collectors</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10857">
