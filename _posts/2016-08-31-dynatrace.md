@@ -20,7 +20,7 @@ This is a hands-on narrated tour on how to use Dynatrace.
 
 Dynatrace offers several products. Two products have downloads:
 
-* Application Monitoring
+* Application Monitoring rich client
 * Data Center RUM (Real User Monitor) captures traffic and analyzes it
 
 The product that enables "Shift-Left" is one that enables identification of performance issues
@@ -28,6 +28,7 @@ during development.
 
 Additional:
 
+* Applicawtion Monitoring Appmon web
 * Synthetic Monitoring has fake users logging in, etc.
 * Dynatrace adds HTTP header
 * Keynote monitors what end-users experience through the public network
@@ -46,18 +47,22 @@ PureModel = PurePath + PureStack
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10858">
    What is Application Monitoring</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21001">
+   Selecting a Dynatrace Edition</a>
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10206">
    Reviewing the Architecture</a>
    the Application Monitoring Platform, PureModel, and PureStack.
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10872">
-   Exploring Core Technologies</a>
+   Exploring Agent Development Kits</a>
+
+*  Exploring Core Technologies</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10875">
    What is a PureStack</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10865">
    What is a Pure Path</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10863">
-   What is UEM</a>
+   What is UEM</a> (User Experience Monitoring) agents traps user actions for Dynatrace Collector servers to store and evaluate.
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10893">
    Understanding Dashboards</a>
@@ -68,10 +73,12 @@ PureModel = PurePath + PureStack
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10890">
    Exploring the Rich Webstart Client</a>
 
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21026">
+   Planning the Deployment</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10209">
    Installing Application Monitoring on Windows</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
-   Configuring the Performance Warehouse</a>
+   Configuring the Performance Warehouse</a> database
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10211">
    Deploying Dynatrace Collectors</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10857">
@@ -104,13 +111,15 @@ PureModel = PurePath + PureStack
 
 ## Acronyms
 
-   ADK
+   ADK = Application Development Kit
 
-   APM
+   APM = Application Performance Monitoring
 
-   UEM
+   UEM = User Experience Management
 
-   SaaS
+   SaaS = Software as a Service
+
+   Visit = a group of transactions performed by the same user over a defined time period.
 
 <hr />
 
