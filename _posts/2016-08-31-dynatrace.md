@@ -16,24 +16,35 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on narrated tour on how to use Dynatrace.
+This is a hands-on narrated tour about Dynatrace.
 
-Dynatrace offers several products. Two products have downloads:
+There are editions for the Development Team, Test Center, and Production:
 
-* Application Monitoring rich client
-* Data Center RUM (Real User Monitor) captures traffic and analyzes it
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">
+<img alt="dynatrace across lifecycle 898x527.jpg" width="898" src="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">(Click to pop up larger image)</a>
 
 The product that enables "Shift-Left" is one that enables identification of performance issues
 during development.
 
-Additional:
+https://community.dynatrace.com/community/display/DL/Downloads
 
-* Applicawtion Monitoring Appmon web
+Two Dynatrace products have downloads:
+
+* Application Monitoring rich client
+* Data Center RUM (Real User Monitor) captures traffic and analyzes it
+
+SaaS = Software as a Service:
+
+* Application Monitoring Appmon web
 * Synthetic Monitoring has fake users logging in, etc.
 * Dynatrace adds HTTP header
 * Keynote monitors what end-users experience through the public network
 * Dynatrace Load
 * Business Service Management
+
+## Free lifetime personal license on local machines.
+
+https://bit.ly/dtpersonal
 
 ## Application Monitoring
 
@@ -45,16 +56,52 @@ PureModel = PurePath + PureStack
 
    Baselines
 
+https://help.dynatrace.com/intelligent-problem-detection/<br />
+https://help.dynatrace.com/intelligent-problem-detection/prediction/prediction/
+
+## ADK
+
+To send dynatrace tags
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10862">
+   Native Applications and Custom Protocols with Dynatrace AppMon ADK</a>
+   recorded November 9, 2016.
+
+
+## Data management
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21023">
+   What is a Purelytics</a> [2:51] for custom analytics on ELK stack
+
+   ![dynatrace prelytics stream elk 674x144](https://cloud.githubusercontent.com/assets/300046/23945288/569cc356-094c-11e7-9329-b7f79dbbe2c4.jpg)
+
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10855">
+   PureLytics Stream and UEM Heatmap</a> [59]
+
+   https://github.com/Dynatrace/Dynatrace-Elasticsearch-Plugin
+   plugin for AppMon to fetch measures from an Elasticsearch Cluster 
+
+
+https://help.dynatrace.com/api-documentation/v1/timeseries/
+
+## Videos
+
+Mainly high-level "smoke and mirrors" hype speak with a few technical points:
+
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10858">
    What is Application Monitoring</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21001">
-   Selecting a Dynatrace Edition</a>
+   Selecting a Dynatrace Edition</a> [3:17] Docker containers
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/20999">
+   Distributing licenses</a>
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10206">
    Reviewing the Architecture</a>
    the Application Monitoring Platform, PureModel, and PureStack.
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10872">
    Exploring Agent Development Kits</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21027">
+   Interacting with Data</a>
 
 *  Exploring Core Technologies</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10875">
@@ -63,11 +110,11 @@ PureModel = PurePath + PureStack
    What is a Pure Path</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10863">
    What is UEM</a> (User Experience Monitoring) agents traps user actions for Dynatrace Collector servers to store and evaluate.
-
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10207">
+   Understanding Components</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10893">
    Understanding Dashboards</a>
-* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10855">
-   PureLytics Stream and UEM Heatmap</a>
+
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10891">
    Exploring the Web Interface</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10890">
@@ -76,11 +123,17 @@ PureModel = PurePath + PureStack
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/21026">
    Planning the Deployment</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10209">
-   Installing Application Monitoring on Windows</a>
-* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
-   Configuring the Performance Warehouse</a> database
+   Installing Application Monitoring on Windows</a> [9:51] v6.1.0 admin / admin
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10208">
+   Installing Application Monitoring on Unix</a>
+
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10211">
    Deploying Dynatrace Collectors</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10212">
+   Deploying and Sizing Document</a>
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
+   Configuring the Performance Warehouse</a> database
+
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10857">
    Managing Sensors</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10860">
@@ -99,8 +152,6 @@ PureModel = PurePath + PureStack
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10861">
    Managing Memory Analysis</a>
-* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10862">
-   Native Applications and Custom Protocols with Dynatrace AppMon ADK</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10876">
    Integrating with Data Center Real User Monitoring</a>
 
@@ -117,15 +168,9 @@ PureModel = PurePath + PureStack
 
    UEM = User Experience Management
 
-   SaaS = Software as a Service
+   SLA = Service Level Agreements
 
    Visit = a group of transactions performed by the same user over a defined time period.
-
-<hr />
-
-
-
-![dynatrace across lifecycle 898x527](https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png)
 
 ## In AWS #
 
@@ -162,6 +207,13 @@ Here are the steps:
    0. Start a performance testing run
    0. Sends SMS texts with the results of test run
    0. If all is well, commits into the next branch in GitHub
+
+<hr />
+
+## Internals
+
+Protocol is protobuf
+
 
 ## More on cloud #
 
