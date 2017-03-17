@@ -168,6 +168,36 @@ This table</a> lists the difference in commands between Conda and pip:
 <td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
 <td>-</td>
 </tr>
+<tr class="row-even"><td>Create an environment</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">python</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">$ENV_BASE_DIR;</span> <span class="pre">virtualenv</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Activate an environment</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">$ENV_BASE_DIR/$ENVIRONMENT_NAME<br />/bin/activate</span></tt></td>
+</tr>
+<tr class="row-even"><td>Deactivate an environment</td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">deactivate</span></tt></td>
+<td>-</td>
+<td><tt class="docutils literal"><span class="pre">deactivate</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Search available packages</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Install package from specific source</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--channel</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--index-url</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>List installed packages</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">list</span></tt></td>
+<td>-</td>
+</tr>
 </tbody>
 </table>
 
