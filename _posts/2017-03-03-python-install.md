@@ -214,7 +214,16 @@ This table</a> lists the difference in commands between Conda and pip:
 <td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">conda</span></tt></td>
 <td>-</td>
 </tr>
-
+<tr class="row-odd"><td>Install Python</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">python=x.x</span></tt></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Update Python</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">python</span></tt> *</td>
+<td>-</td>
+<td>-</td>
+</tr>
 </tbody>
 </table>
 
