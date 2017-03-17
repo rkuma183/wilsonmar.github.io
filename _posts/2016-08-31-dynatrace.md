@@ -16,9 +16,35 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on narrated tour about Dynatrace.
+What's different with this introduction to Dynatrace is I provide a 
+step-by-step hands-on approach to dive deep into the technology and its vendor.
+This is so you're not stumbling around wasting time on high-level videos from salespeople.
+My commentaries are given "just-in-time" after you do each step.
 
-There are editions for the Development Team, Test Center, and Production:
+
+## Acronyms
+
+   ADK = Application Development Kit
+
+   APM = Application Performance Monitoring
+
+   AppMon = Application Performance
+
+   UEM = User Experience Management (product offering)
+
+   SLA = Service Level Agreements
+
+   Visit = a group of transactions performed by the same user over a defined time period.
+
+PureModel = PurePath + PureStack
+
+   PurePath monitors horizontally across the server tiers
+
+   PureStack dives into the vertical infrastructure
+
+## Product Editions
+
+There are different editions for the Development Team, Test Center, and Production:
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">
 <img alt="dynatrace across lifecycle 898x527.jpg" width="898" src="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">(Click to pop up larger image)</a>
@@ -26,11 +52,206 @@ There are editions for the Development Team, Test Center, and Production:
 The product that enables "Shift-Left" is one that enables identification of performance issues
 during development.
 
-https://community.dynatrace.com/community/display/DL/Downloads
+<hr />
+
+## Interact with people
+
+0. Forums:
+
+   <a target="_blank" href="https://community.dynatrace.com/community/display/DL/Downloads/">
+   https://community.dynatrace.com/community/display/DL/Downloads</a>
+
+0. Listen to podcasts:
+
+   <a target="_blank" href="https://www.spreaker.com/show/pureformance/">
+   https://www.spreaker.com/show/pureformance</a>
+
+0. Ask a question of pre-sales:
+
+   <a target="_blank" href="https://answers.dynatrace.com/">
+   https://answers.dynatrace.com</a>
+
+0. Register and attend <strong>live webinars</strong> at:
+
+   <a target="_blank" href="https://bit.ly/onlineperfclinic">
+   https://bit.ly/onlineperfclinic</a>
+   (https://community.dynatrace.com/community/pages/viewpage.action?pageId=178101202)
+
+0. Ways to meet other users:
+
+   <a target="_blank" href="https://community.compuwareapm.com/community/display/PUB/Events/">
+   https://community.dynatrace.com/community/display/DL/Downloads</a>
+
+0. Joing and attend Meetups:
+
+   <a target="_blank" href="https://www.meetup.com/pro/dynatrace/">
+   https://www.meetup.com/pro/dynatrace</a>
+
+0. Subscribe, then meet people at the <strong>annual conference</strong> each Feburary in Vegas:
+
+   <a target="_blank" href="https://www.dynatrace.com/perform/">
+   https://www.dynatrace.com/perform</a><br />
+
+0. Have Dynatrace salespeople look at your Purepath file:
+
+   <a target="_blank" href="https://bit.ly/sharepurepath">
+   https://bit.ly/sharepurepath</a>
+   (https://community.dynatrace.com/community/display/EVAL/Share+your+PurePath)
+
+   CAUTION: Many enterprises are fearful of releasing data outside the corporate firewall.
+   Check with your Security people before sending the file out.
+
+0. LinkedIn?
+0. Twitter?
+0. Pinterest?
+
+<hr />
+
+## Free lifetime local license
+
+The following focusing on analysis of server applications running <strong>locally</strong> on your laptop.
+
+   QUESTION: Is there a package to Homebrew for Mac and Chocolatey for Windows?
+
+0. Register for download at:
+
+   <a target="_blank" href="https://bit.ly/dtpersonal">
+   https://bit.ly/dtpersonal</a> (https://www.dynatrace.com/en/products/dynatrace-personal-license.html)
+
+   PROTIP: My Gmail address was accepted in the "Business email" field.
+
+0. Confirm email subject "Please confirm your Dynatrace Trial account".
+
+   NOTE: The public face of Dynatrace is Andreas Grabner (<a target="_blank" href="https://twitter.com/@grabnerandi"@grabnerandi</a>, 
+   agrabner@dynatrace.com,
+   <a target="_blank" href="https://github.com/grabnerandi/">
+   https://github.com/grabnerandi</a>
+
+   The US address of Dynatrace is 404 Wyman Street - Suite 500, Waltham, MA 02451
+
+   Dynatrace has offices in Detroit, Michigan, Linz, Austria, and Gdańsk, Poland.
+
+0. Click Register and Start Trial.
+
+   WARNING: You can't get back to this page again?
+
+0. Get the license from email "Your Dynatrace trial license" file such as:
+
+   dynaTrace_license_201703161023.key
+
+   NOTE: The video mentioned in the email (https://www.youtube.com/watch?v=2ycuNlYUl9E) 
+   What is Dynatrace AppMon and How to Get Started – January 2016
+
+0. PROTIP: Run a Dockerized image in a server (in a cloud) because that's how production will work.
+   And it won't muck up your local machine's settings and disk space.
+
+   <a target="_blank" href="http://dynatrace.github.io/Dynatrace-Docker/">
+   http://dynatrace.github.io/Dynatrace-Docker</a>
+
+   https://github.com/Dynatrace/Dynatrace-Docker
+
+   NOTE: The Github home for Dynatrace is:
+
+   <a target="_blank" href="https://github.com/dynaTrace/">
+   https://github.com/dynaTrace</a>
+
+0. If you want to do it the hard way and install locally, 
+   click the operating system icon to download installer.
+
+   | OS | File | Ver. | Size |
+   | -- | ---- | ---: | ---: |
+   | Mac | dynatrace-full-darwin-x86.jar | 6.5 | 995.8 MB |
+   | Windows | dynatrace- | 6.5 | 995.8 MB |
+
+   PROTIP: If you want to keep installers, find out the version and add it to the file name.
+   You would need to keep installers for vetting by corporate Security.
+
+   Security-conscious enterprises have their people download from
+   a vetted repository such as an internal Artifactory or Nexus rather than direct download
+   because changes by the vendor (or someone pretending to be them) can have security problems.
+
+0. Use Mac Archiver utility to extract the jar file to file dynatrace-full-darwin-x86.jar.cpgz.
+0. dynatrace-full-darwin-x86.jar.cpgz.
+
+
+## Provisioning
+
+Docker, VMWare, EC2, Azure, CloudFoundry
+
+Scripts: Chef, Puppet, Ansible, PowerShell
+
+Overprovisioned?
+
+
+### Troubled sample apps
+
+
+Source code to programs that exhibit:
+
+### memory leaks
+
+### CPU hotspots
+
+### n+1 problem 
+
+The n+1 problem is when regression test finds client makes many more API calls to server.
+
+   <a target="_blank" href="https://github.com/grabnerandi/SpringBootBookstoreWithProblems">
+   https://github.com/grabnerandi/SpringBootBookstoreWithProblems</a>
+
+## SQL statements
+
+Too many, slow.
+
+
+### API "FireAndIce"
+
+   http://anapioficeandfire.com/Documentation#library-graphql
+
+https://www.youtube.com/watch?v=O0SQL8DJxaI
+Online Perf Clinic – Shift-Left Performance with Spring Boot Microservices, Jenkins and Dynatrace
+
+
+## Agents
+
+<img width="727" alt="dynatrace tech analyzed 1454x510" src="https://cloud.githubusercontent.com/assets/300046/23992099/165b6448-0a12-11e7-8a66-67cd9b865497.png">
+
+For infrastructure monitoring:
+
+During the 30-day free trial period, install up to 5 distributed servers (in the cloud).
+
+After the 30-day trial period, install only on local machines.
+
+Use the "Add Tier" wizard.
+
+On Apache, IIS: -agentpath:PATH/dtagent.dll=name=MyAppTier,server=collector1
+
+## Desktop
+
+   ### IntelliJ
+
+0. Use within IntelliJ
+
+
+0. Without changing a line of code get 100% end-to-end code-level performance visibility: Browser, Web-, App- and (No)SQL Activity
+
+0. See every SQL Statement, Exception, Log message and HTTP Request detail
+
+
+## SaaS server
+
+0. Provide your email to:
+
+   https://www.dynatrace.com/trial/
+
+
+## Product Offerings
+
+   Dynatrace AppMon Personal & UEM ???
 
 Two Dynatrace products have downloads:
 
-* Application Monitoring rich client
+* Application Monitoring rich client AppMon
 * Data Center RUM (Real User Monitor) captures traffic and analyzes it
 
 SaaS = Software as a Service:
@@ -42,22 +263,33 @@ SaaS = Software as a Service:
 * Dynatrace Load
 * Business Service Management
 
-## Free lifetime personal license on local machines.
 
-https://bit.ly/dtpersonal
+## Competition
+
+Gartner ...
+
+http://blog.takipi.com/splunk-vs-elk-the-log-management-tools-decision-making-guide/
+
+
+<hr />
+
+
+## Crash Dump Analysis
+
+https://github.com/Dynatrace/superdump
+(Not A replacement for in-depth analysis tools such as WinDbg.)
+
+can be triggered via web-frontend (HTTP-upload) or via REST-API.
+
 
 ## Application Monitoring
-
-PureModel = PurePath + PureStack
-
-   PurePath monitors horizontally across the server tiers
-
-   PureStack dives into the vertical infrastructure
 
    Baselines
 
 https://help.dynatrace.com/intelligent-problem-detection/<br />
 https://help.dynatrace.com/intelligent-problem-detection/prediction/prediction/
+
+
 
 ## ADK
 
@@ -81,10 +313,28 @@ To send dynatrace tags
    https://github.com/Dynatrace/Dynatrace-Elasticsearch-Plugin
    plugin for AppMon to fetch measures from an Elasticsearch Cluster 
 
+* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
+   Configuring the Performance Warehouse</a> database
 
-https://help.dynatrace.com/api-documentation/v1/timeseries/
+* https://help.dynatrace.com/api-documentation/v1/timeseries/
+
+To view data in ES within Splunk:
+
+   * https://github.com/hvandenb/splunk-elasticsearch
+   * https://answers.splunk.com/answers/372999/is-there-anyway-to-push-data-from-elasticsearch-or.html
+
+## Integrate
+
+
+<hr />
 
 ## Videos
+
+https://www.youtube.com/watch?v=wExU-AQ0ydk&index=1&list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6
+
+* https://www.youtube.com/watch?v=O0SQL8DJxaI
+
+http://bit.ly/dttutorials (https://www.youtube.com/playlist?list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6)
 
 Mainly high-level "smoke and mirrors" hype speak with a few technical points:
 
@@ -131,8 +381,6 @@ Mainly high-level "smoke and mirrors" hype speak with a few technical points:
    Deploying Dynatrace Collectors</a>
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10212">
    Deploying and Sizing Document</a>
-* <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10210">
-   Configuring the Performance Warehouse</a> database
 
 * <a target="_blank" href="https://university.dynatrace.com/discover/appmon/10857">
    Managing Sensors</a>
@@ -160,17 +408,6 @@ Mainly high-level "smoke and mirrors" hype speak with a few technical points:
 
 <hr />
 
-## Acronyms
-
-   ADK = Application Development Kit
-
-   APM = Application Performance Monitoring
-
-   UEM = User Experience Management
-
-   SLA = Service Level Agreements
-
-   Visit = a group of transactions performed by the same user over a defined time period.
 
 ## In AWS #
 

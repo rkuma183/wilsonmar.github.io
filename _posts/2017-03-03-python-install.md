@@ -19,7 +19,7 @@ This tutorial describes the different options to install and
 <a href="#Uninstall">uninstall</a> Python within various
 package managers (which helps you find and install Python packages).
 
-Here I'm taking a "deep dive" approach because I haven't seen on on the internet.
+Here I'm taking a "deep dive" approach because I haven't seen one on the internet.
 
 I've pulled out the various incantations suggested by others on StackOverlow
 and put them here in context.
@@ -110,14 +110,14 @@ Differences among them:
 * Virtualenv is an environment manager. 
 * Conda is both.
 
-* pip can install anything from PyPI in one command. 
-* Conda requires at least three commands: skeleton, build, install, and possibly more
-
 * Conda handles library dependencies outside of the Python packages as well as 
    the Python packages themselves. 
 
 * Conda installs from binary, meaning that someone (e.g., Continuum) 
    has already done the hard work of compiling the package, making installation easier, and faster.
+
+* pip can install anything from PyPI in one command. 
+* Conda requires at least three commands: skeleton, build, install, and possibly more
 
 * Conda uses its own format, which has some advantages (like being static, and again, Python agnostic). 
 
@@ -153,77 +153,7 @@ This table</a> lists the difference in commands between Conda and pip:
 <td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
 <td>-</td>
 </tr>
-<tr class="row-odd"><td>Update a package</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-even"><td>Update package manager</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></tt></td>
-<td>Linux/OSX: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt> Win: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-odd"><td>Uninstall a package</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-even"><td>Create an environment</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">python</span></tt></td>
-<td>-</td>
-<td><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">$ENV_BASE_DIR;</span> <span class="pre">virtualenv</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
-</tr>
-<tr class="row-odd"><td>Activate an environment</td>
-<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
-<td>-</td>
-<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">$ENV_BASE_DIR/$ENVIRONMENT_NAME<br />/bin/activate</span></tt></td>
-</tr>
-<tr class="row-even"><td>Deactivate an environment</td>
-<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">deactivate</span></tt></td>
-<td>-</td>
-<td><tt class="docutils literal"><span class="pre">deactivate</span></tt></td>
-</tr>
-<tr class="row-odd"><td>Search available packages</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">search</span> <span class="pre">$SEARCH_TERM</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-even"><td>Install package from specific source</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--channel</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--index-url</span> <span class="pre">$URL</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-odd"><td>List installed packages</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">list</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-even"><td>Create requirements file</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">--export</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">freeze</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-odd"><td>List all environments</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></tt></td>
-<td>-</td>
-<td><tt class="docutils literal"><span class="pre">Install virtualenv wrapper</span>,<br />then 
-<tt class="docutils literal"><span class="pre">lsvirtualenv</span></tt></td>
-</tr>
-<tr class="row-even"><td>Install other package manager</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pip</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">conda</span></tt></td>
-<td>-</td>
-</tr>
-<tr class="row-odd"><td>Install Python</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">python=x.x</span></tt></td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="row-even"><td>Update Python</td>
-<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">python</span></tt> *</td>
-<td>-</td>
-<td>-</td>
-</tr>
+
 </tbody>
 </table>
 
