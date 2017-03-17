@@ -206,6 +206,7 @@ This table</a> lists the difference in commands between Conda and pip:
 <tr class="row-odd"><td>List all environments</td>
 <td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></tt></td>
 <td>-</td>
+</tr>
 <td><tt class="docutils literal"><span class="pre">Install virtualenv wrapper</span>,<br />then 
 <tt class="docutils literal"><span class="pre">lsvirtualenv</span></tt></td>
 </tr>
