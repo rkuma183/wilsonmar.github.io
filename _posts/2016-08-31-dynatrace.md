@@ -77,6 +77,10 @@ during development.
    https://bit.ly/onlineperfclinic</a>
    (https://community.dynatrace.com/community/pages/viewpage.action?pageId=178101202)
 
+0. View past webinars
+
+   https://www.youtube.com/watch?v=eYzl1PTGS7Y&index=24&list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6
+
 0. Ways to meet other users:
 
    <a target="_blank" href="https://community.compuwareapm.com/community/display/PUB/Events/">
@@ -104,6 +108,9 @@ during development.
 0. LinkedIn?
 0. Twitter?
 0. Pinterest?
+
+0. Certification?
+
 
 <hr />
 
@@ -451,6 +458,11 @@ Here are the steps:
 
 Protocol is protobuf
 
+   https://community.dynatrace.com/community/display/DOCDT65/Test+Automation+Explained
+
+   https://www.infoq.com/articles/Diagnose-Microservice-Performance-Anti-Patterns
+
+   https://www.infoq.com/articles/Diagnosing-Common-Java-Database-Performance-Hotspots
 
 ## More on cloud #
 

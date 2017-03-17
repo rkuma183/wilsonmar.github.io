@@ -47,7 +47,8 @@ Dynatrace provides to evaluate its AppMon and UEM software.
 YOUTUBE: 
 <a target="_blank" href="https://www.youtube.com/watch?v=ps9Y14KlPyU">
 Evaluate Dynatrace with easyTravel</a> demo app
-published on May 14, 2015
+published on May 14, 2015. In 1 hour it takes a whirlwind tour, half based on random questions,
+which can be confusing to newbies.
 
 0. Identify the latest version (6.5 as of this writing March 2017).
 0. Download and Get license
@@ -82,6 +83,10 @@ published on May 14, 2015
 0. Configure System Profile (install resource pack) on dynatrace client
 
    <img width="226" alt="dynatrace easytravel system profile 452x362" src="https://cloud.githubusercontent.com/assets/300046/24030587/0c2b8456-0ab4-11e7-8df2-5e1d279cf9a6.png">
+
+0. Verify API ports
+
+   http://localhost:8020/api-docs/index.html
 
 0. Configure Agent Mappings
 0. Inject agentpath-setting into the application code for instrumentation
@@ -145,11 +150,46 @@ published on May 14, 2015
 
    ![dynatrace hotspots by api 797x183](https://cloud.githubusercontent.com/assets/300046/24031022/864b4648-0ab6-11e7-930c-c5bdc5340fcd.png)
 
-0. Repeated use
+   ### IDE
 
-0. Read
+   https://marketplace.atlassian.com/plugins/be.sofico.bamboo.plugins.bamboo-dynatrace-plugin/server/overview
+
+0. Configure Eclipse IDE
+
+   https://community.dynatrace.com/community/display/DL/dynaTrace+Eclipse+Integration+Plugin
+
+   https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin
+
+0. Configure IntelliJ
+
+   https://community.dynatrace.com/community/display/DL/dynaTrace+IntelliJ+IDEA+Integration+Plugin
+
+   https://community.dynatrace.com/community/display/DL/IntelliJ+IDEA+Integration+Plugin
+
+0. Configure Visual Studio IDE
+
+
+0. Identify Memory Leaks
 
    https://www.dynatrace.com/blog/hands-tutorial-5-steps-identify-java-net-memory-leaks/
+
+0. Identify Garbage Collection
+
+   http://apmblog.dynatrace.com/2014/09/16/detecting-bad-deployments-resource-impact-response-time-hotspot-garbage-collection/
+
+   ### Jenkins integration
+
+0. Jenkins
+
+   https://github.com/Dynatrace/Dynatrace-JenkinsPlugin
+
+   ### Confluence
+
+0. Integrate with Confluence via cPrime
+
+   https://marketplace.atlassian.com/vendors/1211168
+
+   https://marketplace.atlassian.com/plugins/com.cprime.confluence.templates/server/overview
 
 
 ### Built-in load generator
