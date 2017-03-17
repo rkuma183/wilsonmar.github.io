@@ -153,7 +153,21 @@ This table</a> lists the difference in commands between Conda and pip:
 <td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
 <td>-</td>
 </tr>
-
+<tr class="row-odd"><td>Update a package</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-even"><td>Update package manager</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></tt></td>
+<td>Linux/OSX: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt> Win: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">pip</span></tt></td>
+<td>-</td>
+</tr>
+<tr class="row-odd"><td>Uninstall a package</td>
+<td><tt class="docutils literal"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">$ENVIRONMENT_NAME</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">$PACKAGE_NAME</span></tt></td>
+<td>-</td>
+</tr>
 </tbody>
 </table>
 
