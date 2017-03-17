@@ -170,9 +170,9 @@ Python 2 comes installed on MacOS machines.
 
 0. Open a Terminal shell window and issue command:
 
-   <tt><strong>
+   <pre><strong>
    python \-\-version
-   </strong></tt>
+   </strong></pre>
 
    The response on a freshly installed El Capitan version:
 
@@ -479,7 +479,9 @@ It used to be that one can enter a command:
 
    The response on my Sierra machine is:
 
-   <tt>xcode-select: error: command line tools are already installed, use "Software Update" to install updates</tt>
+   <pre>
+   xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+   </pre>
 
 So below is the "Software Update" approach:
 
@@ -572,7 +574,6 @@ InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault
 
 
 
-<hr />
 
 <a name="PackagInstallerz"></a>
 
