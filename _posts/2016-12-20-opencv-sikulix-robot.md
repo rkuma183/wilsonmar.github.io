@@ -26,6 +26,9 @@ against a sample app.
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/pattern-recognition/master/mac-bootstrap.sh)"
    </strong></pre>
 
+WARNING: This is under construction - there are repetitive homebrew updates that should be removed
+(thanks to Shawn Wilson noticing)
+
 This is similar to <a target="_blank" href="https://github.com/wilsonmar/Basic-Selenium-Java">Selenium Setup</a>.
 
 This page describes a way to automate clicking and typing on
@@ -108,9 +111,18 @@ and
    rm -rf "~/Library/Application Support/Sikulix"
    </strong><pre>
 
-0. Download from https://launchpad.net/sikuli/+download
+0. As noted in <a target="_blank" href="https://launchpad.net/sikuli/sikulix/1.1.0">this page</a>,
+   download the last stable version at <a target="_blank" href="https://launchpad.net/sikuli/+download">https://launchpad.net/sikuli/sikulix/1.1.0/+download/sikulixsetup-1.1.0.jar</a>
 
-   sikulixsetup-1.1.0.jar, 2015-10-06, 3 MB
+   sikulixsetup-1.1.0.jar is dated 2015-10-06, 3 MB
+
+   NOTE: Code is at <a target="_blank" href="https://github.com/RaiMan/SikuliX-2014">
+   https://github.com/RaiMan/SikuliX-2014</a>
+
+   The next generation is active on<br />
+   https://github.com/RaiMan/SikuliX2
+
+0. Click the "md5" for the MD5 hash (a33616bac6d4f44785b89a02b110a0f8) to verify download integrity.
 
 0. Move the file to your skilux folder.
 
@@ -119,27 +131,27 @@ and
    <pre>java -jar sikulixsetup-1.1.0.jar</pre>
 
    This creates file:<br />
-   SikuliX-1.1.1-SetupLog.txt
-   and a empty <strong>SetupStuff</strong> folder.
+   SikuliX-1.1.1-SetupLog. (which reflects what goes to the Terminal)
+   and an empty <strong>SetupStuff</strong> folder.
 
 0. Open the txt file and refresh it to see progress.
 
-0. Click checkboxes 1 for Jython and 3 for Tesseract
-   in the UI pop-up, then<br />
+0. Click checkboxes for Jython and for Tesseract
+   in the UI pop-up, then 
    <strong>Setup Now</strong>.
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">
-   <img width="650" alt="sikulix 1 1 mac setup1 1974x1028.png" src="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">(Click to open in full new screen)</a>
+   <img width="650" alt="sikulix 1 1 mac setup1 1974x1028.png" src="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png"><br />(Click to open in full new screen)</a>
 
 0. Click Setup Now for:
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067322/47f0e9b6-0b51-11e7-9ab2-6f460f1d771e.png">
-   <img width="488" alt="sikulix-1-1-setup2 976x816" src="https://cloud.githubusercontent.com/assets/300046/24067322/47f0e9b6-0b51-11e7-9ab2-6f460f1d771e.png">(Click to open in full new screen)</a>
+   <img width="488" alt="sikulix-1-1-setup2 976x816" src="https://cloud.githubusercontent.com/assets/300046/24067322/47f0e9b6-0b51-11e7-9ab2-6f460f1d771e.png"><br />(Click to open in full new screen)</a>
 
 0. Click <strong>Yes</strong> for:
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067348/a847fdae-0b51-11e7-80b3-c53a12041db5.png">
-   <img width="650" alt="sikulix-1 1-setup3 1424x294" src="https://cloud.githubusercontent.com/assets/300046/24067348/a847fdae-0b51-11e7-80b3-c53a12041db5.png">(Click to open in full new screen)</a>
+   <img width="650" alt="sikulix-1 1-setup3 1424x294" src="https://cloud.githubusercontent.com/assets/300046/24067348/a847fdae-0b51-11e7-80b3-c53a12041db5.png"><br />(Click to open in full new screen)</a>
 
 0. Click <strong>No</strong> to pop-ups about 
    Mac native libs (jar's) previously installed into
@@ -148,19 +160,10 @@ and
 0. Click No to get Jython 2.5 due to 2.7 UTF-8 warning:
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png">
-   <img width="428" alt="sikulix-1 1 jython 856x368" src="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png">(Click to open in full new screen)</a>
+   <img width="428" alt="sikulix-1 1 jython 856x368" src="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png"><br />(Click to open in full new screen)</a>
 
 
 0. BLAH: This error in the console stopped me from going further
-
-   <pre>
-[debug (3/17/17 8:42:40 PM)] RunSetup: Copied from Downloads: Jython
-[debug (3/17/17 8:42:43 PM)] RunSetup: downloaded: tessdata-eng
-Exception in thread "main" java.lang.NullPointerException
-  at org.sikuli.setup.RunSetup.main(RunSetup.java:845)
-   </pre>
-
-   Had it before:
 
    <pre>
 [debug (12/20/16 8:05:24 AM)] RunSetup: downloaded: tessdata-eng
@@ -185,6 +188,10 @@ Exception in thread "main" java.lang.NullPointerException
 
 0. Move to Trash the installer file
    sikulixsetup-1.1.0.jar
+
+QUESTION: How to verify a good install and use the program?
+
+
 
 ### Robot Framework Install
 
@@ -296,6 +303,7 @@ such as Selenium, HP QTP, etc.
 
 
 RIDE = Robot IDE.
+
 But there are plugins for IntelliJ/PyCharm & Eclipse,
 Atom, Sublime, TextMate, Vim, etc.
 
