@@ -46,6 +46,8 @@ Consequently, RF can be used with non-Python libraries such as the Java JDBC Dat
 The Robot Framework (RF) is open sourced at ???
 
 
+## Introductions
+
 generic, keyword- and data-driven test automation framework for acceptance test driven development (ATDD). 
 
    * http://blog.xebia.com/robot-framework-the-unsung-hero-of-test-automation/
@@ -53,6 +55,157 @@ generic, keyword- and data-driven test automation framework for acceptance test 
    * http://blog.xebia.com/robot-framework-and-the-keyword-driven-approach-to-test-automation-part-2-of-3/
    * http://blog.xebia.com/tag/robot-framework/
    by Michael Hallik
+
+
+
+## Social
+
+<a target="_blank" href="https://twitter.com/robotframework">
+@robotframework</a>
+
+It's maintained by contractor Pekka Klärck 
+<a target="_blank" href="https://twitter.com/pekkaklarck">@pekkaklarck</a>, http://eliga.fi/)
+
+<a target="_blank" href="https://vimeo.com/192649128/">
+See Pekka on Joe's video</a> using
+<a target="_blank" href="http://www.slideshare.net/pekkaklarck/robot-framework-introduction">
+this slidedeck</a>.
+Note it's copyrighted by Nokia Networks (Finland).
+
+https://blog.codecentric.de/en/2016/12/robot-framework-tutorial-2016-working-with-collections/
+
+https://medium.com/@varjoinen/robot-framework-101-fb12d1d6954c#.jejc3hrwl
+
+
+
+## Robot Framework Install
+
+Instead of coding programming code, it's faster to write 
+keyword-driven syntax driven by text data files.
+That's provided by the
+<a target="_blank" href="http://robotframework.org/">
+Robot Framework</a>, open-sourced on 
+GitHub. 
+
+The core framework is operating system and application independent
+because it's implemented using Python for running on Jython (JVM) and IronPython (.NET).
+
+See https://github.com/robotframework/QuickStartGuide/blob/master/QuickStart.rst
+
+0. Install the Robot Framework core:
+
+   <pre>
+   pip install robotframework
+   </pre>
+
+   The response:
+
+   <pre>
+Collecting robotframework
+  Downloading robotframework-3.0.tar.gz (430kB)
+    100% |████████████████████████████████| 440kB 399kB/s 
+Building wheels for collected packages: robotframework
+  Running setup.py bdist_wheel for robotframework ... done
+  Stored in directory: /Users/mac/Library/Caches/pip/wheels/9e/61/ee/b4bb4b9b7824594cc785a577975bec2fce9c54b09bbf39eb3f
+Successfully built robotframework
+Installing collected packages: robotframework
+Successfully installed robotframework-3.0
+   </pre>
+
+0. To test databases and for example REST APIs, also install:
+
+   <pre>
+   pip install robotframework-databaselibrary
+   pip install requests
+   pip install botframework-requests
+   </pre>
+
+0. PROTIP: I don't recommend installing docutils because you can look it up online.
+
+   * <a target="_blank" href="http://robotframework.org/robotframework/#standard-libraries">
+   Click View about Standard Libraries and Built-in Tools</a>
+   <br /><br />
+
+0. To install the demo Robot login script, create a folder to hold the demo repo:
+
+   <pre>
+   cd ~/gits/wilsonmar/pattern-recognition
+   git clone https://github.com/robotframework/QuickStartGuide.git --depth=1
+   cd QuickStartGuide
+   </pre>
+
+0. Position your present working directory to thePROTIP: I don't recommend installing docutils because you can look it up online.
+
+0. Run the demo:
+
+   <pre>
+   robot QuickStart.rst
+   </pre>
+
+   NOTE: The file name extension (ending) .rst is also used by Ansible scripts.
+
+   You will see this if the .rst file is not in the present folder:
+
+   <pre>
+[ ERROR ] Parsing 'QuickStart.rst' failed: Data source does not exist.
+   </pre>
+
+   The expected response is:
+
+   <pre>
+==============================================================================
+QuickStart                                                                    
+==============================================================================
+User can create an account and log in                                 | PASS |
+------------------------------------------------------------------------------
+User cannot log in with bad password                                  | PASS |
+------------------------------------------------------------------------------
+User can change password                                              | PASS |
+------------------------------------------------------------------------------
+Invalid password                                                      | PASS |
+------------------------------------------------------------------------------
+User status is stored in database                                     | PASS |
+------------------------------------------------------------------------------
+QuickStart                                                            | PASS |
+5 critical tests, 5 passed, 0 failed
+5 tests total, 5 passed, 0 failed
+==============================================================================
+Output:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/output.xml
+Log:     /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/log.html
+Report:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/report.html
+   </pre>
+
+
+## Scripting
+
+### Robot QuickStart Login Demo script
+
+
+
+
+Many of the functions are common to other similar programs,
+such as Selenium, HP QTP, etc.
+
+
+RIDE = Robot IDE.
+
+But there are plugins for IntelliJ/PyCharm & Eclipse,
+Atom, Sublime, TextMate, Vim, etc.
+
+See http://sikulix-2014.readthedocs.io/en/latest/scenarios.html#using-robotframework
+
+http://www.slideshare.net/pekkaklarck/robot-framework-introduction
+
+
+
+## Run scripts
+
+http://sikulix-2014.readthedocs.io/en/latest/faq/010-command-line.html#how-to-run-sikulix-from-command-line
+
+robot some_tests.robot
+OR
+robot test_cases/
+
 
 <hr />
 

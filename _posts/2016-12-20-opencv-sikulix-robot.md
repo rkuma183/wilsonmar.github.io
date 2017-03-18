@@ -22,14 +22,73 @@ comments: true
 
 Going from the innnards up:
 
-OpenCV (Open Computer Vision) is a fundamental utility used by many Aritificial Intelligence packages
+OpenCV (Open Computer Vision) is a fundamental utility used by many Artificial Intelligence packages
 such as self-driving cars to understand images.
+It is used to take pictures, recognize objects in the pictures, and the coordinates of objects
+it recognizes in pictures.
 
-<a href="#Tesseract">Tesseract</a> uses OpenCV for OCR (Optical Character Recognition).
+<a href="#Tesseract">Tesseract</a> provides OCR (Optical Character Recognition)
+to extract text from pictures.
 
-SikuliX makes use of both to provide a framework for Python or Java code to call
-Selenium and Robot to manipulate keyboards and mice according to what is seen by the above.
+SikuliX provides a <a href="#SikuliXCommands">set of commands</a> to be called 
+by Python, Ruby, or JavaScript invoked by the Java scripting enginge
+Selenium and Robot to manipulate keyboards and mice based on what is seen by the above.
 
+All this to make you more "productive" at playing games. ;)
+
+The benefit of repeating some action repeatedly (and not get bored or distracted) extends to:
+
+   * Videographers making screencast videos in multiple takes
+   * Salespeople use it to power their live demos.
+   * Developers and testers going through a sequence of actions to reach a particular point in the UI needing debugging.
+
+Here's how it works:
+A picture is taken of your screen(s).
+and the text and location of objects recognized in the picture is fed
+to your program to click or type.
+Your program then takes another round of picture taking
+and visual object recognition to ensure the results are what are intended.
+
+This uses a different, more generalized, approach than packages such as HP UFT which depended on
+finding identifiers in the DOM (Document Object Model) behind each internet browser web page.
+
+
+## Websites and versions
+
+I'm completely confused about the versions of Sikulix because of multiple websites and difficult-to-find links.
+I figured this out by reading every freaking word (several times) and following links buried in sentences leading deep within pages.
+
+http://sikulix-2014.readthedocs.io/en/latest/<br />
+has the most detail, which are repeated several places:
+
+http://sikulix.com/ is the new web page formerly at<br />
+http://sikulix.weebly.com/quickstart.html
+
+https://sikulix.wordpress.com/<br />
+with last entry on 2015-10-07 points to Maven Central entry of that time<br />
+http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix
+
+The bits are obtained from Ubuntu <br />
+https://launchpad.net/sikuli
+
+* 1.1.0 final (available 2015-10-07)
+
+* SikuliX-2014 (version 1.1.x)
+
+* SikuliX2 in 2017 at
+   https://github.com/RaiMan/SikuliX2
+
+https://gitter.im/RaiMan/SikuliX-2014?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics
+
+https://answers.launchpad.net/sikuli
+
+<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
+Gitter channel</a>.
+
+
+<a name="SikuliXInstall"></a> 
 
 ## Install on Mac
 
@@ -47,47 +106,8 @@ WARNING: This is under construction - there are repetitive homebrew updates that
 
 This is similar to <a target="_blank" href="https://github.com/wilsonmar/Basic-Selenium-Java">Selenium Setup</a>.
 
-This page describes a way to automate clicking and typing on
-Mac and Windows machines by
-a program you code 
-(in <strong>Java</strong>, Python, or Ruby).
 
-This makes you more "productive" at playing games.
-But I use it to make screencasts.
-Salespeople use it to power their live demos.
-
-A picture is taken of your screen(s).
-and the text and location of objects recognized in the picture is fed
-to your program to click or type.
-Your program then takes another round of picture taking
-and object recognition to ensure the results are what are intended.
-
-Several libraries widely used in the 
-Machine Learning/Artificial Intelligence field
-are used here.
-
-To extract text from pictures,
-<a target="_blank" href="https://github.com/tesseract-ocr">
-Tesseract</a> OCR (Optical Character Recognition)
-is called.
-
-To recognize the coordinates of objects,
-<strong>OpenCV</strong> (Computer Vision) 
-is called.
-
-The program that integrates the pieces together is 
-<a href="#SikuliX">SikuliX</a> 
-maintained by Raimund Hocke aka RaiMan
-and supported by enthusiasts on
-<a target="_blank" href="https://answers.launchpad.net/sikuli">
-Ubuntu Launchpad</a> and
-<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
-Gitter channel</a>.
-
-
-<hr />
-
-## Installation
+### Manual install
 
 The steps to make it work:
 
@@ -98,17 +118,8 @@ The steps to make it work:
 0. <a href="#SikuliXinstall">Download SikuliX</a> 
 0. Create a Git folder to hold your scripts.
 
-Install http://sikulix.com/
-
-<hr />
-
-<a name="SikuliXInstall"></a> 
-
-### SikuliX Installation
-
 Instructions below are based on run on Mac 10.12 (Sierra)
 referencing http://sikulix.com/quickstart/
-and 
 
 0. If this is your first time:<br />
    create a folder to hold Sikulix bits.
@@ -121,11 +132,14 @@ and
 
    (Capitalization is distracting)
 
-   Otherwise, remove the folder and begin anew.
+   Otherwise, begin anew by removing the folder loaded by the installer:
 
    <pre><strong>
    rm -rf "~/Library/Application Support/Sikulix"
    </strong><pre>
+
+   This is the folder containing the <strong>Sikulix.app</strong>
+   for use on Macs.
 
 0. As noted in <a target="_blank" href="https://launchpad.net/sikuli/sikulix/1.1.0">this page</a>,
    download the last stable version at <a target="_blank" href="https://launchpad.net/sikuli/+download">https://launchpad.net/sikuli/sikulix/1.1.0/+download/sikulixsetup-1.1.0.jar</a>
@@ -208,6 +222,37 @@ Exception in thread "main" java.lang.NullPointerException
 QUESTION: How to verify a good install and use the program?
 
 
+<hr />
+
+
+<a name="SikuliXCommands"></a>
+
+## SikuliX Commands
+
+Sikulix.app
+
+~/Library/Application Support/Sikulix
+
+SikulixAppData folder
+
+
+## SikuliX Methods 
+
+So again taking the above workflow, now using SikuliX commands:
+
+   * openApp(someApp) # we use an application someApp
+
+   * click(imageButton) # we click some button
+   * wait(imageExpected1) # we wait that the app reacts and shows the expected result on the screen
+
+   * type(“some text”); type(Key.ENTER) # we fill in some text and press ENTER
+   * wait(imageExpected2) # again we wait for some expected reaction or result
+
+JavaDocs of classes are at<br />
+http://nightly.sikuli.de/docs/index.html
+
+
+
 <a name="Tesseract"></a>
 
 ## Tesseract
@@ -222,156 +267,9 @@ the library works with multiple directional 3D lines.
 * https://github.com/gulakov/tesseract-ocr-sample
 * http://blog.ayoungprogrammer.com/2012/11/tutorial-installing-tesseract-ocr-30202.html/
 
+
+
 ## Selenium
-
-
-## Robot Framework Install
-
-Instead of coding programming code, it's faster to write 
-keyword-driven syntax driven by text data files.
-That's provided by the
-<a target="_blank" href="http://robotframework.org/">
-Robot Framework</a>, open-sourced on 
-GitHub. 
-
-The core framework is operating system and application independent
-because it's implemented using Python for running on Jython (JVM) and IronPython (.NET).
-
-See https://github.com/robotframework/QuickStartGuide/blob/master/QuickStart.rst
-
-0. Install the Robot Framework core:
-
-   <pre>
-   pip install robotframework
-   </pre>
-
-   The response:
-
-   <pre>
-Collecting robotframework
-  Downloading robotframework-3.0.tar.gz (430kB)
-    100% |████████████████████████████████| 440kB 399kB/s 
-Building wheels for collected packages: robotframework
-  Running setup.py bdist_wheel for robotframework ... done
-  Stored in directory: /Users/mac/Library/Caches/pip/wheels/9e/61/ee/b4bb4b9b7824594cc785a577975bec2fce9c54b09bbf39eb3f
-Successfully built robotframework
-Installing collected packages: robotframework
-Successfully installed robotframework-3.0
-   </pre>
-
-0. To test databases and for example REST APIs, also install:
-
-   <pre>
-   pip install robotframework-databaselibrary
-   pip install requests
-   pip install botframework-requests
-   </pre>
-
-0. PROTIP: I don't recommend installing docutils because you can look it up online.
-
-   * <a target="_blank" href="http://robotframework.org/robotframework/#standard-libraries">
-   Click View about Standard Libraries and Built-in Tools</a>
-   <br /><br />
-
-0. To install the demo Robot login script, create a folder to hold the demo repo:
-
-   <pre>
-   cd ~/gits/wilsonmar/pattern-recognition
-   git clone https://github.com/robotframework/QuickStartGuide.git --depth=1
-   cd QuickStartGuide
-   </pre>
-
-0. Position your present working directory to thePROTIP: I don't recommend installing docutils because you can look it up online.
-
-0. Run the demo:
-
-   <pre>
-   robot QuickStart.rst
-   </pre>
-
-   NOTE: The file name extension (ending) .rst is also used by Ansible scripts.
-
-   You will see this if the .rst file is not in the present folder:
-
-   <pre>
-[ ERROR ] Parsing 'QuickStart.rst' failed: Data source does not exist.
-   </pre>
-
-   The expected response is:
-
-   <pre>
-==============================================================================
-QuickStart                                                                    
-==============================================================================
-User can create an account and log in                                 | PASS |
-------------------------------------------------------------------------------
-User cannot log in with bad password                                  | PASS |
-------------------------------------------------------------------------------
-User can change password                                              | PASS |
-------------------------------------------------------------------------------
-Invalid password                                                      | PASS |
-------------------------------------------------------------------------------
-User status is stored in database                                     | PASS |
-------------------------------------------------------------------------------
-QuickStart                                                            | PASS |
-5 critical tests, 5 passed, 0 failed
-5 tests total, 5 passed, 0 failed
-==============================================================================
-Output:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/output.xml
-Log:     /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/log.html
-Report:  /Users/mac/gits/wilsonmar/pattern-recognition/QuickStartGuide/report.html
-   </pre>
-
-
-## Scripting
-
-### Robot QuickStart Login Demo script
-
-
-
-
-Many of the functions are common to other similar programs,
-such as Selenium, HP QTP, etc.
-
-
-RIDE = Robot IDE.
-
-But there are plugins for IntelliJ/PyCharm & Eclipse,
-Atom, Sublime, TextMate, Vim, etc.
-
-See http://sikulix-2014.readthedocs.io/en/latest/scenarios.html#using-robotframework
-
-http://www.slideshare.net/pekkaklarck/robot-framework-introduction
-
-
-
-## Social
-
-<a target="_blank" href="https://twitter.com/robotframework">
-@robotframework</a>
-
-It's maintained by contractor Pekka Klärck 
-<a target="_blank" href="https://twitter.com/pekkaklarck">@pekkaklarck</a>, http://eliga.fi/)
-
-<a target="_blank" href="https://vimeo.com/192649128/">
-See Pekka on Joe's video</a> using
-<a target="_blank" href="http://www.slideshare.net/pekkaklarck/robot-framework-introduction">
-this slidedeck</a>.
-Note it's copyrighted by Nokia Networks (Finland).
-
-https://blog.codecentric.de/en/2016/12/robot-framework-tutorial-2016-working-with-collections/
-
-https://medium.com/@varjoinen/robot-framework-101-fb12d1d6954c#.jejc3hrwl
-
-
-
-## Run scripts
-
-http://sikulix-2014.readthedocs.io/en/latest/faq/010-command-line.html#how-to-run-sikulix-from-command-line
-
-robot some_tests.robot
-OR
-robot test_cases/
 
 
 ## More on IoT #
