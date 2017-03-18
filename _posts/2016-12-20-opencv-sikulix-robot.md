@@ -310,46 +310,67 @@ only in case of problems it might be necessary to visit this folder:
    <img width="300" alt="sikulix-1 1 1-ide-landing-1022x699" src="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png"><br />
    <br />(Click to open in full new screen)</a>
 
+   <a name="TakePicture"></a>
+
+   ### Take a picture
+
+0. Create a small picture where you want Sikuli to click or type.
+
+   This can be done by clicking the "Take screenshot" icon, positioning the mouse to the top-left corner,
+   drag to the lower-right corner, then release the mouse.
+
+   If a dialog disappears with mouse motions, 
+   press the keystroke to take a picture of the screen,
+   then use a photo editing program to cut out an area,
+   and paste the little picture into the IDE.
 
    <a name="SikuliXActions"></a>
 
    ### SikuliX Actions and Methods
 
-0. Type a sample script with comments after \# character:
+0. Open an app:
+
+   <pre>
+   openApp(<em>someApp</em>) # we use an application someApp
+   </pre>
+
+0. Define variables:
+
+   <pre>
+   imageExpected1=3;
+   </pre>
+
+0. Define action:
+
+   <pre>
+   click(SearchImageButton)
+   wait(imageExpected1)
+   type("hello")
+   </pre>
+
+0. Save the file as a ".sikuli" file.
+
+0. Type the verification actions.
+
+0. Save a sample script with comments after \# character:
 
    http://doc.sikuli.org/tutorials/helloworld/helloworld-mac.html
 
    http://doc.sikuli.org/tutorials/helloworld/helloworld-win.html
 
-   <pre>
-   openApp(<em>someApp</em>) # we use an application someApp
-&nbsp;
-   type("hello")
-&nbsp;
-   click(imageButton) # we click some button
-   wait(imageExpected1) # we wait that the app reacts and shows the expected result on the screen
-&nbsp;
-   type(“some text”); type(Key.ENTER) # we fill in some text and press ENTER
-   wait(imageExpected2) # again we wait for some expected reaction or result
-   </pre>
-
-0. Save the file as a ".sikuli" file.
 0. Run the file.
 
-
-JavaDocs of classes are at<br />
-http://nightly.sikuli.de/docs/index.html
 
 
 <a name="SikuliXCommands"></a>
 
 ## SikuliX Commands
 
-Sikulix.app
-
-~/Library/Application Support/Sikulix
-
 SikulixAppData folder
+
+JavaDocs of classes are at<br />
+http://nightly.sikuli.de/docs/index.html
+
 
 
 <a name="Tesseract"></a>
