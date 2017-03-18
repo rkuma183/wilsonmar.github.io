@@ -17,7 +17,13 @@ comments: true
 
 {% include _toc.html %}
 
-I wrote this page to organize my thinking around a 
+<img width="384" alt="opencv selenium 384x274" src="https://cloud.githubusercontent.com/assets/300046/24070981/f1ea81e2-0b9d-11e7-87f4-12e19c340d77.png" align="right">
+
+OpenCV is a fundamental utility used by many Aritificial Intelligence packages.
+
+SikuliX makes use of it.
+
+This contains notes toward a 
 one-click command that installs all the pre-requisites and
 ends up showing reports for a sample set of scripts
 against a sample app.
