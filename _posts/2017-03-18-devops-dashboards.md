@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Hygieia DevOps Dashboard"
+title: "DevOps Dashboards"
 excerpt: "All the stats that fits on a dashboard"
 tags: [Clouds, IoT, Metrics]
-shorturl: "https://goo.gl/tkGA1u"
+shorturl: "https://goo.gl/rmZ9PX"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
@@ -23,16 +23,25 @@ daughter of the Greek god of medicine and personification of hygiene and prevent
 The name is adopted for an open-source software project created at CapitalOne (the credit card company) 
 which displays in a single <strong>dashboard</strong> the various statistics of a software delivery pipeline.
 
-## Websites
+## Demos and videos
 
 <a target="_blank" href="https://www.youtube.com/watch?v=WuPQOBMmzSE">
 https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Iq8M3llEp0k">
+https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
+
+https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
+
+## Info
 
 <a target="_blank" href="https://developer.capitalone.com/opensource-projects/hygieia/">
 https://developer.capitalone.com/opensource-projects/hygieia</a>
 
 <a target="_blank" href="https://github.com/capitalone/Hygieia/">
 https://github.com/capitalone/Hygieia</a>
+
+https://gitter.im/capitalone/Hygieia/
 
 
 
@@ -43,10 +52,10 @@ https://github.com/capitalone/Hygieia</a>
 At the team level:
 
    * Features (work items)
-   * Code commits per day
-   * Builds 
-   * Quality of code from scans for compliance to rules for security and other aspects of coverage
-   * Deployments to servers
+   * Code commits per day -- from GitLab
+   * Quality of code from scans for compliance to rules for security and other aspects of coverage -- from SonarQube
+   * Builds -- from Jenkins
+   * Deployments to servers -- from Jenkins
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg">
 <img width="400" alt="hygiea-screenshot-2848x1666" src="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg"><br />(Click for pop-up full image)</a>

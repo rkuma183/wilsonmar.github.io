@@ -3,6 +3,7 @@ layout: post
 title: "Dynatrace"
 excerpt: "He sees you when you're sleeping. He knows when you're awake ..."
 tags: [Clouds, Monitoring, Analytics]
+shorturl: "https://goo.gl/wer9DB"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dDynatracebf6.jpg
@@ -113,6 +114,19 @@ during development.
 0. LinkedIn?
 0. Twitter?
 0. Pinterest?
+
+
+0. Look through their GitHub source repositories:
+
+   <a target="_blank" href="https://github.com/dynatrace-innovationlab/">
+   https://github.com/dynatrace-innovationlab</a>
+
+   <a target="_blank" href="https://github.com/Dynatrace/Dynatrace-Docker">
+   https://github.com/Dynatrace/Dynatrace-Docker</a>
+
+   <a target="_blank" href="https://github.com/grabnerandi/">
+   https://github.com/grabnerandi</a>
+
 
 0. Certification?
 
