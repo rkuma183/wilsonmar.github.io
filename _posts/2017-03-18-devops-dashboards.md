@@ -31,6 +31,13 @@ https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
 <a target="_blank" href="https://www.youtube.com/watch?v=Iq8M3llEp0k">
 https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
 
+<a target="_blank" href="https://www.youtube.com/watch?v=WZ3S1xOn8Wg">
+https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
+
+<a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
+DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
+IT Revolution</a>
+
 https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
 
 ## Info
@@ -44,10 +51,9 @@ https://github.com/capitalone/Hygieia</a>
 https://gitter.im/capitalone/Hygieia/
 
 
-
 <a name="TeamDashboard"></a>
 
-## Team Dashboard
+## Team Dashboard Widget View
 
 At the team level:
 
@@ -55,18 +61,18 @@ At the team level:
    * Code commits per day -- from GitLab
    * Quality of code from scans for compliance to rules for security and other aspects of coverage -- from SonarQube
    * Builds -- from Jenkins
+   * Unit/Functional tests 
    * Deployments to servers -- from Jenkins
+   * Server status
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg">
 <img width="400" alt="hygiea-screenshot-2848x1666" src="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg"><br />(Click for pop-up full image)</a>
 
 
 
-## Program-level Dashboard
+## Program-level Pipeline Dashboard
 
-At the program level:
-
-   commit -> build -> DEV -> QA -> INT -> PERF -> PROD
+   commit > build > DEV > QA > INT > PERF > PROD
 
 ![hygieia-pgm-shift-left-600x219](https://cloud.githubusercontent.com/assets/300046/24074674/af146176-0be3-11e7-9eac-358a0a657ba7.png)
 <a target="_blank" href="https://www.dynatrace.com/blog/scaling-continuous-delivery-shift-left-performance-to-improve-lead-time-pipeline-flow/">*</a>
