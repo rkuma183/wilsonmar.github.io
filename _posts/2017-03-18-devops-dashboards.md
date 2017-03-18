@@ -60,6 +60,15 @@ At the program level:
    commit -> build -> DEV -> QA -> INT -> PERF -> PROD
 
 ![hygieia-pgm-shift-left-600x219](https://cloud.githubusercontent.com/assets/300046/24074674/af146176-0be3-11e7-9eac-358a0a657ba7.png)
+<a target="_blank" href="https://www.dynatrace.com/blog/scaling-continuous-delivery-shift-left-performance-to-improve-lead-time-pipeline-flow/">*</a>
+
+PROTIP: Symptoms of health should also include:
+
+   * <strong>Cycle time</strong> from idea to production
+
+   * Man-Months of backlog in innovations and defect fix effort
+
+   * Man-Months of "Technical Debt"
 
 
 ## Trends over time 
@@ -79,23 +88,22 @@ For example, an insistance on "100% all the time" can lead staff to prioritize c
 over <strong>innovation</strong>.
 
 
+
 ## Executives
 
-There is another level of metrics for <strong>executives and business managers</strong>.
-Their main concern are financial metrics that matter:
+<strong>Executives and business managers</strong>
+typically focus on <strong>financials</strong> :
 
    * Total cost per transaction ratio
    * Total cost as percent of revenue
+   * Total revenue per employee
 
-They want to see <strong>trends</strong> over time from the viewpoint of the organization's <strong>customers</strong> (not just internal processes):
+They favor <strong>trends</strong> over time that reflect <strong>customer experience</strong>:
+(not just internal processes)
 
    * Availability of the system 
    * Productivity of end-users using the system being developed, such as<br />
    purchases, invoices, or other business transactions processed during a <strong>peak hour</strong>.
-
-   * <strong>Cycle time</strong> from idea to production
-   * Months of backlog in innovations and defect fix effort
-   * "Technical Debt"
 
    * Customer Net Promoter Score
    * Employee satisfaction

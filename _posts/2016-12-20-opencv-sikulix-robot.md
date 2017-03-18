@@ -227,12 +227,24 @@ Exception in thread "main" java.lang.NullPointerException
   at org.sikuli.setup.RunSetup.main(RunSetup.java:845)
    <pre>
 
-<hr />
+   PROTIP: We are forced to use nightly builds.
+
+0. Delete the installer folder.
 
 
 <a name="Install-1.1.1"></a>
 
 ### Install-1.1.1 Dev build
+
+0. Create a version-specific installer folder:
+
+   On a Mac:
+
+   <pre>
+   cd ~
+   mkdir sikulix-1.1.1-install
+   cd ~/sikulix-1.1.1-install
+   </pre>
 
 0. Download from http://nightly.sikuli.de/ righ-click and select <strong>Save link As ...</strong>
    the link that says:
@@ -243,15 +255,14 @@ Exception in thread "main" java.lang.NullPointerException
 
    https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetup/1.1.1-SNAPSHOT/sikulixsetup-1.1.1-20170316.001623-90-forsetup.jar
 
-0. Check boxes as described above.
-
-   The result:
-
-   ![sikulix-hello-working-269x156](https://cloud.githubusercontent.com/assets/300046/24073389/6c5a55ae-0bcd-11e7-8c16-133bb056477a.png)
-
 0. Run the file:
 
    java -jar sikulixsetup-1.1.0.jar
+
+0. Check boxes as described above and install.
+   The result:
+
+   ![sikulix-hello-working-269x156](https://cloud.githubusercontent.com/assets/300046/24073389/6c5a55ae-0bcd-11e7-8c16-133bb056477a.png)
 
 0. Click "OK" to the "Hallo" pop-up.
 
@@ -299,7 +310,7 @@ only in case of problems it might be necessary to visit this folder:
    cd ~/sikulix-scripts
    </pre>
 
-   Scripts have the file extension ".sikuli".
+   The SikuliX IDE saves scripts with the file extension ".sikuli".
 
 
    <a name="SikulixIDE"></a>
@@ -332,11 +343,15 @@ only in case of problems it might be necessary to visit this folder:
 
    ### SikuliX Actions and Methods
 
-0. Open an app:
+0. <a target="_blank" href="http://doc.sikuli.org/globals.html#App">Open an app</a>:
 
    <pre>
-   openApp(<em>someApp</em>) # we use an application someApp
+PathFirefox = r"C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+App.open(PathFirefox)
    </pre>
+
+   PROTIP: Instead of the hassle of using double slashes to specify special characters,
+   put an 4 in front of calls to take the backslash and quotes as part of the word/sentence.
 
 0. Define variables:
 
@@ -352,7 +367,9 @@ only in case of problems it might be necessary to visit this folder:
    type("hello")
    </pre>
 
-0. Save the file as a ".sikuli" file.
+0. Press Ctrl+S to save the file as a ".sikuli" file.
+
+   PROTIP: A keyboard press is quicker than moving the mouse.
 
 0. Type the verification actions.
 
