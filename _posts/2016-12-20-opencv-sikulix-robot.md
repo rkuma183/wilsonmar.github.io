@@ -306,6 +306,10 @@ only in case of problems it might be necessary to visit this folder:
 
 0. Invoke the SikuliX IDE app in Applications folder.
 
+   ![sikulix starting popup 198x154](https://cloud.githubusercontent.com/assets/300046/24074982/a021e3cc-0be9-11e7-84cc-c0d2b8a95bc7.png)
+
+   then...
+
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png">
    <img width="300" alt="sikulix-1 1 1-ide-landing-1022x699" src="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png"><br />
    <br />(Click to open in full new screen)</a>
