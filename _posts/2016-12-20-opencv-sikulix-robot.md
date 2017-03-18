@@ -17,11 +17,18 @@ comments: true
 
 {% include _toc.html %}
 
-<img width="192" alt="opencv selenium 384x274" src="https://cloud.githubusercontent.com/assets/300046/24070981/f1ea81e2-0b9d-11e7-87f4-12e19c340d77.png" align="right">
+<img width="192" alt="opencv-sikulix-v01-192x133.png" src="https://cloud.githubusercontent.com/assets/300046/24071304/2de19d0a-0ba5-11e7-9cdc-c7903b2b3bcf.png" align="right">
+
 
 OpenCV is a fundamental utility used by many Aritificial Intelligence packages.
 
-SikuliX makes use of it.
+Tesseract uses OpenCV for OCR (Optical Character Recognition).
+Originally from HP, theRaySmith at Google <a target="_blank" href="https://github.com/tesseract-ocr/docs/blob/master/das_tutorial2016/1Intro-history.pdf">says in 2016 includes LSTM</a>
+(machine learning with convolutional and deep belief networks).
+
+SikuliX makes use of both.
+
+Selenium and the Robot framework makes use of the above to manipulate keyboards and mice according to what is seen by the above.
 
 This contains notes toward a 
 one-click command that installs all the pre-requisites and
@@ -29,7 +36,7 @@ ends up showing reports for a sample set of scripts
 against a sample app.
 
    <pre><strong>
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/pattern-recognition/master/mac-bootstrap.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/pattern-recognition/master/mac-bootstrap.sh)"
    </strong></pre>
 
 WARNING: This is under construction - there are repetitive homebrew updates that should be removed
@@ -198,8 +205,15 @@ Exception in thread "main" java.lang.NullPointerException
 QUESTION: How to verify a good install and use the program?
 
 
+## Tesseract-eng
 
-### Robot Framework Install
+* https://github.com/gulakov/tesseract-ocr-sample
+* http://blog.ayoungprogrammer.com/2012/11/tutorial-installing-tesseract-ocr-30202.html/
+
+## Selenium
+
+
+## Robot Framework Install
 
 Instead of coding programming code, it's faster to write 
 keyword-driven syntax driven by text data files.
