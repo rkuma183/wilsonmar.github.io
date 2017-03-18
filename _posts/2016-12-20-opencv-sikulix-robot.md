@@ -131,27 +131,44 @@ and
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">
    <img width="650" alt="sikulix 1 1 mac setup1 1974x1028.png" src="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">(Click to open in full new screen)</a>
 
-0. Click Yes to
+0. Click Setup Now for:
 
-   sikulix-setup-ui-2.png
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067322/47f0e9b6-0b51-11e7-9ab2-6f460f1d771e.png">
+   <img width="488" alt="sikulix-1-1-setup2 976x816" src="https://cloud.githubusercontent.com/assets/300046/24067322/47f0e9b6-0b51-11e7-9ab2-6f460f1d771e.png">(Click to open in full new screen)</a>
+
+0. Click <strong>Yes</strong> for:
+
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067348/a847fdae-0b51-11e7-80b3-c53a12041db5.png">
+   <img width="650" alt="sikulix-1 1-setup3 1424x294" src="https://cloud.githubusercontent.com/assets/300046/24067348/a847fdae-0b51-11e7-80b3-c53a12041db5.png">(Click to open in full new screen)</a>
 
 0. Click <strong>No</strong> to pop-ups about 
    Mac native libs (jar's) previously installed into
    /Users/___/Library/Application Support/Sikulix/SikulixDownload_201610061722/...
 
-   sikulix-setup-ui-3.png
-
 0. Click No to get Jython 2.5 due to 2.7 UTF-8 warning:
 
-   sikulix-setup-ui-4-python.png
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png">
+   <img width="428" alt="sikulix-1 1 jython 856x368" src="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png">(Click to open in full new screen)</a>
 
-0. If you get this:
+
+0. BLAH: This error in the console stopped me from going further
+
+   <pre>
+[debug (3/17/17 8:42:40 PM)] RunSetup: Copied from Downloads: Jython
+[debug (3/17/17 8:42:43 PM)] RunSetup: downloaded: tessdata-eng
+Exception in thread "main" java.lang.NullPointerException
+  at org.sikuli.setup.RunSetup.main(RunSetup.java:845)
+   </pre>
+
+   Had it before:
 
    <pre>
 [debug (12/20/16 8:05:24 AM)] RunSetup: downloaded: tessdata-eng
 Exception in thread "main" java.lang.NullPointerException
   at org.sikuli.setup.RunSetup.main(RunSetup.java:845)
    <pre>
+
+<hr />
 
 0. Click "OK" to the "Hallo" pop-up.
 
