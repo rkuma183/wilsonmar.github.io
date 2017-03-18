@@ -128,7 +128,8 @@ and
    in the UI pop-up, then<br />
    <strong>Setup Now</strong>.
 
-   sikulix-setup-ui-1.png
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">
+   <img width="650" alt="sikulix 1 1 mac setup1 1974x1028.png" src="https://cloud.githubusercontent.com/assets/300046/24067208/edab8cc8-0b4f-11e7-9e3a-7e885ba69612.png">(Click to open in full new screen)</a>
 
 0. Click Yes to
 
