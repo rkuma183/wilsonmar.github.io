@@ -300,7 +300,8 @@ only in case of problems it might be necessary to visit this folder:
 
    <a name="SikulixScripting"></a>
 
-0. Create a Git folder to hold scripts.
+0. Create a Git folder to hold scripts. In real life, you should create a folder containing the
+   name of the app under test.
 
    On a Mac:
 
@@ -310,12 +311,12 @@ only in case of problems it might be necessary to visit this folder:
    cd ~/sikulix-scripts
    </pre>
 
-   The SikuliX IDE saves scripts with the file extension ".sikuli".
+   Into this folder the SikuliX IDE saves scripts with the file extension ".sikuli".
 
 
    <a name="SikulixIDE"></a>
 
-0. Invoke the SikuliX IDE app in Applications folder.
+0. Open the SikuliX IDE app from the Applications folder.
 
    ![sikulix starting popup 198x154](https://cloud.githubusercontent.com/assets/300046/24074982/a021e3cc-0be9-11e7-84cc-c0d2b8a95bc7.png)
 
@@ -334,7 +335,9 @@ only in case of problems it might be necessary to visit this folder:
    This can be done by clicking the "Take screenshot" icon, positioning the mouse to the top-left corner,
    drag to the lower-right corner, then release the mouse.
 
-   If a dialog disappears with mouse motions, 
+   Or press a hot-key (Command + Shift + 2). 
+
+   QUESTION: If a dialog disappears with mouse motions, 
    press the keystroke to take a picture of the screen,
    then use a photo editing program to cut out an area,
    and paste the little picture into the IDE.
@@ -381,16 +384,34 @@ App.open(PathFirefox)
 
 0. Run the file.
 
+   ### More actions
+
+<a target="_blank" href="http://doc.sikuli.org/genindex.html">
+http://doc.sikuli.org/genindex.html</a> is an alphabetical index of all methods and command options.
+
+JavaDocs of classes are at<br />
+http://nightly.sikuli.de/docs/index.html
+
 
 
 <a name="SikuliXCommands"></a>
 
 ## SikuliX Commands
 
-SikulixAppData folder
+SikuliX can be called from a Terminal/Run command line by batch scripts.
 
-JavaDocs of classes are at<br />
-http://nightly.sikuli.de/docs/index.html
+SikuliX recognize both one-character flags and longer options 
+
+   sikulix --args -i
+
+   -t or --test <em>sikuli-file</em>
+
+   -r or --run <em>sikuli-file</em>
+
+   -s or --stderr
+
+
+SikulixAppData folder
 
 
 

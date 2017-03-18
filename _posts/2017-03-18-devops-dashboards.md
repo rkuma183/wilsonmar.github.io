@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DevOps Dashboards"
+title: "DevOps Dashboards with Hygieia"
 excerpt: "All the stats that fits on a dashboard"
 tags: [Clouds, IoT, Metrics]
 shorturl: "https://goo.gl/rmZ9PX"
@@ -28,6 +28,9 @@ which displays in a single <strong>dashboard</strong> the various statistics of 
 <a target="_blank" href="https://www.youtube.com/watch?v=WuPQOBMmzSE">
 https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
 
+<a target="_blank" href="https://www.youtube.com/watch?v=SoNTA78j0tc">
+Introducing Hygieia</a> [4:53] Jul 17, 2015 on CapitalOne's GitHub
+
 <a target="_blank" href="https://www.youtube.com/watch?v=Iq8M3llEp0k">
 https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
 
@@ -36,7 +39,7 @@ https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
 
 <a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
 DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
-IT Revolution</a>
+IT Revolution</a> by Topol Pal, Director, Engineering Fellow, Capital One.
 
 https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
 
@@ -45,9 +48,6 @@ https://www.spreaker.com/user/pureperformance/012-automating-performance-into-th
 <a target="_blank" href="https://developer.capitalone.com/opensource-projects/hygieia/">
 https://developer.capitalone.com/opensource-projects/hygieia</a>
 
-<a target="_blank" href="https://github.com/capitalone/Hygieia/">
-https://github.com/capitalone/Hygieia</a>
-
 https://gitter.im/capitalone/Hygieia/
 
 
@@ -55,19 +55,23 @@ https://gitter.im/capitalone/Hygieia/
 
 ## Team Dashboard Widget View
 
-At the team level:
-
-   * Features (work items)
-   * Code commits per day -- from GitLab
-   * Quality of code from scans for compliance to rules for security and other aspects of coverage -- from SonarQube
-   * Builds -- from Jenkins
-   * Unit/Functional tests 
-   * Deployments to servers -- from Jenkins
-   * Server status
-
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg">
 <img width="400" alt="hygiea-screenshot-2848x1666" src="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg"><br />(Click for pop-up full image)</a>
 
+   * Features and items in progress
+
+   * Code repo (commits per day) -- from GitLab
+
+   * Builds from Jenkins
+
+   * Quality of code from scans for compliance to rules for security and other aspects of coverage -- from SonarQube
+
+   * Unit/Functional tests 
+
+   * Deployments to servers -- from Jenkins<br />
+   with server status
+
+PROTIP: Have computer programs monitor servers and take automatic actions.
 
 
 ## Program-level Pipeline Dashboard
@@ -92,8 +96,12 @@ Displays of <strong>trends</strong> over time are important to keep numbers in p
 both to keep from over reacting to momentary anomalies and 
 from under-reacting to underlying patterns that need to be fixed.
 
-So it's better to have a set of rotating dashboards about trends than
-having just a number on a dashboard <strong>without context</strong> of whether that number is "good" or "bad".
+PROTIP: So it's better to have a set of <strong>rotating dashboards</strong> 
+(showing trends) than having just a number on a dashboard <strong>without context</strong> 
+to whether that number is "good" or "bad".
+
+PROTIP: Have a <strong>projection</strong> of what was expected at each point in time,
+especially in the future.
 
 Having an arbitrary <strong>target number can be counter-productive</strong> unless 
 individual employees have a coherent
@@ -104,7 +112,8 @@ over <strong>innovation</strong>.
 
 
 
-## Executives
+
+## For Executives
 
 <strong>Executives and business managers</strong>
 typically focus on <strong>financials</strong> :
@@ -123,4 +132,28 @@ They favor <strong>trends</strong> over time that reflect <strong>customer exper
    * Customer Net Promoter Score
    * Employee satisfaction
    * Employee turnover rate
+
+
+## Architecture
+
+Hygieia was written to store data in a MongoDB database.
+
+The Hygieia server exposes REST APIs.
+
+
+## Install server
+
+0. Fork <a target="_blank" href="https://github.com/capitalone/Hygieia/">
+https://github.com/capitalone/Hygieia</a>
+   to your own account.
+
+0. Create a container folder to hold several related repositories.
+
+   git clone https://github.com/ <em>My GitHub Acct</em> /Hygieia
+
+0. Download via maven using pom.xml file:
+
+   mvn clean install package
+
+   PROTIP: If you enjoy reading the deluge to the console, expand the Terminal width to avoid wrapping.
 
