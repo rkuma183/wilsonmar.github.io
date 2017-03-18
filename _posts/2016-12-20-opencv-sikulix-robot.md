@@ -22,17 +22,23 @@ comments: true
 
 Going from the innnards up:
 
-OpenCV (Open Computer Vision) is a fundamental utility used by many Artificial Intelligence packages
+<a target="_blank" href="https://www.wikiwand.com/en/OpenCV">
+OpenCV (Open Computer Vision)</a> is a utility used by many Artificial Intelligence packages
 such as self-driving cars to understand images.
 It is used to take pictures, recognize objects in the pictures, and the coordinates of objects
 it recognizes in pictures.
 
-<a href="#Tesseract">Tesseract</a> provides OCR (Optical Character Recognition)
-to extract text from pictures.
+SikuliX uses OpenCV to find the location of a picture provided to OpenCV.
+SikuliX uses the location returned from OpenCV to mouse click on the screen,
+or type as if a user is using a physical keyboard.
 
-SikuliX provides a <a href="#SikuliXCommands">set of commands</a> to be called 
-by Python, Ruby, or JavaScript invoked by the Java scripting enginge
-Selenium and Robot to manipulate keyboards and mice based on what is seen by the above.
+SikuliX does that and <a href="#SikuliXMethods">other methods</a> 
+based on a script in its own IDE or in response to an API called by
+a JavaScript scripting engine managed by Java, as organized by Selenium.
+Alternately, calls from Python code organized within the Robot Framework.
+
+Optionally, <a href="#Tesseract">Tesseract</a> provides OCR (Optical Character Recognition)
+to extract text from pictures.
 
 All this to make you more "productive" at playing games. ;)
 
@@ -73,7 +79,8 @@ https://launchpad.net/sikuli
 
 * 1.1.0 final (available 2015-10-07)
 
-* SikuliX-2014 (version 1.1.x)
+* SikuliX-2014 (version 1.1.x) from<br />
+   http://nightly.sikuli.de/
 
 * SikuliX2 in 2017 at
    https://github.com/RaiMan/SikuliX2
@@ -106,6 +113,8 @@ WARNING: This is under construction - there are repetitive homebrew updates that
 
 This is similar to <a target="_blank" href="https://github.com/wilsonmar/Basic-Selenium-Java">Selenium Setup</a>.
 
+These use files designated as "off-line setup" in web pages.
+
 
 ### Manual install
 
@@ -121,13 +130,20 @@ The steps to make it work:
 Instructions below are based on run on Mac 10.12 (Sierra)
 referencing http://sikulix.com/quickstart/
 
+
+<a name="Install-1.1.0"></a>
+
+### Install-1.1.0
+
 0. If this is your first time:<br />
-   create a folder to hold Sikulix bits.
+   create a folder to hold the SikuliX installer:
+
+   On a Mac:
 
    <pre>
    cd ~
-   mkdir sikulix
-   cd ~/sikulix
+   mkdir sikulix-1.1.0-install
+   cd ~/sikulix-1.1.0-install
    </pre>
 
    (Capitalization is distracting)
@@ -135,11 +151,19 @@ referencing http://sikulix.com/quickstart/
    Otherwise, begin anew by removing the folder loaded by the installer:
 
    <pre><strong>
-   rm -rf "~/Library/Application Support/Sikulix"
+   cd ~/Library
+   cd "Application Support"
+   rm -rf /Sikulix 
+   cd ..
    </strong><pre>
 
-   This is the folder containing the <strong>Sikulix.app</strong>
+   The installer creates <a href="#FoldersCreated">folders</a> 
+   to contain the <strong>Sikulix.app</strong>
    for use on Macs.
+
+   On Windows: in the folder Sikulix in the folder pointed to by the environment variable %APPDATA%
+
+   On Linux: in ~/.Sikulix
 
 0. As noted in <a target="_blank" href="https://launchpad.net/sikuli/sikulix/1.1.0">this page</a>,
    download the last stable version at <a target="_blank" href="https://launchpad.net/sikuli/+download">https://launchpad.net/sikuli/sikulix/1.1.0/+download/sikulixsetup-1.1.0.jar</a>
@@ -158,7 +182,9 @@ referencing http://sikulix.com/quickstart/
 
 0. Expand the installer:
 
-   <pre>java -jar sikulixsetup-1.1.0.jar</pre>
+   <pre><strong>
+   java -jar sikulixsetup-1.1.0.jar
+   </strong></pre>
 
    This creates file:<br />
    SikuliX-1.1.1-SetupLog. (which reflects what goes to the Terminal)
@@ -187,11 +213,11 @@ referencing http://sikulix.com/quickstart/
    Mac native libs (jar's) previously installed into
    /Users/___/Library/Application Support/Sikulix/SikulixDownload_201610061722/...
 
-0. Click No to get Jython 2.5 due to 2.7 UTF-8 warning:
+0. Click Yes to download a stand-alone version of Python
+   (No to get Jython 2.5 due to 2.7 UTF-8 warning):
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png">
    <img width="428" alt="sikulix-1 1 jython 856x368" src="https://cloud.githubusercontent.com/assets/300046/24067373/0acbcf64-0b52-11e7-9140-4b775cd39883.png"><br />(Click to open in full new screen)</a>
-
 
 0. BLAH: This error in the console stopped me from going further
 
@@ -203,6 +229,30 @@ Exception in thread "main" java.lang.NullPointerException
 
 <hr />
 
+
+<a name="Install-1.1.1"></a>
+
+### Install-1.1.1 Dev build
+
+0. Download from http://nightly.sikuli.de/ righ-click and select <strong>Save link As ...</strong>
+   the link that says:
+
+   sikulixsetup....jar
+
+   At the time of writing, the URL is:
+
+   https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetup/1.1.1-SNAPSHOT/sikulixsetup-1.1.1-20170316.001623-90-forsetup.jar
+
+0. Check boxes as described above.
+
+   The result:
+
+   ![sikulix-hello-working-269x156](https://cloud.githubusercontent.com/assets/300046/24073389/6c5a55ae-0bcd-11e7-8c16-133bb056477a.png)
+
+0. Run the file:
+
+   java -jar sikulixsetup-1.1.0.jar
+
 0. Click "OK" to the "Hallo" pop-up.
 
    Note different files are downloaded for Windows vs. Mac:
@@ -213,16 +263,82 @@ Exception in thread "main" java.lang.NullPointerException
    * sikulixapi.jar
    <br /><br />
 
-0. In Finder, move 
+0. In Finder, move sikulix.app
    to your user's Applications folder.
 
-0. Move to Trash the installer file
+0. Still in Finder, Move to Trash the installer file
    sikulixsetup-1.1.0.jar
+
+
+<a name="FoldersCreated"></a> 
+
+## After Install
 
 QUESTION: How to verify a good install and use the program?
 
+only in case of problems it might be necessary to visit this folder:
 
-<hr />
+- Extensions folder
+- Lib folder contains the supporting stuff for Jython and JRuby
+- SikulixDownloads
+- SikulixDownloads_<em>versionstamp</em> contains 
+- SikulixLibs_<em>versionstamp</em> contains native libraries 
+- SikulixStore
+- SikulixTesseract
+
+
+   <a name="SikulixScripting"></a>
+
+0. Create a Git folder to hold scripts.
+
+   On a Mac:
+
+   <pre>
+   cd ~
+   mkdir sikulix-scripts
+   cd ~/sikulix-scripts
+   </pre>
+
+   Scripts have the file extension ".sikuli".
+
+
+   <a name="SikulixIDE"></a>
+
+0. Invoke the SikuliX IDE app in Applications folder.
+
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png">
+   <img width="300" alt="sikulix-1 1 1-ide-landing-1022x699" src="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png"><br />
+   <br />(Click to open in full new screen)</a>
+
+
+   <a name="SikuliXActions"></a>
+
+   ### SikuliX Actions and Methods
+
+0. Type a sample script with comments after \# character:
+
+   http://doc.sikuli.org/tutorials/helloworld/helloworld-mac.html
+
+   http://doc.sikuli.org/tutorials/helloworld/helloworld-win.html
+
+   <pre>
+   openApp(<em>someApp</em>) # we use an application someApp
+&nbsp;
+   type("hello")
+&nbsp;
+   click(imageButton) # we click some button
+   wait(imageExpected1) # we wait that the app reacts and shows the expected result on the screen
+&nbsp;
+   type(“some text”); type(Key.ENTER) # we fill in some text and press ENTER
+   wait(imageExpected2) # again we wait for some expected reaction or result
+   </pre>
+
+0. Save the file as a ".sikuli" file.
+0. Run the file.
+
+
+JavaDocs of classes are at<br />
+http://nightly.sikuli.de/docs/index.html
 
 
 <a name="SikuliXCommands"></a>
@@ -234,23 +350,6 @@ Sikulix.app
 ~/Library/Application Support/Sikulix
 
 SikulixAppData folder
-
-
-## SikuliX Methods 
-
-So again taking the above workflow, now using SikuliX commands:
-
-   * openApp(someApp) # we use an application someApp
-
-   * click(imageButton) # we click some button
-   * wait(imageExpected1) # we wait that the app reacts and shows the expected result on the screen
-
-   * type(“some text”); type(Key.ENTER) # we fill in some text and press ENTER
-   * wait(imageExpected2) # again we wait for some expected reaction or result
-
-JavaDocs of classes are at<br />
-http://nightly.sikuli.de/docs/index.html
-
 
 
 <a name="Tesseract"></a>
