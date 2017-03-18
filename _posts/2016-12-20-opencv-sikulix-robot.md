@@ -17,7 +17,7 @@ comments: true
 
 {% include _toc.html %}
 
-<img width="384" alt="opencv selenium 384x274" src="https://cloud.githubusercontent.com/assets/300046/24070981/f1ea81e2-0b9d-11e7-87f4-12e19c340d77.png" align="right">
+<img width="192" alt="opencv selenium 384x274" src="https://cloud.githubusercontent.com/assets/300046/24070981/f1ea81e2-0b9d-11e7-87f4-12e19c340d77.png" align="right">
 
 OpenCV is a fundamental utility used by many Aritificial Intelligence packages.
 
