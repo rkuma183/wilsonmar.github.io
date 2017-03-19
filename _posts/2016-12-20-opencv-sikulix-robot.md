@@ -20,7 +20,7 @@ comments: true
 <img width="192" alt="opencv-sikulix-v01-192x133.png" src="https://cloud.githubusercontent.com/assets/300046/24071304/2de19d0a-0ba5-11e7-9cdc-c7903b2b3bcf.png" align="right">
 
 
-Going from the innnards up:
+This is a deep dive from the innnards up:
 
 <a target="_blank" href="https://www.wikiwand.com/en/OpenCV">
 OpenCV (Open Computer Vision)</a> is a utility used by many Artificial Intelligence packages
@@ -59,31 +59,36 @@ This uses a different, more generalized, approach than packages such as HP UFT w
 finding identifiers in the DOM (Document Object Model) behind each internet browser web page.
 
 
-## Websites and versions
+## Websites 
 
 <a target="_blank" href="http://sikulix.com">
-http://sikulix.com</a> is the new web page formerly at<br />
+http://sikulix.com</a> is the new web page.
 
 (Ignore abandoned sites:<br />
 http://sikulix.weebly.com/quickstart.html and <br />
-https://sikulix.wordpress.com/ 
+https://sikulix.wordpress.com)
 
 <a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/">
 http://sikulix-2014.readthedocs.io/en/latest/<br />
 has the most detail, which are repeated several places:
 
 Installer bits are obtained from Ubuntu <br />
-https://launchpad.net/sikuli
+<a target="_blank" href="https://launchpad.net/sikuli">
+https://launchpad.net/sikuli</a>
+
+
+## Versions
 
 There are three versions:
 
 * 1.1.0 final (available since 2015-10-07)
 
+   I've had installation errors with this version on my Mac.
+
    There is an entry on 2015-10-07 in Maven Central:<br />
    <a target="_blank" href="http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix">
-   http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix</a>
-
-   I've had installation errors with this version on my Mac.
+   http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix</a><br />
+   but I haven't tried to install it.
 
 * SikuliX-2014 (version 1.1.x) from<br />
    <a target="_blank" href="http://nightly.sikuli.de/">
@@ -113,26 +118,7 @@ Gitter channel</a>.
 
 <a name="SikuliXInstall"></a> 
 
-## Install on Mac
-
-This contains notes toward a 
-one-click command that installs all the pre-requisites and
-ends up showing reports for a sample set of scripts
-against a sample app.
-
-   <pre><strong>
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/pattern-recognition/master/mac-bootstrap.sh)"
-   </strong></pre>
-
-WARNING: This is under construction - there are repetitive homebrew updates that should be removed
-(thanks to Shawn Wilson noticing)
-
-This is similar to <a target="_blank" href="https://github.com/wilsonmar/Basic-Selenium-Java">Selenium Setup</a>.
-
-These use files designated as "off-line setup" in web pages.
-
-
-### Manual install
+## Manual install
 
 The steps to make it work:
 
