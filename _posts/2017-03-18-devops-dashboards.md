@@ -105,6 +105,8 @@ PROTIP: Symptoms of health should also include:
 
    * Man-Months of "Technical Debt"
 
+   * Percent of work <strong>unplanned</strong>.
+
 
 ## Trends over time 
 
@@ -173,9 +175,26 @@ https://github.com/capitalone/Hygieia</a>
 
    At the time of writing, this took up 114.2 MB of disk space.
 
-0. Download via maven using pom.xml file:
+0. Download and build via maven using pom.xml file:
 
-   mvn clean install package
+   <pre><strong>mvn clean install package</strong></pre>
 
    PROTIP: If you enjoy reading the deluge to the console, expand the Terminal width to avoid wrapping.
+
+   The response:
+
+   <pre>
+[INFO] Total time: 08:34 min
+[INFO] Finished at: 2017-03-18T21:11:46-04:00
+[INFO] Final Memory: 108M/1581M
+   </pre>
+
+   At the time of writing, after install is 1.23 GB of disk space.
+
+0. Install MongoDB for the API data store
+0. Run collectors with properties to connect to CI tools
+0. Seteup Dashboard widgets & Visualize
+
+   QUESTION: Can only have one dashboard?
+
 

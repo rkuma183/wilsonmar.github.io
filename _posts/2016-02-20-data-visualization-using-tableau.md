@@ -49,6 +49,8 @@ By "traditional" it means:
 Gartner notes "Tableau does not directly compete with other vendors with a strategy for being a broad BI platform offering. Tableau complements fully functional enterprise BI platforms that lack ADV capabilities."
 That is why <a target="_blank" href="http://www.tableau.com/learn/whitepapers/forrester-advanced-data-visualization-platforms"> This Forrester report (although rather dated from 2012)</a> has Tableau behind others on the strategy dimension:
 
+<img width="550" alt="tableau forrester adv 2013" src="https://cloud.githubusercontent.com/assets/300046/12010835/88925420-ac73-11e5-9797-b0d484db016b.png">
+
 The Gartner Magic Quadrant report in Feburary 2017 put Tableau almost neck-to-neck with Microsoft on the "ABILITY TO EXECUTE" scale:
 
 ![bi-gartner-2017](https://cloud.githubusercontent.com/assets/300046/24077172/6fb5e634-0c1b-11e7-9578-a6a794643a86.jpg)
@@ -58,7 +60,7 @@ for Execution even though it downgraded most other vendors on that scale
 while it acknowledged Microsoft's fast rise to be the leader in
 Completeness of Vision:
 
-<img width="550" alt="tableau forrester adv 2013" src="https://cloud.githubusercontent.com/assets/300046/12010835/88925420-ac73-11e5-9797-b0d484db016b.png">
+![fig gartner bi quadrant feb 2016](https://cloud.githubusercontent.com/assets/300046/14320055/e129619e-fbd0-11e5-9a47-1dae7ca66d5e.png)
 
 <a target="_blank" href="http://www.tableau.com/learn/whitepapers/forrester-advanced-data-visualization-platforms"> The Gartner Magic Quadrant report in 2015</a> also put Tableau above other vendors on their "ABILITY TO EXECUTE" scale.
 
@@ -80,7 +82,7 @@ Tableau focuses on presentation rather than both presentation and statistical ca
 
 <a name="VizFeatures"></a>
 
-## Visualization Features
+## 4D Visualization 
 
   Since 2007 at
   http://www.gapminder.org/videos/
@@ -134,6 +136,16 @@ This chart is an example of traits excellent visualization software possess:
  * Personalization - give power users an in-depth view and newbies a simpler view, and also control access to data based on user- and role-based access privileges.
   
  * Actionable alerts  -  thresholds and parameters that trigger messages whether you're interacting with reports or not. 
+
+
+<a name="CycleTime"></a>
+
+## Cycle Time  
+
+<a target="_blank" html="https://cloud.githubusercontent.com/assets/300046/24077227/fc53a15c-0c1c-11e7-9782-9514f69c6a70.png">
+<img width="978" alt="tableau interactive wait times 1956x1372" src="https://cloud.githubusercontent.com/assets/300046/24077227/fc53a15c-0c1c-11e7-9782-9514f69c6a70.png"><br />Click for full pop-up</a>
+
+
 
 
 <a name="Architecture"></a>
