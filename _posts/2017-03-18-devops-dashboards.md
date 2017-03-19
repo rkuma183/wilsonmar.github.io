@@ -37,10 +37,6 @@ https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
 <a target="_blank" href="https://www.youtube.com/watch?v=WZ3S1xOn8Wg">
 https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
 
-<a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
-DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
-IT Revolution</a> by Topol Pal, Director, Engineering Fellow, Capital One.
-
 https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
 
 ## Info
@@ -49,6 +45,26 @@ https://www.spreaker.com/user/pureperformance/012-automating-performance-into-th
 https://developer.capitalone.com/opensource-projects/hygieia</a>
 
 https://gitter.im/capitalone/Hygieia/
+
+<a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
+DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
+IT Revolution</a> by Topol Pal, Director, Engineering Fellow, Capital One.
+mentions these 16 gates in the pipeline (10 Commandments in octal):
+
+0. Source code version control
+0. Optimum branching strategy [Git and GitHub or GitLab, etc.]
+0. Static analysis [SonarQube]
+0. > 80% code coverage
+0. Vulnerability scan
+0. Open source scan [Black Duck]
+0. Artifact version control [Nexus or Artifactory]
+0. Auto provision [Puppet or Chef]
+0. Immutable servers
+0. Integration testing
+0. Performance testing
+0. Build, Deploy, Testing automated for every commit
+0. Automated Change Order
+0. Zero downtime release
 
 
 <a name="TeamDashboard"></a>
