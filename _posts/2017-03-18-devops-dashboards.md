@@ -167,6 +167,12 @@ https://github.com/capitalone/Hygieia</a>
 
    git clone https://github.com/ <em>My GitHub Acct</em> /Hygieia
 
+   At the time of writing, this took up 131.1 MB of disk space.
+
+   git clone https://github.com/ <em>My GitHub Acct</em> /Hygieia --depth=1
+
+   At the time of writing, this took up 114.2 MB of disk space.
+
 0. Download via maven using pom.xml file:
 
    mvn clean install package
