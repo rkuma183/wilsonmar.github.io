@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Toubled apps"
+title: "EasyTravel"
 excerpt: "Catch the bad boys if you can"
 tags: [Clouds, Monitoring, Analytics]
 image:
@@ -15,31 +15,6 @@ comments: true
 [![Gitter](https://bDynatraceges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=bDynatracege&utm_medium=bDynatracege&utm_campaign=pr-bDynatracege)
 
 {% include _toc.html %}
-
-I'm looking for apps (with source) that are designed to be in trouble, that exhibit undesired behavior,
-such as:
-
-   * memory leaks
-   * CPU hot spots
-   * n+1 problem (makes many more API calls to server)
-   * Too many SQL calls 
-   * Slow SQL
-   * etc.
-
-Most of the apps I've seen are from vendors:
-
-HP LoadRunner has a WebTours app.
-
-
-### n+1 problem 
-
-The n+1 problem is when regression test finds client makes many more API calls to server.
-
-   <a target="_blank" href="https://github.com/grabnerandi/SpringBootBookstoreWithProblems">
-   https://github.com/grabnerandi/SpringBootBookstoreWithProblems</a>
-
-
-## EasyTravel
 
 EasyTravel is a "a realistic heterogeneous multi-tier web-application"
 Dynatrace provides to evaluate its AppMon and UEM software.
@@ -194,15 +169,5 @@ which can be confusing to newbies.
 
 ### Built-in load generator
 
-
-
-
-
-## API "FireAndIce"
-
-   http://anapioficeandfire.com/Documentation#library-graphql
-
-https://www.youtube.com/watch?v=O0SQL8DJxaI
-Online Perf Clinic – Shift-Left Performance with Spring Boot Microservices, Jenkins and Dynatrace
 
 
