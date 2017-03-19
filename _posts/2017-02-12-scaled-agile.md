@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Scaled Agile"
-excerpt: "Simple if you are an expert"
-tags: [GitHub]
+excerpt: "You're SAFe with Agile!"
+tags: [Agile]
+shorturl: "https://goo.gl/wSeKzo"
 image:
 # pic green easter island 2 hillside 1920x1080
   feature: https://cloud.githubusercontent.com/assets/300046/15217452/d8d04062-1818-11e6-9a57-215db66655d2.jpg

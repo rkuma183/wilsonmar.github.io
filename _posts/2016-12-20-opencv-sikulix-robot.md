@@ -106,14 +106,13 @@ http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-speci
 
 ## Social
 
-<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
+Gitter channel at<br/>
 https://gitter.im/RaiMan/SikuliX-2014</a>
 
 <a target="_blank" href="https://answers.launchpad.net/sikuli">
 https://answers.launchpad.net/sikuli</a>
 
-<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
-Gitter channel</a>.
 
 
 <a name="SikuliXInstall"></a> 
@@ -123,8 +122,8 @@ Gitter channel</a>.
 The steps to make it work:
 
 0. Install JRE
-0. Install Ruby compiler
-0. Install Robot Framework (which uses Ruby)
+0. Install Python
+0. Install Robot Framework (which uses Python)
 0. Install the IDE you want to use (IntelliJ)
 0. <a href="#SikuliXinstall">Download SikuliX</a> 
 0. Create a Git folder to hold your scripts.
@@ -430,6 +429,10 @@ the library works with multiple directional 3D lines.
 
 * https://github.com/gulakov/tesseract-ocr-sample
 * http://blog.ayoungprogrammer.com/2012/11/tutorial-installing-tesseract-ocr-30202.html/
+
+0. Install using Homebrew
+
+   <pre><strong>brew install tesseract</strong></pre>
 
 
 
