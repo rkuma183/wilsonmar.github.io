@@ -46,26 +46,6 @@ https://developer.capitalone.com/opensource-projects/hygieia</a>
 
 https://gitter.im/capitalone/Hygieia/
 
-<a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
-DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
-IT Revolution</a> by Topol Pal, Director, Engineering Fellow, Capital One.
-mentions these 16 gates in the pipeline (10 Commandments in octal):
-
-0. Source code version control
-0. Optimum branching strategy [Git and GitHub or GitLab, etc.]
-0. Static analysis [SonarQube]
-0. > 80% code coverage
-0. Vulnerability scan
-0. Open source scan [Black Duck]
-0. Artifact version control [Nexus or Artifactory]
-0. Auto provision [Puppet or Chef]
-0. Immutable servers
-0. Integration testing
-0. Performance testing
-0. Build, Deploy, Testing automated for every commit
-0. Automated Change Order
-0. Zero downtime release
-
 
 <a name="TeamDashboard"></a>
 
@@ -87,15 +67,36 @@ mentions these 16 gates in the pipeline (10 Commandments in octal):
    * Deployments to servers -- from Jenkins<br />
    with server status
 
-PROTIP: Have computer programs monitor servers and take automatic actions.
+QUESTION: Does the dashboard cover 
+these 16 gates in the pipeline (10 Commandments in octal):
 
+   <a target="_blank" href="https://www.youtube.com/watch?v=6Q0mtVnnthQ">
+   DOES16 San Francisco - DevOps at Capital One: Focusing on Pipeline and Measurement
+   IT Revolution</a> by Topol Pal, (Director, Engineering Fellow, Capital One)
+
+0. Source code version control
+0. Optimum branching strategy [Git and GitHub or GitLab, etc.]
+0. Static analysis [SonarQube]
+0. > 80% code coverage
+0. Vulnerability scan
+0. Open source scan [Black Duck]
+0. Artifact version control [Nexus or Artifactory]
+0. Auto provision [Puppet or Chef]
+0. Immutable servers
+0. Integration testing
+0. Performance testing
+0. Build, Deploy, Testing automated for every commit
+0. Automated Change Order
+0. Zero downtime release
 
 ## Program-level Pipeline Dashboard
 
-   commit > build > DEV > QA > INT > PERF > PROD
-
 ![hygieia-pgm-shift-left-600x219](https://cloud.githubusercontent.com/assets/300046/24074674/af146176-0be3-11e7-9eac-358a0a657ba7.png)
 <a target="_blank" href="https://www.dynatrace.com/blog/scaling-continuous-delivery-shift-left-performance-to-improve-lead-time-pipeline-flow/">*</a>
+
+Hygieia limits itself to just these environments:
+
+   commit > build > DEV > QA > INT > PERF > PROD
 
 PROTIP: Symptoms of health should also include:
 
@@ -105,7 +106,9 @@ PROTIP: Symptoms of health should also include:
 
    * Man-Months of "Technical Debt"
 
-   * Percent of work <strong>unplanned</strong>.
+   * Percent of work <strong>unplanned</strong> ("error budget")
+
+   * Percent of development (coding) innovation vs. repetitive work
 
 
 ## Trends over time 
@@ -128,10 +131,10 @@ approach that balances the many conflicting needs.
 For example, an insistance on "100% all the time" can lead staff to prioritize caution 
 over <strong>innovation</strong>.
 
+QUESTION: Should trend information be considered during a
+Production Readiness Review (PRR)?
 
-
-
-## For Executives
+### Financial
 
 <strong>Executives and business managers</strong>
 typically focus on <strong>financials</strong> :
@@ -140,23 +143,30 @@ typically focus on <strong>financials</strong> :
    * Total cost as percent of revenue
    * Total revenue per employee
 
-They favor <strong>trends</strong> over time that reflect <strong>customer experience</strong>:
-(not just internal processes)
+## Bottom Line For Executives
+
+Upper management need to manager a longer time horizon.
+So they need to see <strong>trends</strong> over time, especially those 
+that reflect <strong>customer experience</strong>
+(not just internal processes):
 
    * Availability of the system 
    * Productivity of end-users using the system being developed, such as<br />
    purchases, invoices, or other business transactions processed during a <strong>peak hour</strong>.
 
    * Customer Net Promoter Score
+
    * Employee satisfaction
    * Employee turnover rate
 
 
 ## Architecture
 
-Hygieia was written to store data in a MongoDB database.
+Hygieia was written in Java to store data in a MongoDB database.
 
-The Hygieia server exposes REST APIs.
+The Hygieia API server exposes REST APIs written in Spring Boot and mysema.querydsl.
+
+The Hygieia core server provides the UI to data collected.
 
 
 ## Install server
@@ -189,7 +199,7 @@ https://github.com/capitalone/Hygieia</a>
 [INFO] Final Memory: 108M/1581M
    </pre>
 
-   At the time of writing, after install is 1.23 GB of disk space.
+   At the time of writing, after install the folder takes <strong>1.23 GB of disk space</strong>.
 
 0. Install MongoDB for the API data store
 0. Run collectors with properties to connect to CI tools
@@ -197,4 +207,6 @@ https://github.com/capitalone/Hygieia</a>
 
    QUESTION: Can only have one dashboard?
 
+
+PROTIP: Have computer programs monitor servers and take automatic actions.
 

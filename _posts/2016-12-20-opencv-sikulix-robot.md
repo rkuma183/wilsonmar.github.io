@@ -61,35 +61,51 @@ finding identifiers in the DOM (Document Object Model) behind each internet brow
 
 ## Websites and versions
 
-I'm completely confused about the versions of Sikulix because of multiple websites and difficult-to-find links.
-I figured this out by reading every freaking word (several times) and following links buried in sentences leading deep within pages.
+<a target="_blank" href="http://sikulix.com">
+http://sikulix.com</a> is the new web page formerly at<br />
 
+(Ignore abandoned sites:<br />
+http://sikulix.weebly.com/quickstart.html and <br />
+https://sikulix.wordpress.com/ 
+
+<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/">
 http://sikulix-2014.readthedocs.io/en/latest/<br />
 has the most detail, which are repeated several places:
 
-http://sikulix.com/ is the new web page formerly at<br />
-http://sikulix.weebly.com/quickstart.html
-
-https://sikulix.wordpress.com/<br />
-with last entry on 2015-10-07 points to Maven Central entry of that time<br />
-http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix
-
-The bits are obtained from Ubuntu <br />
+Installer bits are obtained from Ubuntu <br />
 https://launchpad.net/sikuli
 
-* 1.1.0 final (available 2015-10-07)
+There are three versions:
+
+* 1.1.0 final (available since 2015-10-07)
+
+   There is an entry on 2015-10-07 in Maven Central:<br />
+   <a target="_blank" href="http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix">
+   http://search.maven.org/#search%7Cga%7C1%7Ccom.sikulix</a>
+
+   I've had installation errors with this version on my Mac.
 
 * SikuliX-2014 (version 1.1.x) from<br />
-   http://nightly.sikuli.de/
+   <a target="_blank" href="http://nightly.sikuli.de/">
+   http://nightly.sikuli.de</a>
+
+   This is the one that worked for me.
 
 * SikuliX2 in 2017 at
    https://github.com/RaiMan/SikuliX2
 
-https://gitter.im/RaiMan/SikuliX-2014?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+Docs are at<br />
+<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics">
+http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics</a
 
-http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics
 
-https://answers.launchpad.net/sikuli
+## Social
+
+<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+https://gitter.im/RaiMan/SikuliX-2014</a>
+
+<a target="_blank" href="https://answers.launchpad.net/sikuli">
+https://answers.launchpad.net/sikuli</a>
 
 <a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
 Gitter channel</a>.
