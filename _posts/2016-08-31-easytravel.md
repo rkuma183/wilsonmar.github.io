@@ -3,6 +3,7 @@ layout: post
 title: "EasyTravel"
 excerpt: "Catch the bad boys if you can"
 tags: [Clouds, Monitoring, Analytics]
+shorturl: "https://goo.gl/IHLc6q"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dDynatracebf6.jpg
@@ -16,8 +17,11 @@ comments: true
 
 {% include _toc.html %}
 
-EasyTravel is a "a realistic heterogeneous multi-tier web-application"
+EasyTravel is a "realistic heterogeneous multi-tier web-application"
 Dynatrace provides to evaluate its AppMon and UEM software.
+
+(What we're referring to here is not a real travel site like
+http://www.easytravel.co.tz)
 
 YOUTUBE: 
 <a target="_blank" href="https://www.youtube.com/watch?v=ps9Y14KlPyU">
@@ -26,11 +30,23 @@ published on May 14, 2015. In 1 hour it takes a whirlwind tour, half based on ra
 which can be confusing to newbies.
 
 0. Identify the latest version (6.5 as of this writing March 2017).
-0. Download and Get license
+0. Get to the EasyTravel website:
 
-   <a target="_blank" href="http://bit.ly/dteasytravel/">
+   <a target="_blank" href="http://bit.ly/dteasytravel">
    http://bit.ly/dteasytravel</a>
    (https://community.dynatrace.com/community/display/DL/Demo+Applications+-+easyTravel)
+
+0. Click "easyTravel for AppMon 6.5"
+
+   CAUTION: Only Windows and Linux are supported.
+
+   dynatrace-easytravel-windows-x86_64-2.0.0.2542.msi is 416.1 MB
+
+   dynatrace-easytravel-linux-x86_64 for AppMon 7 is 361 MB
+
+   QUESTION: How to get the Linux edition to work on a Mac?
+
+0. Get license
 
    Click "Download easyTravel Demo License" = https://community.dynatrace.com/community/download/attachments/45383742/dynaTrace_license_201609281051.key?version=2&modificationDate=1486998983333&api=v2
 
@@ -166,8 +182,21 @@ which can be confusing to newbies.
 
    https://marketplace.atlassian.com/plugins/com.cprime.confluence.templates/server/overview
 
+## Profile
+
+easyTravel.profile.xml
+from 
+https://community.dynatrace.com/community/download/attachments/45383742/easyTravel.profile.xml?version=1&modificationDate=1389783776787&api=v2
+
+easyTravel Database.dashboard.xml
+from
+https://community.dynatrace.com/community/download/attachments/45383742/easyTravel%20Database.dashboard.xml?version=1&modificationDate=1389783776783&api=v2
+
 
 ### Built-in load generator
 
 
+### Info
+
+https://community.dynatrace.com/community/display/DOCDT61/Testing+an+Installation
 

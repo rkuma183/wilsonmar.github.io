@@ -3,6 +3,7 @@ layout: post
 title: "Python Conda Anaconda Miniconda Pip on Mac OSX"
 excerpt: "Confusion and errors from many alternatives and options"
 tags: [python, apple, mac, setup]
+shorturl: "https://goo.gl/wNVxWD"
 image:
 # pic white python logo 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622164/4230c848-0585-11e6-957b-be11147346e6.jpg
@@ -1187,6 +1188,27 @@ omitting the name will place the files in the current directory instead.
  
  -->
 
+### Use pip to install Tensorflow
+
+<a target="_blank" href="https://www.youtube.com/watch?v=2FmcHiLCwTU&t=1m3s">
+As Siraj shows in his video</a>, on a Mac Terminal,
+define an environment variable that points to the download URL:
+
+   <pre>
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.10.0rc0-py3-none-any.whl
+   </pre>
+
+   (This is for Python 3 on a Mac.)
+
+   Install it using PIP and the variable:
+
+   <pre>
+sudo pip3 install --upgrade $TF_BINARY_URL
+   </pre>
+
+
+## Vagrant #
+
 This explanation forks 
 <a target="_blank" href="http://coolestguidesontheplanet.com/getting-started-vagrant-os-osx-10-9-mavericks/">
 another</a>.
@@ -1205,10 +1227,6 @@ In the Finder, in the <strong>Applications</strong> folder,
 drag and drop it onto your Dock for quicker use later.
 Double-click on VirtualBox for the <strong>VirtualBox Manager</strong>. 
 
-</p>
-
-
-## Vagrant #
 
 Download the 224.3 MB vagrant_1.7.1.dmg
 
