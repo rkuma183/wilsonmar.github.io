@@ -76,6 +76,19 @@ Installer bits are obtained from Ubuntu <br />
 <a target="_blank" href="https://launchpad.net/sikuli">
 https://launchpad.net/sikuli</a>
 
+<a target="_blank" href="https://github.com/wilsonmar/sikuli-scripts/">
+https://github.com/wilsonmar/sikuli-scripts</a> 
+
+
+## Social
+
+<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
+Gitter channel at<br/>
+https://gitter.im/RaiMan/SikuliX-2014</a>
+
+<a target="_blank" href="https://answers.launchpad.net/sikuli">
+https://answers.launchpad.net/sikuli</a>
+
 
 ## Versions
 
@@ -96,22 +109,16 @@ There are three versions:
 
    This is the one that worked for me.
 
-* SikuliX2 in 2017 at
-   https://github.com/RaiMan/SikuliX2
+   Install instructions below.
 
-Docs are at<br />
+* SikuliX2 in 2017 at<br />
+   <a target="_blank" href="https://github.com/RaiMan/SikuliX2">
+   https://github.com/RaiMan/SikuliX2</a>
+
+Detailed docs are at<br />
 <a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics">
 http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics</a
 
-
-## Social
-
-<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
-Gitter channel at<br/>
-https://gitter.im/RaiMan/SikuliX-2014</a>
-
-<a target="_blank" href="https://answers.launchpad.net/sikuli">
-https://answers.launchpad.net/sikuli</a>
 
 
 
@@ -299,21 +306,6 @@ only in case of problems it might be necessary to visit this folder:
 - SikulixTesseract
 
 
-   <a name="SikulixScripting"></a>
-
-0. Create a Git folder to hold scripts. In real life, you should create a folder containing the
-   name of the app under test.
-
-   On a Mac:
-
-   <pre>
-   cd ~
-   mkdir sikulix-scripts
-   cd ~/sikulix-scripts
-   </pre>
-
-   Into this folder the SikuliX IDE saves scripts with the file extension ".sikuli".
-
 
    <a name="SikulixIDE"></a>
 
@@ -326,6 +318,34 @@ only in case of problems it might be necessary to visit this folder:
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png">
    <img width="300" alt="sikulix-1 1 1-ide-landing-1022x699" src="https://cloud.githubusercontent.com/assets/300046/24073600/0a0f4230-0bd0-11e7-88b5-50c23c0d3d9f.png"><br />
    <br />(Click to open in full new screen)</a>
+
+
+<a name="SikuliXScripting"></a>
+
+## SikuliX Scripting
+
+
+0. Create a Git folder to hold scripts. In real life, you should create a folder containing the
+   name of the app under test.
+
+   On a Mac:
+
+   <pre>
+   cd ~
+   cd gits
+   cd wilsonmar
+   mkdir sikulix-scripts
+   cd ~/sikulix-scripts
+   </pre>
+
+   Into this folder the SikuliX IDE saves scripts with the file extension ".sikuli".
+
+0. Press # to insert a comment
+
+0. Press Ctrl+S to save the file as a ".sikuli" file.
+
+   PROTIP: A keyboard press is quicker than moving the mouse.
+
 
    <a name="TakePicture"></a>
 
@@ -371,10 +391,6 @@ App.open(PathFirefox)
    type("hello")
    </pre>
 
-0. Press Ctrl+S to save the file as a ".sikuli" file.
-
-   PROTIP: A keyboard press is quicker than moving the mouse.
-
 0. Type the verification actions.
 
 0. Save a sample script with comments after \# character:
@@ -392,6 +408,8 @@ http://doc.sikuli.org/genindex.html</a> is an alphabetical index of all methods 
 
 JavaDocs of classes are at<br />
 http://nightly.sikuli.de/docs/index.html
+
+
 
 
 

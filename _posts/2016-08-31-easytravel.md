@@ -39,12 +39,11 @@ which can be confusing to newbies.
 0. Click "easyTravel for AppMon 6.5"
 
    CAUTION: Only Windows and Linux are supported.
+   <a href="#RunOnLinux">Get the Linux edition to work on a MacOSX</a>
 
    dynatrace-easytravel-windows-x86_64-2.0.0.2542.msi is 416.1 MB
 
    dynatrace-easytravel-linux-x86_64 for AppMon 7 is 361 MB
-
-   QUESTION: How to get the Linux edition to work on a Mac?
 
 0. Get license
 
@@ -63,6 +62,41 @@ which can be confusing to newbies.
 
    $UserHome/.dynaTrace/easyTravel 2.0.0/easyTravel/config
 
+
+
+<a name="RunOnLinux"></a>
+
+## Uing Linux to work on a MacOSX
+
+   <a target="_blank" href="http://www.simplehelp.net/2007/05/09/how-to-install-linux-applications-in-os-x-a-complete-walkthrough/">
+   Back in 2007</a>
+   <a target="_blank" href="http://www.finkproject.org/download/">
+   Fink</a> was recommended. It is a package manager like Homebrew and MacPorts.
+   Fink is Apt-based, so people will feel right at home coming from a <strong>Debian</strong> Linux environment.
+   Its packages are binary,so no long compile times. But practically they are usually outdated and I had to compile stuff for my system anyway.
+
+   VMWare Fusion is a good way even though VMWare has announced deprecation of the product in 2016.
+
+0. Check to see if X11 is installed in folder /usr/X11.
+
+   It appears in Mac Finder, Go, select Applications, Utilities. 
+
+   http://www.simplehelp.net/2006/10/22/how-to-install-x11-in-os-x/
+   install it</a>   
+
+0. Get to the Fink website:
+
+
+0. Download the appropriate version of Fink for your Mac. 
+
+    xx-xx installer.pkg.
+
+0. Open the .dmg file and run Fink 
+
+
+
+
+   ## Install Agents
 
 0. Install agents on Apache servers under test
 
