@@ -19,6 +19,25 @@ Understanding metrics over time is a fundamental skill.
 
 > "Those who don't know history are doomed to repeat it." -- Edmund Burke
 
+## Excellence defined
+
+Below are charts that posess traits of excellent visualizations:
+
+ * Dynamic data - update visualizations (in "live mode") as data changes in sources such as databases. 
+ 
+ * Visual querying -  change the query by selecting or clicking on a portion of the graph or chart (to drill down, for example). 
+ 
+ * Linked multi-dimensional visualization - selections made in one chart are reflected as you navigate into other charts.
+ 
+ * Animation -   
+
+ PROTIP: Dynamic (movie mode) is available only within the Tableau Public client,
+ not when viewed on websites (as of 2016-01-05).
+ 
+ * Personalization - give power users an in-depth view and newbies a simpler view, and also control access to data based on user- and role-based access privileges.
+  
+ * Actionable alerts  -  thresholds and parameters that trigger messages whether you're interacting with reports or not. 
+
 
 ## Fortune 500 in the US
 
@@ -106,23 +125,6 @@ explained in 2010 how</a> he created the above using Tableau Trendalyzer v6.
 Download his viz from the Tableau Public website</a> 
 to manipulate using Tableau Public client installed on your laptop.
 
-This chart is an example of traits excellent visualization software possess: 
-
- * Dynamic data - update visualizations (in "live mode") as data changes in sources such as databases. 
- 
- * Visual querying -  change the query by selecting or clicking on a portion of the graph or chart (to drill down, for example). 
- 
- * Linked multi-dimensional visualization - selections made in one chart are reflected as you navigate into other charts.
- 
- * Animation -   
-
- PROTIP: Dynamic (movie mode) is available only within the Tableau Public client,
- not when viewed on websites (as of 2016-01-05).
- 
- * Personalization - give power users an in-depth view and newbies a simpler view, and also control access to data based on user- and role-based access privileges.
-  
- * Actionable alerts  -  thresholds and parameters that trigger messages whether you're interacting with reports or not. 
-
 
 <a name="CycleTime"></a>
 
@@ -136,6 +138,8 @@ Metrics include:
 * Percent of value-add time vs. total time.
    For example: In the case of physician visits, time interacting with physician vs. waiting and other activities.
    
+
+
 
 ## More on front-end styling #
 
