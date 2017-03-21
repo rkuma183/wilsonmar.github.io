@@ -17,17 +17,22 @@ comments: true
 
 {% include _toc.html %}
 
-## Vendor Organization
+The subject here is about configuration management software.
 
-   Market share estimates
+But the headings and approach applies to other categories as well.
 
-   Industry Analyst (Gartner) ratings
+
+## Individual Vendor Organization
 
    Profitability
 
    Glassdoor employee ratings
 
 ## Comparative trends
+
+   Market share estimates
+
+   Industry Analyst (Gartner) ratings
 
    Google search occurances
 
