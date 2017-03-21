@@ -36,9 +36,13 @@ But the headings and approach applies to other categories as well.
 
    Google search occurances
 
-   Indeed jobs
+   ### Job posting mentions 
 
-   Polls
+   ![indeed cm job trend](https://cloud.githubusercontent.com/assets/300046/24151871/5b1a0744-0e20-11e7-895f-035c1b87eaeb.png)
+
+   https://www.indeed.com/jobtrends/q-puppet-q-Ansible-q-Chef-q-Saltstack-or-salt.html
+
+   ### Polls
 
    ![cm-tools-2015-902x395](https://cloud.githubusercontent.com/assets/300046/24145624/6587a94c-0e08-11e7-85e4-ba9ccb164d8c.png)
 
