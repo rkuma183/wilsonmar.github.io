@@ -1,0 +1,120 @@
+---
+layout: post
+title: "Software Evaluation Criteria"
+excerpt: "Example of a comparison of competing tools"
+tags: [Software]
+# shorturl: "https://goo.gl/"
+image:
+# pic silver robot white skin handshake 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+  credit: 
+  creditlink: 
+comments: true
+---
+<i>{{ page.excerpt }}</i>
+
+[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+{% include _toc.html %}
+
+## Vendor Organization
+
+   Market share estimates
+
+   Industry Analyst (Gartner) ratings
+
+   Profitability
+
+   Glassdoor employee ratings
+
+## Comparative trends
+
+   Google search occurances
+
+   Indeed jobs
+
+   Polls
+
+   ![cm-tools-2015-902x395](https://cloud.githubusercontent.com/assets/300046/24145624/6587a94c-0e08-11e7-85e4-ba9ccb164d8c.png)
+
+
+## Editions
+
+   Free unlimited trials
+
+## Ease of setup
+
+   * Dockerized
+   * Ansible
+   * Puppet
+   * Chef
+
+   Ansible makes use of SSH and Python, which are built into Linux operating systems.
+
+## Ease of uninstall
+
+   Transitioning from one tool to another is inevitable.
+
+## Server Configuration automation
+
+   Ansible and Salt configuration files are in YAML format - administrator oriented and thus easy to learn.
+   Puppet DSL and Chef Ruby DSL (Domain-Specific Language) require programming skill.
+   (steep learning curve)
+
+   Sample settings provided, with explanations
+
+   Sample user projects provided
+
+## UI configuration
+
+
+## Ease of Use
+
+   Screen layout 
+
+   Registration
+
+   Login
+
+   Listings
+
+   Report
+
+   Analytics
+
+   Export
+
+   Import
+
+## Workflow Automation
+
+## Management
+
+## Performance speed
+
+## Scalability of architecture
+
+   Ansible runs with a single active node, called the primary instance. 
+   If the primary goes down, a secondary instance takes its place.
+   Chef uses the term primary and backup server.
+   Puppet and Salt uses the term active master in a multi-master architecture.
+
+   Ansible servers pushes configurations to all nodes, which immediately executes.
+   Puppet clients <strong>pulls</strong> configurations from the Server.
+   Salstack same.
+
+# Availability
+
+# Interoperability
+
+
+## Examples
+
+https://www.youtube.com/watch?v=OmRxKQHtDbY
+Chef vs Puppet vs Ansible vs SaltStack | Configuration Management Tools Comparison 
+by Edureka
+
+https://www.youtube.com/watch?v=2H95tx7Fuv4
+Chef vs. Puppet vs. Ansible vs. Salt - What's Best for Deploying and Managing OpenStack?
+(for running OpenStack) at the OpenStack Summit 2015
+by OpenStack Foundation
