@@ -20,11 +20,30 @@ Understanding metrics over time is a fundamental skill.
 > "Those who don't know history are doomed to repeat it." -- Edmund Burke
 
 
-## Fortune 500
+## Fortune 500 in the US
+
+The higher each line is in their graph, the higher the company is on Fortune magazine's 500 largest public companies. 20 years of rankings are shown.
 
 <a target="_blank" href="http://beta.fortune.com/fortune500/visualizations/">
 http://beta.fortune.com/fortune500/visualizations<br />
 <img width="1015" alt="dataviz time-series 2030x984" src="https://cloud.githubusercontent.com/assets/300046/24097787/cdd3b2f0-0d3d-11e7-889e-a99b161e1f55.png"></a>
+
+Companies that have a rising trajectory include:
+
+   * Whole Foods Market
+   * Amazon
+   * Alphabet (Google)
+   * Apple
+   * CVS Health
+   * Comcast
+   * Dollar General
+   * Gilead Sciences
+   * Qualcomm
+   * Facebook
+   * Visa
+   * Master Card
+   * Cognizant
+   * Oracle
 
 Select an industry and mouse over a line to see each company's Fortune 500 ranking change over the years.
 
@@ -33,6 +52,18 @@ Nicolas Rapp</a> also created for Fortune 500 this graphic:
 
 <a target="_blank" href="http://nicolasrapp.com/portfolio/fortune-500-profits-run-gas/">
 <img alt="dataviz-fortune500-oil-1120x772" src="https://cloud.githubusercontent.com/assets/300046/24098047/04c3dc1c-0d3f-11e7-9ec7-bc6d18022e8e.png"></a>
+
+
+## Fortune Global 500
+
+http://beta.fortune.com/global500/visualizations/?iid=recirc_g500landing-zone1
+
+Illustrates the fast growth across industries in China.
+
+Plus:
+
+   * Softbank
+
 
 
 ## Hans Roling
@@ -48,7 +79,9 @@ Nicolas Rapp</a> also created for Fortune 500 this graphic:
   Gapminder web app</a> which
   presents multiple dimensions dynamically over time (nearly 300).
 
-Jeffrey Shaffer created <a target="_blank" href="https://www.youtube.com/watch?v=KdoBuNNvVec">
+<a target="_blank" href="https://public.tableau.com/profile/jeffs8297#!/">Jeffrey Shaffer</a> 
+(<a target="_blank" href="https://twitter.com/HighVizAbility">@HighVizAbility</a>, co-author of <a target="_blank" href="http://www.bigbookofdashboards.com/">bigbookofdashboards.com</a>) 
+created <a target="_blank" href="https://www.youtube.com/watch?v=KdoBuNNvVec">
 a time lapse video</a> of <a target="_blank" href="
 https://public.tableau.com/s/profile/jeffs8297#!/vizhome/RoslinginTableau/RoslingGapminder">
 his viz</a> showing a trail of dots which grow in size and get darker over time (as the legend notes):
@@ -98,6 +131,11 @@ This chart is an example of traits excellent visualization software possess:
 <a target="_blank" html="https://cloud.githubusercontent.com/assets/300046/24077227/fc53a15c-0c1c-11e7-9782-9514f69c6a70.png">
 <img width="978" alt="tableau interactive wait times 1956x1372" src="https://cloud.githubusercontent.com/assets/300046/24077227/fc53a15c-0c1c-11e7-9782-9514f69c6a70.png"><br />Click for full pop-up</a>
 
+Metrics include:
+
+* Percent of value-add time vs. total time.
+   For example: In the case of physician visits, time interacting with physician vs. waiting and other activities.
+   
 
 ## More on front-end styling #
 
