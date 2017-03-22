@@ -44,7 +44,8 @@ https://www.spreaker.com/user/pureperformance/012-automating-performance-into-th
 <a target="_blank" href="https://developer.capitalone.com/opensource-projects/hygieia/">
 https://developer.capitalone.com/opensource-projects/hygieia</a>
 
-https://gitter.im/capitalone/Hygieia/
+<a target="_blank" href="https://gitter.im/capitalone/Hygieia/">
+https://gitter.im/capitalone/Hygieia</a>
 
 
 <a name="TeamDashboard"></a>

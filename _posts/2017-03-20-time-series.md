@@ -125,6 +125,10 @@ explained in 2010 how</a> he created the above using Tableau Trendalyzer v6.
 Download his viz from the Tableau Public website</a> 
 to manipulate using Tableau Public client installed on your laptop.
 
+The trails is a recreation of 
+(<a target="_blank" href="https://twitter.com/moritz_stefaner">@moritz_stefaner</a>)
+"Remixing Rosling" in @tableau.
+
 
 <a name="CycleTime"></a>
 

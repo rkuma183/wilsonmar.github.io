@@ -30,11 +30,11 @@ But the headings and approach applies to other categories as well.
 
 ## Comparative trends
 
-   Market share estimates
+   ### Market share estimates
 
-   Industry Analyst (Gartner) ratings
+   ### Industry Analyst (Gartner) ratings
 
-   Google search occurances
+   ### Google search occurances
 
    ### Job posting mentions 
 
@@ -46,6 +46,12 @@ But the headings and approach applies to other categories as well.
 
    ![cm-tools-2015-902x395](https://cloud.githubusercontent.com/assets/300046/24145624/6587a94c-0e08-11e7-85e4-ba9ccb164d8c.png)
 
+   As we all learned during the 2016 presidential election, polls can be very wrong
+   because of biases blind-siding pollsters.
+
+   ### LinkedIn mentions
+
+   LinkedIn Search for people mentioning the product keywords in their profile. 
 
 ## Editions
 
