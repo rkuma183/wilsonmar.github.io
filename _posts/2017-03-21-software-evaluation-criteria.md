@@ -28,6 +28,10 @@ But the headings and approach applies to other categories as well.
 
    Glassdoor employee ratings
 
+   Key developers' position among programming communities
+
+   * SaltStack is written in Python
+
 ## Comparative trends
 
    ### When introduced
@@ -40,12 +44,6 @@ But the headings and approach applies to other categories as well.
 
    ### Google search occurances
 
-   ### Job posting mentions 
-
-   ![indeed cm job trend](https://cloud.githubusercontent.com/assets/300046/24151871/5b1a0744-0e20-11e7-895f-035c1b87eaeb.png)
-
-   https://www.indeed.com/jobtrends/q-puppet-q-Ansible-q-Chef-q-Saltstack-or-salt.html
-
    ### Polls
 
    ![cm-tools-2015-902x395](https://cloud.githubusercontent.com/assets/300046/24145624/6587a94c-0e08-11e7-85e4-ba9ccb164d8c.png)
@@ -53,9 +51,16 @@ But the headings and approach applies to other categories as well.
    As we all learned during the 2016 presidential election, polls can be very wrong
    because of biases blind-siding pollsters.
 
-   ### LinkedIn mentions
+   ### Job posting mentions 
+
+   ![indeed cm job trend](https://cloud.githubusercontent.com/assets/300046/24151871/5b1a0744-0e20-11e7-895f-035c1b87eaeb.png)
+
+   https://www.indeed.com/jobtrends/q-puppet-q-Ansible-q-Chef-q-Saltstack-or-salt.html
+
+   ### LinkedIn profile mentions
 
    LinkedIn Search for people mentioning the product keywords in their profile. 
+
 
 ## Editions
 
