@@ -30,6 +30,10 @@ But the headings and approach applies to other categories as well.
 
 ## Comparative trends
 
+   ### When introduced
+
+   <img width="959" alt="cm-tools introduction" src="https://cloud.githubusercontent.com/assets/300046/24195780/85230e80-0ed1-11e7-8b23-75e5c9c9c5a1.png">
+
    ### Market share estimates
 
    ### Industry Analyst (Gartner) ratings
