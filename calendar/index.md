@@ -178,3 +178,11 @@ which illustrates the group's work activities, month-by-month:
 <img alt="fig black beatles 4 year schedule" src="https://cloud.githubusercontent.com/assets/300046/14229397/26bc50c4-f8f0-11e5-9a74-879d530b6eef.jpg" width="1297" height="1026"></a>
 
 Over the years, the group did less touring and performing (in green).
+
+> Does this chart say anything else to you?
+
+<hr />
+
+A similar format is used at<br />
+<a target="_blank" href="https://timelinestoryteller.com/app/">
+https://timelinestoryteller.com/app</a>

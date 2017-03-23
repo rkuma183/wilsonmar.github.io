@@ -3,6 +3,7 @@ layout: post
 title: "Selenium Setup on a Mac"
 excerpt: "Run browsers automatically for videos (and testing)"
 tags: [Mac, Security]
+shorturl: "https://goo.gl/v0cUfS"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
@@ -25,6 +26,7 @@ Follow my other tutorials to install:
 2. [Maven](/maven-on-macos/)
 4. Firefox browser
 5. Chrome with ChromeDriver
+6. Eclipse IDE (optionally)
 
 <hr />
 

@@ -96,15 +96,17 @@ But the headings and approach applies to other categories as well.
 
    Screen layout 
 
-   Registration
+   User Registration
 
-   Login
+   User Login
+
+   User Password recovery
+
+   Menus
 
    Listings
 
-   Report
-
-   Analytics
+   Reports/Analytics Graphs
 
    Export
 

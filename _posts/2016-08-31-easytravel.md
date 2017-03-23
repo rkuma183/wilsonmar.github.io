@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EasyTravel"
+title: "EasyTravel sample app"
 excerpt: "Catch the bad boys if you can"
 tags: [Clouds, Monitoring, Analytics]
 shorturl: "https://goo.gl/IHLc6q"
@@ -63,10 +63,20 @@ which can be confusing to newbies.
    $UserHome/.dynaTrace/easyTravel 2.0.0/easyTravel/config
 
 
+<a name="RunOnWindows"></a>
+
+## Using Windows to work on a MacOSX
+
+0. Download from the EasyTravel website:
+
+   dynatrace-easytravel-windows-x86_64-2.0.0.2542.msi, 416.1 MB
+
 
 <a name="RunOnLinux"></a>
 
-## Uing Linux to work on a MacOSX
+## Using Linux to work on a MacOSX
+
+### Fink
 
    <a target="_blank" href="http://www.simplehelp.net/2007/05/09/how-to-install-linux-applications-in-os-x-a-complete-walkthrough/">
    Back in 2007</a>
@@ -74,29 +84,27 @@ which can be confusing to newbies.
    Fink</a> was recommended. It is a package manager like Homebrew and MacPorts.
    Fink is Apt-based, so people will feel right at home coming from a <strong>Debian</strong> Linux environment.
    Its packages are binary,so no long compile times. But practically they are usually outdated and I had to compile stuff for my system anyway.
+   It needs X11 installed.
 
-   VMWare Fusion is a good way even though VMWare has announced deprecation of the product in 2016.
+### VMWare Fusion on Mac
 
-0. Check to see if X11 is installed in folder /usr/X11.
+VMWare Fusion is a good tool for this.
 
-   It appears in Mac Finder, Go, select Applications, Utilities. 
+0. Install VMWare Fusion and install a license.
+0. Invoke VMWare from your Launcher or Finder Go Applications folder.
 
-   http://www.simplehelp.net/2006/10/22/how-to-install-x11-in-os-x/
-   install it</a>   
+   
+0. Power up the virtual machine.
+0. Inside the VMWare instance, 
 
-0. Get to the Fink website:
+   https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1022525
 
+0. Download from the EasyTravel website:
 
-0. Download the appropriate version of Fink for your Mac. 
-
-    xx-xx installer.pkg.
-
-0. Open the .dmg file and run Fink 
-
-
+   dynatrace-easytravel-linux-x86_64-2.0.0.2542.jar, 441 MB
 
 
-   ## Install Agents
+## Install Agents
 
 0. Install agents on Apache servers under test
 
