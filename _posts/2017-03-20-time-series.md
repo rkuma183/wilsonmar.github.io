@@ -47,6 +47,8 @@ The higher each line is in their graph, the higher the company is on Fortune mag
 http://beta.fortune.com/fortune500/visualizations<br />
 <img width="1015" alt="dataviz time-series 2030x984" src="https://cloud.githubusercontent.com/assets/300046/24097787/cdd3b2f0-0d3d-11e7-889e-a99b161e1f55.png"></a>
 
+Select an industry and mouse over a line to see each company's Fortune 500 ranking change over the years.
+
 Companies that have a rising trajectory include:
 
    * Whole Foods Market
@@ -64,7 +66,9 @@ Companies that have a rising trajectory include:
    * Cognizant
    * Oracle
 
-Select an industry and mouse over a line to see each company's Fortune 500 ranking change over the years.
+Examining the HTML shows use of the
+<a target="_blank" href="https://www.chartbeat.com/">Chartbeat JavaScript library</a>
+for visualization.
 
 <a target="_blank" href="http://nicolasrapp.com/">
 Nicolas Rapp</a> also created for Fortune 500 this graphic:
