@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Agile Performance Testing"
-excerpt: "Why do performance testing? And how to do it in an Agile way"
+title: "Agile Performance Testing and Engineering"
+excerpt: "Why do it? And how to do it in an Agile way"
 tags: [perftest]
-shorturl: "https://goo.gl/wNVxWD"
+shorturl: "https://goo.gl/ZkKQrs"
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -206,9 +206,9 @@ Engage with us to answer these questions:
 
    Also, have separate parallel "hardening" sprints that occur after System Demos
    to conduct performance testing:<br />
-   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://cloud.githubusercontent.com/assets/300046/24324628/2b35fe50-1160-11e7-9f15-cbbbf3b94536.jpeg">*</a>
-   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://www.scrumalliance.org/community/articles/2013/2013-may/agile-performance-testing-an-experimental-approach">
+   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://cloud.githubusercontent.com/assets/300046/24324628/2b35fe50-1160-11e7-9f15-cbbbf3b94536.jpeg">
    <img alt="agile_performance_testing_image prakash_mallappa_pujar__2" src="https://cloud.githubusercontent.com/assets/300046/24324628/2b35fe50-1160-11e7-9f15-cbbbf3b94536.jpeg"><br />(Click for full screen pop-up)</a>
+   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://www.scrumalliance.org/community/articles/2013/2013-may/agile-performance-testing-an-experimental-approach">*</a>
 
 3. How to integrate work among groups working sequential shifts ...
 
