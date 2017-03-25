@@ -395,21 +395,29 @@ App.open(PathFirefox)
 
 0. Save a sample script with comments after \# character:
 
-   http://doc.sikuli.org/tutorials/helloworld/helloworld-mac.html
+   On a Mac:
 
-   http://doc.sikuli.org/tutorials/helloworld/helloworld-win.html
+   <a target="_blank" href="http://doc.sikuli.org/tutorials/helloworld/helloworld-mac.html">
+   http://doc.sikuli.org/tutorials/helloworld/helloworld-mac.html</a>
+
+   On Windows:
+
+   <a target="_blank" href="http://doc.sikuli.org/tutorials/helloworld/helloworld-win.html">
+   http://doc.sikuli.org/tutorials/helloworld/helloworld-win.html</a>
 
 0. Run the file.
 
    ### More actions
 
-<a target="_blank" href="http://doc.sikuli.org/genindex.html">
-http://doc.sikuli.org/genindex.html</a> is an alphabetical index of all methods and command options.
+   <a target="_blank" href="http://doc.sikuli.org/genindex.html">
+   http://doc.sikuli.org/genindex.html</a> is an alphabetical index of all methods and command options.
 
-JavaDocs of classes are at<br />
-http://nightly.sikuli.de/docs/index.html
+   JavaDocs of classes are at<br />
+   http://nightly.sikuli.de/docs/index.html
 
-
+   <a target="_blank" href="https://github.com/RaiMan/SikuliX-2014/tree/master/StuffContainer/testScripts">
+   https://github.com/RaiMan/SikuliX-2014/tree/master/StuffContainer/testScripts</a><br />
+   has several sikulix scripts.
 
 
 
