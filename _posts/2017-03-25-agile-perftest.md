@@ -51,8 +51,8 @@ Various types of performance testing address different concerns:
    take to "render" data obtained from servers.
 
 
-2. What is the <strong>capacity</strong> of the system?<br />
-   What is the highest <strong>rate</strong> the system processes business transactions?
+**2. What is the <strong>capacity</strong> of the system?<br />
+   What is the highest rate the system processes business transactions?**
 
    Some servers work until a certain level of work burns them out.
    It is always helpful to have a statement of the likely peak number of users that might be expected to use the system at peak times. 
@@ -74,11 +74,12 @@ Various types of performance testing address different concerns:
    So average response times and response times at the 95th percentile 
    are defined to set maximum allowable levels.
 
+   <a name="Predictive"></a>
    <amp-youtube data-videoid="I6EzGV0GE2A" 
    layout="responsive" width="480" height="270">
    </amp-youtube><br /><br />
 
-3. How long can the system run continuously?
+**3. How long can the system run continuously?**
 
    Sometimes programs "leak" memory and require more and more memory until it runs out.
 
@@ -202,13 +203,12 @@ Engage with us to answer these questions:
 2. How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...
 
    We gradually build system-level load test assets over time
-   by accumulating micro-benchmarks at the component level as developers work.
-
-   Also, have separate parallel "hardening" sprints that occur after System Demos
-   to conduct performance testing:<br />
+   by accumulating micro-benchmarks at the component level as developers work:
+   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://www.scrumalliance.org/community/articles/2013/2013-may/agile-performance-testing-an-experimental-approach">*</a><br />
    <a target="_blank" title="by Prakash Mallappa Pujar" href="https://cloud.githubusercontent.com/assets/300046/24324628/2b35fe50-1160-11e7-9f15-cbbbf3b94536.jpeg">
    <img alt="agile_performance_testing_image prakash_mallappa_pujar__2" src="https://cloud.githubusercontent.com/assets/300046/24324628/2b35fe50-1160-11e7-9f15-cbbbf3b94536.jpeg"><br />(Click for full screen pop-up)</a>
-   <a target="_blank" title="by Prakash Mallappa Pujar" href="https://www.scrumalliance.org/community/articles/2013/2013-may/agile-performance-testing-an-experimental-approach">*</a>
+
+   Also, have "hardening" sprints that occur before the project release date.
 
 3. How to integrate work among groups working sequential shifts ...
 
@@ -238,7 +238,7 @@ Engage with us to answer these questions:
    Several tuning runs can use adaptive algorithms to identify optimal settings from among a complex set of possibilities. This requires results to be assess mostly automatically rather than depending upon
    manual reviews all the time.
 
-6. How to provide Production Operations predictive triggers for action ...
+6. How to provide Production Operations <a href="#Predictive">predictive triggers</a> for action ...
 
    ... instead of leaving others to figure it out on their own.
 
