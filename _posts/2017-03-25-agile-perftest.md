@@ -14,6 +14,15 @@ comments: true
 This article is about how to do performance testing and performance engineering work
 in an Agile way -- during sprints rather than too late in the cycle:
 
+Agile projects (vs. traditional waterfall) are characterized by:
+
+* focusing on business priorities and customer value
+* cross-functional teams instead of silos
+* use of short work iterations instead of waterfall phases
+* incremental development of products instead of late feedback when changes are costly
+* continuous improvement (adjustments) instead of lockdown of requirements
+* measuring progress by workable products of most value to customers rather than adherence to plans that may be obsolete
+
 > Engage with us to answer these questions:
 
 1. **How to ensure dependencies are ready before sprint work needs them ...**
