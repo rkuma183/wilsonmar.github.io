@@ -33,7 +33,7 @@ there are different <strong>performance risks</strong> that may undermine enterp
 
 Various types of performance testing address different concerns:
 
-**1. Where can bad programming "hang" the system?**
+1. <strong>Where can bad programming "hang" the system?</strong>
 
    For the same reason as 100% of candidates are made to take drug tests,
    the more <strong>coverage</strong> of user functionality in performance tests, 
@@ -51,7 +51,7 @@ Various types of performance testing address different concerns:
    take to "render" data obtained from servers.
 
 
-**2. What is the <strong>capacity</strong> of the system?<br />
+2. **What is the <strong>capacity</strong> of the system?<br />
    What is the highest rate the system processes business transactions?**
 
    Some servers work until a certain level of work burns them out.
