@@ -79,7 +79,7 @@ Various types of performance testing address different concerns:
    layout="responsive" width="480" height="270">
    </amp-youtube><br /><br />
 
-**3. How long can the system run continuously?**
+3. **How long can the system run continuously?**
 
    Sometimes programs "leak" memory and require more and more memory until it runs out.
 
@@ -91,7 +91,7 @@ Various types of performance testing address different concerns:
    The goal is to discover how the system behaves under sustained use.
 
 
-**4. Can the system handle momentary sudden jumps in demand?**
+4. **Can the system handle momentary sudden jumps in demand?**
 
    <strong>"Spike tests"</strong> are included within soak tests to see whether the system has enough 
    "buffer" capacity to process sudden abnormal spikes in requests.
@@ -104,7 +104,7 @@ Various types of performance testing address different concerns:
    <strong>Performance Engineering</strong> works to fix the underlying coding or configurations
    to ensure resiliency.
 
-**5. How many additional servers should be added (or removed) to meet anticipated demand?**
+5. **How many additional servers should be added (or removed) to meet anticipated demand?**
 
    "Scalability tests" add more servers and/or larger servers, or remove them.
 
@@ -113,7 +113,7 @@ Various types of performance testing address different concerns:
    Planning and testing reveal limits in supporting infrastructure such as the capacity 
    in networking equipment.
 
-**6. Are configuration settings set at optimal levels?**
+6. **Are configuration settings set at optimal levels?**
 
    "Configuration tests" determine the effects of configuration changes on the system's performance and behaviour. 
 
@@ -123,7 +123,7 @@ Various types of performance testing address different concerns:
 
    Indiviual responses from the database, application server, etc. are monitored during test runs in order to identify <strong>bottlenecks</strong> in the application software and the hardware the software is installed on.
 
-**7. Will growth in amount of data over time affect performance?**
+7. **Will growth in amount of data over time affect performance?**
 
    "Data volumn testing" determines wether the performance of the application is affected by the amount (volume) of data being handled by the application. 
    The structure of data may not provide adequate performance as
@@ -166,11 +166,11 @@ Performance test plans answer these questions:<a href="#[1]">*</a>
 
 Engage with us to answer these questions:
 
-**1. How to ensure dependencies are ready before sprint work needs them ...**
+1. **How to ensure dependencies are ready before sprint work needs them ...**
 
    ... instead of scrambling to fix things blocking progress.
 
-**2. How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...**
+2. **How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...**
 
    ... instead of waiting until it's a hassle and more expensive to make changes.
 
@@ -184,7 +184,7 @@ Engage with us to answer these questions:
    Application failures and limited capacity are perils. 
    Memory leaks are hazards for application failure.
 
-**3. How to integrate work among groups working sequential shifts ...**
+3. **How to integrate work among groups working sequential shifts ...**
 
    ... instead of limiting capacity to a single cabal of workers.
 
@@ -194,13 +194,22 @@ Engage with us to answer these questions:
 
 Engage with us to answer these questions:
 
-**1. How to ensure services are available before sprint work needs them ...**
+1. **How to ensure services are available before sprint work needs them ...**
 
    ... instead of scrambling to fix things blocking progress.
 
-   There is a way to frequently "ping" dependencies in order to measure patterns in availability.
+   In order to measure patterns in availability,
+   we have an "run conditions monitor" that makes an on-going "ping" to API services which scripts depend on.
+   Doing this provides a view of network health from each load generator rather than between servers
+   and a monitoring server. 
 
-**2. How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...**
+   Before a script runs, it makes an API call to the program to determine whether all is good.
+   
+   An advanced version makes use of pattern detection machine learning to identify whethere there
+   are patterns in dead zone (such as every Friday at 3pm when operations run backup 
+   and makes servers slow).
+
+2. **How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...**
 
    We gradually build system-level load test assets over time
    by accumulating micro-benchmarks at the component level as developers work:
@@ -210,7 +219,7 @@ Engage with us to answer these questions:
 
    Also, have "hardening" sprints that occur before the project release date.
 
-**3. How to integrate work among groups working sequential shifts ...**
+3. **How to integrate work among groups working sequential shifts ...**
 
    ... instead of limiting capacity to a single cabal of workers.
 
@@ -221,7 +230,7 @@ Engage with us to answer these questions:
    Common asset usage scheduling systems and advanced yet lean communication protocols among members
    make it happen seamlessly.
 
-**4. How to have automation assist in generating scripts to impose potential loads ...**
+4. **How to have automation assist in generating scripts to impose potential loads ...**
 
    ... instead of responding to change by manually adding correlations and verifications again after each change.
 
@@ -231,14 +240,14 @@ Engage with us to answer these questions:
    Automatically scan generated software using the same rigorous rules as used for 
    other manually crafted software.
 
-**5. How to tune configuration settings for lower costs and resiliency during sprints ...**
+5. **How to tune configuration settings for lower costs and resiliency during sprints ...**
 
    ... instead of letting default settings wreck havoc on servers.
 
    Several tuning runs can use adaptive algorithms to identify optimal settings from among a complex set of possibilities. This requires results to be assess mostly automatically rather than depending upon
    manual reviews all the time.
 
-**6. How to provide Production Operations <a href="#Predictive">predictive triggers</a> for action ...**
+6. **How to provide Production Operations <a href="#Predictive">predictive triggers</a> for action ...**
 
    ... instead of leaving others to figure it out on their own.
 
