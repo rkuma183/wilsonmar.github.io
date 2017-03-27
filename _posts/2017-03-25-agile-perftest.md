@@ -14,20 +14,20 @@ comments: true
 This article is about how to do performance testing and performance engineering work
 in an Agile way -- during sprints rather than too late in the cycle:
 
-Agile projects (vs. traditional waterfall) are characterized by:
+To recap, Agile projects (vs. traditional waterfall) are characterized by 
+focusing on business priorities and customer value:
 
-* focusing on business priorities and customer value
-* cross-functional teams instead of silos
-* use of short work iterations instead of waterfall phases
-* incremental development of products instead of late feedback when changes are costly
-* continuous improvement (adjustments) instead of lockdown of requirements
-* measuring progress by workable products of most value to customers rather than adherence to plans that may be obsolete
+* cross-functional teams 
+* use of short work iterations 
+* incremental development of products 
+* continuous improvement (adjustments)
+* measuring progress by workable products of most value to customers 
 
 > Engage with us to answer these questions:
 
 1. **How to ensure dependencies are ready before sprint work needs them ...**
 
-   ... instead of scrambling to fix things blocking progress.
+   This helps to avoid scrambling to fix things blocking progress.
 
    In order to measure patterns in availability,
    we have an "run conditions monitor" that makes an on-going "ping" to API services which scripts depend on.
@@ -42,7 +42,7 @@ Agile projects (vs. traditional waterfall) are characterized by:
 
 2. **How to automatically identify performance issues (such as memory leaks) as part of System Demos at the end of sprints ...**
 
-   ... instead of waiting until it's a hassle and more expensive to make changes.
+   This avoids waiting until it's a hassle and more expensive to make changes.
 
    A central tenent of Agile is to measure progress by workable products of most value to customers.
 
@@ -76,7 +76,7 @@ Agile projects (vs. traditional waterfall) are characterized by:
 
 3. **How to integrate work among groups working sequential shifts ...**
 
-   ... instead of limiting capacity to a single cabal of workers.
+   This avoid limiting capacity to a single cabal of workers.
 
    Git repositories identify every line changed, when it was made, and who did it.
 
@@ -87,7 +87,7 @@ Agile projects (vs. traditional waterfall) are characterized by:
 
 4. **How to have automation assist in generating scripts to impose potential loads ...**
 
-   ... instead of responding to change by manually adding correlations and verifications again after each change.
+   This avoids responding to change by manually adding correlations and verifications again after each change.
 
    "Functional" test scripts run to generate load test scripts using advanced software that
    pulls in previously defined correlations and verifications.
@@ -97,14 +97,14 @@ Agile projects (vs. traditional waterfall) are characterized by:
 
 5. **How to tune configuration settings for lower costs and resiliency during sprints ...**
 
-   ... instead of letting default settings wreck havoc on servers.
+   This avoid letting default settings wreck havoc on servers.
 
    Several tuning runs can use adaptive algorithms to identify optimal settings from among a complex set of possibilities. This requires results to be assess mostly automatically rather than depending upon
    manual reviews all the time.
 
 6. **How to provide Production Operations <a href="#Predictive">predictive triggers</a> for action ...**
 
-   ... instead of leaving others to figure it out on their own.
+   This avoid leaving others to figure it out on their own.
 
    Identify conditions (such as memory per user) that are evident 
    before the system reaches during artificially induced load levels.
