@@ -3,7 +3,7 @@ layout: post
 title: ".NET profiling"
 excerpt: "Here's how to use Redgate ANTS to make C# really sing on NerdDinner"
 tags: [perftest]
-shorturl: "https://goo.gl/ZkKQrs"
+shorturl: "https://goo.gl/4sjZh4"
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -11,11 +11,40 @@ comments: true
 
 {% include _toc.html %}
 
+This article currently contains notes on using the ANTS profiler for Visual Studio on Windows.
+
+NOTE: Java programmers: please refer to my JVM Profilers page.
 
 
-## Install
+## Editions and Installers
+
+Red-gate.com has 3 different products for developers, with separate licenses.
+
+There are different pages for each product:
+
+PROTIP: But all <a target="_blank" href="https://www.red-gate.com/dynamic/products/dotnet-development/ants-performance-profiler/download">download pages download</a> the same file:
+
+   DotNETDeveloperBundle.exe, 78.7 MB
+
+   NOTE: Many enterprises require you to instead see your system administrator rather than downloading yourself.
+
+14 days trial.
+
+
+## Resources
+
+* http://documentation.red-gate.com/display/APP7/Worked+example+-+Profiling+an+ASP.NET+application+-+NerdDinner
+
+* http://documentation.red-gate.com/display/APP7/Setting+up+and+running+a+profiling+session
+
+* http://documentation.red-gate.com/display/APP7/Working+with+profiling+results
+
+Ben Emmett (@bcemmett) is Regate's .NET Tools Product Manager (as of 2012).
+
 
 ## Configure license
+
+After installation of the app and sample server:
 
 0. Invoke ANTS Profiler from within Visual Studio:
 
