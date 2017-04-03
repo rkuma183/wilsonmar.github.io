@@ -21,7 +21,7 @@ comments: true
 
 ## VMware Fusion #
 
-It costs a few bucks, but you can run Windows or OSX within VMWare Fusion.
+It costs a few bucks, but you can run Windows or Linux on a MacOSX machine usin VMWare Fusion.
 
 This would enable you to experiment with setups.
 
@@ -281,6 +281,27 @@ C) <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-des
 NOTE: http://docs.aws.amazon.com/quickstart/latest/rd-gateway/welcome.html
 Quick Start for Remote Desktop Gateway that explains how to configure RDGW in detail
 
+
+## Configuration
+
+It's a good thing the classic Control Panel is still in Windows 10.
+The Color Picker in the classic Control Panel is nested under "Appearance and Personalization", "Personalization", 
+then "Color and Appearance."
+
+The classic Control Panel enables you to create nearly any color you want for the accent color,
+even though Windows 10 Personalization page of the Settings app
+provides only a limited palette of 48 colors to choose from.
+
+
+### Fink
+
+   <a target="_blank" href="http://www.simplehelp.net/2007/05/09/how-to-install-linux-applications-in-os-x-a-complete-walkthrough/">
+   Back in 2007</a>
+   <a target="_blank" href="http://www.finkproject.org/download/">
+   Fink</a> was recommended. It is a package manager like Homebrew and MacPorts.
+   Fink is Apt-based, so people will feel right at home coming from a <strong>Debian</strong> Linux environment.
+   Its packages are binary,so no long compile times. But practically they are usually outdated and I had to compile stuff for my system anyway.
+   It needs X11 installed.
 
 
 ## More on OSX

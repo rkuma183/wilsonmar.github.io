@@ -20,7 +20,7 @@ comments: true
 EasyTravel is a "realistic heterogeneous multi-tier web-application"
 Dynatrace provides to evaluate its AppMon and UEM software.
 
-(What we're referring to here is not a real travel site like
+(What we're referring to here is NOT a real travel site like Expedia.com or
 http://www.easytravel.co.tz)
 
 YOUTUBE: 
@@ -29,12 +29,21 @@ Evaluate Dynatrace with easyTravel</a> demo app
 published on May 14, 2015. In 1 hour it takes a whirlwind tour, half based on random questions,
 which can be confusing to newbies.
 
-0. Identify the latest version (6.5 as of this writing March 2017).
-0. Get to the EasyTravel website:
+0. Identify the latest version of Dynatrace (6.5 as of this writing March 2017).
+
+0. If you're on a Mac, install Ubuntu within VMWare Fusion.
+
+0. In an internet browser, get to the EasyTravel download website:
 
    <a target="_blank" href="http://bit.ly/dteasytravel">
    http://bit.ly/dteasytravel</a>
    (https://community.dynatrace.com/community/display/DL/Demo+Applications+-+easyTravel)
+
+0. Uninstall previous version:
+
+   ls $UserHome/.dynaTrace/easyTravel 2.0.0/easyTravel/config
+
+   rm -rf $UserHome/.dynaTrace/easyTravel 2.0.0/easyTravel/config
 
 0. Click "easyTravel for AppMon 6.5"
 
@@ -58,9 +67,8 @@ which can be confusing to newbies.
    QUESTION: How is https://community.dynatrace.com/community/display/EVAL/My+dynaTrace+Trial
    different than the other page? "A trial account for this ID already exists!"
 
-0. Uninstall previous version
 
-   $UserHome/.dynaTrace/easyTravel 2.0.0/easyTravel/config
+https://www.youtube.com/watch?v=B_oWkBjH-Uk
 
 
 <a name="RunOnWindows"></a>
@@ -74,35 +82,42 @@ which can be confusing to newbies.
 
 <a name="RunOnLinux"></a>
 
-## Using Linux to work on a MacOSX
+## Using Linux
 
-### Fink
+From <a target="_blank" href="https://answers.dynatrace.com/questions/148613/how-to-start-easytravel-demo-on-linux.html?childToView=175003#answer-175003">this</a>:
 
-   <a target="_blank" href="http://www.simplehelp.net/2007/05/09/how-to-install-linux-applications-in-os-x-a-complete-walkthrough/">
-   Back in 2007</a>
-   <a target="_blank" href="http://www.finkproject.org/download/">
-   Fink</a> was recommended. It is a package manager like Homebrew and MacPorts.
-   Fink is Apt-based, so people will feel right at home coming from a <strong>Debian</strong> Linux environment.
-   Its packages are binary,so no long compile times. But practically they are usually outdated and I had to compile stuff for my system anyway.
-   It needs X11 installed.
+It seems you run a 64-bit Ubuntu installation, but easyTravel does not fully support this with the 32-bit binaries that are provided on the community pages.
 
-### VMWare Fusion on Mac
+You can either run easyTravel on an Ubuntu 32-bit installation 
+or use the Web-based launcher via the following commands:
 
-VMWare Fusion is a good tool for this.
+cd weblauncher
 
-0. Install VMWare Fusion and install a license.
-0. Invoke VMWare from your Launcher or Finder Go Applications folder.
+./weblauncher.sh
 
-   
-0. Power up the virtual machine.
-0. Inside the VMWare instance, 
+This will provide a web-based view which should provide the same interfaces as the rich-client UI.
 
-   https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1022525
+Please note that on 64-bit Linux, you likely need to run the following commands to install some additional 32-bit components that are needed by easyTravel:
+
+   <pre>
+sudo apt-get update 
+sudo aptitude install gcc-multilib 
+sudo apt-get install libxml2:i386 
+sudo aptitude install lib32z1 
+sudo apt-get install libcurl3:i386 
+   </pre>
+
+If you do not get libxml2:i386 you have to enable multilib support first:
+
+   <pre>
+sudo dpkg --add-architecture i386 sudo apt-get update
+   </pre>
 
 0. Download from the EasyTravel website:
 
    dynatrace-easytravel-linux-x86_64-2.0.0.2542.jar, 441 MB
 
+<hr />
 
 ## Install Agents
 
