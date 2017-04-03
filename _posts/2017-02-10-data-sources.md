@@ -82,6 +82,16 @@ from the Institute of Web Science and Technologies at the University of Koblenzâ
 collects large network datasets of all types in order to perform research in network science and related fields.
 
 
+## Words
+
+Google digitized (scanned) all the books in the 20th century and turned them into n-grams at<br />
+https://books.google.com/ngrams/
+with <strong>counts</strong> how often each word occurred in all books.
+
+Wordnet 
+defined affect scores -- a mood score.
+
+
 ## Data
 
 http://bit.ly/2lzp3KC
@@ -111,9 +121,19 @@ Allen Institute (ai2)
 
     
 
-Weather
 
-Pandora music
+### Grography 
+
+   Street Names
+
+   Zip codes by state, latitude, longitude
+
+## Weather
+
+## Music
+
+
+### Pandora music
 
 <a target="_blank" href="https://developer.spotify.com/web-api/">
 Spotify's API</a>
@@ -127,13 +147,6 @@ First names registered in each state, by year, in the US
    from Google Big Data
 
 Musicbase from a game
-
-
-### Grography 
-
-   Street Names
-
-   Zip codes by state, latitude, longitude
 
 ## Using data   
 
