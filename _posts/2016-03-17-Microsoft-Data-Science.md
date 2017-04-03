@@ -36,9 +36,9 @@ Data Science Orientation</a> | Liberty Munson |
 | $99 | <a target="_blank" href="https://www.edx.org/course/querying-transact-sql-microsoft-dat201x-6">
 Querying Data with Transact-SQL</a> | ? |
 | $99 | <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-excel-microsoft-dat206x-5">
-1) Analyzing and Visualizing Data with Excel</a><br />
+1) Analyzing and Visualizing Data with Excel</a> <br />
 <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
-2) Analyzing and Visualizing Data with Power BI</a> | ? |
+2) Analyzing and Visualizing Data with Power BI</a> | Dany Hoter |
 | $99 | <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
 Essential Statistics for Data Analysis using Excel</a>| ? |
 | $99 | <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
@@ -81,12 +81,23 @@ It's a Cortana competition.
 
 ## Tools
 
+Excel 2016 Professional Plus edition, which has the Power Pivot add-in and some advanced Power Query functionality.
+
 Python Tools for Visual Studio: https://aka.ms/edx-dat208x-vs01
+
+SQL Database: https://aka.ms/edx-dat101x-sql01 
+
+Power BI: https://aka.ms/edx-dat101x-pbi01 
+
+SQL Data Warehouse: https://aka.ms/edx-dat101x-sql02
+
+
+## Instructors
 
 > I personally find that the course doesn't gloss over topics that are difficult to understand.
 It covers the most useful skills in a short amount of time.
 
-## Instructors
+
 
 Graeme Malcolm, content developer for the series, has a great Scottish accent.
 
@@ -101,12 +112,26 @@ Amy Nicholson
 Richard Conway
 
 
+<a name="Capstone"></a>
+
+## Capstone Project
+
+Each challenge is available at the beginning of each week (UTC time during London Winter).
+
+Only one try is permitted.
+
+Week 1: Explore and analyze the <a target="_blank" href="https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/d12a128aa3aa1072fbff76da3557c6a2/asset-v1:Microsoft+DAT102x+2T2017+type@asset+block/AWCustomers.zip">
+Adventureworks Sales and Customers CSV data files</a>, for 30% of the grade.
+The Sales file contains CustomerID	BikeBuyer	AvgMonthSpend.
+
+Week 2: Create predictive machine learning models, for 50% of the grade.
+
+Week 3: Write and submit a report of your analysis and findings, for 20% of the grade.
+
+Week 4: Review and grade the reports submitted by three fellow students. 
+
 
 ## References
-
-SQL Database: https://aka.ms/edx-dat101x-sql01 
-Power BI: https://aka.ms/edx-dat101x-pbi01 
-SQL Data Warehouse: https://aka.ms/edx-dat101x-sql02
 
 http://konect.uni-koblenz.de/
 
