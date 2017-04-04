@@ -85,14 +85,15 @@ during development.
 
 0. View past webinars
 
-   https://www.youtube.com/watch?v=eYzl1PTGS7Y&index=24&list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6
+   <a target="_blank" href="https://www.youtube.com/watch?v=eYzl1PTGS7Y&index=24&list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6">
+   On YouTube</a>
 
 0. Ways to meet other users:
 
    <a target="_blank" href="https://community.compuwareapm.com/community/display/PUB/Events/">
    https://community.dynatrace.com/community/display/DL/Downloads</a>
 
-0. Joing and attend Meetups:
+0. Join and attend Meetups:
 
    <a target="_blank" href="https://www.meetup.com/pro/dynatrace/">
    https://www.meetup.com/pro/dynatrace</a>
@@ -111,10 +112,16 @@ during development.
    CAUTION: Many enterprises are fearful of releasing data outside the corporate firewall.
    Check with your Security people before sending the file out.
 
-0. LinkedIn?
-0. Twitter?
-0. Pinterest?
+0. LinkedIn Groups
 
+   <a target="_blank" href="https://www.linkedin.com/groups/1868499/profile">
+   https://www.linkedin.com/groups/1868499/profile<br />
+   Dynatrace APM User Group</a>
+
+0. Twitter
+
+   <a target="_blank" href="https://twitter.com/Dynatrace">
+   @Dynatrace</a>
 
 0. Look through their GitHub source repositories:
 
@@ -128,8 +135,28 @@ during development.
    https://github.com/grabnerandi</a>
 
 
-0. Certification?
+0. Get Certified
 
+   <a target="_blank" href="https://university.dynatrace.com/certificate/industry">
+   https://university.dynatrace.com/certificate/industry</a><br />
+   The "Industry Associate" level validates understanding of APM -- the why,
+   core concepts, history, and emerging trends.<br />
+   <a target="_blank" href="https://d3sj466wqlrld0.cloudfront.net/certificate/docs/du_certificate_industry_associate_blueprint.pdf">
+   DOWNLOAD: Associate Exam Blueprint.pdf</a>
+   It's free.
+
+   Other exams are $200:
+
+   <a target="_blank" href="https://university.dynatrace.com/certificate/appmon">
+   AppMon</a>
+
+   <a target="_blank" href="https://university.dynatrace.com/certificate/dcrum">
+   DC RUM</a>
+   
+   <a target="_blank" href="https://university.dynatrace.com/certificate/synthetic">
+   Synthetic</a>
+
+   Master-level.
 
 <hr />
 

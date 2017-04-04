@@ -54,6 +54,39 @@ which can be confusing to newbies.
 
    dynatrace-easytravel-linux-x86_64 for AppMon 7 is 361 MB
 
+0. Click OK to the folder:
+
+   C:\Program Files\dynaTrace\easyTravel (x64)\
+
+0. If you get the UAC pop-up, click Yes.
+0. Click Finish.
+
+   ### Configure
+
+0. Click the Windows key. 
+0. Click EasyTravel Configuration UI.
+0. If the Windows Security Alert pops up, click "Allow access".
+0. Click OK to this pop-up:
+
+0. Click on the wheel icon at the upper-right of the screen.
+0. Click "Select a program from a list of installed programs".
+
+0. Click on Standard.
+0. Choose "starting".
+
+   ### Clean-up
+   
+0. Delete the installer .exe file.
+
+   ### View
+
+0. Open a browser to localhost:8079
+
+
+
+
+<hr />
+
 0. Get license
 
    Click "Download easyTravel Demo License" = https://community.dynatrace.com/community/download/attachments/45383742/dynaTrace_license_201609281051.key?version=2&modificationDate=1486998983333&api=v2
