@@ -30,20 +30,20 @@ for some of the courses.
    then audit the rest for free. For example, if you only want to learn Python and not R:
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> US$ </th><th> Course </th></tr>
+<tr><th> US$ </th><th> Course </th><th> Instructor </th></tr>
 <tr align="top"><td> $25 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-orientation-microsoft-dat101x">
 Data Science Orientation</a> </td><td> Liberty Munson </td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/querying-transact-sql-microsoft-dat201x-6">
 Querying Data with Transact-SQL</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-excel-microsoft-dat206x-5">
 1) Analyzing and Visualizing Data with Excel</a></td><td>?</td></tr>
-   <tr align="top"><a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
+   <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
 2) Analyzing and Visualizing Data with Power BI</a> </td><td> Dany Hoter </td><td>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
 Essential Statistics for Data Analysis using Excel</a></td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
 1) Introduction to Python for Data Science</a> </td><td> Filip SCHOUWENAARS, DataCamp  </td></tr>
-   <tr align="top"><a target="_blank" href="https://www.edx.org/course/introduction-r-data-science-microsoft-dat204x">
+   <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/introduction-r-data-science-microsoft-dat204x">
    2) Introduction to R for Data Science</a> </td><td> ? </td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-essentials-microsoft-dat203-1x">
 Data Science Essentials</a> </td><td> ? </td></tr>
@@ -51,20 +51,17 @@ Data Science Essentials</a> </td><td> ? </td></tr>
 Principles of Machine Learning</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/programming-python-data-science-microsoft-dat210x-1">
 1) Programming with Python for Data Science</a></td><td> ? </td></tr>
-   <tr align="top"><a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
+   <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
    2) Programming with R for Data Science</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="3"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x">
 1) Applied Machine Learning</a><br />
-   <tr align="top"><a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
+   <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
    2) Implementing Predictive Solutions with Spark in Azure HDInsight</a> 
    (using Python, Scala, and R with Apache Spark)</td><td> ? </td></tr>
-   <tr align="top"><a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
+   <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
    3) Developing Intelligent Applications</a> </td><td> ? </td><td>
 <tr align="top"><td> $49 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-professional-project-microsoft-dat102x-2">Data Science Professional Capstone Project</a> </td><td> ? </td></tr>
 </table>
-
-   PROTIP: Audit the capstone project before taking other classes to get a preview of what is required of you.
-   Then you can take the rest of the classes with practical objectives in mind.
 
 NOTE: There is no one-on-one tutoring with these classes, unlike 
 the $1,000 Xamarin certificate. And there is no job search assistance like Udacity provides
@@ -75,9 +72,6 @@ Each class contains several modules.
 A set of classes begin every 3 months starting the first of January, April, July, September.
 
    CAUTION: If you sign up a week before the end of the quarter, you'll only have a week to complete that class.
-
-The capstone project is entered in the quarter after your last class.
-It's a Cortana competition.
 
 
 ## Tools
@@ -117,9 +111,15 @@ Richard Conway
 
 ## Capstone Project
 
-Each challenge is available at the beginning of each week (UTC time during London Winter).
+The capstone project is entered in the quarter after your last class.
+It's a Cortana competition.
 
-Only one try is permitted.
+   PROTIP: Audit the capstone project before taking other classes to get a preview of what is required of you.
+   But you can progress only through the first of 3 weeks.
+
+   And only one try is permitted per answer.
+
+Each challenge is available at the beginning of each week (UTC time during London Winter).
 
 Week 1: Explore and analyze the <a target="_blank" href="https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/d12a128aa3aa1072fbff76da3557c6a2/asset-v1:Microsoft+DAT102x+2T2017+type@asset+block/AWCustomers.zip">
 Adventureworks Sales and Customers CSV data files</a>, for 30% of the grade.
