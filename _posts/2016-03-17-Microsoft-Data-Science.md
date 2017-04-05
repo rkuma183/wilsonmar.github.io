@@ -27,40 +27,41 @@ because there is an option to take either Python or R
 for some of the courses.
 
    PROTIP: Pay to get verified on just 9 classes (for a <strong>total of $767</strong>), 
-   then audit the rest for free.
+   then audit the rest for free. For example, if you only want to learn Python and not R:
 
-| US$ | Course |
-| --- | ------ |
-| $25 | <a target="_blank" href="https://www.edx.org/course/data-science-orientation-microsoft-dat101x">
-Data Science Orientation</a> | Liberty Munson |
-| $99 | <a target="_blank" href="https://www.edx.org/course/querying-transact-sql-microsoft-dat201x-6">
-Querying Data with Transact-SQL</a> | ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-excel-microsoft-dat206x-5">
-1) Analyzing and Visualizing Data with Excel</a> <br />
-<a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
-2) Analyzing and Visualizing Data with Power BI</a> | Dany Hoter |
-| $99 | <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
-Essential Statistics for Data Analysis using Excel</a>| ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
-1) Introduction to Python for Data Science</a> Filip SCHOUWENAARS, DataCamp<br />
-<a target="_blank" href="https://www.edx.org/course/introduction-r-data-science-microsoft-dat204x">
-2) Introduction to R for Data Science</a> | ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/data-science-essentials-microsoft-dat203-1x">
-Data Science Essentials</a> | ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/principles-machine-learning-microsoft-dat203-2x">
-Principles of Machine Learning</a> | ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/programming-python-data-science-microsoft-dat210x-1">
-1) Programming with Python for Data Science</a><br />
-<a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
-2) Programming with R for Data Science</a> | ? |
-| $99 | <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x">
+<table border="1" cellpadding="4" cellspacing="0">
+<tr><th> US$ </th><th> Course </th></tr>
+<tr align="top"><td> $25 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-orientation-microsoft-dat101x">
+Data Science Orientation</a> </td><td> Liberty Munson </td></tr>
+<tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/querying-transact-sql-microsoft-dat201x-6">
+Querying Data with Transact-SQL</a> </td><td> ? </td></tr>
+<tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-excel-microsoft-dat206x-5">
+1) Analyzing and Visualizing Data with Excel</a></td><td>?</td></tr>
+   <tr align="top"><a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
+2) Analyzing and Visualizing Data with Power BI</a> </td><td> Dany Hoter </td><td>
+<tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
+Essential Statistics for Data Analysis using Excel</a></td><td> ? </td></tr>
+<tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
+1) Introduction to Python for Data Science</a> </td><td> Filip SCHOUWENAARS, DataCamp  </td></tr>
+   <tr align="top"><a target="_blank" href="https://www.edx.org/course/introduction-r-data-science-microsoft-dat204x">
+   2) Introduction to R for Data Science</a> </td><td> ? </td></tr>
+<tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-essentials-microsoft-dat203-1x">
+Data Science Essentials</a> </td><td> ? </td></tr>
+<tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/principles-machine-learning-microsoft-dat203-2x">
+Principles of Machine Learning</a> </td><td> ? </td></tr>
+<tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/programming-python-data-science-microsoft-dat210x-1">
+1) Programming with Python for Data Science</a></td><td> ? </td></tr>
+   <tr align="top"><a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
+   2) Programming with R for Data Science</a> </td><td> ? </td></tr>
+<tr align="top"><td rowspan="3"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x">
 1) Applied Machine Learning</a><br />
-<a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
-2) Implementing Predictive Solutions with Spark in Azure HDInsight</a> 
-(using Python, Scala, and R with Apache Spark)<br />
-<a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
-3) Developing Intelligent Applications</a> | ? |
-| $49 | <a target="_blank" href="https://www.edx.org/course/data-science-professional-project-microsoft-dat102x-2">Data Science Professional Capstone Project</a> | ? |
+   <tr align="top"><a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
+   2) Implementing Predictive Solutions with Spark in Azure HDInsight</a> 
+   (using Python, Scala, and R with Apache Spark)</td><td> ? </td></tr>
+   <tr align="top"><a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
+   3) Developing Intelligent Applications</a> </td><td> ? </td><td>
+<tr align="top"><td> $49 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-professional-project-microsoft-dat102x-2">Data Science Professional Capstone Project</a> </td><td> ? </td></tr>
+</table>
 
    PROTIP: Audit the capstone project before taking other classes to get a preview of what is required of you.
    Then you can take the rest of the classes with practical objectives in mind.
