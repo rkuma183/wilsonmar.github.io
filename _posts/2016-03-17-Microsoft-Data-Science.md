@@ -38,7 +38,7 @@ Querying Data with Transact-SQL</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-excel-microsoft-dat206x-5">
 1) Analyzing and Visualizing Data with Excel</a></td><td>?</td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/analyzing-visualizing-data-power-bi-microsoft-dat207x-0">
-2) Analyzing and Visualizing Data with Power BI</a> </td><td> Dany Hoter </td><td>
+2) Analyzing and Visualizing Data with Power BI</a> </td><td> Dany Hoter </td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
 Essential Statistics for Data Analysis using Excel</a></td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
@@ -54,12 +54,12 @@ Principles of Machine Learning</a> </td><td> ? </td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
    2) Programming with R for Data Science</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="3"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x">
-1) Applied Machine Learning</a><br />
+1) Applied Machine Learning</a></td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
    2) Implementing Predictive Solutions with Spark in Azure HDInsight</a> 
    (using Python, Scala, and R with Apache Spark)</td><td> ? </td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
-   3) Developing Intelligent Applications</a> </td><td> ? </td><td>
+   3) Developing Intelligent Applications</a> </td><td> ? </td></tr>
 <tr align="top"><td> $49 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-professional-project-microsoft-dat102x-2">Data Science Professional Capstone Project</a> </td><td> ? </td></tr>
 </table>
 
