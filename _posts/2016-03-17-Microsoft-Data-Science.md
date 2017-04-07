@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Microsoft Data Science Certificate "
+title: "Microsoft Data Science"
 excerpt: "Here's how to a legitimate micro-certification"
 tags: [perftest]
 shorturl: "https://goo.gl/4sjZh4"
@@ -11,7 +11,17 @@ comments: true
 
 {% include _toc.html %}
 
-Microsoft Data Science Certificate 
+## Definitions
+
+Business Intelligence (BI) is closely tied to the design, implementation, and use of
+data warehouses, and the database-oriented technology to support them.
+
+Data scientists are consumers of BI. They are less concerned with building permanent infrastructure
+for others to use, and more on answering questions and communicating the results.
+<a target="_blank" href="https://www.coursera.org/learn/data-manipulation/lecture/tYtRc/distinguishing-data-science-from-related-topics">*</a>
+
+
+## Microsoft
 
 <a target="_blank" href="https://academy.microsoft.com/en-us/professional-program/data-science/">
 https://academy.microsoft.com/en-us/professional-program/data-science</a><br />
@@ -42,11 +52,11 @@ Querying Data with Transact-SQL</a> </td><td> ? </td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/essential-statistics-data-analysis-using-microsoft-dat222x">
 Essential Statistics for Data Analysis using Excel</a></td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/introduction-python-data-science-microsoft-dat208x-1">
-1) Introduction to Python for Data Science</a> </td><td> Filip SCHOUWENAARS, DataCamp  </td></tr>
+1) Introduction to Python for Data Science</a> </td><td> Filip Schouwenaars, DataCamp  </td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/introduction-r-data-science-microsoft-dat204x">
    2) Introduction to R for Data Science</a> </td><td> ? </td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-essentials-microsoft-dat203-1x">
-Data Science Essentials</a> </td><td> ? </td></tr>
+Data Science Essentials</a> </td><td> Cynthia Rudin & Steve Elston</td></tr>
 <tr align="top"><td> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/principles-machine-learning-microsoft-dat203-2x">
 Principles of Machine Learning</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="2"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/programming-python-data-science-microsoft-dat210x-1">
@@ -54,16 +64,16 @@ Principles of Machine Learning</a> </td><td> ? </td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/programming-r-data-science-microsoft-dat209x">
    2) Programming with R for Data Science</a> </td><td> ? </td></tr>
 <tr align="top"><td rowspan="3"> $99 </td><td> <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x">
-1) Applied Machine Learning</a></td></tr>
+1) Applied Machine Learning</a></td><td>?</td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/implementing-predictive-solutions-spark-microsoft-dat202-3x">
    2) Implementing Predictive Solutions with Spark in Azure HDInsight</a> 
    (using Python, Scala, and R with Apache Spark)</td><td> ? </td></tr>
    <tr align="top"><td><a target="_blank" href="https://www.edx.org/course/developing-intelligent-apps-microsoft-dat211x-0">
-   3) Developing Intelligent Applications</a> </td><td> ? </td></tr>
+   3) Developing Intelligent Applications</a> </td><td> Gerry O'Brien & Amy Nicholson </td></tr>
 <tr align="top"><td> $49 </td><td> <a target="_blank" href="https://www.edx.org/course/data-science-professional-project-microsoft-dat102x-2">Data Science Professional Capstone Project</a> </td><td> ? </td></tr>
 </table>
 
-NOTE: There is no one-on-one tutoring with these classes, unlike 
+NOTE: There is NO one-on-one tutoring with these classes, unlike 
 the $1,000 Xamarin certificate. And there is no job search assistance like Udacity provides
 with its $398 Machine Learning course.
 
@@ -74,17 +84,62 @@ A set of classes begin every 3 months starting the first of January, April, July
    CAUTION: If you sign up a week before the end of the quarter, you'll only have a week to complete that class.
 
 
-## Tools
+## Tools references
 
-Excel 2016 Professional Plus edition, which has the Power Pivot add-in and some advanced Power Query functionality.
+* The Excel 2016 Professional Plus edition, has the Power Pivot add-in and some advanced Power Query functionality.
 
-Python Tools for Visual Studio: https://aka.ms/edx-dat208x-vs01
+* Machine Learning: https://aka.ms/edx-dat211x-aml01 
 
-SQL Database: https://aka.ms/edx-dat101x-sql01 
+* Stream Analytics: https://aka.ms/edx-dat211x-az01
+* Python Tools for Visual Studio: https://aka.ms/edx-dat208x-vs01
 
-Power BI: https://aka.ms/edx-dat101x-pbi01 
+* Web Services in .NET 2.0: https://aka.ms/edx-dat211x-wsn 
 
-SQL Data Warehouse: https://aka.ms/edx-dat101x-sql02
+* SQL Database: https://aka.ms/edx-dat101x-sql01 
+* SQL Data Warehouse: https://aka.ms/edx-dat101x-sql02
+* Microsoft SQL server: https://aka.ms/edx-dat215.5x-sql
+* Power BI: https://aka.ms/edx-dat101x-pbi01 
+
+
+## Cognitive Services on Azure
+
+* Microsoft Azure: https://aka.ms/edx-dat211x-az02
+* Microsoft Azure portal: https://aka.ms/edx-dat211x-az04 
+* Cognitive Services API: https://aka.ms/edx-dat211x-cogs
+* Cognitive Services API: https://aka.ms/edx-dat211x-cog01 resolves to https://www.microsoft.com/en-us/
+
+Cognitive Services enables you to build applications that can tap into the powerful artificial intelligence (AI) algorithms that Microsoft has developed and hosts on Microsoft Azure.  These AI algorithms offer machine-based intelligence for your applications around vision, speech, and language. 
+
+API Headers contain:
+
+   Content-Type (Optional) - a string type indicating the media type of the body that is sent to the API
+
+   Ocp-Apim-Subscription-Key - a string type that contains your API key that is found in your Cognitive Services account on Microsoft Azure
+
+Text Analytics is the component that allows you to gain access to natural language processing.  The data returned from an analytics session can provide insight into sentiment and topic mapping for your applications.
+
+   * Text Analytics APIs: https://aka.ms/edx-dat211x-az03 
+
+
+With Sentiment Analysis, submit text that originates from sources such as Twitter accounts, forums, blogs, or customer feedback on your web sites, and then have the service evaluate the text for keywords.  These are then used to indicate what users think about your company or products.  Use this in marketing campaigns to take a baseline analysis before launching your campaign, then do another analysis and compare any differences after the campaign ends.  This can help determine trends and validity of your marketing efforts.
+
+   * https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+   is the request URL, followed by the necessary request headers.
+
+Topic Detection mines articles or other textual content for identification of key issues or topics that users are discussing.  The information available in using this feature can help determine the direction you may want to take on a new or envisioned product.  It can also help identify popular topics where users are focusing, offering insight into what is important to them.
+
+   * https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics[?minDocumentsPerWord][&maxDocumentsPerWord], followed by the necessary request headers.
+
+Key Phrase Extraction determines key topic points of the main points of an article.  Pass the text of the article into the Text Analytics engine to extract key phrases from the English text in the article.  This can help to focus efforts on the main points of an article, saving time in reviewing and evaluating the article(s) manually.
+
+Language Detection takes the URL to a blog post or response to an article, post, or Tweet, and determines what language it is written in, among 120 possible languages.
+
+   * https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages[?numberOfLanguagesToDetect], 
+   followed by the necessary request headers.
+
+## Machine Learning
+
+Here is one of the few courses on use of C# for machine learning.
 
 
 ## Instructors
@@ -92,19 +147,19 @@ SQL Data Warehouse: https://aka.ms/edx-dat101x-sql02
 > I personally find that the course doesn't gloss over topics that are difficult to understand.
 It covers the most useful skills in a short amount of time.
 
-
-
 Graeme Malcolm, content developer for the series, has a great Scottish accent.
 
 Liberty Munson - module 2
 
-Gerry O'Brien
+
 
 Authman Apatira
 
 Amy Nicholson
 
 Richard Conway
+
+
 
 
 <a name="Capstone"></a>
@@ -157,6 +212,3 @@ PROTIP: I constructed the spreadsheet during the course such that I can re-use i
 for analyzing other data than the "lemonade stand" data used in the class
 
 
-## Resources
-
-Microsoft SQL server: https://aka.ms/edx-dat215.5x-sql
