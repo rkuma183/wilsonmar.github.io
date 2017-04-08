@@ -53,6 +53,20 @@ while( break_count < total_breaks ):
 </pre>
 
 
+## Strings
+
+The Unicode standard represents a large variety of characters beyond the roman alphabet 
+(emojis, greek, russian, mathematical symbols, logograms from non-phonetic writing systems such as kanji, etc.)
+
+Define a Unicode string with a prefix, then print a unicode string:
+
+   <pre>
+unicode_string = u"aaaàçççñññ"
+encoded_string = unicode_string.encode('utf-8')
+print encoded_string
+   </pre>
+
+
 ## More on OSX
 
 This is one of a series on Mac OSX:

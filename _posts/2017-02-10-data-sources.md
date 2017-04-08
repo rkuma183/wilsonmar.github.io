@@ -94,8 +94,12 @@ defined affect scores -- a mood score.
 
 ## Data
 
-http://bit.ly/2lzp3KC
-IEX (Investors Exchange)
+<a target="_blank" href="http://www.makeovermonday.co.uk/data/">
+http://www.makeovermonday.co.uk/data</a>
+has one (of 52) visualization makeover every week.
+
+<a target="_blank" href="http://bit.ly/2lzp3KC">
+IEX (Investors Exchange)</a> has real-time stock exchange.
 
 archive.ics.uci.edu/ml/datasets.html
 
