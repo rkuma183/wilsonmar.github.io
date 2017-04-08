@@ -391,6 +391,25 @@ git merge upstream/master
 
 
 
+
+<a name="SikuliXCommands"></a>
+
+## SikuliX Commands
+
+SikuliX can be called by batch scripts from a Terminal/Run command line.
+
+SikuliX recognize both one-character flags and longer options:
+
+   sikulix --args -i
+
+   -t or --test <em>sikuli-file</em>
+
+   -r or --run <em>sikuli-file</em>
+
+   -s or --stderr
+
+
+
 <a name="SikulixIDE"></a>
 
 ## Use IDE for SikuliX Scripting
@@ -409,23 +428,6 @@ git merge upstream/master
 
 Next, let's get some sample files the program can work with.
 
-
-
-<a name="SikuliXCommands"></a>
-
-## SikuliX Commands
-
-SikuliX can be called from a Terminal/Run command line by batch scripts.
-
-SikuliX recognize both one-character flags and longer options 
-
-   sikulix --args -i
-
-   -t or --test <em>sikuli-file</em>
-
-   -r or --run <em>sikuli-file</em>
-
-   -s or --stderr
 
 
 SikulixAppData folder
