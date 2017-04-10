@@ -1,6 +1,18 @@
-Heroku
+heroku.md
 
-https://github.com/heroku/node-js-sample
+
+## Click Button link Create Heroku 
+
+Food Bank application
+
+https://github.com/freeCodeCamp/food-bank-app/blob/staging/README.md
+
+   &LT;a href="https://heroku.com/deploy">
+
+<a href="https://heroku.com/deploy"><img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.svg" style="max-width:100%;"></a>
+
+
+## Get an account
 
 0. Click this URL to register for an account:<br />
    <a target="_blank" href="https://www.heroku.com/">
@@ -43,11 +55,35 @@ Possible conflicting files are:
    Error: The `brew link` step did not complete successfully
    The formula built, but is not symlinked into /usr/local
 
-brew link --overwrite --dry-run heroku
+  <pre>
+   brew link --overwrite --dry-run heroku
+  </pre>
 
 To force the link and overwrite all conflicting files:
 
+  <pre>
   brew link --overwrite heroku
+  </pre>
+
+
+## Install
+
+https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+
+On a Mac, the installer creates folder:
+
+   ~/.netrc 
+
+
+## Verify installation
+
+open a new Terminal window
+
+heroku login
+
+cd ~/myapp
+heroku create
+
 
 0. Login
 
@@ -63,7 +99,9 @@ Enter your Heroku credentials.
 Email:
    </pre>
 
-0. Enter your Heroku password:
+0. Enter your Heroku password.
+
+   BTW, I like using 1Password to securely store and retrieve passwords.
 
 0. Enter the password
 
@@ -78,6 +116,8 @@ Password (typing will be hidden):
    </pre>
 
    QUESTION: Where was that installed?
+
+   ## Create app
 
 0. From your app directory create an instance in Heroku:
 
@@ -120,6 +160,9 @@ https://boiling-temple-57622.herokuapp.com/ | https://git.heroku.com/boiling-tem
    git push heroku master
    </strong></tt>
 
+## Node
+
+https://github.com/heroku/node-js-sample
 
 
 
