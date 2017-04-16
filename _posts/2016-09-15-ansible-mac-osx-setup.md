@@ -17,20 +17,18 @@ comments: true
 
 <a id="AutoInstall"></a>
 
-What is the easiest way to quickly configure a Mac the way 
-many developers prefer?
+What is the easiest way to quickly configure a Mac the way many developers prefer?
 
-If you already have an established installation with vagrant and virtualbox,
-create a virtual machine to try this process.
+Try this in a Vagrant or Virtualbox virtual machine.
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
 0. Copy from below this shell script call (highlight the line, 
    then hold down command and press C to the invisible Clipboard):
 
-   <tt><strong>
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/siyelo/laptop/master/install.sh)"
-   </strong></tt>
+   <pre><strong>
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/ansible-macos-setup/master/install.sh)"
+   </strong></pre>
 
 0. Make a folder and navigate into it:
 
