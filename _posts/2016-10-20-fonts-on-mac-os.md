@@ -85,6 +85,13 @@ Thanks to his work, we now have a good fixed-sized font that works across Mac an
 https://github.com/andreberg/Meslo-Font/wiki/Using-Meslo-LG-with-the-Windows-Console 
 
 
+### GoLang fonts
+
+The font family, called Go, includes proportional- and fixed-width faces in normal, bold, and italic renderings. 
+
+https://blog.golang.org/go-fonts
+
+
 ### Hack Fonts from GitHub
 
 There are two to try:
