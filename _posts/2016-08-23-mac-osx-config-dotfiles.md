@@ -17,7 +17,7 @@ comments: true
 
 This article describes the various configuration settings to make your life easier and less frustrating.
 
-Some settings can be automated using "dotFiles" 
+Most settings can be automated using "dotFiles" 
 <a href="#DotFileRepos">in repositories maintained by various people</a>.
 
 
@@ -37,8 +37,16 @@ published by several people on their GitHub repositories:
 * <a target="_blank" href="https://github.com/daneden/dotfiles">
    https://github.com/daneden/dotfiles</a>
    from Dan Eden, #8 among all GitHub at GitScore.
-<br /><br />
+   He uses YADR:
 
+* <a target="_blank" href="https://skwp.github.io/dotfiles/">
+   https://skwp.github.io/dotfiles/</a>
+   is YADR (Yet Another Dotfile Repo) is an opinionated dotfile repo based on
+   the "best bits" of all the top dotfile repos curated in one place.
+
+   PROTIP: Using this central repository means that you take advantage of the experience of others
+
+   YADR includes git aliases plus super-geeky vim and zsh plugins.
 
 <a id="SheBang"></a>
 

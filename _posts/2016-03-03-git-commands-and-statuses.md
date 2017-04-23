@@ -392,6 +392,8 @@ https://git-scm.com/docs
 
 ## Common Git Commands in alphabetical order #
 
+Click each command for its documentation on git-scm.com:
+
 0. <a target="_blank" href="https://git-scm.com/docs/git-blame">
    blame</a> - Show what revision and author last modified each line of a file
 0. <a target="_blank" href="https://git-scm.com/docs/git-bisect">

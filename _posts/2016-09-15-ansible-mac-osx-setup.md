@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MacOS Setup Automation using Ansible"
+title: "MacOS setup automation using a bootstrap script and Ansible"
 excerpt: "How I setup several Macbooks while I sleep"
 tags: [apple, mac, setup, automation]
 image:
@@ -17,11 +17,25 @@ comments: true
 
 <a id="AutoInstall"></a>
 
-What is the easiest way to quickly configure a Mac the way many developers prefer?
+This is the fastest way to configure everything on a Mac for software developement,
+specific to what you want installed.
 
-Try this in a Vagrant or Virtualbox virtual machine.
+One can <a target="_blank" href="https://www.youtube.com/watch?v=bjgZ93oEZF0">
+Set Up OS X For Web Development in 10 Minutes</a>.
+
+Try this for yourself. But first on a virtual machine (VMWare Fusion, Vagrant, or Virtualbox).
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
+
+There are two phases to this:
+
+   Phase one - supply your password to install Xcode, <a href="#Homebrew">Homebrew</a>, Tap, and Cask, and Ansible
+
+   Phase two - supply your password again for Ansible to install what is not commented out in specification files:
+
+   I haven't seen it elsewhere on the internet, so I created an explanation of 
+   <a target="_blank" href="https://wilsonmar.github.io/mac-osx-config-dotfiles/">
+   MacOS customizations and "dot files" that set them automatically</a>.
 
 0. Copy from below this shell script call (highlight the line, 
    then hold down command and press C to the invisible Clipboard):
