@@ -979,16 +979,16 @@ his playlist</a>:
 ### Dan Gitschooldude
 
 Made in Sep 2015, <a target="_blank" href="https://gaming.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ">
-this series</a> I think is the most in-depth.
+this series</a> I think is the most in-depth among all videos on YouTube.
 No diagrams. Everything shown occurs on the command line, even the title of each video.
 
 > "I purposefully focus on the command line usage of Git, because lets face it, if you're using a GUI with Git, you probably have no idea what's going on :P"
 
    Dan is such a technical bad-ass he uses as an example something literally from rocket science
-   (well, it's a game about being in weightless space from NASA, but nonetheless):
+   (well, it's a game about being in weightless space, but nonetheless it's from NASA):
 
-   <a target="_blank" href="https://github.com/nasa/trick.gif">
-   https://github.com/nasa/trick.gif</a> (by alexander.s.lin@nasa.gov and others)
+      <a target="_blank" href="https://github.com/nasa/trick.gif">
+      https://github.com/nasa/trick.gif</a>
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OZEGnam2M9s">
    Introduction To Git</a> [13:43]
@@ -998,7 +998,7 @@ No diagrams. Everything shown occurs on the command line, even the title of each
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gQSd2lFkZHk">
    Your First Git Repo</a> [13:07]
 
-   Like everyone else, Dan's hello world is in cpp (C++) source code. ;)
+   Dan's hello world is in cpp (C++) source code, of course. ;)
 
    He uses vim as a text editor.
 
@@ -1013,44 +1013,49 @@ No diagrams. Everything shown occurs on the command line, even the title of each
    Traversing Git History</a> [18:55] looks into the .git folder. git log. git show.
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gZN1ssISkO8">
    Git remote, fetch, merge, and pull</a> [25:39]
+
+   Notice he defined MacOS alias ll for <pre>ls -al</pre>
+   
+   [20:01] fast-forward merge. FETCH-HEAD in git pull.
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Wk-IK2uJt28">
-   Git diff and git difftool</a>
+   Git diff and git difftool</a> [15:48] vimdiff, meld, etc. git diff HEAD HEAD^
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Fk-Gb4MfTd8">
-   Git Stash</a>
+   Git Stash</a> [12:54]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gS4uXB3v4Yk">
-   Introduction to Git Push</a>
+   Introduction to Git Push</a> [18:11]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=UQvXst5I41I">
-   Introduction to Git Submodules </a>
+   Introduction to Git Submodules</a> [26:51]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=w4AyLtIEibo">
-   More about git submodules</a>
+   More about git submodules</a> [19:46]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nDUDiy4F7nE">
-   The Git Index</a>
+   The Git Index</a> [17:52]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=u-5Vo9TFnAU">
-   Introduction to Git Branches</a>
+   Introduction to Git Branches</a> [27:40]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nE2ZJTdpuwY">
-   Introduction to Git Merge Conflicts</a>
+   Introduction to Git Merge Conflicts</a> [23:34]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=_krbFIiFhf4">
-   Manipulating Branches</a>
+   Manipulating Branches</a> [18:14]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=9sQIY8c6J64">
-   Squash Commits with Git's Interactive Rebase</a>
+   Squash Commits with Git's Interactive Rebase</a> [14:53]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=7b6LU850hKc">
-   Git Status as an Estimate</a>
+   Git Status as an Estimate</a> [13:49]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-ndmel-4wsk">
-   Introduction to Git cherry-pick</a>
+   Introduction to Git cherry-pick</a> [13:15]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=HQU8Y38KgdA">
-   Git Archive</a>
+   Git Archive</a> [10:57]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zcaeZHmMjUI">
-   Git branches aren't branches</a>
+   Git branches aren't branches</a> [15:28]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=mzagfGeFUuA">
-   Introduction to git rebase</a>
+   Introduction to git rebase</a> [17:27]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Bo-8EfDpKxA">
-   Remove a file from all git history</a>
+   Remove a file from all git history</a> [16:28]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=EWZTM4ALXKU">
-   Introduction to git bisect</a>
+   Introduction to git bisect</a> [17:44]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=YciSJXJL2Rs">
-   Introduction to git grep</a>
+   Introduction to git grep</a> [11:34]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
-   Introduction to Git Hooks</a>
+   Introduction to Git Hooks</a> [17:02]
 
 ## Michael Koby
 
