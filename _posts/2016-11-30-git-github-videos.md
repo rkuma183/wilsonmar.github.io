@@ -870,20 +870,15 @@ talking head waving hands:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
    GIT: Installation, Configuration and First Commit</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
    GIT: Working with Branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
    GIT: Merging and Workflow</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
    GIT: Git Flow Introduction</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
    GIT: Git Flow Feature Branch and Pushing to GitHub</a>
    [11:16] 6 Dec 2015
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
    GIT: Git Flow and Github Pull Request</a> 
    [6:53] 1 Jan 2016
@@ -898,6 +893,8 @@ https://www.udacity.com/course/how-to-use-git-and-github--ud775
 
 ## Individuals
 
+Several people, on their time off, created videos for others to enjoy for free.
+
 ### GitHub for Noobs
 
 Travis Neilson, "a noob, just like you, which makes me the perfect candidate"
@@ -909,15 +906,12 @@ for making a
 0. <a target="_blank" href="https://www.youtube.com/watch?v=1h9_cB9mPT8">
    A Short History (1/4)</a> [4:44]
    Feb 1, 2016 (difference between Git and GitHub)
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=_ALeswWzpBo">
    Common Workflows (2/4)</a> [6:35]
    Feb 8, 2016
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=BKr8lbx3uFY">
    Using the GitHub Desktop App (3/4)</a> [23:59]
    Feb 15, 2016
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JPKOESR1k04">
    Using the Command Line (4/4)</a> [23:12]
    Feb 22, 2016
@@ -931,22 +925,18 @@ his YouTube channel</a>. In
 <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z">
 his playlist</a>:
 
-* caseyli.com/videos
+* <a target="_blank" href="https://caseyli.com/videos">caseyli.com/videos</a>
 
-* caseyli.com/gittingtoknowyou/
+* <a target="_blank" href="https://caseyli.com/gittingtoknowyou/">caseyli.com/gittingtoknowyou</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw/">
    000 - Introduction</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=90gfI71O8QQ/">
    100 - Distributed vs Central</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=UIO5CGgTumo/">
    200 - Basics of Committing</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=ZAZ9ohOFNEM/">
    300 - More Committing</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=CZkUhcYNDJE/">
    400 - Branching Part 1</a>
 
@@ -954,101 +944,113 @@ his playlist</a>:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=RiQkZEtUrkM/">
    500 - Branching Part 2</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=M_Qsa0OZKy4/">
    600 - Branching Part 3</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=ul3MvMWBC70/">
    700 - Break</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=1LmfqV0bw4E/">
    800 - Remote Repositories</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=DicH5X8Vark/">
    900 - Intro to GitHub</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=BBrHBSa2LYo/">
    1000 - Git Push</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=XogN0Q4sb9o/">
    1100 - Git Fetch, Git Pull</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=iezsyzzrDg4/">
    1200 - Pull Requests Part 1</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=ikExlASV5OE/">
    1250 - Pull Requests Part 2</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=XqO4fYJK1Ek/">
    1300 - Workflow</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=wqHtWK-L_L0/">
    1400 - Where to go from here</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=u-vHhnKN5vg/">
    1500 - Fast-Forward Merging Part 1</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=-xid8vRXOYo/">
    1550 - Fast-Forward Merging Part 2</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=OXInybQFhMA/">
    1575 - Fast-Forward Merging Part 3</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=kn0WZbqfyQk/">
    1600 - Rebasing Part 1</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
    1650 - Rebasing Part 2</a>
 
 
 ### Dan Gitschooldude
 
+Made in Sep 2015, <a target="_blank" href="https://gaming.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ">
+this series</a> I think is the most in-depth.
+No diagrams. Everything shown occurs on the command line, even the title of each video.
+
+> "I purposefully focus on the command line usage of Git, because lets face it, if you're using a GUI with Git, you probably have no idea what's going on :P"
+
+   Dan is such a technical bad-ass he uses as an example something literally from rocket science
+   (well, it's a game about being in weightless space from NASA, but nonetheless):
+
+   <a target="_blank" href="https://github.com/nasa/trick.gif">
+   https://github.com/nasa/trick.gif</a> (by alexander.s.lin@nasa.gov and others)
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OZEGnam2M9s">
-   001 Introduction To Git</a>
+   Introduction To Git</a> [13:43]
+
+   Notice he defined MacOS alias gs for git status.
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gQSd2lFkZHk">
-   002 Your First Git Repo</a>
+   Your First Git Repo</a> [13:07]
+
+   Like everyone else, Dan's hello world is in cpp (C++) source code. ;)
+
+   He uses vim as a text editor.
+
+   And he shows how to run make to compile/build a binary file that should not be committed
+   by defining the .gitignore file.
+
+   Discard changes with <tt>git checkout <em>filename</em></tt>
+
+   Remove a cloned folder using <tt>rm -rf hello-world/<tt>.
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QCNkz5BjDEs"> 
-    003 Traversing Git History</a>
+   Traversing Git History</a> [18:55] looks into the .git folder. git log. git show.
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gZN1ssISkO8">
-   004 Git remote, fetch, merge, and pull</a>
+   Git remote, fetch, merge, and pull</a> [25:39]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Wk-IK2uJt28">
-   005 Git diff and git difftool</a>
+   Git diff and git difftool</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Fk-Gb4MfTd8">
-   006 Git Stash</a>
+   Git Stash</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gS4uXB3v4Yk">
-   007 Introduction to Git Push</a>
+   Introduction to Git Push</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=UQvXst5I41I">
-   008 Introduction to Git Submodules </a>
+   Introduction to Git Submodules </a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=w4AyLtIEibo">
-   009 More about git submodules</a>
+   More about git submodules</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nDUDiy4F7nE">
-   010 The Git Index</a>
+   The Git Index</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=u-5Vo9TFnAU">
-   011 Introduction to Git Branches</a>
+   Introduction to Git Branches</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nE2ZJTdpuwY">
-   012 Introduction to Git Merge Conflicts</a>
+   Introduction to Git Merge Conflicts</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=_krbFIiFhf4">
-   013 Manipulating Branches</a>
+   Manipulating Branches</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=9sQIY8c6J64">
-   014 Squash Commits with Git's Interactive Rebase</a>
+   Squash Commits with Git's Interactive Rebase</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=7b6LU850hKc">
-   015 Git Status as an Estimate</a>
+   Git Status as an Estimate</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-ndmel-4wsk">
-   016 Introduction to Git cherry-pick</a>
+   Introduction to Git cherry-pick</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=HQU8Y38KgdA">
-   017 Git Archive</a>
+   Git Archive</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zcaeZHmMjUI">
-   018 Git branches aren't branches</a>
+   Git branches aren't branches</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=mzagfGeFUuA">
-   019 Introduction to git rebase</a>
+   Introduction to git rebase</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Bo-8EfDpKxA">
-   020 Remove a file from all git history</a>
+   Remove a file from all git history</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=EWZTM4ALXKU">
-   021 Introduction to git bisect</a>
+   Introduction to git bisect</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=YciSJXJL2Rs">
-    022 Introduction to git grep</a>
+   Introduction to git grep</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
-    023 Introduction to Git Hooks</a>
+   Introduction to Git Hooks</a>
 
 ## Michael Koby
 

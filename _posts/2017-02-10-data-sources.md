@@ -124,9 +124,27 @@ Allen Institute (ai2)
    http://allenai.org/data.html
 
     
+### News
 
+   http://news.google.com/archivesearch
+   has 200 years of archives
 
-### Grography 
+   http://www.ibiblio.org/slanews/internet/archives.html
+
+   http://www.ibiblio.org/slanews/internet/intarchives.htm
+   has links to global archives
+
+   http://searches.rootsweb.ancestry.com/ssdi.html
+   Roots web
+
+   http://search.ancestry.com/search/db.aspx?dbid=3693
+   US Social Security Death Masterfile Index goes from 1935-2014
+
+   http://www.worldcat.org/default.jsp
+   "lets you search the collections of libraries in your community and thousands more around the world." 
+   
+
+### Geography 
 
    Street Names
 
