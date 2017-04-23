@@ -996,6 +996,55 @@ his playlist</a>:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
     023 Introduction to Git Hooks</a>
 
+## Michael Koby
+
+From May 9, 2013 at <a target="_blank" href="http://www.codecasts.tv/">
+http://www.codecasts.tv</a> blog contains code gists.
+<a target="_blank" href="https://www.youtube.com/watch?v=uTF03VXiuGg&list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX">
+Playlist</a>:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=uTF03VXiuGg">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/17">
+   Introduction</a>
+   describes various version control programs.
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=2sweefxLMFk">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/18">
+   Intro to Git</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=1x-xQji0yAU">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/19">
+   Undoing things</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=W1o8BR17GVM">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/20">
+   Remotes</a>
+
+0. <a target="_blank" href="https://youtu.be/z1cs8ams3xM">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/21">
+   Branching</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=pykn9Z4EiQs">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/22">
+   Branches</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=cSf8cO0WB4o">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/23">
+   Rebase</a> 3-way merge
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=cSf8cO0WB4o">
+   Video</a>
+   <a target="_blank" href="http://www.codecasts.tv/episodes/24">
+   Merge Conflicts</a>
+
+
 ## Others
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
