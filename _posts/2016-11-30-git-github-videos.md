@@ -1014,7 +1014,7 @@ No diagrams. Everything shown occurs on the command line, even the title of each
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gZN1ssISkO8">
    Git remote, fetch, merge, and pull</a> [25:39]
 
-   Notice he defined MacOS alias ll for <pre>ls -al</pre>
+   Notice he defined MacOS <tt>alias ll = 'ls -al'</tt>
    
    [20:01] fast-forward merge. FETCH-HEAD in git pull.
 
