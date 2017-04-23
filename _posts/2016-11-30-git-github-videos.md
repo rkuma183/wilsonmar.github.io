@@ -374,8 +374,6 @@ on this Playlist</a> are these on Git:
 * <a target="_blank" href="https://www.youtube.com/watch?v=G7kJRkUaVHQ">
    Working with Git on IntelliJ IDEA</a>
 
-
-
 ### Atlassian Source Tree
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=sevc6668cQ0">
@@ -395,6 +393,62 @@ on this Playlist</a> are these on Git:
 
    [45:18] bisect
 
+
+### Tower
+ 
+<a target="_blank" href="https://www.youtube.com/channel/UCrl5xG-L4ZCFkR-bhUy9BVg">
+[Learn Git Video Course]</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+  What is Version Control [3:08]</a>t
+* <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Installing & Configuring Git [1:40]</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=e8PGuOyZ3YU&index=3&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+  The Basic workflow of Version Control [3:04]</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=evcZ3Ea6LWU&index=4&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+  Creating a new repository [1:35]</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=7x9hvswZT4E&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=5">
+  Cloning an Existing Repository [3:10]</a>
+* 6<a target="_blank" href="https://www.youtube.com/watch?v=f7rVDTxwfXk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=6">
+  Inspecting Local Changes [4:10]</a>
+<!--
+* <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Staging and Committing Changes [4:28]</a>
+* 8<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Commit History [1:40]</a>
+* 9<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Ignoring files [1:40]</a>
+* 10<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Introducing to Branches [1:40]</a>
+* 11<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Creating and Checking Out Branches [1:40]</a>
+* 12<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+  Merging Branches [1:40]</a>
+* 13<a target="_blank" href="https://www.youtube.com/watch?v=vSl5v-Xf-3I&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=13">
+  Stash - Saving Changes Temporarily [3:16]</a>
+* 14<a target="_blank" href="https://www.youtube.com/watch?v=aRszgF44NWk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=14">
+  Dealing with Merge Conflicts [1:40]</a>
+* 15<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 16<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 17<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 18<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 19<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 20<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 21<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 22<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+   [1:40]</a>
+* 23<a target="_blank" href="https://www.youtube.com/watch?v=PnHlnx_nmCI&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=23">
+  Rebase as an Alternative to Merge [5:17]</a>
+* 24<a target="_blank" href="https://www.youtube.com/watch?v=wNIIx9PMSEc&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=24">
+  Branching Workflows [4:36]</a>
+-->
 
 ## Training vendors
 
@@ -998,8 +1052,9 @@ his playlist</a>:
 
 ## Michael Koby
 
-From May 9, 2013 at <a target="_blank" href="http://www.codecasts.tv/">
-http://www.codecasts.tv</a> blog contains code gists.
+Videos show diagrams (no commands shown) from May 9, 2013.
+But blog at <a target="_blank" href="http://www.codecasts.tv/">
+http://www.codecasts.tv</a> contains code gists.
 <a target="_blank" href="https://www.youtube.com/watch?v=uTF03VXiuGg&list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX">
 Playlist</a>:
 
@@ -1008,37 +1063,30 @@ Playlist</a>:
    <a target="_blank" href="http://www.codecasts.tv/episodes/17">
    Introduction</a>
    describes various version control programs.
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=2sweefxLMFk">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/18">
    Intro to Git</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=1x-xQji0yAU">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/19">
    Undoing things</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=W1o8BR17GVM">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/20">
    Remotes</a>
-
 0. <a target="_blank" href="https://youtu.be/z1cs8ams3xM">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/21">
    Branching</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=pykn9Z4EiQs">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/22">
    Branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=cSf8cO0WB4o">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/23">
    Rebase</a> 3-way merge
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=cSf8cO0WB4o">
    Video</a>
    <a target="_blank" href="http://www.codecasts.tv/episodes/24">
