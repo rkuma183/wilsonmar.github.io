@@ -1047,7 +1047,7 @@ No diagrams. Everything shown occurs on the command line, even the title of each
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zcaeZHmMjUI">
    Git branches aren't branches</a> [15:28]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=mzagfGeFUuA">
-   Introduction to git rebase</a> [17:27]
+   Introduction to git rebase</a> [17:27] 22 May 2016 uses the create_commits.py Python history emulator program.
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Bo-8EfDpKxA">
    Remove a file from all git history</a> [16:28]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=EWZTM4ALXKU">
