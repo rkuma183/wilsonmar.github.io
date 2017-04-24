@@ -18,19 +18,22 @@ comments: true
 
 ## Wilson Mar
 
-<a target="_blank" href="https://www.youtube.com/playlist?list=PLsnl23XQgokHlFj8iWZ55yMlOIgeFUukt">
-My playlist on Git and GitHub</a> include:
+<a target="_blank" href="https://goo.gl/12C1BF">
+https://goo.gl/12C1BF</a> is my playlist on Git and GitHub
+where I put the latest versions of each:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=iNSDeQhq62E">
-   Introduction to the class
+  Introduction to the class
    "Git and GitHub for Developers and Testers"</a>
    at Techwell conferences
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=Onv9nhPIBp0">
-   Git and GitHub File Handling Flow</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=-ivRuvEIeIY&t=26s">
+   Why Git?</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=ub2DFbn16zg">
    Git and GitHub View and Documentation Flow</a>
+
+* https://wilsonmar.github.io/git-commands-and-statuses/
 
 
 ## By GitHub people
@@ -978,7 +981,7 @@ his playlist</a>:
 
 ### Dan Gitschooldude
 
-Made in Sep 2015, <a target="_blank" href="https://gaming.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ">
+From Sep 2015 to Nov 2016, <a target="_blank" href="https://gaming.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ">
 this series</a> I think is the most in-depth among all videos on YouTube.
 No diagrams. Everything shown occurs on the command line, even the title of each video.
 
@@ -987,8 +990,7 @@ No diagrams. Everything shown occurs on the command line, even the title of each
    Dan is such a technical bad-ass he uses as an example something literally from rocket science
    (well, it's a game about being in weightless space, but nonetheless it's from NASA):
 
-      <a target="_blank" href="https://github.com/nasa/trick.gif">
-      https://github.com/nasa/trick.gif</a>
+      https://github.com/nasa/trick.git
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OZEGnam2M9s">
    Introduction To Git</a> [13:43]
@@ -1055,7 +1057,7 @@ No diagrams. Everything shown occurs on the command line, even the title of each
 0. <a target="_blank" href="https://www.youtube.com/watch?v=YciSJXJL2Rs">
    Introduction to git grep</a> [11:34]
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
-   Introduction to Git Hooks</a> [17:02]
+   Introduction to Git Hooks</a> [17:02] 6 Nov 2016
 
 ## Michael Koby
 
@@ -1101,6 +1103,9 @@ Playlist</a>:
 
 
 ## Others
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RG26-Iozg70&t=213s">
+   Life's better with Git hooks</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
    git rebase interactive :: practical example Nov 29, 2016</a>
