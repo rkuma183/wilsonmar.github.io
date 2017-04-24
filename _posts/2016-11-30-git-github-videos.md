@@ -403,7 +403,7 @@ on this Playlist</a> are these on Git:
 [Learn Git Video Course]</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
-  What is Version Control [3:08]</a>t
+  What is Version Control [3:08]</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
   Installing & Configuring Git [1:40]</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=e8PGuOyZ3YU&index=3&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
@@ -871,12 +871,10 @@ One-off episodes:
 ### Codemy School
 
 <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
-A series of</a>
-talking head waving hands:
+A series</a> with a talking head and hand waving:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
    What is Git?</a> [3:48]
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
    GIT: Installation, Configuration and First Commit</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
