@@ -453,6 +453,12 @@ on this Playlist</a> are these on Git:
   Branching Workflows [4:36]</a>
 -->
 
+## CollabNet (TeamForge)
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=BoZfImYQ230">
+   Git for Developers -- Introduction</a>
+
+
 ## Training vendors
 
 ### Git Real 1 and 2
@@ -985,7 +991,7 @@ From Sep 2015 to Nov 2016, <a target="_blank" href="https://gaming.youtube.com/c
 this series</a> I think is the most in-depth among all videos on YouTube.
 No diagrams. Everything shown occurs on the command line, even the title of each video.
 
-> "I purposefully focus on the command line usage of Git, because lets face it, if you're using a GUI with Git, you probably have no idea what's going on :P"
+BTW I don't agree with Dan's statement: "I purposefully focus on the command line usage of Git, because lets face it, if you're using a GUI with Git, you probably have no idea what's going on :P"
 
    Dan is such a technical bad-ass he uses as an example something literally from rocket science
    (well, it's a game about being in weightless space, but nonetheless it's from NASA):
