@@ -19,10 +19,11 @@ comments: true
 
 This is a hands-on tutorial on how to use Git rebase from the command line.
 
-There are two major ways to rebase:
+There are several ways to rebase:
 
-   1. Interactive
+   1. Interactively on command-line
    2. Not interactive
+   3. <a href="#RebaseOnGitHub">Rebase on GitHub</a>
 
 
 ## Interactive Rebase 
@@ -205,6 +206,10 @@ add 4.txt
 0. Type a comment character <strong>#</strong> in front of commit comments we don't want to show to everyone:
    the "add 3.txt" and "add 4.txt".
 
+   * <a target="_blank" href="https://www.youtube.com/watch?v=tukOm3Afd8s">
+   YouTube video Git Rebase Interactive :: A Practical Example</a> [2:49]
+   describes resequencing commits.
+
 0. Change the first commit's message to reflect the combination of commits:
 
    <pre><strong>
@@ -268,9 +273,53 @@ d693749 HEAD@{7}: commit: add 4.txt
 785d03b HEAD@{11}: commit (initial): add 1.txt
    </pre>
 
+<a name="RebaseOnGitHub"></a>
+
+## Rebase on GitHub
+
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25385557/79fe2e8c-2992-11e7-90a4-74b2fd4c255b.png">
+<img width="313" alt="github merge pull request menu" src="https://cloud.githubusercontent.com/assets/300046/25385557/79fe2e8c-2992-11e7-90a4-74b2fd4c255b.png"></a>
+
+
 ## More on Git Rebase
 
-https://www.youtube.com/watch?v=7IfkL8swmFw
+* <a target="_blank" href="https://www.youtube.com/watch?v=diBbkLY61pw">
+   Git rebasing</a> [51:08] a Hangout conversation
+   by Patrick Christopher and friends 18 Oct 2013
+
+   Part of the
+   <a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3">
+   Git mastery in 20-minute increments series</a>
+<a target="_blank" href="https://www.youtube.com/watch?v=30RMnLCVe8c&list=PLA4B47B9B5F3691E3&index=5">
+   git pull --rebase</a>
+   by Seth House in Jul 2012.
+   Video shows commands update-ref, graph-dag script.
+   Uses a program to graph branches to a graphics.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=8ZXExlHBPoY">
+   Interactive git rebase for code reviews and profit</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=_ajGPzBBOoQ">
+   Doing git rebase --interactive, including merge conflicts</a>
+   by Gabriel Schulhof
+
+https://www.youtube.com/watch?v=SBSuv4jRUlc
+   Git - Rebase demo using SourceTree [4:30]
+
+<a target="_blank" href="https://www.youtube.com/watch?v=7IfkL8swmFw">
+https://www.youtube.com/watch?v=7IfkL8swmFw</a>
+
+https://www.youtube.com/watch?v=NW46XmvJh5Q
+[6:08]
+
+https://www.youtube.com/watch?v=oF1USA_9__M
+How to rebase remote branch into local branch in git</a> [3:57]
+   by Sagar S 
+
+Within a <a target="_blank" href="https://www.youtube.com/watch?v=xellB6JaMV0&list=PLZVSOFwGx4zBAtge4Ub2Uq2rZ_O5Cs8qK"> Git QuickStart using GitHub series</a>
+https://www.youtube.com/watch?v=fbHs-yWoILs
+Merge/Rebase branches in GIT using visual Studio
+7 Feb 2017
 
 
 ## More on DevOps #

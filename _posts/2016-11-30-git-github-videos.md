@@ -915,9 +915,43 @@ It starts by diving right in with diff.
 * <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
    Git Merge vs Rebase?</a> [7:40]
 
+### Harvard
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
+   An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
+   shows a clear presentation, with demos.
+
+
 ## Individuals
 
-Several people, on their time off, created videos for others to enjoy for free.
+Several people, on their personal time, created videos for others to enjoy for free.
+
+### Seth House
+
+<a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3">
+Git mastery in 20-minute increments series</a>
+is the most fearless and deep.
+It was created when Seth is at cars.com in Jul 2012. 
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3&index=1">
+   Objects</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=9j4WPgvt_tY&index=2&list=PLA4B47B9B5F3691E3">
+   refnames</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=sit4Co0YHpg&list=PLA4B47B9B5F3691E3&index=3">
+   Remotes</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Hxp7q_QGyOc&index=4&list=PLA4B47B9B5F3691E3">
+   Merging and Mergtool</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=30RMnLCVe8c&list=PLA4B47B9B5F3691E3&index=5">
+   git pull --rebase</a>
+   Video shows commands update-ref, graph-dag script.
+   Uses a program to graph branches to a graphics.
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Y2Msq90ZknI">
+   Dissecting Git's Guts, Emily Xie - Git Merge 2016</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=H2j7e81J798">
+   Talk #2 - Digging deep into Git</a> (Spanish)
+
 
 ### GitHub for Noobs
 
@@ -1137,6 +1171,7 @@ Among tutorials on JavaScript, WordPress, Sublime Text, CSS, and other front-end
    GitHub (Pushing to a Server)</a> [14:44]
    begins with getting an account.
 
+
 ## Others
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=RG26-Iozg70&t=213s">
@@ -1155,5 +1190,6 @@ Among tutorials on JavaScript, WordPress, Sublime Text, CSS, and other front-end
     at Canberra, Australia 
     uses a Kinnex toy construction set to illustrate the chain of commits.
 
-
-
+* <a target="_blank" href="https://www.youtube.com/watch?v=T1uTjNEKc6M">
+   Extending DevOps practices to SQL Server databases - Branching & Merging with Git</a>
+   [1:00:29] 18 Jan 2017 by Redgate (database tool vendor)
