@@ -402,56 +402,40 @@ on this Playlist</a> are these on Git:
 <a target="_blank" href="https://www.youtube.com/channel/UCrl5xG-L4ZCFkR-bhUy9BVg">
 [Learn Git Video Course]</a>
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+1. <a target="_blank" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
   What is Version Control [3:08]</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+2. <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
   Installing & Configuring Git [1:40]</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=e8PGuOyZ3YU&index=3&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+3. <a target="_blank" href="https://www.youtube.com/watch?v=e8PGuOyZ3YU&index=3&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
   The Basic workflow of Version Control [3:04]</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=evcZ3Ea6LWU&index=4&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
+4. <a target="_blank" href="https://www.youtube.com/watch?v=evcZ3Ea6LWU&index=4&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O">
   Creating a new repository [1:35]</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=7x9hvswZT4E&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=5">
+5. <a target="_blank" href="https://www.youtube.com/watch?v=7x9hvswZT4E&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=5">
   Cloning an Existing Repository [3:10]</a>
-* 6<a target="_blank" href="https://www.youtube.com/watch?v=f7rVDTxwfXk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=6">
+6. <a target="_blank" href="https://www.youtube.com/watch?v=f7rVDTxwfXk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=6">
   Inspecting Local Changes [4:10]</a>
-<!--
-* <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+7. <a target="_blank" href="https://www.youtube.com/watch?v=7exFDGHgQcw&index=7&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
   Staging and Committing Changes [4:28]</a>
-* 8<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+8. <a target="_blank" href="https://www.youtube.com/watch?v=Zszsa3_x-S8&index=8&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
   Commit History [1:40]</a>
-* 9<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+9. <a target="_blank" href="https://www.youtube.com/watch?v=20QqV9VjU9U&index=9&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
   Ignoring files [1:40]</a>
-* 10<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+10. <a target="_blank" href="https://www.youtube.com/watch?v=Ao1beK2rEIY&index=10&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
   Introducing to Branches [1:40]</a>
-* 11<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+11. <a target="_blank" href="https://www.youtube.com/watch?v=3iO4jxTtGbw&index=11&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
   Creating and Checking Out Branches [1:40]</a>
-* 12<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
+12. <a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
   Merging Branches [1:40]</a>
-* 13<a target="_blank" href="https://www.youtube.com/watch?v=vSl5v-Xf-3I&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=13">
+13. <a target="_blank" href="https://www.youtube.com/watch?v=vSl5v-Xf-3I&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=13">
   Stash - Saving Changes Temporarily [3:16]</a>
-* 14<a target="_blank" href="https://www.youtube.com/watch?v=aRszgF44NWk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=14">
+14. <a target="_blank" href="https://www.youtube.com/watch?v=aRszgF44NWk&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=14">
   Dealing with Merge Conflicts [1:40]</a>
-* 15<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 16<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 17<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 18<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 19<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 20<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 21<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 22<a target="_blank" href="https://www.youtube.com/watch?v=3ESL7ShlXTo&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=2">
-   [1:40]</a>
-* 23<a target="_blank" href="https://www.youtube.com/watch?v=PnHlnx_nmCI&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=23">
+
+23. <a target="_blank" href="https://www.youtube.com/watch?v=PnHlnx_nmCI&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=23">
   Rebase as an Alternative to Merge [5:17]</a>
-* 24<a target="_blank" href="https://www.youtube.com/watch?v=wNIIx9PMSEc&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=24">
+24. <a target="_blank" href="https://www.youtube.com/watch?v=wNIIx9PMSEc&list=PLyCj4RCToz5BEcpZgwLfAhzxVRlDY3z-O&index=24">
   Branching Workflows [4:36]</a>
--->
+
 
 ## CollabNet (TeamForge)
 
@@ -910,10 +894,26 @@ A series</a> with a talking head and hand waving:
 
 ### Udacity
 
-Hands-on tutorial, starting with diff, by Google darlings:
+<a target="_blank" href="https://www.udacity.com/course/how-to-use-git-and-github--ud775">
+https://www.udacity.com/course/how-to-use-git-and-github--ud775</a>
+Udacity has a FREE hands-on tutorial by Google people.
+It pauses with quizzes along the way.
+So it takes some patience get through its thoroughness.
 
-https://www.udacity.com/course/how-to-use-git-and-github--ud775
+It starts by diving right in with diff.
 
+   * <a target="_blank" href="https://www.youtube.com/watch?v=Ytux4IOAR_s&list=PLAwxTw4SYaPk8_-6IGxJtD3i2QAu5_s_p">
+   The class' video playlist on YouTube</a>
+
+### SitePoint
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
+   Choosing to Rebase or Merge with Git?</a> [7:40]
+
+### TechJini
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
+   Git Merge vs Rebase?</a> [7:40]
 
 ## Individuals
 
