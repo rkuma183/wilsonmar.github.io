@@ -463,12 +463,29 @@ on this Playlist</a> are these on Git:
 
 ### Git Real 1 and 2
 
-This series provides a real hands-on learning experience by making you enter the commands.
-
-https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history
+This series 
+<a target="_blank" href="https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history">
+on thoughtbot</a>
+provides a real hands-on learning experience by making you enter the commands.
 
 http://thddaniel.github.io/2014/11/09/Git%20Real%202/
 
+by Greg Pollock
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JU07VxBCTr4&t=27s">
+   Introduction (1/7)</a> [8:19]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NZ_gog_9OAI&t=27s">
+   Staging & Remotes (2/7)</a> [10:32]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=W9Zq_Cnt85Q&t=27s">
+   Cloning & Branching (3/7)</a> [6:29]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=x0M8EssFwOE&t=27s">
+   Collaboration Basics (4/7)</a> [5:57]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=fDWZVEdHLX4&t=27s">
+   Git Real - Branching (5/7)</a> [6:57]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=byinJdoFVoA&t=27s">
+   Rebase belong to us (6/7)</a> [4:25] 
+0. <a target="_blank" href="https://www.youtube.com/watch?v=NhEfnMmqGlE&t=27s">
+   History and Configuration (7/7)</a> [8:05] 
 
 
 ### Hashes as playing cards
@@ -1105,6 +1122,20 @@ Playlist</a>:
    <a target="_blank" href="http://www.codecasts.tv/episodes/24">
    Merge Conflicts</a>
 
+
+### @LearnWebCode
+
+Among tutorials on JavaScript, WordPress, Sublime Text, CSS, and other front-end skills:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=9GKpbI1siow">
+   What is Version Control?</a> [9:35]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=n-p1RUmdl9M">
+   Vocab (Repo, Staging, Commit, Push, Pull)</a> [15:16]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=UFEby2zo-9E">
+   Installation, Command-line & Clone</a> [14:35]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=ol_UCWox9kc">
+   GitHub (Pushing to a Server)</a> [14:44]
+   begins with getting an account.
 
 ## Others
 
