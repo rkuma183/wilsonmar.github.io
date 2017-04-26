@@ -28,6 +28,15 @@ Most settings can be automated using "dotFiles"
 The dofFile settings here are based on the dotfiles 
 published by several people on their GitHub repositories:
 
+* <a target="_blank" href="https://skwp.github.io/dotfiles/">
+   https://skwp.github.io/dotfiles/</a>
+   is YADR (Yet Another Dotfile Repo) is an opinionated dotfile repo based on
+   the "best bits" of all the top dotfile repos curated in one place.
+
+   PROTIP: Using this central repository means that you take advantage of the experience of others
+
+   YADR includes git aliases plus super-geeky vim and zsh plugins.
+
 * <a target="_blank" href="https://github.com/afranken/dotfiles/blob/master/osx/osx-bootstrap.sh">
    https://github.com/afranken/dotfiles</a>
 
@@ -39,14 +48,8 @@ published by several people on their GitHub repositories:
    from Dan Eden, #8 among all GitHub at GitScore.
    He uses YADR:
 
-* <a target="_blank" href="https://skwp.github.io/dotfiles/">
-   https://skwp.github.io/dotfiles/</a>
-   is YADR (Yet Another Dotfile Repo) is an opinionated dotfile repo based on
-   the "best bits" of all the top dotfile repos curated in one place.
+* https://github.com/aviau/dotfiles
 
-   PROTIP: Using this central repository means that you take advantage of the experience of others
-
-   YADR includes git aliases plus super-geeky vim and zsh plugins.
 
 <a id="SheBang"></a>
 
