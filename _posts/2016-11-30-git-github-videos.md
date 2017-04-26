@@ -398,7 +398,9 @@ on this Playlist</a> are these on Git:
 
 
 ### Tower
- 
+
+Tower is a popular stand-alone Git client for Mac and Windows.
+
 <a target="_blank" href="https://www.youtube.com/channel/UCrl5xG-L4ZCFkR-bhUy9BVg">
 [Learn Git Video Course]</a>
 
@@ -1193,3 +1195,10 @@ Among tutorials on JavaScript, WordPress, Sublime Text, CSS, and other front-end
 * <a target="_blank" href="https://www.youtube.com/watch?v=T1uTjNEKc6M">
    Extending DevOps practices to SQL Server databases - Branching & Merging with Git</a>
    [1:00:29] 18 Jan 2017 by Redgate (database tool vendor)
+
+
+## More #
+
+This is one of a series on Git and GitHub:
+
+{% include git_links.html %}

@@ -143,8 +143,22 @@ Metrics include:
 
 * Percent of value-add time vs. total time.
    For example: In the case of physician visits, time interacting with physician vs. waiting and other activities.
-   
 
+
+
+## Time Series databases
+
+* InfluxDB
+* RiakTS - newcome maintaind by Basho
+* Graphite - legacy invented by Expedia
+* KDB+ - proprietary
+* OpenTSDB - scalable on HBase cluster
+
+InfluxDB
+
+   * No external dependencies
+   * Kapacitor collects anomalies
+   * Horizontally scaleable (across several servers)
 
 
 ## More on front-end styling #

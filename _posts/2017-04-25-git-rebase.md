@@ -321,9 +321,8 @@ https://www.youtube.com/watch?v=fbHs-yWoILs
 Merge/Rebase branches in GIT using visual Studio
 7 Feb 2017
 
+## More #
 
-## More on DevOps #
+This is one of a series on Git and GitHub:
 
-This is one of a series on DevOps:
-
-{% include devops_links.html %}
+{% include git_links.html %}

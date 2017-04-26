@@ -426,8 +426,8 @@ the JSON returned from API calls.
 
 
 
-## More on DevOps #
+## More #
 
-This is one of a series on DevOps:
+This is one of a series on Git and GitHub:
 
-{% include devops_links.html %}
+{% include git_links.html %}

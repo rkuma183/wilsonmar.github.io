@@ -452,8 +452,8 @@ Click each command for its documentation on git-scm.com:
    tag</a> - Create, list, delete or verify a tag object signed with GPG
 
 
-## More on DevOps #
+## More #
 
-This is one of a series on DevOps:
+This is one of a series on Git and GitHub:
 
-{% include devops_links.html %}
+{% include git_links.html %}

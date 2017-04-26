@@ -31,8 +31,9 @@ My version of the Grep utility that filters what is piped into it:
 Grep filters what is piped into it.
 
 
-## More on DevOps #
 
-This is one of a series on DevOps:
+## More #
 
-{% include devops_links.html %}
+This is one of a series on Git and GitHub:
+
+{% include git_links.html %}
