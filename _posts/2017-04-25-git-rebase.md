@@ -289,6 +289,12 @@ d693749 HEAD@{7}: commit: add 4.txt
 
 ## More on Git Rebase
 
+* https://git-scm.com/docs/git-rebase
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=XSzo2MMZZJU">
+   Squash Merge in GIT using VisualStudio</a> [27:21] 9 Feb 2017
+   by Ameer Basha
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=diBbkLY61pw">
    Git rebasing</a> [51:08] a Hangout conversation
    by Patrick Christopher and friends 18 Oct 2013

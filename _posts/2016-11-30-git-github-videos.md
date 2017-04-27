@@ -882,10 +882,12 @@ One-off episodes:
 * <a target="_blank" href="https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/12">
    SSH</a>
 
+
 ### Codemy School
 
-<a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
-A series</a> with a talking head and hand waving:
+From the same head talking about Rails, Docker, Solidus, Elasticsearch, and React, 
+a popular <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
+series</a>:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
    What is Git?</a> [3:48]
@@ -895,6 +897,7 @@ A series</a> with a talking head and hand waving:
    GIT: Working with Branches</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
    GIT: Merging and Workflow</a>
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
    GIT: Git Flow Introduction</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
@@ -1188,6 +1191,30 @@ Among tutorials on JavaScript, WordPress, Sublime Text, CSS, and other front-end
    GitHub (Pushing to a Server)</a> [14:44]
    begins with getting an account.
 
+### Ameer Basha
+
+GIT QuickStart using Visual Studio:
+
+0. 3 <a target="_blank" href="https://www.youtube.com/watch?v=4yKQO7dUspI">
+   GIT Repository and clone</a> [11:36] 14 Jan 2017
+0. 4 <a target="_blank" href="https://www.youtube.com/watch?v=Xb7r3KETy6g">
+   Working with branches</a> [16:54] 16 Jan 2017
+0. 5 <a target="_blank" href="https://www.youtube.com/watch?v=GQ9vT8zW8lc">
+   How to commit changes</a> [23:48] 23 Jan 2017
+0. 6 <a target="_blank" href="https://www.youtube.com/watch?v=tkzPqGe6zYI">
+   Sychronization</a> [15:14] 26 Jan 2017
+0. 7 <a target="_blank" href="https://www.youtube.com/watch?v=A3V8W6CZuc8">
+   Review code with pull requests</a> [23:14] 26 Jan 2017
+0. 8 <a target="_blank" href="https://www.youtube.com/watch?v=fbHs-yWoILs">
+   Merge/Rebase branches</a> [28:04] 7 Feb 2017
+0. 9 <a target="_blank" href="https://www.youtube.com/watch?v=9qu2vWjsWxE">
+   Use of Cherry-Pick</a> [16:51] 8 Feb 2017
+0. 10 <a target="_blank" href="https://www.youtube.com/watch?v=XSzo2MMZZJU">
+   Squash Merge</a> [27:21] 9 Feb 2017
+0. 11 <a target="_blank" href="https://www.youtube.com/watch?v=UbFt21xQT8E">
+   Undo changes</a> [33:56] 14 Feb 2017
+0. 12 <a target="_blank" href="https://www.youtube.com/watch?v=jsJoLoaJjlg">
+   Publish code</a>
 
 ## Others
 
