@@ -396,8 +396,19 @@ on this Playlist</a> are these on Git:
 
    [45:18] bisect
 
+### GitKraken client
 
-### Tower
+GitKraken Tutorial: 
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=j1rP21RcbH0">
+   Git GUI Intro 4 Apr 2016</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=nAMbLbgxriI">
+   How to Rebase</a> Oct 14, 2016
+   drag and drop
+0. <a target="_blank" href="https://www.youtube.com/watch?v=eTOgjQ9o4vQ">
+   Intro to GitFlow</a> Jan 31, 2017
+
+### Tower client
 
 Tower is a popular stand-alone Git client for Mac and Windows.
 
@@ -947,6 +958,10 @@ It was created when Seth is at cars.com in Jul 2012.
    git pull --rebase</a>
    Video shows commands update-ref, graph-dag script.
    Uses a program to graph branches to a graphics.
+
+The "git-dag" utility to display Git DAGs is at
+https://github.com/whiteinge ?
+
 
 <a target="_blank" href="https://www.youtube.com/watch?v=Y2Msq90ZknI">
    Dissecting Git's Guts, Emily Xie - Git Merge 2016</a>

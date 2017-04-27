@@ -50,6 +50,8 @@ published by several people on their GitHub repositories:
 
 * https://github.com/aviau/dotfiles
 
+* https://github.com/whiteinge/dotfiles
+
 
 <a id="SheBang"></a>
 

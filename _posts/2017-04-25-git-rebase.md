@@ -162,6 +162,12 @@ pick d693749 add 4.txt
 
 0. In all lines under the first line, double-click the "pick" to select it, then type "s".
 
+   <pre>
+pick 07e03c2 add 2.txt
+s 5a71aa8 add 3.txt
+s d693749 add 4.txt
+   </pre>
+
    The comment in the file says such action specifies a <strong>squash</strong> that melds (combine)
    content into the commit above it.
 
