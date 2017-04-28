@@ -18,6 +18,8 @@ comments: true
 
 This page explains files in my <strong>git-utilities</strong> repo.
 
+On a Mac:
+
 0. Get the repo onto your machine using a Git UI or in a Git command line:
 
    <pre>
@@ -26,46 +28,58 @@ This page explains files in my <strong>git-utilities</strong> repo.
 
 0. cd into the repo.
 
-   The <strong>custom-commands</strong> folder contains several custom commands.
-
-0. (If you don't have it already) create a folder on the operating system's path.
+0. (If you don't have it already) create a folder on the operating system's path
+   by copying the <strong>git-custom-commands</strong> folder from within the Git repository
+   into a folder in your home directory.
 
    Linux people often use <tt>/opt/bin</tt>, but on a Mac that is a protected area requiring sudo access.
 
-   So on a Mac, create a folder under your $HOME folder and put that folder within the system path.
+   create a folder under your $HOME folder and put that folder within the system path.
 
-   $HOME/custom-commands
+   <pre>
+   $HOME/git-custom-commands
+   </pre>
 
 0. On a Mac, edit file <strong>~/.bash_profile</strong> so 
    the custom command files will be found when they are run on any folder.
 
    PROTIP: git automatically make files available as a subcommand, just like regular executable scripts.
 
-0. cd into the folder
+0. Exit terminal session windows or re-run the Terminal initialization:
+
+   <pre>
+   source ~/.bash_profile
+   </pre>
+
+0. cd into the git-custom-commands folder.
 
 0. Set permissions to execute each file:
 
    <pre><strong>
-   chmod 555 git-echo
-   chmod 555 git-evaluate
-   chmod a+x graph-dag
+   chmod 555 *
    </strong></pre>
 
-0. Try the git-echo command 
+0. Try the git-echo command, created just so we can verify whether we have it working:
 
    <pre><strong>
-   git echo hello
+   git echo "hello"
    </strong></pre>
 
-   You should see response 
+   You should see response:
 
    <pre>
    hello
    </pre>
 
+   Instead of "hello", you can type in any phrase.
+
+
+### Python program
+
+A cross-platform Python can be executed.
+
 
 ### Graphviz
-
 
 Seth House did several videos on Git and GitHub, in which he showed use of a utility to create a visualization
 from the command line. He was nice enough to share it with me.
@@ -82,37 +96,7 @@ from the command line. He was nice enough to share it with me.
    * http://www.graphviz.org/Download_windows.php
    <br /><br />
 
-0. Go to this URL:
-
-   <pre><strong>
-   https://github.com/whiteinge/presentations/blob/master/cars_2012-04-27_git/git-graph-dag
-   </strong></pre>
-
-   It's from:
-
-   <pre><strong>
-   https://git.wiki.kernel.org/index.php/ExampleScripts
-   </strong></pre>
-
-0. Copy the raw text and paste it in a text editor.
-
-   Alternately, use a git client to clone the 
-
-   <pre>
-   git clone https://github.com/wilsonmar/git-utilities
-   </pre>
-
-0. Create a folder <tt>/opt/bin</tt> (if you don't have it already) 
-   to hold git custom commands.
-
-0. Edit your file <strong>~/.bash_profile</strong> so 
-   the custom command files will be found when they are run on any folder.
-
-   PROTIP: git automatically make files available as a subcommand.
-
-0. cd to folder /opt/bin
-
-0. Save the file from a text editor into folder /opt/bin
+0. Save the file from a text editor into folder 
 
    Alternately, copy the file graph-dag into that folder from the cloned folder.
 
@@ -135,19 +119,6 @@ from the command line. He was nice enough to share it with me.
    * Sorting commits by commit message line count / changed lines ratio
    * Copying all changed files from the last N commits
    * Setting the timestamps of the files to the commit timestamp of the commit which last touched them
-
-
-## Grep Utilities
-
-My version of the Grep utility that filters what is piped into it:
-
-   <tt><strong>grep --version</strong></tt>
-
-   Response:
-
-   <tt>grep (BSD grep) 2.5.1-FreeBSD</tt>
-
-Grep filters what is piped into it.
 
 
 <a id="Viz"></a>
