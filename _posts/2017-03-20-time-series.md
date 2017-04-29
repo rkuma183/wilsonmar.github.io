@@ -15,7 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
-Understanding metrics over time is a fundamental skill.
+Understanding the trend of numbers over time is a fundamental skill.
+That's why it's taught in elementary school.
 
 > "Those who don't know history are doomed to repeat it." -- Edmund Burke
 
