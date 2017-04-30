@@ -86,6 +86,7 @@ This is where America began as colonies of England (until 1776).
 <li><a target="_blank" href="http://www.umaine.edu/hudsonmuseum/">Hudson Museum at the University of Maine</a>, Orono</li>
 <li><a target="_blank" href="http://www.portlandmuseum.org/">Portland Museum of Art</a></li>
 <li><a target="_blank" href="http://www.umma.umaine.edu/">University of Maine Museum of Art</a>, Orono</li>
+<li>Artemus Ward House, Waterford Maine</li>
 </ul>
 
 <a name="NH"></a>
@@ -98,6 +99,7 @@ This is where America began as colonies of England (until 1776).
 <li><a target="_blank" href="http://hoodmuseum.dartmouth.edu/">Hood Museum of Art</a>, Hanover</li>
 <li><a target="_blank" href="http://www.sgnhs.org/">Saint-Gaudens National Historic Site</a>, Cornish</li>
 <li><a target="_blank" href="http://www.keene.edu/tsag/">Thorne-Sagendorph Art Gallery at Keene State College</a></li>
+<li>Robert Frost House, Franconia</li>
 </ul>
 
 <a name="MA"></a>
@@ -126,11 +128,13 @@ This is where America began as colonies of England (until 1776).
 <li>MIT Museum</li>
 <li>Arthur M. Sackler Museum</li>
 <li><a target="_blank" href="http://www.brandeis.edu/rose/">Rose Art Museum at Brandeis University</a>, Waltham</li>
+<li>Henry Wadsworth Longfellow House, Cambridge, Massachusetts</li>
 </ul>
 
 ### Western Mass Turnpike 90:
 
 <ul>
+<li>Edith Wharton's The Mount, Lenox</li>
 <li><a target="_blank" href="http://www.museumofbadart.org/">Museum of Bad Art</a>, Dedham</li>
 <li><a target="_blank" href="http://www.bc.edu/bc_org/avp/cas/artmuseum/">McMullen Museum of Art at Boston College</a>, Chestnut Hill</li>
 <li><a target="_blank" href="http://www.wellesley.edu/DavisMuseum/davismenu.html">Davis Museum and Cultural Center at Wellesley College</a>, in Wellesley, MA</li>
@@ -140,7 +144,13 @@ This is where America began as colonies of England (until 1776).
 <li><a target="_blank" href="http://www.nrm.org/">Norman Rockwell Museum</a>, Stockbridge</li>
 <li><a target="_blank" href="https://artmuseum.mtholyoke.edu/">Mount Holyoke College Art Museum</a>, South Hadley</li>
 <li><a target="_blank" href="http://www.berkshiremuseum.org/">Berkshire Museum</a>, Pittsfield</li>
+<li>Herman Melville's Arrowhead, Pittsfield</li>
 <li><a target="_blank" href="http://www.quadrangle.org/">The Springfield Museums at the Quadrangle</a></li>
+<li>Dr. Seuss Memorial, Springfield</li>
+<li>Site of Thoreau's Cabin, Walden Pond, Concord</li>
+<li>Wayside (home of Nathaniel Hawthorne, Louisa May Alcott, and Margaret Sidney), Concord</li>
+<li>Ralph Waldo Emerson Home, Concord</li>
+<li>Louisa May Alcott's Orchard House, Concord</li>
 </ul>
 
 ### Northward Mass up 95:
@@ -172,6 +182,7 @@ This is where America began as colonies of England (until 1776).
 <li><a target="_blank" href="http://www.decordova.org/">DeCordova Museum and Sculpture Park</a>, Lincoln</li>
 <li><a target="_blank" href="http://www.amherst.edu/~mead/">Mead Art Museum at Amherst College</a>, Amherst</li>
 <li><a target="_blank" href="http://www.picturebookart.org/">Eric Carle Museum of Picture Book Art</a>, Amherst</li>
+<li>Emily Dickinson's Home, Amherst</li>
 <li><a target="_blank" href="http://www.smith.edu/artmuseum/">Smith College Museum of Art</a>, Northampton</li>
 <li><a target="_blank" href="http://www.clarkart.edu/"><strong>Clark Art Institute</strong></a>, Williamstown</li>
 <li><a target="_blank" href="http://www.wcma.org/">Williams College Museum of Art</a>, Williamstown</li>
@@ -204,7 +215,8 @@ This is where America began as colonies of England (until 1776).
 <ul>
 <li><a target="_blank" href="https://www.loomischaffee.org/page.cfm?p=30249">Mercy Gallery at the Loomis Chaffee School</a>, Windsor</li>
 <li><a target="_blank" href="http://benton.uconn.edu/">Benton Museum of Art at the University of Connecticut</a>, Storrs</li>
-<li><a target="_blank" href="http://www.marktwainhouse.org/">Mark Twain House and Museum</a>, West Hartford</li>
+<li><a target="_blank" href="http://www.marktwainhouse.org/">Mark Twain House and Museum</a>, West Hartford [1]</li>
+<li>Harriet Beecher Stowe Home, West Hartford</li>
 <li><a target="_blank" href="http://www.wadsworthatheneum.org/"><strong>Wadsworth Atheneum</strong></a>, Hartford
 <li><a target="_blank" href="http://www.hillstead.org/">Hill-Stead Museum</a>, Farmington</li>
 <li><a target="_blank" href="http://www.nbmaa.org/"><strong>New Britain Museum of American Art</strong></a></li>
@@ -282,7 +294,7 @@ This is where America began as colonies of England (until 1776).
 <li> American Museum of Natural History</li>
 <li> Brooklyn Museum</li>
 <li> Gallery of Modern Art</li>
-<li> Metropolitan Museum of Art and the Cloisters</li>
+<li><strong>Metropolitan Museum of Art</strong> and the Cloisters</li>
 <li> Morgan Library</li>
 <li> Museum of Holograph</li>
 <li><a target="_blank" href="http://www.metmuseum.org/">Metropolitan Museum of Art (the Met)</a></li>
@@ -614,7 +626,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 ### Chicago:
 
 <ul>
-<li> Museum of Contemporary Art</li>
+<li><a target="_blank" href="https://mcachicago.org/Home"> Museum of Contemporary Art (MCA)</a>, Chicago</li>
 <li><a target="_blank" href="http://www.artic.edu/aic/"><strong>Art Institute of Chicago</strong></a></li>
 <li><a target="_blank" href="http://museums.depaul.edu/artwebsite/">DePaul University Museum</a></li>
 <li><a target="_blank" href="http://www.dusablemuseum.org/">DuSable Museum of African American History</a></li>
@@ -633,6 +645,13 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 
 > <strong> Missouri </strong>
 
+
+<ul>
+<li><a target="_blank" href="http://www.cmc.edu/ashby/index.html">Ashby-Hodge Gallery of American Art</a>, Fayette</li>
+<li><a target="_blank" href="http://www.daummuseum.org/">Daum Museum of Contemporary Art</a>, Sedalia</li>
+<li><a target="_blank" href="http://www.mham.org/">Margaret Harwell Art Museum</a>, Poplar Bluff</li>
+<li><a target="_blank" href="http://museum.research.missouri.edu/">Museum of Art and Archaeology at the University of Missouri</a>, Columbia</li>
+</ul>
 
 ### Kansas City:
 
@@ -653,13 +672,6 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.sheldonconcerthall.org/galleries.asp">Sheldon Art Galleries</a>, </li>
 <li><a target="_blank" href="http://www.slam.org/">Saint Louis Art Museum</a></li>
 <li><a target="_blank" href="http://sluma.slu.edu/">Saint Louis University Museum of Art</a></li>
-</ul>
-
-<ul>
-<li><a target="_blank" href="http://www.cmc.edu/ashby/index.html">Ashby-Hodge Gallery of American Art</a>, Fayette</li>
-<li><a target="_blank" href="http://www.daummuseum.org/">Daum Museum of Contemporary Art</a>, Sedalia</li>
-<li><a target="_blank" href="http://www.mham.org/">Margaret Harwell Art Museum</a>, Poplar Bluff</li>
-<li><a target="_blank" href="http://museum.research.missouri.edu/">Museum of Art and Archaeology at the University of Missouri</a>, Columbia</li>
 </ul>
 
 <a name="TN"></a>
@@ -699,6 +711,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <ul>
 <li><a target="_blank" href="http://www.uca.edu/cfac/baum/">Baum Gallery of Fine Art at the University of Central Arkansas</a>, Conway</li>
 <li><a target="_blank" href="http://www.ozarkheritage.org/">Ozark Heritage Arts Center and Museum</a>, Leslie</li>
+<li><a target="_blank" href="http://crystalbridges.org/">Crystal Bridges Museum of American Art</a>, Bentonville</li>
 </ul>
 
 <a name="MS"></a>
@@ -863,15 +876,15 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 ### Cincinnati:
 
 <ul>
-<li> Cincinnati Art Museum</li>
-<li> Museum Center of Union Terminal</li>
+<li><a target="_blank" href="http://www.cincinnatiartmuseum.org/"> Cincinnati Art Museum</a></li>
+<li><a target="_blank" href="http://www.cincymuseum.org/union-terminal"> Museum Center of Union Terminal</a></li>
 </ul>
 
 ### Cleveland:
 
 <ul>
-<li> Cleveland Museum of Art</li>
-<li> Toledo Museum of Art</li>
+<li><a target="_blank" href="http://www.clevelandart.org/"> Cleveland Museum of Art</a></li>
+<li><a target="_blank" href="http://www.toledomuseum.org/"> Toledo Museum of Art</a></li>
 </ul>
 
 
@@ -940,6 +953,8 @@ Juneau</li>
 <li><a target="_blank" href="http://www.anchoragemuseum.org/">Anchorage Museum of History and Art</a></li>
 <li><a target="_blank" href="https://www.uaf.edu/museum/">University of Alaska Museum</a>, Fairbanks</li>
 </ul>
+
+   NOTE: Driving from Alaska to Washington state requires travel through Canada.
 
 <a name="WA"></a>
 
@@ -1061,13 +1076,15 @@ Jundt Art Center and Museum at Gonzaga University</a></li>
 ### Los Angeles:
 
 <ul>
-<li><a target="_blank" href="http://www.getty.edu/museum/">J. Paul Getty Museum</strong></a></li>
+<li><a target="_blank" href="http://www.getty.edu/museum/"><strong>J. Paul Getty Museum</strong></a>, Malibu</li>
 <li><a target="_blank" href="http://www.smmoa.org/">Santa Monica Museum of Art</a></li>
 <li><a target="_blank" href="http://www.fowler.ucla.edu/incEngine/">UCLA Fowler Museum of Cultural History</a>, Los Angeles</li>
 <li><a target="_blank" href="http://www.hammer.ucla.edu/">Armand Hammer Museum of Art at UCLA</a>, Los Angeles</li>
 <li><a target="_blank" href="http://www.skirball.org/">Skirball Cultural Center</a>, Los Angeles</li>
 <li><a target="_blank" href="http://www.mtr.org/">Museum of Television and Radio</a>, Beverly Hills</li>
-<li><a target="_blank" href="http://www.lacma.org/">Los Angeles County Museum of Art</a></li>
+</ul>
+<ul>
+<li><a target="_blank" href="http://www.lacma.org/">Los Angeles County Museum of Art</a>, Los Angeles</li>
 <li><a target="_blank" href="http://www.corita.org/">Corita [Kent] Art Center</a>, Los Angeles</li>
 <li><a target="_blank" href="http://www.moca-la.org/">Museum of Contemporary Art</a></li>
 <li><a target="_blank" href="http://www.neonmona.org/">Museum of Neon Art</a>, Los Angeles</li>
