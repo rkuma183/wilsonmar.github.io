@@ -61,7 +61,7 @@ Here's the map of Tesla superchargers:
 
 ## Railroad #
 
-<a target="_blank" hrf="https://www.amtrak.com/empire-builder-train/">
+<a target="_blank" href="https://www.amtrak.com/empire-builder-train/">
 Amtrak's Empire Builder route</a> between Chicago to Seattle and Portland takes 46 hours.
 
 <a target="_blank" title="Amtrak's Empire Builder route" href="https://www.amtrak.com/empire-builder-train">
