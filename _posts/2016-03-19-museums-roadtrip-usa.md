@@ -42,6 +42,14 @@ historic landmark hotels</a> and restaurants.
 The about route was optimized for least driving time using Google Maps API driven by <a target="_blank" href="
 https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/master/optimal-road-trip/Computing%20the%20optimal%20road%20trip%20across%20the%20U.S..ipynb"> Machine Learning algorithms run in a Python Jupyter Notebook</a> as <a target="_blank" href="http://www.randalolson.com/2015/03/08/computing-the-optimal-road-trip-across-the-u-s/">described by Randal S. Olson</a>.
 
+Another example is <a target="_blank" href="https://tbandjtravel.com/the-u-s-map/">this</a>:
+
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25560224/6b14fde6-2d1c-11e7-952e-52e883844808.jpg">
+<img alt="us-tour-natl-park-route" width="650" src="https://cloud.githubusercontent.com/assets/300046/25560224/6b14fde6-2d1c-11e7-952e-52e883844808.jpg"></a>
+
+
+> Do you have a roadtrip map? Send it to me and I'll post it here.
+
 ## Tesla Charging #
 
 Make sure your planning includes how much travel can occure between gas or electricity fill-ups.
