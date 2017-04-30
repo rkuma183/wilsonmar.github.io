@@ -86,8 +86,10 @@ Services NOT available in the newer portal:
    * API Management
    * BizTalk
    * Managed Cache 
-   * Multi-factor authentication (this is big)
+   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
    * etc.
+   <br /><br />
+
 
 ## ASM Sign-up #
 
@@ -134,12 +136,16 @@ At <a target="_blank" href="https://portal.azure.com/">
    * MONITORING + MANAGEMENT
    * ADD-ONS
    * OTHER
+   <br /><br />
 
 0. Click the star to control items that appear as icons on the left of the page.
 
 0. Drag an icon and drop it to reorder the icons. 
 
    PROTIP: I drag the "Billing" icon to the top so I manage the money involved.
+
+
+   ### Help + Support
 
 0. Scroll down to click Help + Support (the person icon in blue). Notice the URL change:
 
@@ -153,21 +159,47 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    ![azure help upper right 220x267](https://cloud.githubusercontent.com/assets/300046/25567655/c2642352-2dc0-11e7-9e6d-ef60c659a152.png)
 
-0. Click Keyboard shortcuts
+   ### Keyboard Shortcuts
+
+0. Click Keyboard shortcuts in the menu.
 
    BLAH: I have no idea what G means. See:
 
    https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-keyboard-shortcuts
 
-   But Wait. There are more icons.
+   ### Help + Support
+
+   Notice Support options are also listed behind the smily face icon.
+
+   Moreover, there is also a "Help + Support" box on the Dashboard.
+
+   That's now 3 places you can find it.
+
+0. Right-click on the "Help + Support" box on the Dashboard and select "unpin"
+   becuase you now know you can reach it (in two places).
+
+
+   ### Marketplace
+
+0. Right-click on the "Marketplace" box on the Dashboard and select "unpin"
+   becuase you can reach it this way:
 
 0. Click on the green + icon for a list in the <strong>Marketplace</strong>. Additional categories are:
 
    * Web + Mobile
    * Containers
    * Blockchain
-
+   <br /><br />
+   
 0. Click the X to close a blade.
+
+
+## Videos
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture">
+   Microsoft Azure: The Big Picture</a> 1h 50m Mar 10, 2016
+   by Matt Milner
+   makes use of VS 2010, which is rather obsolete now.
 
 
 ## More on DevOps #
