@@ -27,7 +27,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/16688
 Developers interact with these platforms as a service (PaaS) for "Rapid Development":
 
    * <a href="#ServiceFabric">Service Fabric</a> apps
-   * Power apps
+   * Power (BI) apps
    * Web apps
    * Mobile apps (Xamarin)
 
@@ -50,40 +50,11 @@ components for "High Control":
    * Jelastic
 
 
-## Two Azure portals #
+<a name="ARM-signup"></a>
 
-Right off the bat, know that Microsoft is transitioning from the "classic"
-Azure Service Management (ASM) portal to the
-Azure Resource Manager (ARM) portal.
+## ARM Create instance #
 
-* <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
-   Which portal supports each Azure service, listed alphabetically</a>
-
-ARM is structured with Resource Groups (logical containers)
-instead of ASM "Cloud Services" and "Affinity Groups".
-
-NOTE: Instead of 2 racks, ARM resources can span 3 racks.
-
-## Sign-up #
-
-The steps to "Create an API gateway and Developer Portal in minutes".
-
-0. https://account.windowsazure.com/signup
-
-0. https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard
-   to activate my BizSpark account $25/month Azure credit.
-
-0. Verfication by text message or call does not use land-line VOIP phone numbers,
-   only cellular numbers.
-
-0. Input credit card (even though it's free).
-
-0. Click "Start Managing my service" for https://portal.azure.com/
-
-
-## Create instance #
-
-0. <a target="_blank" href="https://portal.azure.com/">
+At <a target="_blank" href="https://portal.azure.com/">
    https://portal.azure.com</a>
 
 0. Select Resource group location / [Region](/cloud-regions/))
@@ -561,6 +532,8 @@ by Yacine Khammal Intermediate Feb 14, 2012  2h 37m
 * https://www.microsoft.com/en-us/store/apps/posterpedia/9wzdncrdcsr8
    Get the Posterpedia Windows 8 app used to zoom into electronic posters.
 
+* <a target="_blank" href="https://www.youtube.com/watch?v=3WWpx4W-oK8">
+   YOUTUBE: Microsoft's DevOps Vision</a>
 
 
 ## More on DevOps #

@@ -163,7 +163,12 @@ C:\Program Files (x86)\Git\libexec\git-core
    <br /><br />
 
    PROTIP: The first line of these files define them as shell files which Git can process
-   because Git executable on Windows has the bits to process shell files.
+   because Git executable on Windows has the bits to process shell files in sh.exe:
+
+   <pre>
+   start "" "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe" --login 
+   start "" "%SYSTEMDRIVE%\Program Files\Git\bin\sh.exe" --login
+   </pre>
 
 0. Copy the contents of git-custom-commands into Git client's git-core folder found above:
 

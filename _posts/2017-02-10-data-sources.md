@@ -94,6 +94,14 @@ defined affect scores -- a mood score.
 
 ## Data
 
+<a target="_blank" href="https://parking.api.smgov.net/">
+https://parking.api.smgov.net</a> has
+Santa Monica parking meters API data
+analyzed by http://www.memdump.io/about/
+Sam Abrahams, course instructor at 
+<a target="_blank" href="https://www.thisismetis.com/deep-learning-with-tensorflow/">
+Metis's Deep Learning with Tensorflow</a>.
+
 <a target="_blank" href="http://www.makeovermonday.co.uk/data/">
 http://www.makeovermonday.co.uk/data</a>
 has one (of 52) visualization makeover every week.
@@ -106,6 +114,10 @@ archive.ics.uci.edu/ml/datasets.html
 data.gov
 
 Amazon Cloud
+
+Azure - Community content are in the Cortana Gallery.
+
+   ![data sources ml azure cortana gallery 620x718](https://cloud.githubusercontent.com/assets/300046/25566235/1222c538-2da3-11e7-91f7-88c2149350da.png)
 
 Google Big Data
 

@@ -19,7 +19,8 @@ being explicitly programmed by human developers.
 EXAMPLE: In 2016, IBM's Watson software was able to beat the Jeopardy game champion
 by "learning" from books and encyclopedias. 
 
-In other words, machine learning builds a "model" from example inputs to make data-driven predictions
+In other words, machine learning builds a "model" from <strong>example</strong> 
+inputs to make data-driven predictions
 vs. following strictly static program instructions (logic defined by human developers).
 
 IBM's programmers only created the "algorithms" that enabled the computer to learn.
@@ -54,9 +55,11 @@ Neural Network Playground</a>.
 
 
 
-### Types of machine learning
+## Types of machine learning
 
-<strong>Supervised</strong> learning aims to predict an output given an input.
+### Supervised learning 
+
+aims to predict an output given an input.
 It makes use of 
 a <strong>labeled</strong> data set of training data (examples) 
 to which we know the "answer". It gets feedback on what is
@@ -92,7 +95,9 @@ to outputs in order to predict outputs based on new inputs.
 
    * For object recognition: Convolutional Net
 
-<strong>Unsupervised</strong> learning aims to discover a good internal
+### Unsupervised learning #
+
+aims to discover a good internal
 representation of the input. 
 It makes use of a dataset without labels. 
 Feature extraction:
@@ -133,7 +138,9 @@ It <strong>classifies</strong> patterns and clusters data.
    Principal Component Analysis is a widely used linear method for finding
    a low-dimensional representation.
 
-<strong>Reinforcement</strong> learning does not provide feedback until a goal is achieved.
+### Reinforcement learning 
+
+does not provide feedback until a goal is achieved.
 Its objective is to select an action to maximize payoff.
 
 In Dec 2013, Volodymyr Mnih 
@@ -160,14 +167,84 @@ Then Google bought DeepMind (for $400 million).
    * https://www.nervanasys.com/demystifying-deep-reinforcement-learning/
 
 
-<strong>Transfer learning</strong>
+### Transfer learning
 
    * https://www.youtube.com/watch?v=Yx6Wv_SCKjI&index=16&list=PLjJh1vlSEYgvZ3ze_4pxKHNh1g5PId36-
 
-<strong>One-shot learning</strong> 
+### One-shot learning
+
 (aka Probabilistic Programming) 
 is where a neural network 
 learns from one (or a few) examples, 
 as opposed to a large amount of data.
 
+
+## Tools
+
+From http://www.infoworld.com/article/3163525/analytics/review-the-best-frameworks-for-machine-learning-and-deep-learning.html
+
+
+### Deep Learning Frameworks
+
+TensorFlow r0.10
+from Google
+
+   * http://www.infoworld.com/article/3127397/artificial-intelligence/review-tensorflow-shines-a-light-on-deep-learning.html
+
+Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2)
+from Microsoft
+
+   * http://www.infoworld.com/article/3138507/artificial-intelligence/review-microsoft-takes-on-tensorflow.html<br />
+
+   * uses a declarative BrainScript neural network configuration language
+
+   * No MacOS support yet
+
+   * CNTK 2 models on GPU-equipped N-series family of Azure Virtual Machines.
+
+   * Azure Machine Learning is part of the larger Microsoft Cortana Analytics Suite offering. 
+
+
+Caffe 1.0 RC3
+from Berkeley Artificial Intelligence...
+
+   * http://www.infoworld.com/article/3154273/analytics/review-caffe-deep-learning-conquers-image-classification.html
+
+MXNet v0.7
+from Distributed Machine Learning...
+
+   * http://www.infoworld.com/article/3149598/artificial-intelligence/mxnet-review-amazons-scalable-deep-learning.html
+
+   * Amazon's DNN framework of choice, combines symbolic declaration of neural network geometries with imperative programming of tensor operations. 
+
+   * MXNet scales to multiple GPUs across multiple hosts with a near-linear scaling efficiency of 85 percent and boasts excellent development speed, programmability, and portability. 
+
+   * Its  dynamic dependency scheduler allows mixing symbolic and imperative programming flavors:
+   Python, R, Scala, Julia, and C++
+
+   * trained MXNet models can also be used for prediction in Matlab and JavaScript.
+
+   * Ahead of TensorFlow with embed imperative tensor operations.
+
+### Machine Learning frameworks
+
+Scikit-learn 0.18.1
+from Scikit-learn
+
+   * http://www.infoworld.com/article/3158509/analytics/review-scikit-learn-shines-for-simpler-machine-learning.html
+
+   * Mature documentation and libraries
+
+   * Python-based, but does not support PyPy compiler
+
+Spark MLlib 2.01
+from Apache Software Foundation
+
+   * http://www.infoworld.com/article/3141605/artificial-intelligence/review-spark-lights-up-machine-learning.html
+
+   * Written in Scala and uses the linear algebra package Breeze which uses netlib-java.
+
+   * Get data easily from Spark big-data clusters
+
+   * Supported in the Databricks cloud
 
