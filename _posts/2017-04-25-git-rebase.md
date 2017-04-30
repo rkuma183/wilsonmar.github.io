@@ -19,14 +19,32 @@ comments: true
 
 This is a hands-on tutorial on how to use Git rebase from the command line.
 
-There are several ways to rebase:
+First of all, there is a lot of misunderstanding about rebase.
 
-   1. Interactively on command-line
-   2. Not interactive
-   3. <a href="#RebaseOnGitHub">Rebase on GitHub</a>
+Randy Fay <a target="_blank" href="https://randyfay.com/node/103">
+comments (in 2011)</a>: The issue, of course, is "Does it help anybody in the future to see my topic branch and the various garbage commits on it." The answer, much of the time, is "no". That's what serious rebasing is about. The "rebasing" discussed in this tiny article is just about making sure your local changes go on top of what's already been committed, so you don't end up with stupid, dangerous, useless merge commits that don't help anything.
+
+There are several ways to rebase away you extra commit messages into one commit with a cogent message
+before others see them:
+
+   0. <a href="#InteractiveCommands">Interactively rebase to squash commits, on command-line</a>, immediately below
+   0. <a href="#RebaseOnGitHub">Rebasing on GitHub</a>
+   0. <a href="#VisualStudio">Rebase in IDEs (Microsoft's 'Visual Studio, etc.)</a>
+
+## Man page
+
+0. To see Git's documentation on the git rebase command:
+
+   <pre><strong>
+   man git-rebase
+   </strong></pre>
+
+  It says a rebase <strong>reapplies</strong> commits on top of another base tip.
 
 
-## Interactive Rebase 
+<a name="InteractiveCommands"></a>
+
+## Interactive Rebase to squash commits
 
 First, click on the video for a 2:29 minute prevew.
 Then follow the step-by-step instructions to become a pro at making
@@ -90,6 +108,9 @@ We start by doing a few prepatory steps not shown in the video:
    <pre><strong>
    git checkout -b feature/feature-1
    </strong></pre>
+
+   NOTE: A topical branch (or feature branch) is a private branch that you alone are using, 
+   and will not be exposed to the public repository.
 
    <a name="Repeat"></a>
 
@@ -238,6 +259,9 @@ add 4.txt
    git checkout master
    </strong></pre>
 
+
+   ### git rebase on top of ...
+
 0. Initiate Rebasing:
 
    <pre><strong>
@@ -251,12 +275,17 @@ First, rewinding head to replay your work on top of it...
 Fast-forwarded master to feature/feature-1.   
    </pre>
 
+
+   ### Delete branch
+
 0. Delete the feature branch marker that has been used up. This is not in the video, but a good habit.
 
    <pre><strong>
    git branch -d feature/feature-1
    </strong></pre>
 
+
+   ### Verify with git reflog
 
 0. See the reference log:
 
@@ -286,14 +315,62 @@ d693749 HEAD@{7}: commit: add 4.txt
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25385557/79fe2e8c-2992-11e7-90a4-74b2fd4c255b.png">
 <img width="313" alt="github merge pull request menu" src="https://cloud.githubusercontent.com/assets/300046/25385557/79fe2e8c-2992-11e7-90a4-74b2fd4c255b.png"></a>
 
+These do NOT appear if there are changes to the default checks in Settings:
+
+<a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25558927/b26b5d52-2cfe-11e7-897c-b05c03da4ca8.png">
+<img width="650" alt="github-settings-rebase 650x250" src="https://cloud.githubusercontent.com/assets/300046/25558927/b26b5d52-2cfe-11e7-897c-b05c03da4ca8.png"></a>
+
+
+<a name="VisualStudio"></a>
+
+### Squash in VisualStudio
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=XSzo2MMZZJU">
+Squash Merge in GIT using VisualStudio</a> [27:21] 9 Feb 2017
+by Ameer Basha
+
+
+### Squash on SourceTree
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=SBSuv4jRUlc">
+   Git - Rebase demo using SourceTree</a> [4:30]
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=mBCJCuU3p7I">
+   Interactive Rebasing with SourceTree</a> []
+   by Matthew Setter at TeamLearnable
+
+
+<a name="RebaseWorkflow"></a>
+
+## Rebase workflow
+
+Early on, in 2007, http://changelog.complete.org/archives/586-rebase-considered-harmful
+
+* https://randyfay.com/content/rebase-workflow-git
+
+* http://www.darwinweb.net/articles/the-case-for-git-rebase
+  says:
+
+> Rebase is at its essence simply takes a series of commits as if they were individual patches, and applies them at a different point in history. 
+
+* http://unethicalblogger.com/2010/04/02/a-rebase-based-workflow.html
+
+* http://www.gitready.com/intermediate/2009/01/31/intro-to-rebase.html
+
+* http://www.gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
+
+* Rebase vs merge
+   by Mary
+
 
 ## More on Git Rebase
 
-* https://git-scm.com/docs/git-rebase
+*<a target="_blank" href="https://git-scm.com/docs/git-rebase">
+   https://git-scm.com/docs/git-rebase</a>
+   is the official documenation
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=XSzo2MMZZJU">
-   Squash Merge in GIT using VisualStudio</a> [27:21] 9 Feb 2017
-   by Ameer Basha
+* Dan "Gitschooldude" has a good <a target="_blank" href="https://www.youtube.com/watch?v=mzagfGeFUuA"> video about rebase commands. His shell script code to create commits is on his<br />
+   <a target="_blank" href="https://github.com/gitschooldude/misc_scripts/blob/master/create_commits.py">GitHub</a>.
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=diBbkLY61pw">
    Git rebasing</a> [51:08] a Hangout conversation
@@ -315,18 +392,35 @@ d693749 HEAD@{7}: commit: add 4.txt
    Doing git rebase --interactive, including merge conflicts</a>
    by Gabriel Schulhof
 
-https://www.youtube.com/watch?v=SBSuv4jRUlc
-   Git - Rebase demo using SourceTree [4:30]
+* <a target="_blank" href="https://www.youtube.com/watch?v=PZdVLaiAAmY">
+   How to squash multiple commits in just one in git</a>
+   by Rodolfo Bandeira
 
-<a target="_blank" href="https://www.youtube.com/watch?v=7IfkL8swmFw">
-https://www.youtube.com/watch?v=7IfkL8swmFw</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=7IfkL8swmFw">
+   https://www.youtube.com/watch?v=7IfkL8swmFw</a>
 
-https://www.youtube.com/watch?v=NW46XmvJh5Q
-[6:08]
+* <a target="_blank" href="https://www.youtube.com/watch?v=NW46XmvJh5Q">
+   Learning Git Tutorial: Interactive Rebasing | packtpub.com</a> [6:08]
 
-https://www.youtube.com/watch?v=oF1USA_9__M
-How to rebase remote branch into local branch in git</a> [3:57]
+* <a target="_blank" href="https://www.youtube.com/watch?v=m8_HEj2sJwc">
+   Git Rebase & squash</a> (using PyCharm on a Mac) [6:13] Jan 27, 2015
+   by Paqmind 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=oF1USA_9__M">
+   How to rebase remote branch into local branch in git</a> [3:57]
    by Sagar S 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Zwag-HNKZbU">
+   Git Tutorial 09 - Squash</a> [19:04]
+   by QAShahin
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=2E23I9PzplM">
+   Squashing multiple commits into one with GIT</a> [6:46] Sep 15, 2015
+   by Andrew Connell
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=msuJGG2iWjs">
+   Git squash tutorial</a> [6:46] Dec 5, 2012
+   by Nelson Wells
 
 Within a <a target="_blank" href="https://www.youtube.com/watch?v=xellB6JaMV0&list=PLZVSOFwGx4zBAtge4Ub2Uq2rZ_O5Cs8qK"> Git QuickStart using GitHub series</a>
 https://www.youtube.com/watch?v=fbHs-yWoILs

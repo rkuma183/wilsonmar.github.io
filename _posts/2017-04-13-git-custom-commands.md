@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-Here is how you can define custom commands for Git to use.
+Here is a deep dive into how you can define custom commands for Git to use.
 
 I've stored several examples in a <strong>git-custom-commands</strong> folder within my repo.
 
@@ -32,7 +32,7 @@ I've stored several examples in a <strong>git-custom-commands</strong> folder wi
    git clone <a target="_blank" href="https://github.com/wilsonmar/git-utilities">https://github.com/wilsonmar/git-utilities</a>
    </strong></pre>
 
-   On a Mac:
+   ### On a Mac:
 
 0. cd into the repo.
 
@@ -95,25 +95,160 @@ export PATH="$HOME/gits/wilsonmar/git-utilities/git-custom-commands:$PATH"
    chmod 555 *
    </strong></pre>
 
-0. Try the git-echo command, created just so we can verify whether we have it working:
+0. Skip to <a href="#TryEcho"> Try Git Echo</a> below.
+
+
+
+   ### On Windows:
+
+0. If you haven't already, install Chocolatey, then
 
    <pre><strong>
-   git echo "hello"
+   choco install mysysgit
+   </strong></pre>
+
+0. Look for the libeexec\git-core folder:
+
+   <pre><strong>
+   cd /
+   dir git-core /s
+   </strong></pre>
+
+   What I see:
+
+   <pre>
+ Directory of C:\Program Files\Git\mingw64\libexec
+&nbsp;
+04/21/2016  11:09 AM    <DIR>          git-core
+               0 File(s)              0 bytes
+&nbsp;
+ Directory of C:\Program Files\Git\mingw64\share
+&nbsp;
+04/21/2016  11:09 AM    <DIR>          git-core
+               0 File(s)              0 bytes
+   </pre>
+
+0. cd into the folder:
+
+   <pre>
+C:\Program Files\Git\mingw64\libexec\git-core
+   </pre>
+
+   Older 32-bit machines would use:
+
+   <pre>
+C:\Program Files (x86)\Git\libexec\git-core
+   </pre>
+
+0. List files in git-core.
+
+   Notice several files do not have an *.exe file extension:
+
+   * git-bisect
+   * git-cittool
+   * git-cvsimport
+   * git-cvsserver
+   * git-difftool
+   * git-gui
+   * git-instaweb
+   * git-merge-octopus
+   * git-mergetool
+   * git-rebase
+   * git-request-pull
+   * git-send-email
+   * git-sh-setup
+   * git-sh-i18n
+   * git-stash
+   * git-subtree
+   <br /><br />
+
+   PROTIP: The first line of these files define them as shell files which Git can process
+   because Git executable on Windows has the bits to process shell files.
+
+0. Copy the contents of git-custom-commands into Git client's git-core folder found above:
+
+
+   <a name="TryEcho"></a>
+
+   ### Try git echo
+
+0. Try the command <strong>git-echo</strong>, created just so we can verify whether we have it working:
+
+   <pre><strong>
+   git echo "hello world"
    </strong></pre>
 
    You should see response:
 
    <pre>
-   hello
+   hello world
    </pre>
 
-   Instead of "hello", you can type in any phrase.
+   Instead of "hello world", you can type in any phrase. Double quotes are not necessary if you only type one word.
+
+   PROTIP: The git echo command is handled by a file named <strong>git-echo</strong>,
+   which has NO file extension (such as .sh). 
+   Git knows to add the dash in the name when it looks for a custom command.
+
+   The $1 is the place-holder for the message typed into the command.
 
 
-### Python program
+   ## Try git c "message"
 
-A cross-platform Python can be executed.
+The git-c custom command is the equivalent to typing this:
 
+   <pre>
+git add -A
+git commit -m '@mac: message in command line'
+   </pre>
+
+   The command to invoke it:
+
+   <tt><strong>
+git c "message in command line"
+   </strong></tt>
+
+   A sample response:
+
+   <tt><strong>
+[master 181b537] @mac: message in command line
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 4
+   </strong></tt>
+
+   The underlying code:
+
+   <tt><strong>
+git add -A
+git commit --message="@${PWD##*/} $1"
+   </strong></tt>
+
+   The weird set of characters in the commit line 
+   produces the Present Working Directory (PWD).
+
+   It is not really needed to add the username because
+
+   Troubleshoot your path if you see this error message:
+
+   <pre>
+git: 'c' is not a git command. See 'git --help'.
+&nbsp;
+Did you mean one of these?
+        checkout
+        clone
+        commit
+        gc
+   </pre>   
+
+
+
+### View log
+
+View the messages:
+
+   <tt>
+git log --oneline
+   </tt>
 
 ### Graphviz
 
