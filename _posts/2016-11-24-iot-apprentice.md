@@ -3,7 +3,7 @@ layout: post
 title: "IoT Apprentice School"
 excerpt: "How to enable people to make money and satisfied customers with IoT"
 tags: [IoT, Raspberry, Mono, Mac]
-shorturl: "https://git.io/v1CoE"
+shorturl: "https://goo.gl/ftJJRL"
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -22,8 +22,8 @@ comments: true
 alt="iot mkt mug more feature less stress 650x552-130kb">
 <img alt="MORE FEATURES OF LESS STRESS" width="650" height="552" src="https://cloud.githubusercontent.com/assets/300046/20648066/1d9b085c-b45a-11e6-9970-86ae82498db0.png"></a>
 
-What train people to build things
-that help others save time and money, safely.
+We experiment and train other people to build things
+that help people save time and money, safely.
 
 The unique aspect of our curriculum is that you
 create complete <strong>products consumers buy</strong>
@@ -339,7 +339,7 @@ custom configured to your needs.
 
 ### PRODUCT 15 - Satellite File Transfers
 
-MAKE FOR SALE: A device that sends and receive files to a satellite.
+MAKE FOR SALE: A device that sends and receive files litteraly out of this world, to a satellite in space.
 
 0. Order satellite hardware and cables
 0. Configure
