@@ -144,6 +144,8 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    PROTIP: I drag the "Billing" icon to the top so I manage the money involved.
 
+   BTW, billing is associated with Management <strong>Subscriptions</strong>
+   with names such as "Pay-as-you-go..."
 
    ### Help + Support
 
