@@ -3,6 +3,7 @@ layout: post
 title: "Machine Learning"
 excerpt: "It can do it for you"
 tags: [Python, Machine Learning]
+shorturl: "https://goo.gl/iR7sMJ"
 image:
 # pic silver robot white skin handshake 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
