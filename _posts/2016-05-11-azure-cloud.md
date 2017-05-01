@@ -50,6 +50,32 @@ components for "High Control":
    * Jelastic
 
 
+<a name="MgmtCerts"></a>
+
+## Management Certificates
+
+Azure uses Management (x509 v3) Certificates (.cer file containing a public key) 
+to access resources in an Azure Subscription.
+
+There is a limit of 100 Management certs per Azure subscription (administrator).
+
+   * Development
+   * Test 
+   * Pre-prod
+   * Prod
+
+   
+<a name="MgmtCerts"></a>
+
+## Affinity Groups
+
+An Affinity Group is defined to create a virtual network to define the data center
+(region).
+All services within an affinity group are located in the same data center.
+
+Azure groups services using Affinity Groups to optimize performance.
+
+
 <a name="ARM-signup"></a>
 
 ## ARM Create instance #
