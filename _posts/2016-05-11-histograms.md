@@ -36,11 +36,12 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 0. In the Insert pane, click the Insert Statistics Chart icon.
 
 
-## Category Frequency in Microsoft Excel 2013
+## Category Frequency Distribution in Microsoft Excel 2013
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/roZrH6hcnic" frameborder="0" allowfullscreen> </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/roZrH6hcnic&t=1m38s" frameborder="0" allowfullscreen> </iframe><br /><small>This video is part of a series on statistics using Excel.</small>
+<br />
 
-   ### Get a unique list of values
+### Get a unique list of values
 
    In the Raw Data sheet:
 
@@ -85,17 +86,19 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 0. Press Ctrl+Enter to save the formula.
 0. Double-click on the lower-right corner to populate the rest
 
-   ## Calculate percentages
+   ### Calculate total and percentages
 
-0. Add a total in a blank row in the Frequency column.
+0. Add a total in a blank row under data rows in the Frequency column.
 0. Format the total cells with borders top and bottom.
-0. Click the cell holding the total and pressl Alt+=
+0. Click the cell holding the total and press <strong>Alt+=</strong>.
+
+0. PROTIP: Verify that the total matches the number of rows in the data being analyzed.
 
 0. Create a percentage formula. Put a $ in front of the row number.
 0. Double-click on the lower-right corner of the first formula to populate the rest of the rows.
 0. Highlight the Percentage cells and format it as Percents.
 
-   ## Bar Chart
+   ### Bar Chart
 
 0. Highlight the category data and percent, including the headings.
 0. Click Insert tab, Stacked bar.
@@ -103,7 +106,11 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 0. Check Categories in reverse order and close the pane.
 0. Click on the title and change it to "Priority distribution" or whatever.
 
-   ## Another Category Distribution.
+   ### Add totals
+
+0. A total at the bottom of counts makes it easier to verify whether you
+
+   ### Another Category Distribution
 
 0. Repeat the above for another distribution, if desired.
 
