@@ -22,7 +22,7 @@ That's why it's taught in elementary school.
 
 ## Excellence defined
 
-Below are charts that posess traits of excellent visualizations:
+Below are charts that posses traits of excellent visualizations:
 
  * Dynamic data - update visualizations (in "live mode") as data changes in sources such as databases. 
  
@@ -162,11 +162,21 @@ Introduction to Time Series</a>
 
 * OpenTSDB is a layer on top of HBase.
 
-* InfluxDB
+* TimescaleDB, an open source time-series database engineered from PostgreSQL, 
+
+* InfluxDB, open-source (MIT)
 
    * No external dependencies (written in Go)
-   * Kapacitor collects anomalies
+   * SQL-like query language
+   * Input data "Line Format" (not JSON)
+   * Stores data in compressed format
    * Horizontally scaleable (across several servers)
+
+   * Kapacitor collects anomalies
+
+See <a target="_blank" href="https://vimeo.com/202289126">
+video "How to Manage TensorFlow with InfluxData"</a>
+(The TensorFlow Jupyter notebook for weather prediction is shown from 17:24)
 
 
 ## More on front-end styling #

@@ -38,7 +38,7 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 
 ## Category Frequency Distribution in Microsoft Excel 2013
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/roZrH6hcnic&t=1m38s" frameborder="0" allowfullscreen> </iframe><br /><small>This video is part of a series on statistics using Excel.</small>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/roZrH6hcnic" frameborder="0" allowfullscreen> </iframe><br /><small>This video is part of a series on statistics using Excel. Begin from 1:38</small>
 <br />
 
 ### Get a unique list of values
