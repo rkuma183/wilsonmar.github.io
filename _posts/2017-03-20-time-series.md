@@ -149,15 +149,22 @@ Metrics include:
 
 ## Time Series databases
 
+<a target="_blank" href="https://vimeo.com/213631101">
+Introduction to Time Series</a>
+
+* KDB proprietary runs in-memory within a single machine.
+
+* Graphite - legacy invented by Expedia - does automatic roll-ups of data (losing irregular values)
+
+* RiakTS from Basho is built for scale
+
+* Promethius for DevOps (highly available with scaleout?)
+
+* OpenTSDB is a layer on top of HBase.
+
 * InfluxDB
-* RiakTS - newcome maintaind by Basho
-* Graphite - legacy invented by Expedia
-* KDB+ - proprietary
-* OpenTSDB - scalable on HBase cluster
 
-InfluxDB
-
-   * No external dependencies
+   * No external dependencies (written in Go)
    * Kapacitor collects anomalies
    * Horizontally scaleable (across several servers)
 
