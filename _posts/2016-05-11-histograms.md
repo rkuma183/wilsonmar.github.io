@@ -38,7 +38,7 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 
 ## Category Frequency in Microsoft Excel 2013
 
-   * https://www.youtube.com/watch?v=roZrH6hcnic
+<iframe width="560" height="315" src="https://www.youtube.com/embed/roZrH6hcnic" frameborder="0" allowfullscreen> </iframe>
 
    ### Get a unique list of values
 
@@ -48,8 +48,8 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 0. Click the heading to the column you want to analyze.
 0. Press Ctrl+Shift+down to highlight all the cells of the column.
 
-0. PROTIP: Specify a <strong>range name</strong> (such as "Priority", etc.) so you can
-   refer to the same range in several functions.
+0. PROTIP: Specify a <strong>range name</strong> (such as "Priority", etc.) 
+   so you can refer to the same range in several functions.
 
 0. Click Data ribbon, Advanced, Copy to another location, Unique records only, Copy to icon.
 0. Scroll right beyond the last column in the sheet and click a cell there.
@@ -64,7 +64,7 @@ Excel 2016 has a easier way to create histograms than Excel 2013.
 
    * Make sure there are no blanks in the data.
 
-0. Do a Replace All on the errant values to fix them.
+0. Press Ctrl+H to do a <strong>Replace All</strong> on the errant values to fix them.
 0. Delete the generated cells and
 0. Repeat the above until there are no duplicates.
 

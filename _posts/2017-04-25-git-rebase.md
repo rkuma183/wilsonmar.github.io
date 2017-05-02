@@ -52,7 +52,7 @@ comments a "first-class" citizen of what you put in GitHub.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PZdVLaiAAmY" frameborder="0" allowfullscreen> </iframe>
 
-(Thanks to contato at RodolfoBandeira.com for the video. It would be a waste of time for me to duplicate the video he created Dec 2016. Thanks, Rodolfo!)
+(Thanks to Contato at RodolfoBandeira.com for the video. It would be a waste of time for me to duplicate the video he created Dec 2016. Thanks, Rodolfo!)
 
 We start by doing a few prepatory steps not shown in the video:
 
