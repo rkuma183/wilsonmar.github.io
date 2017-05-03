@@ -3,7 +3,7 @@ layout: post
 title: "Amazon Lex (AI Chatbots)"
 excerpt: "Make a robot talk to you"
 tags: [apple, mac, setup]
-shorturl: "https://goo.gl/8mGgPF"
+shorturl: "https://goo.gl/fQ1Kl0"
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14583248/4b20c578-03d9-11e6-8f7a-c860b666bc73.jpg
   credit: Wall Street Journal
@@ -13,11 +13,9 @@ comments: true
 <i>{{ page.excerpt }}</i>
 <hr />
 
-amazon-lex.md
-
 Amazon Lex works through an Alexa Echo and Alexa's natural language understanding
-to hold <strong>natural voice conversation interactions</strong> 
-with chatbot programs running on Amazon Lamba (serverless) programs.
+to hold <strong>natural voice conversational interactions</strong> 
+with yoru chatbot programs running on Amazon Lamba (serverless) programs.
 
 The framework remembers the user's context (what occurred before
 and user's perferences).
@@ -30,8 +28,7 @@ The marketing page for Lex is at:
    Videos:
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=tAKbXEsZ4Iw">
-   Introducing Amazon Lex: Service for Building Voice/Text Chatbots</a>
-   [20:20] Mar 6, 2017</a>
+   Introducing Amazon Lex: Service for Building Voice/Text Chatbots</a> [20:20] Mar 6, 2017
    by Hira Niranjan, Solutions Architect
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=l6EfeKc1Ark">
@@ -40,8 +37,8 @@ The marketing page for Lex is at:
    says "ChatOps is an approach to communicate that allows teams to collaborate and manage their (work) from a chat room". 
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=-8bSCyPAE44">
-   Announcing Amazon Lex - January 2017</a>
-   by AWS Online Tech Talks
+   Announcing Amazon Lex - January 2017</a> [28:32]
+   by Vikram Anbazhagan in AWS Online Tech Talks
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=I5OlTMLinio">
    Introducing Amazon Lex (MAC304)</a>
@@ -194,16 +191,13 @@ This is free.
 
 This costs money.
 
-## Twitter? Skype? LinkedIn?
+## Others?
 
-What about Twitter or LinkedIn?
+Twitter? Skype? LinkedIn? Yammer? WhatsApp?
+
 
 
 ## Do it
-
-0. Among the Amazon services, Lex is in the Artificial Intelligence category:
-
-
 
 IAM role
 <strong>AWSServiceRoleForLexBots</strong>
