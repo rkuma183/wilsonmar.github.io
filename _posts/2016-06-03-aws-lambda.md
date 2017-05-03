@@ -3,6 +3,7 @@ layout: post
 title: "AWS Lambda Basics"
 excerpt: "Kinda like Java Lambdas, but not really"
 tags: [programming, AWS, EC2, lambda, cloud]
+shorturl: "https://goo.gl/q9cN7O"
 image:
 # pic friends white shirts 1900x500
   feature: https://cloud.githubusercontent.com/assets/300046/16040708/8f5b3cc6-31ee-11e6-9043-15d6ba1326c7.jpg
@@ -22,7 +23,8 @@ This tutorial provides a deep dive into the basics of creating and using functio
 This is a hands-on guided tour.
 Take one step at a time and we point out PROTIPs and notes along the way.
 
-0. Use an internet browser to get on the AWS Console at <a target="_blank" href="http://aws.amazon.com/">
+0. Use an internet browser to get on the AWS Console at<br />
+   <a target="_blank" href="http://aws.amazon.com/">
    http://aws.amazon.com</a>
 
    BTW, competitors to AWS Lambda  include:
@@ -47,12 +49,12 @@ Take one step at a time and we point out PROTIPs and notes along the way.
 0. Change the region if you need.
 
 
-
-0. Select Services from the top menu.
+0. Select <strong>Services</strong> from the top menu.
 
    <amp-img width="650" alt="lambda services 2016-06-03 959x124" src="https://cloud.githubusercontent.com/assets/300046/15784793/5d0342ee-2971-11e6-97e0-a4ac79fe7818.jpg"></amp-img>
 
-   COMMENT: Compute services are at the top of the list among all Amazon services because it's the hottest thing right now (June 2016).
+   COMMENT: Compute services are at the top of the list among all Amazon services
+    because it's the hottest thing right now (June 2016)?
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">
    Select Lambda from among <strong>Compute</strong> services</a>.
@@ -161,7 +163,7 @@ There are several ways to get programming code into AWS Lambda:
 
 ## Select Blueprint of Amazon-defined code - Hello JSON #
 
-   #### Function name #
+### Function name #
 
 0. Click the right-arrow to Page forward if you don't see “Hello World”.
 
@@ -565,6 +567,7 @@ The <a target="_blank" href="https://qwiklabs.com/focuses/preview/2369">
    On Dec 9, 2014 Dominick Peluso talks about his Lambda that, when it detects an image has been upload,
    it uses ImageMagick to create a thumbnail in S3, then sends an email.
    <amp-youtube data-videoid="_-hnJC4IXJI" layout="responsive" width="480" height="270"></amp-youtube>
+   <br /><br />
 
 0. <a target="_blank" href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/create?step=1">
    On the AWS Console, select Services, select Lambda, click Get Started Now</a>
