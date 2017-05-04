@@ -34,25 +34,6 @@ with yoru chatbot programs running on Amazon Lamba (serverless) programs.
    ![aws-lex-arch-748x342](https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png)
 
 
-   Other videos:
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=l6EfeKc1Ark">
-   Building Serverless Chat Bots</a> Sep 8, 2016 
-   by Leo Zhandanovsky, Amazon Solutions Architect
-   says "ChatOps is an approach to communicate that allows teams to collaborate and manage their (work) from a chat room". 
-
-   * awschatbot.devpost.com
-
-   ### Pricing
-
-0. Click Pricing
-
-   Amazon charges 75 cents per 1,000 text messages and $4 per 1,000 speech messages.
-
-   New customers the first year get free the equivalent of:
-   
-   * 10,000 text / 1,000 x .75 = $75 
-   * 5,000 speech / 1,000 x $4 = $20
 
    ### Value of Amazon
 
@@ -71,10 +52,24 @@ with yoru chatbot programs running on Amazon Lamba (serverless) programs.
 
    * Amazon Pinpoint for targeted push notifications on mobile phones
 
-   * Rekognition is Amazon's facial recognition service
-
+   * Rekognition is Amazon's image recognition service
    <a target="_blank" href="https://www.youtube.com/watch?v=b6gN9jCmq3w">
-   video</a>
+   video</a> to recognize faces, objects, and scenes
+   so it can search, verify, and organize images.
+   It outputs names of objects with a confidence level.
+
+
+   ### Pricing
+
+0. Click Pricing
+
+   Amazon charges 75 cents per 1,000 text messages and $4 per 1,000 speech messages.
+
+   New customers the first year get free the equivalent of:
+   
+   * 10,000 text / 1,000 x .75 = $75 
+   * 5,000 speech / 1,000 x $4 = $20
+
 
 ## Competitors
 
@@ -99,6 +94,15 @@ COOL:
 
    * Information kiosks
    * Front-end to IOT (RaspPi)
+
+   Other videos:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=l6EfeKc1Ark">
+   Building Serverless Chat Bots</a> Sep 8, 2016 
+   by Leo Zhandanovsky, Amazon Solutions Architect
+   says "ChatOps is an approach to communicate that allows teams to collaborate and manage their (work) from a chat room". 
+
+   * awschatbot.devpost.com
 
    
    ### Utterances
