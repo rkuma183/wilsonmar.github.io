@@ -5,9 +5,10 @@ excerpt: "Make a robot talk to you"
 tags: [apple, mac, setup]
 shorturl: "https://goo.gl/fQ1Kl0"
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14583248/4b20c578-03d9-11e6-8f7a-c860b666bc73.jpg
-  credit: Wall Street Journal
-  creditlink: http://graphics.wsj.com/job-market-tracker/
+# pic silver robot white skin handshake 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+  credit:
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -68,10 +69,12 @@ with yoru chatbot programs running on Amazon Lamba (serverless) programs.
    Enhance Your Mobile Apps with AI Using Amazon Lex</a> [36:17] (MBL307) at AWS re:Invent 1 Dec 2016
    by Rohan Despande, Sr. Software Engineer
 
+   * Amazon Pinpoint for targeted push notifications on mobile phones
 
    * Rekognition is Amazon's facial recognition service
 
-   https://www.youtube.com/watch?v=b6gN9jCmq3w
+   <a target="_blank" href="https://www.youtube.com/watch?v=b6gN9jCmq3w">
+   video</a>
 
 ## Competitors
 
@@ -153,6 +156,8 @@ IDEA: Provide predictions on the above.
    <a target="_blank" href="https://console.aws.amazon.com/lex/">
    https://console.aws.amazon.com/lex</a>
 
+   ### AI Services
+
    Alternately, from 
    among a list of all Amazon's services, Lex is within AI services:
    <a target="_blank" href="https://aws.amazon.com/amazon-ai/">
@@ -160,7 +165,10 @@ IDEA: Provide predictions on the above.
 
    ![aws-svcs-ai-204x139-8k](https://cloud.githubusercontent.com/assets/300046/25692974/56dcf152-3074-11e7-9b37-cc5af0f4fd79.png)
 
+   Video: <a target="_blank" href="https://www.youtube.com/watch?v=7yoExk5en5o">
+   Overview of AI in the AWS Platform</a>
 
+   
    ### Add Some Personality
 
    IDEA: I'd like to put in some <strong>personality</strong>, like I'm having a conversation with a comic:
@@ -268,15 +276,15 @@ It has built-in archival of communications.
 0. Scope AWS IAM policies
 
 
-## Facebook 
+### Facebook 
 
 This is free.
 
-## Twilio to send SMS or email
+### Twilio to send SMS or email
 
 This costs money.
 
-## Others?
+### Others?
 
 Twitter? Skype? LinkedIn? Yammer? WhatsApp?
 
