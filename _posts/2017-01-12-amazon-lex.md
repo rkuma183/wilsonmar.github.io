@@ -150,7 +150,9 @@ IDEA: Provide predictions on the above.
 
 ## Create a Lex chatbot
 
-   https://www.youtube.com/watch?v=7uG9cuxNo5k&list=PLMOAUQOzO6UxpMbGpwG8WGRKgGCNrm0Ix
+This video walks through use of the Lex Console to create a voice conversational chatbot:
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/7uG9cuxNo5k" frameborder="0" allowfullscreen></iframe>
 
 
 ### Console
