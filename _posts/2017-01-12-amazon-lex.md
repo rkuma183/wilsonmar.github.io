@@ -13,101 +13,189 @@ comments: true
 <i>{{ page.excerpt }}</i>
 <hr />
 
+{% include _toc.html %}
+
 Amazon Lex works through an Alexa Echo and Alexa's natural language understanding
 to hold <strong>natural voice conversational interactions</strong> 
 with yoru chatbot programs running on Amazon Lamba (serverless) programs.
 
-The framework remembers the user's context (what occurred before
-and user's perferences).
-
-The marketing page for Lex is at:
+0. The marketing page for Lex is at:
 
    <a target="_blank" href="https://aws.amazon.com/lex/">
    https://aws.amazon.com/lex</a>
 
-   Videos:
+   ### Architecture
 
-   * <a target="_blank" href="https://www.youtube.com/watch?v=tAKbXEsZ4Iw">
+   Hira Niranjan, Lex Product Manager shows this diagram in 
+   <a target="_blank" href="https://www.youtube.com/watch?v=tAKbXEsZ4Iw&t=25m40s">
    Introducing Amazon Lex: Service for Building Voice/Text Chatbots</a> [20:20] Mar 6, 2017
-   by Hira Niranjan, Solutions Architect
+
+   ![aws-lex-arch-748x342](https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png)
+
+
+   Other videos:
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=l6EfeKc1Ark">
    Building Serverless Chat Bots</a> Sep 8, 2016 
    by Leo Zhandanovsky, Amazon Solutions Architect
    says "ChatOps is an approach to communicate that allows teams to collaborate and manage their (work) from a chat room". 
 
-   * <a target="_blank" href="https://www.youtube.com/watch?v=-8bSCyPAE44">
-   Announcing Amazon Lex - January 2017</a> [28:32]
-   by Vikram Anbazhagan in AWS Online Tech Talks
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=I5OlTMLinio">
-   Introducing Amazon Lex (MAC304)</a>
-   at AWS re:Invent 2016
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=iVmsEsBKnL8">
-   Enhance Your Mobile Apps with AI Using Amazon Lex (MBL307)</a>
-   at AWS re:Invent 2016
-
    * awschatbot.devpost.com
 
+   ### Pricing
 
-## Conversational Commerce
+0. Click Pricing
 
-Instead of using an Alexa program name, users can say:
+   Amazon charges 75 cents per 1,000 text messages and $4 per 1,000 speech messages.
 
+   New customers the first year get free the equivalent of:
+   
+   * 10,000 text / 1,000 x .75 = $75 
+   * 5,000 speech / 1,000 x $4 = $20
+
+   ### Value of Amazon
+
+   The value Lex provides developers is pre-integration with Amazon's other services:
+
+   * Security
+   * Authentication Cognito
+   * Mobile Hub connectors to business applications
+
+   <a target="_blank" title="aws-lex-flow-1581x841" href="https://cloud.githubusercontent.com/assets/300046/25696243/6d3d1b24-3084-11e7-9f2e-1337912bf789.png">
+   <a alt="aws-lex-flow-650x346" src="https://cloud.githubusercontent.com/assets/300046/25694904/e0b31b40-307e-11e7-9fb9-e047fa44ea31.png"></a>
+
+   Video: <a target="_blank" href="https://www.youtube.com/watch?v=iVmsEsBKnL8">
+   Enhance Your Mobile Apps with AI Using Amazon Lex</a> [36:17] (MBL307) at AWS re:Invent 1 Dec 2016
+   by Rohan Despande, Sr. Software Engineer
+
+
+   * Rekognition is Amazon's facial recognition service
+
+   https://www.youtube.com/watch?v=b6gN9jCmq3w
+
+## Competitors
+
+Systems similar to Amazon lex include:
+
+  * <a target="_blank" href="https://www.youtube.com/watch?v=MTCc4d-RXP0">
+  IBM Watson Conversation</a>
+
+
+## Use Cases for Conversational Commerce
+
+COOL:
+   <a target="_blank" href="https://www.youtube.com/watch?v=I5OlTMLinio&t=34m30s">
+   NASA's demo controlling a JPL Mars rover using Lex at AWS re:Invent 2016 Introducing Amazon Lex (MAC304)</a> Dec 3, 2016
+
+   * Rovi, How big is Mars?
+   * Rovi, drive forwards
+
+   ![aws-lex-rovi-arch-535x358](https://cloud.githubusercontent.com/assets/300046/25695652/fe420844-3081-11e7-88ad-b63008e5d8e6.png)
+
+   Other ways:
+
+   * Information kiosks
+   * Front-end to IOT (RaspPi)
+
+   
+   ### Utterances
+
+   Instead of using an Alexa program name, users can invoke a specific intent (program) by saying:
+
+   * "Alexa, I would like to book a hotel"
    * "Alexa, I would like to pick up flowers"
    * "Alexa, I would like to order a ride"
    * "Alexa, I would like to see a dentist"
 
-   * https://www.youtube.com/watch?v=Yj9QSTofUF4
-   Conversational commerce (not just Lex)
+   <a target="_blank" href="https://www.youtube.com/watch?v=Yj9QSTofUF4">
+   Conversational commerce (not just Lex)</a>
 
-Competitors include:
+   From video  <a target="_blank" href="https://www.youtube.com/watch?v=-8bSCyPAE44">
+   Announcing Amazon Lex - January 2017</a> [28:32]
+   by Vikram Anbazhagan in AWS Online Tech Talks
 
-  * <a target="_blank" href="https://www.youtube.com/watch?v=MTCc4d-RXP0">
-  IBM Watson Conversation</a>
+Informational bots:
+
+   * News updates 
+   * Weather information
+   * Game scores
+
+Application bots:
+
+   * Buy tickets
+   * Order food
+   * Manage bank accounts
+
+Enterprise productivity bots:
+
+   * Sales numbers
+   * View performance of marketing
+   * Inventory status
+
+IOT bots:
+
+   * Wearables
+   * Appliances
+   * Auto
+
+IDEA: Provide predictions on the above.
 
 
 ## Create a Lex chatbot
 
    https://www.youtube.com/watch?v=7uG9cuxNo5k&list=PLMOAUQOzO6UxpMbGpwG8WGRKgGCNrm0Ix
 
+
+### Console
+
 0. Lex Console
 
    <a target="_blank" href="https://console.aws.amazon.com/lex/">
    https://console.aws.amazon.com/lex</a>
 
-   Alternately, you can select Lex from the full Services menu among 
-
-   Amazon's AI services at
+   Alternately, from 
+   among a list of all Amazon's services, Lex is within AI services:
    <a target="_blank" href="https://aws.amazon.com/amazon-ai/">
    https://aws.amazon.com/amazon-ai</a>
 
+   ![aws-svcs-ai-204x139-8k](https://cloud.githubusercontent.com/assets/300046/25692974/56dcf152-3074-11e7-9b37-cc5af0f4fd79.png)
 
-### Some Personality
 
-I'd like to put in some <strong>personality</strong>, like I'm having a conversation with a comic:
+   ### Add Some Personality
 
+   IDEA: I'd like to put in some <strong>personality</strong>, like I'm having a conversation with a comic:
+
+   * An <strong>encouraging</strong> response like a grandma.
    * Insults from Don Rickles or Sheakespeare or Mark Twain.
    * Self-Deprecating humor like Rodney Dangerfield.
    * Funny Observerations like from Jerry Seinfeld or Sarah Silverman or other comics.
-   * Dead-pan like that "Bueller" guy.
+
+   Adjustment of tone in voice would enable:
+
    * Sexual inuendos like from Mae West.
-
    * A British (butler) accent with <strong>sarcasm</strong> as I'm doing a banking task.
-
-   * An <strong>encouraging</strong> response like a grandma.
+   * Dead-pan like that "Bueller" guy.
 
 
 ## In Settings:
 
 ### Slots - Usage
 
-AWS Lambda runs bot code for tasks such as data retrieval, updates, and custom logic.
+   Slots are input data.
 
+   Amazon provides a City slot that has the world's major cities. 
+
+   Lex remembers the user's context (what occurred before
+   and user's perferences).
 
 
 ### Voices
+
+   The initial release of Lex are in English US voices, a subset of voices from 
+   <a target="_blank" href="https://aws.amazon.com/documentation/polly/">
+   Amazon Polly</a> is a Text-to-Speech (TTS) cloud service that converts text into lifelike speech.
+
+   https://aws.amazon.com/blogs/aws/polly-text-to-speech-in-47-voices-and-24-languages/
 
    Female:
 
@@ -115,18 +203,15 @@ AWS Lambda runs bot code for tasks such as data retrieval, updates, and custom l
    * Salli
    * Kimberly has a bit of a raspy voice
    * Kendra is a deeper voice, the most "athoratative" to me.
-   * Ivy sounds like a young girl
+   * Ivy sounds like a girl (about 10 years old is my guess)
 
    Male:
 
    * Justin sounds like a young boy
    * Joey 
 
-   Initial release are in English US voices, a subset of voices from 
-   https://aws.amazon.com/documentation/polly/
-   Amazon Polly is a Text-to-Speech (TTS) cloud service that converts text into lifelike speech.
+   IDEA: Having a child voice can enhance a bot to help shopping for children.
 
-   https://aws.amazon.com/blogs/aws/polly-text-to-speech-in-47-voices-and-24-languages/
 
    Used on website https://germanverbs.lang.global/
 
@@ -197,8 +282,15 @@ Twitter? Skype? LinkedIn? Yammer? WhatsApp?
 
 
 
-## Do it
+## Monitoring
 
 IAM role
 <strong>AWSServiceRoleForLexBots</strong>
+
+* Traffic by channel
+
+* Missed utterances count
+
+* Request Latency
+
 
