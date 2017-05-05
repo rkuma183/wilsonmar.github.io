@@ -319,11 +319,15 @@ https://cloud.google.com/functions/
 
 
 
+<a name="Libraries"></a>
+
+## Libraries #
+
 
 
 <a name="Projects"></a>
 
-## Projects #
+## Sample Projects #
 
 0. Create a folder to hold serverless projects.
    For example:
@@ -338,9 +342,11 @@ https://cloud.google.com/functions/
     serverless create project
     </strong></tt>
 
-    Alternately:
+   Alternately:
 
-   Pick a sample project from https://github.com:
+   Pick a sample project to implement:
+
+   * https://zanon.io/posts/building-serverless-websites-on-aws-tutorial
 
    * [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
 
