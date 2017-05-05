@@ -59,8 +59,6 @@ Enable developers and operations people to invoke and view load tests using tool
 
 - [ ] Suggest command-line aliases to save developers time.
 
-- [ ] Automate the creation of load testing scenarios and Jenkins jobs specific to components.
-
 ("Jenkins" is referenced here as a generic term for CI/CD tools that include Hudson, Bamboo, TravisCI, etc.)
 
 
@@ -80,7 +78,7 @@ such as on Confluence or other wiki.
 - [ ] Structure error handling to bypass components in error and continue to other components.
    Do not simply stop when an error is encountered.
 
-- [ ] Structure code to be "data driven".
+- [ ] Structure test code to be "data driven".
 
    Structure code to run based a list which contain flags that specify whether specific component is tested during each particular run.
 
@@ -93,6 +91,26 @@ such as on Confluence or other wiki.
 
 
 
+### Dynamically create test environments
+
+- [ ] Automate the creation of load testing scenarios and Jenkins jobs specific to components.
+
+- [ ] Provide small integration environments with service virtualization (using CA-LISA, Perforce, etc.).
+
+- [ ] Provision temporary test enviornments using Docker, etc.
+
+- [ ] Use scripts to automate provisioning so elements of each builds remain consistent.
+
+
+### Dynamically create test code
+
+- [ ] Comment "critical" sections of code where performance can be of concern (such as reading of databases or handling of large amounts of data).
+
+- [ ] Write a parser to identify critical sections throughout the code automatically. This ensures easy identification of testing needs.
+
+- [ ] Conduct test runs periodically to report on progress over time.
+
+
 ## Resources
 
 * https://www.youtube.com/watch?v=W2Um3yss8G0
@@ -101,3 +119,26 @@ such as on Confluence or other wiki.
 
 * https://www.youtube.com/watch?v=XQeZ484kSeU
    How DevOps impact QA
+
+* https://www.youtube.com/watch?v=GlzOcgh0ST0
+   Shift Left - Find defects earlier through automated test and deployment
+   by IBM Software Education
+
+* https://www.youtube.com/watch?v=9YGchzL-yFw
+   Test Automation Trends for 2016 and Beyond
+   by Sauce Labs
+
+* https://www.youtube.com/watch?v=kWdwq4uX7n0
+   Shifting Left - A More Intelligent Direction
+   by Mike Bartley
+
+* https://www.youtube.com/watch?v=YB0ynI_8Hnk
+   Test Strategy for DevOps
+   by SolutionsIQ India
+
+* https://www.youtube.com/watch?v=QNx73xuFlWg
+   Shifting Left on Your Journey to Continuous Testing | Adam Auerbach | STARWEST
+   by TechWell Happenings
+
+
+   
