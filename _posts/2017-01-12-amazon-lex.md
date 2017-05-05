@@ -150,7 +150,7 @@ IDEA: Provide predictions on the above.
 
 ## Create a Lex chatbot
 
-This video walks through use of the Lex Console to create a voice conversational chatbot:
+This video walks through use of the Lex Console to create a voice conversational chatbot while it was in preview mode:
 
    <iframe width="560" height="315" src="https://www.youtube.com/embed/7uG9cuxNo5k" frameborder="0" allowfullscreen></iframe>
 

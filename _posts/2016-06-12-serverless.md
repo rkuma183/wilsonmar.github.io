@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Serverless on AWS Lamba and Microsoft Functions"
-excerpt: "Invisible ubiquitious servers across the land"
+title: "Serverless (on AWS Lamba and Microsoft Functions)"
+excerpt: "Invisible ubiquitious server clouds across the land"
 tags: [node, serverless]
 image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
@@ -18,28 +18,29 @@ comments: true
 This is a hands-on narrated tour on how to end up with a serverless app running
 in a server cloud.
 
-{% include _intro.html %}
-
-
 <hr />
 
 The sentiment about servers is reflected in the wi-fi password
-attendees of #ServelessConf type in:
+attendees of #ServelessConf type in:<br />
 ![serverless hateservers-452x183-70kb](https://cloud.githubusercontent.com/assets/300046/18171991/196045ae-7021-11e6-9848-ce272fa8366d.jpg)
 
 
 ## About Serverless #
 
-The term "serverless" has several meanings.
+Serverless is a <strong>FaaS</strong> (Function as a service) where 
+functions are independently deployed and run on a fully managed cloud system. 
+The developer simply uploads the code of the function and the cloud provider takes care of the rest.
 
 Initially, the term describes an <strong>architectural style</strong>
-where developers shift concerned about the hardware and its ability to scale.
+where developers shift  about the hardware and its ability to scale.
 
-   * <a target="_blank" href="http://martinfowler.com/articles/serverless.html">
+Mike Roberts at <a target="_blank" href="http://martinfowler.com/articles/serverless.html">
    http://martinfowler.com/articles/serverless.html</a>
-   <br /><br />
+wrote this:
 
-The name "serverless" has been co-opted by enprepreneur
+   "Serverless architectures refer to applications that significantly depend on third-party services (knows as Backend as a Service or "BaaS") or on custom code that's run in ephemeral containers (Function as a Service or "FaaS"), the best known vendor host of which currently is AWS Lambda. By using these ideas, and by moving much behavior to the front end, such architectures remove the need for the traditional 'always on' server system sitting behind an application. Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
+
+The name "serverless" has been co-opted by enprepreneur Austen Collins
 <a target="_blank" href="https://twitter.com/austencollins">
 @austencollins</a>
 who built the
@@ -47,19 +48,21 @@ who built the
 Serverless company</a>
 around its open-source
 <a target="_blank" href="https://github.com/serverless/serverless-framework">
-serverless framework on GitHub</a>,
+serverless framework on GitHub</a>.
 
 His initial Serverless presentation at AWS:Invent 2015
    <amp-youtube data-videoid="D_U6luQ6I90" layout="responsive" width="480" height="270"></amp-youtube>
 
    * <a target="_blank" href="https://github.com/serverless/serverless">
-   serverless-framework</a>
+   serverless-framework at https://github.com/serverless/serverless</a>
    * <a target="_blank" href="http://docs.serverless.com/v0.5.0/docs">
    Docs on serverless</a>
    * <a target="_blank" href="https://github.com/serverless/serverless/milestones/">
-   Roadmap</a> includes runs in Microsoft Azure!
+   Roadmap at https://github.com/serverless/serverless/milestones</a> 
+   includes runs in Microsoft Azure and IBM.
 
-Social media:
+
+### Social media
 
    * <a target="_blank" href="https://www.serverless.com/">
    serverless.com</a> is the company's home page.
@@ -80,7 +83,21 @@ Social media:
    * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
    Hacker News</a> announced it in 2015 when the product was first called JAWS.
 
-## Serverless framework install #
+## Architecture #
+
+   In an interview with <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
+   Introduction to the Serverless Paradigm</a>
+   by CloudAcademy. 
+   Austen says [23:50] "You never pay for idle".
+
+   But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
+   While Lambda does not incur charges while idle,
+   a DynamoDB incurs charges for data stored even though no data is read or written to it.
+
+   So some uses SimpleDB.
+
+
+## Install Serverless framework  #
 
 0. [Install Node.js](/node-osx-install/)
    as a pre-requisite since the framework is written in Node.js.
@@ -100,13 +117,14 @@ Social media:
    NOTE: Serverless was in Beta version 0.5.6 as of June 2016,
    with v1.0 announced 24 June 2016.
 
-<a id="UpdateFramework"></a>
 
-## Update Serverless #
+   <a id="UpdateFramework"></a>
 
-PROTIP: I subscribed to get notifications of changes, 
-and I can see a lot of refactoring is happening
-very quickly, so I suggest that you update frequently.
+   ### Update Serverless #
+
+   PROTIP: I subscribed to get notifications of changes, 
+   and I can see a lot of refactoring is happening
+   very quickly, so I suggest that you update frequently.
 
    <pre><strong>
    npm update -g serverless
@@ -114,10 +132,9 @@ very quickly, so I suggest that you update frequently.
 
    Nothing returns if you're up-to-date.
 
+   <a id="LookAround"></a>
 
-<a id="LookAround"></a>
-
-## Look around #
+   ### Look around #
 
 0. Get summary of commands using the abbreviated command:
 
@@ -126,6 +143,36 @@ very quickly, so I suggest that you update frequently.
    </strong></tt>
 
    the response:
+
+   <pre>
+Commands
+* Serverless documentation: http://docs.serverless.com
+* You can run commands with "serverless" or the shortcut "sls"
+* Pass "--help" after any <command> for contextual help
+&nbsp;
+config ........................ Configure Serverless
+config credentials ............ Configures a new provider profile for the Serverless Framework
+create ........................ Create new Serverless service
+install ....................... Install a Serverless service from GitHub
+package ....................... Packages a Serverless service
+package function .............. undefined
+deploy ........................ Deploy a Serverless service
+deploy function ............... Deploy a single function from the service
+deploy list ................... List deployed version of your Serverless Service
+invoke ........................ Invoke a deployed function
+invoke local .................. Invoke function locally
+info .......................... Display information about the service
+logs .......................... Output the logs of a deployed function
+metrics ....................... Show metrics for a specific function
+remove ........................ Remove Serverless service and all resources
+rollback ...................... Rollback the Serverless service to a specific deployment
+slstats ....................... Enable or disable stats
+&nbsp;
+Plugins
+AwsConfigCredentials, Config, Create, Deploy, Info, Install, Invoke, Logs, Metrics, Package, Remove, Rollback, SlStats
+   </pre>
+
+   Look how far they've come since the first versions:
 
    <pre>
  _______                             __
@@ -161,7 +208,10 @@ variables ...... list, set, unset
    which serverless
    </strong></pre>
 
+   The response:
+
    <pre>
+   /usr/local/bin/serverless
    /Users/mac/.npm-packages/bin/serverless
    </pre>
 
@@ -171,6 +221,8 @@ variables ...... list, set, unset
    cd ~/.npm-packages/lib/node_modules/serverless
    ls -al
    </strong></pre>
+
+   ### In the serverless folder
 
 0. View the README.md file using a Markdown reader:
 
@@ -183,6 +235,44 @@ variables ...... list, set, unset
 
    The file contains a list of projects,
    plugins, and consultants who provide services.
+
+
+   ### Files
+
+README.md, CONTRIBUTING.md, LICENSE.txt are standard GitHub files.
+
+.eslintrc.js contains rules for how lint programs identify issues with code formatting.
+
+.jsbeautifyrc contains settings for JavaScript code beautify program.
+
+.jscsrc
+
+.npmignore defines files and folders for NPM to ignore.
+
+.travis.yml is used by the Travis task runner.
+
+Dockerfile defines how to load the program in Docker.
+
+docker-compose.yml
+
+
+### Folders
+
+.idea contains settings for use by the IDEA IDE.
+
+.github
+
+bin
+
+coverage
+
+lib
+
+node_modules
+
+scripts
+
+tests
 
 
 <a name="Libraries"></a>
@@ -201,6 +291,32 @@ React Serverless app running in Azure?
 
 <a target="_blank" href="https://github.com/99xt/serverless-dynamodb-local">
    https://github.com/99xt/serverless-dynamodb-local</a>
+
+
+### Handlers #
+
+   * Handlers compress or transform objects while being uploaded to Amazon S3.
+
+
+### Azure
+
+https://azure.microsoft.com/services/functions/
+
+### IBM OpenWhisk
+
+https://developer.ibm.com/openwhisk/
+
+connects to IBM's Bluemix services
+
+![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
+
+
+### Google Cloud Functions #
+
+https://cloud.google.com/functions/
+
+@googlecloud
+
 
 
 
@@ -224,7 +340,7 @@ React Serverless app running in Azure?
 
     Alternately:
 
-0. Pick a sample project from https://github.com:
+   Pick a sample project from https://github.com:
 
    * [serverless/serverless-graphql](https://github.com/serverless/serverless-graphql) - Official Serverless boilerplate to kick start your project
 
@@ -239,7 +355,7 @@ React Serverless app running in Azure?
    * [microapps/MoonMail] (https://github.com/microapps/MoonMail) - Build your own email marketing infrastructure using Lambda + SES from http://microapps.com/
 
 
-0. Load a sample project from above:
+   For example, load a sample project from above:
 
    <tt><strong>
    serverless project install serverless-graphql
@@ -314,9 +430,9 @@ ServerlessError: ServerlessError: The security token included in the request is 
 
 <a name="FrameworkStructure"></a>
 
-## Serverless Framework #
+## Structure of Folders and Files #
 
-The serverless framework save developers' time by standardizing the structure of folders and files.
+PROTIP: The serverless framework save developers' time by standardizing the structure of folders and files.
 
    <pre>
 s-project.json       // Project file (JSON or YAML)
@@ -367,7 +483,7 @@ A workaround is to use the
 Serverless Meta Sync plugin
 which stores project metadata in S3.
 
-<strong>admin.env<strong>
+<strong>admin.env</strong>
 
 
 ## Serverless Command-line #
@@ -501,17 +617,14 @@ PROTIP: Plugins need to be installed for each project that uses each.
 
 ## Get Permissions #
 
-Since
-
 aws-lambda-node-js-programming
 
 
-http://stackoverflow.com/questions/37779324/how-to-troubleshoot-serverless-iam-permissions
+* http://stackoverflow.com/questions/37779324/how-to-troubleshoot-serverless-iam-permissions
 
 
 ## Resources #
 
-Twitter: @goserverless
 
 <a name="PhillipMuens"></a>
 Phillip Muens (@pmmuens, github.com/pmuens) from Germany
@@ -520,6 +633,8 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
    <a target="_blank" href="http://justserverless.com/blog/">
    JustServerless.com</a>
 
+   * <a target="_blank" href="https://github.com/pmuens/serverless-book">
+   https://github.com/pmuens/serverless-book</a>
    * <a target="_blank" href="http://justserverless.com/blog/your-first-serverless-application/">
    http://justserverless.com/blog/your-first-serverless-application/</a>
 
@@ -535,8 +650,9 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
    <a target="_blank" href="https://github.com/JustServerless/notes">
    github.com/JustServerless/notes</a>.
 
-   * Sells <a target="_blank" href="https://github.com/JustServerless/learnserverless-book/issues/">
+   * Deprecated since Oct 2016 is <a target="_blank" href="https://github.com/JustServerless/learnserverless-book/issues/">
    https://github.com/JustServerless/learnserverless-book/issues</a>
+
 
 Matthew Fuller
 
@@ -554,24 +670,6 @@ John McKim  @johncmckim  blogs on Medium:
    * <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
    Serverless Framework: The Good Parts</a>
 
-
-
-
-## Future topics #
-
-* Handlers that compress or transform objects while being uploaded to Amazon S3.
-
-
-## Social #
-
-### Serverless
-
-@goserverless
-
-
-### Google Cloud #
-
-@googlecloud
 
 
 
