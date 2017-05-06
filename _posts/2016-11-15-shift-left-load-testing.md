@@ -26,25 +26,18 @@ The assumption of monolithic component availability is often reflected in load t
 Namely, a single script is created that does registration, login, browse, shop, buy, etc.
 
 
+
 ## RESTful Revolution 
 
 The adoption of REST API means that pieces of the whole system can be available for performance testing earlier,
 and on an on-demand basis.
 
-![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
+<!-- ![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
+-->
 
 
-## How 
 
-### Stress specific system components
-
-This means that landing, registration, login, shop, buy, etc. run as stand-alone jobs to test different specialized servers.
-
-   * The script that does just landing is used to detect network conditions over time and server availability.
-
-   * The script that does just login is used to identify the availability and capacity of authentication services.
-
-   * The script that does just shopping cart handling is used to identify the availability and capacity of back-end fulfillment services and payment gateways.
+## How
 
 
 
@@ -62,7 +55,7 @@ Enable developers and operations people to invoke and view load tests using tool
 ("Jenkins" is referenced here as a generic term for CI/CD tools that include Hudson, Bamboo, TravisCI, etc.)
 
 
-### Make Access to reports effortless
+### Make access to test reports effortless
 
 - [ ] When developers independently kick off load tests on Jenkins, 
 receive run results via a link in an email.
@@ -83,12 +76,33 @@ such as on Confluence or other wiki.
    Structure code to run based a list which contain flags that specify whether specific component is tested during each particular run.
 
 
+
+### Stress specific system components
+
+This means that landing, registration, login, shop, buy, etc. run as stand-alone jobs to test different specialized servers.
+
+   * The script that does just landing is used to detect network conditions over time and server availability.
+
+   * The script that does just login is used to identify the availability and capacity of authentication services.
+
+   * The script that does just shopping cart handling is used to identify the availability and capacity of back-end fulfillment services and payment gateways.
+
+
 ### Build system tests during construction
 
 - [ ] Build system test scripts during component development.
 
    This provides early feedback.
 
+
+
+### Dynamically create test code
+
+- [ ] Comment "critical" sections of code where performance can be of concern (such as reading of databases or handling of large amounts of data).
+
+- [ ] Write a parser to identify critical sections throughout the code automatically. This ensures easy identification of testing needs.
+
+- [ ] Conduct test runs periodically to report on progress over time.
 
 
 ### Dynamically create test environments
@@ -100,15 +114,6 @@ such as on Confluence or other wiki.
 - [ ] Provision temporary test enviornments using Docker, etc.
 
 - [ ] Use scripts to automate provisioning so elements of each builds remain consistent.
-
-
-### Dynamically create test code
-
-- [ ] Comment "critical" sections of code where performance can be of concern (such as reading of databases or handling of large amounts of data).
-
-- [ ] Write a parser to identify critical sections throughout the code automatically. This ensures easy identification of testing needs.
-
-- [ ] Conduct test runs periodically to report on progress over time.
 
 
 ## Resources
@@ -140,5 +145,7 @@ such as on Confluence or other wiki.
    Shifting Left on Your Journey to Continuous Testing | Adam Auerbach | STARWEST
    by TechWell Happenings
 
-
+* https://www.youtube.com/watch?v=tCANF_jnN9o
+   Continuous Testing in a DevOps World
+   by Zephyr
    
