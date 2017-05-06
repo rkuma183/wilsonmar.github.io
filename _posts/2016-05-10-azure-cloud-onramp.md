@@ -193,6 +193,9 @@ At <a target="_blank" href="https://portal.azure.com/">
    * Blockchain
    <br /><br />
    
+   <a target="_blank" href="https://linuxacademy.com/cp/socialize/index/type/community_post/id/16110">
+   Click "Web + Mobile" to create a Web App on Azure</a> is a common use case.
+
 0. Click the X to close a blade.
 
 
