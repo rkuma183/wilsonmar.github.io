@@ -119,12 +119,12 @@ export PATH="$HOME/gits/wilsonmar/git-utilities/git-custom-commands:$PATH"
    <pre>
  Directory of C:\Program Files\Git\mingw64\libexec
 &nbsp;
-04/21/2016  11:09 AM    <DIR>          git-core
+04/21/2016  11:09 AM    &LT;DIR>          git-core
                0 File(s)              0 bytes
 &nbsp;
  Directory of C:\Program Files\Git\mingw64\share
 &nbsp;
-04/21/2016  11:09 AM    <DIR>          git-core
+04/21/2016  11:09 AM    &LT;DIR>          git-core
                0 File(s)              0 bytes
    </pre>
 
