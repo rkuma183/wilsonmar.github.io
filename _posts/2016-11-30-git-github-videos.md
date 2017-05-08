@@ -1134,6 +1134,23 @@ BTW I don't agree with Dan's statement: "I purposefully focus on the command lin
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
    Introduction to Git Hooks</a> [17:02] 6 Nov 2016
 
+## Mijingo
+
+Ryan Ireland has a 40-video intro for $71 at<br />
+<a target="_blank" href="https://mijingo.com/git-essentials">
+https://mijingo.com/git-essentials</a> (or $289 with a one-hour call).
+Some of them:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QddBztXi2o8">
+   Using Git Archive to Export Files</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">
+   Using Git in Sublime Text</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=hO8hSFVbbVw">
+   Changing Terms in Git Bisect</a> 
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
+   How to Create and Apply Git Patches</a>
+
+
 ## Michael Koby
 
 Videos show diagrams (no commands shown) from May 9, 2013.
