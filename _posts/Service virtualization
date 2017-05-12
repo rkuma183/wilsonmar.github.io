@@ -1,0 +1,140 @@
+Service virtualization
+
+Service Virtualization
+
+especially mainframe
+
+
+## BENEFITS
+
+"Service Virtualization" is fundamentally different than "Server Virtualization" provided by VMware VSphere
+(https://www.youtube.com/watch?v=6LDY9BatAQc).
+This is because server virtualization run real servers,
+whereas service virtualization runs fake services.
+
+Virtual services can be useful several ways:
+
+   * Developers can continue without being blocked by services not being ready or otherwise available for testing.
+
+   * Performance testers can also continue without being blocked, but also be enabled to introduce delays to measure the impact on apps
+   -- a capability not easily achieved traditionally.
+
+
+## VENDORS
+
+Alphabetically:
+
+* CA LISA - https://www.ca.com/us/products/ca-service-virtualization.html
+   is the most senior and largest in market share. Its components include DevTest.
+
+* HP Service Virtualization
+
+* IBM Rational Integration Tester (RIT)
+
+* Parasoft
+
+* Smart Bear ServiceV for APIs - www.smartbear.com/ServiceV/
+
+
+## USE CASE
+
+From the point of view of performance testing and engineering, comparison of tools is largely about productivity achieved:
+
+0. Record API calls by listening to manual user activity.
+
+0. Learn pattern of communication by listening in on existing traffic.
+
+0. Automatic detection of service availability and switching to virtual service (rather than re-configuring the application)
+
+0. Automatic recognition of values as variables A:[22:48] "Magic String"
+
+0. Programmatic modification of values returning to service.
+
+0. Ability to introduce delays (to measure the impact on apps).
+
+0. Ability to introduce errors programmatically by receiving a signal from a load testing program.
+
+0. Automatic generation of virtualization from requirements such as SOAP/WADL, Swagger, GraphQL, RAML, etc.
+
+
+### Technical advancement
+
+   Another major area to assess the vendor is how quickly it can keep up with handling of new protocols coming on the market.
+
+0. Read requirements definitions SOAP/WADL, Swagger, RAML, GraphQL, etc.
+
+0. Recognize line protocols HTTP 2 asychronous protocol, SPDY, etc.
+
+0. Make use of networking encryption protocols TLS 1.2, etc. and their certificates.
+
+0. Automatic handling of various encryption levels (SHA-2, SHA-1024, etc.).
+
+
+The challenge for all service virtualization products is duplicating the behavior of the service
+without essentially re-writing the service.  The approaches to do this:
+
+   1. Perform work on a working service and capture the traffic to create a virtualization script (much like what LoadRunner does)
+
+   2. Read a computer-readable design spec (SOAP WSDL, Swagger, RAML) and create the virtualization script
+
+The ideal situation is to use the latter approach.
+
+But many development groups do not produce computer-readable design specs.
+
+With both approaches, 
+communication is still necessary among teams to identify data values beyond what was captured.
+Specification files specify only the format of fields, not the range of data values possible.
+
+
+## CA 
+
+CA has a major advantage in its ability during capture to automatically detect "magic strings" automatically converting text strings into variables.
+
+This one feature provides major productivity gains because it allows captures to be instantly used without laborious manual editing,
+which is both time consuming and error-prone.
+
+CA bought the LISA brand from iTKO around 2014.
+Today, there are several separate products under the LISA brand:
+
+   * CA LISA Virtual Services Environment
+   * CA Service Virtualization (CA LISA Service Virtualization)
+   * CA Release Automation (CA LISA Release Automation)
+   * CA Continuous Application Insight (CA LISA Pathfinder)
+
+These products together integrates service virtualization with releases and application analysis.
+
+I did not hear that IBM has maturity in such integrations.
+
+* A: <a target="_blank" href="https://www.youtube.com/watch?v=pvdVcghUfYo">
+   Step 2: How to Get Started with CA Service Virtualization on Demand</a>
+   [28:32] Nov 13, 2015
+   by Stefana Muller, Product Manager
+
+   The default credentials are admin/admin.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=4C_HrojYU30">
+   API Testing in Service Virtualization</a> [8:46] Oct 12, 2016.
+   provides a live demo operating the service UI.
+
+
+NOTE: CA Devtest version 8 now uses the Angular UI library for a stylish modern "flat" design.
+
+
+## IBM
+
+IBM's approach has the advantage of automatically routing calls to the virtualization service.
+
+This is done by an additional service other companies don't have.
+While some consider this a convenience, testers tend to prefer knowing working with a consistent connection to a known service.
+
+
+## Resources:
+
+* https://www.youtube.com/watch?v=VDxJThQSkXs
+   Automated Integration Testing Using Service Virtualization
+   by IBM DevOps 
+
+* https://www.youtube.com/watch?v=nv9bDD3BmeU
+   HP Virtualization Demo
+
+

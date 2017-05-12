@@ -33,13 +33,13 @@ where I put the latest versions of each:
 * <a target="_blank" href="https://www.youtube.com/watch?v=ub2DFbn16zg">
    Git and GitHub View and Documentation Flow</a>
 
-* https://wilsonmar.github.io/git-commands-and-statuses/
-
 
 ## By GitHub people
 
+### Linus Torvalds
+
 <a target="_blank" href="https://www.youtube.com/watch?v=4XpnKHJAok8">
-   Tech Talk: Linus Torvalds on git</a>
+   Tech Talk: Linus Torvalds on Git</a>
    at Google
 
 ### Tom Preston-Werner 
@@ -56,10 +56,13 @@ http://tom.preston-werner.com/)
 
 ### Scott Chacon, CIO of GitHub
 
-   Scott wrote websites <a target="_blank" href="https://www.git-scm.com/">
-   git-scm.com</a>, 
+   Twitter: (@schacon) 
+
+   Scott wrote<br />
+   <a target="_blank" href="http://git-scm.com/book/en/v2">
+   git-scm.com/book/en/v2</a>, <br />
    <a target="_blank" href="https://www.gitref.com/">
-   gitref.com</a>, and 
+   gitref.com</a>, and <br />
    <a target="_blank" href="https://www.gitref.com/">
    progit.org book</a>.
 
@@ -78,7 +81,13 @@ http://tom.preston-werner.com/)
    [43:20] by Brent Beer, GitHub Sales Engineer, 
    speaking at OSCON in Portland, Oregon, July 2015.
 
-Mastering Git series by Matthew McCullough with Tim Berglund
+
+### Matthew McCullough, VP Training
+
+"Mastering Git" series (<a target="_blank" href="http://shop.oreilly.com/category/learning-path/git.do">
+O'Reilly's Learning Path $99 offering</a>)
+by Matthew McCullough (<a target="_blank" href="https://twitter.com/matthewmccull/">@matthewmccull</a>) 
+with Tim Berglund
 (using Git 1.7.2):
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=AzuzomV-zrQ">
@@ -102,8 +111,9 @@ Mastering Git series by Matthew McCullough with Tim Berglund
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GLLUNDrPHJQ">
    Undo & Bonus (10/10)</a>
 
+Their repository:
+https://github.com/GitHub/training-kit
 
-### Matthew McCullough, VP Training
 
 A rather cerebral introduction made in 2012:
 
@@ -111,6 +121,27 @@ A rather cerebral introduction made in 2012:
    What is VCS? (Git-SCM)</a> [5:59]
 0. <a target="_blank" href="https://vimeo.com/41381741">
    What is Git? (Git-SCM)</a> [8:14]
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=I-lGyn3PHP4">
+   Git from the bits up</a>, June 7, 2013
+
+
+### Alan Smith 
+
+   Twitter: (@loranallensmith)
+
+Among many videos on GitHub's video channel at:<br />
+<a target="_blank" href="https://vimeo.com/channels/GitHubguides">
+   vimeo.com/channels/GitHubguides</a>
+
+0. <a target="_blank" href="https://vimeo.com/127761531">
+   Visualizing Change with Git and GitHub, June 2015</a>
+
+   The repository associated with the presentation:<br />
+   <a target="_blank" href="https://github.com/GitHubteacher/sisters">
+
+   It contains a simple history of several commits.
+
 
 
 ### GitHub Universe conference
@@ -162,6 +193,12 @@ quick (conceptual) videos with captions and graphics on a white board:
 
 ## Microsoft
 
+* <a target="_blank" href="http://www.radiotfs.com/">
+   radiotfs.com</a>
+   is a podcast about Microsoft Visual Studio Team Foundation Server (TFS), 
+   Visual Studio Online, and 
+   Visual Studio Application Lifecycle Management (ALM).
+
 
 ### Edward Thompson via O'Reilly
 (@ethompson, <a target="_blank" href="https://www.edwaredthompson.com">
@@ -175,7 +212,7 @@ Visual Studio,
 Visual Studio Online Version Control
 
 * <a target="_blank" href="https://www.gitforvisualstudio.com/">
-   Git for Visual Studio</a> series of videos <br />
+   Git for Visual Studio</a> series of videos is
    <a target="_blank" href="http://shop.oreilly.com/product/0636920044864.do?cmp=af-prog-books-videos-product_cj_9781771375221_%25zp">
    $59 at O'Reilly Media</a> released December 2015.
 
@@ -189,8 +226,9 @@ Visual Studio Online Version Control
    * Working with Visual Studio Online
    * Working With GitHub 
    * Interacting With Command Line Tools 
-
-   http://gitforvisualstudio.com/resources/
+   
+* <a target="_blank" href="http://gitforvisualstudio.com/resources/">"
+   gitforvisualstudio.com/resources</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=dBSHLb1B8sw">
    GOTO 2015 • Deep Dive into Git</a>
@@ -283,6 +321,8 @@ Jeremy
 
 
 ### Channel 9 
+
+Microsoft broadcasts all their videos on <a target="_blank" href="https://channel9.msdn.com/">Channel9.msdn.com</a>.
 
 <a target="_blank" href="https://channel9.msdn.com/Series/Using-Git-with-Visual-Studio-2013">
 Using Git with Visual Studio 2013</a>
@@ -389,12 +429,32 @@ on this Playlist</a> are these on Git:
    tree .git/
 
    "A blank commit will always yield the same SHA" is WRONG
-   because a time stamp is inside the content hashed?
+   because a time stamp is inside the content hashed"
 
    He shows a video clip of "Prince of Persia"
    who gets out of trouble by using his time travel device.
 
    [45:18] bisect
+
+Tim Pettersen (@kannonboy) created a useful video:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=O4SoB3TFkjA">
+   Webinar: Git Workflow for SaaS Teams (posted 12 Oct. 2014)</a>
+
+Nicola Paolucci, Git Evangelist at Atlassian Amsterdam:
+
+   Twitter: https://twitter.com/durdn 
+
+   https://www.linkedin.com/in/durdn 
+
+   http://durdn.com/ 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=-kVzV6m5_Qg">
+   Becoming a Git Master, Sep. 2014</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=v-MFXnF1vXE">
+   Git Branching for Agile Teams, Sep. 2014</a>
+
 
 ### GitKraken client
 
@@ -410,7 +470,19 @@ GitKraken Tutorial:
 
 ### Tower client
 
-Tower is a popular stand-alone Git client for Mac and Windows.
+Tobias Guenther (tg@fournova.com in Germany) is a developer of Tower, a feature-rich git client for Mac OSX
+and (since 2017) for Windows.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ&list=PLyCj4RCToz5DRDx3sJ4iW9i8D2G8OdHYH">
+   YouTube playlist to "Learn Git on the Command Line"</a>
+
+   Alternately, the same videos are shown at:
+
+   <a target="_blank" href="http://www.git-tower.com/learn/git/videos">
+   http://www.git-tower.com/learn/git/videos</a>
+
+   The web page has links to his $89 Advanced videos..
+
 
 <a target="_blank" href="https://www.youtube.com/channel/UCrl5xG-L4ZCFkR-bhUy9BVg">
 [Learn Git Video Course]</a>
@@ -942,6 +1014,20 @@ It starts by diving right in with diff.
 
 Several people, on their personal time, created videos for others to enjoy for free.
 
+### Dustin Davis
+
+   Twitter: @c0deporn) 
+
+   This video comes up frequently on YouTube about Git. Maybe it's got a great name: 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Y9XZQO1n_7c">
+   Learn Git in 20 minutes (posted 8 Jun 2014)</a>
+
+   His repository:<br />
+   <a target="_blank" href="https://github.com/dustindavis/FluentGuard">
+   https://github.com/dustindavis/FluentGuard</a>
+
+
 ### Seth House
 
 <a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3">
@@ -963,8 +1049,8 @@ It was created when Seth is at cars.com in Jul 2012.
    Uses a program to graph branches to a graphics.
 
 The "git-dag" utility to display Git DAGs is at
-https://github.com/whiteinge ?
-
+<a target="_blank" href="https://github.com/whiteinge">
+https://github.com/whiteinge</a>
 
 <a target="_blank" href="https://www.youtube.com/watch?v=Y2Msq90ZknI">
    Dissecting Git's Guts, Emily Xie - Git Merge 2016</a>
@@ -1134,22 +1220,6 @@ BTW I don't agree with Dan's statement: "I purposefully focus on the command lin
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8-JL6NOTZOw">
    Introduction to Git Hooks</a> [17:02] 6 Nov 2016
 
-## Mijingo
-
-Ryan Ireland has a 40-video intro for $71 at<br />
-<a target="_blank" href="https://mijingo.com/git-essentials">
-https://mijingo.com/git-essentials</a> (or $289 with a one-hour call).
-Some of them:
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QddBztXi2o8">
-   Using Git Archive to Export Files</a> [7:03] Apr 3, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">
-   Using Git in Sublime Text</a> [7:03] Apr 3, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=hO8hSFVbbVw">
-   Changing Terms in Git Bisect</a> 
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
-   How to Create and Apply Git Patches</a>
-
 
 ## Michael Koby
 
@@ -1232,6 +1302,35 @@ GIT QuickStart using Visual Studio:
    Undo changes</a> [33:56] 14 Feb 2017
 0. 12 <a target="_blank" href="https://www.youtube.com/watch?v=jsJoLoaJjlg">
    Publish code</a>
+
+
+
+### Lars 
+
+Lars Vogella in Germany turned his experience as a Eclipse developer with a knack for clear explanations 
+into a publishing, training, and consulting business at
+<a target="_blank" href="http://vogella.com/">vogella.com</a>.
+
+* He published a <a target="_blank" href="http://www.amazon.com/gp/product/B00R1XABSU/">
+   $9 book on git</a> referencing his git repository at<br />
+   <a target="_blank" href="http://github.com/vogella/">http://github.com/vogella</a>
+
+
+### Ryan Ireland (Mijingo)
+
+A 40-video intro for $71 at<br />
+<a target="_blank" href="https://mijingo.com/git-essentials">
+https://mijingo.com/git-essentials</a> (or $289 with a one-hour call).
+Some of them:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QddBztXi2o8">
+   Using Git Archive to Export Files</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">
+   Using Git in Sublime Text</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=hO8hSFVbbVw">
+   Changing Terms in Git Bisect</a> 
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
+   How to Create and Apply Git Patches</a>
 
 ## Others
 
