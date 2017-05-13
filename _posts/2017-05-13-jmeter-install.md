@@ -27,6 +27,14 @@ https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
 
    Modify HEAP="-Xms512m -Xmx512m" in the JMeter batch file
 
+0. Verify whether the JAVA_HOME environment points to the JRE or JDK installation folder:
+
+   <pre><strong>
+   echo $JAVA_HOME
+   </strong></pre>
+
+0. Verify whether the JAVA_HOME/bin folder has been added to the PATH environment variable
+
 
 ## Install JMeter
 
@@ -41,7 +49,7 @@ A Docker image contains bits.
 ### Blazemeter
 
    https://blazemeter.com
-
+   cloud
 
 ### Download installer
 
@@ -96,15 +104,14 @@ export PATH="$HOME/jmeter:$PATH"
 
 0. Edit properties file:
 
-   <pre><strong>
-   cd bin
+   <pre><strong>cd bin
    edit jmeter.properties
    </strong></pre>
 
-0. Specify slave computers IP addresses, separated by commas:
+0. Specify slave computers IP addresses, separated by commas. Example:
 
    <pre>
-   remote_hosts=xxx.x.x.x
+   remote_hosts=192.168.0.10,192.168.0.11,192.168.0.12,192.168.0.13,192.168.0.14
    </pre>
 
    All on the same subnet?
@@ -126,21 +133,18 @@ export PATH="$HOME/jmeter:$PATH"
 
 0. Go to $JMETER_HOME/bin and run:
 
-   <pre><strong>
-   chmod 555 jmeter.sh
+   <pre><strong>chmod 555 jmeter.sh
    ./jmeter.sh
    </strong></pre>
 
    Alternately, if you are using Windows:
 
-   <pre><strong>
-   jmeter.bat
+   <pre><strong>jmeter.bat
    </strong></pre>
 
    In response, a DOS window should appear with 
 
-   <pre><strong>
-   jre\[version]\bin\rmiregistry.exe
+   <pre><strong>jre\[version]\bin\rmiregistry.exe
    </strong></pre>
 
    [version] is the jre version installed on the system.
@@ -198,15 +202,72 @@ JMeter tests are defined in an XML-format file.
 
    This path is shown as "..." below.
 
-0. Remove all graphic data writers. ???
+0. Remove graphic data writers for batch.
+
+
+0. Set Up at Least One Thread Group and Sampler
+
+   A thread group is where you specify the number of users to simulate. Each user is emulated by each thread. 
+
+   Set the ramp-up period to tell JMeter how long it should take to reach all of the threads that you’ve chosen. 
+
+   You can also set the number of iterations to process each user in the group with the Loop Count.
+
+0. Set up Samplers
+
+   Samplers emulate the actual work done within clients. When JMeter executes samplers, it writes down the results such as: 
+   start time, duration, success, response messages, etc.  
+
+   Listeners are used to view results. 
+   The most commonly used sampler is the HTTP Request, which sends a HTTP or HTTPS request to a web server.
+
+0. Add Timers
+
+   Set the duration of the delay from one request to the next.
+   The specification is how many seconds JMeter waits before navigating from the homepage to the features page.
+
+0. Add Configuration Elements
+
+   This manages elements like the cache and the cookies, during test runs. 
+
+   Adding the “HTTP Cache Manager” and the “HTTP Cookie Manager” simulates the browser’s behavior. 
+
+   See <a target="_blank" href="https://guide.blazemeter.com/hc/en-us/articles/206733719-How-to-make-JMeter-behave-more-like-a-real-browser">
+   this</a>.
+
+0. Add Assertions
+
+   These define pass or fail criteria for the test.
+
+   Let’s say you want to make sure your site or app responds within 100 milliseconds. 
+
+   You can set a Duration Assertion to specify that if any response lasts longer than 100 milliseconds, the sample will be marked as “failed.”
+ 
+   The most important assertion to know is the Response Assertion. This covers 99% of your needs - so no wonder it’s so popular! You can use it to test the URL, response body, messages, embedded resources, redirects, headers and more. This assertion gives you loads of flexibility as it lets you test regular expressions rather than text patterns. JMeter handles regular expressions in a very similar way to Perl - except you don’t enclose the expression in //’s.
+ 
+0. Add Listeners
+
+   Listeners display the results of a sampler. 
+
+   Listeners can be viewed in various formats (table, graph, tree, or log file). 
+
+   Listeners can be added anywhere in the test - but only collect data (listens) to elements on the same level or below.
+
+   The most commonly used listener is "View Results Tree", which presents in the GUI all test plan results in a user-friendly tree structure.
+
+   Other listeners include Assertion Results, Aggregate Report and Beanshell Listener.
+ 
+   WARNING: Disable all your listeners as they use up a lot of memory.
+
+0. Add a Thread Group component by right-clicking on the name of a test plan to select ‘Add’, then
+   choose the component to set up and configure.
 
 
 ## Start JMeter Batch run
 
 0. Substituting <em>script</em> with your script name:
 
-   <pre><strong>
-   jmeter -n -t .../Test.jmx -l .../test.jtl -e -o [Path to output folder]
+   <pre><strong>jmeter -n -t .../Test.jmx -l .../test.jtl -e -o [Path to output folder]
    </pre></strong>
  
    where:
@@ -248,8 +309,7 @@ JMeter tests are defined in an XML-format file.
 0. Gracefully shutdown
    using these scripts the installer puts in the JMeter /bin directory. 
 
-   <pre><strong>
-   Shutdown.cmd
+   <pre><strong>Shutdown.cmd
    </strong></tt>
 
    Alternately, shutdown immediately:
@@ -274,18 +334,25 @@ JMeter tests are defined in an XML-format file.
    ![jmeter ant html blazemeter](https://cloud.githubusercontent.com/assets/14143059/26027083/34137d7c-37d5-11e7-8013-7ae801b13cff.png)
 
 
-## Record Script
+## Record Custom Script
 
    http://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html
 
+   See <a target="_blank" href="https://www.blazemeter.com/blog/how-cut-your-jmeter-scripting-time-80">
+   How to Cut Your JMeter Scripting Time by 80%</a>
+   using Blazemeter's "Smart JMX" to generate script files from proxy recordings.
 
+   The recording has Automatic Extractors that does
+   auto-parameterization (also known as "auto-correlation" of values with variables it creates).
 
-
-## Generate JMeter Code
 
 JMeter ThreadGroup and Samplers. 
 
 <a target="_blank" href="http://stackoverflow.com/questions/19147235/how-to-create-and-run-apache-jmeter-test-scripts-from-a-java-program">
 this</a>
+
+
+## Generate JMeter Code from Swagger
+
 
 
