@@ -20,20 +20,31 @@ This tutorial explains how to install JMeter ... for fun and profit.
 
 https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
 
+* Sign up for the mailing list at: http://jmeter.apache.org/mail.html
+
+* https://github.com/apache/jmeter
+
 
 ## Install Java
 
-0. Change Java Heap to your machine:
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-   Modify HEAP="-Xms512m -Xmx512m" in the JMeter batch file
+0. Change the Java Heap appropriate to your machine:
+
+   <pre>HEAP="-Xms512m -Xmx2148m"</pre>
+
+   * http://java.dzone.com/articles/java-8-permgen-metaspace 
+
+   * http://www.infoq.com/news/2013/03/java-8-permgen-metaspace
+   <br /><br />
 
 0. Verify whether the JAVA_HOME environment points to the JRE or JDK installation folder:
 
-   <pre><strong>
-   echo $JAVA_HOME
+   <pre><strong>echo $JAVA_HOME
    </strong></pre>
 
-0. Verify whether the JAVA_HOME/bin folder has been added to the PATH environment variable
+0. Verify whether the JAVA_HOME/bin folder has been properly added to the PATH environment variable.
+
 
 
 ## Install JMeter
@@ -55,7 +66,8 @@ A Docker image contains bits.
 
 0. Download <strong>binary</strong> installer from:
 
-   http://jmeter.apache.org/download_jmeter.cgi
+   <a target="_blank" href="http://jmeter.apache.org/download_jmeter.cgi">
+   http://jmeter.apache.org/download_jmeter.cgi</a>
 
    apache-jmeter-3.2.zip
 
@@ -78,8 +90,9 @@ A Docker image contains bits.
 
    * bin contains executables, jar, and properties files
    * docs
-   * extras contains a batch file to start JMeter
-   * lib contains library jar files
+   * extras contains miscellaneous files including samples using the Apache Ant tool
+   * lib contains library utlity jar files
+   * lib/ext contains JMeter components and add-ons
    * licenses contains legal text 
    * printable_docs contains the usermanual in html and a demos folder containing jmx files
    <br /><br />
@@ -131,7 +144,7 @@ export PATH="$HOME/jmeter:$PATH"
 
 0. Define $JMETER_HOME
 
-0. Go to $JMETER_HOME/bin and run:
+0. Go to <strong>$JMETER_HOME/bin</strong> and run:
 
    <pre><strong>chmod 555 jmeter.sh
    ./jmeter.sh
@@ -207,11 +220,16 @@ JMeter tests are defined in an XML-format file.
 
 0. Set Up at Least One Thread Group and Sampler
 
-   A thread group is where you specify the number of users to simulate. Each user is emulated by each thread. 
+   Unlike LoadRunner, a JMeter
+   thread group contains both the automated script (URLs, etc.) and the load scenario. 
 
-   Set the ramp-up period to tell JMeter how long it should take to reach all of the threads that you’ve chosen. 
+   In thread groups is defined the number of users to simulate. Each user is emulated by each thread. 
 
-   You can also set the number of iterations to process each user in the group with the Loop Count.
+   The ramp-up period tells JMeter how long it should take to reach the desired number of threads chosen. 
+
+   Set the number of iterations to process each user in the group with the Loop Count.
+
+   Click on the thread group to see the load configurations. Expand a thread group to see the steps of the load script.
 
 0. Set up Samplers
 
@@ -280,7 +298,11 @@ JMeter tests are defined in an XML-format file.
 
    <tt>-j</tt> the name of JMeter run log file.
 
-   Besides these options, JMeter has several other parameters that can be used for running in non-GUI mode.
+   <tt>-p</tt>  or <pre>--propfile</pre> to preced a JMeter property file to use 
+
+   <tt>-q</tt> or --addprop to precede JMeter property file(s)
+
+   Aditionally, JMeter has several other parameters that can be used for running in non-GUI mode.
  
    <tt>-R</tt> lists remote servers to run.
  
@@ -303,7 +325,7 @@ JMeter tests are defined in an XML-format file.
    the CLASSPATH variable needs to be put in the PATH along with ApacheJmeter.jar, 
    because inside these files is this string:
  
-   <strong>java -cp %~dp0ApacheJMeter.jar org.apache.jmeter.util.ShutdownClient StopTestNow %*</strong>
+   <strong><pre>java -cp %~dp0ApacheJMeter.jar org.apache.jmeter.util.ShutdownClient StopTestNow %*</strong></pre>
 
 
 0. Gracefully shutdown
@@ -335,6 +357,10 @@ JMeter tests are defined in an XML-format file.
 
 
 ## Record Custom Script
+
+0. Install the <a target="_blank" href="https://guide.blazemeter.com/hc/en-us/articles/206732579-Chrome-Extension">
+   JMeter Chrome Extension</a> filters only the URL’s to be load tested.
+
 
    http://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html
 
