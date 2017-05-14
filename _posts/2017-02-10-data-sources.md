@@ -62,7 +62,7 @@ contains pictures of objects belonging to 101/256 categories
 <a target="_blank" href="http://www.cs.utoronto.ca/~kriz/cifar.html">
 http://www.cs.utoronto.ca/~kriz/cifar.html</a><br />
 CIFAR 10/100
-Subset of 80 million tiny images dataset
+Subset of 80 million tiny images dataset (cats, horses, airplanes, etc.)
 
 <a target="_blank" href="https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition">
 https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition</a><br />
