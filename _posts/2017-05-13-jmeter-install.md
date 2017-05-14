@@ -268,7 +268,7 @@ Writing log file to: /Users/mac/jmeter.log
   / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
  / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
 /_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 3.1 r1770033  
-
+&nbsp;
 Copyright (c) 1999-2016 The Apache Software Foundation
 &nbsp;
    --?
@@ -277,55 +277,55 @@ Copyright (c) 1999-2016 The Apache Software Foundation
       print usage information and exit
    -v, --version
       print the version information and exit
-   -p, --propfile <argument>
+   -p, --propfile &LT;argument>
       the jmeter property file to use
-   -q, --addprop <argument>
+   -q, --addprop &LT;argument>
       additional JMeter property file(s)
-   -t, --testfile <argument>
+   -t, --testfile &LT;argument>
       the jmeter test(.jmx) file to run
-   -l, --logfile <argument>
+   -l, --logfile &LT;argument>
       the file to log samples to
-   -j, --jmeterlogfile <argument>
+   -j, --jmeterlogfile &LT;argument>
       jmeter run log file (jmeter.log)
    -n, --nongui
       run JMeter in nongui mode
    -s, --server
       run the JMeter server
-   -H, --proxyHost <argument>
+   -H, --proxyHost &LT;argument>
       Set a proxy server for JMeter to use
-   -P, --proxyPort <argument>
+   -P, --proxyPort &LT;argument>
       Set proxy server port for JMeter to use
-   -N, --nonProxyHosts <argument>
+   -N, --nonProxyHosts &LT;argument>
       Set nonproxy host list (e.g. *.apache.org|localhost)
-   -u, --username <argument>
+   -u, --username &LT;argument>
       Set username for proxy server that JMeter is to use
-   -a, --password <argument>
+   -a, --password &LT;argument>
       Set password for proxy server that JMeter is to use
-   -J, --jmeterproperty <argument>=<value>
+   -J, --jmeterproperty &LT;argument>=<value>
       Define additional JMeter properties
-   -G, --globalproperty <argument>=<value>
+   -G, --globalproperty &LT;argument>=&LT;value>
       Define Global properties (sent to servers)
       e.g. -Gport=123
        or -Gglobal.properties
-   -D, --systemproperty <argument>=<value>
+   -D, --systemproperty &LT;argument>=&LT;value>
       Define additional system properties
-   -S, --systemPropertyFile <argument>
+   -S, --systemPropertyFile &LT;argument>
       additional system property file(s)
-   -L, --loglevel <argument>=<value>
+   -L, --loglevel &LT;argument>=&LT;value>
       [category=]level e.g. jorphan=INFO or jmeter.util=DEBUG
    -r, --runremote
       Start remote servers (as defined in remote_hosts)
-   -R, --remotestart <argument>
+   -R, --remotestart &LT;argument>
       Start these remote servers (overrides remote_hosts)
-   -d, --homedir <argument>
+   -d, --homedir &LT;argument>
       the jmeter home directory to use
    -X, --remoteexit
       Exit the remote servers at end of test (non-GUI)
-   -g, --reportonly <argument>
+   -g, --reportonly &LT;argument>
       generate report dashboard only, from a test results file
    -e, --reportatendofloadtests
       generate report dashboard after load test
-   -o, --reportoutputfolder <argument>
+   -o, --reportoutputfolder &LT;argument>
       output folder for report dashboard
    </pre>   
 <a name="Plugins"></a>
