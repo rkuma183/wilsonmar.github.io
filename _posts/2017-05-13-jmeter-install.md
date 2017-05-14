@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JMeter Installation"
-excerpt: "Load 'em up"
+excerpt: "Load up a free Java-based tool to impose load on web sites, whether it needs it or not"
 tags: [perftest, JMeter]
 shorturl: "https://"
 image:
@@ -24,8 +24,12 @@ https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
 
 * https://github.com/apache/jmeter
 
+* https://twitter.com/ApacheJMeter
+
 
 ## Install Java
+
+JMeter is written in Java for cross-platform sweetness.
 
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
@@ -51,18 +55,55 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
    There are several ways to obtain a running instance of JMeter.
 
+CAUTION: If you are in a large enterprise, confer with your security team before 
+installing. They often have a repository such as Artifactory or Nexus where
+installers are available after being vetted and perhaps patched
+for security vulnerabilities.
+
+### Blazemeter
+
+   You practically don't need a local machine if you use the cloud service<br />
+   https://blazemeter.com
 
 ### Docker container
 
 A Docker image contains bits.
 
+There are <a target="_blank" href="https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=jmeter&starCount=0">many on DockerHub</a>. But the most popular is:
 
-### Blazemeter
+   <a target="_blank" href="https://hub.docker.com/r/cirit/jmeter/">
+   https://hub.docker.com/r/cirit/jmeter</a>, which runs
+   Jmeter 2.13 + Debian OS + Java Server JRE 8
 
-   https://blazemeter.com
-   cloud
+### Package managers
 
-### Download installer
+On a Mac:
+
+   <pre><strong>brew update
+   brew install jmeter --with-plugins
+   </strong></pre>
+
+   PROTIP: JMeter won't appear in your Mac's Applications folder.
+
+0. To open it:
+
+   <pre><strong>open /usr/local/bin/jmeter
+   </strong></pre>
+
+   CAUTION: Package managers put bits into a different folder than installation by download.
+
+0. Open ~/.bash_profile to add:
+
+   <pre># Following https://wilsonmar/github.io/jmeter-install ::
+   export JMETER_HOME=/usr/local/Cellar/jmeter/3.1/libexec  # if installed using Homebrew
+   </pre>
+
+   WARNING: Package managers may install older versions than what is available for direct download.
+
+
+### Download installer from developers
+
+Even if you're not intending to download, go here to see the dates of each version.
 
 0. Download <strong>binary</strong> installer from:
 
@@ -83,26 +124,9 @@ A Docker image contains bits.
    cd ~/Downloads
    mv apache-jmeter-3.2  ~/jmeter
    cd jmeter
-   ls
    </pre> 
 
-0. The folders:
-
-   * bin contains executables, jar, and properties files
-   * docs
-   * extras contains miscellaneous files including samples using the Apache Ant tool
-   * lib contains library utlity jar files
-   * lib/ext contains JMeter components and add-ons
-   * licenses contains legal text 
-   * printable_docs contains the usermanual in html and a demos folder containing jmx files
-   <br /><br />
-
-   
-### Set Path
-
-On Windows...
-
-On Mac/Linux:
+   On Mac/Linux:
 
 0. Edit <tt>subl ~/.bash_profile</tt>
 
@@ -112,8 +136,38 @@ On Mac/Linux:
 export PATH="$HOME/jmeter:$PATH"
    </pre>
 
+0. Define $JMETER_HOME
+
+   <pre># Following https://wilsonmar/github.io/jmeter-install ::
+   export JMETER_HOME=$HOME/jmeter
+   </pre>
+
+0. Close existing terminals or refresh on each window:
+
+   <pre>
+   source ~/.bash_profile
+   </pre>
+
+0. Verify $JMETER_HOME
+
+   <pre>
+   echo $JMETER_HOME
+   </pre>
+
 
 ## Configure
+
+0. Close existing terminals or refresh on each window:
+
+   <pre>
+   source ~/.bash_profile
+   </pre>
+
+0. Verify $JMETER_HOME
+
+   <pre>
+   echo $JMETER_HOME
+   </pre>
 
 0. Edit properties file:
 
@@ -139,10 +193,27 @@ export PATH="$HOME/jmeter:$PATH"
 
    <strong>Master</strong> is the JMeter system running Jmeter GUI controlling the server which controls slaves.
 
+   ### JMeter folders
 
-### Invoke JMeter GUI
+0. List folders and top-level files:
 
-0. Define $JMETER_HOME
+   <pre>ls -al
+   </pre> 
+
+   The folders:
+
+   * <strong>bin</strong> contains executables, jar, and properties files
+   * docs
+   * extras contains miscellaneous files including samples using the Apache Ant tool
+   * <strong>lib</strong> contains library utlity jar files
+   * lib/ext contains JMeter components and add-ons
+   * licenses contains legal text 
+   * printable_docs contains the usermanual in html and a demos folder containing jmx files
+
+
+### Invoke Blank JMeter GUI
+
+   On a Mac:
 
 0. Go to <strong>$JMETER_HOME/bin</strong> and run:
 
@@ -168,19 +239,177 @@ export PATH="$HOME/jmeter:$PATH"
 
    ### Help
 
-0. To view all possible command line options:
+0. To view information:
 
    <pre><strong>
    jmeter -h
    </strong></pre>
 
+   The response:
+
+   <pre>
+Writing log file to: /Users/mac/jmeter.log
+   </pre>   
+<a name="Plugins"></a>
 
 
-## Install JMeter Generator
+0. To view all possible command line options:
 
-These are the bare mininum JARs required based on JMeter 2.9 and the HTTPSampler used. 
+   <pre><strong>
+   jmeter -?
+   </strong></pre>
 
-Other samplers will most likely have different library JAR dependencies:
+   The response has the version at the right edge (3.1 at time of writing):
+
+   <pre>
+Writing log file to: /Users/mac/jmeter.log
+    _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____     
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \   
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 3.1 r1770033  
+
+Copyright (c) 1999-2016 The Apache Software Foundation
+&nbsp;
+   --?
+      print command line options and exit
+   -h, --help
+      print usage information and exit
+   -v, --version
+      print the version information and exit
+   -p, --propfile <argument>
+      the jmeter property file to use
+   -q, --addprop <argument>
+      additional JMeter property file(s)
+   -t, --testfile <argument>
+      the jmeter test(.jmx) file to run
+   -l, --logfile <argument>
+      the file to log samples to
+   -j, --jmeterlogfile <argument>
+      jmeter run log file (jmeter.log)
+   -n, --nongui
+      run JMeter in nongui mode
+   -s, --server
+      run the JMeter server
+   -H, --proxyHost <argument>
+      Set a proxy server for JMeter to use
+   -P, --proxyPort <argument>
+      Set proxy server port for JMeter to use
+   -N, --nonProxyHosts <argument>
+      Set nonproxy host list (e.g. *.apache.org|localhost)
+   -u, --username <argument>
+      Set username for proxy server that JMeter is to use
+   -a, --password <argument>
+      Set password for proxy server that JMeter is to use
+   -J, --jmeterproperty <argument>=<value>
+      Define additional JMeter properties
+   -G, --globalproperty <argument>=<value>
+      Define Global properties (sent to servers)
+      e.g. -Gport=123
+       or -Gglobal.properties
+   -D, --systemproperty <argument>=<value>
+      Define additional system properties
+   -S, --systemPropertyFile <argument>
+      additional system property file(s)
+   -L, --loglevel <argument>=<value>
+      [category=]level e.g. jorphan=INFO or jmeter.util=DEBUG
+   -r, --runremote
+      Start remote servers (as defined in remote_hosts)
+   -R, --remotestart <argument>
+      Start these remote servers (overrides remote_hosts)
+   -d, --homedir <argument>
+      the jmeter home directory to use
+   -X, --remoteexit
+      Exit the remote servers at end of test (non-GUI)
+   -g, --reportonly <argument>
+      generate report dashboard only, from a test results file
+   -e, --reportatendofloadtests
+      generate report dashboard after load test
+   -o, --reportoutputfolder <argument>
+      output folder for report dashboard
+   </pre>   
+<a name="Plugins"></a>
+
+
+
+## Start JMeter Batch run
+
+0. Substituting <em>script</em> with your script name:
+
+   <pre><strong>jmeter -n -t .../Test.jmx -l .../test.jtl -e -o [Path to output folder]
+   </strong></pre>
+ 
+   where:
+ 
+   <tt>-n</tt> tells JMeter to run in <strong>n</strong>on-GUI mode
+ 
+   <tt>-t</tt> the path to source .jmx script to run the script that comes with the JMeter installation.
+
+   <tt>-l</tt> test .jtl
+
+   <tt>-j</tt> the name of JMeter run log file.
+
+   <tt>-p</tt>  or <pre>--propfile</pre> to preced a JMeter property file to use 
+
+   <tt>-q</tt> or --addprop to precede JMeter property file(s)
+
+   Aditionally, JMeter has several other parameters that can be used for running in non-GUI mode.
+ 
+   <tt>-R</tt> lists remote servers to run.
+ 
+   <tt>-H</tt> proxy server hostname or ip address.
+ 
+   <tt>-P</tt> proxy server port.
+
+
+## Shutdown and Abort run
+
+   Running JMeter in non-GUI mode means there is no Menu which listens to keystrokes such as Control + '.'. 
+
+   However, JMeter in non-GUI mode listens for commands on port <strong>4445</strong> 
+   (set at default in the JMeter property <tt>jmeterengine.nongui.port</tt>). 
+   If that port is being used (i.e. by another JMeter instance), JMeter tries the next higher port, 
+   continuing until it reaches the port defined in JMeter property 
+   <tt>jmeterengine.nongui.maxport</tt>, which defaults to <strong>4455</strong> 
+   (10 more than the default). 
+
+   Since the JVM calls class files from ApacheJMeter.jar,
+   the CLASSPATH variable needs to be in the PATH along with ApacheJmeter.jar, 
+   because inside these files is this string:
+ 
+   <pre><strong>java -cp %~dp0ApacheJMeter.jar org.apache.jmeter.util.ShutdownClient StopTestNow %*
+   </strong></pre>
+
+
+0. Gracefully shutdown
+   using these scripts the installer puts in the JMeter /bin directory. 
+
+   <pre><strong>Shutdown.cmd
+   </strong></tt>
+
+   Alternately, shutdown immediately:
+
+   <pre><strong>StopTestNow.cmd
+   </strong></tt>
+
+   The commands will only be accepted if the script is run from the same host.
+
+
+## Plug-ins
+
+There are many plug-ins various people have developed for JMeter:
+
+Plugins Standard, Extras, ExtrasLibs, WebDriver, Hadoop, etc.
+
+
+## Install Sample Apps under Test
+
+PROTIP: Learn to use JMeter targeting a sample app so you can follow tutorials
+step by step, to equip you for troubleshooting the unknown.
+
+These are the bare mininum JARs required by JMeter 2.9+ and the HTTPSampler used. 
+
+Other samplers have different library JAR dependencies:
 
 * ApacheJMeter_core.jar
 * jorphan.jar
@@ -194,7 +423,9 @@ Other samplers will most likely have different library JAR dependencies:
 <br /><br />
 
 
-## integrate JMeter with Apache Ant using the JMeter Ant Task
+## Integrate JMeter with Apache Ant 
+
+0. Install the JMeter Ant Task
 
 http://ant.apache.org/
 
@@ -281,67 +512,6 @@ JMeter tests are defined in an XML-format file.
    choose the component to set up and configure.
 
 
-## Start JMeter Batch run
-
-0. Substituting <em>script</em> with your script name:
-
-   <pre><strong>jmeter -n -t .../Test.jmx -l .../test.jtl -e -o [Path to output folder]
-   </pre></strong>
- 
-   where:
- 
-   <tt>-n</tt> tells JMeter to run in <strong>n</strong>on-GUI mode
- 
-   <tt>-t</tt> the path to source .jmx script to run the script that comes with the JMeter installation.
-
-   <tt>-l</tt> test .jtl
-
-   <tt>-j</tt> the name of JMeter run log file.
-
-   <tt>-p</tt>  or <pre>--propfile</pre> to preced a JMeter property file to use 
-
-   <tt>-q</tt> or --addprop to precede JMeter property file(s)
-
-   Aditionally, JMeter has several other parameters that can be used for running in non-GUI mode.
- 
-   <tt>-R</tt> lists remote servers to run.
- 
-   <tt>-H</tt> proxy server hostname or ip address.
- 
-   <tt>-P</tt> proxy server port.
-
-
-## Shutdown and Abort run
-
-   Running JMeter in non-GUI mode means there is no Menu which listens to keystrokes such as Control + '.'. 
-
-   However, JMeter in non-GUI mode listens for commands on port <strong>4445</strong> 
-   (set at default in the JMeter property <tt>jmeterengine.nongui.port</tt>). 
-   If that port is being used (i.e. by another JMeter instance), JMeter tries the next higher port, 
-   continuing until it reaches the JMeter property jmeterengine.nongui.maxport, which defaults to 4455 (10 more). 
-   If maxport is less than or equal to port, port scanning stops.
-
-   Since the JVM calls class files from ApacheJMeter.jar,
-   the CLASSPATH variable needs to be put in the PATH along with ApacheJmeter.jar, 
-   because inside these files is this string:
- 
-   <strong><pre>java -cp %~dp0ApacheJMeter.jar org.apache.jmeter.util.ShutdownClient StopTestNow %*</strong></pre>
-
-
-0. Gracefully shutdown
-   using these scripts the installer puts in the JMeter /bin directory. 
-
-   <pre><strong>Shutdown.cmd
-   </strong></tt>
-
-   Alternately, shutdown immediately:
-
-   <pre><strong>StopTestNow.cmd
-   </strong></tt>
-
-   The commands will only be accepted if the script is run from the same host.
-
-
 ## Certificates
 
    JMeter makes use of the
@@ -359,7 +529,7 @@ JMeter tests are defined in an XML-format file.
 ## Record Custom Script
 
 0. Install the <a target="_blank" href="https://guide.blazemeter.com/hc/en-us/articles/206732579-Chrome-Extension">
-   JMeter Chrome Extension</a> filters only the URL’s to be load tested.
+   JMeter Chrome Extension</a> which filters only the URL’s to be load tested.
 
 
    http://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html
@@ -376,6 +546,15 @@ JMeter ThreadGroup and Samplers.
 
 <a target="_blank" href="http://stackoverflow.com/questions/19147235/how-to-create-and-run-apache-jmeter-test-scripts-from-a-java-program">
 this</a>
+
+
+## Resources
+
+What others have written:
+
+* http://biscminds.blogspot.fr/2011/12/quick-jmeter-setup-on-mac.html
+
+* http://zacster.blogspot.com/2008/03/quick-howto-to-setup-jmeter.html
 
 
 ## Generate JMeter Code from Swagger
