@@ -400,12 +400,12 @@ Copyright (c) 1999-2016 The Apache Software Foundation
    using these scripts the installer puts in the JMeter /bin directory. 
 
    <pre><strong>Shutdown.cmd
-   </strong></tt>
+   </strong></pre>
 
    Alternately, shutdown immediately:
 
    <pre><strong>StopTestNow.cmd
-   </strong></tt>
+   </strong></pre>
 
    The commands will only be accepted if the script is run from the same host.
 
