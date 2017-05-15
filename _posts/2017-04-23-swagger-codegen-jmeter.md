@@ -33,7 +33,7 @@ mvn clean install
 
    The "--depth=1" downloads only the latest version of the repo.
 
-   The mvn takes a while, and ends with something like this:
+   mvn install takes a while (11 minutes), and ends with something like this:
 
    <pre>
 [INFO] ------------------------------------------------------------------------
@@ -53,6 +53,7 @@ mvn clean install
 [INFO] ------------------------------------------------------------------------
    </pre>
 
+   Next let's use the default assets to generate clients for the PetStore sample app.
 
 ## The Petstore API Swagger Spec
 
@@ -162,13 +163,27 @@ generate \
 
 The .jmx template files in Swagger-gen are hard-coded.
 
-Edit the generated file using the JMeter GUI and convert values back to variables.
+Options to automate:
 
-Alternately, write a program to read the Swagger spec and generate a .jmx file
+1. Edit the generated file using the JMeter GUI and convert values back to variables.
+
+2. Write a program using JMeter's API, as described at:
+
+   * https://github.com/uttesh/JmeterAPISample
+   * http://uttesh.blogspot.in/2015/04/jmeter-load-testing-by-code-jmeter-api.html
+
+3. Write a program to read the Swagger spec and generate a .jmx file
 either containing variables to generate or containing values for use directly in JMeter.
+
+
+
+   ### Go
 
 The JMeterGo program is written in the Go language for processing by the 
 Serverless framework running on Amazon Lambda and other clouds.
+
+   * https://golang.org/pkg/encoding/xml/
+   <br /><br />
 
 Since Amazon Lambda does not natively process Go language programs,
 we use the Go shim for Amazon Lambda.

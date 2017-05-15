@@ -26,6 +26,8 @@ https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
 
 * https://twitter.com/ApacheJMeter
 
+* https://groups.google.com/forum/#!forum/jmeter-plugins
+
 
 ## Install Java
 
