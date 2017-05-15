@@ -49,8 +49,21 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
    <pre><strong>echo $JAVA_HOME
    </strong></pre>
 
+   The response on my Mac:
+
+   <pre>
+/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home
+   </pre>
+
 0. Verify whether the JAVA_HOME/bin folder has been properly added to the PATH environment variable.
 
+   <pre><strong>javac -version
+   </strong></pre>
+
+   The response should be similar to the above:
+
+   <pre>javac 1.8.0_102
+   </pre>
 
 
 ## Install JMeter
