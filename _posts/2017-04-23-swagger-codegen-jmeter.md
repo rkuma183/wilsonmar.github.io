@@ -173,6 +173,11 @@ Serverless framework running on Amazon Lambda and other clouds.
 Since Amazon Lambda does not natively process Go language programs,
 we use the Go shim for Amazon Lambda.
 
+### Another app under test
 
+If you are to create a new Swagger (OpenAPI) spec file, 
+verify its using the online validator:
+
+http://online.swagger.io/validator/debug?url=http://petstore.swagger.io/v2/swagger.json
 
 
