@@ -22,6 +22,8 @@ generates a JMeter test .jmx file (among other outputs).
 
 ## Install swagger-codegen locally
 
+After you install Git and Maven on your Mac:
+
    <pre>
 cd ~
 mkdir gits
@@ -62,9 +64,9 @@ mvn clean install
    <a target="_blank" href="http://editor.swagger.io/">
    editor.swagger.io</a>
 
-   You can use this same editor to work on your own API contents.
+   In the future, you can use this same editor to work on your own API contents.
 
-   Alternately, view the spec locally in your favorite text editor:
+0. View the spec locally in your favorite text editor:
 
    <pre><strong>subl ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml 
    </strong></pre>
@@ -79,6 +81,56 @@ mvn clean install
 
    Also notice the Models: Order, Category, User, Tag, Pet, ApiResponse.
 
+### Generate Go Server
+
+On a Mac, output to Downloads:
+
+   <pre><strong>
+java -jar ~/gits/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
+generate \
+-i ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml \
+-l go-server \
+-o ~/Downloads/swagger-petstore-gen-go-server
+   </strong></pre>
+
+   The back-slash \ specifies line continuation in the CLI.
+
+   * <tt>-i http://petstore.swagger.io/v2/swagger.json \</tt><br />
+   is an alternative to the downloaded Swagger spec for Petstore:
+
+   * <tt>-i ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml \</tt>
+
+   * <tt>-l</tt> specifies the generator in folder:
+
+   * ~/gits/swagger-codegen/samples/client/petstore
+
+   * There are others such as jaxrs-cxf-client \
+
+   * -o, CAUTION: If not specified, files are generated in the pwd.
+   <br /><br />
+
+The generated go-server folder contains:
+
+   * .swagger-codegen folder
+   * .swagger-codget-ignore file
+   * api folder
+   * go folder
+   * main.go file
+
+0. Invoke the Go server:
+
+   <pre><strong>go run main.go
+   </strong></pre>
+
+   BLAH: I got this message:
+
+   <pre>
+main.go:11:2: 
+go/logger.go:3:1: expected 'IDENT', found 'import'
+   </pre>   
+
+   See https://stackoverflow.com/questions/39665379/golang-fully-qualified-import-path-in-auto-generated-code
+
 
 ## PetStore JMeter specs
 
@@ -91,7 +143,7 @@ In each .csv file are variable names in the first row and its corresponding valu
 The generator creates useable .jmx files by subsituting variables in the .jmx file with values in the .csv file.
 
 
-### Generate from default files
+### Generate JMeter from default files
 
 On a Mac, output to Downloads:
 
