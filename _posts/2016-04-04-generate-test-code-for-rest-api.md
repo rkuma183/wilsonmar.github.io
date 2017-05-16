@@ -240,15 +240,15 @@ TODO:
 
 We use the <strong>yml format</strong> that can be read by humans and computers. Ruby programmers are used to such files.
 
-Since Swagger users may prefer JSON formatting.
+Since Swagger users may prefer JSON formatting:
 
 0. Input <a href="#SpecDB"> Specification database</a>
 
 0. Output <a href="#TestScripts"> Test code language</a>
 
-0. Authentication.
+0. Authentication (OAuth2, JWT, BasicAuth)
 
-0. Call Method (GET, PUT, etc.).
+0. Call Method (GET, PUT, POST, UPDATE, etc.).
 
 0. Authorization (such as tokens in the HTTP header).
 
@@ -271,3 +271,10 @@ Since Swagger users may prefer JSON formatting.
 
 I have examples of code generation programs written in
 Python, PHP, Java, Scala, and even VBScript in Excel files.
+
+
+## More on API Microservices #
+
+This is one of a series:
+
+{% include api_links.html %}

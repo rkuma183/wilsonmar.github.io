@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Swagger-codegen for JMeter"
-excerpt: "Install from GitHub a generator of JMeter files to load test the PetStore sample app"
+title: "Swagger-codegen"
+excerpt: "Install a generator of mock servers and client programs of the PetStore sample app"
 tags: [perftest, Swagger]
 shorturl: "https://"
 image:
@@ -16,9 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-This repo is about programs that reads a Swagger specification for the Petstore sample app and 
-generates a JMeter test .jmx file (among other outputs).
-
+This is a step-by-step tutorial on how you can install a generator of mock servers and client programs. The sample is the PetStore sample app.
 
 ## Install swagger-codegen locally
 
@@ -57,14 +55,19 @@ mvn clean install
 
    Next let's use the default assets to generate clients for the PetStore sample app.
 
-## The Petstore API Swagger Spec
+## The Petstore API in SwaggerHub
 
 0. View the spec for edit in your browser:
 
    <a target="_blank" href="http://editor.swagger.io/">
    editor.swagger.io</a>
 
+   This displays a sample API for the ficticious PetStore app.
+
    In the future, you can use this same editor to work on your own API contents.
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=G3FQc5hcV2U">A
+   PI Design with SwaggerHub</a>
 
    ### 3 Pet Store Classes
    
@@ -76,10 +79,19 @@ mvn clean install
 
    Also notice the Models: Order, Category, User, Tag, Pet, ApiResponse.
 
-0. View the spec locally in your favorite text editor:
+0. View the spec installed locally, using your favorite text editor (subl in this example):
 
    <pre><strong>subl ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml 
    </strong></pre>
+
+## Generate
+
+The processing uses mustache templating.
+This means static files are marked up with variables between {{ and }} (that look like a moustache). The mustache program replaces the variables with text values.
+
+A more advanced approach is a program that generates the code.
+
+"auto-generation of code sure gets me a long way down the road, saving me time doing the really mundane, heavy lifting in creating the skeleton code structures I need to get up an running with any new API." --<a target="_blank" href="https://apievangelist.com/2015/01/26/my-experiences-generating-api-server-or-client-code-using-swagger/">API Evangelist</a>
 
 
 ### Generate Go Server
@@ -134,15 +146,18 @@ go/logger.go:3:1: expected 'IDENT', found 'import'
    See https://stackoverflow.com/questions/39665379/golang-fully-qualified-import-path-in-auto-generated-code
 
 
-## PetStore JMeter specs
+## C#
 
-The jmeter generator folder contains a .jmx template file and .csv file for each of the above.
+<a target="_blank" href="https://www.youtube.com/watch?v=Jzq3ccr85XM">
+Using swagger-codegen to generate C# API for REST service</a>
+by Dmytro Zhluktenko 
 
-Each .jmx file contains variables surounded by mustache swiggly brackets {{ and }}.
+## Java Spring
 
-In each .csv file are variable names in the first row and its corresponding value in the second row.
-
-The generator creates useable .jmx files by subsituting variables in the .jmx file with values in the .csv file.
+<a target="_blank" href="https://www.youtube.com/watch?v=iyC9BWMe75Q">
+Generate client stubs & document your REST-API using Swagger & Spring</a>
+by Johannes Fiala
+Devoxx
 
 
 ### Generate JMeter from default files

@@ -105,6 +105,11 @@ RAPID-ML</a>
 * <a target="_blank" href="https://github.com/APIs-guru/api-models#existing-integrations">
    API Model from API-Guru on GitHub</a>
 
+* <a target="_blank" href="https://cloud.google.com/apis/design/">
+   Google's API Design Guidelines</a>
+   focuses on both REST API and RPC (Remote Procedure Call) APIs that use Protocol Buffers.
+
+
 ## API Events
 
 * I Love APIs
@@ -114,7 +119,9 @@ RAPID-ML</a>
 
 Must-follow #API influencers? 
 
-@Bradamante 
+* Kin Lane, https://twitter.com/apievangelist
+
+* @Bradamante 
 
 * Arnaud Lauret = @apihandyman 
 
@@ -122,12 +129,10 @@ Must-follow #API influencers?
 
 * Mark Baker @distobj is an early API evangelist
 
-https://twitter.com/apievangelist
+* @mgboydcom on @APIEconomist
 
-@mgboydcom on @APIEconomist
-
-http://apieconomist.com/blog/darrel-miller-hypermedia-apis
-	Darrel Miller
+* <a target="_blank" href="http://apieconomist.com/blog/darrel-miller-hypermedia-apis">
+	Darrel Miller</a>
 
    #JSON-LD is best attempt to date to make RDF consumable"
 

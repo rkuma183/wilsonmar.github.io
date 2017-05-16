@@ -44,8 +44,24 @@ Below are some major ones API developers should know about:
 * <a target="_blank" href="https://developer.bestbuy.com/">
   Best Buy</a>
    <a target="_blank" href="https://medium.com/best-buy-developers/announcing-a-change-to-best-buy-s-api-access-b09afc4bc27a#.5d39skb3t">
-   no loger issues API keys to gmail and other free email accounts</a>.
+   no loger issues API keys to gmail and other free email accounts</a>
 
+* Starbucks
+
+   http://docs.coffeesender.apiary.io/#
+
+
+## Enterprise #
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=8Z9qva1nv1c">
+   Video: Exposing Salesforce REST Services Using Swagger</a> 2013
+
+   https://github.com/jesperf/force-rest-api
+   by Jasper Joergensen at Heroku
+
+   https://github.com/ryanbrainard/force-rest-
+   adds caching (also in Maven Central)
+   
 
 ## Social #
 

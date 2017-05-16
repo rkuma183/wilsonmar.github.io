@@ -133,7 +133,13 @@ src="https://cloud.githubusercontent.com/assets/300046/16593898/e34ad1f4-42a4-11
 What I'm advocating here are:
 
 0. Programming of <strong>code generation programs</strong> so that 
-   the many future changes in requirements will be automatically reflected.
+   the many future changes in requirements is automatically reflected in working code.
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=ejF5p76L9Bw&t=10m57s">
+   Video: API documentation generated from HTML</a> using
+   <a target="_blank" href="https://github.com/hiranya911/rest-coder">
+   rest-coder</a> Oct. 2013.
+   <br /><br />
 
 0. Scan swagger JSON interface specs for issues based on commonly accepted rules, 
    just like we now use SonarQube to statically scan Java code for issues.
@@ -170,11 +176,14 @@ What I'm advocating here are:
 
 > Email or call me so we can see how this can work for you and your organization.
 
-We're not talking about painting the Mona Lisa here.
-
 We're talking about generating code based on a standard specification (Swagger)
 with known formats.
 
+
+## References
+
+* http://www.w3.org/Submission/wadl/
+* https://developers.helloreverb.com/swagger/
 
 ## More on API Microservices #
 
