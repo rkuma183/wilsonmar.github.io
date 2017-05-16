@@ -97,10 +97,10 @@ generate \
 
    The back-slash \ specifies line continuation in the CLI.
 
-   * <tt>-i http://petstore.swagger.io/v2/swagger.json \</tt><br />
+   * <tt>-i http://petstore.swagger.io/v2/swagger.json </tt><br />
    is an alternative to the downloaded Swagger spec for Petstore:
 
-   * <tt>-i ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml \</tt>
+   * <tt>-i ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml </tt>
 
    * <tt>-l</tt> specifies the generator in folder:
 
