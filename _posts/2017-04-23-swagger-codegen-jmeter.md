@@ -66,11 +66,6 @@ mvn clean install
 
    In the future, you can use this same editor to work on your own API contents.
 
-0. View the spec locally in your favorite text editor:
-
-   <pre><strong>subl ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml 
-   </strong></pre>
-
    ### 3 Pet Store Classes
    
    Notice the operations under each of these 3 classes (listed alphabetically):
@@ -81,9 +76,16 @@ mvn clean install
 
    Also notice the Models: Order, Category, User, Tag, Pet, ApiResponse.
 
+0. View the spec locally in your favorite text editor:
+
+   <pre><strong>subl ~/gits/swagger-codegen/modules/swagger-codegen/src/test/resources/2_0/petstore.yaml 
+   </strong></pre>
+
+
 ### Generate Go Server
 
-On a Mac, output to Downloads:
+On a Mac, <a target="_blank" href="https://wilsonmar.github.io/golang/">
+install Go</a>, then:
 
    <pre><strong>
 java -jar ~/gits/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
