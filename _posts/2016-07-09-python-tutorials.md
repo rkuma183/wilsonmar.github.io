@@ -21,6 +21,32 @@ Here are the classes I've seen that teach Python programming.
 
 ## Free Tutorials on Python
 
+
+
+### Google
+
+<a target="_blank" href="https://developers.google.com/edu/python/">
+https://developers.google.com/edu/python</a><br />
+Google's Python Class from 2010 is still relevant.
+It's taught by <a target="_blank" href="https://cs.stanford.edu/people/nick/">
+Stanford CS lecturer</a>
+Nick Parlante.
+
+It has videos that
+covers strings, lists, sorting, dicts, files, 
+regular expressions, utilities.
+Support materials at<br />
+<a target="_blank" href="https://developers.google.com/edu/python/">
+https://developers.google.com/edu/python</a>
+
+### Udacity
+
+<a target="_blank" href="https://www.udacity.com/course/programming-foundations-with-python--ud036">
+Programming Foundations</a>
+6 week course
+include object-oriented programming
+
+
 ### Steven Thurlow
 
 <a target="_blank" href="http://sthurlow.com/python/">
@@ -58,19 +84,6 @@ http://sthurlow.com/python/</a>
 
 0. <a target="_blank" href="http://sthurlow.com/python/lesson01/">
    Error Handling</a>
-
-
-### Google
-
-<a target="_blank" href="https://developers.google.com/edu/python/">
-https://developers.google.com/edu/python</a>
-Google's Python Class from 2010 is still relevant.
-It has videos that
-covers strings, lists, sorting, dicts, files, 
-regular expressions, utilities.
-Taught by Nick Parlante.
-<a target="_blank" href="https://developers.google.com/edu/python/"
-Support materials</a>
 
 ### EDX.org
 
