@@ -1,4 +1,20 @@
-2017-05-20-progressive-webapps.md
+---
+layout: post
+title: "Progressive Webapps"
+excerpt: "Responsive mobile and desktop hybrid apps that manages data offline too"
+tags: [Mac, Security]
+shorturl: "https://goo.gl/ej6KDG"
+image:
+# pic silver robot white skin handshake 1900x500
+  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
+  credit: 
+  creditlink: 
+comments: true
+---
+<i>{{ page.excerpt }}</i>
+
+{% include _toc.html %}
+
 
 This page contains my notes during and after taking classes on
 PWA (Progressive Web Apps).
@@ -17,7 +33,7 @@ PWA combines the best of the web with the best of native apps.
 * Responsive on multiple screen size factors
 * Work Offline
 * App-like navigation
-# Progressive enhancement
+* Progressive enhancement
 * Fresh, up-to-date transparently
 * Safe via TLS
 * Discoverable W3C Manifest 
@@ -28,6 +44,7 @@ PWA combines the best of the web with the best of native apps.
 * Gamepad
 * Media capture of camera and microphone
 * Integrated payments
+<br /><br />
 
 ## Sites using PWA in the wild
 

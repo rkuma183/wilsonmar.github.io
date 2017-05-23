@@ -51,7 +51,7 @@ The heavy use of math in AI and ML means it's best to
 install Anaconda</a> and use conda commands (instad of Miniconda or pip with virtualenv).
 These provide for custom 
 <a href="virtualenv">virtual environments</a> 
-that each contain a desired version of Python for a specific purpose/project,
+that each contain a desired version of Python (2.7 vs 3.6) for a specific purpose/project,
 plus specific versions of add-on Python packages (such as TensorFlow).
 
 PIP install is troublesome, often because they are more recent than those in Conda.
@@ -1987,6 +1987,12 @@ print('Numpy: {}'.format(numpy.version))
 Numpy: &LT;module 'numpy.version' from '/Users/mac/anaconda/lib/python3.5/site-packages/numpy/version.py'>
    </pre>   
 
+
+<a name="PyCharm"></a>
+
+## PyCharm
+
+https://discussions.udacity.com/t/referencing-pygame-from-pycharm-with-anaconda/223711/13
 
 
 <a name="Turi"></a>
