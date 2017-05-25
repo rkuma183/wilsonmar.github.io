@@ -25,20 +25,71 @@ attendees of #ServelessConf type in:<br />
 ![serverless hateservers-452x183-70kb](https://cloud.githubusercontent.com/assets/300046/18171991/196045ae-7021-11e6-9848-ce272fa8366d.jpg)
 
 
-## About Serverless #
+## Serverless = FaaS
 
-Serverless is a <strong>FaaS</strong> (Function as a service) where 
-functions are independently deployed and run on a fully managed cloud system. 
-The developer simply uploads the code of the function and the cloud provider takes care of the rest.
+"Serverless" refer to an architectural style called
+<strong>FaaS</strong> (Function as a service) where programming 
+function code are independently deployed and run on a cloud system.
+The developer simply uploads the code, 
+then leave it to pros at the cloud provider to take care of 
+security, monitoring, disk space management, log management, 
+scaling, redundancy, backup, crash reporting, etc..
 
-Initially, the term describes an <strong>architectural style</strong>
-where developers shift  about the hardware and its ability to scale.
+PROTIP: It's still up to developers to do testing and performance measuring and tuning.
 
 Mike Roberts at <a target="_blank" href="http://martinfowler.com/articles/serverless.html">
    http://martinfowler.com/articles/serverless.html</a>
-wrote this:
+wrote
+   "Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
 
-   "Serverless architectures refer to applications that significantly depend on third-party services (knows as Backend as a Service or "BaaS") or on custom code that's run in ephemeral containers (Function as a Service or "FaaS"), the best known vendor host of which currently is AWS Lambda. By using these ideas, and by moving much behavior to the front end, such architectures remove the need for the traditional 'always on' server system sitting behind an application. Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
+## FaaS Providers
+
+PROTIP: The future of FaaS vendors isn't the front-end but the back-end services
+that include API Gateways and 
+Artificial Intelligence features such as image recognition,
+text sentiment analysis, natural language process (NLP), 
+and Machine Learning.
+
+
+### AWS Lambda
+
+Lambda has been getting a lot of press.
+
+AWS API Gateway
+
+
+### Azure Functions
+
+https://azure.microsoft.com/services/functions/
+
+
+### IBM Bluemix OpenWhisk
+
+https://developer.ibm.com/openwhisk/
+
+The advantage of IBM's hybrid-cloud approach is that one can use 
+IBM's proprietary Bluemix UI
+and then use command-line with OpenWhisk (which is open sourced).
+
+![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
+
+
+### Google Cloud Functions #
+
+https://cloud.google.com/functions/
+
+@googlecloud
+
+Google Firebase
+
+
+### Iron.io
+
+
+Gesalt Framework
+
+
+## Serverless the company
 
 The name "serverless" has been co-opted by enprepreneur Austen Collins
 <a target="_blank" href="https://twitter.com/austencollins">
@@ -60,10 +111,6 @@ His initial Serverless presentation at AWS:Invent 2015
    * <a target="_blank" href="https://github.com/serverless/serverless/milestones/">
    Roadmap at https://github.com/serverless/serverless/milestones</a> 
    includes runs in Microsoft Azure and IBM.
-
-
-### Social media
-
    * <a target="_blank" href="https://www.serverless.com/">
    serverless.com</a> is the company's home page.
    * <a target="_blank" href="https://gitter.im/serverless/serverless">
@@ -83,7 +130,7 @@ His initial Serverless presentation at AWS:Invent 2015
    * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
    Hacker News</a> announced it in 2015 when the product was first called JAWS.
 
-## Architecture #
+## Database #
 
    In an interview with <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
    Introduction to the Serverless Paradigm</a>
@@ -94,7 +141,7 @@ His initial Serverless presentation at AWS:Invent 2015
    While Lambda does not incur charges while idle,
    a DynamoDB incurs charges for data stored even though no data is read or written to it.
 
-   So some uses SimpleDB.
+   PROTIP: Use SimpleDB on AWS instead of DynamoDB for true no-cost idle.
 
 
 ## Install Serverless framework  #
@@ -296,27 +343,6 @@ React Serverless app running in Azure?
 ### Handlers #
 
    * Handlers compress or transform objects while being uploaded to Amazon S3.
-
-
-### Azure
-
-https://azure.microsoft.com/services/functions/
-
-### IBM OpenWhisk
-
-https://developer.ibm.com/openwhisk/
-
-connects to IBM's Bluemix services
-
-![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
-
-
-### Google Cloud Functions #
-
-https://cloud.google.com/functions/
-
-@googlecloud
-
 
 
 <a name="Libraries"></a>
