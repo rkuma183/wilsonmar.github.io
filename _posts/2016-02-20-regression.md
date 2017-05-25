@@ -31,6 +31,8 @@ students build a linear regression model to provide results and a recommendation
 
    Outcome values are in the target variable (price).
 
+   NOTE: A column in a spreadsheet some call a "data field".
+
 2. The test dataset (new-diamonds.csv) contains new instances that do not have outcomes 
    (prices) defined.
 
@@ -41,10 +43,13 @@ students build a linear regression model to provide results and a recommendation
 
    Excel needs all variables together, so:
 
+   ### Contiguous X columns
+
 3. Select the letter above the "caret" column to select the whole column.
 4. Press Ctrl+X to cut. Click on the column heading to the right of the "price" column.
 5. Repeat for the "clarity_ord" and "cut_ord" columns.
 
+   ### Generate
 
 6. In Excel Data tab, Click on Data Analysis.
 7. If you don't see "Data Analysis", enable Analysis Toolpack. This only needs to be done once. 
@@ -65,7 +70,7 @@ students build a linear regression model to provide results and a recommendation
    $I$1:$K$50001
 
 0. Click the icon to Output range.
-0. Cick cell M1.
+0. Cick cell N1, which leaves two blank columns.
 0. Press Enter to accept it.
 
 0. Click OK.
@@ -74,8 +79,24 @@ students build a linear regression model to provide results and a recommendation
 
    Regression equation models enable predictions to be made based on attibute values.
 
+   ### 
+
+0. Click on the blank cell to the left of "intercept", type = and click the Coefficient value of intercept.
+0. Two columns to the left of "clarity_ord", type the input data you want an estimate for.
+0. Repeat this for each input.
+0. Click on the blank cell to the left of "intercept", type = and click the Coefficient value of intercept.
+0. Add a =sum() of all cells above it.
+
+
 0. TODO: COMPLETE THIS 
 
+   R Square is the percent of variance in Y that can be explained by all the X variables.
+   1.0 is perfect. 0.75 is the threshold for not.
+
+   Standard Error is the error of prediction expressed in the value range of Y.
+
+
+## Resources
 
 To create a multi-variate regression in Excel:
 
