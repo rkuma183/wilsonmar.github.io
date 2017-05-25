@@ -57,6 +57,11 @@ PWA combines the best of the web with the best of native apps.
 * treebo.com (China)
 * sodapopped.com
 
+* <a target="_blank" href="https://getprelude.net/">getprelude.net</a>
+   is a simple, server less, offline-capable web app for practicing reading music. I've always been slow at sight reading, and this lets me plug in a MIDI piano and do drills.
+   Uses React, Webpack, Service Workers, Web MIDI, Web Audio, VexFlow, 
+   and the Progressive Web Application paradigm. By Stephen Eisenhauer.
+
 
 
 ## Classes
@@ -344,6 +349,8 @@ Enables Periodic sync, geo-fencing, etc.
 &LT;link rel="apple-touch-icon" sizes="180x180" href="apple-180.png">
    </pre>
 
+   BLAH: Apple apple-touch-startup-image
+
 0. Validate Manifest using the on-line tool:
 
    <a target="_blank" href="https://manifest-validator.appspot.com/">
@@ -391,9 +398,6 @@ Chrome uses 128 dip icons for splash screen:
 &LT;link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://wilsonmar.github.io/images/apple-touch-icon-144x144-precomposed.png">
    </pre>
 
-BLAH: Apple apple-touch-startup-image
-
-BLAH: apple-touch-icon
 
 realfavicongenerator.net/favicon_checker
 
