@@ -469,8 +469,11 @@ Alternatives to Homebrew:
 
 ## Tap #
 
-Brew tap extracts stuff not in the Homebrew master repo
+Brew tap adds repos not in the Homebrew master repo
 from inside a larger package.
+
+https://github.com/Homebrew/brew/blob/master/docs/brew-tap.md
+says tap adds to the list of formulae that brew tracks, updates, and installs from.
 
 0. List brew tap packages already installed:
 
@@ -483,7 +486,8 @@ from inside a larger package.
    brew install iproute2mac
    </strong></pre>
 
-   See https://github.com/brona/iproute2mac
+   The command specififies the account and repo in GitHub, as in<br />
+   https://github.com/brona/iproute2mac
    
    or https://superuser.com/questions/687310/ip-command-in-mac-os-x-terminal
 
