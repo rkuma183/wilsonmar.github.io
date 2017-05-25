@@ -12,7 +12,7 @@ comments: true
 ---
 I've worked with and built several teams,
 including a 3-shift international 24-hour operation around the world
-(in Mexico, Israel, India, China).
+(in US, Mexico, Israel, India, China).
 
 When it works, it's marvelous how much can be done at 3 times the speed.
 
@@ -22,6 +22,7 @@ Here are some of the lessons learned that I thought you'd want to know,
 phrased in questions that help me determine the conditions for effectiveness in multi-team collaboration.
 (Kinda like Joel Splotsky's questions uses on Stackoverflow jobs)
 
+
 ## Turnover
 
 **1. How does official turnover of shared assets occur between shifts?**
@@ -30,7 +31,11 @@ phrased in questions that help me determine the conditions for effectiveness in 
   Sometimes people run over the allotted time frame.
   Sometimes a team is not ready to begin work and likely will "drop the ball".
 
-  Like a runner who passes the baton to the next runner, it's something that needs to be practiced.
+  Like a runner who passes the baton to the next runner, 
+  it's something that needs to be practiced.
+  
+  When we really examine it, there is a lot of information that needs to get passed.
+
 
 ## Details
 
@@ -42,6 +47,7 @@ phrased in questions that help me determine the conditions for effectiveness in 
 
  This provides a worry-free enviornment for people to take initiative.
 
+
 ## Task list
 
 **3. Where is a detailed task list of what needs to be done in priority order?**
@@ -49,7 +55,10 @@ phrased in questions that help me determine the conditions for effectiveness in 
   This enables each individual to see what their specific contribution is,
   and how it fits into the overall work.
 
-  One word. Trello.
+  PROTIP: Work tracking that's built into tools used for creating the work
+  (such as GitHub) are used more than stand-alone tools that require separate input
+  (such as Rally).
+
 
 ## Prestige
 
@@ -60,12 +69,15 @@ phrased in questions that help me determine the conditions for effectiveness in 
   which means they are more likely to **wait** for the other team to come on-line for furtherinstructions.
   This wastes precious time that projects often don't have.
 
+
 ## Reflection
 
-**5. Does the team devote a regular pre-scheduled block of time to identify impediements and improvements?**
+**5. Does the team devote a regular pre-scheduled block of time to identify 
+impediements and improvements?**
 
   Opportunities to "clear the air" among the team helps to keep the focus on resolution and innovation rather than
   letting in-fighting and obstacles become the focus of what the team thinks about.
+
 
 ## Blocks
 
@@ -73,6 +85,7 @@ phrased in questions that help me determine the conditions for effectiveness in 
 
   A crucial contribution of managers is to not only track time spent and achievements by the team,
   but the catalyst or conduit for optimizing the conditions in which the team operates most efficiently.
+
 
 ## Trends
 
@@ -82,13 +95,36 @@ phrased in questions that help me determine the conditions for effectiveness in 
   Companies such as Uber make use of new technologies in new business models that disrupt previous industries.
   Indidivuals and organizations need to think ahead.
 
+
 ## Skills
 
 **8. How does the team acquire all skills needed?**
 
-   Adopting new tools and techniques to capture or maintain market share requires homework or tutoring.
+   Adopting new tools and techniques to capture or maintain market share requires 
+   support (one-on-one tutoring).
 
-   In today's world, achieving greater velocity and adaptability trumps predictability as key to achieving competitiveness.
+   * Password 
+   * Messaging (Slack, Mattermost)
+   * Video conferencing setup (Zoom, Google Hangouts, Apple Facetime)
+   * Issue trackers (GitHub/GitLab Issues)
+   * Suggestions (GitHub Pull Requests/GitLab Merge Requests)
+   * Static websites (GitLab Pages, Confluence wikis)
+
+   PROTIP: In today's world, achieving greater velocity and adaptability trumps 
+   predictability as key to achieving competitiveness.
+
+
+## Social
+
+**9. How does the team come together?**
+
+   Traditional companies make people come to the office but then leave
+   creating social bounds to chance.
+
+   PROTIP: Team calls that focus on personal life are not a waste of time
+   because they develop cohesion and empathy necessary for great collaboration.
+   <a target="_blank" href="https://www.youtube.com/watch?v=UFhHetf7kHM">*</a>
+
 
 ## Related resources
 
