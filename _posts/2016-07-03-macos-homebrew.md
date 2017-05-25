@@ -469,11 +469,38 @@ Alternatives to Homebrew:
 
 ## Tap #
 
+Brew tap extracts stuff not in the Homebrew master repo
+from inside a larger package.
+
 0. List brew tap packages already installed:
 
-   <tt><strong>
-   brew tap
-   </strong></tt>
+   <pre><strong>brew tap
+   </strong></pre>
+
+0. Install the ip tool included with iproute2 on Linux:
+
+   <pre><strong>brew tap brona/iproute2mac
+   brew install iproute2mac
+   </strong></pre>
+
+   See https://github.com/brona/iproute2mac
+   
+   or https://superuser.com/questions/687310/ip-command-in-mac-os-x-terminal
+
+   <pre><strong>ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2
+   </strong></pre>
+
+0. Try it (instead of ifconfig):
+
+   <pre><strong>ip
+   ip addr show en0
+   </strong></pre>
+
+0. Remove a tap:
+
+   <pre><strong>brew untap brona/iproute2mac
+   </strong></pre>
+
 
 
 <a name="CaskInstall"></a>
