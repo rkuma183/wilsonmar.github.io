@@ -34,15 +34,24 @@ The developer simply uploads the code,
 then leave it to pros at the cloud provider to take care of 
 security, monitoring, disk space management, log management, 
 scaling, redundancy, backup, crash reporting, etc..
+Zero system administration.
 
-PROTIP: It's still up to developers to do testing and performance measuring and tuning.
+It's a fast route to get apps in production.
+
+PROTIP: It's still up to developers to do testing and 
+performance measuring and tuning.
+Use of multi-tenancy makes for response-time variation.
+So do sythentic transactions outside the cloud vendor to monitor user experience.
 
 Mike Roberts at <a target="_blank" href="http://martinfowler.com/articles/serverless.html">
    http://martinfowler.com/articles/serverless.html</a>
 wrote
    "Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
 
+
 ## FaaS Providers
+
+There is plenty of competition to keep prices low.
 
 PROTIP: The future of FaaS vendors isn't the front-end but the back-end services
 that include API Gateways and 
@@ -83,10 +92,27 @@ https://cloud.google.com/functions/
 Google Firebase
 
 
-### Iron.io
+### Others on-premises
+
+Iron.io
 
 
 Gesalt Framework
+
+## Concerns
+
+The other side of freedom from server hassles is that developers also give away
+<strong>control</strong>.
+
+Having one's data in another company's cloud requires trust in that company's
+ability to keep data secure, redundant, etc.
+
+PROTIP: Going with a particular vendor's API means that you need to keep up
+with changes in APIs that can occur frequently,
+even though they may not apply to your own operation.
+
+There is the danger vendor lock-in.
+But luckily, there is a way to alieviate that:
 
 
 ## Serverless the company
@@ -141,7 +167,7 @@ His initial Serverless presentation at AWS:Invent 2015
    While Lambda does not incur charges while idle,
    a DynamoDB incurs charges for data stored even though no data is read or written to it.
 
-   PROTIP: Use SimpleDB on AWS instead of DynamoDB for true no-cost idle.
+   PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
 
 
 ## Install Serverless framework  #
