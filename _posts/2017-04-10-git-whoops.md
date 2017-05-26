@@ -20,6 +20,9 @@ comments: true
 This presents ways to reverse or un-do common actions in Git.
 
 
+https://www.atlassian.com/git/tutorials/undoing-changes
+
+
 <a name="Fork"></a>
 
 ### Fork
@@ -27,7 +30,7 @@ This presents ways to reverse or un-do common actions in Git.
 If you didn't mean to fork a repository, but you did anyway,
 <strong>erase the repo</strong>.
 
-0. Click on Settings tab.
+0. Click on Settings tab in GitHub.
 
 0. Scroll down to the bottom of the page and click <strong>Delete this repository</strong>.
 
@@ -39,14 +42,17 @@ If you didn't mean to fork a repository, but you did anyway,
 
 0. For a list of your repos, click your avatar at the upper-right corner and
    select <strong>Your profile</strong>.
+<br /><br />
+
+   <a href="https://wilsonmar.github.io/git-flow#Fork">Return</a>
 
 
    <a name="GitConfig"></a>
 
    ### Git config
 
-   If you find a mis-spelling in your attribution, simply repeat the command 
-   with the information you want.
+   If you find a mis-spelling in your attribution, 
+   simply repeat the command with the information you want.
 
    On a Mac, git config commands create entries in the ~/.git/config file:
 
@@ -57,62 +63,24 @@ If you didn't mean to fork a repository, but you did anyway,
    user = wilsonmar
    </pre>
 
-   * There are other git configuration commands.
-
    <a href="https://wilsonmar.github.io/git-flow#GitConfig">Return</a>
 
 
-   <a name="Terminal"></a>
-
-   ### Terminal (vs GUI)
-
-   Git commands are typed into a Terminal shell window on a Mac or a Run command window on Windows. 
-
-   Most IDEs incorporate commonly used Git client functionality into their software. 
-
-   * For example, in <strong>Eclipse</strong>, right-click on the project, then select 
-   <strong>Team</strong> for the Git menu:<br />
-   ![git eclipse menu 518x648](https://cloud.githubusercontent.com/assets/300046/25332307/ebf39f84-28b3-11e7-9d3b-5132a549cf13.png)
-
-   * Eclipse "Switch To" = git checkout
-
-   * Return to this picture after going through this course to see if you recognize what each GUI item does.
-
+  
    <a name="Clone"></a>
 
    ### Clone in account folder
 
-   PROTIP: I recommend that you create an account folder to hold all your various repositories. 
+   If you mistyped, remove a folder and all its contents with a 
+   <tt>rm -rf</tt> command. But be at the folder above the folder you want to remove.
 
-   <pre><strong>cd ~
-   mkdir gits
-   cd gits
-   mkdir gitclass
-   cd cigclass
+   <pre><strong>pwd
+   cd ..
+   rm -rf gitclass
    </strong></pre>
-
-0. Be in that folder when you clone a repository from GitHub. 
-
-   * Substitute your own account as your type:
-
-   <pre><strong>cd ~
-   git clone https://github.com/hotwilson/git-utilities
-   </strong></pre>
-
-   Git then creates that repo's folder and within it a folder named dot git to hold objects that track changes to the repository.
-
-   During cloning, Git automatically extracts files from objects out to the repository's folder, 
-   as if you typed a git checkout of the default branch. 
-
-   * Add parameter <strong>--recursive</strong> to pull in sub-modules (repositories stored within the repository).
-
-   * Add parameter <strong>--depth=1</strong> to only clone the latest version, to save disk space locally by
-   not having previous version history on your machine.
 
    <a href="https://wilsonmar.github.io/git-flow#GitClone">Return</a>
 
-
-0. Now we cd into the repository folder.
 
    <a name="BranchList"></a>
 
@@ -132,6 +100,13 @@ If you didn't mean to fork a repository, but you did anyway,
    <a name="Checkout"></a>
 
    ### git checkout
+
+   Checking out an old <strong>commit</strong> makes the entire working directory match that commit.
+
+   Remember the "current" state of your project remains untouched in the master branch.
+
+   However, checking out a <strong>file</strong> does affect the current state.
+   That command serves as a way to revert back to an old version of an individual file.
 
 0. A git checkout command can be un-done?
 
@@ -178,12 +153,14 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Add to Staging
 
-0. You can change several files, but only the files you add to <strong>Git's staging area</strong> 
-   will be pushed to GitHub. 
+   To remove a specified file from the staging area, 
+   but leave the working directory unchanged:
 
-   <tt><strong>git add . -A</strong></tt>
+   <pre><strong>git reset <em>file</em>
+   </strong></pre>
 
-   * The Staging area is also called <strong>cache</strong> bacause the command to 
+   Alternately, the Staging area is also called <strong>cache</strong> 
+   because the command to 
    <strong>remove</strong> a file in Staging:
 
    <pre><strong>git rm --cached [file]</strong></pre>
@@ -191,11 +168,7 @@ If you didn't mean to fork a repository, but you did anyway,
    * Specifying git rm without --cached removes the file from both cached and working directory.
    <br /><br />
 
-   The dot selects all files changed. The dash capital A parameter specifies that deleted files be processed. But many prefer to specifically add individual files to go into each particular commit, which works on all files added to staging. 
-
-   * Alternately, "git add -u" adds all the files modified (not new files created and untracked).
-
-   * Some prefer using the single dash to avoid needing to press the Shift key to get the double quote.
+   <a href="https://wilsonmar.github.io/git-whoops#Add">Whoops</a>
 
 
    <a name="Commit"></a>
