@@ -250,27 +250,39 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Reset Local Commits
 
-   To reset the .git repo history
+   To reset the .git repo history and the working tree
    (the "hard" part) back the way it was 2 commits ago:
 
-   <pre><strong>git reset --hard <em>HEAD~2</em>
+   <pre><strong>git reset --hard <em>HEAD^</em>
    </strong></pre>
 
    * This should only be for commits which have not been pushed public.
-   * There is companion command -- to clear out whatever files created are untracked:
+   * <tt>HEAD~1</tt> is same as <tt>HEAD^</tt> to go back one commit.
+   * <tt>HEAD~2</tt> or <tt>HEAD^^</tt> to go back two commits.
+   * Do not specify just HEAD because the point of the command is to go back.
+   * PROTIP: `--hard` is recommended because it keeps the working tree the same as what's
+   in the .git repository.
+   * PROTIP: You may prefer to completely clear out whatever files created are untracked
+   in the working tree.
+   * The next step is usually a `git add`.
 
 
    <a name="Push"></a>
 
    ### Public revert push
 
-   The `git push` command sends to a remote what has been committed for a specific branch. 
-   
-   However, a <a href="#Revert">revert command</a> can be issued, 
+   The preferred alternatively is a <a href="#Revert">revert command</a> can be issued, 
    as described <a href="#Revert">above</a>.
 
    But do it for each commit pushed, in reverse order.
 
+   Alternately, to undo the previous `git push` command (specified by HEAD^) 
+   which sent to a remote origin 
+   what has been committed for a specific branch:
+
+   <pre><strong>git push -f origin HEAD^:master
+   </strong></pre>
+   
    <a href="https://wilsonmar.github.io/git-flow#Push">Return</a>
 
 
