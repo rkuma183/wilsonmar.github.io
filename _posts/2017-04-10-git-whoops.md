@@ -274,17 +274,22 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Tags"></a>
 
-   ### Push tags
+   ### Un-Push tags
 
-0. When a commit is known good as the one to release, 
-   most organizations tag that specific commit with <a target="_blank" href="http://semver.org/">
-   semantic versioning</a> text.
+   To delete a tag in the origin repo (on GitHub or GitLab),
 
-   <pre>git tag v1.3.4</pre>
+   <pre>git tag released/201706
+   </pre>
 
-0. Tags require an additional git push command to be pushed to GitHub.
+   Remember the colon character to specify delete, followed by "refs/tags"
+   as in:
 
-   <pre><strong>git push --tags</strong></pre>
+   <pre><strong>git push origin :refs/tags/released/201706
+   </strong></pre>
+
+
+   <a href="https://wilsonmar.github.io/git-flow#Tags">Return</a>
+
 
 
    <a name="DeleteBranch"></a>
@@ -304,23 +309,6 @@ If you didn't mean to fork a repository, but you did anyway,
    NOTE: The colon is the secret special sauce. There is no "delete" command with this.
 
    <a href="https://wilsonmar.github.io/git-flow#DeleteBranch">Return</a>
-
-
-   <a name="DeleteTag"></a>
-
-   ### Delete remote tag
-
-   To delete a tag in the origin repo (on GitHub or GitLab),
-
-   git tag released/201706
-
-   remember the colon character to specify delete, followed by "refs/tags"
-   as in:
-
-   <pre><strong>git push origin :refs/tags/released/201706
-   </strong></pre>
-
-   git tag -d released/aug2016
 
 
 
