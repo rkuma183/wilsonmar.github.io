@@ -63,6 +63,8 @@ If you didn't mean to fork a repository, but you did anyway,
    user = wilsonmar
    </pre>
 
+   Edit the text file.
+
    <a href="https://wilsonmar.github.io/git-flow#GitConfig">Return</a>
 
 
@@ -79,7 +81,7 @@ If you didn't mean to fork a repository, but you did anyway,
    rm -rf gitclass
    </strong></pre>
 
-   <a href="https://wilsonmar.github.io/git-flow#GitClone">Return</a>
+   <a href="https://wilsonmar.github.io/git-flow#Clone">Return</a>
 
 
 
@@ -170,7 +172,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Add"></a>
 
-   ### Un-Add from Staging
+   ### Un-Add/Reset from Staging
 
    To remove a specified [file] (such as README.md) just from the staging area, 
    but leave the working directory unchanged:
@@ -194,7 +196,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Commit"></a>
 
-   ### Commit - Revert
+   ### Commit - Amend Message
 
    Changes can be made to specific commits as long as they have not been pushed to others
    in GitHub. The following applies to such commits.
