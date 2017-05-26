@@ -91,7 +91,32 @@ with API Gateway, Lambda, DynamoDB, etc.
 
 ### Azure Functions
 
-https://azure.microsoft.com/services/functions/
+Marketing information is at
+<a href="https://azure.microsoft.com/services/functions/" target="_blank">
+https://azure.microsoft.com/services/functions</a>
+
+1. Create an Azure Storage account.
+0. Search for "Function App" in the Azure Marketplace.
+0. Click Create.
+0. Provide an app name that's globally unique among all others public.
+
+   .azurewebsites.net
+
+0. Create or use a <strong>Resource Group</strong> to manage your similar functions as a group.
+0. Select a Location closest to you.
+
+   PROTIP: Include the location as a suffix in your app name.
+
+0. Selection of Memory Allocation can be adjusted once you figure out how much after running
+   a few times.
+0. Create.
+0. Click Refresh or the "bell" icon to see messages related.
+
+0. After deployment, click the Resource Group, then the app name.
+0. Click "Webhood + API" and JavaScript language (or C#).
+0. Copy the Function URL and paste it in a browser.
+0. Click Logs to see the history tracking.
+0. Add a Parameter.
 
 
 ### IBM Bluemix OpenWhisk
