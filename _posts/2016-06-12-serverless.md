@@ -41,7 +41,8 @@ It's a fast route to get apps in production.
 PROTIP: It's still up to developers to do testing and 
 performance measuring and tuning.
 Use of multi-tenancy makes for response-time variation.
-So do sythentic transactions outside the cloud vendor to monitor user experience.
+So do sythentic transactions outside the cloud vendor to monitor user experience,
+and to keep your app in cache to avoid process start-up after sleeping.
 
 Mike Roberts at <a target="_blank" href="http://martinfowler.com/articles/serverless.html">
    http://martinfowler.com/articles/serverless.html</a>
@@ -65,6 +66,27 @@ and Machine Learning.
 Lambda has been getting a lot of press.
 
 AWS API Gateway
+
+The AWS Serverless Application Model (SAM) at
+<a target="_blank" href="https://github.com/awslabs/serverless-application-model">
+https://github.com/awslabs/serverless-application-model</a>
+(version 2016-10-31) was announced Nov 2016
+to build Cloud Formation templates accessing Amazon Lambda 
+with API Gateway, Lambda, DynamoDB, etc.
+
+   #### Database #
+
+   In an interview with <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
+   Introduction to the Serverless Paradigm</a>
+   by CloudAcademy. 
+   Austen says [23:50] "You never pay for idle".
+
+   But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
+   While Lambda does not incur charges while idle,
+   a DynamoDB incurs charges for data stored even though no data is read or written to it.
+
+   PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
+
 
 
 ### Azure Functions
@@ -96,8 +118,26 @@ Google Firebase
 
 Iron.io
 
-
 Gesalt Framework
+
+## Usage in the wild
+
+<a target="_blank" href="https://compellingScienceFiction.com/">
+Compelling Science Fiction.com</a>
+uses Simple Email to read emails and sends it to S3.
+Lambda emails notifications. Stories are saved in DynamoDB.
+Python pulls data.
+
+<a target="_blank" href="https://eruchibas,com/pywren.html">
+Eric Jonas</a>
+does hyperperameter sweeps, Monte Carlo simulations.
+Spark requires dedicated servers and is not very elastic.
+map of map reduce.
+Simultaneous
+"Big Lambda"
+<a target="_blank" href="https://tothestars.io/blog/2016/11/12/serverless-mapreduce">
+talk</a>
+
 
 ## Concerns
 
@@ -115,7 +155,24 @@ There is the danger vendor lock-in.
 But luckily, there is a way to alieviate that:
 
 
-## Serverless the company
+## Frameworks
+
+Apex is from Terraform, a more feature-rich server product.
+
+ClaudiaJS
+
+Sparta for AWS Lambda, as a Golang app, is baked into deliverable binary
+(unlike Node).
+
+   * https://gospart.io
+   * https://github.com/mweagle/Sparta
+
+Gordon is written in Python
+
+Zappa is written in Python for Flask apps
+
+
+### Serverless the company
 
 The name "serverless" has been co-opted by enprepreneur Austen Collins
 <a target="_blank" href="https://twitter.com/austencollins">
@@ -156,21 +213,10 @@ His initial Serverless presentation at AWS:Invent 2015
    * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
    Hacker News</a> announced it in 2015 when the product was first called JAWS.
 
-## Database #
-
-   In an interview with <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
-   Introduction to the Serverless Paradigm</a>
-   by CloudAcademy. 
-   Austen says [23:50] "You never pay for idle".
-
-   But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
-   While Lambda does not incur charges while idle,
-   a DynamoDB incurs charges for data stored even though no data is read or written to it.
-
-   PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
+Serverless is a combination of command-line utilities and conventions.
 
 
-## Install Serverless framework  #
+#### Install Serverless framework  #
 
 0. [Install Node.js](/node-osx-install/)
    as a pre-requisite since the framework is written in Node.js.
@@ -193,7 +239,7 @@ His initial Serverless presentation at AWS:Invent 2015
 
    <a id="UpdateFramework"></a>
 
-   ### Update Serverless #
+   #### Update Serverless #
 
    PROTIP: I subscribed to get notifications of changes, 
    and I can see a lot of refactoring is happening
@@ -207,7 +253,7 @@ His initial Serverless presentation at AWS:Invent 2015
 
    <a id="LookAround"></a>
 
-   ### Look around #
+   #### Look around #
 
 0. Get summary of commands using the abbreviated command:
 
@@ -310,7 +356,7 @@ variables ...... list, set, unset
    plugins, and consultants who provide services.
 
 
-   ### Files
+   #### Files
 
 README.md, CONTRIBUTING.md, LICENSE.txt are standard GitHub files.
 
@@ -329,7 +375,7 @@ Dockerfile defines how to load the program in Docker.
 docker-compose.yml
 
 
-### Folders
+#### Folders
 
 .idea contains settings for use by the IDEA IDE.
 
@@ -347,6 +393,23 @@ scripts
 
 tests
 
+   #### New #
+
+0. Create a serverless.yml file containing the infrastructure:
+
+   <pre><strong>sls create -t aws-node.js
+   </strong></pre>
+
+0. Define API Gateway
+
+   <pre>functions:
+   hello:
+      handler: handler.hello
+      events:
+         - http:
+             path: hello
+             mention: get
+   </pre>
 
 <a name="Libraries"></a>
 
