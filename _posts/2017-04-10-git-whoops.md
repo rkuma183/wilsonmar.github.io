@@ -127,14 +127,14 @@ If you didn't mean to fork a repository, but you did anyway,
 
    It doesn't matter how many times a file is changed and saved if that file is unmanaged.
 
-   Use the <tt>git status</tt> command to see whether the file is managed.
+   Use the <a href="#Status">git status</a> command to see whether the file is managed.
 
 
    <a name="Cherry-pick"></a>
 
    ### git cherry-pick
 
-   To replay changes specified in a specific commit:
+   To replay changes specified in a specific commit onto files in the working directory:
 
    <pre><strong>git cherry-pick <em>[commit SHA1]</em>
    </strong></pre>
@@ -146,6 +146,26 @@ If you didn't mean to fork a repository, but you did anyway,
    ### Status
 
    The <strong>git status</strong> command details the status of changes to the repo. 
+
+
+   <a name="LocalClean"></a>
+
+   ### Local Clean
+
+   If you are overwhelmed by too many <strong>untracked</strong> files in your working directory,
+   first see what files will be cleared using one command, first use the -n flag:
+
+   <pre><strong>git clean -n
+   </strong></pre>
+
+   Nuke files from the folder using the clean command:
+
+   <pre><strong>git clean -fdx
+   </strong></pre>
+
+   * <strong>-f</strong> removes files untracked. It's required.
+   * <strong>-d</strong> removes untracked directories.
+   * <strong>-x</strong> removes files Git ignores due to mention in .gitignore.
 
 
    <a name="Add"></a>
@@ -238,16 +258,6 @@ If you didn't mean to fork a repository, but you did anyway,
    * There is companion command -- to clear out whatever files created are untracked:
 
 
-   <a name="LocalCommits"></a>
-
-   ### Reset Local Commits
-
-   Clear out whatever files created in the working directory are untracked:
-
-   <pre><strong>git clean -df
-   </strong></pre>
-
-
    <a name="Push"></a>
 
    ### Public revert push
@@ -284,7 +294,8 @@ If you didn't mean to fork a repository, but you did anyway,
 0. Because branches are just markers within Git, once a feature branch is in GitHub, 
    that branch can be deleted from the local repo 
 
-   <pre><strong>git branch -d feat1</strong></pre>
+   <pre><strong>git branch -d <em>feat1</em>
+   </strong></pre>
 
 0. and from GitHub (by specifying that colon in front of the branch name). 
 
@@ -293,6 +304,24 @@ If you didn't mean to fork a repository, but you did anyway,
    NOTE: The colon is the secret special sauce. There is no "delete" command with this.
 
    <a href="https://wilsonmar.github.io/git-flow#DeleteBranch">Return</a>
+
+
+   <a name="DeleteTag"></a>
+
+   ### Delete remote tag
+
+   To delete a tag in the origin repo (on GitHub or GitLab),
+
+   git tag released/201706
+
+   remember the colon character to specify delete, followed by "refs/tags"
+   as in:
+
+   <pre><strong>git push origin :refs/tags/released/201706
+   </strong></pre>
+
+   git tag -d released/aug2016
+
 
 
    <a name="PullRequest"></a>
