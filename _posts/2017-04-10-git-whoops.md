@@ -59,7 +59,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    * There are other git configuration commands.
 
-   [Return](git-flow#GitConfig)
+   <a href="https://wilsonmar.github.io/git-flow#GitConfig">Return</a>
 
 
    <a name="Terminal"></a>
@@ -109,7 +109,8 @@ If you didn't mean to fork a repository, but you did anyway,
    * Add parameter <strong>--depth=1</strong> to only clone the latest version, to save disk space locally by
    not having previous version history on your machine.
 
-   [Return](git-flow#GitClone)
+   <a href="https://wilsonmar.github.io/git-flow#GitClone">Return</a>
+
 
 0. Now we cd into the repository folder.
 
@@ -132,29 +133,22 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### git checkout
 
-0. The git checkout command controls what Git extracts out from the repository database to the repository's folder. 
+0. A git checkout command can be un-done?
 
-   
+   <a href="https://wilsonmar.github.io/git-flow#Checkout">Return</a>
 
-   * If you add a file after the git checkout command, Git will replace the file in the working folder with the version in 
-   the committed repository.
 
    <a name="NewBranch"></a>
 
    ### New branch
 
-   The dash b specifies creation of a new branch, such as "feature1", to associate new changes.
+   A branch can be deleted because they are just pointers to commits.
 
-   * PROTIP: Atlassian defines its branches<a target="_blank" href="https://www.youtube.com/watch?v=O4SoB3TFkjA&t=18m26s">*</a> 
-   with a type (feature, bugfix, hotfix, etc.), a <strong>slash</strong>, 
-   an issue number, then a short description.
+   <pre><strong>git branch -d <em>branch name</em>
+   </strong></pre>
 
-   ![git atlassian branch naming 650x222](https://cloud.githubusercontent.com/assets/300046/25307644/7de0e70a-2772-11e7-8b3c-f4a57f091f51.png)
+   <a href="https://wilsonmar.github.io/git-flow#NewBranch">Return</a>
 
-   * The advantage of creating a branch is that <strong>parallel development</strong>
-   can occur without risking the master branch.
-
-   * Unlike Subversion, all files are available for change with a Git branch.
 
    <a name="Editing"></a>
 
