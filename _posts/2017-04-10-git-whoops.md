@@ -85,16 +85,26 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Checkout"></a>
 
-   ### git checkout
+   ### git checkout file
 
-   Checking out an old <strong>commit</strong> makes the entire working directory match that commit.
+   Mentioning a single [file] in the `git checkout` command
+   overwrites whatever changes have been made to the file and
+   replaces it with an old version of that file:
 
-   Remember the "current" state of your project remains untouched in the master branch.
+   <pre><strong>git checkout -- <em>[file]</em>
+   </strong></pre>
 
-   However, checking out a <strong>file</strong> does affect the current state.
-   That command serves as a way to revert back to an old version of an individual file.
+   * As with several other git commands, two dashes goes before specification of a single file.
+ 
+   * Git assumes you want to checkout HEAD, the last commit on the currently-checked-out branch.
 
-0. A git checkout command can be un-done?
+   * Whatever exists are permanently gone because they were not committed.
+    <br /><br />
+
+   Checking out an old <strong>commit</strong> from .git repo history
+   makes the entire working directory match that commit. 
+   However, the "current" state of your project remains untouched in the master branch.
+
 
    <a href="https://wilsonmar.github.io/git-flow#Checkout">Return</a>
 
@@ -117,7 +127,17 @@ If you didn't mean to fork a repository, but you did anyway,
 
    It doesn't matter how many times a file is changed and saved if that file is unmanaged.
 
-   Use the <tt>git status</tt> command to see if it's managed.
+   Use the <tt>git status</tt> command to see whether the file is managed.
+
+
+   <a name="Cherry-pick"></a>
+
+   ### git cherry-pick
+
+   To replay changes specified in a specific commit:
+
+   <pre><strong>git cherry-pick <em>[commit SHA1]</em>
+   </strong></pre>
 
 
 
@@ -130,9 +150,9 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Add"></a>
 
-   ### Add to Staging
+   ### Un-Add from Staging
 
-   To remove a specified file from the staging area, 
+   To remove a specified [file] (such as README.md) just from the staging area, 
    but leave the working directory unchanged:
 
    <pre><strong>git reset <em>[file]</em>
@@ -148,12 +168,11 @@ If you didn't mean to fork a repository, but you did anyway,
    * Specifying git rm without --cached removes the file from both cached and working directory.
    <br /><br />
 
+
    <a href="https://wilsonmar.github.io/git-flow#Add">Return</a>
 
 
    <a name="Commit"></a>
-
-   <a name="Revert"></a>
 
    ### Commit - Revert
 
@@ -168,14 +187,19 @@ If you didn't mean to fork a repository, but you did anyway,
 
    The above would not retain the previous message.
 
+
+   <a name="Revert"></a>
+
+   ### Commit - Revert
+
    To change file with commits already pushed to others, a git revert command
    tells Git to figure out the opposite of all the change introduced by a particular commit.
    If the commit added some text, revert deletes that text.
 
-   First figure out the specific commit using the git log command, 
+   First figure out the specific commit id using the git log command (such as "5a34def"), 
    then supply that number in the command:
 
-   <pre><strong>git revert <em>[commit-id]</em>
+   <pre><strong>git revert <em>[commit-SHA]</em>
    </strong></pre>
    
    See <a target="_blank" href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert">this explanation</a>.
@@ -199,14 +223,41 @@ If you didn't mean to fork a repository, but you did anyway,
    for step-by-step instructions.
 
 
+
+   <a name="LocalCommits"></a>
+
+   ### Reset Local Commits
+
+   To reset the .git repo history
+   (the "hard" part) back the way it was 2 commits ago:
+
+   <pre><strong>git reset --hard <em>HEAD~2</em>
+   </strong></pre>
+
+   * This should only be for commits which have not been pushed public.
+   * There is companion command -- to clear out whatever files created are untracked:
+
+
+   <a name="LocalCommits"></a>
+
+   ### Reset Local Commits
+
+   Clear out whatever files created in the working directory are untracked:
+
+   <pre><strong>git clean -df
+   </strong></pre>
+
+
    <a name="Push"></a>
 
-   ### Push
+   ### Public revert push
 
    The `git push` command sends to a remote what has been committed for a specific branch. 
    
    However, a <a href="#Revert">revert command</a> can be issued, 
    as described <a href="#Revert">above</a>.
+
+   But do it for each commit pushed, in reverse order.
 
    <a href="https://wilsonmar.github.io/git-flow#Push">Return</a>
 
@@ -255,7 +306,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="Upstream"></a>
 
-   ### Upstream Remote
+   ### Upstream Remove
 
    To remove a remote:
 
@@ -269,6 +320,9 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a href="https://wilsonmar.github.io/git-flow#Upstream">Return</a>
 
+## Resources
+
+https://github.com/blog/2019-how-to-undo-almost-anything-with-git
 
 
 ## More #
