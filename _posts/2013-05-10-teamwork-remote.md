@@ -23,7 +23,7 @@ phrased in questions that help me determine the conditions for effectiveness in 
 (Kinda like Joel Splotsky's questions uses on Stackoverflow jobs)
 
 
-## Turnover
+## Turnover of work
 
 **1. How does official turnover of shared assets occur between shifts?**
 
@@ -39,13 +39,18 @@ phrased in questions that help me determine the conditions for effectiveness in 
 
 ## Details
 
-**2. How does details get shared about a shared environment?**
+**2. How does details get shared about shared environments?**
 
-  Google Docs and now Microsoft Office has cloud-based software which allows several people to see
-  the impact of each other's changes to the same document. Such systems also track each change,
-  which enables granular identifiecation of who changed what and also restore of items changed or deleted.
+   Google Docs and now Microsoft Office has cloud-based software which allows several people to see
+   the impact of each other's changes to the same document. Such systems also track each change,
+   which enables granular identifiecation of who changed what and also restore of items changed or deleted.
 
- This provides a worry-free enviornment for people to take initiative.
+   <a target="_blank" href="https://about.gitlab.com/handbook/">
+   GitLab's Handbook</a> is about 500 pages that details all the
+   procedures in the company. It's open-sourced at
+   <a target="_blank" href="https://gitlab.com/gitlab-com/www-gitlab-com/tree/master/source/handbook">https://gitlab.com/gitlab-com/www-gitlab-com/tree/master/source/handbook</a>.
+
+   This provides a worry-free enviornment for people to take initiative.
 
 
 ## Task list
