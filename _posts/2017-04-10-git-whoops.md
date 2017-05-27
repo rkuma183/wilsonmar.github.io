@@ -220,16 +220,22 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Commit - Revert
 
-   To change a file with commits already pushed to others, a git revert command
-   tells Git to figure out the opposite of all the change introduced by a particular commit.
+   To change a file with commits already pushed to others, use the `git revert` command
+   for Git to figure out the opposite of all the change introduced by a particular commit.
    If the commit added some text, revert deletes that text.
 
-   First figure out the specific commit id using the git log command (such as "5a34def"), 
-   then supply that number in the command:
+   First figure out the specific commit id using the git log command (such as "5a34def")
+
+   <pre><strong>git log</em>
+   </strong></pre>
+
+   Then supply that commit id in the command:
 
    <pre><strong>git revert <em>[commit-SHA]</em>
    </strong></pre>
    
+   The creates a new commit which need to be pushed up to GitHub.
+
    See <a target="_blank" href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert">this explanation</a>.
 
 
@@ -356,6 +362,62 @@ If you didn't mean to fork a repository, but you did anyway,
    </strong></pre>
 
    <a href="https://wilsonmar.github.io/git-flow#Upstream">Return</a>
+
+
+ <hr />
+
+
+   <a name="Pull"></a>
+
+   ### Pull reversal
+
+   Use the `ORIG_HEAD` created when a checkout occurred:
+
+   <pre><strong>git reset --hard ORIG_HEAD
+   </strong></pre>
+
+
+   Alternately, you can use time specification:
+
+   <pre><strong>git reset --hard master@{"10 minutes ago"}
+   </strong></pre>
+
+
+   <a href="https://wilsonmar.github.io/git-flow#MergeLocal">Return</a>
+
+
+   <a name="MyRepoFetch"></a>
+   
+   ### Un-Fetch my changes
+
+   To undo what has been fetched from a remote,
+   remove the remote:
+
+   <pre><strong>git remote remove upstream
+   </strong></pre>
+
+   Now add it again and fetch only single branch:
+
+   <pre><strong>git remote add upstream https://github.com/wilsonmar/git-utilities
+   git fetch upstream
+   </strong></pre>
+
+
+   <a href="https://wilsonmar.github.io/git-flow#MyRepoFetch">Return</a>
+
+
+   <a name="MergeLocal"></a>
+
+   ### Merge abandon during merge
+
+   Cancel a merge:
+
+   <pre><strong>git merge --abort
+   </strong></pre>
+
+   <a href="https://wilsonmar.github.io/git-flow#MergeLocal">Return</a>
+
+
 
 ## Resources
 
