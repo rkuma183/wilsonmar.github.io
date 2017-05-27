@@ -1358,9 +1358,20 @@ Some of them:
 
 Are authors of these books on Git camera-shy?
 
+Alan Hohn wrote 
+<a target="_blank" href="http://blog.anvard.org/conversational-git/">
+Conversational Git at http://blog.anvard.org/conversational-git</a>.
+Code for the book's website is in the 
+<a target="_blank" href="https://github.com/AlanHohn/conversational-git/tree/gh-pages">
+gh-branches branch of a repo in GitHub</a>.
+As of this writing, the last commit was in 2014, before Git 2.0.
+
+
 David Demaree wrote Git for Humans at<br />
 <a target="_blank" href="https://abookapart.com/products/git-for-humans/">
 https://abookapart.com/products/git-for-humans</a>
+
+
 
 
 ## More #
