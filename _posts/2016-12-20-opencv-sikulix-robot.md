@@ -646,6 +646,9 @@ https://github.com/sergebug/SikuliX-fixture
 
 https://github.com/rssdev10/sikulix-ide-templates
 
+## Resources
+
+http://www.praqma.com/stories/automating-gui-tasks-with-sikuli-and-jenkins/
 
 
 ## More on IoT #
