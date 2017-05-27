@@ -15,6 +15,19 @@ comments: true
 
 {% include _toc.html %}
 
+There are entire books devoted to this topic, so I don't try to repeat them here.
+
+This page contains the "I wish I had known this" type of tips and tricks.
+
+PEPs (Prython Enhancement Proposal) 8
+
+   * Two empty lines before a new class declaration
+   * Function names are all lower case, not Camel-case like Java and C#
+
+These are integrated into IDEs, such as Pycharm from Jetbrains.com
+
+   * https://www.jetbrains.com/pycharm-edu/download/#section=mac
+
 
 ## Print time #
 
