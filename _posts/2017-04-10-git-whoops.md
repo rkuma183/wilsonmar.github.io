@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Git Whoops"
-excerpt: "How to reverse mistakes in Git"
-shorturl: "https://goo.gl/"
+excerpt: "Don't panic. Here's how to un-do mistakes in Git"
+shorturl: "https://goo.gl/4vQ2Yl"
 modified:
 tags: []
 image:
