@@ -19,10 +19,6 @@ comments: true
 
 This presents ways to reverse or un-do common actions in Git.
 
-
-https://www.atlassian.com/git/tutorials/undoing-changes
-
-
 <a name="Fork"></a>
 
 ### Fork
@@ -207,14 +203,24 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git commit -m"Update again for show" --amend
    </strong></pre>
 
-   The above would not retain the previous message.
+   The above creates a new commit in place of the previous commit.
+
+   The action is remembered by `git reflog` locally until purged.
+
+   To replace just the content of a commit, git add the change, then:
+
+   <pre><strong>git commit --amend --no-edit
+   </strong></pre>
+
+   You lose the ability to fall-back to previous versions.
+   So use it only to fix minor typos.
 
 
    <a name="Revert"></a>
 
    ### Commit - Revert
 
-   To change file with commits already pushed to others, a git revert command
+   To change a file with commits already pushed to others, a git revert command
    tells Git to figure out the opposite of all the change introduced by a particular commit.
    If the commit added some text, revert deletes that text.
 
@@ -352,6 +358,8 @@ If you didn't mean to fork a repository, but you did anyway,
    <a href="https://wilsonmar.github.io/git-flow#Upstream">Return</a>
 
 ## Resources
+
+https://www.atlassian.com/git/tutorials/undoing-changes
 
 https://github.com/blog/2019-how-to-undo-almost-anything-with-git
 

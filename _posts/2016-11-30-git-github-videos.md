@@ -1332,7 +1332,7 @@ Some of them:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
    How to Create and Apply Git Patches</a>
 
-## Others
+## Others #
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=RG26-Iozg70&t=213s">
    Life's better with Git hooks</a>
@@ -1353,6 +1353,14 @@ Some of them:
 * <a target="_blank" href="https://www.youtube.com/watch?v=T1uTjNEKc6M">
    Extending DevOps practices to SQL Server databases - Branching & Merging with Git</a>
    [1:00:29] 18 Jan 2017 by Redgate (database tool vendor)
+
+## Books
+
+Are authors of these books on Git camera-shy?
+
+David Demaree wrote Git for Humans at<br />
+<a target="_blank" href="https://abookapart.com/products/git-for-humans/">
+https://abookapart.com/products/git-for-humans</a>
 
 
 ## More #
