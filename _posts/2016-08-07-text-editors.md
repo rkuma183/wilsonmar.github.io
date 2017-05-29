@@ -421,6 +421,8 @@ On Mac:
 
    BTW, "hello" in the example above can be any file.
 
+* http://michaelcrump.net/using-github-with-visualstudio-code/
+
 
 ## More on front-end styling #
 
