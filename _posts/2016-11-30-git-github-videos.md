@@ -910,9 +910,11 @@ in YouTube. But realize that
 
 ### Laracasts
 
-$9 a month at Laracasts.com gets you access to videos that are applicable to not just the Laravel PHP platform.
+$9 a month at <a target="_blank" href="https://www.laracasts.com/">Laracasts.com</a>
+gets you access to videos that are applicable to not just the Laravel PHP platform.
 There's something about Jeffrey Way's voice that's it's like 
-a Disney toy unboxing video. (He's at jeffrey-way.com)
+a Disney toy unboxing video. (He's at <a target="_blank" href="https://www.jeffrey-way.com/">
+jeffrey-way.com</a>).
 
 In his <a target="_blank" href="https://laracasts.com/series/git-me-some-version-control/">
    Git Me Some Version Control</a> series:
@@ -1011,12 +1013,35 @@ It starts by diving right in with diff.
 
 ### Linux Academy
 
-* <a target="_blank" href="https://linuxacademy.com/linux/training/course/name/git-gitlab">
+<a target="_blank" href="https://linuxacademy.com/linux/training/course/name/git-gitlab">
    Git and GitLab - From Start to Finish</a>
    with 3:20 hours over 22 videos by Terrence Cox
    <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/">
    It</a> is for those who pay a subscription of $286 per year
    to access all Linux Academy videos.
+
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/lesson/1/module/36">Introduction</a> [07:42]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/279/lesson/1/module/36">Installing Git</a> [08:16]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/279/lesson/2/module/36">Basic Configuration</a> [14:07]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/280/lesson/1/module/36">Empty Repositories</a> [10:26]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/280/lesson/2/module/36">Git Basics</a> [08:57]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/280/lesson/3/module/36">Git Ignore</a> [07:45]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/281/lesson/1/module/36">Cloning: Local Repositories</a> [11:43]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/281/lesson/2/module/36">Cloning: Remote Repositories</a> [06:43]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/282/lesson/1/module/36">Tags</a> [09:40]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/282/lesson/2/module/36">Branches</a> [07:19]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/282/lesson/3/module/36">Merging</a> [06:02]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/283/lesson/1/module/36">Git Log</a> [08:23]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/300/lesson/1/module/36">Introduction to Github</a> [07:44]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/300/lesson/2/module/36">Secure Communication</a> [09:17]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/300/lesson/3/module/36">Working with Github</a> [09:46]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/301/lesson/1/module/36">Intro to Bitbucket and Secure Communication</a> [07:39]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/301/lesson/2/module/36">Working with Bitbucket</a> [08:51]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/1/module/36">GitLab Prerequisites</a> [07:59]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/2/module/36">GitLab Download, Install and Configure</a> [10:42]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/3/module/36">GitLab Architecture</a> [09:24]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/4/module/36">GitLab User Administration and Secure Access</a> [10:44]
+0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/5/module/36">GitLab Group Administration</a> [10:57]
 
 
 ## Individuals
