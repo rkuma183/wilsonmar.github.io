@@ -620,7 +620,10 @@ https://github.com/khanradcoder</a> account and<br />
 <a target="_blank" href="https://www.youtube.com/khanradcoder">
 https://www.youtube.com/khanradcoder</a>
 
-Each topic is really short. The whole course is done in less than an hour.
+The course is also cross-sold on Udemy.com.
+
+Each of the 12 videos is really short. 
+The whole course is done in less than an hour.
 
 A video of the presenter talking is at the lower-right corner.
    But a big microphone obsures the presenter's face on some videos.
@@ -1103,7 +1106,7 @@ BTW I don't agree with Dan's statement: "I purposefully focus on the command lin
    Introduction to Git Hooks</a> [17:02] 6 Nov 2016
 
 
-## Michael Koby
+### Michael Koby
 
 Videos show diagrams (no commands shown) from May 9, 2013.
 But blog at <a target="_blank" href="http://www.codecasts.tv/">
