@@ -24,6 +24,8 @@ NOTE: I usually am up by 4 am Pacific Time (5 am Mountain, 6 am Central, 7 am Ea
 
 0. Click on the <u><strong>This Week</strong></u> blue link at the upper right corner.
 
+   ![google-calendar-week-256x41](https://cloud.githubusercontent.com/assets/300046/26534343/5618a71c-43f1-11e7-9ea8-d721acb5fc42.png)
+
 0. Switch back and forward between your own calendar and this one to identify a mutually open time.
 
 NOTE: In this calendar I keep only the times I cannot move.

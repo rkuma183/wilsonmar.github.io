@@ -91,7 +91,7 @@ To see the site the way GitHub would generate it
 Otherwise:
 
    ```
-   bundle exec jekyll serve
+   bundle exec jekyll serve --baseurl ''
    ```
 
    PROTIP: Leave this terminal instance running and open another Terminal
@@ -1063,7 +1063,7 @@ QUESTION: Spell checking in GitHub?
 
 * http://udaypal.com/jenkins-workflow-getting-started/
 * http://udaypal.com/2015-04-08-continuous-delivery-using-jenkins-workflow/
-
+* http://michaelcrump.net/running-jekyll-locally/
 
 
 ## More on front-end styling #
