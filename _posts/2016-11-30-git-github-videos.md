@@ -995,30 +995,16 @@ It starts by diving right in with diff.
    * <a target="_blank" href="https://www.youtube.com/watch?v=Ytux4IOAR_s&list=PLAwxTw4SYaPk8_-6IGxJtD3i2QAu5_s_p">
    The class' video playlist on YouTube</a>
 
-### SitePoint
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
-   Choosing to Rebase or Merge with Git?</a> [7:40]
-
-### TechJini
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
-   Git Merge vs Rebase?</a> [7:40]
-
-### Harvard
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
-   An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
-   shows a clear presentation, with demos.
 
 ### Linux Academy
 
 <a target="_blank" href="https://linuxacademy.com/linux/training/course/name/git-gitlab">
    Git and GitLab - From Start to Finish</a>
-   with 3:20 hours over 22 videos by Terrence Cox
+   by Terrence (Terry) Cox.
    <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/">
    It</a> is for those who pay a subscription of $286 per year
-   to access all Linux Academy videos.
+   to access all Linux Academy videos, not just these 
+   3:20 hours over 22 vides (with no speed-up setting):
 
 0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/lesson/1/module/36">Introduction</a> [07:42]
 0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/279/lesson/1/module/36">Installing Git</a> [08:16]
@@ -1043,6 +1029,24 @@ It starts by diving right in with diff.
 0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/4/module/36">GitLab User Administration and Secure Access</a> [10:44]
 0. <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/305/lesson/5/module/36">GitLab Group Administration</a> [10:57]
 
+
+### SitePoint
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
+   Choosing to Rebase or Merge with Git?</a> [7:40]
+
+
+### TechJini
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
+   Git Merge vs Rebase?</a> [7:40]
+
+
+### Harvard
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
+   An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
+   shows a clear presentation, with demos.
 
 ## Individuals
 
