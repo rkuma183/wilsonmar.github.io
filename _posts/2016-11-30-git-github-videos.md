@@ -530,8 +530,6 @@ and (since 2017) for Windows.
 
 ## From free training vendors
 
-These are both paid and free resources.
-
 
 ### Git Real 1 and 2
 
@@ -605,9 +603,33 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
    
    [5:44] git rebase
 
-## From free training vendors
 
-These are both paid and free resources.
+### Codemy School
+
+From the same head talking about Rails, Docker, Solidus, Elasticsearch, and React, 
+a popular <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
+series</a>:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
+   What is Git?</a> [3:48]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
+   GIT: Installation, Configuration and First Commit</a> [7:21]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
+   GIT: Working with Branches</a> [6:36]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
+   GIT: Merging and Workflow</a> [7:10]
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
+   GIT: Git Flow Introduction</a> [5:06]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
+   GIT: Git Flow Feature Branch and Pushing to GitHub</a>
+   [11:16] 6 Dec 2015
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
+   GIT: Git Flow and Github Pull Request</a> 
+   [6:53] 1 Jan 2016
+
+
+## From those who ask for money
 
 ### Skillshare.com
 
@@ -630,30 +652,6 @@ A video of the presenter talking is at the lower-right corner.
 
 Nice that folders are shown along with commands.
 
-
-### Codemy School
-
-From the same head talking about Rails, Docker, Solidus, Elasticsearch, and React, 
-a popular <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
-series</a>:
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
-   What is Git?</a> [3:48]
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
-   GIT: Installation, Configuration and First Commit</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
-   GIT: Working with Branches</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
-   GIT: Merging and Workflow</a>
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
-   GIT: Git Flow Introduction</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
-   GIT: Git Flow Feature Branch and Pushing to GitHub</a>
-   [11:16] 6 Dec 2015
-0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
-   GIT: Git Flow and Github Pull Request</a> 
-   [6:53] 1 Jan 2016
 
 ### Pluralsight
 
