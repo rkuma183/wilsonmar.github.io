@@ -522,13 +522,16 @@ and (since 2017) for Windows.
   Branching Workflows [4:36]</a>
 
 
-## CollabNet (TeamForge)
+### CollabNet (TeamForge)
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=BoZfImYQ230">
    Git for Developers -- Introduction</a>
 
 
-## Training vendors
+## From free training vendors
+
+These are both paid and free resources.
+
 
 ### Git Real 1 and 2
 
@@ -602,7 +605,56 @@ The "Magic of Git Exposed" by Andy Benedict (andy at andybenedict.com)
    
    [5:44] git rebase
 
+## From free training vendors
+
+These are both paid and free resources.
+
+### Skillshare.com
+
+For $10 a month to Skillshare,<br />
+<a target="_blank" href="https://www.skillshare.com/classes/Learn-Git-Everything-You-Need-To-Know/1312447750/">
+Learn Git: Everything You Need To Know</a>
+by Adam Eubanks working on a Linux computer and using his
+<a target="_blank" href="https://github.com/khanradcoder/">
+https://github.com/khanradcoder</a> account and<br />
+<a target="_blank" href="https://www.youtube.com/khanradcoder">
+https://www.youtube.com/khanradcoder</a>
+
+Each topic is really short. The whole course is done in less than an hour.
+
+A video of the presenter talking is at the lower-right corner.
+   But a big microphone obsures the presenter's face on some videos.
+
+Nice that folders are shown along with commands.
+
+
+### Codemy School
+
+From the same head talking about Rails, Docker, Solidus, Elasticsearch, and React, 
+a popular <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
+series</a>:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
+   What is Git?</a> [3:48]
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
+   GIT: Installation, Configuration and First Commit</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
+   GIT: Working with Branches</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
+   GIT: Merging and Workflow</a>
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
+   GIT: Git Flow Introduction</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
+   GIT: Git Flow Feature Branch and Pushing to GitHub</a>
+   [11:16] 6 Dec 2015
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
+   GIT: Git Flow and Github Pull Request</a> 
+   [6:53] 1 Jan 2016
+
 ### Pluralsight
+
+For $300 per year, Pluralsight has purchased several other video training companies.
 
 * <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
    Git Internals pdf (from 2008, last updated 2013)</a>
@@ -665,13 +717,10 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=vsqsRhxGyKo">
    Understanding version control</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=dmwTGu_M_YM&index=4&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    02 The history of Git</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=BKcEkXdNjRs&index=3&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    03 About distributed version control</a>
- 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=PmOJtA8KF5c&index=2&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    04 Who should use Git</a>
 
@@ -679,16 +728,12 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hS3vq91DBR0&index=5&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Installing Git on a Mac</a>
- 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=MN4F2Ag34-o&index=6&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    02 Installing Git on Windows</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GMpRc8g5Jvo&index=7&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    03 Installing Git Installing Git on Linux</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=yZUEzb-7-UY&index=8&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    05 Installing Git Exploring Git auto completion</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LsF9Bp5nWyY&index=9&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    06 Installing Git Using Git help</a>
 
@@ -696,16 +741,12 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=e0vsW4Kajv0&index=10&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    01 Initializing a repository git init</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Fmfa_pMnmGQ&index=11&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Directory-How files are Stored HEAD,config,refs,objects</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=DL7JPfksbGo&index=12&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Making Commits git commit , git add ,git status </a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=n3tJ13xqpn4&index=13&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Writing commit messages</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NZLi9V1glsI&index=14&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Viewing the commit log</a>
 
@@ -714,13 +755,10 @@ in YouTube. But realize that
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GbBQFD5QyfQ&index=15&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Exploring the 3 trees architecture</a>
     (Staging area , working directory,repository)
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-PqP7G5HfqA&index=16&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git and Github workflow </a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=U9xFbgt94LQ&index=17&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
     Using hash values SHA 1</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=YNa2zIWkKnQ&index=18&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Working with the HEAD pointer</a>
 
@@ -728,19 +766,14 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=DzZpVXoPqLo&index=19&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Adding files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=jsyM_OdULjI&index=20&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Editing files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Ty8DLouCaqc&index=21&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Viewing changes with diff</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Zu0gtlMmUnU&index=22&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - Deleting files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zWNXXnp6eBM&index=23&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git mv- Moving and renaming files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=CHYBd3WusRQ&index=24&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git checkout- Undoing working directory</a>
 
@@ -748,25 +781,18 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=6uOyMr-Oy7g&index=25&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git reset HEAD -Undoing Changes Unstaging files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=gp_s1ZNsZUM&index=26&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Amending commits</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=pDRjraYBRkI&index=27&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git checkout -Retrieving old versions</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=OMay6ehvMQU&index=28&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git revert -Reverting a commit</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=fFWk3AKo9cA&index=29&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - git reset - Using reset to undo commits</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=9o0wbyavPpg&index=30&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - Demonstrating a soft reset</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Q14FwroPO2s&index=31&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial - Demonstrating a mixed reset</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=n0SQmSf0qmc&index=32&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Tutorial -Demonstrating a hard reset</a>
 
@@ -774,19 +800,14 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=EbznpOn2c8A&index=33&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Ignoring Files Using .gitignore files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=6ZNC4ALt2tM&index=34&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Removing untracked files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=ciuXlUwkYVA&index=35&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
     Ignoring Files Understanding what to ignore - gitignore</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=er5aa1q6_S0&index=36&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Ignoring Files Ignoring tracked files</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0W2X0zx-FHA&index=37&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Ignoring files globally</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8PtndS_3vKk&index=38&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Tracking empty directories</a>
 
@@ -794,31 +815,22 @@ in YouTube. But realize that
 
 10) Branching
 
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NLK1sUMyYQ8&index=70&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Branching overview</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LqVAWFpQ5YE&index=39&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Branching Viewing and creating branches git branch</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=o5BLoSZ03XQ&index=41&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Creating and switching branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=ZoIjAHZTyvE&index=40&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Switching branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NIBBJ6kT2ck&index=42&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Switching branches with uncommitted changes git checkout -b </a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=0DThkMzrgac&index=43&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    git diff - Comparing branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=F5xp9KUTH7o&index=44&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Renaming branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=RqsECFu-zSI&index=45&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Deleting branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=CzuWvBCEZxI&index=46&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    09 Branching Configuring the command prompt to show the branch</a>
 
@@ -826,16 +838,12 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=_R4GGTSHaPI&index=47&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Merging Branches git merge</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=rvF9t9bL0T4&index=48&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Using fast forward merge vs true merge or recursive merge</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hAtt2M1dB1Q&index=49&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Resolving merge conflicts - 1</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NzXrOQAtoNc&index=50&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    SResolving merge conflicts - 2</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hmTJK4EXNbk&index=51&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Exploring strategies to reduce merge conflicts</a>
 
@@ -843,13 +851,10 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=p7kzcE6LNV4&index=52&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Stashing- Saving changes in the stash git stash</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=KzvqUr61W64&index=53&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Viewing stashed changes</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=V0jQH5xkyLc&index=54&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Retrieving stashed changes</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=oj19MidcQTw&index=55&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Deleting stashed changes</a>
 
@@ -857,48 +862,36 @@ in YouTube. But realize that
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=O-McFO0mJzs&index=56&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Using local and remote repositories</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=zQgWPezqbC8&index=57&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Setting up a GitHub account</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=E7IVWxyIZY0&index=58&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Adding a remote repository</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=t34L9shcOQk&index=59&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Creating a remote branch</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=VNm2cil0-IQ&index=60&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Cloning a remote repository</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=I1U6ZWjAuyo&index=61&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Tracking remote branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=-UosBmPrzak&index=62&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Pushing changes - git push</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=9Se9IREF0TE&index=63&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Fetching changes git fetch</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Ffo69CU5Wik&index=64&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Merging in fetched changes git merge</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=3qgS6h2qEXQ&index=65&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Checking out remote branches</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=sBH7HyyxXTY&index=66&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Pushing to an updated remote branch git push</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=qHbLl_ktIQ4&index=67&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Deleting a remote branch</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=G7Vv8Za7v50&index=68&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Enabling collaboration</a>
-
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QuxKpGK0nFs&index=69&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    A collaboration workflow</a>
 
-
 14) Tools and Next Steps
+
+Go to Lynda.com for these:
 
 0. Setting up aliases for common commands (Viewed)
 0. Using SSH keys for remote login (Viewed)
@@ -957,37 +950,12 @@ One-off episodes:
    SSH</a>
 
 
-### Codemy School
-
-From the same head talking about Rails, Docker, Solidus, Elasticsearch, and React, 
-a popular <a target="_blank" href="https://www.youtube.com/playlist?list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP">
-series</a>:
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=uUuTYDg9XoI">
-   What is Git?</a> [3:48]
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QqP7YZlZEOo">
-   GIT: Installation, Configuration and First Commit</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=JTE2Fn_sCZs">
-   GIT: Working with Branches</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=0iuqXh0oojo">
-   GIT: Merging and Workflow</a>
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=xgo60yhetZk&">
-   GIT: Git Flow Introduction</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=XbapC7nm49s&t=34s">
-   GIT: Git Flow Feature Branch and Pushing to GitHub</a>
-   [11:16] 6 Dec 2015
-0. <a target="_blank" href="https://www.youtube.com/watch?v=mcWsX_setW4">
-   GIT: Git Flow and Github Pull Request</a> 
-   [6:53] 1 Jan 2016
-
-
 ### Udacity
 
 <a target="_blank" href="https://www.udacity.com/course/how-to-use-git-and-github--ud775">
 https://www.udacity.com/course/how-to-use-git-and-github--ud775</a>
 Udacity has a FREE hands-on tutorial by Google people.
-It pauses with quizzes along the way.
+It pauses with <strong>quizzes</strong> along the way.
 So it takes some patience get through its thoroughness.
 
 It starts by diving right in with diff.
@@ -1048,7 +1016,9 @@ It starts by diving right in with diff.
    An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
    shows a clear presentation, with demos.
 
-## Individuals
+
+
+## From Individuals
 
 Several people, on their personal time, created videos for others to enjoy for free.
 
