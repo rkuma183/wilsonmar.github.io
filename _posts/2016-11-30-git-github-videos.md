@@ -1017,137 +1017,11 @@ It starts by diving right in with diff.
    <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/">
    It</a> is for those who pay a subscription of $286 per year
    to access all Linux Academy videos.
-   
+
 
 ## Individuals
 
 Several people, on their personal time, created videos for others to enjoy for free.
-
-### Dustin Davis
-
-   Twitter: @c0deporn) 
-
-   This video comes up frequently on YouTube about Git. Maybe it's got a great name: 
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=Y9XZQO1n_7c">
-   Learn Git in 20 minutes (posted 8 Jun 2014)</a>
-
-   His repository:<br />
-   <a target="_blank" href="https://github.com/dustindavis/FluentGuard">
-   https://github.com/dustindavis/FluentGuard</a>
-
-
-### Seth House
-
-<a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3">
-Git mastery in 20-minute increments series</a>
-is the most fearless and deep.
-It was created when Seth is at cars.com in Jul 2012. 
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3&index=1">
-   Objects</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=9j4WPgvt_tY&index=2&list=PLA4B47B9B5F3691E3">
-   refnames</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=sit4Co0YHpg&list=PLA4B47B9B5F3691E3&index=3">
-   Remotes</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=Hxp7q_QGyOc&index=4&list=PLA4B47B9B5F3691E3">
-   Merging and Mergtool</a>
-0. <a target="_blank" href="https://www.youtube.com/watch?v=30RMnLCVe8c&list=PLA4B47B9B5F3691E3&index=5">
-   git pull --rebase</a>
-   Video shows commands update-ref, graph-dag script.
-   Uses a program to graph branches to a graphics.
-
-The "git-dag" utility to display Git DAGs is at
-<a target="_blank" href="https://github.com/whiteinge">
-https://github.com/whiteinge</a>
-
-<a target="_blank" href="https://www.youtube.com/watch?v=Y2Msq90ZknI">
-   Dissecting Git's Guts, Emily Xie - Git Merge 2016</a>
-
-<a target="_blank" href="https://www.youtube.com/watch?v=H2j7e81J798">
-   Talk #2 - Digging deep into Git</a> (Spanish)
-
-
-### GitHub for Noobs
-
-Travis Neilson, "a noob, just like you, which makes me the perfect candidate"
-for making a
-<a target="_blank" href="https://www.youtube.com/watch?v=1h9_cB9mPT8&list=PLqGj3iMvMa4LFz8DZ0t-89twnelpT4Ilw">
-4-part series</a> with back-beat music, cartoons, and video memes
-(for ad revenue and donations on Patreon.com).
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=1h9_cB9mPT8">
-   A Short History (1/4)</a> [4:44]
-   Feb 1, 2016 (difference between Git and GitHub)
-0. <a target="_blank" href="https://www.youtube.com/watch?v=_ALeswWzpBo">
-   Common Workflows (2/4)</a> [6:35]
-   Feb 8, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=BKr8lbx3uFY">
-   Using the GitHub Desktop App (3/4)</a> [23:59]
-   Feb 15, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=JPKOESR1k04">
-   Using the Command Line (4/4)</a> [23:12]
-   Feb 22, 2016
-
-
-### Casey Li
-
-In 2012 Casey Li uploaded a "Gitting to Know You" series on 
-<a target="_blank" href="https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ">
-his YouTube channel</a>. In 
-<a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z">
-his playlist</a>:
-
-* <a target="_blank" href="https://caseyli.com/videos">caseyli.com/videos</a>
-
-* <a target="_blank" href="https://caseyli.com/gittingtoknowyou/">caseyli.com/gittingtoknowyou</a>
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw/">
-   000 - Introduction</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=90gfI71O8QQ/">
-   100 - Distributed vs Central</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=UIO5CGgTumo/">
-   200 - Basics of Committing</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=ZAZ9ohOFNEM/">
-   300 - More Committing</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=CZkUhcYNDJE/">
-   400 - Branching Part 1</a>
-
-   Untracked files and unstaged changes are not specific to a branch until a commit.
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=RiQkZEtUrkM/">
-   500 - Branching Part 2</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=M_Qsa0OZKy4/">
-   600 - Branching Part 3</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=ul3MvMWBC70/">
-   700 - Break</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=1LmfqV0bw4E/">
-   800 - Remote Repositories</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=DicH5X8Vark/">
-   900 - Intro to GitHub</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=BBrHBSa2LYo/">
-   1000 - Git Push</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=XogN0Q4sb9o/">
-   1100 - Git Fetch, Git Pull</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=iezsyzzrDg4/">
-   1200 - Pull Requests Part 1</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=ikExlASV5OE/">
-   1250 - Pull Requests Part 2</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=XqO4fYJK1Ek/">
-   1300 - Workflow</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=wqHtWK-L_L0/">
-   1400 - Where to go from here</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=u-vHhnKN5vg/">
-   1500 - Fast-Forward Merging Part 1</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=-xid8vRXOYo/">
-   1550 - Fast-Forward Merging Part 2</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=OXInybQFhMA/">
-   1575 - Fast-Forward Merging Part 3</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=kn0WZbqfyQk/">
-   1600 - Rebasing Part 1</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
-   1650 - Rebasing Part 2</a>
-
 
 ### Dan Gitschooldude
 
@@ -1340,6 +1214,136 @@ Some of them:
    Changing Terms in Git Bisect</a> 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
    How to Create and Apply Git Patches</a>
+
+
+### Dustin Davis
+
+   Twitter: @c0deporn
+
+   It's not the best, 
+   but this video comes up frequently on YouTube. Maybe it's got a great name: 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Y9XZQO1n_7c">
+   Learn Git in 20 minutes (posted 8 Jun 2014)</a>
+
+   His repository:<br />
+   <a target="_blank" href="https://github.com/dustindavis/FluentGuard">
+   https://github.com/dustindavis/FluentGuard</a>
+
+
+### Seth House
+
+<a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3">
+Git mastery in 20-minute increments series</a>
+is the most fearless and deep.
+It was created when Seth is at cars.com in Jul 2012. 
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=AqDLz4yq_CI&list=PLA4B47B9B5F3691E3&index=1">
+   Objects</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=9j4WPgvt_tY&index=2&list=PLA4B47B9B5F3691E3">
+   refnames</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=sit4Co0YHpg&list=PLA4B47B9B5F3691E3&index=3">
+   Remotes</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=Hxp7q_QGyOc&index=4&list=PLA4B47B9B5F3691E3">
+   Merging and Mergtool</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=30RMnLCVe8c&list=PLA4B47B9B5F3691E3&index=5">
+   git pull --rebase</a>
+   shows commands update-ref, graph-dag script.
+   Uses a program to graph branches to a graphics.
+
+The "git-dag" utility to display Git DAGs is at
+<a target="_blank" href="https://github.com/whiteinge">
+https://github.com/whiteinge</a>
+
+
+### Emily Xie
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Y2Msq90ZknI">
+   Dissecting Git's Guts, Emily Xie - Git Merge 2016</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=H2j7e81J798">
+   Talk #2 - Digging deep into Git</a> (Spanish)
+
+
+### GitHub for Noobs
+
+Travis Neilson, "a noob, just like you, which makes me the perfect candidate"
+for making a
+<a target="_blank" href="https://www.youtube.com/watch?v=1h9_cB9mPT8&list=PLqGj3iMvMa4LFz8DZ0t-89twnelpT4Ilw">
+4-part series</a> with back-beat music, cartoons, and video memes
+(for ad revenue and donations on Patreon.com).
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=1h9_cB9mPT8">
+   A Short History (1/4)</a> [4:44]
+   Feb 1, 2016 (difference between Git and GitHub)
+0. <a target="_blank" href="https://www.youtube.com/watch?v=_ALeswWzpBo">
+   Common Workflows (2/4)</a> [6:35]
+   Feb 8, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=BKr8lbx3uFY">
+   Using the GitHub Desktop App (3/4)</a> [23:59]
+   Feb 15, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JPKOESR1k04">
+   Using the Command Line (4/4)</a> [23:12]
+   Feb 22, 2016
+
+
+### Casey Li
+
+In 2012 Casey Li uploaded a "Gitting to Know You" series on 
+<a target="_blank" href="https://www.youtube.com/channel/UCf10rvkQz1Bne5FjeduGrmQ">
+his YouTube channel</a>. In 
+<a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw&list=PLAnofBdXcmc9IAjqaHyYPzlXvwjedTb3Z">
+his playlist</a>:
+
+* <a target="_blank" href="https://caseyli.com/videos">caseyli.com/videos</a>
+
+* <a target="_blank" href="https://caseyli.com/gittingtoknowyou/">caseyli.com/gittingtoknowyou</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=xCteegcemgw/">
+   000 - Introduction</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=90gfI71O8QQ/">
+   100 - Distributed vs Central</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=UIO5CGgTumo/">
+   200 - Basics of Committing</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=ZAZ9ohOFNEM/">
+   300 - More Committing</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=CZkUhcYNDJE/">
+   400 - Branching Part 1</a>
+
+   Untracked files and unstaged changes are not specific to a branch until a commit.
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=RiQkZEtUrkM/">
+   500 - Branching Part 2</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=M_Qsa0OZKy4/">
+   600 - Branching Part 3</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=ul3MvMWBC70/">
+   700 - Break</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=1LmfqV0bw4E/">
+   800 - Remote Repositories</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=DicH5X8Vark/">
+   900 - Intro to GitHub</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=BBrHBSa2LYo/">
+   1000 - Git Push</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=XogN0Q4sb9o/">
+   1100 - Git Fetch, Git Pull</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=iezsyzzrDg4/">
+   1200 - Pull Requests Part 1</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=ikExlASV5OE/">
+   1250 - Pull Requests Part 2</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=XqO4fYJK1Ek/">
+   1300 - Workflow</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=wqHtWK-L_L0/">
+   1400 - Where to go from here</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=u-vHhnKN5vg/">
+   1500 - Fast-Forward Merging Part 1</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=-xid8vRXOYo/">
+   1550 - Fast-Forward Merging Part 2</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=OXInybQFhMA/">
+   1575 - Fast-Forward Merging Part 3</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=kn0WZbqfyQk/">
+   1600 - Rebasing Part 1</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
+   1650 - Rebasing Part 2</a>
 
 ## Others #
 
