@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-## Wilson Mar
+## By Me - Wilson Mar
 
 <a target="_blank" href="https://goo.gl/12C1BF">
 https://goo.gl/12C1BF</a> is my playlist on Git and GitHub
@@ -191,7 +191,7 @@ quick (conceptual) videos with captions and graphics on a white board:
 
 
 
-## Microsoft
+## From Microsoft
 
 * <a target="_blank" href="http://www.radiotfs.com/">
    radiotfs.com</a>
@@ -383,7 +383,7 @@ by @StevenBorg (salesy hand-wavy boss) and
    [25:40] http://rypress.com/tutorials/git/index<br />
 
 
-## Git Hosting
+## From Git hosting companies
 
 ### GitLab
 

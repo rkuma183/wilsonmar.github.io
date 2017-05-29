@@ -236,8 +236,9 @@ If you didn't mean to fork a repository, but you did anyway,
    
    The creates a new commit which need to be pushed up to GitHub.
 
-   See <a target="_blank" href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert">this explanation</a>.
-
+   See <a target="_blank" href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert">this explanation</a> and
+   <a target="_blank" href="https://www.kernel.org/pub/software/scm/git/docs/git-revert.html">
+   manual on the git revert command</a>.
 
    <a href="https://wilsonmar.github.io/git-flow#Commit">Return</a>
 
