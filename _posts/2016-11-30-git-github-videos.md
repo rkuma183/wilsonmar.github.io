@@ -686,7 +686,7 @@ For $300 per year, Pluralsight has purchased several other video training compan
    [2h 28m]
    by Enrico Campidoglio
 
-* <a target="_blank" href="https://app.pluralsight.com/library/courses/tfs-2015"
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/tfs-2015">
    End-to-end Software Development with Team Foundation Server 2015
    May 09, 2016</a>
    [4h 26m]
