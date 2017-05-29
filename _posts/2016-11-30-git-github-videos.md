@@ -1009,6 +1009,15 @@ It starts by diving right in with diff.
    An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
    shows a clear presentation, with demos.
 
+### Linux Academy
+
+* <a target="_blank" href="https://linuxacademy.com/linux/training/course/name/git-gitlab">
+   Git and GitLab - From Start to Finish</a>
+   with 3:20 hours over 22 videos by Terrence Cox
+   <a target="_blank" href="https://linuxacademy.com/cp/courses/lesson/course/278/">
+   It</a> is for those who pay a subscription of $286 per year
+   to access all Linux Academy videos.
+   
 
 ## Individuals
 
