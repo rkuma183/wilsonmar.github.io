@@ -106,7 +106,7 @@ It figures out where conflicts occurred.
 0. Use Make to run Makefile to install Bash completions:
 
    On a Mac:
-   
+
    <pre><strong>make
    </strong></pre>
 
@@ -171,8 +171,7 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
 
    The repo created contains two branches. Just for fun, we've named them
    frobnicator and floobifier.
-
-   frobnicator will be merged into floobifier.
+   Branch frobnicator is merged into floobifier.
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
 
@@ -211,6 +210,38 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
 
    ``refs/heads/NAME`` -
    Default reference name for storing final results.
+
+
+   The script creates conflicts marked by "X":
+
+   <pre>
+o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
+    |   |    |    |    |    |    |    |    |    |     |     |
+    A -   --   --   --   --   -- A6 -   -- A8 - A9 - A10 - A11
+    |   |    |    |    |    |    |    |    |
+    B -   --   --   --   --   -- B6 - B7 - B8   X
+    |   |    |    |    |    |    |
+    C -   --   --   --   --   -- C6   X
+    |   |    |    |    |    |    |
+    D -   --   --   --   --   -- D6
+    |   |    |    |    |    |    |
+    E - E1 - E2 - E3 - E4 - E5 - E6
+    |   |
+    F - F1   X
+    |   |
+    G - G1
+    |   |
+    H - H1
+    |   |
+    I - I1
+&nbsp;
+    ↑
+  branch
+   </pre>
+
+   Each conflict is defined by this command in the script:
+
+   <pre>echo "conflict here">>file</pre>
 
    ### Diagram
 
