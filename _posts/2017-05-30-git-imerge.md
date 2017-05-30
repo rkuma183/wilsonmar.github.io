@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git merge"
-excerpt: "This is how the cool kids are merging. Takes a bit of work, but you'll love it."
+excerpt: "This is how the cool kids are merging. It needs to be setup, but you'll love it."
 shorturl: "https://goo.gl/"
 modified:
 tags: []
@@ -110,31 +110,16 @@ fi
 
    ### Create Test Repos
 
-0. On a Mac, give run permissions to the script:
+0. On a Mac, give run permissions to the scripts:
 
-   <pre><strong>chmod 555 git-imerge-test.sh
-   ./git-imerge-test.sh
+   <pre><strong>chmod 555 git-imerge-test-create.sh
+   chmod 555 git-imerge-test-run.sh
    </strong></pre>
 
    This only needs to be done once.
-
-
-0. Run the script to create a new repo with two branches containing conflicts:
-
-   <pre><strong>./git-imerge-test.sh
-   </strong></pre>
 
 
    ### Run Merge on Test repos
-
-0. On a Mac, give run permissions to the script:
-
-   <pre><strong>chmod 555 git-imerge-test-run.sh
-   ./git-imerge-test-run.sh
-   </strong></pre>
-
-   This only needs to be done once.
-
 
 0. Run the script to perform a merge using git-imerge-test repos:
 
@@ -143,12 +128,10 @@ fi
 
    This was created for testing the test.
 
-   You may want to adapt this to run on your own repos.
+   You may want to later adapt this to run on your own repos.
 
-
-## About The Test Run Script
-
-Essentially, we want to end up with merges that that end up with this:
+   Essentially, we want to end up with this in GitHub's Network Diagram:
+   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
 
 <pre>
 o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
@@ -156,19 +139,28 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
       A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
 </pre>
 
-http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html
+1. The script first invokes the script to create a new repo with two branches containing conflicts:
 
-### Begin
-
-1. Begin much like with git merge: check out the destination branch 
-
-   <pre><strong>git checkout master
+   <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
+
+   The repo created contains two branches. Just for fun, we've named them
+   frobnicator and floobifier.
+
+   frobnicator will be merged into floobifier.
+
+0. Begin much like with git merge: check out the <strong>destination</strong> branch 
+
+   <pre><strong>git checkout floobifier
+   </strong></pre>
+
+   This is referenced as "ORIGINAL_BRANCH" in steps to follow.
 
 0. Then tell git imerge what branch you want to merge into it:
 
-   <pre><strong>git imerge start --name=merge-branch --first-parent branch
+   <pre><strong>git imerge start --name=frobnicator --first-parent branch
    </strong></pre>
+
 
    ### Intermediate state handling
 
@@ -180,19 +172,19 @@ http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html
 
    During an incremental merge, intermediate results are stored directly in your repository as special references:
 
-   refs/imerge/NAME/state -
+   ``refs/imerge/NAME/state`` -
    A blob containing a little bit of metadata.
 
-   refs/imerge/NAME/manual/M-N - 
+   ``refs/imerge/NAME/manual/M-N`` - 
    Manual merge including all of the changes through commits M on master and N on branch.
 
-   refs/imerge/NAME/auto/M-N -
+   ``refs/imerge/NAME/auto/M-N`` -
    Automatic merge including all of the changes through commits M on master and N on branch.
 
-   refs/heads/imerge/NAME -
+   ``refs/heads/imerge/NAME`` -
    Temporary branch used when resolving merge conflicts.
 
-   refs/heads/NAME -
+   ``refs/heads/NAME`` -
    Default reference name for storing final results.
 
    ### Diagram
@@ -201,6 +193,8 @@ http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html
 
    <pre><strong>git imerge diagram
    </strong></pre>
+
+   An example of the output:
 
    <pre>
 **********
@@ -220,10 +214,6 @@ Key:
   ? = no merge recorded
    </pre>
 
-   ### Manual reconciliation
-
-
-   ???
 
    ### Suspend abort
 
@@ -239,6 +229,18 @@ Key:
    Git-merge records each of the intermediate merges
    so they can be tested by the test suite.
 
+
+   ### Manual resolution
+
+   Resolve each conflict the same as before:
+
+0. Perform a diff
+
+   ???
+
+0. Edit the file.
+
+   ???
 
    ### Continue
 
@@ -274,7 +276,7 @@ Key:
    By default, the process above creates a new branch NAME that points at the result, 
    and checks out that branch.
 
-0. See it:
+0. See the final commit created by git-imerge:
 
    <pre><strong>git log -1 --decorate
    </strong></pre>
@@ -284,10 +286,16 @@ Key:
    <pre>
 commit 79afd870a52e216114596b52c800e45139badf74 (HEAD, merge-branch)
 Merge: 8453321 993a8a9
-Author: Lou User <luser@example.com>
+Author: Lou User &LT;luser@example.com>
 Date:   Wed May 8 10:08:07 2013 +0200
 &nbsp;   
     Merge frobnicator into floobifier.
    </pre>
 
 
+
+## More #
+
+This is one of a series on Git, GitHub, and GitLab:
+
+{% include git_links.html %}
