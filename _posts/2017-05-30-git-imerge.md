@@ -17,6 +17,25 @@ comments: true
 
 {% include _toc.html %}
 
+The standard `git merge` and `git rebase` that comes with Git, 
+although superior to others, is rather cumbersome.
+
+Resolving big conflicts is unnecessarily hard.
+   Merging is **all-or-nothing**.  
+   There is **no way to save** a partly-done merge, so
+
+   * You can't record your progress.
+
+   * You can't switch to another branch temporarily.
+
+   * There is **no way to test** a partly-done merge.
+
+   * If you make a mistake, you can't go back.
+
+   * If you cannot resolve the **whole** conflict, there is nothing to
+   do but start over.
+
+## A Better Way
 
    The favored approach to merging two branches together (safely) is 
    <strong>incrementally</strong> in steps that allows for manual fixing.
@@ -24,14 +43,16 @@ comments: true
    based on previous commits like rebase, but retains the previous commit history
    (which rebase currently does not do).
 
-   Core Git programs do not do this, but there is a helper module that does.
-   
-   It runs using Python (either version 2 or 3).
+   The helper module that does this   
+   runs using Python (either version 2 or 3).
 
    It was mentioned by GitHub Data Scientist Patrick McKenna in 
    <a target="_blank" href="https://www.youtube.com/watch?v=2UKd0YMuc-M&t=32m3s">
-   a YouTube video</a> at his talk 
+   a YouTube video</a> "Greatest Hits of the Git Maintainers Room - Git Merge 2017" at his talk 
    during the GitMerge May 2017 conference.
+
+> This really removes the pain of merge.
+It figures out where conflicts occurred.
 
    The helper was actually created in May 2013.
    It was described 
@@ -60,12 +81,39 @@ comments: true
 
    (Instructions for Mac and Linux will be coming).
 
-0. Install Git Bash completions
+0. Re-start the Terminal to take the changes:
+
+   <pre><strong>source ~/.bash_profile
+   </strong></pre>
+
+0. Create a folder where you will add two repositories: 
+   the git-imerge repo and 
+   the git-imerge-test repo.
+
+0. Clone the helper module onto your computer:
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a> --depth=1
+   cd git-imerge
+   </strong></pre>
+
+0. Clone a repo containing scripts that creates test repos containing sample conflicts:
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
+   https://github.com/wilsonmar/git-imerge-test</a> --depth=1
+   cd git-imerge-test
+   </strong></pre>
+
+0. Use Make to run Makefile to install Bash completions:
 
    On a Mac:
-
-   <pre><strong>brew install bash-completion
+   
+   <pre><strong>make
    </strong></pre>
+
+   This copies file `<strong>git-imerge.bashcomplete</strong>` to 
+   $(DESTDIR)/etc/bash_completion.d/git-imerge
+
+   PRPTIP: In Make files, tabs should be used instead of spaces to indent items.
 
    See: 
    https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
@@ -83,29 +131,6 @@ fi
    </pre>
 
    PROTIP: Put this near other Python settings.
-
-0. Re-start the Terminal to take the changes:
-
-   <pre><strong>source ~/.bash_profile
-   </strong></pre>
-
-0. Create a folder where you will add two repositories: 
-   the git-imerge repo and 
-   the git-imerge-test repo.
-
-0. Clone the helper module onto your computer:
-
-   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">
-   https://github.com/mhagger/git-imerge</a> --depth=1
-   cd git-imerge
-   </strong></pre>
-
-0. Clone a repo containing scripts that creates test repos containing sample conflicts:
-
-   <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
-   https://github.com/wilsonmar/git-imerge-test</a> --depth=1
-   cd git-imerge-test
-   </strong></pre>
 
 
    ### Create Test Repos
@@ -133,13 +158,13 @@ fi
    Essentially, we want to end up with this in GitHub's Network Diagram:
    <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
 
-<pre>
+   <pre>
 o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
      \                                               /
       A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
-</pre>
+   </pre>
 
-1. The script first invokes the script to create a new repo with two branches containing conflicts:
+0. The script first invokes the script to create a new repo with two branches containing conflicts:
 
    <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
@@ -221,8 +246,10 @@ Key:
    abort any pending merge and switch to your other branch.
 
    <pre><strong>git merge --abort
-   git checkout ORIGINAL_BRANCH
+   git checkout floobifier
    </strong></pre>
+
+   floobifier is the ORIGINAL_BRANCH.
 
    Unlike regular git merge, abort with git merge does not abandon all previous changes.
 
