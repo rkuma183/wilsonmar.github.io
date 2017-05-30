@@ -1,0 +1,293 @@
+---
+layout: post
+title: "Git merge"
+excerpt: "This is how the cool kids are merging. Takes a bit of work, but you'll love it."
+shorturl: "https://goo.gl/"
+modified:
+tags: []
+image:
+# feature: pic blue black stars spin 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg
+  credit: Jeremy Thomas
+  creditlink: https://www.flickr.com/photos/132218932@N03/page2
+comments: true
+---
+<i>{{ page.excerpt }}</i>
+<hr />
+
+{% include _toc.html %}
+
+
+   The favored approach to merging two branches together (safely) is 
+   <strong>incrementally</strong> in steps that allows for manual fixing.
+   Some call this "rebase with history" because the technique creates new commits
+   based on previous commits like rebase, but retains the previous commit history
+   (which rebase currently does not do).
+
+   Core Git programs do not do this, but there is a helper module that does.
+   
+   It runs using Python (either version 2 or 3).
+
+   It was mentioned by GitHub Data Scientist Patrick McKenna in 
+   <a target="_blank" href="https://www.youtube.com/watch?v=2UKd0YMuc-M&t=32m3s">
+   a YouTube video</a> at his talk 
+   during the GitMerge May 2017 conference.
+
+   The helper was actually created in May 2013.
+   It was described 
+   <a target="_blank" href="https://www.youtube.com/watch?v=FMZ2_-Ny_zc">
+   in this video from the GitMerge 2013 conference</a>
+   by it's author, Michael Haggerty (mhagger@alum.mit.edu), a GitHub Core committer
+   and "theoretical physicist turned software developer".
+   He discussed the approach in
+   <a target="_blank" href="https://softwareswirl.blogspot.com/2013/05/git-imerge-practical-introduction.html">
+   his May 2013 blog post</a>.
+
+   This article combines all the above into a step-by-step tutorial so "newbies"
+   can easily benefit from this "game changing" technology.
+
+
+## Installation
+
+1. Install Python.
+
+0. Install Git.
+
+   On a Mac:
+
+   <pre><strong>brew install git
+   </strong></pre>
+
+   (Instructions for Mac and Linux will be coming).
+
+0. Install Git Bash completions
+
+   On a Mac:
+
+   <pre><strong>brew install bash-completion
+   </strong></pre>
+
+   See: 
+   https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+
+0. Make Bash completion occur at Terminal start-up:
+
+   On a Mac:
+
+   <pre><strong>vim ~/.bash_profile
+   </strong></pre>
+
+   <pre>if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+   </pre>
+
+   PROTIP: Put this near other Python settings.
+
+0. Re-start the Terminal to take the changes:
+
+   <pre><strong>source ~/.bash_profile
+   </strong></pre>
+
+0. Create a folder where you will add two repositories: 
+   the git-imerge repo and 
+   the git-imerge-test repo.
+
+0. Clone the helper module onto your computer:
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">
+   https://github.com/mhagger/git-imerge</a> --depth=1
+   cd git-imerge
+   </strong></pre>
+
+0. Clone a repo containing scripts that creates test repos containing sample conflicts:
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
+   https://github.com/wilsonmar/git-imerge-test</a> --depth=1
+   cd git-imerge-test
+   </strong></pre>
+
+
+   ### Create Test Repos
+
+0. On a Mac, give run permissions to the script:
+
+   <pre><strong>chmod 555 git-imerge-test.sh
+   ./git-imerge-test.sh
+   </strong></pre>
+
+   This only needs to be done once.
+
+
+0. Run the script to create a new repo with two branches containing conflicts:
+
+   <pre><strong>./git-imerge-test.sh
+   </strong></pre>
+
+
+   ### Run Merge on Test repos
+
+0. On a Mac, give run permissions to the script:
+
+   <pre><strong>chmod 555 git-imerge-test-run.sh
+   ./git-imerge-test-run.sh
+   </strong></pre>
+
+   This only needs to be done once.
+
+
+0. Run the script to perform a merge using git-imerge-test repos:
+
+   <pre><strong>./git-imerge-test-run.sh
+   </strong></pre>
+
+   This was created for testing the test.
+
+   You may want to adapt this to run on your own repos.
+
+
+## About The Test Run Script
+
+Essentially, we want to end up with merges that that end up with this:
+
+<pre>
+o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
+     \                                               /
+      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
+</pre>
+
+http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html
+
+### Begin
+
+1. Begin much like with git merge: check out the destination branch 
+
+   <pre><strong>git checkout master
+   </strong></pre>
+
+0. Then tell git imerge what branch you want to merge into it:
+
+   <pre><strong>git imerge start --name=merge-branch --first-parent branch
+   </strong></pre>
+
+   ### Intermediate state handling
+
+   The tool uses git bisect to find pairwise merges that conflict.
+   When it hits a conflict, it asks for help.
+
+   When ``git-imerge`` needs to ask the user to do a merge manually, it
+   creates a temporary branch ``refs/heads/imerge/NAME`` to hold the result. 
+
+   During an incremental merge, intermediate results are stored directly in your repository as special references:
+
+   refs/imerge/NAME/state -
+   A blob containing a little bit of metadata.
+
+   refs/imerge/NAME/manual/M-N - 
+   Manual merge including all of the changes through commits M on master and N on branch.
+
+   refs/imerge/NAME/auto/M-N -
+   Automatic merge including all of the changes through commits M on master and N on branch.
+
+   refs/heads/imerge/NAME -
+   Temporary branch used when resolving merge conflicts.
+
+   refs/heads/NAME -
+   Default reference name for storing final results.
+
+   ### Diagram
+
+0. Obtain a diagram 
+
+   <pre><strong>git imerge diagram
+   </strong></pre>
+
+   <pre>
+**********
+*??|?????|
+*--+-----+
+*??|#?????
+*??|??????
+*??|??????
+*--+??????
+&nbsp;
+Key:
+  |,-,+ = rectangles forming current merge frontier
+  * = merge done manually
+  . = merge done automatically
+  # = conflict that is currently blocking progress
+  @ = merge was blocked but has been resolved
+  ? = no merge recorded
+   </pre>
+
+   ### Manual reconciliation
+
+
+   ???
+
+   ### Suspend abort
+
+0. To suspend an incremental merge to do something else before continuing, 
+   abort any pending merge and switch to your other branch.
+
+   <pre><strong>git merge --abort
+   git checkout ORIGINAL_BRANCH
+   </strong></pre>
+
+   Unlike regular git merge, abort with git merge does not abandon all previous changes.
+
+   Git-merge records each of the intermediate merges
+   so they can be tested by the test suite.
+
+
+   ### Continue
+
+0. When you are ready to resume the incremental merge:
+
+   <pre><strong>git imerge continue
+   </strong></pre>
+
+
+   ### Abort
+
+0. If you need to completely abort an in-progress incremental merge,
+   first remove the temporary branches ``git-imerge`` created,
+   then checkout the branch you were in before you started the incremental merge:
+
+   <pre><strong>git imerge remove
+   git checkout ORIGINAL_BRANCH
+   </strong></pre>
+
+
+   <a name="FinalMerge"></a>
+
+   ### Final Merge
+
+0. In the final merge to be simplified for the permanent record, 
+   omit the intermediate results.
+
+   <pre><strong>git imerge finish --goal=merge
+   </strong></pre>
+
+   ### Verify
+
+   By default, the process above creates a new branch NAME that points at the result, 
+   and checks out that branch.
+
+0. See it:
+
+   <pre><strong>git log -1 --decorate
+   </strong></pre>
+   
+   A sample:
+
+   <pre>
+commit 79afd870a52e216114596b52c800e45139badf74 (HEAD, merge-branch)
+Merge: 8453321 993a8a9
+Author: Lou User <luser@example.com>
+Date:   Wed May 8 10:08:07 2013 +0200
+&nbsp;   
+    Merge frobnicator into floobifier.
+   </pre>
+
+
