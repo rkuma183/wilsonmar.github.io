@@ -87,9 +87,9 @@ It figures out where conflicts occurred."
 
 0. Clone a repo containing scripts that creates test repos containing sample conflicts:
 
-   <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
-   https://github.com/wilsonmar/git-imerge-test</a>
-   cd git-imerge-test
+   <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-utilities">
+   https://github.com/wilsonmar/git-utilities</a>
+   cd git-utilities
    </strong></pre>
 
 0. Add the folder to the executable search $PATH.
@@ -116,11 +116,14 @@ It figures out where conflicts occurred."
 
    ### View git-imerge
 
-0. Clone the helper module onto your computer:
+0. Clone the git-imerge module onto your computer:
 
    <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a>
    cd git-imerge
    </strong></pre>
+
+   The "active ingredient" is the git-imerge file.
+   It has no file extension because it's a [Git custom command](/git-custom-command/).
 
 0. View the git-imerge file
 
@@ -361,7 +364,13 @@ optional arguments:
    <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
 
-   Just for fun, we've named the two branches the script creates
+   #### How the test repo is created
+
+   To avoid problems, the script aims to be "idempotent" in that each time it's run,
+   the same result is produced. To achieve this, the script creates a sub-folder
+   to hold a repo and in subsequent runs deletes that sub-folder and its repo.
+
+   In the repo, two branches are created with names
    frobnicator and floobifier.
    Branch frobnicator is merged into floobifier.
 
