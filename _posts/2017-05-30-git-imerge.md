@@ -96,6 +96,12 @@ It figures out where conflicts occurred.
    cd git-imerge
    </strong></pre>
 
+0. Put the 
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a> --depth=1
+   cd git-imerge
+   </strong></pre>
+
 0. Clone a repo containing scripts that creates test repos containing sample conflicts:
 
    <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
@@ -212,7 +218,31 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
    Default reference name for storing final results.
 
 
-   The script creates conflicts marked by "X":
+   The script creates in both branches
+   a single file named <strong>subject.md</strong>
+   containing a row for each combination that will be merged:
+
+   <pre>
+A1
+B2 floobifier
+C3
+D4
+E5
+F6 
+G7 floobifier
+I8
+J9 floobifier
+10
+11
+   </pre>
+
+   Each commit adds another line.
+
+   Conflict in the file are commits named F2, C7, and B9.
+   To make conflicting lines, each conflict lines contain its own branch name
+   (floobifier or frobnicator).
+
+   This is illustrated by an "X" in the diagram below. 
 
    <pre>
 o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
@@ -239,13 +269,10 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
   branch
    </pre>
 
-   Each conflict is defined by this command in the script:
-
-   <pre>echo "conflict here">>file</pre>
 
    ### Diagram
 
-0. Obtain a diagram 
+0. Obtain a diagram to visualize:
 
    <pre><strong>git imerge diagram
    </strong></pre>
@@ -315,9 +342,10 @@ Key:
    then checkout the branch you were in before you started the incremental merge:
 
    <pre><strong>git imerge remove
-   git checkout ORIGINAL_BRANCH
+   git checkout 
    </strong></pre>
 
+   ORIGINAL_BRANCH
 
    <a name="FinalMerge"></a>
 
