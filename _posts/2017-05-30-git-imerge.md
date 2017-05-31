@@ -18,9 +18,7 @@ comments: true
 {% include _toc.html %}
 
 The standard `git merge` and `git rebase` that comes with Git, 
-although superior to others, is rather cumbersome.
-
-Resolving big conflicts is unnecessarily hard.
+although superior to others, is rather cumbersome and scary.
    Merging is **all-or-nothing**.  
    There is **no way to save** a partly-done merge, so
 
@@ -33,9 +31,9 @@ Resolving big conflicts is unnecessarily hard.
    * If you make a mistake, you can't go back.
 
    * If you cannot resolve the **whole** conflict, there is nothing to
-   do but start over.
+   do but to abort and start over.
 
-## A Better Way
+## A Better Way: interactive merge
 
    The favored approach to merging two branches together (safely) is 
    <strong>incrementally</strong> in steps that allows for manual fixing.
@@ -51,14 +49,14 @@ Resolving big conflicts is unnecessarily hard.
    a YouTube video</a> "Greatest Hits of the Git Maintainers Room - Git Merge 2017" at his talk 
    during the GitMerge May 2017 conference.
 
-> This really removes the pain of merge.
-It figures out where conflicts occurred.
+> "This really removes the pain of merge.
+It figures out where conflicts occurred."
 
    The helper was actually created in May 2013.
    It was described 
    <a target="_blank" href="https://www.youtube.com/watch?v=FMZ2_-Ny_zc">
    in this video from the GitMerge 2013 conference</a>
-   by it's author, Michael Haggerty (mhagger@alum.mit.edu), a GitHub Core committer
+   by its author, Michael Haggerty (mhagger@alum.mit.edu), a GitHub Core committer
    and "theoretical physicist turned software developer".
    He discussed the approach in
    <a target="_blank" href="https://softwareswirl.blogspot.com/2013/05/git-imerge-practical-introduction.html">
@@ -81,33 +79,111 @@ It figures out where conflicts occurred.
 
    (Instructions for Mac and Linux will be coming).
 
-0. Re-start the Terminal to take the changes:
-
-   <pre><strong>source ~/.bash_profile
-   </strong></pre>
+   ### Install test modules
 
 0. Create a folder where you will add two repositories: 
    the git-imerge repo and 
    the git-imerge-test repo.
 
-0. Clone the helper module onto your computer:
-
-   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a> --depth=1
-   cd git-imerge
-   </strong></pre>
-
-0. Put the 
-
-   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a> --depth=1
-   cd git-imerge
-   </strong></pre>
-
 0. Clone a repo containing scripts that creates test repos containing sample conflicts:
 
    <pre><strong>git clone <a target="_blank" href="https://github.com/wilsonmar/git-imerge-test">
-   https://github.com/wilsonmar/git-imerge-test</a> --depth=1
+   https://github.com/wilsonmar/git-imerge-test</a>
    cd git-imerge-test
    </strong></pre>
+
+0. Add the folder to the executable search $PATH.
+
+   On a Mac: edit the ~/.bash_profile to 
+
+   ~/gits/wilsonmar/git-utilities/git-custom-commands
+
+   NOTE: The above are the same instructions used to install git-custom-commands.
+
+0. Give run permissions to the scripts:
+
+   On Mac and Linux:
+
+   <pre><strong>chmod 555 git-imake
+   chmod 555 git-imerge-test-create.sh
+   chmod 555 git-imerge-test-run.sh
+   </strong></pre>
+
+   This above only needs to be done once.
+
+
+
+
+   ### View git-imerge
+
+0. Clone the helper module onto your computer:
+
+   <pre><strong>git clone <a target="_blank" href="https://github.com/mhagger/git-imerge">https://github.com/mhagger/git-imerge</a>
+   cd git-imerge
+   </strong></pre>
+
+0. View the git-imerge file
+
+   <pre><strong>cat git-imerge | more
+   </strong></pre>
+
+   Notice from the top line that it's run by a Python interpreter.
+
+   The part that starts with `r"""` is what is displayed by the 
+   <a href="#ManPage">-h command</a>.
+
+0. Press q to escape the display or press Spacebar key for next page.
+
+
+   ### Option A: Homebrew install
+
+0. If you have a Mac, view git-imerge specifications for Homebrew:
+
+   <a target="_blank" href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/git-imerge.rb">
+   https://github.com/Homebrew/homebrew-core/blob/master/Formula/git-imerge.rb</a>
+
+   PROTIP: The advantage of using Homebrew instead of manually installing is that
+   it handles upgrades automatically.
+   So before you upgrade MacOS again, check to see if there is an entry for that new version,
+   then do a `brew upgrade`. The other advantage is that executing ``brew uninstall git-imerge``
+   is easier than hunting down files to delete.
+
+   The Ruby-language code has a work-around for the make installation path.
+
+   It installs to the ``/bin`` folder.
+
+   If you are OK with the above, install git-imerge:
+
+   <pre><strong>brew install git-imerge
+   </strong></pre>
+
+   The response I got:
+
+   <pre>
+==> Downloading https://homebrew.bintray.com/bottles/git-imerge-1.0.0.sierra.bot
+######################################################################## 100.0%
+==> Pouring git-imerge-1.0.0.sierra.bottle.tar.gz
+==> Using the sandbox
+==> Caveats
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+==> Summary
+🍺  /usr/local/Cellar/git-imerge/1.0.0: 6 files, 168.1KB
+   </pre>
+
+   Notice the brew formula takes care of installing the bash_completion 
+   where other daemons are also installed (`/usr/local/etc/`) and
+   automatically invoked without you needing to manually add it in your bash_profile.
+
+0. Skip to <a href="#Verify">verify</a>.
+
+
+   ### Option B: Windows and Linux install
+
+   Sorry, instructions for Mac and Linux will be coming.
+
+
+   ### Option C: Manual install on Mac
 
 0. Use Make to run Makefile to install Bash completions:
 
@@ -131,23 +207,138 @@ It figures out where conflicts occurred.
    <pre><strong>vim ~/.bash_profile
    </strong></pre>
 
+   Add near other Python settings:
+
    <pre>if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
    </pre>
 
-   PROTIP: Put this near other Python settings.
 
+0. Re-start the Terminal to take the changes:
 
-   ### Create Test Repos
-
-0. On a Mac, give run permissions to the scripts:
-
-   <pre><strong>chmod 555 git-imerge-test-create.sh
-   chmod 555 git-imerge-test-run.sh
+   <pre><strong>source ~/.bash_profile
    </strong></pre>
 
-   This only needs to be done once.
+
+   <a name="Verify"></a>
+
+   ### Get menu to verify
+
+   Regardless of how it was installed:
+
+0. Verify by obtaining the list of commands:
+
+   If you want just a reminder of the keywords:
+   
+   <pre><strong>git imerge
+   </strong></pre>
+
+   The response should be this (error message):
+
+   <pre>
+usage: git-imerge [-h]
+                  {start,merge,rebase,drop,revert,continue,finish,diagram,list,init,record,autofill,simplify,remove,reparent}
+                  ...
+git-imerge: error: too few arguments
+   </pre>
+
+   <a name="ManPage"></a>
+
+   Alternately, for a whole "man page" as well:
+
+   <pre><strong>git imerge -h
+   </strong></pre>
+
+   The response adds to the above:
+
+   <pre>
+Git incremental merge
+&nbsp;
+Perform the merge between two branches incrementally.  If conflicts
+are encountered, figure out exactly which pairs of commits conflict,
+and present the user with one pairwise conflict at a time for
+resolution.
+&nbsp;
+Multiple incremental merges can be in progress at the same time.  Each
+incremental merge has a name, and its progress is recorded in the Git
+repository as references under 'refs/imerge/NAME'.
+&nbsp;
+An incremental merge can be interrupted and resumed arbitrarily, or
+even pushed to a server to allow somebody else to work on it.
+&nbsp;
+Instructions:
+&nbsp;
+To start an incremental merge or rebase, use one of the following
+commands:
+&nbsp;
+    git-imerge merge BRANCH
+        Analogous to "git merge BRANCH"
+&nbsp;
+    git-imerge rebase BRANCH
+        Analogous to "git rebase BRANCH"
+&nbsp;
+    git-imerge drop [commit | commit1..commit2]
+        Drop the specified commit(s) from the current branch
+&nbsp;
+    git-imerge revert [commit | commit1..commit2]
+        Revert the specified commits by adding new commits that
+        reverse their effects
+&nbsp;
+    git-imerge start --name=NAME --goal=GOAL BRANCH
+        Start a general imerge
+&nbsp;
+Then the tool will present conflicts to you one at a time, similar to
+"git rebase --incremental".  Resolve each conflict, and then
+&nbsp;
+    git add FILE...
+    git-imerge continue
+&nbsp;
+You can view your progress at any time with
+&nbsp;
+    git-imerge diagram
+&nbsp;
+When you have resolved all of the conflicts, simplify and record the
+result by typing
+&nbsp;
+    git-imerge finish
+&nbsp;
+To get more help about any git-imerge subcommand, type
+&nbsp;
+    git-imerge SUBCOMMAND --help
+&nbsp;
+positional arguments:
+  {start,merge,rebase,drop,revert,continue,finish,diagram,list,init,record,autofill,simplify,remove,reparent}
+                        sub-command
+    start               start a new incremental merge (equivalent to "init"
+                        followed by "continue")
+    merge               start a simple merge via incremental merge
+    rebase              start a simple rebase via incremental merge
+    drop                drop one or more commits via incremental merge
+    revert              revert one or more commits via incremental merge
+    continue            record the merge at branch imerge/NAME and start the
+                        next step of the merge (equivalent to "record"
+                        followed by "autofill" and then sets up the working
+                        copy with the next conflict that has to be resolved
+                        manually)
+    finish              simplify then remove a completed incremental merge
+                        (equivalent to "simplify" followed by "remove")
+    diagram             display a diagram of the current state of a merge
+    list                list the names of incremental merges that are
+                        currently in progress. The active merge is shown with
+                        an asterisk next to it.
+    init                initialize a new incremental merge
+    record              record the merge at branch imerge/NAME
+    autofill            autofill non-conflicting merges
+    simplify            simplify a completed incremental merge by discarding
+                        unneeded intermediate merges and cleaning up the
+                        ancestry of the commits that are retained
+    remove              irrevocably remove an incremental merge
+    reparent            change the parents of the HEAD commit
+&nbsp;
+optional arguments:
+  -h, --help            show this help message and exit
+   </pre>
 
 
    ### Run Merge on Test repos
@@ -159,87 +350,42 @@ fi
 
    This was created for testing the test.
 
-   You may want to later adapt this to run on your own repos.
+   (You may want to later adapt this to run on your own repos.)
 
-   Essentially, we want to end up with this in GitHub's Network Diagram:
-   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
 
-   <pre>
-o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
-     \                                               /
-      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
-   </pre>
+   ### Create test repo
 
-0. The script first invokes the script to create a new repo with two branches containing conflicts:
+0. The script invokes a script to create a new repo 
+   with two branches containing some lines that conflict:
 
    <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
 
-   The repo created contains two branches. Just for fun, we've named them
+   Just for fun, we've named the two branches the script creates
    frobnicator and floobifier.
    Branch frobnicator is merged into floobifier.
 
-0. Begin much like with git merge: check out the <strong>destination</strong> branch 
+   Each branch contains a single file named <strong>subject.md</strong>.
 
-   <pre><strong>git checkout floobifier
-   </strong></pre>
-
-   This is referenced as "ORIGINAL_BRANCH" in steps to follow.
-
-0. Then tell git imerge what branch you want to merge into it:
-
-   <pre><strong>git imerge start --name=frobnicator --first-parent branch
-   </strong></pre>
-
-
-   ### Intermediate state handling
-
-   The tool uses git bisect to find pairwise merges that conflict.
-   When it hits a conflict, it asks for help.
-
-   When ``git-imerge`` needs to ask the user to do a merge manually, it
-   creates a temporary branch ``refs/heads/imerge/NAME`` to hold the result. 
-
-   During an incremental merge, intermediate results are stored directly in your repository as special references:
-
-   ``refs/imerge/NAME/state`` -
-   A blob containing a little bit of metadata.
-
-   ``refs/imerge/NAME/manual/M-N`` - 
-   Manual merge including all of the changes through commits M on master and N on branch.
-
-   ``refs/imerge/NAME/auto/M-N`` -
-   Automatic merge including all of the changes through commits M on master and N on branch.
-
-   ``refs/heads/imerge/NAME`` -
-   Temporary branch used when resolving merge conflicts.
-
-   ``refs/heads/NAME`` -
-   Default reference name for storing final results.
-
-
-   The script creates in both branches
-   a single file named <strong>subject.md</strong>
-   containing a row for each combination that will be merged:
+   A "for" loop in the script alternates between the two branches 
+   to add a line at the bottom of the file, 
+   then makes another commit. Here are the message text of commits:
 
    <pre>
 A1
-B2 floobifier
+B2 conflict
 C3
 D4
 E5
 F6 
-G7 floobifier
-I8
-J9 floobifier
+G7 conflict
+H8
+I9 conflict
 10
 11
    </pre>
 
-   Each commit adds another line.
-
-   Conflict in the file are commits named F2, C7, and B9.
-   To make conflicting lines, each conflict lines contain its own branch name
+   To make conflicting lines, each conflict line contain its own branch name
    (floobifier or frobnicator).
 
    This is illustrated by an "X" in the diagram below. 
@@ -268,6 +414,57 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
     ↑
   branch
    </pre>
+
+   Essentially, we want to end up with this in a Git Network Diagram:
+   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
+
+   <pre>
+o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
+     \                                               /
+      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
+   </pre>
+
+
+0. Begin much like with git merge: check out the <strong>destination</strong> branch 
+
+   <pre><strong>git checkout floobifier
+   </strong></pre>
+
+   This is referenced as "ORIGINAL_BRANCH" in steps to follow.
+
+0. Then tell git imerge what branch you want to merge into it:
+
+   <pre><strong>git imerge start --name=frobnicator --first-parent branch
+   </strong></pre>
+
+
+   ### Intermediate state handling
+
+   Below are internals information you may not care about:
+
+   The tool uses `git bisect` to find pairwise merges that conflict.
+   When it hits a conflict, it asks for help.
+
+   When ``git-imerge`` needs to ask the user to do a merge manually, it
+   creates a temporary branch ``refs/heads/imerge/NAME`` to hold the result. 
+
+   During an incremental merge, intermediate results are stored directly in your repository as special references:
+
+   ``refs/imerge/NAME/state`` -
+   A blob containing a little bit of metadata.
+
+   ``refs/imerge/NAME/manual/M-N`` - 
+   Manual merge including all of the changes through commits M on master and N on branch.
+
+   ``refs/imerge/NAME/auto/M-N`` -
+   Automatic merge including all of the changes through commits M on master and N on branch.
+
+   ``refs/heads/imerge/NAME`` -
+   Temporary branch used when resolving merge conflicts.
+
+   ``refs/heads/NAME`` -
+   Default reference name for storing final results.
+
 
 
    ### Diagram
@@ -319,13 +516,10 @@ Key:
 
    Resolve each conflict the same as before:
 
-0. Perform a diff
-
-   ???
-
+0. Perform a diff to identify differences.
 0. Edit the file.
-
-   ???
+0. Add the file
+0. Commit the change.
 
    ### Continue
 
@@ -342,10 +536,11 @@ Key:
    then checkout the branch you were in before you started the incremental merge:
 
    <pre><strong>git imerge remove
-   git checkout 
+   git checkout floobifier
    </strong></pre>
 
-   ORIGINAL_BRANCH
+   floobifier is the "ORIGINAL_BRANCH". It would be different during productive use.
+
 
    <a name="FinalMerge"></a>
 
