@@ -408,7 +408,7 @@ I9 conflict
    </pre>
 
    To make conflicting lines, each conflict line contain its own branch name
-   (floob or frob).
+   (master or feature1).
 
    This is illustrated by an "X" in the diagram below. 
 
@@ -440,18 +440,32 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
 
-   <pre><strong>git checkout floob
+   <pre><strong>git checkout master
    </strong></pre>
 
    This is referenced as "ORIGINAL_BRANCH" in steps to follow.
 
 0. Then tell git imerge what branch you want to merge into it:
 
-   <pre><strong>git imerge start --name=frob --first-parent branch
+   <pre><strong>git imerge start --name=frob --first-parent feature1
    </strong></pre>
 
 
    ### Intermediate state handling
+
+0. When imerge processing stops due to a conflict,
+   notice you are at branch "imerge/NAME" automatically created.
+
+   <pre><strong>git branch -avv
+   </strong></pre>
+
+   The response:
+
+   <pre>
+  feature1    2fe920d I
+* imerge/NAME b9a54e5 imerge 'NAME': automatic merge 2-1
+  master      7b85c5f 9
+   </pre>
 
    Below are internals information you may not care about:
 
@@ -478,6 +492,44 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    ``refs/heads/NAME`` -
    Default reference name for storing final results.
 
+
+   <a name="CycleFixes"></a>
+
+   ### Cycle of fixes
+
+0. Resolve the first conflict by editing somefile.md :
+
+   <pre>
+A1
+<<<<<<< HEAD
+B2 feature1
+=======
+B2 master
+>>>>>>> 1905858068225d58f2f36fdce243bc2a663ced36
+   </pre>
+
+0. Remove lines added to end up with:
+
+   <pre>
+A1
+B2 master
+   </pre>
+
+0. Add the commit the change:
+
+   <pre><strong>git add . && git commit -m"Fix B2"
+   </strong></pre>
+
+0. Resume:
+
+   <pre><strong>git imerge continue
+   </strong></pre>
+
+   <a href="#CycleFixes">Repeat this cycle of fixes</a> until you see:
+
+   <pre>
+Merge is complete!
+   <pre>
 
 
    ### Diagram
