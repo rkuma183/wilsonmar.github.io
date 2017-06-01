@@ -387,25 +387,6 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
    then makes another commit. Here are the message text of commits:
 
    <pre>
-A1
-B2 conflict
-C3
-D4
-E5
-F6 
-G7 conflict
-H8
-I9 conflict
-10
-11
-   </pre>
-
-   To make conflicting lines, each conflict line contain its own branch name
-   (master or feature1).
-
-   This is illustrated by an "X" in the diagram below. 
-
-   <pre>
 o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
     |   |    |    |    |    |    |    |    |    |     |     |
     A -   --   --   --   --   -- A6 -   -- A8 - A9 - A10 - A11
@@ -430,6 +411,42 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
   branch feature1
    </pre>
 
+   "X" in the diagram below marks where is conflict is designed to occur.
+
+   To make conflicting lines, each line that will conflict contains its own branch name
+   (master or feature1). A cat of the file within the master branch contains:
+
+   <pre>
+A1
+B2 master
+C3
+D4
+E5
+F6 
+G7 master
+H8
+I9 master
+10
+11
+   </pre>
+
+   A cat of the file within the feature1 branch contains:
+
+   <pre>
+A1
+B2 feature1
+C3
+D4
+E5
+F6 
+G7 feature1
+H8
+I9 feature1
+10
+11
+   </pre>
+
+
    The script contains these steps:
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
@@ -437,7 +454,7 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    <pre><strong>git checkout master
    </strong></pre>
 
-0. Then tell git imerge what branch you want to merge into it:
+0. Tell git imerge what branch you want to merge into it:
 
    <pre><strong>git imerge start --name=NAME --goal=full feature1
    </strong></pre>
@@ -458,7 +475,7 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    <pre><strong>git branch -avv
    </strong></pre>
 
-   The response:
+   The response (where each run will have different commit IDs):
 
    <pre>
   feature1    2fe920d I
@@ -512,7 +529,7 @@ A1
 B2 feature1
    </pre>
 
-   NOTE: We keep the "feature1" version because that's the change we want to make.
+   NOTE: We keep the "feature1" version because that's the change we typically want to make.
 
    BLAH QUESTION for Michael: This doesn't seem to "take".
    The next cycle has entries out of order.

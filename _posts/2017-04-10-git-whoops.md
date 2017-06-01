@@ -419,19 +419,23 @@ If you didn't mean to fork a repository, but you did anyway,
 
 ## Resources
 
-https://www.atlassian.com/git/tutorials/undoing-changes
+* <a target="_blank" href="http://ohshitgit.com/">ohshitgit.com</a>
 
-https://github.com/blog/2019-how-to-undo-almost-anything-with-git
+* <a target="_blank" href="https://www.atlassian.com/git/tutorials/undoing-changes">
+   https://www.atlassian.com/git/tutorials/undoing-changes</a>
 
-<a target="_blank" href="https://www.youtube.com/watch?v=54Yh0YyC-4Q">
-Git and the Terrible, Horrible, No Good, Very Bad Day - Git Merge 2017</a> [35:03]
-by Hector Alfaro, trainer at GitHub
-shows in <a target="_blank" href="https://github.com/hectorsector/git-and-the-bad-day">
-https://github.com/hectorsector/git-and-the-bad-day</a>
-how to detangle things by use of more advanced porcelain commands 
-such as git bisect.
+* <a target="_blank" href="https://github.com/blog/2019-how-to-undo-almost-anything-with-git">
+   https://github.com/blog/2019-how-to-undo-almost-anything-with-git</a>
 
-Serious problems are fixed by BFG and git filter-branch
+* <a target="_blank" href="https://www.youtube.com/watch?v=54Yh0YyC-4Q">
+   Git and the Terrible, Horrible, No Good, Very Bad Day - Git Merge 2017</a> [35:03]
+   by Hector Alfaro, trainer at GitHub
+   shows in <a target="_blank" href="https://github.com/hectorsector/git-and-the-bad-day">
+   https://github.com/hectorsector/git-and-the-bad-day</a>
+   how to detangle things by use of more advanced porcelain commands 
+   such as git bisect.
+
+   Serious problems are fixed by BFG and git filter-branch
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=WfwwFyE-ckQ">
    Repo 911</a> at 
