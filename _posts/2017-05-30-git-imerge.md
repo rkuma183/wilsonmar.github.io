@@ -69,21 +69,23 @@ It figures out where conflicts occurred."
 ## Installation
 
 1. Install Python.
-
+0. Install Ruby (make).
 0. Install Git.
 
-   On a Mac:
+   On Windows, install Chocolatey.org and in a Run command window, 
+   `choco install msysgit`.
 
-   <pre><strong>brew install git
-   </strong></pre>
+0. If you are running Windows, be in <strong>Git Bash</strong> to run.
 
-   (Instructions for Mac and Linux will be coming).
 
    ### Install test modules
 
-0. Create a folder where you will add two repositories: 
-   the git-imerge repo and 
-   the git-imerge-test repo.
+0. Create and cd to a folder where you will clone a repository containing scripts:
+
+   <pre><strong>cd ~
+   mkdir git-imerge-test
+   cd git-imerge-test
+   </strong></pre>
 
 0. Clone a repo containing scripts that creates test repos containing sample conflicts:
 
@@ -92,24 +94,22 @@ It figures out where conflicts occurred."
    cd git-utilities
    </strong></pre>
 
-0. Add the folder to the executable search $PATH.
+0. Create a folder where you want the test repo created.
+0. Copy the two scripts to that new folder.
 
-   On a Mac: edit the ~/.bash_profile to 
-
-   ~/gits/wilsonmar/git-utilities/git-custom-commands
-
-   NOTE: The above are the same instructions used to install git-custom-commands.
+   * git-imerge-test-create.sh
+   * git-imerge-test-run.sh
+   <br /><br />
 
 0. Give run permissions to the scripts:
 
    On Mac and Linux:
 
-   <pre><strong>chmod 555 git-imake
-   chmod 555 git-imerge-test-create.sh
+   <pre><strong>chmod 555 git-imerge-test-create.sh
    chmod 555 git-imerge-test-run.sh
    </strong></pre>
 
-   This above only needs to be done once.
+   The above only needs to be done once.
 
 
 
@@ -122,8 +122,8 @@ It figures out where conflicts occurred."
    cd git-imerge
    </strong></pre>
 
-   The "active ingredient" is the git-imerge file.
-   It has no file extension because it's a [Git custom command](/git-custom-command/).
+   The "active ingredient" is the `git-imerge` file.
+   The file has no file extension because it's a [Git custom command](/git-custom-command/).
 
 0. View the git-imerge file
 
@@ -133,7 +133,7 @@ It figures out where conflicts occurred."
    Notice from the top line that it's run by a Python interpreter.
 
    The part that starts with `r"""` is what is displayed by the 
-   <a href="#ManPage">-h command</a>.
+   <a href="#ManPage">`git imerge -h` command</a>.
 
 0. Press q to escape the display or press Spacebar key for next page.
 
@@ -217,6 +217,7 @@ Bash completion has been installed to:
 fi
    </pre>
 
+   CAUTION: The above needs to be confirmed.
 
 0. Re-start the Terminal to take the changes:
 
@@ -245,6 +246,9 @@ usage: git-imerge [-h]
                   ...
 git-imerge: error: too few arguments
    </pre>
+
+   (ignore the "too few arguments")
+
 
    <a name="ManPage"></a>
 
@@ -358,8 +362,7 @@ optional arguments:
 
    ### Create test repo
 
-0. The script invokes a script to create a new repo 
-   with two branches containing some lines that conflict:
+0. The script invokes a script to create a new repo containing conflicts:
 
    <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
@@ -367,14 +370,24 @@ optional arguments:
    #### How the test repo is created
 
    To avoid problems, the script aims to be "idempotent" in that each time it's run,
-   the same result is produced. To achieve this, the script creates a sub-folder
-   to hold a repo and in subsequent runs deletes that sub-folder and its repo.
+   the same result is produced. To achieve this, the script creates entries
+   in two branches.
+   In subsequent runs the repo (.git folder) is deleted before starting over.
 
    In the repo, two branches are created with names
-   frobnicator and floobifier.
-   Branch frobnicator is merged into floobifier.
+   frob and floob.
+   Branch frob is merged into floob.
 
-   Each branch contains a single file named <strong>subject.md</strong>.
+   Essentially, we want to end up with this in a Git Network Diagram:
+   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
+
+   <pre>
+o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master/floob
+     \                                               /
+      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch frob
+   </pre>
+
+   Each branch contains a single file named <strong>somefile.md</strong>.
 
    A "for" loop in the script alternates between the two branches 
    to add a line at the bottom of the file, 
@@ -395,7 +408,7 @@ I9 conflict
    </pre>
 
    To make conflicting lines, each conflict line contain its own branch name
-   (floobifier or frobnicator).
+   (floob or frob).
 
    This is illustrated by an "X" in the diagram below. 
 
@@ -424,26 +437,17 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
   branch
    </pre>
 
-   Essentially, we want to end up with this in a Git Network Diagram:
-   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
-
-   <pre>
-o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master
-     \                                               /
-      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch
-   </pre>
-
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
 
-   <pre><strong>git checkout floobifier
+   <pre><strong>git checkout floob
    </strong></pre>
 
    This is referenced as "ORIGINAL_BRANCH" in steps to follow.
 
 0. Then tell git imerge what branch you want to merge into it:
 
-   <pre><strong>git imerge start --name=frobnicator --first-parent branch
+   <pre><strong>git imerge start --name=frob --first-parent branch
    </strong></pre>
 
 
@@ -510,10 +514,10 @@ Key:
    abort any pending merge and switch to your other branch.
 
    <pre><strong>git merge --abort
-   git checkout floobifier
+   git checkout floob
    </strong></pre>
 
-   floobifier is the ORIGINAL_BRANCH.
+   floob is the ORIGINAL_BRANCH.
 
    Unlike regular git merge, abort with git merge does not abandon all previous changes.
 
@@ -545,10 +549,10 @@ Key:
    then checkout the branch you were in before you started the incremental merge:
 
    <pre><strong>git imerge remove
-   git checkout floobifier
+   git checkout floob
    </strong></pre>
 
-   floobifier is the "ORIGINAL_BRANCH". It would be different during productive use.
+   floob is the "ORIGINAL_BRANCH". It would be different during productive use.
 
 
    <a name="FinalMerge"></a>
@@ -579,7 +583,7 @@ Merge: 8453321 993a8a9
 Author: Lou User &LT;luser@example.com>
 Date:   Wed May 8 10:08:07 2013 +0200
 &nbsp;   
-    Merge frobnicator into floobifier.
+    Merge frob into floob.
    </pre>
 
 
