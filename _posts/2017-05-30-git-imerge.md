@@ -95,10 +95,9 @@ It figures out where conflicts occurred."
    </strong></pre>
 
 0. Create a folder where you want the test repo created.
-0. Copy the two scripts to that new folder.
+0. Copy the git-imerge script to that new folder.
 
    * git-imerge-test-create.sh
-   * git-imerge-test-run.sh
    <br /><br />
 
 0. Give run permissions to the scripts:
@@ -106,7 +105,6 @@ It figures out where conflicts occurred."
    On Mac and Linux:
 
    <pre><strong>chmod 555 git-imerge-test-create.sh
-   chmod 555 git-imerge-test-run.sh
    </strong></pre>
 
    The above only needs to be done once.
@@ -348,24 +346,19 @@ optional arguments:
    </pre>
 
 
-   ### Run Merge on Test repos
+### Run scripts
 
-0. Run the script to perform a merge using git-imerge-test repos:
+   ### Create test repo
 
-   <pre><strong>./git-imerge-test-run.sh
+0. Run the script which sets up data containing conflicts
+   and perform a merge using git-imerge:
+
+   <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
 
    This was created for testing the test.
 
-   (You may want to later adapt this to run on your own repos.)
-
-
-   ### Create test repo
-
-0. The script invokes a script to create a new repo containing conflicts:
-
-   <pre><strong>./git-imerge-test-create.sh
-   </strong></pre>
+   (You may want to later adapt this to run on your own commands.)
 
    #### How the test repo is created
 
@@ -382,9 +375,9 @@ optional arguments:
    <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
 
    <pre>
-o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master/floob
+o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
      \                                               /
-      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch frob
+      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch feature1
    </pre>
 
    Each branch contains a single file named <strong>somefile.md</strong>.
@@ -437,24 +430,29 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
   branch
    </pre>
 
+   The script contains these steps:
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
 
-   <pre><strong>git checkout master
+   <pre><strong>git checkout feature1
    </strong></pre>
-
-   This is referenced as "ORIGINAL_BRANCH" in steps to follow.
 
 0. Then tell git imerge what branch you want to merge into it:
 
-   <pre><strong>git imerge start --name=frob --first-parent feature1
+   <pre><strong>git imerge start --name=NAME --goal=full master
    </strong></pre>
+
+   QUESTION: How is this different than `--first-parent feature1`?
 
 
    ### Intermediate state handling
 
+   Internally, the tool uses `git bisect` to find pairwise merges that conflict.
+   
+   When it hits a conflict, it asks for help.
+
 0. When imerge processing stops due to a conflict,
-   notice you are at branch "imerge/NAME" automatically created.
+   notice you are at branch "imerge/NAME" automatically created to hold results:
 
    <pre><strong>git branch -avv
    </strong></pre>
@@ -468,13 +466,6 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    </pre>
 
    Below are internals information you may not care about:
-
-   The tool uses `git bisect` to find pairwise merges that conflict.
-   When it hits a conflict, it asks for help.
-
-   When ``git-imerge`` needs to ask the user to do a merge manually, it
-   creates a temporary branch ``refs/heads/imerge/NAME`` to hold the result. 
-
    During an incremental merge, intermediate results are stored directly in your repository as special references:
 
    ``refs/imerge/NAME/state`` -
@@ -497,7 +488,12 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
 
    ### Cycle of fixes
 
-0. Resolve the first conflict by editing somefile.md :
+   Resolve conflicts in the sample the usual way:
+
+0. In larger files in real life, you may need to use a diff utility 
+   to identify differences.
+
+0. As an example, to resolve conflicts by using a text editor on somefile.md :
 
    <pre>
 A1
@@ -515,10 +511,13 @@ A1
 B2 master
    </pre>
 
+   BLAH QUESTION: This doesn't seem to "take".
+
 0. Add the commit the change:
 
    <pre><strong>git add . && git commit -m"Fix B2"
    </strong></pre>
+
 
 0. Resume:
 
@@ -566,32 +565,14 @@ Key:
    abort any pending merge and switch to your other branch.
 
    <pre><strong>git merge --abort
-   git checkout floob
+   git checkout master
    </strong></pre>
 
-   floob is the ORIGINAL_BRANCH.
+   Unlike regular git merge, aborting with git imerge does not 
+   abandon all previous changes.
 
-   Unlike regular git merge, abort with git merge does not abandon all previous changes.
-
-   Git-merge records each of the intermediate merges
+   Git-imerge has recorded each of the intermediate merges
    so they can be tested by the test suite.
-
-
-   ### Manual resolution
-
-   Resolve each conflict the same as before:
-
-0. Perform a diff to identify differences.
-0. Edit the file.
-0. Add the file
-0. Commit the change.
-
-   ### Continue
-
-0. When you are ready to resume the incremental merge:
-
-   <pre><strong>git imerge continue
-   </strong></pre>
 
 
    ### Abort
@@ -601,10 +582,10 @@ Key:
    then checkout the branch you were in before you started the incremental merge:
 
    <pre><strong>git imerge remove
-   git checkout floob
+   git checkout master
    </strong></pre>
 
-   floob is the "ORIGINAL_BRANCH". It would be different during productive use.
+   This is the "ORIGINAL_BRANCH". It may be different during productive use.
 
 
    <a name="FinalMerge"></a>
@@ -635,7 +616,7 @@ Merge: 8453321 993a8a9
 Author: Lou User &LT;luser@example.com>
 Date:   Wed May 8 10:08:07 2013 +0200
 &nbsp;   
-    Merge frob into floob.
+    Merge frob into master.
    </pre>
 
 
