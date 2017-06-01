@@ -427,22 +427,23 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
     I - I1
 &nbsp;
     ↑
-  branch
+  branch feature1
    </pre>
 
    The script contains these steps:
 
 0. Begin much like with git merge: check out the <strong>destination</strong> branch 
 
-   <pre><strong>git checkout feature1
+   <pre><strong>git checkout master
    </strong></pre>
 
 0. Then tell git imerge what branch you want to merge into it:
 
-   <pre><strong>git imerge start --name=NAME --goal=full master
+   <pre><strong>git imerge start --name=NAME --goal=full feature1
    </strong></pre>
 
    QUESTION: How is this different than `--first-parent feature1`?
+   When do we use that?
 
 
    ### Intermediate state handling
@@ -508,10 +509,13 @@ B2 master
 
    <pre>
 A1
-B2 master
+B2 feature1
    </pre>
 
-   BLAH QUESTION: This doesn't seem to "take".
+   NOTE: We keep the "feature1" version because that's the change we want to make.
+
+   BLAH QUESTION for Michael: This doesn't seem to "take".
+   The next cycle has entries out of order.
 
 0. Add the commit the change:
 
@@ -524,7 +528,12 @@ B2 master
    <pre><strong>git imerge continue
    </strong></pre>
 
-   <a href="#CycleFixes">Repeat this cycle of fixes</a> until you see:
+   If you forgot to do a commit, you'll see this message:
+
+   <pre>somefile.md: needs merge
+   </pre>
+
+0. <a href="#CycleFixes">Repeat this cycle of fixes</a> until you see:
 
    <pre>
 Merge is complete!
