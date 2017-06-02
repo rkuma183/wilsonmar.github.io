@@ -15,10 +15,10 @@ comments: true
 
 {% include _toc.html %}
 
-Here are my notes on how to create a multi-variate Linear Regression formula.
+Here are my notes on how to create a multi-variate Linear Regression formula
+using Microsoft Excel.
 
-
-## Sample Data
+   ### Obtain Sample Data
 
 To work through how a home-goods manufacturer can 
 predict expected profits from a catalog launch,
@@ -33,19 +33,46 @@ students build a linear regression model to provide results and a recommendation
 
    NOTE: A column in a spreadsheet some call a "data field".
 
-2. The test dataset (new-diamonds.csv) contains new instances that do not have outcomes 
+0. The test dataset (new-diamonds.csv) contains new instances that do not have outcomes 
    (prices) defined.
 
+   ### Install Excel
 
-## Excel
+   This tutorial assumes that you have Microsoft Excel installed.
 
-2. In Finder, double-click on the diamonds.csv file to open it in Excel:
+   ### Open in Excel
+
+   During the installation processes on Windows or MacOS,
+   the operating system is told that suffixes at the end of file names,
+   such as ".csv" and ".xlsx" are opened using Excel.
+
+0. In Finder or 
+   double-click on the diamonds.csv file to open it in Excel.
+
+
+   ### Activate Analysis Toolpak
+
+0. In Excel, click on the <strong>Data</strong> tab.
+
+   If <strong>Data Analysis</strong> does not appear on the far right, 
+   the Analysis Toolpak needs to be installed:
+
+   On Excel 2016, click the Tools menu at the top of the screen to select Excel Add-ins.
+   Check Analysis ToolPak, then OK.
+
+   On Excel 2013, click the File menu at the top of the screen to select Properties.
+   Check Analysis ToolPak, then OK.
+
+   The above only needs to be done once.
+
+
+## Data preparation
+
+### Contiguous X columns
 
    Excel needs all variables together, so:
 
-   ### Contiguous X columns
-
-3. Select the letter above the "caret" column to select the whole column.
+1. Select the letter above the "caret" column to select the whole column.
 4. Press Ctrl+X to cut. Click on the column heading to the right of the "price" column.
 5. Repeat for the "clarity_ord" and "cut_ord" columns.
 
@@ -99,6 +126,10 @@ students build a linear regression model to provide results and a recommendation
 ## Resources
 
 To create a multi-variate regression in Excel:
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/kShe0b-sK4o" frameborder="0" allowfullscreen> </iframe><br /><small>This video is from the Udacity class,
+   about a different data set</small>
+   <br />
 
 * https://www.youtube.com/watch?v=O7TMCYuDbDc
 * https://www.youtube.com/watch?v=HgfHefwK7VQ
