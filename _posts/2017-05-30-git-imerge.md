@@ -522,7 +522,7 @@ error: you need to resolve your current index first
 0. In larger files in real life, you may need to use a diff utility 
    to identify differences.
 
-0. As an example, to resolve conflicts by using a text editor on somefile.md :
+0. Resolve deliberate conflicts in the example by using a text editor on somefile.md :
 
    <pre>
 A1
@@ -533,7 +533,42 @@ B2 master
 >>>>>>> 1905858068225d58f2f36fdce243bc2a663ced36
    </pre>
 
+   The ======= separates content were inserted by Git to divide
+   what is conflicting between the two branches.
+
+   That and the beginning and ending markers also inserted by Git need to be removed
+   before saving the file.
+
    At the bottom is the SHA1 commit ID.
+
+   The difference between an imerge versus a native git merge is that imerge presents
+   only a single instance of such markers, whereas a native git merge put such markers
+   in several places. As an aside, a native git merge would have resulted in this
+   on the whole file:
+
+   <pre>
+A1
+<<<<<<< HEAD
+B2 feature1
+=======
+B2 master
+>>>>>>> master
+C3
+D4
+E5
+F6
+<<<<<<< HEAD
+G7 feature1
+H8
+I9 feature1
+=======
+G7 master
+H8
+I9 master
+>>>>>>> master
+   </pre>
+
+   Anyway, back to interactive merge:
 
 0. Remove lines added to end up with:
 
