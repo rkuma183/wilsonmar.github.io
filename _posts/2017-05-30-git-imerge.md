@@ -17,7 +17,8 @@ comments: true
 
 {% include _toc.html %}
 
-This article presents an alternative to the standard `git merge` and `git rebase` 
+This article presents a step-by-step tutorial so you can confidently use 
+an alternative to the standard `git merge` and `git rebase` 
 that comes with Git. 
 
 ## The annoyance
@@ -412,6 +413,119 @@ I9 feature1
 11
    </pre>
 
+   After construction, the branch list shows the last commits for each branch.
+   For example:
+
+   <pre>
+  feature1 55d4211 I
+* master   80fa56b 9
+   </pre>   
+
+   The asterisk (*) indicates that the currently checked-out branch is "master".
+
+   After printing out the above, the script <strong>pauses</strong> with this message:
+
+   <pre>Press enter to continue</pre>
+
+
+   ### Analyze native merge
+
+   Let's pause here to review the repo created.
+
+0. Do a diff to see:
+
+   <pre><strong>git diff master feature1
+   </strong></pre>
+
+   The default display has a column in front of each line.
+
+   The "---" at the top indicates where a - (minus sign) marks file "a" lines.
+
+   The "+++" at the top indicates where a + (plus sign) marks file "b" lines.
+
+   Different colors may also appear.
+
+   The difference between an imerge versus a native git merge is that imerge presents
+   only a single instance of such markers, whereas a native git merge put such markers
+   in several places. 
+
+0. As an aside, let's do a native git merge as the basis for comparison.
+
+   On a Mac, press control+C to exit the running script.
+
+   Be at the master source branch and merge in the "up-start" branch into it:
+
+   <pre><strong>git checkout master
+   git merge feature1
+   </strong></pre>
+
+   The response we expect is:
+
+   <pre>
+CONFLICT (content): Merge conflict in somefile.md
+Automatic merge failed; fix conflicts and then commit the result.
+   </pre>
+
+0. View modifications Git made to the file:
+
+   <pre><strong>cat somefile.md
+   </strong></pre>
+
+   You should now see:
+
+   <pre>
+A1
+<<<<<<< HEAD
+B2 feature1
+=======
+B2 master
+>>>>>>> master
+C3
+D4
+E5
+F6
+<<<<<<< HEAD
+G7 feature1
+H8
+I9 feature1
+=======
+G7 master
+H8
+I9 master
+>>>>>>> master
+   </pre>
+
+0. If you want to be adament and <strong>overwrite</strong> 
+   what's in master with the entirety of them up-start's file from the feature1 branch:
+
+   <pre><strong>git checkout --theirs somefile.md
+   </strong></pre>
+
+   Alternately, if you want to just <strong>keep</strong> 
+   whatever was in the original source (master) branch:
+
+   <pre><strong>git checkout --ours somefile.md
+   </strong></pre>
+
+0. Add and commit the change:
+
+   <pre><strong>git add somefile.md && git commit -m"resolved"
+   </strong></pre>
+
+   NOTE: All files need to be added again, not just the ones in conflict.
+
+
+   You should now see:
+
+   The above combines the best of advice from others about traditional git merge:
+
+   * http://genomewiki.ucsc.edu/index.php/Resolving_merge_conflicts_in_Git
+
+
+   ### Interactive merge
+
+   Anyway, back to interactive merge:
+
    Essentially, we want to end up with this in a Git Network Diagram:
    <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
 
@@ -452,9 +566,9 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    "X" in the diagram below marks where is conflict is designed to occur.
 
 
-   The script contains these steps:
-
-0. Begin much like with git merge: check out the <strong>destination</strong> branch 
+0. Run the script again. But this time, press Enter for the script to
+   begin merge much like with standard git merge
+   by checking out the <strong>destination</strong> branch:
 
    <pre><strong>git checkout master
    </strong></pre>
@@ -508,7 +622,8 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
    ``refs/heads/NAME`` -
    Default reference name for storing final results.
 
-   I mention all this because this error occurs if you try to checkout a different branch:
+   I mention all this because this error occurs if you try to checkout a different branch
+   after 
 
    <pre>
 somefile.md: needs merge
@@ -523,7 +638,7 @@ error: you need to resolve your current index first
    Resolve conflicts in the sample the usual way:
 
 0. In larger files in real life, you may need to use a diff utility 
-   to identify differences.
+   to identify differences. I will be move material from my class here.
 
 0. Resolve deliberate conflicts in the example by using a text editor on somefile.md :
 
@@ -544,34 +659,6 @@ B2 master
 
    At the bottom is the SHA1 commit ID.
 
-   The difference between an imerge versus a native git merge is that imerge presents
-   only a single instance of such markers, whereas a native git merge put such markers
-   in several places. As an aside, a native git merge would have resulted in this
-   on the whole file:
-
-   <pre>
-A1
-<<<<<<< HEAD
-B2 feature1
-=======
-B2 master
->>>>>>> master
-C3
-D4
-E5
-F6
-<<<<<<< HEAD
-G7 feature1
-H8
-I9 feature1
-=======
-G7 master
-H8
-I9 master
->>>>>>> master
-   </pre>
-
-   Anyway, back to interactive merge:
 
 0. Remove lines added to end up with:
 
@@ -582,9 +669,11 @@ B2 feature1
 
    NOTE: We keep the "feature1" version because that's the change we typically want to make.
 
-0. Add the commit the change:
+0. Save the file. Alternately, if you would rather 
 
-   <pre><strong>git add . && git commit -m"Fix B2"
+0. Add and commit the change:
+
+   <pre><strong>git add somefile.md && git commit -m"Fix B2"
    </strong></pre>
 
 0. Resume:
@@ -765,6 +854,9 @@ Key:
 | |     Merge feature1 into master (using imerge)
    </pre>
 
+## Resources
+
+   * https://sethrobertson.github.io/GitFixUm/fixup.html
 
 ## More #
 
