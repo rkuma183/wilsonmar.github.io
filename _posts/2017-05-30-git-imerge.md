@@ -437,11 +437,22 @@ I9 feature1
    <pre><strong>git diff master feature1
    </strong></pre>
 
-   The default display has a column in front of each line.
+   The default display has a column in front of each line of content.
 
-   The "---" at the top indicates where a - (minus sign) marks file "a" lines.
+   <pre>
+diff --git a/somefile.md b/somefile.md
+index 8cb48cc..db324d6 100644
+--- a/somefile.md
++++ b/somefile.md
+@@ -1,9 +1,9 @@
+ A1
+-B2 master
++B2 feature1
+   </pre>
 
-   The "+++" at the top indicates where a + (plus sign) marks file "b" lines.
+   The "---" at the top indicates where a - (minus sign) marks lines from file "a".
+
+   The "+++" at the top indicates where a + (plus sign) marks lines from file "b".
 
    Different colors may also appear.
 
