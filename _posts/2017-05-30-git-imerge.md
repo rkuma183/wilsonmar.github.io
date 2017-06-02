@@ -437,7 +437,8 @@ I9 feature1
    <pre><strong>git diff master feature1
    </strong></pre>
 
-   The default display has a column in front of each line of content.
+   The default display has a column in front of each line of content
+   (with commit ids that will be different):
 
    <pre>
 diff --git a/somefile.md b/somefile.md
@@ -454,7 +455,7 @@ index 8cb48cc..db324d6 100644
 
    The "+++" at the top indicates where a + (plus sign) marks lines from file "b".
 
-   Different colors may also appear.
+   Different colors may also appear depending on your setup.
 
    The difference between an imerge versus a native git merge is that imerge presents
    only a single instance of such markers, whereas a native git merge put such markers
@@ -477,7 +478,7 @@ CONFLICT (content): Merge conflict in somefile.md
 Automatic merge failed; fix conflicts and then commit the result.
    </pre>
 
-0. View modifications Git made to the file:
+0. View modifications about conflicts Git made to the file:
 
    <pre><strong>cat somefile.md
    </strong></pre>
@@ -506,7 +507,9 @@ I9 master
 >>>>>>> master
    </pre>
 
-0. If you want to be adament and <strong>overwrite</strong> 
+0. Edit and save the file.
+   
+   However, if you want to be adament and <strong>overwrite</strong> 
    what's in master with the entirety of them up-start's file from the feature1 branch:
 
    <pre><strong>git checkout --theirs somefile.md
@@ -526,9 +529,9 @@ I9 master
    NOTE: All files need to be added again, not just the ones in conflict.
 
 
-   You should now see:
+   ### Resources
 
-   The above combines the best of advice from others about traditional git merge:
+   The steps described above combines the best of advice from others about traditional git merge:
 
    * http://genomewiki.ucsc.edu/index.php/Resolving_merge_conflicts_in_Git
 
@@ -546,8 +549,8 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
       A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch feature1
    </pre>
 
-   git-imerge takes it a step at a time.
-   This illustrates the steps:
+   However, instead of merging commit I with 11, we want to do an interactive
+   merge by merging incrementally as illustrated by this diagram:
 
    <pre>
 o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
@@ -574,10 +577,18 @@ o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
   branch feature1
    </pre>
 
+   Commit A is merged with 1, etc.
+
    "X" in the diagram below marks where is conflict is designed to occur.
 
+   To see this in action:
 
-0. Run the script again. But this time, press Enter for the script to
+0. Run the script again:
+
+   <pre><strong>./git-imerge-test-create.sh
+   </strong></pre>
+
+0. But this time, press Enter for the script to
    begin merge much like with standard git merge
    by checking out the <strong>destination</strong> branch:
 
