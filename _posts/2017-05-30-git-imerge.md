@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Git merge"
-excerpt: "This is how the cool kids are merging. It needs to be setup, but you'll love it."
-shorturl: "https://goo.gl/"
+title: "Git imerge (interactive merge)"
+excerpt: "This is the way to merge. It needs to be setup, but you'll love it."
+shorturl: "https://goo.gl/QpfAia"
 modified:
 tags: []
 image:
@@ -69,7 +69,7 @@ It figures out where conflicts occurred."
 ## Installation
 
 1. Install Python.
-0. Install Ruby (make).
+0. Install Ruby (for its Make utility).
 0. Install Git.
 
    On Windows, install Chocolatey.org and in a Run command window, 
@@ -346,9 +346,9 @@ optional arguments:
    </pre>
 
 
-### Run scripts
+## Run scripts
 
-   ### Create test repo
+### Create test repo
 
 0. Run the script which sets up data containing conflicts
    and perform a merge using git-imerge:
@@ -356,9 +356,8 @@ optional arguments:
    <pre><strong>./git-imerge-test-create.sh
    </strong></pre>
 
-   This was created for testing the test.
+   (You may want to later adapt this to create your own data and commands.)
 
-   (You may want to later adapt this to run on your own commands.)
 
    #### How the test repo is created
 
@@ -385,33 +384,6 @@ o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
    A "for" loop in the script alternates between the two branches 
    to add a line at the bottom of the file, 
    then makes another commit. Here are the message text of commits:
-
-   <pre>
-o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
-    |   |    |    |    |    |    |    |    |    |     |     |
-    A -   --   --   --   --   -- A6 -   -- A8 - A9 - A10 - A11
-    |   |    |    |    |    |    |    |    |
-    B -   --   --   --   --   -- B6 - B7 - B8   X
-    |   |    |    |    |    |    |
-    C -   --   --   --   --   -- C6   X
-    |   |    |    |    |    |    |
-    D -   --   --   --   --   -- D6
-    |   |    |    |    |    |    |
-    E - E1 - E2 - E3 - E4 - E5 - E6
-    |   |
-    F - F1   X
-    |   |
-    G - G1
-    |   |
-    H - H1
-    |   |
-    I - I1
-&nbsp;
-    ↑
-  branch feature1
-   </pre>
-
-   "X" in the diagram below marks where is conflict is designed to occur.
 
    To make conflicting lines, each line that will conflict contains its own branch name
    (master or feature1). A cat of the file within the master branch contains:
@@ -446,6 +418,36 @@ I9 feature1
 11
    </pre>
 
+   git-imerge takes it a step at a time.
+   This illustrates the steps:
+
+   <pre>
+o - 0 - 1  - 2  - 3  - 4  - 5  - 6  - 7  - 8  - 9  - 10  - 11    ← master
+    |   |    |    |    |    |    |    |    |    |     |     |
+    A -   --   --   --   --   -- A6 -   -- A8 - A9 - A10 - A11
+    |   |    |    |    |    |    |    |    |
+    B -   --   --   --   --   -- B6 - B7 - B8   X
+    |   |    |    |    |    |    |
+    C -   --   --   --   --   -- C6   X
+    |   |    |    |    |    |    |
+    D -   --   --   --   --   -- D6
+    |   |    |    |    |    |    |
+    E - E1 - E2 - E3 - E4 - E5 - E6
+    |   |
+    F - F1   X
+    |   |
+    G - G1
+    |   |
+    H - H1
+    |   |
+    I - I1
+&nbsp;
+    ↑
+  branch feature1
+   </pre>
+
+   "X" in the diagram below marks where is conflict is designed to occur.
+
 
    The script contains these steps:
 
@@ -454,10 +456,12 @@ I9 feature1
    <pre><strong>git checkout master
    </strong></pre>
 
-0. Tell git imerge what branch you want to merge into it:
+0. Tell git imerge what branch you want to merge into:
 
    <pre><strong>git imerge start --name=NAME --goal=full feature1
    </strong></pre>
+
+   NAME stands for the commit message of your final commit when merging is finished.
 
    QUESTION: How is this different than `--first-parent feature1`?
    When do we use that?
@@ -501,6 +505,13 @@ I9 feature1
    ``refs/heads/NAME`` -
    Default reference name for storing final results.
 
+   I mention all this because this error occurs if you try to checkout a different branch:
+
+   <pre>
+somefile.md: needs merge
+error: you need to resolve your current index first
+   </pre>
+
 
    <a name="CycleFixes"></a>
 
@@ -522,6 +533,8 @@ B2 master
 >>>>>>> 1905858068225d58f2f36fdce243bc2a663ced36
    </pre>
 
+   At the bottom is the SHA1 commit ID.
+
 0. Remove lines added to end up with:
 
    <pre>
@@ -531,14 +544,10 @@ B2 feature1
 
    NOTE: We keep the "feature1" version because that's the change we typically want to make.
 
-   BLAH QUESTION for Michael: This doesn't seem to "take".
-   The next cycle has entries out of order.
-
 0. Add the commit the change:
 
    <pre><strong>git add . && git commit -m"Fix B2"
    </strong></pre>
-
 
 0. Resume:
 
@@ -556,6 +565,69 @@ B2 feature1
 Merge is complete!
    <pre>
 
+   BLAH QUESTION for Michael: Why does "B2 master" appear again?
+   And seeminly out of order?
+
+   <pre>
+A1
+<<<<<<< HEAD
+B2 master
+C3
+=======
+B2 feature1
+>>>>>>> 94e7ec48c4cd902c0512ae69ae44d8d9ffa057a2
+   </pre>   
+
+   And so on:
+
+   <pre>
+A1
+B2 feature1
+C3
+D4
+E5
+F6
+<<<<<<< HEAD
+G7 master
+=======
+G7 feature1
+>>>>>>> c4d21840f2bcd6cd51060b101dac9289b782fbde
+   </pre>   
+
+   QUESTION: Why again?
+
+   <pre>
+A1
+B2 feature1
+C3
+D4
+E5
+F6
+<<<<<<< HEAD
+G7 master
+H8
+=======
+G7 feature1
+>>>>>>> 303e8288568ecc67b7e8bc248359c32122a46808
+   </pre>
+
+  The last one:
+
+  <pre>
+A1
+B2 feature1
+C3
+D4
+E5
+F6
+G7 feature1
+H8
+<<<<<<< HEAD
+I9 master
+=======
+I9 feature1
+>>>>>>> 195454a77bb6805954f70de5bb76879fe026210b
+  </pre>
 
    ### Diagram
 
@@ -629,22 +701,31 @@ Key:
    By default, the process above creates a new branch NAME that points at the result, 
    and checks out that branch.
 
-0. See the final commit created by git-imerge:
+0. See the branches:
 
-   <pre><strong>git log -1 --decorate
+   <pre><strong>git branch -avv
    </strong></pre>
-   
-   A sample:
+
+   A sample response:
 
    <pre>
-commit 79afd870a52e216114596b52c800e45139badf74 (HEAD, merge-branch)
-Merge: 8453321 993a8a9
-Author: Lou User &LT;luser@example.com>
-Date:   Wed May 8 10:08:07 2013 +0200
-&nbsp;   
-    Merge frob into master.
    </pre>
 
+0. See the final commit created by git-imerge:
+
+   <pre><strong>git log --decorate --graph --all
+   </strong></pre>
+   
+   The most recent log message for me:
+
+   <pre>
+*   commit 02631c734be37a281a0676aaa851d58a11b904af (NAME)
+|\  Merge: 72fc5b9 8e2b346
+| | Author: Wilson Mar <wilsonmar@gmail.com>
+| | Date:   Thu Jun 1 18:33:44 2017 -0400
+| | 
+| |     Merge feature1 into master (using imerge)
+   </pre>
 
 
 ## More #
