@@ -17,16 +17,22 @@ comments: true
 
 {% include _toc.html %}
 
-The standard `git merge` and `git rebase` that comes with Git, 
-although superior to others, is rather cumbersome and scary.
-   Merging is **all-or-nothing**.  
-   There is **no way to save** a partly-done merge, so
+This article presents an alternative to the standard `git merge` and `git rebase` 
+that comes with Git. 
 
-   * You can't record your progress.
+## The annoyance
+
+Although superior to others, is rather "cumbersome and scary".
+ 
+   * Merging is **all-or-nothing** process.
+
+   * You can't save your progress.
 
    * You can't switch to another branch temporarily.
 
    * There is **no way to test** a partly-done merge.
+
+   * There is **no way to save** a partly-done merge.
 
    * If you make a mistake, you can't go back.
 
@@ -35,35 +41,32 @@ although superior to others, is rather cumbersome and scary.
 
 ## A Better Way: interactive merge
 
-   The favored approach to merging two branches together (safely) is 
+   The interactive approach to merging two branches together (safely) is 
    <strong>incrementally</strong> in steps that allows for manual fixing.
    Some call this "rebase with history" because the technique creates new commits
    based on previous commits like rebase, but retains the previous commit history
    (which rebase currently does not do).
 
-   The helper module that does this   
-   runs using Python (either version 2 or 3).
+   The helper module that does this runs using Python (either version 2 or 3).
 
    It was mentioned by GitHub Data Scientist Patrick McKenna in 
    <a target="_blank" href="https://www.youtube.com/watch?v=2UKd0YMuc-M&t=32m3s">
    a YouTube video</a> "Greatest Hits of the Git Maintainers Room - Git Merge 2017" at his talk 
    during the GitMerge May 2017 conference.
 
-> "This really removes the pain of merge.
-It figures out where conflicts occurred."
+   It was actually created in May 2013
+   by Michael Haggerty (mhagger@alum.mit.edu), a GitHub Core committer
+   and "theoretical physicist turned software developer".
 
-   The helper was actually created in May 2013.
-   It was described 
+   Imerge was described 
    <a target="_blank" href="https://www.youtube.com/watch?v=FMZ2_-Ny_zc">
    in this video from the GitMerge 2013 conference</a>
-   by its author, Michael Haggerty (mhagger@alum.mit.edu), a GitHub Core committer
-   and "theoretical physicist turned software developer".
-   He discussed the approach in
+   which discusses the approach in
    <a target="_blank" href="https://softwareswirl.blogspot.com/2013/05/git-imerge-practical-introduction.html">
-   his May 2013 blog post</a>.
+   a May 2013 blog post</a>.
 
    This article combines all the above into a step-by-step tutorial so "newbies"
-   can easily benefit from this "game changing" technology.
+   can easily benefit from this game-changing technology.
 
 
 ## Installation
@@ -362,24 +365,15 @@ optional arguments:
    #### How the test repo is created
 
    To avoid problems, the script aims to be "idempotent" in that each time it's run,
-   the same result is produced. To achieve this, the script creates entries
-   in two branches.
+   the same result is produced. To achieve this, the script creates a repo.
    In subsequent runs the repo (.git folder) is deleted before starting over.
 
-   In the repo, two branches are created with names
-   frob and floob.
-   Branch frob is merged into floob.
-
-   Essentially, we want to end up with this in a Git Network Diagram:
-   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
-
-   <pre>
-o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
-     \                                               /
-      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch feature1
-   </pre>
-
    Each branch contains a single file named <strong>somefile.md</strong>.
+   
+   The script makes a first commit with a blank file so branches can be created.
+
+   In the repo, a branch named feature1 is created so that commits can be added
+   to it in parallel with master.
 
    A "for" loop in the script alternates between the two branches 
    to add a line at the bottom of the file, 
@@ -416,6 +410,15 @@ H8
 I9 feature1
 10
 11
+   </pre>
+
+   Essentially, we want to end up with this in a Git Network Diagram:
+   <a target="_blank" href="http://softwareswirl.blogspot.com/2012/12/mapping-merge-conflict-frontier.html">*</a>
+
+   <pre>
+o - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - I11'  ← master branch
+     \                                               /
+      A -- B -- C --- D --- E --- F --- G --- H --- I       ← branch feature1
    </pre>
 
    git-imerge takes it a step at a time.
