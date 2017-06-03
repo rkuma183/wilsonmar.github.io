@@ -45,9 +45,9 @@ Although superior to others, is rather "cumbersome and scary".
    PROTIP: If you would like to compare differences in files manually, 
    use a comparison utility. A free one for Windows is:
 
-   http://meldmerge.org/
+   <a target="_blank" href="http://meldmerge.org/">http://meldmerge.org</a>
 
-   ### Interactive merge
+### Interactive merge
 
    The interactive approach to merging two branches together (safely) is 
    <strong>incrementally</strong> in steps that allows for manual fixing.
