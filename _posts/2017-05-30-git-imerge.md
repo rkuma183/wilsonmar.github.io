@@ -147,7 +147,7 @@ Although superior to others, is rather "cumbersome and scary".
 0. Press q to escape the display or press Spacebar key for next page.
 
 
-   ### Option A: Homebrew install
+   ### Mac Homebrew install
 
 0. If you have a Mac, view git-imerge specifications for Homebrew:
 
@@ -195,7 +195,7 @@ Bash completion has been installed to:
    Sorry, instructions for Mac and Linux will be coming.
 
 
-   ### Option C: Manual install on Mac
+   ### Manual install on Mac
 
 0. Use Make to run Makefile to install Bash completions:
 
@@ -715,11 +715,12 @@ B2 master
    <pre>
 A1
 B2 feature1
+...
    </pre>
 
    NOTE: We keep the "feature1" version because that's the change we typically want to make.
 
-0. Save the file. Alternately, if you would rather 
+0. Save the file. 
 
 0. Add and commit the change:
 
@@ -733,10 +734,10 @@ B2 feature1
 
    If you forgot to do a commit, you'll see this message:
 
-   <pre>somefile.md: needs merge
+   <pre>[file]: needs merge
    </pre>
 
-0. <a href="#CycleFixes">Repeat this cycle of fixes</a> until you see:
+0. <a href="#CycleFixes">Repeat the cycle of fixes above</a> until you see:
 
    <pre>
 Merge is complete!
@@ -834,48 +835,54 @@ Key:
    </pre>
 
 
-   ### Suspend abort
-
-0. To suspend an incremental merge to do something else before continuing, 
-   abort any pending merge and switch to your other branch.
-
-   <pre><strong>git merge --abort
-   git checkout master
-   </strong></pre>
-
-   Unlike regular git merge, aborting with git imerge does not 
-   abandon all previous changes.
-
-   Git-imerge has recorded each of the intermediate merges
-   so they can be tested by the test suite.
-
-
    ### Abort
 
-0. If you need to completely abort an in-progress incremental merge,
-   first remove the temporary branches ``git-imerge`` created,
-   then checkout the branch you were in before you started the incremental merge:
+0. The same command is used to abandon the merge process for both the atraditional 
+   `git merge` and `git-imerge`:
 
-   <pre><strong>git imerge remove
-   git checkout master
+   <pre><strong>git merge --abort
    </strong></pre>
 
-   This is the "ORIGINAL_BRANCH". It may be different during productive use.
+   The difference is that the traditional git merge takes an "all or nothing" approach,
+   and you wold have to start over.
+
+   However, with `git-imerge`, unlike regular git merge, aborting does not 
+   abandon all previous changes because
+   git-imerge has recorded each of the <strong>intermediate merges</strong>
+   in additional separate branches.
+
+   Therefore...
+
+   ### Abort remove
+
+0. If you are using incremental merge and need to completely abort,
+   remove the temporary branches ``git-imerge`` created:
+   
+   <pre><strong>git imerge remove
+   </strong></pre>
+
+0. In either the traditional git merge and git imerge, 
+   get back to the branch you were in before starting merge.
+   For example:
+
+   <pre><strong>git checkout master
+   </strong></pre>
 
 
    <a name="FinalMerge"></a>
 
-   ### Final Merge
+   ### Interactive Merge Final Merge
 
-0. In the final merge to be simplified for the permanent record, 
-   omit the intermediate results.
+0. If you are using imerge, you can simplify commits for the permanent record, 
+   to omit the intermediate results (like a rebase):
 
    <pre><strong>git imerge finish --goal=merge
    </strong></pre>
 
+
    ### Verify
 
-   By default, the process above creates a new branch NAME that points at the result, 
+   By default, the steps above creates a new branch NAME that points at the result, 
    and checks out that branch.
 
 0. See the branches:
@@ -907,6 +914,7 @@ Key:
 ## Resources
 
    * https://sethrobertson.github.io/GitFixUm/fixup.html
+
 
 ## More #
 
