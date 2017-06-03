@@ -40,7 +40,14 @@ Although superior to others, is rather "cumbersome and scary".
    * If you cannot resolve the **whole** conflict, there is nothing to
    do but to abort and start over.
 
-## A Better Way: interactive merge
+## Alternatives
+
+   PROTIP: If you would like to compare differences in files manually, 
+   use a comparison utility. A free one for Windows is:
+
+   http://meldmerge.org/
+
+   ### Interactive merge
 
    The interactive approach to merging two branches together (safely) is 
    <strong>incrementally</strong> in steps that allows for manual fixing.
@@ -506,6 +513,27 @@ H8
 I9 master
 >>>>>>> master
    </pre>
+
+   The format of above markers for a two-way merge is:
+
+   <pre>git config --global merge.conflictstyle merge
+   </pre>
+
+0. Try the three-way merge formatting by typing this:
+
+   <pre><strong>git config --global merge.conflictstyle diff3
+   </strong></pre>
+
+   The first line below the `<<<<<< HEAD` is the master (HEAD) branch.
+
+   The bottom marker is the branch containing conflicting text right above it.
+
+   The line above the "=======" is the <strong>original branch before change</strong>.
+
+   Hello, master change.", and the "b1" branch has "Hello, branch b1 change.". This three-way diff can be very helpful in determining what really changed.
+
+
+0. Re-run the script above.
 
 0. Edit and save the file.
    
