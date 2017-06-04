@@ -52,6 +52,7 @@ published by several people on their GitHub repositories:
 
 * https://github.com/whiteinge/dotfiles
 
+* https://github.com/ryanb/dotfiles
 
 <a id="SheBang"></a>
 

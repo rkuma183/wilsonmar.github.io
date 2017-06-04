@@ -225,7 +225,10 @@ Blogs on this topic:
 
    * http://thediscoblog.com/blog/2014/05/05/dockerfiles-in-a-jiffy/
 
-
+   * https://github.com/prakhar1989/docker-curriculum
+   by prakhar1989, who was propelled to #18 on GitHub
+   due largely to this tutorial.
+   
 
 ## More on DevOps #
 
