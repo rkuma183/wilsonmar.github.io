@@ -74,12 +74,11 @@ https://github.com/awslabs/serverless-application-model</a>
 to build Cloud Formation templates accessing Amazon Lambda 
 with API Gateway, Lambda, DynamoDB, etc.
 
-   #### Database #
+#### Database #
 
-   In an interview with <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
-   Introduction to the Serverless Paradigm</a>
-   by CloudAcademy. 
-   Austen says [23:50] "You never pay for idle".
+   "You never pay for idle" Austen says 
+   in an interview with by CloudAcademy <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
+   Introduction to the Serverless Paradigm</a> [23:50]
 
    But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
    While Lambda does not incur charges while idle,
@@ -121,7 +120,8 @@ https://azure.microsoft.com/services/functions</a>
 
 ### IBM Bluemix OpenWhisk
 
-https://developer.ibm.com/openwhisk/
+<a target="_blank" href="https://developer.ibm.com/openwhisk/">
+https://developer.ibm.com/openwhisk</a>
 
 The advantage of IBM's hybrid-cloud approach is that one can use 
 IBM's proprietary Bluemix UI
@@ -132,18 +132,20 @@ and then use command-line with OpenWhisk (which is open sourced).
 
 ### Google Cloud Functions #
 
-https://cloud.google.com/functions/
+<a target="_blank" href="https://cloud.google.com/functions/">
+https://cloud.google.com/functions</a>
 
 @googlecloud
 
 Google Firebase
 
 
-### Others on-premises
+### Iron.io and other on-premises
 
-Iron.io
+<a target="_blank" href="https://iron.io/">Iron.io</a>
 
 Gesalt Framework
+
 
 ## Usage in the wild
 
@@ -212,6 +214,8 @@ serverless framework on GitHub</a>.
 His initial Serverless presentation at AWS:Invent 2015
    <amp-youtube data-videoid="D_U6luQ6I90" layout="responsive" width="480" height="270"></amp-youtube>
 
+Social media:
+
    * <a target="_blank" href="https://github.com/serverless/serverless">
    serverless-framework at https://github.com/serverless/serverless</a>
    * <a target="_blank" href="http://docs.serverless.com/v0.5.0/docs">
@@ -238,7 +242,11 @@ His initial Serverless presentation at AWS:Invent 2015
    * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
    Hacker News</a> announced it in 2015 when the product was first called JAWS.
 
-Serverless is a combination of command-line utilities and conventions.
+The Serverless Framework is a combination of 
+command-line utilities and conventions.
+
+The company hosts on August 17 in San Francisco an Emit Conference
+for "event-driven architectures".
 
 
 #### Install Serverless framework  #
