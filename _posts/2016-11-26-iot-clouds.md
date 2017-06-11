@@ -120,11 +120,20 @@ This reduces the hassle of using a custom cellular breakout board
 ## Microsoft Azure IoT Hub # 
 
 This section was written based on the combination (re-combination) of these
-classes:
+blogs and classes:
 
+<a name="[1]">[1]</a>
+<a target="_blank" href="https://azure.microsoft.com/en-us/blog/developer-s-introduction-to-azure-iot/">
+Developer's introduction to Azure IoT</a> by 
+Olivier Bloch Senior Program Manager, Azure IoT
+on March 23, 2016
+
+<a name="[2]">[2]</a>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=uxXUIs4rD_606218965">
    Microsoft Virtual Academy's Introduction to Azure IoT</a>
-   by Jeremy Foster
+   published 4 May 2017 is by Jeremy Foster, who has 
+   <a target="_blank" href="https://www.codefoster.com/pi/">
+   written on Pi extensively at codefoster.com/pi</a>
 
    1. Introduction to Azure IoT
    2. Introduction to IoT Hub
@@ -140,10 +149,12 @@ classes:
    11. Stream Analytics and Routing
    12. Storage and Virtualization
 
-   aka.ms/iotbestpractices
+   It shows use of the C# SDK.
 
+<a name="[3]">[3]</a>
 <a target="_blank" href="https://www.edx.org/course/developing-iot-solutions-azure-iot-microsoft-dev225x">
-   EdX 4-month course</a>
+   A more in-depth (4-month) course on EdX</a>
+   shows use of the C SDK.   
 
    This is free unless you want verification for $99.
 
@@ -164,6 +175,7 @@ classes:
    http://azure.com/iotdev</a> - the "Azure IoT Developer Center"
 
   * https://internetofyourthings.com
+  * aka.ms/iotbestpractices
   * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-deployment
   * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-ground-up
   * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-best-practices
@@ -333,17 +345,6 @@ classes:
    * Send cloud-to-device to enable you to send messages to your devices from your IoT hub.
 
 
-
-   ### Device string
-
-   Example Hub connection string used to communicate with a hub:
-
-   <pre>HostName=iotzzz.azure-devices.net;
-   SharedAccessKeyName=service;
-   SharedAccessKey=3k32dkba35EGffd...2viib2gg=
-   </pre>
-
-
    ### Create an IoT Hub service
 
 0. Clone an <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT service SDK</a> 
@@ -354,16 +355,15 @@ classes:
    PROTIP: Since we won't be uploading changes, we don't fork and we also add to the command
    <strong>`--depth=1`</strong>. 
 
-   * https://github.com/azure/azure-iot-sdk-python (2.7 and 3.5) - 
+   * https://github.com/azure/azure-iot-sdk-python (2.7 and 3.5) - 195 M -
    <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
 
-   * https://github.com/azure/azure-iot-sdk-node - 
+   * https://github.com/azure/azure-iot-sdk-node - 45 M -
    <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
 
-   * https://github.com/azure/azure-iot-sdk-java (1.7+)
+   * https://github.com/azure/azure-iot-sdk-java (1.7+) - 49 M -
 
-   * https://github.com/azure/azure-iot-sdk-csharp (C#)
-   for .NET and UWP (Universal Windows Platform)
+   * https://github.com/azure/azure-iot-sdk-csharp (C#) for .NET and UWP (Universal Windows Platform) - 57 M -
 
    * https://github.com/azure/azure-iot-sdk-c for microcontrollers such as RTOS - 
    <a target="_blank" href="https://youtu.be/vf2sW3wZjds">Video</a>
@@ -378,9 +378,9 @@ classes:
    <pre><strong>du -sh
    </strong></pre>
 
-   I got `155 M` (Megabytes) using `--depth=1` versus `195 M` with all history.
+   For Python I got `155 M` (Megabytes) using `--depth=1` versus `195 M` with all history.
 
-0. PROTIP: To obtain changes made by Microsoft:
+0. PROTIP: In the future, to obtain changes to the repo by Microsoft:
 
    <pre><strong>git pull
    </strong></pre>
@@ -390,6 +390,8 @@ classes:
 
    https://youtu.be/wvRE5nvX8GQ
    by linkedin.com/in/arjmand-samuel-7919934
+
+   TODO:
 
 
    ### Install Simulator
@@ -410,11 +412,37 @@ classes:
    https://github.com/Azure/azure-cli</a>
 
 
+   ### Config IoT Device
+
+   On the IoT device (Raspberry Pi):
+
+   <pre><strong>git clone https://github.com/codefoster/simple-iot-hub
+   cd simple-iot-hub
+   </strong></pre>
+
+0. View file `device/index.js`.
+   With Node, the entirety is in that file.
+
+0. TODO: Edit device string string used to communicate with a hub.
+   For example:
+
+   <pre>HostName=iotzzz.azure-devices.net;
+   SharedAccessKeyName=service;
+   SharedAccessKey=3k32dkba35EGffd...2viib2gg=
+   </pre>
+
+
    ### Azure IoT Gateways
 
+   The simple version <a href="#[2]">[2]</a>:<br />
    ![iot-azure-arch-650x348-75kb](https://user-images.githubusercontent.com/300046/27012436-ae360686-4e9d-11e7-94c0-e63215de7a5e.png)
 
-   Raspberry Pi's can communicate
+   A more complex version <a href="#[1]">[1]</a>:<br />
+   <a target="_blank" title="iot-azure-gateways-610x301" href="https://user-images.githubusercontent.com/300046/27014181-a147d674-4ec1-11e7-8b92-7ee364d633df.png">
+   <img alt="iot-azure-gateways-610x301" width="650" width="301" src="https://user-images.githubusercontent.com/300046/27014181-a147d674-4ec1-11e7-8b92-7ee364d633df.png">
+
+
+   Raspberry Pi's can communicate:
 
    https://github.com/azure/azure-iot-gateway-sdk
 
@@ -426,12 +454,16 @@ classes:
    * Reduce bandwidth costs - fall back to least cost 
    * Operate more reliably
    * Maximize Security
+   <br /><br />
 
    Directly supported protocols:
 
    * HTTP (synchronous waits)
    * AMQP (asychrononous but heavy feature set)
    * MQTT (lower overhead and simpler, but less feature rich, less secure)
+   <br /><br />
+
+
 
 
    ### Send telemetry data from your device to the IoT Hub
