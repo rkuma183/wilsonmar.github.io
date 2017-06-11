@@ -21,7 +21,7 @@ run apps under Raspbian on a Raspberry Pi 3 B.
 There are several parts to this:
 
 0. Create a micro-SD card with Raspbian Jesse image
-0. Power up the stock Pi into the Raspbian GUI 
+0. <a href="#PowerUp">Power up the stock Pi into the Raspbian GUI</a>
 0. <a href="#WiFi">Configure wi-fi connections</a> on the Pi
 0. <a href="#SSH">Configure SSH into Pi</a> from your laptop
 0. <a href="#GetConfigScripts">Get and run configuration scripts</a> 
@@ -82,10 +82,10 @@ To get full capacity from USB/SD drives
 0. In File Explorer, right-click on the drive and select <strong>Eject</strong>.
 
 
-### Download Raspbian disk image
+   ### Download Raspbian disk image
 
-   We need an operating system written for the <strong>ARMv8 CPU on the Pi 3</strong>.
-   Pi 3 replaces Pi 2 and its ARMv7 CPU.
+   We need an operating system written for the <strong>ARMv8 CPU on the Pi 3</strong>.<br />
+   It replaces Pi 2 and its ARMv7 CPU.
 
    Based on <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">this</a>.
 
@@ -99,13 +99,19 @@ To get full capacity from USB/SD drives
    <strong>Raspbian JESSIE WITH PIXEL</strong>
    to download Raspbian.
 
-   BTW: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
+   NOTE: PIXEL stands for "Pi Improved X-Windows Environmet, Lightweight".
+   But many refer it simply as "X".
+
+   <a target="_blank" href="https://distrowatch.com/table.php?distribution=raspbian
+">
+   BTW</a>: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
 
 0. Click "Save File", the OK in the pop-up to begin download 
 
-   | Date/File | Download | Unzipped |
-   | ---- | ----: | ---: |
-   | 2016-09-23-Raspbian-jessie.zip | 1.4 GB | 4.3 GB |
+   | Date/File | Version | Download | Unzipped | Nickname |
+   | --------- | ------- | ----: | ---: | ---- |
+   | 2017-04-10-raspbian-jessie.zip | 4.4 | ? GB | ? GB | "Jessie" |
+   | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.4 GB | 4.3 GB | "Wheezy" |
 
    The Unzipped size is for the .img file created during un-zip.
 
@@ -121,24 +127,39 @@ To get full capacity from USB/SD drives
    <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>)
 
    "Wheezy" (the squeeze toy penguin with the red bow tie)
-   was the previous version of Raspbian.
+   was the previous 4.2 version of Raspbian.
    QUESTION: Where is the history of old versions 
    and how does one get announcement emails?
 
-   "sid" (the bad boy in Toy Story) is slated to be the 2017 release.
+   "Sid" (the bad boy in Toy Story) is the nickname for the next release.
 
-0. TODO: Calculate on the Mac a SHA hash on your laptop to verify SHA from the website.
+   ### Calculate and compare hash
 
-   Example:  e0eeb96e2fa10b3bd4b57454317b06f5d3d09d46
+0. Calculate a SHA hash from the downloaded file to verify SHA from the website.
 
    NOTE: The image contains
    .elf (Executable Linkable Format) 
    and .dtb (Device Tree Blob) files.
 
-0. Save the .img file to a DVD so you can delete the files from your laptop's hard drive
-   to make room for other stuff.
+   On MacOS, open a Terminal and cd to the downloads folder to use a built-in command:
 
-   A regular single sided, single layer DVD holds 4.7GB. 
+   <pre><strong>cd ~/Downloads
+   shasum <em>2017-04-10-raspbian-jessie.zip</em>
+   </strong></pre>
+
+   <a target="_blank" href="http://osxdaily.com/2012/02/05/check-sha1-checksum-in-mac-os-x/">
+   PROTIP</a>: Type just `shasum ` with a trailing space, then from Finder drag the file 
+   and drop it to the right of the command.
+
+   The output should match the SHA-1 associated with the downloaded file on the website.
+   Example:
+
+   <pre>6d7b11bb3d64524203edf6c80c499456fb5fef53</pre>
+
+0. PROTIP: Save the .zip file to a DVD, then delete the file
+   (to make room for other stuff on your hard drive):
+
+   A regular single-sided, single layer DVD (R+ or R-) holds 4.7GB. 
    A dual-layer "DL" DVD disk holds 8.5GB.
 
 
@@ -153,24 +174,24 @@ To get full capacity from USB/SD drives
 0. At website
    <a target="_blank" href="https://www.etcher.io/">
    etcher.io</a> select a platform to download the 
-   Etcher app (made by Resin.io) for your platform.
+   Etcher app for your platform.
 
-   <amp-img alt="iot etcher 400x237-32kb.jpg" width="400" height="237" src="https://cloud.githubusercontent.com/assets/14143059/19876110/56a498c4-9f98-11e6-8bf1-a7ed029fd3d7.jpg.jpg"></amp-img>
+   <img alt="iot etcher 400x237-32kb.jpg" width="400" height="237" src="https://cloud.githubusercontent.com/assets/14143059/19876110/56a498c4-9f98-11e6-8bf1-a7ed029fd3d7.jpg">
 
    | File downloaded | Size |
    | --------------- | ---: |
+   | Etcher-1.0.0-darwin-x64.dmg | ? MB |
    | Etcher-1.0.0-beta.16-darwin-x64 | 75.4 MB |
 
-   CAUTION: The file name does say "beta".
-
-   Following
+   Following 
    <a target="_blank" href="http://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/">
-   this</a>
+   Beginner's Guide to installing Node.js on a Raspberry Pi</a>:
+   (made by Resin.io) 
 
 0. On a Mac, invoke the program from Applications.
 0. Select the drive containing the .img file.
 
-    Skip past to the alternative activity to <a href="#PowerUp">Power Up</a>.
+0. Skip past alternative activity below (for Windows) to <a href="#PowerUp">Power Up</a>.
 
 
 ### Unzip and Flash using Windows
@@ -184,8 +205,8 @@ To get full capacity from USB/SD drives
 
    The solution is to use a Windows machine and format drives as NTFS.
    
-   Mac OS X can read from NTFS drives, but cannot write to them unless 
-   some additional effort.
+   MacOS can read from NTFS drives, but cannot write to them without
+   some additional effort, described below.
 
    Both Mac and Windows can read drives formatted in <strong>exFAT</strong>
    (even though Microsoft is its patent holder).
@@ -206,8 +227,9 @@ To get full capacity from USB/SD drives
    and install it using Homebrew.
    
    See <a target="_blank" href="http://www.howtogeek.com/236055/how-to-write-to-ntfs-drives-on-a-mac/">
-   this</a> about
-   You’ll have to disable System Integrity Protection and then re-enable if after you’re done.
+   this</a>.
+   You’ll have to disable System Integrity Protection 
+   and then re-enable if after you’re done.
 
 0. Download from<br />
    <a target="_blank" href="https://www.sdcard.org/downloads/formatter_4/index.html">
@@ -303,8 +325,7 @@ To get full capacity from USB/SD drives
 
 0. cd to the folder where your .img file exists. For example, to go to the Desktop:
 
-   <tt><strong>
-   cd ~/Desktop
+   <tt><strong>cd ~/Desktop
    </strong></tt>
 
 0. Construct a command to write the image downloaded onto the SD Card. 
@@ -333,8 +354,8 @@ To get full capacity from USB/SD drives
    NOTE: The dd program is also used to <a href="#Backup">
    backup the SD onto your laptop</a>.
 
-0. Type in your password:
-0. Wait. No status is shown during the 30 minutes or more that it takes.
+0. Type in your password then wait. 
+   No status is shown during the 30 minutes or more that it takes.
    An example of the ending response:
 
    <pre>
@@ -343,7 +364,13 @@ To get full capacity from USB/SD drives
 4348444672 bytes transferred in 265.020326 secs (16407967 bytes/sec)
    </pre>
 
-   You should have a working SD card at the end.
+   You should now have a working SD card at the end.
+
+0. Verify what devices are mounted <a target="_blank" href="http://wiki.farmbot.org/problems-solved/installing-farmbotos/linux">:</a>
+
+   <tt><strong>df -h
+   </strong></tt>
+
 
 0. In Finder, press the eject button for the disk.
 
@@ -355,31 +382,34 @@ To get full capacity from USB/SD drives
 If you insert a stock Raspbian Jesse image into the Pi and powered it up,
 it would by default display a GUI, and have no WiFi connection.
 
-   Based on
-   https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+   Based on <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">this</a>.
 
 0. Unlug the power adapter.
 
-0. Insert the SD card into the receptable at the bottom on the Pi,
-   with the metallic side of the card facing the Pi board.
+0. Insert the micro SD card into the receptable at the bottom on the Pi.
+
+   PROTIP: The metallic side of the card should face the Pi board.
 
    When in, the chip sticks out a bit.
 
 0. Plug in monitor and keyboard.
 
+   The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
+   So you can plug the other end of the HDMI cable into a TV.
+
+   Older TVs without HDMI can still be used by using an adapter that converts
+   HDMI signals, albeit at a lower resolution.
+
 0. Power up by plugging in the power.
 
-   Isn't it exciting to see the screen appear on a new computer?
+   CONGRATULATIONS: Isn't it exciting to see the screen appear on a new computer?
 
    <a target="_blank" href="https://www.youtube.com/watch?v=RBpAkTvBbYg">
    Christopher Barnatt has a nice 9-minute about the PIXEL GUI</a>.
 
-   NOTE: PIXEL stands for "Pi Improved X-Windows Environmet, Lightweight".
-   But many refer it simply as "X".
-
    TECHNICAL NOTE: To prevent starting from a really bad date,
    at shutdown, Raspbian saves a file containing a date at
-   /etc/fake-hwclock.data
+   `/etc/fake-hwclock.data`
    so that time moves forward.
 
    Rather than booting up to the Linux command line and
@@ -387,11 +417,6 @@ it would by default display a GUI, and have no WiFi connection.
    raspi-config</a>,
    the default behaviour with Jessie is now to boot up to the desktop GUI 
    (version 3 of GTK+, the user interface toolkit used for the LXDE desktop environment). 
-
-   The Pi 3 is capable of playing <strong>1080p HD video</strong> (1900x800 pixels).
-   So you can plug the other end of the HDMI cable into your TV.
-
-   BLAH: This is silly because people don't use Raspbian to watch its screen?
 
    ### Exit and return to GUI 
 
@@ -411,7 +436,7 @@ it would by default display a GUI, and have no WiFi connection.
 
    ### Start Raspbian GUI
 
-0. To start the GUI again from the console command line:
+0. To start the (PIXEL) GUI again from the console command line:
 
    <tt><strong>
    startx
@@ -463,8 +488,6 @@ it would by default display a GUI, and have no WiFi connection.
    or clicking the console icon in the GUI.
 
 
-
-
    ### Shutdown from console
 
 0. Shut down Respian properly before powering it off. Type:
@@ -472,8 +495,6 @@ it would by default display a GUI, and have no WiFi connection.
    <tt><strong>
    sudo halt 
    </strong></tt>
-
-
 
 
 0. Wait for the flashing the activity LED
@@ -2270,6 +2291,7 @@ https://www.raspberrypi.org/resources/
 
 https://mike632t.wordpress.com/2015/09/26/raspbian-minimal-install-using-console/
 
+http://homecontrols.ch/rasp_raspbian.php
 
 
 ## More on IoT #
