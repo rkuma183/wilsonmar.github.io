@@ -115,17 +115,275 @@ This reduces the hassle of using a custom cellular breakout board
 
 <hr />
 
-<a name="Losant"></a>
+<a name="Microsoft"></a>
 
-## Microsoft Azure Stream Analytics # 
+## Microsoft Azure IoT Hub # 
 
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/handson-with-azure-stream-analytics-16639?l=xGiVP0JrC_5606218965">
+This section was written based on the combination (re-combination) of these
+classes:
+
+<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=uxXUIs4rD_606218965">
+   Microsoft Virtual Academy's Introduction to Azure IoT</a>
+   by Jeremy Foster
+
+   1. Introduction to Azure IoT
+   2. Introduction to IoT Hub
+   3. Creating a Hub, Pricing, and Scale
+   4. Device Registry
+   5. Protocols and Security - aka.ms/iotarch, 
+      
+   6. D2C and C2D Messaging
+   7. Devices and Kits
+   8. Accessing the GPIO
+   9. The Gateway SDK
+   10. Device Management
+   11. Stream Analytics and Routing
+   12. Storage and Virtualization
+
+   aka.ms/iotbestpractices
+
+<a target="_blank" href="https://www.edx.org/course/developing-iot-solutions-azure-iot-microsoft-dev225x">
+   EdX 4-month course</a>
+
+   This is free unless you want verification for $99.
+
+   Instructors are Geoffrey Morgan (<a target="_blank" href="https://twitter.com/geoffmmorgan"> @geoffmmorgan</a>) of <a target="_blank" href="https://www.crank211.com/">
+   Crank211.com</a>
+   and Chris Howd, Engineer and Software Developer, Microsoft
+
+0. Get an Azure account. See https://azure.microsoft.com/en-us/free/free-account-faq/
+
+   After trial period, each month Azure provides
+   8,000 free messages (of .5 KB each) a day.
+   <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/iot-hub/"> 
+   The first paid tier</a> of
+   400,000 messages per month / $50 = 0.000125 per message (about 1 cent).
+
+0. Visit <a target="_blank" href="http://azure.com/iotdev">
+   http://azure.com/iotdev</a> - the "Azure IoT Developer Center"
+
+  * https://internetofyourthings.com
+  * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-deployment
+  * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-ground-up
+  * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-best-practices
+  * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-architecture
+  * https://www.enisa.europa.eu/publications/etl2015 - mindmap of threats
+
+0. Install a <strong>Simulator</strong> in C#.
+
+0. Order an Intel Edison or Raspberry Pi IoT Devices at:
+
+   <a target="_blank" href="https://catalog.azureiotsuite.com/kits">
+   https://catalog.azureiotsuite.com/kits</a> =  https://aka.ms/edx-dev225x-az1
+
+   * Assembled Adafruit BME280 Temperature, Pressure & Humidity sensor
+   * Photo cell (CdS photoresistor)
+   * 2x 560 ohm 5% 1/4W Resistor (striped green, blue, brown)
+   * Ceramic Capacitor (0.1uF)
+   * Diffused 10mm Red LED
+   * Diffused 10mm Green LED
+   * Male/Male Jumper Wires - 20 x 6" (150mm) 
+   * Female/Male 'Extension' Jumper Wires - 20x6" (150mm)
+   * Full Size Breadboard
+   <br /><br />
+
+
+   ### Azure CLI
+
+   Instead of using the Azure Portal GUI:
+
+   Based on https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
+
+0. On a Mac, any folder:
+
+   <pre><strong>curl -L https://aka.ms/InstallAzureCli | bash</strong></pre>
+
+   ===> In what directory would you like to place the install? (leave blank to use '/Users/mac/lib/azure-cli'): 
+
+   ===> In what directory would you like to place the 'az' executable? (leave blank to use '/Users/mac/bin'): 
+
+   ===> Modify profile to update your $PATH and enable shell/tab completion now? (Y/n): 
+
+   ===> Enter a path to an rc file to update (leave blank to use '/Users/mac/.bash_profile'): 
+
+0. Reset the Terminal:
+
+   <pre><strong>source ~/.bash_profile
+   </strong></pre>
+
+0. Login using command:
+
+   <pre><strong>az login
+   </strong></pre>
+
+0. Authenticate: use a web browser to open the page 
+   https://aka.ms/devicelogin 
+   to enter code E946P2YFU,
+
+   Click Continue at "Microsoft Azure Cross-platform Command Line Interface".
+
+   Login to see on the Terminal:
+
+   <pre>
+    "cloudName": "AzureCloud",
+    "id": "4effab90-7516-4bdb-902a-18001facad69",
+    "isDefault": true,
+    "name": "Developer Program Benefit",
+    "state": "Disabled",
+    "tenantId": "12345678-5f96-4d36-a89b-5ea0f7614e72",
+    "user": {
+      "name": "your@hotmail.com",
+      "type": "user"
+   </pre>
+
+0. Query from 
+   https://github.com/Azure/azure-cli
+
+   <pre><strong>az 
+   </strong></pre>
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/iot">
+   List of az commands</a>
+
+   TODO: A PowerShell script that does all the below.
+
+
+   ### IoT Hub Explorer
+
+   The iothub-explorer is a CLI tool for managing device identities in your IoT hub registry, send and receive messages and files from your devices, and monitor your IoT hub operations.
+
+   The iothub-explorer tool also lets you simulate a device connected to your IoT hub.
+
+   To get started with iothub-explorer using the Visual Studio Code command line:
+
+0. Install Node.js
+0. Install the latest version from any folder:
+
+   <pre><strong>npm install iothub-explorer -g
+   </strong></pre>
+
+0. Verify by getting a menu:
+
+   <pre><strong>iothub-explorer --help
+   </strong></pre>
+
+   ### Device Explorer app for IoT Hub devices
+
+   Use the Device Explorer tool (on Windows only) to manage devices connecting to your IoT hub. For example, you can use this tool to register a device with your IoT hub, monitor messages from your devices, and send messages to your devices. This is not the same as the Device Explorer blade that you can open from your IoT Hub service on the Azure portal.
+
+   The Device Explorer app runs on your local machine and connects to your IoT hub in Azure. 
+   It communicates with the following IoT Hub endpoints:
+
+   * Device identity management to provision and manage devices registered with your IoT hub.
+
+   * Receive device-to-cloud to enable you to monitor messages sent from your device to your IoT hub.
+
+   * Send cloud-to-device to enable you to send messages to your devices from your IoT hub.
+
+
+   ### Create an IoT Hub service
+
+0. Clone an <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT service SDK</a> (.NET = C#)
+
+   * https://github.com/azure/azure-iot-sdk-python (2.7 and 3.5) - 
+   <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
+   * https://github.com/azure/azure-iot-sdk-node - 
+   <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
+   * https://github.com/azure/azure-iot-sdk-java (1.7+)
+   * https://github.com/azure/azure-iot-sdk-csharp for UWP (Universal Windows Platform)
+   * https://github.com/azure/azure-iot-sdk-c for microcontrollers such as RTOS - 
+   <a target="_blank" href="https://youtu.be/vf2sW3wZjds">Video</a>
+
+   WARNING: These repos contain sub-modules, so add to clone commands
+   `--recursive`. 
+
+   ### Create an IoT device and register it with your IoT Hub
+
+
+   https://youtu.be/wvRE5nvX8GQ
+   by linkedin.com/in/arjmand-samuel-7919934
+
+   ### Simulator
+
+0. On Windows 10, run a full version of Linux from inside Windows by
+   installing the "Windows Subsystem for Linux" at 
+
+   https://go.microsoft.com/fwlink/?linkid=848175. 
+
+0. In the Linux environment, run:
+
+   <pre><strong>chmod 555 *
+   ./deploy.sh -l
+   </strong></pre>
+
+
+   ### IoT Gateway
+
+   https://github.com/azure/azure-iot-gateway-sdk
+
+   https://youtu.be/KdD6FqxwxF4 by Chipalo Street (cstreet@micosoft.com)
+
+   * Connect new and legacy devices
+   * Run edge analytics
+   * Enable time-sensitive decisions
+   * Reduce bandwidth costs - fall back to least cost 
+   * Operate more reliably
+   * Maximize Security
+
+
+   ### Send telemetry data from your device to the IoT Hub
+
+   The Azure IoT Hub service is core to the Azure IoT Suite. This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to manage your devices. For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
+
+   See https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging
+
+   ### Stream Analytics 
+
+   Azure Stream Analytics provides "in-motion" data analysis. IoT Suite uses this service to process incoming telemetry, perform aggregation, and detect events. 
+
+   Preconfigured solutions use stream analytics to process informational messages that contain data such as metadata or command responses from devices. 
+
+   * Remote monitoring (RMsolution) [2:50] 
+
+   https://youtu.be/Tg_RZMXHYj8 by (corywink@microsoft)
+
+   * Predictive Maintenance
+
+   Solutions use Stream Analytics to process the messages from your devices and deliver those messages to other services.
+
+   Create a Stream Analytics job that monitors data received by the IoT Hub
+
+   <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/handson-with-azure-stream-analytics-16639?l=xGiVP0JrC_5606218965">
    Hands-On with Azure Stream Analytics</a>
    by Jeff Prosise (<a target="_blank" href="https://twitter.com/jprosise">@jprosise</a>)
    <a target="_blank" href="http://devcenter.wintellect.com/author/jprosise">
    blogger/co-founder at Wintellect</a>.
 
-1 Streaming Unit (SU) ~= 1 MB/sec.
+   1 Streaming Unit (SU) ~= 1 MB/sec.
+
+   ### Azure function
+
+   Implement an Azure Function that sends an email when a sensor reading exceeds a configured threshold value
+
+   ### Cosmos DB storage 
+
+   Azure Storage and Azure Cosmos DB provide the data storage capabilities. The preconfigured solutions use blob storage to store telemetry and to make it available for analysis. The solutions use Cosmos DB to store device metadata and enable the device management capabilities of the solutions.
+
+   * Create a Cosmos DB storage account and use a Stream Analytics job to store your telemetry data
+
+   ### Power BI
+
+   Azure Web Apps and Microsoft Power BI provide the data visualization capabilities. The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
+
+   * Use the Power BI service to view live data coming from your IoT device
+
+   * Use Power BI to create and share a data visualization report
+
+   ### Remote Management of Devices
+
+   * Implement a Direct Method on your IoT device and then trigger the method remotely
+
+   * Implement a Firmware Update using a Direct Method and monitor progress of the operation using a Device Twin
 
 <hr />
 
