@@ -34,7 +34,7 @@ Cloud services for IoT is fiercely contested market.
 0. <a target="_blank" href="https://software.intel.com/en-us/articles/connecting-intel-iot-gateways-to-ibm-watson">
    Connecting an Intel® IoT Gateway to IBM Watson</a>
 
-0. <a target="_blank" href="https://software.intel.com/en-us/articles/using-microsoft-azure-iot-suite-with-intel-iot-devices-and-gateways">
+0. <a href="#Microsoft">
    Using Microsoft Azure* IoT Suite with Intel® IoT Technology</a>
 
 0. As for Google Compute Cloud,
@@ -77,6 +77,15 @@ Cloud services for IoT is fiercely contested market.
 
 <hr />
 
+<a name="Comparisons"></a>
+
+## Comparison of IoT Clouds
+
+https://www.youtube.com/watch?v=G9Z0v_dX-xM
+
+
+<hr />
+
 <a name="Particle"></a>
 
 ## Particle # 
@@ -91,7 +100,6 @@ This reduces the hassle of using a custom cellular breakout board
    * http://makezine.com/product-review/particle-electron/
 
    * $19 http://makezine.com/product-review/particle-photon/
-
 
 
 <hr />
@@ -128,6 +136,17 @@ Developer's introduction to Azure IoT</a> by
 Olivier Bloch Senior Program Manager, Azure IoT
 on March 23, 2016
 
+   * <a target="_blank" href="https://www.youtube.com/watch?v=1By6bxcoD0U">
+   Video</a> Nov 22, 2015
+
+  * <a target="_blank" href="https://www.youtube.com/watch?v=iYajjE9rtYY">
+  A Developer's Guide to Azure IoT</a> [47:20] May 10, 2016
+
+  * <a target="_blank" href="https://www.youtube.com/watch?v=5ES-1g_mGxY">
+  Introduction to Azure IoT Suite and IoT Hub for developers</a> [16:56]
+  Nov 18, 2015
+  <br /><br />
+
 <a name="[2]">[2]</a>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=uxXUIs4rD_606218965">
    Microsoft Virtual Academy's Introduction to Azure IoT</a>
@@ -155,12 +174,16 @@ on March 23, 2016
 <a target="_blank" href="https://www.edx.org/course/developing-iot-solutions-azure-iot-microsoft-dev225x">
    A more in-depth (4-month) course on EdX</a>
    shows use of the C SDK.   
-
    This is free unless you want verification for $99.
-
    Instructors are Geoffrey Morgan (<a target="_blank" href="https://twitter.com/geoffmmorgan"> @geoffmmorgan</a>) of <a target="_blank" href="https://www.crank211.com/">
    Crank211.com</a>
    and Chris Howd, Engineer and Software Developer, Microsoft
+
+[4] <a target="_blank" href="https://software.intel.com/en-us/articles/using-microsoft-azure-iot-suite-with-intel-iot-devices-and-gateways">
+   Using Microsoft Azure* IoT Suite with Intel® IoT Technology</a>
+   Intel blog 1 June 2016.
+
+<hr />
 
 1. Get an Azure account. See https://azure.microsoft.com/en-us/free/free-account-faq/
 
@@ -412,6 +435,14 @@ on March 23, 2016
    https://github.com/Azure/azure-cli</a>
 
 
+
+
+   ### Send telemetry data from your device to the IoT Hub
+
+   The Azure IoT Hub service is core to the Azure IoT Suite. This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to manage your devices. For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
+
+   See https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging
+
    ### Config IoT Device
 
    On the IoT device (Raspberry Pi):
@@ -432,6 +463,17 @@ on March 23, 2016
    </pre>
 
 
+   ### Make it blink
+
+0. To have the Pi's LED blink and send up a picture to IoT Hub:
+
+   <pre><strong>git clone https://github.com/codefoster/iot-workshop
+   cd iot-workshop
+   </strong></pre>
+
+   Uses GPIO pins 26 and 20.
+
+
    ### Azure IoT Gateways
 
    The simple version <a href="#[2]">[2]</a>:<br />
@@ -439,12 +481,13 @@ on March 23, 2016
 
    A more complex version <a href="#[1]">[1]</a>:<br />
    <a target="_blank" title="iot-azure-gateways-610x301" href="https://user-images.githubusercontent.com/300046/27014181-a147d674-4ec1-11e7-8b92-7ee364d633df.png">
-   <img alt="iot-azure-gateways-610x301" width="650" width="301" src="https://user-images.githubusercontent.com/300046/27014181-a147d674-4ec1-11e7-8b92-7ee364d633df.png">
+   <img alt="iot-azure-gateways-610x301" width="650" width="301" src="https://user-images.githubusercontent.com/300046/27014181-a147d674-4ec1-11e7-8b92-7ee364d633df.png"><br /><small>Click for full screen picture pop-up)</small></a>
 
+0. TODO: Get it:
 
-   Raspberry Pi's can communicate:
-
-   https://github.com/azure/azure-iot-gateway-sdk
+   <pre><strong>git clone https://github.com/azure/azure-iot-gateway-sdk --depth=1
+   cd azure-iot-gateway-sdk
+   </strong></pre>
 
    https://youtu.be/KdD6FqxwxF4 by Chipalo Street (cstreet@micosoft.com)
 
@@ -456,21 +499,26 @@ on March 23, 2016
    * Maximize Security
    <br /><br />
 
-   Directly supported protocols:
+   Raspberry Pi's can communicate using these directly supported protocols:
 
    * HTTP (synchronous waits)
    * AMQP (asychrononous but heavy feature set)
    * MQTT (lower overhead and simpler, but less feature rich, less secure)
    <br /><br />
 
+   ### Filter
 
+   Listen for BLE (Bluetooth Low Energy) messages
 
+0. Get the repo described in :
 
-   ### Send telemetry data from your device to the IoT Hub
+   <pre><strong>git clone https://github.com/17minds/gateway --depth=1
+   cd gateway
+   </strong></pre>
 
-   The Azure IoT Hub service is core to the Azure IoT Suite. This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to manage your devices. For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
+   <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=fCW3cw4rD_5906218965">
+   Video</a>
 
-   See https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging
 
    ### Stream Analytics 
 
@@ -500,25 +548,48 @@ on March 23, 2016
 
    Implement an Azure Function that sends an email when a sensor reading exceeds a configured threshold value
 
+
    ### Cosmos DB storage 
 
-   Azure Storage and Azure Cosmos DB provide the data storage capabilities. The preconfigured solutions use blob storage to store telemetry and to make it available for analysis. The solutions use Cosmos DB to store device metadata and enable the device management capabilities of the solutions.
+   Azure blog Storage and Azure Cosmos DB provide a pre-configured solution to store telemetry and to make it available for analysis. 
 
-   * Create a Cosmos DB storage account and use a Stream Analytics job to store your telemetry data
+   Azure Cosmos DB stores device metadata and enables device management.
 
-   ### Power BI
+   <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=OEZVxw4rD_6606218965">
+   Video: Device Management</a> lifecycle:
 
-   Azure Web Apps and Microsoft Power BI provide the data visualization capabilities. The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
+   1. Plan
+   2. Provision
+   3. Configure
+   4. Monitor
+   5. Retire
+
+
+   * Create a Cosmos DB storage account 
+
+   * Use a Stream Analytics job to store telemetry data
+
+
+   ### Power BI Visualization
+
+   Azure Web Apps and Microsoft Power BI provide data visualization capabilities. 
+
+   The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
 
    * Use the Power BI service to view live data coming from your IoT device
 
    * Use Power BI to create and share a data visualization report
 
+
    ### Remote Management of Devices
 
    * Implement a Direct Method on your IoT device and then trigger the method remotely
 
-   * Implement a Firmware Update using a Direct Method and monitor progress of the operation using a Device Twin
+   * Implement a Firmware Update using a Direct Method and monitor progress of the operation using a <strong>Device Twin</strong>
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-management-overview/">Among device management plans:</a><br />
+   <img alt="iot-azure-device-mgmt-650x298-65kb.png" width="650" height="298" src="https://user-images.githubusercontent.com/300046/27014834-a850944e-4ece-11e7-8981-4b72c00ec6bf.png">
+
 
 <hr />
 
