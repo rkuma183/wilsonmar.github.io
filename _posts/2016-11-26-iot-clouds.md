@@ -151,13 +151,14 @@ classes:
    Crank211.com</a>
    and Chris Howd, Engineer and Software Developer, Microsoft
 
-0. Get an Azure account. See https://azure.microsoft.com/en-us/free/free-account-faq/
+1. Get an Azure account. See https://azure.microsoft.com/en-us/free/free-account-faq/
 
    After trial period, each month Azure provides
    8,000 free messages (of .5 KB each) a day.
    <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/iot-hub/"> 
    The first paid tier</a> of
    400,000 messages per month / $50 = 0.000125 per message (about 1 cent).
+
 
 0. Visit <a target="_blank" href="http://azure.com/iotdev">
    http://azure.com/iotdev</a> - the "Azure IoT Developer Center"
@@ -168,8 +169,6 @@ classes:
   * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-best-practices
   * https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-architecture
   * https://www.enisa.europa.eu/publications/etl2015 - mindmap of threats
-
-0. Install a <strong>Simulator</strong> in C#.
 
 0. Order an Intel Edison or Raspberry Pi IoT Devices at:
 
@@ -187,14 +186,43 @@ classes:
    * Full Size Breadboard
    <br /><br />
 
+0. Install a <strong>Simulator</strong> in C#
+   <a href="#HubExplorer">HubExplorer</a>
 
-   ### Azure CLI
+   ### OPTION A: GUI
 
-   Instead of using the Azure Portal GUI:
+0. Enter the Azure Portal GUI at <a target="_blank" href="http://ms.portal.azure.com/">
+   http://ms.portal.azure.com</a>
+0. Click the "+".
+0. Type <strong>IoT</strong> on top of "Search the marketplace" 
+   to select <a target="_blank" href="https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/home/searchQuery/IoT%20Hub/resetMenuId/"> IoT Hub</a>.
+0. Click Create.
+0. Sign-up for an Azure subscription if that comes up.
+
+   PROTIP: For each email, you get one month to use the $200.
+
+   ### Resource Group
+
+0. Add a resource group named beginning with "IoT"...
+0. Begin with 1 partition for Device-to-cloud.
+
+0. Select a Location closest to you.
+0. Click Create.
+
+   CAUTION: Each hub consumes credits (money) regardless of usage.
+
+0. PROTIP: Make inactive.
+
+0. Re-activate the hub for steps below.
+
+
+   ### OPTION B: Azure CLI
+
+   Instead of using the Azure Portal GUI at http://ms.portal.azure.com/
 
    Based on https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
 
-0. On a Mac, any folder:
+0. On a Mac, at any folder:
 
    <pre><strong>curl -L https://aka.ms/InstallAzureCli | bash</strong></pre>
 
@@ -216,7 +244,7 @@ classes:
    <pre><strong>az login
    </strong></pre>
 
-0. Authenticate: use a web browser to open the page 
+0. Authenticate: use a web browser to open page 
    https://aka.ms/devicelogin 
    to enter code E946P2YFU,
 
@@ -236,8 +264,7 @@ classes:
       "type": "user"
    </pre>
 
-0. Query from 
-   https://github.com/Azure/azure-cli
+0. Query using the az command:
 
    <pre><strong>az 
    </strong></pre>
@@ -247,6 +274,9 @@ classes:
 
    TODO: A PowerShell script that does all the below.
 
+
+
+   <a name="HubExplorer"></a>
 
    ### IoT Hub Explorer
 
@@ -267,9 +297,31 @@ classes:
    <pre><strong>iothub-explorer --help
    </strong></pre>
 
+0. PROTIP: Edit on your Mac's boot-up file:
+
+   <pre><strong>source ~/.bash_profile
+   </strong></pre>
+
+0. Add this line to create a custom alias, then save the file:
+
+   <pre>alias aih='iothub-explorer'</pre>
+
+   NOTE: You can select another alias short name than this example.
+
+0. Close your Terminal and open it again or, alternately:
+
+   <pre><strong>source ~/.bash_profile
+   </strong></pre>
+
+0. Now you can verify using an alias:
+
+   <pre><strong>aih --version
+   </strong></pre>
+
+
    ### Device Explorer app for IoT Hub devices
 
-   Use the Device Explorer tool (on Windows only) to manage devices connecting to your IoT hub. For example, you can use this tool to register a device with your IoT hub, monitor messages from your devices, and send messages to your devices. This is not the same as the Device Explorer blade that you can open from your IoT Hub service on the Azure portal.
+   Use the Device Explorer tool (on Windows 10 only) to manage devices connecting to your IoT hub. For example, you can use this tool to register a device with your IoT hub, monitor messages from your devices, and send messages to your devices. This is not the same as the Device Explorer blade that you can open from your IoT Hub service on the Azure portal.
 
    The Device Explorer app runs on your local machine and connects to your IoT hub in Azure. 
    It communicates with the following IoT Hub endpoints:
@@ -281,34 +333,72 @@ classes:
    * Send cloud-to-device to enable you to send messages to your devices from your IoT hub.
 
 
+
+   ### Device string
+
+   Example Hub connection string used to communicate with a hub:
+
+   <pre>HostName=iotzzz.azure-devices.net;
+   SharedAccessKeyName=service;
+   SharedAccessKey=3k32dkba35EGffd...2viib2gg=
+   </pre>
+
+
    ### Create an IoT Hub service
 
-0. Clone an <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT service SDK</a> (.NET = C#)
+0. Clone an <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks">Azure IoT service SDK</a> 
+
+   WARNING: These repos contain <strong>sub-modules</strong>, so add to git clone commands
+   <strong>`--recursive`</strong>. 
+
+   PROTIP: Since we won't be uploading changes, we don't fork and we also add to the command
+   <strong>`--depth=1`</strong>. 
 
    * https://github.com/azure/azure-iot-sdk-python (2.7 and 3.5) - 
    <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
+
    * https://github.com/azure/azure-iot-sdk-node - 
    <a target="_blank" href="https://youtu.be/VlK24lfMWfM">Video</a>
+
    * https://github.com/azure/azure-iot-sdk-java (1.7+)
-   * https://github.com/azure/azure-iot-sdk-csharp for UWP (Universal Windows Platform)
+
+   * https://github.com/azure/azure-iot-sdk-csharp (C#)
+   for .NET and UWP (Universal Windows Platform)
+
    * https://github.com/azure/azure-iot-sdk-c for microcontrollers such as RTOS - 
    <a target="_blank" href="https://youtu.be/vf2sW3wZjds">Video</a>
 
-   WARNING: These repos contain sub-modules, so add to clone commands
-   `--recursive`. 
+0. NOTE: The rest of this tutorial uses Python, so:
+
+   <pre><strong>cd azure-iot-sdk-python
+   </strong></pre>
+
+0. PROTIP: See how much disk space is used by the new folder. On a Mac:
+
+   <pre><strong>du -sh
+   </strong></pre>
+
+   I got `155 M` (Megabytes) using `--depth=1` versus `195 M` with all history.
+
+0. PROTIP: To obtain changes made by Microsoft:
+
+   <pre><strong>git pull
+   </strong></pre>
+
 
    ### Create an IoT device and register it with your IoT Hub
-
 
    https://youtu.be/wvRE5nvX8GQ
    by linkedin.com/in/arjmand-samuel-7919934
 
-   ### Simulator
+
+   ### Install Simulator
 
 0. On Windows 10, run a full version of Linux from inside Windows by
    installing the "Windows Subsystem for Linux" at 
 
-   https://go.microsoft.com/fwlink/?linkid=848175. 
+   <a target="_blank" href="https://go.microsoft.com/fwlink/?linkid=848175">
+   https://go.microsoft.com/fwlink/?linkid=848175</a>
 
 0. In the Linux environment, run:
 
@@ -316,8 +406,15 @@ classes:
    ./deploy.sh -l
    </strong></pre>
 
+   <a target="_blank" href="https://github.com/Azure/azure-cli">
+   https://github.com/Azure/azure-cli</a>
 
-   ### IoT Gateway
+
+   ### Azure IoT Gateways
+
+   ![iot-azure-arch-650x348-75kb](https://user-images.githubusercontent.com/300046/27012436-ae360686-4e9d-11e7-94c0-e63215de7a5e.png)
+
+   Raspberry Pi's can communicate
 
    https://github.com/azure/azure-iot-gateway-sdk
 
@@ -329,6 +426,12 @@ classes:
    * Reduce bandwidth costs - fall back to least cost 
    * Operate more reliably
    * Maximize Security
+
+   Directly supported protocols:
+
+   * HTTP (synchronous waits)
+   * AMQP (asychrononous but heavy feature set)
+   * MQTT (lower overhead and simpler, but less feature rich, less secure)
 
 
    ### Send telemetry data from your device to the IoT Hub
