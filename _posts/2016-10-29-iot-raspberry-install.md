@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "IoT Raspberry Pi Raspbian install Python Ansible Mono Node"
-excerpt: "How to setup a Raspberry Pi 3B to use Xamarin Mono and other apps"
+title: "IoT Raspberry Install "
+excerpt: "How to setup a Raspberry Pi 3B Pi Raspbian with Python Ansible Node"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
@@ -108,17 +108,18 @@ To get full capacity from USB/SD drives
 
 0. Click "Save File", the OK in the pop-up to begin download 
 
-   | Date/File | Version | Download | Unzipped | Nickname |
-   | --------- | ------- | ----: | ---: | ---- |
-   | 2017-04-10-raspbian-jessie.zip | 4.4 | ? GB | ? GB | "Jessie" |
-   | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.4 GB | 4.3 GB | "Wheezy" |
-
-   The Unzipped size is for the .img file created during un-zip.
-
-   NOTE: Jessie provides sudo-free access to GPIO.
+   | Date/File | Version | Download | Unzipped |
+   | --------- | ------- | ----: | ---: |
+   | 2017-04-10-raspbian-jessie.zip | 4.4 | 1.57 GB | ? GB |
+   | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.40 GB | 4.3 GB |
 
    The large size of the file means it will take a while,
    depending on the speed of your network.
+
+   PROTIP: You don't need to unzip.
+   The Unzipped size is for the .img file created during un-zip.
+
+   NOTE: Jessie provides sudo-free access to GPIO.
 
 0. While you're waiting, read blogs written when
    <a target="_blank" href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">
@@ -180,7 +181,7 @@ To get full capacity from USB/SD drives
 
    | File downloaded | Size |
    | --------------- | ---: |
-   | Etcher-1.0.0-darwin-x64.dmg | ? MB |
+   | Etcher-1.0.0-darwin-x64.dmg | 67.9 MB |
    | Etcher-1.0.0-beta.16-darwin-x64 | 75.4 MB |
 
    Following 
@@ -192,6 +193,7 @@ To get full capacity from USB/SD drives
 0. Select the drive containing the .img file.
 
 0. Skip past alternative activity below (for Windows) to <a href="#PowerUp">Power Up</a>.
+
 
 
 ### Unzip and Flash using Windows
@@ -505,7 +507,16 @@ it would by default display a GUI, and have no WiFi connection.
    sudo poweroff
    </strong></tt>
 
-0. Power it up again for the next steps.
+0. Power it up again for the next activity.
+
+
+### Optional: Configure SD for PiNet boot
+
+   If you want to network boot multiple Raspberry Pis, you could use PiNet at:
+
+   <a target="_blank" href="http://pinet.org.uk/">http://pinet.org.uk</a>
+
+   It is a free and open-source community-based project initially designed for schools. Each Raspberry Pi boots off a small set of startup files on an SD card and fetches the rest of the data it needs from the PiNet server, thereby allowing you to maintain a single operating system image for all the Raspberry Pis. PiNet also adds network user accounts, shared folders and automated backups.
 
 <hr />
 
@@ -522,8 +533,7 @@ Pi if you SSH into the device from your Mac or Windows PC.
 
 0. Identify the IP address
 
-   <pre><strong>
-   ifconfig
+   <pre><strong>ifconfig
    </strong></pre>
 
    Under "etho0", next to "inet addr:" is like<br />
@@ -639,12 +649,12 @@ If you setup WiFi on your laptop, you would have already used the information ne
    0. Downloads a GitHub repository containing Ansible scripts
    0. Invokes ansible-playbook to install what is defined in an Ansible yml file.
 
-0. Run the boot-strap script from the internet:
+0. Run my boot-strap script from <a target="_blank" href="https://github.com/wilsonmar/iot/">
+   my GitHub IoT repository</a>:
 
-   DRAFT:
+   CAUTION: IN DRAFT MODE AT TIME OF WRITING:
 
-   <pre><strong>
-   sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/iot/master/pi-jessie-bootstrap.sh)"
+   <pre><strong>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/iot/master/pi-jessie-bootstrap.sh)"
    </strong>
 
    Alternately, if your Pi doesn't have an internet connection,
@@ -965,9 +975,8 @@ become: false
 
 0. List drives mounted:
 
-   <tt><strong>
-   sudo fdisk -i
-   </strong></tt>
+   <pre><strong>sudo fdisk -i
+   </strong></pre>
 
    <pre>
 Disk /dev/sda: 240.1 GB, 240057409024 bytes
@@ -975,16 +984,14 @@ Disk /dev/sda: 240.1 GB, 240057409024 bytes
 
 0. Mount the USB drive:
 
-   <pre><strong>
-mkdir /mnt/PIHDD
+   <pre><strong>mkdir /mnt/PIHDD
 mnt /dev/sda1 /mnt/PIHDD
    </strong></pre>
 
 0. Check the contents that they be visible:
 
-   <pre>
-ls /mnt/PIHDD
-   </pre>
+   <pre><strong>ls /mnt/PIHDD
+   </strong></pre>
 
 
    ### one-time
@@ -1051,8 +1058,7 @@ ls /mnt/PIHDD
    The Raspbian image starts out empty, 
    without the usual dot files in other Linux distributions.
 
-   <pre><strong>
-   cd /home
+   <pre><strong>cd /home
    mkdir pi
    </strong></pre>
 
@@ -1326,9 +1332,8 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 
 0. To automatically mount a drive, install:
 
-   <tt><strong>
-   sudo apt-get install usbmount
-   </strong></tt>
+   <pre><strong>sudo apt-get install usbmount
+   </strong></pre>
 
    This creates a folder: `/media` and under that:
 
@@ -1340,15 +1345,13 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 
 0. List files in the USB drive on the Pi:
 
-   <pre><strong>
-   tree /mount/usb
+   <pre><strong>tree /mount/usb
    </strong></pre>
 
 0. List files in the USB drive on the Pi:
 
-   <pre>
-   ls /mount/usb
-   </pre>
+   <pre><strong>ls /mount/usb
+   </strong></pre>
 
 0. Reboot the system for the changes to take.
 
@@ -1360,20 +1363,17 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 0. Install the <a target="_blank" href="https://packages.debian.org/jessie/htop">
    htop</a> interactive processes viewer that replaces the top command:
 
-   <pre><strong>
-   sudo apt-get install htop
+   <pre><strong>sudo apt-get install htop
    </strong></pre>
 
    Use it like the Linux top command:
 
-   <pre><strong>
-   htop
+   <pre><strong>htop
    </strong></pre>
 
 0. Install Git client
 
-   <tt><strong>
-   sudo apt-get install git
+   <tt><strong>sudo apt-get install git
    </strong></tt>
 
    (instead of git-all, which requires git-daemon-sysvinit).
@@ -1390,35 +1390,30 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 
 0. Verify prerequisites:
 
-   <pre><strong>
-   python --version
+   <pre><strong>python --version
    </strong></pre>
 
 0. Position to the folder:
 
-   <tt><strong>
-   cd /home/pi
+   <tt><strong>cd /home/pi
    </strong></tt>
 
 0. Download self-starter script
 
-   <pre><strong>
-   git clone --depth=1 https://github.com/jetbloom/iot-utilities<br />
+   <pre><strong>git clone --depth=1 https://github.com/jetbloom/iot-utilities<br />
    cd iot-utilities
    </strong></pre>
 
 0. Make the script file executable:
 
-   <tt><strong>
-   sudo chmod +x system_info.py
+   <tt><strong>sudo chmod +x system_info.py
    </strong></tt>
 
    This only needs to be done once.
 
 0. Run the script file once under Python:
 
-   <tt><strong>
-   python system_info.py
+   <tt><strong>python system_info.py
    </strong></tt>
 
    ### Add to the boot-up script
@@ -1436,8 +1431,7 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 0. The Canonical way to install v7 is now specified at<br />
    https://github.com/nodesource/distributions
 
-   <pre><strong>
-sudo curl -sL https://deb.nodesource.com/setup_7.x | bash -
+   <pre><strong>sudo curl -sL https://deb.nodesource.com/setup_7.x | bash -
 apt-get install -y nodejs
    </strong></pre>
 
@@ -1453,27 +1447,25 @@ sudo add-apt-repository ppa:chris-lea/node.js
 
    This includes the NodeSource package signing key:
 
-   <pre><strong>
-curl --silent https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+   <pre><strong>curl --silent https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
    </strong></pre>
 
 0. Add the desired NodeSource repository:
 
-   <pre><strong>
+   <pre>
 VERSION=node_5.x
 DISTRO="$(lsb_release -s -c)"
 echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 echo "deb-src https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-   </strong></pre>
+   </pre>
 
 0. Update package lists and install Node.js:
 
-   <pre><strong>
-sudo apt-get update
+   <pre><strong>sudo apt-get update
 sudo apt-get install nodejs
    </strong></pre>   
 
-https://launchpad.net/~chris-lea/+archive/ubuntu/node.js
+   https://launchpad.net/~chris-lea/+archive/ubuntu/node.js
 
 
 <a name="Mono-Install"></a>
@@ -1499,20 +1491,19 @@ https://launchpad.net/~chris-lea/+archive/ubuntu/node.js
 
    In a shell script:
 
-   <pre><strong>
-   sudo apt-get install mono-complete -y
+   <pre><strong>sudo apt-get install mono-complete -y
    </strong></pre>
 
    `-y` specifies no prompt for adding 184 MB of disk space.
 
    Alternately, add a task in an Ansible playbook.yml:
 
-   <pre><strong>
+   <pre>
     - name: install python-apt
       command: apt-get install mono-complete
       register: mono-complete
       changed_when: "'python-apt is already the newest version.' not in aptget.stdout_lines"
-   </strong></pre>
+   </pre>
 
    NOTE: There is a <a target="_blank" href="https://galaxy.ansible.com/timani/mono/">
    playbook in Ansible Galaxy</a> at https://github.com/timani/ansible-role-mono
@@ -1528,8 +1519,7 @@ https://launchpad.net/~chris-lea/+archive/ubuntu/node.js
 
 0. Verify whether Mono apps can make HTTPS REST-based calls.
 
-   <pre><strong>
-   mozroots --import --ask-remove --machine
+   <pre><strong>mozroots --import --ask-remove --machine
    </strong></pre>
 
    This uses the <a target="_blank" href="https://linux.die.net/man/1/mozroots">
@@ -1576,8 +1566,7 @@ Couldn't retrieve the file using the supplied information.
 
    (if you don’t use sudo, be sure to switch to root):
 
-   <pre><strong>
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+   <pre><strong>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
    </strong></pre>
 
    The response:
@@ -1592,8 +1581,7 @@ gpg:               imported: 1  (RSA: 1)
 
 0. Reveal:
 
-   <pre><strong>
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+   <pre><strong>echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 sudo apt-get update
    </strong></pre>
 
@@ -1614,8 +1602,7 @@ deb http://download.mono-project.com/repo/debian wheezy main
 
 0. Play a video (.mov file) from the USB drive:
 
-   <tt><strong>
-   omxplayer file
+   <tt><strong>omxplayer file
    </strong></tt>
 
    QUESTION: What about mp4 files?
@@ -1682,8 +1669,7 @@ panic action = /usr/share/samba/panic-action %d
 
 0. The commands to install MongoDB on the Raspbian:
 
-   <pre><strong>
-   sudo apt-get update 
+   <pre><strong>sudo apt-get update 
    sudo apt-get upgrade 
    sudo apt-get install mongodb-server -y
    </strong></pre>
@@ -1696,23 +1682,20 @@ panic action = /usr/share/samba/panic-action %d
 
 0. Verify the version installed:
 
-   <tt><strong>
-   mongo --version
+   <tt><strong>mongo --version
    </strong></tt>
 
    MongoDB shell version: 2.4.10
 
 0. Configure the MongoDB service to start when the Raspberry Pi boots up:
 
-   <tt><strong>
-   sudo service mongod start
+   <tt><strong>sudo service mongod start
    </strong></tt>
 
 0. The MongoDB shell would be invoked remotely only as needed for debugging:
 
-   <tt>
-   mongo 
-   </tt>
+   <pre><strong>mongo 
+   </strong></pre>
 
    The single ">" is Mongo's prompt.
 
@@ -1729,11 +1712,10 @@ panic action = /usr/share/samba/panic-action %d
 
 0. Create a folder:
 
-   <pre>
-mkdir HelloWorld
+   <pre><strong>mkdir HelloWorld
 cd HelloWorld
 emacs HelloWorld.cs
-   </pre>
+   </strong></pre>
 
 0. Use a text editor to write a "Hello World" program:
 
@@ -1751,8 +1733,7 @@ public class HelloWorld
 
 0. Compile and run it:
 
-   <pre><strong>
-gmcs HelloWorld.cs
+   <pre><strong>gmcs HelloWorld.cs
 sudo mono HelloWorld.exe
    </strong></pre>
 
@@ -1917,7 +1898,7 @@ There are several alternatives.
    unlike Nagios which is free up to a point.
 
 
-   ### Nagios #
+### Nagios #
 
    The <a target="_blank" href="https://adagios.org/">
    adagios.org</a> web page describes display of
@@ -1927,7 +1908,7 @@ There are several alternatives.
 
    https://github.com/opinkerfi/adagios.git
 
-   ### PhantomJS
+### PhantomJS
 
    https://github.com/fg2it/phantomjs-on-raspberry
    makes 
@@ -1942,12 +1923,6 @@ There are several alternatives.
    It can also manipulate webpages with the standard DOM API, or with usual libraries like jQuery. 
    So it is used in functional test frameworks such as Jasmine, QUnit, Mocha, Capybara, WebDriver, and many others. 
  
-
-## Optional: Configure SD for PiNet boot
-
-   If you want to network boot multiple Raspberry Pis, you could use PiNet. This is a free and open-source community-based project initially designed for schools. Each Raspberry Pi boots off a small set of startup files on an SD card and fetches the rest of the data it needs from the PiNet server, thereby allowing you to maintain a single operating system image for all the Raspberry Pis. PiNet also adds network user accounts, shared folders and automated backups.
-
-   http://pinet.org.uk/
 
 
 <a name="InstallNode"></a>
@@ -1974,8 +1949,7 @@ publicized</a>:
 
 0. If you're brave enough to run it:
 
-   <pre><strong>   
-wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
+   <pre><strong>wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
 sudo dpkg -i node_latest_armhf.deb
    </strong></pre>
 
@@ -1993,8 +1967,7 @@ sudo dpkg -i node_latest_armhf.deb
 0. This uses curl command to download a script and then 
    a bash to execute it:
 
-   <pre><strong>
-   curl -sL https://deb.nodesource.com/setup_7.x | bash -
+   <pre><strong>curl -sL https://deb.nodesource.com/setup_7.x | bash -
    </strong></pre>
 
    If you're scared of letting some script on the internet 
@@ -2016,8 +1989,7 @@ sudo dpkg -i node_latest_armhf.deb
 
 0. Later, obtain the latest version:
 
-   <pre><strong>
-   apt-get install -y nodejs
+   <pre><strong>apt-get install -y nodejs
    </strong></pre>
 
    <a target="_blank" href="http://ask.xmodulo.com/install-node-js-linux.html">
@@ -2038,8 +2010,7 @@ sudo dpkg -i node_latest_armhf.deb
    <a target="_blank" href="http://ask.xmodulo.com/install-node-js-linux.html">
    Install Node.js from source</a> you can examine:
 
-   <pre><strong>
-   sudo apt-get install python g++ make
+   <pre><strong>sudo apt-get install python g++ make
    wget http://nodejs.org/dist/node-latest.tar.gz
    tar xvfvz node-latest.tar.gz
    cd node-v0.10.21 #(replace a version with the one you want)
@@ -2054,9 +2025,10 @@ sudo dpkg -i node_latest_armhf.deb
 
 0. Create a file creating a demo web server:
 
-   <pre><strong>
-   vim node_hello_world.js
+   <pre><strong>vim node_hello_world.js
    </strong></pre>
+
+   To write the file and quite, type `:wq`.
 
 0. Copy this and paste in the file:
 
@@ -2071,8 +2043,7 @@ console.log('Server running at http://127.0.0.1:3001/');
 
 0. Run the server:
 
-   <pre><strong>
-   node --debug node_hello_world.js
+   <pre><strong>node --debug node_hello_world.js
    </strong></pre>
  
    Look in the browser console for something like:
@@ -2115,8 +2086,7 @@ Server running at http://127.0.0.1:3001/
 
 0. View the fstab configuration file listing devices within partitions
 
-   <tt><strong>
-   sudo cat /etc/fstab
+   <tt><strong>sudo cat /etc/fstab
    </strong></tt>
 
    It looks like this, as
@@ -2139,18 +2109,28 @@ proc        /proc          proc defaults             0 0
    "/home/pi/networkdrive/my.img" 
    with your own network drive / USB drive + image file name):
 
-   <tt><strong>
-   sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
+   <tt><strong>sudo dd if=/dev/mmcblk0p2 of=/home/pi/networkdrive/my.img bs=1M
    </strong></tt>
+
 
 ## Hadoop clusters
 
-https://www.youtube.com/watch?v=ZNB1at8mJWY&t=704s
-Ansible 101 - on a Cluster of Raspberry Pi 2s 
+* https://www.youtube.com/watch?v=ZNB1at8mJWY&t=704s
+   Ansible 101 - on a Cluster of Raspberry Pi 2s 
 
 * http://www.widriksson.com/raspberry-pi-hadoop-cluster/
    Use Pi's as a small Hadoop cluster
 
+
+### Configure SD for PiNet boot
+
+   If you want to network boot multiple Raspberry Pis, you could use PiNet at:
+
+   <a target="_blank" href="http://pinet.org.uk/">http://pinet.org.uk</a>
+
+   It is a free and open-source community-based project initially designed for schools. Each Raspberry Pi boots off a small set of startup files on an SD card and fetches the rest of the data it needs from the PiNet server, thereby allowing you to maintain a single operating system image for all the Raspberry Pis. PiNet also adds network user accounts, shared folders and automated backups.
+
+## Google Tensorflow on a Pi
 
 
 ## Resources
