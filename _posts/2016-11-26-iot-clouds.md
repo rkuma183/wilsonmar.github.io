@@ -534,7 +534,7 @@ on March 23, 2016
 
    Solutions use Stream Analytics to process the messages from your devices and deliver those messages to other services.
 
-   Create a Stream Analytics job that monitors data received by the IoT Hub
+   Create a Stream Analytics job that monitors data received by the IoT Hub.
 
    <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/handson-with-azure-stream-analytics-16639?l=xGiVP0JrC_5606218965">
    Hands-On with Azure Stream Analytics</a>
@@ -544,7 +544,15 @@ on March 23, 2016
 
    1 Streaming Unit (SU) ~= 1 MB/sec.
 
-   ### Azure function
+   ### Route Output to Event Hub
+
+   <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=UfJuGx4rD_906218965">
+   Video</a>
+
+   messageType = 'a'
+
+
+   ### Azure routing to function
 
    Implement an Azure Function that sends an email when a sensor reading exceeds a configured threshold value
 
@@ -565,9 +573,23 @@ on March 23, 2016
    5. Retire
 
 
-   * Create a Cosmos DB storage account 
+   ### Create a Cosmos DB storage account 
 
-   * Use a Stream Analytics job to store telemetry data
+   * Use an Azure Stream Analytics (SA) query job to store telemetry data
+
+   ### Remote Management of Devices
+
+   * Implement a Direct Method on your IoT device and then trigger the method remotely
+
+   * Implement a Firmware Update using a Direct Method and monitor progress of the operation using a <strong>Device Twin</strong>
+
+   ![iot-azure-device-twin-650x347](https://user-images.githubusercontent.com/300046/27014882-86ef6504-4ecf-11e7-9c86-b952f115a6bf.png)
+
+   Queries:
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-management-overview/">Among device management plans:</a><br />
+   <img alt="iot-azure-device-mgmt-650x298-65kb.png" width="650" height="298" src="https://user-images.githubusercontent.com/300046/27014834-a850944e-4ece-11e7-8981-4b72c00ec6bf.png">
+
 
 
    ### Power BI Visualization
@@ -576,19 +598,34 @@ on March 23, 2016
 
    The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
 
+   <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/introduction-to-azure-iot-17611?l=oneKXx4rD_6506218965">
+   Video</a>
+
    * Use the Power BI service to view live data coming from your IoT device
 
+0. In Azure, create a new job.
+
+   Query: 
+
+   <pre>SELECT * INTO blob FROM iotmva</pre>
+
+0. Add Output.
+
+   Storage options:
+
+   * SQL database
+   * Blog storage
+   * Table storage
+   * DocumentDB (shown in the EDX course)
+   * Data Lake Store
+   <br /><br />
+
+   * Event hub
+   * Service bus Topic
+   * Power BI
+   <br /><br />
+
    * Use Power BI to create and share a data visualization report
-
-
-   ### Remote Management of Devices
-
-   * Implement a Direct Method on your IoT device and then trigger the method remotely
-
-   * Implement a Firmware Update using a Direct Method and monitor progress of the operation using a <strong>Device Twin</strong>
-
-   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-management-overview/">Among device management plans:</a><br />
-   <img alt="iot-azure-device-mgmt-650x298-65kb.png" width="650" height="298" src="https://user-images.githubusercontent.com/300046/27014834-a850944e-4ece-11e7-8981-4b72c00ec6bf.png">
 
 
 <hr />
