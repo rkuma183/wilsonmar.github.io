@@ -94,6 +94,15 @@ Otherwise:
    bundle exec jekyll serve --baseurl ''
    ```
 
+   Alternately, override local URLs:
+
+   ```
+   bundle exec jekyll serve --config _config.yml,_config_dev.yml
+   ```
+
+   PROTIP: Define an alias (such as bs) in ~/.bash_profile.
+
+
    PROTIP: Leave this terminal instance running and open another Terminal
    instance to work on the content of the site.
 

@@ -42,6 +42,12 @@ $49 WebStorms
 
 ## Modularity by Framework #
 
+* http://x2node.com/
+   is a complete but lightweight framework on various modules at<br />
+   <a target="_blank" href="https://github.com/boylesoftware/">
+   https://github.com/boylesoftware</a><br />
+   that include mySQL, 
+   http://boylesoftware.com/blog/x2-framework-node-js <br />
 
 * Plain JavaScript - Namespaces, Module Pattern, Class Pattern
 
@@ -157,7 +163,6 @@ To use a dependency:
 
    Compiles to JavaScript
 
-
 ## Avoiding Global Scope
 
 * Self-Executing Anonymouse Funcitons (SEAF)
@@ -201,12 +206,12 @@ Integration tests testing pieces of several units at once.
 
 ## Video Learning resources #
 
-Below are notes from the Pluralsight's
+   Below are notes from the Pluralsight's
    <a target="_blank" href="https://app.pluralsight.com/paths/skills/node-js/">
    Node.js learning path</a> series of classes.
 
 
-   ### Beginner classes
+### Beginner classes
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/node-intro/table-of-contents">
    Introduction to Node.js
@@ -220,7 +225,7 @@ Below are notes from the Pluralsight's
 
 
 
-   ### Intermediate classes
+### Intermediate classes
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/nodejs-express-web-applications">
    Building Web Applications with Node.js and Express 4.0
@@ -233,20 +238,20 @@ Below are notes from the Pluralsight's
    by Jonathan Mills
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/large-scale-javascript/table-of-contents">
-   2h 49m 24 Jan 2014</a>
+   Large Scale Javascript 2h 49m 24 Jan 2014</a>
    by Shawn Wildermuth (@ShawnWildermuth)
 
-   <a href="#Frameworks>Frameworks</a>
+   <a href="#Frameworks">Frameworks</a>
 
    EcmaScript6
 
    Coffeescript uses a simpler syntax
 
 
-   ### Advanced classes
+### Advanced classes
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/nodejs-testing-strategies/table-of-contents">
-   2h 39m 13 Apr 2015</a>
+  NodeJs Testing Strategies 2h 39m 13 Apr 2015</a>
    by Rob Conery
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/node-application-patterns/table-of-contents">
@@ -276,13 +281,18 @@ Below are notes from the Pluralsight's
 
 ## Other Learning resources #
 
-* https://school.scotch.io/build-a-restful-nodejs-api/
-   offers a video introduction for free.
+* https://school.scotch.io/build-a-restful-nodejs-api/">
+   Build a Restfule NodeJs API</a>
+   video intro is offered free.
    Subscribe for the MongoDB tutorial ($12/month).
 
 * <a target="_blank" href="http://www.slideshare.net/briandemant/smarr-oscon-2007">
    High-Performance JavaScript: Why everything you've been taught is wrong</a>
    by Joseph Smarr (at Plaxo)
 
+* <a target="_blank" href="https://www.youtube.com/watch?v=B0iczskSrls&list=PL1Z_7yg6Pa3AhqCOTQKm9X_Sl9xLdMKYo&index=6">
+   Microsoft Azure for Node.JS developers</a>
 
-https://www.youtube.com/watch?v=iHcEZ5z7G-M&list=PL1Z_7yg6Pa3AhqCOTQKm9X_Sl9xLdMKYo&index=57
+* <a target="_blank" href="https://www.youtube.com/watch?v=yBO0U5fWss4">
+   Using Node.JS with Visual Studio Code</a>
+   Microsoft Virtual Academy
