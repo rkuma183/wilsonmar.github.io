@@ -32,6 +32,8 @@ As of this writing (June 2017), this was as its first "beta" release.
 
    This option was added since the "Anniversary" and "Creators Update" of Windows 10.
 
+   <a href="#FirstTime">Skip to next topic</a> if you see it.
+
    ### Don't see it?
 
    Verify your PC's CPU architecture and Windows version/build number:
@@ -49,9 +51,11 @@ As of this writing (June 2017), this was as its first "beta" release.
 0. Open Settings -> Update and Security -> For developers
 0. Check the Developer Mode radio button to "install any signed app".
 
+   <a name="FirstTime"></a>
+
    ### First time Bash
 
-0. Open a command prompt (click Start) 
+0. Open a command prompt (click Start and type Command, then select it from the list that arises) 
 
    QUESTION: Run as Administrator/elevated?
 
@@ -62,17 +66,21 @@ As of this writing (June 2017), this was as its first "beta" release.
 
    During Beta period, this message appears:
 
-   <pre>-- Beat feature --
+   <pre>-- Beta feature --
+   This will install Ubuntu on Windows, distributed by Canonical
+   and licensed under its terms available here:
    https://aka.ms/uowterms
    </pre>
 
-0. Type y to continue. The response:
+0. Type y and press Enter to continue. The response:
 
    <pre>Downloading from the Windows Store... 100%
    Extracting filesystem, this will take a few minutes...
    Installation successful~
    Please enter a UNIX user name: _
    </pre>
+
+   QUESTION: What is downloaded and can it be deleted?
 
    The image downloaded is a Ubuntu user-mode image.
 
@@ -83,7 +91,7 @@ As of this writing (June 2017), this was as its first "beta" release.
 
    This username and password can be different from, and has no relationship to Windows username and password.
 
-   QUESTION: root?
+   PROTIP: The user is not root.
 
    https://msdn.microsoft.com/en-us/commandline/wsl/user_support
 
@@ -94,6 +102,9 @@ As of this writing (June 2017), this was as its first "beta" release.
    `Bash on Ubuntu on Windows`
 
 0. Click it so you don't have to type "bash".
+
+   By default, the prompt is your Linux user name @ your machine name:/mnt/c/Users/%USERNAME%$
+
 
    ### Folders and variables
 
@@ -127,6 +138,10 @@ As of this writing (June 2017), this was as its first "beta" release.
 
 ## References
 
+Links and issues for this are on:<br />
+<a target="_blank" href="https://github.com/Microsoft/BashOnWindows">
+https://github.com/Microsoft/BashOnWindows</a>
+
 https://msdn.microsoft.com/en-us/commandline/wsl/install_guide
 
 https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/
@@ -139,3 +154,4 @@ https://blogs.msdn.microsoft.com/wsl</a>, the home page of WSL.
 From inside Bash, DrvFS gets to Windows.
 
 From inside Windows, VolFS gets to Linux symbolic files and case sensitivy.
+
