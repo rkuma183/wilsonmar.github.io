@@ -511,17 +511,20 @@ says tap adds to the list of formulae that brew tracks, updates, and installs fr
 
 ## Brew Cask Install #
 
-Homebrew cask extends homebrew and brings its elegance, simplicity, and speed to MacOS (OS X) GUI applications 
-and large binaries.
+Homebrew cask extends homebrew and brings its elegance, simplicity, and speed to 
+MacOS (OS X) <strong>GUI</strong> applications and large binaries.
 
 With Cask, you can skip the long URLs, 
-the "To install, drag this icon…", and 
-manually deleting installer files.
+the "To install, drag this icon…", and manually deleting installer files.
+
+0. Temporarily set the permissions on /usr/local:
+
+   <pre><strong>sudo chown $USER /usr/local
+   </strong></pre>
 
 0. Install brew cask:
 
-   <pre><strong>
-   brew tap caskroom/cask
+   <pre><strong>brew tap caskroom/cask
    brew install brew-cask
    </strong></pre>
 
@@ -534,14 +537,12 @@ manually deleting installer files.
 
 0. Install the cask extension to Homebrew:
 
-   <pre><strong>
-   brew tap caskroom/cask
+   <pre><strong>brew tap caskroom/cask
    </strong></pre>
 
    Alternately:
 
-   <pre><strong>
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
+   <pre><strong>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null ; brew install caskroom/cask/brew-cask 2> /dev/null
    </strong></pre>
 
 0. Search for a cask by name, in website is where casks are obtained:
@@ -551,8 +552,7 @@ manually deleting installer files.
 
    Alternately, run a search command. This example searches for "yo":
 
-   <pre><strong>
-   brew cask search yo
+   <pre><strong>brew cask search yo
    </strong></pre>
 
    PROTIP: One should see the cask definition before using it.
@@ -598,8 +598,7 @@ end{% endhighlight %}
 
 0. Install the cask:
 
-   <tt><strong>
-   brew cask install google-chrome
+   <tt><strong>brew cask install google-chrome
    </strong></tt>
 
    Cask downloads then moves the app to the ~/Applications folder,
@@ -607,14 +606,42 @@ end{% endhighlight %}
 
 0. Open the installed cask from Terminal:
 
-   <pre><strong>
-   open /Applications/"Google Chrome.app"
+   <pre><strong>open /Applications/"Google Chrome.app"
    </strong></pre>
 
 0. Installing with cask enables you to cleanup:
 
-   <pre><strong>
-   brew cask cleanup
+   <pre><strong>brew cask cleanup
+   </strong></pre>
+
+
+   ### Error prevention
+
+   <a target="_blank" href="https://github.com/caskroom/homebrew-cask/issues/19547">
+   If</a> you get an error about "permissions denied":
+
+0. Create a Caskroom folder
+
+   <pre><strong>cd ~
+   mkdir Caskroom
+   </strong></pre>
+
+0. Edit the .bash_profile
+
+   <pre><strong>vim ~/.bash_profile
+   </strong></pre>
+
+0. Add this line:
+
+   <pre>export HOMEBREW_CASK_OPTS="--appdir=~/Applications --caskroom=~/Caskroom"
+   </pre>
+
+   QUESTION: The use of --caskroom is deprecated?
+
+0. Save the file.
+0. Restart the terminal.
+
+   <pre><strong>source ~/.bash_profile
    </strong></pre>
 
 
