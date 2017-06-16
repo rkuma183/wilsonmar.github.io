@@ -17,9 +17,11 @@ comments: true
 
 This article contains note on my personal experience installing and using Eclipse IDE.
 
+It was originally funded by IBM as open source.
+
 There are several versions and editions of Eclipse IDE.
 
-   * Java
+   * Java is free
    * Web
    * <a href="#STS">STS</a>
 
@@ -87,3 +89,60 @@ https://www.predix.io/resources/tutorials/journey.html#1607
 0. Open STS by double-clicking the icon.
 0. Click Open icon for first-time confirmation.
 0. Specify your workspace.
+
+
+
+<a name="FirstTime"></a>
+
+## First Time #
+
+0. Specify the workspace and check "Don't show again".
+
+0. Check the box to not display the wizard screen.
+
+<a name="Perspectives"></a>
+
+## Perspectives #
+
+Perspectives define the size and location of different views on the workspace window.
+
+0. Right-click on the <strong>Perspectives</strong> icon at the upper-right corner
+   and select "Show Text".
+
+0. Click the icon to the right of the Perspective icon to open a list of perspectives.
+0. Click Cancel
+
+Views
+
+
+
+<a name="Tutorials"></a>
+
+## Video Tutorials #
+
+There are a lot on YouTube:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
+   Introduction to Eclipse: Driving Java Productivity</a> from 2012
+   by Marakana
+
+Pluralsight.com has a two-part series from 2013 by Tod Gentille (@Tod Gentille) of syncorsystems.com:
+
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part1/table-of-contents"> Part 1</a>
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part2/table-of-contents"> Part 2</a>
+
+## Shortcuts
+
+To go back to previous edit location: Control+Q
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=C5glFtpuy0U">
+   Keyboard shortcuts</a> for constructors.
+
+   <a target="_blank" href="http://goo.gl/OI9DU">Cheatsheet at http://goo.gl/OI9DU</a>
+
+https://www.youtube.com/watch?v=ZUM9jEhLie0
+
+https://www.youtube.com/watch?v=E3hKgb4aLHM
+
+https://www.youtube.com/watch?v=X8Xw7FWw49E
+
