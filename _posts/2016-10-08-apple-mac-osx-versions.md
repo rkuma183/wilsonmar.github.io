@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac OSX Versions"
-excerpt: "From Mac OSX to mac OS X"
+excerpt: "From Mac OSX to MacOS"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -17,7 +17,7 @@ comments: true
 
 <a id="Versionz"></a>
 
-### Versions of Mac OS X
+### Versions
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> OSX<br />Ver. </th><th> Code Name </th><th> Avail. Date
@@ -27,7 +27,7 @@ comments: true
 </th><th> Introduced
 </th></tr>
 <tr valign="top"><td> 10.12
-</td><td align="right"> mac OS X Sierra
+</td><td align="right"> MacOS Sierra
 </td><td align="right"> Oct. 2016
 </td><td align="right"> 2.6.0
 </td><td align="right"> -
@@ -81,12 +81,12 @@ comments: true
 </td><td align="right"> -
 </td><td align="left"> - </td></tr>
 <tr valign="top"><td> 10.4 </td><td align="right"> Tiger
-</td><td align="right"> ?
-</td><td align="right"> ?
+</td><td align="right"> <a target="_blank" href="https://en.wikipedia.org/wiki/Mac_OS_X_Tiger">April 29, 2005</a>
 </td><td align="right"> -
 </td><td align="right"> -
-</td><td align="left"> from tsch to <a href="#BashShell">bash shell</a></td></tr>
-<tr valign="top"><td> 10.3 </td><td align="right"> Jaguar
+</td><td align="right"> -
+</td><td align="left"> Intel chip; from tsch to <a href="#BashShell">bash shell</a></td></tr>
+<tr valign="top"><td> 10.3 </td><td align="right"> Panther
 </td><td align="right"> ?
 </td><td align="right"> ?
 </td><td align="right"> -
