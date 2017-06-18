@@ -2,6 +2,7 @@
 layout: post
 title: "Mac OSX Hardware"
 excerpt: "It's stylish because it's expensive"
+shorturl: "https://goo.gl/mMB7vZ"
 tags: [apple, mac, setup]
 image:
 # feature: pic gray apple logo 1900x500.jpg
@@ -11,8 +12,6 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-
-[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 {% include _toc.html %}
 
@@ -43,16 +42,38 @@ The MiniDisplay Port is compatible only with Display Port compatible devices,
 such as an external monitor. 
 
 There are 2 squarish miniports so they can chain up to 10 thunderbolt devices.
-A display that isn't compatible with Thunderbolt must be the last one in the chain.
+
+PROTIP: A display that isn't compatible with Thunderbolt must be the last one in the chain.
 
 Thunderbolt can transfer at speeds up to 20Gbps. 
 Higher speeds than USB.
 
 #### USB drives
 
-To watch Bluray disks, get a Samsung external drive.
+BLAH: Apple's DVD drives don't play Bluray.
 
-Apple's DVD drives don't play Bluray.
+To watch Bluray disks, get a Samsung external drive and software.
+
+To list USB ports, use this Linux command:
+
+   <pre><strong>lsusb
+   </strong></pre>
+
+   An example response for my machine:
+
+   <pre>
+Bus 026 Device 001: ID 8087:0024 Intel Corporation Hub 
+Bus 026 Device 003: ID 05ac:8510 Apple Inc. FaceTime HD Camera (Built-in)  Serial: CC2F8K0G1JDN9KE0
+Bus 029 Device 001: ID 8087:0024 Intel Corporation Hub 
+Bus 029 Device 002: ID 0424:2512 SMSC Hub 
+Bus 029 Device 004: ID 05ac:0262 Apple Inc. Apple Internal Keyboard / Trackpad 
+Bus 029 Device 003: ID 0a5c:4500 Broadcom Corp. BRCM20702 Hub 
+Bus 029 Device 005: ID 05ac:8286 Apple Inc. Bluetooth USB Host Controller 
+Bus 020 Device 012: ID 045e:0040 Microsoft Corporation Microsoft 3-Button Mouse with IntelliEye(TM) 
+Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus 
+Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus 
+Bus 000 Device 001: ID 1d6b:IPPT Linux Foundation USB 3.0 Bus 
+   </pre>
 
 #### USB-C ports
 
