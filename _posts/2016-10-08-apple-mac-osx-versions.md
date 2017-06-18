@@ -148,9 +148,10 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    * `x86_64` is the machine name (-m).
    * `i386` is the processor name (-p).
    * Not applicable on Macs (Linux only) are the hardware platform (-i) and operating system (-o) flag.
+   <br /><br />
 
-0. OPTIONAL: The architecture is "i816" output by the 
-   this command also used in Linux:
+   OPTIONAL: The architecture of `i386` is also output by 
+   this Linux command:
 
    <pre><strong>arch
    </strong></pre>
