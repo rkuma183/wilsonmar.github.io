@@ -115,10 +115,12 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    BuildVersion: 16B2555
    </pre>
 
-   PROTIP: The x.x.x is defined in the <a target="_blank" rel="amphtml" href="http://ssemver.org/">
-   Semantic Versioning website</a>.
-
    PROTIP: Provide this about your computer whenever you talk about your situation to StackOverflow or other technical support form.
+
+   The x.x.x pattern is called <a target="_blank" rel="amphtml" href="http://ssemver.org/">
+   Semantic Versioning</a>.
+
+   The "10" is associated called "Darwin", an open-source Unix operating system released by Apple Inc. in 2000. It is composed of code developed by Apple, as well as code derived from NeXTSTEP, BSD, Mach, and other free software projects. --<a target="_blank" href="https://www.wikiwand.com/en/Darwin_(operating_system)">Wikipedia</a>.
 
 0. A partial response can be requestd by:
 
@@ -126,8 +128,6 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    </strong></pre>
 
    This is a different command than used in Linux (`lsb_release`).
-
-   Kernel versioning is different for Darwin (on Macs) than for Linux.
 
 0. The reference to "Darwin" comes from the 
    <a target="_blank" href="http://man7.org/linux/man-pages/man2/uname.2.html">
@@ -144,7 +144,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    * `Darwin` is the kernel name (-k).
    * `macs-MacBook-Pro-4.local` is the node name (-n), where the characters
    before the first dash is your user name.
-   * `16.6.0` is the Ubuntu kernel-release (-r).
+   * `16.6.0` is the Linux kernel-release (-r).
    * `x86_64` is the machine name (-m).
    * `i386` is the processor name (-p).
    * Not applicable on Macs (Linux only) are the hardware platform (-i) and operating system (-o) flag.
