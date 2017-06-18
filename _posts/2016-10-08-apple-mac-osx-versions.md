@@ -97,45 +97,64 @@ comments: true
 From <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
-The x.x.x is defined in the 
-* <a target="_blank" rel="amphtml" href="http://ssemver.org/">
-   Semantic Versioning website</a>.
-
-
 
 <a id="MacVer"></a>
 
-### Mac Version? #
+## Commands #
 
-In a Terminal window on any folder, type:
+0. In a Terminal window on any folder, type:
 
-   <tt><strong>
-   sw_vers
-   </strong></tt>
+   <pre><strong>sw_vers
+   </strong></pre>
 
    The response I got:
 
-   <pre>
-   ProductName: mac OS X
-   ProductVersion: 10.12.1
+   <pre>ProductName: mac OS X
+   ProductVersion: 10.12.5
    BuildVersion: 16B2555
    </pre>
 
-A specific response can be requestd by:
+   PROTIP: The x.x.x is defined in the <a target="_blank" rel="amphtml" href="http://ssemver.org/">
+   Semantic Versioning website</a>.
 
-   <tt><strong>
-   sw_vers -productVersion
-   </strong></tt>
+   PROTIP: Provide this about your computer whenever you talk about your situation to StackOverflow or other technical support form.
 
-This is a different command than used in Linux (`lsb_release`).
+0. A partial response can be requestd by:
 
-Kernel versioning is different for Darwin (on Macs) than for Linux.
+   <pre><strong>sw_vers -productVersion
+   </strong></pre>
 
-The reference to "Darwin" comes from:
+   This is a different command than used in Linux (`lsb_release`).
 
-   <tt><strong>
-   uname
-   </strong></tt>
+   Kernel versioning is different for Darwin (on Macs) than for Linux.
+
+0. The reference to "Darwin" comes from the 
+   <a target="_blank" href="http://man7.org/linux/man-pages/man2/uname.2.html">
+   Unix name" command also used in Linux</a>:
+
+   <pre><strong>uname -a
+   </strong></pre>
+
+   The `-a` requests all parameters, for a response such as:
+
+   <pre>Darwin macs-MacBook-Pro-4.local 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64 x86_64
+   </pre>
+
+   * `Darwin` is the kernel name (-k).
+   * `macs-MacBook-Pro-4.local` is the node name (-n), where the characters
+   before the first dash is your user name.
+   * `16.6.0` is the Ubuntu kernel-release (-r).
+   * `x86_64` is the machine name (-m).
+   * `i386` is the processor name (-p).
+   * Not applicable on Macs (Linux only) are the hardware platform (-i) and operating system (-o) flag.
+
+0. OPTIONAL: The architecture is "i816" output by the 
+   this command also used in Linux:
+
+   <pre><strong>arch
+   </strong></pre>
+
+
 
 
 ## More on OSX
