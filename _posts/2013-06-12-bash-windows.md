@@ -135,6 +135,22 @@ As of this writing (June 2017), this was as its first "beta" release.
    <pre><strong>du -sh
    </strong></pre>
 
+## Architecture
+
+
+![bash-windows-wsl file-system-graphic-1024x547](https://user-images.githubusercontent.com/300046/27129463-644687dc-50d0-11e7-92fc-f9862d9c04cd.png)
+
+Lxcore.sys is the driver that recognizes Bash commands and other Linux utilities such as chmod
+to change permissions.
+
+VFS is the Virtual File System.
+
+From inside Bash, DrvFS gets to Windows.
+
+From inside Windows, VolFS gets to Linux symbolic files and its case sensitivity.
+
+NTFS is the NT File System controlling hard drives.
+
 
 ## References
 
@@ -148,10 +164,3 @@ https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/
 published 15 June 2016 by Jack Hammons, who writes:<br />
 <a target="_blank" href="https://blogs.msdn.microsoft.com/wsl/">
 https://blogs.msdn.microsoft.com/wsl</a>, the home page of WSL.
-
-![bash-windows-wsl file-system-graphic-1024x547](https://user-images.githubusercontent.com/300046/27129463-644687dc-50d0-11e7-92fc-f9862d9c04cd.png)
-
-From inside Bash, DrvFS gets to Windows.
-
-From inside Windows, VolFS gets to Linux symbolic files and case sensitivy.
-
