@@ -20,14 +20,14 @@ comments: true
 ### Versions
 
 <table border="1" cellpadding="4" cellspacing="0">
-<tr><th> OSX<br />Ver. </th><th> Code Name </th><th> Avail. Date
+<tr><th> Ver. </th><th> Code Name </th><th> Avail. Date
 </th><th><a href="/php-on-apple-mac-osx/">PHP</a>
 </th><th><a href="/python-on-apple-mac-osx/">Python</a>
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
 <tr valign="top"><td> 10.12
-</td><td align="right"> MacOS Sierra
+</td><td align="right"> MacOS<br />Sierra
 </td><td align="right"> Oct. 2016
 </td><td align="right"> 2.6.0
 </td><td align="right"> -
