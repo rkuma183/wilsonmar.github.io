@@ -122,7 +122,10 @@ touches the cold hard keyboard and
 on sharp edges of the Mac Pro Retina laptop.
 
 In https://support.apple.com/en-us/HT203671
-Apple recommends against use of palm pads.
+Apple recommends against use of palm pads,
+as the pads puts uneven pressure on the display glass.
+
+The pads also cause a line of dust on the screen.
 
 Unlike the much better looking leather
 <a target="_blank" href="https://www.twelvesouth.com/product/surfacepad-for-macbook"> $29 TwelveSouth</a>,
@@ -132,12 +135,11 @@ $9.99 GRIFITI Palm Pads</a>
 is removeable (rests on rather than glued on the keyboard), so
 it can be taken off before closing the cover.
 
-
 ## Case
 
 Dropping a Macbook can crack the screen.
 
-But it adds to the weight.
+But a protective case adds to the weight.
 
 
 
