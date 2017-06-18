@@ -2,6 +2,7 @@
 layout: post
 title: "Mac OSX Versions"
 excerpt: "From Mac OSX to MacOS"
+shorturl: "https://goo.gl/Ua6Pyv"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg

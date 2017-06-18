@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Eclipse IDE"
-excerpt: "Open source and free. But losing market to licensed"
+excerpt: "Open source and free since the 90's."
+shorturl: "https://goo.gl/Pi9qAE"
 tags: [ML, GE]
 image:
 # feature: pic white robots woman 1900x500.jpg
@@ -17,13 +18,13 @@ comments: true
 
 This article contains note on my personal experience installing and using Eclipse IDE.
 
-It was originally funded by IBM as open source.
+Eclipse was originally funded by IBM as open source.
 
-There are several versions and editions of Eclipse IDE.
+There editions of Eclipse IDE:
 
-   * Java is free
-   * Web
-   * <a href="#STS">STS</a>
+   * The edition for working with Java is free
+   * The edition working with Web (HTML) is licensed (costs money)
+   * <a href="#STS">STS</a> edition
 
 
 <a name="HomebrewInstall"></a>
@@ -36,9 +37,8 @@ use [Homebrew](/macos-homebrew/) to
 
 0. First, update the Homebrew installation bits:
 
-   <tt><strong>
-   brew update
-   </strong></tt>
+   <pre><strong>brew update
+   </strong></pre>
 
    This usually takes a while.
 
