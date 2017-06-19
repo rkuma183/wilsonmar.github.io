@@ -27,11 +27,10 @@ There are different package managers for each operating system and language:
 | SUSE, openSUSE | [zypper](#zypper) | .rpm | - |
 | MacOS            | brew   | - | Homebrew.org |
 | Windows          | choco   | .nuget | Chocolatey.org |
-
-| Node             | npm | - | - | - |
-| Ruby             | rpm | pom.xml | - | - |
-| Python           | -   | package.json | - | - |
 | Java             | mvn | pom.xml | - | - |
+| Ruby             | [rake](#rake) | .gemfile | - | - |
+| Node             | npm | .npm | - | - |
+| Python           | pip   | package.json | - | - |
 
 Some were developed by the same people who wrote the operating system or
 
@@ -297,6 +296,14 @@ lists all the commands.
 
 <hr />
 
+<a name="rake"></a>
+
+## Rake Ruby gemfiles
+
+https://www.digitalocean.com/community/tutorials/how-to-work-with-the-ruby-package-manager-rubygems-getting-started
+
+<hr />
+
 ## Share libraries
 
 (These don't work on Macs)
@@ -319,6 +326,11 @@ The PATH to search for modules is maintained in:
 List:
 
    <pre><strong>lldconfig -p | grep vmware
+   </strong></pre>
+
+For module parameters, look in directory:
+
+   <pre><strong>/etc/modprobe.d
    </strong></pre>
 
 ## Further reading
