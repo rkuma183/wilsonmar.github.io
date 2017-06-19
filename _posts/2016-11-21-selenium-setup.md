@@ -16,16 +16,19 @@ comments: true
 {% include _toc.html %}
 
 Although Selenium was created for functional testing,
-I'm using it to repeatedly run through web pages with the timing I want as I record screencast videos.
+people are using it to repeatedly run through web pages 
+for several purposes, such as getting timings as the basis for 
+recording screencast videos.
 
-## Install dependencies 
+## Install prequisite dependencies 
 
 Follow my other tutorials to install:
 
 1. [Java](/java-on-apple-mac-osx/)
 2. [Maven](/maven-on-macos/)
-4. Firefox browser
-5. Chrome with ChromeDriver
+3. Chrome with ChromeDriver
+4. <a href="#Firefox">Firefox browser</a>
+5. GeckoDriver
 6. Eclipse IDE (optionally)
 
 <hr />
@@ -53,13 +56,13 @@ remote: Total 14 (delta 0), reused 10 (delta 0), pack-reused 0
 Unpacking objects: 100% (14/14), done.
    </pre>
 
-0. Verify if Maven can run:
+0. Verify if Maven can download libraries specified in the app's <strong>pom.xml</strong> file:
 
    <tt><strong>
    mvn test
    </strong></tt>
 
-   If all goes well, you'll get a lot of outputs ending with something like:
+   If SUCCESS is returned, you'll get a lot of outputs ending with something like:
 
    <pre>
 Running com.javafortesters.junit.MyFirstTest
@@ -78,33 +81,53 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
    </pre>
 
+
 ## Selenium frameworks
 
 0. Import into the IDE from (not https):<br />
    <a target="_blank" href="http://www.seleniumhq.org/download/">
    http://www.seleniumhq.org/download/</a> 
 
-0. Scroll to <strong>Selenium Standalone Server</strong> to click the 3.x version link.
+0. Scroll to <strong>Selenium Standalone Server</strong> to click the Download link.
+   At time of writing, it was:
 
-   File selenium-server-standalone-3.0.1.jar was 21.1 MB. 
+   <pre>Download version 3.4.0</pre>
 
-0. Verify that version is in pom.xml.
+   | File                                 | Download |
+   | ------------------------------------ | ------: |
+   | selenium-server-standalone-3.4.0.jar | 21.8 MB |
+   | selenium-server-standalone-3.0.1.jar | 21.1 MB |
 
+0. Verify that version is in the pom.xml.
+
+
+
+<a name="Firefox"></a>
 
 ## Firefox
 
-0. Download and install Firefox from Mozilla.
+0. Download and install Firefox from Mozilla. On a Mac, use:
+
+   <pre><strong>brew install firefox
+   </strong></pre>
 
 0. See the version by clicking Help > Firefox Health Report.
    Alternately, click Firefox > About.
 
-   The Version should be 50.0 or above.
+   The version installed should be 50.0 or above.
 
-0. If you're using Selenium 3.0 (which you should),
-   skip the download and install the Gecko driver which Selenium uses.
+0. Install the Gecko driver which Selenium uses:
 
    https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver
 
+   Note you need to be using the latest Selenium (which was 3.3.1 as of this writing).
+
+0. Add to the path your operating systems uses to find executables 
+   the Gekodriver executable:
+
+   echo "export PATH=$PATH:~/Downloads/geckodriver" >>~/.bash_profile
+
+   NOTE: On MacOS, the separator between folders is a colon vs. a semi-colon on Windows.
 
 ## IDE
 
@@ -242,6 +265,8 @@ of Wikipedia.
 
 ## Resources
 
+http://www.softwaretestinghelp.com/webdriver-eclipse-installation-selenium-tutorial-9/
+
 http://www.guru99.com/selenium-tutorial.html
 
 https://www.youtube.com/watch?annotation_id=annotation_779954917&feature=iv&src_vid=nq97dfaVmC4&v=ff5ZsthcSZw
@@ -254,3 +279,6 @@ How to start firefox Browser in Selenium webdriver 3 with Gecko Driver
 by Mukesh Otwani
 
 http://james-willett.com/2015/05/a-gentle-newbie-friendly-guide-to-installing-selenium-webdriver-part-2-get-intellij/
+
+http://www.software-testing-tutorials-automation.com/2013/07/list-of-selenium-commands-with-examples.html
+
