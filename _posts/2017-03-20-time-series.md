@@ -16,13 +16,13 @@ comments: true
 {% include _toc.html %}
 
 Understanding the trend of numbers over time is a fundamental skill.
-That's why it's taught in elementary school.
+That's why it's taught in elementary school. Why?
 
 > "Those who don't know history are doomed to repeat it." -- Edmund Burke
 
 ## Excellence defined
 
-Below are charts that posses traits of excellent visualizations:
+Below are vizualizations that have the following traits:
 
  * Dynamic data - update visualizations (in "live mode") as data changes in sources such as databases. 
  
@@ -174,9 +174,17 @@ Introduction to Time Series</a>
 
    * Kapacitor collects anomalies
 
-See <a target="_blank" href="https://vimeo.com/202289126">
-video "How to Manage TensorFlow with InfluxData"</a>
-(The TensorFlow Jupyter notebook for weather prediction is shown from 17:24)
+   See <a target="_blank" href="https://vimeo.com/202289126">
+   video "How to Manage TensorFlow with InfluxData"</a>
+   (The TensorFlow Jupyter notebook for weather prediction is shown from 17:24)
+
+* Microsoft Azure introduced in 2017 their 
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started">
+   Time Series Insights</a>.
+   You need to add your account to it so you can
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access">
+   view the portal</a>
+   (even if you create it with your azure subscription).
 
 
 ## More on front-end styling #
