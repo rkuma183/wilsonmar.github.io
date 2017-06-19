@@ -562,6 +562,18 @@ JMeter ThreadGroup and Samplers.
 <a target="_blank" href="http://stackoverflow.com/questions/19147235/how-to-create-and-run-apache-jmeter-test-scripts-from-a-java-program">
 this</a>
 
+## SonarQube
+
+In addition to scanning code,
+SonarQube maintains a history of test runs.
+http://www.sonarplugins.com/jmeter
+
+
+## Look into this
+
+Generate JMeter Code from Swagger
+
+
 
 ## Resources
 
@@ -570,9 +582,5 @@ What others have written:
 * http://biscminds.blogspot.fr/2011/12/quick-jmeter-setup-on-mac.html
 
 * http://zacster.blogspot.com/2008/03/quick-howto-to-setup-jmeter.html
-
-
-## Generate JMeter Code from Swagger
-
 
 
