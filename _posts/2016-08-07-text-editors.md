@@ -78,19 +78,53 @@ Licensed IDEs:
 
 ## Vim
 
-To edit the file executed upon opening a command-line Terminal:
+vim is the most common text editor used in Linux.
 
-   <strong>vim ~/.bash_profile</strong>
+To open to the first occurance of "x" in the file executed automatically when opening a command-line Terminal:
 
-To get out of VIM, type:
+   <strong>vim +/x ~/.bash_profile</strong>
 
-   <pre>
+   `vim` is an alias of `vi`. vim is vi improved.
+
+To open at line 55 of the file executed automatically when opening a command-line Terminal:
+
+   <strong>vim +55 ~/.bash_profile</strong>
+
+There are three <strong>modes</strong>:
+
+   * command mode
+   * insert mode
+   * line mode
+
+While in command mode:
+
+   * press X to delete a character.
+   * type `set number` to toggle numbering on the left edge.
+   * type `set invnumber` to toggle inverse numbering backwards.
+
+   * type i to enter insert mode at the cursor.
+   * type I to enter insert mode at the front of the line.
+   * type o to insert new line below current position.
+   * type O to insert new line above current position.
+
+While in insert mode:
+
+   * Press Esc to exit insert mode.
+   * line mode is seen after pressing Esc.
+
+While in line mode:
+
+   * press u to undo.
+   * type G to go to end of file.
+   * type 55G to go to line 55.
+
+   To get out of VIM line mode, type:
+
    :q to quit (short for :quit)
    :q! to quit without saving (short for :quit!)
    :wq to write and quit (think write and quit)
    :x to write and quit (shorter than :wq)
    :qa to quit all (short for :quitall)
-   </pre>
 
 
 <a name="pico"></a>

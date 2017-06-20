@@ -181,10 +181,13 @@ Introduction to Time Series</a>
 * Microsoft Azure introduced in 2017 their 
    <a target="_blank" href="https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started">
    Time Series Insights</a>.
+
    You need to add your account to it so you can
    <a target="_blank" href="https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access">
-   view the portal</a>
-   (even if you create it with your azure subscription).
+   view</a> the
+   <a target="_blank" href="https://insights.timeseries.azure.com/">
+   Time Series portal at https://insights.timeseries.azure.com</a>
+   for an <strong>Environment</strong> you define.
 
 
 ## More on front-end styling #

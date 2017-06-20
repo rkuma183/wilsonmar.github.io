@@ -20,9 +20,6 @@ PWA (Progressive Web Apps).
 
 The step-by-step takes a different approach than what is covered in tutorials I took.
 
-Here I take you through a narrated tour that combines the best of 
-[Git and GitHub video tutorials by others](/git-and-github-videos/).
-
 I would appreciate it if you could email me if you have an answer to the QUESTIONS below.
 
 
