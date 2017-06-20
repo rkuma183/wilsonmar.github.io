@@ -16,8 +16,11 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes how to make use of Terminal to do stuff
-(make your life easier and less frustrating).
+This tutorial describes how to make use of Terminal to 
+make your life easier and less frustrating.
+
+What Apple calls the Terminal is a Bash shell.
+
 
 {% include _intro.html %}
 
@@ -41,7 +44,6 @@ by positioning mouse on it then tapping with two fingers on the touchpad.
 </ol>
 
 
-
 Three ways to relaunch the Finder:
 
 0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
@@ -52,28 +54,241 @@ Three ways to relaunch the Finder:
 0. Log out and log back in to your user account.
 
 
+<a id="Terminal_file_listing"></a>
 
-<a id="Wallpaperz"></a>
+## Terminal File Listing Home Folder #
 
-## Desktop Wallpaper Pictures #
+By default, the terminal shows the hard drive and lowest level file folder name, 
+in white letters over black.
 
-Get to the Desktop by spreading thumb and 4 fingers on the touchpad.
+0. To show the present (current) working directory (folder):
 
-Choose a different picture from Preferences 
-> desktops/screensaver 
-> select your desktop (highlight) 
-> press Command and C at he same time. BTW, notice where your picture/photo folders.
+   <pre><strong>pwd
+   </strong></pre>
 
-Want to add the Windows 10 wallpaper to your desktop?
+   The response for me is:
 
-   Get to folder where system wallpapers are held from the 
-   Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
+   <tt>/Users/wilsonmar
+   </tt>
 
-Sort by File Size. 
+   You will of course have a different machine user name than wilsonmar.
 
-Some wallpaper images that come with OS X are of Retina resolution: 
-<strong>5120x2880</strong>.
+0. Note the pwd command is built internally to the Bash shell:
 
+   <pre><strong>type pwd
+   </strong></pre>
+
+   The response:
+
+   <tt>pwd is a shell builtin
+   </tt>
+
+0. To get back to the <strong>home</strong> folder:
+
+   <pre><strong>cd
+   </strong></pre>
+
+   Alternately:
+
+   <pre><strong>cd ~/
+   </strong></pre>
+
+   ### List files and folders
+
+0. List all file names (without any metadata):
+
+   <pre><strong>ls
+   </strong></pre>
+
+   Folders available by default include Documents, Downloads, Pictures, Desktop, Music, Movies.
+
+0. Note the ls command is an external command added to the Bash shell:
+
+   <pre><strong>type ls
+   </strong></pre>
+
+   The response lists where ls is defined:
+
+   <tt>ls is hashed (/bin/ls)
+   </tt>
+
+
+0. Dive into a folder type:
+
+   <pre><strong>cd mu
+   </strong></pre>
+
+0. Press Enter.
+
+   Nothing happens because upper case letters are important.
+
+0. Press delete to remove the mu and type:
+
+   <pre><strong>cd Mu
+   </strong></pre>
+
+0. Press Enter for the Music folder.
+
+0. Go back up a level:
+
+   <pre><strong>cd ..
+   </strong></pre>
+
+0. List all files with their permission settings:
+
+   <pre><strong>ls -ls
+   </strong></pre>
+
+   Notice that no hidden files are listed.
+
+0. List all <strong>hidden</strong> files with permission settings,
+   piping the listing to more instead of having results flying by:
+
+   <pre><strong>ls -la ~/ | more
+   </strong></pre>
+
+   A colon appears at the bottom if there is more to show. 
+
+0. Cancel the listing, press <strong>control + C</strong>.
+
+   Notice the .bashrc on the first page, something like:
+
+   <pre>
+-rw-r--r--  1 discworld discworld  3330 Mar 10 16:03 .bashrc
+   </pre>
+
+   (It's for the <a href="#BashShell">Bash Shell</a>.)
+
+0. If it's not listed, create it with:
+
+   <pre><strong>vi ~/.bashrc
+   </strong></pre>
+
+0. To make it rw r r:
+
+   <pre><strong>chmod 644 .bashrc 
+   </strong></pre>
+
+0. List only hidden files in the current folder:
+
+   <pre><strong>ls -ld .??*
+   </strong></pre>
+
+0. Create a Projects folder to hold projects downloaded from 
+   <a href="#Setup_Github">Github</a>:
+
+   <pre><strong>mkdir Projects
+   </strong></pre>
+
+   This only needs to be done once.
+
+
+
+<a id="ShowHiddenInFinderz"></a>
+
+## Show Hidden Invisible Files in Finder #
+
+By default, the Mac's Finder does not show hidden files.
+
+0. Close all Finder folders. 
+
+0. Enter this in Terminal before typing Return:
+
+   <pre><strong>defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+   </strong></pre>
+
+   This causes all Finder windows to be reset.
+
+   To make invisible files visible again:
+
+   <pre><strong>defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
+   </strong></pre>
+
+   A description of each keyword:
+
+   **defaults** - OSX's command to change defaults, apple's low-level preference system.
+
+   **write** - tells defaults you want to change a preference, or write it
+
+   **com.apple.finder** - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
+
+   **AppleShowAllFiles** - specifies which preference you want to change within the application.
+
+   **TRUE or FALSE** - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
+
+   **&&** - a terminal operator to run whatever's after this if the previous command is successful.
+
+   **killall** - kills processes or closes applications.
+
+   **Finder** - specifies the process or application to close.
+
+For more on this, see http://www.westwind.com/reference/OS-X/invisibles.html
+
+
+<a id="HotCornerz"></a>
+
+## Cursor to Screen Hot Corners #
+
+By default, if you move the mouse to one of the corners of the screen,
+stuff happens. It can be annoying.
+
+0. Click the Apple menu at the upper left corner.
+0. Select System Preferences.
+0. Select Desktop &amp; Screen Saver.
+0. Click Hot Corners at the lower-right corner.
+   
+   <amp-img media="(min-width: 320px)" width="320" height="118" 
+layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206160/5a816098-f7ce-11e5-8e9c-eb5c06d3b2ad.jpg"></amp-img><!-- http://merc.tv/img/scr/mac_10.10_hot_corners.jpg" -->
+
+PROTIP: Disable each by selecting the dash (last choice) 
+so they show up when not wanted.
+
+
+
+<a name="Cat"></a>
+
+## Cat, tac, tail
+
+0. Show text file contents to the Terminal console:
+
+   <pre><strong>cat /etc/hosts
+   </strong></pre>
+
+   BLAH: The Linux tac command to list backward is not in Mac:
+
+   <pre><strong>tac /etc/hosts
+   </strong></pre>
+
+0. Show a file in -reverse (bottom-up):
+
+   <pre><strong>tail -r -n2 /etc/hosts
+   </strong></pre>
+
+   Change n2 to a different number of lines to show.
+
+   PROTIP: This command is useful to see the lastest entries appended to the end of a 
+   large log file.
+
+0. Expose spaces at end of lines
+   by showing $ end-of-line characters that are otherwise not shown:
+
+   <pre><strong>cat -vet /etc/hosts
+   </strong></pre>
+
+
+<a id="TerminalPingHostz"></a>
+
+## Terminal Ping Host #
+
+Find the IP address of a website host name:
+
+<pre><strong>host microsoft.com</strong></pre>
+
+<pre>
+microsoft.com has address 134.170.185.46
+microsoft.com has address 134.170.188.221
+microsoft.com mail is handled by 10 microsoft-com.mail.protection.outlook.com.
+</pre>
 
 
 
@@ -118,7 +333,6 @@ fe80::1%lo0 localhost
 
    <pre><strong>dscacheutil -flushcache
    </strong></pre>
-
 
 
 
@@ -176,182 +390,39 @@ Windows uses `ipconfig /flushdns`.
 
 
 
-<a id="HotCornerz"></a>
 
-## Cursor to Screen Hot Corners #
+<a id="DNSClearz"></a>
 
-By default, if you move the mouse to one of the corners of the screen,
-stuff happens. It can be annoying.
+## Clear DNS Cache Cache
 
-0. Click the Apple menu at the upper left corner.
-0. Select System Preferences.
-0. Select Desktop &amp; Screen Saver.
-0. Click Hot Corners at the lower-right corner.
-   
-   <amp-img media="(min-width: 320px)" width="320" height="118" 
-layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/14206160/5a816098-f7ce-11e5-8e9c-eb5c06d3b2ad.jpg"></amp-img><!-- http://merc.tv/img/scr/mac_10.10_hot_corners.jpg" -->
+<a index="_blank" href="http://coolestguidesontheplanet.com/clear-the-local-dns-cache-in-osx/">
+Different commands</a> are needed for different versions of OS.
+<strong>OSX 10.10</strong> added requirement for sudo when using the 
+built-in discoveryutil:
 
-ADVICE:
-I disabled each by selecting the dash (last choice) 
-because they show up when I don't want them.
+<tt>sudo discoveryutil udnsflushcaches</tt>
 
+<strong>OSX 10.9</strong>
 
+<tt>dscacheutil -flushcache;<br />
+sudo killall -HUP mDNSResponder</tt>
 
-<a id="TerminalPingHostz"></a>
+<strong>OSX 10.7  to 10.8</strong>
 
-### Terminal Ping Host #
+<tt>sudo killall -HUP mDNSResponder</tt>
 
-Find the IP address of a website host name:
+<strong>OSX 10.5 to 10.6</strong>
 
-<pre><strong>host microsoft.com</strong></pre>
+<tt>sudo dscacheutil -flushcache</tt>
 
-<pre>
-microsoft.com has address 134.170.185.46
-microsoft.com has address 134.170.188.221
-microsoft.com mail is handled by 10 microsoft-com.mail.protection.outlook.com.
-</pre>
+<strong>Windows</strong> by contrast:
 
+<tt>ipconfig /flushdns</tt>
 
+<strong>Linux (depending on the flavor running)</strong>
 
-
-<a id="Terminal_file_listing"></a>
-
-## Terminal File Listing Home Folder #
-
-By default, the terminal shows the hard drive and lowest level file folder name, 
-in white letters over black.
-
-To show the present (current) working directory (folder):
-
-<tt><strong>pwd
-</strong></tt>
-
-The response for me is:
-
-<tt><strong>/Users/wilsonmar
-</strong></tt>
-
-You will of course have a different machine user name than wilsonmar.
-
-To get back to this <strong>home</strong> folder:
-
-<tt><strong>cd ~/
-</strong></tt>
-
-To list all file names (without any metadata):
-
-<tt><strong>ls
-</strong></tt>
-
-Folders available by default include Documents, Downloads, Pictures, Desktop, Music, Movies.
-
-
-To dive into a folder type:
-
-<tt><strong>
-cd mu
-</strong></tt>
-
-Press Enter.
-
-Nothing happens because upper case letters are important.
-Press delete to remove the mu and type:
-
-<tt><strong>cd Mu
-</strong></tt>
-
-Press Enter for the Music folder.
-
-Go back up a level:
-
-<tt><strong>cd ..
-</strong></tt>
-
-To list all files with their permission settings:
-
-<tt><strong>ls -ls
-</strong></tt>
-
-Notice that no hidden files are listed.
-To list all <strong>hidden</strong> files with permission settings,
-piping the listing to more instead of having results flying by:
-
-<tt><strong>ls -la ~/ | more
-</strong></tt>
-
-A colon appears at the bottom if there is more to show. 
-
-To cancel the listing, press <strong>control + C</strong>.
-
-Notice the .bashrc on the first page, something like:
-
-   <pre>
--rw-r--r--  1 discworld discworld  3330 Mar 10 16:03 .bashrc
-   </pre>
-
-(It's for the <a href="#BashShell">Bash Shell</a>.)
-
-
-If it's not listed, create it with:
-
-<tt><strong>vi ~/.bashrc
-</strong></tt>
-
-To make it rw r r:
-
-<tt><strong>chmod 644 .bashrc 
-</strong></tt>
-
-List only hidden files in the current folder:
-
-<tt><strong>ls -ld .??*
-</strong></tt>
-
-Create a Projects folder to hold projects downloaded from 
-<a href="#Setup_Github">Github</a>:
-
-<tt><strong>mkdir Projects
-</strong></tt>
-
-This only needs to be done once.
-
-<a id="ShowHiddenInFinderz"></a>
-
-## Show Hidden Invisible Files in Finder #
-
-By default, the Mac's Finder does not show hidden files.
-
-0. Close all Finder folders. 
-
-0. Enter this in Terminal before typing Return:
-
-   <pre><strong>defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
-   </strong></pre>
-
-   This causes all Finder windows to be reset.
-
-   To make invisible files invisible again:
-
-   <pre><strong>defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
-   </strong></pre>
-
-   A description of each keyword:
-
-   **defaults** - OSX's command to change defaults, apple's low-level preference system.
-
-   **write** - tells defaults you want to change a preference, or write it
-
-   **com.apple.finder** - defaults that the application's preferences you want to change is Finder, specified by the application's bundle identifier.
-
-   **AppleShowAllFiles** - specifies which preference you want to change within the application.
-
-   **TRUE or FALSE** - the value you want to set the preference to. In this case, it is a boolean, so the values must be TRUE or FALSE. I think you might be able to use YES or NO, but I'm not sure.
-
-   **&&** - a terminal operator to run whatever's after this if the previous command is successful.
-
-   **killall** - kills processes or closes applications.
-
-   **Finder** - specifies the process or application to close.
+<tt>/etc/init.d/named restart<br />
+/etc/init.d/nscd restart</tt>
 
 
 ### Create Terminal Aliases #
@@ -649,7 +720,6 @@ exit
 
 ## Environment Variables
 
-
 Like on PCs, the PATH environment variable stores
 where the operating system should look to find
 a particular program to execute.
@@ -823,41 +893,6 @@ The same utility can mount .iso images:
    <pre><strong>hdiutil mount sample.iso
    </strong></pre>
 
-
-
-
-<a id="DNSClearz"></a>
-
-## Clear DNS Cache Cache
-
-<a index="_blank" href="http://coolestguidesontheplanet.com/clear-the-local-dns-cache-in-osx/">
-Different commands</a> are needed for different versions of OS.
-<strong>OSX 10.10</strong> added requirement for sudo when using the 
-built-in discoveryutil:
-
-<tt>sudo discoveryutil udnsflushcaches</tt>
-
-<strong>OSX 10.9</strong>
-
-<tt>dscacheutil -flushcache;<br />
-sudo killall -HUP mDNSResponder</tt>
-
-<strong>OSX 10.7  to 10.8</strong>
-
-<tt>sudo killall -HUP mDNSResponder</tt>
-
-<strong>OSX 10.5 to 10.6</strong>
-
-<tt>sudo dscacheutil -flushcache</tt>
-
-<strong>Windows</strong> by contrast:
-
-<tt>ipconfig /flushdns</tt>
-
-<strong>Linux (depending on the flavor running)</strong>
-
-<tt>/etc/init.d/named restart<br />
-/etc/init.d/nscd restart</tt>
 
 
 

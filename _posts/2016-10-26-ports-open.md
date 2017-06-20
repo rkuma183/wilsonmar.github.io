@@ -39,6 +39,8 @@ Apple's <strong>Spotlight</strong> is like Window's Search omni-box.
 
 0. Click the keyboard return/enter key to launch the Network Utility app.
 
+   ![port-open-network-util-601x331-72k](https://user-images.githubusercontent.com/300046/27322001-702a4ec8-556a-11e7-9f05-0edbd22ef701.png)
+
 0. Select the &quot;Port Scan&quot; tab.
 
 0. Enter the IP (such as 127.0.0.1), localhost, or domain name 
@@ -48,15 +50,14 @@ Apple's <strong>Spotlight</strong> is like Window's Search omni-box.
 
 
 
-## Mac lsof #
+## List open files = lsof #
 
 0. In a Terminal command line:
 
    <pre><strong>lsof -nP +c 15 | grep LISTEN
    </strong></pre>
 
-   PROTIP: If you'll be using this often, create an alias.
-
+   PROTIP: If you'll be using this often, create an alias such as `of`.
 
    "lsof" is a contraction for "list open files".
    Without any options specifications, lsof lists all open files belonging to all active processes.
