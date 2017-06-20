@@ -78,25 +78,39 @@ Licensed IDEs:
 
 ## Vim
 
-vim is the most common text editor used in Linux.
+`vim` is an alias of `vi`. vim is vi improved.
 
-To open to the first occurance of "x" in the file executed automatically when opening a command-line Terminal:
+vim is the most commonly available text editor in Linux.
 
-   <strong>vim +/x ~/.bash_profile</strong>
+   ### Quitting out from command mode 
 
-   `vim` is an alias of `vi`. vim is vi improved.
+0. Open
 
-To open at line 55 of the file executed automatically when opening a command-line Terminal:
+   <pre><strong>vimtutor
+   </strong></pre>
 
-   <strong>vim +55 ~/.bash_profile</strong>
+0. Press : to enter line mode.
 
-There are three <strong>modes</strong>:
+   PROTIP: Most of the time when you see a colon at the lower-left corner,
+   it's saying just press a key for a command, such as q to quit out.
+
+0. Press q to quit out.
+
+
+   ### Open
+
+0. To open to the first occurance of "x" in the file executed automatically when opening a command-line Terminal:
+
+   <pre><strong>vim +/alias ~/.bash_profile
+   </strong></pre>
+
+   There are three <strong>modes</strong>:
 
    * command mode
    * insert mode
    * line mode
 
-While in command mode:
+   ### While in command mode, cursor to a position in the document:
 
    * press X to delete a character.
    * type `set number` to toggle numbering on the left edge.
@@ -107,24 +121,36 @@ While in command mode:
    * type o to insert new line below current position.
    * type O to insert new line above current position.
 
-While in insert mode:
+   * type G to go to end of file.
+   * type 55G to go to line 55.
+
+   * type dd to delete line.
+
+   * type ZZ to save and exit
+
+   ### While in insert mode:
 
    * Press Esc to exit insert mode.
    * line mode is seen after pressing Esc.
 
-While in line mode:
+   ### While in last-line mode:
 
-   * press u to undo.
-   * type G to go to end of file.
-   * type 55G to go to line 55.
+   * cursor up brings up previous commands
+   * press u to <strong>undo</strong> last change.
 
-   To get out of VIM line mode, type:
+   * :q  to quit (short for :quit)
+   * :q! to quit without saving (short for :quit!)
+   * :qa to quit all (short for :quitall)
 
-   :q to quit (short for :quit)
-   :q! to quit without saving (short for :quit!)
-   :wq to write and quit (think write and quit)
-   :x to write and quit (shorter than :wq)
-   :qa to quit all (short for :quitall)
+   * :wq to write and quit (in other words, save and exit)
+   * :x  to exit (shorter than :wq)
+   * :e  to revert to last saved version
+
+0. Open at line 55 of the file executed automatically when opening a command-line Terminal:
+
+   <pre><strong>vim +55 ~/.bash_profile
+   </strong></pre>
+
 
 
 <a name="pico"></a>
