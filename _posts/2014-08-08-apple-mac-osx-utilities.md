@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mac OSX Command-Line Utilities kill, Grep, Awk, Cron"
-excerpt: "The Swiss Army knives for the Mac"
+title: "Mac OSX Command-Line Utilities kill, grep, sed, regex, cron"
+excerpt: "The Swiss Army knives for Linux and Mac - they've thought of everything"
 tags: [apple, mac, utilities]
 image:
 # feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
@@ -15,6 +15,33 @@ comments: true
 
 {% include _toc.html %}
 
+This is a guided tour of Linux utilities, presented in as logical a sequence
+as I can imagine.
+
+
+## Uptime
+
+   <pre><strong>uptime
+   </strong></pre>
+
+   <pre>
+ 6:35  up 9 days, 11:56, 7 users, load averages: 2.09 2.08 2.06
+   </pre>
+
+   Load averages are also shown in the top command.
+
+   ### Top processes
+
+0. To list the top hungry processes, and refersh the screen:
+
+   <pre><strong>top
+   </strong></pre>
+
+0. To cancel the display, press <strong>control+C</strong>.
+
+   That works with any process you want to kill.
+
+
 <a id="Processes"></a>
 
 ## Processes
@@ -23,18 +50,46 @@ comments: true
    which sleep for 999 seconds:
 
    <pre><strong>sleep 999 &
-   pgrep sleep
    </strong></pre>
 
-0. To list the top processes:
+0. Get the process identifier:
 
-   <pre><strong>top
+   <pre><strong>pgrep sleep
    </strong></pre>
 
-0. To list all processes:
+0. List background processes:
 
-   <pre><strong>ps -all
+   <pre><strong>jobs
    </strong></pre>
+
+   <pre>
+[1]+  Running                 sleep 999 &
+   </pre>
+
+   The + shows the focus.
+
+0. To list all processes with a niceness (NI) column:
+
+   <pre><strong>ps -l
+   </strong></pre>
+
+   ### Niceness of priority
+
+   Default niceness of zero, but can be -20 to +19.
+
+   PROTIP: A niceness of +19 is a priority of 99, which is lowest.
+
+   <pre><strong>nice -n 5 sleep 1000&
+   </strong></pre>
+
+   root permissions are needed to set nice below zero.
+
+0. Reset nicer:
+
+   <pre><strong>renice -n 5 sleep 1000&
+   </strong></pre>
+
+   ## Kill
 
 0. To kill a single progam by name, such 
 
@@ -47,9 +102,24 @@ comments: true
    </strong></pre>
 
 
-renice
+<a id="CronJobs"></a>
 
-<a id="Grepz"></a>
+## Cron Launchd Background Jobs
+
+<a target="_blank" href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html">This</a> mentions that Apple has deprecated
+cron in favor of launchd (a daemon running under the System context).
+Since it's a background process, it doesn't present a user interface.
+
+If the system is turned off or asleep, <strong>cron</strong> jobs 
+do not execute until the next designated time occurs.
+
+However, launchd job will run when the computer wakes up if 
+the computer is <strong>asleep</strong> when the job should have run
+(if the StartCalendarInterval key has been set).
+
+
+
+<a name="Grep"></a>
 
 ## Grep Utilities
 
@@ -86,9 +156,6 @@ begin with # (specified by a ^)
    <pre><strong>grep -ve'^#' -ve'^$'/etc/ntp.conf
    </strong></pre>
 
-
-
-
    The response:
 
    <pre>
@@ -97,10 +164,124 @@ server time.apple.com.
 
 
 
-## Uptime
+   <a name="Regex"></a>
 
-   <pre><strong>uptime
+## Regular Expressions
+
+   Do not fear the swearing.
+
+   We'll use the spelling dictionary of English words that comes with Linux.
+
+0. Search for words ending with "fine":
+
+   <pre><strong>grep 'fine$' /usr/share/dict/words
    </strong></pre>
+
+   $ (Shift+4) specifies search from the end of string.
+
+   Responses include "refine".
+
+0. Search for words beginng with "fine":
+
+   <pre><strong>grep '^fine' /usr/share/dict/words
+   </strong></pre>
+
+   ^ (Shift+6) specifies search from the beginning of string.
+
+   Responses include "refine".
+
+0. Search for "fine" anywhere within the line:
+
+   <pre><strong>grep 'fine' /usr/share/dict/words
+   </strong></pre>
+
+0. Search for lines containing "fine" anywhere within words:
+
+   <pre><strong>grep 'fine' /usr/share/dict/words
+   </strong></pre>
+
+   ### Whitespace 
+
+0. Search for a **s**pace before "system" in lines, such as either "system" or "file system":
+
+   <pre><strong>grep '\ssystem' /etc/ntp.conf
+   </strong></pre>
+
+0. Search for any word **b**oundary after "server" in lines, such as 
+   "servers" or "serverless":
+
+   <pre><strong>grep 'server\b' /etc/ntp.conf
+   </strong></pre>
+
+   PROTIP: The response "server time.apple.com" is the server used for Network Time Protocol
+   used to update your machine's clock.
+
+   ### Reverse search
+
+0. Return lines that do not start with # for comment:
+
+   <pre><strong>grep -v '^\s*#' /etc/hosts
+   </strong></pre>
+
+
+0. Search for specific characters C or c:
+
+   <pre><strong>grep '[Cc]'
+   </strong></pre>
+
+   ### Quantifiers
+
+0. Search for "color" or "colour" in any line, using a combination, including
+   a ? to specify the previous character u as an optional character:
+
+   <pre><strong>grep '\b[Cc]olou?r\b' /usr/share/dict/words
+   </strong></pre>
+
+   `u+` matches one or more occurrences.
+
+   `u*` matches zero or more times.
+
+   `u{4}` matches exactly four occurrences.
+
+   ## enhanced grep
+
+0. Return words with five consequtive vowel characters:
+
+   <pre><strong>grep -E '[aeiou]{5}' /usr/share/dict/words
+   </strong></pre>
+
+   BTW, "euouae" (<a target="_blank" href="https://www.youtube.com/watch?v=i5IVh7245hg">pronounced your-you-ee"</a>) consists only of vowels.
+
+
+   ### Regex ranges
+
+0. Search for characters, upper and lower case ranges from A to Z, 
+   plus underscores:
+
+   <pre><strong>grep '[A-Za-z_]' ???
+   </strong></pre>
+
+0. Search for just numbers range 1 through 9:
+
+   <pre><strong>grep '[0-9]' ???
+   </strong></pre>
+
+
+
+
+<a name="Sed"></a>
+
+## Sed
+
+The Linux sed utility replaces contents within a file.
+
+To delete empty lines and comment lines:
+
+   sed -i.bak '/^s*#/d;/^$/d' somefile
+
+   The -i generates a backup.
+
+   The semicolon separates multiple specifications.
 
 
 ## Install appium_console gem
@@ -111,33 +292,14 @@ gem uninstall -aIx appium_console
 gem install --no-rdoc --no-ri appium_console
 </pre>
 
-Install flaky gem.
-https://github.com/appium/flaky
+Install flaky gem:<br />
+https://github.com/appium/flaky<br />
 (posix-spawn)
 
 <pre>
 gem uninstall -aIx flaky
 gem install --no-rdoc --no-ri flaky
 </pre>
-
-
-
-<a id="CronJobs"></a>
-
-## Cron Launchd Background Jobs
-
-<a target="_blank" href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html">This</a> mentions that Apple has deprecated
-cron in favor of launchd (a daemon running under the System context).
-Since it's a background process, it doesn't present a user interface.
-
-If the system is turned off or asleep, <strong>cron</strong> jobs 
-do not execute until the next designated time occurs.
-
-However, launchd job will run when the computer wakes up if 
-the computer is <strong>asleep</strong> when the job should have run
-(if the StartCalendarInterval key has been set).
-
-
 
 ## More on OSX
 
