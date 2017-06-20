@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac OSX Versions"
+title: "Mac OSX Versions (and Wallpapers)"
 excerpt: "From Mac OSX to MacOS"
 shorturl: "https://goo.gl/Ua6Pyv"
 tags: [apple, mac, setup]
@@ -156,6 +156,29 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    <pre><strong>arch
    </strong></pre>
 
+
+
+<a id="Wallpaperz"></a>
+
+## Desktop Wallpaper Pictures #
+
+Get to the Desktop quickly by spreading thumb and 4 fingers on the touchpad.
+
+To choose a different picture from Preferences:
+
+   > desktops/screensaver 
+   > select your desktop (highlight) 
+   > press Command and C at he same time. BTW, notice where your picture/photo folders.
+
+Want to add the Windows 10 wallpaper to your desktop?
+
+   Get to folder where system wallpapers are held from the 
+   Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
+
+Sort by File Size. 
+
+Some wallpaper images that come with OS X are of Retina resolution: 
+<strong>5120x2880</strong>. Really big.
 
 
 
