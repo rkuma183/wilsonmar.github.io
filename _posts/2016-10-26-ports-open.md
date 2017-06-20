@@ -2,6 +2,7 @@
 layout: post
 title: "Ports Open on my Mac"
 excerpt: "What ports are open for hacking on my Mac?"
+shorturl: "https://goo.gl/Bdx8c2"
 tags: [Mac, Security]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -19,15 +20,40 @@ Here is how to see what ports are open listening on a server.
 This is perhaps the most important potential vulnerability.
 
 Having ports listenting to outside traffic also takes a bit of CPU,
-which consumes electricity and thus battery life.
+which consumes electricity and thus reduce battery life.
+
+
+
+<a id="Spotlightz"></a>
+
+## Spotlight on Network Utility to List Ports
+
+Apple's <strong>Spotlight</strong> is like Window's Search omni-box.
+<a target="_blank" href="http://osxdaily.com/2014/05/20/port-scanner-mac-network-utility/">
+*</a>
+
+0. Press <strong>Command+Spacebar</strong>. 
+
+0. Type the name of utilities that are buried, such as
+   <strong>Network Utility</strong>.
+
+0. Click the keyboard return/enter key to launch the Network Utility app.
+
+0. Select the &quot;Port Scan&quot; tab.
+
+0. Enter the IP (such as 127.0.0.1), localhost, or domain name 
+   you wish to scan for open ports.
+
+0. Choose <strong>scan</strong> to see what ports the server responds to.
+
+
 
 ## Mac lsof #
 
 0. In a Terminal command line:
 
-   <tt><strong>
-   lsof -nP +c 15 | grep LISTEN
-   </strong></tt>
+   <pre><strong>lsof -nP +c 15 | grep LISTEN
+   </strong></pre>
 
    PROTIP: If you'll be using this often, create an alias.
 

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Task runners"
-excerpt: "Gulp, Grunt"
+excerpt: "Gulp, Grunt, and other noises as it works automatically"
 tags: [Node, Mac]
 image:
-# feature: pic white robots woman 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
-  credit: Cyberconstruct.be
-  creditlink: http://cyberconstruct.be/2015/02/digital-job-crafting/
+# feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14622061/afe5f5da-0584-11e6-8140-3278289baef4.jpg
+  credit: 
+  creditlink:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -28,7 +28,7 @@ Tasks include:
 0. auto-generating "responsive" client code to request various image sizes
 0. compressing images
 
-## Alternatives
+## Alternatives compared
 
 Both Grunt and 
 <a target="_blank" href="https://twitter.com/@gulpjs">
@@ -162,26 +162,23 @@ module.exports = function(grunt) {
 
 0. Install from gruntjs.com
 
-   <tt><strong>
-   npm install -g grunt
-   </strong></tt>
+   <pre><strong>npm install -g grunt
+   </strong></pre>
 
-   Results:
+0. Verify the grunt version installed?
 
-   <pre>
+   <pre><strong>grunt --version
+   </strong></pre>
+
+   What I got:
+
+   <pre>grunt-cli v1.2.0
    </pre>
 
-0. Install grunt linter:
+0. Install also the grunt linter:
 
-   <tt><strong>
-   npm install grunt-contrib-jshint
+   <tt><strong>npm install grunt-contrib-jshint
    </strong></tt>
-
-   Results:
-
-   <pre>
-   brew install -g grunt
-   </pre>
 
 
 

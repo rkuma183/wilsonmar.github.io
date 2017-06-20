@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "MacOS Terminal Command-line"
-excerpt: "The terminal is your friend, who only speaks a foreign language."
+title: "Mac OSX Terminal (command-line tips and tricks)"
+excerpt: "The terminal is your friend, who only speaks a foreign language"
+shorturl: "https://goo.gl/Xr2fGW"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -51,131 +52,6 @@ Three ways to relaunch the Finder:
 0. Log out and log back in to your user account.
 
 
-<a id="Configz"></a>
-
-## System Preferences 
-
-<ol type="1">
-<li> If you don't see the Apple icon at the top of the screen,
-move the cursor to the very top of the screen for a few seconds.</li>
-<li> Click on the Apple icon at the upper left corner.</li>
-<li> Select <strong>System Preferences</strong>.</li>
-<li> Click <strong>Displays</strong>.</li>
-<li> Set <strong>Resolution</strong> to <strong>Scaled</strong></li>
-
-<li><a href="_blank" href="https://www.esolutions.se/en-GB/test">
-Test Page</a> reports the screen and resolution along with browser version.</li>
-
-   The Mac Pro 15 inch retina display is preconfigured to 
-   a screen resolution of 1440 wide x 900 high, but a browser window of 1440 x 738.
-
-<li> Click one of the 5 resolutions between <strong>Larger Text</strong> and 
-<strong>More Space</strong>.</li>
-</ol>
-
-
-<a id="Microphonez"></a>
-
-## Microphone #
-
-To disable the internal microphone, there is no icon.
-So reduce the input volume to 0:
-
-<ol type="1">
-<li> Click on the Apple logo at the upper left corner.</li>
-<li> Select System Preferences.</li>
-<li> Type S and click on <strong>Sound</strong>.</li>
-<li> Click on the <strong>Input</strong> tab.</li>
-<li> Drag the <strong>Input volume</strong> slider all the way to the left.</li>
-<li> Close System Preferences.</li>
-</ol>
-
-This works by changing the audio input to the line-in, 
-also known as the audio input port on your Mac. 
-As long as you don't actually have any audio input device connected, 
-such as an external microphone or some other line-in device, 
-this method should work.
-
-
-
-
-<a id="Setup_Sound"></a>
-
-## Sound Control #
-
-
-Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
-create in the /Library/Scripts folder shell scripts containing 
-osacript (<a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>a>) commands
-to mute sound automatically before reboot, and un-mute after reboot.
-
-0. Open a terminal and type in nano. Press Enter.
-
-   Type this in the nano editor that pops up this shell script (starting with the she-bang #! characters):
-
-   <pre>
-   #!/bin/bash
-   osascript -e 'set volume with output muted'
-   </pre>
-
-0. Press Ctrl+O, then when it asks you for the filename type in 
-
-   <tt>
-   ~/Documents/mute.sh
-   </tt>
-
-0. Hit Enter to save the file. This puts the mute script in your Documents folder (don't worry, we're going to move it later).
-
-0. Create the unmute.sh script:
-
-   <pre>
-   #!/bin/bash
-   osascript -e 'set volume without output muted'
-   </pre>
-
-   (In older versions the unmute script instead has 
-
-   <tt>set volume with output unmuted</tt>.
-
-0. Press Ctrl+X, press Y to agree, then type in 
-
-   <tt><strong>
-   ~/Documents/unmute.sh for the file name. 
-   </strong></tt>
-
-0. Hit Return to save the new file, and nano should quit.
-
-0. To make the scripts executable,
-   run the following commands in the Terminal, hitting Enter after each one
-
-   <pre>
-   sudo chmod u+x ~/Documents/mute.sh
-   sudo chmod u+x ~/Documents/unmute.sh
-   sudo mv ~/Documents/mute.sh /Library/Scripts/
-   sudo mv ~/Documents/unmute.sh /Library/Scripts/
-   </pre>
-
-0. Set the scripts to run automatically:
-
-   <pre>
-   sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh
-   sudo defaults write com.apple.loginwindow LoginHook /Library/Scripts/unmute.sh
-   </pre>
-
-0. Close the Terminal, save data in all other apps, and reboot your machine.
-
-0. To undo the above actions, set defaults in a Terminal window:
-
-   <pre>
-   sudo defaults delete com.apple.loginwindow LogoutHook
-   sudo defaults delete com.apple.loginwindow LoginHook
-   </pre>
-
-For more about Applescript commands and hooks, see
-<a target="_blank" rel="amphtml" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
-this</a>.
-
-
 
 <a id="Wallpaperz"></a>
 
@@ -210,8 +86,7 @@ Mac, Windows, and Linux systems have a hosts file that locally does the work of 
 
 0. Edit the hosts file on a Mac:
 
-   <pre><strong>
-   atom /etc/hosts
+   <pre><strong>atom /etc/hosts
    </strong></pre>
 
    The default contents:
@@ -241,9 +116,8 @@ fe80::1%lo0 localhost
 
 0. Flush the cache:
 
-   <tt><strong>
-   dscacheutil -flushcache
-   </strong></tt>
+   <pre><strong>dscacheutil -flushcache
+   </strong></pre>
 
 
 
@@ -323,8 +197,6 @@ because they show up when I don't want them.
 
 
 
-
-
 <a id="TerminalPingHostz"></a>
 
 ### Terminal Ping Host #
@@ -351,28 +223,24 @@ in white letters over black.
 
 To show the present (current) working directory (folder):
 
-<tt><strong>
-pwd
+<tt><strong>pwd
 </strong></tt>
 
 The response for me is:
 
-<tt><strong>
-/Users/wilsonmar
+<tt><strong>/Users/wilsonmar
 </strong></tt>
 
 You will of course have a different machine user name than wilsonmar.
 
 To get back to this <strong>home</strong> folder:
 
-<tt><strong>
-cd ~/
+<tt><strong>cd ~/
 </strong></tt>
 
 To list all file names (without any metadata):
 
-<tt><strong>
-ls
+<tt><strong>ls
 </strong></tt>
 
 Folders available by default include Documents, Downloads, Pictures, Desktop, Music, Movies.
@@ -389,30 +257,26 @@ Press Enter.
 Nothing happens because upper case letters are important.
 Press delete to remove the mu and type:
 
-<tt><strong>
-cd Mu
+<tt><strong>cd Mu
 </strong></tt>
 
 Press Enter for the Music folder.
 
 Go back up a level:
 
-<tt><strong>
-cd ..
+<tt><strong>cd ..
 </strong></tt>
 
 To list all files with their permission settings:
 
-<tt><strong>
-ls -ls
+<tt><strong>ls -ls
 </strong></tt>
 
 Notice that no hidden files are listed.
 To list all <strong>hidden</strong> files with permission settings,
 piping the listing to more instead of having results flying by:
 
-<tt><strong>
-ls -la ~/ | more
+<tt><strong>ls -la ~/ | more
 </strong></tt>
 
 A colon appears at the bottom if there is more to show. 
@@ -421,36 +285,32 @@ To cancel the listing, press <strong>control + C</strong>.
 
 Notice the .bashrc on the first page, something like:
 
-<tt>
+   <pre>
 -rw-r--r--  1 discworld discworld  3330 Mar 10 16:03 .bashrc
-</tt>
+   </pre>
 
 (It's for the <a href="#BashShell">Bash Shell</a>.)
 
 
 If it's not listed, create it with:
 
-<tt><strong>
-vi ~/.bashrc
+<tt><strong>vi ~/.bashrc
 </strong></tt>
 
 To make it rw r r:
 
-<tt><strong>
-chmod 644 .bashrc 
+<tt><strong>chmod 644 .bashrc 
 </strong></tt>
 
 List only hidden files in the current folder:
 
-<tt><strong>
-ls -ld .??*
+<tt><strong>ls -ld .??*
 </strong></tt>
 
 Create a Projects folder to hold projects downloaded from 
 <a href="#Setup_Github">Github</a>:
 
-<tt><strong>
-mkdir Projects
+<tt><strong>mkdir Projects
 </strong></tt>
 
 This only needs to be done once.
@@ -465,17 +325,15 @@ By default, the Mac's Finder does not show hidden files.
 
 0. Enter this in Terminal before typing Return:
 
-   <tt><strong>
-   defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
-   </strong></tt>
+   <pre><strong>defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+   </strong></pre>
 
    This causes all Finder windows to be reset.
 
    To make invisible files invisible again:
 
-   <tt><strong>
-   defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
-   </strong></tt>
+   <pre><strong>defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder
+   </strong></pre>
 
    A description of each keyword:
 
@@ -518,17 +376,20 @@ Alternately:
 OSX does not come with the tree command that many other Linux distributions provide.
 So add it using brew:
 
-   <tt><strong>brew install tree</strong></tt>
+   <pre><strong>brew install tree
+   </strong></pre>
 
 Active Terminal sessions need to be closed so new Terminal | Shell | New Window | Shell has this activated.
 
 See list of parameters:
 
-   <tt><strong>tree \-\-help</strong></tt>
+   <pre><strong>tree \-\-help
+   </strong></pre>
 
 List only 2 levels deep with human-readable file size kilobytes and sort by last modified date:
 
-   <tt><strong>tree -L 2 -s -h -p -D -t</strong></tt>
+   <pre><strong>tree -L 2 -s -h -p -D -t
+   </strong></pre>
 
 
 <a id="BashConfigz"></a>
@@ -558,15 +419,13 @@ If there is both a .bash_profile and a .profile file, boot-up only executes the 
 
 On my Yosemite Mac, open a terminal and:
 
-<pre><strong>
-cd ~
-</strong></pre>
+   <pre><strong>cd ~
+   </strong></pre>
 
 View the file using the vi editor that comes with OSX:
 
-<pre><strong>
-vi .bash_profile
-</strong></pre>
+   <pre><strong>vi .bash_profile
+   </strong></pre>
 
 According to the <a target="_blank" rel="amphtml" href="http://linux.die.net/man/1/bash">
 bash man page</a>, 
@@ -592,25 +451,24 @@ Exit vi by typing <tt>:q</tt>
 
 Some installers request that adding a $PATH using a command such as:
 
-<pre>
+   <pre>
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
-</pre>
+   </pre>
 
 To execute profile with the changes:
 
-<pre><strong>
-source  ~/.bash_profile
-</strong></pre>
+   <pre><strong>source  ~/.bash_profile
+   </strong></pre>
 
 Alternately, to install GHC copy and paste into ~/.bash_profile:
 
-<pre>
+   <pre>
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Users/wilsonmar/Applications/ghc-7.8.4.app"
 if [ -d "$GHC_DOT_APP" ]; then
 export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
-</pre>
+   </pre>
 
 https://github.com/gcuisinier/jenv/blob/master/README.md
 
@@ -627,9 +485,8 @@ typing commands into a command-line terminal screen.
 
 To list open files (process id's and ports, actually):
 
-<tt><strong>
-sudo lsof -i -P
-</strong></tt>
+   <pre><strong>sudo lsof -i -P
+   </strong></pre>
 
 To avoid text wrapping, pull the right edge to expand the screen width.
 
@@ -638,14 +495,14 @@ The right-most column heading &quot;Name&quot; shows the port
 
 To filter a particular port number:
 
-<tt><strong>
-sudo lsof -i -P | grep 8080
-</strong></tt>
+   <pre><strong>sudo lsof -i -P | grep 8080
+   </strong></pre>
 
 The second column, PID, lists the process identifier.
 Copy a number for use in the kill command:
 
-<tt><strong>sudo kill 289</strong></tt>
+   <pre><strong>sudo kill 289
+   </strong></pre>
 
 
 
@@ -801,7 +658,8 @@ A big reason to use a command-line terminal is to set environment variables.
 
 To see what is already defined:
 
-<tt><strong>export</strong></tt>
+   <pre><strong>export
+   </strong></pre>
 
 http://stackoverflow.com/questions/135688/setting-environment-variables-in-os-x
 talks about setting <strong>launchd.conf</strong> and rebooting.
@@ -810,7 +668,8 @@ This applies to all users.
 
 To see what was already defined:
 
-<tt><strong>echo $PATH</strong></tt>
+   <pre><strong>echo $PATH
+   </strong></pre>
 
 $PATH must be upper case.
 
@@ -901,28 +760,6 @@ Clear the terminal history:
 
 
 
-<a id="Spotlightz"></a>
-
-## Spotlight on Network Utility to List Ports
-
-Apple's <strong>Spotlight</strong> is like Window's Search omni-box.
-Press <strong>Command+Spacebar</strong>. 
-
-<!-- From http://osxdaily.com/2014/05/20/port-scanner-mac-network-utility/
--->
-Type the name of utilities that are buried, such as
-<strong>Network Utility</strong>.
-
-Click the keyboard return/enter key to launch the Network Utility app.
-
-Select the &quot;Port Scan&quot; tab.
-
-Enter the IP (such as 127.0.0.1), localhost, or domain name 
-you wish to scan for open ports.
-
-Choose <strong>scan</strong> to see what ports the server responds to.
-
-
 <a id="Browserz"></a>
 
 ## Create Windows-like shortcuts with parameters using text editor
@@ -965,9 +802,8 @@ URL=</tt>
 
 .dmg (Disk Image) files can be mounted from the command line:
 
-<tt><strong>
-hdiutil attach /path/to/diskimage.dmg
-</strong></tt>
+   <pre><strong>hdiutil attach /path/to/diskimage.dmg
+   </strong></pre>
 
 The response is like:
 
@@ -979,15 +815,13 @@ The response is like:
 
 Note the disk from the message above to unmount (detatch):
 
-<tt><strong>
-hdiutil detach /dev/disk1s2
-</strong></tt>
+   <pre><strong>hdiutil detach /dev/disk1s2
+   </strong></pre>
 
 The same utility can mount .iso images:
 
-<tt><strong>
-hdiutil mount sample.iso
-</strong></tt>
+   <pre><strong>hdiutil mount sample.iso
+   </strong></pre>
 
 
 
@@ -1025,185 +859,6 @@ sudo killall -HUP mDNSResponder</tt>
 <tt>/etc/init.d/named restart<br />
 /etc/init.d/nscd restart</tt>
 
-
-
-
-<a id="HardDrivez"></a>
-
-## Hard Drives on Mac
-
-DOTHIS: Open a Terminal window to invoke:
-
-<tt>diskutil list</tt>
-
-This lists <strong>physical and virtual disks</strong>. 
-
-&quot;0:&quot; and other such numbers are <strong>partitions</strong>.
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0</tt>
-
-The "Device / Media Name" is the partition label from the disk's partition map 
-(GPT - GUID Partition Table).
-<strong>disk0</strong> Device Media Name: such as &quot;APPLE SSD SM768E Media&quot;
-is the make and model of your drive.
-
-Device / Media Names are set when a partition is created on a disk. The only way you could rename the "startup partition" would be to startup from another drive. The initial name is set by Apple.
-(which Apple does not expected people to change
-and does not reference them at the CLI or GUI level).
-
-AOTW, Apple sells SD drives up to 750.4 GB.
-
-Notice that <strong>disk1</strong> is a <strong>Logical Volume on disk0s2</strong>
-with a GUID referencing disk0.
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0s2</tt>
-
-<strong>disk0s1</strong>: "EFI system partition"
-
-contains extended firmware for your drive.
-
-
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0s1</tt>
-
-<strong>disk0s1</strong>: "EFI system partition"
-<br />
-contains extended firmware for your drive.
-
-
-<strong>disk0s2</strong>: "Customer" to diskutil
-is where your files are stored.
-
-DOTHIS: In a Terminal window invoke:<br />
-
-<tt>diskutil info /dev/disk1</tt>
-
-appears on the Desktop as &quot;Macintosh HD&quot; system partition, 
-which can be changed by pressing Return key after clicking on it.
-
-<strong>disk0s3</strong>: "Recovery HD"
-is a clean install of the OS to make restoring your computer easier.
-
-If you add your own custom partition to the mix you will find that Apple's tools (i.e. Disk Utility) will match the visible name and the device name.
-
-
-
-DOTHIS: Plug in a <strong>Time Machine</strong> drive. 
-In a Terminal window invoke:
-
-   <pre><strong>
-   diskutil info /dev/disk2
-   </strong></pre>
-
-In the list it would have 3 partitions:
-
-0: Apple_partition_scheme<br />
-
-1: Windows_FAT_32
-
-2: Apple_HFS
-
-
-
-DOTHIS: Plug in a <strong>SD card</strong>. 
-In a Terminal window invoke:
-
-   <pre><strong>
-   diskutil list
-   </strong></pre>
-
-In the list it would have 2 partitions:
-
-0: FDISK_partition_scheme
-
-1: Windows_NTFS
-
-In a Terminal window invoke:
-
-   <tt>diskutil info /dev/disk3</tt>
-
-
-DOTHIS: 
-Plug in an <strong>external drive</strong>. 
-In a Terminal window invoke:
-
-   <tt>diskutil list</tt>
-
-In the list it would have 2 partitions:
-
-0: FDisk_partition_scheme
-
-1: Windows_NTFS Seagate Backup Plus ...
-
-DOTHIS: 
-In a Terminal window invoke:
-
-   <tt>diskutil info /dev/disk5</tt>
-
-&quot;Seagate BUP Slim SL Media&quot;
-
-According to 
-http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac/">
-http://sourceforge.net/projects/osxfuse/files/osxfuse-2.7.5/osxfuse-2.7.5.dmg/download">
-OSX Fuse</p> 
-extend OS X's native file handling capabilities via third-party file systems
-such as ext4.
-
-fstab -- static information about filesystems.
-
-
-
-<a id="PartitionTablez"></a>
-
-## Hard Drive Partition Tables
-
-DOTHIS: 
-To show partition tables for a particular disk:
-In a Terminal window invoke:
-
-   <tt>sudo get show /dev/disk0</tt>
-
-Eject the disk from the Finder (or use the unmount terminal command if you'd like). If you don't do this, you may get a Resource busy error message during the following step.
-
-CAUTION:
-Change the partition label as desired:
-
-   <pre><strong>
-   sudo gpt label -i 2 -l "My New Partition Label" /dev/rdisk0
-   </strong></pre>
-
-(replace disk0 with the relevant disk number
-and replace 2 with the index number.
-
-
-<a id="App"></a>
-
-## Disk Space Usage #
-
-<a target="_blank" href="https://medium.com/@thomasdegry/how-sketch-took-over-200gb-of-our-macbooks-cb7dd10c8163">
-One of the folks at Sketch (the Mac photo-editing tool) noticed</a> that 
-Daisy Disk didn't map all the disk space usage.
-
-To reveal disk usage by a file that Apple Lion uses to store copies of files to revert to any version:
-
-   <pre><strong>
-   sudo du -sh /.DocumentRevisions-V100
-   </strong></pre>
-
-Resetting to zero would involve re-installs.
-
-If you use an alternative backup such as Dropbox, 
-you can turn it off for a particular program:
-
-   <pre><strong>
-   defaults write -app ‘sketch’ ApplePersistence -bool no
-   </strong></pre>
 
 
 <a id="DevFolderz"></a>
@@ -1289,6 +944,7 @@ To create a Windows 10 instance within VMWare Fusion:
 0. Within VMWare Fusion, select File | New.
 0. Drag the ISO file and drop on the dialog.
 0. Supply the license key.
+
 
 <a name="ElCapitanSIP"></a>
 
