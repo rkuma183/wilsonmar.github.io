@@ -18,6 +18,13 @@ comments: true
 This is a guided tour of Linux utilities, presented in as logical a sequence
 as I can imagine.
 
+MacOS/Mac OS X uses the BSD version command line tools, 
+which are different from the Linux version, 
+while they are both compliant with POSIX standards.
+
+See <a target="_blank" href="https://en.wikipedia.org/wiki/GNU_Core_Utilities/">
+https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
+
 
 ## Uptime
 
@@ -99,6 +106,19 @@ as I can imagine.
 0. To kill several progams by name, such 
 
    <pre><strong>killall sleep
+   </strong></pre>
+
+
+## Coreutils
+
+   Get the set of <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">utilities from GNU Linux, but for Mac</a>:
+
+   <pre><strong>brew install coreutils
+   </strong></pre>
+
+   Then you can:
+
+   <pre><strong>ln -s /usr/local/bin/gtac /usr/local/bin/tac
    </strong></pre>
 
 
