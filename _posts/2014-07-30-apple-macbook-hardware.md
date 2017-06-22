@@ -210,130 +210,189 @@ this</a>.
 
 ## Hard Drives on Mac
 
-DOTHIS: Open a Terminal window to invoke:
 
-<tt>diskutil list</tt>
+<a id="MacBoot"></a>
 
-This lists <strong>physical and virtual disks</strong>. 
+### Boot loader on Mac
 
-&quot;0:&quot; and other such numbers are <strong>partitions</strong>.
+MacOS does not use the boot loader other Linux machines store in the /boot folder.
 
-DOTHIS: In a Terminal window invoke:
+MacOS machines boots from the <strong>boot.efi</strong> binary file within 
+cd /System/Library/CoreServices.
+This is for Intel Macs. Older PowerPC Macs (and an old enough version of OS X) boots from file BootX.
 
-<tt>diskutil info /dev/disk0</tt>
+The MacOS kernel, as of Yosemite (version 10.10), is at<br />
+`/System/Library/Kernels/kernel`,
+   but was just /mach_kernel in older versions.
 
-The "Device / Media Name" is the partition label from the disk's partition map 
-(GPT - GUID Partition Table).
-<strong>disk0</strong> Device Media Name: such as &quot;APPLE SSD SM768E Media&quot;
-is the make and model of your drive.
+Apple-supplied loadable kernel modules (known as kernel extensions or kexts) are found in<br />
+`/System/Library/Extensions/`
 
-Device / Media Names are set when a partition is created on a disk. The only way you could rename the "startup partition" would be to startup from another drive. The initial name is set by Apple.
-(which Apple does not expected people to change
-and does not reference them at the CLI or GUI level).
+Third-party extensions are in<br />
+`/Library/Extensions/`.
 
-AOTW, Apple sells SD drives up to 750.4 GB.
-
-Notice that <strong>disk1</strong> is a <strong>Logical Volume on disk0s2</strong>
-with a GUID referencing disk0.
-
-DOTHIS: In a Terminal window invoke:
-
-<tt>diskutil info /dev/disk0s2</tt>
-
-<strong>disk0s1</strong>: "EFI system partition"
-
-contains extended firmware for your drive.
+See <a target="_blank" href="https://developer.apple.com/library/content/documentation/Darwin/Conceptual/KernelProgramming/booting/booting.html">
+this Apple article</a>.
 
 
+### Disk Drive Partitions
 
-DOTHIS: In a Terminal window invoke:
+In Linux File Systems:
 
-<tt>diskutil info /dev/disk0s1</tt>
+Drivers for an MBR (Master Boot Record) Partition Table can handle up to <br />
+<strong>2TB</strong> of disk space per partition. To list partitions:
 
-<strong>disk0s1</strong>: "EFI system partition"
-<br />
-contains extended firmware for your drive.
+   By design MBR contains space for only 4 primary partitions.
+   One partition can be an extended partition where
+   logical partitions can be defined.
+
+Drivers for a <strong>GUID / GPT Partition Table</strong> can handle up to <br />
+<strong>8 Zettabytes (ZB)</strong> of disk space per partition.
+
+SCSI devices can have up to 15 partitions.
+
+   0. fdisk only works on MBR.
+   0. parted
+   0. gdisk
+
+The default partition type is 83 for Linux, 82 for Swap.
+
+0. Use mkfs to create file systems.
+
+   NOTE: File systems include XFS, ext2, ext3, ext4, ReiserFS, Btrfs (better fs), etc.
 
 
-<strong>disk0s2</strong>: "Customer" to diskutil
-is where your files are stored.
+### Disk utilities
 
-DOTHIS: In a Terminal window invoke:<br />
+0. Open a Terminal window.
 
-<tt>diskutil info /dev/disk1</tt>
+0. List partitions:
 
-appears on the Desktop as &quot;Macintosh HD&quot; system partition, 
-which can be changed by pressing Return key after clicking on it.
+   <pre><strong>diskutil list</strong></pre>
 
-<strong>disk0s3</strong>: "Recovery HD"
-is a clean install of the OS to make restoring your computer easier.
+   It lists <strong>physical and virtual disks</strong>:
 
-If you add your own custom partition to the mix you will find that Apple's tools (i.e. Disk Utility) will match the visible name and the device name.
+   <pre>
+/dev/disk0
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *251.0 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:                  Apple_HFS Mac SSD                 150.0 GB   disk0s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+   4:       Microsoft Basic Data Windows 8               100.1 GB   disk0s4
+/dev/disk1
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *500.1 GB   disk1
+   1:                  Apple_HFS George Garside          300.2 GB   disk1s1
+   2:               Windows_NTFS GRGARSIDE               199.9 GB   disk1s2
+   </pre>
+   &quot;0:&quot; and other such numbers are <strong>partitions</strong>.
 
+   The command takes the place of the Linux `lsblk` commmand.
 
+0. Get information for a specific partition (disk0):
 
-DOTHIS: Plug in a <strong>Time Machine</strong> drive. 
-In a Terminal window invoke:
+   <pre><strong>diskutil info /dev/disk0</strong></pre>
 
-   <pre><strong>
-   diskutil info /dev/disk2
+   The "Device / Media Name" is the partition label from the disk's partition map 
+   (GPT - GUID Partition Table).
+   <strong>disk0</strong> Device Media Name: such as &quot;APPLE SSD SM768E Media&quot;
+   is the make and model of your drive.
+
+   Device / Media Names are set when a partition is created on a disk. The only way you could rename the "startup partition" would be to startup from another drive. The initial name is set by Apple.
+   (which Apple does not expected people to change
+   and does not reference them at the CLI or GUI level).
+
+   AOTW, Apple sells SD drives up to 750.4 GB.
+
+   Notice that <strong>disk1</strong> is a <strong>Logical Volume on disk0s2</strong>
+   with a GUID referencing disk0.
+
+0. DOTHIS: In a Terminal window invoke:
+
+   <pre><strong>diskutil info /dev/disk0s2</strong></pre>
+
+   <strong>disk0s1</strong>: "EFI system partition"
+
+   contains extended firmware for your drive.
+
+0. DOTHIS: In a Terminal window invoke:
+
+   <pre><strong>diskutil info /dev/disk0s1</strong></pre>
+
+   <strong>disk0s1</strong>: "EFI system partition"<br />
+   contains extended firmware for your drive.
+
+   <strong>disk0s2</strong>: "Customer" to diskutil
+   is where your files are stored.
+
+0. DOTHIS: In a Terminal window invoke:
+
+   <pre><strong>diskutil info /dev/disk1</strong></pre>
+
+   appears on the Desktop as &quot;Macintosh HD&quot; system partition, 
+   which can be changed by pressing Return key after clicking on it.
+
+   <strong>disk0s3</strong>: "Recovery HD"
+   is a clean install of the OS to make restoring your computer easier.
+
+   If you add your own custom partition to the mix you will find that Apple's tools (i.e. Disk Utility) will match the visible name and the device name.
+
+0. DOTHIS: Plug in a <strong>Time Machine</strong> drive. 
+0. In a Terminal window invoke:
+
+   <pre><strong>diskutil info /dev/disk2
    </strong></pre>
 
-In the list it would have 3 partitions:
+   In the list it would have 3 partitions:
 
-0: Apple_partition_scheme<br />
+   0: Apple_partition_scheme<br />
+   1: Windows_FAT_32<br />
+   2: Apple_HFS
 
-1: Windows_FAT_32
+0. DOTHIS: Plug in a <strong>SD card</strong>. 
+ 
+0. In a Terminal window invoke:
 
-2: Apple_HFS
-
-
-
-DOTHIS: Plug in a <strong>SD card</strong>. 
-In a Terminal window invoke:
-
-   <pre><strong>
-   diskutil list
+   <pre><strong>diskutil list
    </strong></pre>
 
-In the list it would have 2 partitions:
+   In the list it would have 2 partitions:
 
-0: FDISK_partition_scheme
+   0: FDISK_partition_scheme<br />
+   1: Windows_NTFS
 
-1: Windows_NTFS
+0. In a Terminal window invoke:
 
-In a Terminal window invoke:
+   <pre><strong>diskutil info /dev/disk3</strong></pre>
 
-   <tt>diskutil info /dev/disk3</tt>
+0. DOTHIS: Plug in an <strong>external drive</strong>. 
+0. In a Terminal window invoke:
 
+   <pre><strong>diskutil list</strong></pre>
 
-DOTHIS: 
-Plug in an <strong>external drive</strong>. 
-In a Terminal window invoke:
+   In the list it would have 2 partitions:
 
-   <tt>diskutil list</tt>
+   0: FDisk_partition_scheme<br />
+   1: Windows_NTFS Seagate Backup Plus ...
 
-In the list it would have 2 partitions:
+0. DOTHIS: In a Terminal window invoke:
 
-0: FDisk_partition_scheme
+   <pre><strong>diskutil info /dev/disk5</strong></pre>
 
-1: Windows_NTFS Seagate Backup Plus ...
+   &quot;Seagate BUP Slim SL Media&quot;
 
-DOTHIS: 
-In a Terminal window invoke:
+   According to 
+   http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac/">
+   http://sourceforge.net/projects/osxfuse/files/osxfuse-2.7.5/osxfuse-2.7.5.dmg/download">
+   OSX Fuse</p> 
+   extend OS X's native file handling capabilities via third-party file systems
+   such as ext4.
 
-   <tt>diskutil info /dev/disk5</tt>
+0. For static information about filesystems:
 
-&quot;Seagate BUP Slim SL Media&quot;
-
-According to 
-http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac/">
-http://sourceforge.net/projects/osxfuse/files/osxfuse-2.7.5/osxfuse-2.7.5.dmg/download">
-OSX Fuse</p> 
-extend OS X's native file handling capabilities via third-party file systems
-such as ext4.
-
-fstab -- static information about filesystems.
+   <pre><strong>fstab
+   </strong></pre>
 
 
 
