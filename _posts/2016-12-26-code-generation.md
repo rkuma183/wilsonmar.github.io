@@ -51,8 +51,11 @@ Fix a bug and it applies to all other apps.
 
 4. Microsoft Visual Studio has a generator called T4 (Text Generation Transformation Toolkit)
 
-   * http://www.hanselman.com/blog/T4TextTemplateTransformationToolkitCodeGenerationBestKeptVisualStudioSecret.aspx
-   * https://www.youtube.com/watch?v=XK17iNvJqQs
+   * <a target="_blank" href="http://www.hanselman.com/blog/T4TextTemplateTransformationToolkitCodeGenerationBestKeptVisualStudioSecret.aspx">
+     Scott Hanselman blogs about the T4 Template Transformation Toolkit in Visual Studio</a>
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=XK17iNvJqQs">
+   YOUTUBE video on Code Generation using T4</a> [9:38]
    <br /><br />
 
 5. <a target="_blank" href="https://github.com/moplus/modelorientedplus">
