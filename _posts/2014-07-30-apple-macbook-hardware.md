@@ -74,7 +74,7 @@ it can be taken off before closing the cover.
 
 <a id="SysProfiler"></a>
 
-## System Profiler Piping
+## System Profiler File Redirect
 
 MacOS has a single command to obtain details about your machine in a single file.
 
@@ -122,7 +122,7 @@ move the cursor to the very top of the screen for a few seconds.</li>
 <li> Select <strong>System Preferences</strong>.</li>
 </ol>
 
-<img align="right" alt="mac-system-prefs-10 12 5-285x280-35kb" width="285" height="280" src="https://user-images.githubusercontent.com/300046/27473427-36a91b7e-57cd-11e7-808e-85088336e959.png">
+   <img alt="mac-system-prefs-10 12 5-285x280-35kb" width="285" height="280" src="https://user-images.githubusercontent.com/300046/27473427-36a91b7e-57cd-11e7-808e-85088336e959.png">
 
 
 <a id="Displayz"></a>
@@ -149,7 +149,7 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 
 <a id="Setup_Sound"></a>
 
-## Sound Control #
+## Startup Sound Suppressor Applescript
 
 Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
 create in the /Library/Scripts folder shell scripts containing 
@@ -186,8 +186,8 @@ to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Press Ctrl+X, press Y to agree, then type in 
 
-   <tt><strong>~/Documents/unmute.sh
-   </strong></tt>
+   <pre><strong>~/Documents/unmute.sh
+   </strong></pre>
 
 0. Hit Return to save the new file, and nano should quit.
 
@@ -222,7 +222,7 @@ this</a>.
 
 <a id="Microphonez"></a>
 
-## Microphone #
+## Microphone Mute App #
 
 All Macs have a microphone that picks up your voice and other sounds in your room.
 
@@ -241,7 +241,9 @@ https://itunes.apple.com/pl/app/mutemymicfree/id567195825?mt=12</a>
 0. Click <strong>View in Mac Ap Store</strong>.
 0. In the App Store pop-up, click <strong>Get</strong>, then <strong>Install app</strong>.
 0. Click <strong>Open</strong>.
-0. Click the microphone icon on the menu bar at the top of the screen.
+0. Click the microphone icon on the menu bar at the top of the screen:<br />
+   ![mac-mutemypic-icon-60x60](https://user-images.githubusercontent.com/300046/27475483-62d2a5b6-57d3-11e7-8d3b-979576fe088f.png)
+
 0. Click the gear icon in the pop-up.
 0. Check the "Start MuteMyMic automatically during login".
 0. Click the Quit button, the the other Quit button to dismiss the dialog.
