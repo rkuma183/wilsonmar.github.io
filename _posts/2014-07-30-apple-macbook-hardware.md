@@ -146,33 +146,6 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 </ol>
 
 
-<a id="Microphonez"></a>
-
-## Microphone #
-
-All Macs have a microphone that picks up your voice and other sounds in your room.
-
-BLAH: To mute the internal microphone on a Mac, 
-there is NO icon among dedicated keys on the keyboard
-like there is for speakers. A terrible oversight because that's just as important.
-
-PROTIP: Reduce the input volume to 0:
-
-<ol type="1">
-<li> Click on the Apple logo at the upper left corner.</li>
-<li> Select System Preferences.</li>
-<li> Type S and click on <strong>Sound</strong>.</li>
-<li> Click on the <strong>Input</strong> tab.</li>
-<li> Drag the <strong>Input volume</strong> slider all the way to the left.</li>
-<li> Close System Preferences.</li>
-</ol>
-
-This works by changing the audio input to the line-in, 
-also known as the audio input port on your Mac. 
-This method works
-as long as you don't actually have any audio input device connected, 
-such as an external microphone or some other line-in device.
-
 
 <a id="Setup_Sound"></a>
 
@@ -245,6 +218,54 @@ For more about Applescript commands and hooks, see
 <a target="_blank" rel="amphtml" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
 this</a>.
 
+
+
+<a id="Microphonez"></a>
+
+## Microphone #
+
+All Macs have a microphone that picks up your voice and other sounds in your room.
+
+BLAH: To mute the internal microphone on a Mac, 
+there is NO icon among dedicated keys on the keyboard
+like there is for speakers. A terrible oversight because that's just as important.
+
+The easiest option is to get the <a target="_blank" href="https://itunes.apple.com/pl/app/mutemymicfree/id567195825?mt=12">
+MuteMyMicFree</a> app by Michal Konrad Owsiak:
+
+<img align="right" alt="mac-mutemymic-39x228-7k" width="39" height="228" src="https://user-images.githubusercontent.com/300046/27474907-5a13f936-57d1-11e7-9f9f-e314d1594d3a.png">
+
+0. Open a web browser to
+<a target="_blank" href="https://itunes.apple.com/pl/app/mutemymicfree/id567195825?mt=12">
+https://itunes.apple.com/pl/app/mutemymicfree/id567195825?mt=12</a>
+0. Click <strong>View in Mac Ap Store</strong>.
+0. In the App Store pop-up, click <strong>Get</strong>, then <strong>Install app</strong>.
+0. Click <strong>Open</strong>.
+0. Click the microphone icon on the menu bar at the top of the screen.
+0. Click the gear icon in the pop-up.
+0. Check the "Start MuteMyMic automatically during login".
+0. Click the Quit button, the the other Quit button to dismiss the dialog.
+0. Press command+Tab to the App Store.
+0. Press Open, then Quit out the App Store.
+<br /><br />
+
+Alternately, if you're afraid of or cannot install downloaded apps,
+reduce the input volume to 0:
+
+<ol type="1">
+<li> Click on the Apple logo at the upper left corner.</li>
+<li> Select System Preferences.</li>
+<li> Type S and click on <strong>Sound</strong>.</li>
+<li> Click on the <strong>Input</strong> tab.</li>
+<li> Drag the <strong>Input volume</strong> slider all the way to the left.</li>
+<li> Close System Preferences.</li>
+</ol>
+
+This works by changing the audio input to the line-in, 
+also known as the audio input port on your Mac. 
+This method works
+as long as you don't have any audio input device connected, 
+such as an external microphone or some other line-in device.
 
 
 <a id="HardDrivez"></a>
