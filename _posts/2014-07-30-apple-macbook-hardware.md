@@ -72,6 +72,45 @@ it can be taken off before closing the cover.
 
 
 
+<a id="SysProfiler"></a>
+
+## System Profiler Piping
+
+MacOS has a single command to obtain details about your machine in a single file.
+
+Good to provide tech support when you're dealing with a nasty problem.
+
+There is a lot of information, so we use it to show use of some command-line kung fu:
+
+0. Redirect the output to a dated file using the `>` symbol, but change the sample  date
+   as you type this command:
+
+   <pre><strong>cd ~
+   system_profiler >system_profiler_<em>2017_06_11</em>
+   </strong></pre>
+
+   This takes a while to run.
+
+0. In the Terminal, highlight the file name and press Ctrl+C to copy it to your Clipboard.
+0. To count the number of lines in that output file above:
+
+   <pre><strong>wc system_profiler_2017_06_11
+   </strong></pre>
+
+   The response I got:
+
+   <pre>
+   72759  346086 3353663 system_profiler_2017_06_11
+   </pre>
+
+   In the example above, 72759 is the number of lines, 
+   13346086 is the number of words, and 3353663 is the number of characters.
+
+   SIDE NOTE: This is more than the number (64922) obtained from the 
+   <a target="_blank" href="https://www.computerhope.com/unix/nl.htm">
+   nl command</a> which adds a line counter as it displays each line.
+
+
 <a id="SysPrefs"></a>
 
 ## System Preferences 
@@ -82,6 +121,9 @@ move the cursor to the very top of the screen for a few seconds.</li>
 <li> Click on the Apple icon at the upper left corner.</li>
 <li> Select <strong>System Preferences</strong>.</li>
 </ol>
+
+<img align="right" alt="mac-system-prefs-10 12 5-285x280-35kb" width="285" height="280" src="https://user-images.githubusercontent.com/300046/27473427-36a91b7e-57cd-11e7-808e-85088336e959.png">
+
 
 <a id="Displayz"></a>
 
@@ -108,8 +150,13 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 
 ## Microphone #
 
-To disable the internal microphone, there is no icon.
-So reduce the input volume to 0:
+All Macs have a microphone that picks up your voice and other sounds in your room.
+
+BLAH: To mute the internal microphone on a Mac, 
+there is NO icon among dedicated keys on the keyboard
+like there is for speakers. A terrible oversight because that's just as important.
+
+PROTIP: Reduce the input volume to 0:
 
 <ol type="1">
 <li> Click on the Apple logo at the upper left corner.</li>
@@ -122,11 +169,9 @@ So reduce the input volume to 0:
 
 This works by changing the audio input to the line-in, 
 also known as the audio input port on your Mac. 
-As long as you don't actually have any audio input device connected, 
-such as an external microphone or some other line-in device, 
-this method should work.
-
-
+This method works
+as long as you don't actually have any audio input device connected, 
+such as an external microphone or some other line-in device.
 
 
 <a id="Setup_Sound"></a>
@@ -168,8 +213,7 @@ to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Press Ctrl+X, press Y to agree, then type in 
 
-   <tt><strong>
-   ~/Documents/unmute.sh for the file name. 
+   <tt><strong>~/Documents/unmute.sh
    </strong></tt>
 
 0. Hit Return to save the new file, and nano should quit.
@@ -177,28 +221,25 @@ to mute sound automatically before reboot, and un-mute after reboot.
 0. To make the scripts executable,
    run the following commands in the Terminal, hitting Enter after each one
 
-   <pre>
-   sudo chmod u+x ~/Documents/mute.sh
+   <pre><strong>sudo chmod u+x ~/Documents/mute.sh
    sudo chmod u+x ~/Documents/unmute.sh
    sudo mv ~/Documents/mute.sh /Library/Scripts/
    sudo mv ~/Documents/unmute.sh /Library/Scripts/
-   </pre>
+   </strong></pre>
 
 0. Set the scripts to run automatically:
 
-   <pre>
-   sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh
+   <pre><strong>sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh
    sudo defaults write com.apple.loginwindow LoginHook /Library/Scripts/unmute.sh
-   </pre>
+   </strong></pre>
 
 0. Close the Terminal, save data in all other apps, and reboot your machine.
 
 0. To undo the above actions, set defaults in a Terminal window:
 
-   <pre>
-   sudo defaults delete com.apple.loginwindow LogoutHook
+   <pre><strong>sudo defaults delete com.apple.loginwindow LogoutHook
    sudo defaults delete com.apple.loginwindow LoginHook
-   </pre>
+   </strong></pre>
 
 For more about Applescript commands and hooks, see
 <a target="_blank" rel="amphtml" href="https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">
@@ -260,6 +301,8 @@ The default partition type is 83 for Linux, 82 for Swap.
 0. Use mkfs to create file systems.
 
    NOTE: File systems include XFS, ext2, ext3, ext4, ReiserFS, Btrfs (better fs), etc.
+
+   ext is called the "extended file system".
 
 
 ### Disk utilities
@@ -419,7 +462,7 @@ Change the partition label as desired:
 and replace 2 with the index number.
 
 
-<a id="App"></a>
+<a name="DiskSpaceUsage"></a>
 
 ### Disk Space Usage #
 
@@ -427,20 +470,54 @@ and replace 2 with the index number.
 One of the folks at Sketch (the Mac photo-editing tool) noticed</a> that 
 Daisy Disk didn't map all the disk space usage.
 
-To reveal disk usage by a file that Apple Lion uses to store copies of files to revert to any version:
+0. To reveal disk usage by a file that Apple Lion uses to store copies of files to revert to any version:
 
    <pre><strong>sudo du -sh /.DocumentRevisions-V100
    </strong></pre>
 
-Resetting to zero would involve re-installs.
+   Resetting to zero would involve re-installs.
 
-If you use an alternative backup such as Dropbox, 
-you can turn it off for a particular program:
+0. If you use an alternative backup such as Dropbox, 
+   you can turn it off for a particular program:
 
    <pre><strong>defaults write -app ‘sketch’ ApplePersistence -bool no
    </strong></pre>
 
+0. List using a Linux command with the -Human readable flag:
 
+   <pre><strong>df -Hl
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Filesystem                          Size   Used  Avail Capacity iused      ifree %iused  Mounted on
+/dev/disk1                          499G   339G   159G    69% 3373911 4291593368    0%   /
+localhost:/hTrfpXTlOnJhs5cpiEGZpI   499G   499G     0B   100%       0          0  100%   /Volumes/MobileBackups
+   </pre>
+
+   Alternately, there is a more verbose -human readable flag:
+
+   <pre><strong>df -h
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Filesystem                          Size   Used  Avail Capacity iused      ifree %iused  Mounted on
+/dev/disk1                         465Gi  316Gi  148Gi    69% 3375349 4291591930    0%   /
+devfs                              256Ki  256Ki    0Bi   100%     884          0  100%   /dev
+map -hosts                           0Bi    0Bi    0Bi   100%       0          0  100%   /net
+map auto_home                        0Bi    0Bi    0Bi   100%       0          0  100%   /home
+localhost:/hTrfpXTlOnJhs5cpiEGZpI  465Gi  465Gi    0Bi   100%       0          0  100%   /Volumes/MobileBackups
+kbfs@kbfuse0                        10Gi    0Bi   10Gi     0%       0          0  100%   /keybase
+   </pre>
+
+
+   ### iNodes
+
+   Under the `iused` and `ifree` columns are the number of <strong>inode</strong> entries 
+   used and free. The total of the two is the number allocated.
 
 
 <a id="Hardware"></a>
