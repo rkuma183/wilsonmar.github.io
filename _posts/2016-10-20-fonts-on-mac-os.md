@@ -55,6 +55,28 @@ My main criteria is a <strong>narrow</strong> font so more characters fit on a l
 * https://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released
    Envy Code R
 
+<hr />
+
+### Vera Mono
+
+This is the standard monospaced font in Fedora Linux.﻿
+
+<a target="_blank" href="https://www.youtube.com/watch?v=61zHuzTSROQ">
+Todd McLeod's Favorite IDE Font</a> video with install on Gogland.
+
+From goo.gl/m51nNx for bitstream_vera_mono.zip
+
+   * VeraMono.ttf 
+   * VeraMoBI.ttf - bold italics
+   * VeraMoIt.ttf - Italics
+
+### Nunito
+
+https://www.fontsquirrel.com/fonts/nunito
+
+### Fira
+
+https://github.com/tonsky/FiraCode
 
 ### Meslo LG Multi-Platform
 
@@ -90,6 +112,8 @@ https://github.com/andreberg/Meslo-Font/wiki/Using-Meslo-LG-with-the-Windows-Con
 The font family, called Go, includes proportional- and fixed-width faces in normal, bold, and italic renderings. 
 
 https://blog.golang.org/go-fonts
+
+
 
 
 ### Hack Fonts from GitHub

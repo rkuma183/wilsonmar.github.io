@@ -188,9 +188,9 @@ server time.apple.com.
 
 ## Regular Expressions
 
-   Do not fear the swearing.
-
    We'll use the spelling dictionary of English words that comes with Linux.
+
+   * <a target="_blank" href="https://dzone.com/articles/abc-of-regex">ABCs of Regex</a>
 
 0. Search for words ending with "fine":
 

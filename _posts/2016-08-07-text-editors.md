@@ -54,6 +54,8 @@ Free IDEs:
    * NetBeans
    * <a target="_blank" href="https://github.com/spyder-ide/spyder">Spyder</a> (for Python pyflakes and pylint code analysis)
    * Visual Studio Express from Microsoft
+   * <a target="_blank" href="https://www.jetbrains.com/go/">Gogland</a>,
+   an IDE for Go from Jetbrains (makers of IntelliJ, PyCharm, etc.)
 
 Licensed IDEs:
 

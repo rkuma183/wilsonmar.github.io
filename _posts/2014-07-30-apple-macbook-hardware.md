@@ -124,6 +124,10 @@ move the cursor to the very top of the screen for a few seconds.</li>
 
    <img alt="mac-system-prefs-10 12 5-285x280-35kb" width="285" height="280" src="https://user-images.githubusercontent.com/300046/27473427-36a91b7e-57cd-11e7-808e-85088336e959.png">
 
+QUESTION: Where are preferences stored? 
+
+   sysctl -a hw
+
 
 <a id="Displayz"></a>
 
@@ -153,7 +157,7 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 
 Until Apple realizes how annoying it is to have that start-up sound on a Mac, 
 create in the /Library/Scripts folder shell scripts containing 
-osacript (<a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>a>) commands
+osacript (<a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/AppleScript">Applescript</a>) commands
 to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Open a terminal and type in nano. Press Enter.
@@ -537,10 +541,10 @@ kbfs@kbfuse0                        10Gi    0Bi   10Gi     0%       0          0
    </pre>
 
 
-   ### iNodes
+   ### inodes
 
    Under the `iused` and `ifree` columns are the number of <strong>inode</strong> entries 
-   used and free. The total of the two is the number allocated.
+   used and free. The total allocated of 4,294,967,279 is fixed at system creation.
 
 
 <a id="Hardware"></a>
