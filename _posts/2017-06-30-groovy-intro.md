@@ -1,10 +1,24 @@
-groovy.md
+---
+layout: post
+title: "Groovy (Language) introduction"
+excerpt: "A groovy way to use the Java Virtual Machine"
+tags: [apple, mac, setup, Go]
+shorturl: "https://goo.gl/JoaWV4"
+image:
+# feature: groovy-intro-1900x254-180k
+  feature: https://user-images.githubusercontent.com/300046/27741686-efc74390-5d83-11e7-9f3f-ba4bb43bfbac.png
+  credit: PioneerDrama.com
+  creditlink: https://www.pioneerdrama.com/searchdetail.asp?pc=GROOVY
+comments: true
+---
+<i>{{ page.excerpt }}</i>
+<hr />
+
+{% include _toc.html %}
+
 
 This is a hands-on introduction to the Groovy programming langauge.
 Effort was taken to sequence topics for faster learning.
-
-It's called "Apache Groovy" because it's an Apache open-source project.
-Apache runs conferences on the language.
 
 Groovy 1.0 was released in January 2, 2007 
 
@@ -15,6 +29,9 @@ Groovy 1.0 was released in January 2, 2007
 is the Groovy language homepage, which is built from 
 <a target="_blank" href="https://github.com/groovy/groovy-website">
 https://github.com/groovy/groovy-website</a>
+
+It's called "Apache Groovy" because it's an Apache open-source project.
+Apache runs conferences on the language. Some notable presentations:
 
 * https://www.youtube.com/channel/UC-Vs_q9uWBlSx5NsDkxoGAQ
    gr8conf.eu
@@ -28,6 +45,8 @@ Jeremy Jarrell</a> provides, back in 2014, a [3:37]
 <a target="_blank" href="https://app.pluralsight.com/library/courses/groovy-fundamentals/table-of-contents"> Groovy Fundamentals video course on Pluralsight</a>
 shows how to develop a Groovy application to parse GPS data from an XML file, insert it into a database, and correlate data to forecast data retrieved from a REST API.
 
+Other introductory tutorials:
+
 * https://www.tutorialspoint.com/groovy/
 * https://examples.javacodegeeks.com/jvm-languages/groovy/groovy-script-tutorial-beginners/
 * https://www.timroes.de/2015/06/27/groovy-tutorial-for-java-developers/
@@ -40,6 +59,12 @@ shows how to develop a Groovy application to parse GPS data from an XML file, in
 
 ## Install 
 
+### Docker Image
+
+   Docker images contain a complete environment:
+
+   https://github.com/groovy/docker-groovy
+
 ### Package Manager
 
    Formerly known as <a target="_blank" href="http://gvmtool.net/">
@@ -48,10 +73,6 @@ shows how to develop a Groovy application to parse GPS data from an XML file, in
    SDKMan.io</a> 
    (inspired by RVM and rbenv tools widely used by the Ruby community)
    is a tool for Mac OSX, Linux or Cygwin (Unix-based system) users to manage parallel versions of multiple Software Development Kits. It provides a convenient Command Line Interface (CLI) and API for installing, switching, removing and listing Candidates. 
-
-   ### Docker Image
-
-   https://github.com/groovy/docker-groovy
 
    ### On Mac
 
@@ -170,7 +191,8 @@ options:
    <pre><strong>:help
    </strong></pre>
 
-   Notice you can use either `:exit` or the shorter `:x` to exit.
+   Notice there are two formats for the same command.
+   For example, either `:exit` or the shorter `:x` to exit.
 
 0. Exit the shell using a command starting with colon:
 
@@ -179,7 +201,7 @@ options:
 
 0. Invoke the shell again:
 
-   Groovy doesn't have an import keyword that will do a 
+   Groovy coding doesn't yet have an import keyword that will do a 
    literal include of another file's contents.
 
    http://docs.groovy-lang.org/latest/html/documentation/#GroovyShell-load
@@ -231,10 +253,11 @@ class Hello1 {
    </pre>
 
 
-   ### Library Dependencies
-
    Groovy is based on Java. So there's semicolons.
-   But by default, Groovy includes these libraries, 
+   
+   ### Default Library Dependencies
+
+   NOTE: By default, Groovy includes these libraries, 
    so you don’t need to explicitly import them:
 
    <pre>
@@ -250,11 +273,17 @@ import java.math.BigInteger
 import java.math.BigDecimal
    </pre>
 
+   ### Java Library Dependencies
+
    Additional imports, just as with Java:
 
    Grape for Dependency management for Groovy.
    Grape is built on Ivy, which is compatible with Maven,
    which automatically installs dependencies at runtime.
+
+0. Using a Terminal at my <a href="#groovy-samples">
+   groovy-samples folder</a>,
+   open file ImportGpsData.groovy
 
    * Joda-time alternative to standard Java data and time libraries.
 
@@ -265,6 +294,16 @@ import java.math.BigDecimal
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
    </pre>
+
+   Functions in the library are used by statements such as:
+
+   <pre>
+  def printableTime = new DateTime(it.time.toString())
+  def format = DateTimeFormat.forPattern('MM/dd/yyyy - hh:mm aa')
+  println printableTime.toString(format)
+   </pre>
+
+   ### Google Guava
 
    * Google Guava
    * Apache Commons for logging
