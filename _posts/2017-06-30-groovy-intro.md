@@ -55,7 +55,8 @@ Other introductory tutorials:
 * https://www.youtube.com/watch?v=URkFOLywex4
 
 * https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part3-collections/
-
+* https://learnxinyminutes.com/docs/groovy/
+   Learn Groove in X Minutes
 
 ## Install 
 
@@ -74,7 +75,7 @@ Other introductory tutorials:
    (inspired by RVM and rbenv tools widely used by the Ruby community)
    is a tool for Mac OSX, Linux or Cygwin (Unix-based system) users to manage parallel versions of multiple Software Development Kits. It provides a convenient Command Line Interface (CLI) and API for installing, switching, removing and listing Candidates. 
 
-   ### On Mac
+### On Mac
 
 0. Homebrew install on Mac:
 
@@ -150,7 +151,7 @@ options:
    https://github.com/groovy/groovy-eclipse
 
 
-   ### Sample code
+## Sample code
 
 0. Install a Git client.
 0. Navigate to a working folder and:
@@ -159,7 +160,11 @@ options:
    cd groovy-samples
    </strong></pre>
 
-   ### Verify compile
+## Make it work
+
+This section has you going through the several ways to run Groovy programs.
+
+### Verify compile
 
 0. Compile to a Java class file containing Java byte code:
 
@@ -169,6 +174,20 @@ options:
 0. List files to see "hello1.class" (and not hello.class) 
    created because the class file name is defined within the code.
    
+
+   ### Groovy Console 
+
+0. In a Terminal:
+
+   <pre><strong>groovyConsole
+   </strong></pre>
+
+   ![groovy-intro-console-572x194-26k](https://user-images.githubusercontent.com/300046/27742401-79c7ca68-5d86-11e7-96ed-81f91304bba6.png)
+
+0. Select File Open, etc.
+
+0. Press command + Q to Quit out of the program.
+
 
    ### Groovy shell 
 
