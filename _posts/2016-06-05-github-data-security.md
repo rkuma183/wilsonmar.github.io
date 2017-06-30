@@ -381,6 +381,13 @@ NOTE: Internet browser sandboxing restricts JavaScript from accessing operating 
 environment variables.
 
 
+## Automatic Encryption
+
+https://gist.github.com/shadowhand/873637
+explains how to 
+
+
+
 ## Resources #
 
 * http://stackoverflow.com/questions/1396617/committing-machine-specific-configuration-files/1397180#1397180
