@@ -43,7 +43,12 @@ Apache runs conferences on the language. Some notable presentations:
 <a target="_blank" href="https://www.JeremyJarrell.com/">
 Jeremy Jarrell</a> provides, back in 2014, a [3:37]
 <a target="_blank" href="https://app.pluralsight.com/library/courses/groovy-fundamentals/table-of-contents"> Groovy Fundamentals video course on Pluralsight</a>
-shows how to develop a Groovy application to parse GPS data from an XML file, insert it into a database, and correlate data to forecast data retrieved from a REST API.
+shows how to develop a Groovy application to parse GPS data from an XML file, insert it into a database, and correlate weather forecast data from 
+<a target="_blank" href="https://developer.forecast.io/">
+forecast.io</a> retrieved using a REST API.
+
+Those with a Lynda subscription can view the <a target="_blank" href="https://www.lynda.com/Java-tutorials/Program-Groovy/486759/606194-4.html">
+Program with Groovy</a> segment within the IntelliJ course.
 
 Other introductory tutorials:
 
@@ -55,6 +60,10 @@ Other introductory tutorials:
 * https://www.youtube.com/watch?v=URkFOLywex4
 
 * https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part3-collections/
+
+* https://www.youtube.com/watch?v=KDCu1vEwPWo
+  Groovy scripting for SOAPUI from SmartBear
+
 * https://learnxinyminutes.com/docs/groovy/
    Learn Groove in X Minutes
 
@@ -304,15 +313,30 @@ import java.math.BigDecimal
    groovy-samples folder</a>,
    open file ImportGpsData.groovy
 
-   * Joda-time alternative to standard Java data and time libraries.
-
    <pre>
-@Grapes(
+@GrabConfig(systemClassLoader=true)
+@Grapes([
+  @Grab(
+    group='org.codehaus.groovy.modules.http-builder', 
+    module='http-builder', 
+    version='0.6' ),
+   @Grab('mysql:mysql-connector-java:5.1.6'),
    @Grab(group='joda-time', module='joda-time', version='2.3')
-)
+  ])
+import groovyx.net.http.RESTClient
+import groovy.sql.Sql
 import org.joda.time.DateTime
-import org.joda.time.format.DateTimeFormat
    </pre>
+
+   * Joda-time alternative to standard Java data and time libraries. It's at
+   mvnrepository.com/artifact/joda-time/joda-time/2.3
+
+   * SQL to store and retrieve data from a database
+
+   * Google Guava
+
+   * Apache Commons for logging
+
 
    Functions in the library are used by statements such as:
 
@@ -322,10 +346,28 @@ import org.joda.time.format.DateTimeFormat
   println printableTime.toString(format)
    </pre>
 
-   ### Google Guava
+0. Run the program using it. Grape takes care of downloading it.
+0. See what dependencies are available now:
 
-   * Google Guava
-   * Apache Commons for logging
+   <pre><strong>grape list
+   </strong></pre>
+
+0. To manually install:
+
+   <pre><strong>grape install xmlwriter xmlwriter 2.2.2
+   </strong></pre>
+   
+0. To manually see all sub-dependencies:
+
+   <pre><strong>grape resolve
+   </strong></pre>
+
+   FIXME: Errors 
+
+
+
+   ### API
+
 
 
    ### Templating
