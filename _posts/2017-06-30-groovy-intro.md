@@ -67,6 +67,11 @@ Other introductory tutorials:
 * https://learnxinyminutes.com/docs/groovy/
    Learn Groove in X Minutes
 
+* http://grails.asia/grails-tutorial-for-beginners-playing-with-groovy-language
+* http://guides.grails.org/creating-your-first-grails-app/guide/index.html
+* http://www.vogella.com/tutorials/Grails/article.html
+
+
 ## Install 
 
 ### Docker Image
@@ -84,7 +89,99 @@ Other introductory tutorials:
    (inspired by RVM and rbenv tools widely used by the Ruby community)
    is a tool for Mac OSX, Linux or Cygwin (Unix-based system) users to manage parallel versions of multiple Software Development Kits. It provides a convenient Command Line Interface (CLI) and API for installing, switching, removing and listing Candidates. 
 
-### On Mac
+0. Install sdkman by running the following command in your Unix terminal:
+
+   <pre><strong>curl -s "https://get.sdkman.io" | bash
+   </strong></pre>
+
+0. As instructed in the response:
+
+    <pre><strong>source ~/.sdkman/bin/sdkman-init.sh
+   </strong></pre>
+
+0. Use SDK to install the latest version of Grails (this guide uses 3.2.4):
+
+   <pre><strong>sdk install grails 3.2.4
+   </strong></pre>
+
+0. Choose 'yes' when sdkman prompts you to choose whether to set this version as the default.
+
+0. Verify:
+
+   <pre><strong>sdk help
+   </strong></pre>
+
+   The response reaches out through the internet for version news:
+
+   <pre>
+==== BROADCAST =================================================================
+* 28/06/17: Kotlin 1.1.3 released on SDKMAN! #kotlin
+* 26/06/17: Grails 3.2.11 released on SDKMAN! #grailsfw
+* 26/06/17: Grails 3.3.0.RC1 released on SDKMAN! #grailsfw
+================================================================================
+&nbsp;
+Usage: sdk &LT;command> [candidate] [version]
+       sdk offline &LT;enable|disable>
+&nbsp;
+   commands:
+       install   or i    &LT;candidate> [version]
+       uninstall or rm   &LT;candidate> <version>
+       list      or ls   [candidate]
+       use       or u    &LT;candidate> [version]
+       default   or d    &LT;candidate> [version]
+       current   or c    [candidate]
+       upgrade   or ug   [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           [enable|disable]
+       selfupdate        [force]
+       flush             &LT;candidates|broadcast|archives|temp>
+&nbsp;
+   candidate  :  the SDK to install: groovy, scala, grails, gradle, kotlin, etc.
+                 use list command for comprehensive list of candidates
+                 eg: $ sdk list
+&nbsp;
+   version    :  where optional, defaults to latest stable if not provided
+                 eg: $ sdk install groovy
+   </pre>
+
+0. List versions of sdk installed:
+
+   <pre><strong>sdk version
+   </strong></pre>
+  
+0. List versions of groovy availble for install:
+
+   <pre><strong>sdk list groovy
+   </strong></pre>
+  
+   At the : symbol, press q to quit out or spacebar.
+
+0. See Java:
+
+   <pre><strong>sdk current java
+   </strong></pre>
+
+0. Install Java
+
+   <pre><strong>sdk install java
+   </strong></pre>
+
+0. Install Groovy
+
+   <pre><strong>sdk install groovy
+   </strong></pre>
+
+0. List all that has been installed:
+
+   <pre><strong>sdk current
+   </strong></pre>
+
+   For more, see http://sdkman.io/usage.html
+   
+
+### Install On Mac using HomeBrew
 
 0. Homebrew install on Mac:
 
@@ -111,9 +208,9 @@ You should set GROOVY_HOME:
    See http://www.groovy-lang.org/install.html
 
 
-   ## Verify
+   <a name="VerifyInstall"></a>
 
-0. For a menu:
+   ## Verify Install
 
    <pre><strong>groovy
    </strong></pre>
@@ -182,7 +279,9 @@ This section has you going through the several ways to run Groovy programs.
 
 0. List files to see "hello1.class" (and not hello.class) 
    created because the class file name is defined within the code.
-   
+   This Java bytecode can be deployed to Java application servers 
+   (Jetty, Tomcat, JBoss, GlassFish, etc.).
+
 
    ### Groovy Console 
 
@@ -275,14 +374,19 @@ class Hello1 {
       /* This program shows how to display 
       hello world to console. */
       System.out.println("Hello World");
-      println('Hello World');
+      print "Hello "
+      println('World');
    }
 }
    </pre>
 
+   The print function does not add a new line.<br />
+   The println function adds a new line.
 
    Groovy is based on Java. So there's semicolons.
    
+
+
    ### Default Library Dependencies
 
    NOTE: By default, Groovy includes these libraries, 
@@ -309,6 +413,8 @@ import java.math.BigDecimal
    Grape is built on Ivy, which is compatible with Maven,
    which automatically installs dependencies at runtime.
 
+   http://docs.groovy-lang.org/latest/html/documentation/grape.html
+
 0. Using a Terminal at my <a href="#groovy-samples">
    groovy-samples folder</a>,
    open file ImportGpsData.groovy
@@ -332,6 +438,7 @@ import org.joda.time.DateTime
    mvnrepository.com/artifact/joda-time/joda-time/2.3
 
    * SQL to store and retrieve data from a database
+   See https://gist.github.com/jpertino/801238
 
    * Google Guava
 
@@ -429,4 +536,8 @@ Docs</a>
    Metaprogramming techniques
 
 * https://www.youtube.com/watch?v=vwysol6tipM&t=49s
+
+## Resources
+
+* http://thingsyoudidntknowaboutjenkins.tumblr.com/post/26585787635/built-in-groovy-scr ipting
 
