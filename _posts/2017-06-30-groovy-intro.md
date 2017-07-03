@@ -20,8 +20,8 @@ comments: true
 This is a hands-on introduction to the Groovy programming langauge.
 Effort was taken to sequence topics for faster learning.
 
-Groovy 1.0 was released in January 2, 2007 
-
+Groovy development began in 2003 by James Strachan and Bob McWhirter.
+Groovy 1.0 was released in January 2, 2007.
 
 ## Social
 
@@ -56,9 +56,6 @@ Other introductory tutorials:
 * https://examples.javacodegeeks.com/jvm-languages/groovy/groovy-script-tutorial-beginners/
 * https://www.timroes.de/2015/06/27/groovy-tutorial-for-java-developers/
 
-* https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part2-closures/
-* https://www.youtube.com/watch?v=URkFOLywex4
-
 * https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part3-collections/
 
 * https://www.youtube.com/watch?v=KDCu1vEwPWo
@@ -66,11 +63,10 @@ Other introductory tutorials:
 
 * https://learnxinyminutes.com/docs/groovy/
    Learn Groove in X Minutes
-
+* http://groovy-lang.org/structure.html
 * http://grails.asia/grails-tutorial-for-beginners-playing-with-groovy-language
 * http://guides.grails.org/creating-your-first-grails-app/guide/index.html
 * http://www.vogella.com/tutorials/Grails/article.html
-
 
 ## Install 
 
@@ -103,6 +99,8 @@ Other introductory tutorials:
 
    <pre><strong>sdk install grails 3.2.4
    </strong></pre>
+
+   https://tutorials.techmytalk.com/2014/07/19/grails-understanding/
 
 0. Choose 'yes' when sdkman prompts you to choose whether to set this version as the default.
 
@@ -179,7 +177,7 @@ Usage: sdk &LT;command> [candidate] [version]
    </strong></pre>
 
    For more, see http://sdkman.io/usage.html
-   
+
 
 ### Install On Mac using HomeBrew
 
@@ -266,11 +264,12 @@ options:
    cd groovy-samples
    </strong></pre>
 
-## Make it work
+   This section has you going through the several ways to run Groovy programs.
 
-This section has you going through the several ways to run Groovy programs.
+   ### Verify compile
 
-### Verify compile
+   <a href="#Console">Skip to next topic</a> while I'm working through
+   an error with this section.
 
 0. Compile to a Java class file containing Java byte code:
 
@@ -282,6 +281,29 @@ This section has you going through the several ways to run Groovy programs.
    This Java bytecode can be deployed to Java application servers 
    (Jetty, Tomcat, JBoss, GlassFish, etc.).
 
+   PROTIP: A class file is created for each closure definition.
+
+0. Execute the class (bytecode) file like any other Java ones:
+
+   On a Mac, notice the use of a colon:
+
+   <pre><strong>java Hello1 -cp ~/gits/wilsonmar/groovy-samples/:.
+   </strong></pre>
+
+   On Windows, notice the use of semi-colon:
+   
+   <pre><strong>java Hello1 -cp C:\gits\wilsonmar\groovy-samples\;.
+   </strong></pre>
+
+   PROTIP: Capitalization counts in Java file names.
+   
+   BLAH: This does not work now. I am getting error message
+   "Error: Could not find or load main class hello1"
+
+   See http://javarevisited.blogspot.com/2015/04/error-could-not-find-or-load-main-class-helloworld-java.html
+
+
+   <a name="Console"></a>
 
    ### Groovy Console 
 
@@ -373,9 +395,13 @@ class Hello1 {
    static void main(String[] args) {
       /* This program shows how to display 
       hello world to console. */
-      System.out.println("Hello World");
+      System.out.println("Hello World")
       print "Hello "
-      println('World');
+      println('World')
+
+      return
+      System.exit(0)  // CAUTION: This shuts down Jenkins
+      println "Lines after return or System.exit(0) are never executed."
    }
 }
    </pre>
@@ -383,9 +409,56 @@ class Hello1 {
    The print function does not add a new line.<br />
    The println function adds a new line.
 
-   Groovy is based on Java. So there's semicolons.
+   Groovy is based on Java. 
+   But in Groovy semicolons are required only to separate multiple functions on the same line.
    
+   PROTIP: System.exit(0)
 
+   ### Asserts
+
+   JUnit in Groovy is GUnit.
+
+   * https://tutorials.techmytalk.com/2014/07/19/grails-unittesting/
+   * http://groovy.codehaus.org/Testing+Guide
+   * http://www.ibm.com/developerworks/java/library/j-pg11094/
+
+   ### Functions
+
+   Using the def keyword in larger programs is important as it helps define the scope in which the variable can be found and can help preserve encapsulation.
+
+   ### Profiling
+
+   GProf was created
+   <a target="_blank" href="http://nagaimasato.blogspot.com/2013/04/gprof-was-just-born.html">
+   in 2013</a> to determine which parts of a program are taking most of the execution time 
+   (like GNU gprof does for C, C++).
+
+   ### Closures
+
+   A closure in Groovy is an anonymous function. 
+   Execution of the definition is delayed until invoked.
+
+   <pre>
+// x and y are defined within the closure definition:
+def closureWithParameters = {x, y -> print(x +" and "+y)}  // Not executed immediately.
+    closureWithParameters.call("Hello ladies", "Hello gentlemen")  // Prints 
+   </pre>
+
+   A closure in Groovy is an open, anonymous, block of code that can take arguments, return a value and be assigned to a variable. 
+
+   "Higher-order functions" is a concept from mathematics where a function accepts other functions as its arguments, and can return functions as results.
+
+   In opposition to the formal definition of a closure, Closure in the Groovy language can also contain free variables which are defined outside of its surrounding scope.
+
+   * https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part2-closures/
+   * https://www.youtube.com/watch?v=URkFOLywex4
+   * http://groovy-lang.org/closures.html
+   * https://dzone.com/articles/closures-groovy
+   * https://dzone.com/articles/higher-order-functions-groovy-
+
+   ### Functional Programming
+
+   * https://dzone.com/articles/functional-programming-groovy
 
    ### Default Library Dependencies
 
