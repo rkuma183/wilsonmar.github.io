@@ -28,7 +28,7 @@ and thus its rapid growth.
 
    NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
    <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
-   a name from a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
+   a character in a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
    1952 children's book</a> from Finland, where her family originates.
 
 After Oracle acquired Sun (MySQL's owner),
@@ -144,16 +144,14 @@ PROTP: Use Homebrew instead of downloading from
 
 0. Prepare the Homebrew environment (before any Homebrew install):
 
-   <tt><strong>
-   brew update
+   <tt><strong>brew update
    </strong></tt>
 
    This can take several minutes.
 
    Resolve any issues reported.
 
-   <tt><strong>
-   brew doctor<br />
+   <tt><strong>brew doctor<br />
    brew upgrade
    </strong></tt>
 
@@ -162,8 +160,7 @@ PROTP: Use Homebrew instead of downloading from
 
 0. Run the latest version of the Homebrew installer:
 
-   <tt><strong>
-   brew install mysql
+   <tt><strong>brew install mysql
    </strong></tt>
 
    The response:
@@ -191,35 +188,73 @@ Or, if you don't want/need a background service you can just run:
    Notice the installer is specific to the version of Mac OSX (such as "El Capitan").
 
 
-
    Alternately, to install a specific version, such as 5.6:
 
-   <tt><strong>
-   brew install mysql56
+   <tt><strong>brew install mysql56
    </strong></tt>
+
+   After some time, to upgrade MySQL:
+
+   <tt><strong>brew upgrade mysql
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+==> Upgrading 1 outdated package, with result:
+mysql 5.7.18_1
+==> Upgrading mysql 
+==> Downloading https://homebrew.bintray.com/bottles/mysql-5.7.18_1.sierra.bottle.tar.gz
+######################################################################## 100.0%brew info mysql
+==> Pouring mysql-5.7.18_1.sierra.bottle.tar.gz
+==> Using the sandbox
+==> Caveats
+We've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+&nbsp;
+MySQL is configured to only allow connections from localhost by default
+&nbsp;
+To connect run:
+    mysql -uroot
+&nbsp;
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+==> Summary
+🍺  /usr/local/Cellar/mysql/5.7.18_1: 321 files, 232.9MB
+   </pre>
 
 0. Expose folders and dependencies:
 
-   NOTE: mysql is the command line tool.  
+   mysql is the command line tool.<br />
    mysqld is the server.
 
-   <tt><strong>
-   brew info mysql
+   <tt><strong>brew info mysql
    </strong></tt>
 
    The sample response:
 
    <pre>
-mysql: stable 5.7.13 (bottled)
+Last login: Mon Jul  3 15:18:34 on ttys001
+groovy-samples() > brew info mysql
+mysql: stable 5.7.18 (bottled)
 Open source relational database management system
 https://dev.mysql.com/doc/refman/5.7/en/
-Conflicts with: mariadb, mariadb-connector-c, mysql-cluster, mysql-connector-c, percona-server
-/usr/local/Cellar/mysql/5.7.13 (13,344 files, 445.0M) *
-  Poured from bottle on 2016-07-01 at 20:05:45
+Conflicts with:
+  mariadb (because mysql, mariadb, and percona install the same binaries.)
+  mariadb-connector-c (because both install plugins)
+  mysql-cluster (because mysql, mariadb, and percona install the same binaries.)
+  mysql-connector-c (because both install MySQL client libraries)
+  percona-server (because mysql, mariadb, and percona install the same binaries.)
+/usr/local/Cellar/mysql/5.7.17 (321 files, 234.4MB)
+  Poured from bottle on 2017-03-08 at 15:46:47
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/mysql.rb
 ==> Dependencies
 Build: cmake ✘
 Required: openssl ✔
+==> Requirements
+Required: macOS >= 10.7 ✔
 ==> Options
 --with-archive-storage-engine
   Compile with the ARCHIVE storage engine enabled
@@ -234,25 +269,16 @@ Required: openssl ✔
 --with-test
   Build with unit tests
 ==> Caveats
-We've installed your MySQL database without a root password. To secure it run:
-    mysql_secure_installation
-&nbsp;
-To connect run:
-    mysql -uroot
-&nbsp;
-To have launchd start mysql now and restart at login:
-  brew services start mysql
-Or, if you don't want/need a background service you can just run:
-  mysql.server start
      </pre>
+
+  The same Caveats are shown.
 
    <a target="_blank" href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html">
    https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html</a>
 
 0. Verify:
 
-   <tt><strong>
-   which mysql
+   <tt><strong>which mysql
    </strong></tt>
 
    The response:
@@ -268,8 +294,7 @@ Or, if you don't want/need a background service you can just run:
 
 0. Set permissions for root access:
 
-   <tt><strong>
-   sudo chown -R mysql /usr/local/var/mysql/
+   <tt><strong>sudo chown -R mysql /usr/local/var/mysql/
    </strong></tt>
 
 0. <a target="_blank" href="http://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/">
@@ -280,8 +305,7 @@ Or, if you don't want/need a background service you can just run:
 
 0. Invoke mysql daemon from the command line:
 
-   <tt><strong>
-   mysql.server start
+   <tt><strong>sudo mysql.server start
    </strong></tt>
 
    Response:
@@ -291,12 +315,44 @@ Or, if you don't want/need a background service you can just run:
    . SUCCESS! 
    </pre>
 
+0. Alternately, if you get this error messages:
+
+   <pre>
+my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
+my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
+Starting MySQL
+.my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
+my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
+my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
+my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
+     </pre>
+
+   <a target="_blank" href="http://codepodu.com/a-help-message-which-actually-is-helpful/">Fix it</a>:
+
+   <pre><strong>mkdir /usr/local/etc/my.cnf.d
+   </strong></pre>
+
+0. To fix these error messages:
+   
+   <pre>
+/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 643: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
+Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
+/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 142: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
+/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 196: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
+/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 900: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
+/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 142: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
+ ERROR! The server quit without updating PID file (/usr/local/var/mysql/macs-MacBook-Pro-4.local.pid).
+     </pre>
+
+   <pre><strong>mkdir /usr/local/etc/my.cnf.d
+   </strong></pre>
+
+
    <a name="ListProcesses"></a>
 
 0. List the daemons started by the command above:
 
-   <tt><strong>
-   ps
+   <tt><strong>ps
    </strong></tt>
 
    A sample response:
@@ -315,20 +371,17 @@ Or, if you don't want/need a background service you can just run:
 
 0. PROTIP: Stop the server before killing its process:
 
-   <tt><strong>
-   mysql.server stop
+   <tt><strong>mysql.server stop
    </strong></tt>
 
 0. To kill the processes:
 
-   <tt><strong>
-   pkill mysql
+   <tt><strong>pkill mysql
    </strong></tt>
 
    Alternately, specify by process ID (which is differs over time):
 
-   <tt><strong>
-   kill -9 21069<br />
+   <tt><strong>kill -9 21069<br />
    kill -9 21161
    </strong></tt>
 
@@ -339,8 +392,7 @@ Or, if you don't want/need a background service you can just run:
 
 0. Remove MySQL:
 
-   <tt><strong>
-   brew remove mysql<br />
+   <tt><strong>brew remove mysql<br />
    brew cleanup \-\-force
    </strong></tt>
 
@@ -352,28 +404,24 @@ Or, if you don't want/need a background service you can just run:
 
 0. Remove services MacOS invokes when a user logs in:
 
-   <tt><strong>
-   sudo ls ~/Library/LaunchAgents<br />
+   <tt><strong>sudo ls ~/Library/LaunchAgents<br />
    </strong></tt>
 
    If file "homebrew.mxcl.mysql.plist" exists, remove it:
 
-   <tt><strong>
-   sudo rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+   <tt><strong>sudo rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
    </strong></tt>
 
    NOTE: In previous versions, the file was "com.mysql.mysqld.plist".
 
 0. Remove lefover database files:
 
-   <tt><strong>
-   ls /usr/local/var/mysql
+   <tt><strong>ls /usr/local/var/mysql
    </strong></tt>
 
    If files exist there, remove them all:
 
-   <tt><strong>
-   sudo rm -rf /usr/local/var/mysql
+   <tt><strong>sudo rm -rf /usr/local/var/mysql
    </strong></tt>
 
    Skipping the above step means you will not be able to log in as root initially to set the password.
@@ -384,11 +432,13 @@ Or, if you don't want/need a background service you can just run:
 
 ## MariaDB via Homebrew #
 
-MariaDB ships with additional storage engines installed (no compilation as with MySQL):
+MariaDB ships with additional storage engines installed 
+(with no additional compilation as with MySQL):
 Aria, XtraDB (an enhanced and extended version of the InnoDB storage engine), PBXT, FederatedX (a drop-in replacement for Federated), OQGraph, and SphinxSE 
-in addition to standard MyISAM, blackhole, CSV, Memory, etx.
+in addition to standard MyISAM, blackhole, CSV, Memory, etc.
 
-   show storage engines;
+   <pre><strong>show storage engines;
+   </strong></pre>
 
 <a target="_blank" href="http://kb.askmonty.org/v/mariadb">
 http://kb.askmonty.org/v/mariadb</a> is the MariaDB Knowledgebase. 
@@ -397,8 +447,7 @@ http://kb.askmonty.org/v/mariadb</a> is the MariaDB Knowledgebase.
 0. <a href="#UninstallMySQL">Uninstall MySQL</a> if you have it installed.
 0. Install MariaDB:
 
-   <tt><strong>
-   brew install mariadb
+   <tt><strong>brew install mariadb
    </strong></tt>
 
    If MySQL is already installed, the response is:
@@ -433,20 +482,17 @@ Or, if you don't want/need a background service you can just run:
 
 0. Verify
 
-   <tt><strong>
-   which mysql
+   <tt><strong>which mysql
    </strong></tt>
 
    The response:
 
-   <pre>
-   /usr/local/bin/mysql
+   <pre>/usr/local/bin/mysql
    </pre>
 
 0. Invoke interactively from the command line:
 
-   <tt><strong>
-   echo $TMPDIR
+   <tt><strong>echo $TMPDIR
    </strong></tt>
 
    Sample response:
@@ -455,18 +501,16 @@ Or, if you don't want/need a background service you can just run:
    /var/folders/j_/gh27gpxj1t58hyryfg9drvdc0000gn/T/
    </pre>
 
-   Now clear it:
+0. Now clear it:
 
-   <tt><strong>
-   unset TMPDIR
+   <tt><strong>unset TMPDIR
    </strong></tt>
 
    Do another echo to get a blank response.
 
 0. Invoke interactively from the command line:
 
-   <pre><strong>
-   mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql 
+   <pre><strong>mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql 
    </strong></pre>
 
    NOTE: The `whoami` returns the output from running the whoami command.
@@ -500,8 +544,7 @@ Or, if you don't want/need a background service you can just run:
 
 0. Define a root password to secure your installation using the provided script:
 
-   <tt><strong>
-   mysql_secure_installation
+   <tt><strong>mysql_secure_installation
    </strong></tt>
 
    This invokes the script in a folder such as:<br />
@@ -554,8 +597,7 @@ Or, if you don't want/need a background service you can just run:
    to be in folder <strong>/var/mysql</strong>, 
    create it and add a symbolic link to where the socket actually lives:
 
-   <tt><strong>
-   sudo mkdir /var/mysql<br />
+   <tt><strong>sudo mkdir /var/mysql<br />
    sudo chmod 755 /var/mysql<br />
    sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
    </strong></tt>
@@ -591,16 +633,14 @@ The command-line client is mysql.
 
 0. Start the mysqld server so anyone can log in with full permissions:
 
-   <tt><strong>
-   mysqld_safe --skip-grant-tables
+   <tt><strong>mysqld_safe --skip-grant-tables
    </strong></tt>
 
    Open another Terminal shell window on any folder.
 
 0. Log in without a password:
 
-   <tt><strong>
-   mysql -u root
+   <tt><strong>mysql -u root
    </strong></tt>
 
    The response:
@@ -624,8 +664,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 0. To exit, type in quit and press Enter:
 
-   <tt><strong>
-   quit
+   <tt><strong>quit
    </strong></tt>
 
    Then bring up mysql again.
@@ -651,14 +690,12 @@ There are two ways to get a list of databases:
 
 0. From the command line:
 
-   <tt><strong>
-   mysqlshow
+   <tt><strong>mysqlshow
    </strong></tt>
 
    From within MySQL:
 
-   <tt><strong>
-   show databases;
+   <tt><strong>show databases;
    </strong></tt>
 
    The expected response on a newly created instance:
@@ -683,8 +720,7 @@ mysqladmin is a command-line interface for administrators to perform server admi
 
 0. On a Terminal command line:
 
-   <tt><strong>
-   mysqladmin
+   <tt><strong>mysqladmin
    </strong></tt>
 
    The response is long, starting with...
@@ -707,14 +743,12 @@ Usage: mysqladmin [OPTIONS] command command....
 
 0. List users in the mysql system database by specifying a single line:
 
-   <tt><strong>
-   use mysql; select * from user;
+   <tt><strong>use mysql; select * from user;
    </strong></tt>
 
 0. List users by entering SQL commands in several lines: 
 
-   <tt><strong>
-   SELECT * FROM information_schema.TABLES
+   <tt><strong>SELECT * FROM information_schema.TABLES
    </strong></tt>
 
    The response is an arrow:
@@ -727,8 +761,7 @@ Usage: mysqladmin [OPTIONS] command command....
 
    Enter more lines:
 
-   <tt><strong>
-   WHERE TABLE_NAME LIKE '%user%'
+   <tt><strong>WHERE TABLE_NAME LIKE '%user%'
    </strong></tt>
 
    To have mysql process the statement lines, type a semicolon and press Enter:
@@ -747,8 +780,7 @@ Usage: mysqladmin [OPTIONS] command command....
 
 0. Reset all the root passwords (the password being "password"):
 
-   <tt><strong>
-   UPDATE mysql.user SET Password=PASSWORD('NewPassword') WHERE User='root';<br />
+   <tt><strong>UPDATE mysql.user SET Password=PASSWORD('NewPassword') WHERE User='root';<br />
    FLUSH PRIVILEGES;
    </strong></tt>
 
@@ -767,8 +799,7 @@ These commands are entered `mysql>`.
 
 0. Create: 
 
-   <tt><strong>
-   create database sampledb;
+   <tt><strong>create database sampledb;
    </strong></tt>
 
    The response:
@@ -780,8 +811,7 @@ These commands are entered `mysql>`.
 
 0. Switch
 
-   <tt><strong>
-   use sampledb;
+   <tt><strong>use sampledb;
    </strong></tt>
 
 
@@ -801,14 +831,12 @@ PROTIP: Interact with the databae via batch-submitted files for repeatability.
 
 0. Invoke a SQL script using the Linux source command:
 
-   <tt><strong>
-   mysql < ~/sql/sqlfile1
+   <tt><strong>mysql < ~/sql/sqlfile1
    </strong></tt>
 
 0. Invoke a SQL script using the Linux source command:
 
-   <tt><strong>
-   source file_name<br />
+   <tt><strong>source file_name<br />
    \. file_name
    </strong></tt>
 
@@ -867,6 +895,7 @@ CREATE TABLE  'inmail','NEWMAIL' (
 // postal code 11
 // TIMESTAMP is 
 </pre>
+
 
 <a name="Engines"></a>
 
