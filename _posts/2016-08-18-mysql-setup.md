@@ -158,21 +158,23 @@ PROTP: Use Homebrew instead of downloading from
    This can cause other packages to be downloaded, which can take several minutes.
 
 
-0. Run the latest version of the Homebrew installer:
+0. Download and install the <strong>most recent</strong> version of the Homebrew installer:
 
    <tt><strong>brew install mysql
    </strong></tt>
 
-   The response:
+   The response on July 4, 2017:
 
    <pre>
-==> Downloading https://homebrew.bintray.com/bottles/mysql-5.7.13.el_capitan.bot
-######################################################################## 100.0%
-==> Pouring mysql-5.7.13.el_capitan.bottle.tar.gz
-==> /usr/local/Cellar/mysql/5.7.13/bin/mysqld --initialize-insecure --user=mac -
+==> Downloading https://homebrew.bintray.com/bottles/mysql-5.7.18_1.sierra.bottl
+Already downloaded: /Users/mac/Library/Caches/Homebrew/mysql-5.7.18_1.sierra.bottle.tar.gz
+==> Pouring mysql-5.7.18_1.sierra.bottle.tar.gz
+==> Using the sandbox
 ==> Caveats
 We've installed your MySQL database without a root password. To secure it run:
     mysql_secure_installation
+&nbsp;
+MySQL is configured to only allow connections from localhost by default
 &nbsp;
 To connect run:
     mysql -uroot
@@ -182,10 +184,11 @@ To have launchd start mysql now and restart at login:
 Or, if you don't want/need a background service you can just run:
   mysql.server start
 ==> Summary
-🍺  /usr/local/Cellar/mysql/5.7.13: 13,344 files, 445.0M   
+🍺  /usr/local/Cellar/mysql/5.7.18_1: 321 files, 232.9MB
    </pre>
 
-   Notice the installer is specific to the version of Mac OSX (such as "El Capitan").
+   PROTIP: Notice the installer is specific to the 
+   version of Mac OSX (such as "Sierra" in this case).
 
 
    Alternately, to install a specific version, such as 5.6:
@@ -193,7 +196,7 @@ Or, if you don't want/need a background service you can just run:
    <tt><strong>brew install mysql56
    </strong></tt>
 
-   After some time, to upgrade MySQL:
+0. After some time, to upgrade MySQL:
 
    <tt><strong>brew upgrade mysql
    </strong></tt>
@@ -271,7 +274,7 @@ Required: macOS >= 10.7 ✔
 ==> Caveats
      </pre>
 
-  The same Caveats are shown.
+   The same Caveats are shown.
 
    <a target="_blank" href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html">
    https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html</a>
@@ -281,7 +284,7 @@ Required: macOS >= 10.7 ✔
    <tt><strong>which mysql
    </strong></tt>
 
-   The response:
+   The expected response:
 
    <pre>
    /usr/local/bin/mysql
@@ -294,8 +297,12 @@ Required: macOS >= 10.7 ✔
 
 0. Set permissions for root access:
 
-   <tt><strong>sudo chown -R mysql /usr/local/var/mysql/
-   </strong></tt>
+   <pre><strong>sudo chown -R mysql /usr/local/var/mysql/
+   </strong></pre>
+
+   Supply the password when prompted.
+
+   No response is expected.
 
 0. <a target="_blank" href="http://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/">
    Joe Fallon, in his blog</a>, proposed additional configurations.
@@ -312,6 +319,7 @@ Required: macOS >= 10.7 ✔
 
    <pre>
    Starting MySQL
+   .Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
    . SUCCESS! 
    </pre>
 
@@ -350,12 +358,13 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
    <a name="ListProcesses"></a>
 
-0. List the daemons started by the command above:
+0. List the daemons (processes) started by the command above,
+   piped to filter the output:
 
-   <tt><strong>ps
+   <tt><strong>ps -ax | grep mysql
    </strong></tt>
 
-   A sample response:
+   A sample response (in addition to grep itself):
 
    <pre>
      PID TTY           TIME CMD
