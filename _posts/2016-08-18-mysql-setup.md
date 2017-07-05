@@ -368,8 +368,16 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
    <pre>
      PID TTY           TIME CMD
-   21069 ttys002    0:00.02 /bin/sh /usr/local/Cellar/mysql/5.7.13/bin/mysqld_safe
-   21161 ttys002    0:00.33 /usr/local/Cellar/mysql/5.7.13/bin/mysqld --basedir=/u
+   21069 ttys002    0:00.02 /bin/sh /usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe
+         --datadir=/usr/local/var/mysql 
+         --pid-file=/usr/local/var/mysql/macs-MacBook-Pro-4.local.pid
+   21161 ttys002    0:00.33 /usr/local/Cellar/mysql/5.7.18_1/bin/mysqld 
+         -basedir=/usr/local/Cellar/mysql/5.7.18_1 
+         --datadir=/usr/local/var/mysql 
+         --plugin-dir=/usr/local/Cellar/mysql/5.7.18_1/lib/plugin 
+         --user=mysql 
+         --log-error=/usr/local/var/mysql/macs-MacBook-Pro-4.local.err 
+         --pid-file=/usr/local/var/mysql/macs-MacBook-Pro-4.local.pid
    </pre>
 
    If you want to use the database, proceed to <a href="#WorkSQL">Work with SQL</a> below.
@@ -385,8 +393,14 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
 0. To kill the processes:
 
-   <tt><strong>pkill mysql
+   <tt><strong>sudo pkill mysql
    </strong></tt>
+
+   No response is given unless you didn't use sudo:
+
+   <pre>
+   pkill: signalling pid 24162: Operation not permitted
+   </pre>
 
    Alternately, specify by process ID (which is differs over time):
 
@@ -401,14 +415,24 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
 0. Remove MySQL:
 
-   <tt><strong>brew remove mysql<br />
-   brew cleanup \-\-force
-   </strong></tt>
+   <pre><strong>brew remove mysql
+   </strong></pre>
 
    Response:
 
    <pre>
    Uninstalling /usr/local/Cellar/mysql/5.7.13... (13,344 files, 445.0M)
+   </pre>
+
+0. Recover disk space from uninstalled items:
+
+   <tt><strong>brew cleanup \-\-force
+   </strong></tt>
+
+   Response:
+
+   <pre>
+   ==> This operation has freed approximately 318.2MB of disk space.
    </pre>
 
 0. Remove services MacOS invokes when a user logs in:
@@ -574,7 +598,159 @@ Or, if you don't want/need a background service you can just run:
 
 ## Interactive SQL Client #
 
-   NOTE: mysqladmin is the default client tool for performing administrative tasks.
+### mysqladmin
+
+0. mysqladmin is the default client tool for performing administrative tasks.
+
+   <pre><strong>mysqladmin
+   </strong></pre>
+
+   The response:
+
+   <pre>
+mysqladmin  Ver 8.42 Distrib 5.7.18, for osx10.12 on x86_64
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+&nbsp;
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+&nbsp;
+Administration program for the mysqld daemon.
+Usage: mysqladmin [OPTIONS] command command....
+  --bind-address=name IP address to bind to.
+  -c, --count=#       Number of iterations to make. This works with -i
+                      (--sleep) only.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check       This is a non-debug version. Catch this and exit.
+  --debug-info        This is a non-debug version. Catch this and exit.
+  -f, --force         Don't ask for confirmation on drop database; with
+                      multiple commands, continue even if an error occurs.
+  -C, --compress      Use compression in server/client protocol.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  --default-character-set=name 
+                      Set the default character set.
+  -?, --help          Display this help and exit.
+  -h, --host=name     Connect to host.
+  -b, --no-beep       Turn off beep on error.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given it's asked from the tty.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  -r, --relative      Show difference between current and previous values when
+                      used with -i. Currently only works with extended-status.
+  --secure-auth       Refuse client connecting to server if it uses old
+                      (pre-4.1.1) protocol. Deprecated. Always TRUE
+  -s, --silent        Silently exit if one can't connect to server.
+  -S, --socket=name   The socket file to use for connection.
+  -i, --sleep=#       Execute commands repeatedly with a sleep between.
+  --ssl-mode=name     SSL connection mode.
+  --ssl               Deprecated. Use --ssl-mode instead.
+                      (Defaults to on; use --skip-ssl to disable.)
+  --ssl-verify-server-cert 
+                      Deprecated. Use --ssl-mode=VERIFY_IDENTITY instead.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --tls-version=name  TLS version to use, permitted values are: TLSv1, TLSv1.1,
+                      TLSv1.2
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       Write more information.
+  -V, --version       Output version information and exit.
+  -E, --vertical      Print output vertically. Is similar to --relative, but
+                      prints output vertically.
+  -w, --wait[=#]      Wait and retry if connection is down.
+  --connect-timeout=# 
+  --shutdown-timeout=# 
+  --plugin-dir=name   Directory for client-side plugins.
+  --default-auth=name Default authentication client-side plugin to use.
+  --enable-cleartext-plugin 
+                      Enable/disable the clear text authentication plugin.
+  --show-warnings     Show warnings after execution
+&nbsp;
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}  Value (after reading options)
+--------------------------------- ----------------------------------------
+bind-address                      (No default value)
+count                             0
+force                             FALSE
+compress                          FALSE
+character-sets-dir                (No default value)
+default-character-set             auto
+host                              (No default value)
+no-beep                           FALSE
+port                              0
+relative                          FALSE
+secure-auth                       TRUE
+socket                            (No default value)
+sleep                             0
+ssl                               TRUE
+ssl-verify-server-cert            FALSE
+ssl-ca                            (No default value)
+ssl-capath                        (No default value)
+ssl-cert                          (No default value)
+ssl-cipher                        (No default value)
+ssl-key                           (No default value)
+ssl-crl                           (No default value)
+ssl-crlpath                       (No default value)
+tls-version                       (No default value)
+user                              (No default value)
+verbose                           FALSE
+vertical                          FALSE
+connect-timeout                   43200
+shutdown-timeout                  3600
+plugin-dir                        (No default value)
+default-auth                      (No default value)
+enable-cleartext-plugin           FALSE
+show-warnings                     FALSE
+&nbsp;
+Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf 
+The following groups are read: mysqladmin client
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+&nbsp;
+Where command is a one or more of: (Commands may be shortened)
+  create databasename Create a new database
+  debug     Instruct server to write debug information to log
+  drop databasename Delete a database and all its tables
+  extended-status       Gives an extended status message from the server
+  flush-hosts           Flush all cached hosts
+  flush-logs            Flush all logs
+  flush-status    Clear status variables
+  flush-tables          Flush all tables
+  flush-threads         Flush the thread cache
+  flush-privileges      Reload grant tables (same as reload)
+  kill id,id,...  Kill mysql threads
+  password [new-password] Change old password to new-password in current format
+  ping      Check if mysqld is alive
+  processlist   Show list of active threads in server
+  reload    Reload grant tables
+  refresh   Flush all tables and close and open logfiles
+  shutdown    Take server down
+  status    Gives a short status message from the server
+  start-slave   Start slave
+  stop-slave    Stop slave
+  variables             Prints variables available
+  version   Get version info from server
+  </pre>
+
+   ### SequelPro
 
    PROTIP: Use Sequel Pro's Export and Import features (use a MySQL dump) to move databases.
 
@@ -606,7 +782,8 @@ Or, if you don't want/need a background service you can just run:
    to be in folder <strong>/var/mysql</strong>, 
    create it and add a symbolic link to where the socket actually lives:
 
-   <tt><strong>sudo mkdir /var/mysql<br />
+   <tt><strong>cd \<br />
+   sudo mkdir /var/mysql<br />
    sudo chmod 755 /var/mysql<br />
    sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
    </strong></tt>
