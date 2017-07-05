@@ -748,7 +748,7 @@ Where command is a one or more of: (Commands may be shortened)
   stop-slave    Stop slave
   variables             Prints variables available
   version   Get version info from server
-  </pre>
+   </pre>
 
    ### SequelPro
 
