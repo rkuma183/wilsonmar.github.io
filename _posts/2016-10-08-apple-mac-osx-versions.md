@@ -18,8 +18,6 @@ comments: true
 
 <a id="Versionz"></a>
 
-### Versions
-
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Ver. </th><th> Code Name </th><th> Avail. Date
 </th><th><a href="/php-on-apple-mac-osx/">PHP</a>
@@ -95,8 +93,18 @@ comments: true
 </td><td align="left"> - </td></tr>
 </table>
 
-From <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
+Based on <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
+
+## Installer downloads
+
+Manually download the complete installer for Sierra from:<br />
+<a target="_blank" href="https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12">
+https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
+
+Download combined updates which include all components from prior point releases, even if they are not installed on the target Mac, from:<br />
+<a target="_blank" href="https://support.apple.com/downloads/combo">
+https://support.apple.com/downloads/combo</a><br />
 
 
 <a id="MacVer"></a>
@@ -129,16 +137,17 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
    This is a different command than used in Linux (`lsb_release`).
 
-0. The reference to "Darwin" comes from the 
-   <a target="_blank" href="http://man7.org/linux/man-pages/man2/uname.2.html">
-   Unix name" command also used in Linux</a>:
+0. Invoke the <a target="_blank" href="http://man7.org/linux/man-pages/man2/uname.2.html">
+   Unix name" utility command also used in Linux</a>:   
 
    <pre><strong>uname -a
    </strong></pre>
 
    The `-a` requests all parameters, for a response such as:
 
-   <pre>Darwin macs-MacBook-Pro-4.local 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64 x86_64
+   <pre>Darwin macs-MacBook-Pro-4.local 
+   16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; 
+   root:xnu-3789.60.24~6/RELEASE_X86_64 x86_64
    </pre>
 
    * `Darwin` is the kernel name (-k).
@@ -150,7 +159,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    * Not applicable on Macs (Linux only) are the hardware platform (-i) and operating system (-o) flag.
    <br /><br />
 
-   OPTIONAL: The architecture of `i386` is also output by 
+   NOTE: The architecture of `i386` is also output by 
    this Linux command:
 
    <pre><strong>arch
@@ -162,6 +171,9 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
 ## Desktop Wallpaper Pictures #
 
+Wallpaper images that come with OS X are of Retina resolution: 
+<strong>5120x2880</strong>. Really big.
+
 Get to the Desktop quickly by spreading thumb and 4 fingers on the touchpad.
 
 To choose a different picture from Preferences:
@@ -172,13 +184,9 @@ To choose a different picture from Preferences:
 
 Want to add the Windows 10 wallpaper to your desktop?
 
-   Get to folder where system wallpapers are held from the 
+0. Get to folder where system wallpapers are held from the 
    Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
-
-Sort by File Size. 
-
-Some wallpaper images that come with OS X are of Retina resolution: 
-<strong>5120x2880</strong>. Really big.
+0. Sort by File Size. 
 
 
 
