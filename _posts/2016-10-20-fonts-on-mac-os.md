@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fonts on Mac OSX"
-excerpt: "From Mac OSX to mac OS X"
+excerpt: "You are what font you use"
 tags: [apple, mac, setup]
 image:
 # feature: pic brown wood apple logo 1900x500.jpg
@@ -18,7 +18,23 @@ comments: true
 I had to install several fonts and throught you'd want to benefit from my experience.
 
 
-## Cross-platform
+
+<a id="FontBook"></a>
+
+## Apple Font Book app
+
+0. In Finder, choose Go > Applications. Scroll to Font Book and double-click to open it.
+
+0. Click "User".
+
+0. In Finder, drag the new font folder and drop it under the list of user fonts.
+
+0. Delete the font folder and zip file.
+
+This program is described at https://support.apple.com/en-us/HT201749
+
+
+## Cross-platform Fonts
 
 Loading Open Sans on both Mac and Windows enable similar display.
 
@@ -27,7 +43,7 @@ Loading Open Sans on both Mac and Windows enable similar display.
 
 ## Bitmap vs vector
 
-There are two ways fonts are drawn - as bitmaps or as vectors. 
+There are two ways fonts are drawn - as bitmaps dots or as vectors by a program. 
 
 Vector fonts are better on my Apple monitors with 1080p HD and above
 because they allow more efficient scaling.
@@ -149,21 +165,19 @@ This is not only a casual, fun-looking font, but one that makes it easier to rea
    Dyslexie Regular LP172832.ttf
 
 
+## Anti-OCR fonts
 
-<a id="FontBook"></a>
+pdf ocrx extract text from PDF files.
 
-## Apple Font Book app
+http://videos.komando.com/watch/4124/kims-picks-new-nsa-proof-font
 
-0. In Finder, choose Go > Applications. Scroll to Font Book and double-click to open it.
-
-0. Click "User".
-
-0. In Finder, drag the new font folder and drop it under the list of user fonts.
-
-0. Delete the font folder and zip file.
-
-This program is described at https://support.apple.com/en-us/HT201749
-
+ZXX fonts by Sang Mun, former NSA contractor, has 6 styles
+* Sans 
+* Bold
+* Camo has camoflouge 
+* False puts the real letter inside larger false letters
+* Noise has dots
+* XCD puts a cross over letters. It’s the most successful.
 
 
 ## More on OSX
