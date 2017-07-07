@@ -18,114 +18,125 @@ comments: true
 This page describes the various ways to 
 <a href="#LocalInstall">install</a> 
 and use a simple Java application for learning and experimenting 
-with a Java Spring application server. It can also be used to 
+with a Java Spring application server program from 
+SpringSource, now a division of VMWare.
+
+The sample app can also be used to 
 explore JVM tools and related utilities.
 
-Unlike the PetStore app which has for data several categories of pets,
-the PetClinic app manages Pets and the Owners and Vet who take care of them.
 
-<img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
+## Sample app online?
 
-Michael Isvy on March 20, 2013 presented 
-<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
-diagrams and code samples</a> describing the 
-Spring MVC and Dandelion and WebJars used by the sample app.
+QUESTION: Is there one?
 
-   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
-   based on jQuery Datatables and Bootstrap
+http://spring-petclinic.cloudfoundry.com/
+is no longer active
 
-Julian Dubois in 2013 blogged about
-<a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
-performance</a>
-
-In the introduction of Spring PetClinic Spring Framework 2.5 at<br />
-http://docs.spring.io/docs/petclinic.html<br />
-the most recent update is 2007.
-
-
-https://github.com/spring-projects/spring-petclinic/
+https://github.com/jdubois/spring-petclinic
+is no longer active.
 
 
 ## Different versions
 
-The canonical version is<br /><a target="_blank" href="https://github.com/spring-projects/spring-petclinic">https://github.com/spring-projects/spring-petclinic</a><br />
+The canonical, most up-to-date version is at<br /><a target="_blank" href="https://github.com/spring-projects/spring-petclinic">https://github.com/spring-projects/spring-petclinic</a><br />
 Its main contributor is  <a target="_blank" href="http://javaetmoi.com/">
 paresian</a>  <a target="_blank" href="https://github.com/arey">
-Antoine Rey</a>
+Antoine Rey</a>.
 
 There are also forks at<br /><a target="_blank" href="https://github.com/spring-petclinic"> https://github.com/spring-petclinic</a>
 using Angular, https://github.com/spring-petclinic/spring-petclinic-microservices
 
-https://github.com/spring-petclinic/spring-petclinic-microservices/issues
 
-http://spring-petclinic.cloudfoundry.com/
-
-
-<a name="LandingPage"></a>
-
-### Landing page (Main Menu) #
-
-   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
+In the introduction of Spring PetClinic Spring Framework 2.5 at<br />
+<a target="_blank" href="http://docs.spring.io/docs/petclinic.html">
+http://docs.spring.io/docs/petclinic.html</a><br />
+the most recent update is 2007.
 
 
-
-## Use case loops #
-
-
-<a target="_blank" href="https://graphwalker.github.io/petclinic/">
-https://graphwalker.github.io/petclinic</a>
-uses the <a target="_blank" href="https://www.yworks.com/products/yed"><br />
-yEd graph editor</a>
-and <a target="_blank" href="http://graphstream-project.org/">
-GraphStream</a> to visualize tests as they run.
+PROTIP: The version of the app you use should be of a static instance
+(in a your own fork) so that you have a consistent version to work and debug.
 
 
+Julian Dubois in 2013 blogged about his
+<a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
+performance audit</a> of the app he forked in 2013 at
+https://github.com/jdubois/spring-petclinic
+
+   * https://github.com/jdubois/spring-petclinic/commit/69e55e406db37a386ff8348a5a84343801169f85
+   JMeter test file
 
 
-## Performance Tests
+<a name="Strategy"></a>
+
+## Performance Test Strategy
 
 Performance testing needs a set of <strong>loops</strong>
 to impose artificial load.
 
 1. <a href="#LandingPage">Landing page</a> run semi-continuously
-   to detect network variability during the day. 
-   This can be a measurement up to every 1-5 minutes.
+   to detect network variability between clients (load generators)
+   and servers.
 
-2. <strong>Browsing</strong> through menu items (without login or buying) 
-   to specifically stress the web server.
+   This can be a measurements every 1-5 minutes of a single user.
+
+2. <a href="#TopMenu">Top Menu Items</a>.
+   
+   Does navigation into top menu items cause a round-trip to the server?
+
+   Such issues can be identified during performance test script creation.
+
+3. <strong>Browsing</strong> through menu items (without login or buying) 
+   stresses the front-end web server.
 
    Rather than coding to click specific items,
-   this activity is often specified by a file with the test program iterates through.
+   this activity may be specified by a control file 
+   which the test program reads to determine how to iterate through items.
 
-3. <strong>Register</strong> to see how many the system can accommodate when the system is widely announced to the public.
-
-   QUESTION: j2ee is the default user? What's the password?
-
-   The <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Account.action?newAccountForm=">user registration link</a> is not on the landing page (Main Menu),
-   reached after a click of <strong>Sign In</strong>.
+4. <strong>Register</strong> users 
+   to identify the maximum rate the system can accommodate increases to
+   the user population.
 
    TODO: Variations in registration data from a file
    to load various users.
 
-4. <strong>Login</strong> to see what happens when everyone arrives at the same time (such as at a call center during start of shift).
+5. <strong>Login</strong> to identify the maximum rate of users
+   arriving at the same time (such as at a call center during start of shift).
+   
+   This can be driven from a database of users prepared by registrations.
 
-5. Log-off
+   This enables measurement of how much memory is taken for each new user.
 
-6. <strong>Search</strong> form usage, especially for form fields that return an autocomplete list for user ease-of-use.
+6. Log-off.
 
-7. <strong>Add to cart</strong> from an item listing,
-   which adds to the database for each unique user, specifically to stress the database.
+   QUESTION: Does memory get recovered from users who have logged off?
 
-8. View cart.
+7. <strong>Add to database</strong>.
+   To stress the database.
 
-9. <strong>Purchase</strong> to ensure that 
-   <strong>payment gateways</strong> can keep up with a lot of people buying at once.
+   This enables measurement of how much additional time is needed to list
+   each additional list item (until the maximum is shown on each page).
 
-   Except the JPetStore app does not connect with a payment gateway.
+8. <strong>Search</strong> form usage generate database calls.
 
-10. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a buying frenzy).
+   Examples are form fields that return an autocomplete list.
 
-11. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
+9. View lists of user-selected items.
+
+   In the PetStore app, this would be a list of items in the shopping cart.
+
+10. <strong>Process</strong> items.
+
+   In the PetStore app, this would be purchase of items in the cart
+   and use of <strong>payment gateways</strong>, which is usually an
+   external service.
+
+   QUESTION: Can the app keep up with a lot of people buying at once?
+
+   The JPetStore app does not connect with a payment gateway.
+
+11. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a visitor or buying frenzy).
+
+12. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
    lists order history for a user,
    by reading from the database.
    A link to it is at the bottom of the User Information page after a user is logged in and has completed an order.
@@ -146,6 +157,85 @@ to each of the above, created by "negative" tests:
 5. Search not found.
 
 etc.
+
+<hr />
+
+<a name="LandingPage"></a>
+
+## Landing page (Main Menu) #
+
+Unlike the PetStore app which has for data several categories of pets,
+the PetClinic app manages Pets and the Owners and Vet who take care of them.
+
+<img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
+
+Question for one user performance test runs reaching just the landing page
+every 1-5 minutes continuously: Are there spikes in response time?
+If so, it is probably due to network or some infrastructure conditions.
+
+[<a href="#Strategy">Back to Strategy</a>]
+
+<a name="TopMenu"></a>
+
+## Top Menu 
+
+The menu items at the top menu bar are:
+
+* Home
+* Owners (of pets)
+* Vetinerians
+* Errors
+
+The menu bar remains visible in all screens throughout the app.
+
+[<a href="#Strategy">Back to Strategy</a>]
+
+
+## New item registration
+
+
+
+## Find/Search
+
+QUESTION: Functionality to find/search usually involves database access.
+
+
+## Find functions
+
+QUESTION: Do functionality to find
+
+Michael Isvy on March 20, 2013 presented 
+<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
+diagrams and code samples</a> describing the 
+Spring MVC and Dandelion and WebJars 
+used by the sample app.
+
+   * WebJars by https://twitter.com/_JamesWard
+
+   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
+   based on jQuery Datatables and Bootstrap
+
+
+
+https://github.com/spring-projects/spring-petclinic/
+
+
+   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
+
+
+
+## Use case loops #
+
+
+<a target="_blank" href="https://graphwalker.github.io/petclinic/">
+https://graphwalker.github.io/petclinic</a>
+uses the <a target="_blank" href="https://www.yworks.com/products/yed"><br />
+yEd graph editor</a>
+and <a target="_blank" href="http://graphstream-project.org/">
+GraphStream</a> to visualize tests as they run.
+
+
+
 
 ### Options for performance testing apps
 
