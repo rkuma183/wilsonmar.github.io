@@ -24,53 +24,143 @@ SpringSource, now a division of VMWare.
 The sample app can also be used to 
 explore JVM tools and related utilities.
 
+<a name="UI"></a>
 
-## Sample app online?
+## App UI tour
 
-QUESTION: Is there one?
+   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
+
+### Sample apps online?
 
 http://spring-petclinic.cloudfoundry.com/
 is no longer active
 
-https://github.com/jdubois/spring-petclinic
-is no longer active.
+So screen shots are based on a Docker instance.
+
+0. Git clone https://github.com/jdubois/spring-petclinic
+0. git reset --hard && git checkout 
+
+<a name="LandingPage"></a>
+
+### Landing page (Main Menu) #
+
+Unlike the PetStore app which has several categories of pets,
+the PetClinic app manages Pets and the Owners and Vet who take care of them.
+
+<img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
+
+Question for one user performance test runs reaching just the landing page
+every 1-5 minutes continuously: Are there spikes in response time?
+If so, it is probably due to network or some infrastructure conditions.
+
+[<a href="#Strategy">Back to Strategy</a>]
+
+<a name="TopMenu"></a>
+
+### Top Menu 
+
+The menu items at the top menu bar are:
+
+* Home
+* FIND OWNERS (of pets)
+* Veterinarians
+* Errors
+* Help
+
+The menu bar remains visible in all screens throughout the app.
+
+### Functionality 
+
+Michael Isvy on March 20, 2013 presented 
+<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
+diagrams and code samples</a> 
+
+0. Click FIND OWNERS.
+0. Click Find to list all.
+0. Type Betty and click find for a list pre-populated.
+0. For owner Betty Davis are pets and visits.
+0. Click Edit Owner
+0. Click Add New Pet.
+0. Click Edit Pet
+0. Click Add Visit.
+0. Select Veterinarian. Six have been pre-populated.
+
+
+### Internals
+
+Spring-Petclinic is a "classic" MVC-style application, with
+<strong>no REST API nor JavaScript front-end libraries such as Bootstrap</strong>.
+
+Michael Isvy on March 20, 2013 presented 
+<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
+diagrams and code samples</a> describing the 
+Spring MVC and Dandelion and WebJars 
+used by the sample app.
+
+   * WebJars by https://twitter.com/_JamesWard
+
+   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
+   based on jQuery Datatables and Bootstrap
+
 
 
 ## Different versions
 
-The canonical, most up-to-date version is at<br /><a target="_blank" href="https://github.com/spring-projects/spring-petclinic">https://github.com/spring-projects/spring-petclinic</a><br />
+The canonical, most up-to-date version of the app is at<br />
+<a target="_blank" href="https://github.com/spring-projects/spring-petclinic">https://github.com/spring-projects/spring-petclinic</a><br />
+
 Its main contributor is  <a target="_blank" href="http://javaetmoi.com/">
 paresian</a>  <a target="_blank" href="https://github.com/arey">
-Antoine Rey</a>.
+Antoine Rey (arey)</a>.
 
 There are also forks at<br /><a target="_blank" href="https://github.com/spring-petclinic"> https://github.com/spring-petclinic</a>
 using Angular, https://github.com/spring-petclinic/spring-petclinic-microservices
-
 
 In the introduction of Spring PetClinic Spring Framework 2.5 at<br />
 <a target="_blank" href="http://docs.spring.io/docs/petclinic.html">
 http://docs.spring.io/docs/petclinic.html</a><br />
 the most recent update is 2007.
 
-
-PROTIP: The version of the app you use should be of a static instance
-(in a your own fork) so that you have a consistent version to work and debug.
-
-
 Julian Dubois in 2013 blogged about his
 <a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
 performance audit</a> of the app he forked in 2013 at
 https://github.com/jdubois/spring-petclinic
 
+   ### Forked static version
+
+   PROTIP: The version of the app you use should be of a static instance
+   (in a your own fork) so that you have a consistent version to work and debug.
+
    * https://github.com/jdubois/spring-petclinic/commit/69e55e406db37a386ff8348a5a84343801169f85
    JMeter test file
+
+   ### Start app
+
+   <pre><strong>mvn clean tomcat7;run
+   </strong></pre>
+
+   ### Open browser
+
+   http://127.0.0.1/petclinic
+
+
+## Tuning
+
+Back on 3 July 2014 Julien <a target="_blank" href="https://www.youtube.com/watch?v=oR_7EtCgc1M">recorded a presentation (at SpringOne2GX in
+Santa Clara, CA) on tuning the Spring Petclinic sample application</a>.
+
+* <a target="_blank" href="https://github.com/jdubois/spring-petclinic">
+https://github.com/jdubois/spring-petclinic</a>
+
+* <a target="_blank" href="http://blog.ippon.fr/tag/spring-petclinic">
+http://blog.ippon.fr/tag/spring-petclinic</a>
 
 
 <a name="Strategy"></a>
 
-## Performance Test Strategy
+## Performance Test Sequence
 
-Performance testing needs a set of <strong>loops</strong>
+Performance testing needs a set of "loops"
 to impose artificial load.
 
 1. <a href="#LandingPage">Landing page</a> run semi-continuously
@@ -92,47 +182,70 @@ to impose artificial load.
    this activity may be specified by a control file 
    which the test program reads to determine how to iterate through items.
 
-4. <strong>Register</strong> users 
-   to identify the maximum rate the system can accommodate increases to
-   the user population.
+   ### Logging
 
-   TODO: Variations in registration data from a file
+   This is the first opportunity to manage logging functionality and 
+   thus disk space growth, archival off the server, etc.
+
+   QUESTION: The default logging level is set to "Debug".
+   So that needs to be reduced.
+
+4. <strong>Register</strong> new items
+   to identify the maximum rate the system can accommodate increases to
+   the database.
+
+   Variations in registration data from a file
    to load various users.
+
+   ### Database
+
+   This is the first stressing of the database supporting the app.
+
+   Measuring the time taken for individual database activities is 
+   useful to differentiate time incurred by different databases.
 
 5. <strong>Login</strong> to identify the maximum rate of users
    arriving at the same time (such as at a call center during start of shift).
    
-   This can be driven from a database of users prepared by registrations.
-
-   This enables measurement of how much memory is taken for each new user.
+   A load test of this measures how much memory servers 
+   take for each new user. If the app establishes a connection to the 
+   database for each user, memory use will increase for each additional user.
 
 6. Log-off.
 
    QUESTION: Does memory get recovered from users who have logged off?
 
-7. <strong>Add to database</strong>.
-   To stress the database.
+7. <strong>Add to database</strong>
+   to stress the database.
 
    This enables measurement of how much additional time is needed to list
    each additional list item (until the maximum is shown on each page).
 
-8. <strong>Search</strong> form usage generate database calls.
+   QUESTION: How much additional time does adding, updating, and deleting
+   items lower in the database hierarchy take more time than 
+   root items?
 
-   Examples are form fields that return an autocomplete list.
-
-9. View lists of user-selected items.
+8. <strong>View lists</strong> of user-selected items.
 
    In the PetStore app, this would be a list of items in the shopping cart.
 
+   In the PetClinic app, this would be a list of 
+
+9. <strong>Search</strong>, which generates database calls.
+
+   Examples are form fields that return an autocomplete list.
+
 10. <strong>Process</strong> items.
 
-   In the PetStore app, this would be purchase of items in the cart
+   In an e-commerce app such as the PetStore app, 
+   this would be purchase of pets in the cart
    and use of <strong>payment gateways</strong>, which is usually an
    external service.
 
-   QUESTION: Can the app keep up with a lot of people buying at once?
+   The question answered by a load test of this is: 
+   Can the app and external services keep up with a lot of people buying at once? What does "a lot" mean is the measurement.
 
-   The JPetStore app does not connect with a payment gateway.
+   The JPetStore sample app does not connect with a payment gateway.
 
 11. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a visitor or buying frenzy).
 
@@ -160,37 +273,6 @@ etc.
 
 <hr />
 
-<a name="LandingPage"></a>
-
-## Landing page (Main Menu) #
-
-Unlike the PetStore app which has for data several categories of pets,
-the PetClinic app manages Pets and the Owners and Vet who take care of them.
-
-<img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
-
-Question for one user performance test runs reaching just the landing page
-every 1-5 minutes continuously: Are there spikes in response time?
-If so, it is probably due to network or some infrastructure conditions.
-
-[<a href="#Strategy">Back to Strategy</a>]
-
-<a name="TopMenu"></a>
-
-## Top Menu 
-
-The menu items at the top menu bar are:
-
-* Home
-* Owners (of pets)
-* Vetinerians
-* Errors
-
-The menu bar remains visible in all screens throughout the app.
-
-[<a href="#Strategy">Back to Strategy</a>]
-
-
 ## New item registration
 
 
@@ -203,24 +285,6 @@ QUESTION: Functionality to find/search usually involves database access.
 ## Find functions
 
 QUESTION: Do functionality to find
-
-Michael Isvy on March 20, 2013 presented 
-<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
-diagrams and code samples</a> describing the 
-Spring MVC and Dandelion and WebJars 
-used by the sample app.
-
-   * WebJars by https://twitter.com/_JamesWard
-
-   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
-   based on jQuery Datatables and Bootstrap
-
-
-
-https://github.com/spring-projects/spring-petclinic/
-
-
-   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
 
 
