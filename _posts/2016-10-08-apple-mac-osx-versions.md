@@ -118,7 +118,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    The x.x.x pattern is called <a target="_blank" rel="amphtml" href="http://ssemver.org/">
    Semantic Versioning</a>.
 
-   The "10" is associated called "Darwin", an open-source Unix operating system released by Apple Inc. in 2000. It is composed of code developed by Apple, as well as code derived from NeXTSTEP, BSD, Mach, and other free software projects. --<a target="_blank" href="https://www.wikiwand.com/en/Darwin_(operating_system)">Wikipedia</a>.
+   The "10" is associated with "Darwin", an open-source Unix operating system released by Apple Inc. in 2000. It is composed of code developed by Apple as well as code derived from NeXTSTEP, BSD, Mach, and other free software projects. --<a target="_blank" href="https://www.wikiwand.com/en/Darwin_(operating_system)">Wikipedia</a>.
 
 0. A partial response can be requestd by:
 
@@ -185,7 +185,7 @@ https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
 
    ### Boot USB stick
 
-0. Get an 32 GB (or larger) flash drive.
+0. Get a 16 or 32 GB flash drive.
 0. Insert the drive into your Mac.
 0. View the contents in Folder.
 0. If you have any other data on that flash drive, back it up, 
@@ -207,18 +207,28 @@ https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
    https://macdaddy.io/install-disk-creator</a>
 
 0. Click the Download icon on the website.
-0. In Finder, click the zip file to unzip it.
-0. Scroll to the "Install Disk Creator" application file (dated March 15, 2017).
+0. Unzip the file by clicking on it in the browser or in Finder.
+0. Scroll to the "Install Disk Creator" application file (dated March 15, 2017)
+and click to invoke it.
+0. Click Open if you see a pop-up about downloading from the internet.
 0. Open a new Finder Window and Go Applications.
 0. Drag and drop the app file into the Applications folder.
 0. Delete the zip file downloaded to free up space.
 0. Within the Applications folder, double-click to invoke "Install Disk Creator".
 
-0. Open Disc Creator and click the “Select the OS X Installer” button.
-0. Find the Sierra installer file. This is should be located in your Applications folder.
+   ### Create Installer Disk
+
+0. Select the volume. It's usually "Untitled".
+0. Click the "Choose a macOS installer" button.
+0. Find the Sierra installer file. This is should be located in your root Applications folder under Macintosh HD (not your user Applications folder).
 0. Select your flash drive from the drop-down menu.
-0. Click “Create Installer.”
-0. Wait for it to be done.
+0. Click “Create Installer”.
+0. Click "Erase disk".
+0. Provide your password.
+0. There is no indicator of progress. Wait for it to be done.
+0. Remove the installer media and label it.
+
+   ### Use installer disk
 
 0. Insert the USB drive into the Mac being installed.
 
