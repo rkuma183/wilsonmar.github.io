@@ -30,12 +30,47 @@ Identify your Mac</a> for
 <a target="_blank" href="https://www.ifixit.com/Teardown/Retina+Macbook+2015+Teardown/39841">
 tear-down instructions such as for MacBook Pro A1398 (Retina, 15-inch,Early 2015)</a>.
 
+MacOS Sierra supports these hardware models:
+
+<ul><li><a href="//www.macrumors.com/roundup/imac/">iMac</a> (Late 2009 or newer)</li>
+<li><a href="//www.macrumors.com/roundup/macbook-air/"><a href="//www.macrumors.com/roundup/retina-macbook-air/">MacBook</a> Air</a> (2010 or newer)</li>
+<li>MacBook (Late 2009 or newer)</li>
+<li><a href="//www.macrumors.com/roundup/mac-mini/">Mac mini</a> (2010 or newer)</li>
+<li><a href="//www.macrumors.com/roundup/macbook-pro/">MacBook Pro</a> (2010 or newer)</li>
+<li><a href="//www.macrumors.com/roundup/mac-pro/">Mac Pro</a> (2010 or newer)</li></ul>
 
 ## Case
 
 Dropping a Macbook can crack the screen.
 
-But a protective case adds to the weight.
+But a protective case adds to weight.
+
+## Screws
+
+Apple uses tiny screws for their products.
+Screws for older Mac Book Pro's have a + pattern requiring a 1.5mm screwdriver.
+Screws for newer Mac Book Pro's have a 5-point design which require a
+screwdriver called the "pentalobe" Torx T6.
+iPhones have requiring a T6 Torx 0.6 screwdriver.
+The Phillips PH#00 is a little too big.
+
+Screws on the black hindge edge are longer. 
+
+Older Mac Book Pros have 2.5" hard drives.
+<a target="_blank" href="https://www.laptopmag.com/articles/how-to-replace-your-macbook-pros-hard-drive-with-an-ssd">
+Video:</a><br />
+The Seagate Thunderbolt Adapter ($99) provides the fastest connection.<br />
+The Seagate USB 3.0/2.0 Upgrade Cable costs just $19.99. 
+
+Drives in newer Mac Book Pros have SSD chip cards instead of drives.
+
+https://support.apple.com/en-us/HT201372
+Create a bootable installer for macOS
+
+After powering up the computer, 
+a folder with a question mark means that a boot folder is not found on the hard disk.
+
+Boot up with the installer Disc.
 
 
 <a id="Coolingz"></a>
@@ -44,8 +79,20 @@ But a protective case adds to the weight.
 
 The Macbook Pro has always had a history of running hot. 
 
-if you're only using power when plugging into the Mac's USB hub connector,
-use an external USB power plug straight into the wall outlet.
+If you're only using power when plugging into the Mac's USB hub connector,
+use an external USB power that plugs straight into the wall outlet.
+
+Use of an external monitor may also cause the fan to engage.
+
+
+<a id="Battery"></a>
+
+## Battery
+
+https://macdaddy.io/mac-battery-guru/
+displays the current battery drain.
+
+![macbook-hardware-battery-307x366](https://user-images.githubusercontent.com/300046/27984588-d9e61542-6396-11e7-84bf-0e383537dc54.png)
 
 
 <a id="WristRest"></a>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac OSX Versions (and Wallpapers)"
+title: "Mac OSX Versions (plus Installers and Wallpapers)"
 excerpt: "From Mac OSX to MacOS"
 shorturl: "https://goo.gl/Ua6Pyv"
 tags: [apple, mac, setup]
@@ -96,20 +96,10 @@ comments: true
 Based on <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
-## Installer downloads
-
-Manually download the complete installer for Sierra from:<br />
-<a target="_blank" href="https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12">
-https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
-
-Download combined updates which include all components from prior point releases, even if they are not installed on the target Mac, from:<br />
-<a target="_blank" href="https://support.apple.com/downloads/combo">
-https://support.apple.com/downloads/combo</a><br />
-
 
 <a id="MacVer"></a>
 
-## Commands #
+## Version Terminal Commands #
 
 0. In a Terminal window on any folder, type:
 
@@ -164,6 +154,85 @@ https://support.apple.com/downloads/combo</a><br />
 
    <pre><strong>arch
    </strong></pre>
+
+
+## Create a bootable installer for macOS
+
+To manually download the complete installer:
+
+1. Go to the installer page at:<br />
+<a target="_blank" href="https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12">
+https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
+
+0. Click "Download in iTunes" to open up iTunes app.
+0. Click "Get". 
+0. Close iTunes after download is finished into your user Applications folder.
+0. In Finder, press shift+command+A or click the Go menu to select Applications.
+
+   NOTE: The file "Install macOS Sierra.app" for 10.12.5 is 4.97 GB.
+
+   Notice there are spaces within the file name of the download<br />
+   "Install macOS Sierra.app". This means back slash (\\) escape characters
+   are needed in typed commands referencing the file:
+
+   <pre>sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/
+   </pre>
+
+   PROTIP: Use the GUI utility described below instead of the
+   `createinstallmedia` command
+   described in Apple's https://support.apple.com/en-us/HT201372
+
+
+   ### Boot USB stick
+
+0. Get an 32 GB (or larger) flash drive.
+0. Insert the drive into your Mac.
+0. View the contents in Folder.
+0. If you have any other data on that flash drive, back it up, 
+   because the installer will delete everything on it.
+
+   Optionally, a secondary internal partition can be used
+   if it has at least 12 GB of available disk space for installation files.
+
+0. Open the Terminal app (in the Utilities folder of your Applications folder).
+
+   PROTIP: Drag Terminal.app to drop it at the bottom edge of the screen
+   so it's available anytime.
+
+   ### Install Disk Create GUI
+
+0. Download InstallDiskCreate.zip from:
+
+   <a target="_blank" href="https://macdaddy.io/install-disk-creator/">
+   https://macdaddy.io/install-disk-creator</a>
+
+0. Click the Download icon on the website.
+0. In Finder, click the zip file to unzip it.
+0. Scroll to the "Install Disk Creator" application file (dated March 15, 2017).
+0. Open a new Finder Window and Go Applications.
+0. Drag and drop the app file into the Applications folder.
+0. Delete the zip file downloaded to free up space.
+0. Within the Applications folder, double-click to invoke "Install Disk Creator".
+
+0. Open Disc Creator and click the “Select the OS X Installer” button.
+0. Find the Sierra installer file. This is should be located in your Applications folder.
+0. Select your flash drive from the drop-down menu.
+0. Click “Create Installer.”
+0. Wait for it to be done.
+
+0. Insert the USB drive into the Mac being installed.
+
+   CAUTION: Again, this wipes out the hard disk on the Mac.
+
+0. Launch the installer by holding down the Option key when you boot up your computer.
+0. Wait a while for its completion.
+
+
+## Update downloads
+
+Download combined updates which include all components from prior point releases, even if they are not installed on the target Mac, from:<br />
+<a target="_blank" href="https://support.apple.com/downloads/combo">
+https://support.apple.com/downloads/combo</a><br />
 
 
 
