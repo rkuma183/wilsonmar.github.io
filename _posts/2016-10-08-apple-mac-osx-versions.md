@@ -206,6 +206,8 @@ https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
    <a target="_blank" href="https://macdaddy.io/install-disk-creator/">
    https://macdaddy.io/install-disk-creator</a>
 
+   It is from the talented @BenedictSlaney in New Zealand.
+
 0. Click the Download icon on the website.
 0. Unzip the file by clicking on it in the browser or in Finder.
 0. Scroll to the "Install Disk Creator" application file (dated March 15, 2017)
