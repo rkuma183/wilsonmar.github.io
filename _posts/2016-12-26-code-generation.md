@@ -121,15 +121,16 @@ Swagger-codegen generates client code from Swagger specification files.
 
 ## 5. Gen UI based on Entity Models
 
-<img width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png">
-<img align="right" width="150" alt="jhipster-matt-raible-linkedin" src="https://user-images.githubusercontent.com/300046/27992845-8bfa081a-645a-11e7-981e-8f5134993de4.jpg">
-
 <a target="_blank" href="https://jhipster.github.io/">
-JHipster</a> 
+<img align="left" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
+<a target="_blank" href="https://twitter.com/java_hipster">
+<img align="right" width="150" alt="jhipster-matt-raible-linkedin" src="https://user-images.githubusercontent.com/300046/27992845-8bfa081a-645a-11e7-981e-8f5134993de4.jpg"></a>
+<a target="_blank" href="https://jhipster.github.io/">
+JHipster.github.io</a> 
 (<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>) by <a href="#MattRaible">Matt Raible</a>
-uses your entity data models defined in
-JDL Studio (<a target="_blank" href="https://jhipster.github.io/jdl-studio/">
-   https://jhipster.github.io/jdl-studio</a>)
+uses your entity data models defined in its
+<a target="_blank" href="https://jhipster.github.io/jdl-studio/">
+JDL Studio</a>
 to create entire application stacks.
 
    Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
@@ -138,9 +139,8 @@ to create entire application stacks.
    this</a> about
    <a target="_blank" href="https://github.com/mraible/jhipster4-demo/">
    github.com/mraible/jhipster4-demo</a>
-
-   The sample entity diagram models a Job History database with reference
-   codes for Language and Departments with a Location consisting of Country, Region.
+   The sample entity diagram models a database containing Job History 
+   with reference to Language and Departments with a Location consisting of Country, Region.
 
    ![code-generation-jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
 
@@ -156,11 +156,44 @@ to create entire application stacks.
 
    TODO: Make one!
 
-   The app makes use of Bootstrap for "responsive" CSS.
+   ### Welcome Screen
+
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_1.png"><img width="400" alt="jhipster_1-welcome-800x486.png" src="https://user-images.githubusercontent.com/300046/27997881-68b197d8-64be-11e7-874b-08511e29bdc1.png"><br />(click image for full-screen image)</a>
+
+   All this was generated.
+
+   ### Monitoring
+
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_2.png"><img width="400" alt="jhipster_2-monitoring-800x498.png" src="https://user-images.githubusercontent.com/300046/27997908-013d956a-64bf-11e7-8d0c-9e9453d3ae2c.png"><br />(click image for full-screen image)</a>
+
+   Installation of JVM monitoring agents is automatically done,
+   as is the UI.
+
+
+   ### Logging
+
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_4.png"><img width="400" alt="jhipster_4-logmgmt-800x406.png" src="https://user-images.githubusercontent.com/300046/27997957-1574de5c-64c0-11e7-9d8e-97de29109292.png"><br />(click image for full-screen image)</a>
+
+   Many back-end services are automatically generated, 
+   such as log management.
+   The JHipster Console with ELK (Elasticsearch + Logstash + Kibana) monitoring out of the box.
+
+
+   ### Admin Forms
+
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_3.png"><img width="400" alt="jhipster_3-form-260x342.png" src="https://user-images.githubusercontent.com/300046/27997981-de2903dc-64c0-11e7-8616-cb09edf94eb2.png"><br />(click image for full-screen image)</a>
+
+   The generator provides several choices for app UI:
+   * Bootstrap for "responsive" CSS.
+   * HTML5 Boilerplate to avoid inconsistencies among browsers.
 
    QUESTION: PWA? Mobile hybrid?
 
-   The JHipster Console with ELK (Elasticsearch + Logstash + Kibana) monitoring out of the box.
+
+   ### Entity Forms
+
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_5.png"><img width="400" alt="jhipster_5-books-800x471.png" src="https://user-images.githubusercontent.com/300046/27998014-6376d0d2-64c1-11e7-8df6-d62221266afe.png"><br />(click image for full-screen image)</a>
+
 
    ### Advantages of this
 
@@ -178,8 +211,7 @@ to create entire application stacks.
 
    ### Third-party Add-on modules
 
-   <a target="_blank" href="https://jhipster.github.io/modules/marketplace/#/list"><br />
-   A marketplace of <strong>third-party modules</strong></a>
+   <a target="_blank" href="https://jhipster.github.io/modules/marketplace/#/list"> A marketplace of third-party modules</a>
    (that act like standard JHipster sub-generators)
    can access JHipster variables and functions through hook mechanisms
    before and after <a target="_blank" href="http://yeoman.io/generators/">
@@ -263,7 +295,13 @@ to create entire application stacks.
 0. Goggle Chrome and Firefox browsers
 0. Install OpenJDK.
 0. Install Node.js to run a development web server and build the project. 
-0. Install Yarn (NPM) to manage Node dependencies.
+0. Install Yarn (instead of NPM) to manage Node dependencies such that
+live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to Webpack and Browsersync).
+
+   <pre>yarn start</pre>
+
+   Edit any file and the browser refreshes automatically.
+
 0. Install Bower to manage CSS and JavaScript dependencies used in this application.
 0. Install Gulp task runner.
 0. Install Ubuntu Make
@@ -276,9 +314,21 @@ to create entire application stacks.
 0. Cloud Foundry command line (cf)
 0. Heroku toolbelt command line
 
-0. Yeoman front-end app generators
+0. Yeoman front-end app generator:
+
+   <pre>yarn global add yo
+   yarn global add generator-jhipster
+   </pre>
 
    ### Maven pull
+
+   Use the embedded Maven wrapper to run:
+
+   <pre><strong>jhipster
+   ./mvnw
+   </strong></pre>
+
+   The above installs based on the <strong>pom.xml</strong>:
 
 0. Sass
 0. WebSockets
@@ -325,6 +375,9 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 
    The generator asks a series of questions (15 or so).
 
+   ???
+
+
    <a name="SubGenerators"></a>
 
    ### Sub-generators
@@ -340,10 +393,12 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 
    ### Deploy to Heroku
 
+   Alternately:
+
    <pre><strong>yo jhipster:heroku
    </strong></pre>
 
-0. View the app, for example:
+0. View the app in Heroku. For example:
 
    <pre><strong>https://jhipster-4-demo.herokuapp.com/
    </strong></pre>
@@ -352,7 +407,8 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 
 0. Run the ci-cd sub-generator to generate configuration files for a number of Continuous Integration systems. 
 
-   jhipster ci-cd
+   <pre><strong>jhipster ci-cd
+   </strong></pre>
 
    Consult the Setting up Continuous Integration page for more information.
 
@@ -389,7 +445,19 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
    The Kubernetes generator generates deployment descriptors to deploy into Kubernetes in order to scale horizontally with ease, and adapt to failure scenarios.
 
 
+   ### Run in production
+
+   <pre>
+./mvnw -Pprod package
+docker-compose -f src/main/docker/mysql.yml up -d
+java -jar target/*.war
+   </pre>
+
 ## Modifications
+
+   ### Add an Entity
+
+   jhipster entity Foo
 
    ### Infinite scroll third-party module
 
