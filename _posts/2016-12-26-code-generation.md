@@ -119,25 +119,27 @@ Swagger-codegen generates client code from Swagger specification files.
 
 ## 5. Gen UI based on Entity Models
 
-<a target="_blank" href="https://jhipster.github.io/">
-<img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
 The first commit to 
-<a target="_blank" href="https://jhipster.github.io/">
-JHipster.github.io</a> 
-(<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>by <a href="#JulienDubois">Julien Dubois</a>
+<a target="_blank" href="https://github.com/jhipster/">
+https://github.com/jhipster</a> 
+(<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>)
+ by <a href="#JulienDubois">Julien Dubois</a>
 was on October 21, 2013.
 
-JHipster to create entire application stacks
+<a target="_blank" href="https://jhipster.github.io/">
+JHipster.github.io</a> 
+JHipster should really be called a <strong>project generator</strong>
+   and not just a code generator because it generates ALL the code.
+JHipster creates code for the entire application and DevOps stacks
 based on entity data models defined in its
 <a target="_blank" href="https://jhipster.github.io/jdl-studio/">
 JDL Studio</a>
 <a target="_blank" href="https://youtu.be/kkHN2G_nXV0?t=1460">
 See video</a>.
 
-> What is generated will not be exactly what you want, but it gets you going making use of all the many components of the front-end, back-end, and DevOps tool stacks.
+> What is generated will not be exactly what you want, but it gets you going, making use of all the many components of the front-end, back-end, and DevOps tool stacks.
 
-
-0. View the sample app online URL
+Some sample apps have been mentioned:
 
    <a target="_blank" href="https://jhipster.github.io/showcase/">
    https://jhipster.github.io/showcase</a><br />
@@ -148,30 +150,36 @@ See video</a>.
     created based on source at:<br />
    https://github.com/dancancro/great-big-example-application
 
+0. View the sample app online URL:
+
    <a target="_blank" href="https://www.21-points.com/">
-   21-points.com</a> resides at 
+   https://21-points.com</a> 
+
+   It resides at 
    http://health-by-points.herokuapp.com
    built as described in 
-   <a href="#MattRaible">Matt Raible</a>'s
+   <a href="#MattRaible">Matt Raible</a>'s book.
+
+0. View the book pdf:
+
    <a target="_blank" href="https://www.infoq.com/minibooks/jhipster-2-mini-book">JHipster v2 mini-book</a>
    @jhipster_book
    (published by InfoQ)
-   for web developers who want a rapid introduction to the combination of
-   AngularJS, Bootstrap, and Spring Boot by learning JHipster.
+   describes for web developers the combination of
+   AngularJS, Bootstrap, and Spring Boot as used by JHipster.
    It's based on Node.js v4.5.0 and JDK 8.
 
-   The book describes, step-by-step, the code wrote 1,157 lines of code, 
+   <img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
+   Notice the <a target="_blank" href="https://jhipster.github.io/">
+   person in the logo</a> has Spring Boot and Angular tatoos on his neck.
+
+   Anyway, the book describes, step-by-step, the 1,157 lines of custom code, 
    with JHipster generating 94.5% of all code.
 
 
-   TODO: Make one!
-
-   JHipster should really be called a <strong>project generator</strong>
-   and not just a code generator because it generates ALL the code.
-
    ### Welcome Screen
 
-   <a target="_blank" href="https://jhipster.github.io/images/screenshot_1.png"><img width="400" alt="jhipster_1-welcome-800x486.png" src="https://user-images.githubusercontent.com/300046/27997881-68b197d8-64be-11e7-874b-08511e29bdc1.png"><br />(click image for full-screen image)</a>
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_1.png"><img width="400" alt="jhipster_1-welcome-800x486.png" src="https://user-images.githubusercontent.com/300046/27997881-68b197d8-64be-11e7-874b-08511e29bdc1.png"><br /><small>(click image for full-screen image)</small></a>
 
    All this was generated.
 
@@ -247,10 +255,15 @@ See video</a>.
 
    BTW, "AngularJs" refers to the Angular1.x framework.
 
+   #Angular
+
+   * Angular 2
+   * Angular 3 is skipped
    * Angular 4 on 2017-03 (backward compatible with Angular 2)
    * Angular 5 on 2017-09
    * Angular 6 on 2018-03
    * Angular 7 on 2018-09
+   <br /><br />
 
    All Google applications use Angular version equal to the current GitHub’s master branch of the Angular repository. 
 
@@ -280,6 +293,9 @@ See video</a>.
 
    ### Still to do
 
+   0. Mobile + desktop PWA (Progressive Web Apps) that loads initial data
+   for off-line usage
+
    0. Google Maps of geolocation data
 
    0. Visualizations of app data (using D3.js or http://krispo.github.io/angular-nvd3)
@@ -287,16 +303,6 @@ See video</a>.
    0. Automatic tuning of configuration parameters.
 
    0. Comparison of "total cost per app transaction" varying various components.
-
-   ### Examine sample app code
-
-0. The on-line app is built from a repository in GitHub:
-
-   <a target="_blank" href="https://github.com/jhipster/jhipster-sample-app-ng2">
-   https://github.com/jhipster/jhipster-sample-app-ng2</a>
-
-   <a target="_blank" href="https://github.com/jhipster/jhipster-sample-app">
-   https://github.com/jhipster/jhipster-sample-app</a>
 
 
    ### Microservice architecture
@@ -332,7 +338,7 @@ See video</a>.
    instance on port 5601 by default. 
    Logs managed make use of default port 5000.
 
-   ### Microservices
+   More on Microservices:
 
    https://martinfowler.com/microservices/
 
@@ -378,7 +384,18 @@ live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to We
 
 0. Yeoman front-end app generator:
 
-   <pre>yarn global add yo
+   <pre>yarn global add generate-jhipster
+   </pre>
+
+   The response when I did it:
+
+   <pre>
+yarn global v0.27.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+error jhipster-core@1.3.4: The engine "node" is incompatible with this module. Expected version ">=6.9.0".
+error Found incompatible module
+info Visit https://yarnpkg.com/en/docs/cli/global for documentation about this command.
    </pre>
 
    https://www.openhub.net/p/generator-jhipster
@@ -500,6 +517,19 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 0. Zipkin to trace HTTP requests throughout your services
 0. Elastalert to get alerted when an issue occurs
 
+   ### Examine sample app code
+
+https://github.com/jhipster/generator-jhipster
+
+0. The on-line app is built from a repository in GitHub:
+
+   <a target="_blank" href="https://github.com/jhipster/jhipster-sample-app-ng2">
+   https://github.com/jhipster/jhipster-sample-app-ng2</a>
+
+   <a target="_blank" href="https://github.com/jhipster/jhipster-sample-app">
+   https://github.com/jhipster/jhipster-sample-app</a>
+
+
    ### Test
 
 0. Install Karma
@@ -614,6 +644,8 @@ index.html
 
 
 ## Developers
+
+<a target="_blank" href="https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/jhipster-dev">on Google Forum</a>:
 
    <a name="JulienDubois"></a>
 Julien Dubois
