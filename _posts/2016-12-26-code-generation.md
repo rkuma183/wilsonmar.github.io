@@ -164,6 +164,8 @@ Some sample apps have been mentioned:
 
 0. View the book pdf:
 
+   <img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png">
+
    <a target="_blank" href="https://www.infoq.com/minibooks/jhipster-2-mini-book">JHipster v2 mini-book</a>
    @jhipster_book
    (published by InfoQ)
@@ -171,13 +173,18 @@ Some sample apps have been mentioned:
    AngularJS, Bootstrap, and Spring Boot as used by JHipster.
    It's based on Node.js v4.5.0 and JDK 8.
 
-   <img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
    Notice the <a target="_blank" href="https://jhipster.github.io/">
-   person in the logo</a> has Spring Boot and Angular tatoos on his neck.
+   person in the logo</a> has Spring Boot and Angular logos tatooed on his neck.
 
    Anyway, the book describes, step-by-step, the 1,157 lines of custom code, 
    with JHipster generating 94.5% of all code.
 
+0. View the product webpage (in 5 screenshots):
+
+   <a target="_blank" href="https://jhipster.github.io/screenshots/">
+   https://jhipster.github.io/screenshots/</a> 
+
+   My commentary while looking at each screen:
 
    ### Welcome Screen
 
