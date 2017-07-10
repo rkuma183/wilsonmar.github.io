@@ -36,8 +36,6 @@ and magical than the next:
 4. <a href="#JSONGen">Gen from a JSON file</a>
 5. <a href="#DataModel">Gen entire stack from an Entity Model</a>
 
-Note that as
-
 <hr />
 
 <a name="Templates"></a>
@@ -122,33 +120,38 @@ Swagger-codegen generates client code from Swagger specification files.
 ## 5. Gen UI based on Entity Models
 
 <a target="_blank" href="https://jhipster.github.io/">
-<img align="left" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
-<a target="_blank" href="https://twitter.com/java_hipster">
-<img align="right" width="150" alt="jhipster-matt-raible-linkedin" src="https://user-images.githubusercontent.com/300046/27992845-8bfa081a-645a-11e7-981e-8f5134993de4.jpg"></a>
+<img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
 The first commit to 
 <a target="_blank" href="https://jhipster.github.io/">
 JHipster.github.io</a> 
 (<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>by <a href="#JulienDubois">Julien Dubois</a>
 was on October 21, 2013.
 
-JHipster uses your entity data models defined in its
+JHipster to create entire application stacks
+based on entity data models defined in its
 <a target="_blank" href="https://jhipster.github.io/jdl-studio/">
 JDL Studio</a>
-to create entire application stacks.
 <a target="_blank" href="https://youtu.be/kkHN2G_nXV0?t=1460">
 See video</a>.
 
-   Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
-   Matt's YouTube videos</a> is 
-   <a target="_blank" href="https://www.youtube.com/watch?v=XRREt1KB4Y8">
-   this</a> about
-   <a target="_blank" href="https://github.com/mraible/jhipster4-demo/">
-   github.com/mraible/jhipster4-demo</a>
-   The sample entity diagram models a database containing Job History 
-   with reference to Language and Departments with a Location consisting of Country, Region.
+> What is generated will not be exactly what you want, but it gets you going making use of all the many components of the front-end, back-end, and DevOps tool stacks.
 
-   ![jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
 
+0. View the sample app online URL
+
+   <a target="_blank" href="https://jhipster.github.io/showcase/">
+   https://jhipster.github.io/showcase</a><br />
+   lists apps created by this technology.
+
+   QUESTION: No longer available on-line is<br />
+   https://jhipster-4-demo.herokuapp.com/<br />
+    created based on source at:<br />
+   https://github.com/dancancro/great-big-example-application
+
+   <a target="_blank" href="https://www.21-points.com/">
+   21-points.com</a> resides at 
+   http://health-by-points.herokuapp.com
+   built as described in 
    <a href="#MattRaible">Matt Raible</a>'s
    <a target="_blank" href="https://www.infoq.com/minibooks/jhipster-2-mini-book">JHipster v2 mini-book</a>
    @jhipster_book
@@ -157,22 +160,9 @@ See video</a>.
    AngularJS, Bootstrap, and Spring Boot by learning JHipster.
    It's based on Node.js v4.5.0 and JDK 8.
 
-   He reports that he wrote 1,157 lines of code. JHipster did the rest for me, generating 94.5% of the code.
+   The book describes, step-by-step, the code wrote 1,157 lines of code, 
+   with JHipster generating 94.5% of all code.
 
-   http://health-by-points.herokuapp.com/
-   domain 21-points.com
-
-0. View the sample app online URL
-
-   <a target="_blank" href="https://jhipster.github.io/showcase/">
-   https://jhipster.github.io/showcase</a><br />
-   lists apps created by this technology.
-
-   https://jhipster-4-demo.herokuapp.com/<br />
-   was created based on source at:<br />
-   https://github.com/dancancro/great-big-example-application
-
-   QUESTION: Is one available publicly?  On Heroku?
 
    TODO: Make one!
 
@@ -218,15 +208,39 @@ See video</a>.
 
    QUESTION: In addition to the "Freelancer" UI theme, are there other skins?
 
+   ### Build Entities
+
+   Coding to handle entities are generated from JDL code.
+
+   JDL is the JHipster Domain Language processed within the JDL Studio.
+
+   <pre><strong>https://github.com/jhipster/jdl-samples
+   </strong></pre>
+
+   A "One to Many" relationship would be generated as a list screen
+   by JHipster, which creates all the JPA entities, DTOs, Spring Rest Controllers all the way through to the client side with Angular.
+
+   Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
+   Matt's YouTube videos</a> is 
+   <a target="_blank" href="https://www.youtube.com/watch?v=XRREt1KB4Y8">
+   this</a> about
+   <a target="_blank" href="https://github.com/mraible/jhipster4-demo/">
+   github.com/mraible/jhipster4-demo</a>
+   The sample entity diagram models a database containing Job History 
+   with reference to Language and Departments with a Location consisting of Country, Region.
+
+   ![jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
+
+
    ### Advantages of this
 
    PROTIP: The fantastic thing about the app generated is that the
    technologies underneath are <strong>changeable</strong>.
 
-   But you can choose between any of the popular databases:
+   You can choose between any of the popular databases:
    MySQL, MongoDB, Cassanda, MSSQL, etc
 
-   Today, it's SPA (Single Page Application) Angular JS1 UIs 
+   Today, it's SPA (Single Page Application) Angular UIs 
    with WebSockets communication to back-end Java Spring microservices.
 
    http://angularjs.blogspot.com/2016/12/ok-let-me-explain-its-going-to-be.html
@@ -273,18 +287,6 @@ See video</a>.
    0. Automatic tuning of configuration parameters.
 
    0. Comparison of "total cost per app transaction" varying various components.
-
-
-   ### Build Entities
-
-   JDL is the JHipster Domain Language processed within the JDL Studio.
-
-   <pre><strong>https://github.com/jhipster/jdl-samples
-   </strong></pre>
-
-   A "One to Many" relationship would be generated as a list screen
-   by JHipster, which creates all the JPA entities, DTOs, Spring Rest Controllers all the way through to the client side with Angular.
-
 
    ### Examine sample app code
 
@@ -482,23 +484,6 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
    "languages" sub-generator adds languages for i18n (Spanish)
 
 
-   ### Deploy to Heroku
-
-   JHipster ships with support for deploying to 
-   Cloud Foundry, Heroku, Kubernetes, AWS, and Boxfuse.
-
-0. To Heroku:
-
-   <pre><strong>yo jhipster:heroku
-   </strong></pre>
-
-0. View the app in Heroku. For example:
-
-   <pre><strong>https://jhipster-4-demo.herokuapp.com/
-   </strong></pre>
-
-
-
    ### Configuration files
 
 0. Run the ci-cd sub-generator to generate configuration files for a number of Continuous Integration systems. 
@@ -548,7 +533,7 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
    The Kubernetes generator generates deployment descriptors to deploy into Kubernetes in order to scale horizontally with ease, and adapt to failure scenarios.
 
 
-   ### Run in production
+   ### Run in production mode locally
 
    <pre>
 ./mvnw -Pprod package
@@ -556,7 +541,35 @@ docker-compose -f src/main/docker/mysql.yml up -d
 java -jar target/*.war
    </pre>
 
+
+
+   ### Deploy to Heroku
+
+   JHipster ships with support for deploying to 
+   Cloud Foundry, Heroku, Kubernetes, AWS, and Boxfuse.
+
+0. To Heroku:
+
+   <pre><strong>yo jhipster:heroku
+   </strong></pre>
+
+0. View the app in Heroku. For example:
+
+   <pre><strong>https://jhipster-4-demo.herokuapp.com/
+   </strong></pre>
+
+   Build and Deploy to AWS
+
+   Build and Deploy to CloudFoundry
+
+
+<hr />
+
 ## Modifications
+
+   ### Customize landing page
+
+   Substitute JHipster logo with your own logo.
 
    ### Material Design
 
@@ -604,19 +617,28 @@ index.html
 
    <a name="JulienDubois"></a>
 Julien Dubois
+(@juliendubois)
 
    * https://www.youtube.com/watch?v=d1MEM8PdAzQ
    20 minute tutorial.
    * https://www.youtube.com/watch?v=dzdjP3CPOCs
    Be Productive with JHipster by Julien Dubois and Deepu K Sasidharan
    Nov 8, 2016 at Devoxx US 
+   * https://www.youtube.com/watch?v=dOO-8cAKDu8
+   What's new in JHipster in 2016 by Julien Dubois @ Spring I/O 2016 
 
+   <a name="Deepu"></a>
 Deepu K Sasidharan at XebiaLabs
-   https://twitter.com/deepu105
-   @deepu105
+   <a target="_blank" href="https://twitter.com/deepu105">@deepu105</a>
+   https://nl.linkedin.com/in/deepu05
+   https://github.com/deepu105
+   * https://deepu.js.org/jh-slides-v3/#/intro
 
    * https://www.youtube.com/watch?v=YmEKClTBkUI
    Building Spring boot + Angular4 apps in minutes
+   * https://www.youtube.com/watch?v=nKRpVkba4Ck
+   2016-Mar at Tata
+   * SOAP WSDL
 
    <a name="MattRaible">Matt Raible</a>
 Matt Raible
@@ -655,3 +677,8 @@ JHipster learning with Yappy Toy
 https://www.youtube.com/watch?v=DcWx_BOugIM
 Jhipster 4 + Angular 2 | Java web application. MySql.
 by Vengeance Coding
+
+
+https://www.youtube.com/watch?v=5CWu4NoMsSk
+JHipster, the best way to breed a new webapp 
+by Jfokus
