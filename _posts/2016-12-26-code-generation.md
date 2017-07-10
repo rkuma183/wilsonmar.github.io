@@ -155,6 +155,8 @@ Some sample apps have been mentioned:
    <a target="_blank" href="https://www.21-points.com/">
    https://21-points.com</a> 
 
+   <a target="_blank" href="https://user-images.githubusercontent.com/300046/28042820-41d20188-658c-11e7-80de-8676a12f279e.png"><img width="954" alt="jhipster-21-points-1908x1050" src="https://user-images.githubusercontent.com/300046/28042820-41d20188-658c-11e7-80de-8676a12f279e.png"></a>
+
    It resides at 
    http://health-by-points.herokuapp.com
    built as described in 
@@ -267,8 +269,13 @@ Some sample apps have been mentioned:
 
    All Google applications use Angular version equal to the current GitHub’s master branch of the Angular repository. 
 
-   ReactJS is slated to be in the <a target="_blank" 
-   href="https://jhipster.github.io/tech-stack/">technology stack</a>.
+   ReactJS is being worked on at
+   <a target="_blank" href="https://github.com/hipster-labs">
+   https://github.com/hipster-labs</a>
+   until it is added to the <a target="_blank" 
+   href="https://jhipster.github.io/tech-stack/">
+   JHipster technology stack</a>.
+
 
    ### Third-party Add-on modules
 
