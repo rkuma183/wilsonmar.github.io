@@ -125,13 +125,18 @@ Swagger-codegen generates client code from Swagger specification files.
 <img align="left" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png"></a>
 <a target="_blank" href="https://twitter.com/java_hipster">
 <img align="right" width="150" alt="jhipster-matt-raible-linkedin" src="https://user-images.githubusercontent.com/300046/27992845-8bfa081a-645a-11e7-981e-8f5134993de4.jpg"></a>
+The first commit to 
 <a target="_blank" href="https://jhipster.github.io/">
 JHipster.github.io</a> 
-(<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>) by <a href="#MattRaible">Matt Raible</a>
-uses your entity data models defined in its
+(<a target="_blank" href="https://twitter.com/java_hipster">@java_hipster</a>by <a href="#JulienDubois">Julien Dubois</a>
+was on October 21, 2013.
+
+JHipster uses your entity data models defined in its
 <a target="_blank" href="https://jhipster.github.io/jdl-studio/">
 JDL Studio</a>
 to create entire application stacks.
+<a target="_blank" href="https://youtu.be/kkHN2G_nXV0?t=1460">
+See video</a>.
 
    Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
    Matt's YouTube videos</a> is 
@@ -142,19 +147,37 @@ to create entire application stacks.
    The sample entity diagram models a database containing Job History 
    with reference to Language and Departments with a Location consisting of Country, Region.
 
-   ![code-generation-jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
+   ![jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
 
-   Matt's <a target="_blank" href="https://www.infoq.com/minibooks/jhipster-2-mini-book">JHipster v2 mini-book</a>
-   published by InfoQ.
-   
+   <a href="#MattRaible">Matt Raible</a>'s
+   <a target="_blank" href="https://www.infoq.com/minibooks/jhipster-2-mini-book">JHipster v2 mini-book</a>
+   @jhipster_book
+   (published by InfoQ)
+   for web developers who want a rapid introduction to the combination of
+   AngularJS, Bootstrap, and Spring Boot by learning JHipster.
+   It's based on Node.js v4.5.0 and JDK 8.
 
-0. View the sample app online
+   He reports that he wrote 1,157 lines of code. JHipster did the rest for me, generating 94.5% of the code.
 
-   https://jhipster-4-demo.herokuapp.com/
+   http://health-by-points.herokuapp.com/
+   domain 21-points.com
+
+0. View the sample app online URL
+
+   <a target="_blank" href="https://jhipster.github.io/showcase/">
+   https://jhipster.github.io/showcase</a><br />
+   lists apps created by this technology.
+
+   https://jhipster-4-demo.herokuapp.com/<br />
+   was created based on source at:<br />
+   https://github.com/dancancro/great-big-example-application
 
    QUESTION: Is one available publicly?  On Heroku?
 
    TODO: Make one!
+
+   JHipster should really be called a <strong>project generator</strong>
+   and not just a code generator because it generates ALL the code.
 
    ### Welcome Screen
 
@@ -176,7 +199,6 @@ to create entire application stacks.
 
    Many back-end services are automatically generated, 
    such as log management.
-   The JHipster Console with ELK (Elasticsearch + Logstash + Kibana) monitoring out of the box.
 
 
    ### Admin Forms
@@ -194,17 +216,29 @@ to create entire application stacks.
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_5.png"><img width="400" alt="jhipster_5-books-800x471.png" src="https://user-images.githubusercontent.com/300046/27998014-6376d0d2-64c1-11e7-8df6-d62221266afe.png"><br />(click image for full-screen image)</a>
 
+   QUESTION: In addition to the "Freelancer" UI theme, are there other skins?
 
    ### Advantages of this
 
    PROTIP: The fantastic thing about the app generated is that the
    technologies underneath are <strong>changeable</strong>.
 
+   But you can choose between any of the popular databases:
+   MySQL, MongoDB, Cassanda, MSSQL, etc
+
    Today, it's SPA (Single Page Application) Angular JS1 UIs 
    with WebSockets communication to back-end Java Spring microservices.
 
-   But you can choose between any of the popular databases:
-   MySQL, MongoDB, Cassanda, MSSQL, etc
+   http://angularjs.blogspot.com/2016/12/ok-let-me-explain-its-going-to-be.html
+
+   BTW, "AngularJs" refers to the Angular1.x framework.
+
+   * Angular 4 on 2017-03 (backward compatible with Angular 2)
+   * Angular 5 on 2017-09
+   * Angular 6 on 2018-03
+   * Angular 7 on 2018-09
+
+   All Google applications use Angular version equal to the current GitHub’s master branch of the Angular repository. 
 
    ReactJS is slated to be in the <a target="_blank" 
    href="https://jhipster.github.io/tech-stack/">technology stack</a>.
@@ -230,16 +264,15 @@ to create entire application stacks.
    This visionary approach to development
    involving code generation rather than manually gluing various pieces together -- and testing integration.
 
-   JHipster should really be called a <strong>project generator</strong>
-   and not just a code generator because it generates ALL the code.
-
    ### Still to do
 
    0. Google Maps of geolocation data
 
-   0. Visualizations of app data
+   0. Visualizations of app data (using D3.js or http://krispo.github.io/angular-nvd3)
 
-   0. Automatic tuning of
+   0. Automatic tuning of configuration parameters.
+
+   0. Comparison of "total cost per app transaction" varying various components.
 
 
    ### Build Entities
@@ -252,12 +285,6 @@ to create entire application stacks.
    A "One to Many" relationship would be generated as a list screen
    by JHipster, which creates all the JPA entities, DTOs, Spring Rest Controllers all the way through to the client side with Angular.
 
-   JHipster generates a full fledge microservice architecture 
-   that makes use of Netflix’s OSS (Open Source Software). From jhipster.github.io/microservices-architecture
-
-   ![jhipster-microservices_arch_2-1280x768](https://user-images.githubusercontent.com/300046/27989850-a1a1b65e-6400-11e7-9dec-371c9bb5d151.png)
-
-   (Netflix Eureka + Spring cloud config server) 
 
    ### Examine sample app code
 
@@ -270,11 +297,46 @@ to create entire application stacks.
    https://github.com/jhipster/jhipster-sample-app</a>
 
 
+   ### Microservice architecture
+
+   JHipster generates a full fledge microservice architecture 
+   that makes use of Netflix’s OSS (Open Source Software). From jhipster.github.io/microservices-architecture
+
+   <a target="_blank" href="https://user-images.githubusercontent.com/300046/27989850-a1a1b65e-6400-11e7-9dec-371c9bb5d151.png">
+   <img alt="jhipster-microservices_arch_2-1280x768.png" src="https://user-images.githubusercontent.com/300046/27989850-a1a1b65e-6400-11e7-9dec-371c9bb5d151.png"><br /><small>(Click on diagram for it in a full-sized window)</small></a>
+
+   Visitors to the website use a modern browser such as Chrome or Firefox.
+
+   In a Gateway server a Zuul Proxy 
+   distributes traffic to AngularJS app servers.
+
+   For Access Control apps reference a 
+   JHipster UAA (???) server containing user role information.
+
+   Apps reference 
+   Ribbon
+   which handles WebSocket calls to servers handling various microservices.
+
+   Consul 
+   JHipster Registry
+   contains a Eureka server that ...
+   and a Spring cloud Config server.
+   These servers are provided by Netflix.
+   They access Git repos.
+
+   The JHipster Console consists of a Elasticsearch database fed by
+   logs ingested by Logstash and displayed by Kibana.
+   Administration of this ELK stack is accessed by a separate browser 
+   instance on port 5601 by default. 
+   Logs managed make use of default port 5000.
+
    ### Microservices
 
    https://martinfowler.com/microservices/
 
    https://martinfowler.com/articles/microservices.html
+
+
 
    ### Build dev environment
 
@@ -302,8 +364,6 @@ live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to We
 
    Edit any file and the browser refreshes automatically.
 
-0. Install Bower to manage CSS and JavaScript dependencies used in this application.
-0. Install Gulp task runner.
 0. Install Ubuntu Make
 0. Use Make to install IntelliJ IDEA or Eclipse
 0. pgAdmin 3
@@ -317,8 +377,23 @@ live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to We
 0. Yeoman front-end app generator:
 
    <pre>yarn global add yo
-   yarn global add generator-jhipster
    </pre>
+
+   https://www.openhub.net/p/generator-jhipster
+   ???
+
+   The "Yeoman workflow" is made up of three types of tools to enhance your productivity and satisfaction when building a webapp:
+
+   • the scaffolding tool (yo),
+   • the build tool (Grunt, Gulp, etc.), and
+   • the package manager (Bower, npm, etc.)
+
+   <pre>yarn global add generator-jhipster
+   </pre>
+
+0. Install Gulp task runner (build tool).
+
+0. Install Bower to manage CSS and JavaScript dependencies used in this application.
 
    ### Maven pull
 
@@ -330,7 +405,7 @@ live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to We
 
    The above installs based on the <strong>pom.xml</strong>:
 
-0. Sass
+0. Sass = "syntactically awesome style sheets"
 0. WebSockets
 0. Browsersync
 0. Spring Data JPA generates JPA repositories automatically
@@ -365,17 +440,33 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
    https://www.youtube.com/watch?v=LERTahPqVjo
    Eclipse
 
+0. Edit the .editorconfig file to specify indent_size, etc.
+
    ### Run Generator
 
    PROTIP: One of the great advantages of using a code generator is
    having different options to do a similar thing.
+   
+0. Create or Navigate to your app's folder.
+
+   Unlike other Java app generators, Yeoman expects to be in the directory 
+   where it creates your project rather than creating it for you.
+
+0. Initiate generation:
 
    <pre><strong>yo jhipster
    </strong></pre>
 
+   BTW, this same command is used to upgrade as well.
+
    The generator asks a series of questions (15 or so).
 
-   ???
+   QUESTION: Is there sample automation to answer questions?
+
+   ? (1/16) Which *type* of application would you like to create?
+
+   * Monolithic
+   * Services ???
 
 
    <a name="SubGenerators"></a>
@@ -393,7 +484,10 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 
    ### Deploy to Heroku
 
-   Alternately:
+   JHipster ships with support for deploying to 
+   Cloud Foundry, Heroku, Kubernetes, AWS, and Boxfuse.
+
+0. To Heroku:
 
    <pre><strong>yo jhipster:heroku
    </strong></pre>
@@ -402,6 +496,8 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 
    <pre><strong>https://jhipster-4-demo.herokuapp.com/
    </strong></pre>
+
+
 
    ### Configuration files
 
@@ -424,6 +520,13 @@ Replaces JSPs and JSTLs, which are outdated and deprecated
 0. Install Karma
 
    http://karma-runner.github.io/
+
+   write unit tests for Angular controllers and directives using
+
+   http://jasmine.github.io/2.5/introduction.html
+
+   write integration tests with Protractor:
+   http://www.protractortest.org/#/
 
 0. To launch your application's tests, run:
 
@@ -455,6 +558,31 @@ java -jar target/*.war
 
 ## Modifications
 
+   ### Material Design
+
+   <pre>npm install -g generator-jhipster-bootstrap-material-design
+   yo jhipster-bootstrap-material-design
+   </pre>
+
+   <pre>
+? Do you want to install Bootstrap Material design? Yes
+Composing JHipster configuration with module bootstrap-material-design
+Reading the JHipster project configuration for your module
+ conflict bower.json
+? Overwrite bower.json? overwrite
+  force bower.json
+  create src/main/webapp/app/blocks/config/bootstrap-material.config.js
+ conflict src/main/webapp/scss/main.scss
+? Overwrite src/main/webapp/scss/main.scss? overwrite
+  force src/main/webapp/scss/main.scss
+ conflict src/main/webapp/content/css/main.css
+? Overwrite src/main/webapp/content/css/main.css? overwrite
+  force src/main/webapp/content/css/main.css
+   </pre>
+
+   PROTIP: The vendor.css is before all material-design stylesheets in your
+index.html
+
    ### Add an Entity
 
    jhipster entity Foo
@@ -474,24 +602,44 @@ java -jar target/*.war
 
 ## Developers
 
+   <a name="JulienDubois"></a>
+Julien Dubois
+
+   * https://www.youtube.com/watch?v=d1MEM8PdAzQ
+   20 minute tutorial.
+   * https://www.youtube.com/watch?v=dzdjP3CPOCs
+   Be Productive with JHipster by Julien Dubois and Deepu K Sasidharan
+   Nov 8, 2016 at Devoxx US 
+
+Deepu K Sasidharan at XebiaLabs
+   https://twitter.com/deepu105
+   @deepu105
+
+   * https://www.youtube.com/watch?v=YmEKClTBkUI
+   Building Spring boot + Angular4 apps in minutes
+
    <a name="MattRaible">Matt Raible</a>
-   Matt Raible
+Matt Raible
    @mraible
    https://raibledesigns.com/
    https://www.linkedin.com/in/mraible
 
-   http://sudheerjonna.com/my-books/
+   * http://sudheerjonna.com/my-books/
    PrimeFaces themes and PrimeNG.
 
-   Ray Tsang
+   * https://www.youtube.com/watch?v=kkHN2G_nXV0
+   Get Hip with JHipster: Spring Boot + AngularJS + Bootstrap (Matt Raible)
+   Devoxx FR
+
+   * https://www.youtube.com/watch?v=ZGF4gEM4FuA
+   JHipster 2.7 Blog Demo [20:30]
+
+
+Ray Tsang
    https://twitter.com/saturnism
 
-   Yakov Fain - https://yakovfain.com/
+Yakov Fain - https://yakovfain.com/
    https://twitter.com/yfain
-
-   Deepu K Sasidharan 
-   https://twitter.com/deepu105
-   @deepu105
 
 
    ### Talk about it
@@ -499,3 +647,11 @@ java -jar target/*.war
    https://stackoverflow.com/questions/tagged/jhipster
 
    http://scholarcoder.com/1072/making-full-stack-java-development-easier-jhipster
+
+https://www.youtube.com/watch?v=zHtd8qav8kk
+Jhipster - Introduction, build simple application (Part 1)
+JHipster learning with Yappy Toy
+
+https://www.youtube.com/watch?v=DcWx_BOugIM
+Jhipster 4 + Angular 2 | Java web application. MySql.
+by Vengeance Coding
