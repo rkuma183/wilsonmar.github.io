@@ -188,7 +188,7 @@ Some sample apps created using JHipster have been mentioned:
    and 78 for mobile. The site got dinged for images not optimized,
    caching, render-blocking JavaScript, etc.
 
-0. If you see an alert about invalid seurity certificate,
+0. If you see an alert about invalid security certificate,
    Add Exception.
 
    The site is physically hosted at 
@@ -565,10 +565,9 @@ If the box appears to be booting properly, you may want to increase
 the timeout ("config.vm.boot_timeout") value.
     </pre>
 
-0. Install Node
+0. Install Node Node.js to run a development web server and build the project. 
 
-   * Install Node.js to run a development web server and build the project. 
-   * Install Yarn (instead of NPM) to manage Node dependencies such that
+0. Install Yarn (instead of NPM) to manage Node dependencies such that
 live reload of client-side code (HTML, CSS, TypeScript) works (thanks to Webpack and Browsersync).
    <br /><br />
 
@@ -588,11 +587,15 @@ success Installed "yo@2.0.0" with binaries:
 Done in 7.63s.
    </pre>
 
-   To use the tools globally, be sure you have in your path:
+0. To use the tools globally, be sure you have in your path:
 
    <pre>$HOME/.config/yarn/global/node_modules/.bin</pre>
 
-On Mac or Linux: export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"
+0. On Mac or Linux: export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"
+
+   ### Install JHipster using Yarn
+
+0. Install JHipster
 
    <pre>yarn global add generator-jhipster</pre>
 
@@ -975,6 +978,9 @@ Matt Raible -
    (<a target="_blank" href="https://twitter.com/mraible/">@mraible</a>)
    https://raibledesigns.com/
    https://www.linkedin.com/in/mraible
+
+   * <a target="_blank" href="https://developer.okta.com/blog/2017/06/20/develop-microservices-with-jhipster">His blog in June 2017</a>
+   shows how to build a microservices architecture with JHipster 4.5.4. Generate a gateway (powered by Netflix Zuul and the JHipster Gateway), a microservice (that talks to MongoDB), and use Docker Compose to make sure it all runs locally. Then deploy it to Minikube and Google Cloud using Kubernetes.
 
    * http://sudheerjonna.com/my-books/
    PrimeFaces themes and PrimeNG.
