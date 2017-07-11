@@ -445,13 +445,16 @@ Vagrantfile and to try again.
    * Cassandra DB command line (command cqlsh)
    * Cloud Foundry command line (command cf)
    * Heroku toolbelt command line
+   <br /><br />
 
 0. Navigate to or create a folder to hold:
-0. Init Vagrant from a repo:
+0. Get the repo:
 
    <pre><strong>git clone https://github.com/jhipster/jhipster-devbox --depth=1
    vagrant up
    </strong></pre>
+
+   The response:
 
    <pre>
 Cloning into 'jhipster-devbox'...
@@ -460,6 +463,11 @@ remote: Compressing objects: 100% (15/15), done.
 remote: Total 17 (delta 0), reused 13 (delta 0), pack-reused 0
 Unpacking objects: 100% (17/17), done.
    </pre>
+
+0. Init Vagrant from a repo:
+
+   <pre><strong>vagrant up
+   </strong></pre>
 
    The response:
 
