@@ -16,59 +16,9 @@ comments: true
 {% include _toc.html %}
 
 The objective of this tutorial is to spare you the pain and confusion
-around installing and uninstalling the various editions and versions of NodeJs. After going through this, 
+around installing and uninstalling the various editions and versions of NodeJs.
 
-{% include _intro.html %}
-
-
-<a name="ChooseAWay"></a>
-
-## Choose a way #
-
-Click on one of the mutually exclusive variations of installing Node for
-additional information and instructions:
-
-* A: <a href="https://github.com/tj/n">N</a>
-
-   http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
-
-* B: <a href="#NVMInstall">Install NVM</a>, then <a href="#NVMuse">install node using NVM</a>. 
-
-   Installing Node automatically installs NPM.
-
-   * http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html
-
-   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
-
-* C: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
-
-* D: <a href="#LTS">Download LTS (Long Term Support) v4.x from NodeJs website</a> 
-   and run the installer manually.
-
-* E: <a href="#Download">Download latest version v6.x from NodeJs website</a>
-   and run the installer manually.
-
-* F: <a href="#NjSolid">Download latest version of N|Solid</a>.
-   <br /><br />
-
-   CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
-   I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
-
-
-
-
-
-<a name="Editions"></a>
-
-## Different editions #
-
-Installing Node has become complex due to the drama behind
-<a href="#Editions">different editions</a> and 
-<a href="#Versions">versions</a> of Node with
-different mechanisms for managing updates,
-each with <a target="_blank" href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">
-permissions issues</a>.
-Many instructions on the internet are outdated, contradictory, or plain wrong.
+## Node History
 
 Node.js was started as an open-source project in 2009 by
 Ryan Dahl.
@@ -89,6 +39,194 @@ And they’re apparently attempting to hijack the Node brand and community for t
 Strongloop supports Express and LoopBack frameworks.
 <a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
 On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
+
+
+<a name="Editions"></a>
+
+## Different editions #
+
+Installing Node has become complex due to the drama behind
+<a href="#Editions">different editions</a> and 
+<a href="#Versions">versions</a> of Node with
+different mechanisms for managing updates,
+each with <a target="_blank" href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">
+permissions issues</a>.
+
+For these reasons, many instructions on the internet are outdated, contradictory, or plain wrong.
+
+
+<a name="NodeVersionsInstalled"></a>
+
+## Node Versions Installed
+
+Some need these instructions when debugging an established setup.
+
+Return here after installation.
+
+   Traditionally,
+   NVM (Node Version Manager) installs multiple versions of Node.
+
+0. List what versions of Node are installed:
+
+   <pre><strong>nvm ls
+   </strong></pre>
+ 
+   Sample response:
+
+   <pre>
+         v4.5.0  
+         v6.4.0  
+         v6.8.1  
+default -> node (-> v6.8.1)
+node -> stable (-> v6.8.1) (default)
+stable -> 6.8 (-> v6.8.1) (default)
+iojs -> N/A (default)
+lts/* -> lts/argon (-> N/A)
+lts/argon -> v4.6.0 (-> N/A)   
+   </pre>
+
+   But many don't need multiple versions of Node at once.
+
+   PROTIP: Using NVM conflicts with Homebrew.
+   Since many prefer to use Homebrew for everything else,
+   it's annoying to remember this when.
+
+   nvm install node --reinstall-packages-from=node
+
+0. List what modules are installed in the traditional location for Node:
+
+   <pre><strong>ls /usr/local/lib/node_modules
+   </strong></pre>
+
+   ### Examples of Node modules
+
+   * bower
+   * firebase-tools 
+   * generator-karma
+   * grunt
+   * grunt-cli
+   * http-server 
+   * gatsby
+   * iothub-explorer
+   * mocha
+   * yo
+   * traceur
+   * serverless
+   * npm
+
+   QUESTION: When Node is installed using Homebrew,
+   same location?
+
+
+   ### NPM Packages
+
+   The installer of Node also installs NPM (Node Package Manager)
+   which manages installation of Node packages.
+
+0. List what versions of NPM are available for install from the internet:
+
+   <pre><strong>nvm ls-remote
+   </strong></pre>
+
+   At time of this writing, there were 376 versions.
+
+0. List what modules are available for install from the internet:
+
+   <pre><strong>nvm 
+   </strong></pre>
+
+   At time of this writing, there were 376 versions.
+
+0. List files in the traditional location when NPM installs Node packages:
+
+   <pre><strong>ls ~/.npm
+   </strong></pre>
+
+   Also:
+    
+   <pre><strong>ls /usr/local/lib/node_modules/npm/node_modules
+   </strong></pre>
+
+   On Windows:<br />
+   <pre>
+   C:\Users\username\AppData\Roaming\npm\
+   </pre>
+
+   Examples:
+
+   * semver
+   * xml
+   * y18n
+
+   ### Yarn
+
+   An alternative to NPM is <strong>yarn</strong>.
+
+   To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
+
+   <pre><strong>brew install yarn --ignore-dependencies
+   </strong></pre>
+
+   The response:
+
+   <pre>
+==> Using the sandbox
+==> Downloading https://yarnpkg.com/downloads/0.27.5/yarn-v0.27.5.tar.gz
+==> Downloading from https://github-production-release-asset-2e65be.s3.amazonaws
+######################################################################## 100.0%
+🍺  /usr/local/Cellar/yarn/0.27.5: 13 files, 3.6MB, built in 10 seconds
+   </pre>
+
+   PROTIP: Using Brew means that you don't need to setup path yourself.
+
+0. Test that Yarn is installed by running:
+
+   <pre><strong>yarn --version
+   </strong></pre>
+
+   At time of writing, the version was:
+
+   0.27.5   
+
+<a name="ChooseAWay"></a>
+
+## Choose among alternatives #
+
+
+Click on one of the <strong>mutually exclusive</strong>
+variations of installing Node for
+additional information and instructions:
+
+* A: "N" from <a href="https://github.com/tj/n">github.com/tj/n</a>
+
+   "Node.js version management: no subshells, no profile setup, no convoluted API, just simple."
+
+   http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+
+* B: <a href="#NVMInstall">Install NVM</a>, 
+   then <a href="#NVMuse">install Node using NVM</a>. 
+
+   Installing Node automatically installs NPM.
+
+   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
+
+* C: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+* D: <a href="#LTS">Download LTS (Long Term Support) v4.x 
+   from NodeJs website</a> 
+   and run the installer manually.
+
+* E: <a href="#Download">Download latest version v6.x 
+   from NodeJs website</a>
+   and run the installer manually.
+
+* F: <a href="#NjSolid">Download latest version of N|Solid</a>.
+   <br /><br />
+
+   CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
+   I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
+
+
 
 
 <hr />
@@ -152,23 +290,20 @@ NVM (Node Version Manager) downloads and installs multiple versions of Node.js,
 then enables using a specific version of Node,
 using a command such as this (after installation and cd to your node app folder):
 
-   <tt><strong>
-   nvm run 4.5.0 app.js 
-   </strong></tt>
+   <pre><strong>nvm run 4.5.0 app.js 
+   </strong></pre>
 
    The above is for the LTS (Long Term Support) version.
 
    If instead you want to run the <strong>latest</strong> versions of Node:
 
-   <tt><strong>
-   nvm run 6.4.0 app.js 
-   </strong></tt>
+   <pre><strong>nvm run 6.4.0 app.js 
+   </strong></pre>
 
    PROTIP: Remember that there is no "v" to specify a version, unlike the install command:
 
-   <tt><strong>
-   nvm install v4.5.0
-   </strong></tt>
+   <pre><strong>nvm install v4.5.0
+   </strong></pre>
 
    To do the above, you first have to install NVM and Node, described in the steps below.
 
@@ -377,9 +512,8 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
 0. For a list of commands, type nvm by itself:
 
-   <tt><strong>
-   nvm
-   </strong></tt>
+   <pre><strong>nvm
+   </strong></pre>
 
    PROTIP: Widen the screen to avoid text wrapping.
 
@@ -388,9 +522,8 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
 0. To download, compile, and install the latest v5.0.x release of node:
 
-   <tt><strong>
-   nvm install 
-   </strong></tt>
+   <pre><strong>nvm install 
+   </strong></pre>
 
    The response:
 
@@ -408,9 +541,8 @@ Run `npm config delete prefix` or `nvm use --delete-prefix v5.0.0` to unset it.
 
 0. To list what versions of Node.js are installed:
 
-   <tt><strong>
-   nvm ls
-   </strong></tt>
+   <pre><strong>nvm ls
+   </strong></pre>
 
    The response is like this:
 
@@ -431,9 +563,8 @@ lts/argon -> v4.5.0 (-> N/A)
 
 0. To list what versions of Node.js are available to install:
 
-   <tt><strong>
-   nvm ls-remote
-   </strong></tt>
+   <pre><strong>nvm ls-remote
+   </strong></pre>
 
    Scroll to "(Latest LTS: Argon)", such as:
 
@@ -452,18 +583,16 @@ lts/argon -> v4.5.0 (-> N/A)
 
    ### Clear NPM Cache
 
-   <tt><strong>
-   sudo npm cache clean -f
-   </strong></tt>
+   <pre><strong>sudo npm cache clean -f
+   </strong></pre>
    
 
    ### Install latest version #
 
 0. <strong>Install the latest version of Node.js:<strong>
 
-   <tt><strong>
-   nvm install node
-   </strong></tt>
+   <pre><strong>nvm install node
+   </strong></pre>
 
    The response:
 
@@ -506,9 +635,8 @@ tar: Failed to set default locale
 
 0. To uninstall a version:
 
-   <tt><strong>
-   nvm uninstall v6.4.0
-   </strong></tt>
+   <pre><strong>nvm uninstall v6.4.0
+   </strong></pre>
 
    The response:
 
@@ -522,9 +650,8 @@ tar: Failed to set default locale
 0. Install the most recent LTS version of Node according to 
    <a href="#nvmls-remote">nvm ls-remote</a>:
 
-   <tt><strong>
-   nvm install v4.5.0
-   </strong></tt>
+   <pre><strong>nvm install v4.5.0
+   </strong></pre>
 
 
 
@@ -537,8 +664,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Operating system information:
 
-   <pre><strong>
-   uname -a
+   <pre><strong>uname -a
    </strong></pre>
 
    On my machine, the response:
@@ -550,8 +676,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Obtain node version:
 
-   <pre><strong>
-   node -v
+   <pre><strong>node -v
    </strong></pre>
 
    At time of writing, the response for the most recent version:
@@ -560,11 +685,9 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    v6.4.0
    </pre>
 
-
 0. Obtain npm version:
 
-   <pre><strong>
-   npm -v
+   <pre><strong>npm -v
    </strong></pre>
 
    At time of writing, the response (for the Node version obtained above):
@@ -575,8 +698,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Verify:
 
-   <pre><strong>
-   echo $NODE_PATH
+   <pre><strong>echo $NODE_PATH
    </strong></pre>
 
    The response if installed by NVM or by downloaded installer:
@@ -596,9 +718,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Where is Node installed?
 
-   <tt><strong>
-   which node
-   </strong></tt>
+   <pre><strong>which node
+   </strong></pre>
 
    The answer:
 
@@ -608,8 +729,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Where is Node installed?
 
-   <tt><strong>
-   which npm
+   <tt><strong>which npm
    </strong></tt>
 
    The answer:
@@ -620,8 +740,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. From any folder, for just a simple list of package names:
 
-   <pre><strong>
-   ls \`npm root -g\`
+   <pre><strong>ls \`npm root -g\`
    </strong></pre>
 
    PROTIP: npm itself is a Node package.
@@ -691,9 +810,8 @@ Instead of using an internet browser to download an installer from<br />
 
 0. Initialize the Node command-line:
 
-   <tt><strong>
-   node
-   </strong></tt>
+   <pre><strong>node
+   </strong></pre>
 
    The response:
 
@@ -704,9 +822,8 @@ Node is running
 
 0. From inside REPL, get a list of commands (with a leading dot):
 
-   <tt><strong>
-   .help
-   </strong></tt>
+   <pre><strong>.help
+   </strong></pre>
 
    PROTIP: Node interactive commands begin with a dot.
 
@@ -723,9 +840,8 @@ Node is running
 
 0. To get out:
 
-   <tt><strong>
-   .exit
-   </strong></tt>
+   <pre><strong>.exit
+   </strong></pre>
 
 <hr />
 
@@ -740,11 +856,18 @@ Node is running
 
    WARNING: Homebrew installs Node to a different location than other ways.
 
+0. Be aware of your present current directory:
 
-0. The simplest way to install node is to use Homebrew:
+   <pre><strong>pwd
+   </strong></pre>
 
-   <pre><strong>
-   brew install node -g
+   CAUTION: Without specifying the `-g` in the next command, 
+   installation is whatever is the current folder.
+
+0. The simplest way to install node is <strong>globally</strong>
+   to use Homebrew:
+
+   <pre><strong>brew install node -g
    </strong></pre>
 
    The response:
@@ -778,8 +901,7 @@ Bash completion has been installed to:
 
 0. Identify which folder npm is obtained:
 
-   <pre><strong>
-   which npm
+   <pre><strong>which npm
    </strong></pre>
 
    The response for default installations:
@@ -796,8 +918,7 @@ Bash completion has been installed to:
 
 0. List npm global modules installed on the default global module folder:
 
-   <pre><strong>
-   ls /usr/local/lib/node_modules
+   <pre><strong>ls /usr/local/lib/node_modules
    </strong></pre>
 
    The response is simply "npm".
@@ -814,30 +935,28 @@ Bash completion has been installed to:
 
 0. If node was previously installed, uninstall it:
 
-      <pre><strong>
-      brew uninstall node
+      <pre><strong>brew uninstall node
       </strong></pre>
 
 0. If node was previously installed,
-   these folders have been known to block re-install,
-   so remove them:
+   these folders have been <a target="_blank" href="http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html">known</a> to block re-install,
+   so remove them by using the code below:
 
    <pre>
    sudo rm '/usr/local/lib/dtrace/node.d'
-   sudo rm `/usr/local/bin/npn'
-   sudo rm `/usr/local/bin/node'
-   sudo rm `/usr/local/share/doc/node/gdbinit'
-   sudo rm `/usr/local/share/man/man1/node.1`
-   sudo rm `/usr/local/share/systemtap/tapset/node.stp`
-   sudo rm `/usr/local/share/systemtap/tapset`
+   sudo rm '/usr/local/bin/npn'
+   sudo rm '/usr/local/bin/node'
+   sudo rm '/usr/local/share/doc/node/gdbinit'
+   sudo rm '/usr/local/share/man/man1/node.1'
+   sudo rm '/usr/local/share/systemtap/tapset/node.stp'
+   sudo rm '/usr/local/share/systemtap/tapset'
    </pre>
 
    ### Create .npm-packages folder #
 
 0. Create the ~/.npm-packages folder:
 
-   <pre><strong>
-   mkdir "${HOME}/.npm-packages"
+   <pre><strong>mkdir "${HOME}/.npm-packages"
    </strong></pre>
 
 0. To avoid permission issues:
@@ -854,22 +973,19 @@ Bash completion has been installed to:
 0. Indicate to npm where to store globally installed packages
    by adding a line at the bottom of the ~/.npmrc file:
 
-   <pre><strong>
-   echo prefix=~/.npm-packages >> ~/.npmrc
+   <pre><strong>echo prefix=~/.npm-packages >> ~/.npmrc
    </strong></pre>
 
    WARNING: NVM does not support this.
 
 0. Install node without default npm:
 
-    <pre><strong>
-    brew install node --without-npm -g
+    <pre><strong>brew install node --without-npm -g
     </strong></pre>
 
    Alternately, install npm for global use:
 
-   <pre><strong>
-   curl -L https://www.npmjs.com/install.sh | sh
+   <pre><strong>curl -L https://www.npmjs.com/install.sh | sh
    </strong></pre>
 
    The response:
@@ -880,8 +996,7 @@ Bash completion has been installed to:
 
 0. After install, verify the location:
 
-   <pre><strong>
-   which node
+   <pre><strong>which node
    </strong></pre>
 
    The response:
@@ -908,8 +1023,7 @@ Bash completion has been installed to:
 
 0. After install, verify the location:
 
-   <pre><strong>
-   which npm
+   <pre><strong>which npm
    </strong></pre>
 
    The response, where "mac" is substituted with your user name:
@@ -933,8 +1047,7 @@ Bash completion has been installed to:
 
 0. To identify where node executables are installed:
 
-   <pre><strong>
-   which node
+   <pre><strong>which node
    </strong></pre>
 
    the response:
@@ -951,9 +1064,8 @@ Bash completion has been installed to:
 
 0. Make sure that this path containing the node executable is in the PATH:
 
-   <pre>
-   echo $PATH
-   </pre>
+   <pre><strong>echo $PATH
+   </strong></pre>
 
    If not add it to the system PATH:
 
@@ -964,15 +1076,14 @@ Bash completion has been installed to:
 0. Save changes to the .bash_profile file.
 0. Run the file into memory:
 
-   <pre><strong>
-   source ~/.bash_profile
+   <pre><strong>source ~/.bash_profile
    </strong></pre>
 
 The above is recommended by
 <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
 Advice on fixing npm On Mac OS X for Homebrew Users</a>
 
-BTW, an alternative to NVM is "n" from https://github.com/tj/n.
+BTW, an alternative to NVM is "N" from https://github.com/tj/n.
 However, I never got it to work for me.
 
 
@@ -1000,8 +1111,7 @@ However, I never got it to work for me.
 
 0. The current global location:
 
-   <tt><strong>
-   npm config get prefix
+   <tt><strong>npm config get prefix
    </strong></tt>
 
    The answer (where "mac" is substituted with your user name):
@@ -1017,8 +1127,7 @@ However, I never got it to work for me.
 0.    
    The command to install a package without additional parameters is, for example:
 
-   <pre><strong>
-   pwd
+   <pre><strong>pwd
    npm install serverless
    </strong></pre>
 
@@ -1055,8 +1164,7 @@ However, I never got it to work for me.
    This may not be enough to address installation issues when using Homebrew
    such as when upgrading with command:
 
-   <pre><strong>
-   npm update npm -g
+   <pre><strong>npm update npm -g
    </strong></pre>
 
    <a name="AltFolder"></a>
@@ -1066,20 +1174,17 @@ However, I never got it to work for me.
    We can install the folder under a user's HOME folder,
    which is defined by the ${HOME} environment variable:
 
-   <pre><strong>
-   echo "${HOME}"
+   <pre><strong>echo "${HOME}"
    </strong></pre>
 
    The alternative npm folder name established by convention is:
 
-   <pre><strong>
-   ls ~/.npm-packages
+   <pre><strong>ls ~/.npm-packages
    </strong></pre>
 
    To achieve this, we first need to uninstall the default install:
 
-   <pre><strong>
-   rm -rf /usr/local/lib/node_modules
+   <pre><strong>rm -rf /usr/local/lib/node_modules
    brew uninstall node
    </strong></pre>
 
@@ -1127,8 +1232,7 @@ Others who have blogged about this include:
 
 0. Install the express package and its dependencies:
 
-   <pre><strong>
-   npm install express -g
+   <pre><strong>npm install express -g
    </strong></pre>
 
 0. Use a text editor to create file `index.js` containing "Hello World" code in JavaScript:
@@ -1151,8 +1255,7 @@ Others who have blogged about this include:
 
 0. Start the Node server running the default <strong>index.js</strong> program:
 
-   <pre><strong>
-   node index.js
+   <pre><strong>node index.js
    </strong></pre>
 
    The window remains open and accept no other commands
@@ -1182,14 +1285,13 @@ Others who have blogged about this include:
 
 0. Restart your node server specified in a coffee-script:
 
-   <tt><strong>
-   nodemon server.coffee
+   <tt><strong>nodemon server.coffee
    </strong></tt>
 
 
 <a id="Bower_installz"></a>
 
-## Bower Install #
+## Bower Install of GUI apps #
 
 Bower is similar to NPM, but for front-end GUI applications.
 
