@@ -25,7 +25,7 @@ Code generation churns out higher quality code in less time, and more consistent
 By focusing on generation of code, developers leverage their time 
 over more apps. Fix a bug and it applies to all other apps.
 
-> Here is the promise of open source delivered.
+## Levels of Tools
 
 There are several generations of code generation, each more sophisticated
 and magical than the next:
@@ -35,6 +35,17 @@ and magical than the next:
 3. <a href="#DatabaseGen">Gen from a database schema</a>
 4. <a href="#JSONGen">Gen from a JSON file</a>
 5. <a href="#DataModel">Gen entire stack from an Entity Model</a>
+
+   This approach to development
+   involving code generation 
+   (rather than manually gluing various pieces together)
+   is how one keeps apps up using all the latest tech stacks.
+
+   Testing the integration works for specific versions of various components
+   is a complex affair. But here is the promise of open source delivered,
+   where various strangers overcome a common technical challenge.
+
+
 
 <hr />
 
@@ -139,10 +150,25 @@ See video</a>.
 
 > What is generated will not be exactly what you want, but it gets you going, making use of all the many components of the front-end, back-end, and DevOps tool stacks.
 
-Some sample apps have been mentioned:
+   ### Alternatives
+
+   <a target="_blank" href="https://www.openhub.net/p/generator-jhipster">
+   https://www.openhub.net/p/generator-jhipster</a><br />
+   lists several competitors:
+
+   * <a target="_blank" href="https://www.openhub.net/p/seedstack">
+   SeedStack</a>
+
+### Sample JHipster apps
+
+Some sample apps created using JHipster have been mentioned:
 
    <a target="_blank" href="https://jhipster.github.io/showcase/">
    https://jhipster.github.io/showcase</a><br />
+   lists apps created by this technology.
+
+   <a target="_blank" href="https://github.com/pascalgrimaud/qualitoast">
+   https://github.com/pascalgrimaud/qualitoast</a><br />
    lists apps created by this technology.
 
    QUESTION: No longer available on-line is<br />
@@ -157,12 +183,30 @@ Some sample apps have been mentioned:
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28042820-41d20188-658c-11e7-80de-8676a12f279e.png"><img width="954" alt="jhipster-21-points-1908x1050" src="https://user-images.githubusercontent.com/300046/28042820-41d20188-658c-11e7-80de-8676a12f279e.png"></a>
 
-   It resides at 
+   <a target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fwww.21-points.com%2F&tab=desktop">
+   Google Page Speed</a> rates the site at 88 for desktop
+   and 78 for mobile. The site got dinged for images not optimized,
+   caching, render-blocking JavaScript, etc.
+
+0. If you see an alert about invalid seurity certificate,
+   Add Exception.
+
+   The site is physically hosted at 
    http://health-by-points.herokuapp.com
    built as described in 
    <a href="#MattRaible">Matt Raible</a>'s book.
 
-0. View the book pdf:
+0. Pull down Accounts to select Register for a full-featured form
+   featuring errors near fields and password strength indicator.
+
+   ![jhipster-21points-616x972-36kb](https://user-images.githubusercontent.com/300046/28052845-7ca3bbb0-65ca-11e7-9479-1c145ec883b6.png)
+
+0. Confirm email and Sign-in to add points, blood pressure readings,
+   and weight. Set preferences. View the history calendar.
+
+0. View the book pdf, which describes, step-by-step, 
+   the 1,157 lines of customization, 
+   with JHipster generating 94.5% of all code.
 
    <img align="right" width="150" alt="jhipster-logo-400x507.svg.png" src="https://user-images.githubusercontent.com/300046/27997722-e11c2ac4-64bb-11e7-8620-cc7250eaf539.png">
 
@@ -176,23 +220,22 @@ Some sample apps have been mentioned:
    Notice the <a target="_blank" href="https://jhipster.github.io/">
    person in the logo</a> has Spring Boot and Angular logos tatooed on his neck.
 
-   Anyway, the book describes, step-by-step, the 1,157 lines of custom code, 
-   with JHipster generating 94.5% of all code.
+   ### Product web page
 
-0. View the product webpage (in 5 screenshots):
+0. View the JHipster product webpage (in 5 screenshots):
 
    <a target="_blank" href="https://jhipster.github.io/screenshots/">
    https://jhipster.github.io/screenshots/</a> 
 
    My commentary while looking at each screen:
 
-   ### Welcome Screen
+   #### Welcome Screen
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_1.png"><img width="400" alt="jhipster_1-welcome-800x486.png" src="https://user-images.githubusercontent.com/300046/27997881-68b197d8-64be-11e7-874b-08511e29bdc1.png"><br /><small>(click image for full-screen image)</small></a>
 
    All this was generated.
 
-   ### Monitoring
+   #### Monitoring
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_2.png"><img width="400" alt="jhipster_2-monitoring-800x498.png" src="https://user-images.githubusercontent.com/300046/27997908-013d956a-64bf-11e7-8d0c-9e9453d3ae2c.png"><br />(click image for full-screen image)</a>
 
@@ -200,7 +243,7 @@ Some sample apps have been mentioned:
    as is the UI.
 
 
-   ### Logging
+   #### Logging
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_4.png"><img width="400" alt="jhipster_4-logmgmt-800x406.png" src="https://user-images.githubusercontent.com/300046/27997957-1574de5c-64c0-11e7-9d8e-97de29109292.png"><br />(click image for full-screen image)</a>
 
@@ -208,7 +251,7 @@ Some sample apps have been mentioned:
    such as log management.
 
 
-   ### Admin Forms
+   #### Admin Forms
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_3.png"><img width="400" alt="jhipster_3-form-260x342.png" src="https://user-images.githubusercontent.com/300046/27997981-de2903dc-64c0-11e7-8616-cb09edf94eb2.png"><br />(click image for full-screen image)</a>
 
@@ -216,37 +259,16 @@ Some sample apps have been mentioned:
    * Bootstrap for "responsive" CSS.
    * HTML5 Boilerplate to avoid inconsistencies among browsers.
 
-   QUESTION: PWA? Mobile hybrid?
 
 
-   ### Entity Forms
+   #### Entity Forms
 
    <a target="_blank" href="https://jhipster.github.io/images/screenshot_5.png"><img width="400" alt="jhipster_5-books-800x471.png" src="https://user-images.githubusercontent.com/300046/27998014-6376d0d2-64c1-11e7-8df6-d62221266afe.png"><br />(click image for full-screen image)</a>
 
-   QUESTION: In addition to the "Freelancer" UI theme, are there other skins?
-
-   ### Build Entities
-
-   Coding to handle entities are generated from JDL code.
-
-   JDL is the JHipster Domain Language processed within the JDL Studio.
-
-   <pre><strong>https://github.com/jhipster/jdl-samples
-   </strong></pre>
-
-   A "One to Many" relationship would be generated as a list screen
-   by JHipster, which creates all the JPA entities, DTOs, Spring Rest Controllers all the way through to the client side with Angular.
-
-   Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
-   Matt's YouTube videos</a> is 
-   <a target="_blank" href="https://www.youtube.com/watch?v=XRREt1KB4Y8">
-   this</a> about
-   <a target="_blank" href="https://github.com/mraible/jhipster4-demo/">
-   github.com/mraible/jhipster4-demo</a>
-   The sample entity diagram models a database containing Job History 
-   with reference to Language and Departments with a Location consisting of Country, Region.
-
-   ![jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
+   In addition to the "Freelancer" UI theme, there are other skins 
+   for Bootstrap at
+   <a target="_blank" href="https://bootswatch.com/">
+   bootswatch.com</a>.
 
 
    ### Advantages of this
@@ -300,15 +322,16 @@ Some sample apps have been mentioned:
    Google Maps</a>
    <br /><br />
 
->  This is how one keeps apps up using all the latest tech stacks.
-
-   This visionary approach to development
-   involving code generation rather than manually gluing various pieces together -- and testing integration.
-
    ### Still to do
+
+   0. 2FA (Two-factor authentication).
 
    0. Mobile + desktop PWA (Progressive Web Apps) that loads initial data
    for off-line usage
+
+   0. Static pages for fast loading, as with Jekyll?
+
+   0. Shopping cart with Hazelcart + MySQL
 
    0. Google Maps of geolocation data
 
@@ -317,6 +340,10 @@ Some sample apps have been mentioned:
    0. Automatic tuning of configuration parameters.
 
    0. Comparison of "total cost per app transaction" varying various components.
+
+   0. Business rules engine
+
+   0. Ideas from others
 
 
    ### Microservice architecture
@@ -339,7 +366,8 @@ Some sample apps have been mentioned:
    Ribbon
    which handles WebSocket calls to servers handling various microservices.
 
-   Consul 
+   Hashicorp Consul 
+   
    JHipster Registry
    contains a Eureka server that ...
    and a Spring cloud Config server.
@@ -354,47 +382,273 @@ Some sample apps have been mentioned:
 
    More on Microservices:
 
-   https://martinfowler.com/microservices/
-
-   https://martinfowler.com/articles/microservices.html
-
+   * https://martinfowler.com/microservices/
+   * https://martinfowler.com/articles/microservices.html
 
 
-   ### Build dev environment
+## Installation
+
+   See https://jhipster.github.io/installation/
+
+### Build dev environment
+
+   See https://github.com/jhipster/jhipster-devbox
 
 0. Install Vagrant.
 0. `vagrant up`
 
-0. Navigate to or create a folder to hold:
-0. Git clone https://github.com/jhipster/jhipster-devbox
+   <pre>
+==>  Provider 'virtualbox' not found. We'll automatically install it now...
+     The installation process will start below. Human interaction may be
+     required at some points. If you're uncomfortable with automatically
+     installing this provider, you can safely Ctrl-C this process and install
+     it manually.
+==>  Downloading VirtualBox 5.0.10...
+     This may not be the latest version of VirtualBox, but it is a version
+     that is known to work well. Over time, we'll update the version that
+     is installed.
+==>  Installing VirtualBox. This will take a few minutes...
+     You may be asked for your administrator password during this time.
+     If you're uncomfortable entering your password here, please install
+     VirtualBox manually.
+Password:
+==>  VirtualBox has successfully been installed!
+A Vagrant environment or target machine is required to run this
+command. Run `vagrant init` to create a new Vagrant environment. Or,
+get an ID of a target machine from `vagrant global-status` to run
+this command on. A final option is to change to a directory with a
+Vagrantfile and to try again.
+   </pre> 
 
-0. Install Vagrant box created:
+   Use of a vagrant image would not require these actions to setup a dev box:
+
+   * Install Ubuntu 16.04 operating system.
+   * Goggle Chrome and Firefox browsers
+   * Install OpenJDK (Java Development Kit)
+
+   * Install Ubuntu Make
+   * Use Make to install IntelliJ IDEA or Eclipse
+   * Install Gulp task runner (build tool) runs under Node/NPM.
+   * Install Bower to manage CSS and JavaScript dependencies used in this application.
+
+   * pgAdmin 3
+   * MySQL Workbench
+   * MongoDB client
+   * Cassandra DB command line (command cqlsh)
+   * Cloud Foundry command line (command cf)
+   * Heroku toolbelt command line
+
+0. Navigate to or create a folder to hold:
+0. Init Vagrant from a repo:
+
+   <pre><strong>git clone https://github.com/jhipster/jhipster-devbox --depth=1
+   vagrant up
+   </strong></pre>
+
+   <pre>
+Cloning into 'jhipster-devbox'...
+remote: Counting objects: 17, done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 17 (delta 0), reused 13 (delta 0), pack-reused 0
+Unpacking objects: 100% (17/17), done.
+   </pre>
+
+   The response:
+
+   <pre>
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'bento/ubuntu-16.04' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'bento/ubuntu-16.04'
+    default: URL: https://atlas.hashicorp.com/bento/ubuntu-16.04
+==> default: Adding box 'bento/ubuntu-16.04' (v2.3.7) for provider: virtualbox
+    default: Downloading: https://app.vagrantup.com/bento/boxes/ubuntu-16.04/versions/2.3.7/providers/virtualbox.box
+==> default: Successfully added box 'bento/ubuntu-16.04' (v2.3.7) for 'virtualbox'!
+==> default: Importing base box 'bento/ubuntu-16.04'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'bento/ubuntu-16.04' is up to date...
+==> default: Setting the name of the VM: jhipster-devbox_default_1499751092787_69943
+==> default: Fixed port collision for 22 => 2222. Now on port 2200.
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 8080 (guest) => 8080 (host) (adapter 1)
+    default: 9000 (guest) => 9000 (host) (adapter 1)
+    default: 22 (guest) => 2200 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2200
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    </pre>
+
+   Alternately:
+
+   Install Vagrant box created on Windows:
+
+   <pre><strong>vagrant init jhipster/jhipster-devbox
+   vagrant up --provider virtualbox
+   </strong></pre>
+
+   On Mac or Linux:
 
    <pre><strong>vagrant init jhipster/jhipster-devbox; vagrant up --provider virtualbox
    </strong></pre>
 
-   Its use would not require these actions to setup a dev box:
+   The response:
 
-0. Install Ubuntu operating system
-0. Goggle Chrome and Firefox browsers
-0. Install OpenJDK.
-0. Install Node.js to run a development web server and build the project. 
-0. Install Yarn (instead of NPM) to manage Node dependencies such that
-live reload of your client-side code (HTML, CSS, TypeScript) works (thanks to Webpack and Browsersync).
+   <pre>
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'jhipster/jhipster-devbox' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'jhipster/jhipster-devbox'
+    default: URL: https://atlas.hashicorp.com/jhipster/jhipster-devbox
+==> default: Adding box 'jhipster/jhipster-devbox' (v4.6.1) for provider: virtualbox
+    default: Downloading: https://app.vagrantup.com/jhipster/boxes/jhipster-devbox/versions/4.6.1/providers/virtualbox.box
+&nbsp;
+==> default: Successfully added box 'jhipster/jhipster-devbox' (v4.6.1) for 'virtualbox'!
+==> default: Importing base box 'jhipster/jhipster-devbox'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'jhipster/jhipster-devbox' is up to date...
+==> default: Setting the name of the VM: jhipster-sample_default_1499731131841_72127
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+   </pre>
+
+0. Open a browser (Chrome) and go to local server:
+
+   <a target="_blank" href="http://127.0.0.1:2222">
+   127.0.0.1:2222</a>
+
+   Do this quickly or you'll see:
+
+   <pre>
+Timed out while waiting for the machine to boot. This means that
+Vagrant was unable to communicate with the guest machine within
+the configured ("config.vm.boot_timeout" value) time period.
+&nbsp;
+If you look above, you should be able to see the error(s) that
+Vagrant had when attempting to connect to the machine. These errors
+are usually good hints as to what may be wrong.
+&nbsp;
+If you're using a custom box, make sure that networking is properly
+working and you're able to connect to the machine. It is a common
+problem that networking isn't setup properly in these boxes.
+Verify that authentication configurations are also setup properly,
+as well.
+&nbsp;
+If the box appears to be booting properly, you may want to increase
+the timeout ("config.vm.boot_timeout") value.
+    </pre>
+
+0. Install Node
+
+   * Install Node.js to run a development web server and build the project. 
+   * Install Yarn (instead of NPM) to manage Node dependencies such that
+live reload of client-side code (HTML, CSS, TypeScript) works (thanks to Webpack and Browsersync).
+   <br /><br />
+
+   <pre>yarn global add yo</pre>
+
+   The response I got:
+
+   <pre>
+yarn global v0.27.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Installed "yo@2.0.0" with binaries:
+      - yo
+      - yo-complete
+Done in 7.63s.
+   </pre>
+
+   To use the tools globally, be sure you have in your path:
+
+   <pre>$HOME/.config/yarn/global/node_modules/.bin</pre>
+
+On Mac or Linux: export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"
+
+   <pre>yarn global add generator-jhipster</pre>
+
+   The response:
+
+   <pre>
+yarn global v0.27.5
+warning package.json: No license field
+warning No license field
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+error jhipster-core@1.3.4: The engine "node" is incompatible with this module. Expected version ">=6.9.0".
+error Found incompatible module
+info Visit https://yarnpkg.com/en/docs/cli/global for documentation about this command.
+   </pre>   
+
+0. Edit any file and the browser refreshes automatically.
+
+   <pre>yo</pre>
+
+   The first time this appears:
+
+   <pre>
+? ==========================================================================
+We're constantly looking for ways to make yo better! 
+May we anonymously report usage statistics to improve the tool over time? 
+More info: https://github.com/yeoman/insight & http://yeoman.io
+========================================================================== (Y/n) 
+   </pre>
+
+0. Type "y" for this response:
+
+   <pre>
+? 'Allo mac! What would you like to do? 
+Install a generator
+? Search npm for generators: 
+     _-----_     ╭───────────────────────╮
+    |       |    │      Bye from us!     │
+    |--(o)--|    │       Chat soon.      │
+   `---------´   │      Yeoman team      │
+    ( _´U`_ )    │    http://yeoman.io   │
+    /___A___\   /╰───────────────────────╯
+     |  ~  |     
+   __'.___.'__   
+ ´   `  |° ´ Y ` 
+   </pre>
+
+0. Press control+C to exit.   
+
+   PROTIP:
+   The "Yeoman workflow" is made up of three types of tools to enhance your productivity and satisfaction when building a webapp:
+
+   * scaffolding tool (yo),
+   * build tool (Grunt, Gulp, etc.), and
+   * package manager (Bower, npm, etc.)
+
+0. Start the ???
 
    <pre>yarn start</pre>
 
-   Edit any file and the browser refreshes automatically.
-
-0. Install Ubuntu Make
-0. Use Make to install IntelliJ IDEA or Eclipse
-0. pgAdmin 3
-0. MySQL Workbench
-0. MongoDB client
-0. Cassandra DB command line (cqlsh)
-
-0. Cloud Foundry command line (cf)
-0. Heroku toolbelt command line
+   <pre>
+yarn start v0.27.5
+error Couldn't find a package.json file in "/Users/mac/gits/wilsonmar/jhipster-sample"
+   </pre>
 
 0. Yeoman front-end app generator:
 
@@ -412,21 +666,14 @@ error Found incompatible module
 info Visit https://yarnpkg.com/en/docs/cli/global for documentation about this command.
    </pre>
 
-   https://www.openhub.net/p/generator-jhipster
-   ???
 
-   The "Yeoman workflow" is made up of three types of tools to enhance your productivity and satisfaction when building a webapp:
+   ### Install JHipster
 
-   • the scaffolding tool (yo),
-   • the build tool (Grunt, Gulp, etc.), and
-   • the package manager (Bower, npm, etc.)
+0. Install JHipster
 
    <pre>yarn global add generator-jhipster
    </pre>
 
-0. Install Gulp task runner (build tool).
-
-0. Install Bower to manage CSS and JavaScript dependencies used in this application.
 
    ### Maven pull
 
@@ -640,9 +887,31 @@ Reading the JHipster project configuration for your module
    PROTIP: The vendor.css is before all material-design stylesheets in your
 index.html
 
-   ### Add an Entity
+   ### Add Entity
 
-   jhipster entity Foo
+   <pre><strong>jhipster entity Foo</strong></pre>
+
+   Coding to handle entities are generated from JDL code.
+
+   JDL is the JHipster Domain Language processed within the JDL Studio.
+
+   <pre><strong>https://github.com/jhipster/jdl-samples
+   </strong></pre>
+
+   A "One to Many" relationship would be generated as a list screen
+   by JHipster, which creates all the JPA entities, DTOs, Spring Rest Controllers all the way through to the client side with Angular.
+
+   Among <a target="_blank" href="https://www.youtube.com/channel/UCAC2AFfB0DFmiIeOEEJ7uhA">
+   Matt's YouTube videos</a> is 
+   <a target="_blank" href="https://www.youtube.com/watch?v=XRREt1KB4Y8">
+   this</a> about
+   <a target="_blank" href="https://github.com/mraible/jhipster4-demo/">
+   github.com/mraible/jhipster4-demo</a>
+   The sample entity diagram models a database containing Job History 
+   with reference to Language and Departments with a Location consisting of Country, Region.
+
+   ![jhipster-589x575-71kb](https://user-images.githubusercontent.com/300046/27988589-6a003126-63e2-11e7-9aa6-44e99ce86dbe.png)
+
 
    ### Infinite scroll third-party module
 
@@ -652,10 +921,16 @@ index.html
 
    https://jhipster.github.io/tips/011_tip_configuring_email_in_jhipster.html
 
-   ### Sprint social connector
+   ### Sprint social connectors
 
    https://jhipster.github.io/tips/012_tip_add_new_spring_social_connector.html
 
+   ### Charts
+
+   https://www.primefaces.org/primeng/#/
+   PrimeNG UI library for Angular
+
+   <pre>npm install primeng --save</pre>
 
 ## Developers
 
@@ -674,12 +949,13 @@ Julien Dubois
    What's new in JHipster in 2016 by Julien Dubois @ Spring I/O 2016 
 
    <a name="Deepu"></a>
-Deepu K Sasidharan at XebiaLabs
-   <a target="_blank" href="https://twitter.com/deepu105">@deepu105</a>
-   https://nl.linkedin.com/in/deepu05
-   https://github.com/deepu105
-   * https://deepu.js.org/jh-slides-v3/#/intro
+Deepu K Sasidharan 
+   (<a target="_blank" href="https://twitter.com/deepu105">@deepu105</a>)
+   <a target="_blank" href="https://nl.linkedin.com/in/deepu05">
+   Developer Advocate at XebiaLabs</a>
 
+   * https://github.com/deepu105
+   * https://deepu.js.org/jh-slides-v3/#/intro
    * https://www.youtube.com/watch?v=YmEKClTBkUI
    Building Spring boot + Angular4 apps in minutes
    * https://www.youtube.com/watch?v=nKRpVkba4Ck
@@ -687,8 +963,8 @@ Deepu K Sasidharan at XebiaLabs
    * SOAP WSDL
 
    <a name="MattRaible">Matt Raible</a>
-Matt Raible
-   @mraible
+Matt Raible - 
+   (<a target="_blank" href="https://twitter.com/mraible/">@mraible</a>)
    https://raibledesigns.com/
    https://www.linkedin.com/in/mraible
 
@@ -703,14 +979,36 @@ Matt Raible
    JHipster 2.7 Blog Demo [20:30]
 
 
-Ray Tsang
-   https://twitter.com/saturnism
+Ray Tsang - 
+   (<a target="_blank" href="https://twitter.com/saturnism">@saturnism</a>)
+   <a target="_blank" href="https://www.linkedin.com/in/rayjtsang/">
+   Technology Architect / Advocate at Google</a>
 
-Yakov Fain - https://yakovfain.com/
-   https://twitter.com/yfain
+Yakov Fain - 
+   (<a target="_blank" href="https://twitter.com/yfain">@yfain</a>)
+   <a target="_blank" href="https://yakovfain.com/">
+   yakovfain.com</a>
 
 
-   ### Talk about it
+Alfredo Rueda‏ @aruedaunsain
+
+
+### Marketing
+
+-[ ] Stickers for laptop covers
+-[ ] T-shirts, hoodies
+-[ ] Coffee mugs
+
+-[ ] Hands-on classes, boot-camp: freecodecamp.com?
+-[ ] Conference talks
+-[ ] Webinars for dev managers
+
+-[ ] Marketplace for themes
+-[ ] Specific ideas for contribution
+-[ ] Jobs for developers
+
+
+### Talk about it
 
    https://stackoverflow.com/questions/tagged/jhipster
 
