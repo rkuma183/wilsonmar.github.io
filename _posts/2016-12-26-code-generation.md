@@ -241,7 +241,7 @@ Some sample apps created using JHipster have been mentioned:
 
    #### Monitoring
 
-   <a target="_blank" href="https://jhipster.github.io/images/screenshot_2.png"><img width="400" alt="jhipster_2-monitoring-800x498.png" src="https://user-images.githubusercontent.com/300046/27997908-013d956a-64bf-11e7-8d0c-9e9453d3ae2c.png"><br />(click image for full-screen image)</a>
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_2.png"><img width="400" alt="jhipster_2-monitoring-800x498.png" src="https://user-images.githubusercontent.com/300046/27997908-013d956a-64bf-11e7-8d0c-9e9453d3ae2c.png"><br /><small>(click image for full-screen image)</small></a>
 
    Installation of JVM monitoring agents is automatically done,
    as is the UI.
@@ -249,7 +249,7 @@ Some sample apps created using JHipster have been mentioned:
 
    #### Logging
 
-   <a target="_blank" href="https://jhipster.github.io/images/screenshot_4.png"><img width="400" alt="jhipster_4-logmgmt-800x406.png" src="https://user-images.githubusercontent.com/300046/27997957-1574de5c-64c0-11e7-9d8e-97de29109292.png"><br />(click image for full-screen image)</a>
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_4.png"><img width="400" alt="jhipster_4-logmgmt-800x406.png" src="https://user-images.githubusercontent.com/300046/27997957-1574de5c-64c0-11e7-9d8e-97de29109292.png"><br /><small>(click image for full-screen image)</small></a>
 
    Many back-end services are automatically generated, 
    such as log management.
@@ -257,7 +257,7 @@ Some sample apps created using JHipster have been mentioned:
 
    #### Admin Forms
 
-   <a target="_blank" href="https://jhipster.github.io/images/screenshot_3.png"><img width="400" alt="jhipster_3-form-260x342.png" src="https://user-images.githubusercontent.com/300046/27997981-de2903dc-64c0-11e7-8616-cb09edf94eb2.png"><br />(click image for full-screen image)</a>
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_3.png"><img width="400" alt="jhipster_3-form-260x342.png" src="https://user-images.githubusercontent.com/300046/27997981-de2903dc-64c0-11e7-8616-cb09edf94eb2.png"><br /><small>(click image for full-screen image)</small></a>
 
    The generator provides several choices for app UI:
    * Bootstrap for "responsive" CSS.
@@ -267,7 +267,7 @@ Some sample apps created using JHipster have been mentioned:
 
    #### Entity Forms
 
-   <a target="_blank" href="https://jhipster.github.io/images/screenshot_5.png"><img width="400" alt="jhipster_5-books-800x471.png" src="https://user-images.githubusercontent.com/300046/27998014-6376d0d2-64c1-11e7-8df6-d62221266afe.png"><br />(click image for full-screen image)</a>
+   <a target="_blank" href="https://jhipster.github.io/images/screenshot_5.png"><img width="400" alt="jhipster_5-books-800x471.png" src="https://user-images.githubusercontent.com/300046/27998014-6376d0d2-64c1-11e7-8df6-d62221266afe.png"><br /><small>(click image for full-screen image)</small></a>
 
    In addition to the "Freelancer" UI theme, there are other skins 
    for Bootstrap at
@@ -290,10 +290,10 @@ Some sample apps created using JHipster have been mentioned:
 
    BTW, "AngularJs" refers to the Angular1.x framework.
 
-   #Angular
+   #Angular covers the other versions:
 
-   * Angular 2
-   * Angular 3 is skipped
+   * Angular 2 initially was not back-compatible.
+   * Angular 3 is skipped as a version number.
    * Angular 4 on 2017-03 (backward compatible with Angular 2)
    * Angular 5 on 2017-09
    * Angular 6 on 2018-03
