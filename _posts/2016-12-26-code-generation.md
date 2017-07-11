@@ -150,7 +150,7 @@ See video</a>.
 
 > What is generated will not be exactly what you want, but it gets you going, making use of all the many components of the front-end, back-end, and DevOps tool stacks.
 
-   ### Alternatives
+### Alternatives
 
    <a target="_blank" href="https://www.openhub.net/p/generator-jhipster">
    https://www.openhub.net/p/generator-jhipster</a><br />
@@ -199,7 +199,7 @@ Some sample apps created using JHipster have been mentioned:
 0. Pull down Accounts to select Register for a full-featured form
    featuring errors near fields and password strength indicator.
 
-   ![jhipster-21points-616x972-36kb](https://user-images.githubusercontent.com/300046/28052845-7ca3bbb0-65ca-11e7-9479-1c145ec883b6.png)
+   <img width="308" alt="jhipster-21points-616x972-36kb.png" src="https://user-images.githubusercontent.com/300046/28052845-7ca3bbb0-65ca-11e7-9479-1c145ec883b6.png">
 
 0. Confirm email and Sign-in to add points, blood pressure readings,
    and weight. Set preferences. View the history calendar.
@@ -226,6 +226,10 @@ Some sample apps created using JHipster have been mentioned:
 
    <a target="_blank" href="https://jhipster.github.io/screenshots/">
    https://jhipster.github.io/screenshots/</a> 
+
+   The website is based on source at<br />
+   <a target="_blank" href="https://github.com/jhipster/jhipster.github.io">
+   https://github.com/jhipster/jhipster.github.io</a>
 
    My commentary while looking at each screen:
 
@@ -298,7 +302,8 @@ Some sample apps created using JHipster have been mentioned:
 
    All Google applications use Angular version equal to the current GitHub’s master branch of the Angular repository. 
 
-   ReactJS is being worked on at
+   ReactJS is being worked on as 
+   <a target="_blank" href="https://github.com/jhipster/generator-jhipster/tree/jh-react"> branch jh-react</a>, moved from
    <a target="_blank" href="https://github.com/hipster-labs">
    https://github.com/hipster-labs</a>
    until it is added to the <a target="_blank" 
@@ -340,6 +345,8 @@ Some sample apps created using JHipster have been mentioned:
    0. Automatic tuning of configuration parameters.
 
    0. Comparison of "total cost per app transaction" varying various components.
+
+   0. Twillo and IFTTT integration to send SMS, make calls, etc.
 
    0. Business rules engine
 
@@ -432,6 +439,7 @@ Vagrantfile and to try again.
    * Install Bower to manage CSS and JavaScript dependencies used in this application.
 
    * pgAdmin 3
+   * messaging system Apache Kafka? (not RabbitMQ as maintained by Pivotal)
    * MySQL Workbench
    * MongoDB client
    * Cassandra DB command line (command cqlsh)
@@ -934,7 +942,7 @@ index.html
 
 ## Developers
 
-<a target="_blank" href="https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/jhipster-dev">on Google Forum</a>:
+Developers talk among themselves <a target="_blank" href="https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/jhipster-dev">on Google Forum</a>.
 
    <a name="JulienDubois"></a>
 Julien Dubois
@@ -1010,7 +1018,12 @@ Alfredo Rueda‏ @aruedaunsain
 
 ### Talk about it
 
-   https://stackoverflow.com/questions/tagged/jhipster
+Chat at<br />
+<a target="_blank" href="https://gitter.im/jhipster/generator-jhipster">
+https://gitter.im/jhipster/generator-jhipster</a>
+
+
+https://stackoverflow.com/questions/tagged/jhipster
 
    http://scholarcoder.com/1072/making-full-stack-java-development-easier-jhipster
 
