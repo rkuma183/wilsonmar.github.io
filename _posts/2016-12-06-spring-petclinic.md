@@ -24,11 +24,6 @@ SpringSource, now a division of VMWare.
 The sample app can also be used to 
 explore JVM tools and related utilities.
 
-<a name="UI"></a>
-
-## App UI tour
-
-   <img width="650" alt="jpetstore6 main menu" src="https://cloud.githubusercontent.com/assets/300046/21746325/c24dd12a-d50e-11e6-8408-925e0c16021e.png">
 
 ### Sample apps online?
 
@@ -155,32 +150,41 @@ https://github.com/jdubois/spring-petclinic</a>
 * <a target="_blank" href="http://blog.ippon.fr/tag/spring-petclinic">
 http://blog.ippon.fr/tag/spring-petclinic</a>
 
+* http://www.pingtimeout.fr/2013/03/petclinic-performance-tuning-about.html
+   comments on the above
+
 
 <a name="Strategy"></a>
 
 ## Performance Test Sequence
 
-Performance testing needs a set of "loops"
-to impose artificial load.
+Performance testing of this involves several "scenarios"
+which to impose artificial load.
 
 1. <a href="#LandingPage">Landing page</a> run semi-continuously
    to detect network variability between clients (load generators)
    and servers.
 
-   This can be a measurements every 1-5 minutes of a single user.
+   This enables measurements of response time to a single user 
+   clicking every 1-5 minutes over a 24 hour period
+   to identify anomalies in <strong>network</strong> throughput
+   and other disturbances. The expectation is consistent quick response.
 
-2. <a href="#TopMenu">Top Menu Items</a>.
-   
-   Does navigation into top menu items cause a round-trip to the server?
+   Since this is the first test, issues with the load testing rig
+   is identified, such as the load test server being reset every day.
 
-   Such issues can be identified during performance test script creation.
+2. <strong>Browsing</strong> through 
+   <a href="#TopMenu">Menu Items</a> (without login or buying) 
+   to stress the front-end web server.
 
-3. <strong>Browsing</strong> through menu items (without login or buying) 
-   stresses the front-end web server.
+   This measures whether navigation of menu items that involve the
+   server but does not involve database traffic.
 
    Rather than coding to click specific items,
    this activity may be specified by a control file 
    which the test program reads to determine how to iterate through items.
+
+   These runs identify issues with front-end caching.
 
    ### Logging
 
