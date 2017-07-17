@@ -17,15 +17,15 @@ comments: true
 
 This page describes the various ways to 
 <a href="#LocalInstall">install</a> 
-and use a simple Java application for learning and experimenting 
-with a Java Spring application server program from 
-SpringSource, now a division of VMWare.
+and load test a sample application for learning and experimenting --
+a Java Spring application server program from 
+SpringSource, now a division of VMWare --
+to explore the operation of utilities such as Jenkins and JVM tools.
 
-The sample app can also be used to 
-explore JVM tools and related utilities.
+The app is meant to be installed locally.
 
 
-### Sample apps online?
+## Sample apps online?
 
 http://spring-petclinic.cloudfoundry.com/
 is no longer active
@@ -34,68 +34,6 @@ So screen shots are based on a Docker instance.
 
 0. Git clone https://github.com/jdubois/spring-petclinic
 0. git reset --hard && git checkout 
-
-<a name="LandingPage"></a>
-
-### Landing page (Main Menu) #
-
-Unlike the PetStore app which has several categories of pets,
-the PetClinic app manages Pets and the Owners and Vet who take care of them.
-
-<img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
-
-Question for one user performance test runs reaching just the landing page
-every 1-5 minutes continuously: Are there spikes in response time?
-If so, it is probably due to network or some infrastructure conditions.
-
-[<a href="#Strategy">Back to Strategy</a>]
-
-<a name="TopMenu"></a>
-
-### Top Menu 
-
-The menu items at the top menu bar are:
-
-* Home
-* FIND OWNERS (of pets)
-* Veterinarians
-* Errors
-* Help
-
-The menu bar remains visible in all screens throughout the app.
-
-### Functionality 
-
-Michael Isvy on March 20, 2013 presented 
-<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
-diagrams and code samples</a> 
-
-0. Click FIND OWNERS.
-0. Click Find to list all.
-0. Type Betty and click find for a list pre-populated.
-0. For owner Betty Davis are pets and visits.
-0. Click Edit Owner
-0. Click Add New Pet.
-0. Click Edit Pet
-0. Click Add Visit.
-0. Select Veterinarian. Six have been pre-populated.
-
-
-### Internals
-
-Spring-Petclinic is a "classic" MVC-style application, with
-<strong>no REST API nor JavaScript front-end libraries such as Bootstrap</strong>.
-
-Michael Isvy on March 20, 2013 presented 
-<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
-diagrams and code samples</a> describing the 
-Spring MVC and Dandelion and WebJars 
-used by the sample app.
-
-   * WebJars by https://twitter.com/_JamesWard
-
-   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
-   based on jQuery Datatables and Bootstrap
 
 
 
@@ -134,15 +72,274 @@ https://github.com/jdubois/spring-petclinic
    <pre><strong>mvn clean tomcat7;run
    </strong></pre>
 
-   ### Open browser
 
-   http://127.0.0.1/petclinic
+
+<a name="Monitoring"></a>
+
+## Monitoring of the app
+
+* Network response time (Latency)
+* HTTP Requests per minute
+* Log entries per minute
+
+* App response time per request
+* Database response time per request
+
+* Thread State within app
+* Errors
+
+* Memory Allocation
+* Garbage Collection - time spent in GC
+
+Online Solution
+http://demo.kieker-monitoring.net/
+
+
+
+### Functionality 
+
+0. Click FIND OWNERS.
+0. Click Find to list all.
+0. Type Betty and click find for a list pre-populated.
+0. For owner Betty Davis are pets and visits.
+0. Click Edit Owner
+0. Click Add New Pet.
+0. Click Edit Pet
+0. Click Add Visit.
+0. Select Veterinarian. Six have been pre-populated.
+
+<a name="Strategy"></a>
+
+## Artificial Loads
+
+Performance and load testing of this app is controlled by 
+several values of "RunType"
+specified to impose artificial load. 
+Keywords in quotes define the various
+
+1. <strong>"Landing"</strong> lands on the URL of the site.
+
+   <pre>http://127.0.0.1/petclinic</pre>
+
+   This page is also reached by clicking "Home".
+
+   ![jpetclinic-landing-591x361](https://user-images.githubusercontent.com/300046/28250757-942b405a-6a3e-11e7-89f0-2b8fd8e7fa6a.png)
+
+   The PetClinic app is for a group of known vets who take care of 
+   pets owned by owners.
+
+   This type of load test is run to 
+   detect network conditions (variability) between 
+   clients (load generators) and servers --
+   measurements of response time to a single user 
+   clicking every 1-5 minutes over a 24 hour period
+   to identify anomalies in <strong>network</strong> throughput
+   and other disturbances. The expectation is consistent quick response.
+
+   Are there spikes in response time?
+   If so, it is probably due to network or some infrastructure conditions,
+   since the app's database is not involved.
+
+   Since this is the first test run, issues with the load testing rig
+   is exposed, such as the load test server being reset every day.
+
+   The emulation script needs to detect and handle "Server unavailable" conditions.
+
+2. <strong>"MenuItems"</strong> browse through menu items
+   without login or other activity that typically
+   stresses the front-end web server rather than back-end database traffic.
+
+   The PetClinic app has a limited menu, with
+   the top menu bar remaining visible in all screens throughout the app.
+
+   0. Click FIND OWNERS.
+   0. Click VETERANARIAN.
+   0. Click Errors.
+   0. Click Home.
+   <br /><br />
+
+   The above actions are repeated over and over by each virtual user.
+
+   Some automation scripts vary the frequency each specific item is invoked.
+   Some emulation scripts use a data-driven approach where a file external to the code specifies the pattern of invocation.
+
+   Rather than coding to click specific items,
+   this activity may be specified by a control file 
+   which the test program reads to determine how to iterate through items.
+
+   These runs identify issues with front-end caching.
+
+   ### Logging verbosity
+
+   This is the first opportunity to manage logging functionality and 
+   thus disk space growth, archival off the server, etc.
+
+   Different logging levels are needed for different modes of running.
+   Diagnostic runs use "debug" level for more verbose output.
+   Productive runs use "error" level such that only errors are output.
+
+   favicon.ico
+
+3. <strong>"ListOwners"</strong> lists all owners in the database
+   to assess data retrieval.
+
+   This is run 
+   to identify the maximum rate the system can accommodate additions to
+   the database.
+
+   The sequence of user actions in the PetClinic:
+
+   0. Click Owners.
+   0. Click Find button without entering anything in the search field.
+   <br /><br />
+
+   <img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
+
+   ### Client Caching 
+
+   Client software (browsers such as Chrome) typically 
+   <strong>cache</strong> (store) files downloaded from the server and
+   reuse them to avoid unnecessary retrievals.
+
+   This may need to be varied artifically to induce additional load.
+
+   ### Page limits
+
+   Some UI optimize queries by retrieving only the maximum items 
+   displayed on each page. This reduces retrieval time, but
+   would require additional calls activity and thus load on the system.
+
+   Some apps provide a way for users to control how many items to display
+   on a page. 
+
+   Some apps (call "Single Page Apps"), automatically retrieve additional
+   pages ("pre-fetches") the next set of data automatically 
+   without waiting for user input, which would inpose additonal load
+   but provide user convenience.
+
+   Alas, the PetClinic app does not provide user preferences in its UI.
+
+   ### Database read rate
+
+   This run type is the first stressing of reading data from the database.
+
+   Measuring the time taken for individual database activities is 
+   useful to differentiate time incurred by different 
+   configurations of the database or use of different databases.
+
+   This activity is used by "Transaction Tracing" utilities
+   by programs such as Dynatrace and CA-APM.
+
+4. <strong>"Search"</strong> generates database calls if
+   client software does not check its cache before performing a search.
+
+   Examples are form fields that return an autocomplete list.
+
+   The sequence of user actions in the PetClinic:
+
+   0. Click FIND OWNERS in the top menu.
+   0. Type in the search box a last name such as "Davis".
+   0. Click Find button without entering anything in the search field.
+   <br /><br />
+
+   The emulation script needs to identify and resolve errors such
+   as "item not found".
+
+   Note that the PetClinic UI does not search by the first name of
+   owners.
+
+   The emulation script needs to handle error responses.
+
+5. <strong>"NewData"</strong> is done to
+   identify the maximum rate the system can accommodate 
+   <strong>additions</strong> to the database.
+
+   The sequence of user actions in the PetClinic:
+
+   0. Click FIND OWNERS in the top menu.
+   0. Click Edit Owner
+   0. Click Add New Pet.
+   0. Click Edit Pet
+   0. Click Add Visit.
+   <br /><br />
+
+   The emulation scripts needs to recognize and handle error conditions
+   such as invalid data, duplicate add attempts, etc.
+
+   NOTE: The PetClinic app does not provide a UI to add Veteranarians.
+   But the UI does provide a link to expose a file the app uses 
+   internally to populate the Veternarian screen.
+   Such a link is not usually exposed in app end-user UIs.
+
+   ### Data Variation
+
+   Variations in registration data from a file is needed
+   to load various users.
+
+   ### Database write
+
+   This is the first stressing of writing of new data into the database.
+
+   Measuring the time taken for individual database activities is 
+   useful to differentiate time incurred by different databases.
+
+6. <strong>SignInOut</strong> is not possible with the PetClinic.
+
+   This identifies the maximum rate of users
+   arriving at the same time (such as at a call center during start of shift).
+   
+   A load test of this measures how much memory servers 
+   take for each new user. If the app establishes a connection to the 
+   database for each user, memory use will increase for each additional user.
+
+   Does memory get recovered from users who have logged off?
+
+7. <strong>External Process</strong> items are not possible with the
+   PetClinic.
+
+   In an e-commerce app such as the PetStore app, 
+   this would be purchase of pets in the cart
+   and use of <strong>payment gateways</strong>, which is usually an
+   external service.
+   The JPetStore sample app does not connect with a payment gateway.
+
+   The question answered by a load test of this type is:<br />
+   Can the app and external services keep up with a lot of people buying at once? What does "a lot" mean is the measurement.
+
+8. <strong>"All"</strong> means "all the above", done 
+   to ensure that the system can handle a pattern of stress 
+   during scalability testing.
+
+9. <strong>"Error"</strong> type runs purposely invokes 
+   the system's response to "negative" tests:
+
+   a. Server unavailable.
+
+   b. Item not found during browsing.
+
+   c. Registration error (such as bad email,
+   user already defined, etc.).
+
+   d. Login error, such as forgotten password change.
+
+   e. Search not found.
+
+   etc.
+
+
+## Reset data
+
+QUESTION: How to reset the Orders data for a user?
+
+This is often handled by Jenkins before each run to ensure the
+same starting conditions exist for each separate run.
 
 
 ## Tuning
 
 Back on 3 July 2014 Julien <a target="_blank" href="https://www.youtube.com/watch?v=oR_7EtCgc1M">recorded a presentation (at SpringOne2GX in
-Santa Clara, CA) on tuning the Spring Petclinic sample application</a>.
+Santa Clara, CA) on tuning the Spring Petclinic sample application</a>
+using JMeter.
 
 * <a target="_blank" href="https://github.com/jdubois/spring-petclinic">
 https://github.com/jdubois/spring-petclinic</a>
@@ -153,143 +350,33 @@ http://blog.ippon.fr/tag/spring-petclinic</a>
 * http://www.pingtimeout.fr/2013/03/petclinic-performance-tuning-about.html
    comments on the above
 
-
-<a name="Strategy"></a>
-
-## Performance Test Sequence
-
-Performance testing of this involves several "scenarios"
-which to impose artificial load.
-
-1. <a href="#LandingPage">Landing page</a> run semi-continuously
-   to detect network variability between clients (load generators)
-   and servers.
-
-   This enables measurements of response time to a single user 
-   clicking every 1-5 minutes over a 24 hour period
-   to identify anomalies in <strong>network</strong> throughput
-   and other disturbances. The expectation is consistent quick response.
-
-   Since this is the first test, issues with the load testing rig
-   is identified, such as the load test server being reset every day.
-
-2. <strong>Browsing</strong> through 
-   <a href="#TopMenu">Menu Items</a> (without login or buying) 
-   to stress the front-end web server.
-
-   This measures whether navigation of menu items that involve the
-   server but does not involve database traffic.
-
-   Rather than coding to click specific items,
-   this activity may be specified by a control file 
-   which the test program reads to determine how to iterate through items.
-
-   These runs identify issues with front-end caching.
-
-   ### Logging
-
-   This is the first opportunity to manage logging functionality and 
-   thus disk space growth, archival off the server, etc.
-
-   QUESTION: The default logging level is set to "Debug".
-   So that needs to be reduced.
-
-4. <strong>Register</strong> new items
-   to identify the maximum rate the system can accommodate increases to
-   the database.
-
-   Variations in registration data from a file
-   to load various users.
-
-   ### Database
-
-   This is the first stressing of the database supporting the app.
-
-   Measuring the time taken for individual database activities is 
-   useful to differentiate time incurred by different databases.
-
-5. <strong>Login</strong> to identify the maximum rate of users
-   arriving at the same time (such as at a call center during start of shift).
-   
-   A load test of this measures how much memory servers 
-   take for each new user. If the app establishes a connection to the 
-   database for each user, memory use will increase for each additional user.
-
-6. Log-off.
-
-   QUESTION: Does memory get recovered from users who have logged off?
-
-7. <strong>Add to database</strong>
-   to stress the database.
-
-   This enables measurement of how much additional time is needed to list
-   each additional list item (until the maximum is shown on each page).
-
-   QUESTION: How much additional time does adding, updating, and deleting
-   items lower in the database hierarchy take more time than 
-   root items?
-
-8. <strong>View lists</strong> of user-selected items.
-
-   In the PetStore app, this would be a list of items in the shopping cart.
-
-   In the PetClinic app, this would be a list of 
-
-9. <strong>Search</strong>, which generates database calls.
-
-   Examples are form fields that return an autocomplete list.
-
-10. <strong>Process</strong> items.
-
-   In an e-commerce app such as the PetStore app, 
-   this would be purchase of pets in the cart
-   and use of <strong>payment gateways</strong>, which is usually an
-   external service.
-
-   The question answered by a load test of this is: 
-   Can the app and external services keep up with a lot of people buying at once? What does "a lot" mean is the measurement.
-
-   The JPetStore sample app does not connect with a payment gateway.
-
-11. <strong>End-to-end</strong> with all the above to ensure that the system can handle a pattern of work during scalability testing (to emulate a mention on Reddit or Hacker News that causes a visitor or buying frenzy).
-
-12. <a target="_blank" href="http://demo.kieker-monitoring.net/jpetstore/actions/Order.action?listOrders=">My Orders</a> 
-   lists order history for a user,
-   by reading from the database.
-   A link to it is at the bottom of the User Information page after a user is logged in and has completed an order.
+* https://www.youtube.com/watch?v=mzT7etWjj0Q
+   NewRelic
 
 
-Additionally, there are <strong>error</strong> responses
-to each of the above, created by "negative" tests:
+### Internals
 
-1. Server unavailable (NGINX).
+Spring-Petclinic is a "classic" MVC-style application, with
+<strong>no REST API nor JavaScript front-end libraries such as Bootstrap</strong>.
 
-2. Item not available during browsing.
+Michael Isvy on March 20, 2013 presented 
+<a target="_blank" href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">
+diagrams and code samples</a> describing the 
+Spring MVC and Dandelion and WebJars 
+used by the sample app.
 
-3. Registration error (such as bad email,
-   user already defined, etc.).
+![petclinic-arch-650x493-85k](https://user-images.githubusercontent.com/300046/28250811-a75d366e-6a3f-11e7-9c1a-34b723e9e541.png)
 
-4. Login error, such as forgotten password change.
+   * WebJars by https://twitter.com/_JamesWard
 
-5. Search not found.
+   * http://dandelion.github.io/blog/2013/04/24/Integrating-Dandelion-DataTables-in-the-Spring-Petclinic-app
+   based on jQuery Datatables and Bootstrap
 
-etc.
+Aspect-oriented programming (AOP) is an approach to programming that allows global properties of a program to determine how it is compiled into an executable program. AOP can be used with object-oriented programming ("OOP").
 
-<hr />
+An aspect is a subprogram that is associated with a specific property of a program. As that property varies, the effect "ripples" through the entire program. The aspect subprogram is used as part of a new kind of compiler called an "aspect weaver".
 
-## New item registration
-
-
-
-## Find/Search
-
-QUESTION: Functionality to find/search usually involves database access.
-
-
-## Find functions
-
-QUESTION: Do functionality to find
-
+The conceptualizers of AOP compare aspect programming to the manufacturing of cloth in which threads are automatically interwoven. Without AOP, programmers must stitch the threads by hand.
 
 
 ## Use case loops #
@@ -303,229 +390,11 @@ and <a target="_blank" href="http://graphstream-project.org/">
 GraphStream</a> to visualize tests as they run.
 
 
-
-
 ### Options for performance testing apps
 
-Since JPeterStore was built for developers, missing are some features in the 
-WebTours app Mercury/HP built to use as a sample app
-during demos and training for LoadRunner.
-
-
-
-
-### Pattern of iteration
-
-To mimic real-life load across the various pages,
-not every iteration would invoke "My Orders".
-   So the automation scripts would need to use a
-   <strong>percentage chance</strong> 
-   when the action is performed.
-
-Ideally, we would have a data-driven approach where
-a file external to the code
-specifies the pattern of invocation.
-This approach would not require a re-compile
-after changes.
-
-
-### Reset data
-
-QUESTION: How to reset the Orders data for a user?
-
-
-<a name="UI"></a>
-
-## UI #
-
-On the Main Menu, there are links to category lists
-from the text at the left, 
-the headings at the top,
-and icons at the center.
-
-   * Fish
-   * Dogs
-   * Cats
-   * Reptiles
-   * Birds
-
-
-### User Registration
-
-
-### Headings
-
-On the heading, when a user is signed in, "Sign In" changes to "My Account".
-
-
-### User Profile Options
-
-These change behavior, which automation scripts need to
-respond to:
-
-* Enable MyList 
-
-* Enable MyBanner 
-
-
-
-<a name="LocalInstall"></a>
-
-## Local Installation
-
-WARNING: There are several obsolete versions on the internet,
-such as <a target="_blank" href="http://sourceforge.net/projects/ibatisjpetstore/">
-v4 on Sourceforge</a>.
-
-There are several variations
-
-http://support.neotys.com/misc/jpetstore-test.zip
-
-
-### MyBatis
-
-Rather than downloading a 
-<a target="_blank" href="https://github.com/mybatis/jpetstore-6/releases">release zip file</a>, 
-use a Git client, as the <a target="_blank" href="https://github.com/mybatis/jpetstore-6/blob/master/README.md">readme</a> recommends.
-
-TODO: Create a bootstrap script that does the following:
-
-0. Create a folder to hold. I prefer to have a container folder
-   (jpetstore) because there are multiple repositories:
-
-   ~/gits/jpetstore/jpetstore-6
-
-   ~/gits/jpetstore/mybatis-spring-boot-jpetstore<br />
-   is an alternative from Kazuki Shimizu of Japan.
-   It is implemented using <a target="_blank" href="http://www.thymeleaf.org/"> Thymeleaf</a> 3.0 templating.
-
-0. In a Terminal, obtain the whole repository with its history:
-
-   <pre><strong>
-   git clone https://github.com/mybatis/jpetstore-6.git
-   cd jpetstore-6
-   </strong></pre>
-
-0. Have Maven download and install <a href="#Dependencies">
-   dependencies</a> defined in pom.xml:
-
-   <pre><strong>
-   mvn clean package
-   </strong></pre>
-
-   JPetStore 6 should run in any Servlet 2.5 y JSP 2.1 compliant Java server.
-
-   Eclipse is not needed. You can run the sample from your favorite IDE or the command line.
-
-0. Startup the Tomcat server and deploy web application
-   using the
-   <a target="_blank" href="https://codehaus-cargo.github.io/cargo/Maven2+plugin.html">Cargo Maven plug-in</a>
-
-   <pre><strong>
-   mvn cargo:run
-   </strong></pre>
-
-   The pom.xml file has several versions of Tomcat loaded.
-
-0. In a browser, use the app as a user:
-
-   <pre><strong>
-   http://localhost:8080/jpetstore/
-   </strong></pre>
-
-   You should now see the entry screen:
-
-   <img width="272" alt="jpetstore6 enter store" src="https://cloud.githubusercontent.com/assets/300046/21746314/42beea02-d50e-11e6-8b2b-cdfebe3fee50.png">
-
-0. Click "Enter the store" for the 
-   <a href="#LandingPage">main menu</a>.
-
-### Change port
-
-0. To change the port from the default 8080 to something else, edit file:
-
-   <pre>target/cargo/configurations/tomcat8x/conf/server.xml</strong>
-
-0. Scroll down to the line:
-
-   <tt>
-   &LT;Connector SSLEnabled="false" URIEncoding="ISO-8859-1" connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443" scheme="http" secure="false"/>
-   </tt>
-
-0. Change the number.
-
-0. Save the file and restart the server.   
-
-
-<a name="Dependencies"></a>
-
-### Dependencies
-
-http://www.mybatis.org/jpetstore-6/dependency-info.html
-
-* Java 1.6 and above (1.8.11 at January 2017)
-
-* Spring 4 
-
-* Stripes - https://github.com/StripesFramework
-
-* MyBatis 3 SQL mapping framework for Java <br />
-   http://blog.mybatis.org/p/products.html
-
-   MyBatis mappers and dependency injection lets you build applications without dependencies.
-   Thus, the source has no code to deal with JDBC, to create objects or bind them or to handle transactions. 
-
-   (There is a port to .NET)
-
-   The iBATIS Database Layer uses simple XML descriptor filesto describe the inputs and outputs of each SQL statement. It allows the programmer to simply pass a JavaBean into a MappedStatement as a parameter (input) and receive a JavaBean as a result (output).  
-
-* Formatter Tag Library
-   by Tak Yoshida of ibatis.
-
-* Tomcat web server from the Apache Foundation.
-
-* JUnit for Mokito
-
-   Used by tests
-
-
-<a name="Monitoring"></a>
-
-## Monitoring
-
-Online Solution
-http://demo.kieker-monitoring.net/
-
-
-<a hrer="JavaCode"></a>
-
-## Java Code
-
-JPetStore v6 is vendor-independent open source freeware 
-first released <a target="_blank" href="http://www.theserverside.com/discussions/thread.tss?thread_id=14243">
-in 2002</a> in 3,154 lines of code. It uses the Jakarta Struts Model-View-Controller based presentation layer. It has NO SQL in code nor stored procedures running in a database, so is independent of database vendors (Oracle SQL in particular).
-PostgreSQL is free.
-
-It has no generated code, nor HTML in the database. 
-
-Eclipse is not required, but there is a 
-<a target="_blank" href="http://blog.mybatis.org/2016/12/mybatipse-eclipse-plugin-1024-is.html">
-MyBatis plug-in</a>
-
-Docs at http://www.mybatis.org/jpetstore-6/
-says:
-
-The purpose of JPetStore 6 is to demonstrate how to build a web application with very few classes and no advanced coding skills. You just need to know plain Java and SQL.
-
-Java source code is in the <a target="_blank" href="https://github.com/mybatis/jpetstore-6/tree/master/src/main/java/org/mybatis/jpetstore">src/mainjava/org/mybatis/jpetstore</a> folder.
-
-
-### Predecessors
-
-Sun created a J2EE Pet Store, in a massive 15,000 lines, 
-as a demonstration of various coding features (not for benchmarking).
-
-Microsoft contracted with Vertigo Software to create a sample .Net Pet Shop when it orginally debuted its .NET framework. The repo had 3,484 lines of code and was tuned for benchmarking speed rather than coding best practices.
+Because the PetClinic app was built for developers, 
+missing are some features in the app for use as a sample app
+for performance testing.
 
 
 <hr />
