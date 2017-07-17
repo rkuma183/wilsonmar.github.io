@@ -131,6 +131,31 @@ On August, 2016 Google announced</a>
 Cloud SQL announced, a hosted version of MySQL 5.7 for the Google Cloud Platform.
 
 
+<a name="DockerMySQL"></a>
+
+## MySQL Docker
+
+0. To start a mysql database in a docker container, run:
+
+   <pre><strong>docker-compose -f src/main/docker/mysql.yml up -d
+   </strong></pre>
+
+0. To stop it and remove the container, run:
+
+   <pre><strong>docker-compose -f src/main/docker/mysql.yml down
+   </strong></pre>
+
+0. To dockerize your application and all the services that it depends on,
+   build a docker image of your app by running:
+
+   <pre><strong>./mvnw package -Pprod docker:build
+   </strong></pre>
+
+0. Then run:
+
+   <pre><strong>docker-compose -f src/main/docker/app.yml up -d
+   </strong></pre>
+
 
 <a name="InstallMySQL"></a>
 
@@ -596,7 +621,7 @@ Or, if you don't want/need a background service you can just run:
    CAUTION: This is where I'm stuck now.
 
 
-## Interactive SQL Client #
+## Interactive SQL Clients #
 
 ### mysqladmin
 
@@ -750,6 +775,15 @@ Where command is a one or more of: (Commands may be shortened)
   version   Get version info from server
    </pre>
 
+0. Use mysqladmin to change password (replacing <em>[newpassword]</em>
+   with one you create)
+
+   <pre><strong>mysqladmin -u root password <em>[newpassword]</em>
+   </strong></pre>
+
+   PROTIP: Write the password in a secure document and paste it in the command
+   to be sure you have it correct in the future.
+
    ### SequelPro
 
    PROTIP: Use Sequel Pro's Export and Import features (use a MySQL dump) to move databases.
@@ -782,11 +816,11 @@ Where command is a one or more of: (Commands may be shortened)
    to be in folder <strong>/var/mysql</strong>, 
    create it and add a symbolic link to where the socket actually lives:
 
-   <tt><strong>cd \<br />
-   sudo mkdir /var/mysql<br />
-   sudo chmod 755 /var/mysql<br />
+   <pre><strong>cd \
+   sudo mkdir /var/mysql
+   sudo chmod 755 /var/mysql
    sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
-   </strong></tt>
+   </strong></pre>
 
    Alternately, installation of MySQL 5 by MacPorts places the Socket File in folder:
 
@@ -850,20 +884,19 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 0. To exit, type in quit and press Enter:
 
-   <tt><strong>quit
-   </strong></tt>
+   <pre><strong>quit
+   </strong></pre>
 
    Then bring up mysql again.
 
-0. To set automatic:
+0. To start automatically upon server start:
 
+   <pre>#start
+   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-#start
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-
-#stop
-launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-
+   #stop
+   launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+   </pre>
 
 
 
