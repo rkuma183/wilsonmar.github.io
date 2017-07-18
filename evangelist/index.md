@@ -17,6 +17,10 @@ Here are the specifics of concern to evangelists (links will appear when content
 
 The list above is partly an extension of the vocabulary defined in the Pragmatic Marketing approach. 
 
+A company’s job is to find a sustainable way to deliver value to customers, employees, and shareholders. To do this, the company must never lose sight of its GEM: its growth, engagement, and monetization.
+<a target="_blank" href="https://medium.com/startup-grind/3-pillars-of-the-most-successful-tech-products-230de0151633">*</a>
+
+
 ### What do technical evangelists do?
 
 Technical Evangelism is a new role even within some internet companies.
