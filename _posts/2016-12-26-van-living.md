@@ -5,10 +5,10 @@ excerpt: "When cars drive themselves, beds replace seats"
 tags: [GitHub]
 shorturl: "https://goo.gl/TY7bSn"
 image:
-# pic green easter island 2 hillside 1920x1080
-  feature: https://cloud.githubusercontent.com/assets/300046/15217452/d8d04062-1818-11e6-9a57-215db66655d2.jpg
-  credit: Audley Travel
-  creditlink: https://www.youtube.com/watch?v=Sq8qZoEr0nw&t=1m12s
+# pic autonomous-cars-1900x500-815k.png
+  feature: https://user-images.githubusercontent.com/300046/28310427-76f56532-6b7a-11e7-8548-19080bf3b5c9.png
+  credit: 
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-People going places in a car that drives itself is party bus.
+Going places in a car that drives itself is a party bus.
 
 I wrote these notes as the basis for a VR/AR project to visualize various
 configurations within a small van built for living off-the-grid for a short time.
