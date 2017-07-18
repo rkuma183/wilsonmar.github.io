@@ -420,7 +420,7 @@ in your root folder,
 and the editor will format your code according to the rules defined in the file
 for whatever type of file is being edited.
 
-It's supported by default in the Atom editor.
+It's supported by default in Atom and other editors.
 
 
 
