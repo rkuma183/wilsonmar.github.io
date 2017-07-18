@@ -378,8 +378,10 @@ Web pages:
 0. Expand the downloaded zip file.
 
    On a Mac:
-
-0. Move the Atom file to your Applications folder.
+0. Open a new Finder window and press shift+Command+A or click Go, then
+   Applications.
+0. Drag and drop the Atom app file from Downloads 
+   to your root Applications folder.
 0. If an existing file is there, replace it.
 0. Delete the zip file downloaded.
 
