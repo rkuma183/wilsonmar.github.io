@@ -91,14 +91,15 @@ lts/argon -> v4.6.0 (-> N/A)
    Since many prefer to use Homebrew for everything else,
    it's annoying to remember this when.
 
-   nvm install node --reinstall-packages-from=node
+   <pre><strong>nvm install node --reinstall-packages-from=node
+   </strong></pre>
+
+   ### Examples of Node modules
 
 0. List what modules are installed in the traditional location for Node:
 
    <pre><strong>ls /usr/local/lib/node_modules
    </strong></pre>
-
-   ### Examples of Node modules
 
    * bower
    * firebase-tools 
@@ -113,6 +114,7 @@ lts/argon -> v4.6.0 (-> N/A)
    * traceur
    * serverless
    * npm
+   <br /><br />
 
    QUESTION: When Node is installed using Homebrew,
    same location?
@@ -134,8 +136,6 @@ lts/argon -> v4.6.0 (-> N/A)
 
    <pre><strong>nvm 
    </strong></pre>
-
-   At time of this writing, there were 376 versions.
 
 0. List files in the traditional location when NPM installs Node packages:
 
@@ -160,7 +160,7 @@ lts/argon -> v4.6.0 (-> N/A)
 
    ### Yarn
 
-   An alternative to NPM is <strong>yarn</strong>.
+   An alternative to NPM is <strong>yarn</strong>, which uses Node.
 
    To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
 
@@ -921,7 +921,8 @@ Bash completion has been installed to:
    <pre><strong>ls /usr/local/lib/node_modules
    </strong></pre>
 
-   The response is simply "npm".
+   The response contains npm plus
+   firebase-tools, http-server, gatsby, iothub-explorer, serverless
 
 <hr />
 
@@ -931,11 +932,11 @@ Bash completion has been installed to:
 
    <a name="Uninstall"></a>
 
-   ### Uninstall default install #
+### Uninstall default Brew install #
 
 0. If node was previously installed, uninstall it:
 
-      <pre><strong>brew uninstall node
+      <pre><strong>brew uninstall node --ignore-dependencies node
       </strong></pre>
 
 0. If node was previously installed,
