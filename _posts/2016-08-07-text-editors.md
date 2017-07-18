@@ -398,14 +398,15 @@ Web pages:
 
    To enable Spell Check for your current file type: put your cursor in the file:
 
-0. Open the Command Palette (cmd-shift-p), 
-   and run the Editor: Log Cursor Scope command. 
+0. Open the Command Palette (cmd-shift-p)
+0. Run the Editor: Log Cursor Scope command. 
 
-   This triggers a notification which will contain a list of scopes. The first scope that's listed is the one you should add to the list of scopes in the settings for the Spell Check package. 
+   This triggers a notification containing a list of scopes. 
+   The first scope listed is the one you should add to the list of scopes in the settings for the Spell Check package. 
 
    Examples: source.coffee, text.plain, text.html.basic.
 
-   Press <strong>cmd-shift-:</strong> 
+0. Press <strong>cmd-shift-:</strong> 
    to bring up the list of corrections when your cursor is on a misspelled word.
 
 
