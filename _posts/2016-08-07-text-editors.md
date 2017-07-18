@@ -374,18 +374,29 @@ Web pages:
    The site recognizes your operating system (OS X, Windows, or Linux)
    and presents the appropriate download button.
 
+0. Click Download to your Downloads folder.
+0. Expand the downloaded zip file.
+
+   On a Mac:
+
+0. Move the Atom file to your Applications folder.
+0. If an existing file is there, replace it.
+0. Delete the zip file downloaded.
+
 0. <a target="_blank" href="https://confirmsubscription.com/h/i/FDEEF15834EF73C7">Sign up for updates</a>
 
-0. Follow Twitter @AtomEditor
+0. Follow <a target="_blank" href="https://www.twitter.com/AtomEditor">
+   Twitter @AtomEditor</a>
 
    Atom has package control, themes, auto-completion built-in.
 
-* https://github.com/atom/spell-check
-  doesn't work
-  per http://stackoverflow.com/questions/27731981/use-spell-check-in-code-comments
+   * https://github.com/atom/spell-check
+   doesn't work
+   per http://stackoverflow.com/questions/27731981/use-spell-check-in-code-comments
 
-   To enable Spell Check for your current file type: put your cursor in the file,
-   open the Command Palette (cmd-shift-p), 
+   To enable Spell Check for your current file type: put your cursor in the file:
+
+0. Open the Command Palette (cmd-shift-p), 
    and run the Editor: Log Cursor Scope command. 
 
    This triggers a notification which will contain a list of scopes. The first scope that's listed is the one you should add to the list of scopes in the settings for the Spell Check package. 
