@@ -128,6 +128,8 @@ Keywords in quotes define the various
    The PetClinic app is for a group of known vets who take care of 
    pets owned by owners.
 
+   ### Network viability
+
    This type of load test is run to 
    detect network conditions (variability) between 
    clients (load generators) and servers --
@@ -153,7 +155,7 @@ Keywords in quotes define the various
    the top menu bar remaining visible in all screens throughout the app.
 
    0. Click FIND OWNERS.
-   0. Click VETERANARIAN.
+   0. Click VETERINARIAN.
    0. Click Errors.
    0. Click Home.
    <br /><br />
@@ -266,7 +268,7 @@ Keywords in quotes define the various
    The emulation scripts needs to recognize and handle error conditions
    such as invalid data, duplicate add attempts, etc.
 
-   NOTE: The PetClinic app does not provide a UI to add Veteranarians.
+   NOTE: The PetClinic app does not provide a UI to add Veterinarians.
    But the UI does provide a link to expose a file the app uses 
    internally to populate the Veternarian screen.
    Such a link is not usually exposed in app end-user UIs.
