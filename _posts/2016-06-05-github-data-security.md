@@ -383,9 +383,19 @@ environment variables.
 
 ## Automatic Encryption
 
-https://gist.github.com/shadowhand/873637
-explains how to 
+<a target="_blank" href="https://gist.github.com/shadowhand/873637">
+This blog</a> explains how to 
+keep text at rest in GitHub is encrypted.
+It uses Git hooks to 
+automatically encrypt files before pushing to GitHub 
+and de-crypt while pulling from GitHub.
 
+The hook program can be written to encrypt files with a specific name
+such as "secret".
+
+PROTIP: This is not really a practical approach for very sensitive data
+because, on the long term encryption can be hacked given enough time
+on supercomputers now commonly available on cloud services.
 
 
 ## Resources #
