@@ -15,24 +15,59 @@ comments: true
 
 {% include _toc.html %}
 
-Machine learning is a type of AI (Artificial Intelligence) that enables computers to do things without 
-being explicitly programmed by human developers. 
-EXAMPLE: In 2016, IBM's Watson software was able to beat the Jeopardy game champion
-by "learning" from books and encyclopedias. 
+Google CEO Sundar Pichai said in 2016:
 
-In other words, machine learning builds a "model" from <strong>example</strong> 
-inputs to make data-driven predictions
+> "Machine learning is a core, transformative way by which we’re rethinking how we’re doing everything. We are thoughtfully applying it across all our products, be it search, ads, YouTube, or Play. And we’re in early days, but you will see us — in a systematic way — apply machine learning in all these areas."
+
+Machine learning is a type of AI (Artificial Intelligence) 
+that enables computers to do things without 
+being explicitly programmed by human developers. 
+
+Use of hard-coded rules crafted by human programmers is called "symbolic AI”. 
+This was the paradigm with "expert systems" in the 1980s.
+
+Rather than explicit programming, Machine Learning algorithms identify identify 
+rules through "training” based on many examples.
+
+For example, in 2016, IBM's Watson software was able to beat the Jeopardy game champion
+by "learning" from books and encyclopedias. 
+The software makes use of a "model" from <strong>example</strong> 
+inputs to make predictions
 vs. following strictly static program instructions (logic defined by human developers).
 
-IBM's programmers only created the "algorithms" that enabled the computer to learn.
+Machine Learning programmers only create the program that enables the computer to learn.
+
 Machine learning algorithms identify information from data fed through "generic" (general purpose) algorithms which 
-build their own logic from detecting <strong>patterns</strong> within the data.
+build their own logic from detecting <em>patterns</em> within the data.
 
-Patterns are recognized by neural network algorithms. A neural network has multiple layers. At the top (or left) layer, the network trains on a specific set of "features" and then sends that information to the next layer. 
-The network takes that information, combines it with other features and passes it to the next layer, and so on.
+Patterns are recognized by neural network algorithms. 
+A neural network has multiple layers. 
+At the top (or left) input layer, 
+the network trains on a specific set of "features" and then sends that information to the next layer. 
+That combines it with other features and passes it to the next layer, and so on.
 
-Due to the advancement of distributed compute resources, organizations are 
-generating an torrant of image, text, and voice data from which insights are not previously possible.
+Models using a small number of layers are called "shallow learning”.
+
+"Deep learning" is a specific subfield of machine learning. 
+The "deep" in "deep learning" is not about "deeper” understanding, but 
+about the depth of various filters in a multi-stage information distillation operation. 
+Each stage extracts some meaning from different representations of the input. 
+
+Deep learning learns 
+all layers of representation "greedily", in parallel at the same time, 
+rather than each layer in succession.
+Intermediate incremental representations are learned jointly.
+Each layer is updated to follow the representational needs of layers above and below itself.
+
+
+## Gradient Boosting
+
+To address shallow learning problems, 
+where structured data is available, 
+"gradient boosting machines" have been used.
+
+Practitioners of gradient boosting make use of the XGB library, 
+which supports both the two most popular languages of data science: Python and R. 
 
 
 ## Introductory Resources
@@ -184,6 +219,34 @@ as opposed to a large amount of data.
 
 From http://www.infoworld.com/article/3163525/analytics/review-the-best-frameworks-for-machine-learning-and-deep-learning.html
 
+In 2007, Nvidia launched CUDA, a C++ programming interface for its line of 
+GPUs (Graphic Processing Units) which replaced clusters of less efficient CPUs.
+
+In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
+
+
+### Machine Learning frameworks
+
+Scikit-learn 0.18.1
+from Scikit-learn
+
+   * http://www.infoworld.com/article/3158509/analytics/review-scikit-learn-shines-for-simpler-machine-learning.html
+
+   * Mature documentation and libraries
+
+   * Python-based, but does not support PyPy compiler
+
+Spark MLlib 2.01
+from Apache Software Foundation
+
+   * http://www.infoworld.com/article/3141605/artificial-intelligence/review-spark-lights-up-machine-learning.html
+
+   * Written in Scala and uses the linear algebra package Breeze which uses netlib-java.
+
+   * Get data easily from Spark big-data clusters
+
+   * Supported in the Databricks cloud
+
 
 ### Deep Learning Frameworks
 
@@ -192,7 +255,7 @@ from Google
 
    * http://www.infoworld.com/article/3127397/artificial-intelligence/review-tensorflow-shines-a-light-on-deep-learning.html
 
-Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2)
+Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2), as of 2017,
 from Microsoft
 
    * http://www.infoworld.com/article/3138507/artificial-intelligence/review-microsoft-takes-on-tensorflow.html<br />
@@ -227,25 +290,11 @@ from Distributed Machine Learning...
 
    * Ahead of TensorFlow with embed imperative tensor operations.
 
-### Machine Learning frameworks
 
-Scikit-learn 0.18.1
-from Scikit-learn
 
-   * http://www.infoworld.com/article/3158509/analytics/review-scikit-learn-shines-for-simpler-machine-learning.html
 
-   * Mature documentation and libraries
+## More #
 
-   * Python-based, but does not support PyPy compiler
+This is one of a series on Artificial Intelligence:
 
-Spark MLlib 2.01
-from Apache Software Foundation
-
-   * http://www.infoworld.com/article/3141605/artificial-intelligence/review-spark-lights-up-machine-learning.html
-
-   * Written in Scala and uses the linear algebra package Breeze which uses netlib-java.
-
-   * Get data easily from Spark big-data clusters
-
-   * Supported in the Databricks cloud
-
+{% include ai_links.html %}

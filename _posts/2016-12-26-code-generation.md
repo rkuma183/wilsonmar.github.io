@@ -162,3 +162,12 @@ Swagger-codegen generates client code from Swagger specification files.
 ## 5. Gen UI based on Entity Models
 
 [JHipster](/jhipster/)
+
+
+## 6. Gen UI based on an image of a screen
+
+## More #
+
+This is one of a series on Artificial Intelligence:
+
+{% include ai_links.html %}
