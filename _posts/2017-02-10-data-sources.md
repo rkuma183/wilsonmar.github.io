@@ -20,11 +20,14 @@ Here is a list of data avaiable.
 
 I'd like to see how different people work on the same set of data:
 
-<img width="963" alt="watson visualizations" src="https://cloud.githubusercontent.com/assets/300046/23342447/6c7e5bac-fc28-11e6-9a8d-112ef1836b57.png">
+<a target="_blank" title="watson visualizations" href="https://cloud.githubusercontent.com/assets/300046/23342447/6c7e5bac-fc28-11e6-9a8d-112ef1836b57.png">
+<img width="963" alt="watson visualizations" src="https://cloud.githubusercontent.com/assets/300046/23342447/6c7e5bac-fc28-11e6-9a8d-112ef1836b57.png"></a>
 
 
 
 ## Images
+
+### MNIST Number Images
 
 Instead of downloading yourself, note that the 
 <a target="_blank" href="http://docs.floydhub.com/guides/datasets/">
@@ -32,9 +35,11 @@ Floydhub.com</a> has these image datasets already on their servers for Machine L
 
 <a target="_blank" href="http://yann.lecun.com/exdb/mnist/">
 http://yann.lecun.com/exdb/mnist</a><br />
-The MNIST data (from Lecun, the Godfather of ML) 
-has 55,000 28x28 pixel images of hand-written letters.
+On the website of the "Godfather of ML", Yann Lecun)</a>
+is the "hello world" of deep learning --
+55,000 28x28 pixel images of hand-written letters.
 Each image is labeled with the number written in the image.
+The "NIST" in "MNIST" is for the US National Institute of Technology.
 
    * <a target="_blank" href="https://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html">
    this</a> lists methods by their error rate.
@@ -42,6 +47,15 @@ Each image is labeled with the number written in the image.
    * <a target="_blank" href="https://www.youtube.com/watch?v=LqLyrl-agOw&t=1h32m44s">
    MNIST using a "flashlight" visualization by Tensorboard</a> 
    by Dandelion at the TensorFlow Dev Summit Feb. 2017.
+
+   * The MNIST dataset comes pre-loaded in Keras, in the form of a set of four Numpy arrays,
+   loaded using this code that references two sets of data -- the training set and testing set.
+
+   <pre>from keras.datasets import mnist
+(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+   </pre>
+
+
 
 <a target="_blank" href="http://mscoco.org/dataset/#download">
 http://mscoco.org/dataset/#download</a><br />
