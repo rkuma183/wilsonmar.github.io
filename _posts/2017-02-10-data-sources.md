@@ -37,7 +37,7 @@ Floydhub.com</a> has these image datasets already on their servers for Machine L
 http://yann.lecun.com/exdb/mnist</a><br />
 On the website of the "Godfather of ML", Yann Lecun)</a>
 is the "hello world" of deep learning --
-55,000 28x28 pixel images of hand-written letters.
+55,000 28x28 pixel images of hand-written numbers (from 0 thru 9).
 Each image is labeled with the number written in the image.
 The "NIST" in "MNIST" is for the US National Institute of Technology.
 
@@ -55,6 +55,10 @@ The "NIST" in "MNIST" is for the US National Institute of Technology.
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
    </pre>
 
+   The "shape" of an array is the number of items and pixel height and width:
+
+   <pre>train_images.shape
+(60000, 28, 28)</pre>
 
 
 <a target="_blank" href="http://mscoco.org/dataset/#download">

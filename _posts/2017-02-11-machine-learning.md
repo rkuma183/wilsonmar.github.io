@@ -41,12 +41,20 @@ Machine learning algorithms identify information from data fed through "generic"
 build their own logic from detecting <em>patterns</em> within the data.
 
 Patterns are recognized by neural network algorithms. 
-A neural network has multiple layers. 
+A neural network has multiple "layers" or data-processing modules that "distill" data.
+
 At the top (or left) input layer, 
-the network trains on a specific set of "features" and then sends that information to the next layer. 
+the network trains on a specific set of "features" 
+and then sends that information to the next layer. 
 That combines it with other features and passes it to the next layer, and so on.
 
 Models using a small number of layers are called "shallow learning”.
+
+The last layer is a 10-way "softmax" layer returning an array of 
+10 probability scores (summing to 1).
+
+
+## Deep Learning
 
 "Deep learning" is a specific subfield of machine learning. 
 The "deep" in "deep learning" is not about "deeper” understanding, but 
@@ -59,6 +67,14 @@ rather than each layer in succession.
 Intermediate incremental representations are learned jointly.
 Each layer is updated to follow the representational needs of layers above and below itself.
 
+## Terminology
+
+Machine learning uses some terms that have alternate meanings for words also used in programming:
+
+* a "category" of a classification problem is called a "class". 
+* Data points are called "samples". 
+* The class associated with a specific sample is called a "label".
+<br /><br />
 
 ## Gradient Boosting
 
