@@ -354,10 +354,17 @@ to a Convolutional Neural Network (CNN) by allowing the CNN layers to be time di
 
 ## Metrics
 
-when using its training data, a "loss function" is used to measure how well a neural network layer meets its objective. It is used to steer itself in the right direction.
+when using its training data, a <strong>"loss function"</strong> 
+is used to measure how well a neural network layer meets its objective. 
+Thus, some call it an "objective function".
 
-An "optimizer" is the mechanism a network uses to update itself 
+It is called a function because it's the result of changes, and thus used to
+determine whether changes are moving in the right direction.
+Changes are made to minimize the loss function.
+
+An <strong>"optimizer"</strong> is the mechanism a network uses to update itself 
 (based on data received and loss function values).
+It implements a specific variant for <strong>stochastic gradient descent</strong>.
 
 
 ## Gradient Boosting

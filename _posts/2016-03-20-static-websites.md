@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Static websites"
+title: "Static websites (Jekyll)"
 excerpt: "Version controlled simplicity"
 tags: [website, builder, simplicity, jekyll]
 image:
@@ -134,6 +134,10 @@ Surveys are:
 ## Sites using this approach #
 
 * <a target="_blank" href="http://myers.io/posts/">myers.io/posts</a>
+ http://blog.mgechev.com/2016/04/10/
+
+* <a target="_blank" href="http://blog.mgechev.com/2016/04/10/scalable-javascript-single-page-app-angular2-application-architecture/">
+ Scalable Single-Page Application Architecture</a>
 
 
 ## <a name="ReactDriven"> React-driven generation of SPA pages</a> #
