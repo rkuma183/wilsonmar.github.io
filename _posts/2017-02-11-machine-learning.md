@@ -29,13 +29,20 @@ This was the paradigm with "expert systems" in the 1980s.
 Rather than explicit programming, Machine Learning algorithms identify identify 
 rules through "training” based on many examples.
 
+### Examples
+
 For example, in 2016, IBM's Watson software was able to beat the Jeopardy game champion
 by "learning" from books and encyclopedias. 
 The software makes use of a "model" from <strong>example</strong> 
 inputs to make predictions
 vs. following strictly static program instructions (logic defined by human developers).
+IBM only created the program that enables the computer to learn.
 
-Machine Learning programmers only create the program that enables the computer to learn.
+Other examples:
+
+* Estimating the price of a house given real estate data (multiple regression)
+* Classifying movie reviews from imdb.com into positive and negative (binary) categories
+* Classifying news wires by their topic (multi-class classification)
 
 Machine learning algorithms identify information from data fed through "generic" (general purpose) algorithms which 
 build their own logic from detecting <em>patterns</em> within the data.
@@ -72,8 +79,9 @@ Machine learning uses some terms that have alternate meanings for words also use
 
 The supervised learning approach aims to predict an output given an input
 by making use of a <strong>labeled</strong> data set of training data (examples) 
-to which we know the "answer". It gets feedback on what is
-correct or not. The training correlates features 
+to which we know the "answer" or <strong>target</strong>. 
+It gets feedback on what is correct or not. 
+The training correlates features 
 to outputs in order to predict outputs based on new inputs.
 
    * For text processing (Sentiment Analysis) 
@@ -117,6 +125,7 @@ It <strong>classifies</strong> patterns and clusters data.
 
    * Autoencoders encode their own structure.
    They are feature extractors with the same number of input and output nodes.
+
    A hidden layer in Autoencoders provides a bottleneck
    of nodes reconstruction of input layer.
    So they can be used for image compression.
@@ -326,11 +335,26 @@ In Python Numpy, a data type of "float32" or "float64" is a scalar tensor (or sc
 
 "Selecting" specific elements in a tensor is called "tensor slicing".
 
+## Axes for Shape
+
+2D tensors containing simple vector data of shape (samples, features)
+are typically processed in "fully-connected" ("densely-connected" or "dense") layers 
+using the Dense class in Keras. 
+
+3D tensors containing sequence data of shape (samples, timesteps, features)
+are typically processed by "recurrent" layers such as a LSTM layer. 
+
+4D image data is typically processed by Convolution2D layers.
+
+5D video data use the reshape layer.
+See https://github.com/anayebi/keras-extra
+for using Extra Layers for Keras to connect a RNN (Recurrent Neural Network)
+to a Convolutional Neural Network (CNN) by allowing the CNN layers to be time distributed.
+
 
 ## Metrics
 
-A "loss function" is used to measure how well a neural network is meeting its objective
-when using its training data. It is used to steer itself in the right direction.
+when using its training data, a "loss function" is used to measure how well a neural network layer meets its objective. It is used to steer itself in the right direction.
 
 An "optimizer" is the mechanism a network uses to update itself 
 (based on data received and loss function values).
