@@ -44,6 +44,8 @@ Other examples:
 * Classifying movie reviews from imdb.com into positive and negative (binary) categories
 * Classifying news wires by their topic (multi-class classification)
 
+### Algorithms
+
 Machine learning algorithms identify information from data fed through "generic" (general purpose) algorithms which 
 build their own logic from detecting <em>patterns</em> within the data.
 
@@ -54,6 +56,8 @@ At the top (or left) input layer,
 the network trains on a specific set of "features" 
 and then sends that information to the next layer. 
 That combines it with other features and passes it to the next layer, and so on.
+
+The design of the layers of a particular network is called a <strong>model</strong>.
 
 Models using a small number of layers are called "shallow learning”.
 
@@ -68,7 +72,7 @@ Each of the 10 contains the probability that the digit image belongs to one of
 
 Machine learning uses some terms that have alternate meanings for words also used in programming:
 
-* a "category" of a classification problem is called a "class". 
+* a "category" of a classification problem is called a "class" (not an object). 
 * Data points are called "samples". 
 * A "label" is the class associated with a specific sample.
 
@@ -197,6 +201,7 @@ is where a neural network
 learns from one (or a few) examples, 
 as opposed to a large amount of data.
 
+<a name="DeepLearning"></a>
 
 ## Deep Learning
 
@@ -209,7 +214,8 @@ Deep learning learns
 all layers of representation "greedily", in parallel at the same time, 
 rather than each layer in succession.
 Intermediate incremental representations are learned jointly.
-Each layer is updated to follow the representational needs of layers above and below itself.
+Each layer is updated to follow the representational needs of layers both 
+above and below itself.
 
 
 <hr />
@@ -218,11 +224,13 @@ Each layer is updated to follow the representational needs of layers above and b
 
 From http://www.infoworld.com/article/3163525/analytics/review-the-best-frameworks-for-machine-learning-and-deep-learning.html
 
-In 2007, Nvidia launched CUDA, a C++ programming interface for its line of 
-GPUs (Graphic Processing Units) begins to replace clusters of less efficient CPUs.
+Python or R is supported. 
+Python is extended by libraries:
 
-In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
-
+* for visualization: Matplotlib, Seaborn, Bokeh, Yellowbrick
+* for statistics and linear algebra: NumPy, SciPy
+* for vectorized computing: Pandas
+* for Machine Learning, see below:
 
 ### Machine Learning frameworks
 
@@ -247,6 +255,23 @@ from Apache Software Foundation
    * Supported in the Databricks cloud
 
 
+Keras is a <strong>model-level</strong> modular library, 
+providing high-level building blocks for developing deep learning models.
+
+Keras runs on both CPU and GPU through 
+backend engines Google's TensorFlow 
+and Theano developed by the MILA lab at Universite de Montreal.
+
+In 2007, Nvidia launched CUDA, a C++ programming interface for its line of 
+GPUs (Graphic Processing Units) begins to replace clusters of less efficient CPUs.
+
+In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
+
+PROTIP: Bypass manual installation by using the Docker image for Keras at<br />
+https://github.com/fchollet/keras/tree/master/docker
+based on Ubuntu.
+
+
 ### Deep Learning Frameworks
 
 TensorFlow r0.10
@@ -254,8 +279,12 @@ from Google
 
    * http://www.infoworld.com/article/3127397/artificial-intelligence/review-tensorflow-shines-a-light-on-deep-learning.html
 
-Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2), as of 2017,
-from Microsoft
+   * When running on CPUs, TensorFlow wraps itself over a low-level library for tensor operations called Eigen. BLAS
+   * When running on GPUs, TensorFlow wraps itself over a library of optimized deep learning operations called cuDNN (with CUDA drivers developed by NVIDIA).
+   * Google TPU?
+
+
+Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2), as of 2017:
 
    * http://www.infoworld.com/article/3138507/artificial-intelligence/review-microsoft-takes-on-tensorflow.html<br />
 
@@ -290,7 +319,8 @@ from Distributed Machine Learning...
    * Ahead of TensorFlow with embed imperative tensor operations.
 
 
-### Data representation
+
+## Data representation
 
 Tensors generalize matrices to an arbitrary number of axes.
 
@@ -316,7 +346,7 @@ x = np.array([[1, 2, 3, 4, 5],
               [100, 101, 102, 103, 104]])
    </pre>
 
-The first "column" are the values 1, 10, and 100 from the three lines (rows).
+Each vertical "column" is like a variable. The first one has values 1, 10, and 100 from the three lines (rows), which are akin to a set of observations for a particular point in time.
 
 The "shape" of the above is (3,5) for 3 vectors each containing 5 values.
 
@@ -344,12 +374,24 @@ using the Dense class in Keras.
 3D tensors containing sequence data of shape (samples, timesteps, features)
 are typically processed by "recurrent" layers such as a LSTM layer. 
 
-4D image data is typically processed by Convolution2D layers.
+4D tensors containing image data is typically processed by Convolution2D layers.
 
-5D video data use the reshape layer.
+5D tensors containing video data use the reshape layer.
 See https://github.com/anayebi/keras-extra
 for using Extra Layers for Keras to connect a RNN (Recurrent Neural Network)
 to a Convolutional Neural Network (CNN) by allowing the CNN layers to be time distributed.
+
+### Pandas
+
+The Padas Python library reads databases directly into
+<a title="[38:15] Charles Givre at Metis 20170720" target="_blank" href="https://livestream.com/metis/events/7594894/videos/160063655">these Pandas structures</a>:
+
+| Dimensions | Name | Description |
+| ---------- | ---- | ----------- |
+| 1 | "Series" | Indexed 1 dimension data structure |
+| 2 | "Timeseries" | Series using time stamps as an index |
+| 3 | "DataFrame" | A two-dimensional table |
+| 4 | "Panel" | A three-dimensional table data structure |
 
 
 ## Metrics
