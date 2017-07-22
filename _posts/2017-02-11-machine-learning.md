@@ -50,70 +50,28 @@ That combines it with other features and passes it to the next layer, and so on.
 
 Models using a small number of layers are called "shallow learning”.
 
-The last layer is a 10-way "softmax" layer returning an array of 
-10 probability scores (summing to 1).
-
-
-## Deep Learning
-
-"Deep learning" is a specific subfield of machine learning. 
-The "deep" in "deep learning" is not about "deeper” understanding, but 
-about the depth of various filters in a multi-stage information distillation operation. 
-Each stage extracts some meaning from different representations of the input. 
-
-Deep learning learns 
-all layers of representation "greedily", in parallel at the same time, 
-rather than each layer in succession.
-Intermediate incremental representations are learned jointly.
-Each layer is updated to follow the representational needs of layers above and below itself.
 
 ## Terminology
+
+An example of the last layer which presents the output/decision 
+(from recognizing what number is written down in a photo from the MNIST collection)
+is a 10-way "softmax" layer returning an array of 10 probability scores (all summing to 1).
+Each of the 10 contains the probability that the digit image belongs to one of 
+10 digit <strong>classes</strong>.
 
 Machine learning uses some terms that have alternate meanings for words also used in programming:
 
 * a "category" of a classification problem is called a "class". 
 * Data points are called "samples". 
-* The class associated with a specific sample is called a "label".
-<br /><br />
-
-## Gradient Boosting
-
-To address shallow learning problems, 
-where structured data is available, 
-"gradient boosting machines" have been used.
-
-Practitioners of gradient boosting make use of the XGB library, 
-which supports both the two most popular languages of data science: Python and R. 
-
-
-## Introductory Resources
-
-YOUTUBE:
-<a target="_blank" href="https://www.youtube.com/watch?v=BR9h47Jtqyw">
-A friendly introduction to Deep Learning and Neural Networks</a>
-by Luis Serrano
-
-<a target="_blank" href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471">
-Machine Learning is Fun!</a> (article on Medium)
-self-proclaimed "the world’s easiest introduction to Machine Learning".
-
-Adam Geitgy's introduction of Machine Learning
-https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471/
-"for anyone who is curious about machine learning but has no idea where to start."
-
-Tool:
-<a target="_blank" href="http://bsft.io/x/115bvm?uid=89513dce-39c3-47ab-a0f6-a97f7825c62b&mid=cf8e63e2-44c8-4ae3-b033-41f708052cca">
-Neural Network Playground</a>.
-
+* A "label" is the class associated with a specific sample.
 
 
 ## Types of machine learning
 
 ### Supervised learning 
 
-aims to predict an output given an input.
-It makes use of 
-a <strong>labeled</strong> data set of training data (examples) 
+The supervised learning approach aims to predict an output given an input
+by making use of a <strong>labeled</strong> data set of training data (examples) 
 to which we know the "answer". It gets feedback on what is
 correct or not. The training correlates features 
 to outputs in order to predict outputs based on new inputs.
@@ -231,12 +189,28 @@ learns from one (or a few) examples,
 as opposed to a large amount of data.
 
 
-## Tools
+## Deep Learning
+
+"Deep learning" is a specific subfield of machine learning. 
+The "deep" in "deep learning" is not about "deeper” understanding, but 
+about the depth of various filters in a multi-stage information distillation operation. 
+Each stage extracts some meaning from different representations of the input. 
+
+Deep learning learns 
+all layers of representation "greedily", in parallel at the same time, 
+rather than each layer in succession.
+Intermediate incremental representations are learned jointly.
+Each layer is updated to follow the representational needs of layers above and below itself.
+
+
+<hr />
+
+## Tools for Machine Learning
 
 From http://www.infoworld.com/article/3163525/analytics/review-the-best-frameworks-for-machine-learning-and-deep-learning.html
 
 In 2007, Nvidia launched CUDA, a C++ programming interface for its line of 
-GPUs (Graphic Processing Units) which replaced clusters of less efficient CPUs.
+GPUs (Graphic Processing Units) begins to replace clusters of less efficient CPUs.
 
 In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
 
@@ -306,6 +280,92 @@ from Distributed Machine Learning...
 
    * Ahead of TensorFlow with embed imperative tensor operations.
 
+
+### Data representation
+
+Tensors generalize matrices to an arbitrary number of axes.
+
+A tensor that contains only one number is called a <strong>"scalar"</strong> 
+(aka "scalar tensor"), also called a <strong>"0D tensor"</strong> because
+in Numpy the `ndim` attribute of a scalar tensor has 0 axis (ndim == 0).
+(Yes, it confuses axis with dimensions)
+
+An array (list) of several numbers is called a <strong>vector</strong> 
+or <strong>1D tensor</strong> having one axis. 
+As Lecun explains it:
+
+   A vector of 5 entries is called a "5-dimensional vector". 
+   Do not confuse a 5-dimensional vector with a 5D tensor! 
+   A 5D vector has only one axis and has 5 dimensions along its axis, 
+   while a 5D tensor has 5 axes (and may have any number of dimensions along each axis).
+
+An array of vectors is a matrix, or <strong>2D tensor</strong> of two axes.
+
+   <pre>
+x = np.array([[1, 2, 3, 4, 5],
+              [10, 11, 12, 13, 14],
+              [100, 101, 102, 103, 104]])
+   </pre>
+
+The first "column" are the values 1, 10, and 100 from the three lines (rows).
+
+The "shape" of the above is (3,5) for 3 vectors each containing 5 values.
+
+A <strong>3D tensor</strong> is defined as a "cube" of numbers.
+The MNIST library of 60,000 sample images, each consisting of 28x28 black-and-white pixels
+(each pixel represented by a number range from white to black),
+has a <strong>shape</strong> of (60000,28,28).
+
+4D tensors are used to process matrices of color pictures :<br />
+(samples, width, height, channels)
+
+5D tensors are used when processing video data:<br />
+(samples, frames, width, height, color_depth).
+
+In Python Numpy, a data type of "float32" or "float64" is a scalar tensor (or scalar array).
+
+"Selecting" specific elements in a tensor is called "tensor slicing".
+
+
+## Metrics
+
+A "loss function" is used to measure how well a neural network is meeting its objective
+when using its training data. It is used to steer itself in the right direction.
+
+An "optimizer" is the mechanism a network uses to update itself 
+(based on data received and loss function values).
+
+
+## Gradient Boosting
+
+To address shallow learning problems, 
+where structured data is available, 
+"gradient boosting machines" have been used.
+
+Practitioners of gradient boosting make use of the XGB library, 
+which supports both the two most popular languages of data science: Python and R. 
+
+
+
+
+## Introductory Resources
+
+YOUTUBE:
+<a target="_blank" href="https://www.youtube.com/watch?v=BR9h47Jtqyw">
+A friendly introduction to Deep Learning and Neural Networks</a>
+by Luis Serrano
+
+<a target="_blank" href="https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471">
+Machine Learning is Fun!</a> (article on Medium)
+self-proclaimed "the world’s easiest introduction to Machine Learning".
+
+Adam Geitgy's introduction of Machine Learning
+https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471/
+"for anyone who is curious about machine learning but has no idea where to start."
+
+Tool:
+<a target="_blank" href="http://bsft.io/x/115bvm?uid=89513dce-39c3-47ab-a0f6-a97f7825c62b&mid=cf8e63e2-44c8-4ae3-b033-41f708052cca">
+Neural Network Playground</a>.
 
 
 
