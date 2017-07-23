@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Machine Learning"
-excerpt: "It can do it for you"
+excerpt: "It can do it for you before it does you in"
 tags: [Python, Machine Learning]
 shorturl: "https://goo.gl/iR7sMJ"
 image:
@@ -22,44 +22,60 @@ Google CEO Sundar Pichai said in 2016:
 Machine learning is a type of AI (Artificial Intelligence) 
 that enables computers to do things without 
 being explicitly programmed by human developers. 
-
-Use of hard-coded rules crafted by human programmers is called "symbolic AI”. 
-This was the paradigm with "expert systems" in the 1980s.
-
-Rather than explicit programming, Machine Learning algorithms identify identify 
+Rather than explicit programming, Machine Learning algorithms identify 
 rules through "training” based on many examples.
 
-### Examples
+## Beginning from games
 
-For example, in 2016, IBM's Watson software was able to beat the Jeopardy game champion
+In 2016, IBM's Watson software beat the Jeopardy game champion
 by "learning" from books and encyclopedias. 
 The software makes use of a "model" from <strong>example</strong> 
 inputs to make predictions
 vs. following strictly static program instructions (logic defined by human developers).
 IBM only created the program that enables the computer to learn.
 
-Other examples:
+In 2017, the top ranked player in the Chinese game Go, 
+considered the most complex game ever, was
+<a target="_blank" href="https://www.nytimes.com/2017/05/23/business/google-deepmind-alphago-go-champion-defeat.html">
+defeated by Google's AlphaGo</a>, which is based on Google's DeepMind acquisition.
+The software made moves that many considered illogical.
 
-* Estimating the price of a house given real estate data (multiple regression)
-* Classifying movie reviews from imdb.com into positive and negative (binary) categories
-* Classifying news wires by their topic (multi-class classification)
+Also in 2017, all top-ranked poker players were
+<a target="_blank" href="http://time.com/4656011/artificial-intelligence-ai-poker-tournament-libratus-cmu/">
+bested by software named Libratus from Tuomas Sandholm at CMU</a>.
+The software adjusted its strategies during the tournament.
+And its algorithms for strategy and negotiation are game-independent, 
+meaning they're not just about poker. 
 
-### Algorithms
 
-Machine learning algorithms identify information from data fed through "generic" (general purpose) algorithms which 
+## Uses for ordinary people
+
+* Estimate the price of a house given real estate data (multiple regression)
+* Classify movie reviews from imdb.com into positive and negative (binary) categories
+* Classify news wire articles by topic (multi-class classification)
+
+## Algorithms
+
+Use of hard-coded (static) "rules" crafted by human programmers is
+called "symbolic AI", used in "expert systems" during the 1980s.
+
+Machine learning <strong>algorithms</strong> identify information from data fed through 
+"generic" (general purpose) algorithms which 
 build their own logic from detecting <em>patterns</em> within the data.
 
 Patterns are recognized by neural network algorithms. 
+
 A neural network has multiple "layers" or data-processing modules that "distill" data.
+Models using a small number of layers are called "shallow learning”.
+GoogleNet in 2014 used 22 layers. In 2016, one network uses over 1,000 layers.
 
 At the top (or left) input layer, 
 the network trains on a specific set of "features" 
 and then sends that information to the next layer. 
-That combines it with other features and passes it to the next layer, and so on.
+That next layer combines it with other features and passes it to the next layer, and so on,
+sequentially.
 
 The design of the layers of a particular network is called a <strong>model</strong>.
-
-Models using a small number of layers are called "shallow learning”.
 
 
 ## Terminology
@@ -72,9 +88,53 @@ Each of the 10 contains the probability that the digit image belongs to one of
 
 Machine learning uses some terms that have alternate meanings for words also used in programming:
 
-* a "category" of a classification problem is called a "class" (not an object). 
+* a "category" of a classification problem is called a "class" (not an object),
+   as in "a class of problems".
+
 * Data points are called "samples". 
-* A "label" is the class associated with a specific sample.
+
+* A <strong>"label"</strong> is the class associated with a specific sample.
+   A label is an answer for a prediction task ­--
+­   either the answer produced by a machine learning
+   system, or the right answer supplied in training data. 
+
+   In machine learning, a target is called a label.
+   (But in statistics, a target is called a dependent variable.)
+
+
+An <strong>instance</strong> is the aspect about which you want to make a prediction. 
+(An instance is called an "objective" in other fields.)
+
+
+A <strong>feature</strong> is a property of an instance used in a prediction task. 
+For example, a web page might
+have a feature "contains the word 'cat'".
+A feature in machine learning is called a "variable" in statistics.
+(Feature creation in machine learning is called a "transformation" in statistics.)
+
+A <strong>feature Column</strong> is a set of related features, 
+such as the set of all possible countries in which users might live. 
+An example may have one or more features present in a feature column. A
+feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a
+field.
+Example: An instance (with its features) and a label.
+
+A <strong>model</strong> is a statistical representation of a prediction task. 
+Models trained using examples so they can be used to make predictions.
+
+A <strong>metric</strong> is a number that you care about. 
+It may or may not be directly optimized.
+
+An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
+
+
+A <strong>pipeline</strong> is the infrastructure surrounding a machine learning algorithm. 
+A particular pipeline can include 
+
+   1. gathering the data from the front end, 
+   2. putting it into training data files, 
+   3. training one or more models, and
+   4. exporting the models to production.
 
 
 ## Types of machine learning
@@ -88,44 +148,56 @@ It gets feedback on what is correct or not.
 The training correlates features 
 to outputs in order to predict outputs based on new inputs.
 
+   * For time series analysis, use a "recurrent net".
+   Recurrent nets process data that changes with time,
+   using a feedback loop that acts as a forecasting engine.
+   
+   Recurrent networks have a network topology in which data flow itself is recycled. 
+   It is used, for example, to generate sequences of words from the vectors describing the "meaning" of pictures. Each word depends on all that have already been produced. 
+
    * For text processing (Sentiment Analysis) 
-   and speech recognition: 
-   RNTN (Recurrent Net or a Recursive Neural Tensor Network)
-   that operates on a character level.
+   and speech recognition: use a
+   Recurrent Net or a 
+   RNTN (Recursive Neural Tensor Network)
+   that operates at individual character level.   
    RNTNs were conceived by Richard Socher of 
    <a target="_blank" href="https://metamind.io/">
    MetaMind.io</a> as part of his PhD thesis at Stanford.
    In 2016 it became part of Salesforce Einstein Predictive Services at
    https://metamind.readme.io/v1/docs
 
-   Recurrent nets can process data that changes with time,
-   and has a feedback loop that acts as a forecasting engine.
-
-   RNTNs are better than feedforward or recurrent nets with
+   RNTNs are better than feed-forward or recurrent nets with
    data with a hierarchical structure (binary trees), 
    such as the parse trees of a group of sentences.
 
-   TOOL:
+   "Backpropagation" is an algorithm for weight updates used in both feed-forward and (unrolled) recurrent networks. 
+
+   * For image (object) recognition is DBN (Deep Belief Network) or 
+   Convolutional Net. 
+
+   <strong>Convolution</strong> means use of the same filter (also called a "kernel") 
+   across the whole image, just like use of a filter in Photoshop.﻿
    <a target="_blank" href="https://clarifai.com/">
    Clarifai</a> uses a convolutional net to recognize things and concepts in a digital image.
    It then presents similar images.
 
-   * For time series analysis, use a recorrent net.
-   
-   * For image recognition: DBN (Deep Belief Network) or 
-   Convolutional Net
+   Kernel methods are a group of algorithms for classification.
+   <strong>Support Vector Machine (SVM)</strong>
+   being the best known from Vapnik and Cortes in the early 1990s at Bell Labs and Vapnik and Chervonenkis as early as 1963.
+   SVM classifies by finding in training data "decision boundaries" between sets of points belonging to different categories. Classifying new data points involves checking which side of the decision boundary they fall on.
 
-   * For object recognition: Convolutional Net
+
+
 
 ### Unsupervised learning #
 
-aims to discover a good internal
-representation of the input. 
-It makes use of a dataset without labels. 
-Feature extraction:
+The "unsupervised" part of unsupervised learning 
+means it makes use of a dataset without labels. 
+
+It uses "feature extraction" to discover a good internal representation of the input. 
 It identifies the structure of data to solve some given task.
-Pattern recognition:
-It <strong>classifies</strong> patterns and clusters data.
+
+It uses "Pattern recognition" to <strong>classify</strong> patterns and clusters data.
 
    * Autoencoders encode their own structure.
    They are feature extractors with the same number of input and output nodes.
@@ -140,34 +212,31 @@ It <strong>classifies</strong> patterns and clusters data.
 
    The "restricted" is because there is no connection among nodes within its layer.
 
+   RBM is like a two-way translator.
    RBM determines the relationship among input features.
 
    In training loops,
    RBM reconstructs inputs in the backward pass.
 
-   RBM uses a measure called KL Divergence that compares actual to recreation of data
-
+   RBM uses a measure called "KL Divergence" that compares actual to recreation of data.
    RBM makes decisions about what features are important based on weights and 
    overall bias.
-
-   RBM is like a two-way translator.
 
    All this means that data in
    RBM does not need to be labeled.
 
    As an example, to determine whether an animal is acerous or not acerous (has horns), it
-   look at features such as color, number of legs, horns, 
+   look at features such as color, number of legs, horns.
 
-   Principal Component Analysis is a widely used linear method for finding
+   "Principal Component Analysis" is a widely used linear method for finding
    a low-dimensional representation.
 
 ### Reinforcement learning 
 
-does not provide feedback until a goal is achieved.
+Reinforcement learning does not provide feedback until a goal is achieved.
 Its objective is to select an action to maximize payoff.
 
-In Dec 2013, Volodymyr Mnih 
-and others at 
+In Dec 2013, Volodymyr Mnih and others at 
 <a target="_blank" href="https://www.deepmind.com/">
 DeepMind.com</a> (a small company in London)
 uploaded to Arxiv a paper titled
@@ -177,7 +246,8 @@ The paper describes how a "convolutional neural network" program
 learned to play several games on the Atari 2600 console (Pong, Breakout, SpaceInvaders, Seaquest, Beam Rider)
 by observing raw screen pixels of 210 × 160. 
 The program learned by receiving a reward when the game score increased. 
-This was hailed as general AI because the games and the goals in every game were very different but, without any change, learned seven different games, and performed better than some humans in three of them. 
+<a name="GeneralAI"></a>
+This was hailed as "general AI" because the games and the goals in every game were very different but, without any change, learned seven different games, and performed better than some humans in three of them. 
 <a target="_blank" href="https://www.nervanasys.com/demystifying-deep-reinforcement-learning/">
 *</a> 
 Their 
@@ -217,6 +287,9 @@ Intermediate incremental representations are learned jointly.
 Each layer is updated to follow the representational needs of layers both 
 above and below itself.
 
+See https://www.wikiwand.com/en/Deep_learning
+
+
 
 <hr />
 
@@ -225,11 +298,27 @@ above and below itself.
 From http://www.infoworld.com/article/3163525/analytics/review-the-best-frameworks-for-machine-learning-and-deep-learning.html
 
 Python or R is supported. 
+
+SAP uses R.
+
+Tool:
+<a target="_blank" href="http://bsft.io/x/115bvm?uid=89513dce-39c3-47ab-a0f6-a97f7825c62b&mid=cf8e63e2-44c8-4ae3-b033-41f708052cca">
+Neural Network Playground</a>.
+
+
+### Python
+
 Python is extended by libraries:
 
+* for handling <a target="_blank" href="https://pypi.python.org/pypi/csv">csv</a>,
+<a target="_blank" href="https://textblob.readthedocs.io/en/dev/">textblob</a> and other data formats
 * for visualization: Matplotlib, Seaborn, Bokeh, Yellowbrick
-* for statistics and linear algebra: NumPy, SciPy
-* for vectorized computing: Pandas
+* for matrix operations, <a target="_blank" href="http://www.numpy.org/">
+Numpy</a> (<a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Quickstart</a>)
+* for statistics and linear algebra: SciPy,
+   <a target="_blank" href="http://www.tweepy.org">tweepy</a>
+* for vectorized computing: <a target="_blank" href="http://pandas.pydata.org/">Pandas</a> and <a target="_blank" href="https://github.com/dato-code/SFrame">
+SFrame</a>, which is not limited to datasets that can fit in memory, so it can deal with large datasets, even on a laptop.
 * for Machine Learning, see below:
 
 ### Machine Learning frameworks
@@ -254,8 +343,8 @@ from Apache Software Foundation
 
    * Supported in the Databricks cloud
 
-
-Keras is a <strong>model-level</strong> modular library, 
+Keras (at <a target="_blank" href="https://keras.io">https://keras.io</a>)
+is a <strong>model-level</strong> modular library, 
 providing high-level building blocks for developing deep learning models.
 
 Keras runs on both CPU and GPU through 
@@ -434,12 +523,10 @@ self-proclaimed "the world’s easiest introduction to Machine Learning".
 
 Adam Geitgy's introduction of Machine Learning
 https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471/
-"for anyone who is curious about machine learning but has no idea where to start."
+"for anyone who is curious about machine learning but has no idea where to start"
 
-Tool:
-<a target="_blank" href="http://bsft.io/x/115bvm?uid=89513dce-39c3-47ab-a0f6-a97f7825c62b&mid=cf8e63e2-44c8-4ae3-b033-41f708052cca">
-Neural Network Playground</a>.
-
+https://www.youtube.com/watch?v=dYT2LSuemgg
+Apr 26, 2017 by Dr. Joseph Reger, CTO of Fujitsu Technology Solutions
 
 
 ## More #
