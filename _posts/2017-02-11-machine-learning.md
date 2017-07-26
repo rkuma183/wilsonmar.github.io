@@ -25,7 +25,11 @@ being explicitly programmed by human developers.
 Rather than explicit programming, Machine Learning algorithms identify 
 rules through "training” based on many examples.
 
-## Beginning from games
+Computers are also dealing with less structured data than before, such as
+(natural language text, images, and videos)
+rather than neat rows in tables.
+
+## Skill-building from games
 
 In 2016, IBM's Watson software beat the Jeopardy game champion
 by "learning" from books and encyclopedias. 
@@ -47,17 +51,20 @@ The software adjusted its strategies during the tournament.
 And its algorithms for strategy and negotiation are game-independent, 
 meaning they're not just about poker. 
 
+<!--
+Texas Hold'em
 
 ## Uses for ordinary people
 
 * Estimate the price of a house given real estate data (multiple regression)
 * Classify movie reviews from imdb.com into positive and negative (binary) categories
 * Classify news wire articles by topic (multi-class classification)
+-->
 
 ## Algorithms
 
 Use of hard-coded (static) "rules" crafted by human programmers is
-called "symbolic AI", used in "expert systems" during the 1980s.
+called "symbolic AI", used in "expert systems" fashionable during the 1980s.
 
 Machine learning <strong>algorithms</strong> identify information from data fed through 
 "generic" (general purpose) algorithms which 
@@ -76,6 +83,9 @@ That next layer combines it with other features and passes it to the next layer,
 sequentially.
 
 The design of the layers of a particular network is called a <strong>model</strong>.
+A model is a statistical representation of a prediction task. 
+Models trained using examples so they can be used to make predictions.
+
 
 
 ## Terminology
@@ -118,9 +128,6 @@ An example may have one or more features present in a feature column. A
 feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a
 field.
 Example: An instance (with its features) and a label.
-
-A <strong>model</strong> is a statistical representation of a prediction task. 
-Models trained using examples so they can be used to make predictions.
 
 A <strong>metric</strong> is a number that you care about. 
 It may or may not be directly optimized.
@@ -299,7 +306,13 @@ From http://www.infoworld.com/article/3163525/analytics/review-the-best-framewor
 
 Python or R is supported. 
 
-SAP uses R.
+Many corporations have efforts using Machine Learning:
+
+<a target="_blank" href="https://www.sap.com/trends/machine-learning.html#solutions">
+SAP's "Leonardo" platform for ML</a> 
+<a target="_blank" href="https://open.sap.com/courses/ml1">
+course</a>uses 
+the R language.
 
 Tool:
 <a target="_blank" href="http://bsft.io/x/115bvm?uid=89513dce-39c3-47ab-a0f6-a97f7825c62b&mid=cf8e63e2-44c8-4ae3-b033-41f708052cca">
