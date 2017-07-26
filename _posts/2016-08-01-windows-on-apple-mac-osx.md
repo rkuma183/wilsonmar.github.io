@@ -15,13 +15,52 @@ comments: true
 
 {% include _toc.html %}
 
+There are several ways to run Microsoft Windows on an Apple Mac computer.
+Each has its own advantages and disadvantages:
 
+* <a href="#Docker">Docker</a>
+* <a href="#BootCamp">BootCamp</a>
+* <a href="#VMwareFusion">VMWare Fusion</a>
+* <a target="_blank" hhref="http://www.parallels.com/products/desktop">Parallels</a>
+
+<hr />
+
+<a name="Docker"></a>
+
+## Docker #
+
+Docker is my favorite approach because you can run the same files
+[(Dockerized apps)](/dockerize/) on Windows, Mac, and Linux platforms.
+
+Docker provides a transparent interface to operating systems.
+
+* [Docker setup](/docker-setup/)
+* [Docker build](/docker-build/)
+
+
+<a id="BootCamp"></a>
+
+## Boot Camp on Mac #
+
+Apple came up with it, at https://support.apple.com/en-us/HT201468
+says the installer is in the <strong>Utilities folder inside the Applications folder</strong>.
+
+This is called a "split brain" approach. The hassle with this are that:
+
+* a repartition of your startup disk to create a Windows partition is necessary.
+   You install Windows in the Windows partition.
+
+* <strong>switching requires a reboot</strong>.
+
+
+
+* https://www.howtogeek.com/187359/5-ways-to-run-windows-software-on-a-mac/
 
 <a id="VMware"></a>
 
 ## VMware Fusion #
 
-It costs a few bucks, but you can run Windows or Linux on a MacOSX machine usin VMWare Fusion.
+It costs $395, but you can run quickly switch among Windows or Linux on a MacOSX machine using VMWare Fusion.
 
 This would enable you to experiment with setups.
 
