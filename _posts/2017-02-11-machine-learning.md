@@ -134,9 +134,8 @@ It may or may not be directly optimized.
 
 An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
 
-
 A <strong>pipeline</strong> is the infrastructure surrounding a machine learning algorithm. 
-A particular pipeline can include 
+A particular pipeline can include:
 
    1. gathering the data from the front end, 
    2. putting it into training data files, 
@@ -177,8 +176,6 @@ to outputs in order to predict outputs based on new inputs.
    data with a hierarchical structure (binary trees), 
    such as the parse trees of a group of sentences.
 
-   "Backpropagation" is an algorithm for weight updates used in both feed-forward and (unrolled) recurrent networks. 
-
    * For image (object) recognition is DBN (Deep Belief Network) or 
    Convolutional Net. 
 
@@ -193,7 +190,11 @@ to outputs in order to predict outputs based on new inputs.
    being the best known from Vapnik and Cortes in the early 1990s at Bell Labs and Vapnik and Chervonenkis as early as 1963.
    SVM classifies by finding in training data "decision boundaries" between sets of points belonging to different categories. Classifying new data points involves checking which side of the decision boundary they fall on.
 
-
+Used in both feed-forward and (unrolled) recurrent networks is
+<strong>
+Backpropagation</strong> to update weights so networks learn (improve).
+<a target="_blank" href="https://www.youtube.com/watch?v=gB_-LabED68">*</a>
+The Deep Visualization Toolkit illustrates the intermediate process.
 
 
 ### Unsupervised learning #
