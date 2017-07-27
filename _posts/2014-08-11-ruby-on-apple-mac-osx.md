@@ -18,20 +18,18 @@ comments: true
 
 First of all, know that there is a war going on within the Ruby community between rvm and rbenv.
 
-To install rbenv, one must first <a href="#RemoveRVM">remove RVM</a> 
-because it's incompatible with rbenv.
- 
 The major commands:
 
    0. ruby
    0. gem
    0. rvm
    0. bundle
-   0. rbenv
+   0. <a href="#rbenv">rbenv</a>
 
 http://jonathan-jackson.net/rvm-and-rbenv
 
 
+### Versions #
 
 ### View Ruby version #
 
@@ -65,13 +63,15 @@ CAUTION: Don't touch the system Ruby that comes with your Mac.
    </tt>
 
 
-CAUTION: The Apple Mac operating system makes use of Ruby, so don't delete the .rvm folder.
+   CAUTION: The Apple Mac operating system makes use of Ruby, so don't delete the .rvm folder.
 
 
 
-<a name="ViewVersions"></a>
+   <a name="ViewVersions"></a>
 
-## Gem version numbers #
+   ## Gem version numbers #
+
+0. You don't really need to do the above because this more detailed command provides it as well:
 
    <tt><strong>
    gem env
@@ -122,7 +122,7 @@ RubyGems Environment:
    </pre>
 
 
-0. View each component individually:
+0. To view each component individually:
 
    <tt><strong>
    gem \-\-version
@@ -149,30 +149,20 @@ RubyGems Environment:
    QUESTION: List of versions?
 
 
-### Clean 
-
-   <tt><strong>
-   gem clean
-   </strong></tt>
-
-   <pre>
-Cleaning up installed gems...
-Clean Up Complete
-   </pre>
-
-### View rvm version number #
+   ### View rvm version number #
 
    <tt><strong>
    rvm info
    </strong></tt>
 
-List
+   List:
 
    <tt><strong>
    rvm list known
    </strong></tt>
 
-For a smaller response:
+   For a smaller response:
+   
    <tt><strong>
    rvm \-\-version
    </strong></tt>
@@ -188,8 +178,7 @@ For a smaller response:
    https://rvm.io/support/troubleshooting
 
 
-## Update RubyGems and Bundler:
-
+   ### Update RubyGems and Bundler:
 
 0. Update:
 
@@ -246,11 +235,15 @@ RubyGems system software updated
    A sample example (on 2016-06-16):
 
    <pre>
-bigdecimal (default: 1.2.8)
+bigdecimal (1.3.1, 1.2.7, default: 1.2.0)
+libxml-ruby (3.0.0, 2.8.0, 2.6.0)
+rainbow (2.2.1, 2.1.0)
+rubocop (0.47.1, 0.40.0)
 bundler-unload (1.0.2)
 executable-hooks (1.3.2)
 rubygems-bundler (1.4.4)
-rubygems-update (2.6.4)
+ruby-progressbar (1.8.1)
+rubygems-update (2.6.10, 2.6.9, 2.6.1)
 ...
    </pre>
 
@@ -307,9 +300,6 @@ Successfully installed bundler-1.9.4
 1 gem installed
    </pre>
 
-
-### Update gem:
-
 0. Update latest version of gem:
 
    <tt><strong>
@@ -333,12 +323,11 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 
 0. To rebuild any gems using native extensions:
 
-   <tt><strong>
-   gem pristine --all 
+   <tt><strong>sudo gem pristine \-\-all 
    </strong></tt>
 
 
-0. Cleanup gem:
+0. To uninstall gems not used:
 
    <tt><strong>
    sudo gem cleanup
@@ -352,15 +341,66 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
    </pre>
 
 
+
 <a name="ruby-rvm"></a>
 
-### Ruby Version Manager (rvm) #
+## Ruby Version Manager (rvm) #
 
 0. Get on the latest version of RVM:
 
-   <pre>
+   <tt><strong>
    rvm get stable
+   </strong></tt>
+
+   The response run on 2017-07-27:
+
+   <pre>
+ownloading https://get.rvm.io
+Downloading https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
+Verifying /Users/mac/.rvm/archives/rvm-installer.asc
+gpg: Signature made Sun Jul  2 16:42:38 2017 EDT using RSA key ID BF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>" [unknown]
+gpg: Note: This key has expired!
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+GPG verified '/Users/mac/.rvm/archives/rvm-installer'
+Downloading https://github.com/rvm/rvm/archive/1.29.2.tar.gz
+Downloading https://github.com/rvm/rvm/releases/download/1.29.2/1.29.2.tar.gz.asc
+gpg: Signature made Thu Jun 22 12:18:38 2017 EDT using RSA key ID BF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>" [unknown]
+gpg: Note: This key has expired!
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+GPG verified '/Users/mac/.rvm/archives/rvm-1.29.2.tgz'
+&nbsp;
+Upgrading the RVM installation in /Users/mac/.rvm/
+    RVM PATH line found in /Users/mac/.mkshrc /Users/mac/.profile /Users/mac/.bashrc /Users/mac/.zshrc.
+    RVM sourcing line found in /Users/mac/.profile /Users/mac/.bash_profile /Users/mac/.zlogin.
+Upgrade of RVM in /Users/mac/.rvm/ is complete.
+&nbsp;
+# Wilson Mar,
+#
+#   Thank you for using RVM!
+#   We sincerely hope that RVM helps to make your life easier and more enjoyable!!!
+#
+# ~Wayne, Michal & team.
+&nbsp;
+In case of problems: https://rvm.io/help and https://twitter.com/rvm_io
+&nbsp;
+Upgrade Notes:
+&nbsp;
+/Users/mac/.bash_profile:1:PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+&nbsp;
+  * WARNING: Above files contains `PATH=` with no `$PATH` inside, this can break RVM,
+    for details check https://github.com/rvm/rvm/issues/1351#issuecomment-10939525
+    to avoid this warning prepend `$PATH`.
+&nbsp;
+  * No new notes to display.
+&nbsp;
+RVM reloaded!
    </pre>
+
+   ### Uninstall Ruby
 
 0. Uninstall all versions of Ruby:
 
@@ -378,7 +418,7 @@ rvm uninstall ruby
    Alternately, wipe out the folder and start over:
 
    <tt><strong>
-   rm -rf ~/.rvm<br />
+   rm -rf ~/.rvm<br>
    curl -L https://get.rvm.io | bash -s stable
    </strong></tt>
 
@@ -463,7 +503,7 @@ Ruby was built without documentation, to build it run: rvm docs generate-ri
 0. To install the latest stable rvm release:
 
    <tt><strong>
-   \curl -ssL https://get.rvm.io | bash -s stable
+   curl -ssL https://get.rvm.io | bash -s stable
    </strong></tt>
 
    A sample response:
@@ -603,10 +643,16 @@ puts tree(ARGV.first || ".") if __FILE__==$0
 
 0. Restart Terminal sessions.
 
-See http://karloespiritu.com/replacing-rvm-with-rbenv-in-os-x/
+   See http://karloespiritu.com/replacing-rvm-with-rbenv-in-os-x/
+
+
+<a name="rbenv"></a>
 
 ### Install rbenv
 
+CAUTION: To install rbenv, one must first <a href="#RemoveRVM">remove RVM</a> 
+because it's incompatible with rbenv.
+ 
    <pre><strong>
    brew update
    brew install rbenv ruby-build
@@ -657,6 +703,13 @@ For pkg-config to find this software you may need to set:
 ==> Pouring rbenv-1.1.0.sierra.bottle.tar.gz
 🍺  /usr/local/Cellar/rbenv/1.1.0: 36 files, 63.2K
    </pre>
+
+0. To uninstall, remember rbenv was installed using brew, so:
+
+   <pre><strong>
+   brew uninstall rbenv ruby-build
+   </strong></pre>
+
 
 ## Resources:
 
