@@ -53,10 +53,7 @@ This is called a "split brain" approach. The hassle with this are that:
 * <strong>switching requires a reboot</strong>.
 
 
-
-* https://www.howtogeek.com/187359/5-ways-to-run-windows-software-on-a-mac/
-
-<a id="VMware"></a>
+<a id="VMwareFusion"></a>
 
 ## VMware Fusion #
 
@@ -270,11 +267,7 @@ To establish a particular state of an instance as the <strong>base</strong> for 
 0. Watch the progress bar at the bottom. This takes several minutes.
 
 
-<!--
-## Parallels
-
-TBD
--->
+<a name="RemoteDesktop"></a>
 
 ## Microsoft Remote Desktop #
 
@@ -341,6 +334,13 @@ provides only a limited palette of 48 colors to choose from.
    Fink is Apt-based, so people will feel right at home coming from a <strong>Debian</strong> Linux environment.
    Its packages are binary,so no long compile times. But practically they are usually outdated and I had to compile stuff for my system anyway.
    It needs X11 installed.
+
+
+## References
+
+* https://www.howtogeek.com/187359/5-ways-to-run-windows-software-on-a-mac/
+
+
 
 
 ## More on OSX
