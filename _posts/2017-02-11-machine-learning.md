@@ -29,7 +29,12 @@ Computers are also dealing with less structured data than before, such as
 (natural language text, images, and videos)
 rather than neat rows in tables.
 
+
 ## Skill-building from games
+
+In 1997, when Deep Blue topped world chess champion Gary Kasparov, 
+it did so with what's called "brute force", by using a supercomputer to 
+analyze the outcome of every possible move, looking further ahead than any human possibly could.
 
 In 2016, IBM's Watson software beat the Jeopardy game champion
 by "learning" from books and encyclopedias. 
@@ -38,18 +43,21 @@ inputs to make predictions
 vs. following strictly static program instructions (logic defined by human developers).
 IBM only created the program that enables the computer to learn.
 
-In 2017, the top ranked player in the Chinese game Go, 
-considered the most complex game ever, was
+In 2017, the top ranked player in the Chinese game Go was
 <a target="_blank" href="https://www.nytimes.com/2017/05/23/business/google-deepmind-alphago-go-champion-defeat.html">
 defeated by Google's AlphaGo</a>, which is based on Google's DeepMind acquisition.
 The software made moves that many considered illogical.
+
+Go is considered the most complex game ever invented.
+Whereas chess players have, at any given turn, an average of 35 possible moves. 
+But on a Go board's 19-by-19 grid, there are 250 possible moves. 
 
 Also in 2017, all top-ranked poker players were
 <a target="_blank" href="http://time.com/4656011/artificial-intelligence-ai-poker-tournament-libratus-cmu/">
 bested by software named Libratus from Tuomas Sandholm at CMU</a>.
 The software adjusted its strategies during the tournament.
 And its algorithms for strategy and negotiation are game-independent, 
-meaning they're not just about poker. 
+meaning they're not just about poker, but a range of adversarial problems.
 
 <!--
 Texas Hold'em
@@ -98,23 +106,31 @@ Each of the 10 contains the probability that the digit image belongs to one of
 
 Machine learning uses some terms that have alternate meanings for words also used in programming:
 
-* a "category" of a classification problem is called a "class" (not an object),
-   as in "a class of problems".
-
 * Data points are called "samples". 
 
-* A <strong>"label"</strong> is the class associated with a specific sample.
-   A label is an answer for a prediction task ­--
+* A "category" of a classification problem is called a <strong>class</strong>.
+   For example, when classifying cat and dog pictures, "dog" and "cat" are two of the classes.
+   Each class describes a set of possible labels to choose from.
+
+* A <strong>"label"</strong> is a specific instance of a class.
+   A label can be an answer for a prediction task ­--
 ­   either the answer produced by a machine learning
    system, or the right answer supplied in training data. 
 
-   In machine learning, a target is called a label.
-   (But in statistics, a target is called a dependent variable.)
+   (In statistics, a target is called a dependent variable.)
+   In machine learning, a target is also called a label.
+   A targe is what a model should ideally have predicted, 
+   according to an external source of data.
+
+* The <strong>prediction error</strong>, also called <strong>loss value</strong> 
+   is the measure of the distance between a model’s prediction and the target.
+   
+   It's a <strong>metric</strong> of measurements that you care about, 
+   which may or may not be directly optimized.
 
 
-An <strong>instance</strong> is the aspect about which you want to make a prediction. 
-(An instance is called an "objective" in other fields.)
-
+* An <strong>instance</strong> is the aspect about which you want to make a prediction. 
+   (An instance is called an "objective" in other fields.)
 
 A <strong>feature</strong> is a property of an instance used in a prediction task. 
 For example, a web page might
@@ -128,9 +144,6 @@ An example may have one or more features present in a feature column. A
 feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a
 field.
 Example: An instance (with its features) and a label.
-
-A <strong>metric</strong> is a number that you care about. 
-It may or may not be directly optimized.
 
 An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
 
@@ -484,6 +497,7 @@ See https://github.com/anayebi/keras-extra
 for using Extra Layers for Keras to connect a RNN (Recurrent Neural Network)
 to a Convolutional Neural Network (CNN) by allowing the CNN layers to be time distributed.
 
+
 ### Pandas
 
 The Padas Python library reads databases directly into
@@ -495,6 +509,13 @@ The Padas Python library reads databases directly into
 | 2 | "Timeseries" | Series using time stamps as an index |
 | 3 | "DataFrame" | A two-dimensional table |
 | 4 | "Panel" | A three-dimensional table data structure |
+
+
+* A <strong>scalar regression task</strong> is one where the target is a continuous scalar value. 
+   For example, when predicting house prices, the different target prices form a continuous space.
+
+* A <strong>vector regression task</strong> is one where the target is a set of continuous values
+  (e.g. a continuous vector) while doing regression against multiple values (e.g. the coordinates of a bounding box in an image).
 
 
 ## Metrics
