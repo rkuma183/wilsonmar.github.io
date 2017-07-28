@@ -36,16 +36,17 @@ using JProfiler and JVisualVM.
    | ------- | ----- | -------- | -: | ---- |
    | JProfiler | 2017-01-21 | jprofiler_macos_10_0.dmg | 148 MB | $698 |
    | JProfiler | 2016-06-21 | jprofiler_macos_9_2.dmg | 126 MB | $698 |
-   | JVisualVM | 2016       | GitHub 1.3.9 | 13 MB | free |
+   | <a href="#JVisualVM">JVisualVM</a> | 2016 | GitHub 1.3.9 | 13 MB | free |
    | Yourkit   | 2016.02    | yjp-2016.02-b43-mac | 8.7 MB | $649 |
 
+<hr />
 
 ## JVisualVM #
 
-   <strong>VisualVM</strong> has the largest market share.
-   perhaps it is free and has been
+   <strong>VisualVM</strong> has the largest market share
+   because perhaps it is free and is
    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
-   bundled in the JDK</a> since version 6, update 7.
+   bundled in the JDK</a> since JDK 6 update 7.
 
    The bleeding-edge version at 
    <a target="_blank" href="https://visualvm.github.io/download.html">
@@ -53,9 +54,17 @@ using JProfiler and JVisualVM.
    is actively maintained by two developers in Prague, the Czech Republic.
 
    VIDEO:
-   <a target="_blank" hre="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
+   * <a target="_blank" href="https://www.youtube.com/watch?v=z8n7Bg7-A4I">
    Introduction to Java Visual VM</a> from 2013.
 
+   Philip Starritt has created videos on VisualVM:
+   1. <a target="_blank" href="https://www.youtube.com/watch?v=W60wvJ885iE">
+   Launcher Setup</a> 9 July 2017.
+   2. <a target="_blank" href="https://www.youtube.com/watch?v=ZYPa93q2zj8">
+   OutOfMemoryError Java Heap Space Fix - Heap Dump Analysis</a> 12 July 2017
+   3. <a target="_blank" href="https://www.youtube.com/watch?v=ZYPa93q2zj8">
+   Out of Memory - Head Dump Analysis</a>
+   <br /><br />
 
 ## JProfiler Install & License #
 
