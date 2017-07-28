@@ -65,6 +65,15 @@ using JProfiler and JVisualVM.
    3. <a target="_blank" href="https://www.youtube.com/watch?v=ZYPa93q2zj8">
    Out of Memory - Head Dump Analysis</a>
    <br /><br />
+   * https://www.youtube.com/watch?v=dUQqmnmCBbg
+   Using jvisualvm to find Heap Problems
+   * https://www.youtube.com/watch?v=pRwvx4QpUfo
+   Java VisualVM - Introduction
+   * https://www.youtube.com/watch?v=z8n7Bg7-A4I
+   * https://www.youtube.com/watch?v=1kGt1ctY-a0
+   Introduction to Java VisualVM
+   Java GC Monitoring with JVisualVM by Rohit Dhall
+
 
 ## JProfiler Install & License #
 
