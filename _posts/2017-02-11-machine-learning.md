@@ -83,6 +83,9 @@ A neural network has multiple "layers" or data-processing modules that "distill"
 Models using a small number of layers are called "shallow learning”.
 GoogleNet in 2014 used 22 layers. In 2016, one network uses over 1,000 layers.
 
+By contrast, the human brain has 300 million modules that recognize patterns,
+each having 100 neurons.
+
 At the top (or left) input layer, 
 the network trains on a specific set of "features" 
 and then sends that information to the next layer. 
