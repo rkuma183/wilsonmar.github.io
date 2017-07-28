@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Machine Learning"
-excerpt: "It can do it for you before it does you in"
+excerpt: "It can do it for you ... before it does you in"
 tags: [Python, Machine Learning]
 shorturl: "https://goo.gl/iR7sMJ"
 image:
@@ -32,8 +32,8 @@ rather than neat rows in tables.
 
 ## Skill-building from games
 
-In 1997, when Deep Blue topped world chess champion Gary Kasparov, 
-it did so with what's called "brute force", by using a supercomputer to 
+In 1997, when Deep Blue beat world chess champion Gary Kasparov, 
+it did so by "brute force", by using a supercomputer to 
 analyze the outcome of every possible move, looking further ahead than any human possibly could.
 
 In 2016, IBM's Watson software beat the Jeopardy game champion
@@ -47,10 +47,9 @@ In 2017, the top ranked player in the Chinese game Go was
 <a target="_blank" href="https://www.nytimes.com/2017/05/23/business/google-deepmind-alphago-go-champion-defeat.html">
 defeated by Google's AlphaGo</a>, which is based on Google's DeepMind acquisition.
 The software made moves that many considered illogical.
-
-Go is considered the most complex game ever invented.
-Whereas chess players have, at any given turn, an average of 35 possible moves. 
-But on a Go board's 19-by-19 grid, there are 250 possible moves. 
+BTW, Go is considered the most complex game ever invented.
+Whereas chess players have, at any given turn, an average of 35 possible moves,
+on a Go board's 19-by-19 grid, there are 250 possible moves. 
 
 Also in 2017, all top-ranked poker players were
 <a target="_blank" href="http://time.com/4656011/artificial-intelligence-ai-poker-tournament-libratus-cmu/">
@@ -109,7 +108,7 @@ Machine learning uses some terms that have alternate meanings for words also use
 * Data points are called "samples". 
 
 * A "category" of a classification problem is called a <strong>class</strong>.
-   For example, when classifying cat and dog pictures, "dog" and "cat" are two of the classes.
+   For example, when classifying pictures, "puppy" and "muffin" are two of the classes.
    Each class describes a set of possible labels to choose from.
 
 * A <strong>"label"</strong> is a specific instance of a class.
@@ -294,7 +293,7 @@ as opposed to a large amount of data.
 
 <a name="DeepLearning"></a>
 
-## Deep Learning
+### Deep Learning
 
 "Deep learning" is a specific subfield of machine learning. 
 The "deep" in "deep learning" is not about "deeper” understanding, but 
@@ -435,7 +434,6 @@ from Distributed Machine Learning...
    * Ahead of TensorFlow with embed imperative tensor operations.
 
 
-
 ## Data representation
 
 Tensors generalize matrices to an arbitrary number of axes.
@@ -481,7 +479,7 @@ In Python Numpy, a data type of "float32" or "float64" is a scalar tensor (or sc
 
 "Selecting" specific elements in a tensor is called "tensor slicing".
 
-## Axes for Shape
+### Axies for Shape
 
 2D tensors containing simple vector data of shape (samples, features)
 are typically processed in "fully-connected" ("densely-connected" or "dense") layers 
@@ -520,13 +518,19 @@ The Padas Python library reads databases directly into
 
 ## Metrics
 
-when using its training data, a <strong>"loss function"</strong> 
+The goal is to derive models that generalize.
+
+When using its training data, a <strong>"loss function"</strong> 
 is used to measure how well a neural network layer meets its objective. 
 Thus, some call it an "objective function".
 
 It is called a function because it's the result of changes, and thus used to
 determine whether changes are moving in the right direction.
 Changes are made to minimize the loss function.
+
+The number of data values is typically split into a 
+training set, a validation set, and a test set. This is so we don't evaluate data
+using what was used for training in order to avoid overfitting.
 
 An <strong>"optimizer"</strong> is the mechanism a network uses to update itself 
 (based on data received and loss function values).
