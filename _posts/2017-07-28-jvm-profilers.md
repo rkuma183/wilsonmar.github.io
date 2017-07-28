@@ -19,8 +19,6 @@ This tutorial aims to enable you to identify and resolve
 <strong>problematic patterns</strong> in memory and CPU usage in Java and Scala code
 using JProfiler and JVisualVM.
 
-{% include _intro.html %}
-
 ## Profilers in the Market #
 
 <a target="_blank" href="https://zeroturnaround.com/rebellabs/top-5-java-profilers-revealed-real-world-data-with-visualvm-jprofiler-java-mission-control-yourkit-and-custom-tooling/">One survey published 2015-11</a> 
