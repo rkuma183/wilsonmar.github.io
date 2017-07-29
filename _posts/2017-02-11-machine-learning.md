@@ -36,12 +36,12 @@ In 1997, when Deep Blue beat world chess champion Gary Kasparov,
 it did so by "brute force", by using a supercomputer to 
 analyze the outcome of every possible move, looking further ahead than any human possibly could.
 
-In 2016, IBM's Watson software beat the Jeopardy game champion
+In 2016, IBM's Watson software beat top Jeopardy game champions
 by "learning" from books and encyclopedias. 
+IBM only created the program that enables the computer to learn.
 The software makes use of a "model" from <strong>example</strong> 
 inputs to make predictions
 vs. following strictly static program instructions (logic defined by human developers).
-IBM only created the program that enables the computer to learn.
 
 In 2017, the top ranked player in the Chinese game Go was
 <a target="_blank" href="https://www.nytimes.com/2017/05/23/business/google-deepmind-alphago-go-champion-defeat.html">

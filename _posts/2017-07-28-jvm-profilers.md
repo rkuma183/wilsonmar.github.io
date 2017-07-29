@@ -46,9 +46,11 @@ using JProfiler and JVisualVM.
    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/">
    bundled in the JDK</a> since JDK 6 update 7.
 
-   The bleeding-edge version at 
+   http://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/profiler.html
+
+   The bleeding-edge version at <br />
    <a target="_blank" href="https://visualvm.github.io/download.html">
-   Visual VM GitHub</a>
+   https://visualvm.github.io/download.html</a><br />
    is actively maintained by two developers in Prague, the Czech Republic.
 
    VIDEO:
@@ -57,7 +59,12 @@ using JProfiler and JVisualVM.
 
    Philip Starritt has created videos on VisualVM:
    1. <a target="_blank" href="https://www.youtube.com/watch?v=W60wvJ885iE">
-   Launcher Setup</a> 9 July 2017.
+   Launcher Setup</a> in Eclipse. 9 July 2017. <br />
+   <a target="_blank" href="https://visualvm.github.io/idesupport.html">
+   https://visualvm.github.io/idesupport.html</a>
+
+   2. <a target="_blank" href="https://www.youtube.com/watch?v=Uubqc76h-jo">
+   Java Heap Dump Analysis</a> of live running app. 9 July 2017
    2. <a target="_blank" href="https://www.youtube.com/watch?v=ZYPa93q2zj8">
    OutOfMemoryError Java Heap Space Fix - Heap Dump Analysis</a> 12 July 2017
    3. <a target="_blank" href="https://www.youtube.com/watch?v=ZYPa93q2zj8">
@@ -497,4 +504,7 @@ https://shipilev.net/blog/2016/close-encounters-of-jmm-kind/
 As a comparison, take a look at the
 <a target="_blank" href="https://visualstudiomagazine.com/articles/2015/12/01/xamarin-apps.aspx">
 profiler in Visual Studio for C# Xamarin code</a>.
+
+
+## Resources
 

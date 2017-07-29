@@ -19,47 +19,60 @@ This page describes the various ways to
 <a href="#LocalInstall">install</a> 
 and load test a sample application for learning and experimenting --
 a Java Spring application server program from 
-SpringSource, now a division of VMWare --
+SpringSource (now a division of VMWare)
 to explore the operation of utilities such as Jenkins and JVM tools.
 
-The app is meant to be installed locally.
-
-
-## Sample apps online?
-
-http://spring-petclinic.cloudfoundry.com/
-is no longer active
-
-So screen shots are based on a Docker instance.
-
-0. Git clone https://github.com/jdubois/spring-petclinic
-0. git reset --hard && git checkout 
-
+See [my tutorial on Spring server suite](/spring-servers/)
 
 
 ## Different versions
 
 The canonical, most up-to-date version of the app is at<br />
-<a target="_blank" href="https://github.com/spring-projects/spring-petclinic">https://github.com/spring-projects/spring-petclinic</a><br />
+<a target="_blank" href="https://github.com/spring-projects/spring-petclinic">
+https://github.com/spring-projects/spring-petclinic</a>
 
 Its main contributor is  <a target="_blank" href="http://javaetmoi.com/">
 paresian</a>  <a target="_blank" href="https://github.com/arey">
 Antoine Rey (arey)</a>.
 
-There are also forks at<br /><a target="_blank" href="https://github.com/spring-petclinic"> https://github.com/spring-petclinic</a>
-using Angular, https://github.com/spring-petclinic/spring-petclinic-microservices
+0. Get it working:
 
-In the introduction of Spring PetClinic Spring Framework 2.5 at<br />
-<a target="_blank" href="http://docs.spring.io/docs/petclinic.html">
-http://docs.spring.io/docs/petclinic.html</a><br />
-the most recent update is 2007.
+   <pre><strong>git clone https://github.com/spring-projects/spring-petclinic.git --depth=1
+   cd spring-petclinic
+   ./mvnw spring-boot:run -e
+   </strong></pre>
 
-Julian Dubois in 2013 blogged about his
-<a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
-performance audit</a> of the app he forked in 2013 at
-https://github.com/jdubois/spring-petclinic
+   BLAH: When I ran it on 2017-07-28 I got:
 
-   ### Forked static version
+   <pre>
+[ERROR] Failed to execute goal pl.project13.maven:git-commit-id-plugin:2.2.2:revision (default) on project spring-petclinic: Could not complete Mojo execution... Unable to find commits until some tag: Walk failure. Missing commit ffa967c94b65a70ea6d3b44275632821838d9fd3 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+   </pre>
+
+
+
+   Alternately, there are forks at<br /><a target="_blank" href="https://github.com/spring-petclinic"> 
+   https://github.com/spring-petclinic</a> using Angular and<br />
+   https://github.com/spring-petclinic/spring-petclinic-microservices
+
+   In the introduction of Spring PetClinic Spring Framework 2.5 at<br />
+   <a target="_blank" href="http://docs.spring.io/docs/petclinic.html">
+   http://docs.spring.io/docs/petclinic.html</a><br />
+   the most recent update is 2007.
+
+   Julian Dubois in 2013 blogged about his
+   <a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
+   performance audit</a> of the app he forked in 2013 at<br />
+   https://github.com/jdubois/spring-petclinic
+
+   However, the 2012 repo references<br />
+   http://spring-petclinic.cloudfoundry.com/<br />
+   which is no longer active.
 
    PROTIP: The version of the app you use should be of a static instance
    (in a your own fork) so that you have a consistent version to work and debug.
@@ -67,7 +80,8 @@ https://github.com/jdubois/spring-petclinic
    * https://github.com/jdubois/spring-petclinic/commit/69e55e406db37a386ff8348a5a84343801169f85
    JMeter test file
 
-   ### Start app
+
+### Start app
 
    <pre><strong>mvn clean tomcat7;run
    </strong></pre>
