@@ -5,10 +5,10 @@ excerpt: "Open source and free since the 90's."
 shorturl: "https://goo.gl/Pi9qAE"
 tags: [ML, GE]
 image:
-# feature: pic white robots woman 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
-  credit: Cyberconstruct.be
-  creditlink: http://cyberconstruct.be/2015/02/digital-job-crafting/
+# feature: banner-eclipse-1900x500-321k.png
+  feature: https://user-images.githubusercontent.com/300046/28752993-0d1437a4-74fa-11e7-99cc-ed04f625174c.png
+  credit: 
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -40,7 +40,7 @@ is to use [Homebrew](/macos-homebrew/) to
    <pre><strong>brew update
    </strong></pre>
 
-   This usually takes a while.
+   This can take a while.
 
 0. Use cask to install GUI programs:
 
@@ -74,28 +74,66 @@ is to use [Homebrew](/macos-homebrew/) to
 0. Type the portion of "Eclipse Java" until the icon appears.
 
 
+<strong>Alternately:</strong>
+
+0. Type the portion of "Eclipse Java" until the icon appears.
+
 <a name="STS"></a>
 
-## STS install #
+## STS install on Macs #
 
-https://www.predix.io/resources/tutorials/journey.html#1607
+There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
-0. Use an interest browser to the STS website.
-0. Select a download site to begin download. Wait for the file to download.
-0. Unzip
-0. In Finder, navigate inside the folder, such as:
+0. Use a modern internet browser to the STS download page at<br />
+   <a target="_blank" href="https://spring.io/tools/sts/all">
+   https://spring.io/tools/sts/all</a>
+0. Click on "Based on Eclipse 4.7.0", then "tar.gz".
 
-   ~/Documents/workspace-sts-3.8.0.RELEASE
+   spring-tool-suite-3.9.0.RELEASE-e4.7.0-macosx-cocoa-x86_64.tar is 412.5 MB.
 
-   This contains the server.
+0. In Finder, select the Download folder to receive the file, then click "Save".
+0. While you're waiting, switch to exit the download web page.
+0. Double click on the file to unzip it to a new folder.
 
-0. Move and/or rename the folder according to your organization's standards.
+   CAUTION: If you see a number to the right of the "sts-bundle" folder name,
+   another installer was downloaded previously.
 
-0. In Finder navigate to /Applications.
-0. Move (drag and drop) STS.app to /Applications.
-0. Open STS by double-clicking the icon.
-0. Click Open icon for first-time confirmation.
-0. Specify your workspace.
+0. In Finder, navigate inside the "sts-bundle" folder.
+0. Open a new Finder new window and click the Go menu for the
+   <strong>/Applications</strong> folder.
+0. If there is another STS app there, move it to Trash.
+
+0. Long-Click on the <strong>STS</strong> app file, then drag and drop it 
+   onto the Applications window.
+0. Open STS by double-clicking the icon. It may take a minute to load the first time.
+0. Press command+tab until your land on the green Spring app icon for the Eclipse Launcher.
+0. Check "Use this as the default and do not ask again".
+0. PROTIP: The default directory generated should be changed per your organization's standards.
+
+   /Users/mac/Documents/workspace-sts-3.9.0.RELEASE
+
+   PROTIP: This folder path is where you should do git clone. The one I use is<br />
+   `/Users/mac/gits/spring`. Others define a "dev" folder<br />
+   `/Users/mac/dev/workspace`
+
+
+   This can be changed to something else later, though.
+
+   The folder path is created when you click "Launch".
+
+0. For the menu, click on the white space in the <strong>Dashboard</strong> with Package Explorer.
+
+   See <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html#1607">
+   https://www.predix.io/resources/tutorials/journey.html#1607</a>
+
+<a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
+Included with STS</a> (Spring Tools Suite)
+is the developer edition of Pivotal <strong>tc</strong> Server, 
+the drop-in replacement for Apache Tomcat 
+that’s optimized for Spring.
+
+The Spring Insight console, tc Server Developer Edition, 
+provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
 
 
 
