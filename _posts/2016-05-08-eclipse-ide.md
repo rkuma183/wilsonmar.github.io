@@ -29,7 +29,7 @@ The editions of Eclipse IDE:
 
 <a name="HomebrewInstall"></a>
 
-## Homebrew install #
+## Standard Edition Homebrew install #
 
 The simplest way to install the <strong>standard</strong> edition of Eclipse
 is to use [Homebrew](/macos-homebrew/) to 
@@ -61,22 +61,31 @@ is to use [Homebrew](/macos-homebrew/) to
 
    Remember the name of the app is "Eclipse Java".
 
+   ### Invoke
+
+0. On a Mac, in a Finder click Go > Applications or
+   click the "rocket ship" icon if you have that at the bar at bottom of the screen.
+
+0. Type the portion of "Eclipse Java" until the icon appears.
+
+   ### Add STS
+
+   In a Standard Eclipse, you can add STS in 
+
+0. Help > Eclipse Marketplace and Find: Spring.
+0. Click Install.
+0. In Confirm Selected Features, check all (for AOP, AERI, Roo, etc.) explained later.
+
+   ### Uninstall Homebrew
+
 0. The nice thing about using Homebrew is uninstallation is easy:
 
    <pre><strong>brew cask uninstall eclipse-java
    </strong></pre>
 
-   ### Invoke
-
-0. On a Mac, click the "rocket ship" icon at the bar at bottom of the screen or
-   in a Finder click Go > Applications.
-
-0. Type the portion of "Eclipse Java" until the icon appears.
-
 
 <strong>Alternately:</strong>
 
-0. Type the portion of "Eclipse Java" until the icon appears.
 
 <a name="STS"></a>
 
