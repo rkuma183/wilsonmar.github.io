@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Java REST API Spring Sample"
+title: "Java Spring REST API Sample"
 excerpt: "Spring for some Java web service client"
 tags: []
 image:
@@ -48,7 +48,7 @@ an id, and a text string (random quotes about Spring Boot).
 }
    </pre>
 
-   NOTE: The Firefox browser also provides a tab to display HTTP headers it exchanges
+0. The Firefox browser also provides a tab to display HTTP headers it exchanges
    with servers behind the scenes.
 
 
@@ -140,7 +140,7 @@ cd gs-consuming-rest
    </strong></pre>
 
 
-   ### Run .jar file
+   ### Run .jar from command line
 
 0. Run the module (.jar file) created within the target folder:
 
@@ -255,6 +255,21 @@ cd gs-consuming-rest
    `@Autowired` cause the injection of getter and setter function code automatically
    during build, to save developer time on the restTemplate.
    (Any Spring components can be autowired. These include, components, configurations, services and beans.)
+
+
+   ### Run Test from Eclipse IDE
+
+   The easiest way of running a single JUnit test method is to run it from within the test case’s class editor within the Eclipse IDE.
+
+0. Place your cursor on the method’s name inside the test class. I’d recommend using the keyboard to navigate to the method, especially if there are many tests.
+0. To run the test, press <strong>Alt+Shift+X,T</strong> or right-click, Run As > JUnit Test.
+0. To rerun the same test method, press <strong>Ctrl+F11</strong>. 
+
+   For this to work, ensure that you’ve told Eclipse to always run the last launched application.
+
+Alternately, go to the Outline view and run the method from there. 
+
+   <a target="_blank" href="http://www.eclipseonetips.com/2014/06/16/run-a-single-junit-test-method-in-eclipse/">*</a>
 
 
    <a name="Application.java"></a>
@@ -381,11 +396,14 @@ with code in<br />
 https://github.com/in28minutes/in28minutes.github.io/tree/master/code-zip-files
 
 
-## Free Videos about clients
+## Free Videos about Spring clients
+
+* <a target="_blank" href="https://www.youtube.com/user/Loketus">
+JUnit4</a> by Petri Kainulainen from Finland.
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=5jQSat1cKMo">
-Java API | Developing Restful APIs | Rest API In Java | Java Tutorial | Java Training | Edureka</a>
-12 April 2017
+Java API | Developing Restful APIs | Rest API In Java | Java Tutorial | Java Training</a>
+by Edureka 12 April 2017
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=47xNBNd-LLI">
 Build a Hello World REST service in less than 6 minutes
@@ -397,7 +415,7 @@ Build a Hello World REST service in less than 6 minutes
    * localhost:8080/beans
    * localhost:8080/trace for a stack trace
    * localhost:8080/shutdown
-
+   <br /><br />
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=24rGqtxuLhc">
 Spring Tutorial for Beginners - Using Maven and Eclipse
@@ -446,4 +464,8 @@ Spring Framework playlist from 2011 by javabrains.koushik.org
 
 JAX-RS - see http://www.java2novice.com/restful-web-services/
 
+Java API for JSON Processing (JSR 353) provides an API to parse, transform, and query JSON data using the object model or the streaming mode.
+See http://www.java2novice.com/java-json/javax.json/
 
+Google Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.
+See http://www.java2novice.com/java-json/google-gson/
