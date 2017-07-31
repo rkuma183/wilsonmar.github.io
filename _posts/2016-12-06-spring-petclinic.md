@@ -124,12 +124,21 @@ http://demo.kieker-monitoring.net/
 
 <a name="Strategy"></a>
 
-## Artificial Loads
+## Artificial Load Run Types
 
 Performance and load testing of this app is controlled by 
 several values of "RunType"
 specified to impose artificial load. 
-Keywords in quotes define the various
+Keywords in quotes define the various run types.
+
+| RunType | What it verifies |
+| ------- | ------- |
+| Landing | Network variability |
+| MenuItems | Logging verbosity |
+| ListOwners | Client Caching, Page Limits, Database Read Rates |
+| NewData | Data Variation, Database Write |
+
+<hr />
 
 1. <strong>"Landing"</strong> lands on the URL of the site.
 
