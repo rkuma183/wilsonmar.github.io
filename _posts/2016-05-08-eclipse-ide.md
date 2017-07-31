@@ -166,12 +166,22 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
 
 0. Click "Open an existing file".
 
+
    <a name="ExistingProject"></a>
 
-   ### Existing Project #
+   ### Compile from Eclipse #
 
 0. Click Finish.
 
+0. To compile and run your program, keep the "Main" app Java file tab active and 
+
+   * use Run option available in the Eclipse IDE or 
+   * use Ctrl + F11 to compile and run your MainApp application. 
+
+   If everything is fine with your application, this will print the following message in Eclipse IDE's console.
+
+
+<hr />
 
 <a name="NewProject"></a>
 

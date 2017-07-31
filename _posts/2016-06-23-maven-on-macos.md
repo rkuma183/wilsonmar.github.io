@@ -294,6 +294,9 @@ Maven C/C++ Plugin http://duns.github.io/maven-nar-plugin/
 src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11e6-99fd-d3cb0acf5170.png">
 </a>
 
+![maven2-100156414-orig](https://user-images.githubusercontent.com/300046/28752955-f8c5da38-74f8-11e7-85c2-8eedcc3ae41f.gif)
+
+
 ### Dependencies #
 
 * http://www.sonatype.com/resources/books/maven-by-example
