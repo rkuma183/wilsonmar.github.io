@@ -133,12 +133,18 @@ Keywords in quotes define the various run types.
 
 | RunType | What it verifies |
 | ------- | ------- |
-| Landing | Network variability |
-| MenuItems | Logging verbosity |
-| ListOwners | Client Caching, Page Limits, Database Read Rates |
-| NewData | Data Variation, Database Write |
+| <a href="#Landing">Landing</a> | Network variability |
+| <a href="#MenuItems">MenuItems</a> | Logging verbosity</a> |
+| <a href="#List">List</a> | <a href="#ClientCaching">Client Caching</a>, <a href="#PageLimits">Page Limits</a>, <a href="#DBRead">Database Read Rates</a> |
+| <a href="#Search">Search</a> | - |
+| <a href="#NewData">NewData</a> | <a href="#DBVar">Data Variation</a>, <a href="#DBWrites">Database Writes</a> |
+| <a href="#SignInOut">SignInOut</a> | Authentication Services |
+| <a href="#All">All</a> | - |
+| <a href="#Errors">Errors</a> | Recovery from error |
 
 <hr />
+
+   <a name="Landing"></a>
 
 1. <strong>"Landing"</strong> lands on the URL of the site.
 
@@ -170,6 +176,8 @@ Keywords in quotes define the various run types.
 
    The emulation script needs to detect and handle "Server unavailable" conditions.
 
+   <a name="MenuItems"></a>
+
 2. <strong>"MenuItems"</strong> browse through menu items
    without login or other activity that typically
    stresses the front-end web server rather than back-end database traffic.
@@ -194,6 +202,8 @@ Keywords in quotes define the various run types.
 
    These runs identify issues with front-end caching.
 
+   <a name="Logging"></a>
+
    ### Logging verbosity
 
    This is the first opportunity to manage logging functionality and 
@@ -205,7 +215,9 @@ Keywords in quotes define the various run types.
 
    favicon.ico
 
-3. <strong>"ListOwners"</strong> lists all owners in the database
+   <a name="List"></a>
+
+3. <strong>"List"</strong> lists all owners in the database
    to assess data retrieval.
 
    This is run 
@@ -220,6 +232,8 @@ Keywords in quotes define the various run types.
 
    <img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
 
+   <a name="ClientCaching"></a>
+
    ### Client Caching 
 
    Client software (browsers such as Chrome) typically 
@@ -227,6 +241,8 @@ Keywords in quotes define the various run types.
    reuse them to avoid unnecessary retrievals.
 
    This may need to be varied artifically to induce additional load.
+
+   <a name="PageLimits"></a>
 
    ### Page limits
 
@@ -244,6 +260,8 @@ Keywords in quotes define the various run types.
 
    Alas, the PetClinic app does not provide user preferences in its UI.
 
+   <a name="DBRead"></a>
+
    ### Database read rate
 
    This run type is the first stressing of reading data from the database.
@@ -254,6 +272,8 @@ Keywords in quotes define the various run types.
 
    This activity is used by "Transaction Tracing" utilities
    by programs such as Dynatrace and CA-APM.
+
+   <a name="Search"></a>
 
 4. <strong>"Search"</strong> generates database calls if
    client software does not check its cache before performing a search.
@@ -274,6 +294,8 @@ Keywords in quotes define the various run types.
    owners.
 
    The emulation script needs to handle error responses.
+
+   <a name="NewData"></a>
 
 5. <strong>"NewData"</strong> is done to
    identify the maximum rate the system can accommodate 
@@ -296,17 +318,23 @@ Keywords in quotes define the various run types.
    internally to populate the Veternarian screen.
    Such a link is not usually exposed in app end-user UIs.
 
+   <a name="DataVar"></a>
+
    ### Data Variation
 
    Variations in registration data from a file is needed
    to load various users.
 
-   ### Database write
+   <a name="DBWrites"></a>
+
+   ### Database writes
 
    This is the first stressing of writing of new data into the database.
 
    Measuring the time taken for individual database activities is 
    useful to differentiate time incurred by different databases.
+
+   <a name="SignInOut"></a>
 
 6. <strong>SignInOut</strong> is not possible with the PetClinic.
 
@@ -318,6 +346,8 @@ Keywords in quotes define the various run types.
    database for each user, memory use will increase for each additional user.
 
    Does memory get recovered from users who have logged off?
+
+   <a name="External"></a>
 
 7. <strong>External Process</strong> items are not possible with the
    PetClinic.
@@ -331,11 +361,15 @@ Keywords in quotes define the various run types.
    The question answered by a load test of this type is:<br />
    Can the app and external services keep up with a lot of people buying at once? What does "a lot" mean is the measurement.
 
+   <a name="All"></a>
+
 8. <strong>"All"</strong> means "all the above", done 
    to ensure that the system can handle a pattern of stress 
    during scalability testing.
 
-9. <strong>"Error"</strong> type runs purposely invokes 
+   <a name="Errors"></a>
+
+9. <strong>"Errors"</strong> type runs purposely invokes 
    the system's response to "negative" tests:
 
    a. Server unavailable.
