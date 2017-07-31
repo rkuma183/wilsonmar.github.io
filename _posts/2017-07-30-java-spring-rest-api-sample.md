@@ -15,17 +15,20 @@ comments: true
 
 {% include _toc.html %}
 
-Among several simple sample client programs that read REST APIs available on the internet:
+This article describes a Java Spring client program that calls this REST API:
 
-   * https://github.com/joshlong/bootiful-microservices
+   <a target="_blank" href="https://gturnquist-quoters.cfapps.io/api/random">
+   https://gturnquist-quoters.cfapps.io/api/random</a>
 
-## REST API sample service
+It is described at<br />
+<a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
+https://spring.io/guides/gs/consuming-rest</a>
 
-This article describes a Java Spring client program that calls this REST API:<br />
-<a target="_blank" href="https://gturnquist-quoters.cfapps.io/api/random">
-https://gturnquist-quoters.cfapps.io/api/random</a>
+But this article describes the code in a different way.<br />
+This article provides a hands-on approach to learning
+by introducing concepts immediately after asking you to take an action.
 
-0. Click on the URL above to see a raw response such as:
+0. Click on the URL above to see a raw (unformatted) response such as:
 
    <a name="SampleResponse"></a>
 
@@ -52,15 +55,7 @@ an id, and a text string (random quotes about Spring Boot).
    with servers behind the scenes.
 
 
-## Sample Spring program source
-
-<a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
-https://spring.io/guides/gs/consuming-rest</a><br />
-describes source code for a program that consumes the API shown above.
-
-This article describes the code in a different way.<br />
-This article provides a hands-on approach to learning
-by introducing concepts immediately after asking you to take an action.
+   ### Sample Spring program source
 
 0. In an internet browser (Chrome or Firefox), go to:
 
@@ -81,28 +76,27 @@ by introducing concepts immediately after asking you to take an action.
 0. Make a folder to hold the new folder to be added.
 0. Get the repository (substituting "spring-guides" with your own account name):
 
-   <pre><strong>
-git clone https://github.com/spring-guides/gs-consuming-rest.git --depth=1
-cd gs-consuming-rest
-   </strong></pre>
+   <tt><strong>git clone https://github.com/spring-guides/gs-consuming-rest.git \-\-depth=1<br />
+   cd gs-consuming-rest
+   </strong></tt>
 
    NOTE: The account spring-guides is maintained by folks within Pivitol
    who maintain the spring.io website.
 
-## Structure of folders
+   ### Structure of folders
 
 0. View top level folders:
 
-   <pre><strong>cd gs-consuming-rest
-   </strong></pre>
+   <tt><strong>cd gs-consuming-rest
+   </strong></tt>
 
    There are two folders: "initial" and "complete" so that this repo can be used
    for learning, with a completed set if changes were made correctly.
 
 0. View the folders
 
-   <pre><strong>cd completed
-   </strong></pre>
+   <tt><strong>cd completed
+   </strong></tt>
 
    Code for two build mechanisms are provided. Use either Maven or Gradle, not both.
 
@@ -113,14 +107,14 @@ cd gs-consuming-rest
 
 0. Open the file Maven references to download dependencies using Atom:
 
-   <pre><strong>atom pom.xml
-   </strong></pre>
+   <tt><strong>atom pom.xml
+   </strong></tt>
 
-   `&LT;modelVersion>4.0.0&LT;/modelVersion>` 
+   `<modelVersion>4.0.0</modelVersion>` 
    refers to the version of Maven.
 
-   `&LT;groupId>org.springframework&LT;/groupId><br />
-   `&LT;artifactId>gs-consuming-rest&LT;/artifactId>`
+   `<groupId>org.springframework</groupId><br />
+   `<artifactId>gs-consuming-rest</artifactId>`
    is used within Eclipse STS.
 
    `java.version` 1.8 is required by 
@@ -144,9 +138,9 @@ cd gs-consuming-rest
 
 0. Run the module (.jar file) created within the target folder:
 
-   <pre><strong>cd target
+   <tt><strong>cd target<br />
    java -jar gs-consuming-rest-0.1.0.jar
-   </strong></pre>
+   </strong></tt>
 
    DEFINITION: A <strong>module</strong> refers to the way that Java libraries are distributed and used - JAR, WAR, EAR. A .jar file contains all the other files assembled together.
 
