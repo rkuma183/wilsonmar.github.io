@@ -36,11 +36,6 @@ and on an on-demand basis.
 -->
 
 
-
-## How
-
-
-
 ### Invoke externally
 
 Enable developers and operations people to invoke and view load tests using tools they already use.
