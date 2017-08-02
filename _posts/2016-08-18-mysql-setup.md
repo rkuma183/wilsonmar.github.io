@@ -436,11 +436,8 @@ tomcat       stopped
 
    <pre>ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</pre>
 
-   BLAH: QUESTION: Fix this???
+   BLAH: QUESTION: Fix this!
 
-   <pre>mysql: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
-mysql: [ERROR] Fatal error in defaults handling. Program aborted!
-   </pre>
 
    ### Reset Root Password
 
