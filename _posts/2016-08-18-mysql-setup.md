@@ -374,6 +374,19 @@ my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
 
    No response is expected. Try the command again.
    
+0. List brew services:
+
+   <tt><strong>brew services list
+   </strong></tt>
+
+   <pre>Name         Status  User Plist
+chromedriver stopped      
+mongodb      started mac  /Users/mac/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+mysql        started mac  /Users/mac/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+nginx        stopped      
+tomcat       stopped   
+   </pre>
+
 
    <a name="ListProcesses"></a>
 
@@ -429,6 +442,10 @@ my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
 mysql: [ERROR] Fatal error in defaults handling. Program aborted!
    </pre>
 
+   ### Reset Root Password
+
+   https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html
+
 
    ### Stop server and process #
 
@@ -455,9 +472,9 @@ mysql: [ERROR] Fatal error in defaults handling. Program aborted!
    </strong></tt>
 
 
-   <a name="UninstallMySQL"></a>
+<a name="UninstallMySQL"></a>
 
-   ### Uninstall MySQL from Homebrew #
+## Uninstall MySQL from Homebrew #
 
 0. Remove MySQL:
 
@@ -650,14 +667,18 @@ Or, if you don't want/need a background service you can just run:
 
 ## Interactive SQL Clients #
 
-### mysqladmin
+<a name="MySQLAdmin"></a>
 
-0. mysqladmin is the default client tool for performing administrative tasks.
+## MySQLAdmin #
+
+mysqladmin is a command-line interface for administrators to perform server administration tasks.
+
+0. On a Terminal command line:
 
    <tt><strong>mysqladmin
    </strong></tt>
 
-   The response:
+   The response is long, starting with:
 
    <pre>
 mysqladmin  Ver 8.42 Distrib 5.7.18, for osx10.12 on x86_64
@@ -668,6 +689,11 @@ affiliates. Other names may be trademarks of their respective
 owners.
 &nbsp;
 Administration program for the mysqld daemon.
+   </pre>
+
+   The response listing command usage options:
+
+   <pre>
 Usage: mysqladmin [OPTIONS] command command....
   --bind-address=name IP address to bind to.
   -c, --count=#       Number of iterations to make. This works with -i
@@ -958,31 +984,6 @@ There are two ways to get a list of databases:
 
 
 
-<a name="MySQLAdmin"></a>
-
-## MySQLAdmin #
-
-mysqladmin is a command-line interface for administrators to perform server administration tasks.
-
-0. On a Terminal command line:
-
-   <tt><strong>mysqladmin
-   </strong></tt>
-
-   The response is long, starting with...
-
-   <pre>
-mysqladmin  Ver 8.42 Distrib 5.7.13, for osx10.11 on x86_64
-Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
-&nbsp;
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-&nbsp;
-Administration program for the mysqld daemon.
-Usage: mysqladmin [OPTIONS] command command....
-   </pre>
-
 <a name="ManageUsers"></a>
 
 ## Manage Users #
@@ -1170,5 +1171,5 @@ MySQL Fundamentals video course on Pluralsight</a>
 (2 hour 37 minutes)
 
 
-Tim Molter 
-<a target="_blank" href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html">blog</a>
+Tim Molter's  
+<a target="_blank" href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html">blog</a> has a Q&A about installation going back to 2009.
