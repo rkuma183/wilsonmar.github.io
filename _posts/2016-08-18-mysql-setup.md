@@ -1170,3 +1170,8 @@ MySQL Fundamentals video course on Pluralsight</a>
 
 Tim Molter's  
 <a target="_blank" href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html">blog</a> has a Q&A about installation going back to 2009.
+
+https://stackoverflow.com/questions/15016376/cant-connect-to-local-mysql-server-through-socket-homebrew
+contains a deprecated suggestion in:
+
+mysql_install_db --basedir="$(brew --prefix mysql)"
