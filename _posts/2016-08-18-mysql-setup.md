@@ -137,35 +137,36 @@ Cloud SQL announced, a hosted version of MySQL 5.7 for the Google Cloud Platform
 
 0. To start a mysql database in a docker container, run:
 
-   <pre><strong>docker-compose -f src/main/docker/mysql.yml up -d
-   </strong></pre>
+   <tt><strong>docker-compose -f src/main/docker/mysql.yml up -d
+   </strong></tt>
 
 0. To stop it and remove the container, run:
 
-   <pre><strong>docker-compose -f src/main/docker/mysql.yml down
-   </strong></pre>
+   <tt><strong>docker-compose -f src/main/docker/mysql.yml down
+   </strong></tt>
 
 0. To dockerize your application and all the services that it depends on,
    build a docker image of your app by running:
 
-   <pre><strong>./mvnw package -Pprod docker:build
-   </strong></pre>
+   <tt><strong>./mvnw package -Pprod docker:build
+   </strong></tt>
 
 0. Then run:
 
-   <pre><strong>docker-compose -f src/main/docker/app.yml up -d
-   </strong></pre>
+   <tt><strong>docker-compose -f src/main/docker/app.yml up -d
+   </strong></tt>
 
 
 <a name="InstallMySQL"></a>
 
 ## MySQL via Homebrew on Mac OSX #
 
+### Install MySQL
+
 PROTP: Use Homebrew instead of downloading from
    <a target="_blank" href="http://dev.mysql.com/downloads/">
    http://dev.mysql.com/downloads</a>, which gets you the latest version
    instead of one vetted.
-
 
 0. Prepare the Homebrew environment (before any Homebrew install):
 
@@ -236,6 +237,11 @@ mysql 5.7.18_1
 ######################################################################## 100.0%brew info mysql
 ==> Pouring mysql-5.7.18_1.sierra.bottle.tar.gz
 ==> Using the sandbox
+   </pre>
+
+   <a name="Caveats"></a>
+
+   <pre>
 ==> Caveats
 We've installed your MySQL database without a root password. To secure it run:
     mysql_secure_installation
@@ -264,8 +270,6 @@ Or, if you don't want/need a background service you can just run:
    The sample response:
 
    <pre>
-Last login: Mon Jul  3 15:18:34 on ttys001
-groovy-samples() > brew info mysql
 mysql: stable 5.7.18 (bottled)
 Open source relational database management system
 https://dev.mysql.com/doc/refman/5.7/en/
@@ -304,7 +308,7 @@ Required: macOS >= 10.7 ✔
    <a target="_blank" href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html">
    https://dev.mysql.com/doc/refman/5.6/en/osx-installation.html</a>
 
-0. Verify:
+0. Verify install:
 
    <tt><strong>which mysql
    </strong></tt>
@@ -315,15 +319,15 @@ Required: macOS >= 10.7 ✔
    /usr/local/bin/mysql
    </pre>
 
+   BLAH: But one cannot cd into that folder.
+
 
    ### Configure #
 
-0. Open in Terminal a shell window.
-
 0. Set permissions for root access:
 
-   <pre><strong>sudo chown -R mysql /usr/local/var/mysql/
-   </strong></pre>
+   <tt><strong>sudo chown -R mysql /usr/local/var/mysql/
+   </strong></tt>
 
    Supply the password when prompted.
 
@@ -333,14 +337,16 @@ Required: macOS >= 10.7 ✔
    Joe Fallon, in his blog</a>, proposed additional configurations.
     
 
-   ### Invoke daemon process #
+   <a name="StartService"></a>
 
-0. Invoke mysql daemon from the command line:
+   ### Start daemon process #
+
+0. Invoke mysql foreground daemon from the command line:
 
    <tt><strong>sudo mysql.server start
    </strong></tt>
 
-   Response:
+   The response after supplying the password reflects the log file specific to your machine:
 
    <pre>
    Starting MySQL
@@ -348,38 +354,26 @@ Required: macOS >= 10.7 ✔
    . SUCCESS! 
    </pre>
 
-0. Alternately, if you get this error messages:
+   The prompt should now change to:
+
+   <pre><strong>mysql >
+   </strong></pre>
+
+0. If you get this error message:
 
    <pre>
 my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
 my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
-Starting MySQL
-.my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
-my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
-my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
-my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
      </pre>
 
-   <a target="_blank" href="http://codepodu.com/a-help-message-which-actually-is-helpful/">Fix it</a>:
+   <a target="_blank" href="http://codepodu.com/a-help-message-which-actually-is-helpful/">
+   Fix the damage done by brew prune</a>:
 
-   <pre><strong>mkdir /usr/local/etc/my.cnf.d
-   </strong></pre>
+   <tt><strong>mkdir /usr/local/etc/my.cnf.d
+   </strong></tt>
 
-0. To fix these error messages:
+   No response is expected. Try the command again.
    
-   <pre>
-/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 643: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
-Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
-/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 142: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
-/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 196: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
-/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 900: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
-/usr/local/Cellar/mysql/5.7.18_1/bin/mysqld_safe: line 142: /usr/local/var/mysql/macs-MacBook-Pro-4.local.err: Permission denied
- ERROR! The server quit without updating PID file (/usr/local/var/mysql/macs-MacBook-Pro-4.local.pid).
-     </pre>
-
-   <pre><strong>mkdir /usr/local/etc/my.cnf.d
-   </strong></pre>
-
 
    <a name="ListProcesses"></a>
 
@@ -408,6 +402,33 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
    If you want to use the database, proceed to <a href="#WorkSQL">Work with SQL</a> below.
 
 
+   ### Invoke MySQL
+
+0. Note one cannot just invoke mysql without specifying credentials, or this appears:
+
+   <pre>ERROR 1045 (28000): Access denied for user 'mac'@'localhost' (using password: NO)
+   </pre>
+
+0. The command in the <a href="#Caveats">Caveats</a> message state:
+
+   <tt><strong>mysql -uroot
+   </strong></tt>
+
+   Alternately, to specify the password:
+
+   <tt><strong>mysql -u root -p
+   </strong></tt>
+
+   <a href="#StartService">Start the MySQL service</a> if you see this:
+
+   <pre>ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</pre>
+
+   BLAH: QUESTION: Fix this???
+
+   <pre>mysql: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
+mysql: [ERROR] Fatal error in defaults handling. Program aborted!
+   </pre>
+
 
    ### Stop server and process #
 
@@ -427,7 +448,7 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
    pkill: signalling pid 24162: Operation not permitted
    </pre>
 
-   Alternately, specify by process ID (which is differs over time):
+   Alternately, specify by process ID (which is differs over time), for example:
 
    <tt><strong>kill -9 21069<br />
    kill -9 21161
@@ -440,8 +461,8 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
 0. Remove MySQL:
 
-   <pre><strong>brew remove mysql
-   </strong></pre>
+   <tt><strong>brew remove mysql
+   </strong></tt>
 
    Response:
 
@@ -462,7 +483,7 @@ Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
 
 0. Remove services MacOS invokes when a user logs in:
 
-   <tt><strong>sudo ls ~/Library/LaunchAgents<br />
+   <tt><strong>sudo ls ~/Library/LaunchAgents
    </strong></tt>
 
    If file "homebrew.mxcl.mysql.plist" exists, remove it:
@@ -502,7 +523,31 @@ in addition to standard MyISAM, blackhole, CSV, Memory, etc.
 http://kb.askmonty.org/v/mariadb</a> is the MariaDB Knowledgebase. 
 
 0. Take a full backup before doing this.
-0. <a href="#UninstallMySQL">Uninstall MySQL</a> if you have it installed.
+0. If you have MySQL installed, <a href="#UninstallMySQL">uninstall MySQL</a>.
+0. If you have MariaDB installed:
+
+   <tt><strong>brew uninstall mariadb \-\-force -s
+   </strong></tt>
+
+   `-s` clears the brew cache.
+
+   `--force` is needed in the command to avoid this:
+
+   <pre>Error: No such keg: /usr/local/Cellar/mariadb
+   </pre>
+
+   No response is returned if it worked.
+
+0. Remove dead symlinks:
+
+   <tt><strong>brew prune
+   </strong></tt>
+
+   The response, for example:
+
+   <pre>Pruned 0 symbolic links and 17 directories from /usr/local
+   </pre>
+
 0. Install MariaDB:
 
    <tt><strong>brew install mariadb
@@ -566,10 +611,10 @@ Or, if you don't want/need a background service you can just run:
 
    Do another echo to get a blank response.
 
-0. Invoke interactively from the command line:
+0. Invoke interactively from the command line (all in one line):
 
-   <pre><strong>mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql 
-   </strong></pre>
+   <tt><strong>mysql_install_db \-\-verbose \-\-user=`whoami` \-\-basedir="$(brew \-\-prefix mysql)" \-\-datadir=/usr/local/var/mysql 
+   </strong></tt>
 
    NOTE: The `whoami` returns the output from running the whoami command.
 
@@ -627,8 +672,8 @@ Or, if you don't want/need a background service you can just run:
 
 0. mysqladmin is the default client tool for performing administrative tasks.
 
-   <pre><strong>mysqladmin
-   </strong></pre>
+   <tt><strong>mysqladmin
+   </strong></tt>
 
    The response:
 
@@ -853,7 +898,7 @@ The command-line client is mysql.
 
 0. Start the mysqld server so anyone can log in with full permissions:
 
-   <tt><strong>mysqld_safe --skip-grant-tables
+   <tt><strong>mysqld_safe \-\-skip-grant-tables
    </strong></tt>
 
    Open another Terminal shell window on any folder.
@@ -884,8 +929,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 0. To exit, type in quit and press Enter:
 
-   <pre><strong>quit
-   </strong></pre>
+   <tt><strong>quit
+   </strong></tt>
 
    Then bring up mysql again.
 
@@ -893,7 +938,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
    <pre>#start
    launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-
+&nbsp;
    #stop
    launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
    </pre>
@@ -1143,3 +1188,5 @@ MySQL Fundamentals video course on Pluralsight</a>
 (2 hour 37 minutes)
 
 
+Tim Molter 
+<a target="_blank" href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html">blog</a>
