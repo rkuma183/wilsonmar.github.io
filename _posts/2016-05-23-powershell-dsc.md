@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "PowerShell Desired State Configuration"
-excerpt: "Let me do it for you"
+title: "PowerShell DSC (Desired State Configuration)"
+excerpt: "Let PowerShell make it right and keep it right"
 tags: [cloud, powershell, microsoft]
 shorturl: "https://git.io/v1l30"
 image:
@@ -16,6 +16,7 @@ comments: true
 {% include _toc.html %}
 
 This article describes the use of Windows PowerShell Desired State Configuration (DSC).
+introduced by PowerShell.
 
 "PowerShell" refers to both the command-line shell and scripting language designed system administration. 
 
@@ -28,6 +29,13 @@ However, PowerShell offers much more consistence than the various commands added
 
    * It reads Excel files natively as well as JSON, XML, and even ASCII.
    <br /><br />
+
+DSC resources can be obtained from several places:
+
+* GitHub
+* PowerShell Gallery
+* PowerShell Package Manager (of PowerShell modules)
+<br /><br />
 
 
 ## Open source on Linux and MacOS #
@@ -72,28 +80,6 @@ MOF files often have a partner DLL (dynamic link library) file that stores data 
 ## Chef incorporates DSC #
 
 
-## Resources #
-
-Windows PowerShell 4.0 introduces Desired State Configuration (DSC), 
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=lP6noSW6Vr4">
-   A Practical Overview of Desired State Configuration</a>
-   TechEd North America 2014
-
-   Windows PowerShell 4.0 introduces Desired State Configuration (DSC), and it's time to put it to use. With DSC, you declaratively ..
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=CkxVQy6ACXE">
-  Why I love PowerShell Desired State Configuration and so should u</a>
-  by Nicholas Dille
-   https://twitter.com/NicholasDille 
-   http://dille.name/blog/
-
-* ‏@CDwithWindows
-
-
-http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
-How to search a string in multiple files and return the names of files in Powershell
-
 ## Infrastructure as Code 
 
 <a target="_blank" href="http://www.ravichaganti.com/blog/">
@@ -130,6 +116,30 @@ It has two functions:
 
 http://kunaludapi.blogspot.in/2015/09/multiple-ways-to-install-software.html
 
+
+## Resources #
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/practical-desired-state-configuration/">
+Practical Desired State Configuration (DSC)</a> [3:01] 10 Aug 2016
+by Josh Duffney 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=lP6noSW6Vr4">
+   A Practical Overview of Desired State Configuration</a>
+   TechEd North America 2014
+
+   Windows PowerShell 4.0 introduces Desired State Configuration (DSC), and it's time to put it to use. With DSC, you declaratively ..
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=CkxVQy6ACXE">
+  Why I love PowerShell Desired State Configuration and so should u</a>
+  by Nicholas Dille
+   https://twitter.com/NicholasDille 
+   http://dille.name/blog/
+
+* ‏@CDwithWindows
+
+
+http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
+How to search a string in multiple files and return the names of files in Powershell
 
 ## More on API Microservices #
 

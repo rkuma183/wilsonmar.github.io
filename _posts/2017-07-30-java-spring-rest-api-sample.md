@@ -173,6 +173,7 @@ an id, and a text string (random quotes about Spring Boot).
    We need to ignore the date/time stamps, markers, and warnings in the response.
 
    Notice "hello.Application" is called (even though "No active profile set").
+   NOTE: <a target="_blank" href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html">Spring Profiles</a> provide a way to segregate parts of your application configuration and make it only available in certain environments.
 
    After "Registering beans for JMX exposure on startup" notice there is a 
    <a href="#SampleResponse">valid response from the web service</a>
@@ -342,13 +343,12 @@ Alternately, go to the Outline view and run the method from there.
 
    The set and get funtions can be automatically created within the Eclipse IDE.
 
-   This line defines a new type called Value:
+   ???
 
-   <pre>
-    private Value value;
-   </pre>
+   Notice "Value" is not a built-in data type such as "String", etc.
+   It is a custom type which needs to be defined.
 
-0. Look in file Value.java which defines the type:
+0. Look in file Value.java which defines the Value type:
 
    <pre>
     public String toString() {

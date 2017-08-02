@@ -44,6 +44,8 @@ Node using JavaScript, Ruby on Rails, Python, and Go), which
 use RESTful API web services 
 exchanging JSON-formatted files rather than SOAP and XML.
 
+Spring Boot was first released on April 1, 2014.
+
 Spring Boot makes use of <strong>Spring MVC</strong> (Model View Controller)
 programming pattern
 for its use of Java beans, context, and AOP.
@@ -58,6 +60,19 @@ that sprung up during the 1990's. So it can be viewed as both "mature" and "bloa
 
 Other modules in the suite include Spring Security and 
 Spring Data JPA.
+
+The <a target="_blank" href="https://github.com/spring-io/initializr">
+Spring Initializr project</a>, hosted at <a target="_blank" href="http://start.spring.io/">
+start.spring.io</a> allows you to select just the libraries (starters) you need
+to configure and download a complete Spring Boot project (named demo.zip).
+Run it:
+
+   <pre>
+unzip demo.zip && \
+cd demo && \
+mvn clean install && \
+java -jar target/*.jar
+   </pre>
 
 <hr />
 
@@ -374,6 +389,8 @@ Pluralsight's
 Spring Fundamentals</a> 2h 55m video course released 9 Dec 2016
 by Bryan Hansen (@bh5k)
 
+https://www.mkyong.com/all-tutorials-on-mkyong-com/
+Java, Spring, other frameworks
 
 ## More #
 
