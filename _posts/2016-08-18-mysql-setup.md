@@ -583,6 +583,8 @@ Or, if you don't want/need a background service you can just run:
 🍺  /usr/local/Cellar/mariadb/10.1.14: 573 files, 131.1M
    </pre>
 
+   Before you boldly start:
+
 0. Verify
 
    <tt><strong>which mysql
@@ -601,7 +603,7 @@ Or, if you don't want/need a background service you can just run:
    Sample response:
 
    <pre>
-   /var/folders/j_/gh27gpxj1t58hyryfg9drvdc0000gn/T/
+   /var/folders/j_/gh27gpxj1t58hyryfg9drvdc0001gn/T/
    </pre>
 
 0. Now clear it:
@@ -613,32 +615,12 @@ Or, if you don't want/need a background service you can just run:
 
 0. Invoke interactively from the command line (all in one line):
 
-   <tt><strong>mysql_install_db \-\-verbose \-\-user=`whoami` \-\-basedir="$(brew \-\-prefix mysql)" \-\-datadir=/usr/local/var/mysql 
+   <tt><strong>mysql_install_db \-\-verbose \-\-user=`whoami` \-\-basedir="$(brew \-\-prefix mariadb)" \-\-datadir=/usr/local/var/mysql 
    </strong></tt>
 
    NOTE: The `whoami` returns the output from running the whoami command.
 
    In previous examples, "--tmpdir=/tmp" is not recognized.
-
-
-   The response:
-
-   <pre>
-2016-07-01 20:40:43 [WARNING] mysql_install_db is deprecated. Please consider switching to mysqld --initialize
-2016-07-01 20:40:43 [NOTE]    Creating data directory /usr/local/var/mysql
-2016-07-01 20:40:43 [NOTE]    Generating random password to /Users/mac/.mysql_secret...done.
-2016-07-01 20:40:43 [NOTE]    Executing /usr/local/opt/mysql/bin/mysqld --bootstrap --datadir=/usr/local/var/mysql --lc-messages-dir=/usr/local/opt/mysql/share/mysql --lc-messages=en_US --basedir=/usr/local/opt/mysql
-2016-07-01 20:40:44 [NOTE]    Creating system tables...done.
-2016-07-01 20:40:44 [NOTE]    Filling system tables with data...done.
-2016-07-01 20:40:45 [NOTE]    Filling help table with data...done.
-2016-07-01 20:40:45 [NOTE]    Creating default user root@localhost
-2016-07-01 20:40:45 [NOTE]    Creating default proxy root@localhost
-2016-07-01 20:40:45 [NOTE]    Creating sys schema
-2016-07-01 20:40:45 [NOTE]    done.
-2016-07-01 20:40:47 [WARNING] The bootstrap log isn't empty:
-2016-07-01 20:40:47 [WARNING] 2016-07-02T02:40:43.275138Z 0 [Warning] --bootstrap is deprecated. Please consider using --initialize instead
-   </pre>
-
 
 
 <a name="WorkSQL"></a>
