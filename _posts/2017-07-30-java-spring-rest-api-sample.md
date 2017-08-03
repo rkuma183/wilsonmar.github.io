@@ -15,18 +15,24 @@ comments: true
 
 {% include _toc.html %}
 
-This article describes a Java Spring client program that calls this REST API:
+This article introduces how Spring programs works by examining a simple 
+Java Spring client program that calls a REST API (without authentication, GUI, or database):
 
    <a target="_blank" href="https://gturnquist-quoters.cfapps.io/api/random">
    https://gturnquist-quoters.cfapps.io/api/random</a>
 
-It is described at<br />
-<a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
-https://spring.io/guides/gs/consuming-rest</a>
+   This API is described at<br />
+   <a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
+   https://spring.io/guides/gs/consuming-rest</a>
 
-But this article describes the code in a different way.<br />
-This article provides a hands-on approach to learning
-by introducing concepts immediately after asking you to take an action.
+   But this article describes the code using a tutorial approach.
+   Here is a <strong>hands-on</strong> approach to learning
+   by introducing concepts immediately 
+   <strong>after</strong> asking you to take an action,
+   rather than pumping you full of concepts all at once.
+
+> If any of this doesn't work for you, or doesn't make sense to you,
+please reach out to me.
 
 0. Click on the URL above to see a raw (unformatted) response such as:
 
@@ -103,9 +109,14 @@ an id, and a text string (random quotes about Spring Boot).
    This tutorial makes use of Maven (although Gradle is a simpler, more modern tool).
 
 
-   ### Run Maven for target
+   ### Maven to create target .jar
 
-0. Open the file Maven references to download dependencies using Atom:
+0. Open to view the pom.xml file which tells the Maven program
+   what artifacts and plugins to download from its
+   <a target="_blank" href="https://search.maven.org/">
+   Maven Central repository</a>.
+
+   (You can subsitute another editor than Atom)
 
    <tt><strong>atom pom.xml
    </strong></tt>
@@ -119,19 +130,27 @@ an id, and a text string (random quotes about Spring Boot).
 
    `java.version` 1.8 is required by 
    spring.framework specified as a dependency.
-   (Others substitute a variable `${spring.version}`)
+   (Others substitute a variable `${spring.version}`, which is substituted automatically based on the value specified in the <spring.version> tag's content within the same file.)
 
-   Jackson provides methods to process JSON files.
+   `jackson` provides methods to process JSON files.
 
-   Maven downloads artifacts and plugins specified from its
-   Maven Central repository.
+   A full application would contain references to libraries to enable use of
+   Tomcat, database, and 
+   others.
 
-0. On Windows, use `mvnw.cmd` to create a <strong>target</strong> folder.<br />
+0. Assemble all the various files necessary to run into a single .jar file
+   within a <strong>target</strong> folder.
+
+   On Windows:
+
+   <tt><strong>mvnw.cmd
+   </strong></tt>
+
    On Mac:
 
-   <pre><strong>chmod +x *
+   <tt><strong>chmod +x *
    ./mvnw
-   </strong></pre>
+   </strong></tt>
 
 
    ### Run .jar from command line
@@ -170,7 +189,8 @@ an id, and a text string (random quotes about Spring Boot).
 2017-07-30 15:02:48.037  INFO 27820 --- [       Thread-2] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
    </pre>
 
-   We need to ignore the date/time stamps, markers, and warnings in the response.
+   PROTIP: Ignore the date/time stamps, markers, and warnings in the response.
+   Scroll to the right.
 
    Notice "hello.Application" is called (even though "No active profile set").
    NOTE: <a target="_blank" href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html">Spring Profiles</a> provide a way to segregate parts of your application configuration and make it only available in certain environments.
@@ -234,6 +254,7 @@ an id, and a text string (random quotes about Spring Boot).
    Code to process the @Autowired annotation is imported from 
    `org.springframework.beans.factory.annotation.Autowired`.
 
+
    See http://qaautomated.blogspot.in/p/junit.html
 
    See http://www.baeldung.com/java-annotation-processing-builder
@@ -250,6 +271,9 @@ an id, and a text string (random quotes about Spring Boot).
    `@Autowired` cause the injection of getter and setter function code automatically
    during build, to save developer time on the restTemplate.
    (Any Spring components can be autowired. These include, components, configurations, services and beans.)
+
+   NOTE: A Java Bean is a simple POJO whose only behavior is getters and setters.
+   POJO (Plain Old Java Object) is an object that has attributes as well as behaviors.
 
 
    ### Run Test from Eclipse IDE
@@ -295,6 +319,11 @@ Alternately, go to the Outline view and run the method from there.
    </pre>
 
    ???
+
+   The `@SpringBootApplication` annotation provides the base package for component
+   scanning. It marks a class for static configurations of the
+   Application Context. It provides for autoconfiguration to start applying default
+   behaviors.
 
    The "CommandLineRunner" finishes by issuing an log entry with the code:
 
@@ -373,6 +402,10 @@ Alternately, go to the Outline view and run the method from there.
    <a target="_blank" href="https://robert-reiz.com/2012/07/24/jsonignoreproperties/">
    "just something you have to do"</a>
 
+##
+
+Data Manipulation Language (DML) is stored in a data.sql file in
+src > main > resources.
 
 ## Paid Lessons
 
