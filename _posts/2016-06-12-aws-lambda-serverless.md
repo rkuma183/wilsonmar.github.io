@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS Lamba Serverless"
+title: "AWS Lambda Serverless"
 excerpt: "An invisible server for the masses"
 tags: [node, serverless]
 image:
@@ -50,8 +50,7 @@ Multitenancy</a>
 
 0. Install AWS CLI per https://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
-   <tt><strong>
-   pip install --upgrade --user awscli
+   <tt><strong>pip install \-\-upgrade \-\-user awscli
    </strong></pre>
 
    The --upgrade option tells pip to upgrade any requirements that are already installed. 
@@ -60,8 +59,7 @@ Multitenancy</a>
 
 0. Verify:
 
-   <tt><strong>
-   aws --version
+   <tt><strong>aws \-\-version
    </strong></pre>
 
 0. To uninstall:
