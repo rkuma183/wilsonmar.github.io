@@ -25,13 +25,12 @@ Java Spring client program that calls a REST API (without authentication, GUI, o
    <a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
    https://spring.io/guides/gs/consuming-rest</a>
 
-   But this article describes the code using a tutorial approach.
-   Here is a <strong>hands-on</strong> approach to learning
-   by introducing concepts immediately 
-   <strong>after</strong> asking you to take an action,
-   rather than pumping you full of concepts all at once.
+   But this article describes the code using a  
+   <strong>hands-on</strong> approach 
+   by introducing concepts <strong>after</strong> asking you to take an action,
+   so that you have a <strong>visual</strong> image to go with the commentary.
 
-> If any of this doesn't work for you, or doesn't make sense to you,
+> If any of this doesn't work for you or doesn't make sense to you,
 please reach out to me.
 
 0. Click on the URL above to see a raw (unformatted) response such as:
