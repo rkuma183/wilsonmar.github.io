@@ -33,7 +33,9 @@ https://github.com/spring-projects/spring-petclinic</a>
 
 Its main contributor is  <a target="_blank" href="http://javaetmoi.com/">
 paresian</a>  <a target="_blank" href="https://github.com/arey">
-Antoine Rey (arey)</a>.
+Antoine Rey (arey)</a> of
+<a target="_blank" href="https://javaetmoi.com/">
+javaetmoi.com</a>.
 
 0. Get it working:
 
