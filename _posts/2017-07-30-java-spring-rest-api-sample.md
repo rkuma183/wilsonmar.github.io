@@ -18,7 +18,7 @@ comments: true
 This article introduces how Spring programs works by examining a simple 
 Java Spring client program that calls a REST API (without authentication, GUI, or database).
 
-This article describes the code you taking a <strong>hands-on</strong> approach 
+This article describes the code while you take a <strong>hands-on</strong> approach 
    where I introduce concepts <strong>after</strong> asking you to take an action,
    so that you have a <strong>visual</strong> image to go with my commentary.
 
