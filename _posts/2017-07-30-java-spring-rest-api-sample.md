@@ -423,7 +423,8 @@ src > main > resources.
 Some videos from the <br />
 <a target="_blank" href="http://www.baeldung.com/rest-with-spring-course">
 $65 http://www.baeldung.com/rest-with-spring-course</a><br />
-by Eugen in Romainia (<a target="_blank" href="https://twitter.com/baeldung">@baeldung</a>) is previewed on <a target="_blank" href="https://www.youtube.com/channel/UClz8vOAb28UzP64meEvhg5w">
+by Eugen Parachiv in Romainia (<a target="_blank" href="https://twitter.com/baeldung">@baeldung</a>) 
+is previewed on <a target="_blank" href="https://www.youtube.com/channel/UClz8vOAb28UzP64meEvhg5w">
 his YouTube channel</a>.
 
 <a target="_blank" href="https://www.udemy.com/spring-boot-tutorial-for-beginners/">
@@ -434,7 +435,7 @@ with code in<br />
 https://github.com/in28minutes/in28minutes.github.io/tree/master/code-zip-files
 
 <a target="_blank" href="https://www.lynda.com/Web-tutorials/Learning-Spring-Spring-Boot/550572-2.html">
-Learning Spring with Spring Boot</a>
+Learning Spring with Spring Boot</a> from 2015
 for those who have a Lynda.com subscription.
 
 
