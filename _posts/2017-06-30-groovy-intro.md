@@ -23,6 +23,14 @@ Effort was taken to sequence topics for faster learning.
 Groovy development began in 2003 by James Strachan and Bob McWhirter.
 Groovy 1.0 was released in January 2, 2007.
 
+The advantage of Groovy:
+
+1. Can run on a variety of operating systems (Linux, Windows, etc.)
+2. Create code faster than Java?
+3. Can use Java library classes, such as Grails for web apps
+4. Still use JVM (Groovy compiles to Java)
+
+
 ## Social
 
 <a target="_blank" href="http://groovy-lang.org/">http://groovy-lang.org</a>
@@ -38,43 +46,15 @@ Apache runs conferences on the language. Some notable presentations:
    by venkat@agiledeveloper.com
    @venkat_s  Subramaniam
 
-## Video Tutorials
 
-<a target="_blank" href="https://www.JeremyJarrell.com/">
-Jeremy Jarrell</a> provides, back in 2014, a [3:37]
-<a target="_blank" href="https://app.pluralsight.com/library/courses/groovy-fundamentals/table-of-contents"> Groovy Fundamentals video course on Pluralsight</a>
-shows how to develop a Groovy application to parse GPS data from an XML file, insert it into a database, and correlate weather forecast data from 
-<a target="_blank" href="https://developer.forecast.io/">
-forecast.io</a> retrieved using a REST API.
-
-Those with a Lynda subscription can view the <a target="_blank" href="https://www.lynda.com/Java-tutorials/Program-Groovy/486759/606194-4.html">
-Program with Groovy</a> segment within the IntelliJ course.
-
-Other introductory tutorials:
-
-* https://www.tutorialspoint.com/groovy/
-* https://examples.javacodegeeks.com/jvm-languages/groovy/groovy-script-tutorial-beginners/
-* https://www.timroes.de/2015/06/27/groovy-tutorial-for-java-developers/
-
-* https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part3-collections/
-
-* https://www.youtube.com/watch?v=KDCu1vEwPWo
-  Groovy scripting for SOAPUI from SmartBear
-
-* https://learnxinyminutes.com/docs/groovy/
-   Learn Groove in X Minutes
-* http://groovy-lang.org/structure.html
-* http://grails.asia/grails-tutorial-for-beginners-playing-with-groovy-language
-* http://guides.grails.org/creating-your-first-grails-app/guide/index.html
-* http://www.vogella.com/tutorials/Grails/article.html
-
-## Install 
-
-### Docker Image
+## Docker Image
 
    Docker images contain a complete environment:
 
    https://github.com/groovy/docker-groovy
+
+
+## Install 
 
 ### Package Manager
 
@@ -359,7 +339,6 @@ options:
    <pre>groovy:000> :load hello.groovy</pre>
 
    PROTIP: The shell does not import groovy.transform.BaseScript
-
    
    <pre>
 import groovy.transform.AnnotationCollector
@@ -610,7 +589,65 @@ Docs</a>
 
 * https://www.youtube.com/watch?v=vwysol6tipM&t=49s
 
+## Back ends
+
+* Grails with Groovy
+* Ratpack
+* Spring Boot
+
+* gServ (Groovy specific library)
+* Restlet Framework
+
+
+## Rock Stars
+
+Guillaume Laforge (@glaforge), now Developer Advocate at Google. But when he was at Restlet 
+<a target="_blank" href="https://www.youtube.com/watch?v=4fumUVy2x1s">
+presented this on 11 Dec 2015</a>.
+has a swapi.io (Star Wars API) of planets, etc..
+
+<a target="_blank" href="https://www.youtube.com/watch?v=ZjFKXrXfTbY">
+"A Groovy Journey in Open Source Land, presentation 29 August 2016</a> 
+
+
+## Video Tutorials
+
+<a target="_blank" href="https://www.JeremyJarrell.com/">
+Jeremy Jarrell</a> provides, back in 2014, a [3:37]
+<a target="_blank" href="https://app.pluralsight.com/library/courses/groovy-fundamentals/table-of-contents"> Groovy Fundamentals video course on Pluralsight</a>
+shows how to develop a Groovy application to parse GPS data from an XML file, insert it into a database, and correlate weather forecast data from 
+<a target="_blank" href="https://developer.forecast.io/">
+forecast.io</a> retrieved using a REST API.
+
+Those with a Lynda subscription can view the <a target="_blank" href="https://www.lynda.com/Java-tutorials/Program-Groovy/486759/606194-4.html">
+Program with Groovy</a> segment within the IntelliJ course.
+
+<a target="_blank" href="https://www.youtube.com/watch?v=-JJOymUWISg">
+What is Groovy?</a> 2013 
+
+
+Other introductory tutorials:
+
+* https://www.tutorialspoint.com/groovy/
+* https://examples.javacodegeeks.com/jvm-languages/groovy/groovy-script-tutorial-beginners/
+* https://www.timroes.de/2015/06/27/groovy-tutorial-for-java-developers/
+
+* https://www.timroes.de/2015/06/28/groovy-tutorial-for-java-developers-part3-collections/
+
+* https://www.youtube.com/watch?v=KDCu1vEwPWo
+  Groovy scripting for SOAPUI from SmartBear
+
+* https://learnxinyminutes.com/docs/groovy/
+   Learn Groove in X Minutes
+* http://groovy-lang.org/structure.html
+* http://grails.asia/grails-tutorial-for-beginners-playing-with-groovy-language
+* http://guides.grails.org/creating-your-first-grails-app/guide/index.html
+* http://www.vogella.com/tutorials/Grails/article.html
+
 ## Resources
 
 * http://thingsyoudidntknowaboutjenkins.tumblr.com/post/26585787635/built-in-groovy-scr ipting
 
+* https://www.youtube.com/watch?v=xzc-LoJ0mt0
+   Advanced Groovy Tips and Tricks</a>
+   from SpringDeveloper
