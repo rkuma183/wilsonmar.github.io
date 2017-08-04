@@ -19,6 +19,7 @@ comments: true
 This shows you how install Maven using Homebrew.
 
 Maven is a [task runnner, like Ant and Gradle, Grunt](/task-runners/).
+
 Unlike Ant, Maven also provides 
 dependency management, 
 standard project layout, and 
@@ -331,6 +332,12 @@ src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11
 
 * http://www.sonatype.com/resources/books/maven-the-complete-reference
 
+
+## References
+
+<a target="_blank" href="http://www.mkyong.com/tutorials/maven-tutorials/">
+http://www.mkyong.com/tutorials/maven-tutorials/</a>
+is a compelling resource.
 
 ## More on OSX
 
