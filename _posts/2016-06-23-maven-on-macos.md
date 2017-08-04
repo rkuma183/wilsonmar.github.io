@@ -24,6 +24,7 @@ dependency management,
 standard project layout, and 
 project management.
 
+
 ## Mated with Java
 
 Maven is written in Java, and grew up supporting Java builds
@@ -130,16 +131,15 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
 
    mvn files should be listed.
 
-0. Open a text editor:
+0. Open using a text editor, substituting subl (for Sublime) with atom or vim:
 
    <tt><strong>
    cd $HOME<br />
    subl .bash_profile
    </strong></tt>
 
-   Substitute subl for Sublime with atom or vim.
 
-0. Add the following to under export PATH=:
+0. Add the following to under export PATH=, changing the version (3.3.9) to whatever appears above:
 
    <tt><strong>
    export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec<br />
@@ -147,25 +147,51 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    export PATH=$PATH:$M2_HOME/bin
    </strong></tt>
 
-   Change the version (3.3.9) to whatever appeared above.
+   On Windows, define enviornment variable `M2_HOME` with a path such as:
 
-0. In a Terminal, verify changes:
+   <pre><strong>C:\apache-maven-3.3.3
+   </strong></pre>   
 
-   <pre><tt>
-   echo $JAVA_HOME
+   Within enviornment variable `PATH`, add:
+
+   <pre><strong>%M2_HOME%\bin;
+   </strong></pre>   
+
+0. View changed environment variables. On a Mac:
+
+   <tt><strong>echo $M2_HOME
    </strong></tt>
 
-   The reply I got:
+   The response if installed by Homebrew on Mac:<br />
+   `/usr/local/Cellar/maven/3.3.9/libexec`
 
-   <pre>
-   /Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home
-   </pre>
+   <tt><strong>echo $M2
+   </strong></tt>
+
+   The response if installed by Homebrew on Mac:<br />
+   `/usr/local/Cellar/maven/3.3.9/libexec/bin`
+
+   <tt><strong>echo $PATH
+   </strong></tt>
+
+   On Windows:
 
    <pre><strong>
    echo $M2_HOME
    echo $M2
    echo $PATH
    </strong></pre>
+
+0. In a Terminal, verify changes:
+
+   <tt><strong>echo $JAVA_HOME
+   </strong></tt>
+
+   The reply is, for example:
+
+   <pre>
+   /Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home
+   </pre>
 
 
 <a name="Config"></a>
