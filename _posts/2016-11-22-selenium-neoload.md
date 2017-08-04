@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Selenium-Perftest (NeoLoad)"
-excerpt: "Create NeoLoad scripts from Selenium"
+title: "Selenium NeoLoad"
+excerpt: "Create NeoLoad scripts from Selenium to load test sooner"
 tags: [Mac, Perftest]
 shorturl: "https://goo.gl/"
 image:
@@ -46,7 +46,7 @@ Follow my other tutorials to install:
 3. Chrome with ChromeDriver
 4. <a href="#Firefox">Firefox browser</a>
 5. GeckoDriver
-6. Eclipse IDE (optionally)
+6. Eclipse or IntelliJ IDE (optionally)
 7. Selenium
 8. <a href="#NeooLoadInstall">NeoLoad 6.0</a>
 9. Sample app (Pet Store, Pet Clinic, etc.)

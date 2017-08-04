@@ -19,9 +19,9 @@ This article introduces how Spring programs works by examining a simple
 Java Spring client program that calls a REST API (without authentication, GUI, or database):
 
    <a target="_blank" href="https://gturnquist-quoters.cfapps.io/api/random">
-   https://gturnquist-quoters.cfapps.io/api/random</a>
+   <strong>https://gturnquist-quoters.cfapps.io/api/random</strong></a>
 
-   This API is described at<br />
+   The API is described at<br />
    <a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
    https://spring.io/guides/gs/consuming-rest</a>
 
@@ -59,7 +59,7 @@ an id, and a text string (random quotes about Spring Boot).
    Notice there are two levels in the above JSON file:
 
    * type and value in the first layer
-   * id and quote in the second layer (within the value element)
+   * id and <a href="#Quote">quote</a> in the second layer (within the value element)
    <br /><br />
 
 0. The Firefox browser also provides a tab to display HTTP headers it exchanges
@@ -297,7 +297,7 @@ an id, and a text string (random quotes about Spring Boot).
 
    For this to work, ensure that you’ve told Eclipse to always run the last launched application.
 
-Alternately, go to the Outline view and run the method from there. 
+   Alternately, go to the Outline view and run the method from there. 
 
    <a target="_blank" href="http://www.eclipseonetips.com/2014/06/16/run-a-single-junit-test-method-in-eclipse/">*</a>
 
@@ -331,10 +331,10 @@ Alternately, go to the Outline view and run the method from there.
 
    ???
 
-   The `@SpringBootApplication` annotation provides the base package for component
-   scanning. It marks a class for static configurations of the
-   Application Context. It provides for autoconfiguration to start applying default
-   behaviors.
+   The `@SpringBootApplication` annotation marks the base package for Spring to begin scanning components. 
+   It marks a class for static configurations of the
+   Application Context. 
+   And it provides for autoconfiguration to start applying default behaviors.
 
    The "CommandLineRunner" finishes by issuing an log entry with the code:
 
@@ -344,21 +344,21 @@ Alternately, go to the Outline view and run the method from there.
    The `Logger` class imported from the slf1j library takes care of sending
    <a href="#LogOutput">lines displayed on your Console</a>.
 
+   <a name="Quote.java"></a>
+
+   ### Quote.java
+
    As for the line:
 
    <pre>
-			Quote quote = restTemplate.getForObject(
-					"http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+Quote quote = restTemplate.getForObject(
+	"http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
    </pre>
 
    The "restTemplate" class's `getForObject` method is supplied by the Spring Framework.
 
    "Quote.class" is the response. There must then be a Quote class file to define it.
 
-
-   <a name="Quote.java"></a>
-
-   ### Quote.java
 
    The Quote class is defined within the Quote.java file which creates a 
    <strong>domain class</strong> to specify the data requested.
