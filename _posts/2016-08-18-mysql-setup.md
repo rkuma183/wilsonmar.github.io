@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MySQL to MariaDB"
+title: "MySQL to MariaDB (and Aurora)"
 excerpt: "It worked for your dad. Embrace it."
 tags: [mysql, database]
 image:
@@ -20,22 +20,22 @@ PROTIPs and NOTEs are provided as instructions are presented in a hands-on way.
 
 Content here was developed based on advice from <a href="#Resources">several websites</a>.
 
-## From MySQL to MariaDB to Aurora #
+## Timeline #
 
 MySQL was first proposed by Edgar Cord in 1970.
 Its "open-source" free usage made it a natural choice for other open-source frameworks such as WordPress
 and thus its rapid growth.
-
-   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
-   <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
-   a character in a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
-   1952 children's book</a> from Finland, where her family originates.
 
 After Oracle acquired Sun (MySQL's owner),
 the freedom of open-source was realized when Maria-DB was forked 
 to create a <strong>drop-in replacement for MySQL</strong>
 by MySQL co-founder Michael “Monty” Widenius, 
 who left Oracle to start a new company (Monty Program).
+
+   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
+   <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
+   a character in a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
+   1952 children's book</a> from Finland, where her family originates.
 
 Many developers have migrated to MariaDB.
 (MariaDB 5.1.53 is based on MySQL 5.1.53).
@@ -324,7 +324,7 @@ Required: macOS >= 10.7 ✔
 
    ### Configure #
 
-0. Set permissions for root access:
+0. Set OS permissions for root access:
 
    <tt><strong>sudo chown -R mysql /usr/local/var/mysql/
    </strong></tt>
@@ -336,6 +336,39 @@ Required: macOS >= 10.7 ✔
 0. <a target="_blank" href="http://blog.joefallon.net/2013/10/install-mysql-on-mac-osx-using-homebrew/">
    Joe Fallon, in his blog</a>, proposed additional configurations.
     
+
+
+   <a name="SafeMode"></a>
+
+   ### Start to Change Password #
+
+   PROTIP: Your first interaction with MySQL after install should be to change the password.
+
+0. Start in Safe Mode 
+
+   <tt><strong>sudo mysqld_safe \-\-skip-grant-tables \-\-skip-syslog \-\-skip-networking
+   </strong></tt>
+
+
+   <a name="ResetPassword"></a>
+
+   Per https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html
+
+0. Craft this command, substituted with your own password:
+
+   <tt><strong>UPDATE mysql.user SET Password=PASSWORD('Pa$$w0rd') WHERE User='root';<br />
+   FLUSH PRIVILEGES;
+   </strong></tt>
+
+0. Quit out of the MySQL session:
+
+   <tt><strong>\q
+   </strong></tt>
+
+0. Quit safe mode:
+
+   <tt><strong>mysqladmin shutdown</strong></tt>
+
 
    <a name="StartService"></a>
 
@@ -353,38 +386,17 @@ Required: macOS >= 10.7 ✔
    .Logging to '/usr/local/var/mysql/macs-MacBook-Pro-4.local.err'.
    . SUCCESS! 
    </pre>
-
-   The prompt should now change to:
-
-   <pre><strong>mysql >
-   </strong></pre>
-
-0. If you get this error message:
-
-   <pre>
-my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
-my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
-     </pre>
-
-   <a target="_blank" href="http://codepodu.com/a-help-message-which-actually-is-helpful/">
-   Fix the damage done by brew prune</a>:
-
-   <tt><strong>mkdir /usr/local/etc/my.cnf.d
-   </strong></tt>
-
-   No response is expected. Try the command again.
    
+   ### List processes
+
 0. List brew services:
 
    <tt><strong>brew services list
    </strong></tt>
 
    <pre>Name         Status  User Plist
-chromedriver stopped      
 mongodb      started mac  /Users/mac/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 mysql        started mac  /Users/mac/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-nginx        stopped      
-tomcat       stopped   
    </pre>
 
 
@@ -415,33 +427,123 @@ tomcat       stopped
    If you want to use the database, proceed to <a href="#WorkSQL">Work with SQL</a> below.
 
 
+   <a name="InvokeMySQL"></a>
+
    ### Invoke MySQL
 
-0. Note one cannot just invoke mysql without specifying credentials, or this appears:
+0. If MySQL was started in the foreground, start another terminal window.
+
+   One cannot just invoke mysql without specifying credentials, or this appears:
 
    <pre>ERROR 1045 (28000): Access denied for user 'mac'@'localhost' (using password: NO)
    </pre>
 
-0. The command in the <a href="#Caveats">Caveats</a> message state:
+0. The command in the <a href="#Caveats">Caveats</a> message states this, which logs in without a password:
 
    <tt><strong>mysql -uroot
    </strong></tt>
 
-   Alternately, to specify the password:
+   Alternately, to specify a password:
 
    <tt><strong>mysql -u root -p
    </strong></tt>
 
-   <a href="#StartService">Start the MySQL service</a> if you see this:
+   You need to <a href="#StartService">Start the MySQL service</a> if you see this:
 
    <pre>ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</pre>
 
-   BLAH: QUESTION: Fix this!
+   Success means the prompt should now change to:
+
+   <pre><strong>mysql >
+   </strong></pre>
+
+   That's after reading this:
+
+   <pre>
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.19 Homebrew
+&nbsp;
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+&nbsp;
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+&nbsp;
+Type 'help;' or <a href="#Help">'\h'</a> for help. Type '\c' to clear the current input statement.
+   </pre>
 
 
-   ### Reset Root Password
+   If instead you get this error message:
 
-   https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html
+   <pre>
+my_print_defaults: Can't read dir of '/usr/local/etc/my.cnf.d' (Errcode: 2 - No such file or directory)
+my_print_defaults: [ERROR] Fatal error in defaults handling. Program aborted!
+     </pre>
+
+   <a target="_blank" href="http://codepodu.com/a-help-message-which-actually-is-helpful/">
+   Fix the damage done by brew prune</a>:
+
+   <tt><strong>mkdir /usr/local/etc/my.cnf.d
+   </strong></tt>
+
+   No response is expected. Try the <a href="#StartService">command</a> again.
+
+
+   <a name="Help"></a>
+
+   ### Slash commands:
+
+0. For help hints:    
+
+   <tt><strong>\h
+   </strong></tt>
+
+   Results in this:
+
+   <pre>
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+&nbsp;
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+edit      (\e) Edit command with $EDITOR.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+nopager   (\n) Disable pager, print to stdout.
+notee     (\t) Don't write into outfile.
+pager     (\P) Set PAGER [to_pager]. Print the query results via PAGER.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+&nbsp;
+For server side help, type 'help contents'
+   </pre>
+
+0. To quit out of a MySQL session:
+
+   <tt><strong>\q
+   </strong></tt>
 
 
    ### Stop server and process #
