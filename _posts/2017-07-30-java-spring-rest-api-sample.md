@@ -62,7 +62,7 @@ an id, and a text string (random quotes about Spring Boot).
    * <a href="#Quote">id and quote</a> in the second layer (within the value element)
    <br /><br />
 
-0. The Firefox browser also provides a tab to display HTTP headers it exchanges
+0. If you're using a Firefox browser, you would also see a tab to display HTTP headers it exchanges
    with servers behind the scenes.
 
 
