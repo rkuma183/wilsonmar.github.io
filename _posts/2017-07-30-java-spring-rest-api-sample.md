@@ -239,12 +239,13 @@ an id, and a text string (random quotes about Spring Boot).
    The `@Test` annotation tells JUnit 4 that it can run as a test case the method defined beneath it. This improves upon JUnit 3 which assumes every method is a test if its name starts with "test" and its class extends TestCase.
 
    JUnit constructs a fresh instance of the class then invokes the annotated method. 
+   <a target="_blank" href="http://qaautomated.blogspot.in/p/junit.html">*</a>
 
-   Any exceptions thrown by the test will be reported by JUnit as a failure. If no exceptions are thrown, the test is assumed to have succeeded.
+   Exceptions thrown by the test are reported by JUnit as a failure. 
+   If no exceptions are thrown, the test is assumed to have succeeded.
 
-   <a target="_blank" href="http://www.java2novice.com/junit-examples/junit-annotations/">
-   BTW</a>: Additional annotations @Before/@BeforeClass and @After/@AfterClass are not in JUnit 3.
-   Attributes can be optionally added with annotations. 
+   Attributes can be optionally added with annotations:
+
    To fail a test if the method does NOT throw the named exception: 
 
    `@Test(expected = Exception.class)`
@@ -253,16 +254,21 @@ an id, and a text string (random quotes about Spring Boot).
 
    `@Test(timeout = 500)`
 
+   <a target="_blank" href="http://www.java2novice.com/junit-examples/junit-annotations/">
+   BTW</a>: Additional annotations @Before/@BeforeClass and @After/@AfterClass are not in JUnit 3.
+
    Code to process the @SpringBootTest annotation is imported from 
    `org.springframework.boot.test.context.SpringBootTest`.
 
    Code to process the @Autowired annotation is imported from 
    `org.springframework.beans.factory.annotation.Autowired`.
 
-
-   See http://qaautomated.blogspot.in/p/junit.html
+   The RestTemplateBuilder is injected by Spring to perform autoconfiguration 
+   (message converters and request factories).
 
    See http://www.baeldung.com/java-annotation-processing-builder
+
+   See http://qaautomated.blogspot.in/p/junit.html
 
    (Multiple passes may be necessary to resolve annotations within annotation processor code.)
 

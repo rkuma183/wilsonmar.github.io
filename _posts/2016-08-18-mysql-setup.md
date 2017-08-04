@@ -22,31 +22,32 @@ Content here was developed based on advice from <a href="#Resources">several web
 
 ## Timeline #
 
-MySQL was first proposed by Edgar Cord in 1970.
-Its "open-source" free usage made it a natural choice for other open-source frameworks such as WordPress
-and thus its rapid growth.
+MySQL was first proposed by Edgar Cord in 1970 with co-founder Michael "Monty" Widenius.
 
-After Oracle acquired Sun (MySQL's owner),
-the freedom of open-source was realized when Maria-DB was forked 
-to create a <strong>drop-in replacement for MySQL</strong>
-by MySQL co-founder Michael “Monty” Widenius, 
-who left Oracle to start a new company (Monty Program).
-
-   NOTE: The "My" in MySQL is named after co-founder Michael's daughter, 
+   NOTE: The "My" in MySQL is named after Michael's daughter, 
    <a target="_blank" href="https://www.facebook.com/my.widenius">My</a>,
    a character in a <a target="_blank" href="https://www.wikiwand.com/en/The_Book_about_Moomin,_Mymble_and_Little_My">
    1952 children's book</a> from Finland, where her family originates.
 
+MySQL's "open-source" free usage helped it gain rapid growth as 
+a natural choice for other open-source frameworks such as WordPress.
+
+After Oracle acquired Sun (MySQL's owner),
+the freedom of open-source was realized when Maria-DB was forked 
+to create a <strong>drop-in replacement for MySQL</strong>
+by MySQL co-founder Michael "Monty" Widenius, 
+who left Oracle to start a new company (Monty Program).
+
+MariaDB keeps in sync with MySQL (MariaDB 5.1.53 is based on MySQL 5.1.53).
 Many developers have migrated to MariaDB.
-(MariaDB 5.1.53 is based on MySQL 5.1.53).
 If you don't need to first uninstall MySQL,
 <a href="#InstallMariaDB">click here for instructions on installing MariaDB, below</a>.
 
-On August 2016, MariaDB's MaxScale database proxy software was put under the Business Software License, 
+However, on August 2016, MariaDB's MaxScale database proxy software was put under the Business Software License, 
 which means it's really not fully open source.
 
 
-## MySQL Still Alive #
+## MySQL Still Kicking #
 
 MySQL is thriving.
 
@@ -310,7 +311,7 @@ Required: macOS >= 10.7 ✔
 
 0. Verify install:
 
-   <tt><strong>which mysql
+   <tt><strong>which mysql.server
    </strong></tt>
 
    The expected response:
@@ -324,7 +325,7 @@ Required: macOS >= 10.7 ✔
 
    ### Configure #
 
-0. Set OS permissions for root access:
+0. Set OS permissions for root execution access the directory of executables:
 
    <tt><strong>sudo chown -R mysql /usr/local/var/mysql/
    </strong></tt>
@@ -997,11 +998,12 @@ Where command is a one or more of: (Commands may be shortened)
 
 ## Interactive mode #
 
-http://dev.mysql.com/downloads/workbench/
-MySQL Workbench install on mac
-
+<a target="_blank" href="https://www.youtube.com/watch?v=RSHevYMwCVw">
+VIDEO</a>
 The command-line client is mysql.
 
+1. http://dev.mysql.com/downloads/workbench/
+   MySQL Workbench install on mac
 
 0. Start the mysqld server so anyone can log in with full permissions:
 
