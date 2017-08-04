@@ -56,6 +56,12 @@ an id, and a text string (random quotes about Spring Boot).
 }
    </pre>
 
+   Notice there are two levels in the above JSON file:
+
+   * type and value in the first layer
+   * id and quote in the second layer (within the value element)
+   <br /><br />
+
 0. The Firefox browser also provides a tab to display HTTP headers it exchanges
    with servers behind the scenes.
 
