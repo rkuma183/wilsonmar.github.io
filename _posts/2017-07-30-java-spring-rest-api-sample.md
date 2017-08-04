@@ -16,7 +16,16 @@ comments: true
 {% include _toc.html %}
 
 This article introduces how Spring programs works by examining a simple 
-Java Spring client program that calls a REST API (without authentication, GUI, or database):
+Java Spring client program that calls a REST API (without authentication, GUI, or database).
+
+This article describes the code you taking a <strong>hands-on</strong> approach 
+   where I introduce concepts <strong>after</strong> asking you to take an action,
+   so that you have a <strong>visual</strong> image to go with my commentary.
+
+> If any of this doesn't work for you or doesn't make sense to you,
+please reach out to me.
+
+0. Click on the URL to a REST API written in Spring:
 
    <a target="_blank" href="https://gturnquist-quoters.cfapps.io/api/random">
    <strong>https://gturnquist-quoters.cfapps.io/api/random</strong></a>
@@ -25,26 +34,19 @@ Java Spring client program that calls a REST API (without authentication, GUI, o
    <a target="_blank" href="https://spring.io/guides/gs/consuming-rest/">
    https://spring.io/guides/gs/consuming-rest</a>
 
-   But this article describes the code using a  
-   <strong>hands-on</strong> approach 
-   by introducing concepts <strong>after</strong> asking you to take an action,
-   so that you have a <strong>visual</strong> image to go with the commentary.
-
-> If any of this doesn't work for you or doesn't make sense to you,
-please reach out to me.
-
-0. Click on the URL above to see a raw (unformatted) response such as:
 
    <a name="SampleResponse"></a>
+
+   The web service returns a JSON document containing a reponse type ("success" or "failure"),
+an id, and a text string (random quotes about Spring Boot).
 
    <pre>
 {"type":"success","value":{"id":10,"quote":"Really loving Spring Boot, makes stand alone Spring apps easy."}}
    </pre>
 
-   The web service returns a JSON document containing a reponse type ("success" or "failure"),
-an id, and a text string (random quotes about Spring Boot).
+   The response is a raw (unformatted) string if you're using a Google Chrome browser.
 
-   If you are using a FireFox browser you would see a formatted display:
+   If you are using a FireFox browser, you would see a formatted display such as:
 
    <pre>
 {
@@ -59,7 +61,7 @@ an id, and a text string (random quotes about Spring Boot).
    Notice there are two levels in the above JSON file:
 
    * <a href="#Value">type and value</a> in the top layer
-   * <a href="#Quote">id and quote</a> in the second layer (within the value element)
+   * <a href="#Quote.java">id and quote</a> in the second layer (within the value element)
    <br /><br />
 
 0. If you're using a Firefox browser, you would also see a tab to display HTTP headers it exchanges
@@ -386,9 +388,7 @@ Quote quote = restTemplate.getForObject(
     private Value value;
    </pre>
 
-   The set and get funtions can be automatically created within the Eclipse IDE.
-
-   ???
+   PROTIP: Set and get funtions can be automatically created within the Eclipse IDE.
 
    Notice "Value" is not a built-in data type such as "String", etc.
    It is a custom type which needs to be defined.
@@ -430,7 +430,9 @@ Some videos from the <br />
 $65 http://www.baeldung.com/rest-with-spring-course</a><br />
 by Eugen Parachiv in Romainia (<a target="_blank" href="https://twitter.com/baeldung">@baeldung</a>) 
 is previewed on <a target="_blank" href="https://www.youtube.com/channel/UClz8vOAb28UzP64meEvhg5w">
-his YouTube channel</a>.
+his YouTube channel</a>. Specifically,
+<a target="_blank" href="https://www.youtube.com/watch?v=2Mz3V-faNFo&list=PLjXUjSTUHs0QaXI9xrioHpvsJ9Hs_r0_0">
+REST with Spring (videos)</a>.
 
 <a target="_blank" href="https://www.udemy.com/spring-boot-tutorial-for-beginners/">
 Spring Boot Tutorial For Beginners</a> on Udemy.com
