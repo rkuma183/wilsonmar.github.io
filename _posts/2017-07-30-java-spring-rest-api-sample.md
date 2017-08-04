@@ -58,8 +58,8 @@ an id, and a text string (random quotes about Spring Boot).
 
    Notice there are two levels in the above JSON file:
 
-   * type and value in the first layer
-   * id and <a href="#Quote">quote</a> in the second layer (within the value element)
+   * <a href="#Value">type and value</a> in the top layer
+   * <a href="#Quote">id and quote</a> in the second layer (within the value element)
    <br /><br />
 
 0. The Firefox browser also provides a tab to display HTTP headers it exchanges
@@ -362,6 +362,11 @@ Quote quote = restTemplate.getForObject(
 
    The Quote class is defined within the Quote.java file which creates a 
    <strong>domain class</strong> to specify the data requested.
+
+
+   <a name="Value"></a>
+
+   ### Value.java
 
 0. Look at the bottom of the Quote.java file:
 
