@@ -15,14 +15,26 @@ comments: true
 
 {% include _toc.html %}
 
-This article describes an easier/faster way to include performance testing during software development,
-such that they are included as part of System Demos at the end of each Agile sprint.
+This article provides a <strong>hands-on</strong> approach to use Selenium and NeoLoad together
+to include performance testing during software development.
+
+   1. Get an instance of it on <a href="#UseDockerImage">Docker</a> or your own machine.
+   2. Perform the workflow as you watch a sample script run.
+   3. Examine each step in the run, with commentary.
+   4. Customize for yourself.
+   <br /><br />
+
+## Why The software
+
+This article describes an easier/faster way to software development 
+such that load testing is performed alongside software development and then 
+included as part of System Demos at the end of each Agile sprint.
 
 Selenium was created for functional testing.
 Selenium controls (automates) the keyboard and mouse, emulating human end-users.
 Selenium creates automation by emulating signals from keyboards and mice.
 
-This approach makes use of Selenium to control the keyboard and mouse <strong>while</strong> NeoLoad listens to the network traffic
+This technology makes use of Selenium to control the keyboard and mouse <strong>while</strong> NeoLoad listens to the network traffic
 and updates its "user paths" (automation scripts) to emulate that network traffic.
 
 After some editing, Neoload scripts are run on load generators that take the place of many real clients in order to
@@ -65,7 +77,8 @@ Here is how to do it, step-by-step.
 
 ## User Docker image
 
-The easiet way with work with this is to use Docker to download an image where installers have already been run.
+The easiet way with work with this is to use Docker to download a single image which contains all the
+<a href="#Installers">installers</a> already run.
 
 In a Terminal window:
 
@@ -87,34 +100,42 @@ In a Terminal window:
 
    TODO: Instead, use a shell script to do the above, and more.
 
+4. <a href="#MavenInstall">Run Maven install</a>.
+
 
 <a name="Install"></a>
 
 ## Install locally
 
-Follow other tutorials to install directly on your own machine:
+I'm working now to have a similar script using PowerShell.
+
+But if you have a Mac, you can try my single line installer to get these directly on your own machine:
 
 1. Git client (to pull from GitHub)
 0. <a href="#SampleApp">Sample app</a> (Ushahidi, JPetStore, JPetClinic, etc.)
 0. [Java Development Kit](/java-on-apple-mac-osx/)
 0. [Maven](/maven-on-macos/) to build Java after processing the pom.xml file of dependencies
-0. Chrome with ChromeDriver
-0. <a href="#Firefox">Firefox browser</a>
-0. GeckoDriver
-0. Eclipse or IntelliJ IDE (optionally)
-0. Selenium Web Driver
-0. <a href="#NeooLoadInstall">NeoLoad 6.0</a>
+
+0. SikuliX which consists of:
+   0. Chrome with ChromeDriver
+   0. <a href="#Firefox">Firefox browser</a>
+   0. GeckoDriver
+   0. Eclipse or IntelliJ IDE (optionally)
+   0. Selenium Web Driver
+   0. OpenCV to recognize images
+   0. Tesseract to recognize text
+
+0. [NeoLoad 6.0 Install](/Neoload/)</a>
 0. <a href="#NLWebDriver">NeoLoad NLWebDriver</a> (added manually or via Maven)
-0. <a href="#Monitoring">Monitoring</a>
+0. <a href="#Monitoring">NeoLoad Monitoring</a>
 
 All these are free open source software (FOSS), except NeoLoad which provides a free license for up to 50 simultaneous virtual users.
 
-
 <hr />
 
-<a name="SampleApp"></a>
+   <a name="SampleApp"></a>
 
-## Sample Code on Sample Apps
+   ### Sample Code on Sample Apps
 
 0. Change to a folder where you can get a sample repo on your local hard drive.<br />
    We use `gits/wilsonmar`, but you would substitute "wilsonmar" with your own account name if you forked it.
@@ -123,8 +144,13 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
    git clone https://github.com/wilsonmar/SeleniumJavaNeoLoad \-\-depth=1
    </strong></tt>
 
-   `\-\-depth=1` specifies the depth of history. It's 1 if you only want the latest history (not prior edits).
+   `--depth=1` specifies the depth of history downloaded, with
+   1 if you only want the latest version and no back versions.
    This saves some disk space.
+
+   <a href="MavenInstall"></a>
+
+   ### Maven clean install
 
 0. Have Maven download dependencies specified in the app's <strong>pom.xml</strong> file:
 
@@ -134,7 +160,7 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    ???
 
-0. <a href="#Demo">Skip the below and go straight to the demo</a>
+0. <a href="#Demo">Skip the below and go straight to the demo</a>.
 
 
 
@@ -455,9 +481,11 @@ driver.get("http://ushahidi.demo.neotys.com/");
    Whenever the mode is not set to "Design", calls to startTransaction are ignored.
 
 
-### Example 1
+### UnitTest 1 Sample
 
-The Selenium driver is started once and stopped at the end of the whole test. Only one User Path is created or updated.
+The Selenium driver is started once and stopped at the end of the whole test. 
+
+Only one User Path is created or updated.
 
    ```
 package com.selenium.test;
@@ -519,7 +547,7 @@ public class UnitTest {
 }
    ```
 
-Example 2
+### UnitTest2 Example
 
 The Selenium driver is started before each test and stopped at the end of each test. 
 One User Path is created or updated per test.
@@ -538,6 +566,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import com.neotys.selenium.proxies.NLWebDriver;
 import com.neotys.selenium.proxies.NLWebDriverFactory;
+
 public class UnitTest2 {
   private static final String CHROME_DRIVER_PATH = "C:\\Selenium\\chromedriver.exe";
     
@@ -546,7 +575,7 @@ public class UnitTest2 {
     System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
   }
     
-  @Rule
+  @Rule // JUnit annotation
   public TestName testName = new TestName();
     
   NLWebDriver driver;
@@ -602,9 +631,17 @@ public class UnitTest2 {
 }
    ```
 
+<a name="InvokeByMaven"></a>
+
+## Invoke by Maven
+
 Use the Selenium driver as a Maven task.
-If you want to launch only a subset of unit tests, you can use the Maven surefire plugin.
-You will need to include the following plugin in your pom.xml :
+
+### Maven Surefire plugin
+
+To launch only a subset of unit tests, add and use the Maven surefire plugin.
+
+1. First, include this in your pom.xml :
 
    ```
 <plugin>
@@ -621,23 +658,31 @@ You will need to include the following plugin in your pom.xml :
 </plugin>
    ```
 
-   The plugin launches tests defined within the test repository of your Maven project.
-   For example, the command below only launches the test classes that end with "PerformanceTest":
+   
+
+0. Launch tests using a command. For example, the asterisk in this launches only test classes that end with "PerformanceTest":
 
    ```
 mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://[host]:7400/Design/v1/Service.svc/ -Dtest=*PerformanceTest clean test
    ```
 
+   The tests of course must have been defined within the test repository of your Maven project.
 
-Methods of the Selenium wrapper
+
+### Methods of the Selenium wrapper
+
 Method
 Description
 Example
+
 NLWebDriver(Selenium webdriver,Name of the NeoLoad User Path, path to the NL project);
+
 NLWebDriver is the constructor of the NeoLoad webdriver.
+
 This constructor allows you to specify the project that is to be updated with the new/updated User Path.
 final FirefoxDriver webDriver = new FirefoxDriver(addProxyCapabilitiesIfNecessary(new DesiredCapabilities()));
 
+   ```
 // projectPath used to open NeoLoad project, null to use the currently opened Project.
 final String projectPath = "C:\\Users\\apaul\\projects\\Sample_Project.nlp";
 NLWebDriver driver = NLWebDriverFactory.newNLWebDriver(webDriver, "SeleniumUserPath", projectPath);
@@ -647,6 +692,7 @@ If the project is not specified, the wrapper will use the currently opened proje
 final FirefoxDriver webDriver = new FirefoxDriver(addProxyCapabilitiesIfNecessary(new DesiredCapabilities()));
  
 NLWebDriver driver = NLWebDriverFactory.newNLWebDriver(webDriver, "SeleniumUserPath");
+   ```
 
 #### setCustomName
 
