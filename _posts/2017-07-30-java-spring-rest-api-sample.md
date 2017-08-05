@@ -60,8 +60,8 @@ an id, and a text string (random quotes about Spring Boot).
 
    Notice there are two levels in the above JSON file:
 
-   * <a href="#Value">type and value</a> in the top layer
-   * <a href="#Quote.java">id and quote</a> in the second layer (within the value element)
+   * <a href="#Value">type and value</a> fields in the top layer
+   * <a href="#Quote.java">id and quote</a> fields in the second layer (within the value element)
    <br /><br />
 
 0. If you're using a Firefox browser, you would also see a tab to display HTTP headers it exchanges
