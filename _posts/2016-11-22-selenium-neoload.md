@@ -171,7 +171,7 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    The first part of the file:
 
-   ```
+   <pre>
 <repositories>
   <repository>
       <id>neotys-public-releases</id>
@@ -180,7 +180,7 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
       <snapshots><enabled>false</enabled></snapshots>
   </repository>
 </repositories>
-   ```
+   </pre>
 
    <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">NeoLoad's documentation</a> states that
    NeoLoad integration has been tested on Selenium versions 2.53.0 and 3.0.1.
