@@ -173,20 +173,10 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    ```
 <dependencies>
-  <dependency>
-    <groupId>com.neotys.selenium</groupId>
-    <artifactId>neotys-selenium-proxy</artifactId>
-    <version>2.0.6</version>
-  </dependency>
-  <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>2.0.6</version>
-  </dependency>
-</dependencies>
    ```
 
-   <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">NeoLoad's documentation</a> states that
+   <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">
+   NeoLoad's documentation</a> states that
    NeoLoad integration has been tested on Selenium versions 2.53.0 and 3.0.1.
 
    NOTE: The version of the Selenium Proxy for Maven is 2.0.6.
@@ -207,16 +197,19 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
    ```
 
    NOTE: Projects not built using Maven would need to add
-   the Selenium proxy JAR with dependencies available for download on the Neotys Labs page.
+   the Selenium proxy JAR (with dependencies available for download)
+   on the Neotys Labs page.
 
 0. Have Maven download dependencies specified in the app's <strong>pom.xml</strong> file:
 
    <tt><strong>mvn clean install
    </strong></tt>
 
-   The response:
+   Maven creates a <strong>target</strong> folder.
 
    ???
+
+
 
    <a nam="#NLWebDriver"></a> 
 
@@ -358,6 +351,72 @@ Setting the server up is beyond the scope of this article.
    0. "List" - 
    <br /><br />
    
+   ### Transaction Naming
+
+   Response times associated with transaction names from several scripts can be later combined together,
+   so it's a good idea to use transaction names that are unique, such as:
+
+   `Usahidi1-Landing-Home`.
+
+
+
+<a name="InvokeFromEclipse"></a>
+
+## Invoke from Eclipse
+
+   The folder has a <strong>.settings</strong> folder that contains two files:
+
+   * `org.eclipse.jdt.core.prefs`
+   * `org.eclipse.m2e.core.prefs`
+
+
+
+<a name="InvokeByMaven"></a>
+
+## Invoke by Maven
+
+   The Selenium driver can be invoked as a Maven task.
+
+0. Launch all tests using a command:
+
+   ```
+mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ clean test
+   ```
+
+   The response is ???
+
+
+### Maven Surefire plugin
+
+To launch only a <strong>subset</strong> of unit tests, add and use the Maven surefire plugin.
+
+1. First, include this in your pom.xml :
+
+   ```
+<plugin>
+ <groupId>org.apache.maven.plugins</groupId>
+ <artifactId>maven-surefire-plugin</artifactId>
+   <version>2.19.1</version>
+    <dependencies>
+     <dependency>
+        <groupId>org.apache.maven.surefire</groupId>
+        <artifactId>surefire-junit47</artifactId>
+   <version>2.19.1</version>
+     </dependency>
+    </dependencies>
+</plugin>
+   ```
+
+0. Launch tests using a command. For example, the asterisk in this launches only test classes that end with 
+   (for example) "PerformanceTest":
+
+   ```
+mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ -Dtest=*PerformanceTest clean test
+   ```
+
+   The tests of course must have been defined within the test repository of your Maven project.
+
+
 
 <a name="CreateNeoLoad"></a>
 
@@ -380,37 +439,52 @@ In the GitHub repository is the NeoLoad starter script with an object recognitio
 
    [image here]
 
+0. Set the mode, use the `nl.selenium.proxy.mode` property
+   as a VM option or a program argument. Examples: 
+   
    `-Dnl.selenium.proxy.mode=Design` 
-   is one of three modes to use the NeoLoad wrapper:
+   
+   This is one of three modes to use the NeoLoad wrapper:
 
    * "NoApi" - This is the default mode. In this mode, there is no interaction with NeoLoad.
    * "Design" - a User Path is automatically created or updated through the Design API.
    * "EndUserExperience" - Selenium time measurements are sent to NeoLoad through the Data Exchange API.
 
-   To set the mode, use the `nl.selenium.proxy.mode` property
-   as a VM option or a program argument. Examples: 
 
 
-<a name="UpdateSelenium"></a>
+<a name="SeleniumSample"></a>
 
-## Update Selenium
+## Selenium Sample Code
 
-   As UI elements are created incrementally during a Sprint:
 
-   
-   ### JUnit IoC coding
+   ### URL supplied from caller
+
+   Regular Java programs have a Main class the Java compiler uses as
+   the "entry point" to begin execution.
+
+   ```
+public static void main(String[] args) throws Exception {
+   ```
+
+   The args (arguments) string is how the program receives arguments given to execute the program.
+
+   ```
+   JUnitCore.main(Ushadidi1-junit4.class.getName());            
+   ```
+
+   ### JUnit Annotations
 
    In the sample code are these annotations for the Java compiler to see:
 
    * `@Rule`
-   * `@Before`
+   * `@BeforeClass`
    * `@Test`
-   * `@After`
+   * `@AfterClass`
    <br /><br />
 
-   It's kinda like a "magic spell" which applies additional generic code
-   around the line under the annotation. That spell can be used on 
-   various lines, so annotations minimize coding.
+   These are kinda like a "magic spell" that applies additional generic code
+   around the method under the annotation. That spell can be used on 
+   several lines, so annotations minimize coding.
 
    To see the basic structure of code behind an annotation, see<br />
    <a target="_blank" href="https://github.com/ajitsing/JavaCustomAnnotations">
@@ -418,14 +492,14 @@ In the GitHub repository is the NeoLoad starter script with an object recognitio
    which provides a simple example to create a <a target="_blank" href="http://www.singhajit.com/java-custom-annotations/">
    custom annotation</a>. Basically, it uses Java Introspection features.
 
-   The additional code added are defined within classes 
+   Additional code added are defined within classes 
    imported at the top of the code.
 
    ```
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.junit.Before;
-import org.junit.After;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
    ```
 
    Annotations here are introduced with version 4 of JUnit.<br />
@@ -442,6 +516,9 @@ import org.junit.After;
    * modify test results after a run.
    <br /><br />
 
+   <a target="_blank" href="https://stackoverflow.com/questions/20295578/difference-between-before-beforeclass-beforeeach-and-beforeall">
+   NOTE:</a> If @Before is used ten times, its non-static code will be executed ten times. But @BeforeClass static code is executed only once before the entire test fixture, thus sharing the same computationally expensive setup code. In JUnit 5, tags @BeforeEach and @BeforeAll are the equivalents of @Before and @BeforeClass in JUnit 4.
+
    This is called "Inversion of Control" introduced in version 4 of JUnit.
    Junit Rules work on the principle of AOP (aspect oriented programming). 
 
@@ -449,52 +526,99 @@ import org.junit.After;
    * https://stackoverflow.com/questions/13489388/how-does-junit-rule-work
 
 
-
    Blogs about this:
 
    * http://www.singhajit.com/junit-rules/
    * http://cwd.dhemery.com/2011/01/what-junit-rules-are-good-for/
-   * 
    * http://www.codeaffine.com/2012/09/24/junit-rules/
    * http://www.cubearticle.com/articles/framework/junit/junit-rule
    * http://cwd.dhemery.com/2010/12/junit-rules/
 
+   ### @BeforeClass NeoLoad
+
+   Under the @BeforeClass is code to invoke NeoLoad 
+   and open the NeoLoad project designated by providing to JUnit the "driver" variable containing a path.
+   There are two ways to do that.
+
+   One is to specify null for the currently opened NeoLoad project with a hard-coded NeoLoad User Path (script) file name.
+
+   <pre>
+   final String projectPath = null;
+   driver = NLWebDriverFactory.newNLWebDriver(webDriver, "steve", projectPath);
+   </pre>
+
+   Alternately, a hard-coded .nlp file path:
+
+   <pre>
+   final String projectPath = "C:\\Users\\anouvel\\Documents\\NeoLoad Projects\\v5.3\\Sample_Project\\Sample_Project.nlp";
+   driver = NLWebDriverFactory.newNLWebDriver(webDriver, testName.getMethodName(), projectPath);
+   </pre>
+
+   The getMethodName() function is within the class defined under the @Rule annotation
+
+   <pre>
+   @Rule
+   public TestName testName = new TestName();
+   </pre>
+
+   It, in turn references classes imported from:
+
+   <pre>
+   import org.junit.rules.TestName;
+   </pre>
+
+   Using <strong>wrapper code</strong> allows quick and easy integration with existing Selenium test cases with minimal changes to existing code. Page load times and any error messages are sent to NeoLoad as external data.
+
+
+<a name="UpdateSelenium"></a>
+
+## Selenium Java Code
+
+   As UI elements are created incrementally during a Sprint,
+   add them to the java program.
+
    ### Framework coding
 
-   Instead of the test directly trying to interact with HTML elements
-   and the DOM, the test uses the page class.
-   Page Pattern 
+   PROTIP: To make it easier/faster to edit the Java file,
+   use a more "modular" approach to structuring lines of code.
+
+   Instead of the test directly interactin with HTML elements
+   and the DOM with code such as this:
+
+   <pre>
+    driver.findElement(By.className("submit-incident")).click();
+   </pre>
+
+   Put them into separate functions.
+   
+   The is called a "Page Pattern".
 
    ![selenium-page-pattern-736x40-59k](https://user-images.githubusercontent.com/300046/29000078-bf19117a-7a2e-11e7-9907-842e49a8c0a5.png)
+
+   For example, ???
+
+
+   ### Start NeoLoad Transactions
+
+   Transactions are defined to begin and stop specific time counters.
+
+   In this example, transactions can be added with the `startTransaction` method 
+   when creating or updating User Paths.
+
+   ```
+driver.startTransaction("home");
+driver.get("http://ushahidi.demo.neotys.com/");
+   ```
+
+   Whenever the mode is not set to "Design", calls to startTransaction are ignored.
 
 
 ## Add new actions and transactions for NeoLoad.
 
 
 
-   Using <strong>wrapper code</strong> allows quick and easy integration with existing Selenium test cases with minimal changes to existing code. Page load times and any error messages are sent to NeoLoad as external data.
-
-   Replace the appropriate line of code to create the driver and use the NeoLoad driver instead:
-
-   <pre>
-import static com.neotys.selenium.proxies.NLWebDriverFactory.addProxyCapabilitiesIfNecessary;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import com.neotys.selenium.proxies.NLWebDriver;
-import com.neotys.selenium.proxies.NLWebDriverFactory;
-   </pre>
 
 
-
-
-
-   ### Where's the Main class?
-
-   Regular Java programs have a Main class the Java compiler uses as
-   the "entry point" to begin execution.
-
-   `public static void main(String[] args)`
-
-   This code accepts arguments given to execute the program.
 
 <hr />
 
@@ -516,13 +640,9 @@ supported by leading modern internet browsers.
 
 ## Methods of the Selenium wrapper
 
-The Neotys Selenium wrapper is compatible in all JUnit Selenium test scripts.
-
 To specify the scenarios you want to update,
 launch tests with Maven without specifying particular options or 
 use the Design option and several dedicated methods on top of the Selenium driver 
-
-   | Method | Description | Example |
 
 * NLWebDriver(Selenium webdriver,Name of the NeoLoad User Path, path to the NL project);
 
@@ -535,14 +655,20 @@ final FirefoxDriver webDriver = new FirefoxDriver(addProxyCapabilitiesIfNecessar
 final String projectPath = "C:\\Users\\apaul\\projects\\Sample_Project.nlp";
 NLWebDriver driver = NLWebDriverFactory.newNLWebDriver(webDriver, "SeleniumUserPath", projectPath);
 NLWebDriver(Selenium webdriver,Name of the NeoLoad User Path);
+
 Project path is optional.
 If the project is not specified, the wrapper will use the currently opened project.
+   ```
 final FirefoxDriver webDriver = new FirefoxDriver(addProxyCapabilitiesIfNecessary(new DesiredCapabilities()));
 &nbsp;   
 NLWebDriver driver = NLWebDriverFactory.newNLWebDriver(webDriver, "SeleniumUserPath");
 StartTransaction(Name of the current transaction);
+   ```
 This method sends all the Selenium HTTP/HTTPS traffic into a specific NeoLoad container.
+
 This methods needs to be used before the Selenium actions related to a business transaction.
+
+   ```
 public void testGetAlerts() {
 driver.startTransaction("home2");
 driver.get("http://ushahidi.demo.neotys.com/");
@@ -550,21 +676,6 @@ driver.startTransaction("alerts");
 driver.findElement(By.partialLinkText("GET ALERTS")).click();
 }
    ```
-
-### Start Transactions
-
-Transactions are defined to begin and stop specific time counters.
-
-In this example, transactions can be added with the `startTransaction` method 
-when creating or updating User Paths.
-
-   ```
-driver.startTransaction("home");
-driver.get("http://ushahidi.demo.neotys.com/");
-   ```
-
-   Whenever the mode is not set to "Design", calls to startTransaction are ignored.
-
 
 ### UnitTest 1 Sample
 
@@ -715,44 +826,6 @@ public class UnitTest2 {
   }
 }
    ```
-
-<a name="InvokeByMaven"></a>
-
-## Invoke by Maven
-
-Use the Selenium driver as a Maven task.
-
-### Maven Surefire plugin
-
-To launch only a subset of unit tests, add and use the Maven surefire plugin.
-
-1. First, include this in your pom.xml :
-
-   ```
-<plugin>
- <groupId>org.apache.maven.plugins</groupId>
- <artifactId>maven-surefire-plugin</artifactId>
-   <version>2.19.1</version>
-    <dependencies>
-     <dependency>
-        <groupId>org.apache.maven.surefire</groupId>
-        <artifactId>surefire-junit47</artifactId>
-   <version>2.19.1</version>
-     </dependency>
-    </dependencies>
-</plugin>
-   ```
-
-   
-
-0. Launch tests using a command. For example, the asterisk in this launches only test classes that end with "PerformanceTest":
-
-   ```
-mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://[host]:7400/Design/v1/Service.svc/ -Dtest=*PerformanceTest clean test
-   ```
-
-   The tests of course must have been defined within the test repository of your Maven project.
-
 
 ### Methods of the Selenium wrapper
 
