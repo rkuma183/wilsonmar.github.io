@@ -398,16 +398,13 @@ Setting the server up is beyond the scope of this article.
 
    The current implementation is not complete:
 
-   * Do not Click "Provide Feedback" at the bottom of the screen.
-   A 404 page appears.
-
+   * Do not Click "Provide Feedback" at the bottom of the screen. A 404 page appears.
    * "Get Alerts" is not clicked within scripts because the response is "This module is not available".
-
    * There are no "Official & mainstream news" to view.
 
-   * How to reset the data is unknown.
-
+   * TODO: How to reset the data is unknown.
    * Reduce the width of the browser and note that the app is NOT "responsive" to different widths.
+   <br /><br />
 
 
    #### NewAccount
@@ -420,11 +417,14 @@ Setting the server up is beyond the scope of this article.
 
 0. Fill the information and click "Sign Up".
 
+
    #### ForgetPassword
 
 0. Click the "Login" link at the too of the page.
 
 0. Click "Forget Password".
+
+   NOTE: In the HTML, the value for name "form_auth_token" is sent, not the email address.
 
 
    <a name="Login"></a>
@@ -436,6 +436,7 @@ Setting the server up is beyond the scope of this article.
    ![neoload-ushahidi-login-167x215-5k](https://user-images.githubusercontent.com/300046/28995262-cd6c8922-79b2-11e7-9aa4-61419b860ed7.png)
 
    Clicking Login within this app does not involve additional communication with the server.
+
 
    #### NewItem
 
@@ -449,6 +450,8 @@ Setting the server up is beyond the scope of this article.
 
    Alternately, the form can also be reached by clicking the "SUBMIT A REPORT" menu item.
 
+   Or the form can also be reached by clicking the "SUBMIT A REPORT" orange button at the upper right corner.
+
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
    <img alt="neoload-ushahidi-newitem-918x801-297k.png" src="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
    <small>Click on image for a full-screen pop-up</small></a>
@@ -457,20 +460,40 @@ Setting the server up is beyond the scope of this article.
 
    QUESTION: How many files are downloaded on the second iteration? (Is the cache populated)
 
-0. The form can also be reached by clicking the "SUBMIT A REPORT" orange button at the upper right corner.
+0. Right-click any white space on the page and select "Inspect Element" for the HTML.
+
+   * There are iehacks css files for IE 6, 7, and 8.
+   * Text in HTML are not minified and not packaged together.
+   <br /><br />
+
 
    #### Search
 
-0. Type in "Gemenos" next to the SEARCH button. That is the text added in the sample script.
+0. Type in "Selenium title" in the field to the left of the blue SEARCH button. 
+   That is the text added in the sample script.
 0. Click the button.
 
-   #### List
+
+   #### List (Report)
 
 0. Click the "REPORTS" menu item.
 
+   <a target="_blank" href="https://user-images.githubusercontent.com/300046/29006807-13439b08-7ac5-11e7-9817-47b65efb0584.png">
+   <img alt="neoload-usahadi1-report-922x588" src="https://user-images.githubusercontent.com/300046/29006807-13439b08-7ac5-11e7-9817-47b65efb0584.png">
+   <small>Click on image for a full-screen pop-up</small></a>
+
    NOTE: Categories of observations currently are Cyclone, Avalanche, Wildfire.
 
+   The total number of reports in the database can be a factor in response time.
+
    QUESTION: How much quicker would response time be if less observations are shown in the report?
+   Although not relevant here since there is no way to change it,
+   the number of reports listed per page can be a factor in response time as well.
+
+   So capture the number of reports in the HTML coming back from the server.
+
+   TODO: Where to save the number of reports in the page?
+
 
 
    <a name="Plan"></a>
@@ -496,6 +519,17 @@ Setting the server up is beyond the scope of this article.
 
    `Usahidi1-Landing-Home`
 
+   The NeoLoad 6 User Path (script) (in default neoload_projects folder) is simply:
+
+   `Usahidi1_NL6`
+
+   * WARNING: No dashes are accepted in NeoLoad project names.
+   * NeoLoad requires a conversion of scripts from the prior release (e.g., from 5 to 6).
+   <br /><br />
+
+   The Selenium 4 script folder is simply:
+
+   `Usahidi1_SL4`
 
 
 <a name="InvokeFromEclipse"></a>
@@ -606,7 +640,7 @@ In the GitHub repository is the NeoLoad starter script with an object recognitio
 ## Selenium Sample Code
 
 
-   ### URL supplied from caller
+### URL supplied from caller
 
    Regular Java programs have a Main class the Java compiler uses as
    the "entry point" to begin execution.
@@ -726,7 +760,8 @@ import org.junit.AfterClass;
    As UI elements are created incrementally during a Sprint,
    add them to the java program.
 
-   ### Object Recognition coding
+
+   ### Object in HTML
 
    To find the object associated with a <strong>menu item text</strong> to click on:
 
@@ -734,20 +769,35 @@ import org.junit.AfterClass;
    driver.findElement(By.partialLinkText("SUBMIT A REPORT")).click();
    </pre>
 
-0. Right-click
-
    After you find the "class=" name by looking at the HTML returned from the server,
-   specify it so Selenium can click on it:
+   specify it so Selenium can click on it. For example:
+
+   <pre>
+&LT;div class="submit-incident clearingfix">&LT;a href="http://ushahidi.demo.neotys.com/reports/submit">Submit a Report&LT;/a>&LT;/div>
+   </pre>
+
+   is activated by this Java code:
 
    <pre>
     driver.findElement(By.className("submit-incident")).click();
    </pre>
 
-   If you need to specify a selector in the CSS, use this example:
+   ### Select by CSS Selector
+
+   If you need to specify a selector in the CSS such as this,
+   where class="report_row" is repeated:
+
+   <pre>
+&LT;div class="report_row">
+          &LT;input name="submit" type="submit" value="Submit" class="btn_submit" /> 
+   </pre>
+
+   use this example:
 
    <pre>
     driver.findElement(By.cssSelector("div.report_row > input[name=\"submit\"]")).click();
    </pre>
+
 
    ### Page Pattern
 
@@ -764,6 +814,7 @@ import org.junit.AfterClass;
    <pre>
    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
    </pre>
+
 
    ### Page Pattern
 
@@ -790,10 +841,19 @@ driver.get("http://ushahidi.demo.neotys.com/");
    Whenever the mode is not set to "Design", calls to startTransaction are ignored.
 
 
-## Add new actions and transactions for NeoLoad.
+
+   <a name="Parmetization"></a>
+
+   ### Parametization
+
+   In order to identify
 
 
+<a name="ResetDatabase"></a>
 
+## Reset database
+
+Occassionally 
 
 
 
@@ -1148,7 +1208,7 @@ nl.api.key
    ```
 
 (Optional) The API key to send to NeoLoad.
-Default: <none>
+Default: &LT;none>
 nl.data.exchange.url
 (Required) The URL to the data exchange server on the NeoLoad Controller.
 Example: -Dnl.data.exchange.url=http://localhost:7400/DataExchange/v1/Service.svc/
@@ -1173,21 +1233,21 @@ nl.hardware
    ```
 
 (Optional) Specify this setting for the external data Entry.
-Default: <none>
+Default: &LT;none>
 
    ```
 nl.instance.id
    ```
 
 (Optional) The instanceID to use.
-Default: <date/time stamp>
+Default: &LT;date/time stamp>
 
    ```
 nl.location
    ```
 
 (Optional) Specify this setting for the external data Entry.
-Default: <none>
+Default: &LT;none>
    ```
 nl.os
    ```
@@ -1346,7 +1406,6 @@ License module "Integration & Advanced Usage" is required to enable the End User
  
 0. In your Downloads folder, invoke the "Selenium Proxy Driver" from the 
 
-   
 
 0. Modify Selenium scripts to indicate the NeoLoad Selenium driver.
 
@@ -1359,15 +1418,29 @@ License module "Integration & Advanced Usage" is required to enable the End User
 
 <a name="Jenkins"></a>
 
-## Jenkins
+## Jenkins for NeoLoad
 
-Use the 
+0. Install the Jenkins plug-in for NeoLoad at
+
+   <a target="_blank" href="https://wiki.jenkins.io/display/JENKINS/NeoLoad+Plugin">
+   https://wiki.jenkins.io/display/JENKINS/NeoLoad+Plugin</a>
+
+   Its source is at<br />
+   <a target="_blank" href="https://github.com/jenkinsci/neoload-plugin">
+   https://github.com/jenkinsci/neoload-plugin</a>
+
+   Support is at "plugin-support@neotys.com".
+
+0. The plug-in works with "Freestyle" projects, not "Pipeline" using Groovy scripts.
+
+   TODO: Steps to add a job for this.
+
 
 ## References
 
-https://www.youtube.com/watch?v=x0RE2_MLCLQ
-Continuous Performance Testing and Monitoring in Agile Development
-by Neotys 
+<a target="_blank" href="https://www.youtube.com/watch?v=x0RE2_MLCLQ">
+Continuous Performance Testing and Monitoring in Agile Development</a>
+by Neotys does not show the above techniques.
 
 
 ## Scraps - ignore
