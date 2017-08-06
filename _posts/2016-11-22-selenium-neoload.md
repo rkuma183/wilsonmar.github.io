@@ -171,16 +171,20 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    The first part of the file:
 
-   <pre>
-<repositories>
-  <repository>
-      <id>neotys-public-releases</id>
-      <url>http://maven.neotys.com/content/repositories/releases/</url>
-      <releases><enabled>true</enabled></releases>
-      <snapshots><enabled>false</enabled></snapshots>
-  </repository>
-</repositories>
-   </pre>
+   ```
+<dependencies>
+  <dependency>
+    <groupId>com.neotys.selenium</groupId>
+    <artifactId>neotys-selenium-proxy</artifactId>
+    <version>2.0.6</version>
+  </dependency>
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>2.0.6</version>
+  </dependency>
+</dependencies>
+   ```
 
    <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">NeoLoad's documentation</a> states that
    NeoLoad integration has been tested on Selenium versions 2.53.0 and 3.0.1.
@@ -202,7 +206,7 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 </dependencies>
    ```
 
-   A project is not developed using Maven, it is necessary to add
+   NOTE: Projects not built using Maven would need to add
    the Selenium proxy JAR with dependencies available for download on the Neotys Labs page.
 
 0. Have Maven download dependencies specified in the app's <strong>pom.xml</strong> file:
