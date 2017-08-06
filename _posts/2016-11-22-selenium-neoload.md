@@ -44,7 +44,7 @@ but it does foster additional speed and agility we haven't had before now.
 
 ## Workflow 
 
-Here is how to do it, step-by-step:
+Here is how to do it, step-by-step:  CAUTION: Work in progress! 
 
 1. Get an instance of all the components in <a href="#UseCloudImage">a cloud</a>, install on your own machine
    from a <a href="#UseDockerImage">Docker image</a> or as <a href="#InstallComponents">individual components</a>.
@@ -74,22 +74,88 @@ Here is how to do it, step-by-step:
 ## User image on Google Cloud
 
 If you are working on a Chromebook laptop or on a laptop that Corporate Security has locked down,
-instantiate an instance on the Google Container Engine.
-See https://www.youtube.com/watch?v=Yji-nfuUvIo
+instantiate a <a target="_blank" href="https://cloud.google.com/container-engine/docs/tutorials/hello-node">
+Dockerized server image</a> in the Google Container Engine public cloud.
+
+### Create image
 
 0. Create a Google account if you don't already have one. Login to it.
 0. Create a project on the <a target="https://console.cloud.google.com/home/dashboard">Google Dashboard</a>
-   (lower case letters).
+   (lower case letters). Google assigns a project name such as "temporal-loop-94520".
 0. Under the COMPUTE section, select Container Engine, Container clusters.
+
+   ![googlecloud-20170806-469x275-7k](https://user-images.githubusercontent.com/300046/29005895-48dab844-7ab3-11e7-9ae9-e0c5c47e082b.png)
+
 0. If it appears, click "Enable API". Deploying takes several minutes.
 0. Click Create Container cluster.
 0. Edit the name of your cluster.
 0. Select a zone nearest to you (such as us-central1-f).
 0. Leave the Cluster size at 1.
 0. Click Create.
+
+   ### CLI on your workstation
+
+   If you do not have permissions to install stuff, 
+
+0. Go to the <strong>Google Cloud Platform Console</strong> for your project at<br />
+   https://console.cloud.google.com/home/dashboard
+
+0. Click the ">_" icon for the Google Cloud Shell.
+0. Click "START CLOUD SHELL".
 0. Copy the Project ID assigned by Google (such as "temporal-loop-94520").
-0. In a text editor, construct a command file you'll use again, such as
+0. Manually type the <a href="#GoogleCommands">Google Cloud commands</a> below.
+
+
+   ### CLI on your workstation
+
+   This is a good option if you'll be working with Google Cloud instances so frequently 
+   that automation is a time-saver.
+
+0. Install Python 2.7 in the environment you'll be using to issue Google Cloud commands.
+0. Install the <a target="_blank" href="https://cloud.google.com/sdk/docs/quickstarts">
+   Google Cloud SDK</a>, which includes the `gcloud` command-line tool.
+0. Pick your operating system and follow the instructions. 
+
+   Alternately, on a Mac, a Homebrew package of it is available:
+
+   <tt><strong>brew tap caskroom/cask
+   brew cask install google-cloud-sdk
+   </strong></tt>
+
+0. Use `gcloud` to install `kubectl`, Kubernetes command-line tool:
+
+   <tt><strong>gcloud components install kubectl</strong></tt>
+
+0. Follow the <a target="_blank" href="https://cloud.google.com/sdk/docs/quickstart-mac-os-x#initialize_the_sdk">
+   documentation</a> to initialize `gcloud` with credentialed accounts on your local environment:
+
+   <tt><strong>gcloud init</strong></tt>
+
+
+
+   ### Local Google Cloud Command file
+
+0. In a text editor, construct a command file you'll use again, such as:
+   
    <strong>java-selenium-neoload-v1-start.sh</strong>
+
+0. Copy the Project ID assigned by Google (such as "temporal-loop-94520").
+0. Copy the commands below and save it in a file.
+0. On a Mac, construct a command to enable running:
+
+   `chmod +X java-selenium-neoload-v1-start.sh`
+
+0. Run the command file:
+   
+   `./java-selenium-neoload-v1-start.sh`
+
+
+   <a name="GoogleCommands"></a>
+
+   ### Google Cloud Commands
+
+0. Copy the Project ID assigned by Google (such as "temporal-loop-94520").
+0. Paste the value as you construct your version on these commands:
 
    <pre><strong>gcloud config set project temporal-loop-94520
    gcloud config set compute/zone us-central1-f
@@ -105,24 +171,29 @@ See https://www.youtube.com/watch?v=Yji-nfuUvIo
    The `image=java-selenium-neoload-windows-v1` above refers to the Docker image
    described next.
 
-0. Run the script. Install Bash for Windows to execute the sample above in Windows.
+0. Install Bash for Windows to execute the sample above in Windows.
+0. Run the script. 
 
    NOTE: This cannot currently be done on the AWS EC2 (Amazon Web Services Elastic Compute Cloud).
+
+   * https://www.youtube.com/watch?v=Yji-nfuUvIo
 
 
 <a name="UseDockerImage"></a>
 
-## User Docker image
+## Docker image
 
 The easiet way with work with this is to use Docker to download a single image which contains all the
 <a href="#Installers">installers</a> already run.
 
 In a Terminal window:
 
+### Docker Pull
+
 1. If you have Docker installed on your machine (and it has enough memory, CPU power, disk space),
    bring up an image that contins the image
 
-   <tt><strong>docker pull ???/??? 
+   <tt><strong>docker pull ???/java-selenium-neoload-windows-v1 
    </strong></tt>
 
 2. Navigate to the folder that contains the demo code. In our case:
@@ -137,7 +208,17 @@ In a Terminal window:
 
    TODO: Instead, use a shell script to do the above, and more.
 
-4. <a href="#MavenInstall">Run Maven install</a>.
+   ### NeoLoad License
+
+   WARNING: The license embedded in the Docker image should be updated with one you obtain from Neotys.
+
+
+   ### Docker Pull
+
+0. <a href="#MavenInstall">Run Maven install</a>.
+
+   <tt><strong>mvn install
+   </strong></tt>
 
 
 <a name="InstallComponents"></a>
