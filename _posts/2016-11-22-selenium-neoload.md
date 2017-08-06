@@ -100,6 +100,8 @@ Dockerized server image</a> in the Google Container Engine public cloud.
 0. Go to the <strong>Google Cloud Platform Console</strong> for your project at<br />
    https://console.cloud.google.com/home/dashboard
 
+   ![google-cloud-shell-803x46-6k](https://user-images.githubusercontent.com/300046/29006322-7cf58188-7abb-11e7-897e-db48d0e8903c.png)
+
 0. Click the ">_" icon for the Google Cloud Shell.
 0. Click "START CLOUD SHELL".
 0. Copy the Project ID assigned by Google (such as "temporal-loop-94520").
@@ -131,6 +133,9 @@ Dockerized server image</a> in the Google Container Engine public cloud.
 
    <tt><strong>gcloud init</strong></tt>
 
+0. Log in to your Google user account when prompted.
+0. Click "Allow" to grant permission to access Google Cloud Platform resources.
+0. Select a project.
 
 
    ### Local Google Cloud Command file
