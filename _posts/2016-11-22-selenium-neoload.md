@@ -175,20 +175,20 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    NOTE: The version of the Selenium Proxy for Maven is 2.0.6.
 
-   ```
-<dependencies>
-  <dependency>
-    <groupId>com.neotys.selenium</groupId>
-    <artifactId>neotys-selenium-proxy</artifactId>
-    <version>2.0.6</version>
-  </dependency>
-  <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>2.0.6</version>
-  </dependency>
-</dependencies>
-   ```
+   <pre>
+&LT;dependencies>
+  &LT;dependency>
+    &LT;groupId>com.neotys.selenium&LT;/groupId>
+    &LT;artifactId>neotys-selenium-proxy&LT;/artifactId>
+    &LT;version>2.0.6&LT;/version>
+  &LT;/dependency>
+  &LT;dependency>
+    &LT;groupId>org.seleniumhq.selenium&LT;/groupId>
+    &LT;artifactId>selenium-java&LT;/artifactId>
+    &LT;version>2.0.6&LT;/version>
+  &LT;/dependency>
+&LT;/dependencies>
+   </pre>
 
    NOTE: Projects not built using Maven would need to add
    the Selenium proxy JAR (with dependencies available for download)
