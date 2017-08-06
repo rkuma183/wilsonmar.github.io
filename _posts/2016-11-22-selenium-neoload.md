@@ -169,12 +169,6 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
 0. Use a text editor to view the <strong>pom.xml</strong> file.
 
-   The first part of the file:
-
-   ```
-<dependencies>
-   ```
-
    <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">
    NeoLoad's documentation</a> states that
    NeoLoad integration has been tested on Selenium versions 2.53.0 and 3.0.1.
