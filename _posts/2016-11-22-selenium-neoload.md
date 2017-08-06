@@ -24,13 +24,12 @@ such that load testing is performed alongside software development and then
 included as part of System Demos at the end of each Agile sprint.
 
 The sections of this tutorial:
-   1. Get an instance of it on <a href="#UseDockerImage">Docker</a> or your own machine.
-   2. Perform the workflow as you watch a sample script run.
-   3. Examine each step in the run, with commentary.
-   4. Customize for yourself.
+   1. Get an instance of all the components in <a href="#UseDockerImage">Docker</a> or install on your own machine.
+   2. Get the sample code from GitHub and see how it works.
+   3. Leverage the samples to create your own.
    <br /><br />
 
-## Why The software
+## Why this software?
 
 Selenium was created for functional testing.
 Selenium controls (automates) the keyboard and mouse, emulating human end-users.
@@ -71,8 +70,6 @@ Here is how to do it, step-by-step.
 0. <strong>Edit the NeoLoad script</strong> to add correlations and verifications of <strong>new</strong> objects.
  
    Documentation for working in Java or C##:
- 
-   * https://www.neotys.com/documents/doc/neoload/latest/en/html/#24373.htm
 
 
 <hr />
@@ -148,7 +145,8 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
    We use `gits/wilsonmar`, but you would substitute "wilsonmar" with your own account name if you forked it.
 
-0. Get the repo onto your local hard drive.
+0. Get the repo onto your local hard drive 
+   (using this command which wraps into two lines):
 
    <tt><strong>
    git clone https://github.com/wilsonmar/Java-Selenium-NeoLoad  \-\-depth=1
@@ -160,9 +158,10 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
 0. Dive into the folder created by git clone:
 
-   <tt><strong>Java-Selenium-NeoLoad
+   <tt><strong>cd Java-Selenium-NeoLoad
    </strong></tt>
 
+   The folder contains a pom.xml file for processing by Maven.
 
    <a href="MavenInstall"></a>
 
@@ -170,8 +169,21 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
 
 0. Use a text editor to view the <strong>pom.xml</strong> file.
 
-   <tt><strong>atom pom.xml
-   </strong></tt>
+   The first part of the file:
+
+   ```
+<repositories>
+  <repository>
+      <id>neotys-public-releases</id>
+      <url>http://maven.neotys.com/content/repositories/releases/</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+  </repository>
+</repositories>
+   ```
+
+   <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8275.htm">NeoLoad's documentation</a> states that
+   NeoLoad integration has been tested on Selenium versions 2.53.0 and 3.0.1.
 
    NOTE: The version of the Selenium Proxy for Maven is 2.0.6.
 
@@ -189,9 +201,6 @@ All these are free open source software (FOSS), except NeoLoad which provides a 
   </dependency>
 </dependencies>
    ```
-
-   CAUTION: According to the documentation,
-   NeoLoad integration has been tested on Selenium versions: 2.53.0 and 3.0.1.
 
    A project is not developed using Maven, it is necessary to add
    the Selenium proxy JAR with dependencies available for download on the Neotys Labs page.
