@@ -368,6 +368,7 @@ Setting the server up is beyond the scope of this article.
    * `org.eclipse.jdt.core.prefs`
    * `org.eclipse.m2e.core.prefs`
 
+   TODO: Use shortcut key ???
 
 
 <a name="InvokeByMaven"></a>
@@ -395,13 +396,13 @@ mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neo
    </pre>
 
 
-### Maven Surefire plugin
+   ### Maven Surefire plugin
 
-To launch only a <strong>subset</strong> of unit tests, add and use the Maven surefire plugin.
+   To launch only a <strong>subset</strong> of unit tests, add and use the Maven surefire plugin.
 
-1. First, include this in your pom.xml :
+0. First, include this in your pom.xml :
 
-   ```
+   <pre>
 &LT;plugin>
  &LT;groupId>org.apache.maven.plugins&LT;/groupId>
  &LT;artifactId>maven-surefire-plugin&LT;/artifactId>
@@ -414,9 +415,9 @@ To launch only a <strong>subset</strong> of unit tests, add and use the Maven su
      &LT;/dependency>
     &LT;/dependencies>
 &LT;/plugin>
-   ```
+   </pre>
 
-0. Launch tests using a command. For example, the asterisk in this launches only test classes that end with 
+0. Launch a test run using this command. For example, the asterisk in this launches only test classes that end with 
    (for example) "PerformanceTest":
 
    ```
