@@ -117,11 +117,12 @@ But if you have a Mac, you can try my single line installer to get these directl
 0. [Java Development Kit](/java-on-apple-mac-osx/)
 0. [Maven](/maven-on-macos/) to build Java after processing the pom.xml file of dependencies
 
-0. SikuliX which consists of:
+0. [SikuliX install](https://github.com/wilsonmar/Basic-Selenium-Java/blob/master/README.md) which consists of:
    0. Selenium Web Driver
-   0. Chrome with ChromeDriver
+   0. Google Chrome browser
+   0. ChromeDriver
+   0. GeckoDriver is loaded directly by Selenium scripts
    0. Firefox browser
-   0. GeckoDriver for Firefox
    0. Eclipse or IntelliJ IDE (optionally)
    0. OpenCV to recognize images
    0. Tesseract to recognize text
@@ -245,7 +246,8 @@ Setting the server up is beyond the scope of this article.
    #### Landing
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png">
-   <img alt="neoload-ushahidi-974x722-517k.png" src="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png"></a>
+   <img alt="neoload-ushahidi-974x722-517k.png" src="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png">
+   <small>Click on image for a full-screen pop-up</small></a>
 
    <a target="_blank" href="https://en.wikipedia.org/wiki/Ushahidi#Products">
    According to Wikipedia</a>: this app was initially 
@@ -309,12 +311,13 @@ Setting the server up is beyond the scope of this article.
 
 0. Click "By filing this form on our website".
 
+   Alternately, the form can also be reached by clicking the "SUBMIT A REPORT" menu item.
+
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
    <img alt="neoload-ushahidi-newitem-918x801-297k.png" src="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
+   <small>Click on image for a full-screen pop-up</small></a>
 
    QUESTION: How many files are downloaded initially? What is the size of each?
-
-0. The form can also be reached by clicking the "SUBMIT A REPORT" menu item.
 
    QUESTION: How many files are downloaded on the second iteration? (Is the cache populated)
 
