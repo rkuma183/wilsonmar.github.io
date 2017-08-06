@@ -93,7 +93,7 @@ Dockerized server image</a> in the Google Container Engine public cloud.
 0. Leave the Cluster size at 1.
 0. Click Create.
 
-   ### CLI on your workstation
+   ### Google Cloud Platform Console
 
    If you do not have permissions to install stuff, 
 
@@ -205,6 +205,13 @@ In a Terminal window:
 
    <tt><strong>docker pull ???/java-selenium-neoload-windows-v1 
    </strong></tt>
+
+   Alternately:
+
+   <tt><strong>docker pull ???/java-selenium-neoload-linux-v1 
+   </strong></tt>
+
+   TODO: Dockerize an image and put it in Docker Hub!
 
 2. Navigate to the folder that contains the demo code. In our case:
 
