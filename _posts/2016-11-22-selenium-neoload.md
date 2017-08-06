@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This article provides you a <strong>hands-on</strong> way to 
+This article provides you a <strong>hands-on</strong> way to (on Macs and Windows machines)
 install and use Selenium and NeoLoad together in order
 to include performance testing during software development.
 
@@ -245,18 +245,20 @@ Setting the server up is beyond the scope of this article.
    #### Landing
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png">
-   <img alt="neoload-ushahidi-974x722-517k.png" href="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png"></a>
+   <img alt="neoload-ushahidi-974x722-517k.png" src="https://user-images.githubusercontent.com/300046/28995095-56d12dc2-79ad-11e7-9719-1dba0f963185.png"></a>
 
-   The Swahili word for "testimony" or "witness" is Ushahidi, and thus the name of the 
+   <a target="_blank" href="https://en.wikipedia.org/wiki/Ushahidi#Products">
+   According to Wikipedia</a>: this app was initially 
+   released in 2009 <a target="_blank" href="https://github.com/ushahidi/platform">
+   as open source on GitHub</a> to "crowdsource" reports from local citizens about voter intimidation and fraud.
+
+   Dots on the map shown shows the location of each observation reported around the world.
+   
+   The word for "testimony" or "witness" in the Swahili language is "Ushahidi", and thus the 
    <a target="_blank" href="https://www.ushahidi.com/"> 
    Ushahidi platform</a> used to build the app shown.
 
-   Dots on the map shown shows the location of each observation reported around the world.
-
-   <a target="_blank" href="https://en.wikipedia.org/wiki/Ushahidi#Products">
-   According to Wikipedia</a>: this "crowdsourcing" app,
-   the Ushahidi platform, was first released in 2009 <a target="_blank" href="https://github.com/ushahidi/platform">
-   as open source on GitHub</a>. The current implementation is not complete:
+   The current implementation is not complete:
 
    * Do not Click "Provide Feedback" at the bottom of the screen.
    A 404 page appears.
@@ -267,8 +269,8 @@ Setting the server up is beyond the scope of this article.
 
    * How to reset the data is unknown.
 
+   * Reduce the width of the browser and note that the app is NOT "responsive" to different widths.
 
-0. Reduce the width of the browser and note that the app is NOT "responsive" to different widths.
 
    #### NewAccount
 
@@ -571,26 +573,54 @@ import org.junit.AfterClass;
    As UI elements are created incrementally during a Sprint,
    add them to the java program.
 
-   ### Framework coding
+   ### Object Recognition coding
 
-   PROTIP: To make it easier/faster to edit the Java file,
-   use a more "modular" approach to structuring lines of code.
+   To find the object associated with a <strong>menu item text</strong> to click on:
 
-   Instead of the test directly interactin with HTML elements
-   and the DOM with code such as this:
+   <pre>
+   driver.findElement(By.partialLinkText("SUBMIT A REPORT")).click();
+   </pre>
+
+0. Right-click
+
+   After you find the "class=" name by looking at the HTML returned from the server,
+   specify it so Selenium can click on it:
 
    <pre>
     driver.findElement(By.className("submit-incident")).click();
    </pre>
 
-   Put them into separate functions.
-   
-   The is called a "Page Pattern".
+   If you need to specify a selector in the CSS, use this example:
+
+   <pre>
+    driver.findElement(By.cssSelector("div.report_row > input[name=\"submit\"]")).click();
+   </pre>
+
+   ### Page Pattern
+
+   The landing page may be used by every transaction that needs to begin from that page.
+
+   <pre>
+   String baseUrl = "http://ushahidi.demo.neotys.com";
+     driver.startTransaction("Home Page");
+     driver.get(baseUrl);
+   </pre>
+
+   But we need to manage timeouts by adding this line:
+
+   <pre>
+   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+   </pre>
+
+   ### Page Pattern
+
+   PROTIP: To make it easier/faster to edit the Java file,
+   use a more "modular" approach to structuring lines of code.
+   Instead of each test directly interacting with HTML elements, adopt the "Page Pattern" of coding:
 
    ![selenium-page-pattern-736x40-59k](https://user-images.githubusercontent.com/300046/29000078-bf19117a-7a2e-11e7-9907-842e49a8c0a5.png)
 
-   For example, ???
-
+   
 
    ### Start NeoLoad Transactions
 
@@ -700,7 +730,7 @@ public class UnitTest {
   @BeforeClass
   public static void before() {
     final ChromeDriver webDriver = new ChromeDriver(addProxyCapabilitiesIfNecessary(new DesiredCapabilities()));
-    &nbsp;
+    
     // projectPath used to open NeoLoad project, null to use currently opened Project.
     final String projectPath = "C:\\Users\\anouvel\\Documents\\NeoLoad Projects\\v5.3\\Sample_Project\\Sample_Project.nlp";
     &nbsp;
