@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This article provides you a <strong>hands-on</strong> way to (on Macs and Windows machines)
+This article provides "newbies" a <strong>hands-on</strong> way to (on Macs and Windows machines)
 install and use Selenium and NeoLoad together in order
 to include performance testing during software development.
 
@@ -299,14 +299,6 @@ Setting the server up is beyond the scope of this article.
 
    Clicking Login within this app does not involve additional communication with the server.
 
-   #### List
-
-0. Click the "REPORTS" menu item.
-
-   NOTE: Categories of observations currently are Cyclone, Avalanche, Wildfire.
-
-   QUESTION: How much quicker would response time be if less observations are shown in the report?
-
    #### NewItem
 
 0. Click "How to Report" on the upper-right corner of the map for the different
@@ -318,7 +310,7 @@ Setting the server up is beyond the scope of this article.
 0. Click "By filing this form on our website".
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
-   <img alt="neoload-ushahidi-newitem-918x801-297k.png" href="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
+   <img alt="neoload-ushahidi-newitem-918x801-297k.png" src="https://user-images.githubusercontent.com/300046/28995521-46c9711c-79b9-11e7-8f7e-16567a567ee3.png">
 
    QUESTION: How many files are downloaded initially? What is the size of each?
 
@@ -330,7 +322,17 @@ Setting the server up is beyond the scope of this article.
 
    #### Search
 
-0. Type in "Wildfire" next to the SEARCH button, then click the button.
+0. Type in "Gemenos" next to the SEARCH button. That is the text added in the sample script.
+0. Click the button.
+
+   #### List
+
+0. Click the "REPORTS" menu item.
+
+   NOTE: Categories of observations currently are Cyclone, Avalanche, Wildfire.
+
+   QUESTION: How much quicker would response time be if less observations are shown in the report?
+
 
    <a name="Plan"></a>
 
@@ -344,6 +346,7 @@ Setting the server up is beyond the scope of this article.
    0. "LogInOut" - 
    0. "ForgotPassword" - to stress the email interface
    0. "NewItem" - "Submit a New Report" in the app at http://ushahidi.demo.neotys.com/reports/submit/
+   0. "Search" - 
    0. "List" - 
    <br /><br />
    
@@ -352,7 +355,7 @@ Setting the server up is beyond the scope of this article.
    Response times associated with transaction names from several scripts can be later combined together,
    so it's a good idea to use transaction names that are unique, such as:
 
-   `Usahidi1-Landing-Home`.
+   `Usahidi1-Landing-Home`
 
 
 
@@ -379,7 +382,17 @@ Setting the server up is beyond the scope of this article.
 mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ clean test
    ```
 
-   The response is ???
+   The response ends with output such as:
+
+   <pre>
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.157 s
+[INFO] Finished at: 2017-08-06T11:43:30-04:00
+[INFO] Final Memory: 12M/197M
+[INFO] ------------------------------------------------------------------------
+   </pre>
 
 
 ### Maven Surefire plugin
@@ -389,18 +402,18 @@ To launch only a <strong>subset</strong> of unit tests, add and use the Maven su
 1. First, include this in your pom.xml :
 
    ```
-<plugin>
- <groupId>org.apache.maven.plugins</groupId>
- <artifactId>maven-surefire-plugin</artifactId>
-   <version>2.19.1</version>
-    <dependencies>
-     <dependency>
-        <groupId>org.apache.maven.surefire</groupId>
-        <artifactId>surefire-junit47</artifactId>
-   <version>2.19.1</version>
-     </dependency>
-    </dependencies>
-</plugin>
+&LT;plugin>
+ &LT;groupId>org.apache.maven.plugins&LT;/groupId>
+ &LT;artifactId>maven-surefire-plugin&LT;/artifactId>
+   &LT;version>2.19.1&LT;/version>
+    &LT;dependencies>
+     &LT;dependency>
+        &LT;groupId>org.apache.maven.surefire&LT;/groupId>
+        &LT;artifactId>surefire-junit47&LT;/artifactId>
+   &LT;version>2.19.1&LT;/version>
+     &LT;/dependency>
+    &LT;/dependencies>
+&LT;/plugin>
    ```
 
 0. Launch tests using a command. For example, the asterisk in this launches only test classes that end with 
