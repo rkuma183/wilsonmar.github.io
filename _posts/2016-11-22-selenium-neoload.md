@@ -38,9 +38,11 @@ impose a <strong>simulated load</strong> on web servers and the infrastructure a
 (database, Web server, network components, etc.).
 During "load test" runs, user response times and other statistics are captured by additional monitoring software.
 
-All this is not yet the fully automatic vision where 
-tests are created with the application code,
-but it does foster additional speed and agility we haven't had before now.
+All this is not yet fulfill the complete vision where 
+tests are automatically and fully created with the application code,
+But this does foster additional speed and agility we haven't had before now
+to verify if existing scripts are still working.
+
 
 ## Workflow 
 
@@ -415,7 +417,8 @@ Setting the server up is beyond the scope of this article.
 
    http://ushahidi.demo.neotys.com/login/?newaccount
 
-0. Fill the information and click "Sign Up".
+0. Fill the information. Consider <a href="#UserData">user data from a file</a>, etc.
+0. Click "Sign Up".
 
 
    #### ForgetPassword
@@ -847,6 +850,15 @@ driver.get("http://ushahidi.demo.neotys.com/");
    ### Parametization
 
    In order to identify
+
+
+<a name="UserData"></a>
+
+## User data from a file
+
+How quickly can new users can be added into a system?
+
+That question is answered by <strong>load testing</strong> of the New Account UX.
 
 
 <a name="ResetDatabase"></a>
@@ -1420,7 +1432,12 @@ License module "Integration & Advanced Usage" is required to enable the End User
 
 ## Jenkins for NeoLoad
 
-0. Install the Jenkins plug-in for NeoLoad at
+0. The Jenkins job to run Selenium would involve 
+   <a target="_blank" href="invoke-by-maven">invoking the Selenium run Maven job</a>.
+
+0. The post-build action to a code "conversion", if successful, is to run the load test.
+
+0. For that, install the Jenkins plug-in for NeoLoad at
 
    <a target="_blank" href="https://wiki.jenkins.io/display/JENKINS/NeoLoad+Plugin">
    https://wiki.jenkins.io/display/JENKINS/NeoLoad+Plugin</a>
@@ -1433,7 +1450,7 @@ License module "Integration & Advanced Usage" is required to enable the End User
 
 0. The plug-in works with "Freestyle" projects, not "Pipeline" using Groovy scripts.
 
-   TODO: Steps to add a job for this.
+TODO: Steps to add a job for this.
 
 
 ## References
