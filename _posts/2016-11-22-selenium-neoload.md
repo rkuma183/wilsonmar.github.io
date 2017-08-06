@@ -124,7 +124,7 @@ Dockerized server image</a> in the Google Container Engine public cloud.
    brew cask install google-cloud-sdk
    </strong></tt>
 
-0. Use `gcloud` to install `kubectl`, Kubernetes command-line tool:
+0. Use `gcloud` to install `kubectl`, the Kubernetes command-line tool:
 
    <tt><strong>gcloud components install kubectl</strong></tt>
 
@@ -136,6 +136,11 @@ Dockerized server image</a> in the Google Container Engine public cloud.
 0. Log in to your Google user account when prompted.
 0. Click "Allow" to grant permission to access Google Cloud Platform resources.
 0. Select a project.
+
+   PROTIP: Although there is a way to set a default compute/zone, 
+   (such as `gcloud config set compute/zone us-central1-b`)
+   we do not recommend it because you will likely change it and need to be aware of what it is
+   to avoi rogue instances eating your wallet.
 
 
    ### Local Google Cloud Command file
