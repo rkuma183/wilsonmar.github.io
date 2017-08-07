@@ -546,6 +546,8 @@ Setting the server up is beyond the scope of this article.
 
    TODO: Use shortcut key ???
 
+   See [Eclipse IDE](/eclipse-ide/)
+
 
 <a name="InvokeByMaven"></a>
 
@@ -556,7 +558,9 @@ Setting the server up is beyond the scope of this article.
 0. Launch all tests using a command:
 
    ```
-mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ clean test
+mvn -Dnl.selenium.proxy.mode=Design\
+-Dnl.design.api.url=http://ushahidi.demo.neotys.com/ \
+clean test
    ```
 
    The response ends with output such as:
@@ -863,10 +867,14 @@ That question is answered by <strong>load testing</strong> of the New Account UX
 
 <a name="ResetDatabase"></a>
 
-## Reset database
+## Database Admin
 
-Occassionally 
+Occassionally, the database would need to be cleared (reset).
+This is done by re-initializing the database.
 
+Before that, the database may be archived.
+
+The database can be optionally re-established from archives.
 
 
 <hr />
@@ -992,89 +1000,6 @@ public class UnitTest {
 }
    ```
 
-### UnitTest2 Example
-
-The Selenium driver is started before each test and stopped at the end of each test. 
-One User Path is created or updated per test.
-
-   ```
-package com.selenium.test;
-import static com.neotys.selenium.proxies.NLWebDriverFactory.addProxyCapabilitiesIfNecessary;
-import java.io.File;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import com.neotys.selenium.proxies.NLWebDriver;
-import com.neotys.selenium.proxies.NLWebDriverFactory;
-
-public class UnitTest2 {
-  private static final String CHROME_DRIVER_PATH = "C:\\Selenium\\chromedriver.exe";
-    
-  static {
-    final File file = new File(CHROME_DRIVER_PATH);
-    System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-  }
-    
-  @Rule // JUnit annotation
-  public TestName testName = new TestName();
-    
-  NLWebDriver driver;
-  
-  @Before
-  public void beforeTest() {
-    final ChromeDriver webDriver = new ChromeDriver(addProxyCapabilitiesIfNecessary(new DesiredCapabilities()));
-    final String projectPath = "C:\\Users\\anouvel\\Documents\\NeoLoad Projects\\v5.3\\Sample_Project\\Sample_Project.nlp";
-    driver = NLWebDriverFactory.newNLWebDriver(webDriver, testName.getMethodName(), projectPath);
-  }
-  
-  @Test
-  public void testSubmit() {
-    driver.startTransaction("home");
-    driver.get("http://ushahidi.demo.neotys.com/");
-  
-    driver.startTransaction("reports");
-    driver.findElement(By.id("mainmenu")).findElements(By.tagName("a")).get(1).click();
-  
-    driver.startTransaction("submit");
-    driver.findElement(By.partialLinkText("SUBMIT")).click();
-  }
-  
-  @Test
-  public void testGetAlerts() {
-    driver.startTransaction("home");
-    driver.get("http://ushahidi.demo.neotys.com/");
-  
-    driver.startTransaction("alerts");
-    driver.findElement(By.partialLinkText("GET ALERTS")).click();
-  }
-  
-  @Test
-  public void testSubmitIncident(){
-    driver.startTransaction("home");
-    driver.get("http://ushahidi.demo.neotys.com/");
-    
-    driver.startTransaction("submit-incident");
-    driver.findElement(By.className("submit-incident")).click();
-    driver.findElement(By.id("incident_title")).sendKeys("Title");
-    driver.findElement(By.id("incident_description")).sendKeys("Description");
-    driver.findElement(By.id("location_name")).sendKeys("Gémenos, France");
-    driver.findElement(By.cssSelector("input[type='checkbox'][value='2']")).click();
-    driver.findElement(By.className("btn_submit")).click();
-  }
-  
-  @After
-  public void afterTest() {
-    if (driver != null) {
-      driver.quit();
-    }
-  }
-}
-   ```
 
 ### Methods of the Selenium wrapper
 
@@ -1202,7 +1127,8 @@ All options except the driver instance are passed via command line arguments.
 
 Tip: Arguments may require quotation marks to function properly. For example: 
 
-   "-Dnl.script.name=my_name" instead of -Dnl.script.name=my_name.
+   "-Dnl.script.name=my_name" instead of 
+   -Dnl.script.name=my_name.
 
 Argument
 Description
@@ -1371,7 +1297,7 @@ nl-seleniumjavaproxyconfigoptions2.png
 To configure your User Experience scenario, follow the guidelines documented in the End User Experience Integration User Guide.
 
 
-### See run results
+## See run results
 
 The external data injected during execution is displayed in Results > Details.
 For more information, see by external data.
@@ -1379,7 +1305,7 @@ For more information, see by external data.
 https://www.neotys.com/documents/doc/neoload/latest/en/html/#1484.htm#o7602
 
 
-### License setup
+### User Experience Integration
 
 License module "Integration & Advanced Usage" is required to enable the End User Experience Integration.
 
