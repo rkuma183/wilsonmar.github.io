@@ -428,7 +428,21 @@ Setting the server up is beyond the scope of this article.
 0. Click "Forget Password".
 
    NOTE: In the HTML, the value for name "form_auth_token" is sent, not the email address.
+   This is an example of why a value needs to be captured in the HTML so that it can be
+   passed back to the server. Such work is called "correlation" of data.
+   An example of HTML containing a form_auth_token value is:
 
+   <pre>
+&LT;form action="http://ushahidi.demo.neotys.com/login" method="post" id="header_nav_userforgot_form">
+&LT;input type="hidden" name="form_auth_token" value="4cab5f2d740c2761e64b867c2b0180578e666517ff17f790fd72d25ed41a3495"  />
+   </pre>
+
+   This value is obtained between left and right boundries:
+
+   * The left boundry is `form_auth_token\" value=\"`
+   * The right boundry is `\"`
+   <br /><br />
+   
 
    <a name="Login"></a>
 
@@ -444,7 +458,7 @@ Setting the server up is beyond the scope of this article.
    #### NewItem
 
 0. Click "How to Report" on the upper-right corner of the map for the different
-   mechanisms of reporting.
+   mechanisms of reporting. The URL is 
    http://ushahidi.demo.neotys.com/reports/submit/
    
    ![neoload-ushahidi-howtoreport-195x81-19k](https://user-images.githubusercontent.com/300046/28995256-98ab61ae-79b2-11e7-947f-aa4d23f30449.png)
@@ -507,8 +521,8 @@ Setting the server up is beyond the scope of this article.
 
    1. "Landing" (map display)
    0. "Menus"
-   0. "NewAccount" - Create an account
-   0. "LogInOut" - 
+   0. "NewAccount" - to stress database adds
+   0. "LogInOut" - to stress authentication services
    0. "ForgotPassword" - to stress the email interface
    0. "NewItem" - "Submit a New Report" in the app at http://ushahidi.demo.neotys.com/reports/submit/
    0. "Search" - 
@@ -533,6 +547,44 @@ Setting the server up is beyond the scope of this article.
    The Selenium 4 script folder is simply:
 
    `Usahidi1_SL4`
+
+
+<a name="Export"></a>
+
+## Export Selenium for NeoLoad
+
+<a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8273.htm">
+NOTE:</a> After editing Selenium Java test scripts, the Java project must be exported to a "Runnable JAR file" 
+so that it can be launched by NeoLoad.
+
+To define a launch configuration that contains the test class to execute, 
+create a TestSuite class with these imports:
+
+   ```
+import org.junit.runner.JUnitCore;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+    
+@RunWith(Suite.class)
+    
+@Suite.SuiteClasses({
+   HomeTest.class,
+   ReportTest.class
+})
+    
+public class EndUserExperienceTestSuite {
+  public static void main(String[] args) throws Exception {
+         JUnitCore.main(EndUserExperienceTestSuite.class.getName()); // EndUserExperience only?
+  }
+}
+   ```
+
+0. Enter a project name, specify the directory where to save the JAR file:
+
+    in the /custom-resources folder of your NeoLoad project
+    in the /extlib directory of your NeoLoad installation for multi-project usage
+
+0. Click Finish.
 
 
 <a name="InvokeFromEclipse"></a>
@@ -661,6 +713,34 @@ public static void main(String[] args) throws Exception {
    ```
    JUnitCore.main(Ushadidi1-junit4.class.getName());            
    ```
+
+   ### Command arguments
+
+   <a target="_blank" href="https://www.neotys.com/documents/doc/neoload/latest/en/html/#8278.htm">
+   https://www.neotys.com/documents/doc/neoload/latest/en/html/#8278.htm</a><br />
+   describes additional information to feed into Selenium include:
+
+   The NeoLoad license API key:
+   ```
+   -Dnl.api.key="32l234234abacdeeeffffgg2235523"
+   ```
+
+   Operating system (Windows, Linux, Mac OS):
+   ```
+   "-Dnl.os=Mac OS"
+   ```
+   
+   The URL under test:
+   ```
+   -Dnl.design.api.url=http://localhost:7400/Design/v1/Service.svc/
+   ```
+
+   Turn on debugging:
+   ```
+   -Dnl.debug=true
+   ```
+   
+
 
    ### JUnit Annotations
 
@@ -1120,159 +1200,6 @@ These metrics are available during runtime and once the test is complete in the 
    * On Load
    * Document complete
 
-
-### Configuration options
-
-All options except the driver instance are passed via command line arguments.
-
-Tip: Arguments may require quotation marks to function properly. For example: 
-
-   "-Dnl.script.name=my_name" instead of 
-   -Dnl.script.name=my_name.
-
-Argument
-Description
-new FirefoxDriver()
-(Required) Any driver that returns a WebDriver interface.
- 
-   ``` 
-NLWebDriver driver = WebDriverProxy.newInstance(new FirefoxDriver());
-   ```
-or
-
-   ```
-NLSelenium selenium = WebDriverBackedSeleniumProxy.newInstance(new WebDriverBackedSelenium(new FirefoxDriver(), baseUrl));
-nl.api.key
-   ```
-
-(Optional) The API key to send to NeoLoad.
-Default: &LT;none>
-nl.data.exchange.url
-(Required) The URL to the data exchange server on the NeoLoad Controller.
-Example: -Dnl.data.exchange.url=http://localhost:7400/DataExchange/v1/Service.svc/
-Default: http://localhost:7400/DataExchange/v1/Service.svc/
-nl.debug
-(Optional) Prints various information from the Selenium proxy wrapper to standard out.
-Default: false
-Example:
-
-   ```
--Dnl.debug=true
-nl.design.api.url
-   ```
-
-(Required) The URL to the Design API server on the NeoLoad Controller.
-Example: 
-
-   ```
--Dnl.design.api.url=http://localhost:7400/Design/v1/Service.svc/
-Default: http://localhost:7400/Design/v1/Service.svc/
-nl.hardware
-   ```
-
-(Optional) Specify this setting for the external data Entry.
-Default: &LT;none>
-
-   ```
-nl.instance.id
-   ```
-
-(Optional) The instanceID to use.
-Default: &LT;date/time stamp>
-
-   ```
-nl.location
-   ```
-
-(Optional) Specify this setting for the external data Entry.
-Default: &LT;none>
-   ```
-nl.os
-   ```
-
-(Optional) Specify this setting for the external data Entry.
-Default: Windows, Linux, Mac OS, etc. (based on the operating system)
-   ```
-nl.path.naming.policy
-   ```
-(Optional) This is used to set the naming policy. The argument must be URL, Title, or Action.
-URL: Use the last part of the URL as the Entry path.
-Title: Use the page title as the Entry path.
-Action: Use the last action as the Entry path. Actions can be link selections or clicks.
-Default: URL
-Example:
-   ```
--Dnl.path.naming.policy=Title
-nl.regex.to.clean.urls
-   ```
-(Optional) Used in conjunction with the URL PathNamingPolicy. This specifies the regular expression used to extract a path from a URL. When multiple groups are used, all matching text from each group is used in the path.
-Default: (.*?)[#?;%].*
-Example: -Dnl.regex.to.clean.urls=.*?\\\?(.*?)|(.*?)[#?;%].*|(.*)
-Note that this example becomes .*?\?(.*?)|(.*?)[#?;%].*|(.*) after escaping
-nl.script.name
-(Optional) Specify this setting for the external data Entry.
-Default outside of JUnit: SeleniumDelegate
-Default in a JUnit test: SeleniumDelegate-&LT;test method name>
-   ```
-nl.selenium.proxy.enabled
-   ```
-(Deprecated) Enables or disables creating and sending entries.
-Default: True
-nl.software
-(Optional) Specify this setting for the external data Entry.
-Default: &LT;none>
-
-
-### Export Selenium scripts
-
-After customizing the Selenium test scripts, export the Java project to a runnable JAR file so that it can be launched by NeoLoad.
-
-Tip: If you want a launch configuration that contains the test class to execute, create a TestSuite class by adapting the example below:
-
-   ```
-import org.junit.runner.JUnitCore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-    
-@RunWith(Suite.class)
-    
-@Suite.SuiteClasses({
-   HomeTest.class,
-   ReportTest.class
-})
-    
-public class EndUserExperienceTestSuite {
-  public static void main(String[] args) throws Exception {
-         JUnitCore.main(EndUserExperienceTestSuite.class.getName());            
-  }
-}
-   ```
-
-If you are working in the Eclipse IDE, export the Selenium scripts, follow the steps below:
-
-1. Right-click on your Eclipse project and select Export to a Runnable JAR file.
-
-   ```
-   nl-exportjarfileselenium
-   ```
-
-### Export Jar File Selenium
-
-Enter a project name, specify the directory where to save the JAR file:
-
-   ```
-   nl-runnablejarspecselenium
-   ```
-
-in the /custom-resources folder of your NeoLoad project
-
-   ```
-   nl-runnablejarspecselenium
-   ```
-
-in the /extlib directory of your NeoLoad installation for multi-project usage, click Finish.
-
-The file will be automatically sent to Load Generators when a test is run.
 
 
 ## Start Selenium scripts
