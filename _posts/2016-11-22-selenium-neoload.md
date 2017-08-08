@@ -591,6 +591,13 @@ public class EndUserExperienceTestSuite {
 }
    ```
 
+   TIP: This illustrated by the following diagram from the 2h 37m
+   <a target="_blank" href="https://app.pluralsight.com/library/courses/java-unit-testing-junit/exercise-files">
+   Unit Testing In Java With JUnit</a> video class released 10 May 2013 on Pluralsight.
+
+   ![junit-suite-579x411-67k](https://user-images.githubusercontent.com/300046/29069971-1e0d378c-7c0b-11e7-9539-2383955c6625.png)
+
+
 0. Enter a project name, specify the directory where to save the JAR file:
 
     in the /custom-resources folder of your NeoLoad project
@@ -862,14 +869,23 @@ import org.junit.AfterClass;
 
    ### Timeouts
 
-   To limit how long a test can take, 
-   specify `@Test(timeout=1000)` for one second, in milliseconds.
+   To specify a test taking a maximum time of one second (in milliseconds):
+   
+   <pre>@Test(timeout=1000)
+   </pre>
+
+   To specify timeouts generically by adding this line:
+
+   <pre>
+   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+   </pre>
 
 
    ### Expect an Exception
 
-   When testing a program that is expected to throw an exception,
-   specify `@Test(expected=Exceltion.class)`.
+   To specify that test code is expected to throw an exception:
+
+   `@Test(expected=Exception.class)`
 
 
    ### @Ignore
@@ -883,13 +899,27 @@ import org.junit.AfterClass;
    To define code that can select which tests are run at run-time, 
    we can vary the value of the "RunType" argument when invoking the test program.
 
-
-<a name="UpdateSelenium"></a>
-
-## Selenium Java Code
+   ### Test Structure
 
    As UI elements are created incrementally during a Sprint,
    add them to the java program.
+
+   TIP: To make this easier, add an extra level of functions in a Selenium framework described
+   by John Sonmez in his 3h46m
+   <a target="_blank" href="https://app.pluralsight.com/library/courses/automated-testing-framework-selenium/table-of-contents">
+   Creating an Automated Testing Framework With Selenium</a> video class released on 26 Sep 2013
+   on Pluralsight.
+
+
+
+
+
+   ### NeoLoad Transactions
+
+   <pre>driver.startTransaction("Home Page");
+   </pre>
+
+   CAUTION: The transaction name should match transactions named within NeoLoad scripts Selenium updates.
 
 
    ### Object in HTML
@@ -940,11 +970,6 @@ import org.junit.AfterClass;
      driver.get(baseUrl);
    </pre>
 
-   To specify timeouts generically by adding this line:
-
-   <pre>
-   driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-   </pre>
 
 
    ### Page Pattern
