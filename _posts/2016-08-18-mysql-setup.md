@@ -1259,6 +1259,17 @@ Read <a target="_blank" href="http://www.mysqlperformanceblog.com/2007/11/01/inn
 this article about InnoDB Performance Optimization Basics</a>.
 
 
+## Replication
+
+If the MySQL instance is running within AWS,
+<a target="_blank" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.Repl.html">
+Replicate it external to Amazon RDS</a>
+based on 
+<a target="_blank" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MariaDB.Procedural.Replication.GTID.html">
+GTIDs (Global Transaction Identifiers)</a>.
+This involves setting the db on and off as read-only.
+
+
 <a name="Resources"></a>
 
 ## Learn More #
