@@ -75,36 +75,6 @@ Here is how to do it, step-by-step:  CAUTION: Work in progress!
 <hr />
 
 
-<a name="BeginFrom"></a>
-
-### Get from GitHub 
-
-0. Change to or create a folder where Git will create a folder on your local hard drive:
-
-   <tt><strong>cd ~/gits/wilsonmar
-   </strong></tt>
-
-   You need to substitute "wilsonmar" here with your own account name if you forked the repo.
-
-0. Get the repo onto your local hard drive 
-   (using this command which wraps into two lines):
-
-   <tt><strong>
-   git clone https://github.com/wilsonmar/Java-Selenium-NeoLoad  \-\-depth=1
-   </strong></tt>
-
-   `--depth=1` specifies the depth of history downloaded, with
-   1 if you only want the latest version and no back versions.
-   This saves some disk space.
-
-0. Dive into the folder created by git clone:
-
-   <tt><strong>cd Java-Selenium-NeoLoad
-   </strong></tt>
-
-   The folder contains a pom.xml file for processing by Maven.
-
-
 <a name="UseCloudImage"></a>
 
 ## User image on Google Cloud
@@ -217,6 +187,8 @@ Dockerized server image</a> in the Google Container Engine public cloud.
    The `image=java-selenium-neoload-windows-v1` above refers to the Docker image
    described next.
 
+   This sample is in the GitHub repo
+
 0. Install Bash for Windows to execute the sample above in Windows.
 0. Run the script. 
 
@@ -287,7 +259,7 @@ I'm working now to have a similar script using PowerShell.
 
 But if you have a Mac, you can try my single line installer to get these directly on your own machine:
 
-1. Git client (to pull from GitHub)
+0. Git client (to pull from GitHub)
 0. <a href="#SampleApp">A Sample app to test</a> (Ushahidi, JPetStore, JPetClinic, etc.)
 0. [Java Development Kit](/java-on-apple-mac-osx/)
 0. [Maven](/maven-on-macos/) to build Java after processing the pom.xml file of dependencies
@@ -297,7 +269,7 @@ But if you have a Mac, you can try my single line installer to get these directl
    0. ChromeDriver
    0. GeckoDriver is loaded directly by Selenium scripts
    0. Firefox browser
-   0. Eclipse or IntelliJ IDE (optionally)
+   0. Eclipse or IntelliJ IDE (which has JUnit built-in)
 
    [SikuliX install](https://wilsonmar.github.io/opencv-sikulix-robot/#installation) adds :
 
@@ -311,6 +283,36 @@ But if you have a Mac, you can try my single line installer to get these directl
 All these are free open source software (FOSS), except NeoLoad which provides a free license for up to 50 simultaneous virtual users.
 
 <hr />
+
+
+<a name="BeginFrom"></a>
+
+### Get from GitHub 
+
+0. Change to or create a folder where Git will create a folder on your local hard drive:
+
+   <tt><strong>cd ~/gits/wilsonmar
+   </strong></tt>
+
+   You need to substitute "wilsonmar" here with your own account name if you forked the repo.
+
+0. Get the repo onto your local hard drive 
+   (using this command which wraps into two lines):
+
+   <tt><strong>
+   git clone https://github.com/wilsonmar/Java-Selenium-NeoLoad  \-\-depth=1
+   </strong></tt>
+
+   `--depth=1` specifies the depth of history downloaded, with
+   1 if you only want the latest version and no back versions.
+   This saves some disk space.
+
+0. Dive into the folder created by git clone:
+
+   <tt><strong>cd Java-Selenium-NeoLoad
+   </strong></tt>
+
+   The folder contains a pom.xml file for processing by Maven.
 
 
    <a href="MavenInstall"></a>
@@ -569,8 +571,7 @@ Setting the server up is beyond the scope of this article.
 NOTE:</a> After editing Selenium Java test scripts, the Java project must be exported to a "Runnable JAR file" 
 so that it can be launched by NeoLoad.
 
-To define a launch configuration that contains the test class to execute, 
-create a TestSuite class with these imports:
+To define a launch configuration that contains the test class to execute:
 
    ```
 import org.junit.runner.JUnitCore;
@@ -590,12 +591,6 @@ public class EndUserExperienceTestSuite {
   }
 }
    ```
-
-   TIP: This illustrated by the following diagram from the 2h 37m
-   <a target="_blank" href="https://app.pluralsight.com/library/courses/java-unit-testing-junit/exercise-files">
-   Unit Testing In Java With JUnit</a> video class released 10 May 2013 on Pluralsight.
-
-   ![junit-suite-579x411-67k](https://user-images.githubusercontent.com/300046/29069971-1e0d378c-7c0b-11e7-9539-2383955c6625.png)
 
 
 0. Enter a project name, specify the directory where to save the JAR file:
@@ -764,6 +759,59 @@ public static void main(String[] args) throws Exception {
    -Dnl.debug=true
    ```
    
+   ### Suites
+
+   ```
+import org.junit.runner.JUnitCore;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+    
+@RunWith(Suite.class)
+    
+@Suite.SuiteClasses({
+   HomeTest.class,
+   ReportTest.class
+})
+    
+public class EndUserExperienceTestSuite {
+  public static void main(String[] args) throws Exception {
+         JUnitCore.main(EndUserExperienceTestSuite.class.getName()); // EndUserExperience only?
+  }
+}
+   ```
+
+   TIP: The structure of suites is illustrated by the following diagram from the 2h 37m
+   <a target="_blank" href="https://app.pluralsight.com/library/courses/java-unit-testing-junit/exercise-files">
+   Unit Testing In Java With JUnit</a> video class released 10 May 2013 on Pluralsight.
+
+   ![junit-suite-579x411-67k](https://user-images.githubusercontent.com/300046/29069971-1e0d378c-7c0b-11e7-9539-2383955c6625.png)
+
+
+   ### Categories
+
+   ```
+import org.junit.experimental.categories.Category;
+import org.junit.experimental.categories.Categories;
+import org.junit.experimental.categories.Categories.IncludeCategory;
+
+@RunWith(Categories.class)
+@IncludeCategory(UTestGood.class)
+
+@Test
+@Category(UTestGood.class)
+public class HelloTest {
+   ...   
+}    
+   ```
+
+   TIP: The structure of suites is illustrated by the following diagram from the 2h 37m
+   <a target="_blank" href="https://app.pluralsight.com/library/courses/java-unit-testing-junit/exercise-files">
+   Unit Testing In Java With JUnit</a> video class released 10 May 2013 on Pluralsight.
+
+   ![junit-category-584x434-98k](https://user-images.githubusercontent.com/300046/29070136-e94cb616-7c0b-11e7-8410-fda4da92d4fd.png)
+
+   ### Parametized Tests
+
 
 
    ### JUnit Annotations
@@ -867,9 +915,9 @@ import org.junit.AfterClass;
    Using <strong>wrapper code</strong> allows quick and easy integration with existing Selenium test cases with minimal changes to existing code. Page load times and any error messages are sent to NeoLoad as external data.
 
 
-   ### Timeouts
+   ### Timeout Rule
 
-   To specify a test taking a maximum time of one second (in milliseconds):
+   To specify a particular test taking a maximum time of one second (in milliseconds):
    
    <pre>@Test(timeout=1000)
    </pre>
@@ -880,12 +928,16 @@ import org.junit.AfterClass;
    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
    </pre>
 
+   https://github.com/junit-team/junit/wiki
+
 
    ### Expect an Exception
 
    To specify that test code is expected to throw an exception:
 
    `@Test(expected=Exception.class)`
+
+   The @ErrorCollector rule collects several errors for display all at once rather than immediately.
 
 
    ### @Ignore
@@ -899,6 +951,7 @@ import org.junit.AfterClass;
    To define code that can select which tests are run at run-time, 
    we can vary the value of the "RunType" argument when invoking the test program.
 
+
    ### Test Structure
 
    As UI elements are created incrementally during a Sprint,
@@ -910,7 +963,9 @@ import org.junit.AfterClass;
    Creating an Automated Testing Framework With Selenium</a> video class released on 26 Sep 2013
    on Pluralsight.
 
+   ### @ClassRule
 
+   @ClassRule annotations define custom rules that add functional before or after a test runs.
 
 
 
@@ -960,7 +1015,7 @@ import org.junit.AfterClass;
    </pre>
 
 
-   ### Timeouts
+   ### Landing Page
 
    The landing page may be used by every transaction that needs to begin from that page.
 
