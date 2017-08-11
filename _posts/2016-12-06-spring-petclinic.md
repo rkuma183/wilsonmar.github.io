@@ -70,17 +70,19 @@ javaetmoi.com</a>.
    Julian Dubois in 2013 blogged about his
    <a target="_blank" href="http://blog.ippon.fr/2013/03/11/">
    performance audit</a> of the app he forked in 2013 at<br />
-   https://github.com/jdubois/spring-petclinic
+   <a target="_blank" href="https://github.com/jdubois/spring-petclinic">
+   https://github.com/jdubois/spring-petclinic</a>
 
    However, the 2012 repo references<br />
-   http://spring-petclinic.cloudfoundry.com/<br />
+   <a target="_blank" href="http://spring-petclinic.cloudfoundry.com/">
+   http://spring-petclinic.cloudfoundry.com</a>
    which is no longer active.
 
    PROTIP: The version of the app you use should be of a static instance
    (in a your own fork) so that you have a consistent version to work and debug.
 
-   * https://github.com/jdubois/spring-petclinic/commit/69e55e406db37a386ff8348a5a84343801169f85
-   JMeter test file
+   * <a target="_blank" href="https://github.com/jdubois/spring-petclinic/commit/69e55e406db37a386ff8348a5a84343801169f85">
+   JMeter test file</a>
 
 
 ### Start app
@@ -111,8 +113,9 @@ Online Solution
 http://demo.kieker-monitoring.net/
 
 
+<a name="AllFunctionality"></a>
 
-### Functionality 
+### All Functionality 
 
 0. Click FIND OWNERS.
 0. Click Find to list all.
@@ -124,6 +127,7 @@ http://demo.kieker-monitoring.net/
 0. Click Add Visit.
 0. Select Veterinarian. Six have been pre-populated.
 
+
 <a name="Strategy"></a>
 
 ## Artificial Load Run Types
@@ -134,23 +138,24 @@ specified to impose artificial load.
 Keywords in quotes define the various run types.
 
 | RunType | What it verifies |
-| ------- | ------- |
-| <a href="#Landing">Landing</a> | Network variability |
-| <a href="#MenuItems">MenuItems</a> | Logging verbosity</a> |
+| ------- | ---------------- |
+| <a href="#Landing">Landing</a> | Network variability (is network stable enough?) |
+| <a href="#MenuItems">MenuItems</a> | <a href="#Logging">Logging verbosity</a> |
 | <a href="#List">List</a> | <a href="#ClientCaching">Client Caching</a>, <a href="#PageLimits">Page Limits</a>, <a href="#DBRead">Database Read Rates</a> |
 | <a href="#Search">Search</a> | - |
 | <a href="#NewData">NewData</a> | <a href="#DBVar">Data Variation</a>, <a href="#DBWrites">Database Writes</a> |
-| <a href="#SignInOut">SignInOut</a> | Authentication Services |
-| <a href="#All">All</a> | - |
+| <a href="#SignInOut">SignInOut</a> | Authentication Services (how quickly can users ramp up?) |
 | <a href="#Errors">Errors</a> | Recovery from error |
+| <a href="#All">All</a> | - |
 
 <hr />
+
 
    <a name="Landing"></a>
 
 1. <strong>"Landing"</strong> lands on the URL of the site.
 
-   <pre>http://127.0.0.1/petclinic</pre>
+   <pre><a target="_blank" href="http://127.0.0.1/petclinic">http://127.0.0.1/petclinic</a></pre>
 
    This page is also reached by clicking "Home".
 
@@ -158,6 +163,7 @@ Keywords in quotes define the various run types.
 
    The PetClinic app is for a group of known vets who take care of 
    pets owned by owners.
+
 
    ### Network viability
 
@@ -177,6 +183,7 @@ Keywords in quotes define the various run types.
    is exposed, such as the load test server being reset every day.
 
    The emulation script needs to detect and handle "Server unavailable" conditions.
+
 
    <a name="MenuItems"></a>
 
@@ -204,6 +211,7 @@ Keywords in quotes define the various run types.
 
    These runs identify issues with front-end caching.
 
+
    <a name="Logging"></a>
 
    ### Logging verbosity
@@ -216,6 +224,7 @@ Keywords in quotes define the various run types.
    Productive runs use "error" level such that only errors are output.
 
    favicon.ico
+
 
    <a name="List"></a>
 
@@ -234,6 +243,7 @@ Keywords in quotes define the various run types.
 
    <img alt="SpringSourceList" width="650" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
 
+
    <a name="ClientCaching"></a>
 
    ### Client Caching 
@@ -243,6 +253,7 @@ Keywords in quotes define the various run types.
    reuse them to avoid unnecessary retrievals.
 
    This may need to be varied artifically to induce additional load.
+
 
    <a name="PageLimits"></a>
 
@@ -262,6 +273,7 @@ Keywords in quotes define the various run types.
 
    Alas, the PetClinic app does not provide user preferences in its UI.
 
+
    <a name="DBRead"></a>
 
    ### Database read rate
@@ -274,6 +286,7 @@ Keywords in quotes define the various run types.
 
    This activity is used by "Transaction Tracing" utilities
    by programs such as Dynatrace and CA-APM.
+
 
    <a name="Search"></a>
 
@@ -296,6 +309,7 @@ Keywords in quotes define the various run types.
    owners.
 
    The emulation script needs to handle error responses.
+
 
    <a name="NewData"></a>
 
@@ -320,12 +334,14 @@ Keywords in quotes define the various run types.
    internally to populate the Veternarian screen.
    Such a link is not usually exposed in app end-user UIs.
 
+
    <a name="DataVar"></a>
 
    ### Data Variation
 
    Variations in registration data from a file is needed
    to load various users.
+
 
    <a name="DBWrites"></a>
 
@@ -335,6 +351,7 @@ Keywords in quotes define the various run types.
 
    Measuring the time taken for individual database activities is 
    useful to differentiate time incurred by different databases.
+
 
    <a name="SignInOut"></a>
 
@@ -348,6 +365,7 @@ Keywords in quotes define the various run types.
    database for each user, memory use will increase for each additional user.
 
    Does memory get recovered from users who have logged off?
+
 
    <a name="External"></a>
 
@@ -363,11 +381,13 @@ Keywords in quotes define the various run types.
    The question answered by a load test of this type is:<br />
    Can the app and external services keep up with a lot of people buying at once? What does "a lot" mean is the measurement.
 
+
    <a name="All"></a>
 
 8. <strong>"All"</strong> means "all the above", done 
    to ensure that the system can handle a pattern of stress 
    during scalability testing.
+
 
    <a name="Errors"></a>
 
