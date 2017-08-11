@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Data visualization using Tableau"
-excerpt: "It's so simple, a Data Scientist can do this."
+title: "Regression"
+excerpt: "How to calculate a formula from multiple variables in Excel"
 tags: [apple, mac, setup]
 shorturl: "https://goo.gl/SYQ4rY"
 image:
