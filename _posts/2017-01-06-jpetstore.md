@@ -13,7 +13,7 @@ comments: true
 ---
 <i>{{ page.excerpt }}</i>
 
-[![Gitter](https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+<a target="_blank" href="https://gitter.im/wilsonmar/great-big-example-application?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg" alt="Gitter" /></a>
 
 {% include _toc.html %}
 
