@@ -3,6 +3,7 @@ layout: post
 title: "Node.js Installation on MacOS"
 excerpt: "JavaScript for the win"
 tags: [node, javascript, apple, mac, setup]
+shorturl: "https://goo.gl/92YU4k"
 image:
 # feature: pic orange wm_mcnaughton_sunset_runner_1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622121/097d7550-0585-11e6-9543-27d45c2487c2.jpg
@@ -16,29 +17,8 @@ comments: true
 {% include _toc.html %}
 
 The objective of this tutorial is to spare you the pain and confusion
-around installing and uninstalling the various editions and versions of NodeJs.
-
-## Node History
-
-Node.js was started as an open-source project in 2009 by
-Ryan Dahl.
-Its second contributor was Isaac Schlueter who now leads the project.
-Both are employed by <a target="_blank" href="https://www.joyant.com/">Joyent.com</a>, 
-a cloud computing company purchaed in 2015 by Samsung (Korea).
-
-The project had a total of 447 core contributors as of 2016. 
-Dahl was employed by Joyent during much of Node’s development, and Joyent continues to sponsor Node. 
-Joyent has raised in the neighborhood of $100 million in venture capital 
-and has an employee headcount in excess of 120.
-
-<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
-A VentureBeat article in 2013</a> writes 
-"Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
-<a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
-And they’re apparently attempting to hijack the Node brand and community for themselves."
-Strongloop supports Express and LoopBack frameworks.
-<a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
-On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
+around installing, updating, and uninstalling 
+the various editions and versions of Node (aka NodeJs).
 
 
 <a name="Editions"></a>
@@ -55,6 +35,29 @@ permissions issues</a>.
 For these reasons, many instructions on the internet are outdated, contradictory, or plain wrong.
 
 
+Node.js was started as an open-source project in 2009 by
+<strong>Ryan Dahl</strong>.
+Its second contributor was Isaac Schlueter who now leads the project.
+The project had a total of 447 core contributors as of 2016. 
+Dahl was employed by <a target="_blank" href="https://www.joyant.com/">Joyent.com</a>
+during much of Node’s development, 
+and Joyent continues to sponsor Node. 
+Joyent has raised in the neighborhood of $100 million in venture capital 
+and has an employee headcount in excess of 120.
+Joyent as a cloud computing company was purchased in 2015 by Samsung (Korea).
+
+
+<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
+A VentureBeat article in 2013</a> writes 
+"Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
+<a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
+And they’re apparently attempting to hijack the Node brand and community for themselves."
+Strongloop supports Express and LoopBack frameworks.
+<a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
+On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
+
+
+
 <a name="NodeVersionsInstalled"></a>
 
 ## Node Versions Installed
@@ -68,8 +71,8 @@ Return here after installation.
 
 0. List what versions of Node are installed:
 
-   <pre><strong>nvm ls
-   </strong></pre>
+   <tt><strong>nvm ls
+   </strong></tt>
  
    Sample response:
 
@@ -85,21 +88,22 @@ lts/* -> lts/argon (-> N/A)
 lts/argon -> v4.6.0 (-> N/A)   
    </pre>
 
-   But many don't need multiple versions of Node at once.
+   PROTIP: Most don't need multiple versions of Node at once.
 
-   PROTIP: Using NVM conflicts with Homebrew.
+   PROTIP: Using NVM <strong>conflicts with Homebrew</strong>.
    Since many prefer to use Homebrew for everything else,
-   it's annoying to remember this when.
+   it's annoying to remember such exceptions.
 
    <pre><strong>nvm install node --reinstall-packages-from=node
    </strong></pre>
+
 
    ### Examples of Node modules
 
 0. List what modules are installed in the traditional location for Node:
 
-   <pre><strong>ls /usr/local/lib/node_modules
-   </strong></pre>
+   <tt><strong>ls /usr/local/lib/node_modules
+   </strong></tt>
 
    * bower
    * firebase-tools 
@@ -127,25 +131,25 @@ lts/argon -> v4.6.0 (-> N/A)
 
 0. List what versions of NPM are available for install from the internet:
 
-   <pre><strong>nvm ls-remote
-   </strong></pre>
+   <tt><strong>nvm ls-remote
+   </strong></tt>
 
    At time of this writing, there were 376 versions.
 
 0. List what modules are available for install from the internet:
 
-   <pre><strong>nvm 
-   </strong></pre>
+   <tt><strong>nvm 
+   </strong></tt>
 
 0. List files in the traditional location when NPM installs Node packages:
 
-   <pre><strong>ls ~/.npm
-   </strong></pre>
+   <tt><strong>ls ~/.npm
+   </strong></tt>
 
    Also:
     
-   <pre><strong>ls /usr/local/lib/node_modules/npm/node_modules
-   </strong></pre>
+   <tt><strong>ls /usr/local/lib/node_modules/npm/node_modules
+   </strong></tt>
 
    On Windows:<br />
    <pre>
@@ -158,14 +162,18 @@ lts/argon -> v4.6.0 (-> N/A)
    * xml
    * y18n
 
+
+   <a name="Yarn"></a>
+
    ### Yarn
 
-   An alternative to NPM is <strong>yarn</strong>, which uses Node.
+   An alternative to NPM is <strong>yarn</strong>, which uses Node
+   to generate software.
 
    To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
 
-   <pre><strong>brew install yarn --ignore-dependencies
-   </strong></pre>
+   <tt><strong>brew install yarn \-\-ignore-dependencies
+   </strong></tt>
 
    The response:
 
@@ -181,12 +189,13 @@ lts/argon -> v4.6.0 (-> N/A)
 
 0. Test that Yarn is installed by running:
 
-   <pre><strong>yarn --version
-   </strong></pre>
+   <yy><strong>yarn \-\-version
+   </strong></yy>
 
-   At time of writing, the version was:
+   At time of writing in 2017, the version was:
 
    0.27.5   
+
 
 <a name="ChooseAWay"></a>
 
@@ -197,20 +206,22 @@ Click on one of the <strong>mutually exclusive</strong>
 variations of installing Node for
 additional information and instructions:
 
-* A: "N" from <a href="https://github.com/tj/n">github.com/tj/n</a>
+* A: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+   This is what I recommend after hassling with yarn.
+
+* B: "N" from <a href="https://github.com/tj/n">github.com/tj/n</a>
 
    "Node.js version management: no subshells, no profile setup, no convoluted API, just simple."
 
    http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
 
-* B: <a href="#NVMInstall">Install NVM</a>, 
+* C: <a href="#NVMInstall">Install NVM</a>, 
    then <a href="#NVMuse">install Node using NVM</a>. 
 
    Installing Node automatically installs NPM.
 
    * https://docs.npmjs.com/getting-started/fixing-npm-permissions
-
-* C: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
 
 * D: <a href="#LTS">Download LTS (Long Term Support) v4.x 
    from NodeJs website</a> 
