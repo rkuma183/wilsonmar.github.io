@@ -57,6 +57,101 @@ Strongloop supports Express and LoopBack frameworks.
 On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
 
 
+<a name="LTS"></a>
+
+### Long Term Support #
+
+QUESTION: What are the install instructions 
+If you're an enterprise user paying for <a target="_blank" href="https://github.com/nodejs/LTS/">
+Long Term Support</a> introduced Fall, 2015.
+
+Long-term support (LTS) releases are actively developed for 18 months,
+then maintained for a further 12 months. 
+This means a particular LTS release stays in production for 30 months
+with bug and security fixes.
+
+
+<a name="NjSolid"></a>
+
+### N|Solid #
+
+<a target="_blank" href="https://nodesource.com/products/nsolid">
+N|Solid from NodeSource</a>
+   is a "fully compatible Node.js runtime 
+   enhanced to address the needs of enterprise production support."
+
+   Their disto provides a GUI and a way to pull telemetry for V8
+   <strong>process monitoring</strong>.
+
+   <a target="_blank" href="https://downloads.nodesource.com/">
+   https://downloads.nodesource.com</a>
+
+   Again, this is a licensed product. I've heard that they
+   provide support at $1,000 per developer per month ($12,000 per year).
+
+
+<a name="iojs"></a>
+
+### io.js is gone #
+
+In 2013 
+<a target="_blank" href="https://iojs.org/">
+iojs.org</a>, 
+a fork of Node.js was formed by several core committers frustrated by Joyant.
+
+Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
+on September, 2015</a>, io.js merged with the Node.js project again
+under new <a target="_blank" href="https://nodejs.org/en/foundation/">
+nodejs.org/en/foundation</a> governance.
+
+<a target="_blank" href="https://www.binarysludge.com/2015/01/14/how-to-uninstall-io-js-or-io-js-and-node-js-together/">
+Uninstall</a>
+
+
+
+<a name="ChooseAWay"></a>
+
+## Choose among alternatives #
+
+Click on one of the <strong>mutually exclusive</strong>
+variations of installing Node for
+additional information and instructions:
+
+* A: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
+
+   This is what I recommend after <a href="#YarnInstall">hassling with yarn installation</a>.
+
+* B: "N" from <a href="https://github.com/tj/n">github.com/tj/n</a>
+
+   "Node.js version management: no subshells, no profile setup, no convoluted API, just simple."
+
+   http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+
+* C: <a href="#NVMInstall">Install NVM</a>, 
+   then <a href="#NVMuse">install Node using NVM</a>. 
+
+   Installing Node automatically installs NPM.
+
+   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
+   <br /><br />
+
+* D: <a href="#LTS">Download LTS (Long Term Support) v4.x 
+   from NodeJs website</a> 
+   and run the installer manually.
+
+* E: <a href="#Download">Download latest version v6.x 
+   from NodeJs website</a>
+   and run the installer manually.
+
+* F: <a href="#NjSolid">Download latest version of N|Solid</a>.
+   <br /><br />
+
+   CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
+   I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
+
+
+<hr />
+
 
 <a name="NodeVersionsInstalled"></a>
 
@@ -163,7 +258,7 @@ lts/argon -> v4.6.0 (-> N/A)
    * y18n
 
 
-   <a name="Yarn"></a>
+   <a name="YarnInstall"></a>
 
    ### Yarn
 
@@ -189,107 +284,14 @@ lts/argon -> v4.6.0 (-> N/A)
 
 0. Test that Yarn is installed by running:
 
-   <yy><strong>yarn \-\-version
-   </strong></yy>
+   <tt><strong>yarn \-\-version
+   </strong></tt>
 
    At time of writing in 2017, the version was:
 
    0.27.5   
 
 
-<a name="ChooseAWay"></a>
-
-## Choose among alternatives #
-
-
-Click on one of the <strong>mutually exclusive</strong>
-variations of installing Node for
-additional information and instructions:
-
-* A: <a href="#Homebrew">Brew install node WITHOUT npm, then install .npm-packages with no nvm</a>. 
-
-   This is what I recommend after hassling with yarn.
-
-* B: "N" from <a href="https://github.com/tj/n">github.com/tj/n</a>
-
-   "Node.js version management: no subshells, no profile setup, no convoluted API, just simple."
-
-   http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
-
-* C: <a href="#NVMInstall">Install NVM</a>, 
-   then <a href="#NVMuse">install Node using NVM</a>. 
-
-   Installing Node automatically installs NPM.
-
-   * https://docs.npmjs.com/getting-started/fixing-npm-permissions
-
-* D: <a href="#LTS">Download LTS (Long Term Support) v4.x 
-   from NodeJs website</a> 
-   and run the installer manually.
-
-* E: <a href="#Download">Download latest version v6.x 
-   from NodeJs website</a>
-   and run the installer manually.
-
-* F: <a href="#NjSolid">Download latest version of N|Solid</a>.
-   <br /><br />
-
-   CAUTION: Even though pricing for NodeSource is NOT published on the website doesn't mean it's free.
-   I've heard pricing for both Joyant and NodeSource start at around $1,000 per month per developer.
-
-
-
-
-<hr />
-
-<a name="LTS"></a>
-
-## Long Term Support #
-
-QUESTION: What are the install instructions 
-If you're an enterprise user paying for <a target="_blank" href="https://github.com/nodejs/LTS/">
-Long Term Support</a> introduced Fall, 2015.
-
-Long-term support (LTS) releases are actively developed for 18 months,
-then maintained for a further 12 months. 
-This means a particular LTS release stays in production for 30 months
-with bug and security fixes.
-
-
-<a name="NjSolid"></a>
-
-## N|Solid #
-
-<a target="_blank" href="https://nodesource.com/products/nsolid">
-N|Solid from NodeSource</a>
-   is a "fully compatible Node.js runtime 
-   enhanced to address the needs of enterprise production support."
-
-   Their disto provides a GUI and a way to pull telemetry for V8
-   <strong>process monitoring</strong>.
-
-   <a target="_blank" href="https://downloads.nodesource.com/">
-   https://downloads.nodesource.com</a>
-
-   Again, this is a licensed product. I've heard that they
-   provide support at $1,000 per developer per month ($12,000 per year).
-
-
-<a name="iojs"></a>
-
-## io.js is gone #
-
-In 2013 
-<a target="_blank" href="https://iojs.org/">
-iojs.org</a>, 
-a fork of Node.js was formed by several core committers frustrated by Joyant.
-
-Then <a target="_blank" href="http://www.infoworld.com/article/2914588/node-js/new-nodejs-coalition-spotlights-enterprises.html">
-on September, 2015</a>, io.js merged with the Node.js project again
-under new <a target="_blank" href="https://nodejs.org/en/foundation/">
-nodejs.org/en/foundation</a> governance.
-
-https://www.binarysludge.com/2015/01/14/how-to-uninstall-io-js-or-io-js-and-node-js-together/
 
 <a name="NVMuse"></a>
 
@@ -301,8 +303,8 @@ NVM (Node Version Manager) downloads and installs multiple versions of Node.js,
 then enables using a specific version of Node,
 using a command such as this (after installation and cd to your node app folder):
 
-   <pre><strong>nvm run 4.5.0 app.js 
-   </strong></pre>
+   <tt><strong>nvm run 4.5.0 app.js 
+   </strong></tt>
 
    The above is for the LTS (Long Term Support) version.
 
@@ -313,10 +315,11 @@ using a command such as this (after installation and cd to your node app folder)
 
    PROTIP: Remember that there is no "v" to specify a version, unlike the install command:
 
-   <pre><strong>nvm install v4.5.0
-   </strong></pre>
+   <tt><strong>nvm install v4.5.0
+   </strong></tt>
 
    To do the above, you first have to install NVM and Node, described in the steps below.
+
 
 ### NVM Install #
 
@@ -370,9 +373,9 @@ Installation steps:
 
 0. Install NVM using wget: 
 
-   <pre><strong>
+   <tt><strong>
    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
-   </strong></pre>
+   </strong></tt>
 
    PROTIP: The instructions say either curl or wget, but I prefer using wget because it is not installed by default,
    and nvm requires it. So if you don't have wget, better to know it sooner than later.
@@ -443,8 +446,7 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
    What the above does is equivalent to:
 
-   <tt><strong>
-   cd ~<br />
+   <tt><strong>cd ~<br />
    git clone http://github.com/creationix/nvm.git .nvm
    </strong></tt>
 
@@ -523,8 +525,8 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
 0. For a list of commands, type nvm by itself:
 
-   <pre><strong>nvm
-   </strong></pre>
+   <tt><strong>nvm
+   </strong></tt>
 
    PROTIP: Widen the screen to avoid text wrapping.
 
@@ -533,8 +535,8 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
 0. To download, compile, and install the latest v5.0.x release of node:
 
-   <pre><strong>nvm install 
-   </strong></pre>
+   <tt><strong>nvm install 
+   </strong></tt>
 
    The response:
 
@@ -552,8 +554,8 @@ Run `npm config delete prefix` or `nvm use --delete-prefix v5.0.0` to unset it.
 
 0. To list what versions of Node.js are installed:
 
-   <pre><strong>nvm ls
-   </strong></pre>
+   <tt><strong>nvm ls
+   </strong></tt>
 
    The response is like this:
 
@@ -568,14 +570,15 @@ lts/* -> lts/argon (-> N/A)
 lts/argon -> v4.5.0 (-> N/A)
    </pre>
 
+
    <a name="nvmls-remote"></a>
 
    ### Available to install #
 
 0. To list what versions of Node.js are available to install:
 
-   <pre><strong>nvm ls-remote
-   </strong></pre>
+   <tt><strong>nvm ls-remote
+   </strong></tt>
 
    Scroll to "(Latest LTS: Argon)", such as:
 
@@ -592,6 +595,7 @@ lts/argon -> v4.5.0 (-> N/A)
    v6.4.0
    </pre>
 
+
    ### Clear NPM Cache
 
    <pre><strong>sudo npm cache clean -f
@@ -602,8 +606,8 @@ lts/argon -> v4.5.0 (-> N/A)
 
 0. <strong>Install the latest version of Node.js:<strong>
 
-   <pre><strong>nvm install node
-   </strong></pre>
+   <tt><strong>nvm install node
+   </strong></tt>
 
    The response:
 
@@ -646,8 +650,8 @@ tar: Failed to set default locale
 
 0. To uninstall a version:
 
-   <pre><strong>nvm uninstall v6.4.0
-   </strong></pre>
+   <tt><strong>nvm uninstall v6.4.0
+   </strong></tt>
 
    The response:
 
@@ -661,8 +665,8 @@ tar: Failed to set default locale
 0. Install the most recent LTS version of Node according to 
    <a href="#nvmls-remote">nvm ls-remote</a>:
 
-   <pre><strong>nvm install v4.5.0
-   </strong></pre>
+   <tt><strong>nvm install v4.5.0
+   </strong></tt>
 
 
 
@@ -675,8 +679,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Operating system information:
 
-   <pre><strong>uname -a
-   </strong></pre>
+   <tt><strong>uname -a
+   </strong></tt>
 
    On my machine, the response:
 
@@ -687,8 +691,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Obtain node version:
 
-   <pre><strong>node -v
-   </strong></pre>
+   <tt><strong>node -v
+   </strong></tt>
 
    At time of writing, the response for the most recent version:
 
@@ -698,8 +702,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Obtain npm version:
 
-   <pre><strong>npm -v
-   </strong></pre>
+   <tt><strong>npm -v
+   </strong></tt>
 
    At time of writing, the response (for the Node version obtained above):
 
@@ -709,8 +713,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Verify:
 
-   <pre><strong>echo $NODE_PATH
-   </strong></pre>
+   <tt><strong>echo $NODE_PATH
+   </strong></tt>
 
    The response if installed by NVM or by downloaded installer:
 
@@ -729,8 +733,8 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. Where is Node installed?
 
-   <pre><strong>which node
-   </strong></pre>
+   <tt><strong>which node
+   </strong></tt>
 
    The answer:
 
@@ -751,16 +755,15 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
 0. From any folder, for just a simple list of package names:
 
-   <pre><strong>ls \`npm root -g\`
-   </strong></pre>
+   <tt><strong>ls \`npm root -g\`
+   </strong></tt>
 
    PROTIP: npm itself is a Node package.
 
    Alternately, list global npm packages installed as a tree:
 
-   <pre><strong>
-   npm list -g --depth=0
-   </strong></pre>
+   <tt><strong>npm list -g \-\-depth=0
+   </strong></tt>
 
    The response is a list with version numbers:
 
@@ -821,8 +824,8 @@ Instead of using an internet browser to download an installer from<br />
 
 0. Initialize the Node command-line:
 
-   <pre><strong>node
-   </strong></pre>
+   <tt><strong>node
+   </strong></tt>
 
    The response:
 
@@ -833,8 +836,8 @@ Node is running
 
 0. From inside REPL, get a list of commands (with a leading dot):
 
-   <pre><strong>.help
-   </strong></pre>
+   <tt><strong>.help
+   </strong></tt>
 
    PROTIP: Node interactive commands begin with a dot.
 
@@ -851,8 +854,8 @@ Node is running
 
 0. To get out:
 
-   <pre><strong>.exit
-   </strong></pre>
+   <tt><strong>.exit
+   </strong></tt>
 
 <hr />
 
@@ -869,8 +872,8 @@ Node is running
 
 0. Be aware of your present current directory:
 
-   <pre><strong>pwd
-   </strong></pre>
+   <tt><strong>pwd
+   </strong></tt>
 
    CAUTION: Without specifying the `-g` in the next command, 
    installation is whatever is the current folder.
@@ -878,8 +881,8 @@ Node is running
 0. The simplest way to install node is <strong>globally</strong>
    to use Homebrew:
 
-   <pre><strong>brew install node -g
-   </strong></pre>
+   <tt><strong>brew install node -g
+   </strong></tt>
 
    The response:
 
@@ -912,8 +915,8 @@ Bash completion has been installed to:
 
 0. Identify which folder npm is obtained:
 
-   <pre><strong>which npm
-   </strong></pre>
+   <tt><strong>which npm
+   </strong></tt>
 
    The response for default installations:
 
@@ -929,8 +932,8 @@ Bash completion has been installed to:
 
 0. List npm global modules installed on the default global module folder:
 
-   <pre><strong>ls /usr/local/lib/node_modules
-   </strong></pre>
+   <tt><strong>ls /usr/local/lib/node_modules
+   </strong></tt>
 
    The response contains npm plus
    firebase-tools, http-server, gatsby, iothub-explorer, serverless
@@ -968,8 +971,8 @@ Bash completion has been installed to:
 
 0. Create the ~/.npm-packages folder:
 
-   <pre><strong>mkdir "${HOME}/.npm-packages"
-   </strong></pre>
+   <tt><strong>mkdir "${HOME}/.npm-packages"
+   </strong></tt>
 
 0. To avoid permission issues:
 
@@ -985,15 +988,15 @@ Bash completion has been installed to:
 0. Indicate to npm where to store globally installed packages
    by adding a line at the bottom of the ~/.npmrc file:
 
-   <pre><strong>echo prefix=~/.npm-packages >> ~/.npmrc
-   </strong></pre>
+   <tt><strong>echo prefix=~/.npm-packages >> ~/.npmrc
+   </strong></tt>
 
    WARNING: NVM does not support this.
 
 0. Install node without default npm:
 
-    <pre><strong>brew install node --without-npm -g
-    </strong></pre>
+    <tt><strong>brew install node \-\-without-npm -g
+    </strong></tt>
 
    Alternately, install npm for global use:
 
@@ -1008,8 +1011,8 @@ Bash completion has been installed to:
 
 0. After install, verify the location:
 
-   <pre><strong>which node
-   </strong></pre>
+   <tt><strong>which node
+   </strong></tt>
 
    The response:
 
@@ -1035,8 +1038,8 @@ Bash completion has been installed to:
 
 0. After install, verify the location:
 
-   <pre><strong>which npm
-   </strong></pre>
+   <tt><strong>which npm
+   </strong></tt>
 
    The response, where "mac" is substituted with your user name:
 
@@ -1052,15 +1055,14 @@ Bash completion has been installed to:
 0. Add a NPM_PACKAGES environment variable containing the path to npm-installed packages
    into the system PATH variable:
 
-   <pre><strong>
-   NPM_PACKAGES="${HOME}/.npm-packages"
+   <tt><strong>NPM_PACKAGES="${HOME}/.npm-packages"<br />
    PATH="$NPM_PACKAGES/bin:$PATH"
-   </strong></pre>
+   </strong></tt>
 
 0. To identify where node executables are installed:
 
-   <pre><strong>which node
-   </strong></pre>
+   <tt><strong>which node
+   </strong></tt>
 
    the response:
 
@@ -1076,8 +1078,8 @@ Bash completion has been installed to:
 
 0. Make sure that this path containing the node executable is in the PATH:
 
-   <pre><strong>echo $PATH
-   </strong></pre>
+   <tt><strong>echo $PATH
+   </strong></tt>
 
    If not add it to the system PATH:
 
@@ -1088,8 +1090,8 @@ Bash completion has been installed to:
 0. Save changes to the .bash_profile file.
 0. Run the file into memory:
 
-   <pre><strong>source ~/.bash_profile
-   </strong></pre>
+   <tt><strong>source ~/.bash_profile
+   </strong></tt>
 
 The above is recommended by
 <a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
@@ -1139,9 +1141,9 @@ However, I never got it to work for me.
 0.    
    The command to install a package without additional parameters is, for example:
 
-   <pre><strong>pwd
+   <tt><strong>pwd<br />
    npm install serverless
-   </strong></pre>
+   </strong></tt>
 
    This installs the node packages <strong>locally</strong> within
    whatever folder is the present working directory, revealed by the `pwd` command.
@@ -1152,9 +1154,8 @@ However, I never got it to work for me.
    This location is one MacOS requires sudo (super user do) permission elevation.
    For example:
 
-   <pre><strong>
-   sudo npm install serverless -g
-   </strong></pre>
+   <tt><strong>sudo npm install serverless -g
+   </strong></tt>
 
    Without sudo, an error would occur from the above command such as:
 
@@ -1168,16 +1169,17 @@ However, I never got it to work for me.
    To avoid these permission issues,
    some recommend higher permissions to folders, as in:
 
-   <pre><strong>
-   sudo chown -R $USER:$GROUP ~/.npm
+   <tt><strong>
+   sudo chown -R $USER:$GROUP ~/.npm<br />
    sudo chown -R $USER:$GROUP ~/.config
-   </strong></pre>
+   </strong></tt>
 
    This may not be enough to address installation issues when using Homebrew
    such as when upgrading with command:
 
-   <pre><strong>npm update npm -g
-   </strong></pre>
+   <tt><strong>npm update npm -g
+   </strong></tt>
+
 
    <a name="AltFolder"></a>
 
@@ -1186,19 +1188,19 @@ However, I never got it to work for me.
    We can install the folder under a user's HOME folder,
    which is defined by the ${HOME} environment variable:
 
-   <pre><strong>echo "${HOME}"
-   </strong></pre>
+   <tt><strong>echo "${HOME}"
+   </strong></tt>
 
    The alternative npm folder name established by convention is:
 
-   <pre><strong>ls ~/.npm-packages
-   </strong></pre>
+   <tt><strong>ls ~/.npm-packages
+   </strong></tt>
 
    To achieve this, we first need to uninstall the default install:
 
-   <pre><strong>rm -rf /usr/local/lib/node_modules
+   <tt><strong>rm -rf /usr/local/lib/node_modules<br />
    brew uninstall node
-   </strong></pre>
+   </strong></tt>
 
    All of Node needs to be uninstalled because it installed npm which uses the system folder.
 
@@ -1244,8 +1246,8 @@ Others who have blogged about this include:
 
 0. Install the express package and its dependencies:
 
-   <pre><strong>npm install express -g
-   </strong></pre>
+   <tt><strong>npm install express -g
+   </strong></tt>
 
 0. Use a text editor to create file `index.js` containing "Hello World" code in JavaScript:
 
@@ -1267,8 +1269,8 @@ Others who have blogged about this include:
 
 0. Start the Node server running the default <strong>index.js</strong> program:
 
-   <pre><strong>node index.js
-   </strong></pre>
+   <tt><strong>node index.js
+   </strong></tt>
 
    The window remains open and accept no other commands
    until you press <strong>control+C</strong> to escape the process.
@@ -1290,10 +1292,10 @@ Others who have blogged about this include:
 
 0. Install NodeMon:
 
-   <pre><strong>
-   npm install nodemon -g  # -g installs globally as system command.
+   <tt><strong>
+   npm install nodemon -g  # -g installs globally as system command.<br />
    nodemon index.js   # watch for changes and kill server when needed
-   </strong></pre>
+   </strong></tt>
 
 0. Restart your node server specified in a coffee-script:
 
@@ -1314,9 +1316,8 @@ Similarly to NPM, bower tracks dependencies in a file called <strong>bower.json<
 
 0. Install bower globally via npm:
 
-   <pre><strong>
-   npm install -g bower
-   </strong></pre>
+   <tt><strong>npm install -g bower
+   </strong></tt>
 
    Running bower install will resolve, download, and install them.
 
@@ -1327,31 +1328,26 @@ Similarly to NPM, bower tracks dependencies in a file called <strong>bower.json<
 
 0. Install the project's bower components using bower:
 
-   <pre><strong>
-   bower install
-   </strong></pre>
+   <tt><strong>bower install
+   </strong></tt>
 
 0. Install http-server using npm:
 
-   <pre><strong>
-npm install -g http-server
-   </strong></pre>
+   <tt><strong>npm install -g http-server
+   </strong></tt>
 
 0. Fire up the server at default port 8080:
 
-   <pre><strong>
-   http-server client/
-   </strong></pre>
+   <tt><strong>http-server client/
+   </strong></tt>
 
 
 
-   <pre><strong>
-   npm ls
-   </strong></pre>
+   <tt><strong>npm ls
+   </strong></tt>
 
-   <pre><strong>
-   http-server client/
-   </strong></pre>
+   <tt><strong>http-server client/
+   </strong></tt>
 
 
 <hr />
@@ -1376,8 +1372,7 @@ Famous Node modules:
 
 ### Grunt #
 
-   <tt><strong>
-   npm install -g grunt-cli
+   <tt><strong>npm install -g grunt-cli
    </strong></tt>
 
    The response:
@@ -1489,7 +1484,6 @@ app.listen(3000);
 
 
 ## Resources #
-
 
 Several blogs addresses issues related to this topic:
 
