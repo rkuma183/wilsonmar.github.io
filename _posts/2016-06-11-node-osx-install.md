@@ -282,6 +282,20 @@ lts/argon -> v4.6.0 (-> N/A)
 
    PROTIP: Using Brew means that you don't need to setup path yourself.
 
+   BTW, A search of all files that mention "yarn" yielded this list:
+
+   <pre>
+./Users/mac/.config/yarn
+./Users/mac/Library/Logs/Homebrew/yarn
+./usr/local/bin/yarn
+./usr/local/Cellar/yarn
+./usr/local/Cellar/yarn/0.27.5/bin/yarn
+./usr/local/Cellar/yarn/0.27.5/libexec/bin/yarn
+./usr/local/opt/yarn
+./usr/local/var/homebrew/linked/yarn
+   </pre>
+
+
 0. Verify that Yarn is installed by running:
 
    <tt><strong>yarn \-\-version
@@ -290,6 +304,15 @@ lts/argon -> v4.6.0 (-> N/A)
    At time of writing in 2017, the version was:
 
    <pre>0.27.5</pre>
+
+0. There is a more precise version:
+
+   <tt><strong>ls /usr/local/Cellar/yarn
+   </strong></tt>
+
+   At time of writing in 2017, the output was:
+
+   <pre>0.27.5_1</pre>
 
 0. Verify the yarn command works:
 
