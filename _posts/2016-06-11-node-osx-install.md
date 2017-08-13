@@ -47,28 +47,19 @@ and has an employee headcount in excess of 120.
 Joyent as a cloud computing company was purchased in 2015 by Samsung (Korea).
 
 
-<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
-A VentureBeat article in 2013</a> writes 
-"Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
-<a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
-And they’re apparently attempting to hijack the Node brand and community for themselves."
-Strongloop supports Express and LoopBack frameworks.
-<a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
-On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
-
-
 <a name="LTS"></a>
 
 ### Long Term Support #
 
-QUESTION: What are the install instructions 
-If you're an enterprise user paying for <a target="_blank" href="https://github.com/nodejs/LTS/">
-Long Term Support</a> introduced Fall, 2015.
-
-Long-term support (LTS) releases are actively developed for 18 months,
+<a target="_blank" href="https://github.com/nodejs/LTS/">
+Long Term Support</a> releases, introduced Fall, 2015, 
+are actively developed for 18 months,
 then maintained for a further 12 months. 
 This means a particular LTS release stays in production for 30 months
 with bug and security fixes.
+
+QUESTION: What are the install instructions 
+If you're an enterprise user paying for LTS?
 
 
 <a name="NjSolid"></a>
@@ -88,6 +79,17 @@ N|Solid from NodeSource</a>
 
    Again, this is a licensed product. I've heard that they
    provide support at $1,000 per developer per month ($12,000 per year).
+
+### StrongLoop to IBM
+
+<a target="_blank" href="http://venturebeat.com/2013/09/18/can-this-startup-steal-node-from-joyent-vcs-bet-8m-on-it/">
+A VentureBeat article in 2013</a> writes 
+"Two programmers named Ben Noordhuis and Bert Belder have founded a new company called 
+<a target="_blank" href="https://www.strongloop.com/">StrongLoop</a>. 
+And they’re apparently attempting to hijack the Node brand and community for themselves."
+Strongloop supports Express and LoopBack frameworks.
+<a target="_blank" href="https://strongloop.com/strongblog/node-js-community-ibm-acquisition/">
+On 10 Sep 2015</a>, StrongLoop was acquired as IBM API Connect, which focuses on the API lifecycle.
 
 
 <a name="iojs"></a>
@@ -191,13 +193,179 @@ additional information and instructions:
 <hr />
 
 
+<a name="VerifyNode"></a>
+
+## Verify Install
+
+These instructions are used when both verifying a new setup and 
+when obtaining facts when troubleshooting an established setup.
+
+Return here after installation.
+
+PROTIP: Before you speak to someone about this, provide them your operating system facts, 
+   obtained using instructions here:
+
+0. Operating system information:
+
+   <tt><strong>uname -a
+   </strong></tt>
+
+   On my machine, the response:
+
+   <pre>
+   Darwin macs-MacBook-Pro-4.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64
+   </pre>
+
+
+0. Obtain node version:
+
+   <tt><strong>node -v
+   </strong></tt>
+
+   At time of writing, the response for the most recent version:
+
+   <pre>
+   v8.3.0
+   </pre>
+
+0. Obtain npm version:
+
+   <tt><strong>npm -v
+   </strong></tt>
+
+   At time of writing, the response (for the Node version obtained above):
+
+   <pre>
+   5.3.0
+   </pre>
+
+0. Verify:
+
+   <tt><strong>echo $NODE_PATH
+   </strong></tt>
+
+   The response if installed by NVM or by downloaded installer:
+
+   <pre>
+   /usr/local/bin
+   </pre>
+
+   The response if installed using brew:
+
+   <pre>
+   /Users/mac/.npm-packages/lib/node_modules:/usr/local/bin
+   </pre>
+
+   Regardless of how you installed node,
+   before discussing your installation, obtain and present the facts above.
+
+0. From any folder, for just a simple list of package names:
+
+   <tt><strong>ls \`npm root -g\`
+   </strong></tt>
+
+   PROTIP: npm itself is a Node package.
+
+   Alternately, list global npm packages installed as a tree:
+
+   <tt><strong>npm list -g \-\-depth=0
+   </strong></tt>
+
+   The response is a list with version numbers:
+
+   <pre>
+/Users/mac/.npm-packages/lib
+├── aws@0.0.3-2
+├── aws-cli@0.0.1
+├── bower@1.7.9
+├── express@4.13.4
+├── grunt@1.0.1
+├── grunt-cli@1.2.0
+├── gulp@3.9.1
+├── learnyounode@3.5.3
+├── mocha@2.5.3
+├── moment@2.14.1
+├── node-lambda@0.8.5
+├── n@2.1.0
+├── npm@3.9.5
+└── serverless@0.5.6
+   </pre>
+
+   Note the first line in the response shows the folder.
+
+
+0. List what modules are installed in the traditional location for Node:
+
+   <tt><strong>ls /usr/local/lib/node_modules
+   </strong></tt>
+
+   * bower
+   * firebase-tools 
+   * generator-karma
+   * grunt
+   * grunt-cli
+   * http-server 
+   * gatsby
+   * iothub-explorer
+   * mocha
+   * yo
+   * traceur
+   * serverless
+   * npm
+   <br /><br />
+
+   QUESTION: When Node is installed using Homebrew,
+   same location?
+
+   ### Does node REPL work? #
+
+0. Initialize the Node command-line:
+
+   <tt><strong>node
+   </strong></tt>
+
+   The response is simply a `>` character.
+
+0. Type this command:
+
+   <tt><strong>console.log('Node is running');
+   </strong></tt>
+
+   The response should reflect what is in the command.
+
+0. From inside REPL, get a list of commands (with a leading dot):
+
+   <tt><strong>.help
+   </strong></tt>
+
+   PROTIP: Node interactive commands begin with a dot.
+
+   The response:
+
+   <pre>
+.break Sometimes you get stuck, this gets you out
+.clear Alias for .break
+.exit  Exit the repl
+.help  Show repl options
+.load  Load JS from a file into the REPL session
+.save  Save all evaluated commands in this REPL session to a file
+   </pre>
+
+0. To get out gracefully:
+
+   <tt><strong>.exit
+   </strong></tt>
+
+   Alternately, you can (crudely) press control+C to abort the process.
+
+
+<hr />
+
+
+
 <a name="NodeVersionsInstalled"></a>
 
 ## Node Versions Installed
-
-Some need these instructions when debugging an established setup.
-
-Return here after installation.
 
    Traditionally,
    NVM (Node Version Manager) installs multiple versions of Node.
@@ -454,8 +622,7 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 0. Edit the file that Mac uses to initiate Terminal,
    using atom or other editor (vi, nano, etc.)
 
-   <tt><strong>
-   atom ~/.bash_profile
+   <tt><strong>subl ~/.bash_profile
    </strong></tt>
 
    Add to the bottom of the file:
@@ -475,8 +642,7 @@ bash: line 73: cd: ~/.nvm: No such file or directory
 
 0. To verify that nvm has been installed:
 
-   <tt><strong>
-   command -v nvm
+   <tt><strong>command -v nvm
    </strong></tt>
 
    NOTE: nvm is a shell script, not an executable, so the usualy `where` command does not work.
@@ -646,174 +812,9 @@ tar: Failed to set default locale
    <tt><strong>nvm install v4.5.0
    </strong></tt>
 
-
-
-<a name="VerifyNode"></a>
-
-## Verify Install
-
-This obtains facts for troubleshooting.
-
-PROTIP: Before you speak to someone about this, provide them your operating system facts, 
-   obtained using instructions here:
-
-0. Operating system information:
-
-   <tt><strong>uname -a
-   </strong></tt>
-
-   On my machine, the response:
-
-   <pre>
-   Darwin macs-MacBook-Pro-4.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64
-   </pre>
-
-
-0. Obtain node version:
-
-   <tt><strong>node -v
-   </strong></tt>
-
-   At time of writing, the response for the most recent version:
-
-   <pre>
-   v8.3.0
-   </pre>
-
-0. Obtain npm version:
-
-   <tt><strong>npm -v
-   </strong></tt>
-
-   At time of writing, the response (for the Node version obtained above):
-
-   <pre>
-   5.3.0
-   </pre>
-
-0. Verify:
-
-   <tt><strong>echo $NODE_PATH
-   </strong></tt>
-
-   The response if installed by NVM or by downloaded installer:
-
-   <pre>
-   /usr/local/bin
-   </pre>
-
-   The response if installed using brew:
-
-   <pre>
-   /Users/mac/.npm-packages/lib/node_modules:/usr/local/bin
-   </pre>
-
-   Regardless of how you installed node,
-   before discussing your installation, obtain and present the facts above.
-
-0. From any folder, for just a simple list of package names:
-
-   <tt><strong>ls \`npm root -g\`
-   </strong></tt>
-
-   PROTIP: npm itself is a Node package.
-
-   Alternately, list global npm packages installed as a tree:
-
-   <tt><strong>npm list -g \-\-depth=0
-   </strong></tt>
-
-   The response is a list with version numbers:
-
-   <pre>
-/Users/mac/.npm-packages/lib
-├── aws@0.0.3-2
-├── aws-cli@0.0.1
-├── bower@1.7.9
-├── express@4.13.4
-├── grunt@1.0.1
-├── grunt-cli@1.2.0
-├── gulp@3.9.1
-├── learnyounode@3.5.3
-├── mocha@2.5.3
-├── moment@2.14.1
-├── node-lambda@0.8.5
-├── n@2.1.0
-├── npm@3.9.5
-└── serverless@0.5.6
-   </pre>
-
-   Note the first line in the response shows the folder.
-
-
-0. List what modules are installed in the traditional location for Node:
-
-   <tt><strong>ls /usr/local/lib/node_modules
-   </strong></tt>
-
-   * bower
-   * firebase-tools 
-   * generator-karma
-   * grunt
-   * grunt-cli
-   * http-server 
-   * gatsby
-   * iothub-explorer
-   * mocha
-   * yo
-   * traceur
-   * serverless
-   * npm
-   <br /><br />
-
-   QUESTION: When Node is installed using Homebrew,
-   same location?
-
-   ### Does node REPL work? #
-
-0. Initialize the Node command-line:
-
-   <tt><strong>node
-   </strong></tt>
-
-   The response is simply a `>` character.
-
-0. Type this command:
-
-   <tt><strong>console.log('Node is running');
-   </strong></tt>
-
-   The response should reflect what is in the command.
-
-0. From inside REPL, get a list of commands (with a leading dot):
-
-   <tt><strong>.help
-   </strong></tt>
-
-   PROTIP: Node interactive commands begin with a dot.
-
-   The response:
-
-   <pre>
-.break Sometimes you get stuck, this gets you out
-.clear Alias for .break
-.exit  Exit the repl
-.help  Show repl options
-.load  Load JS from a file into the REPL session
-.save  Save all evaluated commands in this REPL session to a file
-   </pre>
-
-0. To get out gracefully:
-
-   <tt><strong>.exit
-   </strong></tt>
-
-   Alternately, you can press control+C.
+0. <a href="#VerifyInstall">Verify install</a>.
 
 <hr />
-
-
-
 
 
 
@@ -1399,7 +1400,12 @@ Famous Node modules are listed below.
    An alternative to NPM is <strong>yarn</strong>, which uses Node
    to generate software.
 
+   Yarn is used by https://github.com/dancancro/great-big-example-application
+
+
    To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
+
+0. Install using Homebrew:
 
    <tt><strong>brew install yarn \-\-ignore-dependencies -g
    </strong></tt>
