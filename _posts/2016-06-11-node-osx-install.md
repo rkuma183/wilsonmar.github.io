@@ -271,81 +271,6 @@ lts/argon -> v4.6.0 (-> N/A)
    * y18n
 
 
-   <a name="YarnInstall"></a>
-
-   ### Yarn
-
-   An alternative to NPM is <strong>yarn</strong>, which uses Node
-   to generate software.
-
-   To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
-
-   <tt><strong>brew install yarn \-\-ignore-dependencies -g
-   </strong></tt>
-
-   The response:
-
-   <pre>
-==> Using the sandbox
-==> Downloading https://yarnpkg.com/downloads/0.27.5/yarn-v0.27.5.tar.gz
-==> Downloading from https://github-production-release-asset-2e65be.s3.amazonaws
-######################################################################## 100.0%
-🍺  /usr/local/Cellar/yarn/0.27.5: 13 files, 3.6MB, built in 10 seconds
-   </pre>
-
-   PROTIP: Using Brew means that you don't need to setup path yourself.
-
-   BTW, A search of all files that mention "yarn" yielded this list:
-
-   <pre>
-./Users/mac/.config/yarn
-./Users/mac/Library/Logs/Homebrew/yarn
-./usr/local/bin/yarn
-./usr/local/Cellar/yarn
-./usr/local/Cellar/yarn/0.27.5/bin/yarn
-./usr/local/Cellar/yarn/0.27.5/libexec/bin/yarn
-./usr/local/opt/yarn
-./usr/local/var/homebrew/linked/yarn
-   </pre>
-
-
-0. Verify that Yarn is installed by running:
-
-   <tt><strong>yarn \-\-version
-   </strong></tt>
-
-   At time of writing in 2017, the version was:
-
-   <pre>0.27.5</pre>
-
-0. There is a more precise version:
-
-   <tt><strong>ls /usr/local/Cellar/yarn
-   </strong></tt>
-
-   At time of writing in 2017, the output was:
-
-   <pre>0.27.5_1</pre>
-
-0. Verify the yarn command works:
-
-   <tt><strong>yarn
-   </strong></tt>
-
-   At time of writing in 2017, the response was:
-
-   <pre>yarn install v0.27.5
-info No lockfile found.
-[1/4] Resolving packages...
-[2/4] Fetching packages...
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-success Saved lockfile.
-Done in 0.13s.
-   </pre>
-
-
-
 <a name="NVMuse"></a>
 
 ## NVM #
@@ -1282,9 +1207,9 @@ You can try again using `brew postinstall node`
    </strong></tt>
 
 
-   <a name="AltFolder"></a>
+<a name="AltFolder"></a>
 
-   #### Alternate folder #
+#### Alternate folder #
 
    We can install the folder under a user's HOME folder,
    which is defined by the ${HOME} environment variable:
@@ -1464,7 +1389,82 @@ A list of shorthands for the NPM command<br />
 https://docs.npmjs.com/misc/config</a>
 
 
-Famous Node modules:
+Famous Node modules are listed below.
+
+
+<a name="YarnInstall"></a>
+
+### Yarn Install
+
+   An alternative to NPM is <strong>yarn</strong>, which uses Node
+   to generate software.
+
+   To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
+
+   <tt><strong>brew install yarn \-\-ignore-dependencies -g
+   </strong></tt>
+
+   The response:
+
+   <pre>
+==> Using the sandbox
+==> Downloading https://yarnpkg.com/downloads/0.27.5/yarn-v0.27.5.tar.gz
+==> Downloading from https://github-production-release-asset-2e65be.s3.amazonaws
+######################################################################## 100.0%
+🍺  /usr/local/Cellar/yarn/0.27.5: 13 files, 3.6MB, built in 10 seconds
+   </pre>
+
+   PROTIP: Using Brew means that you don't need to setup path yourself.
+
+   BTW, A search of all files that mention "yarn" yielded this list:
+
+   <pre>
+./Users/mac/.config/yarn
+./Users/mac/Library/Logs/Homebrew/yarn
+./usr/local/bin/yarn
+./usr/local/Cellar/yarn
+./usr/local/Cellar/yarn/0.27.5/bin/yarn
+./usr/local/Cellar/yarn/0.27.5/libexec/bin/yarn
+./usr/local/opt/yarn
+./usr/local/var/homebrew/linked/yarn
+   </pre>
+
+
+0. Verify that Yarn is installed by running:
+
+   <tt><strong>yarn \-\-version
+   </strong></tt>
+
+   At time of writing in 2017, the version was:
+
+   <pre>0.27.5</pre>
+
+0. There is a more precise version:
+
+   <tt><strong>ls /usr/local/Cellar/yarn
+   </strong></tt>
+
+   At time of writing in 2017, the output was:
+
+   <pre>0.27.5_1</pre>
+
+0. Verify the yarn command works:
+
+   <tt><strong>yarn
+   </strong></tt>
+
+   At time of writing in 2017, the response was:
+
+   <pre>yarn install v0.27.5
+info No lockfile found.
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 0.13s.
+   </pre>
+
 
 
 <a id="Grunt"></a>
