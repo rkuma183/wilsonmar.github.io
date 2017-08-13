@@ -109,6 +109,44 @@ Uninstall</a>
 
 
 
+<a name="Versions"></a>
+
+### Which version of what? #
+
+   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
+
+Instead of using an internet browser to download an installer from<br />
+   <a target="_blank" href="https://nodejs.org/en/download/releases/">
+   https://nodejs.org/en/download/releases/</a><br />
+   consider these:
+
+   * <strong>nvm</strong> (node version manager) is a shell function that downloads and upgrades
+   versions of node.js.
+   It's not needed unless you want to keep and upgrade multiple versions of Node.js.
+   But you will eventually will need to.
+
+   * <strong>npm</strong> (node package manager) installs JavasSript packages such as Express.js.
+
+   Ideally, we would have both nvm and npm on the same machine, each configured the way we want for maximum productivity.
+
+   However, there is a conflict between the ideal way of installing npm with how nvm works.
+
+   The ideal way to install most applications is to 
+   NOT need to use the <strong>sudo</strong> prefix command to temporarily elevate permissions.
+   
+   On a Mac, by default, npm is installed in the <strong>.npm</strong> folder.
+
+   To make it work, we install it in the <strong>.npm-packages</strong> folder
+   by placing a configuration setting.
+
+   However, nvm does not recognize that configuration setting
+   and thus only works with plugins installed in the default .npm folder.
+
+   Yes, why can't people from nvm and npm get together and work things out?
+
+   Thus, a choice needs to be made.
+
+
 <a name="ChooseAWay"></a>
 
 ## Choose among alternatives #
@@ -192,31 +230,6 @@ lts/argon -> v4.6.0 (-> N/A)
    <pre><strong>nvm install node --reinstall-packages-from=node
    </strong></pre>
 
-
-   ### Examples of Node modules
-
-0. List what modules are installed in the traditional location for Node:
-
-   <tt><strong>ls /usr/local/lib/node_modules
-   </strong></tt>
-
-   * bower
-   * firebase-tools 
-   * generator-karma
-   * grunt
-   * grunt-cli
-   * http-server 
-   * gatsby
-   * iothub-explorer
-   * mocha
-   * yo
-   * traceur
-   * serverless
-   * npm
-   <br /><br />
-
-   QUESTION: When Node is installed using Homebrew,
-   same location?
 
 
    ### NPM Packages
@@ -523,7 +536,7 @@ bash: line 73: cd: ~/.nvm: No such file or directory
    Add to the bottom of the file:
 
    <tt><strong>
-   ## Export the NVM path and run its shell:<br />
+   \#\# Export the NVM path and run its shell:<br />
    export NVM_DIR="$HOME/.nvm"<br />
    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
    </strong></tt>
@@ -789,11 +802,17 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
 
    <pre>
 /Users/mac/.npm-packages/lib
+├── aws@0.0.3-2
+├── aws-cli@0.0.1
 ├── bower@1.7.9
 ├── express@4.13.4
 ├── grunt@1.0.1
 ├── grunt-cli@1.2.0
+├── gulp@3.9.1
 ├── learnyounode@3.5.3
+├── mocha@2.5.3
+├── moment@2.14.1
+├── node-lambda@0.8.5
 ├── n@2.1.0
 ├── npm@3.9.5
 └── serverless@0.5.6
@@ -802,57 +821,44 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    Note the first line in the response shows the folder.
 
 
-   <a name="Versions"></a>
+0. List what modules are installed in the traditional location for Node:
 
-   ### Which version of what? #
+   <tt><strong>ls /usr/local/lib/node_modules
+   </strong></tt>
 
-   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
+   * bower
+   * firebase-tools 
+   * generator-karma
+   * grunt
+   * grunt-cli
+   * http-server 
+   * gatsby
+   * iothub-explorer
+   * mocha
+   * yo
+   * traceur
+   * serverless
+   * npm
+   <br /><br />
 
-Instead of using an internet browser to download an installer from<br />
-   <a target="_blank" href="https://nodejs.org/en/download/releases/">
-   https://nodejs.org/en/download/releases/</a><br />
-   consider these:
+   QUESTION: When Node is installed using Homebrew,
+   same location?
 
-   * <strong>nvm</strong> (node version manager) is a shell function that downloads and upgrades
-   versions of node.js.
-   It's not needed unless you want to keep and upgrade multiple versions of Node.js.
-   But you will eventually will need to.
-
-   * <strong>npm</strong> (node package manager) installs JavasSript packages such as Express.js.
-
-   Ideally, we would have both nvm and npm on the same machine, each configured the way we want for maximum productivity.
-
-   However, there is a conflict between the ideal way of installing npm with how nvm works.
-
-   The ideal way to install most applications is to 
-   NOT need to use the <strong>sudo</strong> prefix command to temporarily elevate permissions.
-   
-   On a Mac, by default, npm is installed in the <strong>.npm</strong> folder.
-
-   To make it work, we install it in the <strong>.npm-packages</strong> folder
-   by placing a configuration setting.
-
-   However, nvm does not recognize that configuration setting
-   and thus only works with plugins installed in the default .npm folder.
-
-   Yes, why can't people from nvm and npm get together and work things out?
-
-   Thus, a choice needs to be made.
-
-
-### Does node REPL work? #
+   ### Does node REPL work? #
 
 0. Initialize the Node command-line:
 
    <tt><strong>node
    </strong></tt>
 
-   The response:
+   The response is simply a `>` character.
 
-   <pre>
-> console.log('Node is running');
-Node is running
-   </pre>
+0. Type this command:
+
+   <tt><strong>console.log('Node is running');
+   </strong></tt>
+
+   The response should reflect what is in the command.
 
 0. From inside REPL, get a list of commands (with a leading dot):
 
@@ -872,12 +878,17 @@ Node is running
 .save  Save all evaluated commands in this REPL session to a file
    </pre>
 
-0. To get out:
+0. To get out gracefully:
 
    <tt><strong>.exit
    </strong></tt>
 
+   Alternately, you can press control+C.
+
 <hr />
+
+
+
 
 
 
@@ -1431,8 +1442,6 @@ Similarly to NPM, bower tracks dependencies in a file called <strong>bower.json<
    <tt><strong>http-server client/
    </strong></tt>
 
-
-
    <tt><strong>npm ls
    </strong></tt>
 
@@ -1554,19 +1563,6 @@ but you can also just use semantic versioning as intended and specify "mylib": "
 If installed using homebrew so it's done on every shell session:
 Add to ~/.profile
 
-
-## Node JavaScript Coding Sample #
-
-{% highlight javascript %}
-var express = require('express');
-var app = express();
-app.get('/', function(res,req){
-   res.json({
-   message: 'hello world'
-   });
-});
-app.listen(3000);
-{% endhighlight %}
 
 ## Additional topics #
 
