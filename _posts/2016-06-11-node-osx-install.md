@@ -267,7 +267,7 @@ lts/argon -> v4.6.0 (-> N/A)
 
    To <a target="_blank" href="https://yarnpkg.com/lang/en/docs/install/">install it</a> on a machine with NPM already installed:
 
-   <tt><strong>brew install yarn \-\-ignore-dependencies
+   <tt><strong>brew install yarn \-\-ignore-dependencies -g
    </strong></tt>
 
    The response:
@@ -282,20 +282,35 @@ lts/argon -> v4.6.0 (-> N/A)
 
    PROTIP: Using Brew means that you don't need to setup path yourself.
 
-0. Test that Yarn is installed by running:
+0. Verify that Yarn is installed by running:
 
    <tt><strong>yarn \-\-version
    </strong></tt>
 
    At time of writing in 2017, the version was:
 
-   0.27.5   
+   <pre>0.27.5</pre>
+
+0. Verify the yarn command works:
+
+   <tt><strong>yarn
+   </strong></tt>
+
+   At time of writing in 2017, the response was:
+
+   <pre>yarn install v0.27.5
+info No lockfile found.
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 0.13s.
+   </pre>
 
 
 
 <a name="NVMuse"></a>
-
-<a name="NVMInstall"></a>
 
 ## NVM #
 
@@ -320,6 +335,8 @@ using a command such as this (after installation and cd to your node app folder)
 
    To do the above, you first have to install NVM and Node, described in the steps below.
 
+
+<a name="NVMInstall"></a>
 
 ### NVM Install #
 
@@ -672,7 +689,9 @@ tar: Failed to set default locale
 
 <a name="VerifyNode"></a>
 
-## Facts for Troubleshooting #
+## Verify Install
+
+This obtains facts for troubleshooting.
 
 PROTIP: Before you speak to someone about this, provide them your operating system facts, 
    obtained using instructions here:
@@ -685,7 +704,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    On my machine, the response:
 
    <pre>
-   Darwin macs-MacBook-Pro-4.local 15.5.0 Darwin Kernel Version 15.5.0: Tue Apr 19 18:36:36 PDT 2016; root:xnu-3248.50.21~8/RELEASE_X86_64 x86_64
+   Darwin macs-MacBook-Pro-4.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64
    </pre>
 
 
@@ -697,7 +716,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    At time of writing, the response for the most recent version:
 
    <pre>
-   v6.4.0
+   v8.3.0
    </pre>
 
 0. Obtain npm version:
@@ -708,7 +727,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    At time of writing, the response (for the Node version obtained above):
 
    <pre>
-   3.10.3
+   5.3.0
    </pre>
 
 0. Verify:
@@ -729,29 +748,7 @@ PROTIP: Before you speak to someone about this, provide them your operating syst
    </pre>
 
    Regardless of how you installed node,
-   before discussing your installation, obtain and present these facts:
-
-0. Where is Node installed?
-
-   <tt><strong>which node
-   </strong></tt>
-
-   The answer:
-
-   <pre>
-   /usr/local/bin/node
-   </pre>
-
-0. Where is Node installed?
-
-   <tt><strong>which npm
-   </strong></tt>
-
-   The answer:
-
-   <pre>
-   /usr/local/bin/npm
-   </pre>
+   before discussing your installation, obtain and present the facts above.
 
 0. From any folder, for just a simple list of package names:
 
@@ -859,6 +856,203 @@ Node is running
 
 <hr />
 
+
+
+<a name="NpmPackageInstall"></a>
+
+## Install node and .npm-packages without npm #
+
+Ths recommended by
+<a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
+Advice on fixing npm On Mac OS X for Homebrew Users</a>
+
+
+   <a name="Uninstall"></a>
+
+### Uninstall default Brew install #
+
+0. If node was previously installed, uninstall it:
+
+   <pre><strong>brew uninstall node --ignore-dependencies node
+   </strong></pre>
+
+   No damage is done if this command is run even though brew is already uninstalled.
+
+0. If node was previously installed,
+   these folders have been <a target="_blank" href="http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html">known</a> to block re-install,
+   so remove them by using the code below:
+
+   <pre><strong>
+   sudo rm '/usr/local/lib/dtrace/node.d'
+   sudo rm '/usr/local/bin/npn'
+   sudo rm '/usr/local/bin/node'
+   sudo rm '/usr/local/share/doc/node/gdbinit'
+   sudo rm '/usr/local/share/man/man1/node.1'
+   sudo rm '/usr/local/share/systemtap/tapset/node.stp'
+   sudo rm '/usr/local/share/systemtap/tapset'
+   </strong></pre>
+
+   Supply your password when prompted.
+
+0. Remove locations where Node can be installed:
+
+   <pre><strong>
+   sudo rm -rf $NODE_INSTALL/bin/node 
+   sudo rm -rf $NODE_INSTALL/bin/npm 
+   sudo rm -rf $NODE_INSTALL/include/node 
+   sudo rm -rf $NODE_INSTALL/lib/node_modules 
+   sudo rm -rf ~/.npm
+   </strong></pre>
+
+
+   ### Create .npm-packages folder #
+
+0. Create the ~/.npm-packages folder:
+
+   <tt><strong>mkdir "${HOME}/.npm-packages"
+   </strong></tt>
+
+0. To avoid permission issues:
+
+   <pre><strong>
+   sudo chown -R $USER:$GROUP ~/.npm-packages
+   sudo chown -R $USER:$GROUP ~/.config
+   sudo chown -R $USER:admin /usr/local/
+   sudo chown -R $USER:admin /usr/local/include
+   </strong></pre>
+
+   Provide your password when prompted.
+
+0. Indicate to npm where to store globally installed packages
+   by adding a line at the bottom of the ~/.npmrc file:
+
+   <tt><strong>echo prefix=~/.npm-packages >> ~/.npmrc
+   </strong></tt>
+
+   WARNING: NVM does not support this, which is OK since we are doing this to get away
+   from using it anyway.
+
+0. Confirm:
+
+   <tt><strong>cat ~/.npmrc
+   </strong></tt>
+
+
+0. Install node without default NPM:
+
+    <tt><strong>brew install node \-\-without-npm -g
+    </strong></tt>
+
+   Alternately, install npm for global use:
+
+   <pre><strong>curl -L https://www.npmjs.com/install.sh | sh
+   </strong></pre>
+
+   The response:
+
+   <pre>
+==> Downloading https://nodejs.org/dist/v8.3.0/node-v8.3.0.tar.xz
+######################################################################## 100.0%
+Initialized empty Git repository in /private/tmp/node-20170813-85661-dx56ff/node-v8.3.0/.git/
+==> ./configure --prefix=/usr/local/Cellar/node/8.3.0_1 --without-npm --with-int
+==> make install
+   </pre>
+
+0. If you also get this message:
+
+   <pre>
+==> Caveats
+Homebrew has NOT installed npm. If you later install it, you should supplement
+your NODE_PATH with the npm module folder:
+  /usr/local/lib/node_modules
+==> Summary
+🍺  /usr/local/Cellar/node/8.3.0_1: 149 files, 29.7MB, built in 8 minutes 18 seconds
+   </pre>
+
+
+   ### Define NODE_PATH
+
+0. Edit the ~/.bash_profile to insert these lines:
+
+   <pre><strong>
+export NODE_INSTALL=/usr/local/bin/node
+export NODE_PATH=/usr/local/bin   
+# =/usr/local/lib/node_modules
+   </strong></pre>
+
+   BTW, ~/.bash_profile on Mac is equivalent to the .bashrc file used in Linux systems.
+
+0. To ensure npm will find installed binaries and man pages,
+   add a NPM_PACKAGES environment variable containing the path to npm-installed packages
+   into the system PATH variable:
+
+   <pre><strong>NPM_PACKAGES="${HOME}/.npm-packages"<br />
+   PATH="$NPM_PACKAGES/bin:$PATH"
+   </strong></pre>
+
+   Use of `${HOME}` makes the path more generic and less complicated
+   than having to substitute your user name such as "mac":
+
+   <pre>
+   /Users/mac/.npm-packages/
+   </pre>
+
+0. Save the file and make sure the changes run fine:
+
+   <tt><strong>source ~/.bash_profile
+   </strong></tt>
+
+0. Make sure that the Mac's executable search PATH contains the node executable is in the PATH:
+
+   <tt><strong>echo $PATH
+   </strong></tt>
+
+   If not add it to the system PATH:
+
+   <pre>
+   export NODE_PATH=/usr/local/bin
+   </pre>
+
+
+   ### Verify Node Version
+
+   After install, 
+
+0. verify whether the node program works:
+
+   <tt><strong>node \-\-version
+   </strong></tt>
+
+   The response should be its version, such as:
+
+   <pre>
+   v8.3.0
+   </pre>
+
+
+0. To identify where node executables are installed:
+
+   <tt><strong>which node
+   </strong></tt>
+
+   the response:
+
+   <pre>
+   /usr/local/bin/node
+   </pre>
+
+0. See that Node is one among many other programs at:
+
+   <tt><strong>ls /usr/local/bin | grep node
+   </strong></tt>
+
+
+BTW, an alternative to NVM is "N" from https://github.com/tj/n.
+However, I never got it to work for me.
+
+
+<hr />
+
 <a name="Homebrew"></a>
 
 ## Brew standard install #
@@ -875,39 +1069,75 @@ Node is running
    <tt><strong>pwd
    </strong></tt>
 
-   CAUTION: Without specifying the `-g` in the next command, 
-   installation is whatever is the current folder.
+   <strong>CAUTION: Without specifying the `-g` in the next command, 
+   installation is whatever is the current folder.</strong>
 
-0. The simplest way to install node is <strong>globally</strong>
-   to use Homebrew:
+0. Install node <strong>globally</strong> using Homebrew:
 
    <tt><strong>brew install node -g
    </strong></tt>
 
-   The response:
+   The initial response at time of writing (August 2017):
 
    <pre>
-==> Downloading https://homebrew.bintray.com/bottles/node-6.3.0.el_capitan.bottl
-######################################################################## 100.0%
-==> Pouring node-6.3.0.el_capitan.bottle.tar.gz
+==> Downloading https://homebrew.bintray.com/bottles/node-8.3.0_1.sierra.bottle.
+Already downloaded: /Users/mac/Library/Caches/Homebrew/node-8.3.0_1.sierra.bottle.tar.gz
+==> Pouring node-8.3.0_1.sierra.bottle.tar.gz
+   </pre>
+
+   PROTIP: Homebrew downloads installers to `~/Library/Caches/Homebrew/`
+   and looks for installers there to avoid downloading again.
+
+   PROTIP: Notice the bottle is <strong>specific to the version on your operating system</strong>
+   (such as "sierra").
+
+   You should now see something like this:
+
+   <pre>
+==> Caveats
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+==> Summary
+🍺  /usr/local/Cellar/node/8.3.0_1: 4,152 files, 46.8MB
+   </pre>
+
+
+0. If you get this error message between the two messages above:
+
+   <pre>
 ==> Caveats
 Please note by default only English locale support is provided. If you need
 full locale support you should either rebuild with full icu:
   `brew reinstall node --with-full-icu`
 or add full icu data at runtime following:
   https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
-&nbsp;
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/node/6.3.0: 3,829 files, 39.8M
    </pre>
 
-   Notice the folder (which may have a different version number):
+   Run the command.
+
+0. If you get this error message between the two messages above:
 
    <pre>
-   ~/Library/Caches/Homebrew/node-6.3.0.el_capitan.bottle.tar.gz
+Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+Could not symlink share/systemtap/tapset/node.stp
+/usr/local/share/systemtap/tapset is not writable.
+&nbsp;
+You can try again using:
+  brew link node
+Warning: The post-install step did not complete successfully
+You can try again using `brew postinstall node`
    </pre>
+
+   Following the advice above:
+
+   <tt><strong>brew link node
+   </strong></tt>
+
+   If you see this:
+
+   <pre>Error: No such keg: /usr/local/Cellar/node</pre>
+
 
    NOTE: By default, when node is installed, it installs
    <strong>npm</strong>, the Node Package Manager,
@@ -938,175 +1168,13 @@ Bash completion has been installed to:
    The response contains npm plus
    firebase-tools, http-server, gatsby, iothub-explorer, serverless
 
-<hr />
-
-<a name="NpmPackageInstall"></a>
-
-## Install node without npm, then install .npm-packages with no nvm #
-
-   <a name="Uninstall"></a>
-
-### Uninstall default Brew install #
-
-0. If node was previously installed, uninstall it:
-
-      <pre><strong>brew uninstall node --ignore-dependencies node
-      </strong></pre>
-
-0. If node was previously installed,
-   these folders have been <a target="_blank" href="http://opendaylight-spectrometer.readthedocs.io/en/latest/developer.html">known</a> to block re-install,
-   so remove them by using the code below:
-
-   <pre>
-   sudo rm '/usr/local/lib/dtrace/node.d'
-   sudo rm '/usr/local/bin/npn'
-   sudo rm '/usr/local/bin/node'
-   sudo rm '/usr/local/share/doc/node/gdbinit'
-   sudo rm '/usr/local/share/man/man1/node.1'
-   sudo rm '/usr/local/share/systemtap/tapset/node.stp'
-   sudo rm '/usr/local/share/systemtap/tapset'
-   </pre>
-
-   ### Create .npm-packages folder #
-
-0. Create the ~/.npm-packages folder:
-
-   <tt><strong>mkdir "${HOME}/.npm-packages"
-   </strong></tt>
-
-0. To avoid permission issues:
-
-   <pre><strong>
-   sudo chown -R $USER:$GROUP ~/.npm-packages
-   sudo chown -R $USER:$GROUP ~/.config
-   sudo chown -R $USER:admin /usr/local/
-   sudo chown -R $USER:admin /usr/local/include
-   </strong></pre>
-
-   Provide your password when prompted.
-
-0. Indicate to npm where to store globally installed packages
-   by adding a line at the bottom of the ~/.npmrc file:
-
-   <tt><strong>echo prefix=~/.npm-packages >> ~/.npmrc
-   </strong></tt>
-
-   WARNING: NVM does not support this.
-
-0. Install node without default npm:
-
-    <tt><strong>brew install node \-\-without-npm -g
-    </strong></tt>
-
-   Alternately, install npm for global use:
-
-   <pre><strong>curl -L https://www.npmjs.com/install.sh | sh
-   </strong></pre>
-
-   The response:
-
-   <pre>
-   fetching: http://registry.npmjs.org/npm/-/npm-3.9.5.tgz
-   </pre>
-
-0. After install, verify the location:
-
-   <tt><strong>which node
-   </strong></tt>
-
-   The response:
-
-   <pre>
-   /usr/local/bin/node
-   </pre>
-
-0. Define where Node is installed:
-
-   <tt><strong>
-   export NODE_INSTALL=/usr/local/bin/node<br />
-   echo $NODE_INSTALL
-   </strong></tt>
-
-   This is needed because Node is installed into several folders:
-
-    * sudo rm -rf $NODE_INSTALL/bin/node 
-    * sudo rm -rf $NODE_INSTALL/bin/npm 
-    * sudo rm -rf $NODE_INSTALL/include/node 
-    * sudo rm -rf $NODE_INSTALL/lib/node_modules 
-    * sudo rm -rf ~/.npm
-   <br /><br />
-
-0. After install, verify the location:
-
-   <tt><strong>which npm
-   </strong></tt>
-
-   The response, where "mac" is substituted with your user name:
-
-   <pre>
-   /Users/mac/.npm-packages/bin/npm
-   </pre>
-
-0. To ensure npm will find installed binaries and man pages,
-   use a text editor to edit the <strong>~/.bash_profile</strong> file.
-
-   BTW, .bash_profile on Mac is equivalent to the .bashrc file used in Linux systems.
-
-0. Add a NPM_PACKAGES environment variable containing the path to npm-installed packages
-   into the system PATH variable:
-
-   <tt><strong>NPM_PACKAGES="${HOME}/.npm-packages"<br />
-   PATH="$NPM_PACKAGES/bin:$PATH"
-   </strong></tt>
-
-0. To identify where node executables are installed:
-
-   <tt><strong>which node
-   </strong></tt>
-
-   the response:
-
-   <pre>
-   /usr/local/bin/node
-   </pre>
-
-   See that Node one among many other programs at:
-
-   <pre>
-   ls /usr/local/bin
-   </pre>
-
-0. Make sure that this path containing the node executable is in the PATH:
-
-   <tt><strong>echo $PATH
-   </strong></tt>
-
-   If not add it to the system PATH:
-
-   <pre>
-   export NODE_PATH=/usr/local/bin
-   </pre>
-
-0. Save changes to the .bash_profile file.
-0. Run the file into memory:
-
-   <tt><strong>source ~/.bash_profile
-   </strong></tt>
-
-The above is recommended by
-<a target="_blank" href="https://gist.github.com/DanHerbert/9520689">
-Advice on fixing npm On Mac OS X for Homebrew Users</a>
-
-BTW, an alternative to NVM is "N" from https://github.com/tj/n.
-However, I never got it to work for me.
-
 
 <hr />
 
 
 <a name="Download"></a>
 
-## C: Download and Install Node #
+## C: Download and Install Manually #
 
 0. Download installer from <a target="_blank" href="http://nodejs.org/">
    http://nodejs.org</a>
@@ -1121,7 +1189,6 @@ However, I never got it to work for me.
 <hr />
 
 ## Install Node packages #
-
 
 0. The current global location:
 
