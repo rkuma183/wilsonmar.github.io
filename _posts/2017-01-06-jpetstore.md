@@ -13,7 +13,7 @@ comments: true
 ---
 <i>{{ page.excerpt }}</i>
 
-<a target="_blank" href="https://gitter.im/wilsonmar/great-big-example-application?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg" alt="Gitter" /></a>
+<a target="_blank" href="https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/wilsonmar/wilsonmar.github.io.svg" alt="Gitter" /></a></p>
 
 {% include _toc.html %}
 

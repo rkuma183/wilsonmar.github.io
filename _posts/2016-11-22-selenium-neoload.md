@@ -668,14 +668,26 @@ clean test
 &LT;/plugin>
    </pre>
 
-0. Launch a test run using this command. For example, the asterisk in this launches only test classes that end with 
-   (for example) "PerformanceTest":
+0. Launch a test run using this command. For example, the asterisk in this launches only test classes that 
+   <strong>end</strong> with (for example) "PerfTest" as in files ending with "PerfTest.java":
 
    ```
-mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ -Dtest=*PerformanceTest clean test
+mvn -Dnl.selenium.proxy.mode=Design -Dnl.design.api.url=http://ushahidi.demo.neotys.com/ -Dtest=*PerfTest clean test
    ```
+
+   Having tests named this way is a Maven convention.
 
    The tests of course must have been defined within the test repository of your Maven project.
+
+## Eclipse Tools
+
+Plugins from the Eclipse Marketplace and IntelliJ:
+
+* <a target="_blank" href="https://infinitest.github.io/">
+Inifitest</a> automatically re-runs tests after detecting changes, for continuous testing.
+
+* EclEmma or Cobertura for identifying code coverage.
+
 
 
 
@@ -816,7 +828,7 @@ public class HelloTest {
 
    ### JUnit Annotations
 
-   In the sample code are these annotations for the Java compiler to see:
+   In the sample code are annotations for the Java compiler to process:
 
    * `@Rule`
    * `@BeforeClass`
@@ -824,9 +836,12 @@ public class HelloTest {
    * `@AfterClass`
    <br /><br />
 
-   These are kinda like a "magic spell" that applies additional generic code
-   around the method under the annotation. That spell can be used on 
-   several lines, so annotations minimize coding.
+   First of all, annotations, in general, make code easier to understand by making it is more obvious what the code is supposed to do.
+   The Java compiler may warn if a method does not actually do what the annotation says.
+
+   Annotations are also like a "magic spell" that applies additional generic code
+   around the method under the annotation, such as logging statements.
+   Thus, annotations minimize coding.
 
    To see the basic structure of code behind an annotation, see<br />
    <a target="_blank" href="https://github.com/ajitsing/JavaCustomAnnotations">
