@@ -1057,6 +1057,14 @@ Apple Certified Support Professional (ACSP)
 * https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
 
 
+## Shutdown
+
+To kill all apps and shutdown a Mac right wasy (with no warning and no dialog):
+
+   <tt><strong>sudo shutdown -h now
+   </strong></tt>
+
+
 ## Resources:
 
 * https://www.hamsterpad.com/chat/typescriptpdx
