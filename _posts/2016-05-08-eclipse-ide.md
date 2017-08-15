@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Eclipse IDE"
+title: "Eclipse IDE (STS and for Selenium)"
 excerpt: "Open source and free since the 90's."
 shorturl: "https://goo.gl/Pi9qAE"
 tags: [ML, GE]
@@ -126,7 +126,7 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
    `/Users/mac/dev/workspace`
 
 
-   This can be changed to something else later, though.
+   This can be changed to something else later (in Files, Switch Workspace).
 
    The folder path is created when you click "Launch".
 
@@ -161,6 +161,7 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
    * Execute jobs in background
    * Encode text files with UTF-8
    * Enable preference recorder
+   <br /><br />
 
 0. Check "Always exit without prompt" (your call).
 
@@ -176,7 +177,8 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
 0. To compile and run your program, keep the "Main" app Java file tab active and 
 
    * use Run option available in the Eclipse IDE or 
-   * use Ctrl + F11 to compile and run your MainApp application. 
+   * press <strong>Ctrl + F11</strong> to compile and run your MainApp application. 
+   <br /><br />
 
    If everything is fine with your application, this will print the following message in Eclipse IDE's console.
 
@@ -216,6 +218,132 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
 
 
 
+<a name="SeleniumLib"></a>
+
+## Selenium Libraries#
+
+### Download
+
+1. Go to
+   <a target="_blank" href="http://docs.seleniumhq.org/download/">
+   http://docs.seleniumhq.org/download</a>
+
+0. Under the "Selenium Standalone Server" section heading, click the link
+   next to "Download version":<br />
+
+   Download version <a target="_blank" href="https://goo.gl/mFtw7n">3.5.0</a>
+
+0. Click Save of file named with the same version number, such as:<br />
+   <strong>selenium-server-standalone-3.5.0.jar</strong><br />
+   to the Downloads folder.
+
+0. On Windows only, under "The Internet Explorer Driver Server" section heading, 
+   click the link 
+   <a target="_blank" href="https://goo.gl/GwYYmg">64-bit Windows IE</a>
+
+0. Click Save of file named with the same version number, such as:<br />
+   <strong>IEDriverServer_x64_3.5.0.zip</strong><br />
+   to the Downloads folder.
+
+
+0. Under the "Selenium Client & WebDriver Language Bindings" section heading, click the link
+   click the <a target="_blank" href="http://selenium-release.storage.googleapis.com/3.5/selenium-java-3.5.0.zip">Download</a>
+   link associated with the programming language you use, such as Java.
+
+0. Click Save of file named with the same version number, such as:<br />
+   <strong>selenium-java-3.5.0.zip</strong><br />
+   to the Downloads folder.
+
+
+0. Under the "Safari" section heading, click the link<br />
+   Latest release <a target="_blank" href="http://selenium-release.storage.googleapis.com/2.48/SafariDriver.safariextz">2.48.0</a>
+
+0. Click Save of file named <br />
+   <strong>SafariDriver.safariextz</strong><br />
+   to the Downloads folder.
+
+
+   ### New Lib folder
+
+0. Within Eclipse, right-click on your project name to select New, Folder.
+0. Type in name "lib" (for library). Finish.
+
+   ### Server into lib folder
+
+0. Press command+tab to switch to the File Explorer window.
+0. Drag from within the Downloads folder file <br />
+   selenium-server-standalone-3.5.0.jar<br />
+   and drop it within the lib folder when the mouse turns into a "+" sign.
+0. Click OK to the pop-up dialog for Copy files.
+
+   ### Selenium Java into lib folder
+
+0. Press command+tab to switch to the File Explorer window.
+0. Within the Downloads folder, unzip by double-clicking on file <br />
+   selenium-java-3.5.0.zip. 
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=wlZVSud2vdg">
+   On a Mac</a>, this should result in the creation of folder<br />
+   <strong>selenium-java-3.5.0</strong>. But 
+   <a target="_blank" href="http://osxdaily.com/2013/02/13/open-zip-cpgz-file/">"
+   if you see a .cpgz file, move it to trash and use another utility such as RAR.
+
+0. Dive into the folders to drag <br />
+   <strong>selenium-java-3.5.0.jar</strong><br />
+   to the lib folder.
+
+0. Click OK to the pop-up dialog for Copy files.
+
+
+   ### Chrome driver
+
+0. Navigate to<br />
+   <a target="_blank" href="http://chromedriver.storage.googleapis.com/index.html">
+   http://chromedriver.storage.googleapis.com/index.html</a>
+
+0. Scroll down to click the LATEST_RELEASE so it downloads.
+0. Open the file to see the version number (2.31 at time of writing).
+0. Scroll down to that largest version number and click on it.
+0. Click the file for your operating system, such as<br />
+   chromedriver_mac64.zip.
+0. Unzip it to file <strong>chromedriver</strong> Unix executable.
+0. Copy the chromdriver file to <strong>/usr/local/bin</strong> folder.
+0. Restart your system and try your Selenium WebDriver code as 
+   shown in video.
+
+
+   ### Firefox driver
+
+
+
+   ### Mac Safari driver
+
+   See https://www.youtube.com/watch?v=9IoP45r5Ap4&t=11s
+   by EvilTester
+
+
+
+   ### Junit into lib folder
+
+0. Navigate to<br />
+   <a target="_blank" href="http://sourceforge.net/projects/junit/files/junit/">
+   http://sourceforge.net/projects/junit/files/junit</a>
+0. Click the text to the right of "Looking for the latest version?",
+   such as <strong>Download junit-4.10.jar (253.2 kB)</strong>.
+   
+   This downloads file <strong>junit-4.10.jar</strong> (from 2011).
+
+0. Drag from within the Downloads folder file <br />
+   junit-4.10.jar<br />
+   and drop it within the lib folder when the mouse turns into a "+" sign.
+
+
+   ### New Class
+
+0. Right-click on "src" 
+
+
+
 <a name="Perspectives"></a>
 
 ## Perspectives #
@@ -250,6 +378,10 @@ Views
 ## Video Tutorials #
 
 There are a lot on YouTube:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=zylSll8hsPs">
+   Selenium WebDriver Eclipse Java Project Setup: For the absolute beginner</a>
+   on Java 1.6 [13:58]
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
    Introduction to Eclipse: Driving Java Productivity</a> from 2012
