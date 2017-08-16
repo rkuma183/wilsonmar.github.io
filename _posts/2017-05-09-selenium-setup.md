@@ -55,19 +55,24 @@ This article contains notes on installing, coding, and running Selenium.
 
 Look into the folder:
 
-   The "Sea.jpg" is required only by the sample program.
-   It is placed at the root for ease of use.
-   But production usage would have a folder such as `pics`.
-
-   The "chromedriver.exe" and other browser driver files are at the root of each script.
-
    NOTE: It is not best practice, but the sample scripts in my GitHub contains binary files
    copied from binary repositories.
+
+   File `Sea.jpg` is required only by the sample program from Neotys.
+   
+   PROTIP: For team/production coding, place photos in a folder such as `pics`.
+
+   The file is placed at the project's root folder to make it easy to specify its path.
+   
+   File `chromedriver.exe` and other browser driver files are at the root of each script folder.
 
    The more correct way is to specify the files (and their specific versions) 
    in a pom.xml file that point to the location of those
    external dependencies, and then have each user of the repository to
    run Maven to obtain those files.
+
+   <a target="_blank" href="https://github.com/Ardesco/Selenium-Maven-Template/blob/master/pom.xml">
+   https://github.com/Ardesco/Selenium-Maven-Template/blob/master/pom.xml</a>
 
    Nevertheless, the drivers are included so you can get going quickly.
 
@@ -80,12 +85,15 @@ Look into the folder:
 
 ### On Windows:
 
+It is assumed that the Java program is within the PATH which the operating system looks for executables.
+
 0. View the sample command file <strong>Selenium3Chrome1.bat</strong>
 
    <pre>
-REM cd Selenium-samples
+REM cd Selenium3Usahidi1NeoloadChrome1
 REM Selenium3 must use Java 1.8+
-java.exe -jar Selenium3Chrome1.jar ^
+javac         Selenium3Usahidi1NeoloadChrome1.java
+java.exe -jar Selenium3Usahidi1NeoloadChrome1.jar ^
 -Dnl.selenium.proxy.mode=Design ^
 -Ddriver=chromedriver.exe ^
 -Druntype=Landing ^
@@ -98,7 +106,7 @@ java.exe -jar Selenium3Chrome1.jar ^
 0. Open a Terminal window.
 0. Run the sample Selenium Java program on a Windows machine:
 
-   <tt><strong>Selenium3Chrome1.bat
+   <tt><strong>Selenium3Usahidi1NeoloadChrome1.bat
    </strong></tt> 
 
 
@@ -107,9 +115,10 @@ java.exe -jar Selenium3Chrome1.jar ^
 0. View the sample command file <strong>Selenium3Chrome1.sh</strong>
 
    <pre>
-# cd Selenium-samples
+# cd Selenium3Usahidi1NeoloadChrome1
 # Selenium3 must use Java 1.8+
-java.exe -jar Selenium3Chrome1.jar \
+javac     Selenium3Usahidi1NeoloadChrome1.java
+java -jar Selenium3Usahidi1NeoloadChrome1.jar \
 -Dnl.selenium.proxy.mode=Design \
 -Ddriver=chromedriver \
 -Druntype=Landing \
@@ -129,7 +138,7 @@ java.exe -jar Selenium3Chrome1.jar \
 
 0. Run the sample Selenium Java program:
 
-   <tt><strong>Selenium3Chrome1.sh
+   <tt><strong>Selenium3Usahidi1NeoloadChrome1.sh
    </strong></tt> 
 
 
@@ -227,6 +236,7 @@ PROTIP: Download files for all operating systems so the scripts begin as cross-s
 0. Click Save of file named with the same version number, such as:<br />
    <strong>selenium-server-standalone-3.5.0.jar</strong><br />
    to the Downloads folder.
+
 
    #### Java bindings
 
@@ -492,14 +502,40 @@ Usage: safaridriver [options]
    <a target="_blank" href="https://www.amazon.com/Selenium-WebDriver-TestNG-Practical-Tricks-ebook/dp/B0746F5XLV/ref=sr_1_2?ie=UTF8&qid=1502881762&sr=8-2&keywords=selenium+webdriver+books">
    BOOK</a>
 
+   TestNG has more in-built annotations than JUnit,
+   making testing easier.
+
    TestNG requires a download from http://testng.org/
 
-   TestNG has more annotations than JUnit.
-   The @DataProvider and parameters enables data-driven testing.
+   Its @DataProvider and parameters enables data-driven testing.
 
    JUnit does not generate a HTML reports. But TestNG generates an XSLT 
    <a target="_blank" href="http://learn-automation.com/generate-xslt-report-in-selenium/">
    report</a>.
+
+   * https://www.youtube.com/watch?v=OTtFSnZY4f8
+
+
+   <a name="Logging"></a>
+
+   ### Logging
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=Xk9fzXCX61U">
+   VIDEO</a> on emitting industry-standard logs.
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=zSjwgjVl4P4">
+   VIDEO</a> on Advanced topics.
+
+   ```
+   import org.apache.log4j.Logger;
+   public class LogDemo {
+      public static void main(String[] args){
+         Logger logger=Logger.getLogger("LogDemo");  // the class name
+      }
+   }
+   ```
+
+   * https://www.youtube.com/watch?v=0UQ9pAlY3qg
 
 
    <a name="ReadCSV"></a>
