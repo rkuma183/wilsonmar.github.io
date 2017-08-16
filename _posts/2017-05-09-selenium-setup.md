@@ -83,15 +83,17 @@ Look into the folder:
 0. View the sample command file <strong>Selenium3Chrome1.bat</strong>
 
    <pre>
-# cd Selenium-samples
-java.exe -jar Selenium3Chrome1.jar \
--Dnl.selenium.proxy.mode=Design \
--Ddriver=chromedriver.exe \
--Druntype=Landing \
+REM cd Selenium-samples
+REM Selenium3 must use Java 1.8+
+java.exe -jar Selenium3Chrome1.jar ^
+-Dnl.selenium.proxy.mode=Design ^
+-Ddriver=chromedriver.exe ^
+-Druntype=Landing ^
 -Dimg=Sea.jpg
    </pre>
 
-   It has slash line continuation characters.
+   PROTIP: Windows command prompt (cmd.exe) allows the umlaut ^ (Shift + 6) character 
+   to indicate line continuation.
 
 0. Open a Terminal window.
 0. Run the sample Selenium Java program on a Windows machine:
@@ -106,6 +108,7 @@ java.exe -jar Selenium3Chrome1.jar \
 
    <pre>
 # cd Selenium-samples
+# Selenium3 must use Java 1.8+
 java.exe -jar Selenium3Chrome1.jar \
 -Dnl.selenium.proxy.mode=Design \
 -Ddriver=chromedriver \
@@ -114,6 +117,9 @@ java.exe -jar Selenium3Chrome1.jar \
    </pre>
 
    Notice there is no ".exe" in the driver.
+
+   PROTIP: Bash shell scripts use the back-slash character (above the Enter/return key)
+   to indicate line continuation.
 
 0. Open a Terminal window.
 0. Grant permissions:
