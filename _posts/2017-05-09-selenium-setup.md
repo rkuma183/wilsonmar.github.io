@@ -538,9 +538,9 @@ Usage: safaridriver [options]
    * https://www.youtube.com/watch?v=0UQ9pAlY3qg
 
 
-   <a name="ReadCSV"></a>
+<a name="ReadCSV"></a>
 
-   ### Read CSV files
+### Read CSV files
 
    So your Selenium Java code can read CSV files:
 
