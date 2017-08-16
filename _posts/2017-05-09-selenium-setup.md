@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Selenium"
-excerpt: "Robot control to Seleniumtastic your web apps"
+title: "Selenium Setup"
+excerpt: "How to get robots to Seleniumtastic your web apps"
 shorturl: "https://goo.gl/"
 tags: [ML, GE]
 image:
@@ -40,22 +40,42 @@ This article contains notes on installing, coding, and running Selenium.
    </strong></tt>
 
    * Selenium3Hello1 is used to verify whether the Selenium core install works.
+   It doesn't use any browser driver.
+
    * Selenium3FirefoxGoogleSearch1 
+
    * Selenium3GoogleSearch1 works on multiple browsers.
    <br /><br />
 
-   "Selenium3" requires Java 1.8+.
+   NOTE: All "Selenium3" require Java 1.8+.
+
+   PROTIP: A number is included with each component to provide for version control,
+   since everything changes all the time in IT.
+   
 
 Look into the folder:
 
    The "Sea.jpg" is required only by the sample program.
+   It is placed at the root for ease of use.
+   But production usage would have a folder such as `pics`.
 
    The "chromedriver.exe" and other browser driver files are at the root of each script.
+
+   NOTE: It is not best practice, but the sample scripts in my GitHub contains binary files
+   copied from binary repositories.
+
+   The more correct way is to specify the files (and their specific versions) 
+   in a pom.xml file that point to the location of those
+   external dependencies, and then have each user of the repository to
+   run Maven to obtain those files.
+
+   Nevertheless, the drivers are included so you can get going quickly.
 
 
 <a name="Invocation"></a>
 
 ## Invoke sample command
+
 
 
 ### On Windows:
