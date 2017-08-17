@@ -542,7 +542,7 @@ Usage: safaridriver [options]
 
 ### Read CSV files
 
-   So your Selenium Java code can read CSV files:
+   To get your Selenium Java code to read CSV files:
 
    Specify the dependency in Maven, Ant, etc.
    or
@@ -555,21 +555,21 @@ Usage: safaridriver [options]
 0. Add in your Java code:
 
    ```
-     List<MyBean> beans = new CsvToBeanBuilder(FileReader("yourfile.csv"))
+     List<MyBean> beans = new CsvToBeanBuilder(FileReader("yourfile.csv"))<br />
        .withType(Visitors.class).build().parse();
    ```
 
    
-   <a name="Excel"></a>
+<a name="Excel"></a>
 
-   ### Read Excel files
+### Read Excel files
 
    <a target="_blank" href="https://www.youtube.com/watch?v=sbBdj4zIMqY">
    VIDEO</a>,
    <a target="_blank" href="http://learn-automation.com/read-and-write-excel-files-in-selenium/">
    BLOG</a>
 
-   To get your Selenium Java code can read Excel files: 
+   To get your Selenium Java code to read Excel files: 
 
 0. Download Apache POI - the Java library for Microsoft documents from<br />
    <a target="_blank" href="https://poi.apache.org/download.html">
