@@ -554,10 +554,10 @@ Usage: safaridriver [options]
 
 0. Add in your Java code:
 
-   ```
-     List<MyBean> beans = new CsvToBeanBuilder(FileReader("yourfile.csv"))<br />
+   <pre>
+     List&LT;MyBean> beans = new CsvToBeanBuilder(FileReader("yourfile.csv"))
        .withType(Visitors.class).build().parse();
-   ```
+   </pre>
 
    
 <a name="Excel"></a>
