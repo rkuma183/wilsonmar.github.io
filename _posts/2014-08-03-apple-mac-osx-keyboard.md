@@ -682,6 +682,12 @@ Applescript "robot" typist inserts characters into XCode or other application
 https://gist.github.com/xaviershay/6656216<br />
 Creates a mapping that will type out the given text into vim.
 
+## Cross machine
+
+For a $19 one-time purchase,<br />
+https://symless.com/synergy<br />
+enables you to use a single keyboard and mouse on Mac, Windows, and Linux.
+
 
 ## Resources #
 
