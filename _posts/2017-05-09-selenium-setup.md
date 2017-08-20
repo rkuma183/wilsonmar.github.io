@@ -19,7 +19,8 @@ comments: true
 This article contains notes on installing, coding, and running Selenium.
 
 1. Run in Google Cloud a Docker image contaning Selenium and associated software.
-2. Run Docker image containing Selenium built using Ansible scripts that created the image.
+2. <a href="#Docker">Run Docker image containing Selenium</a> 
+   built using <a href="#Ansible">Ansible scripts that created the image.</a>
 3. <a href="#RunMaven">Run after download from GitHub, then invoke using Maven</a>
 4. <a href="#MySamples">My sample files</a>.
 5. <a href="#Invocation">Invoke a run using starter samples</a>.
@@ -60,14 +61,20 @@ Selenium has no GUI. It runs as a console
 However, reports are produced by TestNG, a plug-in to Selenium.
 
 
-## Docker with Ansible
+<a name="Docker"></a>
 
-Ansible task files to establish Selenium:
+## Docker images
+
+
+<a name="Ansible"></a>
+
+## Ansible
+
+Ansible task files to establish Selenium server:
 
 * https://github.com/arknoll/ansible-role-selenium
 * https://github.com/quarkslab/ansible-selenium-server
 * https://mtlynch.io/testing-ansible-selenium/
-
 
 
 <a name="RunMaven"></a>
