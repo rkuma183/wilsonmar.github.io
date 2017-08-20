@@ -7,8 +7,8 @@ tags: [ML, GE]
 image:
 # feature: banner-eclipse-1900x500-321k.png
   feature: https://user-images.githubusercontent.com/300046/28752993-0d1437a4-74fa-11e7-99cc-ed04f625174c.png
-  credit: 
-  creditlink: 
+  credit: Software Testing Help
+  creditlink: http://www.softwaretestinghelp.com/how-to-use-different-browsers-drivers-for-your-selenium-script/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -18,26 +18,232 @@ comments: true
 
 This article contains notes on installing, coding, and running Selenium.
 
-1. <a href="#MySamples">Obtain my samples</a>.
-2. <a href="#Invocation">Invoke a run using starter samples</a>.
-3. <a href="#CrossBrowser">Run across various browsers</a> - Firefox browser, IE, etc.
-4. <a href="#Obtain">Obtain jars and drivers</a> if they have changed.
-5. <a href="#CodeJava">Adapt the starter a basic starter</a> (Java in Selenium driving Chrome).
+1. Run in Google Cloud a Docker image contaning Selenium and associated software.
+2. Run Docker image containing Selenium built using Ansible scripts that created the image.
+3. <a href="#RunMaven">Run after download from GitHub, then invoke using Maven</a>
+4. <a href="#MySamples">My sample files</a>.
+5. <a href="#Invocation">Invoke a run using starter samples</a>.
+6. <a href="#CrossBrowser">Run across various browsers</a> - Firefox browser, IE, etc.
+7. <a href="#Obtain">Obtain jars and drivers</a> if they have changed.
+8. <a href="#CodeJava">Adapt the starter a basic starter</a> (Java in Selenium driving Chrome).
 
-6. <a href="#ReadCSV">Add CSV data processing</a>
-7. <a href="#Excel">Add Excel data processing</a>
-8. Add OpenQA via SikuliX2
-9. Add Tesseract
+9. Update of results to SonarQube.
+10. <a href="#ReadCSV">Add CSV data processing</a>
+11. <a href="#Excel">Add Excel data processing</a>
+12. Add OpenQA via SikuliX2
+13. Add Tesseract
+
+14. Run by CA DevTest
+15. Run in SauceLab Cloud
 
 <hr />
+
+## Some misconceptions
+
+When we mention "Selenium" and "performance testing" in the same sentence,
+the first thing that most people say is 
+<a target="_blank" href="http://www.pushtotest.com/selenium-load-performance-testing">
+"you can only run a few users on a machine"</a>.
+
+But I'm not talking about running several browser instances on each single machine.
+
+I'm talking about running Selenium once 
+while another program converts what goes back and forth over the network into a script.
+
+The secret sauce is ...
+
+
+## Running example
+
+Selenium has no GUI. It runs as a console
+
+However, reports are produced by TestNG, a plug-in to Selenium.
+
+
+## Docker with Ansible
+
+Ansible task files to establish Selenium:
+
+* https://github.com/arknoll/ansible-role-selenium
+* https://github.com/quarkslab/ansible-selenium-server
+* https://mtlynch.io/testing-ansible-selenium/
+
+
+
+<a name="RunMaven"></a>
+
+## Run using Maven after GitHub
+
+1. Install Maven.
+0. Install Selenium.
+0. Install the various browsers Selenium will control (Chrome, Firefox, etc.).
+0. Navigate to or create a folder to hold a new folder to be created by Git.
+0. Clone from GitHub a repository containing sample tests:
+
+   <tt><strong>git clone https://github.com/wilsonmar/Selenium-samples<br />
+   cd Selenium-samples
+   </strong></tt>
+
+0. Look at the root layer of the repository.
+
+   <tt><strong>cd Selenium-samples
+   </strong></tt>
+
+   These files are there for use with Eclipse IDE:
+
+   * .classpath
+   * .project
+   * .settings
+   * .metadata
+   <br /><br />
+
+   Some prefer to add them in .gitignore so they are not in the repo.
+
+   ### .gitignore .DS_Store
+
+   `.DS_Store` files should be ignored. They are created by MacOS.
+   There is an entry for it in the `.gitignore` file so they are not stored in GitHub.
+
+
+   ## Maven
+
+0. Invoke Maven to download dependencies and run Selenium:
+
+   <tt><strong>mvn clean verify -Pbrowser-phantomjs
+   </strong></tt>
+   
+   Maven creates a folder named `target` to receive downloads before starting Selenium.
+
+   `verify -Pbrowser-phantomjs` specifies use of the PhantomJS headless browser.
+   Alternately, other browsers:
+
+   <tt><strong>mvn clean verify -Pbrowser-chrome
+   </strong></tt>
+
+   <tt><strong>mvn clean verify -Pbrowser-firefox
+   </strong></tt>
+
+   mvn clean verify -Pbrowser-edge
+   
+   mvn clean verify -Pbrowser-internet-explorer
+
+   mvn clean verify -Pbrowser-opera
+
+   PROTIP: Several separate runs are needed to test on several browsers.
+
+   At the end of the run, you should see:
+
+   `SUCCESS`
 
 
 <a name="MySamples"></a>
 
-## Get My Samples
+## View Sample Selenium scripts
 
-   <tt><strong>git clone https://github.com/wilsonmar/Selenium-samples
+0. If you're not using an IDE, use the Atom text editor to open a folder list:
+
+   <tt><strong>atom .
    </strong></tt>
+
+0. View the `pom.xml` file.
+
+   The browsers handled by Selenium are identifined by a <strong>profile</strong> 
+   with a <strong>property</strong> within the 
+   `pom.xml` file which also specifies to Maven what dependencies to download 
+   and how to run Selenium.
+
+   PROTIP: If you work within enterprise firewalls, change the external URLs to internal ones,
+   which may be managed within Nexus or Artifactory servers.
+
+0. Dive into folder to view:<br />
+   `src/test/resources/webdrivermanager.properties`.
+
+   Here is where Maven knows to download drivers.
+
+   PROTIP: The `LATEST` is specified. But a specific version would ensure that all drivers downloaded
+   are the ones previously tested to work with each other. 
+   Specific versions can be specified with java invocation:
+
+   <pre>
+-Dwdm.chromeDriverVersion=2.25
+-Dwdm.internetExplorerVersion=2.46
+-Dwdm.operaDriverVersion=0.2.0
+-Dwdm.edgeVersion=3.14366
+-Dwdm.phantomjsDriverVersion=2.1.1
+-Dwdm.geckoDriverVersion=0.11.1
+   </pre>
+
+   See <a target="_blank" href="https://github.com/bonigarcia/webdrivermanager">
+   https://github.com/bonigarcia/webdrivermanager</a>
+
+0. Dive into the `src` folder.
+
+   Notice there is a `main` and a `test` folder.
+   Under each is a folder path:<br />
+   `java/selenium/utils` 
+
+   At the end of that path under `main` contains a 
+   `TestUtils.java` file which defines generic Java utility functions such as
+   randomBetween, isDuplicatePresent, isAllEquals.
+
+   Selenium is all about testing, so the end of 
+   the path under `test` contains many more java files to control the browser.
+   
+0. Under the Annotations folder are files that define compiler annotations.
+
+   `test/java/selenium/configurations/TestConfig.java` makes use of the TypedProperties defined in<br />
+   `main/java/selenium/configurations/TypedProperties.java`.
+
+   PROTIP: Properties controlling a specific test are defined in properties files 
+   rather than hard-coded into code so that different properties can be used during a run
+   by temporarily replacing the file.
+
+0. Tests are driven by a wrapper which App-specific test code extend:
+
+   `SeleniumTestWrapper.java`
+
+   The code controls agent strings and cookies that browsers automatically send back to servers.
+
+   The code also manages the screen dimensions of the browser window.
+
+   These enable app-specific test code to focus on business.
+
+   ### App-specific Tests
+
+0. Edit the file defined to test an app:
+
+   src/test/java/selenium/testcases/SearchIT.java
+
+   The core driving code refers to definitions within the <strong>pageobjects</strong> folder:
+
+   <pre>
+   StartPage startPage = PageFactory.initElements(getDriver(), StartPage.class);
+   HeaderSearch search = PageFactory.initElements(getDriver(), HeaderSearch.class);
+   SearchResultPage searchResultPage = PageFactory.initElements(getDriver(), SearchResultPage.class);
+   </pre>
+
+   See <a target="_blank" href="http://www.seleniumhq.org/docs/06_test_design_considerations.jsp">
+   Selenium Design Considerations</a>
+
+
+   ### Webdriver Manager
+
+   https://github.com/bonigarcia/webdrivermanager
+
+    It checks for the latest version of the WebDriver binary
+    It downloads the WebDriver binary if it's not present on your system
+    It exports the required WebDriver Java environment variables needed by Selenium
+
+    The WebDriver can download files from an open source repository:
+
+    http://npm.taobao.org/mirrors/
+
+
+<a name="Selenium3Hello1"></a>
+
+## Selenium3Hello1
+
+Obtain Selenium to test a sample call to Google Search:
 
    * Selenium3Hello1 is used to verify whether the Selenium core install works.
    It doesn't use any browser driver.
@@ -46,12 +252,6 @@ This article contains notes on installing, coding, and running Selenium.
 
    * Selenium3GoogleSearch1 works on multiple browsers.
    <br /><br />
-
-   NOTE: All "Selenium3" require Java 1.8+.
-
-   PROTIP: A number is included with each component to provide for version control,
-   since everything changes all the time in IT.
-   
 
 Look into the folder:
 
@@ -565,9 +765,14 @@ Usage: safaridriver [options]
 ### Read Excel files
 
    <a target="_blank" href="https://www.youtube.com/watch?v=sbBdj4zIMqY">
-   VIDEO</a>,
+   Read</a>,
+   <a target="_blank" href="https://www.youtube.com/watch?v=MlXV7qSpLDY">
+   Write</a>,
    <a target="_blank" href="http://learn-automation.com/read-and-write-excel-files-in-selenium/">
    BLOG</a>
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=_7XJenTvR34">
+   Data driven framework</a>
 
    To get your Selenium Java code to read Excel files: 
 
@@ -629,4 +834,31 @@ Dave Hoeffer
 https://www.youtube.com/watch?v=zylSll8hsPs
 
 https://www.youtube.com/watch?v=nq97dfaVmC4
+
+
+<a name="DevTest"></a>
+
+## CA DevTest
+
+DevTest
+
+
+<a name="SauceLab"></a>
+
+## SauceLab Cloud
+
+1. Open an account at SauceLab.com.
+
+1. set environment variables SAUCE_USERNAME SAUCE_ACCESS_KEY
+
+   SELENIUM_BROWSER SELENIUM_VERSION SELENIUM_PLATFORM
+
+NAME BUILD
+
+
+
+   NOTE: All "Selenium3" require Java 1.8+.
+
+   PROTIP: A number is included with each component to provide for version control,
+   since everything changes all the time in IT.
 
