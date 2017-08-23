@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Selenium Setup"
-excerpt: "How to get robots to Seleniumtastic your web apps"
+excerpt: "How to emulate real users with robots touching your web apps"
 shorturl: "https://goo.gl/"
 tags: [ML, GE]
 image:
@@ -21,8 +21,9 @@ This article contains notes on installing, coding, and running Selenium.
 1. Run in Google Cloud a Docker image contaning Selenium and associated software.
 2. <a href="#Docker">Run Docker image containing Selenium</a> 
    built using <a href="#Ansible">Ansible scripts that created the image.</a>
-3. <a href="#RunMaven">Run after download from GitHub, then invoke using Maven</a>
-4. <a href="#MySamples">My sample files</a>.
+3. <a href="#RunMaven">Run after download from GitHub, then invoke "as is" using Maven</a>
+
+4. <a href="#MySamples">Explain sample files</a>.
 5. <a href="#Invocation">Invoke a run using starter samples</a>.
 6. <a href="#CrossBrowser">Run across various browsers</a> - Firefox browser, IE, etc.
 7. <a href="#Obtain">Obtain jars and drivers</a> if they have changed.
@@ -31,7 +32,7 @@ This article contains notes on installing, coding, and running Selenium.
 9. Update of results to SonarQube.
 10. <a href="#ReadCSV">Add CSV data processing</a>
 11. <a href="#Excel">Add Excel data processing</a>
-12. Add OpenQA via SikuliX2
+12. Add OpenCV (via SikuliX2)
 13. Add Tesseract
 
 14. Run by CA DevTest
@@ -64,6 +65,9 @@ However, reports are produced by TestNG, a plug-in to Selenium.
 <a name="Docker"></a>
 
 ## Docker images
+
+Docker images containing Selenium server:
+
 
 
 <a name="Ansible"></a>
@@ -196,30 +200,97 @@ Ansible task files to establish Selenium server:
    Selenium is all about testing, so the end of 
    the path under `test` contains many more java files to control the browser.
    
-0. Under the Annotations folder are files that define compiler annotations.
-
-   `test/java/selenium/configurations/TestConfig.java` makes use of the TypedProperties defined in<br />
+   `test/java/selenium/configurations/TestConfig.java` makes use of 
+   properties `browser.name` and `base_url` retrieved by variables in<br />
    `main/java/selenium/configurations/TypedProperties.java`.
 
    PROTIP: Properties controlling a specific test are defined in properties files 
    rather than hard-coded into code so that different properties can be used during a run
    by temporarily replacing the file.
 
-0. Tests are driven by a wrapper which App-specific test code extend:
 
-   `SeleniumTestWrapper.java`
+   ### SeleniumTestWrapper
 
-   The code controls agent strings and cookies that browsers automatically send back to servers.
+   Tests are driven by a wrapper which App-specific test code extend:
+
+0. Look in `SeleniumTestWrapper.java` defined as a `abstract class` which are extended by other code.
+
+   Code in the file controls agent strings and cookies that browsers automatically send back to servers.
 
    The code also manages the screen dimensions of the browser window.
 
    These enable app-specific test code to focus on business.
+   Under the Annotations folder are files that define 
+   <a target="_blank" href="https://medium.com/@iammert/annotation-processing-dont-repeat-yourself-generate-your-code-8425e60c6657">
+   code generation</a> by the Java compiler.
+
+
+   ### Annotations
+
+   <a target="_blank" href="https://en.wikipedia.org/wiki/Java_annotation">
+   WIKIPEDIA</a>,
+   <a target="_blank" href="https://dzone.com/articles/how-annotations-work-java">
+   DZONE</a>
+
+   Each Java compiler annotation: @Before, @Rule, and @After is defined within code imported: 
+
+   <pre>
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.After;
+   </pre>
+
+   The annotation code imported add additional functionality such as logging.
+   These decorators also provide metadata (data about data).
+
+   Instead of using Java inheritance,
+   Java frameworks Spring and Hibernate use AOP (Aspect oriented programming) to provide a mechanism to inject code for preProcessing and postProcessing for an event. A "hook" in code before and after a method execution for consumer code in those places.
+
 
    ### App-specific Tests
 
 0. Edit the file defined to test an app:
 
-   src/test/java/selenium/testcases/SearchIT.java
+   `src/test/java/selenium/testcases/SearchIT.java`
+
+   The file contains annotations:
+
+   <pre>
+@BrowserDimension(XLARGE)
+@Browser(skip = { INTERNET_EXPLORER, EDGE, PHANTOMJS })
+   </pre>
+
+   These annotations are defined by imports:
+
+   <pre>
+import selenium.utils.annotations.browser.BrowserDimension;
+import selenium.utils.annotations.browser.Browser;
+   </pre>
+
+   The earlier version, 2.53 and below, used these libraries:
+
+   <pre>
+import org.openqa.selenium.Dimension;
+   </pre>   
+
+   The earlier 2.x code <a target="_blank" href="http://www.seleniumeasy.com/selenium-tutorials/set-browser-width-and-height-in-selenium-webdriver">was</a>:
+
+   <pre>
+		WebDriver driver = new FirefoxDriver();
+		driver.navigate().to("http://google.co.in");
+		System.out.println(driver.manage().window().getSize());
+		Dimension d = new Dimension(420,600);
+		//Resize the current window to the given dimension
+		driver.manage().window().setSize(d);
+   </pre>
+
+   <a target="_blank" href="https://stackoverflow.com/documentation/selenium-webdriver/10093/setting-getting-browser-window-size#t=201708210126568830045">
+   Maximize window size</a>
+
+   QUESTION: How can we read the code in these annotation libraries?
+
+
+   ### Page Objects
 
    The core driving code refers to definitions within the <strong>pageobjects</strong> folder:
 
@@ -231,6 +302,20 @@ Ansible task files to establish Selenium server:
 
    See <a target="_blank" href="http://www.seleniumhq.org/docs/06_test_design_considerations.jsp">
    Selenium Design Considerations</a>
+
+   The Page Object design pattern separates <strong>locator</strong> definitions in a separate java file
+   so that various tests only need to refer to a reference rather than reduntantly specifying the
+   way to locate objects on each page. This reduces maintenance over time as the website HTML changes.
+   Change the locator technique in one place and all tests are good again.
+
+   <pre>
+   @find
+   </pre>
+
+
+   The basic rule is that tests don't declare variables (to manage state on their own),
+   manipulate the DOM directly,
+   nor create objects (using the "new" constructor keyword).
 
 
    ### Webdriver Manager
@@ -361,7 +446,7 @@ Implicit waits. Don't use them. Especially with explicit waits.
 
 ### Cross platform
 
-   Windows vs. Mac
+   Windows vs. Mac vs. Linux
 
 
 <a name="#CrossBrowser"></a>
@@ -771,6 +856,9 @@ Usage: safaridriver [options]
 
 ### Read Excel files
 
+Video tutorials 
+   <a target="_blank" href="https://www.youtube.com/watch?v=_7XJenTvR34">
+   Data driven framework</a>,
    <a target="_blank" href="https://www.youtube.com/watch?v=sbBdj4zIMqY">
    Read</a>,
    <a target="_blank" href="https://www.youtube.com/watch?v=MlXV7qSpLDY">
@@ -778,8 +866,6 @@ Usage: safaridriver [options]
    <a target="_blank" href="http://learn-automation.com/read-and-write-excel-files-in-selenium/">
    BLOG</a>
 
-   <a target="_blank" href="https://www.youtube.com/watch?v=_7XJenTvR34">
-   Data driven framework</a>
 
    To get your Selenium Java code to read Excel files: 
 
@@ -792,6 +878,7 @@ Usage: safaridriver [options]
 0. Unzip using RAR so you don't extract 
 
 0. Select the file under the HTTP heading.
+
 
 <a name="RockStars"></a>
 
@@ -863,9 +950,12 @@ DevTest
 NAME BUILD
 
 
+## Other info
 
    NOTE: All "Selenium3" require Java 1.8+.
 
    PROTIP: A number is included with each component to provide for version control,
    since everything changes all the time in IT.
 
+
+https://www.gridlastic.com/java-code-example.html

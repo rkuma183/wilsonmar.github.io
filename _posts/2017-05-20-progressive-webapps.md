@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Progressive Webapps"
+title: "Progressive Webapps (PWA)"
 excerpt: "Responsive desktop and mobile hybrid apps that manage data offline too"
 tags: [Mac, Security]
 shorturl: "https://goo.gl/ej6KDG"
@@ -78,9 +78,9 @@ https://weather-pwa-sample.firebaseapp.com/demo</a>
 
 1. Install Git and get it on your machine:
 
-   <pre><strong>git clone <a target="_blank" href="https://www.github.com/wilsonmar/ud811">
+   <tt><strong>git clone <a target="_blank" href="https://www.github.com/wilsonmar/ud811">
    https://www.github.com/wilsonmar/ud811</a> --depth=1
-   <strong></pre>
+   <strong></tt>
 
    This is forked from the original so that I my commentary below would stay consistent
    with what is in GitHub. The original repo is:

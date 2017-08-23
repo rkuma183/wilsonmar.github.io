@@ -333,6 +333,30 @@ src="https://cloud.githubusercontent.com/assets/300046/16313780/06fbabbc-3938-11
 * http://www.sonatype.com/resources/books/maven-the-complete-reference
 
 
+## Mirror
+
+See https://maven.apache.org/guides/mini/guide-mirror-settings.html
+
+The Maven Central Repository provides a UI to <br />
+the mirror website where Maven pulls files from.
+In the US it is:
+
+   * http://repo.maven.apache.org/maven2
+   <br /><br />
+
+The UK mirror supports Europe:
+
+   * http://uk.maven.org/maven2 
+   <br /><br />
+
+Others:<br />
+http://repo.maven.apache.org/maven2/.meta/repository-metadata.xml
+
+## Build Profiles
+
+http://maven.apache.org/guides/introduction/introduction-to-profiles.html
+
+
 ## References
 
 <a target="_blank" href="http://www.mkyong.com/tutorials/maven-tutorials/">
