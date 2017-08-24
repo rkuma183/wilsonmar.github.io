@@ -68,6 +68,7 @@ Cloud Foundry certified provider</a>:
    uses <a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>
    * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix at ibm.com/cloud-computing/bluemix</a><br />
    uses https://api.ng.bluemix.net to IBM's Watson artificial intelligence services
+   * <a target="_blank" href="https://www.softlayer.com/">SoftLayer</a> was acquired by IBM.
    * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a><br />
    uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
    * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
@@ -80,10 +81,9 @@ Cloud Foundry certified provider</a>:
    * <a target="_blank" href="https://atos.net/en/solutions/application-cloud-enablement-devops/multi-cloud-application-platform">
     Atos Cloud Foundry</a>
    * Huawei Digital Transformation FusionStage (China)
-   * SoftLayer
    * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
    * OpenStack
-   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix</a>
+   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a>
    <br /><br />
 
 > The genius of Cloud Foundry is that a single Command Line program provides the same interface to all cloud providers.
@@ -91,9 +91,10 @@ Cloud Foundry certified provider</a>:
 1. Sign Up for a free trial account at one or more of the above providers.
 
    Cloud Foundry is a part of Pivotal, which also provides Spring Boot for Java.
-   So let's start at
-
+   So let's start with 
    <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a>
+
+   http://docs.run.pivotal.io/
 
    <a name="Org"></a>
 
@@ -108,6 +109,8 @@ Cloud Foundry certified provider</a>:
    PROTIP: Write down the org name you created. It will be requested during <a href="#Login">login</a>.
 
 0. Specify billing address, credit card, etc. associated with the org.
+
+   WARNING: Wait several minutes after pressing "Send".
 
 0. Define the <strong>route</strong>, which can be randomly assigned by cf.
 
@@ -280,6 +283,25 @@ See 'cf help &LT;command>' to read about a specific command.
    </pre>
 
    PROTIP: Some commands have a single-character short name.
+
+   PROTIP: Not everyone should be able to do all these commands.
+   Like a bouncer at an event door who checks for credentials,
+   authentication is the process of gaining access to an application based on a list.
+
+   Once inside, like a backstage pass granting additional privileges to go backstage, 
+   administrators have additional access than the default access provided general audiences at an event. 
+   That's authorization.
+
+   "User Account and Authentication (UAA)" is the Cloud Foundry component that
+   provides authentication and authorization based on talks to a Cloud Controller Database (CCDB).
+
+   All settings for users are managed from the command line, either with the cf CLI tool, 
+   or with a specific UAA CLI tool called the UAA Command Line Interface (UAAC), depending on the hosting provider.
+
+   UAA uses the OAuth 2.0 (aka Open Authorization) protocol to define how users can gain access to an HTTP service. 
+   The final piece of this is a login server module that is part of the UAA server component in Cloud Foundry.
+
+   It passes tokens around -- a unique identifier that provides both credentials for authentication (getting in), as well as authorization (what can be used).
 
 
 <a name="Login"></a>
@@ -573,7 +595,10 @@ To scale 5 instances containing myApp :
 
    <tt><strong>cf scale myApp -i 5</strong></tt>
 
+After initial deployment, 
+the ActualLRP of how many copies the DesiredLRP (Desired Long Running Process) are currently running.
 
+These setttings are used by monitoring components.
 
 
 ### Create spaces to keep different apps and services logically organized.
