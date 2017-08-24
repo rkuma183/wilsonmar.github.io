@@ -64,11 +64,11 @@ The <strong>API Endpoint</strong> of each
 <a target="_blank" href="https://cloudfoundry.org/certified-platforms/">
 Cloud Foundry certified provider</a>:
 
-   * <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a> 
-   uses `<a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>`
-   * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix at ibm.com/cloud-computing/bluemix</a> 
+   * <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a><br />
+   uses <a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>
+   * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix at ibm.com/cloud-computing/bluemix</a><br />
    uses https://api.ng.bluemix.net to IBM's Watson artificial intelligence services
-   * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a> 
+   * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a><br />
    uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
    * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
    uses https://api.cf.us10.hana.ondemand.com
@@ -91,26 +91,31 @@ Cloud Foundry certified provider</a>:
 1. Sign Up for a free trial account at one or more of the above providers.
 
    Cloud Foundry is a part of Pivotal, which also provides Spring Boot for Java.
+   So let's start at
 
-   <a target="_blank" href="https://www.youtube.com/watch?v=UWeIxJcaUbQ">
-   VIDEO</a> in <a target="_blank" href="https://cloudfoundry.org/get-started/">https://cloudfoundry.org/get-started</a>
-   by Steve Wahl, Sr. Cloud Architect, who references <a target="_blank" href="http://docs.cloudfoundry.org/cf-cli/install-go-cli.html">
-   http://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>
+   <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a>
 
-   
    <a name="Org"></a>
 
    ### Org
 
-0. Define the org
+0. Define the org at <a target="_blank" href="https://console.run.pivotal.io/organizations/new">
+   https://console.run.pivotal.io/organizations/new</a>
 
-0. Define the route, which can be randomly assigned by cf.
+   Organization (org) is how cloud providers bill. So an org encompasses computing resources, apps, and services. 
+   It can be owned and used by an individual or by multiple collaborators.
+
+   PROTIP: Write down the org name you created. It will be requested during <a href="#Login">login</a>.
+
+0. Specify billing address, credit card, etc. associated with the org.
+
+0. Define the <strong>route</strong>, which can be randomly assigned by cf.
 
 0. Define the app name such as "web-app".
 
-0. Define the binding
+0. Define the binding ???
 
-0. Define the space "example" as ...com.
+0. Define the space "example" as ...com. ???
 
 
 ## Cloud Foundry CLI
@@ -122,6 +127,11 @@ Install cf CLI for your operating system.
 
    * http://cli.cloudfoundry.org/
    <br /><br />
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=UWeIxJcaUbQ">
+   VIDEO</a> in <a target="_blank" href="https://cloudfoundry.org/get-started/">https://cloudfoundry.org/get-started</a>
+   by Steve Wall, Sr. Cloud Architect, who references <a target="_blank" href="http://docs.cloudfoundry.org/cf-cli/install-go-cli.html">
+   http://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>
 
 
 #### On Debian/Unbuntu flavors of Linux
@@ -269,6 +279,8 @@ These are commonly used commands. Use 'cf help -a' to see all, with descriptions
 See 'cf help &LT;command>' to read about a specific command.
    </pre>
 
+   PROTIP: Some commands have a single-character short name.
+
 
 <a name="Login"></a>
 
@@ -283,7 +295,7 @@ See 'cf help &LT;command>' to read about a specific command.
    The <a href="#Org">Org</a>, route and space.
 
 
-   ### Set Endpoint
+### Set Endpoint
 
 0. To set as endpoint the Pivotal cloud:
 
@@ -304,6 +316,19 @@ Not logged in. Use 'cf login' to log in.
 
 ### BOSH Mainfest.yml
 
+BOSH is a "lifecycle management" tool that runs Cloud Foundry itself,
+used "under the covers" of Pivotal CF to deploy and update infrastructure components. 
+
+   https://github.com/cloudfoundry/bosh 
+
+BOSH is a self-referencing acronym where the "B" stands for BOSH itself.
+The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
+
+   https://github.com/cloudfoundry/docs-bosh
+
+A BOSH operator (person) writes and manages various releases built with BOSH.
+
+
 A <strong>manifest.yml</strong> file defines all the pieces of its system for releases.
 The file defines default values for the app defined within its folder.
 For example:
@@ -323,29 +348,20 @@ applications:
    <a href="#Buildpacks">Buildpacks are ...</a> at <a target="_blank" href="https://github.com/cloudfoundry">
    https://github.com/cloudfoundry</a>
 
-https://en.wikipedia.org/wiki/YAML
+   https://en.wikipedia.org/wiki/YAML
 
-See https://bosh.io/docs/deployment-manifest.html
+   See https://bosh.io/docs/deployment-manifest.html
 
-BOSH is a "lifecycle management" tool used to run Cloud Foundry itself.
+Contents are put into a compressed folder and stored on the <strong>BOSH server</strong>.
 
-https://github.com/cloudfoundry/bosh
 
-BOSH is a self-referencing acronym where the "B" stands for BOSH.
-The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
-
-https://github.com/cloudfoundry/docs-bosh
-
-BOSH is used "under the covers" of Pivotal CF to deploy and update infrastructure components. 
-
-contents are put into a compressed folder and stored on the <strong>BOSH server</strong>.
-
-A BOSH operator (person) writes and manages various releases built with BOSH.
+### Agents
 
 BOSH deploys agent software on each part of the system, so that if one piece fails, 
 the agent can quickly alert operators and perhaps even automatically repair the problem. 
 
-You only need special permissions to add, move, or delete them, you do not need special permissions to use them in your manifests or push command correct.
+You only need special permissions to add, move, or delete them.
+You do not need special permissions to use them in your manifests or push command correct.
 
 
 ### Push (upload) from your local machine
@@ -384,9 +400,9 @@ VIDEO</a>
 
    Alternately:
 
-   <tt><strong>cf set-env APP-NAME web-app
-   cf push web-app \-\-no-start
-   cf set-env APP-NAME special_token h4DKt6W7Fm4dLJxtBU37aW
+   <tt><strong>cf set-env APP-NAME web-app<br />
+   cf push web-app \-\-no-start<br />
+   cf set-env APP-NAME special_token h4DKt6W7Fm4dLJxtBU37aW<br />
    cf start APP-NAME
    </strong></tt>
 
@@ -399,11 +415,11 @@ VIDEO</a>
 
    `cf start APP-NAME` 
 
-   What should happen:
+   Here's a flowchart of what should happen during a push:
    <!-- https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/courseware/05655ef9d6cf4b388239a47663b6b4a8/2336c77fbbdc48029ead67ce44bafe20/?child=first -->  
    ![cf-pushing-workflow-1024x768-179](https://user-images.githubusercontent.com/300046/29647251-4e161eba-8856-11e7-8608-3bd2ceeed495.jpg)
 
-   The code is transformed through its deployment process through three stages into the application.
+   Below is a description of this flowhart, of how code is transformed through its deployment process through three stages into the application.
 
    1. Build transforms your code into an executable form.
 
@@ -424,7 +440,7 @@ VIDEO</a>
 
    3. "Run" is when the release package gets deployed and executed.
 
-      "<strong>Diego</strong>" takes that Droplet and runs it in a Container (Diego Cell).
+      The "<strong>Diego</strong>" component in Cloud Foundry takes that Droplet and runs it in a Container (<strong>Diego Cell</strong>).
 
       NOTE: Within Cloud Foundry, HTTP traffic is handled by the "GoRouter" gateway which connects two or more networks.
       The "Go" in the name is there because it was recently re-written (from the original Ruby) in the Go programming language
