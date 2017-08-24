@@ -1,4 +1,21 @@
-cloud-foundry.md
+---
+layout: post
+title: "Cloud-Foundry"
+excerpt: "Multi-cloud"
+shorturl: "https://goo.gl/"
+modified:
+tags: []
+image:
+# feature: pic blue black stars spin 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg
+  credit: Jeremy Thomas
+  creditlink: https://www.flickr.com/photos/132218932@N03/page2
+comments: true
+---
+<i>{{ page.excerpt }}</i>
+<hr />
+
+{% include _toc.html %}
 
 This are the notes I took while I studied to become
 Cloud Foundry certified.
@@ -24,29 +41,8 @@ Shorter deployments allow your team to ship new code quicker and more often.
 Using Cloud Foundry throughout the development process
 enables teams to catch potential production problems earlier and avoid nasty surprises in production.
 
-
-## Outline 
-
-distributions available to end users, 
-overview of the platform's components The course
-also includes technical instructions on how to use the command line interface, how applications are
-deployed, what services are within the context of the system and basic debugging practices.
-Finally, the workshop will take you on a tour through what it means to build cloud-native applications
-architecturally and ideologically. In doing so, we will review the 12-factor method of composing
-modern distributed web systems.
-
-* Explore the runtime, security and network of Cloud Foundry.
-* How to build runtime and framework support with buildpacks.
-* Learn "The Twelve Factor app" design patterns for resiliency and scalability.
-* Get the steps needed to make your app "cloud-native".
-* Understand how each component of Cloud Foundry combine to provide a cloud-native platform.
-* Study techniques and examples for locating problems in distributed systems.
-
-
 Cloud Foundry is a "service-based" platform,
 running containers reliably and running as many as needed. 
-
-UI, database, and server.
 
 
 ### Monoliths
