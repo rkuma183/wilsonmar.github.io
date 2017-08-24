@@ -17,32 +17,71 @@ comments: true
 
 {% include _toc.html %}
 
-This are the notes I took while I studied to become
-Cloud Foundry certified.
+This are the notes I took while I studied to become Cloud Foundry certified.
 
-Cloud Foundry simplifies for developers to deliver business value more quickly, without wasting time getting their app
-to the cloud.
+A lot of thought has gone into the sequencing of information presented so you learn the most in the least time possible.
+
+## What is Cloud Foundry?
 
 <a target="_blank" href="https://www.cloudfoundry.org/">
 cloudfoundry.org</a> is the home page of 
 the non-profit vendor-independent Cloud Foundry Foundation was formed by 70 vendors in January of 2015 to own the 
-Cloud Foundry open source project.
+Cloud Foundry open source project at
 
-## What is Cloud Foundry?
+   * <a target="_blank" href="https://github.com/cloudfoundry/">https://github.com/cloudfoundry</a>
+   <br /><br />
 
-Cloud Foundry is a PaaS (Platform as a Service) which manages many of the details of running applications in production. It is a part of Pivotal.
+Cloud Foundry is a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
 
-Running an application in production uses different skills than those your team used to write the application in the first place. 
+Running an application in production uses different skills than those development teams use to write application code. 
+
 Cloud Foundry shortens and simplifies the process of deploying applications. 
-
-This frees teams to focus on what they do best: writing applications.
-Shorter deployments allow your team to ship new code quicker and more often. 
+It frees teams to focus on writing applications.
+Shorter deployments allow teams to ship new code quicker and more often. 
 
 Using Cloud Foundry throughout the development process
 enables teams to catch potential production problems earlier and avoid nasty surprises in production.
 
 Cloud Foundry is a "service-based" platform,
 running containers reliably and running as many as needed. 
+
+
+
+<a name="ProviderClouds"></a>
+
+### Provider Clouds' Endpoints
+
+Cloud Foundry provides a cloud-agnostic layer supporting cloud providers.
+
+DEFINITION: A provider is a company that hosts Cloud Foundry as a service, 
+then bills the client for the resources they use.
+   See https://www.cloudfoundry.org/certified-platforms/
+
+The <strong>API Endpoint</strong> is provided by each 
+<a target="_blank" href="https://cloudfoundry.org/certified-platforms/">
+Cloud Foundry certified provider</a>: 
+
+   * <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a> 
+   uses <a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>
+   * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix</a> 
+   uses https://api.ng.bluemix.net to IBM's Watson artificial intelligence services
+   * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a> 
+   uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
+   * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
+   uses https://api.cf.us10.hana.ondemand.com
+
+   * VMware vSphere
+   * Amazon Web Services (AWS)
+   * <a target="_blank" href="https://atos.net/en/solutions/application-cloud-enablement-devops/multi-cloud-application-platform">
+    Atos Cloud Foundry</a>
+   * Huawei Digital Transformation FusionStage (China)
+   * Microsoft Azure???
+   * Google Compute Platform (GCP)
+   * SoftLayer
+   * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
+   * OpenStack
+   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix</a>
+   <br /><br />
 
 
 ### Monoliths
@@ -121,6 +160,15 @@ You will know you have gone too far when the overhead (communications, maintenan
 
 ## Cloud Foundry Account
 
+   <a target="_blank" href="https://www.youtube.com/watch?v=UWeIxJcaUbQ">
+   VIDEO</a> in <a target="_blank" href="https://cloudfoundry.org/get-started/">https://cloudfoundry.org/get-started</a>
+   by Steve Wahl, Sr. Cloud Architect, who references <a target="_blank" href="http://docs.cloudfoundry.org/cf-cli/install-go-cli.html">
+   http://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>
+
+> The genius of Cloud Foundry is that a single Command Line program provides the same interface to all clounds providers.
+
+   CF is a part of Pivotal, which also provides Spring Boot for Java.
+
 1. Sign Up for a free trial Cloud Foundry account.
 
    
@@ -141,11 +189,11 @@ You will know you have gone too far when the overhead (communications, maintenan
 
 ## Cloud Foundry CLI
 
-1. Install cf CLI for your operating system.
+
+Install cf CLI for your operating system.
 
    Use package managers for easy management and upgrades. 
 
-   * http://docs.cloudfoundry.org/cf-cli/install-go-cli.html
    * http://cli.cloudfoundry.org/
    <br /><br />
 
@@ -195,7 +243,7 @@ sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundr
 VIDEO</a>:
 
 1. Open a Terminal window.
-0. Install the packaging system Homebrew (https://brew.sh)
+0. Install the packaging system Homebrew (https://brew.sh) using a Ruby instance installed by default on all Macs:
 
    <pre>
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -213,12 +261,14 @@ VIDEO</a>:
 
 3. <a href="#Verify">Verify</a> below.
 
+
 #### On Windows
 
 1. Open a Run command window.
 2. Download and install:
 
-   https://cli.run.pivotal.io/stable?release=windows64&source=github
+   <a target="_blank" href="https://cli.run.pivotal.io/stable?release=windows64&source=github">
+   https://cli.run.pivotal.io/stable?release=windows64&source=github</a>
 
 3. <a href="#Verify">Verify</a> below.
 
@@ -291,32 +341,6 @@ These are commonly used commands. Use 'cf help -a' to see all, with descriptions
 See 'cf help &LT;command>' to read about a specific command.
    </pre>
 
-
-### Providers' Endpoints
-
-BOSH provides a cloud-agnostic layer supporting cloud providers.
-
-DEFINITION: A provider is a company that hosts Cloud Foundry as a service, 
-then bills the client for the resources they use.
-   See https://www.cloudfoundry.org/certified-platforms/
-
-The <strong>API Endpoint</strong> is provided by each 
-<a target="_blank" href="https://cloudfoundry.org/certified-platforms/">
-Cloud Foundry certified provider</a>: 
-
-   * Pivotal Web Services uses <a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>
-   * IBM BlueMix uses https://api.ng.bluemix.net to IBM's Watson artificial intelligence services
-   * <a target="_blank" href="https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">Swisscom Application Cloud</a> uses https://api.lyra-836.appcloud.swisscom.com
-   * VMware vSphere
-   * Amazon Web Services (AWS)
-   * SAP Cloud Platform uses https://api.cf.us10.hana.ondemand.com
-   * Atos Cloud Foundry https://atos.net/en/solutions/application-cloud-enablement-devops/multi-cloud-application-platform
-   * Huawei Digital Transformation FusionStage (China)
-   * Microsoft Azure???
-   * Google Compute Platform (GCP)
-   * SoftLayer
-   * OpenStack
-   <br /><br />
 
 0. To set as endpoint the Pivotal cloud:
 
@@ -423,27 +447,57 @@ VIDEO</a>
 
    PROTIP: An cf development enviornment is not needed just to push.
 
-0. Push to CFs <strong>Cloud Controll</strong> your "web-app":
+0. Push to CFs <strong>Cloud Controller</strong> based on what is defined in the manifest.yml file:
+   
+   <tt><strong>cf push 
+   </strong></tt>
 
-   <tt><strong>cf push web-app</strong></tt>
+   Alternately:
+
+   <tt><strong>cf set-env APP-NAME web-app
+   cf push web-app \-\-no-start
+   cf set-env APP-NAME special_token h4DKt6W7Fm4dLJxtBU37aW
+   cf start APP-NAME
+   </strong></tt>
 
    `web-app` is not needed if the name is defined in the manifest.yml file.
 
+   `--no-start` stages apps instead of starting them immediately.
+
+   `cf set-env APP-NAME special_token h4DKt6W7Fm4dLJxtBU37aW`<br />
+   sets an envionment variable containing an access token
+
+   `cf start APP-NAME` 
+
    What should happen:
-
-   - The CLI gathers your app’s files and uploads them to Cloud Foundry Cloud Controller.
-   - The Cloud Controller finds the needed Buildpack, which helps applications gather everything they need to build and run on Cloud Foundry.
-   - The Buildpack builds an application image (Droplet).
-   - The release stage is when the droplet is copied to your application container. The droplet is unpacked and the command to start your application is run. If you create more instances of your application, the same droplet is used on those new application containers. The droplet is built once, when pushed, and ensures all the releases in the future are identical until your next push.
-   - Diego takes that Droplet and runs it in a Container (Diego Cell).
-   <br /><br />
-
    <!-- https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/courseware/05655ef9d6cf4b388239a47663b6b4a8/2336c77fbbdc48029ead67ce44bafe20/?child=first -->  
    ![cf-pushing-workflow-1024x768-179](https://user-images.githubusercontent.com/300046/29647251-4e161eba-8856-11e7-8608-3bd2ceeed495.jpg)
 
-   The Gorouter handles HTTP traffic.
+   The code is transformed through its deployment process through three stages into the application.
 
-   Container execution is handled by "Garden".
+   1. Build transforms your code into an executable form.
+
+      - The cf CLI gathers your app’s files and uploads them to Cloud Foundry Cloud Controller.
+
+      - The Cloud Controller finds the needed Buildpack.
+
+      - The Buildpack gather everything needed to build and run on Cloud Foundry, then builds an application image (<strong>Droplet</strong>).
+
+   2. Release combines the executable with available configuration.
+
+      The droplet is copied to a application <strong>container</strong>. 
+
+      Within a container, the droplet is unpacked. The command to start your application is run. 
+
+      If more instances of your application is created, the same droplet is used on those new application containers. 
+      The droplet is built once, when pushed, and its use ensures that all future releases are identical until the next push.
+
+   3. Run is where the release package gets deployed and executed.
+
+      "<strong>Diego</strong>" takes that Droplet and runs it in a Container (Diego Cell).
+
+      NOTE: Within CF, the "Gorouter" handles HTTP traffic.
+      And container execution is handled by "Garden".
 
 0. Highlight the random URL CF generates (for example "flowing-packets" in "web-app-flowing-packets.cfapps.io")
    to copy to your Clipboard.
@@ -477,17 +531,21 @@ VIDEO</a>
    </strong></tt>
 
 
-   ### Restage
+   ### Restore
 
 0. PROTIP: Create a script with the above and execute that instead of typing them again and again.
 
-   ### Restage vs. Restart
+   ### Restore vs. Restart
 
    `--no-start` stages apps instead of starting them so people can view it.
 
    `cf set-env APP-NAME special_token h4DKt6W7Fm4dLJxtBU37aW`
 
-   `cf restage APP-NAME`
+   When a database is too small and you need to upgrade it, set up a larger server in preparation, import the database to it. 
+   To use the new server, change the database URL in your configuration file and restart the application.
+
+   `cf restart APP-NAME`
+
 
 
    ### Delete apps
@@ -511,10 +569,10 @@ VIDEO</a>
    cf marketplace -s SERVICE
    </strong></tt>
 
-   Widen the response:
+   Drag the edge of the Terminal window to expand its width so you can see this:
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/29647941-d9ca4ee2-8859-11e7-84d8-67c3d808dec9.png">
-   <img alt="cf-marketplace-650x210-115kb" href="https://user-images.githubusercontent.com/300046/29647925-b86501f2-8859-11e7-89b1-e2d1e86b3ae8.png">
+   <img alt="cf-marketplace-650x210-115kb" src="https://user-images.githubusercontent.com/300046/29647925-b86501f2-8859-11e7-89b1-e2d1e86b3ae8.png">
    <small>(Click to pop-up large image)</small></a>
 
 
@@ -575,10 +633,11 @@ CF can detect the applications' programming language:
    * Java looks for framework features like the .groovy directory for Groovy applications. Java can run Ant, Maven, and Gradle, depending on what it detects.
    * PHP may run Compose
    * Go
-   * Python
+   * Python runs pip
    * Static Files buildpacks look for a file named Staticfiles 
    * Erlang https://github.com/cloudfoundry-community/cf-docs-contrib/wiki/Buildpacks
    * Swift https://github.com/cloudfoundry-community/swift-buildpack.git
+   * Perl runs CPAN
 
    <!-- https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/courseware/a3d422fd1e7142a0a23bf754307a69f0/79bdd1365cbe4512ac9cd16bb9cfcdb6/?child=first -->
 
@@ -601,19 +660,48 @@ Buildpacks standardize the process for building applications,
 so the various steps during building that are common can use the same commands and tools.
 
 
+<a name="12Factor"></a>
+
 ## Twelve Factor App Methodology
 
-https://12factor.net
+<a target="_blank" href="https://12factor.net/">
+https://12factor.net</a>
 is a guide by Adam Wiggins, the Heroku platform co-founder.
 
-## Cloud Foundry Components
-• Routing
-• Authentication
-• Application Lifecycle
-• App Storage and Execution
-• Services
-• Messaging
-• Metrics and Logging
+DEFINITION: A codebase is the collection of code used to build a particular application.
+
+A Twelve Factor app should be able to swap out local resources for remote ones with no code changes. 
+There is no distinction between local and remote resources.
+
+Locally within CF:
+
+   * Datastores (e.g. MySQL, Redis)
+   * Caching services (e.g. Memcached)
+
+External resources remote outside CF:
+
+   * Asset services (e.g. Amazon S3)
+   * Logging (e.g. Loggly, New Relic)
+   * Mail services (e.g. Postmark)
+
+DEFINITION: A backing service is anything the application consumes over the network for normal operation. 
+
+Application processes should not store anything that needs to persist on the filesystem of the web application.
+
+Let's say an app has a three-step sign up process for users visiting the site (email, confirm, provide other contact info and preferences, etc.)
+Each time the user hits next in that sign up process, the web server sees that as a fresh request. 
+The state of that user's signup should be held in a backing service with an <strong>identifier</strong> passed in each page request.
+
+The CF Backing services hold the <strong>state</strong> of transactions in a database, a cache or some other storage.
+If an app uses (archaic) browser cookies, it should put them in a backing service when it receives them.
+
+This "stateless" approach enables the app to be run on multiple servers. 
+Every request to the web server is seen as a new request. 
+Web server code should have no concept of a chain of events, it simply takes a request for a URL and gives a response.
+
+Cloud Foundry provides comprehensive API endpoints that manage how applications and services connect to each other.
+
+
 
 ## Resilience and Availability
 • Basics of Scaling in Cloud Foundry
