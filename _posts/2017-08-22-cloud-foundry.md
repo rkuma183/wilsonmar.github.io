@@ -245,7 +245,7 @@ Application lifecycle:
   restart,rs    env,e          
   restage,rg    scale          
 &nbsp;
-Services integration:
+<a href="#SvcsIntegration">Services integration:</a>
   marketplace,m        create-user-provided-service,cups
   services,s           update-user-provided-service,uups
   create-service,cs    create-service-key,csk
@@ -377,7 +377,7 @@ applications:
 Contents are put into a compressed folder and stored on the <strong>BOSH server</strong>.
 
 
-### Agents
+### BOSH Agents
 
 BOSH deploys agent software on each part of the system, so that if one piece fails, 
 the agent can quickly alert operators and perhaps even automatically repair the problem. 
@@ -462,7 +462,17 @@ VIDEO</a>
 
    3. "Run" is when the release package gets deployed and executed.
 
-      The "<strong>Diego</strong>" component in Cloud Foundry takes that Droplet and runs it in a Container (<strong>Diego Cell</strong>).
+      All the pieces that combine to provide the execution environment are defined by the 
+      <a target="_blank" href="https://docs.cloudfoundry.org/concepts/diego/diego-architecture.html#diagram">Diego architecture</a>.
+
+      The "<strong>Diego</strong>" component at the heart of Cloud Foundry takes each 
+      Droplet and runs it in a Container (<strong>Diego Cell</strong>).
+
+      To run apps, the execution environment consists of virtual machines that have the necessary software to start, stop, and monitor each application. These virtual machines are called Diego Cells. 
+
+      <a name="GoRouter"></a>
+
+      ## GoRouter
 
       NOTE: Within Cloud Foundry, HTTP traffic is handled by the "GoRouter" gateway which connects two or more networks.
       The "Go" in the name is there because it was recently re-written (from the original Ruby) in the Go programming language
@@ -470,7 +480,8 @@ VIDEO</a>
       
       Externally are clients from the internet, in the middle is the router, and internally are the services of Cloud Foundry.
 
-      Container execution is handled by "Garden".
+   <a target="_blank" href="https://docs.cloudfoundry.org/concepts/diego/diego-auction.html">
+   Diego auction</a> selects Diego Cells to process (match with apps wanting execution).
 
 0. Highlight the random URL CF generates (for example "flowing-packets" in "web-app-flowing-packets.cfapps.io")
    to copy to your Clipboard.
@@ -485,6 +496,9 @@ VIDEO</a>
    <tt><strong>cf routes
    </strong></tt>
 
+
+   ### Web App Load Balancer
+
 0. Open to view the app runnning. For example:
 
    <tt><strong>open https://web-app-flowing-packets.cfapps.io
@@ -492,8 +506,6 @@ VIDEO</a>
 
    The sample web-app from EDX simply says
    "Congratulations on pushing your first Cloud Foundry App".
-
-   ### Load Balancer
 
    Many production environments have a load balancer in front of the requests coming into their network
    -- the entry point to the Cloud Foundry network. 
@@ -519,6 +531,18 @@ VIDEO</a>
 
    <tt><strong>cf logs web-app \-\-recent
    </strong></tt>
+
+   As with the logs pattern in the Twelve Factor methodology, CF streams logs out so the data about the system can be gathered and analyzed
+   away from the web server so that aggregation of logs is possible. The Cloud Foundry component doing that is called 
+   <a target="_blank" href="https://docs.cloudfoundry.org/loggregator/architecture.html">loggregator</cf-a>.
+
+   The loggregator stores and forwards logs to other analysis systems, such as AppDynamics, Splunk, or in a Hadoop/Hive to:
+
+   * Finding specific events in the past
+   * Large-scale graphing of trends (such as requests per minute)
+   * Active alerting according to user-defined heuristics (such as an alert when the quantity of errors per minute exceeds a certain threshold).
+
+   The amount of data can be overwhelming, so apply a filter.
 
 
    ### Restore
@@ -551,9 +575,13 @@ VIDEO</a>
    <tt><strong>cf delete example com --hostname web-app-random-name
    </strong></tt>
 
-## Service Marketplace
 
-0. Find the service and plan you need:
+
+<a name="SvcsIntegration"></a>
+
+## Service Marketplace Integration
+
+0. Locate services and plan in the output from this command:
    
    <tt><strong>cf marketplace<br />
    cf marketplace -s SERVICE
@@ -565,6 +593,8 @@ VIDEO</a>
    <img alt="cf-marketplace-650x210-115kb" src="https://user-images.githubusercontent.com/300046/29647925-b86501f2-8859-11e7-89b1-e2d1e86b3ae8.png">
    <small>(Click to pop-up large image)</small></a>
 
+   NOTE: <a target="_blank" href="https://docs.cloudfoundry.org/services/api.html">
+   The service broker API</a> enable developers to use existing services or create their own.
 
 0. Create an instance of the service:
 
@@ -576,6 +606,11 @@ VIDEO</a>
    <tt><strong>cf bind-service
    </strong></tt>
 
+   When the time comes to connect to the service, the service broker takes the request and creates a 
+   <strong>"service instance"</strong>. 
+
+   When that instance comes online, it binds the service instance to the application. 
+   Binding reports the information to the GoRouter, so it knows how to send information from the application to the database.
 
 
 ## Elastic Runtime
@@ -595,10 +630,20 @@ To scale 5 instances containing myApp :
 
    <tt><strong>cf scale myApp -i 5</strong></tt>
 
+
+## Health Monitoring and Self-Healing
+
 After initial deployment, 
 the ActualLRP of how many copies the DesiredLRP (Desired Long Running Process) are currently running.
 
-These setttings are used by monitoring components.
+   These setttings are used by monitoring components, as illustrated by
+   <a target="_blank" href="https://docs.cloudfoundry.org/concepts/architecture/index.html#nsync-bbs">this flowchart</a>:
+
+   ![cf-app-monitor-sync-diego-665x304-36k](https://user-images.githubusercontent.com/300046/29669963-2ac8ec82-88b3-11e7-846f-8794174722e0.png)
+
+   Container execution is handled by "Garden".
+
+   The nsync, BBS, and Cell Rep components work together along a chain to keep apps running.
 
 
 ### Create spaces to keep different apps and services logically organized.
@@ -699,15 +744,34 @@ Web server code should have no concept of a chain of events, it simply takes a r
 Cloud Foundry provides comprehensive API endpoints that manage how applications and services connect to each other.
 
 
-### Scaling
+### Storage in Diego
 
+Buildpacks are stored in a <strong>blobstore</strong>, a database for storing BLOB data.
 
-• Health Monitor?
+A Binary Large OBject (BLOB) is a collection of binary data stored as a single entity in a database management system.
+
+These are different that SQL databases which were designed to read rows of data. 
+But Diego stores in each row a pointer to the BLOB on the filesystem.
+Read and write of BLOB data can be optimized since the large binary data is the only object it needs to worry about. 
+
+The blobstore uses the Fog Ruby gem in order to use services like Amazon S3, WebDAV, or the NFS filesystem for storage.
+http://fog.io/
+
+The Cloud Controller may be configured to use a separate blobstore for each type.
+But, typically, the same blobstore is used to store all five types of blobs.
+
+The database component is called <strong>BBS</strong> (for bulletin board system) as homage to an early era
+before social media, or even the popularity of email and the internet, when
+connections were made over a dial-up connection, with a terminal program. 
+Once connected, users would upload and download software, play games, and exchange messages.
+Thus, the BBS server handles messages coming from inside and outside the Diego system. 
+This helps keep track of what work is being orchestrated across Diego at any given moment.  
+
 
 
 ## Orgs, Spaces, Roles, and Permissions
 • Business Management Modeling
-• Putting It All Together
+
 
 ## Routes and Domains
 • Internet Routing
@@ -730,6 +794,7 @@ Cloud Foundry provides comprehensive API endpoints that manage how applications 
 • Distributed Tracing
 
 Autosleep 
+
 
 <a name="Diego"></a>
 
