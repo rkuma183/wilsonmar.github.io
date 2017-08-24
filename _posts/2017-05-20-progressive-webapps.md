@@ -82,7 +82,7 @@ https://weather-pwa-sample.firebaseapp.com/demo</a>
    https://www.github.com/wilsonmar/ud811</a> --depth=1
    <strong></tt>
 
-   This is forked from the original so that I my commentary below would stay consistent
+   This is forked from the original so that my commentary below would stay consistent
    with what is in GitHub. The original repo is:
 
    <pre>git clone <a target="_blank" href="https://www.github.com/udacity/ud811">
