@@ -20,7 +20,7 @@ comments: true
 Here is a hands-on introduction to using Cloud Foundry (and becoming Cloud Foundry certified).
 
 A lot of thought has gone into the sequencing of information presented so you learn the most in the least time possible.
-Concepts are introduced after you take action.
+Concepts are introduced after you take action, followed by succinct commentary, with links for more.
 
 
 ## What is Cloud Foundry?
@@ -269,7 +269,7 @@ Route and domain management:
   domains         map-route       
   create-route    unmap-route     
 &nbsp;
-Space management:
+<a href="#Spaces">Space management:</a>
   spaces         create-space    set-space-role
   space-users    delete-space    unset-space-role
 &nbsp;
@@ -385,9 +385,9 @@ applications:
 
    ### Log into Cloud Foundry
 
-0. Login
+0. Login using the abbreviated command name:
 
-   <tt><strong>cf login</strong></tt>
+   <tt><strong>cf l</strong></tt>
 
    Instead of asking for your email and password again for every command,
    once logged in, Cloud Foundry generates a temporary <strong>token</strong> that the CLI stores locally
@@ -719,6 +719,9 @@ This binary can then be executed by the JVM.
 "Elastic runtime" is about growing or shrinking processors, memory, disk space, etc. 
 to meet demand from customers. 
 
+   DEFINITION: Worker apps wait for requests, like a cron job (daemons) in Linux.
+   Worker apps can start on a schedule, such as every 15 minutes.
+
 
 ## Health Monitoring and Self-Healing
 
@@ -757,10 +760,48 @@ To change health check parameters on running applications:
    </strong></tt>
 
 
-### Create spaces to keep different apps and services logically organized.
+<a name="Spaces"></a>
 
-   DEFINITION: Worker apps wait for requests, like a cron job (daemons) in Linux.
-   Worker apps can start on a schedule, such as every 15 minutes.
+### Spaces to keep different apps and services logically organized.
+
+People do work in spaces.
+
+Spaces are group affinities (such as "Dev", "QA", "Staging", "Prod", etc.)
+that contain applications and services like rooms in a house. 
+
+A user can belong to multiple spaces. 
+In each space you see its list of user accounts. 
+This multi-tenancy provides a level of security or separation of work, 
+since there is control over whom is allowed to enter each space. 
+
+   <tt><strong>cf set-quota myorg service instances ???<br />
+   cf set-space-quota web-app 5
+   </strong></tt>
+
+Each space can have unique properties such as these quotas that define the maximum allowed:
+
+   * Total memory - The maximum amount of memory a Space can have
+   * Instance memory - The maximum amount of memory an application instance can have
+
+   * Routes - The maximum number of routes allowed in a Space
+
+   * Service instances - The maximum number of service instances that can be created
+   * App instances - The maximum number of application instances that can be deployed
+   * Paid plans - Allow or disallow paid services
+   * Route ports - The maximum number of routes with reserved ports
+
+roles, permissions, and user accounts affect spaces.
+
+An org groups spaces together.
+At the org level, you can list all its user accounts with all their spaces.
+
+Roles are designed using the principle of least privilege -- only the permissions necessary for the role function are assigned.
+
+   * Developer - manages the applications and services it relates to.
+   * Billing - is similar to the auditing role, but is more restrictive.
+   * Auditor - needs to review what is going on, but never modify anything.
+   * Manager - assigns and un-assigns user accounts from orgs and spaces, but not deploy (push) applications.  
+   * Administrator - has all rights and privileges. So it's is for only a few user accounts in the operations team. 
 
 
 ### BOSH Agents
@@ -890,7 +931,10 @@ This helps keep track of what work is being orchestrated across Diego at any giv
 
 
 ## Orgs, Spaces, Roles, and Permissions
+
 • Business Management Modeling
+
+Businesses have different ways to perform their software development. Some are developer-centric, while some are application-centric, and others might be development process-centric. Cloud Foundry provides the mechanisms to achieve this modeling, control user account access, and define limits on your applications and services.
 
 
 ## Routes and Domains
