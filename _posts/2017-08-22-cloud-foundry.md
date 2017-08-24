@@ -264,7 +264,7 @@ Application lifecycle:
   bind-service,bs      bind-route-service,brs
   unbind-service,us    unbind-route-service,urs
 &nbsp;
-Route and domain management:
+<a href="#Domain">Route and domain</a> management:
   routes,r        delete-route    create-domain
   domains         map-route       
   create-route    unmap-route     
@@ -531,6 +531,16 @@ Getting routes for org playdate / space development as wilsonmar@gmail.com ...
 space         host                                   domain      port   path   type   apps      service
 development   web-app-unstridulating-bronchobuster   cfapps.io                        web-app
    </pre>
+
+   <a name="Domain"></a>
+
+   ### Domain
+
+   DEFINITION: A domain is used to define a router that maps your application to its location in Cloud Foundry.
+
+   It's kinda like a Postal Service zip code designating the general vacinity.
+
+   An HTTP route is determined by the URL, while a TCP route uses the port number.
 
 
    ### Through the Web App Load Balancer
@@ -937,15 +947,69 @@ This helps keep track of what work is being orchestrated across Diego at any giv
 Businesses have different ways to perform their software development. Some are developer-centric, while some are application-centric, and others might be development process-centric. Cloud Foundry provides the mechanisms to achieve this modeling, control user account access, and define limits on your applications and services.
 
 
-## Routes and Domains
-• Internet Routing
-• Cloud Foundry Domains and Routes
-
 ## Zero Downtime Deployments
-• What Is Zero Downtime Deployment?
-• Concepts
-• What Concepts Make Zero Downtime Deployments Fail?
-• How Zero Downtime Deployment Works in Cloud Foundry
+
+A zero downtime deployment allows for the old release to finish any outstanding interactions and for the new release to process new requests. 
+
+Conversely, in zero downtime deployments, you can restore back the old release if the new release exhibits an issue without users being aware that you are restoring back to the old release.
+
+This is because two deployment packages run in parallel. 
+One is the current live environment and the other is either the previous live environment, 
+or the next deployment package ready to become live.  
+
+In front of these two environments is the load balancer or a network router determining which environment is currently live. 
+Any existing connections are allowed to complete and any new connections go to the new environment.
+
+When all the connections in the previous environment are closed, the previous environment can then be used to build your next deployment. It is good practice to wait before building the next deployment environment to make sure there is no reason to revert back.
+
+Reduce risk by doing many deployments with small changes that are simpler to understand and review. 
+
+Zero downtime deployments further reduces the risk by allowing the new version some traffic for verification before you remove the older version. 
+
+   When a new release is created, new routes to and from processes and background services are created. 
+   For application reliability and scalability issues, the same load balancer or network router is used for both deployments. 
+   Both versions of the code are available and connected to the backing service, so all the work is focused solely on the changes to routing.
+
+Any changes should allow for either release to run, i.e., you must maintain forward and backward compatibility. 
+
+Let's say you want to add a required column to the database. In order to be able to revert, we need to do a series of releases like the following:
+
+Add the database column as an optional column and with a default value. 
+Deploy code to use the field, without requiring it, and test the code.
+In the next deploy, release the code that requires the column to have the value.
+This release will make changes to the database column, marking it as required.
+Optionally, a release to remove the default value from the required column can wrap up the steps.
+In each of these deployments, it is safe to revert back to the previous release at any time.
+
+Web applications use Cascading Style Sheets (CSS) to build their presentation layer. Which, from a developer's perspective, is code they use to build different elements of the web page. For the user, the presentation layer is what they see in their browser.
+
+In order to deploy changes to the presentation of the website, the CSS and any of the associate files need to have both the new version and the current version available. This means each CSS file has a unique identifier rather than sharing the same name. 
+This can be accomplished with two deploys. Push the CSS first, then push any other code that uses the cssCSS in the next deploy.
+
+When adding a required column to the database, in order to be able to revert, we need to do a series of releases like the following:
+
+Add the database column as an optional column and with a default value. 
+Deploy code to use the field, without requiring it, and test the code.
+In the next deploy, release the code that requires the column to have the value.
+This release will make changes to the database column, marking it as required.
+Optionally, a release to remove the default value from the required column can wrap up the steps.
+In each of these deployments, it is safe to revert back to the previous release at any time.
+
+Web applications use Cascading Style Sheets (CSS) to build their presentation layer. Which, from a developer's perspective, is code they use to build different elements of the web page. For the user, the presentation layer is what they see in their browser.
+
+In order to deploy changes to the presentation of the website, the CSS and any of the associate files need to have both the new version and the current version available. This can be accomplished with two deploys. Push the CSS first, then push any other code that uses the cssCSS in the next deploy.
+
+To add a required column to the database, enable revert by doing a series of releases:
+
+1. Add the new database column as an <strong>optional column</strong> and with a default value. 
+2. Deploy code to use the field, without requiring it, and test the code.
+
+3. In the next deploy, release the code that <strong>requires the column</strong> to have the default value.
+4. This release will make changes to the database column, marking it as required.
+
+5. Optionally, a release to remove the default value from the required column can wrap up the steps.
+
+
 
 ## Cloud Native Design Patterns
 • Service Discovery Design Pattern
@@ -957,7 +1021,7 @@ Businesses have different ways to perform their software development. Some are d
 • Debugging Commands
 • Distributed Tracing
 
-Autosleep 
+AutoSleep 
 
 
 <a name="Diego"></a>
