@@ -86,7 +86,16 @@ Cloud Foundry certified provider</a>:
    * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a>
    <br /><br />
 
-> The genius of Cloud Foundry is that a single Command Line program provides the same interface to all cloud providers.
+> The genius of Cloud Foundry is that a single Command Line program ("cf") provides the same interface to all cloud providers.
+
+
+   ### Pricing comparisons
+
+   BTW, comparing prices among the major IaaS cloud vendors is not as easy as simply checking the cost of one virtual machine versus another. 
+   Myriad factors influence price: Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
+
+   <a target="_blank" href="https://www.rightscale.com/blog/cloud-cost-analysis/aws-vs-azure-vs-google-cloud-pricing-compute-instances">
+   Rightscale's analysis</a>.
 
 1. Sign Up for a free trial account at one or more of the above providers.
 
@@ -304,19 +313,6 @@ See 'cf help &LT;command>' to read about a specific command.
    It passes tokens around -- a unique identifier that provides both credentials for authentication (getting in), as well as authorization (what can be used).
 
 
-<a name="Login"></a>
-
-## Log into Cloud Foundry
-
-   <tt><strong>cf login</strong></tt>
-
-   Instead of asking for your email and password again for every command,
-   once logged in, Cloud Foundry generates a temporary token that the CLI can store and use 
-   (typically for 24 hours).
-
-   The <a href="#Org">Org</a>, route and space.
-
-
 ### Set Endpoint
 
 0. To set as endpoint the Pivotal cloud:
@@ -351,8 +347,8 @@ The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
 A BOSH operator (person) writes and manages various releases built with BOSH.
 
 
-A <strong>manifest.yml</strong> file defines all the pieces of its system for releases.
-The file defines default values for the app defined within its folder.
+One file defines default values for the app defined within its folder --
+the <strong>manifest.yml</strong> file defines an <strong>App Unit</strong> of all the pieces of its system for releases.
 For example:
 
    <pre>
@@ -365,8 +361,6 @@ applications:
   buildpack: https://github.com/cloudfoundry/ruby-buildpack.git
    </pre>
 
-   The default memory is one gigabyte.
-
    <a href="#Buildpacks">Buildpacks are ...</a> at <a target="_blank" href="https://github.com/cloudfoundry">
    https://github.com/cloudfoundry</a>
 
@@ -374,16 +368,39 @@ applications:
 
    See https://bosh.io/docs/deployment-manifest.html
 
-Contents are put into a compressed folder and stored on the <strong>BOSH server</strong>.
+   In practice, all instances on a Diego Cell share the available CPUs with Diego, ensuring no instance can hog the CPU.
+
+   Contents are put into a compressed folder and stored on the <strong>BOSH server</strong>.
+
+   Defaults are overrided in this:
+
+   1. Command line option.
+   2. Manifest
+   3. Currently used
+   4. Provider default
+   5. Cloud Foundry default - memory is one gigabyte.
 
 
-### BOSH Agents
+   <a name="Login"></a>
 
-BOSH deploys agent software on each part of the system, so that if one piece fails, 
-the agent can quickly alert operators and perhaps even automatically repair the problem. 
+   ### Log into Cloud Foundry
 
-You only need special permissions to add, move, or delete them.
-You do not need special permissions to use them in your manifests or push command correct.
+0. Login
+
+   <tt><strong>cf login</strong></tt>
+
+   Instead of asking for your email and password again for every command,
+   once logged in, Cloud Foundry generates a temporary <strong>token</strong> that the CLI stores locally
+   (typically for 24 hours).
+
+   The API endpoint for the provider is displayed with its version in parentheses.
+
+0. Type in the email used to register at the provider.
+0. Type the password associated with the email entered.
+0. The targeted <a href="#Org">Org</a> and <a href="#Space">space</a> are displayed.
+
+   If there are several orgs, you can type in the number displayed with the org.
+
 
 
 ### Push (upload) from your local machine
@@ -491,19 +508,45 @@ VIDEO</a>
    <tt><strong>cf apps
    </strong></tt>
 
+   A sample response:
+
+   <pre>
+Getting apps in org playdate / space development as wilsonmar@gmail.com...
+OK
+&nbsp;
+name      requested state   instances   memory   disk   urls
+web-app   started           1/1         32M      256M   web-app-unstridulating-bronchobuster.cfapps.io
+   </pre>   
+
 0. List the routes:
 
    <tt><strong>cf routes
    </strong></tt>
 
+   The response:
 
-   ### Web App Load Balancer
+   <pre>
+Getting routes for org playdate / space development as wilsonmar@gmail.com ...
+&nbsp;
+space         host                                   domain      port   path   type   apps      service
+development   web-app-unstridulating-bronchobuster   cfapps.io                        web-app
+   </pre>
 
-0. Open to view the app runnning. For example:
+
+   ### Through the Web App Load Balancer
+
+0. Open to view the app runnning. First type in the Terminal:
+
+   <tt><strong>open https://
+   </strong></tt>
+
+0. Then paste the rest from your Clipboard:
 
    <tt><strong>open https://web-app-flowing-packets.cfapps.io
    </strong></tt>
 
+   A page should open in your default internet browser.
+   
    The sample web-app from EDX simply says
    "Congratulations on pushing your first Cloud Foundry App".
 
@@ -522,10 +565,18 @@ VIDEO</a>
    Staging, functional testing, and development environments typically do not use a hardware device. 
    Instead, they will use <strong>HAProxy</strong> software to simulate the capabilities in software that the hardware device provides.
 
-0. View the HTML to the app runnning. For example:
+0. View responses from the app runnning. For example:
 
-   <tt><strong>curl https://web-app-flowing-packets.cfapps.io
+   <tt><strong>curl https://web-app-flowing-packets.cfapps.io/whoami
    </strong></tt>
+
+   A sample response:
+
+   <pre>
+   Hi! I'm the process on 10.10.148.98:61046. Nice to meet you!
+   </pre>
+
+   Without the "whoami", the HTML is returned.
 
 0. View the app's logs created recently:
 
@@ -542,7 +593,33 @@ VIDEO</a>
    * Large-scale graphing of trends (such as requests per minute)
    * Active alerting according to user-defined heuristics (such as an alert when the quantity of errors per minute exceeds a certain threshold).
 
-   The amount of data can be overwhelming, so apply a filter.
+   The amount of data can be overwhelming, so apply a <strong>nozzle</strong> to filter logs not analyzed.
+
+
+   ### Force crash
+
+   Processes can fail to start, lockup, stop listening, and crash. 
+
+0. To kill an instance purposely to see what happens, begin typing in a Terminal:
+
+   <tt><strong>curl https://
+   </strong></tt>
+
+   Then paste the host name and domain:
+
+   <tt><strong>curl https://web-app-flowing-packets.cfapps.io/crashme
+   </strong></tt>
+
+   Add "/crashme" to end up with something like this:
+
+   <tt><strong>curl https://web-app-flowing-packets.cfapps.io/crashme
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+502 Bad Gateway: Registered endpoint failed to handle the request.
+   </pre>
 
 
    ### Restore
@@ -561,6 +638,18 @@ VIDEO</a>
    `cf restart APP-NAME`
 
 
+   ### Scaling
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=e6ipgAin9ak">
+   VIDEO</a>
+
+0. To scale 2 instances containing myApp :
+
+   <tt><strong>cf scale myApp -i 2
+   </strong></tt>
+
+0. Review with `cf apps` again.
+
 
    ### Delete apps
 
@@ -575,6 +664,10 @@ VIDEO</a>
    <tt><strong>cf delete example com --hostname web-app-random-name
    </strong></tt>
 
+0. PROTIP: Get the current time and save it in a text file so you can audit when you should no longer be charged by your cloud provider.
+
+   <tt><strong>date
+   </strong></tt>
 
 
 <a name="SvcsIntegration"></a>
@@ -626,10 +719,6 @@ This binary can then be executed by the JVM.
 "Elastic runtime" is about growing or shrinking processors, memory, disk space, etc. 
 to meet demand from customers. 
 
-To scale 5 instances containing myApp :
-
-   <tt><strong>cf scale myApp -i 5</strong></tt>
-
 
 ## Health Monitoring and Self-Healing
 
@@ -645,11 +734,42 @@ the ActualLRP of how many copies the DesiredLRP (Desired Long Running Process) a
 
    The nsync, BBS, and Cell Rep components work together along a chain to keep apps running.
 
+To set the health check when you push your app (or in your manifest):
+
+   <tt><strong>cf push APP-NAME -u HEALTH-CHECK-TYPE -t HEALTH-CHECK-TIMEOUT
+   </strong></tt>
+
+   Replace HEALTH-CHECK-TYPE with one of these:
+
+   * <strong>Port</strong> - The health monitor tries to connect to the Port it has assigned to your web application. If the Port is listening, the health monitor considers the web application healthy, and closes the connection. The Web application doesn't have to do anything but "listen" for this to work. This is the default used.
+
+   * <strong>Process</strong> - This is where the health check just checks with the container to see if the process is running. This works with web applications and is the normal choice for worker applications. The downside is that if an application that is locked up but still running, it is still considered healthy. Still, it's usually the best choice for worker apps.
+
+   * <strong>HTTP</strong> - The most advanced and complex health check has the Health Check component call the web application at a URL (endpoint), similar to a web browser. If the web application returns HTTP 200 within one second for the URL checked, the health check is considered healthy. If the request exceeds one second or returns something other than HTTP 200, the web application is considered unhealthy and the instance is replaced.
+
+   Replace HEALTH-CHECK-TIMEOUT with 60 seconds for a Java app to start or
+   up to 180 seconds for apps with that slow of a startup.
+
+
+To change health check parameters on running applications:
+
+   <tt><strong>cf set-health-check APP-NAME (process | port | http [--endpoint PATH])
+   </strong></tt>
+
 
 ### Create spaces to keep different apps and services logically organized.
 
    DEFINITION: Worker apps wait for requests, like a cron job (daemons) in Linux.
    Worker apps can start on a schedule, such as every 15 minutes.
+
+
+### BOSH Agents
+
+BOSH deploys agent software on each part of the system, so that if one piece fails, 
+the agent can quickly alert operators and perhaps even automatically repair the problem. 
+
+You only need special permissions to add, move, or delete them.
+You do not need special permissions to use them in your manifests or push command correct.
 
 
 
