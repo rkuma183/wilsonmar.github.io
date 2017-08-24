@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Cloud-Foundry"
-excerpt: "Multi-cloud"
-shorturl: "https://goo.gl/"
+excerpt: "The one CLI tool to rule all cloud providers"
+shorturl: "https://goo.gl/yb4WGG"
 modified:
 tags: []
 image:
@@ -17,9 +17,11 @@ comments: true
 
 {% include _toc.html %}
 
-This are the notes I took while I studied to become Cloud Foundry certified.
+Here is a hands-on introduction to using Cloud Foundry (and becoming Cloud Foundry certified).
 
 A lot of thought has gone into the sequencing of information presented so you learn the most in the least time possible.
+Concepts are introduced after you take action.
+
 
 ## What is Cloud Foundry?
 
@@ -31,7 +33,8 @@ Cloud Foundry open source project at
    * <a target="_blank" href="https://github.com/cloudfoundry/">https://github.com/cloudfoundry</a>
    <br /><br />
 
-Cloud Foundry is a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
+<!--
+Cloud Foundry is labeled a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
 
 Running an application in production uses different skills than those development teams use to write application code. 
 
@@ -45,131 +48,54 @@ enables teams to catch potential production problems earlier and avoid nasty sur
 Cloud Foundry is a "service-based" platform,
 running containers reliably and running as many as needed. 
 
-
+-->
 
 <a name="ProviderClouds"></a>
 
-### Provider Clouds' Endpoints
+## Provider Clouds' Endpoints
 
-Cloud Foundry provides a cloud-agnostic layer supporting cloud providers.
+> Cloud Foundry provides a vendor-agnostic layer supporting many cloud providers.
 
 DEFINITION: A provider is a company that hosts Cloud Foundry as a service, 
 then bills the client for the resources they use.
    See https://www.cloudfoundry.org/certified-platforms/
 
-The <strong>API Endpoint</strong> is provided by each 
+The <strong>API Endpoint</strong> of each
 <a target="_blank" href="https://cloudfoundry.org/certified-platforms/">
-Cloud Foundry certified provider</a>: 
+Cloud Foundry certified provider</a>:
 
    * <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a> 
-   uses <a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>
-   * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix</a> 
+   uses `<a target="_blank" href="https://api.run.pivotal.io">https://api.run.pivotal.io</a>`
+   * <a target="_blank" href="http://www.ibm.com/cloud-computing/bluemix/">IBM BlueMix at ibm.com/cloud-computing/bluemix</a> 
    uses https://api.ng.bluemix.net to IBM's Watson artificial intelligence services
    * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a> 
    uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
    * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
    uses https://api.cf.us10.hana.ondemand.com
 
+   * Microsoft Azure
+   * Google Compute Platform (GCP)
    * VMware vSphere
    * Amazon Web Services (AWS)
    * <a target="_blank" href="https://atos.net/en/solutions/application-cloud-enablement-devops/multi-cloud-application-platform">
     Atos Cloud Foundry</a>
    * Huawei Digital Transformation FusionStage (China)
-   * Microsoft Azure???
-   * Google Compute Platform (GCP)
    * SoftLayer
    * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
    * OpenStack
    * <a target="_blank" href="https://www.predix.io/registration/">GE Predix</a>
    <br /><br />
 
+> The genius of Cloud Foundry is that a single Command Line program provides the same interface to all cloud providers.
 
-### Monoliths
+1. Sign Up for a free trial account at one or more of the above providers.
 
-Monoliths are self-contained apps with its own UI, server, and database.
-
-It can be easier to develop a monolithic application because all the functionality is in one place. And when tests are performed, even if the internals of the application are modular, externally there is only a single entity to test.
-
-It is less complicated to make the application run on a server. 
-
-DEFINITION: The process of moving the application from a developer's laptop to a testing environment, and eventually to production, is generally defined as deploying software.
-
-With monoliths, the various pieces of the application typically share a single database. 
-
-To handle increased demand for the application, more copies are deployed behind a load balancer which distributes requests among servers.
-
-Monolithic applications have their place when a simple application serves a basic purpose. 
-
-But when an application needs to grow, change, and perform, the monolith will no longer be a good fit, 
-and it will be time to look into microservices.
-
-
-As the application grows in complexity, in the lines of code, and in the number of features, 
-the developers that have been around the longest can be the most effective to make changes. 
-Yet, new developers take the longest on-board because they need to learn a large system to be effective.
-
-Since the application is so large now, the ability to make important changes become harder to do. A developer needs to test any change they are working on and test the entire system before they are confident to release their changes to production. As a result, it can be harder to adopt new technologies, because it would affect the entire system.
-
-When the size of the application was smaller, it was quicker to deploy. Now that the application grew to a larger size, and started running on multiple servers, the time it takes to deploy is longer. Every change, large or small, requires that the entire application gets deployed again.
-
-Time does not just increase when a release goes to production. Because it needs to be tested first. If it is already slower to deploy to production, it is slower to deploy to every environment that is used to test it before deploying it to production.
-
-
-### Microservices
-
-Individual parts of the application need to be divided into their independent functions. 
-They also need to be able to connect to each other. 
-Each of these small services (or microservices, as they became known) are small applications which contain well-defined pieces of what was once a monolith.
-
-To work together, services will need to talk to each other. 
-
-Rules for interaction between components are called an Application Programmer Interface, or API for short.
-
-Each microservice is responsible for its own storage (typically in memory) rather 
-than share a common database.
-
-Communication between microservices is done via the API, rather than through a shared database.
-
-Applications which have been divided across multiple services (and thus multiple servers) are called distributed systems. Some services are visible to the user, while others are only used internally by other services. The latter are called back-end services.
-
-Decomposing the application into more manageable chunks makes the entire codebase easier to understand, develop, and maintain. As your application grows, you can dedicate entire teams to particular services. These teams each focus on a single service, rather than your entire application.
-
-As long as each component can stay loosely coupled with other services in the system, each team is free to develop as it sees fit. Thus, the barrier to adopting new technologies, frameworks, or languages is lowered.
-
-Now, each deploy can be controlled at the service level, not at the system-wide level. By breaking apart the large, monolithic deployment into separate, smaller deployments, developers have an easier time to make a change, run the tests, and send it to production. 
-
-Even scaling each of the services is easier now. Each component can be monitored and have the correct amount of resources, instead of adding an entire server just to provide capacity for a few features.
-
-It can be harder to troubleshoot separate services than it is with a monolith. 
-This can be overcome if you have the right tools and technology in place. 
-Cloud Foundry makes this easier, by gathering logs and making them available through the cf CLI.
-
-Each microservice in your system is responsible for its own database or other storage. 
-This creates the potential for data duplication across the services. 
-The solution to this is (a) drawing service boundaries in the right places and 
-(b) always ensuring that any particular data have a single source of truth.
-
-Microservice application testing is more complex than testing a monolith. 
-If service A relies on service B, then the team testing service A must 
-either provide an instance of service B to test against or provide a simplified version of B as a placeholder. 
-These placeholders are called stubs.
-
-Dividing things into its smaller parts can be taken too far. 
-You will know you have gone too far when the overhead (communications, maintenance, etc.) outweighs its utility. Instead, see if you can combine the service back into another that is similar.
-
-
-## Cloud Foundry Account
+   Cloud Foundry is a part of Pivotal, which also provides Spring Boot for Java.
 
    <a target="_blank" href="https://www.youtube.com/watch?v=UWeIxJcaUbQ">
    VIDEO</a> in <a target="_blank" href="https://cloudfoundry.org/get-started/">https://cloudfoundry.org/get-started</a>
    by Steve Wahl, Sr. Cloud Architect, who references <a target="_blank" href="http://docs.cloudfoundry.org/cf-cli/install-go-cli.html">
    http://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>
-
-> The genius of Cloud Foundry is that a single Command Line program provides the same interface to all clounds providers.
-
-   CF is a part of Pivotal, which also provides Spring Boot for Java.
-
-1. Sign Up for a free trial Cloud Foundry account.
 
    
    <a name="Org"></a>
@@ -277,6 +203,8 @@ VIDEO</a>:
 
 ### Verify
 
+   `cf` is the Cloud Foundry CLI program.
+
    <tt><strong>cf --version</strong></tt>
 
    The response (on August 23, 2017):
@@ -342,6 +270,21 @@ See 'cf help &LT;command>' to read about a specific command.
    </pre>
 
 
+<a name="Login"></a>
+
+## Log into Cloud Foundry
+
+   <tt><strong>cf login</strong></tt>
+
+   Instead of asking for your email and password again for every command,
+   once logged in, Cloud Foundry generates a temporary token that the CLI can store and use 
+   (typically for 24 hours).
+
+   The <a href="#Org">Org</a>, route and space.
+
+
+   ### Set Endpoint
+
 0. To set as endpoint the Pivotal cloud:
 
    <tt><strong>cf api https://api.run.pivotal.io
@@ -357,19 +300,6 @@ api endpoint:   https://api.run.pivotal.io
 api version:    2.93.0
 Not logged in. Use 'cf login' to log in.
    </pre>
-
-
-<a name="Login"></a>
-
-## Log into Cloud Foundry
-
-   <tt><strong>cf login</strong></tt>
-
-   Instead of asking for your email and password again for every command,
-   once logged in, Cloud Foundry generates a temporary token that the CLI can store and use 
-   (typically for 24 hours).
-
-   The <a href="#Org">Org</a>, route and space.
 
 
 ### BOSH Mainfest.yml
@@ -492,12 +422,17 @@ VIDEO</a>
       If more instances of your application is created, the same droplet is used on those new application containers. 
       The droplet is built once, when pushed, and its use ensures that all future releases are identical until the next push.
 
-   3. Run is where the release package gets deployed and executed.
+   3. "Run" is when the release package gets deployed and executed.
 
       "<strong>Diego</strong>" takes that Droplet and runs it in a Container (Diego Cell).
 
-      NOTE: Within CF, the "Gorouter" handles HTTP traffic.
-      And container execution is handled by "Garden".
+      NOTE: Within Cloud Foundry, HTTP traffic is handled by the "GoRouter" gateway which connects two or more networks.
+      The "Go" in the name is there because it was recently re-written (from the original Ruby) in the Go programming language
+      to provide better performance through concurrency and a lower latency for each request.
+      
+      Externally are clients from the internet, in the middle is the router, and internally are the services of Cloud Foundry.
+
+      Container execution is handled by "Garden".
 
 0. Highlight the random URL CF generates (for example "flowing-packets" in "web-app-flowing-packets.cfapps.io")
    to copy to your Clipboard.
@@ -519,6 +454,23 @@ VIDEO</a>
 
    The sample web-app from EDX simply says
    "Congratulations on pushing your first Cloud Foundry App".
+
+   ### Load Balancer
+
+   Many production environments have a load balancer in front of the requests coming into their network
+   -- the entry point to the Cloud Foundry network. 
+
+   The job of a hardware load-balancing device :
+
+   * Minimize network downtime
+   * Facilitate traffic prioritization 
+   * Provide end-to-end application monitoring
+   * Provide user authentication
+   * Protect against malicious activity
+   * Mitigate denial-of-service (DoS) attacks.
+
+   Staging, functional testing, and development environments typically do not use a hardware device. 
+   Instead, they will use <strong>HAProxy</strong> software to simulate the capabilities in software that the hardware device provides.
 
 0. View the HTML to the app runnning. For example:
 
@@ -590,7 +542,8 @@ VIDEO</a>
 
 ## Elastic Runtime
 
-A "runtime" consists of a specific choice of operating system, libraries, security measures, languages, and frameworks that need to be made operational.  
+A "runtime" consists of a specific choice of operating system, libraries, security measures, languages, and frameworks 
+that need to be made operational.  
 
 The runtime takes the instructions of the code and reduces them to the smallest set needed in order to operate. 
 For Java, the runtime is called the Java Virtual Machine (JVM). 
@@ -604,7 +557,7 @@ To scale 5 instances containing myApp :
 
    <tt><strong>cf scale myApp -i 5</strong></tt>
 
-   `cf` is the Cloud Foundry CLI program.
+
 
 
 ### Create spaces to keep different apps and services logically organized.
@@ -660,13 +613,16 @@ Buildpacks standardize the process for building applications,
 so the various steps during building that are common can use the same commands and tools.
 
 
-<a name="12Factor"></a>
 
-## Twelve Factor App Methodology
+## Resilience and Availability
 
 <a target="_blank" href="https://12factor.net/">
 https://12factor.net</a>
-is a guide by Adam Wiggins, the Heroku platform co-founder.
+is a guide written by Heroku platform co-founder
+by Adam Wiggins (<a target="_blank" href="https://twitter.com/hirodusk?lang=en">@hirodusk</a> in Berlin, Germany; 
+<a target="_blank" href="http://about.adamwiggins.com/">about.adamwiggins.com</a>)
+
+Its "Codebase" principle is not directly supported by CF.
 
 DEFINITION: A codebase is the collection of code used to build a particular application.
 
@@ -702,13 +658,11 @@ Web server code should have no concept of a chain of events, it simply takes a r
 Cloud Foundry provides comprehensive API endpoints that manage how applications and services connect to each other.
 
 
+### Scaling
 
-## Resilience and Availability
-• Basics of Scaling in Cloud Foundry
-• Using the CLI to Scale the App
-• Scaling Your App
+
 • Health Monitor?
-• Killing Some Apps
+
 
 ## Orgs, Spaces, Roles, and Permissions
 • Business Management Modeling
