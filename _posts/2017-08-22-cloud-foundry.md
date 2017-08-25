@@ -17,7 +17,9 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on introduction to using Cloud Foundry (and becoming Cloud Foundry certified).
+Here is a hands-on introduction to using Cloud Foundry and becoming a 
+<a target="_blank" href="https://www.cloudfoundry.org/certification/">
+Cloud Foundry Certified Developer (CFCD)</a> via the Linux Foundation.
 
 A lot of thought has gone into the sequencing of information presented so you learn the most in the least time possible.
 Concepts are introduced after you take action, followed by succinct commentary, with links for more.
@@ -89,13 +91,15 @@ Cloud Foundry certified provider</a>:
 > The genius of Cloud Foundry is that a single Command Line program ("cf") provides the same interface to all cloud providers.
 
 
-   ### Pricing comparisons
+### Pricing comparisons
 
    BTW, comparing prices among the major IaaS cloud vendors is not as easy as simply checking the cost of one virtual machine versus another. 
    Myriad factors influence price: Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
 
    <a target="_blank" href="https://www.rightscale.com/blog/cloud-cost-analysis/aws-vs-azure-vs-google-cloud-pricing-compute-instances">
    Rightscale's analysis</a>.
+
+### Provider Account & Org for Billing
 
 1. Sign Up for a free trial account at one or more of the above providers.
 
@@ -374,11 +378,11 @@ applications:
 
    Defaults are overrided in this:
 
-   1. Command line option.
-   2. Manifest
-   3. Currently used
-   4. Provider default
-   5. Cloud Foundry default - memory is one gigabyte.
+   1. Command line option overrides Manifest
+   2. Manifest.yml specification
+   3. Currently used values
+   4. Provider default values
+   5. Cloud Foundry default, such as memory being one gigabyte (1GB)
 
 
    <a name="Login"></a>
@@ -395,6 +399,11 @@ applications:
 
    The API endpoint for the provider is displayed with its version in parentheses.
 
+   Alternately, specify another API during login:
+
+   <tt><strong>cf login -a api.run.pivotal.io
+   </strong></tt>
+
 0. Type in the email used to register at the provider.
 0. Type the password associated with the email entered.
 0. The targeted <a href="#Org">Org</a> and <a href="#Space">space</a> are displayed.
@@ -402,11 +411,10 @@ applications:
    If there are several orgs, you can type in the number displayed with the org.
 
 
+   ### Push (upload) from your local machine
 
-### Push (upload) from your local machine
-
-<a target="_blank" alt="19 Apr 2017 [2:31]" href="https://www.youtube.com/watch?v=YJMMVCVsRm4">
-VIDEO</a>
+   <a target="_blank" alt="19 Apr 2017 [2:31]" href="https://www.youtube.com/watch?v=YJMMVCVsRm4">
+   VIDEO</a>
 
 0. <a href="#Login">Login to cf</a> (as described above)
 0. Navigate to the application folder you wish to push (cd Pushing/web-app)
@@ -497,6 +505,11 @@ VIDEO</a>
       
       Externally are clients from the internet, in the middle is the router, and internally are the services of Cloud Foundry.
 
+      The GoRouter maintains the association between the application and its network address path. This tuple is called a mapping. Many applications can be mapped to the same network path. This multiple mapping is what makes zero downtime deployments possible since the old and new applications can use the same network path.  
+
+      The only restriction on the network address path is the path restricted to a single space. 
+      So, you cannot deploy your new application to a different space from the old application without building some additional customized routing code.  
+
    <a target="_blank" href="https://docs.cloudfoundry.org/concepts/diego/diego-auction.html">
    Diego auction</a> selects Diego Cells to process (match with apps wanting execution).
 
@@ -523,7 +536,7 @@ web-app   started           1/1         32M      256M   web-app-unstridulating-b
    <tt><strong>cf routes
    </strong></tt>
 
-   The response:
+   All Cloud Foundry routes contain a Domain and a Port Number:
 
    <pre>
 Getting routes for org playdate / space development as wilsonmar@gmail.com ...
@@ -541,6 +554,8 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    It's kinda like a Postal Service zip code designating the general vacinity.
 
    An HTTP route is determined by the URL, while a TCP route uses the port number.
+
+   Only the TCP route (NOT HTTP) allows data to pass through without the GoRouter needing to examine it.
 
 
    ### Through the Web App Load Balancer
@@ -588,22 +603,54 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
 
    Without the "whoami", the HTML is returned.
 
+   ### Logging
+
 0. View the app's logs created recently:
 
    <tt><strong>cf logs web-app \-\-recent
    </strong></tt>
 
-   As with the logs pattern in the Twelve Factor methodology, CF streams logs out so the data about the system can be gathered and analyzed
-   away from the web server so that aggregation of logs is possible. The Cloud Foundry component doing that is called 
-   <a target="_blank" href="https://docs.cloudfoundry.org/loggregator/architecture.html">loggregator</cf-a>.
+   Cloud Foundry by default shows logs sent to channels STDOUT and STDERR by programming code such as:
 
-   The loggregator stores and forwards logs to other analysis systems, such as AppDynamics, Splunk, or in a Hadoop/Hive to:
+   * In Ruby on Rails `logger = ActiveSupport::Logger.new(STDOUT); logger.debug "Something Happened"''
+   * In Go-Lang the “log” package or can write directly with `os.Stderr.WriteString("Something Happened\n")`
+   * In Java, `System.err.println("Something Happened");`.
+   <br /><br />
+
+   As with the logs pattern</a> in the Twelve Factor methodology, 
+   the Cloud Foundry component <a target="_blank" href="https://docs.cloudfoundry.org/loggregator/architecture.html">loggregator</a>.
+   streams logs out so data about the system can be gathered and analyzed
+   away from the web server so that aggregation of logs is possible. 
+
+   When the loggregator receives a message, it adds a timestamp, Channel, and a Log type (origin code of 3 letters):
+
+   * "RTR" for Router messages
+   * "LGR" for problems wth the logging process.
+   * "APP" for application
+   * "SSH" for reporting successful remote access, etc.
+   
+0. View the app's SSH logs:
+
+   <tt><strong>cf ssh web-app 
+   </strong></tt>
+
+   The loggregator stores and forwards time-ordered logs to other analysis systems 
+   such as AppDynamics, Splunk, or in a Hadoop/Hive to:
 
    * Finding specific events in the past
    * Large-scale graphing of trends (such as requests per minute)
    * Active alerting according to user-defined heuristics (such as an alert when the quantity of errors per minute exceeds a certain threshold).
 
    The amount of data can be overwhelming, so apply a <strong>nozzle</strong> to filter logs not analyzed.
+
+   ### Distributed Tracing
+
+   Cloud Foundry supports the <a target="_blank" href="https://docs.cloudfoundry.org/concepts/http-routing.html#zipkin-headers">
+   zipkin distributed tracing facility</a>
+   
+   If enabled, Cloud Foundry automatically logs messages in  HTTP headers 
+   with a traceid and span ID as <strong>correlation identifiers</strong>
+   used to correlate the different logs being collected.
 
 
    ### Force crash
@@ -646,6 +693,35 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    To use the new server, change the database URL in your configuration file and restart the application.
 
    `cf restart APP-NAME`
+
+
+which will connect you to an instance of your application. If you have multiple instances running, you can use the -i option to choose which instance to connect to. This is a zero-based index; so the first instance is actually
+
+   <tt><strong>cf ssh APPNAME -i 0 
+   </strong></tt>
+
+0. To make an external HTTP request to a <strong>specific instance</strong> of an application
+   (the instance you are connected to via SSH),
+   add a `X-CF-APP-INSTANCE` HTTP header. 
+
+   That tells CF to redirect the request to a specific running instance of the app.
+
+0. First, get the instance index (substituing "web-app" with your own app short name):
+
+   <tt><strong>cf ssh web-app -i 0
+   </strong></tt>
+
+0. Get the GUID for the application:
+   
+   <tt><strong>cf APPNAME \-\-guid 
+   </strong></tt>
+
+0. Once you have both, you use them in a header for the external request.
+
+   <tt><strong>curl app.example.com -H "X-CF-APP-INSTANCE":"YOUR-APP-GUID:YOUR-INSTANCE-INDEX"
+   </strong></tt>
+
+   See the App Instance Routing section of the HTTP Routing topic for more information.
 
 
    ### Scaling
@@ -788,6 +864,8 @@ since there is control over whom is allowed to enter each space.
    cf set-space-quota web-app 5
    </strong></tt>
 
+   This sets a limit on all future created Spaces.
+
 Each space can have unique properties such as these quotas that define the maximum allowed:
 
    * Total memory - The maximum amount of memory a Space can have
@@ -813,6 +891,7 @@ Roles are designed using the principle of least privilege -- only the permission
    * Manager - assigns and un-assigns user accounts from orgs and spaces, but not deploy (push) applications.  
    * Administrator - has all rights and privileges. So it's is for only a few user accounts in the operations team. 
 
+   NOTE: There is no "Org Developer" role or a "QA Manager" role.
 
 ### BOSH Agents
 
@@ -879,16 +958,17 @@ is a guide written by Heroku platform co-founder
 by Adam Wiggins (<a target="_blank" href="https://twitter.com/hirodusk?lang=en">@hirodusk</a> in Berlin, Germany; 
 <a target="_blank" href="http://about.adamwiggins.com/">about.adamwiggins.com</a>)
 
-Its "Codebase" principle is not directly supported by CF.
-
 DEFINITION: A codebase is the collection of code used to build a particular application.
+But its "Codebase" principle is not directly supported by CF.
+
+DEFINITION: A <strong>backing service</strong> is anything the application consumes over the network for normal operation. 
 
 A Twelve Factor app should be able to swap out local resources for remote ones with no code changes. 
-There is no distinction between local and remote resources.
+There should be no distinction between local and remote resources.
 
 Locally within CF:
 
-   * Datastores (e.g. MySQL, Redis)
+   * Datastores (e.g. MySQL, Redis, PostgreSQL)
    * Caching services (e.g. Memcached)
 
 External resources remote outside CF:
@@ -896,8 +976,6 @@ External resources remote outside CF:
    * Asset services (e.g. Amazon S3)
    * Logging (e.g. Loggly, New Relic)
    * Mail services (e.g. Postmark)
-
-DEFINITION: A backing service is anything the application consumes over the network for normal operation. 
 
 Application processes should not store anything that needs to persist on the filesystem of the web application.
 
@@ -949,9 +1027,15 @@ Businesses have different ways to perform their software development. Some are d
 
 ## Zero Downtime Deployments
 
-A zero downtime deployment allows for the old release to finish any outstanding interactions and for the new release to process new requests. 
+      <a target="_blank" href="https://www.youtube.com/watch?v=oGZDlUvALF0">
+      VIDEO</a> of blue/green Zero Downtime Deployment.
 
-Conversely, in zero downtime deployments, you can restore back the old release if the new release exhibits an issue without users being aware that you are restoring back to the old release.
+A zero downtime deployment allows for the old release to finish any outstanding interactions before being shut down
+and for the new release to process new requests. 
+
+In zero downtime deployments, if the new release exhibits an issue,
+you can restore back the old release 
+without users being aware that you are restoring back to the old release.
 
 This is because two deployment packages run in parallel. 
 One is the current live environment and the other is either the previous live environment, 
@@ -1009,17 +1093,124 @@ To add a required column to the database, enable revert by doing a series of rel
 
 5. Optionally, a release to remove the default value from the required column can wrap up the steps.
 
+<hr />
+
+0. Remove
+
+TODO: ??? see video
+
+To avoid mistakes, use the cf command extension or plugin interface to automate sequences of commands. 
+The Cloud Foundry Community has already written plugins for Zero Downtime Deployments at 
+https://plugins.cloudfoundry.org.
+
+  <pre>
+bg-restage         1.0.0 Perform a zero-downtime restage of an application over the top of an old one (highly inspired by autopilot)
+blue-green-deploy  1.2.0 Zero downtime deploys with smoke test support
+autopilot          0.0.1 zero downtime deploy plugin for cf applications
+   </pre>
+
+An app can be restaged without redeploying the code.
+
+Plugin `blue-green-deploy` performs the manual steps we did in the previous section. 
+The autopilot plugin does the zero downtime deployment by using the application rename technique. 
+
+We also want to mention that there are continuous integration tools such as Concourse and Jenkins
+that provide extensions to integrate with Cloud Foundry and can automate zero downtime deployments.
+
+The manual commands include:
+
+   <tt><strong>cf unmap-route blue cfapps.io \-\-hostname blue-LFS132X-example
+   </strong></tt>
+
+   <tt><strong>cf unmap-route green cfapps.io \-\-hostname green-LFS132X-example
+   </strong></tt>
+
+   cf routes
+
+Beside the deployment itself, do a few sanity or smoke tests to ensure that the application is installed properly.
 
 
 ## Cloud Native Design Patterns
-• Service Discovery Design Pattern
-• Configuration Server Design Pattern
-• Circuit Breaker Design Pattern
 
-## Debugging Distributed Systems
-• Application Logging in Cloud Foundry
-• Debugging Commands
-• Distributed Tracing
+A cloud-native design pattern is a generic design template for a programming problem.
+
+Microservice instances are dynamic.
+Their network route could change when Cloud Foundry starts them up. 
+So there needs to be a way for clients to find active microservices.
+
+<a target="_blank" href="https://12factor.net/port-binding">
+The Twelve Factor "port binding" principle</a> uses a design pattern that achieves a 
+dynamic way for microservices to register themselves and for clients to find services. 
+
+Clients of a service can also be another microservice.  
+
+A datastore should store information about a microservice. 
+A unique property of this datastore is it does not need to persist across reboots since each microservice needs to register itself when it starts running.
+This datastore will store the multiple network routes for microservice instances using a generic lookup key. 
+Microservices and clients then share this generic key.
+
+The <strong>Service Registry</strong> component handles both microservice registration and the microservice discovery for clients. 
+The registry determines which clients can access which microservice through an authentication process.    
+
+Some registry services will choose a network route for the client to use. 
+In other cases, the registry sends all the network routes back to the clients.   
+
+To find the registry service, its network route must be predetermined. 
+
+A microservice needs to register itself with the Service Registry. 
+
+Most Service Registries expect the service to refresh its registration periodically, to confirm it is still alive and up to date. 
+A microservice might need access to other services so it can request a service just like the client. 
+The microservice should also keep requesting its services discovery as the information will change over time. 
+This constant registration and discovery process ensures you can distribute services and they can find each other, 
+even as services change over time.
+
+The client needs to authenticate with the Service Registry before getting service information back. 
+If an error occurs, the client side needs to report it and deal with the client side interface as well.
+
+There are various other implementations of the The GoRouter's design pattern,
+such as <a target="_blank" href="https://coreos.com/etcd/">CoreOS Etcd</a>, 
+Hashicorp Consul, and Puppet Zookeeper. 
+There are also the Spring Cloud implementations of Eureka and Consul.
+
+### Service Discovery Design Pattern
+
+Service discovery makes it easy for clients to find routes to dynamic services.
+
+### Configuration Server Design Pattern
+
+Use of a configuration server improves on Cloud Foundry’s configuration variables because:
+
+* Configuration variables do not need to be pushed on deployment
+* Configuration variables can be changed without pushing the applications
+* The application can start running while waiting for the configuration variables to be defined
+
+
+### Circuit Breaker Design Pattern
+
+The circuit breaker used in homes protect electrical appliances. Similarly,<br />
+The circuit breaker design pattern deals with remote communication failures to recover gracefully. 
+
+If a failure occurs, then the code path leading to it should be marked so future calls can report back a failure more quickly. 
+
+A request is received. If the request requires other services to complete, it makes those calls. Now, what if an unrecoverable error occurs? The client call needs to fail, but does not want to take a very long time. Maybe the first few failures might take a long time, but the remaining calls should complete quickly.
+
+If the service call detects a failure, it needs to mark itself as disabled. In this way, future calls can fail right away. 
+
+It then sets up a background process to check for when the service comes back up again.
+
+The thread gets activated when a microservice call detects an unrecoverable error, like a connection failure. In this case, the failed service is checked periodically to see if it is back up. Once the failed service recovers, the failed service call interface is marked as enabled to allow all future calls to go through.
+
+The background task logs when it initiates a service check and when recovery occurs. 
+
+Spring uses the <a target="_blank" href="http://techblog.netflix.com/2012/11/hystrix.html">
+Hystrix</a> library to create a
+<a target="_blank" href="https://docs.pivotal.io/spring-cloud-services/1-3/common/circuit-breaker/">
+dashboard</a> user interface for showing where circuit breakers have tripped across different microservices. 
+The dashboard provides an early detection monitor to see if problems are starting to happen with microservices.
+
+"Release It" by Michael Nygard describes case studies of real world problems and software design patterns. 
+
 
 AutoSleep 
 
@@ -1053,6 +1244,8 @@ BTW, the
 real cloud consultantcy company</a> in San Francisco, where the helpful
 <a target="_blank" href="https://www.linkedin.com/in/norman-abramovitz-8690482">Norman Abramnovitz</a> works.
 
+A training partner program includes licensed materials for in-person or eLearning Cloud Foundry developer classes offered by training partners including: Biarca, CapGemini, Cognizant, Dell EMC, EngineerBetter, Fast Lane, IBM, Innovivi, Pivotal, Resilient Scale, SAP, Stark & Wayne, and Swisscom.
+
 https://training.linuxfoundation.org/linux-courses/system-administration-training/cloud-foundry-for-developers
 
 
@@ -1064,6 +1257,10 @@ https://stackoverflow.com/search?q=cf
 
 <a target="_blank" href="https://plus.google.com/u/0/communities/114993035927692444558">
 Google Group: Cloud Foundry User</a>
+
+
+## Certification
+
 
 
 ## Hackathons
