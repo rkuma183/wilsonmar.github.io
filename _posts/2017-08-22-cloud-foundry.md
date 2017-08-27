@@ -75,6 +75,11 @@ Its competitors include OpenShift and Kubernetes.
    <a target="_blank" href="https://www.rightscale.com/blog/cloud-cost-analysis/aws-vs-azure-vs-google-cloud-pricing-compute-instances">
    Rightscale's analysis</a> notes that Google's SSD costs are high.
 
+   <a target="_blank" href="https://cloudspectator.com">cloudspectator.com</a>
+   provides benchmarks comparing cloud providers.
+   <a target="_blank" href="https://lp.google-mkto.com/rs/248-TPC-286-images/Cloud-Spectator-Best-Hyperscale-Cloud-Providers.pdf">
+   Google Compute Engine ranked #1 in (Hyperscale) price-performance [pdf]</a>
+   
 
 ### Provider Clouds' Endpoints
 

@@ -51,6 +51,8 @@ By contrast,
 Docker sees its job as not to provide a complete machine but just to 
 cleanly separate applications that need the same oerating system.
 
+<a name="Mac"></a>
+
 ## Docker for Mac
 
 The <strong>Docker for Mac</strong> installer is downloaded from 
@@ -191,9 +193,6 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    ("xhyve") to virtualize the Docker Engine environment.
    That technology requires OS X 10.10.3 Yosemite or newer.
 
-   Versions of Mac before Yosemite would need to use the deprecated
-   Docker Toolbox.
-
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
    So an extra layer is needed to emulate a Docker host.
    That’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
@@ -202,58 +201,68 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 0. If you've previously installed Boot2Docker or Docker for Mac, uninstall it
    by deleting it within your Applications folder.
 
-0. Get to downloads folder for Mac at:<br />
-   <a target="_blank" href="https://www.docker.com/products/docker#/mac">
-   https://www.docker.com/products/docker#/mac</a>
-   
-   Note "Docker Toolbox" is no longer used, which depended on Virtualbox.
-   At time of writing I had Virtualbox version 5.1.2 installed, 
-   so can be left installed.
+   Versions of Mac before Yosemite would need to use the now deprecated
+   Docker Toolbox, which is no longer used. It depended on Virtualbox.
+   If Virtualbox version 5.1.2 is installed, it can be left installed.
    <a target="_blank" href="https://docs.docker.com/engine/installation/mac/#/docker-for-mac">
    Docs here</a> 
    says VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). 
 
-   Alternately, install <a target="_blank" href="https://www.docker.com/products/docker-toolbox">
+   Alternately, if you have are running OS X 10.8 “Mountain Lion” or earlier,
+   install <a target="_blank" href="https://www.docker.com/products/docker-toolbox">
    https://www.docker.com/products/docker-toolbox</a>
-   if you have an old edition of Mac
-   running OS X 10.8 “Mountain Lion” or later.
 
+0. Go to the page where you download the "Docker Community Edition (CE) Desktop for Mac" at:<br />
+   <a target="_blank" href="https://store.docker.com/editions/community/docker-ce-desktop-mac">
+   https://store.docker.com/editions/community/docker-ce-desktop-mac</a>
+   
+0. Scroll down to "Get Docker CE for Mac (stable)".
 0. Click "Get Docker for Mac" to download to your Downloads folder.
 0. In Finder, navigate to you Download folder to double-click
    <strong>Docker.dmg</strong>
 
-   PROTIP: Change the file name if you're keeping back versions.
+0. PROTIP: Change the file name if you're keeping back versions.
 
    | Date of file | Version           | Download | Folder   |
    | -----------: | ----------------- | -------: | -------: | 
+   | Aug 27, 2017 | Docker.dmg | 129.9 MB | 129.9 MB |
    | Oct 17, 2016 | Docker.dmg | 111 MB | 208.1 MB |
    | July 19, 2016 | Docker.dmg | 114.0 MB | 225.1 MB |
    | July 19, 2016 | Docker.dmg | 107.0 MB | 225.1 MB |
    | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
 
+0. If you prefer, navigate in Finder to your Downloads folder to find the Docker.dmg file.
 0. Double-click on Docker.dmg to open it.
+
+   ![docker-drag-and-drop-600x284-99025](https://user-images.githubusercontent.com/300046/29752990-4666a56c-8b36-11e7-9029-a93551a8b4d9.jpg)
+
 0. Drag and drop the whale into the Applications folder.
-0. Click Replace the previous version, if applicable.
-0. Click X to dismiss the pop-up.
+0. Click <strong>Replace</strong> the previous version with the new one, if applicable.
+0. If the "Docker needs privileged access" pop-up appears, click OK and type it in, then dismiss the pop-up.
+0. Click outside the drop-down to dismiss it.
+
+   ### Clean up the installer
+
+0. Exit the "Drag and Drop" pop-up.
+0. Delete the Docker.dmg file within Finder (to reclaim disk space).
+
+   ### Open Docker client app
+
 0. In the Applications folder, open the Docker app.
-0. Click Next.
-0. Click OK.
-0. Input Apple password.
-0. Click Got it!.
 
    <a target="_blank" href="https://docs.docker.com/engine/reference/commandline/cli/">
-   TECHNICAL NOTE:</a> The Docker command line stores its configuration files in 
+   PROTIP:</a> The Docker command line stores its configuration files in 
    a hidden directory <strong>.docker</strong> within your $HOME directory (cd ~).
 
 0. Click the whale icon at the top of your Mac for this menu:
 
-   ![docker mac 20161110-270x248](https://cloud.githubusercontent.com/assets/23315276/20192045/6e818ca4-a745-11e6-8c15-a1b808212344.jpg)
+   ![docker-menu-281x368-59736](https://user-images.githubusercontent.com/300046/29753015-bfba2088-8b36-11e7-9697-60e4cf0c2887.jpg)
 
-0. Click Preferences.
-0. Un-check "Automatically start Docker when you log in."<br />
-   if you are not a frequent user.
+0. If you are not a frequent user, 
+   click Preferences (or press command + comma) to
+   un-check "Automatically start Docker when you log in".
 
-0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+0. Skip to <a href="#VerifyInstall">verify Docker install</a> below.
 
    ### Previously
 

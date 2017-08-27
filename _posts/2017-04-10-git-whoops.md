@@ -45,7 +45,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="GitConfig"></a>
 
-   ### Git config
+### Git config
 
    If you find a mis-spelling in your attribution, 
    simply repeat the command with the information you want.
