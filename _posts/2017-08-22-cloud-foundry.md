@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cloud-Foundry"
-excerpt: "The one CLI tool to rule all cloud providers"
+excerpt: "The one tool to rule all cloud providers"
 shorturl: "https://goo.gl/yb4WGG"
 modified:
 tags: []
@@ -17,50 +17,69 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on introduction to using Cloud Foundry and becoming a 
-<a target="_blank" href="https://www.cloudfoundry.org/certification/">
-Cloud Foundry Certified Developer (CFCD)</a> via the Linux Foundation.
+Here is a <strong>hands-on</strong> introduction to Cloud Foundry.
+Concepts are introduced after you take a small action, followed by succinct commentary, with links for more.
 
-A lot of thought has gone into the sequencing of information presented so you learn the most in the least time possible.
-Concepts are introduced after you take action, followed by succinct commentary, with links for more.
+A lot of thought has gone into the sequencing of information presented 
+so that you learn in the least time possible.
+
+The sequence is different that the Syllbus of the Linux Foundation's 
+<a target="_blank" href="https://www.cloudfoundry.org/certification/">
+$300/€285 4-hour Cloud Foundry Certified Developer (CFCD)</a> proctored exam.
 
 
 ## What is Cloud Foundry?
 
-<a target="_blank" href="https://www.cloudfoundry.org/">
-cloudfoundry.org</a> is the home page of 
-the non-profit vendor-independent Cloud Foundry Foundation was formed by 70 vendors in January of 2015 to own the 
-Cloud Foundry open source project at
+> Cloud Foundry provides a vendor-agnostic layer supporting many cloud providers.
+   A single Command Line program ("cf") provides the same interface to all cloud providers.
 
-   * <a target="_blank" href="https://github.com/cloudfoundry/">https://github.com/cloudfoundry</a>
-   <br /><br />
+![cf-paas-vs-traditional-1013x364-157k](https://user-images.githubusercontent.com/300046/29714073-657fc730-896f-11e7-8cc5-b82c20687252.jpg)
 
-<!--
 Cloud Foundry is labeled a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
 
-Running an application in production uses different skills than those development teams use to write application code. 
+<a target="_blank" href="https://www.cloudfoundry.org/">
+cloudfoundry.org</a> is the home page of 
+the non-profit vendor-independent Cloud Foundry Foundation formed by 70 vendors in January of 2015 to own the 
+Cloud Foundry open source project at
 
-Cloud Foundry shortens and simplifies the process of deploying applications. 
-It frees teams to focus on writing applications.
-Shorter deployments allow teams to ship new code quicker and more often. 
+   <a target="_blank" href="https://github.com/cloudfoundry/">https://github.com/cloudfoundry</a>
+   <br /><br />
 
-Using Cloud Foundry throughout the development process
-enables teams to catch potential production problems earlier and avoid nasty surprises in production.
+   * Abby Kearns is the Executive Director (@ab415)
+   * Chip Childers is the CTO.
 
-Cloud Foundry is a "service-based" platform,
-running containers reliably and running as many as needed. 
-
--->
+Its competitors include OpenShift and Kubernetes. 
 
 <a name="ProviderClouds"></a>
 
-## Provider Clouds' Endpoints
+## Providers' clouds
 
-> Cloud Foundry provides a vendor-agnostic layer supporting many cloud providers.
+   Cloud Foundry enables one to switch work among clouds to obtain the best price-performance.
+
+   First of all, there are technical reasons to use one cloud vs. another.
+   For example, Google Fiber provides fast connection among servers across continents.
+   Some may prefer an Amazon AI service or Lambda features 
+   over a similar functionality in Microsoft Azure or Google Compute.
+
+   Myriad factors influence price: 
+   Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
+
+   Plus, you'd be amazed the difference between per-minute charges vs. per-hour charges.
+
+   Different techniques to calculate volume discounts make it complex to compare prices. 
+   While Microsoft and Amazon provide discounts for up-front commitments, you forfeit money if committed
+   capacity is not actually used.
+   For that reason, Google's SUD (Sustained Usage Discount) and "Inferred Instance" calculations
+   make it simple to obtain a fair price.
+
+   <a target="_blank" href="https://www.rightscale.com/blog/cloud-cost-analysis/aws-vs-azure-vs-google-cloud-pricing-compute-instances">
+   Rightscale's analysis</a> notes that Google's SSD costs are high.
+
+
+### Provider Clouds' Endpoints
 
 DEFINITION: A provider is a company that hosts Cloud Foundry as a service, 
 then bills the client for the resources they use.
-   See https://www.cloudfoundry.org/certified-platforms/
 
 The <strong>API Endpoint</strong> of each
 <a target="_blank" href="https://cloudfoundry.org/certified-platforms/">
@@ -77,8 +96,9 @@ Cloud Foundry certified provider</a>:
    uses https://api.cf.us10.hana.ondemand.com
 
    * Microsoft Azure
-   * Google Compute Platform (GCP)
-   * VMware vSphere
+   * [Google Compute Platform (GCP)](/gcp.md/)
+   * <a target="_blank" href="https://www.vmware.com/solutions/cloudnative/photon-pcf.html">VMware vSphere</a> 
+   and its Photon Dashboard
    * Amazon Web Services (AWS)
    * <a target="_blank" href="https://atos.net/en/solutions/application-cloud-enablement-devops/multi-cloud-application-platform">
     Atos Cloud Foundry</a>
@@ -86,18 +106,9 @@ Cloud Foundry certified provider</a>:
    * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
    * OpenStack
    * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a>
+   (Industrial IoT)
    <br /><br />
 
-> The genius of Cloud Foundry is that a single Command Line program ("cf") provides the same interface to all cloud providers.
-
-
-### Pricing comparisons
-
-   BTW, comparing prices among the major IaaS cloud vendors is not as easy as simply checking the cost of one virtual machine versus another. 
-   Myriad factors influence price: Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
-
-   <a target="_blank" href="https://www.rightscale.com/blog/cloud-cost-analysis/aws-vs-azure-vs-google-cloud-pricing-compute-instances">
-   Rightscale's analysis</a>.
 
 ### Provider Account & Org for Billing
 
@@ -107,17 +118,22 @@ Cloud Foundry certified provider</a>:
    So let's start with 
    <a target="_blank" href="https://run.pivotal.io/">Pivotal Web Services at https://run.pivotal.io</a>
 
-   http://docs.run.pivotal.io/
+   <a target="_blank" href="http://docs.run.pivotal.io/">
+   http://docs.run.pivotal.io</a>
+
 
    <a name="Org"></a>
 
-   ### Org
+   ### Org (Organization) for Billing
 
-0. Define the org at <a target="_blank" href="https://console.run.pivotal.io/organizations/new">
+0. Define an org at <a target="_blank" href="https://console.run.pivotal.io/organizations/new">
    https://console.run.pivotal.io/organizations/new</a>
 
-   Organization (org) is how cloud providers bill. So an org encompasses computing resources, apps, and services. 
-   It can be owned and used by an individual or by multiple collaborators.
+   Using different orgs is how cloud providers split the bill for you. 
+   An org encompasses the cost of computing resources, apps, and services. 
+
+   PROTIP: Although an org can be used by multiple collaborators, an individual or department
+   should be designated accountability for spending.
 
    PROTIP: Write down the org name you created. It will be requested during <a href="#Login">login</a>.
 
@@ -134,8 +150,26 @@ Cloud Foundry certified provider</a>:
 0. Define the space "example" as ...com. ???
 
 
+## Cloud Foundry API
+
+The Open Service Broker API (OSBAPI) at
+<a target="_blank" href="https://openservicebrokerapi.org/">
+https://openservicebrokerapi.org</a> with source at <a target="_blank" href="https://github.com/openservicebrokerapi/servicebroker/blob/v2.12/spec.md">
+https://github.com/openservicebrokerapi/servicebroker/blob/v2.12/spec.md</a>
+provides developers, ISVs and SaaS vendors a single, simple and elegant way to deliver services to applications running within cloud-native offerings including Cloud Foundry, OpenShift and Kubernetes.
+
+The first release of the Open Service Broker API was announced June 2017.
+The focus of the release was to enable multiple platforms to leverage the API through deprecating platform specific terminology. This clears a path for more platforms integrating with the OSBAPI. 
+
+
+
 ## Cloud Foundry CLI
 
+There is a CLI plug-in 
+   <a target="_blank" href="https://github.com/sclevine/cflocal">
+   https://github.com/sclevine/cflocal</a> (by Stephen Levine) enables the CLI to
+   Stage and launch CF apps, push and pull droplets, and connect to real CF services -- <strong>in Docker</strong>
+   on a local machine (say on your fancy laptop).
 
 Install cf CLI for your operating system.
 
@@ -152,7 +186,9 @@ Install cf CLI for your operating system.
 
 #### On Debian/Unbuntu flavors of Linux
 
-including Kubuntu:
+including <a target="_blank" href="https://www.kubuntu.org/">Kubuntu</a> which has
+the more modern lookind KDE desktop. From Canonical until 2012.
+
 
 1. Open a terminal window.
 2. Add the Cloud Foundry Foundation public key and package repository to your system:
@@ -317,9 +353,9 @@ See 'cf help &LT;command>' to read about a specific command.
    It passes tokens around -- a unique identifier that provides both credentials for authentication (getting in), as well as authorization (what can be used).
 
 
-### Set Endpoint
+   ### Set Endpoint
 
-0. To set as endpoint the Pivotal cloud:
+0. To set Pivotal cloud as the endpoint to use for commands to follow:
 
    <tt><strong>cf api https://api.run.pivotal.io
    </strong></tt>
@@ -338,10 +374,16 @@ Not logged in. Use 'cf login' to log in.
 
 ### BOSH Mainfest.yml
 
+"BOSH is designed to offer a tool chain for release engineering, deployment and lifecycle management of large scale distributed services." In my words:
+
 BOSH is a "lifecycle management" tool that runs Cloud Foundry itself,
 used "under the covers" of Pivotal CF to deploy and update infrastructure components. 
 
-   https://github.com/cloudfoundry/bosh 
+   <a target="_blank" href="https://bosh.io/docs/">
+   https://bosh.io/docs</a>
+
+   <a target="_blank" href="https://github.com/cloudfoundry/bosh">
+   https://github.com/cloudfoundry/bosh</a>
 
 BOSH is a self-referencing acronym where the "B" stands for BOSH itself.
 The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
@@ -1173,6 +1215,10 @@ such as <a target="_blank" href="https://coreos.com/etcd/">CoreOS Etcd</a>,
 Hashicorp Consul, and Puppet Zookeeper. 
 There are also the Spring Cloud implementations of Eureka and Consul.
 
+<a target="_blank" href="https://docs.google.com/document/d/1qdLNIWQQzluXw5rnc39raAYOnnSdDUjhUOrovUE0NJI/edit#heading=h.f54rg2dpu35y">NOTE</a>: A large effort to remove the Consul open source project from the Cloud Foundry platform’s internal architecture is in progress. 
+More updates on the CF Runtime’s approach to distribute locking and service discovery can be found here.
+
+
 ### Service Discovery Design Pattern
 
 Service discovery makes it easy for clients to find routes to dynamic services.
@@ -1230,37 +1276,53 @@ Its command toolset:
 
 ## Resources
 
-<a target="_blank" href="https://www.youtube.com/channel/UC0ZYS0Y7b5oiVLvxGf4magw">
-Cloud Foundry's YouTube channel</a>
+* <a target="_blank" href="https://www.youtube.com/channel/UC0ZYS0Y7b5oiVLvxGf4magw">
+   Cloud Foundry's YouTube channel</a>
 
-There is a free EdX class
+* <a target="_blank" href="https://www.youtube.com/playlist?list=PLhuMOCWn4P9hTlDEWJZV8JbVsW01avHF1">
+   Video playlist from Cloud Foundry Summit Silicon Valley 2017</a>
+   120+ recorded sessions and keynotes.
+
+* <a target="_blank" href="https://cloudfoundry.org/events-archive/">
+   Past Summits</a> in Frankfurt, Germany 26 Sep 2017 and 2016.
+
+* October 11-12, 2017 | Basel, Switzerland
+
+* Free EdX class
 <a target="_blank" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/">
 Introduction to Cloud Foundry and Cloud Native Software Architecture</a>
 by Tyler Bird
 and Kevin Rutten
 
-BTW, the 
-"starkandWayne.com" emails mentioned in the example is a <a target="_blank" href="https://www.linkedin.com/company-beta/5230623/">
-real cloud consultantcy company</a> in San Francisco, where the helpful
-<a target="_blank" href="https://www.linkedin.com/in/norman-abramovitz-8690482">Norman Abramnovitz</a> works.
+   BTW, the 
+   "starkandWayne.com" emails mentioned in the example is a <a target="_blank" href="https://www.linkedin.com/company-beta/5230623/">
+   real cloud consultantcy company</a> in San Francisco, where the helpful
+   <a target="_blank" href="https://www.linkedin.com/in/norman-abramovitz-8690482">Norman Abramnovitz</a> works.
 
-A training partner program includes licensed materials for in-person or eLearning Cloud Foundry developer classes offered by training partners including: Biarca, CapGemini, Cognizant, Dell EMC, EngineerBetter, Fast Lane, IBM, Innovivi, Pivotal, Resilient Scale, SAP, Stark & Wayne, and Swisscom.
+* <a target="_blank" href="https://training.linuxfoundation.org/linux-courses/system-administration-training/cloud-foundry-for-developers/">
+   Linux Foundation's "Cloud Foundry for Developers"</a> is normally $800.
 
-https://training.linuxfoundation.org/linux-courses/system-administration-training/cloud-foundry-for-developers
-
-
-## Social Discussion Forums
-
-Slack channel
-
-https://stackoverflow.com/search?q=cf
-
-<a target="_blank" href="https://plus.google.com/u/0/communities/114993035927692444558">
-Google Group: Cloud Foundry User</a>
+* Cloud Foundry developer classes offered by training partners licensed materials for in-person or eLearning include: Biarca, CapGemini, Cognizant, Dell EMC, EngineerBetter, Fast Lane, IBM, Innovivi, Pivotal, Resilient Scale, SAP, Stark & Wayne, and Swisscom.
 
 
-## Certification
 
+## Social 
+
+* For an invitation to the Slack channel, give your email to:<br />
+   <a target="_blank" href="https://slack.cloudfoundry.org/">
+   https://slack.cloudfoundry.org</a> 
+
+* Search for "cf" in StackOverflow at<br /><a target="_blank" href="https://stackoverflow.com/search?q=cf">
+   https://stackoverflow.com/search?q=cf</a> 
+
+* <a target="_blank" href="https://plus.google.com/u/0/communities/114993035927692444558">
+   Google Group: Cloud Foundry User</a>
+
+* <a target="_blank" href="https://lists.cloudfoundry.org/archives/list/cf-dev@lists.cloudfoundry.org/">
+   cf-dev mailing list</a>
+
+* https://cloudfoundry.org/newsletter/
+   for invitation to events.
 
 
 ## Hackathons
