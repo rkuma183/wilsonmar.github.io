@@ -245,6 +245,8 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 0. Exit the "Drag and Drop" pop-up.
 0. Delete the Docker.dmg file within Finder (to reclaim disk space).
+0. In the Applications folder, under the Devices section on the left, 
+   press the eject icon to the right of Docker.
 
    ### Open Docker client app
 
@@ -538,30 +540,15 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 <a name="VerifyInstall"></a>
 
-## After install #
+## After install, Menu, Verify #
 
 After installation, Docker commands are similar on all operating systems:
 
 0. Open a Terminal shell window.
 
-0. Get Docker version property:
-
-   <pre><strong>
-   docker --version
-   </strong></pre>
-
-   The response:
-   
-   <pre>
-Docker version 1.12.3, build 6b644ec
-   </pre>
-
-   Notice "experimental" has been removed.
-
 0. List all docker commands:
 
-   <tt><strong>
-   docker
+   <tt><strong>docker
    </strong></tt>
 
    The response:
@@ -650,20 +637,21 @@ Run 'docker COMMAND --help' for more information on a command.
 
     <pre>
 Client:
- Version:      1.12.3
- API version:  1.24
- Go version:   go1.6.3
- Git commit:   6b644ec
- Built:        Wed Oct 26 23:26:11 2016
+ Version:      17.06.1-ce
+ API version:  1.30
+ Go version:   go1.8.3
+ Git commit:   874a737
+ Built:        Thu Aug 17 22:53:38 2017
  OS/Arch:      darwin/amd64
 &nbsp;
 Server:
- Version:      1.12.3
- API version:  1.24
- Go version:   go1.6.3
- Git commit:   6b644ec
- Built:        Wed Oct 26 23:26:11 2016
+ Version:      17.06.1-ce
+ API version:  1.30 (minimum version 1.12)
+ Go version:   go1.8.3
+ Git commit:   874a737
+ Built:        Thu Aug 17 22:54:55 2017
  OS/Arch:      linux/amd64
+ Experimental: true
    </pre>
 
    Sample response on Centos:
@@ -708,55 +696,76 @@ Server:
    Experimental: true
    </pre>
 
+
+0. Get Docker version property:
+
+   <tt><strong>docker \-\-version
+   </strong></tt>
+
+   The response:
+   
+   <pre>
+Docker version 17.06.1-ce, build 874a737
+   </pre>
+
+   Notice "experimental" has been removed.
+
 0. Obtain status using the info sub-command:
 
-   <tt><strong>
-   docker info
+   <tt><strong>docker info
    </strong></tt>
 
    An example of command output for docker info on Windows:
 
    <pre>
-Containers: 0
+Containers: 1
  Running: 0
  Paused: 0
- Stopped: 0
-Images: 0
-Server Version: 1.12.3
+ Stopped: 1
+Images: 4
+Server Version: 17.06.1-ce
 Storage Driver: aufs
  Root Dir: /var/lib/docker/aufs
  Backing Filesystem: extfs
- Dirs: 0
+ Dirs: 18
  Dirperm1 Supported: true
 Logging Driver: json-file
 Cgroup Driver: cgroupfs
-Plugins:
+Plugins: 
  Volume: local
- Network: host bridge overlay null
+ Network: bridge host ipvlan macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
 Swarm: inactive
 Runtimes: runc
 Default Runtime: runc
-Security Options: seccomp
-Kernel Version: 4.4.27-moby
-Operating System: Alpine Linux v3.4
+Init Binary: docker-init
+containerd version: 6e23458c129b551d5c9871e5174f6b1b7f6d1170
+runc version: 810190ceaa507aa2727d7ae6f4790c76ec150bd2
+init version: 949e6fa
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.9.41-moby
+Operating System: Alpine Linux v3.5
 OSType: linux
 Architecture: x86_64
 CPUs: 4
-Total Memory: 1.951 GiB
+Total Memory: 1.952GiB
 Name: moby
-ID: 6SFI:4ZSJ:27OO:6L65:VZXB:MM6S:TIAT:MC7Z:CVNS:4ECH:N6AY:KTDJ
+ID: SXK4:Q3CD:WA4O:3PNI:OLEZ:77QQ:PICU:KWYG:PGZF:VZUR:5MLP:ZISE
 Docker Root Dir: /var/lib/docker
 Debug Mode (client): false
 Debug Mode (server): true
- File Descriptors: 15
- Goroutines: 27
- System Time: 2016-11-10T20:54:34.119254981Z
+ File Descriptors: 17
+ Goroutines: 29
+ System Time: 2017-08-27T18:56:58.350490043Z
  EventsListeners: 1
 No Proxy: *.local, 169.254/16
 Registry: https://index.docker.io/v1/
-WARNING: No kernel memory limit support
+Experimental: true
 Insecure Registries:
  127.0.0.0/8
+Live Restore Enabled: false
    </pre>
 
 
