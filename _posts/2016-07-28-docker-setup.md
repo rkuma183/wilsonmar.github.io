@@ -426,8 +426,7 @@ To get the latest and greatest version, install Docker from the official Docker 
 
 0. First, update the package database:
 
-   <tt><strong>
-   sudo yum check-update
+   <tt><strong>sudo yum check-update
    </strong></tt>
 
    The response:
@@ -443,8 +442,7 @@ Loading mirror speeds from cached hostfile
 
 0. Add the official Docker repository, download the latest version of Docker, and install it:
 
-   <tt><strong>
-   curl -fsSL https://get.docker.com/ | sh
+   <tt><strong>curl -fsSL https://get.docker.com/ | sh
    </strong></tt>
 
    The response:
@@ -475,8 +473,7 @@ Remember that you will have to log out and back in for this to take effect!
 
 0. With installation complete, start the Docker daemon:
 
-   <tt><strong>
-   sudo systemctl start docker
+   <tt><strong>sudo systemctl start docker
    </strong></tt>
 
    No response is returned.
@@ -487,8 +484,7 @@ Remember that you will have to log out and back in for this to take effect!
 
 0. Verify it's running:
 
-   <tt><strong>
-   sudo systemctl status docker -l
+   <tt><strong>sudo systemctl status docker -l
    </strong></tt>
 
    The response:
@@ -520,8 +516,7 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 0. Configure to git it to start at every server reboot:
 
-   <tt><strong>
-   sudo systemctl enable docker
+   <tt><strong>sudo systemctl enable docker
    </strong></tt>
 
    NOTE: This only needs to be done once per instance.
@@ -697,6 +692,51 @@ Server:
    </pre>
 
 
+
+<a name="ModulesInstalled"></a>
+
+### Modules installed #
+
+   Installing Docker gives you not just the Docker service (daemon) 
+   but also the docker command line utility, or the Docker client.
+
+   Regardless of the OS, the installation provides: 
+
+   * Docker Machine
+   * Docker CLI client
+   * <a href="#DockerEngine">Docker Engine</a>
+   * <a href="#DockerCompose">Docker Compose</a>
+   * <a href="#DockerSwarm">Docker Swarm</a>
+   <br /><br />
+
+0. See the list of supported drivers at<br />
+   <a target="_blank" href="https://docs.docker.com/machine/drivers/">
+   https://docs.docker.com/machine/drivers</a>
+
+
+
+0. PROTIP: There's a different version of each Docker module:
+
+   <tt><strong>docker-compose \-\-version
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+   docker-machine version 0.12.0, build 45c69ad
+   </pre>
+
+0. PROTIP: There's a different version of each Docker module:
+
+   <tt><strong>docker-machine \-\-version
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+   docker-compose version 1.14.0, build c7bdf9e
+   </pre>
+
 0. Get Docker version property:
 
    <tt><strong>docker \-\-version
@@ -710,7 +750,9 @@ Docker version 17.06.1-ce, build 874a737
 
    Notice "experimental" has been removed.
 
-0. Obtain status using the info sub-command:
+   ### Full Docker Info
+
+0. PROTIP: The most detailed status is obtained using the info sub-command:
 
    <tt><strong>docker info
    </strong></tt>
@@ -769,36 +811,13 @@ Live Restore Enabled: false
    </pre>
 
 
-<a name="ModulesInstalled"></a>
-
-### Modules installed #
-
-   Installing Docker gives you not just the Docker service (daemon) 
-   but also the docker command line utility, or the Docker client.
-
-   Regardless of the OS, the installation provides: 
-
-   * Docker Machine
-   * Docker CLI client
-   * <a href="#DockerEngine">Docker Engine</a>
-   * <a href="#DockerCompose">Docker Compose</a>
-   * <a href="#DockerSwarm">Docker Swarm</a>
-   <br /><br />
-
-0. See the list of supported drivers at<br />
-   <a target="_blank" href="https://docs.docker.com/machine/drivers/">
-   https://docs.docker.com/machine/drivers</a>
-
-
-
-<hr />
-
 ## Extensions
 
+Add to Docker...
 
 <a name="DockerUCP"></a>
 
-### Docker UCP (Universal Control Plane) #
+#### Docker UCP (Universal Control Plane) #
 
    UCP enables you to control Docker environments through a 
    <strong>web interface</strong>.
@@ -816,53 +835,40 @@ Live Restore Enabled: false
 
 
 
-
-<a name="DockerHello"></a>
-
-## Run Hello Container #
+## Run Dockerfiles
 
    PROTIP: Similar to Python, most people run commands within a Docker machine
    (which is the whole point of installing Docker).
 
    This section describes how to run a Docker image, then remove it.
 
-0. See if it can run anything:
 
-   <tt><strong>
-   docker run hello-world
-   </strong></tt>
+<a name="DockerHello"></a>
 
-   This uses the default "library" user, so the command is equivalent to:
+### Run hello-world from Docker Hub #
 
-   <pre>
-   docker run library/hello-world
-   </pre>
+   Like Maven and other repositories, 
+   a docker command automatically pull from the public Docker Repository, such as:<br />
+   <a target="_blank" href="https://hub.docker.com/_/hello-world/">
+   https://hub.docker.com/_/hello-world</a>
 
-   If you get this:
+0. Run it to verify whether you can access the public Docker Repository:   
 
-   <pre>
-docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
-See 'docker run --help'.
-   </pre>
+   <tt><strong>docker run hello-world
+   </strong>
 
-   If the image specified is not found, Docker gets it for you from the default registry:
+   The expected response is:
 
    <pre>
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-c04b14da8d14: Pull complete 
-Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
-Status: Downloaded newer image for hello-world:latest
-&nbsp;
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 &nbsp;
 To generate this message, Docker took the following steps:
-\1. The Docker client contacted the Docker daemon.
-\2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-\3. The Docker daemon created a new container from that image which runs the
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
     executable that produces the output you are currently reading.
-\4. The Docker daemon streamed that output to the Docker client, which sent it
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
 &nbsp;
 To try something more ambitious, you can run an Ubuntu container with:
@@ -870,20 +876,115 @@ To try something more ambitious, you can run an Ubuntu container with:
 &nbsp;
 Share images, automate workflows, and more with a free Docker Hub account:
  https://hub.docker.com
-&nbsp;
-For more examples and ideas, visit:
- https://docs.docker.com/engine/userguide/
+    </pre>
+
+   BLAH: If you are running this within a corporate firewall, you may need to obtain permissions
+   and/or specify client network settings.
+
+   If you get this message, make sure the docker process can run.
+
+   <pre>
+docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
+See 'docker run --help'.
    </pre>
 
-   See https://docs.docker.com/docker-for-windows/
+   See <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
+   https://docs.docker.com/docker-for-windows</a>
 
-   It automatically ran:
+
+   ### Docker pull
    
-   <pre><strong>
-   docker pull library/hello-world
-   </strong></pre>
+0. To bring the Dockerfile local:
 
-   Alternately:
+   <tt><strong>docker pull library/hello-world
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+Using default tag: latest
+latest: Pulling from library/hello-world
+b04784fba78d: Pull complete 
+Digest: sha256:f3b3b28a45160805bb16542c9531888519430e9e6d6ffc09d72261b0d26ff74f
+Status: Downloaded newer image for hello-world:latest
+   </pre>
+
+0. List images available locally:
+
+   <tt><strong>docker images
+   </strong></tt>
+
+   <pre>
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              1815c82652c0        2 months ago        1.84kB
+   </pre>
+
+0. Turn your Wi-Fi off.
+
+0. Run it again from your local cache using
+   the default "library" user, so the command is equivalent to:
+
+   <tt><strong>docker run library/hello-world
+   </strong></tt>
+
+
+   ### Other Dockerfiles
+
+   Many have posted their collection of Dockerfiles publicly to GitHub:
+
+   * <a target="_blank" href="https://github.com/veggiemonk/awesome-docker#dockerfile">
+   https://github.com/veggiemonk/awesome-docker#dockerfile</a>
+   has an annotated list of public repositories containing Dockerfile
+
+   * https://github.com/jessfraz/dockerfiles 
+   also live on dockerhub under jess. Because you cannot use notary with autobuilds on dockerhub I also build these continuously on a private registry at r.j3ss.co for public download. (You're welcome.)
+
+   * https://github.com/yaronr/dockerfile
+
+
+
+   * https://github.com/vimagick/dockerfiles
+   has over 500 stars.
+
+   * https://github.com/veggiemonk/awesome-docker
+   has over 7.9K stars.
+
+   * https://github.com/kstaken/dockerfile-examples
+   has a build step for salt, couchdb, rethinkdb
+
+   * https://github.com/jbergknoff/Dockerfile
+   contains a Dockerfile for mysql, postgreSQL, redis, node, youtube-dl
+
+   ### Other Dockerfiles
+
+   https://github.com/codemy/dockerfile
+   also has mysql, but adds elasticsearch
+   hosted at <a target="_blank" href="https://quay.io/codemy/">
+   quay.io/codemy</a>
+
+   ### Get my sample Dockerfile
+
+0. In a Terminal, navigate to where you can add a repo.
+0. Get it and navigate into the repo:
+
+   <tt><strong>git clone https://github.com/wilsonmar/Dockerfiles;cd Dockerfiles
+   </strong></tt>
+
+   PROTIP: I recommend putting the Dockerfile for an app within that app's repository
+   rather than in a separate one.
+
+0. List the contents of the repo:
+
+   <tt><strong>ls -al
+   </strong></tt>
+
+   <tt><strong>cd hello-world;docker run hello-world
+   </strong></tt>
+
+0. Turn your Wi-Fi back on because the rest of this tutorial assumes it.
+
+
+   ### mynginx1
 
 0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
    This blog</a> shows this command to run image named "mynginx1":
@@ -1406,13 +1507,12 @@ Run 'docker-machine COMMAND --help' for more information on a command.
 0. Create a Docker machine on the Digital Ocean cloud:
 
    <tt><strong>
-   docker-machine create -d digitialocean --digitalocean-access-token=secret
+   docker-machine create -d digitialocean \-\-digitalocean-access-token=secret
    </strong></tt>
 
 0. List Docker machine instances:
 
-   <strong><tt>
-   docker-machine ls
+   <tt><strong>docker-machine ls
    </strong></tt>
 
    The response is a heading above lines, if any:
@@ -1423,8 +1523,7 @@ Run 'docker-machine COMMAND --help' for more information on a command.
 
 0. List Docker machine Internet Protocol addresses:
 
-   <strong><tt>
-   docker-machine ip
+   <tt><strong>docker-machine ip
    </strong></tt>
 
    The response:
@@ -1482,7 +1581,7 @@ bash: print: command not found
    Alternately, if you are running docker-machine on windows, you should use Hyper-V :
 
    <tt><strong>
-   docker-machine create --driver hyperv vm
+   docker-machine create \-\-driver hyperv vm
    </strong></tt>
 
 
@@ -1493,18 +1592,6 @@ bash: print: command not found
 
 See https://docs.docker.com/compose/install/.
 
-
-0. There's a different version of each Docker module:
-
-   <pre><strong>
-   docker-compose --version
-   </strong></pre>
-
-   The responses:
-
-   <pre>
-   docker-compose version 1.8.1, build 878cff1
-   </pre>
 
 0. Describe you stack in a <strong>docker-compose.yml</strong>.
    Example:
@@ -1530,8 +1617,7 @@ See https://docs.docker.com/compose/install/.
 
 0. Type the command by itself for a list of sub-commands:
 
-   <tt><strong>
-   docker-compose
+   <tt><strong>docker-compose
    </strong></tt>
 
    The response:
@@ -1589,8 +1675,7 @@ Commands:
 
 0. Docker compose creates multiple containers with a single command:
 
-   <tt><strong>
-   docker-compose up --x-smart-recreate
+   <tt><strong>docker-compose up \-\-x-smart-recreate
    </strong></tt>
 
    The above command refers to Dockerfile and compose.yml files.
@@ -1604,14 +1689,16 @@ Commands:
    here</a>
 
 
-   ### Alternatives include Kubernetes by Google, 
-Mesos
-Centos
-Atomic
-Consul, Terraform
-Serf
-Cloudify
-Helios
+   ### Alternatives include 
+
+   * Kubernetes by Google, 
+   * Mesos
+   * Centos
+   * Atomic
+   * Consul, Terraform
+   * Serf
+   * Cloudify
+   * Helios
 
 
 <a name="DockerSwarm"></a>
