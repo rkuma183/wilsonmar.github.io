@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Running Windows on Apple Mac OSX"
-excerpt: "Is this cheating?"
+title: "Windows on Apple Mac OSX"
+excerpt: "Demon spawn!"
 tags: [apple, mac, setup, VMWare, Fusion]
 image:
 # feature: pic gray apple logo 1900x500.jpg
@@ -18,12 +18,50 @@ comments: true
 There are several ways to run Microsoft Windows on an Apple Mac computer.
 Each has its own advantages and disadvantages:
 
+* <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
 * <a href="#Docker">Docker</a>
 * <a href="#BootCamp">BootCamp</a>
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a target="_blank" hhref="http://www.parallels.com/products/desktop">Parallels</a>
 
 <hr />
+
+<a name="WorkSpaces"></a>
+
+## Browser WorkSpaces in AWS cloud
+
+This approach works not just a MacOS laptop, 
+but for any computer running a modern browser,
+such as <a target="_blank" href="http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-chromebook-client.html">
+on a Chromebook</a>. No files are transferred, just graphic
+images of a screen on servers within the AWS cloud.
+
+<a target="_blank" href="https://aws.amazon.com/workspaces/pricing/">
+At $25 to $75 per month per user</a>, Amazon estimates that a WorkSpaces customer would save 59 percent over traditional Virtual Desktop Infrastructures (VDI) provided by Citrix and VMware.
+
+Amazon's approach uses newer tech than VDI. 
+
+1. Choose the link for your laptop model at <br />
+   <a target="_blank" href="http://clients.amazonworkspaces.com/">
+   http://clients.amazonworkspaces.com</a> 
+
+0. Download and install the Chrome application to enable the proprietary PC over IP (PCoIP) protocol (from Teradici) to compress, encrypt and rapidly transport image pixels between client and server.
+
+   On a MacOS, it's file "WorkSpaces.pkg" (38.2 MB taking 115.3 MB space).
+
+   On a Chromebook, 
+
+0. Double-click on the installer and click Continue and
+   finally, Install. Provide your password when requested.
+
+0. Move the WorkSpaces.pkg installer to Trash, to recover disk space.
+   
+0. Do a Chromebook search to verify that the Amazon WorkSpaces client app icon appears.
+
+BLAH: The full graphic streaming virtual desktops tends to eat up much bandwidth. So measure how much you have used before and after sessions.
+
+To manage these desktops, Amazon enables you to use your existing Active Directory (AD). To make this happen, you'll need to set up an Amazon Virtual Private Cloud (VPC) with a hardware virtual private network (VPN) connection to your on-premises environment, or provision a dedicated connection with AWS Direct Connect. Once linked up, you use the  AWS Management Console to select the users in your Active Directory who will receive a WorkSpace. 
+
 
 <a name="Docker"></a>
 
