@@ -36,12 +36,28 @@ such as <a target="_blank" href="http://docs.aws.amazon.com/workspaces/latest/us
 on a Chromebook</a>. No files are transferred, just graphic
 images of a screen on servers within the AWS cloud.
 
-<a target="_blank" href="https://aws.amazon.com/workspaces/pricing/">
-At $25 to $75 per month per user</a>, Amazon estimates that a WorkSpaces customer would save 59 percent over traditional Virtual Desktop Infrastructures (VDI) provided by Citrix and VMware.
+1. Realize the cost of <a target="_blank" href="https://aws.amazon.com/workspaces/pricing/">
+   $25 to $75 per month per user</a>, Amazon estimates that a WorkSpaces customer would save 59 percent over traditional Virtual Desktop Infrastructures (VDI) provided by Citrix and VMware.
 
-Amazon's approach uses newer tech than VDI. 
+0. In the <a target="_blank" href="https://console.aws.amazon.com/workspaces/home">
+   WorkSpaces Console</a> for your default region, Get Started, Launch, and
+   Select a Bundle.
 
-1. Choose the link for your laptop model at <br />
+0. Specify for each user his/her Username, First Name, Last Name, and Email for the Bundle selected.
+
+   PROTIP: Username can be the same as the Email.
+
+0. Click Launch Workspace for all users. When the Workspace Console goes from PENDING to 
+
+   Return to managed users in the Amazon WorkSpaces Application Manager (WAM).
+
+   ### Install client agent
+   
+0. In each user's email client, open the welcome email and click the link.
+0. Set your WorkSpaces credentials with a password.
+0. Highlight the registration code in the email and copy to your Clipboard.
+   
+0. Choose the link for your laptop model at <br />
    <a target="_blank" href="http://clients.amazonworkspaces.com/">
    http://clients.amazonworkspaces.com</a> 
 
@@ -49,25 +65,67 @@ Amazon's approach uses newer tech than VDI.
 
    On a MacOS, it's file "WorkSpaces.pkg" (38.2 MB taking 115.3 MB space).
 
-   On a Chromebook, 
+   On a Chromebook, click "ADD TO CHROME" at the upper-right corner.
 
 0. Double-click on the installer and click Continue and
    finally, Install. Provide your password when requested.
 
-0. Move the WorkSpaces.pkg installer to Trash, to recover disk space.
+0. Move the installer file (WorkSpaces.pkg) to Trash, to recover disk space.
    
 0. Do a Chromebook search to verify that the Amazon WorkSpaces client app icon appears.
 
-BLAH: The full graphic streaming virtual desktops tends to eat up much bandwidth. So measure how much you have used before and after sessions.
+0. BLAH: The full graphic streaming virtual desktops tends to eat up much bandwidth. So measure how much you have used before and after sessions.
 
-To manage these desktops, Amazon enables you to use your existing Active Directory (AD). To make this happen, you'll need to set up an Amazon Virtual Private Cloud (VPC) with a hardware virtual private network (VPN) connection to your on-premises environment, or provision a dedicated connection with AWS Direct Connect. Once linked up, you use the  AWS Management Console to select the users in your Active Directory who will receive a WorkSpace. 
+   Optionally, your company's existing on-premises Active Directory (AD) can be reached by Amazon via an Amazon Virtual Private Cloud (VPC) with a hardware virtual private network (VPN) connection or a dedicated connection with AWS Direct Connect. 
+
+   Once linked up, you use the  AWS Management Console to select the users in your Active Directory who will receive a WorkSpace. 
+
+0. Open the app for the first time.
+0. Type your user name and password and choose Sign In.
+0. Paste the registration code and click Register.
+
+   ### Repeat Login
+
+   NOTE: 1Password cannot auto-fill Username and Password on the MacOS WorkSpaces app nor on Chrombook.
+
+0. Login using your Username and password.
+
+   If your Amazon WorkSpaces administrator has enabled multi-factor authentication for your organization's WorkSpaces, you are prompted for a passcode to complete your login. 
+
+   CAUTION: Only one browser can be used at the same time.
+   Amazon logs off a session when another session is started on another computer.
+
+0. If your Amazon WorkSpaces administrator has not disabled the "Remember Me" feature, you are prompted to save your credentials securely so that you can connect to your WorkSpace easily in the future. Your credentials are securely cached while the application is running.
+
+   After the client application connects to your WorkSpace, your WorkSpace desktop is displayed.
+
+0. (Optional) If your WorkSpace uses an AD Connector directory, update the maximum lifetime of the Kerberos ticket by following the steps in Configuring Kerberos Policies in the Microsoft TechNet Library. If you need to disable the "Remember Me" feature, search for help in the Amazon WorkSpaces forum.
+
+   Amazon's approach uses newer tech than VDI. 
+
+   ### Add apps 
+
+0. To add Chrome browser...
+
+0. To add a Git client, open Firefox, search for "Git for Windows". Click Download.
+   Click Save file. Click the down arrow for a list of downloads.
+   Click to Open File. Run. Yes to UAC. Next all, then Finish.
+   Close Firefox.
+   Click Windows icon. All Programs. Click Git, Git Bash.
+
+0. To exchange files among a group of people:<br />
+   https://amazonworkdocs.com/en/clients
+
+   ### Shut-down and Resume
+
+   This takes several minutes.
 
 
 <a name="Docker"></a>
 
 ## Docker #
 
-Docker is my favorite approach because you can run the same files
+Docker is now a favored approach because it runs the same (unaltered)
 [(Dockerized apps)](/dockerize/) on Windows, Mac, and Linux platforms.
 
 Docker provides a transparent interface to operating systems.
@@ -80,7 +138,8 @@ Docker provides a transparent interface to operating systems.
 
 ## Boot Camp on Mac #
 
-Apple came up with it, at https://support.apple.com/en-us/HT201468
+Apple came up with it, at <a target="_blank" href="https://support.apple.com/en-us/HT201468">
+https://support.apple.com/en-us/HT201468</a>
 says the installer is in the <strong>Utilities folder inside the Applications folder</strong>.
 
 This is called a "split brain" approach. The hassle with this are that:
