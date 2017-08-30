@@ -26,7 +26,7 @@ to contrast the setup of Docker on Mac OSX, CentOS Linux, and
 ## VMs vs. Docker #
 
 This is a more complex diagram than others so that interrelationships can be illustrated.
-TODO: Video of this.
+TODO: Video to gradually reveal this.
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/23315276/20242663/3251d440-a8f4-11e6-8c8c-de6a7be5837f.png">
 <img alt="docker flowchart v04-650x312-97kb" width="650" height="312"
@@ -44,12 +44,13 @@ within a VMware Fusion <strong>hypervisor</strong> that manages Virtual Memory i
 
 Each additional VM instance would take 
 several more Gigabytes of disk space and memory
-because the operating system is duplicated inside each VM instance.
+because the operating system is <strong>duplicated</strong> inside each VM instance.
 
 By contrast, 
 <strong>Docker's containers</strong> take a more lightweight approach.
-Docker sees its job as not to provide a complete machine but just to 
-cleanly separate applications that need the same oerating system.
+Docker aims to just 
+cleanly separate applications that need the same shared operating system read-only files.
+
 
 <a name="Mac"></a>
 
@@ -91,7 +92,7 @@ SSH ports are not opened into images</a>.
 
 A <strong>data volume</strong> outside the image is referenced to read private keys.
 
-Additional data volumes, such as InfluxDB,
+Additional data volumes (such as InfluxDB)
 are shared for logging with an additional image.
 It receives stats collected by the cAdvisor image (from Google) 
 and structures data for display in a Grafana dashboard.
@@ -135,6 +136,7 @@ containing Docker commands.
 
 Each container runs as an isolated process on a shared kernel.
 
+
 ### Competition
 
 http://www.boycottdocker.org/
@@ -156,7 +158,7 @@ Canonical of Ubuntu has their LXD</a>
 
 <hr />
 
-## Linux installer downloads #
+## Linux installer boots #
 
 Docker was originally created for different flavors of Linux:
 
@@ -287,6 +289,24 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 ### Install Docker on Windows 10 #
 
+#### Windows 10 Docker images within AWS  #
+
+   Native Windows images have been running within AWS EC2 clouds.
+
+   But Docker images containing Windows OS can run on other machines (such as MacOS and Linux), 
+   which reduces testing and admin. effort.
+
+   The marketing page about run Windows within AWS EC2 is<br />
+   <a target="_blank" href="https://docs.docker.com/machine/examples/aws/">
+   https://docs.docker.com/machine/examples/aws/</a>
+
+1. Create an Amazon user account (after using IAM to create it using an Admin account used for billing).
+0. Login to the Console at<br /><a target="_blank" href="https://console.aws.amazon.com/console/home">
+   https://console.aws.amazon.com/console/home</a>
+
+
+#### Install Docker on Windows 10 #
+
 The below enhances https://docs.docker.com/docker-for-windows/
 
 CAUTION: A 64-bit machine is necessary.
@@ -340,6 +360,8 @@ CAUTION: A 64-bit machine is necessary.
 
 ### Install in clouds #
 
+Using the Amazone CLI:
+
 0. Create `~/.aws/credentials` file based on keys copied during user creation in AWS IAM, such as:
 
    <pre>
@@ -392,9 +414,6 @@ Within Docker for Mac, the Docker engine runs in an
 Alpine Linux distribution on top of a Mac xhyve 
 (pronounced "x-hive") Virtual Machine.
 
-The Alpine Linux distribution (distro) is so small that 
-there is an edition of it for the Raspberry Pi.
-
 Alpine comes with Docker for Mac, but for additional information, see:
 
    <a target="_blank" href="https://alpinelinux.org/">
@@ -405,6 +424,10 @@ Alpine comes with Docker for Mac, but for additional information, see:
    | 2016-09-28 | alpine-virt-3.4.4-x86_64.iso | Virtual | 39 MB |
    | 2016-09-28 | alpine-3.4.4-x86_64.iso | Standard | 85 MB |
    | 2016-09-28 | alpine-extended-3.4.4-x86_64.iso | Extended | 311 MB |
+
+The Alpine Linux distribution (distro) is so small that 
+there is an <a target="_blank" href="https://wiki.alpinelinux.org/wiki/Raspberry_Pi">
+edition of it for the Raspberry Pi</a>.
 
 
 
@@ -417,6 +440,8 @@ Alpine comes with Docker for Mac, but for additional information, see:
    1. Installing Docker on an existing installation of the operating system. 
 
    2. Spin up a server with Docker Machine which auto-installs Docker.
+
+   NOTE: Docker Cloud supercedes Docker Machine.
 
 See https://docs.docker.com/machine/reference/ls/
 
@@ -530,6 +555,30 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
 
+<hr />
+
+<a name="Docker4Win10"></a>
+
+### Install Docker on Windows 10
+
+1. Upgrade your Windows 10 to the <strong>Anniversary Edition</strong> update.
+
+0. Download "Docker for Windows" 
+
+   <a target="_blank" href="https://www.docker.com/docker-windows">
+   https://www.docker.com/docker-windows</a>
+
+   NOTE: Do not download the Beta (as of September 2016)
+   https://download.docker.com/win/beta/InstallDocker.msi
+   as mentioned in
+   https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/
+   and
+   https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/
+
+0. https://docs.docker.com/docker-for-windows/
+
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+
 
 <hr />
 
@@ -537,11 +586,11 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 ## After install, Menu, Verify #
 
-After installation, Docker commands are similar on all operating systems:
-
 0. Open a Terminal shell window.
 
-0. List all docker commands:
+   After Docker installation, the same Docker commands are applicable on all operating systems:
+
+0. List all docker command options:
 
    <tt><strong>docker
    </strong></tt>
@@ -624,8 +673,7 @@ Run 'docker COMMAND --help' for more information on a command.
 
 0. Obtain the version number using a sub-command:
 
-   <tt><strong>
-   docker version
+   <tt><strong>docker version
    </strong></tt>
 
    Sample response on the Mac:
@@ -691,6 +739,10 @@ Server:
    Experimental: true
    </pre>
 
+   <a target="_blank" href="https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/">
+   PROTIP:</a>
+   A Windows Server Docker image runs within a Linux Docker instance on a Windows 10 machine.
+   Strange but true because Docker makes use of Linux drivers.
 
 
 <a name="ModulesInstalled"></a>
@@ -845,7 +897,7 @@ Add to Docker...
 
 <a name="DockerHello"></a>
 
-### Run hello-world from Docker Hub #
+### Run from Docker Hub #
 
    Like Maven and other repositories, 
    a docker command automatically pull from the public Docker Repository, such as:<br />
@@ -878,9 +930,6 @@ Share images, automate workflows, and more with a free Docker Hub account:
  https://hub.docker.com
     </pre>
 
-   BLAH: If you are running this within a corporate firewall, you may need to obtain permissions
-   and/or specify client network settings.
-
    If you get this message, make sure the docker process can run.
 
    <pre>
@@ -888,8 +937,8 @@ docker: Cannot connect to the Docker daemon. Is the docker daemon running on thi
 See 'docker run --help'.
    </pre>
 
-   See <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
-   https://docs.docker.com/docker-for-windows</a>
+   BLAH: If you are running this within a corporate firewall, you may need to obtain permissions
+   and/or specify client network settings.
 
 
    ### Docker pull
@@ -928,387 +977,9 @@ hello-world         latest              1815c82652c0        2 months ago        
    </strong></tt>
 
 
-   ### Other Dockerfiles
+   <a name="DockerSearch"></a>
 
-   Many have posted their collection of Dockerfiles publicly to GitHub:
-
-   * <a target="_blank" href="https://github.com/veggiemonk/awesome-docker#dockerfile">
-   https://github.com/veggiemonk/awesome-docker#dockerfile</a>
-   has an annotated list of public repositories containing Dockerfile
-
-   * https://github.com/jessfraz/dockerfiles 
-   also live on dockerhub under jess. Because you cannot use notary with autobuilds on dockerhub I also build these continuously on a private registry at r.j3ss.co for public download. (You're welcome.)
-
-   * https://github.com/yaronr/dockerfile
-
-
-
-   * https://github.com/vimagick/dockerfiles
-   has over 500 stars.
-
-   * https://github.com/veggiemonk/awesome-docker
-   has over 7.9K stars.
-
-   * https://github.com/kstaken/dockerfile-examples
-   has a build step for salt, couchdb, rethinkdb
-
-   * https://github.com/jbergknoff/Dockerfile
-   contains a Dockerfile for mysql, postgreSQL, redis, node, youtube-dl
-
-   ### Other Dockerfiles
-
-   https://github.com/codemy/dockerfile
-   also has mysql, but adds elasticsearch
-   hosted at <a target="_blank" href="https://quay.io/codemy/">
-   quay.io/codemy</a>
-
-   ### Get my sample Dockerfile
-
-0. In a Terminal, navigate to where you can add a repo.
-0. Get it and navigate into the repo:
-
-   <tt><strong>git clone https://github.com/wilsonmar/Dockerfiles;cd Dockerfiles
-   </strong></tt>
-
-   PROTIP: I recommend putting the Dockerfile for an app within that app's repository
-   rather than in a separate one.
-
-0. List the contents of the repo:
-
-   <tt><strong>ls -al
-   </strong></tt>
-
-   <tt><strong>cd hello-world;docker run hello-world
-   </strong></tt>
-
-0. Turn your Wi-Fi back on because the rest of this tutorial assumes it.
-
-
-   ### mynginx1
-
-0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
-   This blog</a> shows this command to run image named "mynginx1":
-   
-   <tt><strong>
-   docker run --name mynginx1 -P -d nginx \
-   fcd1fb01b14557c7c9d991238f2558ae2704d129cf9fb97bb4fadf673a58580d
-   </strong></tt>
-
-   "-P" (capital P) tells Docker to map the Ports exposed by the NGINX image – ports 80 and 443 – to ports on the Docker host <strong>randomly selected</strong> 
-   from the range between 49153 and 65535
-   each time the container is started or restarted. 
-   This is to avoid conflicts on standard ports 80 and 443 if we later create multiple NGINX containers on the same Docker host. The `docker ps` command under PORTS would show
-   something like this:
-
-   <tt>0.0.0.0:49166->443/tcp, 0.0.0.0:49167->80/tcp</tt>
-
-   "-p" (lower case p) is used to set port mappings manually.
-
-   "-d" specifies running in <strong>detached mode</strong>
-   so the container continues to run until stopped,
-   but does not respond to commands run on the command line. 
-
-0. To interact with a detached container:
-
-   TODO: ???
-
-
-   ### NGINX example
-
-   Alternately:
-
-0. To run an NGINX web server:   
-   
-   <tt><strong>
-   docker run -d -p 8000:80 nginx
-   </strong></tt>
-
-   The "-d" parameter ...
-
-   The "8000:80" means we'll use localhost:8080.
-
-0. To see if that machine responds:
-
-   <tt><strong>
-   curl $(docker-machine ip default):8000
-   </strong>
-
-   A common error message is:
-
-   <pre>
-curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
-   </pre>
-
-
-
-   ### Ubuntu inside Mac
-
-0. To run the latest Ubuntu box inside your Mac:
-
-   <tt><strong>
-   docker run -it --rm --publish 3000:3000 ubuntu bash
-   </strong></tt>
-
-   "-it" means interactive (tty) terminal, 
-   specifying that the image should contain a shell when it runs
-   so it can be terminated manually by Ctrl+C.
-
-   "--publish" forwards port 3000 on the host from port 3000 in the container.
-
-   "bash" is the command issued in the container when it becomes active.
-   Alternately, "ruby /app/hello_world.rb" would invoke a ruby program.
-
-   Alternately, run version 14.04 of Ubuntu:
-
-   <tt><strong>
-   docker run --net=host -ti ubuntu:14.04 bash
-   </strong></tt>
-
-   After downloads, you should see a bash prompt such as:
-
-   <pre>
-root@ee355a835ff8:/# 
-   </pre>
-
-0. Get version information:
-
-   <tt><strong>
-   cat /etc/lsb-release
-   </strong></tt>
-
-   The response:
-
-   <pre>
-DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=16.04
-DISTRIB_CODENAME=xenial
-DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
-   </pre>
-
-   NOTE: You can't run docker commands on this prompt because you're inside.
-
-0. Press Control+C or type exit:
-
-   <tt><strong>
-   exit
-   </strong></tt>
-
-
-
-   <a name="DockerContainers"></a>
-
-   ### List Docker Containers #
-
-0. List Docker containers and their identifiers:
-
-   <tt><strong>
-   docker ps -a
-   </strong></tt>
-
-   PROTIP: In Linux the ps command is for processes. In a way, that's what Docker containers are, a process.
-
-   `-a` shows inactive as well as the default active listing.
-   (Kinda counter-intuitive)
-
-   Widen your screen to avoid wrapping:
-
-   <pre>
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                           NAMES
-2289fc019878        nginxdemos/hello    "nginx -g 'daemon off"   32 minutes ago      Up 32 minutes               0.0.0.0:32769->80/tcp, 0.0.0.0:32768->443/tcp   trusting_euler
-75ae035ab68b        hello-world         "/hello"                 39 minutes ago      Exited (0) 39 minutes ago                                                   serene_sammet
-   </pre>
-
-0. PROTIP: Customize the layout by specifying a memory variable containing format template
-   using tabs and line breaks.
-
-   <pre>
-\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\n
-   </pre>
-
-   <tt><strong>
-   docker ps -a --format $FORMAT
-   </strong></tt>
-
-0. To list Docker images downloaded:
-
-   <tt><strong>
-   docker images
-   </strong></tt>
-
-   <pre>
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nginxdemos/hello    latest              0ec165d1eb3a        12 hours ago        54.24 MB
-ubuntu              latest              f753707788c5        4 weeks ago         127.2 MB
-hello-world         latest              c54a2cc56cbb        4 months ago        1.848 kB
-   </pre>
-
-0. List Docker machines:
-
-   <tt><strong>
-   docker-machine ls
-   </strong></tt>
-
-   Example response:
-
-   <pre>
-NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
-default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1.12.3   
-   </pre>
-
-   See https://docs.docker.com/machine/get-started/
-
-0. Connect your shell to the new machine
-   (per https://docs.docker.com/machine/reference/env/):
-
-   <tt><strong>
-   eval "$(docker-machine env default)"
-   </strong></tt>
-
-   No response is displayed becuase the "eval" command above runs the output of the command:
-
-   <pre><strong>
-   docker-machine env default
-   </strong></pre>
-
-   which is:
-
-   <pre>
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/mac/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
-# Run this command to configure your shell: 
-# eval $(docker-machine env)
-   </pre>
-
-   PROTIP: On a Mac, the docker-machine VM is called "default", existing in directory<br />
-   /Users/\<username>/.docker/machine/machines/default/ 
-
-0. See if the environment variables are set:
-
-   <tt><strong>
-   env | grep DOCKER
-   </strong></tt>
-
-0. To unset commands:
-
-   <tt><strong>
-   eval $(docker-machine env -u)
-   </strong></tt>
-
-   which runs:
-
-   <pre>
-unset DOCKER_TLS_VERIFY
-unset DOCKER_HOST
-unset DOCKER_CERT_PATH
-unset DOCKER_MACHINE_NAME
-# Run this command to configure your shell: 
-# eval $(docker-machine env -u)
-   </pre>
-
-
-
-   ### Remove images
-
-0. To remove an individual Docker image listed above (to free up disk space):
-
-   <tt><strong>
-   docker rmi hello-world
-   </strong></tt>
-
-   A common error response if you have not first
-
-   <pre>
-Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container 75ae035ab68b is using its referenced image c54a2cc56cbb
-   </pre>
-
-
-0. To stop all running docker containers:
-
-   <tt><strong>
-   docker stop $(docker ps -a -q)
-   </strong>
-
-0. To delete all containers in a single command (to save disk space):
-
-   <tt><strong>
-   docker rm $(docker ps -a -q)
-   </strong></tt>
-
-
-
-
-   ### No Error Report #
-
-   PROTIP: Whenever an attempt to provision a Dockerized host using Docker Machine fails, 
-   or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. 
-
-0. Disable this reporting by creating an empty file called no-error-report under your installations .docker/machine directory:
-
-   <tt><strong>
-   touch ~/.docker/machine/no-error-report
-   </strong></tt>
-
-
-   ### Start using old boot2docker
-
-0. Start again, you don't need to specify "default":
-
-   <tt><strong>
-   docker-machine start default
-   </strong></tt>
-
-0. Connect:
-
-   <tt><strong>
-   docker-machine ssh
-   </strong></tt>
-
-   You should see a whale:
-
-   <pre>
-                        ##         .
-                  ## ## ##        ==
-               ## ## ## ## ##    ===
-           /"""""""""""""""""\___/ ===
-      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
-           \______ o           __/
-             \    \         __/
-              \____\_______/
- _                 _   ____     _            _
-| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
-| '_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ '__|
-| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   <  __/ |
-|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
-Boot2Docker version 1.12.3, build HEAD : 7fc7575 - Thu Oct 27 17:23:17 UTC 2016
-Docker version 1.12.3, build 6b644ec
-   </pre>
-
-   NOTE: Docker deprecated the Boot2Docker command line in favor of Docker Machine. 
-
-   https://docs.docker.com/machine/migrate-to-machine/
-
-0. Now do whatever you need to do here.   
-
-
-   <a name="DockerStop"></a>
-
-   ## Stop #
-
-0. Hard stop the default machine:
-
-   <tt><strong>
-   docker-machine stop default
-   </strong></tt>
-
-   PROTIP: Those who use this a often create aliases to limit typing.
-   For example, "dmon" for the above command.
-
-
-<a name="DockerSearch"></a>
-
-## DockerHub Search #
+   ### Base DockerHub Search #
 
 0. See the Officially supported repositories at:<br />
    <a target="_blank" href="https://hub.docker.com/explore/">
@@ -1398,10 +1069,12 @@ januswel/centos               yum update-ed CentOS image                      0 
 ustclug/centos                 USTC centos                                    0                    [OK]
 smartentry/centos             CentOS with smartentry                          0                    [OK]
 repositoryjp/centos           Docker Image for CentOS.                        0                    [OK]
-   <pre>
+   </pre>
 
 
-0. Alternately, if you want security and have money for license,
+   ### Docker Trusted Registry
+
+   If you want security and have money for the license,
    a more secure commercial (paid) repository is at<br /> 
    <a target="_blank" href="https://www.docker.com/products/docker-trusted-registry">
    https://www.docker.com/products/docker-trusted-registry</a>
@@ -1410,26 +1083,565 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
    <a target="_blank" href="https://docs.docker.com/registry">
    https://docs.docker.com/registry</a>
 
-0. Pull down an image from a private repository:
+   Although we don't have a license, an example to pull down an image from it:
 
-   <tt><strong>
-   docker pull my-reistry.net:5000/activemq
+   <tt><strong>docker pull my-registry.net:5000/activemq
    </strong></tt>
 
 
-   ### Remove image
+   #### Quay.io private Dockerfiles
 
-0. To remove an image:
+   <a target="_blank" href="https://github.com/codemy/dockerfile">
+   https://github.com/codemy/dockerfile</a>
+   contains Docker images containing mysql and elasticsearch
+   hosted at the <a target="_blank" href="https://quay.io/codemy/">
+   quay.io</a> private repository.
 
-   <tt><strong>
-   docker rmi ubuntu:trusty
+   BTW, a "quay" (pronounced "kee") is a wharf where boats dock.
+
+0. Sign in at https://quay.io/signin/
+   using your GitHub or Google credentials.
+
+   https://quay.io/plans/
+   begin from $12/month
+   for security scanning and geo-replication redundancy.
+
+
+## Run Dockerfile from GitHub
+
+### Run from my GitHub
+
+0. In a Terminal, navigate to where you can add a repo.
+0. Get it and navigate into the repo:
+
+   <tt><strong>git clone https://github.com/wilsonmar/Dockerfiles;cd Dockerfiles
    </strong></tt>
+
+   PROTIP: I recommend putting the Dockerfile for an app within that app's repository
+   rather than in a separate one.
+
+0. List the contents of the repo:
+
+   <tt><strong>ls -al
+   </strong></tt>
+
+   <tt><strong>cd hello-world;docker run hello-world
+   </strong></tt>
+
+0. Turn your Wi-Fi back on because the rest of this tutorial assumes it.
+
+
+   ### Other Dockerfiles from GitHub
+
+   Many have posted their collection of Dockerfiles publicly to GitHub:
+
+   * <a target="_blank" href="https://github.com/veggiemonk/awesome-docker#dockerfile">
+   https://github.com/veggiemonk/awesome-docker#dockerfile</a>
+   has an annotated list of public repositories containing Dockerfile
+
+   * https://github.com/jessfraz/dockerfiles 
+   also live on dockerhub under jess. Because you cannot use notary with autobuilds on dockerhub I also build these continuously on a private registry at r.j3ss.co for public download. (You're welcome.)
+
+   * https://github.com/yaronr/dockerfile
+
+   * https://github.com/vimagick/dockerfiles
+   has over 500 stars.
+
+   * https://github.com/veggiemonk/awesome-docker
+   has over 7.9K stars.
+
+   * https://github.com/kstaken/dockerfile-examples
+   has a build step for salt, couchdb, rethinkdb
+
+   * https://github.com/jbergknoff/Dockerfile
+   contains a Dockerfile for mysql, postgreSQL, redis, node, youtube-dl
+
+
+<hr />
+
+## Run parameters
+
+Here are parameters to run an Nginx web server.
+
+   <tt><strong>docker help run
+   </strong></tt>
+
+   results in this:
+
+   <pre>
+Usage:   docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+&nbsp;
+Run a command in a new container
+&nbsp;
+Options:
+      --add-host list                  Add a custom host-to-IP mapping (host:ip)
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight), between 10 and 1000, or 0 to disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the container
+      --cidfile string                 Write the container ID to the file
+      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
+  -d, --detach                         Run container in background and print container ID
+      --detach-keys string             Override the key sequence for detaching a container
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list
+      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second) from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second) to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --entrypoint string              Overwrite the default ENTRYPOINT of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to report unhealthy
+      --health-start-period duration   Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container that forwards signals and reaps processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC namespace to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the container
+      --name string                    Assign a name to the container
+      --network string                 Connect a container to a network (default "default")
+      --network-alias list             Add network-scoped alias for the container
+      --no-healthcheck                 Disable any container-specified HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000 to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1 for unlimited)
+      --privileged                     Give extended privileges to this container
+  -p, --publish list                   Publish a container's port(s) to the host
+  -P, --publish-all                    Publish all exposed ports to random ports
+      --read-only                      Mount the container's root filesystem as read only
+      --restart string                 Restart policy to apply when a container exits (default "no")
+      --rm                             Automatically remove the container when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --sig-proxy                      Proxy received signals to the process (default true)
+      --stop-signal string             Signal to stop a container (default "SIGTERM")
+      --stop-timeout int               Timeout (in seconds) to stop a container
+      --storage-opt list               Storage driver options for the container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format: &LT;name|uid>[:&LT;group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the container
+      --volumes-from list              Mount volumes from the specified container(s)
+  -w, --workdir string                 Working directory inside the container
+   </pre>
+
+
+### Run Latest Nginx from Docker Hub
 
 0. Run the latest version image pulled for nginx:
 
-   <tt><strong>
-   docker run -i -t nginx:latest /bin/bash
+   <tt><strong>docker run -i -t nginx:latest /bin/bash
    </strong></tt>
+
+   `-i` means interactive: Keep STDIN open even if not attached
+
+   `-t` means tty: Allocate a pseudo-TTY
+
+   Alternately:
+
+0. Run an NGINX web server detached:
+   
+   <tt><strong>docker run -d -p 8000:80 nginx
+   </strong></tt>
+
+   `-d` means detach: Run container in background and print container ID
+
+   `-p` means publish list: Publish a container's port(s) to the host
+
+   The "8000:80" means we'll use localhost:8080.
+
+0. To see if that machine responds:
+
+   <tt><strong>curl $(docker-machine ip default):8000
+   </strong>
+
+   A common error message is:
+
+   <pre>
+curl: (7) Failed to connect to 192.168.99.100 port 8000: Connection refused
+   </pre>
+
+   Fix the above by making sure you're specifying the correct port (8000 vs 80).
+
+
+   ### List Docker processes
+   
+0. List the history of processes:
+
+   <tt><strong>docker ps -a
+   </strong></tt>
+
+   Widen to see a response such as this, with random NAMES automatically assigned by Docker:
+
+   <pre>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS                         NAMES
+0b7f9b9eb35a        hello-world         "/hello"                 4 hours ago         Exited (0) 4 hours ago                                  eager_lamarr
+ago                                  compassionate_leakey
+aa2ccdb153cc        nginx               "nginx -g 'daemon ..."   5 hours ago         Up 5 hours                0.0.0.0:80->80/tcp, 443/tcp   webserver
+   </pre>
+
+   NOTE: The hello-world script contains an exit statement, so it automatically stopped on its own.
+   However, other scripts, such as web services, do not exit on their own.
+
+
+   ### Remove image ???
+
+0. To remove an image:
+
+   <tt><strong>docker rmi ubuntu:trusty
+   </strong></tt>
+
+
+
+
+
+
+
+<hr />
+
+   ### Run a custom reference 
+
+0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
+   This blog</a> shows this command to run image named "mynginx1":
+   
+   <tt><strong>
+   docker run \-\-name mynginx1 -P -d nginx \
+   fcd1fb01b14557c7c9d991238f2558ae2704d129cf9fb97bb4fadf673a58580d
+   </strong></tt>
+
+   "-P" (capital P) tells Docker to map the Ports exposed by the NGINX image – ports 80 and 443 – to ports on the Docker host <strong>randomly selected</strong> 
+   from the range between 49153 and 65535
+   each time the container is started or restarted. 
+   This is to avoid conflicts on standard ports 80 and 443 if we later create multiple NGINX containers on the same Docker host. The `docker ps` command under PORTS would show
+   something like this:
+
+   <tt>0.0.0.0:49166->443/tcp, 0.0.0.0:49167->80/tcp</tt>
+
+   "-p" (lower case p) is used to set port mappings manually.
+
+   "-d" specifies running in <strong>detached mode</strong>
+   so the container continues to run until stopped,
+   but does not respond to commands run on the command line. 
+
+0. To interact with a detached container:
+
+   TODO: ???
+
+
+<hr />
+
+## Ubuntu inside Mac
+
+0. To run the latest Ubuntu box inside your Mac:
+
+   <tt><strong>
+   docker run -it --rm --publish 3000:3000 ubuntu bash
+   </strong></tt>
+
+   "-it" means interactive (tty) terminal, 
+   specifying that the image should contain a shell when it runs
+   so it can be terminated manually by Ctrl+C.
+
+   "--publish" forwards port 3000 on the host from port 3000 in the container.
+
+   "bash" is the command issued in the container when it becomes active.
+   Alternately, "ruby /app/hello_world.rb" would invoke a ruby program.
+
+   Alternately, run version 14.04 of Ubuntu:
+
+   <tt><strong>
+   docker run --net=host -ti ubuntu:14.04 bash
+   </strong></tt>
+
+   After downloads, you should see a bash prompt such as:
+
+   <pre>
+root@ee355a835ff8:/# 
+   </pre>
+
+0. Get version information using a Linux command (which doesn't work on MacOS):
+
+   <tt><strong>cat /etc/lsb-release
+   </strong></tt>
+
+   The response:
+
+   <pre>
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+   </pre>
+
+   NOTE: You can't run docker commands on this prompt because you're inside.
+
+0. Press Control+C or type exit:
+
+   <tt><strong>exit
+   </strong></tt>
+
+
+
+   <a name="DockerContainers"></a>
+
+   ### List Docker Containers #
+
+0. List Docker containers and their identifiers:
+
+   <tt><strong>docker ps -a
+   </strong></tt>
+
+   PROTIP: In Linux the ps command is for processes. In a way, that's what Docker containers are, a process.
+
+   `-a` shows inactive as well as the default active listing.
+   (Kinda counter-intuitive)
+
+   Widen your screen to avoid wrapping:
+
+   <pre>
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                           NAMES
+2289fc019878        nginxdemos/hello    "nginx -g 'daemon off"   32 minutes ago      Up 32 minutes               0.0.0.0:32769->80/tcp, 0.0.0.0:32768->443/tcp   trusting_euler
+75ae035ab68b        hello-world         "/hello"                 39 minutes ago      Exited (0) 39 minutes ago                                                   serene_sammet
+   </pre>
+
+0. PROTIP: Customize the layout by specifying a memory variable containing format template
+   using tabs and line breaks.
+
+   <pre>
+\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\n
+   </pre>
+
+   <tt><strong>docker ps -a \-\-format $FORMAT
+   </strong></tt>
+
+
+   ### Manage Images Downloaded
+
+0. To list Docker images downloaded:
+
+   <tt><strong>docker images
+   </strong></tt>
+
+   <pre>
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginxdemos/hello    latest              0ec165d1eb3a        12 hours ago        54.24 MB
+ubuntu              latest              f753707788c5        4 weeks ago         127.2 MB
+hello-world         latest              c54a2cc56cbb        4 months ago        1.848 kB
+   </pre>
+
+0. List Docker machines:
+
+   <tt><strong>docker-machine ls
+   </strong></tt>
+
+   Example response:
+
+   <pre>
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1.12.3   
+   </pre>
+
+   See https://docs.docker.com/machine/get-started/
+
+0. Connect your shell to the new machine
+   (per https://docs.docker.com/machine/reference/env/):
+
+   <tt><strong>eval "$(docker-machine env default)"
+   </strong></tt>
+
+   No response is displayed becuase the "eval" command above runs the output of the command:
+
+   <pre><strong>docker-machine env default
+   </strong></pre>
+
+   which is:
+
+   <pre>
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/mac/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell: 
+# eval $(docker-machine env)
+   </pre>
+
+   PROTIP: On a Mac, the docker-machine VM is called "default", existing in directory<br />
+   /Users/\<username>/.docker/machine/machines/default/ 
+
+0. See if the environment variables are set:
+
+   <tt><strong>env | grep DOCKER
+   </strong></tt>
+
+0. To unset commands:
+
+   <tt><strong>eval $(docker-machine env -u)
+   </strong></tt>
+
+   which runs:
+
+   <pre>
+unset DOCKER_TLS_VERIFY
+unset DOCKER_HOST
+unset DOCKER_CERT_PATH
+unset DOCKER_MACHINE_NAME
+# Run this command to configure your shell: 
+# eval $(docker-machine env -u)
+   </pre>
+
+
+
+   ### Remove images
+
+0. To remove an individual Docker image listed above (to free up disk space):
+
+   <tt><strong>docker rmi hello-world
+   </strong></tt>
+
+   A common error response if you have not first
+
+   <pre>
+Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container 75ae035ab68b is using its referenced image c54a2cc56cbb
+   </pre>
+
+
+0. To stop all running docker containers:
+
+   <tt><strong>docker stop $(docker ps -a -q)
+   </strong>
+
+   The response is a list of CONTAINER ID's stopped, such as:
+
+   <pre>
+   aa2ccdb153cc
+   </pre>
+
+0. To save disk space, remove containers identified in a list of container IDs obtained:
+
+   <tt><strong>docker rm $(docker ps -a -q)
+   </strong></tt>
+
+   You may see this error message:
+
+   <pre>
+Error response from daemon: You cannot remove a running container aa2ccdb153cc54070e6e2ef24e004b40e3e78555b0bca77badd143c3d984bb1c. Stop the container before attempting removal or force remove
+   </pre>
+
+
+   See <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
+   https://docs.docker.com/docker-for-windows</a>
+
+Inside the container we will create a simple ‘Hello World’ script.
+none
+
+powershell.exe Add-Content C:\helloworld.ps1 'Write-Host "Hello World"'
+
+
+
+   ### No Error Report #
+
+   PROTIP: Whenever an attempt to provision a Dockerized host using Docker Machine fails, 
+   or Docker Machine crashes, some diagnostic information is sent automatically to a Docker account on Bugsnag. 
+
+0. Disable this reporting by creating an empty file called no-error-report under your installations .docker/machine directory:
+
+   <tt><strong>
+   touch ~/.docker/machine/no-error-report
+   </strong></tt>
+
+
+   ### Start using old boot2docker
+
+0. Start again, you don't need to specify "default":
+
+   <tt><strong>docker-machine start default
+   </strong></tt>
+
+0. Connect:
+
+   <tt><strong>docker-machine ssh
+   </strong></tt>
+
+   You should see a whale:
+
+   <pre>
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+ _                 _   ____     _            _
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
+| '_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ '__|
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   <  __/ |
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
+Boot2Docker version 1.12.3, build HEAD : 7fc7575 - Thu Oct 27 17:23:17 UTC 2016
+Docker version 1.12.3, build 6b644ec
+   </pre>
+
+   NOTE: Docker deprecated the Boot2Docker command line in favor of Docker Machine. 
+
+   https://docs.docker.com/machine/migrate-to-machine/
+
+0. Now do whatever you need to do here.   
+
+
+   <a name="DockerStop"></a>
+
+   ## Stop #
+
+0. Hard stop the default machine:
+
+   <tt><strong>docker-machine stop default
+   </strong></tt>
+
+   PROTIP: Those who use this a often create aliases to limit typing.
+   For example, "dmon" for the above command.
 
 
 <hr />
@@ -1461,7 +1673,7 @@ Create and manage machines running Docker.
 Version: 0.8.2, build e18a919
 &nbsp;
 Author:
-  Docker Machine Contributors - <https://github.com/docker/machine>
+  Docker Machine Contributors - &LT;https://github.com/docker/machine>
 &nbsp;
 Options:
   --debug, -D           Enable debug mode
@@ -1709,7 +1921,8 @@ Docker Swarm creates and manages <strong>clustered</strong> (pool of) Docker ser
 It scales containers
 by dispersing containers across multiple hosts.
 
-   docker run swarm create
+   <tt><strong>docker run swarm create
+   </tt></strong>
 
 Installing Docker Swarm launches a container that is used as
 the Swarm Manager master to communicate to all the nodes in a Swarm cluster.

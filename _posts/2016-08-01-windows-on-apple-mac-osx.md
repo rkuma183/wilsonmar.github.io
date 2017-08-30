@@ -18,13 +18,37 @@ comments: true
 There are several ways to run Microsoft Windows on an Apple Mac computer.
 Each has its own advantages and disadvantages:
 
+* <a href="#RDP">Remote Desktop Protocol client to Amazon EC2 instances</a>
 * <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
-* <a href="#Docker">Docker</a>
+* <a href="#Docker">Docker Windows instance</a>
 * <a href="#BootCamp">BootCamp</a>
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a target="_blank" hhref="http://www.parallels.com/products/desktop">Parallels</a>
 
 <hr />
+
+<a name="RDP"></a>
+
+## RDP (Remote Desktop Protocol) clients to cloud
+
+Microsoft Windows operating systems have, within Start Programs > Accessories,
+a RDP client program. It can be used without being an Administrator.
+
+Alternately, use the
+<a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en">
+$7.99 Chrome browser app</a> you can add.
+
+These RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
+
+The nice thing about this approach is that it's now a commonly used technology.
+So there are several images 
+
+1. Create an Amazon EC2 account at http://aws.amazon.com/ec2/.
+0. Select the "LoadRunner_12_55_Full" AMI to instantiate.
+
+   See https://www.guru99.com/creating-amazon-ec2-instance.html
+
+   https://community.saas.hpe.com/t5/LoadRunner-and-Performance/Step-by-step-instructions-to-Provision-Load-Generators-in-the/ba-p/245072#.WaW1-pOGNZo
 
 <a name="WorkSpaces"></a>
 
@@ -35,23 +59,39 @@ but for any computer running a modern browser,
 such as <a target="_blank" href="http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-chromebook-client.html">
 on a Chromebook</a>. No files are transferred, just graphic
 images of a screen on servers within the AWS cloud.
+This makes for more stringent security, but also mean significant lag that affect productivity.
 
-1. Realize the cost of <a target="_blank" href="https://aws.amazon.com/workspaces/pricing/">
-   $25 to $75 per month per user</a>, Amazon estimates that a WorkSpaces customer would save 59 percent over traditional Virtual Desktop Infrastructures (VDI) provided by Citrix and VMware.
+   * <a target="_blank" href="https://forums.aws.amazon.com/search.jspa?mbtc=iQylnisvlZwOpRpOlSNPnOsymqDNwqQZ&objID=f164&q=workspaces&x=0&y=0">
+   Amazon's Workspaces Forum questions</a>
+   <br /><br />
 
 0. In the <a target="_blank" href="https://console.aws.amazon.com/workspaces/home">
    WorkSpaces Console</a> for your default region, Get Started, Launch, and
    Select a Bundle.
 
+   An image contains only the OS, software and settings. A bundle is a combination of both that image and the hardware from which a WorkSpace can be launched.
+
+   The Free Tier provides two Standard bundle WorkSpaces for up to 40 hours of combined use per month, for two calendar months, from the time you create your first WorkSpace. Usage time accrues while you’re actively using your WorkSpace as well as the time it takes to stop after a specified period of inactivity, which by default is set to one hour. If you exceed the Free Tier limits, you will be charged the standard Amazon WorkSpaces hourly rate for the additional resources you use. At the end of two calendar months, the WorkSpaces you launched in the Free Tier will automatically be billed at the applicable hourly rate.
+
+   Amazon's regular <a target="_blank" href="https://aws.amazon.com/workspaces/pricing/">
+   pricing is $25 to $75 per month per user</a>, which Amazon estimates is 59% less than traditional Virtual Desktop Infrastructures (VDI) provided by Citrix and VMware.
+
+   Amazon's approach uses newer tech than VDI. 
+
 0. Specify for each user his/her Username, First Name, Last Name, and Email for the Bundle selected.
 
-   PROTIP: Username can be the same as the Email.
+   PROTIP: Have the Username the same as the Email.
 
-0. Click Launch Workspace for all users. When the Workspace Console goes from PENDING to 
+0. Click Launch Workspace for all users. When the Workspace Console goes from PENDING to AVAILABLE (in green letters).
 
-   Return to managed users in the Amazon WorkSpaces Application Manager (WAM).
+   Return to managed users in the Amazon WorkSpaces Application Manager (WAM) at<br />
+   <a target="_blank" href="https://us-east-1.console.aws.amazon.com/wam/home">
+   https://us-east-1.console.aws.amazon.com/wam/home</a> for your current region.
 
-   ### Install client agent
+   CAUTION: There is no moving WorkSpaces from one region to another.
+
+
+   ### Install WorkSpaces client
    
 0. In each user's email client, open the welcome email and click the link.
 0. Set your WorkSpaces credentials with a password.
@@ -88,7 +128,7 @@ images of a screen on servers within the AWS cloud.
 
    NOTE: 1Password cannot auto-fill Username and Password on the MacOS WorkSpaces app nor on Chrombook.
 
-0. Login using your Username and password.
+0. Login using the Username and password for the WorkSpaces client.
 
    If your Amazon WorkSpaces administrator has enabled multi-factor authentication for your organization's WorkSpaces, you are prompted for a passcode to complete your login. 
 
@@ -99,26 +139,282 @@ images of a screen on servers within the AWS cloud.
 
    After the client application connects to your WorkSpace, your WorkSpace desktop is displayed.
 
-0. (Optional) If your WorkSpace uses an AD Connector directory, update the maximum lifetime of the Kerberos ticket by following the steps in Configuring Kerberos Policies in the Microsoft TechNet Library. If you need to disable the "Remember Me" feature, search for help in the Amazon WorkSpaces forum.
+0. (Optional) If your WorkSpace uses an AD Connector directory, update the maximum lifetime of the Kerberos ticket by following the steps in Configuring Kerberos Policies in the Microsoft TechNet Library. 
 
-   Amazon's approach uses newer tech than VDI. 
+0. If you need to disable the "Remember Me" feature, search for help in the Amazon WorkSpaces forum.
 
-   ### Add apps 
+   ### Configure Remote Assistance
 
-0. To add Chrome browser...
+0. Open PowerShell window.
+0. Install Remote Assistance using this PowerShell command:
+  
+   <tt><strong>Add-WindowsFeature Remote-Assistance
+   <strong></tt>
 
-0. To add a Git client, open Firefox, search for "Git for Windows". Click Download.
+   Open port 3389 in the firewall and in the Security Group, Remote Desktop should work using the username and password in the traditional way.
+
+
+   ### Configure Windows 7 Folder Options
+
+0. Click the Windows Start round icon at the bottom left of the screen.
+0. Type "folder options" (without the quotes) until the line "Folder Options" appears for you to click at the top of the menu.
+0. In the "Folder Options" dialog box, click the "View" tab at the top of the window.
+0. Select "Show hidden files, folders, and drives".
+0. Click to uncheck the box for "Hide extensions for known file types".
+0. Click the "OK" button at the bottom of the dialog box.
+
+   ### Configure Windows 7 Toolbar
+
+0. Click the Windows Start round icon at the bottom left of the screen.
+0. Click All Programs, Accessories. All the usual tools are there.
+0. Drag Notepad and drop it on the tool bar at the bottom of the screen.
+
+0. Click the Windows PowerShell folder.
+0. Drag "Windows PowerShell" and drop it on the tool bar at the bottom of the screen.
+
+0. Open Windows Explorer from the tool bar at the bottom of the screen.
+0. Click on "Computer". Notice there is no C: drive and no access to C:\Windows internals.
+0. Double-Click on "User Profile D:" drive.
+
+   Notice there are 50 GB for you.
+
+0. Double-Click on D: and navigate into folder Users, your account name.
+
+   PROTIP: Here is the default location when command line windows open by default.
+   So place scripts here (among folders).
+
+0. Right-Click Windows PowerShell to select "Run as Administrator".
+0. Type:
+
+   <tt><strong>echo $Env:USERPROFILE
+   </strong></tt>
+
+   This is your user home folder.
+
+0. Set permissions:
+
+   <tt><strong>set-executionpolicy remotesigned
+   </strong></tt>
+
+   <pre>
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+   </pre>
+
+0. Type Y to confirm.
+   
+   See <a target="_blank" href="https://technet.microsoft.com/en-us/library/bb613481.aspx">
+   How to write a PowerShell script</a>
+
+
+0. Within PowerShell you can also go your home by typing:
+
+   <tt><strong>cd ~
+   </strong></tt>
+
+0. Verify whether you can create a PowerShell script file:
+
+   <tt><strong>Add-Content helloworld.ps1 'Write-Host "Hello World"'
+   </strong></tt>
+
+   This is the PowerShell equivalent of `echo "Hello World" >helloworld.ps1`.
+
+0. List directory:
+
+   <tt><strong>dir
+   </strong></tt>
+
+0. Type the first letter h and press Tab to auto-complete:
+
+   <tt><strong>./helloworld.ps1
+   </strong></tt>
+
+   Instead of "Hello World", if you get this, it means executionpolicy was not set correctly:
+
+   <pre>
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+   </pre>
+
+
+   ### Install posh-git for PowerShell
+
+   TODO:
+   file:///C:/Program%20Files%20(x86)/AWS%20Tools/Documentation/AWSToolsForWindows.html 
+   AWS Tools for Windows 
+   AWS SDK for .NET
+
+0. To exchange files among a group of people, setup:<br />
+   <a target="_blank" href="https://amazonworkdocs.com/en/clients">
+   https://amazonworkdocs.com/en/clients</a>
+
+   ### Install clients using Chocolatey 
+
+0. Right-click on cmd and select "Run as Administrator".
+0. Copy <a target="_blank" href="https://chocolatey.org/install#install-with-cmdexe">
+   this</a> and right-click in the command window:
+
+   <pre><strong>
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+   </strong></pre>
+
+0. Install <a target="_blank" href="https://chocolatey.org/packages/jdk8">
+   Java Development Kit for version 8 using Chocolatey</a>:
+
+   <tt><strong>choco install jdk8 -y
+   </strong></tt>
+
+0. Install <a target="_blank" href="https://chocolatey.org/packages?q=chrome">
+   Chrome browser</a>:
+
+   <tt><strong>choco install googlechrome -y
+   </strong></tt>
+
+0. Install <a target="_blank" href="https://chocolatey.org/packages?q=git">
+   Git for Windows</a> client:
+
+   <tt><strong>choco install git -y
+   </strong></tt>
+
+   Alternately, to add a Git client manually, open Firefox, search for "Git for Windows". Click Download.
    Click Save file. Click the down arrow for a list of downloads.
-   Click to Open File. Run. Yes to UAC. Next all, then Finish.
+   Click to Open File. Run. Yes to UAC. Next all, but Git LFS. then Finish.
    Close Firefox.
    Click Windows icon. All Programs. Click Git, Git Bash.
 
-0. To exchange files among a group of people:<br />
-   https://amazonworkdocs.com/en/clients
+0. Install <a target="_blank" href="https://chocolatey.org/packages/poshgit">
+   Posh Git for PowerShell</a>:
+
+   <tt><strong>choco install poshgit -y
+   </strong></tt>
+
+   * Launch each and configure the window properties to enable Quick Edit and set 
+   Layout Height (scroll buffer) to 9999 lines.
+
+   https://www.develves.net/blogs/asd/articles/using-git-with-powershell-on-windows-10/#fn:start
+
+   ### Clone Samples 
+
+   Download Git repository containing bootstrap script:
+
+0. Open a Git Bash window.
+0. cd to where you add Git repositories:
+
+   <tt><strong>cd gits;<br />
+   git clone https://github.com/wilsonmar/loadrunner.git \-\-depth=1<br />
+   git clone https://github.com/wilsonmar/git-utilities.git \-\-depth=1
+   </strong></tt>
 
    ### Shut-down and Resume
 
-   This takes several minutes.
+   BLAH: It takes many minutes to stop and resume.
+
+## LoadRunner 12.55 Install
+
+### Download Installer
+
+0. Invoke the Internet Explorer browser. (Firefox browsers don't recognize the Download button)
+0. https://saas.hpe.com/en-us/download/loadrunner
+0. Click to Download "Community Edition". Click the green Download button for:<br />
+   HPELR_1255_Community_Edition.exe (919 MB)
+   https://saas.hpe.com/download/loadrunner
+
+   "Useful resources" is https://saas.hpe.com/en-us/resources/loadrunner
+
+   "Tech talks" is https://community.saas.hpe.com/t5/LoadRunner-Performance-Center/ct-p/sws-LoadRunner
+
+0. Click to Download "Additional Components" (for VSTS).
+   HPELR_1255_Community_Edition_Additional_Components.exe ( MB)
+
+0. Right-click to Extract both zip files.
+0. Delete the zip files to recover disk space.
+0. Open the Downloads folder.
+0. Double-click on the HPELR_1255_Community_Edition.exe. 
+0. right-click on the exe to "Run as Administrator".
+0. On the UAC, click Yes.
+0. IMPORTANT: Change the path from C:\Temp\\... to <strong>D:</strong>\Temp.
+0. In the Installer, click "Install".
+0. Click OK for the Redistributables.
+0. When the "Welcome to the HPE LoadRunner Setup Wizard" appears, click Next.
+0. When the "End-User License Agreement" dialog appears, check "I accept", then click Next.
+0. When the "Change destination folder" dialog appears, change C:\Program Files (x86)\HPE\LoadRunner\
+   Click OK, then Install.
+
+   PROTIP: The "Program Files (x86)" location means LoadRunner is a 32-bit program.
+
+0. When the "HPE Authentication Settings" dialog appears, uncheck "Specify a certificate that will be used...".
+   Click Next.
+0. When the "Completed the HPE LoadRunner Setup" dialog appears, uncheck "Install HPE Network Virtualization".
+   Uncheck "Launch License Utility Tool on Exit".
+   Click Finish.
+
+
+   ### Install VTS
+
+0. In Windows Explorer, be at your Downloads folder.
+0. Double-click on the HPELR_1255_Community_Edition_Additional_Components.exe. 
+0. right-click on the exe to "Run as Administrator".
+0. On the UAC, click Yes.
+0. Click "Install" since the path was previously changed from 
+   C:\Temp\\... to <strong>D:</strong>\Temp.
+0. Navigate into D:\Temp\HPE LoadRunner 12.55 Community Edition\DVD\Additional Components\Virtual Table Service.
+0. Right-click on SetupVTS and select "Run as Administrator".
+0. Click Yes to UAC.
+0. Change C:\TempHPE LoadRunner VTS 12.55 to D:\Temp\HPE LoadRunner VTS 12.55
+   Click Next, then Next.
+0. Check "I accept the terms...". Click Next. Click Install to C:\ProgramData\HP\VTS\db\data.
+   Click Install.
+0. Click Finish for a pop-up browser containing a link to http://localhost:4000/
+0. Click Enable.
+0. Enable Access from Script.
+
+0. Open Windows Explorer to see how much disk space remains.
+
+
+   ### Clone Samples from GitHub 
+
+0. Open a Git Bash window.
+0. cd to where you add Git repositories:
+
+   <tt><strong>cd gits;<br />
+   git clone https://github.com/wilsonmar/git-utilities.git \-\-depth=1<br />
+   git clone https://github.com/wilsonmar/loadrunner.git \-\-depth=1
+   </strong></tt>
+
+   ### Populate VTS
+
+   TODO
+
+
+   ### VuGen
+
+0. Copy this and paste it in a cmd window:
+
+   <pre>echo D:\Users\%USERNAME%\gits\loadrunner\gapi-lr-starter\gapi-lr-starter.usr
+   </pre>
+
+   Copy the response to your Clipboard to paste into VuGen
+
+   Alternately, double-click on the file within Windows Explorer.
+
+   PROTIP: The install process enables double-clicking on a .usr file extension to invoke VuGen.
+
+0. Click the Windows logo at the lower-left corner of the screen.
+0. Click Virtual User Generator.
+0. Maximize the screen by clicking on the button at the upper-left corner.
+0. Click File, Open. Paste the path from above or navigate to open the .usr file.
+
+
+   ### Custom WorkSpaces
+
+0. As an administrator, in the Console, select the WorkSpace and select "Create Image" to create an image with your applications and settings. 
+
+   NOTE: Custom images created from Amazon WorkSpaces Graphics bundles can only be used with Graphics bundles, and custom images created from Value, Standard, Performance, or Power bundles can only be used with those bundles. Most Amazon WorkSpace images are available within 45 minutes.
+
+   See http://docs.aws.amazon.com/console/workspaces/images
 
 
 <a name="Docker"></a>

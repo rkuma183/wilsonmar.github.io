@@ -15,7 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
-To ensure quality at speed, demos by software developers at the end of each two or three week sprint
+To ensure quality at speed, <a target="_blank" href="">
+demos</a> by software developers at the end of each two or three week sprint
 must now include automated performance testing metrics.
 
 Continuing the traditional approach of performance testing only before final release to production

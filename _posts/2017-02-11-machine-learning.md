@@ -58,15 +58,27 @@ The software adjusted its strategies during the tournament.
 And its algorithms for strategy and negotiation are game-independent, 
 meaning they're not just about poker, but a range of adversarial problems.
 
-<!--
 Texas Hold'em
 
-## Uses for ordinary people
+## Use Cases 
+
+For ordinary people:
 
 * Estimate the price of a house given real estate data (multiple regression)
 * Classify movie reviews from imdb.com into positive and negative (binary) categories
 * Classify news wire articles by topic (multi-class classification)
--->
+<br /><br />
+
+For enterprises:
+
+* Data Security - identify malware by detecting minute variations in file signatures.
+* Fraud detection - fight money laundering by finding anomalies in transactions.
+* Financial trading
+* Health care - understand risk factors and spot patterns in medical info
+* Marketing - personalize ads based on interests identified for individuals
+* Smart cars 
+* Insurance - identify risks in smaller populations
+<br /><br />
 
 ## Algorithms
 
