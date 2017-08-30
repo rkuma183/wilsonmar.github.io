@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shift-Left Performance Testing DevSecOps Hands-On Course"
+title: "DevSecOps PerfTest Shift-Left Hands-On Course"
 excerpt: "For performance engineering demo at end of every sprint"
 tags: [DevOps, DevSecOps]
 shorturl: "https://goo.gl/"
@@ -15,27 +15,25 @@ comments: true
 
 {% include _toc.html %}
 
-To ensure quality at speed, <a target="_blank" href="">
-demos</a> by software developers at the end of each two or three week sprint
-must now include automated performance testing metrics.
+To ensure quality at speed, <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demos</a> by software developers at the end of each two or three week sprint
+must now include automated performance status.
 
 Continuing the traditional approach of performance testing only before final release to production
 means hiding of potentially major risks and technical debt.
 Such organizations need to make performance testing and engineering "shift-left" earlier in the software development lifecycle.
 
 However, the DevSecOps toolchain today consist of many moving parts from many software vendors.  
-Key technologies include Git, Nexus, Jenkins, Vault, SonarQube, Ansible, etc. There are subtulties and substitutes to each of these.
+Among the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">
+21 groups of technologies</a> are Git, Nexus, Jenkins, Vault, SonarQube, Ansible. There are subtulties and substitutes to each of these.
 
-## This course
+## Hands-on course
 
-This course provides you hands-on experience with a guided tour of the most popular tools in each tool category
-(see https://wilsonmar.github.io/ci-cd for the whole sequence of 21 topics).
+This course provides you hands-on experience using the most popular tools within a guided end-to-end tour:
 
    <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
-VIDEO: https://youtu.be/ZG073qSgh_0
+   VIDEO: https://youtu.be/ZG073qSgh_0
 
-To avoid spending too much time with installation, participants are provided cloud-based instance to use during the class.  
-This enables focus during the class to build practical skill working with software:
+We avoid spending too much time with installation, participants are provided <strong>cloud-based instances</strong> to work on during the class. This enables focus during the class to build practical skill working with software:
 
 1. Change an Entity diagram and see JHipster generate a complete stack of servers using the latest DevOps software.
 2. Watch a smoke test run automatically after a build.

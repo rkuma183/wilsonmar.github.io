@@ -308,13 +308,14 @@ http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the executi
    git clone https://github.com/wilsonmar/git-utilities.git \-\-depth=1
    </strong></tt>
 
+
    ### Shut-down and Resume
 
    BLAH: It takes many minutes to stop and resume.
 
 ## LoadRunner 12.55 Install
 
-### Download Installer
+### Download Installers
 
 0. Invoke the Internet Explorer browser. (Firefox browsers don't recognize the Download button)
 0. https://saas.hpe.com/en-us/download/loadrunner
@@ -373,21 +374,34 @@ http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the executi
 
 0. Open Windows Explorer to see how much disk space remains.
 
+   ### Install WebTours
 
-   ### Clone Samples from GitHub 
+   Since version 12.55, the WebTours sample application has been moved.
 
-0. Open a Git Bash window.
-0. cd to where you add Git repositories:
+0. Download it from:
+   <a target="_blank" href="https://marketplace.saas.hpe.com/appdelivery/content/web-tours-sample-application">
+   https://marketplace.saas.hpe.com/appdelivery/content/web-tours-sample-application</a>
+0. Unzip the WebTours.zip.
+0. Double-click to run "strawberry-perl-5.10.1.0.msi.
+0. Click the "I accept...", then Install. Click Yes to UAC. Click Finish.
 
-   <tt><strong>cd gits;<br />
-   git clone https://github.com/wilsonmar/git-utilities.git \-\-depth=1<br />
-   git clone https://github.com/wilsonmar/loadrunner.git \-\-depth=1
-   </strong></tt>
+0. Extract all files in WebTours.zip.
+0. Open a Run cmd windows. Navigate to the folder.
+0. Type StartServer.bat to invoke the server. Leave it running.
+0. Open a web browser to:
+
+   <pre>
+   http://127.0.0.1:1080/WebTours/index.htm
+   </pre>
+
+   ![lr1255-webtours-landing-670x366-114334](https://user-images.githubusercontent.com/300046/29899442-c333338e-8da8-11e7-9f85-a49f7b2a96d3.jpg)
+
+0. Bookmark the site.
+
 
    ### Populate VTS
 
    TODO
-
 
    ### VuGen
 
