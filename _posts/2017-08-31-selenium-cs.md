@@ -135,8 +135,10 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
    The <strong>.....csproj.user</strong> ??? 
 
-
 ## In Visual Studio
+
+  <a target="_blank" href="http://www.c-sharpcorner.com/UploadFile/093731/introduction-to-selenium-webdriver-with-C-Sharp-in-visual-studio/">
+  NOTE</a>
 
 0. Double-click on the <strong>.sln</strong> solution file to open it within Visual Studio.
 
@@ -267,7 +269,10 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
 0. Build the solution.
 0. Open Test Explorer tool window in Visual Studio, 
-0. Click Run All
+0. Click Run All.
+
+   Alternately, you can click on a single [TestMethod]
+   and right-click to select Run Tests or hold down command/ctrl+R,T.
 
    If it doesn't run, we have a debugging session.
 
@@ -305,6 +310,8 @@ Yeoman is a project scaffolding system for creating many kinds of applications. 
 
 Alternatively,
 https://leaptest.com/pages/selenium-testing
+
+https://www.codeproject.com/Articles/1074039/Generate-Csharp-Client-API-for-ASP-NET-Web-API
 
 
 ## Learning Resources 

@@ -15,27 +15,29 @@ comments: true
 
 {% include _toc.html %}
 
-To ensure quality at speed, <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demos</a> by software developers at the end of each two or three week sprint
+To ensure quality at speed, <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demos</a> by Agile software developers at the end of each two or three week sprint
 must now include automated performance status.
 
 Continuing the traditional approach of performance testing only before final release to production
 means hiding of potentially major risks and technical debt.
 Such organizations need to make performance testing and engineering "shift-left" earlier in the software development lifecycle.
 
-However, the DevSecOps toolchain today consist of many moving parts from many software vendors.  
-Among the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">
-21 groups of technologies</a> are Git, Nexus, Jenkins, Vault, SonarQube, Ansible. There are subtulties and substitutes to each of these.
+However, the DevSecOps toolchain today consist of many moving parts from many software vendors. The most popular options from among the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">21 groups of technologies</a> are Git, Maven, Nexus, Jenkins, Vault, SonarQube, Selenium, Ansible, etc. There are subtleties and substitutes to each of these.
 
 ## Hands-on course
 
-This course provides you hands-on experience using the most popular tools within a guided end-to-end tour:
+This course provides you <strong>hands-on</strong> experience using the most popular tools within a guided end-to-end tour:
 
    <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
    VIDEO: https://youtu.be/ZG073qSgh_0
 
-We avoid spending too much time with installation, participants are provided <strong>cloud-based instances</strong> to work on during the class. This enables focus during the class to build practical skill working with software:
+In this two-day class, we avoid spending too much time with installation. Many examples require participants to first do the installation themselves, which requires skill and time.
 
-1. Change an Entity diagram and see JHipster generate a complete stack of servers using the latest DevOps software.
+The intent of this class is to provide a way for participants to see an end-to-end example of how DevOps works, wheras most vendors only focus on a little part of the whole sequence.
+
+That's the value add over the one-hour overviews that only talk about concepts. Participants are provided <strong>cloud-based instances</strong> to work on during the class. This enables focus during the class to build practical skill working with software:
+
+1. Change an Entity diagram and see JHipster generate a complete stack of servers using the latest DevOps software. This approach enables specific technologies to be swapped out for another.
 2. Watch a smoke test run automatically after a build.
 3. Edit a file and push it to GitHub to kick off a test run from Jenkins.
 4. View the report of GC and APM tracing metrics from the run.
@@ -46,6 +48,7 @@ We avoid spending too much time with installation, participants are provided <st
 You will leave the class with a plan for proactive actions presenters learned from experience:
 
 - Maps to see how various pieces fit together (https://github.com/wilsonmar/oss-perf)
+- A list of specific differences between various options to address needs.
 - Strategies to achieve the mindset change necessary (from ticket-writing police and guards to enablers to build in quality)
 - Ways to manage secrets in test scripts within GitHub using Hashicorp Vault
 - Steps to structure and sequence incremental Agile sprints to deliver value with less pressure and more teamwork
