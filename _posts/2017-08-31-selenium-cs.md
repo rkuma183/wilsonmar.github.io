@@ -23,9 +23,17 @@ The pre-requisite to this is the "start from scrach" approach of courses such as
 <a target="_blank" href="https://www.proprofs.com/quiz-school/">
 quizzes</a>.
 
-## Why?
 
-You can run several Selenium scripts in parallel on publicly available Swarm facilities.
+## Why this?
+
+Microsoft's VSTS (Visual Studio Team Services) costs several thousand dollars
+while Selenium is free (open source).
+
+Run several Selenium instances in parallel on publicly available swarm facilities
+such as SauceLabs, BrowserStack, and Selenium Grid in-house.
+
+Include the Neotys API so that when Selenium is run, 
+NeoLoad automatically updates "user paths" (scripts) for load testing.
 
 
 ## Install Visual Studio IDE on Mac
@@ -55,10 +63,10 @@ You can run several Selenium scripts in parallel on publicly available Swarm fac
 
 ## Get Sample Selenium Code
 
-0. Fork the excellent sample code from:
+0. Fork the excellent sample code at:
 
    <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/">
-   https://github.com/ontytoom/Onty.SeleniumTest.Webmail.git</a>
+   https://github.com/ontytoom/Onty.SeleniumTest.Webmail</a>
 
 0. Assuming you have Git client installed, download the repo from your account.
    For example:
@@ -76,17 +84,24 @@ You can run several Selenium scripts in parallel on publicly available Swarm fac
 
 0. Open a text editor and navigate into folder "Onty.SeleniumTest.Webmail".
 
-0. Open file <strong>app.config</strong>
+0. Open file <strong>app.config</strong> to see:
 
    <pre>&LT;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2"/>
    </pre>
 
-0. Install Microsoft .NET 4.62 Developer Pack
+0. Click "Download" at <a target="_blank" href="https://www.microsoft.com/en-us/download/details.aspx?id=53321">this page</a>
+
+   <strong>NDP462-DevPack-KB3151934-ENU.exe</strong>
+
+   <a target="_blank" href="https://blogs.msdn.microsoft.com/dotnet/2016/08/02/announcing-net-framework-4-6-2/">Microsoft .NET 4.62 Developer Pack</a>
+
+   <a target="_blank" href="https://www.microsoft.com/net/targeting/">
+   https://www.microsoft.com/net/targeting</a>
 
    http://getdotnet.azurewebsites.net/target-dotnet-platforms.html
 
 
-   ### Install WebDrivers
+   ### Install WebDrivers for Mac
 
    Also in app.config:
 
@@ -100,6 +115,9 @@ You can run several Selenium scripts in parallel on publicly available Swarm fac
 
    See <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/blob/master/README.md">README</a>
 
+
+   ### Other properties in app.config
+
    <a target="_blank" href="https://automatetheplanet.com/hybrid-test-framework-config-files/">
    NOTE</a>: Having strings such as `PageLoadDelay` in this file makes the solution more flexible than hard-coding into C# code.
    Additional variables include:
@@ -108,6 +126,11 @@ You can run several Selenium scripts in parallel on publicly available Swarm fac
    * ScriptTimeout = 60,
    * ElementsWaitTimeout = 60
    <br /><br />
+
+0. Navigate into file <strong>....csproj</strong>
+
+   The <strong>.....csproj.user</strong> ??? 
+
 
 ## In Visual Studio
 
@@ -140,14 +163,6 @@ You can run several Selenium scripts in parallel on publicly available Swarm fac
 
    The id of these packages specify what is downloaded from Microsoft's NuGet repository.
 
-0. Navigate into file <strong>app.config</strong>
-
-   <pre>&LT;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2"/>
-   </pre>
-
-   The <strong>....csproj</strong> ??? 
-
-   The <strong>.....csproj.user</strong> ??? 
 
    ### Notes, Tests
 
@@ -283,6 +298,9 @@ https://docs.microsoft.com/en-us/aspnet/core/client-side/yeoman
 Yeoman is a project scaffolding system for creating many kinds of applications. The Yeoman generator for ASP.NET Core contains a variety of project templates for starting a new web, MVC, or console application.
 
    <tt><strong>npm install -g yo bower</strong></tt>
+
+Alternatively,
+https://leaptest.com/pages/selenium-testing
 
 
 ## Learning Resources 
