@@ -213,13 +213,13 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    BLAH: Name tests using action verbs such as: ???
 
    * Landing
-   * AddAccount
-   * Login
-   * LogInOut
-   * OpenMail
+   * File Tests_General.cs has Test_General_Menu() that logs in and checks the menu.
+   * Tests_Login.cs has Test_Login_Invalid() and Test_Login_Valid()
+   * Tests_Mailbox.cs has Test_Mailbox_Home(), Test_Mailbox_CreateFolder and Test_Mailbox_SendMessage()
+   * Tests_NotLoggedIn.cs has Test_NotLoggedIn_Home() to detect when  "not-logged-in message is not displayed".
    <br /><br />
 
-0. View file `ATest.cs`
+0. View file `ATest.cs` which defines Setup and Teardown for all tests in each run.
 
    NOTE: Each .cs (C#) file within this folder specifies the folder name in its <strong>namespace</strong>:
 
@@ -237,15 +237,14 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
    Files here define utility functions:
 
-0. Open `WebDriverFactory.cs`
-
+0. Open `WebDriverFactory.cs`. The GetWebDriver function invokes depending on what value is defined for the `wdt` variable.
 
 0. Open others:
 
-   * Rnd.cs for random functions
-   * ScreenShotUtil.cs
-   * StringUtil.cs
-   * TestData.cs
+   * Rnd.cs for a rnd() random function based on a millisecond.
+   * ScreenShotUtil.cs for the TakeScreenshot() function.
+   * StringUtil.cs for IntToBase26() and MakeRandomString
+   * TestData.cs adds new users with hard-coded names and passwords.
 
 
 ## App PageObjects
