@@ -30,7 +30,11 @@ Microsoft's VSTS (Visual Studio Team Services) costs several thousand dollars
 while Selenium is free (open source).
 
 Run several Selenium instances in parallel on publicly available swarm facilities
-such as SauceLabs, BrowserStack, and Selenium Grid in-house.
+such as SauceLabs, 
+BrowserStack, 
+<a target="_blank" href="https://www.rainforestqa.com/product/web-app-testing/">Rainforest.qa</a>,
+https://crossbrowsertesting.com,
+ and Selenium Grid in-house.
 
 Include the Neotys API so that when Selenium is run, 
 NeoLoad automatically updates "user paths" (scripts) for load testing.
