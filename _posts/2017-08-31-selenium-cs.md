@@ -138,9 +138,9 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    provides a bash console
 
 
-   ### Install WebDrivers for Mac
+## Install WebDrivers
 
-   Also in app.config:
+   Also in `app.config`:
 
    <pre>
 	&LT;setting name="PathFirefox" serializeAs="String">
@@ -150,16 +150,42 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 	&LT;value>phantomjs&LT;/value>
    </pre>
 
+### Install WebDrivers on Windows
+
    See <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/blob/master/README.md">README</a>
 
-   TODO: On a Mac, change "C:\Program Files\Mozilla Firefox\firefox.exe" to ???
+   Processing of this results in WebDriver executables in the project's root folder:
 
-   QUESTION: How???
+   * WebDriver.dll
+   * WebDriver.Support.dll
+   * nunit.framework.dll
+   * chromedriver.exe
+   * geckodriver.exe (for Mozilla Firefox)
+   * IEDriverServer.exe
+   * phantomjs.exe
+
+
+### Install WebDrivers On a Mac
+
+0. TODO: On a Mac, change "C:\Program Files\Mozilla Firefox\firefox.exe" to ???
 
    <tt><strong>brew install selenium-server-standalone
    </strong></tt>
 
-   Then:
+0. Look into what is installed:
+
+   <tt><strong>
+   cat $(which selenium-server)
+   </strong></tt>
+
+   Which yields:
+
+   <pre>
+#!/bin/bash
+exec java  -jar /usr/local/Cellar/selenium-server-standalone/3.5.3/libexec/selenium-server-standalone-3.5.3.jar "$@"
+   </pre>
+
+0. The .jar contains a .plist file which defines the default port for the equivalent of:
 
    <tt><strong>selenium-server -port 4444
    </strong></tt>
@@ -319,7 +345,9 @@ Usage: &LT;main class> [options]
    The `LinkLogin` web element is defined by a getter and setter.
 
 
-   ## Get CSS
+   <a name="GetCSS"></a>
+
+   ### Get CSS
    
 0. Open a new browser window and construct the URL to view the CSS file. Combine the URL:
 
@@ -338,13 +366,12 @@ Usage: &LT;main class> [options]
 
    Copy and paste the output to a text file so you can use your favorite editor to search in it.
 
-
+   ### Domain 
 
 0. Navigate up and into the ``Domain`` folder that defines objects in the app's domain.
 0. File User.cs
 0. File Message.cs
 0. File Folder.cs
-
 
 
    ### Tests
