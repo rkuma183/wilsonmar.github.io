@@ -240,7 +240,8 @@ Usage: &LT;main class> [options]
        Default: 1800
    </pre>
 
-   ### Other properties in app.config
+
+### Other properties in app.config
 
    <a target="_blank" href="https://automatetheplanet.com/hybrid-test-framework-config-files/">
    NOTE</a>: Having strings such as `PageLoadDelay` in this file makes the solution more flexible than hard-coding into C# code. TODO: Additional variables include:
