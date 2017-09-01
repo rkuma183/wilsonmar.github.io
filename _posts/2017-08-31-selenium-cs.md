@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Selenium-cs (C# or C Sharp; using Visual Studio)"
+title: "Selenium-cs (C# or C Sharp, using Visual Studio)"
 excerpt: "Enable C# Microsoft developers to use Selenium test infrastructures on Alt-macOS"
 tags: [apple, mac, setup, VMWare, Fusion]
 filename: "selenium-cs.md"
+shorturl: "https://goo.gl/z12UuS"
 image:
 # feature: pic white robots woman 1900x500.jpg
   feature: https://cloud.githubusercontent.com/assets/300046/14622167/45abd918-0585-11e6-8537-a58e0b55e3ec.jpg
@@ -17,6 +18,8 @@ comments: true
 {% include _toc.html %}
 
 Here is a hands-on tutorial to learn Selenium using the C# language edited in Visual Studio on MacOS. This an "immersion" approach as if you just got hired and are looking at a fully developed set of code to modify.
+
+A lot of thought has gone into sequencing topics here so you learn easier, in less time.
 
 The pre-requisite to this is the "start from scrach" approach of courses such as the <a target="_blank" href="https://www.udemy.com/selenium-with-c/learn/v4/t/lecture/6745806?start=0">one on Udemy</a> from
 <a target="_blank" href="http://courses.ultimateqa.com/">UltimateQA</a> filmed  2015 by Nikolay Advolodkin (<a target="_blank" href="https://twitter.com/Nikolay_A00">@Nikolay_A00</a>, <a target="_blank" href="https://www.facebook.com/Ultimateqa1">Facebook</a>) and Dr. Tiffany Ford (rhysma@live.com) who teaches C#.
@@ -89,6 +92,7 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    git clone <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/">
    https://github.com/wilsonmar-jetbloom/Onty.SeleniumTest.Webmail.git</a>
 
+0. Use MacOS Finder or Windows Explorer to view the folder.
 0. Delete the <strong>.vs</strong> folder so that the solution is not opened using them.
 
    <a target="_blank" href="https://stackoverflow.com/questions/72298/should-i-add-the-visual-studio-suo-and-user-files-to-source-control">
@@ -213,8 +217,7 @@ Usage: &LT;main class> [options]
    ### Other properties in app.config
 
    <a target="_blank" href="https://automatetheplanet.com/hybrid-test-framework-config-files/">
-   NOTE</a>: Having strings such as `PageLoadDelay` in this file makes the solution more flexible than hard-coding into C# code.
-   Additional variables include:
+   NOTE</a>: Having strings such as `PageLoadDelay` in this file makes the solution more flexible than hard-coding into C# code. TODO: Additional variables include:
 
    * PageLoadTimeout = 60,
    * ScriptTimeout = 60,
@@ -225,26 +228,28 @@ Usage: &LT;main class> [options]
 
    The <strong>.....csproj.user</strong> ??? 
 
+
 ## In Visual Studio
 
   <a target="_blank" href="http://www.c-sharpcorner.com/UploadFile/093731/introduction-to-selenium-webdriver-with-C-Sharp-in-visual-studio/">
   NOTE</a>
 
-0. Double-click on the <strong>.sln</strong> solution file to open it within Visual Studio.
+0. Within Windows Explorer or macOS Finder, double-click on the <strong>.sln</strong> solution file to open it within Visual Studio.
 
-   <a target="_blank" href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio">PROTIP</a>: Inside the .sln file, the "Visual Studio 14" is marketed as "Visual Studio 2015".
+   <a target="_blank" href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio">PROTIP</a>: Inside the .sln file, the "Visual Studio 14" is marketed by Microsoft as "Visual Studio 2015".
 
 
    ### Restore NuGet Package Dependencies
 
-0. To download component dependencies in appropriate locations, in the Solution Explorer tool window, right-click the solution ("Onty.SeleniumTest.Webmail" root entry) and click <strong>Restore NuGet Packages</strong> 
+0. To download component dependencies in appropriate locations, in the Solution Explorer tool window, right-click on References. On Windows: click <strong>Restore NuGet Packages</strong>
 
    ![selenium-cs-restore nuget packages-320x194](https://user-images.githubusercontent.com/300046/29924820-7e1549ae-8e1b-11e7-9598-0de02abcf24d.jpg)
 
-   This is similar to running Maven to process its pom.xml file.   
-   But Visual Studio uses the <strong>packages.config</strong>:
+   ![vsmac-ref-297x169](https://user-images.githubusercontent.com/300046/29974192-5af608ee-8eef-11e7-9e60-d1b53843362d.jpg)
 
-0. Navigate into folder `Onty.SeleniumTest.Webmail` to view that file:
+   NOTE: This is similar to running Maven to process its pom.xml file. But Visual Studio uses the <strong>packages.config</strong>.
+
+0. View file `package.config` containing:
 
    <pre>
   &LT;package id="Chromium.ChromeDriver" version="2.27" targetFramework="net46" />
@@ -257,7 +262,7 @@ Usage: &LT;main class> [options]
   &LT;package id="WebDriverIEDriver" version="2.45.0.0" targetFramework="net46" />
    </pre>
 
-   The id of these packages specify what is downloaded from Microsoft's <strong>NuGet Gallery</strong>, such as:
+   The id of each packages specifies what is downloaded from Microsoft's <strong>NuGet Gallery</strong>, such as:
    <a target="_blank" href="https://www.nuget.org/packages/NUnit3TestAdapter/">
    https://www.nuget.org/packages/NUnit3TestAdapter</a>
 
@@ -271,30 +276,62 @@ Usage: &LT;main class> [options]
    Begin each entry with a date such as "2017-09-23".
 
 
-   ### Properties
+   ### Properties of Domain
 
 0. Navigate into the Properties folder.
-0. File AssemblyInfo.cs says 
+0. Notice file AssemblyInfo.cs says 
 
    `"This package contains a set of automated functional tests (via Selenium) for a Simple Webmail System."`
 
-   File Settings.Designer.cs
-   is generated.
+   File `Settings.Designer.cs` is generated.
 
-0. File Settings.settings
+0. Notice file Settings.settings
    defines the app running in the Heroku cloud:
 
-   <a target="_blank" href="http://onty-webmail-ruby.herokuapp.com">
-   http://onty-webmail-ruby.herokuapp.com</a>
+0. Click to open the sample app running on the Heroku cloud:
 
-   <img width="814" alt="webmail-login-1628x834" src="https://user-images.githubusercontent.com/300046/29967861-fc5250cc-8ed5-11e7-89b9-aea7d847cda7.png">
+   <a target="_blank" href="http://onty-webmail-ruby.herokuapp.com/">
+   http://onty-webmail-ruby.herokuapp.com<br />
+   <img width="814" alt="webmail-login-1628x834" src="https://user-images.githubusercontent.com/300046/29967861-fc5250cc-8ed5-11e7-89b9-aea7d847cda7.png"></a>
 
    (But you can set up the webmain app in your own server.)
 
-   ### App Domain objects
+   ### Common PageObjects and annotations
 
-0. Navigate up and into the Domain folder that defines objects in the app's domain.
+0. Right-click to <strong>View Page Source</strong> to see the HTML, containing HTML such as this:
 
+   <pre>
+  &LT;a id="nav-Login" href="/accounts/login">login</a>
+  or 
+  &LT;a id="nav-Signup" href="/accounts/signup">create an account</a>.
+   </pre>
+
+0. Open a new browser window and construct the URL to view the CSS file. Combine the URL:
+
+   `https://onty-webmail-ruby.herokuapp.com`
+
+   and concatenate from the HTML:
+
+   `/assets/application-12d67291afb2e5f2832d974ea0f4b04402dcd84deb0a3fc19ffcbfbcbf503fce.css`
+
+   The response is minified to remove spaces and line breaks not necessary to the computer. 
+
+0. PROTIP: Copy all the CSS and paste it into a new window at:
+
+   <a target="_blank" href="http://unminify.com/">
+   http://unminify.com</a>
+
+   Copy and paste the output to a text file so you can use your favorite editor to search in it.
+
+0. Search for an attribute id "nav-Login" and open file `CommonPageElements.cs` to see it referenced:
+
+   <pre>[FindsBy( How = How.CssSelector, Using = "a#nav-Login" )]
+   </pre>
+
+   The "FindsBy" with square brackets are compiler annotations used to reducing coding overhead.
+   It is from the <a target="_blank" href="https://seleniumhq.github.io/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_Support_PageObjects_FindsByAttribute.htm">OpenQA.Selenium.Support.PageObjects.FindsByAttribute</a> WebDriver which "Initializes a new instance of the FindsByAttribute class".
+
+0. Navigate up and into the ``Domain`` folder that defines objects in the app's domain.
 0. File User.cs
 0. File Message.cs
 0. File Folder.cs
@@ -303,7 +340,7 @@ Usage: &LT;main class> [options]
 
    ### Tests
 
-0. Navigate into the Tests folder.
+0. Navigate into the ``Tests`` folder.
 
    BLAH: Name tests using action verbs such as: ???
 
