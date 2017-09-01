@@ -23,7 +23,7 @@ Each has its own advantages and disadvantages:
 * <a href="#Docker">Docker Windows instance</a>
 * <a href="#BootCamp">BootCamp</a>
 * <a href="#VMwareFusion">VMWare Fusion</a>
-* <a target="_blank" hhref="http://www.parallels.com/products/desktop">Parallels</a>
+* <a href="#Parallels">Parallels</a>
 
 <hr />
 
@@ -459,6 +459,62 @@ This is called a "split brain" approach. The hassle with this are that:
 
 * <strong>switching requires a reboot</strong>.
 
+See https://support.apple.com/en-us/HT201468
+
+
+
+## Parallels
+
+<a target="_blank" href="http://www.parallels.com/products/desktop">Parallels</a>
+
+<a target="_blank" href="http://kb.parallels.com/en/112941">
+Parallels Boot Camp Guide</a> and
+<a target="_blank" href="http://kb.parallels.com/en/112091"> Guidelines</a>
+
+<a target="_blank" href="https://stormpath.com/blog/ultimate-guide-to-using-visual-studio-on-a-mac">One blogger</a> combined
+both: installing Windows into a Boot Camp partition first, and then turned that partition into an active Parallels virtual machine. This way, I have the option of using Windows in the virtual machine, or restarting to run Windows natively at full speed.  But he hasn’t needed to boot directly to Windows.
+
+You can’t pause the virtual machine or save it to a snapshot. A non-Boot Camp virtual machine doesn’t have these limitations.
+
+Virtual machine settings: 
+    2 virtual CPUs
+    4096MB system memory
+    256MB graphics memory
+
+Parallels options:
+
+    * Optimization: Faster virtual machine, Adaptive hypervisor, Tune Windows for speed all turned on.
+    * Sharing: Shared cloud, SmartMount, and Access Windows folders from Mac turned off, as I didn’t need these for my workflow.
+
+Parallels’ Coherence presentation mode shows Windows apps side-by-side with OS X is good for copy and paste. But this slows performance.
+
+PROTIP: Use two monitors. Have Windows full-screen on an external Thunderbolt display, and OS X on the laptop screen. Then swipe the Magic Mouse to switch desktops.
+
+Fix a few annoyances and performance drains:
+
+* Function keys. If you’re using the Mac keyboard, you’ll want to change the function key behavior so the F1-F12 keys work correctly in Visual Studio. From System Preferences – Keyboard, make sure Use all F1, F2, etc. keys as standard function keys is checked. With this turned on, hold Fn to use the Mac functions (brightness, volume, etc.) on F1-F12. With an external non-Mac keyboard, this isn’t an issue.
+
+* Disable Windows visual effects. I turned off most of the Windows desktop manager visual effects by going to Control Panel – System and Security – Advanced system settings – Advanced – Performance – Settings – Visual Effects and choosing Adjust for best performance. However, I left Smooth edges of screen fonts checked because it improves text rendering on my monitor.
+
+Through trial and error, I found a number of things that could be disabled to improve performance. You may not want to make all of the changes I did, so pick and choose your own list of tweaks:
+
+    Disable hardware-accelerated rendering. Unchecking Automatically adjust visual experience based on client performance, Enable rich client visual experience, and Use hardware graphics acceleration if available via Options – Environment made the UI feel much more responsive on my machine.
+
+    Start up to an empty environment. Starting up Visual Studio for the first time feels a lot snappier if you skip the default news page on startup. Select Empty environment under Options – Environment – Startup – At startup.
+
+    Remove unused extensions. Visual Studio ships with a number of extensions that you may not need. From Tools – Extensions and Updates – Installed, remove any extensions you aren’t actively using (you can always reinstall them later). I got rid of six extensions I didn’t need.
+
+    Disable extra debugging features. I turned off both Enable Diagnostic Tools while debugging and Show elapsed time PerfTip while debugging in Options – Debugging – General. I wasn’t using these debugging features, and debugging felt snappier after I disabled them.
+
+    Turn off the Navigation Bar. I found the code editor Navigation Bar to be unnecessary if the Solution Explorer is open. I disabled it via Options – Text Editor – All Languages – Navigation Bar.
+
+    Disable CodeLens. CodeLens is a cool feature for collaboration, but it’s not part of my current workflow. I got rid of the CPU overhead by turning it off via Options – Text Editor – All
+    Languages – CodeLens – Enable CodeLens.
+
+    Turn off Track Changes. When a file is open in the code editor, Visual Studio will represent recent changes by displaying small regions of green or yellow on the scroll bar. If you can live without this, turn off Track changes via Options – Text Editor – General for a small performance boost.
+
+    Turn off Track Active Item. Squeeze out a little bit more UI performance out by ensuring Track Active Item in Solution Explorer is unchecked under Options – Projects and Solutions – General.
+
 
 <a id="VMwareFusion"></a>
 
@@ -746,7 +802,6 @@ provides only a limited palette of 48 colors to choose from.
 ## References
 
 * https://www.howtogeek.com/187359/5-ways-to-run-windows-software-on-a-mac/
-
 
 
 

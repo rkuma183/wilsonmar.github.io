@@ -64,6 +64,12 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    VisualStudioForMac-7.1.0.1297.dmg (290 MB).
    and then drag and drop the Visual Studio for Mac icon to the Applications folder.
 
+0. Sign in and Activate license for Professional/Enterprise features:
+
+   https://docs.microsoft.com/en-us/visualstudio/mac/signing-in
+
+   https://docs.microsoft.com/en-us/visualstudio/mac/activation
+
 
 ## Get Sample Selenium Code
 
@@ -167,10 +173,13 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
   &LT;package id="WebDriverIEDriver" version="2.45.0.0" targetFramework="net46" />
    </pre>
 
-   The id of these packages specify what is downloaded from Microsoft's NuGet repository.
+   The id of these packages specify what is downloaded from Microsoft's <strong>NuGet Gallery</a>, such as:
+   <a target="_blank" href="https://www.nuget.org/packages/NUnit3TestAdapter/">
+   https://www.nuget.org/packages/NUnit3TestAdapter</a>
 
+   https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.NUnit3TestAdapter
 
-   ### Notes, Tests
+   ### Project Docs Notes
 
 0. Open `Docs/notes.txt` to add txt about the effort.
 
@@ -282,7 +291,7 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
 Verbatim string using "@" instead of using double slash escape string:
 
-   <pre>string filename=@"C:\MyFolder\whatever.txt";
+   <pre>var string filename=@"C:\MyFolder\whatever.txt";
    </pre>
 
 
