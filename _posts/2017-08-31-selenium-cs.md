@@ -70,6 +70,11 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
    https://docs.microsoft.com/en-us/visualstudio/mac/activation
 
+   Problems reported are at:
+   https://developercommunity.visualstudio.com/spaces/41/index.html
+
+   To report a problem with Visual Studio for Mac:
+   https://developercommunity.visualstudio.com/content/problem/post.html?space=41&inRegister=true
 
 ## Get Sample Selenium Code
 
@@ -99,7 +104,11 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    <pre>&LT;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.2"/>
    </pre>
 
-0. Click "Download" at <a target="_blank" href="https://www.microsoft.com/en-us/download/details.aspx?id=53321">this page</a>
+0. Get it.
+
+   On Windows:
+
+   Click "Download" at <a target="_blank" href="https://www.microsoft.com/en-us/download/details.aspx?id=53321">this page</a>
 
    <strong>NDP462-DevPack-KB3151934-ENU.exe</strong>
 
@@ -109,6 +118,20 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
    https://www.microsoft.com/net/targeting</a>
 
    http://getdotnet.azurewebsites.net/target-dotnet-platforms.html
+
+   On Mac:
+
+   https://www.microsoft.com/net/core#macos
+   Click "Download .NET Core SDK" for file:
+   dotnet-sdk-2.0.0-osx-gs-x64.pkg (133 MB)
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server">
+   NOTE</a>: .NET Core is a newer approach than .NET Framework for server applications. .NET Core provides support for cross-platform development (Windows, Linux, and macOS) within Docker containers.
+
+   But .NET Framework libraries are still used for apps using third-party .NET libraries or NuGet packages not available for .NET Core.
+
+   http://dot.net
+   provides a bash console
 
 
    ### Install WebDrivers for Mac
@@ -125,6 +148,67 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
    See <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/blob/master/README.md">README</a>
 
+   TODO: On a Mac, change "C:\Program Files\Mozilla Firefox\firefox.exe" to ???
+
+   QUESTION: How???
+
+   <tt><strong>brew install selenium-server-standalone
+   </strong></tt>
+
+   Then:
+
+   <tt><strong>selenium-server -port 4444
+   </strong></tt>
+
+   The response: Selenium Server is up and running
+
+   For more options: 
+
+   <tt><strong>selenium-server -help
+   </strong></tt>
+
+   Widen the window to see without wrapping:
+
+   <pre>
+Usage: &LT;main class> [options]
+  Options:
+    --version, -version
+       Displays the version and exits.
+       Default: false
+    -browserTimeout
+       &LT;Integer> in seconds : number of seconds a browser session is allowed to
+       hang while a WebDriver command is running (example: driver.get(url)). If the
+       timeout is reached while a WebDriver command is still processing, the session
+       will quit. Minimum value is 60. An unspecified, zero, or negative value means
+       wait indefinitely.
+       Default: 0
+    -debug
+       &LT;Boolean> : enables LogLevel.FINE.
+       Default: false
+    -enablePassThrough
+       &LT;Boolean>: Whether or not to use the experimental passthrough mode.
+       Defaults to true.
+       Default: true
+    -jettyThreads, -jettyMaxThreads
+       &LT;Integer> : max number of threads for Jetty. An unspecified, zero, or
+       negative value means the Jetty default value (200) will be used.
+    -log
+       &LT;String> filename : the filename to use for logging. If omitted, will log
+       to STDOUT
+    -port
+       &LT;Integer> : the port number the server will use.
+       Default: 4444
+    -role
+       &LT;String> options are [hub], [node], or [standalone].
+       Default: standalone
+    -timeout, -sessionTimeout
+       &LT;Integer> in seconds : Specifies the timeout before the server
+       automatically kills a session that hasn't had any activity in the last X seconds. The
+       test slot will then be released for another test to use. This is typically
+       used to take care of client crashes. For grid hub/node roles, cleanUpCycle
+       must also be set.
+       Default: 1800
+   </pre>
 
    ### Other properties in app.config
 
@@ -173,7 +257,7 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
   &LT;package id="WebDriverIEDriver" version="2.45.0.0" targetFramework="net46" />
    </pre>
 
-   The id of these packages specify what is downloaded from Microsoft's <strong>NuGet Gallery</a>, such as:
+   The id of these packages specify what is downloaded from Microsoft's <strong>NuGet Gallery</strong>, such as:
    <a target="_blank" href="https://www.nuget.org/packages/NUnit3TestAdapter/">
    https://www.nuget.org/packages/NUnit3TestAdapter</a>
 
@@ -202,6 +286,8 @@ NeoLoad automatically updates "user paths" (scripts) for load testing.
 
    <a target="_blank" href="http://onty-webmail-ruby.herokuapp.com">
    http://onty-webmail-ruby.herokuapp.com</a>
+
+   <img width="814" alt="webmail-login-1628x834" src="https://user-images.githubusercontent.com/300046/29967861-fc5250cc-8ed5-11e7-89b9-aea7d847cda7.png">
 
    (But you can set up the webmain app in your own server.)
 
