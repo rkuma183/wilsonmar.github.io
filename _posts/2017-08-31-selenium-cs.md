@@ -306,6 +306,21 @@ Usage: &LT;main class> [options]
   &LT;a id="nav-Signup" href="/accounts/signup">create an account</a>.
    </pre>
 
+0. Search for an attribute id "nav-Login" and open file `CommonPageElements.cs` to see it referenced:
+
+   <pre>[FindsBy( How = How.CssSelector, Using = "a#nav-Login" )]
+    [CacheLookup]
+    protected IWebElement LinkLogin { get; set; }
+   </pre>
+
+   PROTIP: The "FindsBy" with square brackets are compiler annotations used to reducing coding overhead.
+   It is from the <a target="_blank" href="https://seleniumhq.github.io/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_Support_PageObjects_FindsByAttribute.htm">OpenQA.Selenium.Support.PageObjects.FindsByAttribute</a> WebDriver which "Initializes a new instance of the FindsByAttribute class".
+
+   The `LinkLogin` web element is defined by a getter and setter.
+
+
+   ## Get CSS
+   
 0. Open a new browser window and construct the URL to view the CSS file. Combine the URL:
 
    `https://onty-webmail-ruby.herokuapp.com`
@@ -323,13 +338,7 @@ Usage: &LT;main class> [options]
 
    Copy and paste the output to a text file so you can use your favorite editor to search in it.
 
-0. Search for an attribute id "nav-Login" and open file `CommonPageElements.cs` to see it referenced:
 
-   <pre>[FindsBy( How = How.CssSelector, Using = "a#nav-Login" )]
-   </pre>
-
-   The "FindsBy" with square brackets are compiler annotations used to reducing coding overhead.
-   It is from the <a target="_blank" href="https://seleniumhq.github.io/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_Support_PageObjects_FindsByAttribute.htm">OpenQA.Selenium.Support.PageObjects.FindsByAttribute</a> WebDriver which "Initializes a new instance of the FindsByAttribute class".
 
 0. Navigate up and into the ``Domain`` folder that defines objects in the app's domain.
 0. File User.cs
