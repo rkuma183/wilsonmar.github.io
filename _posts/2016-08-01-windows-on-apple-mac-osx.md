@@ -52,7 +52,8 @@ The nice thing about this approach is that it's now a commonly used technology.
 A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
 
    Costs increase in a linear way for more CPUs:
-   ![ec2-cognosys-cpu-trend-555x279](https://user-images.githubusercontent.com/300046/29998431-f7861de0-8fe7-11e7-9c54-5e7f61c976d5.jpg)
+   ![ec2-cognosys-cpu-trend-552x233](https://user-images.githubusercontent.com/300046/29998551-5f497366-8feb-11e7-9246-2526d87641d5.jpg)
+   <br />
    Costs increase in a linear way for more Memory (RAM):
    ![ec2-cognosys-mem-trend-555x279](https://user-images.githubusercontent.com/300046/29998428-ef366ac8-8fe7-11e7-9954-85359f819fbc.jpg)
 
