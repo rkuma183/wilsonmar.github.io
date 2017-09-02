@@ -32,7 +32,7 @@ NOTE: In this calendar I keep only the times I cannot move.
 I have a separate calendar I use to plan my day.
 
 
-## Vents coming Up #
+## Events coming Up #
 
 Here are when I plan on traveling:
 
