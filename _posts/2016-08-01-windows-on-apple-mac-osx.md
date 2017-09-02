@@ -31,6 +31,10 @@ Each has its own advantages and disadvantages:
 
 ## RDP (Remote Desktop Protocol) clients to cloud
 
+If you have no administrative rights on your corporate Windows laptop, spin up cloud instances in the cloud and access them via a client that uses Microsoft's RDP (Remote Desktop Protocol).
+
+### RDP Clients
+
 Microsoft Windows operating systems have, within Start Programs > Accessories,
 a RDP client program. It can be used without being an Administrator.
 
@@ -40,8 +44,19 @@ $7.99 Chrome browser app</a> you can add.
 
 These RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
 
+### Cloud Images
+
 The nice thing about this approach is that it's now a commonly used technology.
-So there are several images 
+
+<a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html">Connect to an instance in AWS EC2</a>.
+
+There are several images:
+
+1.  A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US. 20 cents of that goes pays for support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
+
+   WARNING: On AWS EC2, Windows Server 2016 Nano servers do not support RDP, only Windows PowerShell.
+
+### Make it so
 
 1. Create an Amazon EC2 account at http://aws.amazon.com/ec2/.
 0. Select the "LoadRunner_12_55_Full" AMI to instantiate.
@@ -491,6 +506,9 @@ Parallels’ Coherence presentation mode shows Windows apps side-by-side with OS
 PROTIP: Use two monitors. Have Windows full-screen on an external Thunderbolt display, and OS X on the laptop screen. Then swipe the Magic Mouse to switch desktops.
 
 Fix a few annoyances and performance drains:
+
+https://www.youtube.com/watch?v=gfjFJ-v_h2s
+Web Development in Visual Studio 2017
 
 * Function keys. If you’re using the Mac keyboard, you’ll want to change the function key behavior so the F1-F12 keys work correctly in Visual Studio. From System Preferences – Keyboard, make sure Use all F1, F2, etc. keys as standard function keys is checked. With this turned on, hold Fn to use the Mac functions (brightness, volume, etc.) on F1-F12. With an external non-Mac keyboard, this isn’t an issue.
 
