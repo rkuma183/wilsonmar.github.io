@@ -27,6 +27,13 @@ I'd like to see how different people work on the same set of data:
 
 ## Images
 
+### Microsoft's COCO 
+
+https://www.ted.com/talks/joseph_redmon_how_a_computer_learns_to_recognize_objects_instantly#t-286801">
+VIDEO</a>: 
+Joseph Redmon's <a target="_blank" href="https://pjreddie.com/darknet/yolo/">YOLO (You Only Look Once) algorithm</a> recognizes over 80 categories of objects real-time in videos. On a laptop. Based on the University of Washington's open-source Darknet system.
+
+
 ### MNIST Number Images
 
 Instead of downloading yourself, note that the 

@@ -58,7 +58,13 @@ The software adjusted its strategies during the tournament.
 And its algorithms for strategy and negotiation are game-independent, 
 meaning they're not just about poker, but a range of adversarial problems.
 
-Texas Hold'em
+<!--Texas Hold'em
+-->
+
+<a target="_blank" href="https://www.ted.com/talks/noriko_arai_can_a_robot_pass_a_university_entrance_exam">
+<img align="right" alt="ai-todai-robot-441x441" width="441" height="441" src="https://user-images.githubusercontent.com/300046/29997360-3aeeac38-8fce-11e7-8913-fc600e6d13de.jpg"></a><a target="_blank" href="http://21robot.org/news/">Todai Robot</a> scored among the upper 20% in university entrance exam. Writing essays. Pen on paper. In Japanese. It knows 8,000 Japanese words, 2,000 mathematical axioms, and uses "symbolic computation" for "automatic reasoning" on 15 billion sentences. <a target="_blank" href="http://21robot.org/news/">
+Back in 2014</a>.
+
 
 ## Use Cases 
 
