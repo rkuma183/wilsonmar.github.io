@@ -32,12 +32,9 @@ NOTE: In this calendar I keep only the times I cannot move.
 I have a separate calendar I use to plan my day.
 
 
-## Conferences coming Up #
+## Vents coming Up #
 
-In October I'll be in Disneyland for 
-StarWest.
-
-Come attend my classes:
+Here are when I plan on traveling:
 
    * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-starwest-2016">
    Performance Testing 2-days Sunday & Monday</a></strong>.
@@ -54,6 +51,10 @@ Next May, I'll be in Orlando, Florida for
 <strong><a target="_blank" href="https://stareast.techwell.com/">
 StarEast</a></strong>. It's one of a <a target="_blank" href="https://www.techwell.com/software-conferences/star-software-testing-conferences">
 series</a>.
+
+<a target="_blank" href="https://blog.hubspot.com/marketing/google-calendar-invites-in-email-marketing">
+NOTE</a>: "Add this to your Google Calendar" links are constructed manually:
+   ![calendar-url-709x85](https://user-images.githubusercontent.com/300046/29994825-65e696ea-8f96-11e7-8620-226fe9b8f45c.jpg)
 
 
 ## Update Jekyll Theme with Calendar

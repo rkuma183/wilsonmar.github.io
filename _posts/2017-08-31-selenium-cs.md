@@ -367,26 +367,13 @@ Usage: &LT;main class> [options]
 
    Copy and paste the output to a text file so you can use your favorite editor to search in it.
 
-   ### Domain 
+   ### Domain objects
 
 0. Navigate up and into the ``Domain`` folder that defines objects in the app's domain.
 0. File User.cs
 0. File Message.cs
 0. File Folder.cs
 
-
-   ### Tests
-
-0. Navigate into the ``Tests`` folder.
-
-   BLAH: Name tests using action verbs such as: ???
-
-   * Landing
-   * File Tests_General.cs has Test_General_Menu() that logs in and checks the menu.
-   * Tests_Login.cs has Test_Login_Invalid() and Test_Login_Valid()
-   * Tests_Mailbox.cs has Test_Mailbox_Home(), Test_Mailbox_CreateFolder and Test_Mailbox_SendMessage()
-   * Tests_NotLoggedIn.cs has Test_NotLoggedIn_Home() to detect when  "not-logged-in message is not displayed".
-   <br /><br />
 
 0. View file `ATest.cs` which defines Setup and Teardown for all tests in each run.
 
@@ -413,7 +400,27 @@ Usage: &LT;main class> [options]
    * Rnd.cs for a rnd() random function based on a millisecond.
    * ScreenShotUtil.cs for the TakeScreenshot() function.
    * StringUtil.cs for IntToBase26() and MakeRandomString
-   * TestData.cs adds new users with hard-coded names and passwords.
+   <br /><br />
+
+   ### SignUp (several users)
+
+   File `TestData.cs` adds new users with hard-coded names and passwords.
+
+   ![webmail-signup-336x137](https://user-images.githubusercontent.com/300046/29991950-b1408f0e-8f4d-11e7-89c0-2b81a2786a10.jpg)
+
+   ### Tests
+
+0. Navigate into the ``Tests`` folder.
+
+   BLAH: Name tests using action verbs such as: ???
+
+   * Landing
+   * File Tests_General.cs has Test_General_Menu() that logs in and checks the menu.
+   * Tests_Login.cs has Test_Login_Invalid() and Test_Login_Valid()
+   * Tests_Mailbox.cs has Test_Mailbox_Home(), Test_Mailbox_CreateFolder and Test_Mailbox_SendMessage()
+   * Tests_NotLoggedIn.cs has Test_NotLoggedIn_Home() to detect when  "not-logged-in message is not displayed".
+   <br /><br />
+
 
 
 ## App PageObjects
@@ -436,11 +443,11 @@ Usage: &LT;main class> [options]
    ### Build, Run, Troubleshoot
 
 0. Build the solution.
-0. Open Test Explorer tool window in Visual Studio, 
-0. Click Run All.
+0. Open <strong>Test Explorer</strong> tool window in Visual Studio, 
+0. Click <strong>Run All</strong> or <strong>Build</strong> icon.
 
    Alternately, you can click on a single [TestMethod]
-   and right-click to select Run Tests or hold down command/ctrl+R,T.
+   and right-click to select "Run Tests" or hold down command/ctrl+R,T.
 
    If it doesn't run, we have a debugging session.
 
