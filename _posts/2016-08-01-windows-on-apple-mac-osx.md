@@ -46,11 +46,18 @@ These RDP clients can reach into instances of Amazon EC2 or other cloud that hou
 
 The nice thing about this approach is that it's now a commonly used technology.
 
-<a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html">Connect to an instance in AWS EC2</a>.
 
-There are several images:
+#### Amazon EC2
 
-1.  A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
+A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
+
+   Costs increase in a linear way for more CPUs:
+   ![ec2-cognosys-cpu-trend-555x279](https://user-images.githubusercontent.com/300046/29998431-f7861de0-8fe7-11e7-9c54-5e7f61c976d5.jpg)
+   Costs increase in a linear way for more Memory (RAM):
+   ![ec2-cognosys-mem-trend-555x279](https://user-images.githubusercontent.com/300046/29998428-ef366ac8-8fe7-11e7-9954-85359f819fbc.jpg)
+
+
+   <a target="_blank" href="http://www.ec2instances.info/">ec2instances.info</a> provides a spreadsheet.
 
    WARNING: On AWS EC2, Windows Server 2016 Nano servers do not support RDP, only Windows PowerShell.
 
@@ -58,13 +65,16 @@ There are several images:
 
    PROTIP: With Amazon, you pay for hourly increments. With Google, you pay per minute.
 
-### Make it so
+
+
+<a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html">Connect to an instance in AWS EC2</a>:
 
 1. Create an Amazon EC2 account at http://aws.amazon.com/ec2/.
 
+
 <a name="WorkSpaces"></a>
 
-## Browser WorkSpaces in AWS cloud
+### Browser WorkSpaces in AWS cloud
 
 This approach works not just a MacOS laptop, 
 but for any computer running a modern browser,
