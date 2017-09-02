@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Windows on Apple Mac OSX"
-excerpt: "Demon spawn!"
+title: "Windows on Apple MacOS laptops"
+excerpt: "Demon spawn?"
 tags: [apple, mac, setup, VMWare, Fusion]
 image:
 # feature: pic gray apple logo 1900x500.jpg
@@ -29,20 +29,18 @@ Each has its own advantages and disadvantages:
 
 <a name="RDP"></a>
 
-## RDP (Remote Desktop Protocol) clients to cloud
+## Cloud Instances 
 
 If you have no administrative rights on your corporate Windows laptop, spin up cloud instances in the cloud and access them via a client that uses Microsoft's RDP (Remote Desktop Protocol).
 
 ### RDP Clients
 
-Microsoft Windows operating systems have, within Start Programs > Accessories,
-a RDP client program. It can be used without being an Administrator.
-
-Alternately, use the
-<a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en">
-$7.99 Chrome browser app</a> you can add.
-
 These RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
+
+1. Microsoft Windows operating systems have, within Start Programs > Accessories, a RDP client program. It can be used without being an Administrator.
+
+2. Within Chrome browser, install the <a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en"> $7.99 Chrome browser app</a>. This enables you to run the most powerful of servers from a ChromeBook laptop with minimal RAM and hard disk.
+
 
 ### Cloud Images
 
@@ -52,18 +50,17 @@ The nice thing about this approach is that it's now a commonly used technology.
 
 There are several images:
 
-1.  A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US. 20 cents of that goes pays for support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
+1.  A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
 
    WARNING: On AWS EC2, Windows Server 2016 Nano servers do not support RDP, only Windows PowerShell.
+
+   <a target="_blank" href="https://aws.amazon.com/ec2/instance-types/">A t2.medium has 2 cores and 4 GB</a>.
+
+   PROTIP: With Amazon, you pay for hourly increments. With Google, you pay per minute.
 
 ### Make it so
 
 1. Create an Amazon EC2 account at http://aws.amazon.com/ec2/.
-0. Select the "LoadRunner_12_55_Full" AMI to instantiate.
-
-   See https://www.guru99.com/creating-amazon-ec2-instance.html
-
-   https://community.saas.hpe.com/t5/LoadRunner-and-Performance/Step-by-step-instructions-to-Provision-Load-Generators-in-the/ba-p/245072#.WaW1-pOGNZo
 
 <a name="WorkSpaces"></a>
 
@@ -327,114 +324,6 @@ http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the executi
    ### Shut-down and Resume
 
    BLAH: It takes many minutes to stop and resume.
-
-## LoadRunner 12.55 Install
-
-### Download Installers
-
-0. Invoke the Internet Explorer browser. (Firefox browsers don't recognize the Download button)
-0. https://saas.hpe.com/en-us/download/loadrunner
-0. Click to Download "Community Edition". Click the green Download button for:<br />
-   HPELR_1255_Community_Edition.exe (919 MB)
-   https://saas.hpe.com/download/loadrunner
-
-   "Useful resources" is https://saas.hpe.com/en-us/resources/loadrunner
-
-   "Tech talks" is https://community.saas.hpe.com/t5/LoadRunner-Performance-Center/ct-p/sws-LoadRunner
-
-0. Click to Download "Additional Components" (for VSTS).
-   HPELR_1255_Community_Edition_Additional_Components.exe ( MB)
-
-0. Right-click to Extract both zip files.
-0. Delete the zip files to recover disk space.
-0. Open the Downloads folder.
-0. Double-click on the HPELR_1255_Community_Edition.exe. 
-0. right-click on the exe to "Run as Administrator".
-0. On the UAC, click Yes.
-0. IMPORTANT: Change the path from C:\Temp\\... to <strong>D:</strong>\Temp.
-0. In the Installer, click "Install".
-0. Click OK for the Redistributables.
-0. When the "Welcome to the HPE LoadRunner Setup Wizard" appears, click Next.
-0. When the "End-User License Agreement" dialog appears, check "I accept", then click Next.
-0. When the "Change destination folder" dialog appears, change C:\Program Files (x86)\HPE\LoadRunner\
-   Click OK, then Install.
-
-   PROTIP: The "Program Files (x86)" location means LoadRunner is a 32-bit program.
-
-0. When the "HPE Authentication Settings" dialog appears, uncheck "Specify a certificate that will be used...".
-   Click Next.
-0. When the "Completed the HPE LoadRunner Setup" dialog appears, uncheck "Install HPE Network Virtualization".
-   Uncheck "Launch License Utility Tool on Exit".
-   Click Finish.
-
-
-   ### Install VTS
-
-0. In Windows Explorer, be at your Downloads folder.
-0. Double-click on the HPELR_1255_Community_Edition_Additional_Components.exe. 
-0. right-click on the exe to "Run as Administrator".
-0. On the UAC, click Yes.
-0. Click "Install" since the path was previously changed from 
-   C:\Temp\\... to <strong>D:</strong>\Temp.
-0. Navigate into D:\Temp\HPE LoadRunner 12.55 Community Edition\DVD\Additional Components\Virtual Table Service.
-0. Right-click on SetupVTS and select "Run as Administrator".
-0. Click Yes to UAC.
-0. Change C:\TempHPE LoadRunner VTS 12.55 to D:\Temp\HPE LoadRunner VTS 12.55
-   Click Next, then Next.
-0. Check "I accept the terms...". Click Next. Click Install to C:\ProgramData\HP\VTS\db\data.
-   Click Install.
-0. Click Finish for a pop-up browser containing a link to http://localhost:4000/
-0. Click Enable.
-0. Enable Access from Script.
-
-0. Open Windows Explorer to see how much disk space remains.
-
-   ### Install WebTours
-
-   Since version 12.55, the WebTours sample application has been moved.
-
-0. Download it from:
-   <a target="_blank" href="https://marketplace.saas.hpe.com/appdelivery/content/web-tours-sample-application">
-   https://marketplace.saas.hpe.com/appdelivery/content/web-tours-sample-application</a>
-0. Unzip the WebTours.zip.
-0. Double-click to run "strawberry-perl-5.10.1.0.msi.
-0. Click the "I accept...", then Install. Click Yes to UAC. Click Finish.
-
-0. Extract all files in WebTours.zip.
-0. Open a Run cmd windows. Navigate to the folder.
-0. Type StartServer.bat to invoke the server. Leave it running.
-0. Open a web browser to:
-
-   <pre>
-   http://127.0.0.1:1080/WebTours/index.htm
-   </pre>
-
-   ![lr1255-webtours-landing-670x366-114334](https://user-images.githubusercontent.com/300046/29899442-c333338e-8da8-11e7-9f85-a49f7b2a96d3.jpg)
-
-0. Bookmark the site.
-
-
-   ### Populate VTS
-
-   TODO
-
-   ### VuGen
-
-0. Copy this and paste it in a cmd window:
-
-   <pre>echo D:\Users\%USERNAME%\gits\loadrunner\gapi-lr-starter\gapi-lr-starter.usr
-   </pre>
-
-   Copy the response to your Clipboard to paste into VuGen
-
-   Alternately, double-click on the file within Windows Explorer.
-
-   PROTIP: The install process enables double-clicking on a .usr file extension to invoke VuGen.
-
-0. Click the Windows logo at the lower-left corner of the screen.
-0. Click Virtual User Generator.
-0. Maximize the screen by clicking on the button at the upper-left corner.
-0. Click File, Open. Paste the path from above or navigate to open the .usr file.
 
 
    ### Custom WorkSpaces
