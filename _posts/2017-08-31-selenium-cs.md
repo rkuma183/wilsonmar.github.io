@@ -150,17 +150,17 @@ If you already have Visual Studio IDE installed, <a href="InVS">go here</a>.
 
 ## Install WebDrivers
 
-   Also in `app.config`:
+### Install WebDrivers on Windows
+
+   In `app.config`:
 
    <pre>
-	&LT;setting name="PathFirefox" serializeAs="String">
-    	&LT;value>C:\Program Files\Mozilla Firefox\firefox.exe&LT;/value>
-	&LT;/setting>
-	&LT;setting name="WebDriverType" serializeAs="String">
-	&LT;value>phantomjs&LT;/value>
+  &LT;setting name="PathFirefox" serializeAs="String">
+      &LT;value>C:\Program Files\Mozilla Firefox\firefox.exe&LT;/value>
+  &LT;/setting>
+  &LT;setting name="WebDriverType" serializeAs="String">
+  &LT;value>phantomjs&LT;/value>
    </pre>
-
-### Install WebDrivers on Windows
 
    See <a target="_blank" href="https://github.com/ontytoom/Onty.SeleniumTest.Webmail/blob/master/README.md">README</a>
 
@@ -173,6 +173,61 @@ If you already have Visual Studio IDE installed, <a href="InVS">go here</a>.
    * geckodriver.exe (for Mozilla Firefox)
    * IEDriverServer.exe
    * phantomjs.exe
+
+
+### Install WebDrivers on MacOS
+
+   .dll and .exe are for Windows only and don't work on a Mac.
+
+   So we need to:
+
+1. Use https://www.npmjs.com/package/webdriver-manager
+
+   <tt><strong>npm install -g webdriver-manager
+   </strong></tt>
+
+0. download the selenium server jar and chromedriver binary:
+
+   <tt><strong>webdriver-manager update
+   </strong></tt>
+
+   The response:
+
+   <pre>
+/Users/mac/.npm-packages/bin/webdriver-manager -> /Users/mac/.npm-packages/lib/node_modules/webdriver-manager/bin/webdriver-manager
++ webdriver-manager@12.0.6
+added 96 packages in 26.426s
+   </pre>
+
+0. Start Selenium Server attached to foreground process:
+
+   <tt><strong>
+   webdriver-manager start
+   </strong></tt>
+
+   Alternately, start in background:
+
+   <tt><strong>
+   webdriver-manager start \-\-detach
+   </strong></tt>
+
+   The response:
+
+   <pre>
+webdriver-manager: using global installed version 12.0.6
+[21:04:30] I/file_manager - creating folder /Users/mac/.npm-packages/lib/node_modules/webdriver-manager/selenium
+[21:05:04] I/update - chromedriver: unzipping chromedriver_2.32.zip
+[21:05:04] I/update - chromedriver: setting permissions to 0755 for /Users/mac/.npm-packages/lib/node_modules/webdriver-manager/selenium/chromedriver_2.32
+[21:05:47] I/update - geckodriver: unzipping geckodriver-v0.18.0.tar.gz
+[21:05:47] I/update - geckodriver: setting permissions to 0755 for /Users/mac/.npm-packages/lib/node_modules/webdriver-manager/selenium/geckodriver-v0.18.0
+   </pre>
+
+0. Open browser to <a target="_blank" href="http://localhost:4444/wd/hub">http://localhost:4444/wd/hub</a>
+
+0. Stop Selenium Server if opened in background process:
+
+   <tt><strong>webdriver-manager stop
+   </strong></tt>
 
 
 ### Install WebDrivers On a Mac
