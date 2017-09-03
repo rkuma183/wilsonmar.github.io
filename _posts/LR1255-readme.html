@@ -1,0 +1,2826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:tocPath="" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="WebHelp" lang="en-us" xml:lang="en-us" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="Default.xml" MadCap:SearchType="Stem">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>LoadRunner Readme</title>
+        <link href="../SkinSupport/Slideshow.css" rel="stylesheet" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" />
+        <style>	
+        	
+        	
+        /*<meta />*/
+			
+		
+
+
+/* THE FOLLOWING CODE IS CUT AND PASTE FROM THE _HP_SingleHTML.css STYLESHEET */
+
+			@namespace MadCap "localhost";
+			/*<meta />*/
+
+			/* This header may be removed before distributing to customers. 
+
+			FILE:         _HP_SingleHTML.css
+			DESCRIPTION:  Cascading Style Sheet for HPE ADM products
+			MODIFIED:     December 23 2015
+			LEVEL         CSS Level 3 (plus support for Madcap Flare Webhelp)
+			VERSION:      3.00 patch 5 (for ADM SFFS 3.0 (Rebranding) patch 5)
+			*/
+
+
+			/*from _HP_Fonts.css - all except header*/
+			
+
+			@font-face
+			{
+			font-family: 'MetricRegular';
+			font-weight: normal;
+			font-style: normal;
+			src: url('./_HP_fonts/Regular/MetricWeb-Regular.eot'); /* IE9 Compat Modes */
+			src: url('./_HP_fonts/Regular/MetricWeb-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('./_HP_fonts/Regular/MetricWeb-Regular.woff') format('woff'),
+			url('./_HP_fonts/Regular/MetricApp-Regular.ttf') format('truetype'),
+			url('./_HP_fonts/Regular/Metric-Regular.otf') format('opentype');
+			} 
+
+			@font-face
+			{
+			font-family: 'MetricBold';
+			font-weight: bold;
+			font-style: normal;
+			src: url('./_HP_fonts/Bold/MetricWeb-Bold.eot'); /* IE9 Compat Modes */
+			src: url('./_HP_fonts/Bold/MetricWeb-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ 
+			url('./_HP_fonts/Bold/MetricWeb-Regular.woff') format('woff'),
+			url('./_HP_fonts/Bold/MetricApp-Bold.ttf') format('truetype'),
+			url('./_HP_fonts/Bold/Metric-Bold.otf') format('opentype');
+			} 
+
+			@font-face
+			{
+			font-family: 'MetricRegularItalic';
+			font-weight: normal;
+			font-style: italic;
+			src: url('./_HP_fonts/Italic/MetricWeb-RegularItalic.eot'); /* IE9 Compat Modes */
+			src: url('./_HP_fonts/Italic/MetricWeb-RegularItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('./_HP_fonts/Italic/MetricWeb-RegularItalic.woff') format('woff'),
+			url('./_HP_fonts/Italic/MetricApp-RegularItalic.ttf') format('truetype'),
+			url('./_HP_fonts/Italic/Metric-RegularItalic.otf') format('opentype');
+			} 
+
+			@font-face
+			{
+			font-family: 'MetricBoldItalic';
+			font-weight: bold;
+			font-style: italic;
+			src: url('./_HP_fonts/BoldItalic/MetricWeb-BoldItalic.eot'); /* IE9 Compat Modes */
+			src: url('./_HP_fonts/BoldItalic/MetricWeb-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('./_HP_fonts/BoldItalic/MetricWeb-BoldItalic.woff') format('woff'),
+			url('./_HP_fonts/BoldItalic/MetricApp-BoldItalic.ttf') format('truetype'),
+			url('./_HP_fonts/BoldItalic/Metric-BoldItalic.otf') format('opentype');
+			} 
+
+			@font-face
+			{
+			font-family: 'MetricMedium';
+			font-weight: normal;
+			font-style: normal;
+			src: url('./_HP_fonts/Bold/MetricWeb-Medium.eot'); /* IE9 Compat Modes */
+			src: url('./_HP_fonts/Bold/MetricWeb-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('./_HP_fonts/Bold/MetricWeb-Medium.woff') format('woff'),
+			url('./_HP_fonts/Bold/MetricApp-Medium.ttf') format('truetype'),
+			url('./_HP_fonts/Bold/Metric-Medium.otf') format('opentype');
+			}  
+    
+			/*end of HP_Fonts.css*/         	
+         	
+			/* Beginnning of  default section copied from _HP_IE.css       	
+			Note to Editor!!
+			REMOVE THE FOLLOWING STYLES AFTER COPYING:
+			- ALL h1, h2, h3 and h4 styles
+			- ALL image styles
+			- div.frontmatter 
+			These styles are defined further down in this css: ... see STYLES EXCLUSIVELY FOR SINGELFILE TEMPLATE near end.... */
+
+
+		@namespace MadCap "localhost";
+			/* Paragraphs */
+
+
+			body
+			{
+			font-family: MetricRegular, Arial, sans-serif;
+			font-size: 1.2em;
+			font-weight: 500;
+			font-style: normal;
+			line-height: 1.2em;
+			margin-bottom: 1.0em;
+			mc-hyphenate: never;
+			color: #000000;
+			}
+
+
+			p
+			{
+			margin-top: 0em;
+			margin-bottom: 0.95em;
+			font-family: MetricRegular, Arial;
+			/*new rbrd*/
+			/*from wendy*/
+			}
+
+			p.avoidPageBreak
+			{
+			page-break-inside: avoid;
+			}
+
+			p.keepWithNext
+			{
+			page-break-after: avoid;
+			}
+
+			p.hanging_indent
+			{
+			text-indent: -25px;
+			padding-left: 25px;
+			}
+
+			p.intro_phrase	/* QCCR1K4343 */
+			{
+			/*from superdocs*/
+			padding-top: 0.5em;
+			/*color: #333333;*/
+			font-size: 1.15em;
+			font-family: MetricMedium, Arial;
+			/*end of superdocs defn*/
+			padding-top: 1.0em;
+			font-weight: normal;
+			/* original: */
+			/*padding-top: 1.0em;*/
+			/*font-weight: bold;*/
+			/*mc-next-class: none;/* /* SF AFFS2.30 July2015 makes next line a regular p */
+			/*font-size: 1.1em; */
+			/* SF AFFS2.30 July2015 Cleaning up: Moved 'page-break-after: avoid;' to print media */
+			}
+
+			p.XSmall	/* SF AFFS2.30 July2015 CR83: New paragraph for xs text; see also small.XSmall */
+			{
+			margin-top: 0em;
+			margin-bottom: 1.1em;
+			font-size: 70%;
+			mc-next-class: none;
+			/* SF AFFS2.30 July2015 makes next line a regular p */
+			}
+
+			/* Links */
+
+			a
+			{
+			color: #01a982;
+			/*new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			}
+
+			a:link
+			{
+			color: #01a982;
+			/*new rbrd: changed from 3A83E6*/
+			}
+
+			span.MCPopup &gt; a:link
+			{
+			color: #01a982;
+			/*new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			content: "\0000a0";
+			padding-right: 18px;
+			display: inline;
+			background-position: right center;
+			background-repeat: no-repeat;
+			background-image: url('./_HP_DropDownClosed.gif');
+			}
+
+			a:visited
+			{
+			color:  #822980; /*a purple. was #800080*/
+			}
+
+			a:hover
+			{
+			text-decoration: underline;
+			}
+
+			span.MCPopup &gt; a:hover
+			{
+			text-decoration: underline;
+			}
+
+			a.avoidPrint
+			{
+	
+			}
+
+			a.MiniTOC1:link,
+			a.MiniTOC2:link,
+			a.MiniTOC3:link,
+			a.MiniTOC4:link,
+			a.MiniTOC5:link,
+			a.MiniTOC6:link,
+			a.MiniTOC7:link,
+			a.MiniTOC8:link
+			{
+			font-weight: normal;
+			color: #01a982;
+			/*new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			margin-top: 0px;
+			}
+
+			a.MiniTOC1:visited,
+			a.MiniTOC2:visited,
+			a.MiniTOC3:visited,
+			a.MiniTOC4:visited,
+			a.MiniTOC5:visited,
+			a.MiniTOC6:visited,
+			a.MiniTOC7:visited,
+			a.MiniTOC8:visited
+			{
+			color:  #822980; /*was #800080*/
+			text-decoration: none;
+			font-weight: normal;
+			}
+
+			a.MiniTOC1:hover,
+			a.MiniTOC2:hover,
+			a.MiniTOC3:hover,
+			a.MiniTOC4:hover,
+			a.MiniTOC5:hover,
+			a.MiniTOC6:hover,
+			a.MiniTOC7:hover,
+			a.MiniTOC8:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|miniTocProxy
+			{
+			margin-top: 0px;
+			padding-top: 0px;
+			border-top-style: none;
+			mc-output-support: all;
+			}
+
+			/* td.GenMiniTOCText is required to add a bullet to the list of entries in PDF miniTOC, see @media print */
+
+			td.GenMiniTOCText1,
+			td.GenMiniTOCText2,
+			td.GenMiniTOCText3,
+			td.GenMiniTOCText4,
+			td.GenMiniTOCText5,
+			td.GenMiniTOCText6,
+			td.GenMiniTOCText7,
+			td.GenMiniTOCText8
+			{
+			margin-top: 0px;
+			mc-auto-number-format: '• ';
+			margin-left: 8px;
+			margin-right: 16px;
+			padding-left: 9px;
+			padding-right: 9px;
+			}
+
+			/* p.MiniTOC1_0 is required to add a bullet to the list of entries in WebHelp and HTML5 miniTOC */
+
+			p.MiniTOC1_0,
+			p.MiniTOC2_0,
+			p.MiniTOC3_0,
+			p.MiniTOC4_0,
+			p.MiniTOC5_0,
+			p.MiniTOC6_0,
+			p.MiniTOC7_0,
+			p.MiniTOC8_0,
+			p.MiniTOC9_0
+			{
+			margin-top: 0px;
+			margin-bottom: 0.95em;
+			display: list-item;
+			list-style-type: disc;
+			}
+
+			a.pop
+			{
+			color: #01a982;
+			/*new rbrd: changed from 3A83E6*/
+			}
+
+			a.pop:visited
+			{
+			color: #822980; /*was #800080*/
+			}
+
+			a.pop:hover
+			{
+			text-decoration: underline;
+			}
+
+			a.Popup
+			{
+			text-decoration: none;
+			content: "\0000a0";
+			padding-right: 18px;
+			background-repeat: no-repeat;
+			background-position: right center;
+			background-image: url('./_HP_DropDownClosed.gif');
+			display: inline;
+			}
+
+			a.Popup:hover
+			{
+			text-decoration: underline;
+			}
+
+			/* Miscellaneous Styles */
+
+			abbr
+			{
+			font-variant: normal;
+			}
+
+			acronym
+			{
+			font-variant: normal;
+			}
+
+			address
+			{
+			font-style: inherit;
+			}
+
+			blockquote
+			{
+			margin: 0;
+			}
+
+			/* Headings */
+
+
+
+			h5
+			{
+			mc-disabled: true;
+			}
+
+			h6
+			{
+			mc-disabled: true;
+			}
+
+			/* Rules */
+
+			hr
+			{
+			color: #999999;
+			height: 0.05em;
+			width: 100%;
+			}
+
+
+
+			MadCap|slideshow.noBorder	/* SF AFFS2.30 July2015 CR81: New - slideshow without gray border*/
+			{
+			box-shadow: none;
+			}
+
+			/* Definition list tags, used in API docs */
+
+			dl
+			{
+			margin: 0;
+			}
+
+			dt
+			{
+			margin-top: 0.8em;
+			}
+
+			dd
+			{
+			margin-left: 20px;
+			}
+
+			/* Lists */
+
+			ol
+			{
+			margin-left: 20px;
+			margin-top: 0.95em;
+			/*rbrd has: margin-bottom: 0.95em;*/
+			padding: 0px;
+			padding-left: 0.2em;
+			}
+
+			ul
+			{
+			margin-left: 8px;
+			margin-top: 0.95em;
+			/*rbrd has: margin-bottom: 0.95em;*/
+			padding: 0px;
+			padding-left: 0.2em;
+			}
+
+			ol li
+			{
+			list-style-type: decimal;
+			margin-left: 8px;
+			margin-bottom: 0.95em;
+			}
+
+			ul li
+			{
+			list-style-type: disc;
+			margin-left: 8px;
+			margin-bottom: 0.95em;
+			}
+
+			ol li p,
+			ul li p
+			{
+			margin-left: 0pt;
+			margin-bottom: 0.95em;
+			}
+
+			ul ul li p,
+			ul ol li p,
+			ol ul li p,
+			ol ol li p
+			{
+			margin-left: 0pt;
+			margin-bottom: 0.95em;
+			}
+
+			ol ol ul ol li,
+			ul ul ul li p,
+			ul ol ol li p,
+			ul ul ol li p,
+			ul ol ul li p,
+			ol ul ul li p,
+			ol ol ol li p,
+			ol ul ol li p,
+			ol ol ul li p
+			{
+			margin-left: 0pt;
+			margin-bottom: 0.95em;
+			}
+
+			ol ul li,
+			ul ul li
+			{
+			list-style-type: disc;
+			margin-left: 6px;
+			margin-bottom: 0.95em;
+			}
+
+			ol ol li,
+			ul ol li
+			{
+			list-style-type: lower-alpha;
+			margin-left: 4px;
+			margin-bottom: 0.95em;
+			}
+
+			ol ol ol li,
+			ol ul ol li,
+			ul ol ol li,
+			ul ul ol li
+			{
+			list-style-type: lower-roman;
+			margin-left: 8px;
+			}
+
+			ol ol ol ol li,
+			ol ol ul ol li,
+			ol ul ol ol li,
+			ul ol ol ol li,
+			ol ul ul ol li,
+			ul ul ol ol li,
+			ul ol ul ol li,
+			ul ul ul ol li
+			{
+			list-style-type: upper-alpha;
+			margin-left: 8px;
+			}
+
+			ul ul ul ul li,
+			ul ul ol ul li,
+			ul ol ul ul li,
+			ol ul ul ul li,
+			ul ol ol ul li,
+			ol ol ul ul li,
+			ol ul ol ul li,
+			ol ol ol ul li
+			{
+			list-style-type: disc;
+			margin-left: 8px;
+			}
+
+			ol ul ul li,
+			ol ol ul li,
+			ul ul ul li,
+			ul ol ul li
+			{
+			list-style-type: disc;
+			margin-left: 8px;
+			}
+
+			menu
+			{
+			margin: 0;
+			}
+
+			/* Paragraph Classes */
+
+			p.Index1,
+			p.Index2,
+			p.Index3,
+			p.Index4
+			{
+			margin-bottom: 0em;
+			margin-top: 0em;
+			white-space: normal;
+			}
+
+			/* Admonitons */
+			/* indicates deprecation of methods in APIs and command line tools */
+
+			div.Admonition_Deprecated
+			{
+			margin-bottom: 10px;
+			margin-left: 0px;
+			margin-right: 5px;
+			padding-top: 11px;
+			padding-left: 9px;
+			padding-right: 9px;
+			padding-bottom: 0px;
+			background-color: #e4e5e6;
+			border: 1px;
+			border-style: solid;
+			border-color: #e4e5e6;
+			}
+
+			div.Admonition_Deprecated &gt; p:first-child
+			{
+			mc-auto-number-format: '{b}Deprecated: {/b}';
+			/* Localizable */
+			}
+
+			div.Admonition_Note,
+			div.Admonition_Caution,
+			div.Admonition_Tip
+			{
+			margin-bottom: 10px;
+			margin-left: 0px;
+			margin-right: 5px;
+			padding-top: 0.5em;
+			padding-left: 9px;
+			padding-right: 9px;
+			padding-bottom: 0.5em;
+			background-color: #e4e5e6;
+			border: 1px;
+			border-style: solid;
+			border-color: #e4e5e6;
+			}
+
+			div.Admonition_Note &gt; p:first-child
+			{
+			mc-auto-number-format: '{b}Note: {/b}';
+			margin-bottom: 0.95em;
+			/* Localizable */
+			}
+
+			div.Admonition_Caution &gt; p:first-child
+			{
+			mc-auto-number-format: '{b}Caution: {/b}';
+			margin-bottom: 0.95em;
+			/* Localizable */
+			}
+
+			div.Admonition_Tip &gt; p:first-child
+			{
+			mc-auto-number-format: '{b}Tip: {/b}';
+			margin-bottom: 0.95em;
+			/* Localizable */
+			}
+
+			div.avoidPageBreak
+			{
+			page-break-inside: avoid;
+			}
+
+			div.keepWithNext
+			{
+			page-break-after: avoid;
+			}
+
+			div.frontMatter
+			{
+			font-size: 0.8em;
+			}
+
+			/* Table styles */
+
+			table
+			{
+			color: #000000;
+			background-color: transparent;
+			border: solid 1pt #cccccc;
+			border-collapse: collapse;
+			caption-side: top;
+			font-size: 100%;
+			line-height: normal;
+			margin-bottom: 1.1em;
+			mc-caption-continuation: ', continued';
+			/* Localizable */
+			mc-caption-repeat: true;
+			text-align: left;
+			mc-hide-bottom-ruling: true;
+			}
+
+			table.NinetyPercent	/* SF AFFS2.30 July2015 CR85 New */
+			{
+			font-size: 90%;
+			}
+
+			table.no_lines,
+			table.no_lines td,
+			table.no_lines th
+			{
+			border: none;
+			border-collapse: collapse;
+			background-color: transparent;
+			color: #000000;
+			font-size: 100%;
+			}
+
+			caption
+			{
+			color: #000000;
+			text-align: left;
+			font-family: 'MetricMedium', Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+			/* new rbrd: changed from HPSimplifiedLocal_Light, Arial, Tahoma, 'Lucida Sans Unicode', sans-serif*/
+			font-weight: normal;
+			font-size: 1.05em;
+			padding-bottom: 0.1em;
+			}
+
+			th
+			{
+			border: solid 1pt #cccccc;
+			/*grey*/
+			border-right-style: solid;
+			border-right-color: #cccccc;
+			/*grey*/
+			border-right-width: 1px;
+			border-top: .1em solid #cccccc;
+			/*grey*/
+			font-weight: bold;
+			font-size: 1.0em;
+			padding: 0.5em;
+			vertical-align: bottom;
+			text-align: left;
+			background-color: #E5E8E8;
+			/*background color=  light grey*/
+			border-bottom-width: 1.5px;
+			/*border-bottom-color: #01a982;*/
+			/*border-bottom: solid 1.5px #01a982;*/
+			/*bottom border of column headings hpe green*/
+			color: #000000;
+			/* text color = black */
+			}
+
+			th.center
+			{
+			text-align: center;
+			}
+
+			/* sf: 2/July/15 Consider moving this and tr.allowBreak to the print media section when cleaning up */
+
+			tr
+			{
+			page-break-inside: avoid;
+			/*SF AFFS2.30 July2015 CR74 Prevent table rows from breaking across PDF pages */
+			}
+
+			tr.allowBreak
+			{
+			page-break-inside: auto;
+			}
+
+			td
+			{
+			background-color: transparent;
+			border-top-style: solid;
+			border-top-color: #cccccc;
+			border-top-width: 1px;
+			border-right-style: solid;
+			border-right-color: #cccccc;
+			border-right-width: 1px;
+			border-bottom-style: solid;
+			border-bottom-color: #cccccc;
+			border-bottom-width: 1px;
+			border-spacing: 0px 0px;
+			color: #000000;
+			padding: 0.5em;
+			vertical-align: top;
+			text-align: left;
+			}
+
+			td.center
+			{
+			text-align: center;
+			}
+
+			td.narrow
+			/* SF AFFS2.30 July2015 CR87: For images in tables */
+			/* 	When you create an image map in a table, 
+			use the following "td" style to create less padding around the image, and a small left margin*/
+			{
+			padding: 0em;
+			margin-left: 1px;
+			}
+
+			th.null
+			{
+			border: none;
+			color: #000000;
+			}
+
+			td.null
+			{
+			border: none;
+			border-collapse: collapse;
+			}
+
+			/* Paragraph Tag for Code */
+
+			pre
+			{
+			color: #333333;
+			/*deep charcoal*/
+			font-family: 'Consolas', 'Courier New';
+			font-size: 0.9em;
+			/* SF 11/Feb/2015: fix for CR#30 */
+			line-height: 1.25em;
+			}
+
+			pre.hanging_indent
+			{
+			text-indent: -25px;
+			padding-left: 25px;
+			}
+
+			/* Character Tags */
+
+			b
+			{
+			font-size: 0.95em
+			}
+
+			code	/* for code */
+			{
+			color: #333333;
+			/*deep charcoal*/
+			font-family: 'Consolas', 'Courier New';
+			font-size: 0.9em;
+			}
+
+			small.XSmall	/* SF AFFS2.30 July2015 CR83: New for extra small text - see also p.XSmall */
+			{
+			font-size: 70%;
+			}
+
+			span.path	/* SF AFFS2.30_1 September 2015 for file/folder paths */
+			{
+			/*font-weight: bold;*/
+			}
+
+			/* backgrounds for examples */
+			/* fixing bottom padding in div.example */
+
+			div.example
+			{
+			margin-bottom: 10px;
+			margin-left: 0px;
+			margin-right: 5px;
+			overflow: auto;
+			overflow-Y: hidden;
+			padding-top: 11px;
+			padding-left: 9px;
+			padding-right: 9px;
+			padding-bottom: 9px;
+			background-color: #e4e5e6;
+			/*light grey*/
+			border: 1px;
+			border-style: solid;
+			border-color: #e4e5e6;
+			/*light grey*/
+			}
+
+			div.example &gt; p:first-child
+			{
+			margin-bottom: 0.95em;
+			/* Localizable */
+			}
+
+			/* MadCap Flare Styles */
+
+			MadCap|dropDownHotspot
+			{
+			font-family: MetricRegular, Arial;
+			font-size:1.0em;
+			font-weight: normal;
+			color: #000000; /*black*/
+			}
+
+			MadCap|breadcrumbsProxy
+			{
+			margin-bottom: 4px;
+			padding-bottom: 4px;
+			color: #01a982; /* changed to HPE green.. was "link blue" */
+			mc-breadcrumbs-count: 5;
+			mc-breadcrumbs-prefix: ' ';
+			mc-label: '';
+			border-bottom: 1px solid #999999;
+			/*grey*/
+			}
+
+			MadCap|breadcrumbsProxy:visited
+			{
+			color: #000000;
+			/*black*/
+			}
+
+			span.MCBreadcrumbsDivider,
+			span.MCBreadcrumbs
+			{
+			color: #000000;
+			/*black*/
+			}
+
+			MadCap|conceptLink
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			}
+
+			MadCap|conceptLink:link
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|conceptLink:visited
+			{
+			color:#822980; /*was #800080 "link blue" */
+			}
+
+			MadCap|conceptLink:hover
+			{
+			text-decoration: underline;
+			mc-format: '{quote}{para}{quote}';
+			/* Localizable */
+			}
+
+			MadCap|conceptLink.ListFormatHeader
+			{
+			color: #000000;
+			/* "black" */
+			mc-help-control-display: list;
+			mc-image: none;
+			mc-label: 'See Also';
+			/* Localizable */
+			font-weight: bold;
+			}
+
+			MadCap|conceptLinkControlListItemLink,
+			MadCap|keywordLinkControlListItemLink,
+			MadCap|relatedTopicsControlListItemLink
+			{
+			font-weight: normal;
+			}
+
+			MadCap|conceptLinkControlListItemLink:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|dropDown
+			{
+			margin-bottom: 1.1em;
+			}
+
+			MadCap|dropDownHead
+			{
+			margin-bottom: 0.95em;
+			font-color: #000000;
+			}
+
+			MadCap|dropDownHead.noBold4Print
+			{
+			margin-bottom: 0.95em;
+			/*sf wendy didn;t have this one but we did so i left it in and changed it to 0.95 like the others*/
+			}
+
+			MadCap|dropDownHead.boldPrint
+			{
+			margin-bottom: 0.95em;
+			}
+
+			MadCap|dropDownBody
+			{
+			margin-left: 1.2em;
+			margin-top: 0.7em;
+			}
+
+			MadCap|dropDownHotspot:hover,
+			MadCap|dropDownHead:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|expanding
+			{
+			mc-image-position: right;
+			}
+
+			MadCap|expandingHead:hover
+			{
+			text-decoration: underline;
+			}
+
+			/*wendy added in pageentry and pagedefinition*/
+
+			div.GlossaryPageEntry
+			{
+			padding-bottom: 0.5em;
+			}
+
+			div.GlossaryPageDefinition
+			{
+			padding-bottom: 0.5em;
+			}
+
+			MadCap|glossaryTerm
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			font-weight: normal;
+			mc-image-position: right;
+			text-decoration: none;
+			mc-closed-image: url('./_HP_Glossary.png');
+			mc-open-image: url('./_HP_Glossary.png');
+			}
+
+			MadCap|glossaryTerm:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|glossaryTerm.Expanding
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			font-weight: normal;
+			}
+
+			MadCap|glossaryTerm.Expanding:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|glossaryTerm.Hyperlink
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|glossaryTerm.Hyperlink:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|glossaryTerm.Popup
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|glossaryTerm.Popup:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|helpControlMenu
+			{
+			background-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-color: #ffffff;
+			}
+
+			MadCap|helpControlMenuItem
+			{
+			background-color: #ffffff;
+			background-position: right;
+			border: 1px solid #999999;
+			padding: 2px 2px 2px 2px;
+			color: #3A83E6;
+			border-color: #ffffff;
+			margin-bottom: 0em;
+			/* from wendy: last 3 required to get HTML5 Help's Concept Link popup formatted correctly */
+			list-style-type: none;
+			margin-left: 0.50em;
+			}
+
+			MadCap|helpControlMenuItem.Highlighted
+			{
+			background-color: #ffffff;
+			border-bottom-color: #ffffff;
+			border-top-color: #ffffff;
+			color: #3A83E6;
+			text-decoration: underline;
+			}
+
+			MadCap|indexProxy
+			{
+			border-top-style: none;
+			border-top-width: 0px;
+			}
+
+			MadCap|keywordLink:link
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|keywordLink:visited
+			{
+			color: #822980;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|keywordLink:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|keywordLink.ListFormatHeader
+			{
+			color: #000000;
+			mc-help-control-display: list;
+			mc-image: none;
+			font-weight: bold;
+			}
+
+			MadCap|keywordLinkControlListItemLink:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|popup:link
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			text-decoration: underline;
+			}
+
+			MadCap|popup:visited
+			{
+			color: #822980; /*was #800080*/
+			}
+
+			MadCap|popup:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|popupBody
+			{
+			clear: both;
+			float: right;
+			height: auto;
+			border-color: #999999;
+			text-indent: 0;
+			}
+
+			MadCap|popupHead
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			content: "\0000a0";
+			padding-right: 18px;
+			display: inline;
+			background-position: right center;
+			background-repeat: no-repeat;
+			background-image: url('./_HP_DropDownClosed.gif');
+			}
+
+			MadCap|popupHead:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|relatedTopics
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			mc-label: 'Related Information';
+			/* Localizable */
+			mc-use-custom-sort-order: true;
+			text-decoration: none;
+			}
+
+			MadCap|relatedTopics:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|relatedTopics.ListFormatHeader
+			{
+			color: #000000;
+			font-weight: bold;
+			mc-help-control-display: list;
+			mc-image: none;
+			mc-label: 'Related Topics';
+			/* Localizable */
+			}
+
+			MadCap|relationshipsProxy
+			{
+			font-size: 1.0em;
+			}
+
+			MadCap|relationshipsHeading
+			{
+			font-size: 1.0em;
+			margin-bottom: 0.3em;
+			margin-top: 1.0em;
+			}
+
+			MadCap|relationshipsHeading.concept
+			{
+			font-size: 1.0em;
+			mc-label: 'Related Information';
+			/* Localizable */
+			}
+
+			MadCap|relationshipsHeading.reference
+			{
+			font-size: 1.0em;
+			mc-label: 'Reference Materials';
+			/* Localizable */
+			}
+
+			MadCap|relationshipsHeading.task
+			{
+			font-size: 1.0em;
+			mc-label: 'Related Tasks';
+			/* Localizable */
+			}
+
+			MadCap|relationshipsItem
+			{
+			font-size: 1.0em;
+			margin-bottom: 0em;
+			margin-left: 1.2em;
+			display: list-item;
+			list-style-type: disc;
+			}
+
+			MadCap|tocProxy
+			{
+			mc-output-support: pdf;
+			}
+
+			MadCap|toggler
+			{
+			mc-image-position: right;
+			mc-open-image: url('_HP_checked.png');
+			/* QCCR1K4320 */
+			mc-closed-image: url('_HP_unchecked.png');
+			/* QCCR1K4320 */
+			}
+
+			MadCap|toggler:link
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			}
+
+			MadCap|toggler:visited
+			{
+			color: #822980; /*was #800080*/
+			}
+
+			MadCap|toggler:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|xref
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			mc-format: '{para}';
+			}
+
+			MadCap|xref:link
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			text-decoration: none;
+			}
+
+			MadCap|xref:visited
+			{
+			color: #822980; /*was #800080*/
+			}
+
+			MadCap|xref:hover
+			{
+			text-decoration: underline;
+			}
+
+			MadCap|xref.noNum
+			{
+			color: #01a982;
+			/*green; new rbrd: changed from 3A83E6*/
+			mc-format: '{para}';
+			}
+
+			MadCap|xref.noNum:visited
+			{
+			color: #822980; /*was #800080*/
+			mc-format: '{para}';
+			}
+
+			MadCap|xref.pageNumOnly
+			{
+			mc-format: '{page}';
+			}
+
+			span.noGlossary
+			{
+			mc-disable-glossary-terms: true;
+			}
+
+			.hyphenate	/*QCCR1K4316*/
+			{
+			mc-hyphenate: always;
+			}
+
+			/* using for Flare workaround to include banner files in output files */
+			/* when Target,Advanced tab, Exclude content not linked directly or indirectly from the target is set */
+
+			ins
+			{
+			background-image: url("../MasterPages/_HPb_banner_graphic.png");
+			}
+
+			/* for bi-directional text */
+
+			/*
+			dir
+			{
+			margin: 0;
+			display: none;
+			}
+			*/
+
+			/* hides character styles in the XML editor */
+
+			abbr,
+			acronym,
+			big,
+			cite,
+			em,
+			ins,
+			samp,
+			strong,
+			tt,
+			u,
+			var
+			{
+			mc-disabled: true;
+			}
+
+			/*END OF COPIED DEFAULT SECTION FROM HP_IE.css*/
+
+			/* STYLES EXCLUSIVELY FOR SINGELFILE TEMPLATE - DO NOT REMOVE THESE */
+					
+				
+			/* sets images to have thick red frame to show that images are not allowed in this template */
+				
+			span.MCExpanding {font-size: 2.0em; color:#B81324}
+			div.MCDropDown   {font-size: 2.0em; color:#B81324}
+				
+				
+			img 
+			{
+			padding:10px;
+			border:1px solid #021a40;
+			background-color:#B81324;
+			}
+				
+			/* class for logo, only image allowed in this template */
+				
+			img.usable
+			{
+			border: none;
+			padding:0px;
+			background-color:#ffffff;
+			}
+
+				
+			body
+			{
+			font-size:0.9em!important;
+			}
+				
+			h1
+			{
+			font-family: Arial;
+			color: #000000;
+			font-size:1.5em;
+			font-weight: 500;
+			font-style: normal;
+			line-height: normal;
+			margin: 0.2em 0em 0.2em;								
+			}
+				
+			h2
+			{
+			font-family: Arial;
+			color: #000000;
+			font-size: 1.3em;
+			font-weight: normal;
+			font-style: normal;
+			line-height: normal;
+			margin-top: 0em;
+			margin-bottom: 0.5em;
+			border: 0;
+			border-bottom: none;
+			}
+			
+			h2.frontMatter
+			{
+			font-size: 1.0em;
+			font-weight: bold;
+			}
+			
+			
+			h3
+			{
+			font-weight: bold;
+			font-size: 1.15em;
+			}
+
+
+			h4
+			{
+			font-style: italic;
+			font-size: 1.1em;
+			}
+
+			div.frontMatter
+			{
+			font-size: 1.0em;
+			}
+
+			/* END STYLES EXCLUSIVELY FOR SINGELFILE TEMPLATE */
+
+
+			/* Copyright 2016 Hewlett Packard Enterprise Development LP */
+		
+		/* 	END OF CODE CUT AND PASTE FROM THE _HP_SingleHTML.css STYLESHEET */
+  
+  </style>
+        <link href="../Resources/Stylesheets/_HP_SingleHTML.css" rel="stylesheet" />
+        <script src="../SkinSupport/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../SkinSupport/MadCapAll.js" type="text/javascript">
+        </script>
+        <script src="../SkinSupport/MadCapTopicAll.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <p>
+           <img class="usable" align="right" src="http://community.hpe.com/html/assets/logo.png?5FFA2FF58426CE461929260FD0AC7225" height="51px" width="120px">
+            </img>
+        </p>
+        <p><span style="color: #333333;font-weight: bold;font-size: 26pt;"></span>
+        </p>
+        <p><span style="color: #333333;font-weight: bold;font-size: 24pt;"><span class="_HPc_Basic_Variables_HP_Product_Name">LoadRunner Readme</span></span>
+        </p>
+        <p><span style="color: #333333;font-weight: bold;font-style: normal;font-size: 12pt;">Software Version: <span class="_HPc_Basic_Variables_HP_Product_Version">12.53 Patch 2</span></span>
+        </p>
+        <p>&#160;</p>
+        <p><b> Publication date: <span class="_HPc_Basic_Variables_HP_LastUpdatedDate">August 02, 2016</span></b>
+        </p>
+        <p>LoadRunner 12.53 Patch 2 provides the following updates:</p>
+        <ul>
+            <li value="1">    The Controller now includes support for NV Insights. The NV Insights Report provides information on the behavior of your application, as if it was performing under “real” network conditions. The NV Insights functionality is available only when HPE Network Virtualization is installed on the Controller machine.<br />For more information, see <a href="http://lrhelp.saas.hpe.com/en/12.53/help/WebHelp/Content/Controller/NV_Insights.htm" target="_blank">NV Insights</a>.</li>
+        </ul>
+        <ul>
+            <li value="1"> The patch fixes a possible memory allocation issue that can impact Web HTTP/HTML protocol scripts.</li>
+            <li value="2">The patch fixes the following issue occurring during replay of an HTTP/2 Web script: When there are too many concurrent HTTP/2 streams running, the server abruptly closes the connection and sends a GOAWAY HTTP/2 error message. </li>
+            <li value="3">
+                <p>The patch fixes the following issue for the WebServices protocol: After upgrading to 12.53, <b>lr_xml_find</b> steps were failing. This has been fixed by adding “ignore namespaces” support to XPath queries for the APIs.</p>
+            </li>
+        </ul>
+        <p>Install the patch over LoadRunner 12.53 or LoadRunner 12.53 Patch 1. Download the relevant patch for your LoadRunner component from the <a href="https://softwaresupport.hpe.com/group/softwaresupport/" target="_blank">HPE Software Support site</a>. (You will need your HPE Passport and an active support agreement ID - SAID.)</p>
+        <p><b>Important:</b> For localized LoadRunner installations, after installing the patch you must manually replace certain files, to ensure that LoadRunner functions correctly. This will also prevent translation regression back to English. For details, see <a href="https://softwaresupport.hpe.com/km/KM02409751" target="_blank">https://softwaresupport.hpe.com/km/KM02409751</a>.</p>
+        <p>&#160;</p>
+        <p>You can view the most recent LoadRunner Help Center  at <a href="http://lrhelp.saas.hpe.com/en/12.53/help/" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://lrhelp.saas.hpe.com/en/12.53/" target="_blank">http://lrhelp.saas.hpe.com/en/12.53/</a></a>.</p>
+        <p>The following sections provide information about LoadRunner 12.53, such as new features, system requirements, and known issues.</p>
+        <ul style="list-style-type: circle;">
+            <li value="1"><a href="#What's" class="MCXref_0" xrefformat="{para}">What's New in LoadRunner 12.53</a>
+            </li>
+            <li value="2"><a href="#Installation" class="MCXref_0" xrefformat="{para}">Installation and Configuration Information</a>
+            </li>
+            <li value="3"><a href="#Notes" class="MCXref_0" xrefformat="{para}">Notes and Limitations </a>
+            </li>
+            <li value="4"><a href="#Additional" class="MCXref_0" xrefformat="{para}">Additional Resources</a>
+            </li>
+            <li value="5"><a href="#Legal" class="MCXref_0" xrefformat="{para}">Legal Notices</a>
+            </li>
+        </ul>
+        <h2><a name="What's"></a>What's New in LoadRunner 12.53</h2>
+        <p>For information about the features in previous versions, click the following links.  </p>
+        <ul>
+            <li value="1"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-00-Released/m-p/6419972#M134" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-00-Released/m-p/6419972" target="_blank">Version 12.00</a></a>
+            </li>
+            <li value="2"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-01-Released/td-p/6543050#.VPw0n_mJJcM" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-01-Released/td-p/6543050" target="_blank">Version 12.01</a></a>
+            </li>
+            <li value="3"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-02-Released/m-p/6685238#M197" target="_parent" class="MCXref_0" xrefformat="{para}"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-02-Released/m-p/6685238" target="_blank">Version 12.02</a></a>
+            </li>
+            <li value="4"><a href="http://community.hpe.com/t5/LoadRunner-Information-and-News/LoadRunner-12-50-Released/td-p/6775133" target="_blank">Version 12.50</a>
+            </li>
+        </ul>
+        <h3>Highlights</h3>
+        <ul>
+            <li style="font-style: normal;" value="1">Git integration in VuGen</li>
+            <li value="2">64-bit replay support in various Java protocols and C Vuser protocol</li>
+            <li style="font-style: normal;" value="3">New PCoIP (remote access) protocol</li>
+            <li style="font-style: normal;" value="4">Enhanced SAPUI5 recording in TruClient</li>
+            <li style="font-style: normal;" value="5">HTTP Video Streaming (HTML5, HLS) support</li>
+            <li style="font-style: normal;" value="6">HTTP/2 support</li>
+            <li style="font-style: normal;" value="7">REST step-builder editor in VuGen</li>
+            <li style="font-style: normal;" value="8">JSON manipulation APIs</li>
+            <li style="font-style: normal;" value="9">Web - HTTP/HTML and Mobile Application - HTTP/HTML protocol unification</li>
+            <li style="font-style: normal;" value="10">Linux load generator improvements</li>
+            <li style="font-style: normal;" value="11">Enhancements to Java-based protocols</li>
+        </ul>
+        <h3>New Supported Technologies and Platforms</h3>
+        <ul>
+            <li value="1">Windows 10</li>
+            <li value="2">Microsoft Edge browser</li>
+            <li value="3">Visual Studio 2013 add-in</li>
+            <li value="4">Visual Studio 2015 add-in</li>
+            <li value="5">Upgraded Eclipse IDE add-in</li>
+            <li value="6">SUSE Linux Enterprise Server 12</li>
+            <li value="7">Red Hat Enterprise Linux 7.2</li>
+            <li value="8">
+                <p>hLinux (HPE’s Debian-derivative)</p>
+            </li>
+        </ul>
+        <h3>VuGen Enhancements</h3>
+        <ul>
+            <li value="1">Integration with Git, enabling you to store scripts in a Git repository, improving team collaboration for Agile groups. For details, see <b>Managing Scripts with Git - Overview</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="2">REST GUI&#160;API editor, enabling you to create and test REST API steps in scripts. For details, see <b>How to Create a Script for a REST API</b>  in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="3">Improved support for instant traffic capture files (including PCAP, HAR, SAZ). For details, see <b>How to Create a Vuser Script  by Analyzing a Captured Traffic File </b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="4">Ability to check script compatibility for Linux. For details, see <b>Check Linux Compatibility</b>  in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="5">New comparison and merging tool. For details, see <b>Options Dialog Box</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="6">Optional data collection program, compiling VuGen usage analytics to help improve VuGen quality. For details, see the LoadRunner Installation Guide.</li>
+            <li value="7">Improved VuGen user interface, including new Start page, and revamped <b>Tools &gt; Options</b> dialog box.</li>
+            <li value="8">Multiple usability improvements in the following areas: Correlations, parameterization and data import, NV Analytics report, menus, and more.</li>
+        </ul>
+        <h3>TruClient Enhancements</h3>
+        <p>All referenced TruClient Help topics can be found in the TruClient Help Center at <a href="http://tchelp.saas.hpe.com/en/12.53/Content/Resources/_TopNav/_TopNav_Home.htm" target="_blank">http://tchelp.saas.hpe.com/en/12.53/</a>.</p>
+        <p><b>Changes to browser version support:</b>
+        </p>
+        <ul>
+            <li value="1">Chromium 46</li>
+            <li value="2">Firefox 40.0.3</li>
+            <li value="3">Internet Explorer 10 and 11 (Internet Explorer 9 is no longer supported)</li>
+        </ul>
+        <p><b>Improvements to step end events, including:</b>
+        </p>
+        <ul>
+            <li value="1">New end event – <b>Object Exists</b>.</li>
+            <li value="2">Automatic end event per browser.</li>
+            <li value="3">Reset automatic end event.</li>
+        </ul>
+        <p>For details, see <b>Understanding End Events</b>  in the TruClient Help Center.</p>
+        <p><b>Improvements to object identification:</b>
+        </p>
+        <ul>
+            <li value="1">Automatic object identification now includes a built-in fallback mechanism. For details, see <b>Resolve Object Identification Issues</b> in the TruClient Help Center.</li>
+            <li value="2">Random object identification using Descriptors. For details, see <b>Descriptors</b>  in the TruClient Help Center.</li>
+        </ul>
+        <p><b>Improvements to interactive script development:</b>
+        </p>
+        <ul>
+            <li value="1">Control actions during recording. For details, see <b>Record a TruClient Script</b> in the TruClient Help Center.</li>
+            <li value="2">Ability to skip <b>Wait</b> steps during script replay. For details, see <b>Debug TruClient scripts</b> in the TruClient Help Center.</li>
+            <li value="3">Ability to disable the <b>Watch</b> panel from the <b>Interactive Options</b> tab of the General Settings.</li>
+        </ul>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">TruClient Standalone:</span>
+        </p>
+        <ul>
+            <li value="1">Revamped TruClient Launcher.</li>
+            <li value="2">Support for non-zipped script folders.</li>
+            <li value="3">Ability to export script to zips containing runtime files only.</li>
+        </ul>
+        <p>For details, see <b>TruClient Editions</b> in the TruClient Help Center.</p>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">TruClient Chromium:</span>
+        </p>
+        <ul>
+            <li value="1">Support for NV Emulation integration.</li>
+            <li value="2">Support for NV Analytics Report in VuGen.</li>
+            <li value="3">Support for <b>Speed Simulation</b>, available under the <b>Network</b> section in the Run-Time Settings.</li>
+            <li value="4">Support for IP Spoofing.</li>
+            <li value="5">Support for HP Diagnostics integration.</li>
+        </ul>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">TruClient Internet Explorer:</span>
+        </p>
+        <ul>
+            <li value="1">Improved support for Internet Explorer 10 and 11 cache mechanism.</li>
+            <li value="2">Stability fixes.</li>
+        </ul>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">General TruClient enhancements:</span>
+        </p>
+        <ul>
+            <li value="1">Improved ability to record SAPUI5 applications.  Recording is supported with all browsers and with increased usability.</li>
+            <li value="2">Ability to call the parameter’s name directly as an input in the Step Arguments section.</li>
+            <li value="3">Support <b>Continue to the next step</b> as additional <b>Action on Error</b>, under the <b>Load</b> section in the Run-Time Settings.</li>
+            <li value="4">Support for additional VTS (Virtual Table Server) APIs. For details, see <b>TruClient Functions</b> in the TruClient Help Center.</li>
+            <li value="5">New <b>Generic API Action</b> step, providing a UI for TruClient JavaScript APIs, available from the Toolbox. For details, see <b>TruClient Toolbox</b> in the TruClient Help Center.</li>
+            <li value="6">Title argument added to <b>Activate Browser Window</b> step, enabling activation of browser window using the window title. For details, see <b>TruClient Step Arguments</b> in the TruClient Help Center.</li>
+            <li value="7">Activate tab/window steps now have a retry mechanism with timeout. For details, see <b>TruClient Step Arguments</b> in the TruClient Help Center.</li>
+        </ul>
+        <h3>General Protocol Enhancements</h3>
+        <p><b>Citrix:</b>
+        </p>
+        <ul>
+            <li value="1">Optical Character Recognition (OCR) text trapping. For details, see the Function Reference.</li>
+            <li value="2">Support for user activity simulation in idle session, available from the runtime settings Citrix Synchronization View. For details, see <b>Citrix - Troubleshooting and Limitations</b> in the LoadRunner Help Center.</li>
+        </ul>
+        <p><b>C Vuser:</b><![CDATA[
+]]></p>
+        <ul>
+            <li value="1">Support for 64-bit replay for C Vuser scripts.</li>
+            <li value="2">Update to C scripting backend, providing 64-bit integers support (long long, unsigned long long).</li>
+            <li value="3">Switched C Interpreter to the latest Microsoft C Runtime.</li>
+        </ul>
+        <p>For details, see the Function Reference.</p>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">Flex:</span>
+        </p>
+        <ul>
+            <li value="1">Support for Java serialized objects. For details, see <b>Data Format Extension List</b> in the LoadRunner Help Center.</li>
+        </ul>
+        <p><b>FTP:</b>
+        </p>
+        <ul>
+            <li value="1">Support for 64-bit recording.</li>
+        </ul>
+        <p><b>Java-based protocols:</b>
+        </p>
+        <ul>
+            <li value="1">Support for Java 8 in the following protocols: Java over HTTP, Java Record Replay (recording RMI and custom hooks sub-protocols only), Java Vuser</li>
+            <li value="2">Support for 64-bit recording with Java 8 in the Java Record Replay protocol</li>
+            <li value="3">Support for 64-bit replay with Java 8 in the following protocols: Java Record Replay, Java Vuser </li>
+            <li value="4">General Java-based protocols usability improvements.</li>
+            <li value="5">Changes to the Java VTC API (<b>lrapi.vts.Vtc</b>), to support 64-bit replay mode. The Vtc handler is now <b>long</b> instead of <b>int</b>. For details, see the Function Reference.</li>
+        </ul>
+        <p><b>Oracle - 2-Tier:</b>
+        </p>
+        <ul>
+            <li value="1">Support for Oracle Database 12c.</li>
+        </ul>
+        <p><b>Teradici PCoIP:</b>
+        </p>
+        <ul>
+            <li value="1">New VuGen protocol, PCoIP (remote access), based on Teradici’s PC-over-IP technology; providing ability to record and replay scripts, load test, and perform analysis. For details, see <b>Teradici PCoIP Protocol</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+        </ul>
+        <p style="font-weight: bold;"><span style="font-weight: bold;">SAP GUI:</span>
+        </p>
+        <ul>
+            <li value="1">Support for SAPGUI 7.40.</li>
+        </ul>
+        <p><b>Web – HTTP/HTML &amp; Mobile Application - HTTP/HTML:</b>
+        </p>
+        <ul>
+            <li value="1">Support for recording HTTP video streaming (on HTML5 and HLS), providing unified APIs to perform common video player actions, and providing streaming metrics (lagging, buffering, and more). For details, see <b>How to record streaming media in Web - HTTP/HTML</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="2">Support for HTTP/2 recording and replay, including multiplexing. For details, see <b>How to Record HTTP/2</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="3">Support for the Microsoft Edge browser. For details, see <b>Start Recording Dialog Box</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </li>
+            <li value="4">
+                <p>Support for Server Name Indication (SNI). For details, see <b>How To Record and Replay on servers with SNI Enabled</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </p>
+            </li>
+            <li value="5">New APIs to manipulate and edit JSON data (similar to existing XML API). For details, see the Function Reference.</li>
+            <li value="6">The Web - HTTP/HTML protocol was unified with the Mobile Application - HTTP/HTML protocol (and the Mobile Application - HTTP/HTML protocol removed from VuGen). The unified protocol includes support for parsing capture files generated by mobile devices. For details, see <b>Web - HTTP/HTML - Recording Methods for Mobile Applications</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+        </ul>
+        <p><b>Web Services:</b>
+        </p>
+        <ul>
+            <li value="1">Support selection of a certificate file for web services. For details, see <b>Security Tokens and Encryption</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </li>
+            <li value="2">Improved support for CDATA sections. For details, see <b>How to Add Content</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </li>
+            <li value="3">New <b>web_service_set_option</b> API for controlling different web service call options. For details, see the Function Reference.</li>
+        </ul>
+        <h3>Controller Enhancements</h3>
+        <ul>
+            <li value="1">New cloud provider – DigitalOcean. You can now provision load generators with Amazon EC2, Microsoft Azure, Google Compute Engine, and DigitalOcean. For details, see <b>Custom Cloud Images for </b><span style="font-weight: bold;" class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span><b> 12.53</b> in the <a href="https://hpln.hpe.com/product/lr/resources/file-repository" target="_blank">HPLN LoadRunner File Repository</a>.</li>
+            <li value="2">Compatibility check for script version to load generator version. For details, see <b>How to Run a Scenario</b>  in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+        </ul>
+        <p>
+            <h3>Analysis Enhancements</h3>
+        </p>
+        <ul>
+            <li value="1">Improved Analysis user interface, including new look for the HTML report.</li>
+            <li value="2">Analysis Summary report includes breakdown per location, enabling you to analyze and compare the transaction behavior between different virtual locations. For details, see <b>Summary Report Overview</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </li>
+        </ul>
+        <p>
+            <h3>Virtual Table Server (VTS) Enhancements</h3>
+        </p>
+        <ul>
+            <li value="1">Improved VTS server security, using CLI tool. For details, see the VTS Help.</li>
+        </ul>
+        <p>
+            <h3>Security Enhancements</h3>
+        </p>
+        <ul>
+            <li value="1">A new certificate manager tool enabling improved handling of CA and SSL certificates. For details, see <b>How To Configure Client-Server Authentication</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center. </li>
+        </ul>
+        <h3>Installation Enhancements</h3>
+        <ul>
+            <li value="1">Installation process now performs a compatibility check for required Windows updates. For details, see <a href="#WindowsUpdates" class="MCXref_0" xrefformat="{para}">Windows Updates</a>.</li>
+        </ul>
+        <h3>Help Center Enhancements</h3>
+        <ul>
+            <li value="1">Standalone <a href="http://tchelp.saas.hpe.com/en/12.53/" target="_blank">TruClient</a> and <a href="http://vugenhelp.saas.hpe.com/en/12.53/" target="_blank">VuGen</a> Help Centers available online.</li>
+            <li value="2">Improved user experience for the Help Centers – <a href="http://lrhelp.saas.hpe.com/en/latest/help/WebHelp/Content/Resources/_TopNav/_TopNav_Home.htm" target="_blank">LoadRunner Help Center</a>.</li>
+            <li value="3">Improved switch between online and local Help Centers.</li>
+        </ul>
+        <h3>Integrations with latest HPE product versions</h3>
+        <p>Integration with recent versions of the following products:</p>
+        <ul>
+            <li value="1">Mobile Center:  Additional configuration options for TruClient – Native Mobile scripts.  For details, select the relevant version in the <a href="http://mobilecenter.hpe.com/" target="_blank">Mobile Center Help</a> and see the <b>Performance Testing</b> section.</li>
+            <li value="2">Service Virtualization:  Support for Windows 10</li>
+            <li value="3">Diagnostics</li>
+            <li value="4">SiteScope</li>
+            <li value="5">Network Virtualization</li>
+            <li value="6">Unified Functional Testing (UFT)</li>
+            <li value="7">Application Lifecycle Management (ALM)</li>
+            <li value="8">Performance Center</li>
+            <li value="9">Business Process Monitor (BPM)</li>
+        </ul>
+        <ul>
+            <li value="1"><b>Jenkins plugin:</b>
+                <ul>
+                    <li value="1"> HP Application and Automation Tools integration with Jenkins version 4.01.</li>
+                    <li value="2">Jenkins SLA and report improvements. For details, see the <a href="https://wiki.jenkins-ci.org/display/JENKINS/HP+Application+Automation+Tools" target="_blank">Jenkins Wiki</a> page.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>&#160;</p>
+        <p>For more details about the supported integrations for LoadRunner, see the <a href="https://softwaresupport.hpe.com/group/softwaresupport/search-result/-/facetsearch/document/KM02199996" target="_blank">Integration Support Matrices</a>. </p>
+        <p>For details about the supported versions, see the <a href="https://softwaresupport.hpe.com/group/softwaresupport/search-result/-/facetsearch/document/KM00828655" target="_blank">Product Availability Matrix</a>.</p>
+        <p>&#160;</p>
+        <h2><a name="Installation"></a>Installation and Configuration Information</h2>
+        <h3>
+				Permission Requirements
+			</h3>
+        <p>
+				The Installation process, for all components, requires a full administrator account (root account for Linux systems) for all operating systems.
+</p>
+        <p>After installation, all of the LoadRunner applications and components can run under a standard user account (an administrator account is not required), with UAC and DEP enabled. See <a href="#Notes" class="MCXref_0" xrefformat="{para}">Notes and Limitations </a>, below, for additional restrictions.	</p>
+        <h3>
+				
+				Language Packs 
+			</h3>
+        <p>To install a language pack, at the completion of the LoadRunner installation, run the language pack setup from the LoadRunner DVD <b>lrunner/&lt;language_name&gt;</b> folder.	</p>
+        <h3>
+				
+				System Requirements
+			</h3>
+        <p>The following sections describe the system requirements:</p>
+        <ul>
+            <li value="1"><a href="#WindowsUpdates" class="MCXref_0" xrefformat="{para}">Windows Updates</a>
+            </li>
+            <li value="2"><a href="#Sys_Full" class="MCXref_0" xrefformat="{para}">System Requirements for  LoadRunner, or VuGen, Analysis, and TruClient Standalones
+			</a>
+            </li>
+            <li value="3"><a href="#Sys_TC" class="MCXref_0" xrefformat="{para}">System Requirements for Load Generators Running TruClient	 Vusers		</a>
+            </li>
+            <li value="4"><a href="#Sys_LG" class="MCXref_0" xrefformat="{para}">System Requirements for Load Generators and MI Listener
+on Windows Machines</a>
+            </li>
+            <li value="5"><a href="#Sys_UX" class="MCXref_0" xrefformat="{para}">System Requirements for Load Generators on Linux Machines
+			</a>
+            </li>
+            <li value="6"><a href="#Linux_Distributions" class="MCXref_0" xrefformat="{para}">Supported Linux Distributions</a>
+            </li>
+            <li value="7"><a href="#Co" class="MCXref_0" xrefformat="{para}">LoadRunner Component Coexistence Matrix </a>
+            </li>
+        </ul>
+        <h3><a name="WindowsUpdates"></a>Windows Updates</h3>
+        <p>Before you install any LoadRunner components, either make sure that the full set of Windows updates has been installed, or install the  Windows updates listed in the table below. </p>
+        <div>
+            <p><b>Note:</b> Before you install any of the Windows updates, disable UAC (User Account Control) and restart the computer. For details on how to disable UAC, refer to your Microsoft Windows documentation.</p>
+        </div>
+        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+            <col style="width: 241px;" />
+            <col />
+            <thead>
+                <tr>
+                    <th>Windows Version</th>
+                    <th>Required Updates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul>
+                            <li value="1">Windows 7 x64</li>
+                            <li value="2">Windows 2008 R2 x64</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li value="1">SP1</li>
+                            <li value="2">
+                                <p>Update for Universal C Runtime (UCRT) in Windows <a href="https://support.microsoft.com/en-us/kb/2999226" target="_blank">KB2999226</a> x64</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li value="1">
+                                <p>Windows 8.1 x64</p>
+                            </li>
+                            <li value="2">Windows 2012 R2 x64</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <p>Install the following pack of updates:</p>
+                        <ol>
+                            <li value="1">KB2919442 x64 or KB2970551 x64 (one of these two updates)</li>
+                            <li value="2">KB2919355 x64</li>
+                            <li value="3">KB2932046 x64</li>
+                            <li value="4">KB2959977 x64 (if applicable)</li>
+                            <li value="5">KB2937592 x64</li>
+                            <li value="6">KB2938439 x64</li>
+                            <li value="7">KB2934018 x64</li>
+                            <li value="8">KB2999226 x64</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li value="1">Windows 10 x64</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li value="1">No updates required</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3><a name="Sys_Full"></a>System Requirements for  LoadRunner, or VuGen, Analysis, and TruClient Standalones
+			</h3>
+        <p>
+				The following table describes the system requirements for installing the full version of LoadRunner, VuGen standalone, Analysis standalone, and TruClient standalone. Memory and CPU requirements vary per protocol and system under test.</p>
+        <p><b>Note:</b> Windows 8.1 and Windows 2012 R2 can only be used in conjunction with Internet Explorer 11; earlier versions cannot be installed.</p>
+        <p>
+            <table style="width: 100%;">
+                <col style="width: 30%;" />
+                <col style="width: 70%;" />
+                <tr align="left" valign="top">
+                    <th>Requirement</th>
+                    <th>Value</th>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Processor speed
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">Dual-Core 2.2 GHZ or faster</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Operating system</div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt;" class="pCellbody">(See <a href="#WindowsUpdates">Windows Updates</a> above)
+							</div>
+                    </td>
+                    <td>
+                        <div>
+                            <ul>
+                                <div>
+                                    <li value="1">Windows Server 2008 R2 SP1  64-bit </li>
+                                    <div>
+                                        <li value="1">Windows Server 2012  R2 64-bit (recommended)</li>
+                                    </div>
+                                </div>
+                                <div>
+                                    <li value="1">Windows 7 SP1  64-bit</li>
+                                </div>
+                                <div>
+                                    <li value="1">Windows  8.1 64-bit (recommended)</li>
+                                    <li value="2">Windows 10 64-bit</li>
+                                </div>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Memory (RAM) 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Recommended</b>: 8 GB
+							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Screen resolution 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Minimum</b>: 1366x768							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Browser 
+							</div>
+                    </td>
+                    <td>
+                        <ul>
+                            <li style="margin-bottom: 4pt;margin-top: 0pt;" value="1"><span style="font-weight: bold;" class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span><b>, VuGen, Analysis:</b>
+                                <br />								Microsoft Internet Explorer (IE) 10 or 11; Microsoft Edge</li>
+                            <li style="margin-bottom: 4pt; margin-top: 0pt;" value="2"><b>TruClient:</b> 							Microsoft IE 10, or 11</li>
+                        </ul>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt;" class="pCellbody">(It is recommended to keep the default IE settings)							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Available hard disk space 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Minimum</b>: 50 GB
+							</div>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <h3><a name="Sys_TC"></a>System Requirements for Load Generators Running TruClient	 Vusers		</h3>
+        <p>The following table describes the system requirements for load generator machines running TruClient	 Vusers.</p>
+        <p>
+            <table style="width: 100%;">
+                <col style="width: 30%;" />
+                <col style="width: 70%;" />
+                <tr align="left" valign="top">
+                    <th>Requirement</th>
+                    <th>Value</th>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Processor speed
+							</div>
+                    </td>
+                    <td>
+                        <p>8 cores 2.2 GHz each or faster </p>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Memory (RAM) 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">16 GB or higher						</div>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <h3><a name="Sys_LG"></a>System Requirements for Load Generators and MI Listener
+on Windows Machines</h3>
+        <p>
+				The following table describes the system requirements for installing a load generator or MI Listener on a Windows machine. Memory and CPU requirements vary per protocol and system under test.			</p>
+        <p><b>Note:</b> Windows 8.1 and Windows 2012 R2 can only be used in conjunction with Internet Explorer 11; earlier versions cannot be installed.</p>
+        <p>
+            <table style="width: 100%;">
+                <col style="width: 30%;" />
+                <col style="width: 70%;" />
+                <tr align="left" valign="top">
+                    <th>Requirement</th>
+                    <th>Value</th>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Processor speed
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">Dual-Core 2.2 GHZ or faster</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Operating system</div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt;" class="pCellbody">(See <a href="#WindowsUpdates">Windows Updates</a> above)
+							</div>
+                    </td>
+                    <td>
+                        <div>
+                            <ul>
+                                <li value="1">Windows Server 2008 R2 SP1  64-bit (recommended especially for TruClient Vusers)</li>
+                                <li value="2">Windows Server 2012 R2 64-bit (recommended)</li>
+                                <li value="3">Windows 7 SP1 64-bit </li>
+                                <li value="4">Windows  8.1 64-bit</li>
+                                <li value="5">Windows 10 64-bit</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Memory (RAM) 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Recommended</b>: 8 GB
+							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Screen resolution 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Minimum</b>: 1366x768							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Browser 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Microsoft IE  10, or 11; Microsoft Edge
+							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Available hard disk space  </div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Minimum</b>: 40 GB
+							</div>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <h3><a name="Sys_UX"></a>System Requirements for Load Generators on Linux Machines
+			</h3>
+        <p>
+				The following table lists the system requirements for installing a load generator on a Linux machine.
+Memory and CPU requirements vary per protocol and system under test.		</p>
+        <p>
+            <!--   <table border="1" cellpadding="5" cellspacing="0">
+			-->
+            <table style="width: 100%;">
+                <col style="width: 30%;" />
+                <col style="width: 70%;" />
+                <tr align="left" valign="top">
+                    <th>Requirement</th>
+                    <th>Value</th>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Processor
+speed							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">1.6 GHZ or faster</div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+                        </div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Memory (RAM) 
+							</div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><![CDATA[						]]></div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Recommended:</b> 4GB
+							</div>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+								Available hard disk space </div>
+                    </td>
+                    <td>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody"><b style="font-weight: bold">Minimum</b>: 500 MB </div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt" class="pCellbody">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <p>
+            <h3><a name="Linux_Distributions"></a>Supported Linux Distributions</h3>
+            <p>The following table lists the Linux distributions on which you can install a load generator on a Linux machine. </p>
+            <table style="width: 100%;">
+                <col style="width: 30%;" />
+                <col style="width: 70%;" />
+                <tbody>
+                    <tr align="left" valign="top">
+                        <th>Distribution
+                            </th>
+                        <th>Version</th>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>
+                            <p>Red Hat Enterprise Linux</p>
+                        </td>
+                        <td>
+                            <div>
+                                <ul>
+                                    <div>
+                                        <li value="1">Red Hat Enterprise Linux 32-bit   6.5</li>
+                                    </div>
+                                    <div>
+                                        <li value="1">Red Hat Enterprise Linux 64-bit  6.6, 7, 7.2</li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>Oracle
+								Enterprise
+							Linux</td>
+                        <td>
+                            <p> Oracle
+									Enterprise Linux 64-bit 6.5 UEK, 7</p>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>Ubuntu
+							Server</td>
+                        <td>
+                            <p>Ubuntu Server Linux 64-bit 12.04 LTS, 14.04 LTS</p>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>SUSE							SLES (Linux Server Enterprise)</td>
+                        <td>
+                            <p>64-bit version  12</p>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>hLinux (HPE Linux)</td>
+                        <td>20160128 64-bit</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="Admonition_Note">
+                <p MadCap:autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Load generators support all X Servers.</p>
+            </div>
+            <p style="font-weight: bold;">Prerequisite packages for 64-bit installations</p>
+            <p>The following table lists the packages that must be installed on Linux machines before installing the 64-bit version of a load generator.</p>
+            <table style="width: 100%;">
+                <col style="width: 183px;" />
+                <col style="width: 355px;" />
+                <col style="width: 267px;" />
+                <col />
+                <thead>
+                    <tr>
+                        <th><b>Distribution</b>
+                        </th>
+                        <th>
+                            <p>Prerequisites</p>
+                        </th>
+                        <th>How to check if it is installed</th>
+                        <th>How to install</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align="left" valign="top">
+                        <td rowspan="3">
+                            <p>Red Hat family including Oracle Linux</p>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">glibc.i686</li>
+                                <li value="2">glib2.i686</li>
+                                <li value="3">keyutils-libs.i686</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'glibc\.(i686|i386)'</li>
+                                <li value="2">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'glib2\.(i686|i386)'</li>
+                                <li value="3">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'keyutils-libs\.(i686|i386)'</li>
+                            </ul>
+                        </td>
+                        <td rowspan="3">
+                            <ul>
+                                <li rowspan="3" value="1">yum install &lt;package_name&gt;</li>
+                                <li value="2">
+                                    <p>yum install keyutils-libs.i686</p>
+                                    <p><b>Note:</b> If your machine already has glib 64-bit (such as OEL7), make sure to update it to the latest version to avoid conflicts before installing glib2 32- bit.</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>
+                            <ul>
+                                <li value="1">libstdc++.i686(Oralce Linux 6)</li>
+                                <li value="2">libstdc++47.i686 (Amazon Linux)</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'libstdc\+\+[0-9]*\.(i686|i386)'</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>
+                            <ul>
+                                <li value="1">ncurses-libs.i686 (required by SecurityConsole) </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'ncurses(-libs)?\.(i686|i386)' 
+
+
+							</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td rowspan="2">Ubuntu
+							Server</td>
+                        <td>
+                            <ul>
+                                <li value="1">libc6-i386</li>
+                                <li value="2">libglib2.0-0</li>
+                                <li value="3">lib32stdc++6</li>
+                                <li value="4">libkeyutils1:i386</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">dpkg -l libc6-i386 </li>
+                                <li value="2">dpkg -l libglib2.0-0</li>
+                                <li value="3">dpkg -l lib32stdc++6</li>
+                                <li value="4">dpkg -l libkeyutils1:i386 
+
+									</li>
+                            </ul>
+                        </td>
+                        <td rowspan="2">
+                            <ul>
+                                <li rowspan="2" value="1">apt-get install &lt;package_name&gt; </li>
+                                <li value="2">
+                                    <p>apt-get install libkeyutils1:i386</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>
+                            <ul>
+                                <li value="1">lib32ncurses5 (required by SecurityConsole)</li>
+                            </ul>
+                        </td>
+                        <td>&#160;</td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>SUSE Linux Enterprise Server (SLES) 64-bit</td>
+                        <td>
+                            <ul>
+                                <li value="1">       lincurses5 32-bit
+</li>
+                                <li value="2">       glibc 32-bit
+</li>
+                                <li value="3">
+                                    <p>libglib-2_0-0-32bit</p>
+                                </li>
+                                <li value="4">       libstdc++6 32-bit
+</li>
+                                <li value="5">
+                                    <p>keyutils-libs-32bit</p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">       rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'ncurses[0-9]*-32bit'</li>
+                                <li value="2">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'glibc-32bit'</li>
+                                <li value="3">
+                                    <p>rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'libglib-2_0-0-32bit'</p>
+                                </li>
+                                <li value="4">rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'libstdc\+\+6-32bit'</li>
+                                <li value="5">
+                                    <p>rpm -qa --qf '%{NAME}.%{ARCH}\n' | grep -E 'keyutils-libs-32bit'</p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">        zypper install libncurses5-32-bit</li>
+                                <li value="2">        zypper install glibc-32-bit</li>
+                                <li value="3">        zypper install libglib-2_0-0-32bit</li>
+                                <li value="4">       zypper install libstdc++6-32-bit</li>
+                                <li value="5">zypper install libkeyutils1-32bit</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr align="left" valign="top">
+                        <td>hLinux (HPE&#160;Linux)</td>
+                        <td>
+                            <ul>
+                                <li value="1">libc6-i386</li>
+                                <li value="2">libglib2.0-0</li>
+                                <li value="3">lib32stdc++6</li>
+                                <li value="4">lib32ncurses5</li>
+                                <li value="5">
+libkeyutils1:i386
+</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">dpkg -l libc6-i386 | grep 'ii</li>
+                                <li value="2">dpkg -l lib32stdc++6 | grep 'ii'</li>
+                                <li value="3">dpkg -l lib32ncurses5 | grep 'ii'</li>
+                                <li value="4">dpkg -l libkeyutils1:i386 | grep 'ii'</li>
+                                <li value="5">dpkg -l libglib2.0-0:i386 | grep 'ii'
+</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li value="1">	Try package manager: apt-get install &lt;package-name&gt;</li>
+                                <li value="2">If package is not available, download relevant deb package and its dependencies from official Debian repository. Install it using command:<br />dpkg -i --force-architecture &lt;pacjage-name&gt;.deb (e.g. dpkg -i --force-architecture gcc-4.9-base_4.9.2-10_i386.deb);
+</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+        <h3><a name="Co"></a>LoadRunner Component Coexistence Matrix </h3>
+        <p>
+				The following table describes which LoadRunner products can coexist on the same machine:</p>
+        <p>
+            <table border="1" cellpadding="5" cellspacing="0">
+                <col style="width: 216px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <col style="width: 88px;" />
+                <tr align="left" valign="top">
+                    <th>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt">First Installation /</div>
+                        <div style="margin-bottom: 4pt; margin-top: 0pt;">Second Installation						</div>
+                    </th>
+                    <th class="center">LoadRunner Full</th>
+                    <th class="center">VuGen Standalone</th>
+                    <th class="center">Analysis Standalone</th>
+                    <th class="center">Load Generator </th>
+                    <th class="center">Monitor Over Firewall</th>
+                    <th class="center">MI Listener</th>
+                    <th class="center">TruClient Standalone</th>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>LR Full</th>
+                    <td class="center"> --</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>VuGen Standalone</th>
+                    <td class="center">No</td>
+                    <td class="center"> --</td>
+                    <td class="center"><b>Yes</b>
+                    </td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>Analysis Standalone</th>
+                    <td class="center">No</td>
+                    <td class="center"><b>Yes</b>
+                    </td>
+                    <td class="center">--</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center"><b>Yes</b>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>Load Generator </th>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">--</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>Monitor over Firewall</th>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">--</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>MI Listener</th>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">--</td>
+                    <td class="center">No</td>
+                </tr>
+                <tr align="left" valign="top">
+                    <th>TruClient Standalone</th>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center"><b>Yes</b>
+                    </td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">No</td>
+                    <td class="center">--</td>
+                </tr>
+            </table>
+            <br />
+        </p>
+        <h3>
+				
+				Additional Installation and Upgrade Information</h3>
+        <ul>
+            <li value="1">All of the standalone installations (for example, for the load generator) can be found on the DVD's <b>Standalone Applications</b> folder.</li>
+            <li value="2">All of the additional components (such as the Citrix Agent and so forth) can be found on the DVD's <b>Additional Components</b> folder.</li>
+            <li value="3">You can install LoadRunner 12.53 over an existing, earlier version of LoadRunner. If, however, you have a pre-11.00 version of LoadRunner, you must uninstall it before installing LoadRunner 12.53.</li>
+            <li value="4">If you install Network Virtualization as part of the LoadRunner installation, you may need to restart the machine after setup.</li>
+            <li value="5">
+			If you have an older version of VTS, uninstall it and reinstall the latest version from the <b>Additional Components</b> folder on the DVD.</li>
+            <li value="6">Protocol SDK is now an extension to Visual Studio 2015, and no longer an extension to Visual Studio 2012. Consequently, all projects created with LoadRunner 12.50 and earlier must be upgraded. For details, see <b>Protocol SDK</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</li>
+            <li value="7">To replay ODBC Protocol scripts on Linux machines, unixODBC v.2.3.1 or higher is required.</li>
+            <li value="8">Virtual Environments: The architectures provided by virtualization vendors are rapidly evolving.  LoadRunner is expected to function as designed in these changing environments, as long as the third-party vendor guarantees full compatibility of the virtualized environment with the LoadRunner-approved hardware requirements. If you follow LoadRunner system requirements and support matrix to create the virtual machine, LoadRunner will work correctly. <br />Working on top of a virtual machine may require access to the virtualization server hardware/monitoring environment, to ensure the virtualization server is not saturated; otherwise, this might obscure the virtual machines measurements and lead to false results. </li>
+        </ul>
+        <h2><a name="Notes"></a>Notes and Limitations </h2>
+        <p>
+				This section includes pre-installation notes, issues, and workarounds for LoadRunner version 12.53.  </p>
+        <p>For additional limitations and workarounds, see the  <b>Troubleshooting and Limitations</b> sections in the Help Centers.</p>
+        <ul>
+            <div>
+                <li value="1"><a href="#Lims_Install">Installation</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#Permissions">Permissions</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#VuGen">VuGen and Protocols</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#TruClient">TruClient</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#Windows8">Controller and General</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#Docs_PDFs">Help and PDFs</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#NonEnglish">Non-English Operating Systems</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#Integrations">Integrations</a>
+                </li>
+            </div>
+            <div>
+                <li value="1"><a href="#Deprecated">Deprecated Protocols and Features</a>
+                </li>
+            </div>
+        </ul>
+        <h3><a name="Lims_Install"></a>
+				Installation </h3>
+        <p><b>Windows</b> <![CDATA[ ]]></p>
+        <ul>
+            <div>
+                <li value="1">When you have multiple LoadRunner components installed on a machine for example, both VuGen and Analysis (standalone versions) and you uninstall one of the components—after the uninstall, you must run Repair on the remaining components. </li>
+            </div>
+            <div>
+                <li MadCap:conditions="" value="1">If you install a language pack after you have already generated an Analysis session, you will not be able to open the session file (<b>.lra</b>). You can only open it on a machine with the same regional settings as the machine upon which it was generated. You can, however, open the raw results, the <b>.lrr</b> file. </li>
+            </div>
+            <div>
+                <li MadCap:conditions="" value="1">If you have VuGen standalone and BPM installed together on a single machine, and you remove BPM, you should run a Repair installation on VuGen. </li>
+            </div>
+        </ul>
+        <p><b>Linux</b> <![CDATA[ ]]></p>
+        <ul>
+            <div>
+                <li value="1">When uninstalling a load generator on a Linux machine, the uninstall process may fail and the following message may appear: "Error: failed &amp; because &amp;: cannot restore segment port after reloc: permission denied."<br /><b style="font-weight: bold">Workaround: </b>Use the <b style="font-weight: bold">setenforce 0</b> command to disable SE Linux before uninstalling the load generator. When the uninstall is complete, use the <b style="font-weight: bold">setenforce 1</b> command to enable SE Linux.<br /></li>
+            </div>
+        </ul>
+        <p><b>Coexistence with Unified Functional Testing (UFT)</b>
+        </p>
+        <ul>
+            <div>
+                <li value="1">If you install or uninstall LoadRunner on a machine where UFT is installed, at the end of the process a warning message is displayed: "Cannot load resource file &lt;somepath&gt;/mdrv_res.e2 (&lt;somepath&gt;/mdrv_res.j2)." Ignore this message.</li>
+                <li value="2">If you install LoadRunner and UFT on the same machine, and then uninstall one of them, the remaining software program may not function correctly. <br /><b>Workaround: </b>Run a Repair of the software program you want to use on the machine.</li>
+            </div>
+            <div>
+                <li value="1">A machine with LoadRunner and UFT, in which UFT was installed after LoadRunner, may not allow the recording of certain protocols, such as Ajax Click &amp; Script.<br /><b>Workaround:</b> Uninstall UFT and run a Repair on the LoadRunner installation. </li>
+            </div>
+            <div>
+                <li value="1">If you install  UFT on a load generator machine when the load generator agent is running, the remote Controller may not be able to run  UFT scripts on the load generator machine.<br /><b>Workaround: </b>After installing UFT, restart the load generator agent using the Agent Configuration utility, or alternatively reboot the machine.</li>
+            </div>
+        </ul>
+        <h3><a name="Permissions"></a> Permissions</h3>
+        <ul>
+            <li value="1">
+                <p>The TruClient browser for Internet Explorer requires <i>Read</i> access to the  <b>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer registry key</b> and <i>Write</i> access to the <b>HKEY_CURRENT_USER\SOFTWARE\Hewlett-Packard\TruClient</b> registry key.</p>
+            </li>
+            <div>
+                <li value="1"><b>Issue:</b> When running the LoadRunner License utility with UAC enabled, LoadRunner prompts you for administrator credentials.<br /><b>Resolution</b>:  Run the utility as administrator.</li>
+            </div>
+            <div>
+                <li value="1"><b>Issue:</b> When recording  and replaying TruClient - Web scripts (and recording Web protocol scripts) on a Window Server operating system, it is recommended to turn off Internet Explorer Enhanced Security Configuration (IE ESC). <br /><b>Resolution</b>:  <br /><b>In Windows 2012 R2:</b> Server Manager &gt; Local Server &gt; Internet Explorer Enhanced Security Configuration.<br /><b>In Windows 2008 R2:</b> Server Manager &gt; Security Information &gt; Configure IE ESC. </li>
+            </div>
+            <ul>
+                <li value="1"><b>Issue:</b> When using the Visual Studio and add-ins to create C# and VB .NET scripts:  Visual Studio creates .NET assemblies that need to be registered in the system before their run. Registration of the .NET assembly requires administrative permissions.<br /><b>Resolution</b>: Enable UAC and register the .NET assembly before running the test using one of these methods: <ul><li value="1">Run Visual Studio "As Administrator" and provide administrative credentials when prompted. In Project Settings, ensure that the <b>Register for COM interop</b> option is set (<b>Project &gt; Properties &gt; Build &gt; Register for COM interop</b>). Visual Studio will automatically register the test DLL as a .NET assembly every time it builds the project.</li><li value="2">Run Visual Studio without administrative permissions, and manually register the test DLL after it is built. To do so, run Windows Console with administrative permissions and run the following command: <b>%WINDIR%\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe &lt;TargetDLLwithPath&gt; /codebase</b> (ignore the warning issued when you run this command). <br />For example, you might replace &lt;<b>TargetDLLwithPath</b>&gt; with <b>c:\users\qatest\documents\visual studio 2015\Projects\LoadRunnerUser1\LoadRunnerUser1\LoadRunnerUser1.dll</b>. You do not need to register the DLL after every build. It is enough to register it once after making changes in the COM interfaces defined in the DLL.</li></ul></li>
+            </ul>
+            <div>
+                <li value="1"><b>Issue:</b> The IP Wizard does not function for a Limited user.<br /><b>Resolution:</b> Run the IP Wizard with administrator permissions. The IP Wizard uses raw sockets to communicate with remote machines. Therefore, administrative privileges are required for opening and using raw sockets in socket-based communication. For more information, see  <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms740548(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms740548%28v=vs.85%29.aspx</a>. Alternatively, you can set the IP Wizard settings locally on the target machine. </li>
+            </div>
+            <div>
+                <li value="1"><b>Issue:</b> When recording a Web-based protocol script, the recording may fail in certain installations, if Data Execution Prevention (DEP) is enabled. <br /><b>Resolution:</b> Disable DEP on your VuGen machine. For details, see <b>How to Record a Vuser Script</b> in the User Guide.</li>
+            </div>
+            <div>
+                <li value="1"><b>Issue:</b> The network settings for load generators on Linux machines cannot be configured by a  standard (non-administrator) user account.<br /><b>Resolution:</b> When working on a Linux operating system, run <b>lr_agent_settings</b> with administrator permissions.
+						</li>
+            </div>
+        </ul>
+        <h3><a name="VuGen"></a>
+				VuGen and Protocols</h3>
+        <div>
+            <ul>
+                <li value="1">
+                    <p><b>Issue:</b> When you run a Java script, the replay status may be <b>Script Not Run</b> and  some errors may appear in the mdrv.log file. However, due to Java internal architecture, these errors may not be included in the VuGen Output and Errors panes.  This occurs when VuGen fails to initialize a Java Vuser, and JVM then terminates the replay process. </p>
+                    <p><b>Workaround:</b> Look for errors directly in the mdrv.log file (you can find this in the script’s folder). If the entry in the log is due to a memory-related issue, try using different memory options for Java in the runtime settings.</p>
+                </li>
+                <li value="2">
+                    <p><b>Issue:</b> When recording mstsc.exe on Windows 10, if the RDP server side enables FIPS, the default recording will produce the following error: "Because of an error in data encryption, this session will end. Please try connecting to the remote computer again." </p>
+                    <p><b>Workaround:</b> Either turn off FIPS on the server side, or perform the following procedure to enable recording using the SSL mode:</p>
+                    <ol style="list-style-type: lower-alpha;">
+                        <li value="1">Open mstsc, enter the IP address of the RDP server, click <b>Show Options</b> to expand the dialog box, and then click <b>Save As</b> to save the configuration to a file. Name the file <b>RDPConfig.RDP</b>.</li>
+                        <li value="2">Open <b>RDPConfig.RDP</b> with Notepad, add <b>enablecredsspsupport:i:0</b> at the bottom. Search for <b>authentication level</b> in the same file, make sure this line is <b>authentication level:i:2</b>.</li>
+                        <li value="3">Go to LoadRunner's <b>dat</b> folder, open <b>rdp_ro.ini</b> with Wordpad or Notepad++ (do not use Notepad because of the new line characters issue), add <b>SupportSSL=1</b> at the bottom.</li>
+                        <li value="4">In VuGen, click <b>Start Recording</b>. In the Remote Desktop Connection dialog box, click <b>Show Options</b>. Click <b>Open</b>, and choose the <b>RDPConfig.RDP</b> file that you saved above. Then click <b>Connect</b>.</li>
+                    </ol>
+                </li>
+                <li value="3">
+                    <p><b>Issue:</b> When recording a script, some applications may be unable to connect to a server using SSL. Errors such as "Invalid certificate" and "SSL Handshake Failed" may appear. This is because VuGen now uses SHA-256-signed certificates for recording of SSL-encrypted communication instead of the older SHA-1-signed certificates.</p>
+                    <p><b>Workaround:</b> <![CDATA[ ]]></p>
+                    <p>Instruct VuGen to use SHA-1-signed certificates, as follows:</p>
+                    <ol>
+                        <li value="1">
+                            <p>Add the following lines to &lt;LR installation folder&gt;\config\vugen.ini:</p>
+                            <ul>
+                                <li value="1">[WebRecorder]</li>
+                                <li value="2">ProxyCertificateHash=sha1</li>
+                            </ul>
+                        </li>
+                        <li value="2">
+                            <p>Delete the following files from &lt;LR installation folder &gt;\bin\certs\:</p>
+                            <ul>
+                                <li value="1">wplusCA_Expiration_2022.crt</li>
+                                <li value="2">wplusCAOnly_Expiration_2022.crt</li>
+                                <li value="3">wplusCert_Expiration_2022.crt</li>
+                            </ul>
+                        </li>
+                        <li value="3">Restart VuGen and record the application again.</li>
+                    </ol>
+                </li>
+                <li value="4">
+                    <p>In order for LoadRunner to work correctly with SAPGUI 7.40, patch <b>gui740_05_1-10013011</b> (or later) must be applied to the SAPGUI installation.</p>
+                </li>
+                <li value="5">
+                    <p>64-bit replay for C Vuser scripts is not supported on Linux-based load generators.</p>
+                </li>
+                <li value="6">
+                    <p>Java-based technologies are not yet supported by Microsoft Edge browser. Therefore, we do not recommend selecting this browser emulation for the replay of Java-based protocols (Flex, Java over HTTP, Oracle NCA). </p>
+                </li>
+                <li value="7">
+                    <p>If you encounter issues with connecting to HPLN for the HPLN integration, you can try the following link: <a href="https://softwaresupport.hpe.com/group/softwaresupport/search-result/-/facetsearch/document/KM02133819">https://softwaresupport.hpe.com/group/softwaresupport/search-result/-/facetsearch/document/KM02133819</a> <![CDATA[ ]]></p>
+                </li>
+                <li value="8">
+                    <p>When running a LoadRunner component on a Windows 10 machine, using Microsoft Edge as the default browser, some links within the component may not work if UAC is disabled.
+<![CDATA[
+]]></p>
+                </li>
+                <li value="9">
+                    <p>Network Virtualization is not supported for scripts using HTTP/2 protocol. </p>
+                </li>
+                <li value="10">
+                    <p>Web Page Diagnostics are not supported for scripts using HTTP/2 protocol. Disable Web Page Diagnostics in <b>Controller &gt; Diagnostics &gt; Configuration &gt; Diagnostics Distribution</b> dialog box.</p>
+                </li>
+                <li value="11">
+                    <p>Uploading a buffer (request body) larger than 64 KB is not supported for scripts using HTTP/2 protocol.</p>
+                </li>
+                <li value="12">
+                    <p> Debugging features such as step-by-step replay and breakpoints, and debugging in Eclipse, are not enabled  in Java-based protocols with Java 8. </p>
+                </li>
+                <li value="13">
+                    <p>When you use VuGen to create a scenario, if the Controller is open [and was opened by double-clicking on a <b>.lrs</b> scenario file], you will not be given the option to add the script to the current scenario, and the Controller will be closed, losing any unsaved changes.</p>
+                </li>
+                <li value="14">
+                    <p>When you correlate a value from a snapshot, VuGen may create a boundary-based correlation, even though the recording correlation option is set  to use regular expressions.</p>
+                </li>
+                <li value="15">If you open an HPE site in the embedded browser and the site is not included in the trusted sites list, you will be prompted to add the site to the trusted site list. After adding the site, you may receive a Web site scripting error. Close the error and continue working as you normally would.</li>
+                <li value="16">Runtime errors generated during the replay of VBScript scripts,  may not be handled properly. It is recommended that you port existing VBScript scripts to C. <br /><b>Possible Workaround:</b>  Enable the <b>Continue on Error</b> option in the Runtime setting.</li>
+                <li value="17">When adding a conditional breakpoint based on a parameter value,  the value is not updated immediately. Therefore, in the script step that follows, the condition may be ignored even though the argument value has been updated. </li>
+            </ul>
+        </div>
+        <h3><a name="TruClient"></a>
+				TruClient</h3>
+        <div>
+            <ul>
+                <li value="1">
+                    <p>TruClient is not supported for Chromium on 32-bit operating systems. </p>
+                </li>
+                <li value="2">If you added custom configurations to the <b> pref.js</b> or <b>user.js</b> files for TruClient scripts recorded with LoadRunner 11.52, you will need to re-add them to the LoadRunner 12.xx script files. <br /><b>Tip:</b> it is recommended that you back up existing files before you begin editing scripts with custom configurations in LoadRunner 12.xx. </li>
+                <li value="3">
+                    <p>Execution time of TruClient scripts replayed with Chromium will appear slower than those replayed on TruClient Firefox/Internet Explorer. This is a result of the TruClient instrumentation on the Chromium browser. This will primarily impact the throughput generated by the Vusers.<br /><b>Tip:</b> Run additional TruClient Vusers on more load generator machines than you would with TruClient Firefox/Internet Explorer.</p>
+                </li>
+                <li value="4">
+                    <p>TruClient script conversion to Web - HTTP/HTML   is not supported for converting to a JavaScript language script.</p>
+                </li>
+                <li value="5">
+                    <p>The new <b>Generic API Action</b> step is not supported for Chromium. Use Evaluate JavaScript instead. </p>
+                </li>
+            </ul>
+        </div>
+        <h3><a name="Windows8"></a>
+				Controller and General </h3>
+        <ul>
+            <li value="1">When using a Unified Functional Testing (UFT) script in the Controller, the runtime settings cannot be opened for editing. The Controller may stop functioning if you try to access the runtime settings. <br /><b>Workaround:</b> See this Knowledge Base article: <a href="https://softwaresupport.hpe.com/group/softwaresupport/search-result/-/facetsearch/document/KM02290342" target="_blank">KM02290342</a> <br /></li>
+            <li value="2">When using the SiteScope monitor, you cannot change the counters already saved with scenario. <br /><b>Workaround:</b> Remove all existing SiteScope counters, close the dialog box and re-add them.
+</li>
+            <li value="3">When you stop a named VTS instance, the instance may continue to run until you restart the VTS Windows service, which will block you from creating an instance with the same name or port. <b><br />Workaround:</b> Restart the <b>VTSService</b> Windows service. For example, use the “net stop vtsservice” to stop the service, and “net start vtsservice” to restart it.</li>
+            <li value="4">The XSS and Remedy DFEs are supported only on Windows load generators.</li>
+            <li value="5">Webtrace is not supported with <b>-proto tcp" and "-proto udp</b> in the following Linux environments: RHEL 7, OEL 7, and Ubuntu 14.04. </li>
+            <li value="6"><b>NV Insights Report:
+</b>
+                <ul style="list-style-type: circle;">
+                    <li value="1">If you are generating an NV Insights Report, make sure that all transaction names are at least 3 characters long.
+</li>
+                    <li value="2">When working with a limited user account on the Controller machine, ignore the error message displayed when creating an NV Insights Report. Launch the report directly from the scenario results folder.</li>
+                    <li value="3">The NV Insights Report does not generate when running a TruClient script on a remote load generator, using Service mode.<br /><b>Workaround:</b>  Run the remote agent in Process mode instead. For details on how to restart the agent as a process, see the instructions in <a href="http://lrhelp.saas.hpe.com/en/12.53/help/WebHelp/Content/VuGen/145250_t_how_to_run_SAPgui_scripts_scenario.htm" target="_blank">How to Run SAP GUI Scripts from the Controller</a> in the <span class="ProjectVariablesLoadRunner">LoadRunner</span> Help Center. </li>
+                    <li value="4">The NV Insights Report does not generate properly when working on non-English browsers. To view the report, verify in your browser settings that the browser language is set to English.</li>
+                    <li value="5">The NV Insights Report is not supported when using percentage mode for a scenario.</li>
+                </ul>
+            </li>
+        </ul>
+        <h3><a name="Docs_PDFs"></a>
+Help and PDFs </h3>
+        <ul>
+            <li value="1">For LoadRunner installed on a Windows Server operating system, Internet Explorer Enhanced Security Configuration must be disabled in order to view Help Center content. It is enabled by default (<b style="font-weight: bold">Control Panel &gt; Administrative tools &gt; Server manager &gt; Configure IE ESC</b>). </li>
+        </ul>
+        <ul>
+            <li value="1">In certain machines with high level security settings, you need to trust the domain (<b>lrhelp.saas.hpe.com</b>, <b>vugenhelp.saas.hpe.com</b>, <b>tchelp.saas.hpe.com</b>) in order to view the Help Center. To do this, open the Help Center in Internet Explorer, and accept the site as a trusted domain. Then you will be able to use the context sensitive and menu help from the product.</li>
+        </ul>
+        <ul>
+            <li value="1">On Windows 8.1 and higher, disabling UAC may block Acrobat Reader from opening PDF files. Follow the Windows Help instructions to enable UAC and trust Acrobat. </li>
+        </ul>
+        <h3><a name="NonEnglish"></a>Non-English Operating Systems</h3>
+        <ul>
+            <li value="1">For script recording with Web – HTTP/HTML protocol: If you are using an operating system with one of these languages—<b>ru</b>/<b>ptbr</b>/<b>kor</b>/<b>ita</b>—then recording a .pcap file with SSL recording is not supported. </li>
+            <li value="2">On non-English operating systems, several components may contain untranslated items, such as the Print Preview page in VuGen, log files, and installation screens.  </li>
+            <li value="3">LoadRunner cannot record a Vuser script for certain protocols if the LoadRunner installation is on a Chinese operating system, and the installation path contains Chinese characters.  </li>
+            <li value="4">Path names cannot be in multi-byte format. If you need to use non-English symbols in paths to scripts, scenarios, results, or analysis sessions, make sure to select the appropriate locale in the your machine's Region and Language settings. Script names, however, must be in English.</li>
+        </ul>
+        <div>
+            <h3><a name="Integrations"></a>
+				Integrations
+			</h3>
+            <ul>
+                <li value="1">				HPE Service Virtualization: A Service Virtualization project cannot be correctly imported to a scenario, if the Service Virtualization server uses credentials for both SSL and monitors.<br /><b>Workaround: </b>Configure the  Service Virtualization server to use credentials only for SSL.</li>
+            </ul>
+        </div>
+        <h3><a name="Deprecated"></a>
+			Deprecated Protocols and Features		</h3>
+        <li value="142">
+            <p>This section provides information about protocols and features whose support was discontinued,  or will be discontinued in future versions of <span class="_HPc_Basic_Variables_HP_Product_Name_Short">LoadRunner</span> and Performance Center.</p>
+            <div class="Admonition_Note">
+                <p MadCap:autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>In version 12.53, Mobile Application - HTTP/HTML protocol was unified with  the Web - HTTP/HTML protocol. All functionality for generating Vuser scripts for mobile applications is now provided with the Web - HTTP/HTML protocol. For details, see <b>Web - HTTP/HTML - Recording Methods for Mobile Applications</b> in the <span class="_HPc_Basic_VariablesLoadRunner">LoadRunner</span> Help Center.</p>
+            </div>
+            <ul>
+                <li value="1">The following protocols are still supported in version 12.53, but support will be discontinued in upcoming versions of <span class="_HPc_Basic_Variables_HP_Product_Name_Short">LoadRunner</span> and Performance Center:<ul><li value="1">Ajax Click &amp; Script</li><li value="2">Silverlight</li><li value="3">COM/DCOM</li></ul><p>We recommend that you do not use these protocols for new scripts.<br />You can migrate your existing Ajax Click &amp; Script scripts to another Web protocol such as <b>TruClient - Web</b> or <b>Web - HTTP/HTML</b>.</p></li>
+            </ul>
+        </li>
+        <li value="143">
+            <p>For the following protocols:</p>
+            <ul>
+                <li value="1"> Replay is available.</li>
+                <li value="2">Creation of new scripts and recording are no longer available. </li>
+            </ul>
+            <p>These protocols will be completely removed in future versions. </p>
+            <ul>
+                <li value="1">
+                    <p><b>Removed from version 12.53:</b>
+                    </p>
+                    <ul>
+                        <li value="1">SAP (Click &amp; Script)</li>
+                        <li value="2">MMS (Media Player)</li>
+                        <li value="3">MMS (Multimedia messaging service)</li>
+                    </ul>
+                </li>
+                <li value="2">
+                    <p><b>Removed from version 12.00:</b>
+                    </p>
+                    <ul>
+                        <li value="1">EJB (Enterprise Java Beans)</li>
+                        <li value="2">PeopleSoft -Tuxedo</li>
+                        <li value="3">PeopleSoft Enterprise</li>
+                        <li value="4">Tuxedo</li>
+                        <li value="5">VBScript Vuser</li>
+                        <li value="6">JavaScript Vuser</li>
+                        <li value="7">Web - Click and Script</li>
+                    </ul>
+                </li>
+                <li value="3">
+                    <p><b>Removed from version 11.50: </b>
+                    </p>
+                    <ul>
+                        <li value="1">
+SQL Server</li>
+                        <li value="2">WAP</li>
+                        <li value="3"> Real</li>
+                    </ul>
+                </li>
+                <li value="4">
+                    <p><b>Removed from version 11.00:</b>
+                    </p>
+                    <ul>
+                        <li value="1">Siebel - DB2 CLI</li>
+                        <li value="2"> i-mode</li>
+                        <li value="3">Sybase Dblib</li>
+                        <li value="4">Sybase Ctlib</li>
+                        <li value="5">Informix</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <ul>
+            <li value="1">
+                <p><b>Completely removed from version 11.50 (no record or replay):</b>
+                </p>
+                <ul>
+                    <li value="1">VB Vuser </li>
+                </ul>
+            </li>
+            <li value="2">
+                <p><b>Features  removed from </b><span style="font-weight: bold;" class="_HPc_Basic_Variables_HP_Product_Name_Short">LoadRunner</span> <b>12.53:</b></p>
+                <ul>
+                    <li value="1">VuGen Protocol Advisor</li>
+                    <li value="2">VuGen Test Results report and the corresponding <b>Generate report during script execution</b> option.</li>
+                    <li value="3">
+                        <p>Parameters Database Query Wizard (Data Wizard)<br />Instead, use the new Import Parameter feature that was added in 12.53, enabling the import of parameter values from a CSV or a text file. You can use this feature to obtain values from practically any data source, by exporting the source data into a file and then importing it into VuGen.<br />For details, see <a href="http://lrhelp.saas.hpe.com/en/12.53/help/WebHelp/Content/VuGen/Importing_Parameters.htm" target="_blank">How to Import Parameter Values from a File</a>.<br /></p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>----------------------------------------------------------------------------------------------------------------------------</p>
+        <h2><a name="Additional"></a>Additional Resources</h2>
+        <p>The <a href="https://hpln.hpe.com/contentoffering/usage-tracking" target="_blank">HPE Usage Hub</a> allows you to view license information and usage of all HPE Software products and solutions that are installed in your environment. The Usage Hub is a central server that runs in the background. It collects, maintains, and provides a centralized view of software deployments, license assets, and the product features. </p>
+        <p>In addition, follow these links to learn more about LoadRunner and other HPE products.</p>
+        <ul>
+            <li style="margin-bottom: 0;margin-top: 9px;" value="1"><a href="https://softwaresupport.hpe.com" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="https://softwaresupport.hpe.com/" target="_blank">HPE Software Support Online</a></a>
+            </li>
+            <li style="margin-bottom: 0;margin-top: 9px;" value="2"><a href="https://hpln.hpe.com/product/lr" target="_blank">HPE Live Network (HPLN)</a>
+            </li>
+            <li style="margin-bottom: 0; margin-top: 9px;" value="3"><a href="http://community.hpe.com/t5/LoadRunner-Support-Forum/bd-p/sws-LoadRunner_SF" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://www.hpe.com/forum/LoadRunnerCommunity" target="_blank">LoadRunner Support Forum</a></a>
+            </li>
+            <li style="margin-bottom: 0;margin-top: 9px;" value="4"><a href="http://community.hpe.com/t5/HP-LoadRunner-and-Performance/bg-p/sws-585" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://www.hpe.com/blog/loadrunner" target="_blank">LoadRunner Blog</a></a>
+            </li>
+            <li style="margin-bottom: 0;margin-top: 9px;" value="5"><a href="http://community.hpe.com/t5/LoadRunner-Performance-Center/ct-p/sws-LoadRunner" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="http://www.hpe.com/forum/lrpc" target="_blank">LoadRunner Community Forums</a></a>
+            </li>
+            <li style="margin-bottom: 0;margin-top: 9px;" value="6"><a href="https://softwaresupport.hpe.com/group/softwaresupport" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="https://softwaresupport.hpe.com/group/softwaresupport/" target="_blank">LoadRunner Knowledge Base</a></a>
+            </li>
+            <li style="margin-bottom: 0; margin-top: 9px;" value="7"><a href="https://www.facebook.com/groups/HPLoadRunner/" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="https://www.facebook.com/groups/HPLoadRunner/" target="_blank">LoadRunner on Facebook</a></a>
+            </li>
+            <li style="margin-bottom: 0; margin-top: 9px;" value="8"><a href="https://www.linkedin.com/grp/home?gid=1879289" target="_blank" class="MCXref_0" xrefformat="{para}"><a href="https://www.linkedin.com/groups/1879289" target="_blank">LoadRunner on LinkedIn</a></a>
+            </li>
+        </ul>
+        <p>&#160;</p>
+        <div style="font-size: 0.8em;">
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both;color: #01a982; background-color: #01a982;" color="#01a982" />
+            <h2><a name="Legal"></a><b>Legal Notices</b>
+            </h2>
+            <h2 class="frontMatter">Warranty</h2>
+            <div class="frontMatter">
+                <p>The only warranties for <span class="_HPb_Branding_Variables_HP_Company_Legal_Name">Hewlett Packard Enterprise Development LP</span> products and services are set forth in the express warranty statements accompanying such products and services. Nothing herein should be construed as constituting an additional warranty. <span class="_HPb_Branding_Variables_HP_Company_Acronym">HPE</span> shall not be liable for technical or editorial errors or omissions contained herein.</p>
+                <p>The information contained herein is subject to change without notice.</p>
+            </div>
+            <h2 class="frontMatter">Restricted Rights Legend</h2>
+            <div class="frontMatter">
+                <p>Confidential computer software. Valid license from <span class="_HPb_Branding_Variables_HP_Company_Acronym">HPE</span> required for possession, use or copying. Consistent with FAR 12.211 and 12.212, Commercial Computer Software, Computer Software Documentation, and Technical Data for Commercial Items are licensed to the U.S. Government under vendor's standard commercial license.</p>
+            </div>
+            <h2 class="frontMatter">Copyright Notice</h2>
+            <p>© Copyright <span class="_HPc_Basic_Variables_HP_Copyright_Date_Range">1993-2016</span> <span class="_HPb_Branding_Variables_HP_Company_Legal_Name">Hewlett Packard Enterprise Development LP</span></p>
+            <h2 class="frontMatter">Trademark Notices</h2>
+            <p MadCap:conditions="">Adobe® is a trademark of Adobe Systems Incorporated.</p>
+            <p MadCap:conditions="">Microsoft® and Windows® are U.S. registered trademarks of Microsoft Corporation.</p>
+            <p MadCap:conditions="">Oracle and Java are registered trademarks of Oracle and/or its affiliates.</p>
+            <p MadCap:conditions="">UNIX® is a registered trademark of The Open Group.</p>
+        </div>
+        <p>
+            <br />
+        </p>
+        <p style="font-size: 85%;" align="center"><a href="mailto:docteam@hpe.com?subject=Feedback on LoadRunner Readme 12.53 Patch 2">Send documentation feedback</a>
+        </p>
+        <br />
+        <br />
+        <script type="text/javascript" src="../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>
