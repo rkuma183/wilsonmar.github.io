@@ -23,9 +23,15 @@ NOTE: 64-bit programs install to C:\Program Files.
 
 ## Versions of Windows 10 #
 
+See <a target="_blank" href="https://en.wikipedia.org/wiki/Windows_10_version_history">
+https://en.wikipedia.org/wiki/Windows_10_version_history</a>
+
 In MSDN.com, "1511" became available 3/30/2016.
 
+"1709" "Fall Creators", is expected October 17, 2017
+
 After downloading .iso, I use 7-zip to expand the file into a regular folder.
+
 
 <a id="NetworkSettings"></a>
 
@@ -52,6 +58,7 @@ After downloading .iso, I use 7-zip to expand the file into a regular folder.
 0. Type in credentials when prompted.
 0. Close the download page.
 
+
 ## Operating System settings #
 
 Do you get a double-quote " instead of @ when you press shift-2?
@@ -65,6 +72,7 @@ Do you get a double-quote " instead of @ when you press shift-2?
 0. Select United States since the default is United Kingdom.
 0. Click X to exit dialog.
 0. Try typing again.
+
 
 ## Desktop settings #
 
@@ -101,9 +109,10 @@ This is only for VMWare instances:
 0. Alt-click Command and select <strong>Run as Administrator</strong>.
 0. Paste (press Ctrl+V) and press Enter.
 
-Install these using Chocolatey when Run as Administrator:
+0. Install these using Chocolatey when Run as Administrator:
 
-0. cinst jdk8 -y
+   <tt><strong>choco install jdk8 -y
+   </strong></tt>
 
    At time of wirting, the message was "Downloading from http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-windows-x64.exe".
 
@@ -112,7 +121,6 @@ Install these using Chocolatey when Run as Administrator:
 0. Box.com
 0. Dropbox.com
 0. Microsoft OneDrive
-0. Amazon
 
 0. Type <strong>exit</strong> and press Enter.
 
@@ -132,6 +140,7 @@ from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetD
 0. WinSCP
 0. Windows Powertools
 
+
 ## Communications #
 
 These are not needed if the machine is within a virtual box.
@@ -142,6 +151,7 @@ These are not needed if the machine is within a virtual box.
 
 ## Install Visual Studio #
 
+Visual Studio 2017 = version 15.0<br />
 Visual Studio 2015 = version 14.0
 
 0. Since March 30, 2016, in MSDN Subscriptions we want to download Visual Studio 2015 Web Installer (x86 and x64)
@@ -176,6 +186,7 @@ Visual Studio 2015 = version 14.0
 
    This may occur if you're not a member of a TFS security group, and need to be added to one.
 
+
 ### Invalid client-side certificate #
 
 If a website has a certificate warning such as this:
@@ -190,10 +201,12 @@ If a website has a certificate warning such as this:
    * SSL certificate name mismatch error.
    * SSL certificate used is self-signed, is not issued by a trusted certificate authority (CA).
    * SSL certificate is untrusted.
+   <br /><br />
 
 ### Firefox ignore add-on #
 
 https://addons.mozilla.org/en-US/firefox/addon/skip-cert-error/
+
 
 #### Save certificate in Chrome #
 
