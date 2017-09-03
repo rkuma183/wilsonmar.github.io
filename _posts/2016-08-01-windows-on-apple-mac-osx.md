@@ -42,19 +42,14 @@ These RDP clients can reach into instances of Amazon EC2 or other cloud that hou
 2. Within Chrome browser, install the <a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en"> $7.99 Chrome browser app</a>. This enables you to run the most powerful of servers from a ChromeBook laptop with minimal RAM and hard disk.
 
 
-### Cloud Images
-
-The nice thing about this approach is that it's now a commonly used technology.
-
-
-#### Amazon EC2
+#### Amazon EC2 Cloud Images
 
 A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
 
-   Costs increase in a linear way for more CPUs:
+   Cost per hour increases in a linear way for more CPUs:
    ![ec2-cognosys-cpu-trend-552x233](https://user-images.githubusercontent.com/300046/29998551-5f497366-8feb-11e7-9246-2526d87641d5.jpg)
    <br />
-   Costs increase in a linear way for more Memory (RAM):
+   Cost per hour increases in a linear way for more Memory (RAM):
    ![ec2-cognosys-mem-trend-555x279](https://user-images.githubusercontent.com/300046/29998428-ef366ac8-8fe7-11e7-9954-85359f819fbc.jpg)
 
 

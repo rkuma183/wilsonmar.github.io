@@ -506,19 +506,19 @@ A templating program is used to replace static text with variables inserted in f
 
       `namespace Onty.SeleniumTest.Webmail.PageObjects`
 
-      `namespace Onty.SeleniumTest.{AppShortName}.PageObjects`
+      `namespace Onty.SeleniumTest.\{\{AppShortName}}.PageObjects`
 
 For more complex replacements:
 
-      `using Onty.SeleniumTest.Webmail.{FolderAbove};`
+      `using Onty.SeleniumTest.Webmail.\{\{FolderAbove}};`
 
-      `public class {ThisFolderName} : CommonPageElements`
+      `public class \{\{ThisFolderName}} : CommonPageElements`
 
 
 ### Yeoman code generator
 
 We use Yeoman for adding logic to generate code.
-JHipster does.
+Just like JHipster does.
 
 See https://docs.microsoft.com/en-us/aspnet/core/client-side/yeoman
 
