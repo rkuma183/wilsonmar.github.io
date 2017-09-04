@@ -33,13 +33,20 @@ Each has its own advantages and disadvantages:
 
 If you have no administrative rights on your corporate Windows laptop, spin up cloud instances in the cloud and access them via a client that uses Microsoft's RDP (Remote Desktop Protocol).
 
+See http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html
+
 ### RDP Clients
 
-These RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
+Microsoft Windows operating systems have, within Start Programs > Accessories, a RDP client program. It can be used without being an Administrator.
 
-1. Microsoft Windows operating systems have, within Start Programs > Accessories, a RDP client program. It can be used without being an Administrator.
+On Linux machines, there is http://www.rdesktop.org/.
+
+On the Mac, these RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
+
+1. Use the Microsoft Remote Desktop app from the Apple App Store.
 
 2. Within Chrome browser, install the <a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en"> $7.99 Chrome browser app</a>. This enables you to run the most powerful of servers from a ChromeBook laptop with minimal RAM and hard disk.
+
 
 
 #### Amazon EC2 Cloud Images

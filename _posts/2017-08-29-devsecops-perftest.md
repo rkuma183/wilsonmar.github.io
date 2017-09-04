@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+The page describes a hands-on course for technical managers to gain experience using DevOps tools.
+
 To ensure quality at speed, <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demos</a> by Agile software developers at the end of each two or three week sprint
 must now include automated performance status.
 
