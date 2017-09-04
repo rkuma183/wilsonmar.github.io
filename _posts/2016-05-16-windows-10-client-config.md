@@ -114,21 +114,33 @@ This is only needed within a corporate enterprise environment.
 
 There are several ways to open a Command Window on Windows 10 or Windows 2016.
 
-<a target="_blank" href="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg">
-<img align="right" alt="win10-start-right-227x596-44691.jpg" src="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg"></a>
-A). Right-click the Windows "Start" icon at the lower-left corner, then select one:
+A). 
+
+1. Right-click the Windows "Start" icon at the lower-left corner
+
+   <a target="_blank" href="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg">
+   <img alt="win10-start-right-227x596-44691.jpg" src="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg"></a>
+
+2. Select one:
 
    * Command Prompt
    * Command Prompt (Admin)
    <br /><br />
 
-B). Click the Windows "Start" icon at the lower-left corner.
+B). 
 
-   If the Command Prompt appears, right-click on it to Run as Administrator.
+1. Click the Windows "Start" icon at the lower-left corner.
+
+2. If the Command Prompt appears, right-click on it to Run as Administrator.
 
    ![win10-cmd-icon-561x163-36424](https://user-images.githubusercontent.com/300046/30010362-70204dac-90ec-11e7-915c-5c6a9549e272.jpg)
 
-   Alternately, even though there is no form field, type "cmd" until <strong>Command Prompt</strong> appears in a list. Press Enter or click on it.
+C).
+
+1. Right-click the Windows "Start" icon at the lower-left corner
+
+2. Even though there is no form field, type "cmd" until <strong>Command Prompt</strong> appears in a list. 
+3. Press Enter or click on the desired item.
 
 While you're there for the first time:
 
