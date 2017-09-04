@@ -19,6 +19,7 @@ Here is how I setup a Windows 10 client on my laptop.
 
 NOTE: 64-bit programs install to C:\Program Files.
 
+
 <a id="Versionz"></a>
 
 ## Versions of Windows 10 #
@@ -30,12 +31,61 @@ In MSDN.com, "1511" became available 3/30/2016.
 
 "1709" "Fall Creators", is expected October 17, 2017
 
-After downloading .iso, I use 7-zip to expand the file into a regular folder.
+TODO: PowerShell script to automate these manual commands.
 
 
-<a id="NetworkSettings"></a>
+## Keyboard settings 
 
-## Install Cisco VPN #
+Do you get a double-quote " instead of @ when you press shift-2?
+
+0. First, try pressing <strong>left ALT + shift</strong> to see if the layout changes. This is the key to swap language setttings.
+
+0. Click the Windows icon on the keyboard.
+0. Click Settings.
+0. Click TIME & LANGUAGE.
+0. Click Region & Language. 
+0. Select United States since the default is United Kingdom.
+0. Click X to exit dialog.
+0. Try typing again.
+
+
+## Dark Edge Browser #
+
+PROTIP: Use a <strong>Dark</strong> theme. That uses less electricity, doesn't use us the screen as quickly, is gentler on your eyes.
+
+0. Click the three dots at the upper right corner.
+0. Select Settings.
+0. Select <strong>Dark</strong> theme. 
+
+
+
+
+<a id="NetworkingSettings"></a>
+
+## Networking #
+
+When a new Windows desktop is established, there is this dialog:
+
+PROTIP: If you click "Recommended", you'll have to click "Add" many times. For example, go to Google.com and you'll need to add several URLS:
+
+   * https://www.google.com
+   * https://apis.google.com
+   * https://ssl.google-analytics.com
+   * https://2542116.fls.doubleclick.net
+   * https://www.googleadservices.com
+   <br /><br />
+
+   ![win10-ie-unblock-389x357-131805](https://user-images.githubusercontent.com/300046/30009870-d55b7876-90e8-11e7-9ac7-b95a5684a70a.jpg)
+
+1. Check "Continue to prompt when website content is blocked".
+0. Click "Close" button.
+
+
+<a id="CiscoVPN"></a>
+
+### Install Cisco VPN #
+
+This is only needed within a corporate enterprise environment.
 
 0. Open an internet browser for the URL supplied.
 0. If there is a certificate issue, connect anyway.
@@ -59,132 +109,121 @@ After downloading .iso, I use 7-zip to expand the file into a regular folder.
 0. Close the download page.
 
 
-## Operating System settings #
 
-Do you get a double-quote " instead of @ when you press shift-2?
-
-0. First, try pressing <strong>left ALT + shift</strong> to see if the layout changes. This is the key to swap language setttings.
-
-0. Click the Windows icon on the keyboard.
-0. Click Settings.
-0. Click TIME & LANGUAGE.
-0. Click Region & Language. 
-0. Select United States since the default is United Kingdom.
-0. Click X to exit dialog.
-0. Try typing again.
-
-
-## Desktop settings #
-
-## Sharing #
-
-This is only for VMWare instances:
-
-0. Click Enable Shared Folders.
-0. Check Downloads among Mirrored Folders.
-0. Click red X to exit.
-0. Click OK to confirm and log off and on again.
-
-## Edge Browser settings #
-
-0. Click the three dots at the upper right corner.
-0. Select Settings.
-0. PROTIP: Select <strong>Dark</strong> theme. That uses less electricity, doesn't use us the screen as quickly, is gentler on your eyes.
-
-## Chrome browser programs #
-
-0. Firefox from https://www.mozilla.org/en-US/firefox/new/?icn=tabz
-0. Chrome from https://www.google.com/chrome/browser/desktop/index.html?hl=en
-
-   PROTIP: Pin the icons to the taskbar, then remove icons from the Desktop.
-
-0. Enter Chrome the first time. Select the default browser dialog opion.
 
 ## Windows package Chocolatey #
 
-0. Chocolatey from https://chocolatey.org/
-0. Copy text `@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin`
-0. Click the Windows logo.
-0. Type command
-0. Alt-click Command and select <strong>Run as Administrator</strong>.
-0. Paste (press Ctrl+V) and press Enter.
+### Open Command Window #
 
-0. Install these using Chocolatey when Run as Administrator:
+1. Click the Windows "Start" icon at the lower-left corner.
+
+   If the Command Prompt appears, right-click on it to Run as Administrator.
+
+   ![win10-cmd-icon-561x163-36424](https://user-images.githubusercontent.com/300046/30010362-70204dac-90ec-11e7-915c-5c6a9549e272.jpg)
+
+   Alternately, even though there is no form field, type "cmd" until <strong>Command Prompt</strong> appears in a list. Press Enter or click on it.
+
+3. While you're there for the first time, set the ...
+
+
+### Install Chocoteley #
+
+0. Copy this text and right-click on the command window:
+
+   `@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin`
+
+   This is from the Chocolatey website at
+   <a target="_blank" href="https://chocolatey.org/">
+   https://chocolatey.org</a>
+
+0. Press Enter to execute the line. The response should end with:
+
+   <pre>
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+   </pre>
+
+0. Type <strong>exit</strong> and press Enter to close the command window.
+
+   ### Install Chrome 
+
+0. Click the Windows start logo.
+0. Right-click Command and select <strong>Run as Administrator</strong>.
+0. Copy (or retype) this command:
+
+   <tt><strong>choco install googlechrome -y
+   </strong></tt>
+
+   The expected response is:
+
+   <pre>The install of googlechrome was successful.</pre>
+
+   Alternately, download the Chrome browser installer from:
+   <a target="_blank" href="https://www.google.com/chrome/browser/desktop/index.html">
+   https://www.google.com/chrome/browser/desktop/index.html</a>
+
+0. PROTIP: Pin the icons to the taskbar, then remove icons from the Desktop.
+0. Enter Chrome the first time. Select the default browser dialog opion.
+
+
+   ### Install Firefox
+
+0. This:
+
+   <tt><strong>choco install firefox -y
+   </strong></tt>
+
+   Alternately, manually download installer from 
+   https://www.mozilla.org/en-US/firefox/new/?icn=tabz
+
+
+   ### Install JDK
+
+0. This:
 
    <tt><strong>choco install jdk8 -y
    </strong></tt>
 
    At time of wirting, the message was "Downloading from http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-windows-x64.exe".
 
-0. cinist 7zip -y (instead of from http://7-zip.org/download.html)
+   ### Install Git for Windows
+
+0. This:
+
+   <tt><strong>choco install msysgit -y
+   </tt></strong>
+
+0. Click the Windows "start" icon.
+0. "Git Bash" should appear among the application icons.
+
+   ![win10-git-menu-109x143-13317](https://user-images.githubusercontent.com/300046/30010894-82f1adfa-90f0-11e7-99cb-93a10f88c9f5.jpg)
+
+   ### Install 7-zip
+
+0. Install 7zip  (instead of from http://7-zip.org/download.html)
+
+   <tt><strong>choco install 7zip -y
+   </tt></strong>
+
+   PROTIP: After downloading .iso, I use 7-zip to expand the file into a regular folder.
+
+   ### Developer tools #
+
+0. Python
+0. Ruby
+
+0. cinist node
+
+0. Sublime Text
+0. Eclipse
 
 0. Box.com
 0. Dropbox.com
 0. Microsoft OneDrive
-
-0. Type <strong>exit</strong> and press Enter.
-
-
-## Utilities #
-
-* Office Professional Plus 2016 (x86 and x64) - DVD (English) 09/22/2015
-from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=65535&activexDisabled=true&akamaiDL=false">direct download from MSDN</a>.
-
-## Bin folder on Environment Variable Path #
-
-0. Create a <strong>C:\bin</strong> folder to hold programs accessed from the Windows command line.
-0. Specify that path in Environment Variables.
-0. Put files in that folder:
-
-0. Putty for SSH into Linux machines
-0. WinSCP
-0. Windows Powertools
-
-
-## Communications #
-
-These are not needed if the machine is within a virtual box.
-
-0. Skype 
-0. Slack
-
-
-## Install Visual Studio #
-
-Visual Studio 2017 = version 15.0<br />
-Visual Studio 2015 = version 14.0
-
-0. Since March 30, 2016, in MSDN Subscriptions we want to download Visual Studio 2015 Web Installer (x86 and x64)
-
-   Enterprise has testing tools over the Professional edition.
-
-   "with Update 2" means cumulative including Update 1.
-
-   The Web Installer is a smaller exe.
-
-   https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=67806&activexDisabled=true&akamaiDL=false
-
-0. Uncheck. These can be added later.
-0. Wait for the Acquiring and Applying to finish. May take several hours.
-
-0. Press Esc or provide email address tied to your license.
-0. Wait for "Preparing for first use".
-
-0. Click <strong>Open from Source Control</strong> from the Start list at the left.
-
-   <amp-img width="350" height="309" alt="s2016u2-teamexplorer-manage-351x307" src="https://cloud.githubusercontent.com/assets/300046/15292256/763c5768-1b3f-11e6-9a92-955fc5f4c8fa.jpg"></amp-img>
-
-0. Click <strong>Manage connections</strong> under the Team Explorer - Connect that opens up.
-0. Click Connect to Team Project when that pops up.
-0. Click Servers, then Add.
-0. Select HTTPS.
-
-0. If you get "TF31002 unable to connect", click on the Cisco icon to verify that you're connected.
-
-   <a target="_blank" href="https://msdn.microsoft.com/en-us/library/ms244143.aspx">
-   Microsoft's article listing possible problems</a>
-
-   This may occur if you're not a member of a TFS security group, and need to be added to one.
 
 
 ### Invalid client-side certificate #
@@ -254,22 +293,77 @@ To avoid needing to click ADVANCED:
 
 
 
-## Developer #
+## Desktop settings #
+
+## Sharing VMWare Fusion #
+
+This is only for VMWare Fusion instances:
+
+0. Click Enable Shared Folders.
+0. Check Downloads among Mirrored Folders.
+0. Click red X to exit.
+0. Click OK to confirm and log off and on again.
 
 
-Install using Chocolatey:
+## Utilities #
 
-0. cinst msysgit -y (Git client with command line)
+* Office Professional Plus 2016 (x86 and x64) - DVD (English) 09/22/2015
+from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=65535&activexDisabled=true&akamaiDL=false">direct download from MSDN</a>.
 
-Install otherwise:
+## Bin folder on Environment Variable Path #
 
-0. Python
-0. Ruby
+0. Create a <strong>C:\bin</strong> folder to hold programs accessed from the Windows command line.
+0. Specify that path in Environment Variables.
+0. Put files in that folder:
 
-0. cinist node
+0. Putty for SSH into Linux machines
+0. WinSCP
+0. Windows Powertools
 
-0. Sublime Text
-0. Eclipse
+
+## Install Visual Studio #
+
+Visual Studio 2017 = version 15.0<br />
+Visual Studio 2015 = version 14.0
+
+0. Since March 30, 2016, in MSDN Subscriptions we want to download Visual Studio 2015 Web Installer (x86 and x64)
+
+   Enterprise has testing tools over the Professional edition.
+
+   "with Update 2" means cumulative including Update 1.
+
+   The Web Installer is a smaller exe.
+
+   https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=67806&activexDisabled=true&akamaiDL=false
+
+0. Uncheck. These can be added later.
+0. Wait for the Acquiring and Applying to finish. May take several hours.
+
+0. Press Esc or provide email address tied to your license.
+0. Wait for "Preparing for first use".
+
+0. Click <strong>Open from Source Control</strong> from the Start list at the left.
+
+   <amp-img width="350" height="309" alt="s2016u2-teamexplorer-manage-351x307" src="https://cloud.githubusercontent.com/assets/300046/15292256/763c5768-1b3f-11e6-9a92-955fc5f4c8fa.jpg"></amp-img>
+
+0. Click <strong>Manage connections</strong> under the Team Explorer - Connect that opens up.
+0. Click Connect to Team Project when that pops up.
+0. Click Servers, then Add.
+0. Select HTTPS.
+
+0. If you get "TF31002 unable to connect", click on the Cisco icon to verify that you're connected.
+
+   <a target="_blank" href="https://msdn.microsoft.com/en-us/library/ms244143.aspx">
+   Microsoft's article listing possible problems</a>
+
+   This may occur if you're not a member of a TFS security group, and need to be added to one.
 
 
-0. Command-line tools
+
+## Communications #
+
+These are not needed if the machine is within a virtual box.
+
+* Skype 
+* Slack
+
