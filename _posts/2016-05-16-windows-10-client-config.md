@@ -110,12 +110,19 @@ This is only needed within a corporate enterprise environment.
 
 
 
+## Open Command Window #
 
-## Windows package Chocolatey #
+There are several ways to open a Command Window on Windows 10 or Windows 2016.
 
-### Open Command Window #
+<a target="_blank" href="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg">
+<img align="right" alt="win10-start-right-227x596-44691.jpg" src="https://user-images.githubusercontent.com/300046/30012134-96a5d178-90fa-11e7-88ea-cc5fbb6dc628.jpg"></a>
+A). Right-click the Windows "Start" icon at the lower-left corner, then select one:
 
-1. Click the Windows "Start" icon at the lower-left corner.
+   * Command Prompt
+   * Command Prompt (Admin)
+   <br /><br />
+
+B). Click the Windows "Start" icon at the lower-left corner.
 
    If the Command Prompt appears, right-click on it to Run as Administrator.
 
@@ -123,11 +130,19 @@ This is only needed within a corporate enterprise environment.
 
    Alternately, even though there is no form field, type "cmd" until <strong>Command Prompt</strong> appears in a list. Press Enter or click on it.
 
-3. While you're there for the first time, set the ...
+While you're there for the first time:
+
+1. Notice the default location is `C:\Users\Administrator`
+0. Type `dir` to list folders.
+
+
+
+## Windows package Chocolatey #
 
 
 ### Install Chocoteley #
 
+1. Open a Command Prompt as Administrator.
 0. Copy this text and right-click on the command window:
 
    `@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin`
