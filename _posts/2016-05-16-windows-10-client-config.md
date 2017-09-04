@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Windows 10 Client Configuration"
-excerpt: "How I setup my Windows laptop"
+title: "Windows 10 (Server 2012 & 2016) Client UI Configuration"
+excerpt: "How I setup my Windows UI look and feel"
 tags: [windows, mac, setup]
 image:
 # face blue windows cortana-1900x500
@@ -114,7 +114,7 @@ This is only needed within a corporate enterprise environment.
 
 There are several ways to open a Command Window on Windows 10 or Windows 2016.
 
-A). 
+A). This is the easiest (to me):
 
 1. Right-click the Windows "Start" icon at the lower-left corner
 
@@ -127,7 +127,7 @@ A).
    * Command Prompt (Admin)
    <br /><br />
 
-B). 
+B). Pick from menu:
 
 1. Click the Windows "Start" icon at the lower-left corner.
 
@@ -135,11 +135,11 @@ B).
 
    ![win10-cmd-icon-561x163-36424](https://user-images.githubusercontent.com/300046/30010362-70204dac-90ec-11e7-915c-5c6a9549e272.jpg)
 
-C).
+C). Type program:
 
 1. Right-click the Windows "Start" icon at the lower-left corner
 
-2. Even though there is no form field, type "cmd" until <strong>Command Prompt</strong> appears in a list. 
+2. Even though there is no form field, type <strong>cmd</strong> until <strong>Command Prompt</strong> appears in a list. 
 3. Press Enter or click on the desired item.
 
 While you're there for the first time:
@@ -243,6 +243,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
 
    ![win10-git-menu-109x143-13317](https://user-images.githubusercontent.com/300046/30010894-82f1adfa-90f0-11e7-99cb-93a10f88c9f5.jpg)
 
+   Additionally,
+
+   There is <a target="_blank" href="https://chocolatey.org/packages/SourceTree">SourceTree</a> free visual Git and Hg client for Mac and Windows
+
+
    ### Install 7-zip
 
 0. Install 7zip  (instead of from http://7-zip.org/download.html)
@@ -252,18 +257,43 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
 
    PROTIP: After downloading .iso, I use 7-zip to expand the file into a regular folder.
 
-   ### Developer tools #
+   ### Install Visual Studio
 
-0. Python
-0. Ruby
-0. Node
+0. Install from https://chocolatey.org/packages?q=Visual+Studio
 
-0. Sublime Text
-0. Eclipse
+   Specifically: https://chocolatey.org/packages/VisualStudio2017Community
 
-0. Box.com
-0. Dropbox.com
-0. Microsoft OneDrive
+   <tt><strong>choco install visualstudio2017community -y
+   </strong></tt>
+
+   NOTE: https://chocolatey.org/packages/VisualStudio2017Professional
+
+0. Type "exit" to exit the Command Prompt.
+0. Click the Microsoft Windows "start" icon to see the list of apps recently installed.
+0. If you will be using Visual Studio a lot, drag "Visual Studio 2017" and drop it on the Task Bar at the bottom of the screen.
+0. Double-click on a Visual Studio 2017 icon to open it.
+0. Click "Maybe later" or Sign-in to your Microsoft account.
+0. The first time, select a theme and click "Start Visual Studio".
+
+
+
+   ### Install Other Developer tools #
+
+Developoment:
+
+* Python
+* Ruby
+* Node
+
+Text editors:
+* Notepad++
+* Sublime Text
+* Eclipse
+
+File storage:
+* Microsoft OneDrive
+* Box.com
+* Dropbox.com
 
 
 ## Invalid client-side certificate #
@@ -359,45 +389,6 @@ from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetD
 0. Putty for SSH into Linux machines
 0. WinSCP
 0. Windows Powertools
-
-
-## Install Visual Studio #
-
-Visual Studio 2017 = version 15.0<br />
-Visual Studio 2015 = version 14.0
-
-0. Since March 30, 2016, in MSDN Subscriptions we want to download Visual Studio 2015 Web Installer (x86 and x64)
-
-   Enterprise has testing tools over the Professional edition.
-
-   "with Update 2" means cumulative including Update 1.
-
-   The Web Installer is a smaller exe.
-
-   https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=67806&activexDisabled=true&akamaiDL=false
-
-0. Uncheck. These can be added later.
-0. Wait for the Acquiring and Applying to finish. May take several hours.
-
-0. Press Esc or provide email address tied to your license.
-0. Wait for "Preparing for first use".
-
-0. Click <strong>Open from Source Control</strong> from the Start list at the left.
-
-   <amp-img width="350" height="309" alt="s2016u2-teamexplorer-manage-351x307" src="https://cloud.githubusercontent.com/assets/300046/15292256/763c5768-1b3f-11e6-9a92-955fc5f4c8fa.jpg"></amp-img>
-
-0. Click <strong>Manage connections</strong> under the Team Explorer - Connect that opens up.
-0. Click Connect to Team Project when that pops up.
-0. Click Servers, then Add.
-0. Select HTTPS.
-
-0. If you get "TF31002 unable to connect", click on the Cisco icon to verify that you're connected.
-
-   <a target="_blank" href="https://msdn.microsoft.com/en-us/library/ms244143.aspx">
-   Microsoft's article listing possible problems</a>
-
-   This may occur if you're not a member of a TFS security group, and need to be added to one.
-
 
 
 ## Communications #
