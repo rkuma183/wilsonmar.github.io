@@ -190,6 +190,20 @@ Ensuring chocolatey.nupkg is in the lib folder
 
    At time of wirting, the message was "Downloading from http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-windows-x64.exe".
 
+0. Exit and invoke cmd again to verify:
+
+   <tt><strong>java -version
+   </strong></tt>
+
+   Sample response at time of writing:
+
+   <pre>
+java version "1.8.0_144"
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+   </pre>
+
+
    ### Install Git for Windows
 
 0. This:
