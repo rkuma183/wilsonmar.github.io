@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Time Series"
-excerpt: "See all 4 dimensions (time) in Tableau visualizations"
+excerpt: "See all 4+ dimensions (time) in visualizations"
 tags: [apple, mac, setup]
 shorturl: "https://goo.gl/8mGgPF"
 image:
