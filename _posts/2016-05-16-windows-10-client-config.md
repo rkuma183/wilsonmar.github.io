@@ -257,6 +257,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
 
    PROTIP: After downloading .iso, I use 7-zip to expand the file into a regular folder.
 
+
    ### Install Visual Studio
 
 0. Install from https://chocolatey.org/packages?q=Visual+Studio
@@ -352,18 +353,12 @@ To avoid needing to click ADVANCED:
 
 0. You may have to export it as a der encoded binary x.509 instead and then when you import it bring it into the local machine.
 
-
-
-
-### Add client-side certificate in Chrome #
-
+   ### Add client-side certificate in Chrome #
 
 0. click include all servers in the cer path if possible
 0. click next
 
 
-
-## Desktop settings #
 
 ## Sharing VMWare Fusion #
 
@@ -397,4 +392,19 @@ These are not needed if the machine is within a virtual box.
 
 * Skype 
 * Slack
+
+
+## PowerShell Scripts
+
+
+### Windows Privacy
+
+Set Windows 10 privacy settings by running a PowerShell script from
+https://github.com/MichiMunich/Windows10-Privacy/blob/master/scripts/Windows10_Privacy.ps1
+
+
+
+## Bash Scripts
+
+In 2017, Microsoft enabled in Windows Bash Shell scripts previously only on Linux and MacOS.
 
