@@ -114,7 +114,7 @@ This is only needed within a corporate enterprise environment.
 
 There are several ways to open a Command Window on Windows 10 or Windows 2016.
 
-A). This is the easiest (to me):
+A). PROTIP: This is the easiest (to me):
 
 1. Right-click the Windows "Start" icon at the lower-left corner
 
@@ -297,6 +297,19 @@ File storage:
 * Dropbox.com
 
 
+
+## Bin folder #
+
+0. Create a <strong>C:\bin</strong> folder to hold programs accessed from the Windows command line.
+0. Specify that path in Environment Variables.
+0. Put files in that folder (from cloud Google Driver, etc.)
+
+   * Putty for SSH into Linux machines
+   * WinSCP for exchanging files with Linux machines
+   * Windows Powertools
+   * WinZip licensed version
+
+
 ## Invalid client-side certificate #
 
 If a website has a certificate warning such as this:
@@ -324,8 +337,6 @@ To avoid needing to click ADVANCED:
 
 0. Click on the broken certificate icon.
 0. click the Details link that appears.
-
-   <img src="https://cloud.githubusercontent.com/assets/300046/15332999/0a27e3c6-1c25-11e6-9cab-9169d2705d46.jpg">
 
    <amp-img width="554" height="337" src="https://cloud.githubusercontent.com/assets/300046/15332999/0a27e3c6-1c25-11e6-9cab-9169d2705d46.jpg">
    </amp-img><!-- win10-chrome-insecure -->
@@ -370,21 +381,10 @@ This is only for VMWare Fusion instances:
 0. Click OK to confirm and log off and on again.
 
 
-## Utilities #
+## Office #
 
-* Office Professional Plus 2016 (x86 and x64) - DVD (English) 09/22/2015
+* Office Professional Plus (x86 and x64) - DVD (English) 09/22/2015
 from <a target="_blank" href="https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=65535&activexDisabled=true&akamaiDL=false">direct download from MSDN</a>.
-
-## Bin folder on Environment Variable Path #
-
-0. Create a <strong>C:\bin</strong> folder to hold programs accessed from the Windows command line.
-0. Specify that path in Environment Variables.
-0. Put files in that folder:
-
-0. Putty for SSH into Linux machines
-0. WinSCP
-0. Windows Powertools
-
 
 ## Communications #
 

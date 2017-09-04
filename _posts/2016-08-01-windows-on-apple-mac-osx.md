@@ -18,7 +18,7 @@ comments: true
 There are several ways to run Microsoft Windows on an Apple Mac computer.
 Each has its own advantages and disadvantages:
 
-* <a href="#RDP">Remote Desktop Protocol client to Amazon EC2 instances</a>
+* <a href="#RDP">Remote Desktop Protocol client to cloud instances</a>
 * <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
 * <a href="#Docker">Docker Windows instance</a>
 * <a href="#BootCamp">BootCamp</a>
@@ -442,12 +442,12 @@ Run OSX in VMware within Windows</a>
 
 * http://www.tekrevue.com/os-x/
 
-
 * <a target="_blank" href="http://www.souldevteam.net/blog/2013/10/06/os-x-mavericks-10-9-retail-vmware-image-release-notes-links/">
 Run OSX in VMware within Windows</a>
 
 * <a target="_blank" href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1001934">
    Defragmenting, shrinking, and cleaning up VMware Fusion virtual machine disks</a>
+<br /><br />
 
 
 ## USB Drives
