@@ -77,7 +77,7 @@ PROTIP: If you click "Recommended", you'll have to click "Add" many times. For e
 
    ![win10-ie-unblock-389x357-131805](https://user-images.githubusercontent.com/300046/30009870-d55b7876-90e8-11e7-9ac7-b95a5684a70a.jpg)
 
-1. Check "Continue to prompt when website content is blocked".
+1. Uncheck "Continue to prompt when website content is blocked".
 0. Click "Close" button.
 
 
@@ -207,7 +207,7 @@ Ensuring chocolatey.nupkg is in the lib folder
 0. Install 7zip  (instead of from http://7-zip.org/download.html)
 
    <tt><strong>choco install 7zip -y
-   </tt></strong>
+   </strong></tt>
 
    PROTIP: After downloading .iso, I use 7-zip to expand the file into a regular folder.
 
@@ -215,8 +215,7 @@ Ensuring chocolatey.nupkg is in the lib folder
 
 0. Python
 0. Ruby
-
-0. cinist node
+0. Node
 
 0. Sublime Text
 0. Eclipse
@@ -226,7 +225,7 @@ Ensuring chocolatey.nupkg is in the lib folder
 0. Microsoft OneDrive
 
 
-### Invalid client-side certificate #
+## Invalid client-side certificate #
 
 If a website has a certificate warning such as this:
 
