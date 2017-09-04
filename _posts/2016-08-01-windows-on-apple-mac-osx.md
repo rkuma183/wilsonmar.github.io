@@ -53,11 +53,11 @@ On the Mac, these RDP clients can reach into instances of Amazon EC2 or other cl
 
 A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
 
-   Cost per hour increases in a linear way for more CPUs:
-   ![ec2-cognosys-cpu-trend-552x233](https://user-images.githubusercontent.com/300046/29998551-5f497366-8feb-11e7-9246-2526d87641d5.jpg)
+   Cost per hour increases in a straight line (linear) way for number of CPUs:
+   ![ec2-cognosys-vcpu-per-dollar-562x217-54344](https://user-images.githubusercontent.com/300046/30037418-d2ddfd46-9177-11e7-93ad-f376ccca8dc1.jpg)
    <br />
-   Cost per hour increases in a linear way for more Memory (RAM):
-   ![ec2-cognosys-mem-trend-555x279](https://user-images.githubusercontent.com/300046/29998428-ef366ac8-8fe7-11e7-9954-85359f819fbc.jpg)
+   Cost per hour increases in the same way for amount of Memory (RAM):
+   ![ec2-cognosys-mem-per-dollar-562x225-62637](https://user-images.githubusercontent.com/300046/30037332-200f3fd6-9177-11e7-98c2-bd1a76592089.jpg)
 
 
    <a target="_blank" href="http://www.ec2instances.info/">ec2instances.info</a> provides a spreadsheet.
