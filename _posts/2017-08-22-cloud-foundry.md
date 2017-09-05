@@ -28,33 +28,37 @@ The sequence is different that the Syllbus of the Linux Foundation's
 $300/€285 4-hour Cloud Foundry Certified Developer (CFCD)</a> proctored exam.
 
 
-## What is Cloud Foundry?
+## A Cloud Above Clouds
+
+Cloud Foundry is labeled a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
+
+![cf-paas-vs-traditional-1013x364-157k](https://user-images.githubusercontent.com/300046/29714073-657fc730-896f-11e7-8cc5-b82c20687252.jpg)
+
+But Cloud Foundry is more than this. It provides a cloud above other clouds.
 
 > Cloud Foundry provides a vendor-agnostic layer supporting many cloud providers.
    A single Command Line program ("cf") provides the same interface to all cloud providers.
 
-![cf-paas-vs-traditional-1013x364-157k](https://user-images.githubusercontent.com/300046/29714073-657fc730-896f-11e7-8cc5-b82c20687252.jpg)
-
-Cloud Foundry is labeled a PaaS (Platform as a Service) which manages many of the details of running applications in production. 
+Its competitors include OpenShift and Kubernetes. 
 
 <a target="_blank" href="https://www.cloudfoundry.org/">
 cloudfoundry.org</a> is the home page of 
 the non-profit vendor-independent Cloud Foundry Foundation formed by 70 vendors in January of 2015 to own the 
 Cloud Foundry open source project at
-
    <a target="_blank" href="https://github.com/cloudfoundry/">https://github.com/cloudfoundry</a>
    <br /><br />
 
    * Abby Kearns is the Executive Director (@ab415)
    * Chip Childers is the CTO.
 
-Its competitors include OpenShift and Kubernetes. 
+https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html
 
 <a name="ProviderClouds"></a>
 
 ## Providers' clouds
 
-   Cloud Foundry enables one to switch work among clouds to obtain the best price-performance.
+   Cloud Foundry enables one to switch work among clouds.
+   This enables businesses to obtain the best price-performance and avoids vendor lock-in.
 
    First of all, there are technical reasons to use one cloud vs. another.
    For example, Google Fiber provides fast connection among servers across continents.
@@ -64,7 +68,7 @@ Its competitors include OpenShift and Kubernetes.
    Myriad factors influence price: 
    Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
 
-   Plus, you'd be amazed the difference between per-minute charges vs. per-hour charges.
+   Plus, you'd be amazed the difference it makes with per-minute charges from Google vs. per-hour charges by Amazon.
 
    Different techniques to calculate volume discounts make it complex to compare prices. 
    While Microsoft and Amazon provide discounts for up-front commitments, you forfeit money if committed
@@ -97,8 +101,6 @@ Cloud Foundry certified provider</a>:
    * <a target="_blank" href="https://www.softlayer.com/">SoftLayer</a> was acquired by IBM.
    * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a><br />
    uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
-   * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
-   uses https://api.cf.us10.hana.ondemand.com
 
    * Microsoft Azure
    * [Google Compute Platform (GCP)](/gcp.md/)
@@ -110,9 +112,14 @@ Cloud Foundry certified provider</a>:
    * Huawei Digital Transformation FusionStage (China)
    * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
    * OpenStack
-   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a>
-   (Industrial IoT)
+   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a> (Industrial IoT)
+   * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
+   uses https://api.cf.us10.hana.ondemand.com
    <br /><br />
+
+For example, when SAP's on-premise stack runs on CloudFoundry, there is a choice of cloud vendors at the bottom:
+
+![cf-sap-onpremise-650x302-73437](https://user-images.githubusercontent.com/300046/30058852-fc6777fa-91f9-11e7-97b0-038729a0edec.jpg)
 
 
 ### Provider Account & Org for Billing
