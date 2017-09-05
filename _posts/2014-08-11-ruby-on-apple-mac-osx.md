@@ -39,12 +39,18 @@ So we can jump straight to view version information.
 CAUTION: Don't touch the system Ruby that comes with your Mac.
 
 0. Open a Terminal Shell Window and type:
+ 
+   <tt><strong>
+   ruby \-\-version
+   </strong></tt>
+
+   Alternately:
 
    <tt><strong>
    ruby \-\-version
    </strong></tt>
 
-   The response for the Sierra default:
+    The response for the Sierra default:
 
    <tt>
    ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
@@ -65,6 +71,12 @@ CAUTION: Don't touch the system Ruby that comes with your Mac.
 
    CAUTION: The Apple Mac operating system makes use of Ruby, so don't delete the .rvm folder.
 
+0. This should return "hey":
+
+   <tt><strong>ruby -e "puts 'hey'"
+   </strong></tt>
+
+   PROTIP: The ruby command by itself will not return anything ... forever.
 
 
    <a name="ViewVersions"></a>

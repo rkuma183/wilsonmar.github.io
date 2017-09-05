@@ -94,6 +94,23 @@ https://www.fontsquirrel.com/fonts/nunito
 
 https://github.com/tonsky/FiraCode
 
+### Operator
+
+For $99 per year for up to 250,000 page views per month,<br />
+https://www.typography.com/cloud/welcome/<br />
+is delivered via Akamai to provide each browser with exactly the right type of webfonts it needs. 
+
+For $299 just to use it on web pages or<br />
+For $599 to use on a single computer,<br />
+<a target="_blank" href="https://www.typography.com/fonts/operator/overview/">
+H&Co's Operator font</a> is the new status symbol for developers, like having a Tesla.
+
+Mono ScreenSmart render down to 9 pixels.
+
+See the video about fixed width font design at<br />
+https://www.typography.com/blog/introducing-operator
+
+
 ### Meslo LG Multi-Platform
 
 Now one would think that Apple engineers are rather particular about fonts.
