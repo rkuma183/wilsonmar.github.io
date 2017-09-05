@@ -51,7 +51,13 @@ Cloud Foundry open source project at
    * Abby Kearns is the Executive Director (@ab415)
    * Chip Childers is the CTO.
 
-https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html
+For example, putting SAP's on-premise stack on CloudFoundry adds a choice of cloud providers at the bottom:
+
+<a target="_blank" href="https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html">
+<img alt="cf-sap-onpremise-650x302-73437" width="650" height="302" src="https://user-images.githubusercontent.com/300046/30058852-fc6777fa-91f9-11e7-97b0-038729a0edec.jpg"></a>
+
+> Having hybrid computing capability enables bi-modal organizational capability: managing two separate but coherent styles of work: one focused on predictability, the other on exploration.
+
 
 <a name="ProviderClouds"></a>
 
@@ -101,6 +107,9 @@ Cloud Foundry certified provider</a>:
    * <a target="_blank" href="https://www.softlayer.com/">SoftLayer</a> was acquired by IBM.
    * <a target="_blank" href="https://developer.swisscom.com/?sc_ad=portallink-content-en">Swisscom Application Cloud at https://developer.swisscom.com</a><br />
    uses https://api.lyra-836.appcloud.swisscom.com (https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center-services/paas/application-cloud.html">*</a>)
+   * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
+   uses https://api.cf.us10.hana.ondemand.com
+   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a> (Industrial IoT)
 
    * Microsoft Azure
    * [Google Compute Platform (GCP)](/gcp.md/)
@@ -112,14 +121,7 @@ Cloud Foundry certified provider</a>:
    * Huawei Digital Transformation FusionStage (China)
    * <a target="_blank" href="https://www.ctl.io/appfog/">Appfrog from CenturyLink at https://www.ctl.io/appfog</a> 
    * OpenStack
-   * <a target="_blank" href="https://www.predix.io/registration/">GE Predix at https://www.predix.io/registration</a> (Industrial IoT)
-   * <a target="_blank" href="https://hcp.sap.com/try.html">SAP Cloud Platform at https://hcp.sap.com/try.html</a> 
-   uses https://api.cf.us10.hana.ondemand.com
    <br /><br />
-
-For example, when SAP's on-premise stack runs on CloudFoundry, there is a choice of cloud vendors at the bottom:
-
-![cf-sap-onpremise-650x302-73437](https://user-images.githubusercontent.com/300046/30058852-fc6777fa-91f9-11e7-97b0-038729a0edec.jpg)
 
 
 ### Provider Account & Org for Billing
