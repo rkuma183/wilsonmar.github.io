@@ -100,8 +100,9 @@ Otherwise:
    bundle exec jekyll serve --config _config.yml,_config_dev.yml
    ```
 
-   PROTIP: Define an alias (such as bs) in ~/.bash_profile.
+   PROTIP: Define an alias, such as "bs" in <strong>~/.bash_profile</strong> file:
 
+   `alias bs='bundle exec jekyll serve --config _config.yml,_config_dev.yml'`
 
    PROTIP: Leave this terminal instance running and open another Terminal
    instance to work on the content of the site.
