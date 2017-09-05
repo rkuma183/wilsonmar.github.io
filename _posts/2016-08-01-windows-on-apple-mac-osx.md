@@ -278,6 +278,9 @@ http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the executi
 
    ### Install clients using Chocolatey 
 
+   <a target="_blank" href="https://blogs.technet.microsoft.com/heyscriptingguy/2014/08/23/weekend-scripter-powershell-and-chocolatey/">
+   [Find-Package from OneGet included in Windows Management Framework 5.0 Preview gets packages from the Chocolatey installer repository]</a>
+
 0. Right-click on cmd and select "Run as Administrator".
 0. Copy <a target="_blank" href="https://chocolatey.org/install#install-with-cmdexe">
    this</a> and right-click in the command window:

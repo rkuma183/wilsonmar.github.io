@@ -226,7 +226,8 @@ Visual Studio Online Version Control
    * Working with Visual Studio Online
    * Working With GitHub 
    * Interacting With Command Line Tools 
-   
+   <br /><br />
+
 * <a target="_blank" href="http://gitforvisualstudio.com/resources/">"
    gitforvisualstudio.com/resources</a>
 
@@ -403,6 +404,13 @@ GitLab YouTube channel</a>:
 
 ## Client Tooling
 
+### JetBrains
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Nftif2ynvdA">
+How and when do I merge or rebase?</a> 7 July 2017 [15:37]
+by Gary Hockiing, Developer Advocate with Trisha Gee
+
+
 ### IntelliJ IDEA IDE
 
 This IDE is the darling of developers.
@@ -458,15 +466,31 @@ Nicola Paolucci, Git Evangelist at Atlassian Amsterdam:
 
 ### GitKraken client
 
-GitKraken Tutorial: 
+<a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE>"
+GitKraken Tutorial playlist of 7 videos</a> using a whiteboard:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=j1rP21RcbH0">
    Git GUI Intro 4 Apr 2016</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=eTOgjQ9o4vQ">
+   Intro to GitFlow</a> Jan 31, 2017
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nAMbLbgxriI">
    How to Rebase</a> Oct 14, 2016
    drag and drop
-0. <a target="_blank" href="https://www.youtube.com/watch?v=eTOgjQ9o4vQ">
-   Intro to GitFlow</a> Jan 31, 2017
+0. <a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM">
+   Rebasing & Merging</a> [4:02] Sep 9, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=X9jAjG3PWPo&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=2">
+What is SSH?</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=8Z4Cmhji_FQ&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=3">
+All About Submodules</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=mLnxwlCEIb8&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=4">
+What is a Git Repository?</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=JVxYLFQlYIw&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=5">
+How to Never Lose Changes in Git</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=pa_xqXxm6ok&index=6&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE">
+Squashing Commits</a>
+0. <a target="_blank" href="https://www.youtube.com/watch?v=kd4jMl_3LQE&index=7&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE">
+How to Add & Clone Remote Repositories</a>
+
 
 ### Tower client
 
@@ -901,6 +925,10 @@ Go to Lynda.com for these:
 0. Exploring graphical user interfaces
 0. Understanding Git hosting
 
+### Tuts+
+
+<a target="_blank" href="https://www.youtube.com/watch?v=dO9BtPDIHJ8">
+Git Basics: Merge and Rebase</a>
 
 ### Laracasts
 
@@ -958,8 +986,7 @@ https://www.udacity.com/course/how-to-use-git-and-github--ud775</a>
 Udacity has a FREE hands-on tutorial by Google people.
 It pauses with <strong>quizzes</strong> along the way.
 So it takes some patience get through its thoroughness.
-
-It starts by diving right in with diff.
+It starts by diving right in with diff:
 
    * <a target="_blank" href="https://www.youtube.com/watch?v=Ytux4IOAR_s&list=PLAwxTw4SYaPk8_-6IGxJtD3i2QAu5_s_p">
    The class' video playlist on YouTube</a>
