@@ -466,11 +466,11 @@ Nicola Paolucci, Git Evangelist at Atlassian Amsterdam:
 
 ### GitKraken client
 
-<a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE>"
+Axosoft's <a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE>"
 GitKraken Tutorial playlist of 7 videos</a> using a whiteboard:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=j1rP21RcbH0">
-   Git GUI Intro 4 Apr 2016</a>
+   Git GUI Intro</a> 4 Apr 2016
 0. <a target="_blank" href="https://www.youtube.com/watch?v=eTOgjQ9o4vQ">
    Intro to GitFlow</a> Jan 31, 2017
 0. <a target="_blank" href="https://www.youtube.com/watch?v=nAMbLbgxriI">
@@ -479,17 +479,20 @@ GitKraken Tutorial playlist of 7 videos</a> using a whiteboard:
 0. <a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM">
    Rebasing & Merging</a> [4:02] Sep 9, 2016
 0. <a target="_blank" href="https://www.youtube.com/watch?v=X9jAjG3PWPo&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=2">
-What is SSH?</a>
+What is SSH?</a> [2:41] Nov 11, 2016
 0. <a target="_blank" href="https://www.youtube.com/watch?v=8Z4Cmhji_FQ&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=3">
-All About Submodules</a>
+All About Submodules</a> [3:31] Nov 28, 2016
 0. <a target="_blank" href="https://www.youtube.com/watch?v=mLnxwlCEIb8&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=4">
 What is a Git Repository?</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=JVxYLFQlYIw&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE&index=5">
-How to Never Lose Changes in Git</a>
+How to Never Lose Changes in Git</a> [2:19] Oct 28, 2016 by Jordan, who says:
+
+   PROTIP: Create a temp branch to the same branch as the feature branch.
+
 0. <a target="_blank" href="https://www.youtube.com/watch?v=pa_xqXxm6ok&index=6&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE">
-Squashing Commits</a>
+Squashing Commits</a> [1:37] Nov 22, 2016 by John
 0. <a target="_blank" href="https://www.youtube.com/watch?v=kd4jMl_3LQE&index=7&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE">
-How to Add & Clone Remote Repositories</a>
+How to Add & Clone Remote Repositories</a> [3:30] Nov 11, 2016 by Justin
 
 
 ### Tower client
