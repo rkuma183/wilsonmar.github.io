@@ -58,6 +58,8 @@ For example, putting SAP's on-premise stack on CloudFoundry adds a choice of clo
 
 > Having hybrid computing capability enables bi-modal organizational capability: managing two separate but coherent styles of work: one focused on predictability, the other on exploration.
 
+![cf-multi-cloud-multi-650x380-119418](https://user-images.githubusercontent.com/300046/30091512-28c6c06c-9277-11e7-9c6b-23f3d6e61831.jpg)
+
 
 <a name="ProviderClouds"></a>
 
