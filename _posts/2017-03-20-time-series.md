@@ -164,19 +164,15 @@ Introduction to Time Series</a>
 
 * TimescaleDB, an open source time-series database engineered from PostgreSQL, 
 
-* InfluxDB, open-source (MIT)
+* [InfluxDB - my notes](/influxdb/), open-source (MIT)
 
    * No external dependencies (written in Go)
    * SQL-like query language
    * Input data "Line Format" (not JSON)
    * Stores data in compressed format
    * Horizontally scaleable (across several servers)
-
    * Kapacitor collects anomalies
-
-   See <a target="_blank" href="https://vimeo.com/202289126">
-   video "How to Manage TensorFlow with InfluxData"</a>
-   (The TensorFlow Jupyter notebook for weather prediction is shown from 17:24)
+   <br /><br />
 
 * Microsoft Azure introduced in 2017 their 
    <a target="_blank" href="https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started">
