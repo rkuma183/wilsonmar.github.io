@@ -307,7 +307,8 @@ File storage:
    * Putty for SSH into Linux machines
    * WinSCP for exchanging files with Linux machines
    * Windows Powertools
-   * WinZip licensed version
+   * zip.exe (WinZip licensed version)
+   * curl.exe (HTTP command line)
 
 
 ## Invalid client-side certificate #
