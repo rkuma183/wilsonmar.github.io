@@ -28,14 +28,13 @@ Built-in OSX:
 Free:
 
    * <a href="#atom">Atom</a> from GitHub (free)
-   * <a href="#Code">Code</a> from Microsoft (free)
+   * <a href="#Code">Visual Studio Code</a> from Microsoft (free)
    * <a target="_blank" href="http://brackets.io/">
-   http://brackets.io - Adobe Brackets</a> is on Windows too
+   Adobe Brackets</a> is on Windows too
    * <a target="_blank" href="http://barebones.com/products/textwrangler/">
    http://barebones.com/products/textwrangler</a> is the
      little brother to BBEdit.
    * <a target="_blank" href="http://www.annedawson.net/Python_Editor_IDLE.htm">
-   http://www.annedawson.net/Python_Editor_IDLE.htm">
    Python IDLE Editor</a>
 
    * mvim ? for Mac
@@ -45,7 +44,7 @@ Licensed nagware:
    * $89 <a href="#SublimeTextz">Sublime Text</a>
    * Texttastic
    * Byword 
-   * There is no equivalent of Notepad++ on Windows
+   * There is no equivalent of Windows Notepad++ on MacOS
 
 Free IDEs:
 
@@ -491,13 +490,15 @@ On Mac:
 
 0. You can now, in a new Terminal shell window, use the code command to open a file:
 
-   <tt><strong>
-   code hello
+   <tt><strong>code hello
    </strong></tt>
 
    BTW, "hello" in the example above can be any file.
 
 * http://michaelcrump.net/using-github-with-visualstudio-code/
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=UcW1FHNvy8M">
+   VIDEO: Supercharge Your JavaScript Debugging Workflow With VS Code</a>
 
 
 ## More on front-end styling #

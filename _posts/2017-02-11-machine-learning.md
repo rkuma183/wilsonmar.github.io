@@ -61,8 +61,10 @@ meaning they're not just about poker, but a range of adversarial problems.
 <!--Texas Hold'em
 -->
 
+21 August 2017, Elon Musk tweets: "OpenAI first ever to defeat world's best players in competitive eSports [dota2]. Vastly more complex than traditional board games like Chess & Go". <a target="_blank" href="https://www.youtube.com/watch?v=XbDmxEOj9OY">VIDEO</a>.
+
 <a target="_blank" href="https://www.ted.com/talks/noriko_arai_can_a_robot_pass_a_university_entrance_exam">
-<img align="right" alt="ai-todai-robot-441x441" width="441" height="441" src="https://user-images.githubusercontent.com/300046/29997360-3aeeac38-8fce-11e7-8913-fc600e6d13de.jpg"></a><a target="_blank" href="http://21robot.org/news/">Todai Robot</a> scored among the upper 20% in university entrance exam. Writing essays. Pen on paper. In Japanese. It knows 8,000 Japanese words, 2,000 mathematical axioms, and uses "symbolic computation" for "automatic reasoning" on 15 billion sentences. <a target="_blank" href="http://21robot.org/news/">
+<img align="right" alt="ai-todai-robot-441x441" width="441" height="441" src="https://user-images.githubusercontent.com/300046/29997360-3aeeac38-8fce-11e7-8913-fc600e6d13de.jpg"></a><a target="_blank" href="http://21robot.org/news/">Todai Robot</a> scored among the upper 20% of students in university entrance exams. Writing essays using a pen on paper. In Japanese. It knows 8,000 Japanese words, 2,000 mathematical axioms, and uses "symbolic computation" for "automatic reasoning" on 15 billion sentences. <a target="_blank" href="http://21robot.org/news/">
 Back in 2014</a>.
 
 
@@ -74,6 +76,10 @@ For ordinary people:
 * Classify movie reviews from imdb.com into positive and negative (binary) categories
 * Classify news wire articles by topic (multi-class classification)
 <br /><br />
+
+For small businesses:
+
+* Sort vegetables using computer vision
 
 For enterprises:
 
@@ -92,8 +98,7 @@ Use of hard-coded (static) "rules" crafted by human programmers is
 called "symbolic AI", used in "expert systems" fashionable during the 1980s.
 
 Machine learning <strong>algorithms</strong> identify information from data fed through 
-"generic" (general purpose) algorithms which 
-build their own logic from detecting <em>patterns</em> within the data.
+"generic" (general purpose) algorithms which <strong>build their own logic</strong> from detecting <em>patterns</em> within the data.
 
 Patterns are recognized by neural network algorithms. 
 
@@ -410,6 +415,11 @@ based on Ubuntu.
 
 ### Deep Learning Frameworks
 
+![analysis-python-ml-650x248-53428](https://user-images.githubusercontent.com/300046/30065446-164df49c-9212-11e7-88e9-95ba672fc9e2.jpg)
+<a target="_blank" href="http://www.cio.com/article/3193689/artificial-intelligence/which-deep-learning-network-is-best-for-you.html">NOTE</a>:
+Here is a ranking of Deep Learning frameworks based on GitHub star count.
+
+
 TensorFlow r0.10
 from Google
 
@@ -439,7 +449,7 @@ from Berkeley Artificial Intelligence...
    * http://www.infoworld.com/article/3154273/analytics/review-caffe-deep-learning-conquers-image-classification.html
 
 MXNet v0.7
-from Distributed Machine Learning...
+from Distributed Machine Learning Amazon...
 
    * http://www.infoworld.com/article/3149598/artificial-intelligence/mxnet-review-amazons-scalable-deep-learning.html
 
@@ -587,6 +597,10 @@ https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471/
 
 https://www.youtube.com/watch?v=dYT2LSuemgg
 Apr 26, 2017 by Dr. Joseph Reger, CTO of Fujitsu Technology Solutions
+
+<a target="_blank" href="https://open.sap.com/courses/ml1/items/K1SvFgJiUIExvx0APIEc6">
+Enterprise Machine Learning in a Nutshell</a>
+free class from SAP.
 
 
 ## More #
