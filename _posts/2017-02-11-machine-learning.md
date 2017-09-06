@@ -100,9 +100,9 @@ called "symbolic AI", used in "expert systems" fashionable during the 1980s.
 Machine learning <strong>algorithms</strong> identify information from data fed through 
 "generic" (general purpose) algorithms which <strong>build their own logic</strong> from detecting <em>patterns</em> within the data.
 
-Patterns are recognized by neural network algorithms. 
+Patterns are recognized by neural network algorithms. This cycle of "learning" is implicit in a definition of Machine Learning by Mitchell (in 1997): "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E".
 
-A neural network has multiple "layers" or data-processing modules that "distill" data.
+The "network" in a neural network has multiple "layers" or data-processing modules that "distill" data.
 Models using a small number of layers are called "shallow learning”.
 GoogleNet in 2014 used 22 layers. In 2016, one network uses over 1,000 layers.
 
