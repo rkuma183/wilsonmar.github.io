@@ -39,8 +39,6 @@ But Cloud Foundry is more than this. It provides a cloud above other clouds.
 > Cloud Foundry provides a vendor-agnostic layer supporting many cloud providers.
    A single Command Line program ("cf") provides the same interface to all cloud providers.
 
-Its competitors include OpenShift and Kubernetes. 
-
 <a target="_blank" href="https://www.cloudfoundry.org/">
 cloudfoundry.org</a> is the home page of 
 the non-profit vendor-independent Cloud Foundry Foundation formed by 70 vendors in January of 2015 to own the 
@@ -51,12 +49,15 @@ Cloud Foundry open source project at
    * Abby Kearns is the Executive Director (@ab415)
    * Chip Childers is the CTO.
 
-For example, putting SAP's on-premise stack on CloudFoundry adds a choice of cloud providers at the bottom:
+For example, putting SAP's on-premise <a target="_blank" href="https://open.sap.com/courses/cp1-2/items/4YaGyMu7IkF0WH2QzVPF1A
+">stack on CloudFoundry</a> adds a choice of cloud providers at the bottom:
 
 <a target="_blank" href="https://cloudplatform.sap.com/capabilities/runtimes-containers/cloud-foundry.html">
 <img alt="cf-sap-onpremise-650x302-73437" width="650" height="302" src="https://user-images.githubusercontent.com/300046/30058852-fc6777fa-91f9-11e7-97b0-038729a0edec.jpg"></a>
 
 > Having hybrid computing capability enables bi-modal organizational capability: managing two separate but coherent styles of work: one focused on predictability, the other on exploration.
+
+Although its competitors include OpenShift and Kubernetes (k8s), they integrate to form an IaaS (Infrastructure as a Service):
 
 ![cf-multi-cloud-multi-650x380-119418](https://user-images.githubusercontent.com/300046/30091512-28c6c06c-9277-11e7-9c6b-23f3d6e61831.jpg)
 
