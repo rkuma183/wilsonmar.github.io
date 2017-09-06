@@ -938,7 +938,7 @@ What is Git rebase?</a> [8:57] May 16, 2017
 by Wallace Kelly 
 
 <a target="_blank" href="https://www.youtube.com/watch?v=mHlyRJ02xUE">
-Git - Merge and Rebase</a>
+Git - Merge and Rebase</a> [12:26] Feb 4, 2017
 by Another AEM Developer
 
 
