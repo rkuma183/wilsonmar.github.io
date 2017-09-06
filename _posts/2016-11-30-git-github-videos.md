@@ -449,25 +449,20 @@ Tim Pettersen (@kannonboy) created a useful video:
 * <a target="_blank" href="https://www.youtube.com/watch?v=O4SoB3TFkjA">
    Webinar: Git Workflow for SaaS Teams (posted 12 Oct. 2014)</a>
 
-Nicola Paolucci, Git Evangelist at Atlassian Amsterdam:
+<a target="_blank" href="https://www.linkedin.com/in/durdn">Nicola Paolucci</a>, (<a target="_blank" href="https://twitter.com/durdn">@durdn</a>, <a target="_blank" href="http://durdn.com/">durdn.com</a>)
+Git Evangelist at Atlassian Amsterdam:
 
-   Twitter: https://twitter.com/durdn 
-
-   https://www.linkedin.com/in/durdn 
-
-   http://durdn.com/ 
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=-kVzV6m5_Qg">
+   * <a target="_blank" href="https://www.youtube.com/watch?v=-kVzV6m5_Qg">
    Becoming a Git Master, Sep. 2014</a>
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=v-MFXnF1vXE">
+   * <a target="_blank" href="https://www.youtube.com/watch?v=v-MFXnF1vXE">
    Git Branching for Agile Teams, Sep. 2014</a>
 
 
 ### GitKraken client
 
-Axosoft's <a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE>"
-GitKraken Tutorial playlist of 7 videos</a> using a whiteboard:
+Axosoft's <a target="_blank" href="https://www.youtube.com/watch?v=a_msiOrYLgM&list=PLe6EXFvnTV7_8z5gjobbe9sMjEHNw8_GE">
+GitKraken Tutorial playlist of videos</a> using a whiteboard:
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=j1rP21RcbH0">
    Git GUI Intro</a> 4 Apr 2016
@@ -928,10 +923,24 @@ Go to Lynda.com for these:
 0. Exploring graphical user interfaces
 0. Understanding Git hosting
 
-### Tuts+
+
+### Envato Tuts+
 
 <a target="_blank" href="https://www.youtube.com/watch?v=dO9BtPDIHJ8">
-Git Basics: Merge and Rebase</a>
+Git Basics: Merge and Rebase</a> [3:26] Mar 9, 2017
+
+   ![git-merge-rebase-650x353-200544](https://user-images.githubusercontent.com/300046/30090132-7aa765d4-926e-11e7-9aaf-998795b7ef81.jpg)
+
+### Global Knowledge
+
+<a target="_blank" href="https://www.youtube.com/watch?v=TymF3DpidJ8">
+What is Git rebase?</a> [8:57] May 16, 2017
+by Wallace Kelly 
+
+<a target="_blank" href="https://www.youtube.com/watch?v=mHlyRJ02xUE">
+Git - Merge and Rebase</a>
+by Another AEM Developer
+
 
 ### Laracasts
 
