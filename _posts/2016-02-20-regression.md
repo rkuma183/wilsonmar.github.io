@@ -16,13 +16,13 @@ comments: true
 {% include _toc.html %}
 
 Here are my notes on how to create a multi-variate Linear Regression formula
-using Microsoft Excel.
+using Microsoft Excel and <a href="#Python">Python programs</a>.
 
-   ### Obtain Sample Data
+## Obtain Sample Data
 
-To work through how a home-goods manufacturer can 
-predict expected profits from a catalog launch,
-students build a linear regression model to provide results and a recommendation.
+We need some sample data to build a linear regression model to provide results and a recommendation.
+
+One is predicting expected profits from a catalog launch by a home-goods manufacturer.
 
 1. Download the sample data file diamonds.csv which has 50,000 rows.
 
@@ -40,6 +40,12 @@ students build a linear regression model to provide results and a recommendation
 
    This tutorial assumes that you have Microsoft Excel installed.
 
+   To create a multi-variate regression in Excel:
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/kShe0b-sK4o" frameborder="0" allowfullscreen> </iframe><br /><small>This video is from the Udacity class,
+   about a different data set</small>
+   <br />
+
    ### Open in Excel
 
    During the installation processes on Windows or MacOS,
@@ -48,7 +54,6 @@ students build a linear regression model to provide results and a recommendation
 
 0. In Finder or 
    double-click on the diamonds.csv file to open it in Excel.
-
 
    ### Activate Analysis Toolpak
 
@@ -66,9 +71,9 @@ students build a linear regression model to provide results and a recommendation
    The above only needs to be done once.
 
 
-## Data preparation
+   ## Data preparation
 
-### Contiguous X columns
+   ### Contiguous X columns
 
    Excel needs all variables together, so:
 
@@ -123,13 +128,30 @@ students build a linear regression model to provide results and a recommendation
    Standard Error is the error of prediction expressed in the value range of Y.
 
 
+## Language and Theory
+
+There are several classes that teach this topic:
+
+<a target="_blank" href="https://www.datacamp.com/courses/multiple-and-logistic-regression">
+Video course Multiple and Logistic Regression on-line class</a>
+by Ben Baumer, Assistant Professor at Smith College
+uses a database of Italian restaurants in New York City to explore the relationship between price and the quality of food, service, and decor. Learn about logistic regression for an arbitrary number of input variables.
+Covered are model and predict both numeric and categorical outcomes. 
+You'll also learn how to fit, visualize, interpret, and compare models.
+Learn about the class of linear models called "parallel slopes models."
+Learn to compare models so that you can select the best one.
+Add two, three, and even more numeric explanatory variables to a linear model.
+
+The nice thing about datacamp's videos is that one can highlight and copy text from videos, such as this:
+
+   <pre>
+ggplot(data = mpg_manuals, aes(x = factor(year), y = hwy)) + 
+  geom_boxplot()
+   </pre>
+
+
 ## Resources
 
-To create a multi-variate regression in Excel:
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/kShe0b-sK4o" frameborder="0" allowfullscreen> </iframe><br /><small>This video is from the Udacity class,
-   about a different data set</small>
-   <br />
 
 * https://www.youtube.com/watch?v=O7TMCYuDbDc
 * https://www.youtube.com/watch?v=HgfHefwK7VQ
