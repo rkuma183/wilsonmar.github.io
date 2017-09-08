@@ -24,6 +24,14 @@ Included is a "guided tour" of how the <a target="_blank" href="https://wilsonma
 
 The "Sec" part of "DevSecOps" means security, which include scans of code for vulnerabilities, use of digital certificates to control access, and tools to manage secrets using secure vaults.
 
+## Shift left
+The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
+
+   <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
+   VIDEO: https://youtu.be/ZG073qSgh_0
+
+To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo  presentations</a>.
+
 ## Who Should Attend
 This course is for anyone new to DevOps. No specific prerequisites are assumed, and all technical concepts are explained; however, attendees are expected to have some software and agile knowledge or experience. This course is for testers, programmers, business analysts, and managers who need to see first-hand how DevOps works.
 
@@ -35,15 +43,8 @@ There are several editions of this class:
 * The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with a visceral understanding of both the advantages and limitations modern DevOps offers.
 
 * The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants leave after a live "blue/green" deployment. NBD
+
 <br /><br />
-
-## Shift left
-The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
-
-   <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
-   VIDEO: https://youtu.be/ZG073qSgh_0
-
-To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo  presentations</a>.
 
 ## Unique 
 Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on during the class. Here you get the equivalent to several years of on-the-job experience.
@@ -75,13 +76,17 @@ Java Frameworks: Spring Boot<br />
 JHipster<br />
 
 ### Scalable architecture
+Docker<br />
 NetflixOSS<br />
 Hashicorp Vault<br />
 Hashicorp Consul<br />
 Deploy: DNS<br />
 Blue/Green deployment<br />
+Failover test run<br />
 
 ### DevOps services
+Terminals<br />
+BrowserSync<br />
 Mock services<br />
 Jenkins/Cloudbees<br />
 JUnit<br />
@@ -89,3 +94,8 @@ Selenium<br />
 Fitnesse<br />
 Cucumber<br />
 
+### Monitoring
+ELK stack vs. Tick stack<br />
+Elsticsearch vs. InfluxDB<br />
+Logstash vs. Telegraf<br />
+Kibana vs Graphana<br />
