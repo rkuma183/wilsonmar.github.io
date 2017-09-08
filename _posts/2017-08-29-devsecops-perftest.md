@@ -33,7 +33,7 @@ The traditional approach of performance testing only before final release to pro
 To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo  presentations</a>.
 
 ## Who Should Attend
-This course is for anyone new to DevOps. No specific prerequisites are assumed, and all technical concepts are explained; however, attendees are expected to have some software and agile knowledge or experience. This course is for testers, programmers, business analysts, and managers who need to see first-hand how DevOps works.
+This course is for anyone new to DevOps but experienced with information technology and software development. No specific prerequisites are assumed, and all technical concepts are explained;  This course is for testers, programmers, business analysts, and managers who need to see first-hand how DevOps works.
 
 ## Editions of the course
 There are several editions of this class:
@@ -66,7 +66,7 @@ CMDB server repository<br />
 DNS (Domain Name System)<br />
 Application SQL databases<br />
 NoSQL databases<br />
-Time-series databases<br />
+[Time-series databases](/time-series/)<br />
 
 ### Build
 Login GitHub/GitLab<br />
