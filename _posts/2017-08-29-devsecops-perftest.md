@@ -54,7 +54,7 @@ Only this course provides participants a full set of <strong>dozens of cloud-bas
 ### Overview
 Toolchain components<br />
 Alternatives<br />
-Specific differences: Maven vs. Yarn
+Example: Maven vs. Yarn<br />
 Workflows<br />
 
 ### Repositories
@@ -63,6 +63,10 @@ Maven/Yarn package repository<br />
 Nexus binary repository<br />
 SonarQube status repository<br />
 CMDB server repository<br />
+DNS (Domain Name System)<br />
+Application SQL databases<br />
+NoSQL databases<br />
+Time-series databases<br />
 
 ### Build
 Login GitHub/GitLab<br />
@@ -75,14 +79,18 @@ Programming Languages (Java)<br />
 Java Frameworks: Spring Boot<br />
 JHipster<br />
 
+### Virtualization
+Docker images<br />
+AWS images<br />
+
 ### Scalable architecture
-Docker<br />
 NetflixOSS<br />
 Hashicorp Vault<br />
 Hashicorp Consul<br />
-Deploy: DNS<br />
+Deploy <br />
 Blue/Green deployment<br />
 Failover test run<br />
+Google Kubernetes<br />
 
 ### DevOps services
 Terminals<br />
