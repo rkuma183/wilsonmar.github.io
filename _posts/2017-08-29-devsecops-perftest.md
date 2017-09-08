@@ -16,11 +16,11 @@ comments: true
 {% include _toc.html %}
 
 ## Valuable Insights
-Get <strong>hands-on</strong> experience using the latest versions of the most popular DevSecOps tools, all working together, end-to-end, in a set of servers in the cloud each participant controls.
+Get <strong>hands-on</strong> experience with continuos integration using the latest versions of the most popular DevSecOps tools, all working together, end-to-end, in a set of servers in the cloud each participant controls.
 
 The hands-on approach enables participants to truly gain important insights into the benefits and trade-offs related to agile test automation. 
 
-This is a "guided tour" to show how the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">21 groups of DevOps technologies</a> work together in a <strong>toolchain</strong> that builds and deploy software: Git, Maven/Yarn, Nexus, Jenkins, Vault, SonarQube, Selenium, Ansible, etc. 
+Included is a "guided tour" of how the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">21 groups of DevOps technologies</a> work together in a <strong>toolchain</strong> that builds and deploy software: Git/GitHub/GitLab, Maven/Yarn, Nexus, Jenkins/Cloudbees, Vault, SonarQube, Selenium, Ansible.
 
 The "Sec" part of "DevSecOps" means security, which include scans of code for vulnerabilities, use of digital certificates to control access, and tools to manage secrets using secure vaults.
 
@@ -47,4 +47,45 @@ To ensure quality at speed, Agile software developers are increasingly required 
 
 ## Unique 
 Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on during the class. Here you get the equivalent to several years of on-the-job experience.
+
+## Course Outline
+
+### Overview
+Toolchain components<br />
+Alternatives<br />
+Specific differences: Maven vs. Yarn
+Workflows<br />
+
+### Repositories
+GitHub/GitLab source repository<br />
+Maven/Yarn package repository<br />
+Nexus binary repository<br />
+SonarQube status repository<br />
+CMDB server repository<br />
+
+### Build
+Login GitHub/GitLab<br />
+Select repository<br />
+Login Jenkins<br />
+See SonarQube reports<br />
+
+### Generate application
+Programming Languages (Java)<br />
+Java Frameworks: Spring Boot<br />
+JHipster<br />
+
+### Scalable architecture
+NetflixOSS<br />
+Hashicorp Vault<br />
+Hashicorp Consul<br />
+Deploy: DNS<br />
+Blue/Green deployment<br />
+
+### DevOps services
+Mock services<br />
+Jenkins/Cloudbees<br />
+JUnit<br />
+Selenium<br />
+Fitnesse<br />
+Cucumber<br />
 
