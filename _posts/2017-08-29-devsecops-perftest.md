@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hands-on DevSecOps Course for PerfTest Shift-Left"
+title: "Hands-on DevSecOps Course (for PerfTest Shift-Left)"
 excerpt: "Achieve performance engineering and testing at the end of every sprint"
 tags: [DevOps, DevSecOps]
 shorturl: "https://goo.gl/"
@@ -36,18 +36,25 @@ To ensure quality at speed, Agile software developers are increasingly required 
 This course is for anyone new to DevOps but experienced with information technology and software development. No specific prerequisites are assumed, and all technical concepts are explained;  This course is for testers, programmers, business analysts, and managers who need to see first-hand how DevOps works.
 
 ## Editions of the course
-There are several editions of this class:
+There are several editions of this class, of different length:
 
-* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps terms and concepts possible only from seeing it all working together. Participants edit a file, push it to GitHub, and see a whole series of programs build and test software automatically. Participants leave with an appreciation for the subtleties of each technology and a plan for proactive action.
+* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps terms and concepts possible only from seeing it all working together. Participants edit a file, push it to GitHub, and see a whole series of programs build and test software automatically. Participants leave with an appreciation for some of the subtleties about each technology. Video.
 
 * The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with a visceral understanding of both the advantages and limitations modern DevOps offers.
 
 * The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants leave after a live "blue/green" deployment. NBD
-
 <br /><br />
+
+At the end of the course, you will be able to:
+
+* Define the meaning of <a target="_blank" href="https://quizlet.com/222277746/devsecops-acronyms-and-buzzwords-flash-cards/">buzzwords and abbreviations in DevSecOps</a>.
+* Identify the DevSecOps toolchain components and usage workflow.
+
 
 ## Unique 
 Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on during the class. Here you get the equivalent to several years of on-the-job experience.
+
+<!-- https://quizlet.com/202303488/developing-applications-for-cloud-computing-flash-cards/ -->
 
 ## Course Outline
 
@@ -68,29 +75,34 @@ Application SQL databases<br />
 NoSQL databases<br />
 [Time-series databases](/time-series/)<br />
 
-### Build
-Login GitHub/GitLab<br />
-Select repository<br />
-Login Jenkins<br />
-See SonarQube reports<br />
-
 ### Generate application
 Programming Languages (Java)<br />
 Java Frameworks: Spring Boot<br />
 JHipster<br />
 
-### Virtualization
-Docker images<br />
-AWS images<br />
+### Build and Release
+Login GitHub/GitLab<br />
+Select repository<br />
+Login Jenkins/Salt/Travis/CirclCI/TeamCity<br />
+Maven/Yarn/Ant/Gradle/Gulp<br />
 
-### Scalable architecture
-NetflixOSS<br />
+### Virtualization
+Docker images vs. Vagrant<br />
+AWS HVM machine images<br />
+OpenStack LXC<br />
+
+### Security
+SonarQube code scan run reports<br />
 Hashicorp Vault<br />
+
+### Scalable orchestration
+NetflixOSS<br />
 Hashicorp Consul<br />
 Deploy <br />
 Blue/Green deployment<br />
 Failover test run<br />
 Google Kubernetes<br />
+Puppet Zookeeper/Noah/Mesos<br />
 
 ### DevOps services
 Terminals<br />
