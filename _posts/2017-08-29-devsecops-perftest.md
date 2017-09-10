@@ -48,8 +48,6 @@ There are several editions of this class, of different length:
 ## Unique 
 Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on live during the class. This is an opportunity few get even with on-the-job experience.
 
-<!-- https://quizlet.com/202303488/developing-applications-for-cloud-computing-flash-cards/ -->
-
 ## Course Outline
 
 ### Overview
@@ -65,6 +63,7 @@ Nexus binary repository<br />
 SonarQube status repository<br />
 CMDB server repository<br />
 DNS (Domain Name System)<br />
+CDN for files around the world<br />
 Application SQL databases<br />
 NoSQL databases<br />
 [Time-series databases](/time-series/)<br />
