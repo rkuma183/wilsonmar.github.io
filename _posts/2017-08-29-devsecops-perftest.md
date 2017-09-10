@@ -24,12 +24,6 @@ Included is a "guided tour" of how the <a target="_blank" href="https://wilsonma
 
 The "Sec" part of "DevSecOps" means security, which include scans of code for vulnerabilities, use of digital certificates to control access, and tools to manage secrets using secure vaults.
 
-## Shift left
-The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
-
-   <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
-   VIDEO: https://youtu.be/ZG073qSgh_0
-
 To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo  presentations</a>.
 
 ## Who Should Attend
@@ -44,6 +38,12 @@ There are several editions of this class, of different length:
 
 * The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
 <br /><br />
+
+   ### Shift left
+   The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
+
+   <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
+   VIDEO: https://youtu.be/ZG073qSgh_0
 
 ## Unique 
 Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on live during the class. This is an opportunity few get even with on-the-job experience.
