@@ -65,6 +65,7 @@ CMDB server repository<br />
 DNS (Domain Name System)<br />
 CDN for files around the world<br />
 Application SQL databases<br />
+Liquibase database schema changelogs<br />
 NoSQL databases<br />
 [Time-series databases](/time-series/)<br />
 
