@@ -99,6 +99,8 @@ Failover test run<br />
 Google Kubernetes<br />
 Puppet Zookeeper/Noah/Mesos<br />
 
+### REST API
+
 ### Testing services
 Terminals<br />
 BrowserSync<br />
