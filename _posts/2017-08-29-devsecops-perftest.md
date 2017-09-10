@@ -38,21 +38,15 @@ This course is for anyone new to DevOps but experienced with information technol
 ## Editions of the course
 There are several editions of this class, of different length:
 
-* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps terms and concepts possible only from seeing it all working together. Participants edit a file, push it to GitHub, and see a whole series of programs build and test software automatically. Participants leave with an appreciation for some of the subtleties about each technology. Video.
+* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps terms and concepts possible only from seeing the various tools all working together. Participants pull from and push to GitHub, edit files, and see first-hand programs built and software tested automatically. Participants leave with an understanding of the meaning behind <a target="_blank" href="https://quizlet.com/222277746/devsecops-acronyms-and-buzzwords-flash-cards/">buzzwords and abbreviations in DevSecOps</a>.
 
-* The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with a visceral understanding of both the advantages and limitations modern DevOps offers.
+* The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with an ability to identify DevSecOps toolchain components and usage workflow and have an appreciation for some of the subtleties about each technology.
 
-* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants leave after a live "blue/green" deployment. NBD
+* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
 <br /><br />
 
-At the end of the course, you will be able to:
-
-* Define the meaning of <a target="_blank" href="https://quizlet.com/222277746/devsecops-acronyms-and-buzzwords-flash-cards/">buzzwords and abbreviations in DevSecOps</a>.
-* Identify the DevSecOps toolchain components and usage workflow.
-
-
 ## Unique 
-Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on during the class. Here you get the equivalent to several years of on-the-job experience.
+Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on live during the class. This is an opportunity few get even with on-the-job experience.
 
 <!-- https://quizlet.com/202303488/developing-applications-for-cloud-computing-flash-cards/ -->
 
@@ -79,6 +73,7 @@ NoSQL databases<br />
 Programming Languages (Java)<br />
 Java Frameworks: Spring Boot<br />
 JHipster<br />
+Angular<br />
 
 ### Build and Release
 Login GitHub/GitLab<br />
@@ -104,9 +99,10 @@ Failover test run<br />
 Google Kubernetes<br />
 Puppet Zookeeper/Noah/Mesos<br />
 
-### DevOps services
+### Testing services
 Terminals<br />
 BrowserSync<br />
+Browser inspect debugger<br />
 Mock services<br />
 Jenkins/Cloudbees<br />
 JUnit<br />
