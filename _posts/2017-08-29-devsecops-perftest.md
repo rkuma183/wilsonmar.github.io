@@ -36,10 +36,11 @@ There are several editions of this class, of different length:
 
 * The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with an ability to identify DevSecOps toolchain components and usage workflow and have an appreciation for some of the subtleties about each technology.
 
-* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters. This is crucial for people who work in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
+* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters -- crucial for working in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
 <br /><br />
 
-   ### Shift left
+   <strong>Shift left</strong>
+
    The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
 
    <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
