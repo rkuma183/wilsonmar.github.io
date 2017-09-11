@@ -77,7 +77,7 @@ Angular<br />
 
 ### Build and Release
 Login GitHub/GitLab<br />
-Select repository<br />
+Release when ready<br />
 Login Jenkins/Salt/Travis/CirclCI/TeamCity<br />
 Maven/Yarn/Ant/Gradle/Gulp<br />
 
@@ -89,11 +89,11 @@ OpenStack LXC<br />
 ### Security
 SonarQube code scan run reports<br />
 Hashicorp Vault<br />
+Penetration testing<br />
 
 ### Scalable orchestration
 NetflixOSS<br />
 Hashicorp Consul<br />
-Deploy <br />
 Blue/Green deployment<br />
 Failover test run<br />
 Google Kubernetes<br />
