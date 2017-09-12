@@ -114,6 +114,7 @@ Fitnesse<br />
 Cucumber<br />
 
 ### Monitoring
+Zipkin tracing<br />
 ELK stack vs. Tick stack<br />
 Elsticsearch vs. InfluxDB<br />
 Logstash vs. Telegraf<br />
