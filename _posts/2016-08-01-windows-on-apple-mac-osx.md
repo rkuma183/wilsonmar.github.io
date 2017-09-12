@@ -535,17 +535,14 @@ All Cask dependencies satisfied.
    This takes several minutes.
 
    <pre>
-==> box: Box file was not detected as metadata. Adding it directly...
-==> box: Adding box 'precise64' (v0) for provider: 
-    box: Downloading: http://files.vagrantup.com/precise64.box
-    box: Progress: 38% (Rate: 464k/s, Estimated time remaining: 0:07:22)
    </pre>
 
    ### Configure same subnet
 
    PROTIP: Machines talk with each other only if they are on the same network subnet.
 
-0. In Virtualbox settings, Networking, click "Host-only Networks".
+0. In Virtualbox, click Settings, Networking, click the Adapter with the "Host-only Adapter".
+0. Select the name "vboxnet1".
 0. Click on the icon at the right to create a new entry.
 0. Specify a private network address such as `192.168.57.1`, with a subnet mask of `255.255.255.0`.
 
