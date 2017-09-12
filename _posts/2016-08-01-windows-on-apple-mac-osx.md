@@ -560,7 +560,7 @@ All Cask dependencies satisfied.
 
    This creates a `.vagrant` hidden folder.
 
-   This creates a `Vagrantfile` containing these two lines:
+   This creates a `Vagrantfile`. All such files begin with these two lines:
 
    <pre>
 # -*- mode: ruby -*-
@@ -568,11 +568,11 @@ All Cask dependencies satisfied.
    </pre>
 
    Several instances can be defined within the same Vagrantfile.
-   
+
 
    ### Vagrant Global Status
 
-0. See Ansible instances from any directory:
+0. List Ansible instances from any directory:
 
    <tt><strong>vagrant global-status
    </strong></tt>
