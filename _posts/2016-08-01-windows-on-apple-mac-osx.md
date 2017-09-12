@@ -571,12 +571,12 @@ All Cask dependencies satisfied.
 
    ### Vagrant Global Status
 
-0. See Ansible instances:
+0. See Ansible instances from any directory:
 
    <tt><strong>vagrant global-status
    </strong></tt>
 
-   The response when instances were running:
+   A sample response can include directories that have been deleted:
 
    <pre>
 id       name    provider   state   directory                                                 
@@ -597,7 +597,13 @@ with Vagrant commands from any directory. For example:
 
    ![ansible-files-244x215-31570](https://user-images.githubusercontent.com/300046/30340308-52ad0e58-97af-11e7-903f-4af9e67cd6ce.jpg)
 
-   PROTIP: These need to 
+   PROTIP: Such folders defined need to be deleted or they take up space and cycles.
+
+   Deleted .vagrant dir deleted from the filesystem still show as running, to remove:
+
+   <tt><strong>vagrant global-status \-\-prune
+   </strong></tt>
+
 
    ### Vagrant up
 
