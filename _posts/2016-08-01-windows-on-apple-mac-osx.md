@@ -385,12 +385,13 @@ Virtualbox (virtualbox.org)
 
    Install Prerequisite Software (XCode Tools from Command Line): Open a Terminal (Launchpad —> Other —> Terminal). At the command prompt run the following command to install XCode Tools
 
-   $ xcode-select —install
+   <tt><strong>xcode-select —install
+   </strong></tt>
 
    Accept the EULA.
    Agree to install at Prompt.
 
-0. [Install Homebrew](//)
+0. [Install Homebrew](/macos-homebrew/)
 
 0. From within any folder, download, verify, and install VirtualBox:
 
@@ -534,8 +535,6 @@ All Cask dependencies satisfied.
 
    This takes several minutes.
 
-   <pre>
-   </pre>
 
    ### Configure same subnet
 
@@ -568,6 +567,8 @@ All Cask dependencies satisfied.
 # vi: set ft=ruby :
    </pre>
 
+   Several instances can be defined within the same Vagrantfile.
+   
 
    ### Vagrant Global Status
 
