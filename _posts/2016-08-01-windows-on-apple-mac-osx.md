@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows on Apple MacOS laptops"
-excerpt: "Demon spawn?"
+excerpt: "RDP to EC2, Amazon WorkSpaces, Vagrant, BootCamp, VMWare Fusion, Docker"
 tags: [apple, mac, setup, VMWare, Fusion]
 image:
 # feature: pic gray apple logo 1900x500.jpg
@@ -541,6 +541,36 @@ All Cask dependencies satisfied.
     box: Progress: 38% (Rate: 464k/s, Estimated time remaining: 0:07:22)
    </pre>
 
+   ### Configure same subnet
+
+   PROTIP: Machines talk with each other only if they are on the same network subnet.
+
+0. In Virtualbox settings, Networking, click "Host-only Networks".
+0. Click on the icon at the right to create a new entry.
+0. Specify a private network address such as `192.168.57.1`, with a subnet mask of `255.255.255.0`.
+
+0. Initialize
+
+   A Vagrant environment or target machine is required to run the vagrant up command. Run `vagrant init` to create a new Vagrant environment. Or, get an ID of a target machine from `vagrant global-status` to run this command on. A final option is to change to a directory with a Vagrantfile and to try again.
+   
+   <tt><strong>vagrant init precise64
+   </strong></tt>
+
+   The response in the command line:
+
+   <pre>
+   A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
+   </pre>
+
+   This creates a `.vagrant` hidden folder.
+
+   This creates a `Vagrantfile` containing these two lines:
+
+   <pre>
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+   </pre>
+
 
    ### Vagrant Global Status
 
@@ -566,39 +596,11 @@ with Vagrant commands from any directory. For example:
 "vagrant destroy 1a2b3c4d"
    </pre>
 
-   For example, the instance named "acs" would contain files like these:
+   For example, the sample instance named "acs" would contain files like these:
 
    ![ansible-files-244x215-31570](https://user-images.githubusercontent.com/300046/30340308-52ad0e58-97af-11e7-903f-4af9e67cd6ce.jpg)
 
-
-   ### Configure same subnet
-
-   PROTIP: Machines talk with each other only if they are on the same network subnet.
-
-0. In Virtualbox settings, Networking, click "Host-only Networks".
-0. Click on the icon at the right to create a new entry.
-0. Specify a private network address such as `192.168.57.1`, with a subnet mask of `255.255.255.0`.
-
-0. Initialize
-
-   A Vagrant environment or target machine is required to run the vagrant up command. Run `vagrant init` to create a new Vagrant environment. Or, get an ID of a target machine from `vagrant global-status` to run this command on. A final option is to change to a directory with a Vagrantfile and to try again.
-   
-   <tt><strong>vagrant init precise64
-   </strong></tt>
-
-   The response in the command line:
-
-   <pre>
-   A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
-   </pre>
-
-   This creates a `Vagrantfile` containing these two lines:
-
-   <pre>
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-   </pre>
-
+   PROTIP: These need to 
 
    ### Vagrant up
 
