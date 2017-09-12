@@ -493,6 +493,7 @@ All Cask dependencies satisfied.
 🍺  vagrant-manager was successfully installed!
    </pre>
 
+
    ### Spin up Ubuntu server
 
 0. Find an image at https://app.vagrantup.com/boxes/search
@@ -554,8 +555,6 @@ All Cask dependencies satisfied.
 id       name    provider   state   directory                                                 
 ----------------------------------------------------------------------------------------------
 0cf0a57  acs     virtualbox saved   /Users/mac/gits/ansible                                   
-60be83f  web     virtualbox saved   /Users/mac/gits/ansible                                   
-a351066  db      virtualbox saved   /Users/mac/gits/ansible                                   
 039b2ad  default virtualbox running /Users/mac/gits/wilsonmar/jhipster-sample                 
 c1d1bed  default virtualbox running /Users/mac/gits/wilsonmar/jhipster-sample/jhipster-devbox 
 &nbsp; 
@@ -566,6 +565,10 @@ that directory and run Vagrant, or you can use the ID directly
 with Vagrant commands from any directory. For example:
 "vagrant destroy 1a2b3c4d"
    </pre>
+
+   For example, the instance named "acs" would contain files like these:
+
+   ![ansible-files-244x215-31570](https://user-images.githubusercontent.com/300046/30340308-52ad0e58-97af-11e7-903f-4af9e67cd6ce.jpg)
 
 
    ### Configure same subnet
@@ -589,7 +592,7 @@ with Vagrant commands from any directory. For example:
    A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
    </pre>
 
-
+   Alternately,
 
    vagrant init precise64
 
@@ -616,6 +619,10 @@ again.
 Couldn't open file /Users/mac/vagrant-ubuntu-sandbox/base
    </pre>
 
+
+
+
+
 0. Login to the new server via SSH (Secure Shell):
 
    <tt><strong>vagrant ssh
@@ -627,12 +634,12 @@ Couldn't open file /Users/mac/vagrant-ubuntu-sandbox/base
    <tt><strong>exit
    </strong></tt>
 
-0. Destroy the Ubuntu virtual server installation:
+0. Destroy the virtual server instance defined on the current directory:
 
    <tt><strong>vagrant destroy
    </strong></tt>
 
-   View your processes:
+0. View your processes:
 
    <tt><strong>ps -al
    </strong></tt>
@@ -640,7 +647,7 @@ Couldn't open file /Users/mac/vagrant-ubuntu-sandbox/base
 
    ### Configuration
 
-   The vagrant virtual servers are configured with a single file (called a “Vagrantfile.”) started with a single command (vagrant up), are contained within a single folder, and can be destroyed with a single command (vagrant destroy). 
+   The vagrant virtual servers are configured with a single file (called a "Vagrantfile") started with a single command (vagrant up), are contained within a single folder, and can be destroyed with a single command (vagrant destroy). 
 
 
 
