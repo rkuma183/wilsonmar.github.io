@@ -502,7 +502,7 @@ All Cask dependencies satisfied.
 
    ubuntu/precise64 20170427.0.0 contains Official Ubuntu Server 12.04 LTS (Precise Pangolin).
 
-0. Make a sandbox directory, cd into it:
+0. Make a sandbox directory, cd into it from your Home (~) directory:
 
    <tt><strong>cd ~ && mkdir vagrant-sandbox && cd vagrant-sandbox
    </strong></tt>
@@ -583,18 +583,21 @@ with Vagrant commands from any directory. For example:
 
    A Vagrant environment or target machine is required to run the vagrant up command. Run `vagrant init` to create a new Vagrant environment. Or, get an ID of a target machine from `vagrant global-status` to run this command on. A final option is to change to a directory with a Vagrantfile and to try again.
    
-   <tt><strong>vagrant init
+   <tt><strong>vagrant init precise64
    </strong></tt>
 
-   The response:
+   The response in the command line:
 
    <pre>
    A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
    </pre>
 
-   Alternately,
+   This creates a `Vagrantfile` containing these two lines:
 
-   vagrant init precise64
+   <pre>
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+   </pre>
 
 
    ### Vagrant up
