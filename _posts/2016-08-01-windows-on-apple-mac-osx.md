@@ -21,6 +21,7 @@ Each has its own advantages and disadvantages:
 * <a href="#RDP">Remote Desktop Protocol client to cloud instances</a>
 * <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
 * <a href="#Docker">Docker Windows instance</a>
+* <a href="#Vagrant">Vagrant Virtualbox</a>
 * <a href="#BootCamp">BootCamp</a>
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a href="#Parallels">Parallels</a>
@@ -362,6 +363,292 @@ Docker provides a transparent interface to operating systems.
 
 * [Docker setup](/docker-setup/)
 * [Docker build](/docker-build/)
+
+
+<a name="Vagrant"></a>
+
+## Vagrant Virtualbox
+
+Vagrant (at https://www.vagrantup.com) is from Hashicorp, the same folks who provide Consul.
+
+Vagrant provisions complete virtual machines (Unix, Linux, Mac, or Windows) inside the Mac Operating system as virtual machines. The VMs are segregated from other processes. This allows you to test our software in a variety of environments.
+
+Virtualbox (virtualbox.org)
+
+### Install
+
+0. First, Apple XCode needs to be installed.
+
+   https://itunes.apple.com/au/app/xcode/id497799835?mt=12
+
+   Agree to EULA and Install.
+
+   Install Prerequisite Software (XCode Tools from Command Line): Open a Terminal (Launchpad —> Other —> Terminal). At the command prompt run the following command to install XCode Tools
+
+   $ xcode-select —install
+
+   Accept the EULA.
+   Agree to install at Prompt.
+
+0. [Install Homebrew](//)
+
+0. From within any folder, download, verify, and install VirtualBox:
+
+   <tt><strong>brew install Caskroom/cask/virtualbox
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==> Updated Formulae
+notmuch                                                        pwntools                                                       todoman
+&nbsp;
+==> brew cask install Caskroom/cask/virtualbox 
+==> Satisfying dependencies
+==> Downloading http://download.virtualbox.org/virtualbox/5.1.26/VirtualBox-5.1.26-117224-OSX.dmg
+######################################################################## 100.0%
+==> Verifying checksum for Cask virtualbox
+==> Installing Cask virtualbox
+==> Running installer for virtualbox; your password may be necessary.
+==> Package installers may write to any location; options such as --appdir are ignored.
+Password:
+==> installer: Package name is Oracle VM VirtualBox
+==> installer: Upgrading at base path /
+==> installer: The upgrade was successful.
+🍺  virtualbox was successfully installed!
+   </pre>   
+
+0. Download, verify, and install VirtualBox extension pack for your version of virtualbox:
+
+   <tt><strong>brew install Caskroom/cask/virtualbox-extension-pack
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 1 tap (caskroom/cask).
+No changes to formulae.
+&nbsp;
+==> brew cask install Caskroom/cask/virtualbox-extension-pack 
+==> Caveats
+Installing this Cask means you have AGREED to the
+VirtualBox Personal Use and Evaluation License at
+&nbsp;
+https://www.virtualbox.org/wiki/VirtualBox_PUEL
+&nbsp;
+==> Satisfying dependencies
+All Cask dependencies satisfied.
+==> Downloading http://download.virtualbox.org/virtualbox/5.1.26/Oracle_VM_VirtualBox_Extension_Pack-5.1.26-117224.vbox-extpack
+######################################################################## 100.0%
+==> Verifying checksum for Cask virtualbox-extension-pack
+==> Installing Cask virtualbox-extension-pack
+==> 0%...
+==> 10%...20%...30%...40%...50%...60%...70%...80%...90%...
+==> 100%
+🍺  virtualbox-extension-pack was successfully installed!
+   </pre>
+
+0. Download, verify, and install Vagrant:
+
+   <tt><strong>brew install Caskroom/cask/vagrant
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+==> brew cask install Caskroom/cask/vagrant 
+==> Satisfying dependencies
+==> Downloading https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.dmg
+######################################################################## 100.0%
+==> Verifying checksum for Cask vagrant
+==> Installing Cask vagrant
+==> Running installer for vagrant; your password may be necessary.
+==> Package installers may write to any location; options such as --appdir are ignored.
+==> installer: Package name is Vagrant
+==> installer: Upgrading at base path /
+==> installer: The upgrade was successful.
+🍺  vagrant was successfully installed!
+   </pre>
+
+0. Download, verify, and install Vagrant-Manager:
+
+   <tt><strong>brew install Caskroom/cask/vagrant-manager
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+==> brew cask install Caskroom/cask/vagrant-manager 
+==> Satisfying dependencies
+==> Downloading https://github.com/lanayotech/vagrant-manager/releases/download/2.5.4/vagrant-manager-2.5.4.dmg
+######################################################################## 100.0%
+==> Verifying checksum for Cask vagrant-manager
+==> Installing Cask vagrant-manager
+==> Moving App 'Vagrant Manager.app' to '/Applications/Vagrant Manager.app'.
+🍺  vagrant-manager was successfully installed!
+   </pre>
+
+   ### Spin up Ubuntu server
+
+0. Find an image at https://app.vagrantup.com/boxes/search
+
+   PROTIP: Ubuntu is the most popular download, and is recently maintained.
+
+   ubuntu/precise64 20170427.0.0 contains Official Ubuntu Server 12.04 LTS (Precise Pangolin).
+
+0. Make a sandbox directory, cd into it:
+
+   <tt><strong>cd ~ && mkdir vagrant-sandbox && cd vagrant-sandbox
+   </strong></tt>
+
+0. Download the Ubuntu image, then initialize (init) the installation inside the sandbox folder (aka make the Vagrantfile). 
+
+   <tt><strong>vagrant box add precise64 http://files.vagrantup.com/precise64.box \-\-force 
+   </strong></tt>
+
+   PROTIP: The `--force` parameter specifies overwrite of the file if it already exists. This is since Vagrant downloads before checking anyway.
+
+   This takes several minutes. The intermediate output:
+
+   <pre>
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'precise64' (v0) for provider: 
+    box: Downloading: http://files.vagrantup.com/precise64.box
+    box: Progress: 38% (Rate: 464k/s, Estimated time remaining: 0:07:22)
+&nbsp;
+==> box: Box download is resuming from prior download progress
+==> box: Successfully added box 'precise64' (v0) for 'virtualbox'!
+   </pre>
+
+
+   Alternately, create a <strong>Windows 10</strong> sandbox:
+
+   <tt><strong>vagrant box add windows? http://files.vagrantup.com/windows?.box
+   </strong></tt>
+
+   This takes several minutes.
+
+   <pre>
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'precise64' (v0) for provider: 
+    box: Downloading: http://files.vagrantup.com/precise64.box
+    box: Progress: 38% (Rate: 464k/s, Estimated time remaining: 0:07:22)
+   </pre>
+
+
+   ### Vagrant Global Status
+
+0. See Ansible instances:
+
+   <tt><strong>vagrant global-status
+   </strong></tt>
+
+   The response when instances were running:
+
+   <pre>
+id       name    provider   state   directory                                                 
+----------------------------------------------------------------------------------------------
+0cf0a57  acs     virtualbox saved   /Users/mac/gits/ansible                                   
+60be83f  web     virtualbox saved   /Users/mac/gits/ansible                                   
+a351066  db      virtualbox saved   /Users/mac/gits/ansible                                   
+039b2ad  default virtualbox running /Users/mac/gits/wilsonmar/jhipster-sample                 
+c1d1bed  default virtualbox running /Users/mac/gits/wilsonmar/jhipster-sample/jhipster-devbox 
+&nbsp; 
+The above shows information about all known Vagrant environments
+on this machine. This data is cached and may not be completely
+up-to-date. To interact with any of the machines, you can go to
+that directory and run Vagrant, or you can use the ID directly
+with Vagrant commands from any directory. For example:
+"vagrant destroy 1a2b3c4d"
+   </pre>
+
+
+   ### Configure same subnet
+
+   PROTIP: Machines talk with each other only if they are on the same network subnet.
+
+0. In Virtualbox settings, Networking, click "Host-only Networks".
+0. Click on the icon at the right to create a new entry.
+0. Specify a private network address such as `192.168.57.1`, with a subnet mask of `255.255.255.0`.
+
+0. Initialize
+
+   A Vagrant environment or target machine is required to run the vagrant up command. Run `vagrant init` to create a new Vagrant environment. Or, get an ID of a target machine from `vagrant global-status` to run this command on. A final option is to change to a directory with a Vagrantfile and to try again.
+   
+   <tt><strong>vagrant init
+   </strong></tt>
+
+   The response:
+
+   <pre>
+   A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
+   </pre>
+
+
+
+   vagrant init precise64
+
+
+   ### Vagrant up
+
+0. Within the folder containing the Vagrantfile, start the server via Vagrant:
+
+   <tt><strong>vagrant up
+   </strong></tt>
+
+   <pre>
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'base' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Box file was not detected as metadata. Adding it directly...
+==> default: Adding box 'base' (v0) for provider: virtualbox
+    default: Downloading: base
+An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+&nbsp;
+Couldn't open file /Users/mac/vagrant-ubuntu-sandbox/base
+   </pre>
+
+0. Login to the new server via SSH (Secure Shell):
+
+   <tt><strong>vagrant ssh
+   </strong></tt>
+
+0. Change what you like. Mess it up if you care to. 
+0. Logout once done poking around:
+
+   <tt><strong>exit
+   </strong></tt>
+
+0. Destroy the Ubuntu virtual server installation:
+
+   <tt><strong>vagrant destroy
+   </strong></tt>
+
+   View your processes:
+
+   <tt><strong>ps -al
+   </strong></tt>
+
+
+   ### Configuration
+
+   The vagrant virtual servers are configured with a single file (called a “Vagrantfile.”) started with a single command (vagrant up), are contained within a single folder, and can be destroyed with a single command (vagrant destroy). 
+
+
+
+
+Blogs about this topic:
+
+* https://gist.github.com/tbonesteaks/000dc2d0584f30013913
+* http://sourabhbajaj.com/mac-setup/Vagrant/README.html
 
 
 <a id="BootCamp"></a>

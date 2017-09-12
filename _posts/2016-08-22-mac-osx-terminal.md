@@ -967,18 +967,60 @@ console.log('Web server listening at: %s', app.get('url'));
 };
 </pre>
 
+## Ulimit Too Many Files
 
-## VMWare Fusion #
+By default, operating systems limit how many file descriptors to allow.
+Each operating system version has a different approach.
 
-To create a Windows 10 instance within VMWare Fusion: 
+Linux operating systems have this command:
 
-0. Download the ISO file from:
+   <tt><strong>ulimit -a
+   </strong></tt>
 
-    https://www.microsoft.com/en-us/software-download/windows10ISO
+   On my Sierra the response is:
 
-0. Within VMWare Fusion, select File | New.
-0. Drag the ISO file and drop on the dialog.
-0. Supply the license key.
+   <pre>
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+file size               (blocks, -f) unlimited
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 256
+pipe size            (512 bytes, -p) 1
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 709
+virtual memory          (kbytes, -v) unlimited
+   </pre>
+
+
+Check how many file descriptors you have:
+
+   <tt><strong>launchctl limit maxfiles
+   </strong></tt>
+
+   On Sierra the response is:
+
+   <pre>
+   maxfiles    10240          10240    
+   </pre>
+
+   The first number is the "soft" number, the second one is the "hard" number.
+
+   Such numbers were set with a command such as:
+
+   <tt><strong>sudo launchctl limit maxfiles 10240 10240
+   </strong></tt>
+
+The maximum setting is 12288?
+
+<a target="_blank" href="https://superuser.com/questions/302754/increase-the-maximum-number-of-open-file-descriptors-in-snow-leopard">
+NOTE</a>: To change maxfiles on Sierra, define a plist. TODO: verify
+
+Due to security, OSX Lion removed the "unlimited" option and now requires a number to be specified.
+
+   <tt>sudo launchctl limit maxfiles unlimited
+   </tt>
 
 
 <a name="ElCapitanSIP"></a>
@@ -998,7 +1040,6 @@ which works by injecting its code into Finder and other application processes?
    * For example, OpenVPN issues a JSONDialog Error "DynamicClientBase: JSONDialog: Error running jsondialog".
 
 To get around this, you need to partially disable System Integrity Protection in OS X El Capitan.
-
 See <a target="_blank" href="https://developer.apple.com/library/prerelease/mac/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html">
 Apple's article</a> on how:
 
