@@ -18,9 +18,6 @@ comments: true
 
 Kibana presents visualization (a dashboard) from Elasticsearch databases.
 
-![elk-beat-arch-852x264-38339](https://user-images.githubusercontent.com/300046/30402050-b52938be-9899-11e7-9230-1bc0e28a7cd9.jpg)
-
-
 WARNING: Kibana 4 has a completely different approach to creating charts than Kibana 3.
 
 

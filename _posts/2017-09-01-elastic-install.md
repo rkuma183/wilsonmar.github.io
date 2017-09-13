@@ -21,8 +21,6 @@ This page describes the different options to get going with an Elastic Stack of 
 
 First of all, each component of the Elastic Stack (previously called ELK Stack) are typically on a different set of servers:
 
-![elk-beat-arch-852x264-38339](https://user-images.githubusercontent.com/300046/30402050-b52938be-9899-11e7-9230-1bc0e28a7cd9.jpg)
-
    * Beats components are installed on servers being monitored.
    * Logstash servers should ideally be near the same subnet as servers being monitored.
    * ElasticSearch database nodes (usually a cluster of them) can be in the same or different data centers than servers being monitored.
