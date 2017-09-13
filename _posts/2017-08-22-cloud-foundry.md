@@ -975,15 +975,15 @@ You do not need special permissions to use them in your manifests or push comman
 
 ## Buildpacks
 
-Runtimes are created by a buildpack.
-So each buildpack typically targets a programming language and its corresponding build tools. 
+   Runtimes are created by a buildpack.
+   So each buildpack typically targets a programming language and its corresponding build tools. 
 
-See what buildpacks are available:
+0. See what buildpacks are available:
 
    <tt><strong>cf buildpacks
    </strong></tt>
 
-CF can detect the applications' programming language:
+   CF can detect the applications' programming language:
 
    * Ruby buildpacks look for Gemfiles and Gemfile.lock files and runs Bundler
    * Node.js buildpacks look for packages.json and runs NPM or Yarn
@@ -1095,8 +1095,8 @@ Businesses have different ways to perform their software development. Some are d
 
 ## Zero Downtime Deployments
 
-      <a target="_blank" href="https://www.youtube.com/watch?v=oGZDlUvALF0">
-      VIDEO</a> of blue/green Zero Downtime Deployment.
+   <a target="_blank" href="https://www.youtube.com/watch?v=oGZDlUvALF0">
+   VIDEO</a> of blue/green Zero Downtime Deployment.
 
 A zero downtime deployment allows for the old release to finish any outstanding interactions before being shut down
 and for the new release to process new requests. 
@@ -1161,15 +1161,15 @@ To add a required column to the database, enable revert by doing a series of rel
 
 5. Optionally, a release to remove the default value from the required column can wrap up the steps.
 
-<hr />
+   <hr /> 
 
 0. Remove
 
-TODO: ??? see video
+   TODO: ??? see video
 
-To avoid mistakes, use the cf command extension or plugin interface to automate sequences of commands. 
-The Cloud Foundry Community has already written plugins for Zero Downtime Deployments at 
-https://plugins.cloudfoundry.org.
+   To avoid mistakes, use the cf command extension or plugin interface to automate sequences of commands. 
+   The Cloud Foundry Community has already written plugins for Zero Downtime Deployments at 
+   https://plugins.cloudfoundry.org.
 
   <pre>
 bg-restage         1.0.0 Perform a zero-downtime restage of an application over the top of an old one (highly inspired by autopilot)
