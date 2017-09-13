@@ -5,9 +5,10 @@ excerpt: "People to see and places (links) to go about the Elastic (ELK) stack"
 tags: [ELK, ecosystem]
 shorturl: "https://goo.gl/"
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14583248/4b20c578-03d9-11e6-8f7a-c860b666bc73.jpg
-  credit: Wall Street Journal
-  creditlink: http://graphics.wsj.com/job-market-tracker/
+# elk-beat-arch-1900x500-127316.jpg
+  feature: https://user-images.githubusercontent.com/300046/30403196-bb25f73a-989d-11e7-855a-b8ef9f72130a.jpg
+  credit: JP Toto on Pluralsight
+  creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
