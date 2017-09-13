@@ -937,10 +937,6 @@ Git Basics: Merge and Rebase</a> [3:26] Mar 9, 2017
 What is Git rebase?</a> [8:57] May 16, 2017
 by Wallace Kelly 
 
-<a target="_blank" href="https://www.youtube.com/watch?v=mHlyRJ02xUE">
-Git - Merge and Rebase</a> [12:26] Feb 4, 2017
-by Another AEM Developer
-
 
 ### Laracasts
 
@@ -1224,6 +1220,19 @@ GIT QuickStart using Visual Studio:
    Undo changes</a> [33:56] 14 Feb 2017
 0. 12 <a target="_blank" href="https://www.youtube.com/watch?v=jsJoLoaJjlg">
    Publish code</a>
+
+### Shashi Bhushan
+
+As "Another AEM Developer"
+
+<a target="_blank" href="https://www.youtube.com/watch?v=mHlyRJ02xUE">
+Git - Merge and Rebase</a> [12:26] Feb 4, 2017
+
+<a target="_blank" href="https://www.youtube.com/watch?v=XsxP6QQr7Dg">
+Git - Interactive Rebase</a> [9:26] Feb 8, 2017
+
+<a target="_blank" href="https://www.youtube.com/watch?v=XjF6r9G66gc">
+Git - Resolving Conflicts</a> [7:39] Jan 12, 2017
 
 
 
