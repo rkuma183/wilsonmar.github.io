@@ -374,17 +374,18 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 
 <hr />
 
-## Check upgrade
+## Various Random Notes 
 
 Upgrade checker for those upgrading from 1.x.
 
 0. Download
 0. Unzip
 0. Use a text editor to edit elasticsearch.yml.
-0. Delete the # comment for each line.
-0. Settings are in the form of key, then a colon, then a value.
+0. Delete the # comment for each line. Settings are in the form of key, then a colon, then a value.
+
 0. echo $JVM_HOME
-http://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
+
+   See http://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
 
 0. If you downloaded to the Download folder and double-clicked to unzip there:
 
