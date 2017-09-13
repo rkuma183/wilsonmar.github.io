@@ -93,6 +93,7 @@ Hashicorp Vault<br />
 Penetration testing<br />
 
 ### Scalable orchestration
+Hashicorp Packer<br />
 NetflixOSS<br />
 Hashicorp Consul<br />
 Blue/Green deployment<br />
@@ -103,7 +104,7 @@ Puppet Zookeeper/Noah/Mesos<br />
 ### REST API
 
 ### Testing services
-Terminals<br />
+Terminal CLI<br />
 BrowserSync<br />
 Browser inspect debugger<br />
 Mock services<br />

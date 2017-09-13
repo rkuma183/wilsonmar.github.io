@@ -567,12 +567,94 @@ All Cask dependencies satisfied.
 # vi: set ft=ruby :
    </pre>
 
-   Several instances can be defined within the same Vagrantfile.
+   Several server instances can be defined within the same Vagrantfile.
+
+    <pre>   
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+    </pre>   
+
+   Specs under the line above:
+
+    <pre>
+  config.vm.define "webserver01" do |web01|
+    web01.vm.box = "jptoto/Windows2012R2"
+    web01.vm.hostname = "windows-webserver01"
+    web01.vm.communicator = "winrm"
+    web01.winrm.username = "vagrant"
+    web01.winrm.password = "vagrant"
+    web01.vm.network "private_network", ip: "192.168.57.3"
+    web01.vm.provider "virtualbox" do |vb|
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+  end
+    </pre>
+
+   Vagrant obtains the image for `web01.vm.box = "jptoto/Windows2012R2"` from<br />
+   <a target="_blank" href="https://app.vagrantup.com/jptoto/boxes/Windows2012R2">
+   https://app.vagrantup.com/jptoto/boxes/Windows2012R2</a>
+
+   Also: http://www.vagrantbox.es/
+
+   CAUTION: Unlike Linux machines which requires no new license code every 90 days, Microsoft insists that a new image be re-created every 90 days. Painful.
+
+   Thus the need for Packer template provisioning scripts to create Windows server images.
 
 
-   ### Vagrant Global Status
+   ### Packer Templates
 
-0. List Ansible instances from any directory:
+0. Install Packer from Hashicorp. On a Mac <a target="_blank" href="http://brewformulas.org/Packer">use Homebrew</a> even though <a target="_blank" href="https://www.packer.io/docs/install/index.html">Hashicorp shows compiling</a>:
+
+   <tt><strong>brew install packer
+   </strong></tt>
+
+   Alternatively, on Windows: choco install packer
+
+0. Verify you can run the command without parameters (no PATH problems):
+
+   <tt><strong>packer
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Usage: packer [--version] [--help] <command> [&LT;args>]
+&nbsp;
+Available commands are:
+    build       build image(s) from template
+    fix         fixes templates from old versions of packer
+    inspect     see components of a template
+    push        push a template and supporting files to a Packer build service
+    validate    check that a template is valid
+    version     Prints the Packer version
+   </pre>   
+
+0. Packer templates
+
+   A Packer template simplifies the creation of minimally-sized, fully patched Windows Vagrant boxes.
+
+   More importantly, it's used to achieve <strong>immutable</strong> server configurations.
+
+   <a target="_blank" href="https://github.com/mwrock/packer-templates">
+   Matt Wrock covers it in detail</a> in his Nano Server template.
+
+   See http://blog.traintracks.io/building-a-devbox-with-packer-vagrant-and-ansible-2/
+   
+
+   ### Virtualbox
+
+   "Think of Vagrant as a scripting engine for VirtualBox."
+
+   <a target="_blank" href="https://web.archive.org/web/20160412063608/http://www.agilesysadmin.net/imaging-or-configuration-management" title="Stephen Nelson-Smith's How to Build 100 Web Servers in a Day April 12, 2016">PROTIP</a>: The ideal strategy for scaling deployments is a judicious combination of both an automation pattern and "Golden Image" approaches. Start with a "DNA stem cell" image containing an approved base build, security fixes, and settings which don't often change. Use provisioning tools such as Kickstart and Cobbler. Then customize using Ansible, Puppet, or Chef to create a golden image for production.
+
+
+   ### Local Vagrant Global Status
+
+0. List Vagrant instances from any directory:
 
    <tt><strong>vagrant global-status
    </strong></tt>
@@ -594,7 +676,7 @@ with Vagrant commands from any directory. For example:
 "vagrant destroy 1a2b3c4d"
    </pre>
 
-   For example, the sample instance named "acs" would contain files like these:
+   For example, the sample instance named "acs" (Ansible Control Server) would contain files like these:
 
    ![ansible-files-244x215-31570](https://user-images.githubusercontent.com/300046/30340308-52ad0e58-97af-11e7-903f-4af9e67cd6ce.jpg)
 

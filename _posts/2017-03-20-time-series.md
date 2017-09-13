@@ -185,6 +185,10 @@ Introduction to Time Series</a>
    Time Series portal at https://insights.timeseries.azure.com</a>
    for an <strong>Environment</strong> you define.
 
+https://www.youtube.com/watch?v=WlsK22p9rGI
+InfluxDB Performance Tuning & Schema Design - June 2016
+by Gunnar Aasen
+
 
 ## More on front-end styling #
 
