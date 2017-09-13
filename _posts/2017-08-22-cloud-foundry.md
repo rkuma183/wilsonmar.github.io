@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cloud-Foundry"
-excerpt: "The one tool to rule all cloud providers"
+excerpt: "The one tool to rule all cloud providers?"
 shorturl: "https://goo.gl/yb4WGG"
 modified:
 tags: []
@@ -26,6 +26,16 @@ so that you learn in the least time possible.
 The sequence is different that the Syllbus of the Linux Foundation's 
 <a target="_blank" href="https://www.cloudfoundry.org/certification/">
 $300/€285 4-hour Cloud Foundry Certified Developer (CFCD)</a> proctored exam.
+
+
+## Competition
+
+There are several distributions of Cloud Foundry:
+
+   * Open Source CF 
+   * PCF (Pivotal Cloud Foundry)
+   * IBM Bluemix
+   * <a target="_blank" href="https://docs.stackato.com/">HPE Helion Stackato</a>
 
 
 ## A Cloud Above Clouds
@@ -278,11 +288,11 @@ VIDEO</a>:
 3. <a href="#Verify">Verify</a> below.
 
 
-<a name="Verify"></a>
+   <a name="Verify"></a>
 
-### Verify
+   ### Verify
 
-   `cf` is the Cloud Foundry CLI program.
+0. Use the `cf` CLI program.
 
    <tt><strong>cf --version</strong></tt>
 
@@ -291,7 +301,7 @@ VIDEO</a>:
    <pre>cf version 6.29.1+d5129d651.2017-08-17
    </pre>
 
-   Alternately, get that number along with a list of commands you can do from the CLI:
+0. Get that number along with a list of commands you can do from the CLI:
 
    <tt><strong>cf help -a</strong></tt>
 
@@ -389,12 +399,12 @@ Not logged in. Use 'cf login' to log in.
    </pre>
 
 
-### BOSH Mainfest.yml
+   ### BOSH Mainfest.yml
 
-"BOSH is designed to offer a tool chain for release engineering, deployment and lifecycle management of large scale distributed services." In my words:
+   "BOSH is designed to offer a tool chain for release engineering, deployment and lifecycle management of large scale distributed services." In my words:
 
-BOSH is a "lifecycle management" tool that runs Cloud Foundry itself,
-used "under the covers" of Pivotal CF to deploy and update infrastructure components. 
+   BOSH is a "lifecycle management" tool that runs Cloud Foundry itself,
+   used "under the covers" of Pivotal CF to deploy and update infrastructure components. 
 
    <a target="_blank" href="https://bosh.io/docs/">
    https://bosh.io/docs</a>
@@ -402,17 +412,16 @@ used "under the covers" of Pivotal CF to deploy and update infrastructure compon
    <a target="_blank" href="https://github.com/cloudfoundry/bosh">
    https://github.com/cloudfoundry/bosh</a>
 
-BOSH is a self-referencing acronym where the "B" stands for BOSH itself.
-The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
+   BOSH is a self-referencing acronym where the "B" stands for BOSH itself.
+   The "OSH" in BOSH is from <strong>"Outer Shell"</strong>.
 
    https://github.com/cloudfoundry/docs-bosh
 
-A BOSH operator (person) writes and manages various releases built with BOSH.
+   A BOSH operator (person) writes and manages various releases built with BOSH.
 
-
-One file defines default values for the app defined within its folder --
-the <strong>manifest.yml</strong> file defines an <strong>App Unit</strong> of all the pieces of its system for releases.
-For example:
+   One file defines default values for the app defined within its folder --
+   the <strong>manifest.yml</strong> file defines an <strong>App Unit</strong> of all the pieces of its system for releases.
+   For example:
 
    <pre>
 ---
@@ -442,7 +451,7 @@ applications:
    3. Currently used values
    4. Provider default values
    5. Cloud Foundry default, such as memory being one gigabyte (1GB)
-
+   <br /><br />
 
    <a name="Login"></a>
 
