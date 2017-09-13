@@ -17,12 +17,10 @@ comments: true
 
 This page lists videos and links to people within the Elastic company and its Elastci Stack ecosystem. 
 
-![elk-beat-arch-852x264-38339](https://user-images.githubusercontent.com/300046/30402050-b52938be-9899-11e7-9230-1bc0e28a7cd9.jpg)
-
 This is one of several pages I have on the Elastic Stack:
 
-   * [ElasticSearch ecosystem of people and websites](/elastic-ecosystem/)
-   * [ELK stack architecture](/elk-stack/)
+   * [Elastic Stack ecosystem of people and websites](/elastic-ecosystem/)
+   * [Elastic Stack architecture and installation](/elastic-install/)
    * elk-config
    * elasticsearch (the database of logs)
    * [Kibana (the visualization engine, like Grafana)](/elastic-kibana/)

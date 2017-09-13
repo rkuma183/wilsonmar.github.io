@@ -18,7 +18,9 @@ comments: true
 
 This page describes the different options to get going with an Elastic Stack of your own.
 
-First of all, each component of the Elastic Stack are typically on a different set of servers:
+First of all, each component of the Elastic Stack (previously called ELK Stack) are typically on a different set of servers:
+
+![elk-beat-arch-852x264-38339](https://user-images.githubusercontent.com/300046/30402050-b52938be-9899-11e7-9230-1bc0e28a7cd9.jpg)
 
    * Beats components are installed on servers being monitored.
    * Logstash servers should ideally be near the same subnet as servers being monitored.
@@ -236,6 +238,8 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 1. Install Docker.
 
    See https://docs.docker.com/docker-for-mac/
+   
+   See https://docs.docker.com/compose/install/
 
 2. Run the Docker daemon.
 
@@ -246,6 +250,7 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 
    NOTE: Source code for it can be found on GitHub at<br />
    https://github.com/elastic/elasticsearch-docker/tree/5.6
+
 
    ### max_memory_account
 
@@ -261,6 +266,10 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
    <tt><strong>docker run -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" docker.elastic.co/elasticsearch/elasticsearch:5.6.0
    </strong></tt>
 
+   Alternately, bring up a cluster of several Elasticsearch nodes based on specifications in the `docker-compose.yml` file:
+
+   <tt><strong>docker-compose up
+   </strong></tt>
    
    NOTE: The image is built with X-Pack and uses centos:7 as the base image. 
 
@@ -335,12 +344,17 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 
    PROTIP: Elasticsearch makes extensive use of memory maps. So give it the maximum.
 
-   On a Linux server:
+   To set the maximum value permanently on a Linux server:
+
+   <tt><strong>grep vm.max_map_count /etc/sysctl.conf
+   </strong</tt>
+
+   Alternately, to set the value for just the current session on a Linux server:
 
    <tt><strong>sysctl -w vm.max_map_count=262144
    </strong</tt>
 
-0. Start:
+0. Start the Elasticsearch service:
 
    <tt><strong>service elasticsearch start
    </strong></tt>
