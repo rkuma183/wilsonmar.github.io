@@ -28,6 +28,49 @@ First of all, each component of the Elastic Stack are typically on a different s
 
 <hr />
 
+## Versions for download
+
+<a target="_blank" href="https://www.elastic.co/downloads/elasticsearch">
+https://www.elastic.co/downloads/elasticsearch</a><br />
+presents the lastest version from Elastic.co.
+
+| Version | Date             | File type | Zip Bytes | Unzipped |
+| ------- | ---------------: | --------- | ----====- | -------- |
+| 5.6.0 | September 11, 2017 | elasticsearch-5.6.0.zip | 33,783,880 | 37,913,726 |
+| 5.5.3 |       May 15, 2017 | elasticsearch-5.5.3.zip | 33,517,299 | - |
+| 5.0.0 |   October 26, 2016 | elasticsearch-5.6.0.zip | 32,218,000 | - |
+
+Notice several images are available:
+
+   * .ZIP
+   * .TAR for generic Linux
+   * .DEB for Debian
+   * .RPM for Ruby
+   * .MSI for Windows
+
+Only one previous back release is available.
+
+The folder unzipped contains these folders:
+
+   <pre>
+|-- bin     = executables and shell scripts 
+|-- config  = settings to tweak
+|-- lib     = library jar files for Java
+|-- modules = jar files and properties for optional modules
+`-- plugins = empty
+   </pre>
+
+The config folder contains settings to tweak: 
+`log4j2.properties`, and <strong>elasticsearch.yml</strong>,
+
+0. On Windows 64-bit machines, edit the `jvm.options` file to add the stack size for Java (under `-Xmx2g`):
+
+   `-Xss1m`
+
+
+
+## Ways to setup
+
 A) <a href="#ElasticFromAmazon">Run on Amazon's Elastic Service</a>. This is a quick way.
    
 B) <a href="#Docker">Use a Docker image</a>.
@@ -69,6 +112,9 @@ identified reasons why he got away from it:
   * AWS performs backups only after receiving an email to AWS support rather than allowing the elasticsearch-aws-cloud plugin to configure s3 repositories from the elasticsearch service dashboard.
 
 The ironic thing is that Elastic's own Found service is run on AWS.'
+
+With that said, let's try it out anyway:
+
 
 <a id="Install"></a>
 
@@ -234,7 +280,7 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
    <tt><strong>cat /etc/issue.net; ifconfig
    </strong></tt>
 
-0. Get IP address assigned:
+0. Get IP address assigned, to later put in the elasticsearch.yml file:
 
    <tt><strong>ifconfig
    </strong></tt>
@@ -256,7 +302,7 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 
 0. Download Debian package from Elastic:
 
-   <tt><strong>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0.deb
+   <tt><strong>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.deb
    </strong></tt>
 
    PROTIP: RPM and Debian packages are available. Satellite versions from the OS
@@ -264,9 +310,12 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
 
 0. De-package:
 
-   <tt><strong>dpkg -i elasticsearch-5.0.0.deb
+   <tt><strong>dpkg -i elasticsearch-5.6.0.deb
    </strong></tt>
 
+
+
+   <a name="elasticsearch.yml"></a>
 
    ### Configure defaults
 
@@ -296,18 +345,34 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
    <tt><strong>service elasticsearch start
    </strong></tt>
 
-0. Verify access using a headless API call to its port:
+   Alternately, on a Windows machine:
 
-   <tt><strong>curl http://192.168.o.12:9200
+   <tt><strong>.\elasticsearch-service.bat install Elasticsearch
+   </strong></tt>
+
+0. Verify access using a headless API call to its port, for example:
+
+   <tt><strong>curl http://192.168.0.12:9200
+   </strong></tt>
+
+   On Windows, bring up PowerShell and:
+
+   <tt><strong>Invoke-WebRequest -Uri http://192.168.0.12:9200
    </strong></tt>
 
    The response should be JSON reflecting its most recent build metadata.
 
-0. Make it come up after a reboot:
+0. Make it come up after a reboot. On Linux:
 
    <tt><strong>systemctl enable elasticsearch
    </strong></tt>
 
+
+
+
+
+
+<hr />
 
 ## Check upgrade
 
