@@ -6,13 +6,14 @@ tags: [ELK, ecosystem]
 shorturl: "https://goo.gl/"
 image:
 # elk-beat-arch-1900x500-127316.jpg
-  feature: https://user-images.githubusercontent.com/300046/30403196-bb25f73a-989d-11e7-855a-b8ef9f72130a.jpg
+  feature: https://user-images.githubusercontent.com/300046/30403524-4cc88af8-989f-11e7-9ea2-af5a188a4ce0.jpg
   credit: JP Toto on Pluralsight
   creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
 <hr />
+![elk-beat-arch-1900x500]()
 
 {% include _toc.html %}
 
@@ -22,8 +23,6 @@ This is one of several pages I have on the Elastic Stack:
 
    * [Elastic Stack ecosystem of people and websites](/elastic-ecosystem/)
    * [Elastic Stack architecture and installation](/elastic-install/)
-   * elk-config
-   * elasticsearch (the database of logs)
    * [Kibana (the visualization engine, like Grafana)](/elastic-kibana/)
    * [Logstash and beats to collect data from servers](/elastic-collect/)
 
