@@ -39,7 +39,8 @@ So ES distributes well.
 
 ES is great at <strong>faceting</strong> (more than one per facet).
 
-ES is a document store like MongoDB.
+ES is a "document store" like MongoDB.
+
 
 ## Data structure
 
@@ -49,6 +50,76 @@ doctypes have schemas attached to them.
 
 ES can infer data types to fields.  PROTIP: Define schemas explicitly to avoid errors in inference.
 
+Create the database: (An example from the Toto tutorial)
+
+   <pre>
+CREATE DATABASE `my blog` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+   </pre>
+
+Create table for blog posts:
+
+   <pre>
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `post_text` varchar(255) DEFAULT NULL,
+  `post_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
+   </pre>
+
+4 spaces per indent.
+
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `post_text` varchar(255) DEFAULT NULL,
+  `post_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
+   </pre>
+
+
+## Mavel GUI executes queries
+
+Control+Enter executes
+
+   <pre>
+GET /_cat/indicies
+POST /my_blog
+{
+    "mappings": {
+        "post": {
+            "properties": {
+                "user_id": {
+                    "type": "integer"
+                },
+                "post_text": {
+                    "type": "string"
+                },
+                "post_date": {
+                    "type": "date"
+                }
+            }
+        }
+    }
+}
+   </pre>
+
+NOTE: "mappings" (schema), type "post" (table), properties (columns):
+
+Alternately:
+
+   <pre>   
+(POST) http://localhost:9200/my_blog
+   </pre>
+
+### Verify
+
+   <pre>
+GET my_blog
+
+   </pre>
 
 ## API
 
