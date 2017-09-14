@@ -18,12 +18,14 @@ comments: true
 
 Kibana presents visualization (a dashboard) from Elasticsearch databases.
 
+Kibana was first built using Ruby with the Sinatra framework.
+
 WARNING: Kibana 4 has a completely different approach to creating charts than Kibana 3.
 
 
-<a name="Install"></a>
+<a name="InstallKibana"></a>
 
-## Install
+## Install Kibana
 
 Kibana was originally written in JavaScript using NodeJs.
 
@@ -43,6 +45,57 @@ Kibana was originally written in JavaScript using NodeJs.
 
    <tt><strong>apt-get update && apt-get install kibana
    </strong></tt>
+
+
+<a name="InstallSense"></a>
+
+## Install Sense
+
+Sense is a Kibana app that provides an interactive console for submitting requests to Elasticsearch directly from your browser. 
+
+0. Be in the Kibana directory to download and install the Sense app:
+
+0. Install and run Sense by running the following command 
+
+   <tt><strong>./bin/kibana plugin --install elastic/sense 
+   </strong></tt>
+
+   On Windows: 
+
+   <tt><strong>bin\kibana.bat plugin --install elastic/sense
+   </strong></tt>
+
+   Alternately, download Sense from https://download.elastic.co/elastic/sense/sense-latest.tar.gz to install it on an offline machine.
+
+
+0. Start Kibana:
+
+   <tt><strong>./bin/kibana
+   </strong></tt>
+
+   On Windows: 
+
+   <tt><strong>bin\kibana.bat
+   </strong></tt>
+
+0. Open Sense your web browser by going to 
+
+   http://localhost:5601/app/sense
+
+
+
+
+   
+<a name="KibanaConfig"></a>
+
+##  Kibana Configuration
+
+Kibana installs with its own Node.js server. It doesn't use a web server.
+
+A default <strong>config.js</strong> comes with the installer.
+
+A single node is a master, data, and client nodes.
+A node specializes into data and client nodes.
 
    
    ### Edit configuration
@@ -74,6 +127,9 @@ Kibana was originally written in JavaScript using NodeJs.
 0. Click the blue "Create" button.
 
 
+
+
+
 <a name="PanelTypes"></a>
 
 ## Panel Types
@@ -101,14 +157,6 @@ For example, Kibana can create a dashboard with these panes:
 
 3) a pie chart to summarize the percentage of different error log levels.
 
-
-## Query DSL
-
-<a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/guide/current/proximity-matching.html">
-Proximity Matching</a> (closest neighbor search)
-
-https://www.elastic.co/guide/en/elasticsearch/guide/current/partial-matching.html">
-Partial Matching
 
 
 <a name="Videos"></a>

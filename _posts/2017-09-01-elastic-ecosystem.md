@@ -20,7 +20,7 @@ This page lists videos and links to people within (the ecosystem) around Elastic
 
 This is one of several pages about the Elastic Stack:
 
-   * [Elastic Stack ecosystem of people, websites, tutorials](/elastic-ecosystem/), this one
+   * [Elastic Stack ecosystem of people, websites, tutorials](/elastic-ecosystem/), this.
    * [Elastic Stack architecture and installation](/elastic-install/)
    * [Kibana (the visualization engine, like Grafana)](/elastic-kibana/)
    * [Logstash and beats to collect data from servers](/elastic-collect/)
@@ -174,6 +174,9 @@ slidedecks from presentations at their Tours here</a>.
 
 ## Elastic Rock Stars
 
+* <a target="_blank" href="https://www.elastic.co/videos">https://www.elastic.co/videos</a>
+
+
 * Zachary (Zach) Tong (<a target="_blank" href="https://twitter.com/ZacharyTong">@ZacharyTong</a>),
   <a target="_blank" href="https://www.linkedin.com/in/shaneconnelly">Shane Connell (previously at HP Autonomy)y</a>, 
   is an Elastic developer. He demo'd **pipeline aggregations** 17:18 into video
@@ -182,7 +185,10 @@ slidedecks from presentations at their Tours here</a>.
   
 * Zach co-wrote with Clinton Gormley the Feb 7, 2015 book: <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html">Online: <strong>Elasticsearch: The Definitive Guide</strong></a> formatted from <a target="_blank" href="https://github.com/elastic/elasticsearch-definitive-guide/">a GitHub repo</a>. <a target="_blank" href="http://www.amazon.com/Elasticsearch-Definitive-Guide-Clinton-Gormley/dp/1449358543/">$22.55 from Amazon</a>.
   Get it <a target="_blank" href="http://shop.oreilly.com/product/0636920028505.do">
-  direct from O'Reilly</a>.'
+  direct from O'Reilly</a>.
+
+  <a target="_blank" href="https://www.youtube.com/watch?v=bZGSHm-XE1A">
+  Clinton Gormley at #bbuzz 2014</a> [38:37]
     
 * at Elasticsearch
   https://www.youtube.com/watch?v=Epe63Uu-IO0&spfreload=1
