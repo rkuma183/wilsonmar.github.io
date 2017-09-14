@@ -114,12 +114,10 @@ The operating system is
 MacOS Yosemite version 10.10 or newer, such as El Capitan 10.11 or Sierra 10.12.
 
 Docker for Mac uses underlying software not in prior versions,
-so <strong>docker-machine</strong> commands that load and manage images
+so NO obsoleted <strong>docker-machine</strong> commands that load and manage images
 depend on the installation of <strong>Virtualbox</strong>
-by the <strong>Docker Toolbox</strong>.
+by the deprecated <strong>Docker Toolbox</strong>.
 
-The new Docker for Mac makes obsolete the docker-machine commands,
-Docker Toolbox, and Virtualbox.
 
 ### Recap
 
@@ -186,13 +184,13 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 <a name="Docker4Mac"></a>
 
-### Install Docker on Mac OSX #
+## Install Docker on Mac OSX #
 
 <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
    It uses the
    <a target="_blank" href="https://github.com/docker/HyperKit/">
    HyperKit VM</a>
-   ("xhyve") to virtualize the Docker Engine environment.
+   ("<strong>xhyve</strong>") to virtualize the Docker Engine environment.
    That technology requires OS X 10.10.3 Yosemite or newer.
 
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
@@ -293,8 +291,8 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    Native Windows images have been running within AWS EC2 clouds.
 
-   But Docker images containing Windows OS can run on other machines (such as MacOS and Linux), 
-   which reduces testing and admin. effort.
+   But since Docker images containing Windows OS can run on other machines (such as MacOS and Linux), 
+   thir use would reduce testing and admin. effort.
 
    The marketing page about run Windows within AWS EC2 is<br />
    <a target="_blank" href="https://docs.docker.com/machine/examples/aws/">
@@ -305,7 +303,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    https://console.aws.amazon.com/console/home</a>
 
 
-#### Install Docker on Windows 10 #
+## Install Docker on Windows 10 #
 
 The below enhances https://docs.docker.com/docker-for-windows/
 
@@ -993,6 +991,16 @@ hello-world         latest              1815c82652c0        2 months ago        
    * blog app server base (wordpress, alpine)
    <br /><br />
 
+   ### Windows Insider Images
+
+   Before pulling Microsoft's images from https://hub.docker.com/u/microsoft/
+   note they are designed to be used from "Windows Insider program" Windows Server or Windows 10 Container hosts.
+   They are of "beta" quality.
+
+   docker pull microsoft/windowsservercore-insider
+
+   ### Ubuntu search
+
 0. Search for Ubuntu images on the free and public repository at <br />
    <a target="_blank" href="https://hub.docker.com/">
    https://hub.docker.com</a>
@@ -1114,7 +1122,7 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
 0. In a Terminal, navigate to where you can add a repo.
 0. Get it and navigate into the repo:
 
-   <tt><strong>git clone https://github.com/wilsonmar/Dockerfiles;cd Dockerfiles
+   <tt><strong>git clone https://github.com/wilsonmar/Dockerfiles && cd Dockerfiles
    </strong></tt>
 
    PROTIP: I recommend putting the Dockerfile for an app within that app's repository
@@ -1155,6 +1163,9 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
 
    * https://github.com/jbergknoff/Dockerfile
    contains a Dockerfile for mysql, postgreSQL, redis, node, youtube-dl
+
+   * https://stefanscherer.github.io/is-there-a-windows-docker-image-for/
+   Nano servers containing Windows with .Net, ASP.NET, NodeJs, Python, Go, 
 
 
 <hr />
@@ -1922,16 +1933,18 @@ It scales containers
 by dispersing containers across multiple hosts.
 
    <tt><strong>docker run swarm create
-   </tt></strong>
+   </strong></tt>
 
 Installing Docker Swarm launches a container that is used as
 the Swarm Manager master to communicate to all the nodes in a Swarm cluster.
 
 See https://docs.docker.com/swarm/
 
-   docker run -d swarm join --addr=node_ip:2375 token://cluster_id
+   <tt><strong>docker run -d swarm join --addr=node_ip:2375 token://cluster_id
+   </strong></tt>
 
-   docker run -d -p swarm_port:2375 swarm manage token://cluster_id
+   <tt><strong>docker run -d -p swarm_port:2375 swarm manage token://cluster_id
+   </strong></tt>
 
 See http://autopilotpattern.io/
 

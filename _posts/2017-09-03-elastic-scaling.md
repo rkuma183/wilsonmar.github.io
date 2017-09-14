@@ -332,9 +332,18 @@ curl -XPOST 'localhost:9200/myindex/_optimize?max_num_segments=2'
 
 ## References
 
-Configure Elasticsearch is described at 
 http://jakege.blogspot.sg/2014/03/how-to-install-elasticsearch.html
+How to Install Elasticsearch
 
+https://www.youtube.com/watch?v=G56aE1kiOZw
+Your Data, Your Search, Elasticsearch
+SpringDeveloper
+60K views
+
+https://www.youtube.com/watch?v=bMi2g3uEAxU
+ElasticSearch in Production: lessons learned
+LuceneSolrRevolution
+43K views
 
 
 ## More #

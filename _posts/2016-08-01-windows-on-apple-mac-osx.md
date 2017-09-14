@@ -18,7 +18,7 @@ comments: true
 There are several ways to run Microsoft Windows on an Apple Mac computer.
 Each has its own advantages and disadvantages:
 
-* <a href="#RDP">Remote Desktop Protocol client to cloud instances</a>
+* <a href="#Amazon">Amazon EC2 Cloud Images</a>
 * <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
 * <a href="#Docker">Docker Windows instance</a>
 * <a href="#Vagrant">Vagrant Virtualbox</a>
@@ -26,31 +26,15 @@ Each has its own advantages and disadvantages:
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a href="#Parallels">Parallels</a>
 
+From within a Mac (or Linux) machine, you would access Windows machines by running a [client software that runs Microsoft's Remote Desktop Protocol (RDP)](/rdp/).
+
 <hr />
 
-<a name="RDP"></a>
-
-## Cloud Instances 
-
-If you have no administrative rights on your corporate Windows laptop, spin up cloud instances in the cloud and access them via a client that uses Microsoft's RDP (Remote Desktop Protocol).
-
-See http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html
-
-### RDP Clients
-
-Microsoft Windows operating systems have, within Start Programs > Accessories, a RDP client program. It can be used without being an Administrator.
-
-On Linux machines, there is http://www.rdesktop.org/.
-
-On the Mac, these RDP clients can reach into instances of Amazon EC2 or other cloud that house Windows servers.
-
-1. Use the Microsoft Remote Desktop app from the Apple App Store.
-
-2. Within Chrome browser, install the <a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-rdp/cbkkbcmdlboombapidmoeolnmdacpkch?hl=en"> $7.99 Chrome browser app</a>. This enables you to run the most powerful of servers from a ChromeBook laptop with minimal RAM and hard disk.
-
-
+<a name="Amazon"></a>
 
 #### Amazon EC2 Cloud Images
+
+   <a target="_blank" href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html">GUIDE</a>
 
 A <a target="_blank" href="https://secureanycloud.com/">hardened</a> Amazon Machine Image (AMI) containing Visual Studio 2017 Community Edition on Windows Server 2016 <a target="_blank" href="https://aws.amazon.com/marketplace/pp/B06XKP1YWV">costs 28 cents per hour on a t2.medium in the US</a>. 20 cents of that goes pays for <a target="_blank" href="mailto:Support@SecureAnyCloud.com">support</a> from <a target="_blank" href="https://secureanycloud.com/">Cognosys</a>, its creator. 888.489-2723
 
@@ -1037,52 +1021,6 @@ To establish a particular state of an instance as the <strong>base</strong> for 
 0. Click the Delete icon.
 0. Watch the progress bar at the bottom. This takes several minutes.
 
-
-<a name="RemoteDesktop"></a>
-
-## Microsoft Remote Desktop #
-
-There are two programs that enable Mac users to access and <strong>take over</strong> 
-Windows servers remotely,
-using RDP (Remote Desktop Protocol), also known as Terminal Services,
-which uses port 3389:
-
-A) <a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=18140">
-   Remote Desktop Client Connection for Macintosh</a>.
-
-   RDC_2.1.1_ALL.dmg is 9.4 MB
-
-B) <a target="_blank" href="http://cord.sourceforge.net/">CoRD on Sourceforge</a>,
-   which is for Mac OS X 10.5—10.8 (obsolete when 10.12 Sierra is out?).
-
-   CoRD_0.5.7.zip is 3.4 MB
-
-   After running this, drag it into your Applications folder.
-
-   To add a new server, click on the menu File.
-
-C) <a target="_blank" href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">
-   Microsoft's Remote Desktop for Mac OSX from the Apple Store</a>.
-  
-   This is newer than the edition that comes with Microsoft Office for Mac 2011.
-
-0. Click Get.
-0. Click Install.
-0. Click Open.
-
-   <amp-img alt="ms remote desktop mac menu" width="467" height="87" src="https://cloud.githubusercontent.com/assets/300046/15401475/f121822c-1dac-11e6-9626-71e6ecb894d6.jpg"></amp-img>
-
- 0. Click + New
-
-   <amp-img alt="ms remote desktop mac" width="426" height="485" href="https://cloud.githubusercontent.com/assets/300046/15401380/8e639ee0-1dac-11e6-98cd-9519d7dcf519.jpg"></amp-img>
-
-   This UI version is difficult because there are no favorites or sorting by last use,
-   aliases, etc. (that I know of).  I now have to scroll down the list every time, 
-   and remembering which of many cryptic names I want, which is difficult
-   if you have a lot of servers on the list.
-
-NOTE: http://docs.aws.amazon.com/quickstart/latest/rd-gateway/welcome.html
-Quick Start for Remote Desktop Gateway that explains how to configure RDGW in detail
 
 
 ## Configuration

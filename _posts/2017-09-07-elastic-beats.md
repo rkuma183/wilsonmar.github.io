@@ -89,6 +89,10 @@ Before forwarding, Logstash can parse and normalize varying schema and formats.
 
 ## Winlogbeat
 
+   <a target="_blank" href="https://www.elastic.co/guide/en/beats/winlogbeat/current/winlogbeat-getting-started.html">Based on this</a>
+
+   NOTE: Although Windows machines have Perfmon built-in, Beats collects and forwards the data.
+
 0. Download and unzip.
 
    File `winlogbeat.full.yml` contains ALL specifications.
@@ -97,22 +101,74 @@ Before forwarding, Logstash can parse and normalize varying schema and formats.
 
    NOTE: Formats changed in v5, so Python scripts/migrate_beat_config_1_x_to_5_0.py is provided to migrate.
 
-0. Edit the `winlogbeat.yml` configuration file 
+0. Edit the `winlogbeat.yml` configuration file to keep verbosity low and discard debug entries:
 
    <pre>
-   ignore_older: 72h
+winlogbeat.event_logs:
+   - name: Application
+     ignore_older: 72h
+     level: critical, error, warning
+   - name: Security
+   - name: System
    </pre>
+
+0. Add tags so each shipper can be identified when logs are consolidated:
+
+   <pre>
+tags: ["us-east-01"]"
+   </pre>
+
+0. Add fields to specify which environment:
+
+   <pre>
+fields:
+  globo_environment: production
+   </pre>
+
+0. Specify the output destination as a Logstash server (not Elasticsearch server):
+
+   <pre>
+#output.elasticsearch:
+output.logstash:
+  hosts: ["192.168.0.14:5043"]
+   </pre>
+
+0. Save the file.
+0. Verify whether the server designated can be reached. In PowerShell:
+
+   <tt><strong>Invoke-WebRequest -Method PUT -InFile .\winlogbeat.template.json -Uri http://192.168.0.12:9200/_template
+   </strong></tt>
+
+0. Install as a service within PowerShell CLI:
+
+   <tt><strong>.\install-sevice-winlogbeat.ps1
+   </strong></tt>
 
 0. Run in PowerShell: 
 
    <tt><strong>winlogbeat.exe -c winlogbeat.yml
    </strong></tt>
 
-0. Install as a service within PowerShell CLI:
+0. Start in PowerShell: 
 
-   install-service-winlogbeat.ps1
+   <tt><strong>start-service winlogbeat
+   </strong></tt>
+
+0. View logs in PowerShell: 
+
+   <tt><strong>Get-Content .\logs\winlogbeat -Wait
+   </strong></tt>
+
+   Errors will be reported if Logstash has not been setup.
 
 scripts/import_dashboards.exe
+
+
+<a name="LogstashConfig"></a> 
+
+## Beats in Logstash
+
+File `beats.conf`
 
 
 

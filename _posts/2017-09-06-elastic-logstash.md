@@ -350,17 +350,20 @@ java -jar logstash.jar agent -f hello-search.conf
    
    See <a target="_blank" href="https://www.elastic.co/guide/en/logstash/current/_command_line_flags.html">
    list of command line flags</a>. 
+
    If the command includes `--configtest` or just `-t`, logstash stops after processing it.
    
    If a folder is specified, such as /etc/logstash/conf.d, all .conf files in it are loaded.
    
-   To stop on a Mac, hold down control and press C. On Windows, it's Ctrl+C.
-
    In production mode, Logstash would be started as a <strong>service</strong> (Unix daemon):
 
    ```
    sudo service logstash start
    ```
+
+0. To stop on a Mac, hold down control and press C. On Windows, it's Ctrl+C.
+
+
    
 <a name="Outputs"></a>
 

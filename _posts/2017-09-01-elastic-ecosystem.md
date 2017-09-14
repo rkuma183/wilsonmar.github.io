@@ -270,14 +270,18 @@ Others:
  Getting started with ElasticSearch
  by Alex Botovich via c0deporn
 
-* https://www.youtube.com/watch?v=PpX7J-G2PEo Elasticsearch from the bottom up
+* <a target="_blank" href="https://www.youtube.com/watch?v=PpX7J-G2PEo">
+   Elasticsearch from the bottom up</a>
 
-* https://www.youtube.com/watch?v=UTLwMyXoATQ
+* <a target="_blank" href="https://www.youtube.com/watch?v=UTLwMyXoATQ"></a>
 
-* https://www.youtube.com/watch?v=d9l2-3QeDTs 
+* <a target="_blank" href="https://www.youtube.com/watch?v=d9l2-3QeDTs"></a>
 
-* https://www.youtube.com/watch?v=2oMvUX8Ke5M&t=25m
+* <a target="_blank" href="https://www.youtube.com/watch?v=2oMvUX8Ke5M"></a>
   Hands-on: 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=UPkqFvjN-yI">
+   Elasticsearch in an hour</a>
 
 
 <a id="Jobs"></a>
