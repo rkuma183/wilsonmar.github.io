@@ -5,8 +5,8 @@ excerpt: "People to see and places (links) to go about the Elastic (ELK) stack"
 tags: [ELK, ecosystem]
 shorturl: "https://goo.gl/"
 image:
-# elk-beat-arch-1900x500-127316.jpg
-  feature: https://user-images.githubusercontent.com/300046/30403524-4cc88af8-989f-11e7-9ea2-af5a188a4ce0.jpg
+# elk-beat-arch-1900x500-102084.jpg
+  feature: https://user-images.githubusercontent.com/300046/30410257-2d3fa8b0-98c7-11e7-9467-d35837b592a2.jpg
   credit: JP Toto on Pluralsight
   creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
 comments: true
@@ -17,9 +17,9 @@ comments: true
 
 {% include _toc.html %}
 
-This page lists videos and links to people within the Elastic company and its Elastci Stack ecosystem. 
+This page lists videos and links to people within (the ecosystem) around Elastic Stack from the Elastic company. 
 
-This is one of several pages I have on the Elastic Stack:
+This is one of several pages about the Elastic Stack:
 
    * [Elastic Stack ecosystem of people and websites](/elastic-ecosystem/)
    * [Elastic Stack architecture and installation](/elastic-install/)
