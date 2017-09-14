@@ -30,7 +30,7 @@ BTW, Elastic in the context of ElasticSearch is not affiliated with "Elastic Bea
 ## Official Community
 
 <a target="_blank" href="https://www.elastic.co/community">
-https://www.elastic.co/community</a> is the Elastic company's official home of people.
+https://www.elastic.co/community</a> is the Elastic company's official home for people to interact.
 
 
 
@@ -72,18 +72,39 @@ QUESTION: Is there a Slack channel for ES?
 
 <a id="Tweets"></a>
 
-## Twitter searchs
+## Twitter searches
 
- * <a target="_blank" href="https://twitter.com/search?q=elastic"> 
+Accounts:
+
+   * <a target="_blank" href="https://twitter.com/search?q=elastic"> 
       @elastic is the Elastic company Twitter account</a>.
- * <a target="_blank" href="https://twitter.com/search?q=%23Elasticon"> 
+   * <a target="_blank" href="https://twitter.com/search?q=%23Elasticon"> 
       #Elasticon tour tweets</a>
- * <a target="_blank" href="https://twitter.com/search?q=%23elasticsearch"> 
+   * <a target="_blank" href="https://twitter.com/search?q=%23elasticsearch"> 
       #elasticsearch tweet search</a>
- * <a target="_blank" href="https://twitter.com/search?q=%23elkstack"> 
+   * <a target="_blank" href="https://twitter.com/search?q=%23elkstack"> 
       #elkstack tweet search</a>
- * <a target="_blank" href="https://twitter.com/search?q=%23eTimelion"> 
+   * <a target="_blank" href="https://twitter.com/search?q=%23eTimelion"> 
       #Timelion tweet search</a>
+   * <a target="_blank" href="http://www.twitter.com/elkstack"> 
+      #elkstack tweet search</a>
+
+Individual components:
+
+   * <a target="_blank" href="https://twitter.com/search?q=%23eelasticbeats"> 
+      #elasticbeats tweet search</a>
+   * <a target="_blank" href="https://twitter.com/search?q=%23eLogstash"> 
+      #Logstash tweet search</a>
+   * <a target="_blank" href="https://twitter.com/search?q=%23ekibana"> 
+      #kibana tweet search</a>
+
+   * <a target="_blank" href="https://twitter.com/search?q=%23eelasticshield"> 
+      #elasticshield tweet search</a>
+   * <a target="_blank" href="https://twitter.com/search?q=%23eelasticmarvel"> 
+      #elasticmarvel tweet search</a>
+   * <a target="_blank" href="https://twitter.com/search?q=%23eelasticwatcher"> 
+      #elasticwatcher tweet search</a>
+
 
 <a id="News"></a>
 
@@ -104,9 +125,6 @@ QUESTION: Is there a Slack channel for ES?
 
  * <a target="_blank" href="https://speakerdeck.com/elastic/"> 
     Speaker deck from Elastic road shows</a>
-
- * <a target="_blank" href="http://www.twitter.com/elkstack"> 
-    Twitter #elkstack search</a>
 
  * <a target="_blank" href="https://www.elastic.co/blog/witwies-elastic-meetup-london-paris">
       Where in the World is Elastic? - Elastic Meetup in London and Paris</a>
@@ -239,6 +257,7 @@ On Pluralsight ($249/year), JP Toto () has created several videos:
 
    * <a target="_blank" href="https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents">
    Administering an Elasticsearch cluster</a> 2h 8m Released 11 Dec 2015
+   using Elastic 5.1.1
 
 On Udemy:
 

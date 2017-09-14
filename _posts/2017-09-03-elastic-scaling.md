@@ -39,15 +39,18 @@ Elasticsearch powers many of the most data-rich websites:
 
 <a name="Pricing"></a>
 
-##  Pricing
+## Pricing
 
-There's no separate enterprise edition.
+https://www.elastic.co/subscriptions
 
-It's priced by the <strong>number of nodes</strong> managed and monitored at scale (less than Splunk and doesn't run out of gas).
+Registering for a free "Basic" license gets you Monitoring (formerly Marvel) and Logstash ArcSight module along with Dev Tools Search Profiler and Grok Debugger. And Upgrade Assistant APIs & UI.
 
 Unlike Splunk, where it's expensive (millions) after the first 500 MB of free.
 
+Elastic prices subscriptions by the <strong>number of nodes</strong> managed and monitored at scale (less than Splunk and doesn't run out of gas).
+
 But Marvel is free until production.
+
 
 
 

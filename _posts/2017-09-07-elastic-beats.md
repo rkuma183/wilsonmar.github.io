@@ -26,11 +26,12 @@ Beats are small, lightweight (written in Golang)
 * Filebeat collects and sends <strong>text</strong> log files.
 * Metricbeat collects and sends operating system and application data.
 * Packetbeat collects and sends network monitoring data.
-* Winlogbeat collects and sends Windows Event logs data
+* <a href="#Winlogbeat">Winlogbeat</a> collects and sends Windows Event logs data
 * Libbeat collects and sends custom data defined in Golang programs.
+* Heartbeat
+* Auditbeat
 
-Beats usually sends its data to a Logstash receiver.
-
+Beats usually sends its data to a Logstash receiver, but they can send directly to ElasticSearch database.
 
 
 ## Beats Marketing
@@ -40,11 +41,82 @@ The product marketing page for LogStash is at:
   <a target="_blank" href="https://www.elastic.co/products/beats">
                       https://www.elastic.co/products/beats</a>
 
-ElasticSearch the company hired the original author (Jordan Sissel) to work on it full time.
+## Install
+
+Beats is written in [the Go Language (Golang)](/golang/), which compiles to a static binary containing its own VM. So there is no need to install a run-time such as JVM to run Java.
+
+Alternatives to get bits onto a server:
+
+A) Ansible
+
+B) Chef
+
+C) Microsoft SCCM
+
+D) Direct download
+
+### Download Beats
+
+1. https://www.elastic.co/downloads/beats
+
+
+
+## Processing
 
 Before forwarding, Logstash can parse and normalize varying schema and formats.
 
+   * Reading
+   * Filtering
+   * Enhancing
+   * Forwarding
 
+## Metricbeat modules
+
+   * System Logs
+   * Apache web server
+   * NginX
+   * HAProxy
+
+   * MongoDB
+   * MySQL
+   * PostgreSQL
+   * Redis
+
+   * Zookeeper (Puppet)
+
+
+<a name="Winlogbeat"></a>
+
+## Winlogbeat
+
+0. Download and unzip.
+
+   File `winlogbeat.full.yml` contains ALL specifications.
+
+   File `winlogbeat.template.es2x.yml` should be ignored since you're not using v2.
+
+   NOTE: Formats changed in v5, so Python scripts/migrate_beat_config_1_x_to_5_0.py is provided to migrate.
+
+0. Edit the `winlogbeat.yml` configuration file 
+
+   <pre>
+   ignore_older: 72h
+   </pre>
+
+0. Run in PowerShell: 
+
+   <tt><strong>winlogbeat.exe -c winlogbeat.yml
+   </strong></tt>
+
+0. Install as a service within PowerShell CLI:
+
+   install-service-winlogbeat.ps1
+
+scripts/import_dashboards.exe
+
+
+
+## Resources
 
 ## More #
 
