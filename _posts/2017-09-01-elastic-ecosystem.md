@@ -20,12 +20,9 @@ This page lists videos and links to people within (the ecosystem) around Elastic
 
 This is one of several pages about the Elastic Stack:
 
-   * [Elastic Stack ecosystem of people, websites, tutorials](/elastic-ecosystem/), this.
-   * [Elastic Stack architecture and installation](/elastic-install/)
-   * [Kibana (the visualization engine, like Grafana)](/elastic-kibana/)
-   * [Logstash and beats to collect data from servers](/elastic-collect/)
+   {% include monitoring_links.html %}
 
-BTW, ElasticSearch is not affiliated with "Elastic Beanstalk" from Amazon web services (AWS).
+BTW, Elastic in the context of ElasticSearch is not affiliated with "Elastic Beanstalk" from Amazon web services (AWS).
 
 
 ## Customers
@@ -62,8 +59,6 @@ As a company, Elastic makes money from support and training services.
 
 <a target="_blank" href="https://www.elasticsearch.com/support/"> elasticsearch.com/support</a>
 
-  * https://www.elastic.co/webinars/hosted-managed-elasticsearch-found
-
 
 <a id="Discussion"></a>
 
@@ -91,20 +86,21 @@ QUESTION: Is there a Slack channel for ES?
  * <a target="_blank" href="http://stackoverflow.com/search?q=logstash">logstash</a>
  * <a target="_blank" href="http://stackoverflow.com/search?q=kibana">kibana</a>
 
+
 <a id="Tweets"></a>
 
 ## Twitter searchs
 
  * <a target="_blank" href="https://twitter.com/search?q=elastic"> 
-      @elastic is the Elastice company Twitter account</a>.
+      @elastic is the Elastic company Twitter account</a>.
  * <a target="_blank" href="https://twitter.com/search?q=%23Elasticon"> 
       #Elasticon tour tweets</a>
  * <a target="_blank" href="https://twitter.com/search?q=%23elasticsearch"> 
-      #elasticsearch tweet search</a>.
+      #elasticsearch tweet search</a>
  * <a target="_blank" href="https://twitter.com/search?q=%23elkstack"> 
-      #elkstack tweet search</a>.
+      #elkstack tweet search</a>
  * <a target="_blank" href="https://twitter.com/search?q=%23eTimelion"> 
-      #Timelion tweet search</a>.
+      #Timelion tweet search</a>
 
 <a id="News"></a>
 
@@ -189,27 +185,18 @@ slidedecks from presentations at their Tours here</a>.
 
   <a target="_blank" href="https://www.youtube.com/watch?v=bZGSHm-XE1A">
   Clinton Gormley at #bbuzz 2014</a> [38:37]
-    
+
+  <a target="_blank" href="https://www.youtube.com/watch?v=7FLXjgB0PQI">
+  Getting Down and Dirty with ElasticSearch by Clinton Gormley</a> at NoSQL matters Conference
+
 * at Elasticsearch
   https://www.youtube.com/watch?v=Epe63Uu-IO0&spfreload=1
   Mar 17, 2015
 
-* <a target="_blank" href="https://www.linkedin.com/in/shaneconnelly">Shane Connell (previously at HP Autonomy)y</a>, 
+* <a target="_blank" href="https://www.linkedin.com/in/shaneconnelly">Shane Connell (previously at HP Autonomy)</a>, 
   Sr Product Manager of Elasticsearch presented 28 Oct 2015 video
   <a target="_blank" href="https://www.elastic.co/webinars/elasticsearch-2-0-overview">
   Elastic v2.0 overview</a>
-
-* Andrew Puch @gmail 
-https://www.linkedin.com/in/apuch
-who runs http://andrewpuch.com/
-and the #devopsengineers Slack channel at http://devopsengineers.com/
-created as https://twitter.com/awstutseries
-https://www.youtube.com/watch?v=ge8uHdmtb1M
-which details how to setup Elasticsearch.
-
-* James Turnbull (at Kickstarter)
-  wrote the $9.99 Logstash v1.5 Book Kindle Edition
-  http://www.amazon.com/Logstash-Book-James-Turnbull-ebook/dp/B00B9JQTCO/ref=wilsonslifenotes
 
 * Tim and Anna Roes in Germany:
 https://www.timroes.de/2015/02/07/kibana-4-tutorial-part-1-introduction/
@@ -248,15 +235,6 @@ What is ELK and how can it help you discover, visualize and analyze your data?
   developer | evangelist @ elastic 
 
 
-Logstash was originally developed by **Jordan Sissel** when he was a system administrator at Dreamhost. 
-
-  * https://github.com/jordansissel/
-  * https://twitter.com/jordansissel
-  * http://semicomplete.com (latest post in 2012)
-  * https://www.youtube.com/watch?v=fwMnb4-t8vo More Logstash Awesome - Jordan Sissel - PuppetConf 2013
-  * https://www.youtube.com/watch?v=RuUFnog29M4 
-
-
 
 <a id="External"></a>
 
@@ -291,17 +269,19 @@ Others:
 
 ## Jobs
 
-<a target="_blank" href="https://www.linkedin.com/vsearch/j?rsid=40173581446909150651&keywords=elastic&trk=vsrp_jobs_cluster_header&trkInfo=VSRPsearchId%3A40173581446909150651%2CVSRPcmpt%3Ajobs_cluster">
-Search for Elastic jobs at Linkedin</a>
+* <a target="_blank" href="https://www.linkedin.com/jobs/search/?keywords=Elastic&location=Worldwide&locationId=OTHERS.worldwide">
+Search for Elastic jobs worldwide at Linkedin</a>
 
 
 <a id="Alternatives"></a>
 
 ## Alternatives
 
-Elasticsearch is also written in Java and uses Lucene internally for all of its indexing and searching, but it aims to make full-text search easy by hiding the complexities of Lucene behind a simple, coherent, RESTful API.
+Elasticsearch is written in Java and uses the Lucene library internally for indexing and searching. 
 
-http://lucene.apache.org/solr/
+   http://lucene.apache.org/solr/
+
+Essentially, Elastic Stack aims to make full-text search easy by hiding the complexities of Lucene behind a simple, coherent, RESTful API and UI.
 
  * http://stackoverflow.com/questions/2271600/elasticsearch-sphinx-lucene-solr-xapian-which-fits-for-which-usage/2288211#2288211 is Shay Bannon's answer.
 

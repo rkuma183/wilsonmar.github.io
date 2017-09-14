@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-Kibana presents visualization (a dashboard) from Elasticsearch databases.
+Kibana presents visualizations in a dashboard containing data from Elasticsearch databases.
 
 Kibana was first built using Ruby with the Sinatra framework.
 
@@ -47,9 +47,21 @@ Kibana was originally written in JavaScript using NodeJs.
    </strong></tt>
 
 
+## Marvel plug-in
+
+http://www.elasticsearch.org/overview/marvel
+
+plugin.bat -i elasticsearch/marvel/latest
+
+In Windows Services, restart elasticsearch service.
+
+* Indexing request rate
+
+
+
 <a name="InstallSense"></a>
 
-## Install Sense
+## Install Sense Chrome AddOn
 
 Sense is a Kibana app that provides an interactive console for submitting requests to Elasticsearch directly from your browser. 
 
@@ -81,8 +93,6 @@ Sense is a Kibana app that provides an interactive console for submitting reques
 0. Open Sense your web browser by going to 
 
    http://localhost:5601/app/sense
-
-
 
 
    
@@ -166,6 +176,9 @@ For example, Kibana can create a dashboard with these panes:
  * https://www.youtube.com/watch?v=96og3aIgyrc&list=PLhLSfisesZIvA8ad1J2DSdLWnTPtzWSfI
    is a YouTube playlist by Product Manager and Solutions Architect Morgan Goeller presenting
    Kibana4
+
+* https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video
+  Kibana 101
 
 
 ## More #
