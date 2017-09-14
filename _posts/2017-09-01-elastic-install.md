@@ -6,10 +6,10 @@ tags: [ELK, ecosystem]
 shorturl: "https://goo.gl/"
 filename: "elk-install.md"
 image:
-# elk-beat-arch-1900x500-127316.jpg
-  feature: https://user-images.githubusercontent.com/300046/30403196-bb25f73a-989d-11e7-855a-b8ef9f72130a.jpg
+# elk-beat-arch-1900x500-102084.jpg
+  feature: https://user-images.githubusercontent.com/300046/30410257-2d3fa8b0-98c7-11e7-9467-d35837b592a2.jpg
   credit: JP Toto on Pluralsight
-  creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
+  creditlink: https://app.pluralsight.com/library/courses/centralized-logging-elastic-stack/table-of-contents
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -18,6 +18,8 @@ comments: true
 {% include _toc.html %}
 
 This page describes the different options to get going with an Elastic Stack of your own.
+
+"Elasticsearch is a real-time distributed, scalable, real-time search and analytics engine. It enables you to search, analyze, and explore your data, often in ways that you did not anticipate at the start of a project."
 
 First of all, each component of the Elastic Stack (previously called ELK Stack) are typically on a different set of servers:
 
@@ -299,6 +301,11 @@ WARNING: Prior Docker images for Elastic servers on Docker hub (https://hub.dock
    java -version
    </strong></tt>
 
+0. Get curl:
+
+   For Windows: From http://curl.haxx.se/download.html download the Win64 x86_64 zip.
+
+
    ### Get Elasticsearch
 
 0. Make a folder:
@@ -514,3 +521,9 @@ curl -XPOST 'localhost:9200/myindex/_optimize?max_num_segments=2'
    Usually setup 3 dedicated master nodes after 10.
    This doesn't affect performance.
 
+
+## More #
+
+This is one of a series on Elastic Stack and monitoring:
+
+{% include monitoring_links.html %}

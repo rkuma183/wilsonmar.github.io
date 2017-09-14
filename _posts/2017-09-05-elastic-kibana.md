@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Elastic Kibana setup"
-excerpt: "Show all"
+excerpt: "Show all the numbers in a dashboard"
 tags: [apple, mac, setup]
 shorturl: "https://goo.gl/8mGgPF"
 image:
-# elk-beat-arch-1900x500-127316.jpg
-  feature: https://user-images.githubusercontent.com/300046/30403196-bb25f73a-989d-11e7-855a-b8ef9f72130a.jpg
+# elk-beat-arch-1900x500-102084.jpg
+  feature: https://user-images.githubusercontent.com/300046/30410257-2d3fa8b0-98c7-11e7-9467-d35837b592a2.jpg
   credit: JP Toto on Pluralsight
-  creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
+  creditlink: https://app.pluralsight.com/library/courses/centralized-logging-elastic-stack/table-of-contents
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -102,6 +102,15 @@ For example, Kibana can create a dashboard with these panes:
 3) a pie chart to summarize the percentage of different error log levels.
 
 
+## Query DSL
+
+<a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/guide/current/proximity-matching.html">
+Proximity Matching</a> (closest neighbor search)
+
+https://www.elastic.co/guide/en/elasticsearch/guide/current/partial-matching.html">
+Partial Matching
+
+
 <a name="Videos"></a>
 
 ## Videos
@@ -110,3 +119,9 @@ For example, Kibana can create a dashboard with these panes:
    is a YouTube playlist by Product Manager and Solutions Architect Morgan Goeller presenting
    Kibana4
 
+
+## More #
+
+This is one of a series on Elastic Stack and monitoring:
+
+{% include monitoring_links.html %}

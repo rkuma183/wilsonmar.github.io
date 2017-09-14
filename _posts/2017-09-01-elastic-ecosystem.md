@@ -8,12 +8,11 @@ image:
 # elk-beat-arch-1900x500-102084.jpg
   feature: https://user-images.githubusercontent.com/300046/30410257-2d3fa8b0-98c7-11e7-9467-d35837b592a2.jpg
   credit: JP Toto on Pluralsight
-  creditlink: https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents
+  creditlink: https://app.pluralsight.com/library/courses/centralized-logging-elastic-stack/table-of-contents
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
 <hr />
-![elk-beat-arch-1900x500]()
 
 {% include _toc.html %}
 
@@ -21,13 +20,29 @@ This page lists videos and links to people within (the ecosystem) around Elastic
 
 This is one of several pages about the Elastic Stack:
 
-   * [Elastic Stack ecosystem of people and websites](/elastic-ecosystem/)
+   * [Elastic Stack ecosystem of people, websites, tutorials](/elastic-ecosystem/), this one
    * [Elastic Stack architecture and installation](/elastic-install/)
    * [Kibana (the visualization engine, like Grafana)](/elastic-kibana/)
    * [Logstash and beats to collect data from servers](/elastic-collect/)
 
-
 BTW, ElasticSearch is not affiliated with "Elastic Beanstalk" from Amazon web services (AWS).
+
+
+## Customers
+
+Elasticsearch powers many of the most data-rich websites:
+
+* Wikipedia uses Elasticsearch to provide full-text search with highlighted search snippets, and search-as-you-type and did-you-mean suggestions.
+
+* The Guardian uses Elasticsearch to combine visitor logs with social -network data to provide real-time feedback to its editors about the public’s response to new articles.
+
+* Stack Overflow combines full-text search with geolocation queries and uses more-like-this to find related questions and answers.
+
+* GitHub uses Elasticsearch to query 130 billion lines of code.
+
+* Klout
+
+* AppDynamics monitoring
 
 
 <a id="Community"></a>
@@ -165,11 +180,9 @@ slidedecks from presentations at their Tours here</a>.
   <a target="_blank" href="https://www.elastic.co/webinars/elasticsearch-2-0-overview">
   Elastic 2.0 Overview</a> presented on 28 Oct 2015.
   
-* Zach co-wrote with Clinton Gormley 
-  the Feb 7, 2015 book: <a target="_blank" href="http://www.amazon.com/Elasticsearch-Definitive-Guide-Clinton-Gormley/dp/1449358543/">
-  <strong>Elasticsearch: The Definitive Guide</strong> ($22.55)</a>.
-    Get it <a target="_blank" href="http://shop.oreilly.com/product/0636920028505.do">
-    direct from O'Reilly</a>.'
+* Zach co-wrote with Clinton Gormley the Feb 7, 2015 book: <a target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html">Online: <strong>Elasticsearch: The Definitive Guide</strong></a> formatted from <a target="_blank" href="https://github.com/elastic/elasticsearch-definitive-guide/">a GitHub repo</a>. <a target="_blank" href="http://www.amazon.com/Elasticsearch-Definitive-Guide-Clinton-Gormley/dp/1449358543/">$22.55 from Amazon</a>.
+  Get it <a target="_blank" href="http://shop.oreilly.com/product/0636920028505.do">
+  direct from O'Reilly</a>.'
     
 * at Elasticsearch
   https://www.youtube.com/watch?v=Epe63Uu-IO0&spfreload=1
@@ -280,9 +293,17 @@ Search for Elastic jobs at Linkedin</a>
 
 ## Alternatives
 
+Elasticsearch is also written in Java and uses Lucene internally for all of its indexing and searching, but it aims to make full-text search easy by hiding the complexities of Lucene behind a simple, coherent, RESTful API.
+
 http://lucene.apache.org/solr/
 
  * http://stackoverflow.com/questions/2271600/elasticsearch-sphinx-lucene-solr-xapian-which-fits-for-which-usage/2288211#2288211 is Shay Bannon's answer.
 
 
 
+
+## More #
+
+This is one of a series on Elastic Stack and monitoring:
+
+{% include monitoring_links.html %}
