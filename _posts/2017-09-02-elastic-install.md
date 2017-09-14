@@ -423,6 +423,8 @@ created as https://twitter.com/awstutseries
 https://www.youtube.com/watch?v=ge8uHdmtb1M
 which details how to setup Elasticsearch.
 
+* <a target="_blank" href="http://jakege.blogspot.sg/2014/03/how-to-install-elasticsearch.html">
+How to Install and Configure Elasticsearch</a>
 
 
 

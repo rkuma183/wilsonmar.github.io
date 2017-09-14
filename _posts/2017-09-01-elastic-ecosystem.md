@@ -231,7 +231,7 @@ What is ELK and how can it help you discover, visualize and analyze your data?
 
 ## External to Elastic.co
 
-JP Toto () has created several videos:
+On Pluralsight ($249/year), JP Toto () has created several videos:
 
    * <a target="_blank" href="https://app.pluralsight.com/library/courses/centralized-logging-elastic-stack/table-of-contents">
   Centralized Logging with the Elastic Stack: Getting Started</a> 2h 20m Released 8 Feb 2017
@@ -239,6 +239,11 @@ JP Toto () has created several videos:
 
    * <a target="_blank" href="https://app.pluralsight.com/library/courses/administering-elasticsearch-cluster/table-of-contents">
    Administering an Elasticsearch cluster</a> 2h 8m Released 11 Dec 2015
+
+On Udemy:
+
+   Working with Elasticsearch 
+   price: $50
 
 Others:
 
