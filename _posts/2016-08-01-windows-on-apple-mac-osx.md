@@ -26,7 +26,7 @@ Each has its own advantages and disadvantages:
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a href="#Parallels">Parallels</a>
 
-From within a Mac (or Linux) machine, you would access Windows machines by running a [client software that runs Microsoft's Remote Desktop Protocol (RDP)](/rdp/).
+Access Windows machines by running a [client software that runs Microsoft's Remote Desktop Protocol (RDP)](/rdp/), from within a Windows, MacOS, or Linux machine.
 
 <hr />
 
