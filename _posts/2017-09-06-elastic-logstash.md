@@ -38,6 +38,21 @@ Logstash was originally developed by **Jordan Sissel** when he was a system admi
   * https://www.youtube.com/watch?v=RuUFnog29M4 
 
 
+<a name="Competitors"></a>
+
+## Competitors
+
+Competitors to Logstash include 
+
+* Apache Kafka <a target="_blank" href="http://research.microsoft.com/en-us/um/people/srikanth/netdb11/netdb11papers/netdb11-final12.pdf"> PDF: is used at LinkedIn</a>
+* Cloudera <a target="_blank" href="https://github.com/cloudera/flume"> 
+   Flume</a> +Elasticsearch+Kibana or Flume+HDFS+HIVE+PIG
+* Greylog2
+* Fluentd+MongoDB
+* [Stackify](http://stackify.com/smart-error-log-management-trial-sign)
+* LOGalyse 
+* Scribe
+
  
 <a name="LogstashConfig"></a> 
 
@@ -258,6 +273,21 @@ labels instead of regex patterns.
 Logstash can work in sync with other commercial products (can compete with it):
 
  * https://github.com/IBM-ITOAdev/logstash-input-appdynamics
+
+
+<a name="LogstashForwarder"></a>
+
+## Logstash Forwarder
+
+## <a name="LogstashForwarder"> Logstash Forwarder on Shippers</a>
+Configure for scale by using a Logstash Forwarder and RabbitMQ between a Logstash Producer and Logstash Consumer
+http://jakege.blogspot.in/2014/04/centralized-logging-system-based-on.html
+
+Logstash Forwarder is written in the programming language Go.
+
+<a target="_blank" href="https://www.elastic.co/webinars/logstash-0-60-in-60?baymax=rtp&elektra=downloads&iesrc=ctr">
+VIDEO: Logstash</a>
+
 
 
 <a name="Resources"></a>

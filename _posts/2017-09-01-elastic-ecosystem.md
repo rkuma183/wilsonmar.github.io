@@ -25,23 +25,6 @@ This is one of several pages about the Elastic Stack:
 BTW, Elastic in the context of ElasticSearch is not affiliated with "Elastic Beanstalk" from Amazon web services (AWS).
 
 
-## Customers
-
-Elasticsearch powers many of the most data-rich websites:
-
-* Wikipedia uses Elasticsearch to provide full-text search with highlighted search snippets, and search-as-you-type and did-you-mean suggestions.
-
-* The Guardian uses Elasticsearch to combine visitor logs with social -network data to provide real-time feedback to its editors about the public’s response to new articles.
-
-* Stack Overflow combines full-text search with geolocation queries and uses more-like-this to find related questions and answers.
-
-* GitHub uses Elasticsearch to query 130 billion lines of code.
-
-* Klout
-
-* AppDynamics monitoring
-
-
 <a id="Community"></a>
 
 ## Official Community
@@ -162,6 +145,14 @@ Oct. 14, 2014
 
 Elastic keeps <a target="_blank" href="https://speakerdeck.com/elastic/">
 slidedecks from presentations at their Tours here</a>.
+
+
+<a name="Demo"></a>
+
+##  Demo
+
+  * https://github.com/elastic/demo
+ used Virtualbox and Vagrantup.
 
 
 

@@ -171,7 +171,7 @@ For example, Kibana can create a dashboard with these panes:
 
 <a name="Videos"></a>
 
-## Videos
+## Tutorials and Videos
 
  * https://www.youtube.com/watch?v=96og3aIgyrc&list=PLhLSfisesZIvA8ad1J2DSdLWnTPtzWSfI
    is a YouTube playlist by Product Manager and Solutions Architect Morgan Goeller presenting
@@ -179,6 +179,8 @@ For example, Kibana can create a dashboard with these panes:
 
 * https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video
   Kibana 101
+
+* https://www.digitalocean.com/community/tutorials/how-to-use-kibana-dashboards-and-visualizations
 
 
 ## More #

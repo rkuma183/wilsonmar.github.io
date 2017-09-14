@@ -29,6 +29,15 @@ First of all, each component of the Elastic Stack (previously called ELK Stack) 
    * Kibana servers would be near those who request visualizations
    <br /><br />
 
+Elastic also offers cloud services and related <strong>paid</strong> (licensed) software to manage and protect  stacks:
+
+   0. <strong>Found</strong> 
+   0. <strong>Shield</strong> to Secure data in Elasticsearch. 
+   0. <strong>Marvel</strong> to Monitor Elasticsearch deployments. 
+   0. <a href="#Watcher">Watcher</a> Alerting for Elasticsearch. 
+   0. <strong>Packetbeat</strong> to Analyze network packet data. 
+
+
 <hr />
 
 ## Versions for download
