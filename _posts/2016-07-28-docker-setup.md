@@ -16,14 +16,12 @@ comments: true
 {% include _toc.html %}
 
 The object of this tutorial is to succintly present 
-<strong>step-by-step</strong> instructions 
-to contrast the setup of Docker on Mac OSX, CentOS Linux, and 
+<strong>step-by-step</strong> instructions to setup of Docker on 
+<a href="#Mac">Mac OSX</a>, 
+CentOS Linux, and 
 <a href="#Docker4Windows">Windows</a>.
 
-{% include _intro.html %}
-
-
-## VMs vs. Docker #
+## VMs on MacOS vs. Docker #
 
 This is a more complex diagram than others so that interrelationships can be illustrated.
 TODO: Video to gradually reveal this.
@@ -192,25 +190,6 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 ## Install Docker on Mac OSX #
 
-0. In Finder, within Applications, remove the Docker app and Docker folder.
-
-0. Use Homebrew:
-
-   <tt><strong>brew cask install docker && docker ps
-   </strong></tt>
- 
-   <pre>
- ==> Downloading https://download.docker.com/mac/stable/19124/Docker.dmg
-   </pre>
-
-   Alternately:
-   <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
-   It uses the
-   <a target="_blank" href="https://github.com/docker/HyperKit/">
-   HyperKit VM</a>
-   ("<strong>xhyve</strong>", pronounced "x-hive") to virtualize the Docker Engine environment.
-   That technology requires OS X 10.10.3 Yosemite or newer.
-
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
    So an extra layer is needed to emulate a Docker host.
    That’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
@@ -230,7 +209,32 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    install <a target="_blank" href="https://www.docker.com/products/docker-toolbox">
    https://www.docker.com/products/docker-toolbox</a>
 
-0. Go to the page where you download the "Docker Community Edition (CE) Desktop for Mac" at:<br />
+0. In Finder, within Applications, remove the Docker app and Docker folder.
+
+0. Use Homebrew:
+
+   <tt><strong>brew cask install docker && docker ps
+   </strong></tt>
+ 
+   <pre>
+ ==> Downloading https://download.docker.com/mac/stable/19124/Docker.dmg
+   </pre>
+
+   Skip to <a href="#OpenDocker">Open Docker client app</a> later in this doc.
+
+
+   Alternately:
+   
+   ### Manual Desktop for Mac
+
+   <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
+   It uses the
+   <a target="_blank" href="https://github.com/docker/HyperKit/">
+   HyperKit VM</a>
+   ("<strong>xhyve</strong>", pronounced "x-hive") to virtualize the Docker Engine environment.
+   That technology requires OS X 10.10.3 Yosemite or newer.
+
+   Go to the page where you download the "Docker Community Edition (CE) Desktop for Mac" at:<br />
    <a target="_blank" href="https://store.docker.com/editions/community/docker-ce-desktop-mac">
    https://store.docker.com/editions/community/docker-ce-desktop-mac</a>
    
@@ -265,6 +269,9 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 0. Delete the Docker.dmg file within Finder (to reclaim disk space).
 0. In the Applications folder, under the Devices section on the left, 
    press the eject icon to the right of Docker.
+
+
+   <a name="OpenDocker"></a>
 
    ### Open Docker client app
 
