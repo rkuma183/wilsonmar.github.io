@@ -16,13 +16,22 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial describes how to make use of Terminal to 
-make your life easier and less frustrating.
+This tutorial describes how to make use of Terminal to make your life easier and less frustrating.
 
 What Apple calls the Terminal is a Bash shell.
 
 
-{% include _intro.html %}
+## Finder
+
+Three ways to relaunch the Finder:
+
+0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
+
+0. Press the command key with your right hand and option+esc key combo with your left hand
+   for the Force Quit menu. Then select the Finder and click Relaunch.
+
+0. Click the Apple button at the upper-left corner to select <strong>Log out</strong>. 
+   Then log back in to your user account.
 
 
 <a id="Terminalz"></a>
@@ -31,8 +40,9 @@ What Apple calls the Terminal is a Bash shell.
 
 It's hard to get away from using a command-line terminal.
 
-Since Yosemite, you can open a terminal to a folder listed within Finder 
-by positioning mouse on it then tapping with two fingers on the touchpad.
+PROTIP: Since Yosemite, you can open a Terminal to a folder listed within Finder by pointing your mouse on it, then tapping with two fingers on the touchpad/mousepad.
+
+Alternately:
 
 <ol type="1">
 <li> Click the Apple icon, System Preferences....</li>
@@ -42,16 +52,6 @@ by positioning mouse on it then tapping with two fingers on the touchpad.
 <li> Check on <strong>New Terminal at Folder</strong>.</li>
 <li> Close the dialog by clicking the red dot at the upper left corner.</li>
 </ol>
-
-
-Three ways to relaunch the Finder:
-
-0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
-
-0. Press Command with your right hand and Option-esc with your left hand
-   and choose Force Quit from the Apple menu. Then select the Finder and click Relaunch.
-
-0. Log out and log back in to your user account.
 
 
 <a id="Terminal_file_listing"></a>

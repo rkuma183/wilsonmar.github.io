@@ -29,7 +29,7 @@ First of all, each component of the Elastic Stack (previously called ELK Stack) 
    * Kibana servers would be near those who request visualizations
    <br /><br />
 
-Elastic also offers cloud services and related <strong>paid</strong> (licensed) software to manage and protect  stacks:
+Elastic also offers cloud services as <strong>paid</strong> (licensed) software to manage and protect stacks:
 
    0. <strong>Found</strong> 
    0. <strong>Shield</strong> to Secure data in Elasticsearch. 
@@ -101,6 +101,11 @@ E) Build from source code in GitHub.
 
 <a target="_blank" href="https://www.elastic.co/webinars/hosted-managed-elasticsearch-found">
 See the webinar</a>
+
+
+Other SaaS service providers include:
+
+   https://logz.io/elk_as_a_service/
 
 
 <a name="ElasticFromAmazon"></a>

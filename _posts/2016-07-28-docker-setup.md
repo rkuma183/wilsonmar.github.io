@@ -40,16 +40,14 @@ Prior to Docker, a developer working on a Mac Pro can,
 in addition to native apps for Mac, 
 also run Microsoft Visual Studio for Windows
 in a full install of Windows 10 by running them
-within a VMware Fusion <strong>hypervisor</strong> that manages Virtual Memory instances.
+within a VMware Fusion or Vagrant <strong>hypervisor</strong> that manages Virtual Memory instances.
 
-Each additional VM instance would take 
+Each additional VM (virtual machine) instance would take 
 several more Gigabytes of disk space and memory
-because the operating system is <strong>duplicated</strong> inside each VM instance.
+because operating system files are <strong>duplicated</strong> inside each VM instance.
 
-By contrast, 
-<strong>Docker's containers</strong> take a more lightweight approach.
-Docker aims to just 
-cleanly separate applications that need the same shared operating system read-only files.
+By contrast, <strong>Docker's containers</strong> take a more lightweight approach.
+Docker aims to cleanly separate applications that need the same <strong>shared</strong> operating system read-only files.
 
 
 <a name="Mac"></a>
@@ -63,6 +61,14 @@ Docker's website</a>. It makes use of
 hypervisor software</a> that doesn't need 
 <strong>Oracle's Virtualbox</strong>
 previously needed.
+
+<strong>Docker for Mac</strong> makes use of a 
+<a target="_blank" href="https://github.com/docker/HyperKit/">
+Hyperkit hypervisor</a> which runs
+Docker images such as NGINX.
+
+Later Macs have Intel’s hardware support for MMU (memory management unit) 
+EPT (Extended Page Tables) virtualization.
 
 Docker images are obtained from 
 <strong>Docker Hub</strong> on-line
@@ -186,11 +192,23 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 ## Install Docker on Mac OSX #
 
-<strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
+0. In Finder, within Applications, remove the Docker app and Docker folder.
+
+0. Use Homebrew:
+
+   <tt><strong>brew cask install docker && docker ps
+   </strong></tt>
+ 
+   <pre>
+ ==> Downloading https://download.docker.com/mac/stable/19124/Docker.dmg
+   </pre>
+
+   Alternately:
+   <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
    It uses the
    <a target="_blank" href="https://github.com/docker/HyperKit/">
    HyperKit VM</a>
-   ("<strong>xhyve</strong>") to virtualize the Docker Engine environment.
+   ("<strong>xhyve</strong>", pronounced "x-hive") to virtualize the Docker Engine environment.
    That technology requires OS X 10.10.3 Yosemite or newer.
 
    NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
@@ -208,7 +226,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    Docs here</a> 
    says VirtualBox prior to version 4.3.30 must NOT be installed (it is incompatible with Docker for Mac). 
 
-   Alternately, if you have are running OS X 10.8 “Mountain Lion” or earlier,
+   Alternately, if you have are still running OS X 10.8 Mountain Lion or earlier,
    install <a target="_blank" href="https://www.docker.com/products/docker-toolbox">
    https://www.docker.com/products/docker-toolbox</a>
 
@@ -223,7 +241,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 0. PROTIP: Change the file name if you're keeping back versions.
 
-   | Date of file | Version           | Download | Folder   |
+   | Date of file | Version           | Download | Unzipped   |
    | -----------: | ----------------- | -------: | -------: | 
    | Aug 27, 2017 | Docker.dmg | 129.9 MB | 129.9 MB |
    | Oct 17, 2016 | Docker.dmg | 111 MB | 208.1 MB |
@@ -268,6 +286,9 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    ### Previously
 
+   <a target="_blank" href="https://www.youtube.com/watch?v=v1BfbZu8EMw">
+   VIDEO</a>
+
    Obsolete instructions to install
    using 
    Homebrew cask:
@@ -279,8 +300,6 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    To start this, use the "quickstart terminal"
    which fires up Virtualbox.
-
-   https://www.youtube.com/watch?v=v1BfbZu8EMw
 
 
 <a name="Docker4Windows"></a>
@@ -356,7 +375,7 @@ CAUTION: A 64-bit machine is necessary.
 
 <a name="DockerAWS"></a>
 
-### Install in clouds #
+### Install in Amazon EC2 clouds #
 
 Using the Amazone CLI:
 
@@ -409,8 +428,7 @@ Using the Amazone CLI:
 ### Alpine Linux #
 
 Within Docker for Mac, the Docker engine runs in an 
-Alpine Linux distribution on top of a Mac xhyve 
-(pronounced "x-hive") Virtual Machine.
+Alpine Linux distribution on top of a Mac xhyve (pronounced "x-hive") Virtual Machine.
 
 Alpine comes with Docker for Mac, but for additional information, see:
 
@@ -423,7 +441,7 @@ Alpine comes with Docker for Mac, but for additional information, see:
    | 2016-09-28 | alpine-3.4.4-x86_64.iso | Standard | 85 MB |
    | 2016-09-28 | alpine-extended-3.4.4-x86_64.iso | Extended | 311 MB |
 
-The Alpine Linux distribution (distro) is so small that 
+BTW, The Alpine Linux distribution (distro) is so small that 
 there is an <a target="_blank" href="https://wiki.alpinelinux.org/wiki/Raspberry_Pi">
 edition of it for the Raspberry Pi</a>.
 
@@ -559,7 +577,7 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 ### Install Docker on Windows 10
 
-1. Upgrade your Windows 10 to the <strong>Anniversary Edition</strong> update.
+1. Upgrade your Windows 10 to the <strong>Anniversary Edition</strong> update or later.
 
 0. Download "Docker for Windows" 
 
@@ -575,7 +593,7 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 0. https://docs.docker.com/docker-for-windows/
 
-0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+0. Skip to <a href="#VerifyInstall">verify Docker install</a> below.
 
 
 <hr />
@@ -669,6 +687,19 @@ Run 'docker COMMAND --help' for more information on a command.
    </pre>
 
 
+0. Get Docker version property using either the short or long form of parameter:
+
+   <tt><strong>docker \-\-version
+   </strong></tt>
+
+   The response:
+   
+   <pre>
+Docker version 17.06.1-ce, build 874a737
+   </pre>
+
+   The "experimental" in previous versions has been removed.
+
 0. Obtain the version number using a sub-command:
 
    <tt><strong>docker version
@@ -743,66 +774,54 @@ Server:
    Strange but true because Docker makes use of Linux drivers.
 
 
-<a name="ModulesInstalled"></a>
+   ### Troubleshoot Docker start
 
-### Modules installed #
+0. If you also see this message:
 
-   Installing Docker gives you not just the Docker service (daemon) 
-   but also the docker command line utility, or the Docker client.
+   `Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
 
-   Regardless of the OS, the installation provides: 
+   Use Linux operating system commands to see whether it starts up. On Linux:
 
-   * Docker Machine
-   * Docker CLI client
-   * <a href="#DockerEngine">Docker Engine</a>
-   * <a href="#DockerCompose">Docker Compose</a>
-   * <a href="#DockerSwarm">Docker Swarm</a>
-   <br /><br />
+   /etc/systemd/system/docker.service
 
-0. See the list of supported drivers at<br />
-   <a target="_blank" href="https://docs.docker.com/machine/drivers/">
-   https://docs.docker.com/machine/drivers</a>
-
-
-
-0. PROTIP: There's a different version of each Docker module:
-
-   <tt><strong>docker-compose \-\-version
+   <tt><strong>systemctl status docker.service
    </strong></tt>
 
-   A sample response:
+   For detail:
 
-   <pre>
-   docker-machine version 0.12.0, build 45c69ad
-   </pre>
-
-0. PROTIP: There's a different version of each Docker module:
-
-   <tt><strong>docker-machine \-\-version
+   <tt><strong>journalctl -u docker.service
    </strong></tt>
 
-   A sample response:
+   On ubuntu server, restart: sudo shutdown -r now
 
-   <pre>
-   docker-compose version 1.14.0, build c7bdf9e
-   </pre>
+   $ systemctl daemon-reload
 
-0. Get Docker version property:
+   $ sudo service docker restart
 
-   <tt><strong>docker \-\-version
+   $ sudo service docker status (should see active (running))
+
+   To start:
+
+   <tt><strong>systemctl start docker
    </strong></tt>
 
-   The response:
+
+
+
+   ### Docker support sites
+
+   https://forums.docker.com
    
-   <pre>
-Docker version 17.06.1-ce, build 874a737
-   </pre>
+   Register at http://dockr.ly/community for the 
+   "Docker community" Slack channel at https://blog.docker.com/2016/11/introducing-docker-community-directory-docker-community-slack/
 
-   Notice "experimental" has been removed.
+   https://stackoverflow.com/
+
 
    ### Full Docker Info
 
-0. PROTIP: The most detailed status is obtained using the info sub-command:
+0. PROTIP: The most detailed status is obtained using the 
+   info sub-command, which requires the docker daemon to be running.
 
    <tt><strong>docker info
    </strong></tt>
@@ -861,9 +880,92 @@ Live Restore Enabled: false
    </pre>
 
 
-## Extensions
+<a name="ModulesInstalled"></a>
 
-Add to Docker...
+### Modules installed #
+
+   Installing Docker gives you not just the Docker service (daemon) 
+   but also the docker command line utility, or the Docker client.
+
+   Regardless of the OS, the installation provides: 
+
+   * Docker Machine
+   * Docker CLI client
+   * <a href="#DockerEngine">Docker Engine</a>
+   * <a href="#DockerCompose">Docker Compose</a>
+   * <a href="#DockerSwarm">Docker Swarm</a>
+   <br /><br />
+
+0. See the list of supported drivers at<br />
+   <a target="_blank" href="https://docs.docker.com/machine/drivers/">
+   https://docs.docker.com/machine/drivers</a>
+
+
+0. PROTIP: There's a different version of each Docker module:
+
+   <tt><strong>docker-compose \-\-version
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+   docker-machine version 0.12.0, build 45c69ad
+   </pre>
+
+0. PROTIP: There's a different version of each Docker module:
+
+   <tt><strong>docker-machine \-\-version
+   </strong></tt>
+
+   A sample response:
+
+   <pre>
+   docker-compose version 1.14.0, build c7bdf9e
+   </pre>
+
+
+<a name="FileDescriptorLimits"></a>
+
+## Set Maximum File Descriptors
+
+The `vm_max_map_count` kernel setting needs to be set to at least 262144 for production use. Depending on your platform:
+
+On Linux:
+
+0. Edit file /etc/sysctl.conf
+
+    <pre>grep vm.max_map_count /etc/sysctl.conf
+    vm.max_map_count=262144
+    </pre>
+
+    The above sets permanently.
+
+    To apply the setting on a live system type: 
+
+    <tt><strong>sysctl -w vm.max_map_count=262144
+    </strong></tt>
+
+OSX with Docker for Mac
+
+    The vm_max_map_count setting must be set within the xhyve virtual machine:
+
+    <tt><strong>screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+    </strong></tt>
+
+    Log in with root and no password. Then configure the sysctl setting as you would for Linux:
+
+    <tt><strong>sysctl -w vm.max_map_count=262144
+    </strong></tt>
+
+OSX with Docker Toolbox 
+
+    The vm_max_map_count setting must be set via docker-machine:
+
+    <tt><strong>docker-machine ssh<br />
+    sudo sysctl -w vm.max_map_count=262144
+    </strong></tt>
+
+
 
 <a name="DockerUCP"></a>
 
@@ -892,10 +994,121 @@ Add to Docker...
 
    This section describes how to run a Docker image, then remove it.
 
+0. Get a list of all the docker run command parameters:
 
-<a name="DockerHello"></a>
+   <tt><strong>docker run \-\-help
+   </strong></tt>
 
-### Run from Docker Hub #
+   <pre>
+Usage:   docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+&nbsp;
+Run a command in a new container
+&nbsp;
+Options:
+      --add-host list                  Add a custom host-to-IP mapping (host:ip)
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight), between 10 and 1000, or 0 to
+                                       disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the container
+      --cidfile string                 Write the container ID to the file
+      --cpu-count int                  CPU count (Windows only)
+      --cpu-percent int                CPU percent (Windows only)
+      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
+  -d, --detach                         Run container in background and print container ID
+      --detach-keys string             Override the key sequence for detaching a container
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list
+      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second) from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second) to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --entrypoint string              Overwrite the default ENTRYPOINT of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to report unhealthy
+      --health-start-period duration   Start period for the container to initialize before starting
+                                       health-retries countdown (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container that forwards signals and
+                                       reaps processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --io-maxbandwidth bytes          Maximum IO bandwidth limit for the system drive (Windows only)
+      --io-maxiops uint                Maximum IOps limit for the system drive (Windows only)
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC namespace to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the container
+      --name string                    Assign a name to the container
+      --network string                 Connect a container to a network (default "default")
+      --network-alias list             Add network-scoped alias for the container
+      --no-healthcheck                 Disable any container-specified HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000 to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1 for unlimited)
+      --privileged                     Give extended privileges to this container
+  -p, --publish list                   Publish a container's port(s) to the host
+  -P, --publish-all                    Publish all exposed ports to random ports
+      --read-only                      Mount the container's root filesystem as read only
+      --restart string                 Restart policy to apply when a container exits (default "no")
+      --rm                             Automatically remove the container when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --sig-proxy                      Proxy received signals to the process (default true)
+      --stop-signal string             Signal to stop a container (default "SIGTERM")
+      --stop-timeout int               Timeout (in seconds) to stop a container
+      --storage-opt list               Storage driver options for the container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format: &LT;name|uid>[:&LT;group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the container
+      --volumes-from list              Mount volumes from the specified container(s)
+  -w, --workdir string                 Working directory inside the container
+   </pre>
+
+
+   <a name="DockerHello"></a>
+
+   ### Run from Docker Hub #
 
    Like Maven and other repositories, 
    a docker command automatically pull from the public Docker Repository, such as:<br />
@@ -956,7 +1169,7 @@ Digest: sha256:f3b3b28a45160805bb16542c9531888519430e9e6d6ffc09d72261b0d26ff74f
 Status: Downloaded newer image for hello-world:latest
    </pre>
 
-0. List images available locally:
+0. List images downloaded locally:
 
    <tt><strong>docker images
    </strong></tt>
@@ -1343,9 +1556,6 @@ aa2ccdb153cc        nginx               "nginx -g 'daemon ..."   5 hours ago    
 
    <tt><strong>docker rmi ubuntu:trusty
    </strong></tt>
-
-
-
 
 
 
@@ -2051,21 +2261,17 @@ Dan Wahlin
 
 ## Notes
 
-Docker was initially developed to run under GNU/Linux.
-So not FreeBSD.
+PROTIP: Docker was initially developed to run under GNU/Linux, not FreeBSD.
 
-<a name="Virtualization"></a>
+https://github.com/StefanScherer/windows-docker-machine
+ Erlangen, Germany 
+scherer_stefan@icloud.com 
+https://stefanscherer.github.io/
 
-### Virtualization
+https://github.com/StefanScherer/packer-windows
 
-Later Macs have Intel’s hardware support for MMU (memory management unit) 
-EPT (Extended Page Tables) virtualization.
-
-<strong>Docker for Mac</strong> 
-makes use of a 
-<a target="_blank" href="https://github.com/docker/HyperKit/">
-Hyperkit hypervisor</a> which runs
-Docker images such as NGINX.
+https://github.com/StefanScherer/dockerfiles-windows
+You can do this on Windows as well today with the Windows 10 1607 or Windows Server 2016 using Windows Containers.
 
 
 ## More on DevOps #
