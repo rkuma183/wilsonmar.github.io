@@ -171,8 +171,9 @@ Docker was originally created for different flavors of Linux:
 
 ![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
 
-Different operating systems use different file-system software for union-mount.
+PROTIP: Docker was initially developed to run under GNU/Linux, not FreeBSD.
 
+Different operating systems use different file-system software for union-mount.
 For example, Debian uses <strong>bootfs</strong>.
 
 <a target="_blank" href="https://www.wikiwand.com/en/Aufs">
@@ -351,8 +352,7 @@ CAUTION: A 64-bit machine is necessary.
    <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/new-video-series-this-week-on-windows-highlights-windows-10-anniversary-update/#dfSWt7CfzxgoJYIF.97">
    See the video</a>.
 
-   In Settings > Updates & Security > Windows Update > Update &amp; Security > Check for Updates
-   > Update.
+   In Settings > Updates & Security > Windows Update > Update &amp; Security > Check for Updates > Update.
 
 0. At <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
    https://docs.docker.com/docker-for-windows</a>,<br />
@@ -361,7 +361,7 @@ CAUTION: A 64-bit machine is necessary.
    This downloads InstallDocker.msi (105 MB),
    typically to your Downloads folder.
 
-   NOTE: There is no Chocolatey module yet.
+   NOTE: There is no Chocolatey module yet as of this writing.
 
 0. Double-click InstallDocker.msi to run the installer.
 
@@ -999,7 +999,20 @@ OSX with Docker Toolbox
    PROTIP: Similar to Python, most people run commands within a Docker machine
    (which is the whole point of installing Docker).
 
-   This section describes how to run a Docker image, then remove it.
+   This section describes how to run a Docker image.
+
+0. If you haven't already:
+
+   <tt><strong>docker login
+   </strong></tt>
+
+   Provide the username and password you setup at https://hub.docker.com/ and Sign In.
+
+   Doing this would help you avoid the following error later:
+
+   <pre>
+docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: unauthorized: incorrect username or password.
+   </pre>
 
 0. Get a list of all the docker run command parameters:
 
@@ -2268,7 +2281,6 @@ Dan Wahlin
 
 ## Notes
 
-PROTIP: Docker was initially developed to run under GNU/Linux, not FreeBSD.
 
 https://github.com/StefanScherer/windows-docker-machine
  Erlangen, Germany 
