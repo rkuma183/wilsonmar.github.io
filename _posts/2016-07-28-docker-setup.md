@@ -21,6 +21,9 @@ The object of this tutorial is to succintly present
 CentOS Linux, and 
 <a href="#Docker4Windows">Windows</a>.
 
+This is a companion to ["Docker image build"](/docker-build/).
+
+
 ## VMs on MacOS vs. Docker #
 
 This is a more complex diagram than others so that interrelationships can be illustrated.
@@ -613,6 +616,8 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
    After Docker installation, the same Docker commands are applicable on all operating systems:
 
+   PROTIP: Some Docker commands work without the Docker daemon running.
+
 0. List all docker command options:
 
    <tt><strong>docker
@@ -781,49 +786,7 @@ Server:
    Strange but true because Docker makes use of Linux drivers.
 
 
-   ### Troubleshoot Docker start
-
-0. If you also see this message:
-
-   `Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
-
-   Use Linux operating system commands to see whether it starts up. On Linux:
-
-   /etc/systemd/system/docker.service
-
-   <tt><strong>systemctl status docker.service
-   </strong></tt>
-
-   For detail:
-
-   <tt><strong>journalctl -u docker.service
-   </strong></tt>
-
-   On ubuntu server, restart: sudo shutdown -r now
-
-   $ systemctl daemon-reload
-
-   $ sudo service docker restart
-
-   $ sudo service docker status (should see active (running))
-
-   To start:
-
-   <tt><strong>systemctl start docker
-   </strong></tt>
-
-
-
-
-   ### Docker support sites
-
-   https://forums.docker.com
-   
-   Register at http://dockr.ly/community for the 
-   "Docker community" Slack channel at https://blog.docker.com/2016/11/introducing-docker-community-directory-docker-community-slack/
-
-   https://stackoverflow.com/
-
+   <a name="DockerInfo"></a>
 
    ### Full Docker Info
 
@@ -842,7 +805,7 @@ Containers: 1
  Stopped: 1
 Images: 4
 Server Version: 17.06.1-ce
-Storage Driver: aufs
+<strong>Storage Driver: aufs</strong>
  Root Dir: /var/lib/docker/aufs
  Backing Filesystem: extfs
  Dirs: 18
@@ -887,6 +850,107 @@ Live Restore Enabled: false
    </pre>
 
 
+
+
+   <a name="DockerLogin"></a>
+
+   ### Login Docker
+
+   When Docker is installed, it creates a <strong>.docker</strong> folder at your account root folder.
+
+   <pre>
+{
+  "auths" : {
+    "https://index.docker.io/v1/" : {
+
+    }
+  },
+  "credsStore" : "osxkeychain"
+}
+   </pre>
+
+   PROTIP: There are other auths.
+
+0. Create a Docker ID account at 
+
+   https://hub.docker.com
+
+0. Log into Docker Hub:
+
+   <tt><strong>docker login
+   </strong></tt>
+
+   Provide the username and password you setup at https://hub.docker.com/ and Sign In.
+
+   Alternately, supply the authentication information in the command (replacing **** with your own):
+
+   <tt><strong>docker login \-\-username=**** \-\-password=**** 
+   </strong></tt>
+
+   PROTIP: TODO: Advanced users create a .dockercfg file. 
+
+   If you are not setup correctly, you'll see:
+
+   <pre>
+Warning: failed to get default registry endpoint from daemon (Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?). Using system default: https://index.docker.io/v1/
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+   </pre>
+
+
+
+   <pre>Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password</pre>
+
+   Successful login saves credentials in `...\myuser.docker\config.json` which would avoid the following error later:
+
+   <pre>
+docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: unauthorized: incorrect username or password.
+   </pre>
+
+
+   ### Troubleshoot Docker daemon start
+
+0. If you also see this message:
+
+   `Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
+
+   Use Linux operating system commands to see whether it starts up. On Linux:
+
+   /etc/systemd/system/docker.service
+
+   <tt><strong>systemctl status docker.service
+   </strong></tt>
+
+   For detail:
+
+   <tt><strong>journalctl -u docker.service
+   </strong></tt>
+
+   On ubuntu server, restart: sudo shutdown -r now
+
+   $ systemctl daemon-reload
+
+   $ sudo service docker restart
+
+   $ sudo service docker status (should see active (running))
+
+   To start:
+
+   <tt><strong>systemctl start docker
+   </strong></tt>
+
+
+
+
+   ### Docker support websites
+
+   https://forums.docker.com
+   
+   Register at http://dockr.ly/community for the 
+   "Docker community" Slack channel at https://blog.docker.com/2016/11/introducing-docker-community-directory-docker-community-slack/
+
+   https://stackoverflow.com/
+
+
 <a name="ModulesInstalled"></a>
 
 ### Modules installed #
@@ -916,7 +980,7 @@ Live Restore Enabled: false
    A sample response:
 
    <pre>
-   docker-machine version 0.12.0, build 45c69ad
+   docker-compose version 1.14.0, build c7bdf9e
    </pre>
 
 0. PROTIP: There's a different version of each Docker module:
@@ -927,7 +991,7 @@ Live Restore Enabled: false
    A sample response:
 
    <pre>
-   docker-compose version 1.14.0, build c7bdf9e
+   docker-machine version 0.12.0, build 45c69ad
    </pre>
 
 
@@ -980,9 +1044,10 @@ OSX with Docker Toolbox
 
    UCP enables you to control Docker environments through a 
    <strong>web interface</strong>.
-   This is helpful if you want to steer clear of the command line. 
 
-   You can use Docker UCP to deploy to various cloud solutions, 
+   It's part of Docker's Enterprise offering.
+
+   Docker UCP is used to deploy to various cloud solutions, 
    tie into your existing authentication infrastructure, 
    and in turn control user access.
 
@@ -1001,18 +1066,7 @@ OSX with Docker Toolbox
 
    This section describes how to run a Docker image.
 
-0. If you haven't already:
-
-   <tt><strong>docker login
-   </strong></tt>
-
-   Provide the username and password you setup at https://hub.docker.com/ and Sign In.
-
-   Doing this would help you avoid the following error later:
-
-   <pre>
-docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: unauthorized: incorrect username or password.
-   </pre>
+0. You need to be <a href="#DockerLogin">logged into Docker Hub</a>.
 
 0. Get a list of all the docker run command parameters:
 
@@ -1130,15 +1184,30 @@ Options:
 
    ### Run from Docker Hub #
 
-   Like Maven and other repositories, 
-   a docker command automatically pull from the public Docker Repository, such as:<br />
+   Like Maven Central, 
+   a docker command automatically pulls from the public Docker Repository, such as:<br />
    <a target="_blank" href="https://hub.docker.com/_/hello-world/">
    https://hub.docker.com/_/hello-world</a>
+
+   It's defined at<br />
+   https://github.com/docker-library/hello-world<br />
+   with docs at<br />
+   https://github.com/docker-library/docs/tree/master/hello-world
 
 0. Run it to verify whether you can access the public Docker Repository:   
 
    <tt><strong>docker run hello-world
    </strong>
+
+   If the image is not available locally, it is pulled from Dockerhub:
+
+   <pre>
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+c04b14da8d14: Pull complete 
+Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
+Status: Downloaded newer image for hello-world:latest
+   </pre>
 
    The expected response is:
 
@@ -1161,7 +1230,17 @@ Share images, automate workflows, and more with a free Docker Hub account:
  https://hub.docker.com
     </pre>
 
-   If you get this message, make sure the docker process can run.
+   <a name="CanDockerRun"></a>
+
+   ### Can Docker Run? #
+
+0. Make sure the Docker process can run:
+
+   <tt><strong>
+   docker exec -it test ps aux
+   </strong></tt>
+
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 
    <pre>
 docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
@@ -1194,10 +1273,24 @@ Status: Downloaded newer image for hello-world:latest
    <tt><strong>docker images
    </strong></tt>
 
+   The response:
+
    <pre>
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-hello-world         latest              1815c82652c0        2 months ago        1.84kB
+centos              latest              50dae1ee8677        8 days ago          196.7 MB
+hello-world         latest              c54a2cc56cbb        3 weeks ago         1.848 kB
+node                0.10.44-slim        f73347dab179        12 weeks ago        192.6 MB
    </pre>
+
+   The "centos" image contains CentOS with no apps installed.
+
+   The "node" image contains CenOS with Node installed, but no custom Node apps.
+
+   PROTIP: You won't find Docker images on your local folder. See
+   <a target="_blank" href="http://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine">
+   Where are docker images stored?</a>
+
+   See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-centos-7
 
 0. Turn your Wi-Fi off.
 
@@ -1207,6 +1300,23 @@ hello-world         latest              1815c82652c0        2 months ago        
    <tt><strong>docker run library/hello-world
    </strong></tt>
 
+
+   ### Dockviz
+
+0. PROTIP: Evaluate a third-party tool to display visualizations of image data:
+
+   <a target="_blank" href="https://github.com/justone/dockviz">
+   dockviz</a> presents Docker image and container information in graphic form
+   to help you understand what's going on inside the system.
+   <amp-img width="400" height="134" alt="ci dockviz 20160728-400x134-i36.png" 
+   src="https://cloud.githubusercontent.com/assets/20669891/17217583/af51e066-5499-11e6-8726-eaf461b9174c.jpg">
+   </amp-img>
+
+   <a target="_blank" href="https://imagelayers.io/">
+   ImageLayers.io</a> is an Adobe Flash site that
+   shows how each command in Dockerfile contributes to the final Docker image,
+   and discover which layers are shared by multiple images.
+   It presents an ImageLayers badge about the size of an image, and how many layers it is composed of.
 
    <a name="DockerSearch"></a>
 
@@ -2281,6 +2391,7 @@ Dan Wahlin
 
 ## Notes
 
+Moby Project includes all of Docker’s open-source efforts under one umbrella project.
 
 https://github.com/StefanScherer/windows-docker-machine
  Erlangen, Germany 

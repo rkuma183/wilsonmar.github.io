@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker build"
-excerpt: "Make little bits working together"
+excerpt: "Make your own Docker images"
 tags: [Docker, devops, ci, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -19,7 +19,7 @@ The object of this tutorial is to succintly present
 <strong>step-by-step</strong> instructions 
 to <strong>build</strong> Docker images.
 
-{% include _intro.html %}
+
 
    <a name="BuildCommand"></a>
 
@@ -29,7 +29,7 @@ to <strong>build</strong> Docker images.
    to package an image to run within Docker containers:
 
    <tt><strong>
-   docker build --help
+   docker build \-\-help
    </strong></tt>
 
    The response:
@@ -131,60 +131,6 @@ Successfully built 5bb9d72b9e60
    Wait for status to go from "Downloading" to "Pull complete".
 
 
-## Hello world #
-
-   The Docker organization has a "hello world" app defined at<br />
-   https://github.com/docker-library/hello-world<br />
-   with docs at<br />
-   https://github.com/docker-library/docs/tree/master/hello-world
-
-0. Verify access to DockerHub by obtaining a "hello world" app from it:
-
-   <tt><strong>
-   docker run hello-world
-   </strong></tt>
-
-   If the image is not available locally, it is pulled from Dockerhub:
-
-   <pre>
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-c04b14da8d14: Pull complete 
-Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
-Status: Downloaded newer image for hello-world:latest
-   </pre>
-
-   Output from the hello-world program:
-
-   <pre>
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-&nbsp;
-To generate this message, Docker took the following steps:
- 1\. The Docker client contacted the Docker daemon.
- 2\. The Docker daemon pulled the "hello-world" image from the Docker Hub.
- 3\. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4\. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-&nbsp;
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-&nbsp;
-Share images, automate workflows, and more with a free Docker Hub account:
- <a target="_blank" href="https://hub.docker.com/">https://hub.docker.com</a>
-&nbsp;
-For more examples and ideas, visit:
- <a target="_blank" href="https://docs.docker.com/engine/userguide/">https://docs.docker.com/engine/userguide/</a>
-   </pre>
-
-0. Examine docker processes:
-
-   <tt><strong>
-   docker exec -it test ps aux
-   </strong></tt>
-
-<hr />
 
 0. List images downloaded:
 
@@ -502,6 +448,48 @@ Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
 0. Switch to Docker Hub to copy
 
 
+## Create Docker Windows 2016 instance
+
+Here's how to create a Docker image to run Windows 2016 server, based on
+
+https://github.com/StefanScherer/docker-windows-box/
+
+1. Get to the page providing downloads of Windows Server 2016 Evaluation edition good for 180 days:
+
+   https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016/
+
+0. Click Register, and provide your info.
+0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
+0. Select "English". Click Download.
+0. The Download folder pop-up, click OK to:
+
+   14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso, 6.5 GB.
+
+0. While you wait, read:
+
+   https://info.microsoft.com/TheUltimateGuideToWindowsServer2016.html
+
+   https://www.microsoft.com/en-us/cloud-platform/windows-server-comparison
+
+   https://channel9.msdn.com/Blogs/windowsserver
+
+   https://www.youtube.com/user/MSCloudOS/playlists?shelf_id=6&view=50&sort=dd
+
+0. Select "Server with Desktop Experience" (not Server Core) to get the Desktop GUI.
+
+0. Create WS 2016 TP5 VM in virtualbox
+
+0. In the new VM, run this:
+
+   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_configure_host#scripted-existing-system-1-
+
+   Now you can run Windows Containers in the VM. To make the setup a little easier to use, see this: 
+
+    https://aka.ms/containers
+
+https://docs.docker.com/docker-for-mac/#preferences
+
+0. Put it into Docker Hub.
 
 
 ## More on DevOps #
