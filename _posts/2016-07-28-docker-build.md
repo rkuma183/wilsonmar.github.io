@@ -39,11 +39,35 @@ https://github.com/StefanScherer/docker-windows-box/
 0. Install Vagrant.
 0. Install a Git client.
 
+   ### VMWare
+
+   Install VMware Fusion 8.5 for Mac (not the Pro edition) for its drivers.
+
+0. Get the installer from:
+
+   https://www.vmware.com/products/fusion/fusion-evaluation.html
+
+   VMware-Fusion-8.5.8-5824040.dmg is 467 MB.
+
+0. Double-click on the file downloaded to run the installer.
+0. Exit the pop-up by clicking the "X" at the upper-left.
+0. In Finder, scroll to the "Drives" section on the left pane to click the exit icon to the right of "VMware Fusion".
+0. Right-click the .dmg and "Move to Trash".
+
+   PROTIP: There is no need to invoke the program from Applications folder (/Applications/VMware Fusion.app).
+
+   BEWARE: https://communities.vmware.com/thread/543980
+   says uninstall Virtual Box solve the issue.
+
+   https://unix.stackexchange.com/questions/169623/yosemite-fusion-7-0-1-now-gets-could-not-open-dev-vmmon-no-such-file-or-dir
+
+   sudo sh VirtualBox_Uninstall.tool
+
    <a name="Packer"></a>
 
    ### Packer
 
-   Packer (at <a target="_blank" href="https://packer.io/">packer.io</a>) is from Hashicorp.
+   Packer (at <a target="_blank" href="https://packer.io/">packer.io</a>) is from Hashicorp who created Vagrant. It is a cross-vendor utility that builds images used by VMware and cloud providers: Amazon EC2, CloudStack, DigitalOcean, Docker, Google Compute Engine, Microsoft Azure, QEMU, VirtualBox.
 
 0. Install Packer using Homebrew:
 
@@ -77,28 +101,61 @@ git clone https://github.com/StefanScherer/packer-windows --depth=1
 cd packer-windows 
    </strong></pre>
 
-0. While in the packer-windows folder, build the base box using the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
+   Sample response:
+
+   <pre>
+Cloning into 'packer-windows'...
+remote: Counting objects: 167, done.
+remote: Compressing objects: 100% (133/133), done.
+remote: Total 167 (delta 42), reused 93 (delta 11), pack-reused 0
+Receiving objects: 100% (167/167), 130.58 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (42/42), done.
+   </pre>
+
+0. Use a text editor to view file `windows_2016_docker.json`.
+
+   The sections are "builder", "provisioners", "Post-processors", and "variables".
+
+   The "iso_url" variable defines the URL to get the Windows 2016 disk image.
+
+   WARNING: The URL changes over time.
+
+
+   ### Register for Windows ISO file
+
+0. Get to the page providing downloads of Windows Server 2016 Evaluation edition good for 180 days:
+
+   https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016/
+
+   We come to this page to get a cookie for a Packer script to download.
+
+0. Click Register, and provide your info.
+0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
+0. Select "English". Click Download.
+0. When the Download folder pops up, DO NOT click OK, just copy the file name, such as:
+
+   14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso
+
+   The Packer script will download the file, but we want to make sure that it downloads the most recent file Microsoft has.
+
+   PROTIP: The file at time of writing is a whopping <strong>6.5 GB</strong>! So it may take hours to download.
+
+
+   ### Packer gets the file
+
+0. While in the packer-windows folder, use the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
 
    <pre><strong>
 packer build --only=vmware-iso windows_2016_docker.json
    </strong></pre>
 
+   This downloads the .iso file from Microsoft. Note one of the response lines from it:
+
    <pre>
-vmware-iso output will be in this color.
-Build 'vmware-iso' errored: Failed creating VMware driver: Unable to initialize any driver for this platform. The errors
-from each driver are shown below. Please fix at least one driver
-to continue:
-* Fusion application not found at path: /Applications/VMware Fusion.app
-* Fusion application not found at path: /Applications/VMware Fusion.app
-==> Some builds didn't complete successfully and had errors:
---> vmware-iso: Failed creating VMware driver: Unable to initialize any driver for this platform. The errors
-from each driver are shown below. Please fix at least one driver
-to continue:
-* Fusion application not found at path: /Applications/VMware Fusion.app
-* Fusion application not found at path: /Applications/VMware Fusion.app
-==> Builds finished but no artifacts were created.
+vmware-iso: Downloading or copying: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
    </pre>
 
+   Does the file name match what Microsoft would have downloaded?
 
 0. Vagrant
 
@@ -109,26 +166,7 @@ vagrant box add windows_2016_docker windows_2016_docker_vmware.box
 
    ### Windows Server
 
-1. Get to the page providing downloads of Windows Server 2016 Evaluation edition good for 180 days:
-
-   https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016/
-
-0. Click Register, and provide your info.
-0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
-0. Select "English". Click Download.
-0. The Download folder pop-up, click OK to:
-
-   14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso, 6.5 GB.
-
 0. While you wait, read:
-
-   https://info.microsoft.com/TheUltimateGuideToWindowsServer2016.html
-
-   https://www.microsoft.com/en-us/cloud-platform/windows-server-comparison
-
-   https://channel9.msdn.com/Blogs/windowsserver
-
-   https://www.youtube.com/user/MSCloudOS/playlists?shelf_id=6&view=50&sort=dd
 
 0. Select "Server with Desktop Experience" (not Server Core) to get the Desktop GUI.
 
@@ -146,6 +184,16 @@ https://docs.docker.com/docker-for-mac/#preferences
 
 0. Put it into Docker Hub.
 
+
+## Add Hyper-V support to 2016 TP5 Docker VM 
+
+https://stefanscherer.github.io/adding-hyper-v-support-to-2016-tp5-docker-vm/
+
+https://github.com/PatrickLang/packer-windows/commit/7e13d4799e28a3afb1e35b878e00394256011022
+
+A more up to date guide Getting started with Windows Containers by @glennsarti
+
+http://glennsarti.github.io/blog/getting-started-with-windows-containers/
 
 
 <hr />
@@ -329,6 +377,14 @@ Successfully built 5bb9d72b9e60
 
 See <a target="_blank" href="https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images">
 "Docker Explained: Using Dockerfiles to Automate Building of Images"</a>a>
+
+   https://info.microsoft.com/TheUltimateGuideToWindowsServer2016.html
+
+   https://www.microsoft.com/en-us/cloud-platform/windows-server-comparison
+
+   https://channel9.msdn.com/Blogs/windowsserver
+
+   https://www.youtube.com/user/MSCloudOS/playlists?shelf_id=6&view=50&sort=dd
 
 
 
