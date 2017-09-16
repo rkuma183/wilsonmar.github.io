@@ -15,27 +15,15 @@ comments: true
 
 {% include _toc.html %}
 
-The object of this tutorial is to succintly present
-<strong>step-by-step</strong> instructions 
-to <strong>build</strong> Docker images.
+This tutorial contains a hands-on <strong>step-by-step</strong> instructions for "newbies" to create a Docker image that runs Windows 2016 server within a Mac laptop (the host machine).
 
-More specifically, a Windows 2016 Docker image that runs on a MacOS laptop (the host machine).
-
-This is a companion to ["Docker setup"](/docker-setup/).
-
-1. <a href="#Packer">Packer</a> for "configuration as code".
-
-
-## Create Docker Windows 2016 instance
-
-Here's how to create a Docker image to run Windows 2016 server, based on
-
-https://github.com/StefanScherer/docker-windows-box/
+This is a companion to ["Docker setup"](/docker-setup/)
+and based on https://github.com/StefanScherer/docker-windows-box/
 
 ### .
 
 1. Be inside a Terminal window, on any directory.
-0. Install Homebrew.
+0. [Install Homebrew](/macos-homebrew/)
 0. Install Vagrant.
 0. Install a Git client.
 
@@ -145,9 +133,9 @@ Resolving deltas: 100% (42/42), done.
 
 0. While in the packer-windows folder, use the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
 
-   <pre><strong>
-packer build --only=vmware-iso windows_2016_docker.json
-   </strong></pre>
+   <tt><strong>
+packer build \-\-only=vmware-iso windows_2016_docker.json
+   </strong></tt>
 
    This downloads the .iso file from Microsoft. Note one of the response lines from it:
 
@@ -195,6 +183,7 @@ A more up to date guide Getting started with Windows Containers by @glennsarti
 
 http://glennsarti.github.io/blog/getting-started-with-windows-containers/
 
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/
 
 <hr />
 

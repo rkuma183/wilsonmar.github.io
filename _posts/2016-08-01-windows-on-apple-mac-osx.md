@@ -355,9 +355,8 @@ Docker provides a transparent interface to operating systems.
 
 Vagrant (at https://www.vagrantup.com) is from Hashicorp, the same folks who provide Consul.
 
-Vagrant provisions complete virtual machines (Unix, Linux, Mac, or Windows) inside the Mac Operating system as virtual machines. The VMs are segregated from other processes. This allows you to test our software in a variety of environments.
+Vagrant provisions complete virtual machines (Unix, Linux, Mac, or Windows) inside the Mac operating system as virtual machines. The VMs are segregated from other processes. This allows you to test software in a variety of environments.
 
-Virtualbox (virtualbox.org)
 
 ### Install
 
@@ -377,7 +376,7 @@ Virtualbox (virtualbox.org)
 
 0. [Install Homebrew](/macos-homebrew/)
 
-0. From within any folder, download, verify, and install VirtualBox:
+0. From within any folder, download, verify, and install Virtualbox (virtualbox.org):
 
    <tt><strong>brew install Caskroom/cask/virtualbox
    </strong></tt>
@@ -551,17 +550,28 @@ All Cask dependencies satisfied.
 # vi: set ft=ruby :
    </pre>
 
-   Several server instances can be defined within the same Vagrantfile.
+   Generated:
 
     <pre>   
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-Vagrant.configure("2") do |config|
     </pre>   
 
-   Specs under the line above:
+    The minimal specification for `vagrant up` to instantiate a single Ubuntu box:
+
+    <pre>
+Vagrant.configure("2") do |config|
+    config vm.box = "hashicorp/precise64"    
+end
+    </pre>   
+
+   Vagrant obtains the image from<br />
+   <a target="_blank" href="https://app.vagrantup.com/hashicorp/boxes/precise64">
+   https://app.vagrantup.com/hashicorp/boxes/precise64</a>
+
+   Several server instances can be defined within the same Vagrantfile.
 
     <pre>
   config.vm.define "webserver01" do |web01|
@@ -815,6 +825,15 @@ Through trial and error, I found a number of things that could be disabled to im
 It costs $395, but you can run quickly switch among Windows or Linux on a MacOSX machine using VMWare Fusion.
 
 This would enable you to experiment with setups.
+
+VMware Fusion 7 worked great. But when I upgraded my Mac to Yosemite, I got this message:
+
+
+VMware Sopport was not able to figure it about trying various tricks. 
+<a target="_blank" href="https://unix.stackexchange.com/questions/169623/yosemite-fusion-7-0-1-now-gets-could-not-open-dev-vmmon-no-such-file-or-dir">Some</a> found that uninstalling Vagrant fixed the problem. <a target="_blank" href="https://apple.stackexchange.com/questions/155109/vmware-fusion-could-not-open-dev-vmmon-error">Others</a> suggested:
+
+   <tt><strong>sudo kextunload -b com.intel.kext.intelhaxm
+   </strong></tt>
 
 <a target="_blank" href="http://www.souldevteam.net/blog/2013/10/06/os-x-mavericks-10-9-retail-vmware-image-release-notes-links/">
 Run OSX in VMware within Windows</a>
