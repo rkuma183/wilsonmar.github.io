@@ -134,7 +134,8 @@ Resolving deltas: 100% (42/42), done.
 0. While in the packer-windows folder, use the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
 
    <tt><strong>
-packer build \-\-only=vmware-iso windows_2016_docker.json
+packer build \-\-only=vmware-iso windows_2016_docker.json 
+\-\-var iso_url=~/packer_cache/msdn/en_windows_server_2016_x64_dvd_9718492.iso
    </strong></tt>
 
    This downloads the .iso file from Microsoft. Note one of the response lines from it:
@@ -143,10 +144,17 @@ packer build \-\-only=vmware-iso windows_2016_docker.json
 vmware-iso: Downloading or copying: http://care.dlservice.microsoft.com/dl/download/1/4/9/149D5452-9B29-4274-B6B3-5361DBDA30BC/14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.ISO
    </pre>
 
-   Does the file name match what Microsoft would have downloaded?
+   Packer stores the installer into a folder named "packer_cache". 
+   So to run using what has already been downloaded:
+
+   <tt><strong>
+packer build \-\-only=vmware-iso windows_2016_docker.json 
+\-\-var iso_url=~/gits/vms/packer-windows/packer_cache/49f719e23c56a779a991c4b4ad1680b8363918cd0bfd9ac6b52697d78a309855.iso
+   </strong></tt>
+
+   The rest of the response:
 
    <pre>
-    vmware-iso: Download progress: 100%
     vmware-iso: Download progress: 100%
 ==> vmware-iso: Creating floppy disk...
     vmware-iso: Copying files flatly from floppy_files
@@ -179,7 +187,10 @@ Build 'vmware-iso' errored: Error starting VM: VMware error: Error: Cannot conne
 --> vmware-iso: Error starting VM: VMware error: Error: Cannot connect to the virtual machine
 &nbsp;
 ==> Builds finished but no artifacts were created.
-   </pre>   
+   </pre>
+
+
+
 
 0. Vagrant
 
