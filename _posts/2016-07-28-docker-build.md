@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker build"
-excerpt: "Make your own Docker images"
+excerpt: "Make your own Windows 2016 Docker images to run within a Mac laptop"
 tags: [Docker, devops, ci, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -19,6 +19,136 @@ The object of this tutorial is to succintly present
 <strong>step-by-step</strong> instructions 
 to <strong>build</strong> Docker images.
 
+More specifically, a Windows 2016 Docker image that runs on a MacOS laptop (the host machine).
+
+This is a companion to ["Docker setup"](/docker-setup/).
+
+1. <a href="#Packer">Packer</a> for "configuration as code".
+
+
+## Create Docker Windows 2016 instance
+
+Here's how to create a Docker image to run Windows 2016 server, based on
+
+https://github.com/StefanScherer/docker-windows-box/
+
+### .
+
+1. Be inside a Terminal window, on any directory.
+0. Install Homebrew.
+0. Install Vagrant.
+0. Install a Git client.
+
+   <a name="Packer"></a>
+
+   ### Packer
+
+   Packer (at <a target="_blank" href="https://packer.io/">packer.io</a>) is from Hashicorp.
+
+0. Install Packer using Homebrew:
+
+   <tt><strong>brew install packer
+   </strong></tt>
+
+0. Create a folder to house various repositories from GitHub:
+
+   <pre><strong>
+cd ~
+mkdir gits
+cd gits
+   </strong></pre>
+
+   Alternately, some prefer `dev`.
+
+0. Create a folder to house repositories around a subject, such as virtual machines:
+
+   <pre><strong>
+cd ~/gits
+mkdir vms
+cd vms
+   </strong></pre>
+
+   Alternately, use your own "subject" folder.
+
+0. Get the Packer scripts (just the latest version):
+
+   <pre><strong>
+git clone https://github.com/StefanScherer/packer-windows --depth=1
+cd packer-windows 
+   </strong></pre>
+
+0. While in the packer-windows folder, build the base box using the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
+
+   <pre><strong>
+packer build --only=vmware-iso windows_2016_docker.json
+   </strong></pre>
+
+   <pre>
+vmware-iso output will be in this color.
+Build 'vmware-iso' errored: Failed creating VMware driver: Unable to initialize any driver for this platform. The errors
+from each driver are shown below. Please fix at least one driver
+to continue:
+* Fusion application not found at path: /Applications/VMware Fusion.app
+* Fusion application not found at path: /Applications/VMware Fusion.app
+==> Some builds didn't complete successfully and had errors:
+--> vmware-iso: Failed creating VMware driver: Unable to initialize any driver for this platform. The errors
+from each driver are shown below. Please fix at least one driver
+to continue:
+* Fusion application not found at path: /Applications/VMware Fusion.app
+* Fusion application not found at path: /Applications/VMware Fusion.app
+==> Builds finished but no artifacts were created.
+   </pre>
+
+
+0. Vagrant
+
+   <pre><strong>
+vagrant box add windows_2016_docker windows_2016_docker_vmware.box
+   </strong></pre>
+
+
+   ### Windows Server
+
+1. Get to the page providing downloads of Windows Server 2016 Evaluation edition good for 180 days:
+
+   https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016/
+
+0. Click Register, and provide your info.
+0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
+0. Select "English". Click Download.
+0. The Download folder pop-up, click OK to:
+
+   14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso, 6.5 GB.
+
+0. While you wait, read:
+
+   https://info.microsoft.com/TheUltimateGuideToWindowsServer2016.html
+
+   https://www.microsoft.com/en-us/cloud-platform/windows-server-comparison
+
+   https://channel9.msdn.com/Blogs/windowsserver
+
+   https://www.youtube.com/user/MSCloudOS/playlists?shelf_id=6&view=50&sort=dd
+
+0. Select "Server with Desktop Experience" (not Server Core) to get the Desktop GUI.
+
+0. Create WS 2016 TP5 VM in virtualbox
+
+0. In the new VM, run this:
+
+   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_configure_host#scripted-existing-system-1-
+
+   Now you can run Windows Containers in the VM. To make the setup a little easier to use, see this: 
+
+    https://aka.ms/containers
+
+https://docs.docker.com/docker-for-mac/#preferences
+
+0. Put it into Docker Hub.
+
+
+
+<hr />
 
 
    <a name="BuildCommand"></a>
@@ -132,211 +262,8 @@ Successfully built 5bb9d72b9e60
 
 
 
-0. List images downloaded:
-
-   <tt><strong>
-   docker images
-   </strong></tt>
-
-   The response:
-
-   <pre>
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-centos              latest              50dae1ee8677        8 days ago          196.7 MB
-hello-world         latest              c54a2cc56cbb        3 weeks ago         1.848 kB
-node                0.10.44-slim        f73347dab179        12 weeks ago        192.6 MB
-   </pre>
-
-   The "centos" image contains CentOS with no apps installed.
-
-   The "node" image contains CenOS with Node installed, but no custom Node apps.
-
-   PROTIP: You won't find Docker images on your local folder. See
-   <a target="_blank" href="http://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine">
-   Where are docker images stored?</a>
-
-   See https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-centos-7
-
-0. PROTIP: Evaluate a third-party tool to display visualizations of image data:
-
-   <a target="_blank" href="https://github.com/justone/dockviz">
-   dockviz</a> presents Docker image and container information in graphic form
-   to help you understand what's going on inside the system.
-   <amp-img width="400" height="134" alt="ci dockviz 20160728-400x134-i36.png" 
-   src="https://cloud.githubusercontent.com/assets/20669891/17217583/af51e066-5499-11e6-8726-eaf461b9174c.jpg">
-   </amp-img>
-
-   <a target="_blank" href="https://imagelayers.io/">
-   ImageLayers.io</a> is an Adobe Flash site that
-   shows how each command in Dockerfile contributes to the final Docker image,
-   and discover which layers are shared by multiple images.
-   It presents an ImageLayers badge about the size of an image, and how many layers it is composed of.
 
 
-## Build image #
-
-See <a target="_blank" href="https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images">
-"Docker Explained: Using Dockerfiles to Automate Building of Images"</a>a>
-
-
-   ## Jenkins invoke image build #
-
-   TODO: Next
-
-
-## Run container #
-
-0. List the parameters:
-
-   <tt><strong>
-   docker run \-\help
-   </strong></tt>
-
-   The response:
-
-   <pre>
-Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-Run a command in a new container
-Options:
-      --add-host value              Add a custom host-to-IP mapping (host:ip) (default [])
-  -a, --attach value                Attach to STDIN, STDOUT or STDERR (default [])
-      --blkio-weight value          Block IO (relative weight), between 10 and 1000
-      --blkio-weight-device value   Block IO weight (relative device weight) (default [])
-      --cap-add value               Add Linux capabilities (default [])
-      --cap-drop value              Drop Linux capabilities (default [])
-      --cgroup-parent string        Optional parent cgroup for the container
-      --cidfile string              Write the container ID to the file
-      --cpu-percent int             CPU percent (Windows only)
-      --cpu-period int              Limit CPU CFS (Completely Fair Scheduler) period
-      --cpu-quota int               Limit CPU CFS (Completely Fair Scheduler) quota
-  -c, --cpu-shares int              CPU shares (relative weight)
-      --cpuset-cpus string          CPUs in which to allow execution (0-3, 0,1)
-      --cpuset-mems string          MEMs in which to allow execution (0-3, 0,1)
-  -d, --detach                      Run container in background and print container ID
-      --detach-keys string          Override the key sequence for detaching a container
-      --device value                Add a host device to the container (default [])
-      --device-read-bps value       Limit read rate (bytes per second) from a device (default [])
-      --device-read-iops value      Limit read rate (IO per second) from a device (default [])
-      --device-write-bps value      Limit write rate (bytes per second) to a device (default [])
-      --device-write-iops value     Limit write rate (IO per second) to a device (default [])
-      --disable-content-trust       Skip image verification (default true)
-      --dns value                   Set custom DNS servers (default [])
-      --dns-opt value               Set DNS options (default [])
-      --dns-search value            Set custom DNS search domains (default [])
-      --entrypoint string           Overwrite the default ENTRYPOINT of the image
-  -e, --env value                   Set environment variables (default [])
-      --env-file value              Read in a file of environment variables (default [])
-      --expose value                Expose a port or a range of ports (default [])
-      --group-add value             Add additional groups to join (default [])
-      --health-cmd string           Command to run to check health
-      --health-interval duration    Time between running the check
-      --health-retries int          Consecutive failures needed to report unhealthy
-      --health-timeout duration     Maximum time to allow one check to run
-      --help                        Print usage
-  -h, --hostname string             Container host name
-  -i, --interactive                 Keep STDIN open even if not attached
-      --io-maxbandwidth string      Maximum IO bandwidth limit for the system drive (Windows only)
-      --io-maxiops uint             Maximum IOps limit for the system drive (Windows only)
-      --ip string                   Container IPv4 address (e.g. 172.30.100.104)
-      --ip6 string                  Container IPv6 address (e.g. 2001:db8::33)
-      --ipc string                  IPC namespace to use
-      --isolation string            Container isolation technology
-      --kernel-memory string        Kernel memory limit
-  -l, --label value                 Set meta data on a container (default [])
-      --label-file value            Read in a line delimited file of labels (default [])
-      --link value                  Add link to another container (default [])
-      --link-local-ip value         Container IPv4/IPv6 link-local addresses (default [])
-      --log-driver string           Logging driver for container
-      --log-opt value               Log driver options (default [])
-      --mac-address string          Container MAC address (e.g. 92:d0:c6:0a:29:33)
-  -m, --memory string               Memory limit
-      --memory-reservation string   Memory soft limit
-      --memory-swap string          Swap limit equal to memory plus swap: '-1' to enable unlimited swap
-      --memory-swappiness int       Tune container memory swappiness (0 to 100) (default -1)
-      --name string                 Assign a name to the container
-      --network string              Connect a container to a network (default "default")
-      --network-alias value         Add network-scoped alias for the container (default [])
-      --no-healthcheck              Disable any container-specified HEALTHCHECK
-      --oom-kill-disable            Disable OOM Killer
-      --oom-score-adj int           Tune host's OOM preferences (-1000 to 1000)
-      --pid string                  PID namespace to use
-      --pids-limit int              Tune container pids limit (set -1 for unlimited)
-      --privileged                  Give extended privileges to this container
-  -p, --publish value               Publish a container's port(s) to the host (default [])
-  -P, --publish-all                 Publish all exposed ports to random ports
-      --read-only                   Mount the container's root filesystem as read only
-      --restart string              Restart policy to apply when a container exits (default "no")
-      --rm                          Automatically remove the container when it exits
-      --runtime string              Runtime to use for this container
-      --security-opt value          Security Options (default [])
-      --shm-size string             Size of /dev/shm, default value is 64MB
-      --sig-proxy                   Proxy received signals to the process (default true)
-      --stop-signal string          Signal to stop a container, SIGTERM by default (default "SIGTERM")
-      --storage-opt value           Set storage driver options per container (default [])
-      --sysctl value                Sysctl options (default map[])
-      --tmpfs value                 Mount a tmpfs directory (default [])
-  -t, --tty                         Allocate a pseudo-TTY
-      --ulimit value                Ulimit options (default [])
-  -u, --user string                 Username or UID (format: <name|uid>[:<group|gid>])
-      --userns string               User namespace to use
-      --uts string                  UTS namespace to use
-  -v, --volume value                Bind mount a volume (default [])
-      --volume-driver string        Optional volume driver for the container
-      --volumes-from value          Mount volumes from the specified container(s) (default [])
-  -w, --workdir string              Working directory inside the container
-     </pre>
-
-0. Run the container just downloaded in a Mac:
-
-   <tt><strong>
-   docker run -it ubuntu bash
-   </strong></tt>
-
-   PROTIP: Mac uses ubuntu commands.
-
-   The response:
-
-   <pre>
-Unable to find image 'ubuntu:latest' locally
-latest: Pulling from library/ubuntu
-43db9dbdcb30: Pull complete 
-2dc64e8f8d4f: Pull complete 
-670a583e1b50: Pull complete 
-183b0bfcd10e: Pull complete 
-Digest: sha256:c6674c44c6439673bf56536c1a15916639c47ea04c3d6296c5df938add67b54b
-Status: Downloaded newer image for ubuntu:latest
-root@27eb89b0dc54:
-   </pre>
-
-   Wait for "Pull complete" for all the dependencies.
-
-   Alternately, on a CentOS machine:
-
-   <tt><strong>
-   docker run -it centos bash
-   </strong></tt>
-
-   The response:
-
-   <pre>
-Unable to find image 'centos:latest' locally
-latest: Pulling from library/centos
-8c3d77a518cb: Pull complete 
-Digest: sha256:7b754086d2c7d74ac39dc0a2545d7b06d4266f873d502feb5b3e8bfca27c5dd8
-Status: Downloaded newer image for centos:latest
-   </pre>
-
-   WARNING: The terminal prompt has changed
-   because you are now <strong>inside</strong> the container.
-
-
-   ### Exit Docker #
-
-0. Optionally, to exit out:
-
-   <tt><strong>
-   exit
-   </strong></tt>
 
 ## Compose #
 
@@ -353,58 +280,6 @@ Status: Downloaded newer image for centos:latest
 
    See https://docs.docker.com/v1.11/compose/extends/#different-environments
    
-
-## Link repo to Docker Hub #
-
-   ### Setup Docker Hub #
-
-0. <a target="_blank" href="https://hub.docker.com/">
-   https://hub.docker.com</a>
-
-0. If you don't have a Docker account already, <strong>Sign-up</strong> for an account
-   and click the "Confirm your email" button in the email with subject
-   "Please confirm email for your Docker ID‏".
-
-0. Link Docker Hub to your GitHub account.
-   Click on your photo at the upper right. Select Settings,
-   "Linked Accounts &amp; Services".
-
-   If you're already linked, an "Unlink" appears.
-   Proceeding as if there isn't.
-
-0. CAUTION: Select "Public and Private" means Docker can see your private repositories.
-
-   PROTIP: Open a another set of GitHub and Docker accounts based on another email account
-   to work only with public-facing repos for this exercise.
-
-0. At the top menu, pull down the <strong>Create</strong> menu to select
-   "Create Automated Build". Click the Github button.
-
-   NOTE: The above is covered by a segment in 
-   <a target="_blank" href="https://app.pluralsight.com/player?course=integrating-docker-with-devops-automated-workflows&author=nigel-poulton&name=integrating-docker-with-devops-automated-workflows-m4&clip=0&mode=live">
-   this Pluralsight video</a>.
-
-0. Click on the repo.
-0. Type in a short description and click Create.
-0. Under the "Docker Pull Command" at the right pane:
-
-   <tt><strong>
-   docker pull wilsonmar/99bottles-jmeter
-   </strong></tt>
-
-   Notice the target isn't a URL but an account name.
-
-0. Copy and paste the command above.
-
-   The response if you're in the right folder for Docker:
-
-   <pre>
-Using default tag: latest
-Pulling repository docker.io/wilsonmar/99bottles-jmeter
-Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
-   </pre>
-
-
 
 ### Add Webhooks to Docker Hub #
 
@@ -448,48 +323,13 @@ Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
 0. Switch to Docker Hub to copy
 
 
-## Create Docker Windows 2016 instance
 
-Here's how to create a Docker image to run Windows 2016 server, based on
 
-https://github.com/StefanScherer/docker-windows-box/
+## Resources
 
-1. Get to the page providing downloads of Windows Server 2016 Evaluation edition good for 180 days:
+See <a target="_blank" href="https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images">
+"Docker Explained: Using Dockerfiles to Automate Building of Images"</a>a>
 
-   https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016/
-
-0. Click Register, and provide your info.
-0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
-0. Select "English". Click Download.
-0. The Download folder pop-up, click OK to:
-
-   14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso, 6.5 GB.
-
-0. While you wait, read:
-
-   https://info.microsoft.com/TheUltimateGuideToWindowsServer2016.html
-
-   https://www.microsoft.com/en-us/cloud-platform/windows-server-comparison
-
-   https://channel9.msdn.com/Blogs/windowsserver
-
-   https://www.youtube.com/user/MSCloudOS/playlists?shelf_id=6&view=50&sort=dd
-
-0. Select "Server with Desktop Experience" (not Server Core) to get the Desktop GUI.
-
-0. Create WS 2016 TP5 VM in virtualbox
-
-0. In the new VM, run this:
-
-   https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_configure_host#scripted-existing-system-1-
-
-   Now you can run Windows Containers in the VM. To make the setup a little easier to use, see this: 
-
-    https://aka.ms/containers
-
-https://docs.docker.com/docker-for-mac/#preferences
-
-0. Put it into Docker Hub.
 
 
 ## More on DevOps #

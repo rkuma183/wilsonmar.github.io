@@ -871,9 +871,57 @@ Live Restore Enabled: false
 
    PROTIP: There are other auths.
 
-0. Create a Docker ID account at 
 
-   https://hub.docker.com
+   ### Setup Docker Hub #
+
+0. <a target="_blank" href="https://hub.docker.com/">
+   https://hub.docker.com</a>
+
+0. If you don't have a Docker account already, <strong>Sign-up</strong> for an account
+   and click the "Confirm your email" button in the email with subject
+   "Please confirm email for your Docker ID‏".
+
+0. Link Docker Hub to your GitHub account.
+   Click on your photo at the upper right. Select Settings,
+   "Linked Accounts &amp; Services".
+
+   If you're already linked, an "Unlink" appears.
+   Proceeding as if there isn't.
+
+0. CAUTION: Select "Public and Private" means Docker can see your private repositories.
+
+   PROTIP: Open a another set of GitHub and Docker accounts based on another email account
+   to work only with public-facing repos for this exercise.
+
+0. At the top menu, pull down the <strong>Create</strong> menu to select
+   "Create Automated Build". Click the Github button.
+
+   NOTE: The above is covered by a segment in 
+   <a target="_blank" href="https://app.pluralsight.com/player?course=integrating-docker-with-devops-automated-workflows&author=nigel-poulton&name=integrating-docker-with-devops-automated-workflows-m4&clip=0&mode=live">
+   this Pluralsight video</a>.
+
+0. Click on the repo.
+0. Type in a short description and click Create.
+0. Under the "Docker Pull Command" at the right pane:
+
+   <tt><strong>
+   docker pull wilsonmar/99bottles-jmeter
+   </strong></tt>
+
+   Notice the target isn't a URL but an account name.
+
+0. Copy and paste the command above.
+
+   The response if you're in the right folder for Docker:
+
+   <pre>
+Using default tag: latest
+Pulling repository docker.io/wilsonmar/99bottles-jmeter
+Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
+   </pre>
+
+
+   ### Log into Docker Hub
 
 0. Log into Docker Hub:
 
@@ -1229,6 +1277,50 @@ To try something more ambitious, you can run an Ubuntu container with:
 Share images, automate workflows, and more with a free Docker Hub account:
  https://hub.docker.com
     </pre>
+
+
+0. Run the container just downloaded in a Mac:
+
+   <tt><strong>
+   docker run -it ubuntu bash
+   </strong></tt>
+
+   PROTIP: Mac uses ubuntu commands.
+
+   The response:
+
+   <pre>
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+43db9dbdcb30: Pull complete 
+2dc64e8f8d4f: Pull complete 
+670a583e1b50: Pull complete 
+183b0bfcd10e: Pull complete 
+Digest: sha256:c6674c44c6439673bf56536c1a15916639c47ea04c3d6296c5df938add67b54b
+Status: Downloaded newer image for ubuntu:latest
+root@27eb89b0dc54:
+   </pre>
+
+   Wait for "Pull complete" for all the dependencies.
+
+   Alternately, on a CentOS machine:
+
+   <tt><strong>
+   docker run -it centos bash
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Unable to find image 'centos:latest' locally
+latest: Pulling from library/centos
+8c3d77a518cb: Pull complete 
+Digest: sha256:7b754086d2c7d74ac39dc0a2545d7b06d4266f873d502feb5b3e8bfca27c5dd8
+Status: Downloaded newer image for centos:latest
+   </pre>
+
+   WARNING: The terminal prompt has changed
+   because you are now <strong>inside</strong> the container.
 
    <a name="CanDockerRun"></a>
 
