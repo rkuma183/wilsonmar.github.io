@@ -141,8 +141,8 @@ There is a lot of information, so we use it to show use of some command-line kun
 0. In the Terminal, highlight the file name and press Ctrl+C to copy it to your Clipboard.
 0. To count the number of lines in that output file above:
 
-   <pre><strong>wc system_profiler_2017_06_11
-   </strong></pre>
+   <tt><strong>wc system_profiler_2017_06_11
+   </strong></tt>
 
    The response I got:
 
@@ -158,6 +158,45 @@ There is a lot of information, so we use it to show use of some command-line kun
    nl command</a> which adds a line counter as it displays each line.
 
 
+
+<a id="KernelState"></a>
+
+## System Kernel State
+
+This is rather geeky, but just so you know:
+
+   <tt><strong>sysctl -a hw
+   </strong></tt>
+
+   `-a` lists all the currently available non-opaque values.
+
+   <a target="_blank" href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man3/sysctl.3.html#//apple_ref/doc/man/3/sysctl">detailed description of these.</a>
+
+   <pre>
+hw.ncpu: 8
+hw.l3cachesize: 6291456
+hw.l2cachesize: 262144
+hw.l1dcachesize: 32768
+hw.l1icachesize: 32768
+   </pre>
+
+
+   <tt><strong>sysctl kern.clockrate
+   </strong></tt>
+
+   <pre>
+kern.clockrate: { hz = 100, tick = 10000, tickadj = 2, profhz = 100, stathz = 100 }
+   </pre>
+
+
+   <tt><strong>sysctl vm.swapusage
+   </strong></tt>
+
+   <pre>
+vm.swapusage: total = 2048.00M  used = 320.50M  free = 1727.50M  (encrypted)
+   </pre>
+
+
 <a id="SysPrefs"></a>
 
 ## System Preferences 
@@ -171,17 +210,13 @@ move the cursor to the very top of the screen for a few seconds.</li>
 
    <img alt="mac-system-prefs-10 12 5-285x280-35kb" width="285" height="280" src="https://user-images.githubusercontent.com/300046/27473427-36a91b7e-57cd-11e7-808e-85088336e959.png">
 
-QUESTION: Where are preferences stored? 
-
-   sysctl -a hw
-
 
 <a id="Displayz"></a>
 
 ## Display
 
 <ol type="1">
-<li> Within <a href="#SysPrefs">System Perferences</a>:</li>
+<li> Within <a href="#SysPrefs">System Preferences</a>:</li>
 <li> Click <strong>Displays</strong>.</li>
 <li> Set <strong>Resolution</strong> to <strong>Scaled</strong></li>
 
@@ -218,9 +253,8 @@ to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Press Ctrl+O, then when it asks you for the filename type in 
 
-   <tt>
-   ~/Documents/mute.sh
-   </tt>
+   <tt><strong>~/Documents/mute.sh
+   </strong></tt>
 
 0. Hit Enter to save the file. This puts the mute script in your Documents folder (don't worry, we're going to move it later).
 
@@ -237,25 +271,25 @@ to mute sound automatically before reboot, and un-mute after reboot.
 
 0. Press Ctrl+X, press Y to agree, then type in 
 
-   <pre><strong>~/Documents/unmute.sh
-   </strong></pre>
+   <tt><strong>~/Documents/unmute.sh
+   </strong></tt>
 
 0. Hit Return to save the new file, and nano should quit.
 
 0. To make the scripts executable,
    run the following commands in the Terminal, hitting Enter after each one
 
-   <pre><strong>sudo chmod u+x ~/Documents/mute.sh
-   sudo chmod u+x ~/Documents/unmute.sh
-   sudo mv ~/Documents/mute.sh /Library/Scripts/
+   <tt><strong>sudo chmod u+x ~/Documents/mute.sh<br />
+   sudo chmod u+x ~/Documents/unmute.sh<br />
+   sudo mv ~/Documents/mute.sh /Library/Scripts/<br />
    sudo mv ~/Documents/unmute.sh /Library/Scripts/
-   </strong></pre>
+   </strong></tt>
 
 0. Set the scripts to run automatically:
 
-   <pre><strong>sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh
+   <tt><strong>sudo defaults write com.apple.loginwindow LogoutHook /Library/Scripts/mute.sh<br />
    sudo defaults write com.apple.loginwindow LoginHook /Library/Scripts/unmute.sh
-   </strong></pre>
+   </strong></tt>
 
 0. Close the Terminal, save data in all other apps, and reboot your machine.
 
