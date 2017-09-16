@@ -152,6 +152,8 @@ packer build \-\-only=vmware-iso windows_2016_docker.json
 \-\-var iso_url=~/gits/vms/packer-windows/packer_cache/49f719e23c56a779a991c4b4ad1680b8363918cd0bfd9ac6b52697d78a309855.iso
    </strong></tt>
 
+   NOTE: This is also MSDN file en_windows_server_2016_x64_dvd_9718492.iso
+
    The rest of the response:
 
    <pre>
@@ -175,6 +177,8 @@ packer build \-\-only=vmware-iso windows_2016_docker.json
 ==> vmware-iso: Building and writing VMX file
 ==> vmware-iso: Starting virtual machine...
    </pre>
+
+   ### VMware Fusion Internal Error
 
    Alas, my VMware Fusion 8.5 displays "Internal error" upon starting an image.
 
