@@ -145,6 +145,42 @@ vmware-iso: Downloading or copying: http://care.dlservice.microsoft.com/dl/downl
 
    Does the file name match what Microsoft would have downloaded?
 
+   <pre>
+    vmware-iso: Download progress: 100%
+    vmware-iso: Download progress: 100%
+==> vmware-iso: Creating floppy disk...
+    vmware-iso: Copying files flatly from floppy_files
+    vmware-iso: Copying file: ./answer_files/2016/Autounattend.xml
+    vmware-iso: Copying file: ./floppy/WindowsPowershell.lnk
+    vmware-iso: Copying file: ./floppy/PinTo10.exe
+    vmware-iso: Copying file: ./scripts/disable-screensaver.ps1
+    vmware-iso: Copying file: ./scripts/disable-winrm.ps1
+    vmware-iso: Copying file: ./scripts/docker/enable-winrm.ps1
+    vmware-iso: Copying file: ./scripts/docker/2016/install-containers-feature.ps1
+    vmware-iso: Copying file: ./scripts/microsoft-updates.bat
+    vmware-iso: Copying file: ./scripts/win-updates.ps1
+    vmware-iso: Done copying files from floppy_files
+    vmware-iso: Collecting paths from floppy_dirs
+    vmware-iso: Resulting paths from floppy_dirs : []
+    vmware-iso: Done copying paths from floppy_dirs
+==> vmware-iso: Creating virtual machine disk
+==> vmware-iso: Building and writing VMX file
+==> vmware-iso: Starting virtual machine...
+   </pre>
+
+   Alas, my VMware Fusion 8.5 displays "Internal error" upon starting an image.
+
+   <pre>
+==> vmware-iso: Error starting VM: VMware error: Error: Cannot connect to the virtual machine
+==> vmware-iso: Deleting output directory...
+Build 'vmware-iso' errored: Error starting VM: VMware error: Error: Cannot connect to the virtual machine
+&nbsp;
+==> Some builds didn't complete successfully and had errors:
+--> vmware-iso: Error starting VM: VMware error: Error: Cannot connect to the virtual machine
+&nbsp;
+==> Builds finished but no artifacts were created.
+   </pre>   
+
 0. Vagrant
 
    <pre><strong>
