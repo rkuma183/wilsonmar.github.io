@@ -120,13 +120,14 @@ Resolving deltas: 100% (42/42), done.
 0. Click Register, and provide your info.
 0. Select "ISO" (not Azure or Virtua Lab). Click Continue.
 0. Select "English". Click Download.
-0. When the Download folder pops up, DO NOT click OK, just copy the file name, such as:
+0. Cancel the download of file:
 
    14393.0.161119-1705.RS1_REFRESH_SERVER_EVAL_X64FRE_EN-US.iso
 
-   The Packer script will download the file, but we want to make sure that it downloads the most recent file Microsoft has.
+   Leave it to the Packer to download the file, but we want to make sure that it downloads the most recent file Microsoft has.
 
-   PROTIP: The file at time of writing is a whopping <strong>6.5 GB</strong>! So it may take hours to download.
+   PROTIP: The file at time of writing is a whopping <strong>6.5 GB</strong>! 
+   So it may take hours to download, depending on how fast your internet connection is.
 
 
    ### Packer gets the file
