@@ -130,7 +130,7 @@ Resolving deltas: 100% (42/42), done.
    So it may take hours to download, depending on how fast your internet connection is.
 
 
-   ### Packer gets the file
+   ### Packer pulls the installer and runs it
 
 0. While in the packer-windows folder, use the Packer file <a target="_blank" href="https://github.com/StefanScherer/packer-windows/blob/my/windows_2016_docker.json">windows_2016_docker.json</a> in the repo from Stefan:
 
@@ -154,6 +154,9 @@ packer build \-\-only=vmware-iso windows_2016_docker.json
    </strong></tt>
 
    NOTE: This is also MSDN file en_windows_server_2016_x64_dvd_9718492.iso
+
+   PROTIP: The Packer command can be restarted and it restarts where it left off on partial downloads. 
+   Once downloaded, it knows to not download again.
 
    The rest of the response:
 
@@ -181,7 +184,7 @@ packer build \-\-only=vmware-iso windows_2016_docker.json
 
    ### VMware Fusion Internal Error
 
-   Alas, my VMware Fusion 8.5 displays "Internal error" upon starting an image.
+   On occassion, my VMware Fusion 8.5 displays "Internal error" upon starting an image.
 
    <pre>
 ==> vmware-iso: Error starting VM: VMware error: Error: Cannot connect to the virtual machine
@@ -193,6 +196,53 @@ Build 'vmware-iso' errored: Error starting VM: VMware error: Error: Cannot conne
 &nbsp;
 ==> Builds finished but no artifacts were created.
    </pre>
+
+   PROTIP: The Packer command can be restarted and it restarts where it left off
+
+   ### Windows Desktop Update
+
+   Packer shows this message while it constructs a Windows instance:
+
+   <pre>
+==> vmware-iso: Waiting for WinRM to become available...
+   </pre>
+
+   A cmd.exe window appears to display messages about the Update process, which can take a while.
+
+   <pre>
+Checking for Windows Updates
+Script: A:\win-updates.ps1
+Script User: VAGRANT-2016\vagrant
+Started: 9/18/2017 12:30:58 AM
+   </pre>
+
+   WARNING: If Windows Update is interrupted, Packer will start again with a new instance of VMware Fusion image.
+
+0. PROTIP: Keep your laptop plugged into a power source and a (preferrably fast) network.
+
+0. PROTIP: Keep the MacOS screen from going to sleep: choose Apple menu > System Preferences, click Energy Saver.
+   Drag the "Display sleep" to "Never".
+
+   PROTIP: To move mouse beyond the Windows machine, press command+Tab until the process you want is highlighted.
+
+   Finally:
+
+   <pre>
+Build 'vmware-iso' finished.
+==> Build finished. The artifacts of successful builds are:
+--> vmware-iso: 'vmware' provider box: windows_2016_docker_vmware.box
+   </pre>
+
+
+   ### Windows customizations
+
+   Once your instance is created, you will likely want to make customizations, such as adding applications.
+
+
+
+
+   PROTIP: Make a copy of it before making changes. This takes several Gigabytes.
+
 
 
 
