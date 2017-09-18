@@ -216,6 +216,12 @@ Script User: VAGRANT-2016\vagrant
 Started: 9/18/2017 12:30:58 AM
    </pre>
 
+   You then wait while
+
+   <pre>
+Downloading updates...
+   </pre>
+
    WARNING: If Windows Update is interrupted, Packer will start again with a new instance of VMware Fusion image.
 
 0. PROTIP: Keep your laptop plugged into a power source and a (preferrably fast) network.
@@ -232,6 +238,8 @@ Build 'vmware-iso' finished.
 ==> Build finished. The artifacts of successful builds are:
 --> vmware-iso: 'vmware' provider box: windows_2016_docker_vmware.box
    </pre>
+
+   BLAH: Where does the file go? I don't see it on my machine.
 
 
    ### Windows customizations
