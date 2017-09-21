@@ -38,7 +38,14 @@ Three ways to relaunch the Finder:
 
 ## Open Terminal from Finder Folder #
 
-It's hard to get away from using a command-line terminal.
+If you're a developer, it's hard to get away from using a command-line terminal. But if you're using a MacOS just for social media, you won't need a Terminal. That's why it's kinda buried:
+
+0. Click the Finder icon on the bottom.
+0. Click Applications on the left pane.
+0. Click Utilities.
+0. Click Terminal.
+
+   This would place you at your user Home directory.
 
 PROTIP: Since Yosemite, you can open a Terminal to a folder listed within Finder by pointing your mouse on it, then tapping with two fingers on the touchpad/mousepad.
 
@@ -58,8 +65,7 @@ Alternately:
 
 ## Terminal File Listing Home Folder #
 
-By default, the terminal shows the hard drive and lowest level file folder name, 
-in white letters over black.
+By default, the Terminal shows the hard drive and lowest level file folder name, in white letters over black.
 
 0. To show the present (current) working directory (folder):
 
@@ -544,6 +550,10 @@ fi
 https://github.com/gcuisinier/jenv/blob/master/README.md
 
 
+To run a bash script while avoiding the confirmation prompt:
+
+   <tt><strong>set \-\- -f; source bootstrap.sh
+   </strong></tt>
 
 
 <a id="Terminalz"></a>

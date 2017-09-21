@@ -17,20 +17,23 @@ comments: true
 
 This tutorial contains a hands-on <strong>step-by-step</strong> instructions for "newbies" to create a Docker image that runs Windows 2016 server within a Mac laptop (the host machine).
 
+![docker-build-2017-09-21b-650x250-41561](https://user-images.githubusercontent.com/300046/30707794-79a06b1e-9eb1-11e7-8e75-337a13f034c2.jpg)
+
+The workflow begins from "scratch" with an ISO file (like on a DVD) from Microsoft. Microsoft requires registration. We download Stefan's repo from GitHub, which has a Packer script that uses the iso file to create a VMware Fusion server image running on MacOS. VMware is needed for nested virtualization of Windows HyperV containers. After applying Windows Update, the VMware image is converted to a Vagrant box image. Based on Hashicorp's VMWare-vagrant provider and the Vagrantfile, a Windows server is instantiated. We RDP into the Vagrant box to install and configure Windows apps. This Windows server is used as the host to create Dockerized images such as <a href="#WinContainers">Windows Docker Containers</a>. The images are pushed up to DockerHub so others can use it to run as isolated on each Windows server machine in production.
+
 This is a companion to ["Docker setup"](/docker-setup/)
 and based on https://github.com/StefanScherer/docker-windows-box/
 
-### .
-
 1. Be inside a Terminal window, on any directory.
 0. [Install Homebrew](/macos-homebrew/)
-0. Install Vagrant.
 0. Install a Git client.
+0. ssh.exe or putty for Windows.
 
    ### VMWare
 
    Install VMware Fusion 8.5 for Mac (not the Pro edition) for its drivers.
 
+0. Pay $395 for the license after 10 days.
 0. Get the installer from:
 
    https://www.vmware.com/products/fusion/fusion-evaluation.html
@@ -44,12 +47,56 @@ and based on https://github.com/StefanScherer/docker-windows-box/
 
    PROTIP: There is no need to invoke the program from Applications folder (/Applications/VMware Fusion.app).
 
-   BEWARE: https://communities.vmware.com/thread/543980
-   says uninstall Virtual Box solve the issue.
-
    https://unix.stackexchange.com/questions/169623/yosemite-fusion-7-0-1-now-gets-could-not-open-dev-vmmon-no-such-file-or-dir
 
-   sudo sh VirtualBox_Uninstall.tool
+
+   ### Vagrant install
+
+0. Install Vagrant using Homebrew:
+
+   <tt><strong>
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+brew cask install vagrant
+   </strong></tt>
+
+0. To avoid <a target="_blank" href="https://communities.vmware.com/thread/543980">issues</a>, delete the curl program from Vagrant so your Mac's program is used:
+
+   <tt><strong>sudo rm /opt/vagrant/embedded/bin/curl
+    </strong></tt>
+
+0. Install the Vagrant Fusion plugin from Hashicorp:
+
+   <tt><strong>
+vagrant plugin install vagrant-vmware-fusion     
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+Installing the 'vagrant-vmware-fusion' plugin. This can take a few minutes...
+Fetching: vagrant-share-1.1.9.gem (100%)
+Fetching: vagrant-vmware-fusion-4.0.24.gem (100%)
+Installed the plugin 'vagrant-vmware-fusion (4.0.24)'!
+   </pre>
+
+0. Pay $79 for the license at https://www.vagrantup.com/vmware/index.html
+
+   Vagrant plugin usage documentation is at:
+   https://docs.vagrantup.com/v2/plugins/usage.html
+
+0. Open the email from Hashicorp. Click the link. Click "click here" to download the `license.lic` file.
+
+   <tt><strong>vagrant plugin license vagrant-vmware-fusion ~/Downloads/license.lic
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Installing license for 'vagrant-vmware-fusion'...
+The license for 'vagrant-vmware-fusion' was successfully installed!
+   </pre>
+
+
 
    <a name="Packer"></a>
 
@@ -136,7 +183,6 @@ Resolving deltas: 100% (42/42), done.
 
    <tt><strong>
 packer build \-\-only=vmware-iso windows_2016_docker.json 
-\-\-var iso_url=~/packer_cache/msdn/en_windows_server_2016_x64_dvd_9718492.iso
    </strong></tt>
 
    This downloads the .iso file from Microsoft. Note one of the response lines from it:
@@ -216,13 +262,15 @@ Script User: VAGRANT-2016\vagrant
 Started: 9/18/2017 12:30:58 AM
    </pre>
 
-   You then wait while
+   We wait (with no countdown UI) while this appears:
 
    <pre>
 Downloading updates...
    </pre>
 
-   WARNING: If Windows Update is interrupted, Packer will start again with a new instance of VMware Fusion image.
+   WARNING: If Windows Update is interrupted, Packer will start again with a new instance of VMware Fusion image, and download again.
+
+   TODO: Contact them and see if we can avoid re-downloading.
 
 0. PROTIP: Keep your laptop plugged into a power source and a (preferrably fast) network.
 
@@ -231,7 +279,7 @@ Downloading updates...
 
    PROTIP: To move mouse beyond the Windows machine, press command+Tab until the process you want is highlighted.
 
-   Finally:
+   The <strong>WindowsServer2016Docker.vmx</strong> file that VMware Fusion opens is created inside the <strong>output-vmware-iso</strong> folder. However, this folder is <strong>deleted</strong> when you finally see:
 
    <pre>
 Build 'vmware-iso' finished.
@@ -239,21 +287,14 @@ Build 'vmware-iso' finished.
 --> vmware-iso: 'vmware' provider box: windows_2016_docker_vmware.box
    </pre>
 
-   BLAH: Where does the file go? I don't see it on my machine.
+   The .box file is in the GitHub root level directory. 
 
+   Custom applications are added within the Vagrant image, not in the .vmx image.
 
-   ### Windows customizations
+   <a name="VagrantBox"></a>
 
-   Once your instance is created, you will likely want to make customizations, such as adding applications.
-
-
-
-
-   PROTIP: Make a copy of it before making changes. This takes several Gigabytes.
-
-
-
-
+   <a target="_blank" href="https://gist.github.com/kekru/a76ba9d0592ce198f09f6ba0cefa5afb">
+   EXAMPLE</a>, <a target="_blank" label="explains the various option for the box command" href="https://www.vagrantup.com/docs/cli/box.html#box-add">DOCS</a>
 
 0. Vagrant
 
@@ -261,10 +302,169 @@ Build 'vmware-iso' finished.
 vagrant box add windows_2016_docker windows_2016_docker_vmware.box
    </strong></pre>
 
+   The response:
+
+   <pre>
+ detected as metadata. Adding it directly...
+==> box: Adding box 'windows_2016_docker' (v0) for provider: 
+    box: Unpacking necessary files from: file:///Users/wilsonmar/gits/vms/packer-windows/windows_2016_docker_vmware.box
+==> box: Successfully added box 'windows_2016_docker' (v0) for 'vmware_desktop'!
+   </pre>
+
+   PROTIP: The above command adds to folder `~/.vagrant.d/boxes/` under your user home.
+
+0. List Vagrant boxes (to verify):
+
+   <pre><strong>
+vagrant box list
+   </strong></pre>
+
+   The response should be:
+
+   <pre>
+windows_2016_docker (vmware_desktop, 0)
+   </pre>
+
+0. List Vagrant commands:
+
+   <pre><strong>
+vagrant
+   </strong></pre>
+
+   Example:
+
+   <pre>
+Usage: vagrant [options] <em>command</em>> [<em>args</em>>]
+&nbsp;
+    -v, --version                    Print the version and exit.
+    -h, --help                       Print this help.
+&nbsp;
+Common commands:
+     box             manages boxes: installation, removal, etc.
+     connect         connect to a remotely shared Vagrant environment
+     destroy         stops and deletes all traces of the vagrant machine
+     global-status   outputs status Vagrant environments for this user
+     halt            stops the vagrant machine
+     help            shows the help for a subcommand
+     init            initializes a new Vagrant environment by creating a Vagrantfile
+     login           log in to HashiCorp's Vagrant Cloud
+     package         packages a running vagrant environment into a box
+     plugin          manages plugins: install, uninstall, update, etc.
+     port            displays information about guest port mappings
+     powershell      connects to machine via powershell remoting
+     provision       provisions the vagrant machine
+     push            deploys code in this environment to a configured destination
+     rdp             connects to machine via RDP
+     reload          restarts vagrant machine, loads new Vagrantfile configuration
+     resume          resume a suspended vagrant machine
+     share           share your Vagrant environment with anyone in the world
+     snapshot        manages snapshots: saving, restoring, etc.
+     ssh             connects to machine via SSH
+     ssh-config      outputs OpenSSH valid configuration to connect to the machine
+     status          outputs status of the vagrant machine
+     suspend         suspends the machine
+     up              starts and provisions the vagrant environment
+     validate        validates the Vagrantfile
+     version         prints current and latest Vagrant version
+&nbsp;
+For help on any individual command run `vagrant COMMAND -h`
+&nbsp;
+Additional subcommands are available, but are either more advanced
+or not commonly used. To see all subcommands, run the command
+`vagrant list-commands`.
+   </pre>
+
+0. Use a text editor to view the Vagrantfile provided in the repo:
+
+   <pre>
+Vagrant.configure("2") do |config|
+  # Wait max 10 minutes (600 seconds) to start VM without provisioning:
+  config.vm.boot_timeout = 600
+
+  config.vm.provider :virtualbox do |p|
+    p.name = 'windows_2016_docker'
+    config.vm.box_url = "windows_2016_docker_vmware.box"
+  end
+end
+   </pre>
+
+   CAUTION: Do not issue command `vagrant init` which overwrites the Vagrantfile provided.
+
+0. Bring up Vagrant .box in the folder:
+
+   <tt><strong>
+vagrant up \-\-provider vmware_fusion
+   </strong></tt>
+
+   Example response:
+
+   <pre>
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'windows_2016_docker' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Box file was not detected as metadata. Adding it directly...
+==> default: Adding box 'windows_2016_docker' (v0) for provider: virtualbox
+    default: Unpacking necessary files from: file:///Users/wilsonmar/gits/vms/packer-windows/windows_2016_docker_vmware.box
+   </pre>
+
+   CAUTION: Do not stop the window (by pressing congtrol+C) unless you want to.
+
+0. Get the id:
+
+   <tt><strong>
+   vagrant global-status
+   </strong></tt>
+
+0. Open another Terminal window to login to the new server via SSH (Secure Shell):
+
+   <tt><strong>
+vagrant rdp
+   </strong></tt>
+
+
+
+   ### Custom apps install
+
+   Once your instance is created, you will likely want to make customizations, 
+   such as adding applications.
+
+   PROTIP: Make a copy of it before making changes. This takes several Gigabytes.
+
+   https://wilsonmar.github.io/code-signing-on-windows/
+
+
+   <a name="WinContainers">
+
+   ### Windows Containers
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/">
+   Microsoft's Windows Containers</a> provide operating system level virtualization that allows multiple isolated applications (within Docker containers) that run on a single machine. 
+
+   https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers
+
+
+   * https://www.youtube.com/watch?v=N7SG2wEyQtM
+   Windows Containers and Docker: 101
+
+   * https://www.youtube.com/watch?v=tm5Gw1rIg-M
+   Tutorial - Docker Overview for .NET Developers (1/7)
+   Microsoft Visual Studio
+   16K views
+
+   <a target="_blank" href="https://www.youtube.com/watch?v=UUZD7PCBbHg">
+   Getting Started with Docker on Windows 10</a> [10:27]
+   by Cloud Academy
+
+   https://www.youtube.com/watch?v=CE9StJpb2ZY">
+   Windows Containers with Docker</a> [11:12]
+   published on May 31, 2016
+   by TechBusters IT Solutions
+
+<hr />
+
 
    ### Windows Server
-
-0. While you wait, read:
 
 0. Select "Server with Desktop Experience" (not Server Core) to get the Desktop GUI.
 

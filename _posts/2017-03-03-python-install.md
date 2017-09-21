@@ -241,9 +241,9 @@ Python 2 comes installed on MacOS machines.
 
 0. Open a Terminal shell window and issue command:
 
-   <pre><strong>
+   <tt><strong>
    python \-\-version
-   </strong></pre>
+   </strong></tt>
 
    The response on a freshly installed El Capitan version:
 
@@ -305,9 +305,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 
    In the response, substitue my "mac" user name with yours:
 
-   <tt>
+   <pre>
    '/Users/mac/Downloads'
-   </tt>
+   </pre>
 
    The above should be the same as the path obtained from pwd before entering Python.
 
@@ -348,17 +348,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 
    A simple HTTP server service can be started with command:
 
-   <pre><strong>
+   <tt><strong>
    python -m SimpleHTTPServer
-   </strong></pre>
+   </strong></tt>
 
    For Python3: 
 
-   <pre><strong>
-   python -m http.server
-   </strong></pre>
+   <tt><strong>
+   python3 -m http.server
+   </strong></tt>
 
- 
+   The response:
+
+   <pre>
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...   
+   </pre>
+
 
 ## Don't Uninstall Python 2.7 #
 
@@ -2022,6 +2027,8 @@ Numpy</a> open-source Python library for fast performance with data that fits in
 <a target="_blank" href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
 Quickstart</a>.
 
+In a requirements.txt file: 
+
 tweepy (http://www.tweepy.org)
 
 csv (https://pypi.python.org/pypi/csv)
@@ -2030,6 +2037,35 @@ textblob (https://textblob.readthedocs.io/en/dev/)
 
 keras (https://keras.io)
 
+
+bokeh
+Flask
+ipython
+jupyter
+matplotlib
+nose
+numpy
+pandas
+Pillow
+pymc
+requests
+scikit-image
+scikit-learn
+scipy
+seaborn
+statsmodel
+tensorflow
+virtualenv
+virtualenvwrapper
+
+## OpenCV3
+
+<pre>
+brew tap homebrew/science && brew update
+brew install opencv3 --with-contrib --with-python3 --without-python
+ln -s /usr/local/opt/opencv3/lib/python3.6/site-packages/cv2.cpython-36m-darwin.so /usr/local/lib/python3.6/site-packages/cv2.so
+export PYTHONPATH=$PYTHONPATH:/usr/local/Cellar/opencv3/3.2.0/lib/python3.6/site-packages
+   </pre>
 
 ## Data Manipulation #
 
@@ -2047,6 +2083,9 @@ http://stackoverflow.com/questions/509211/explain-pythons-slice-notation/
 ## Miscellaneous #
 
 http://stackoverflow.com/questions/990754/how-to-leave-exit-deactivate-a-python-virtualenv?rq=1
+
+https://gist.github.com/alyssaq/f60393545173379e0f3f
+describes install of https://bootstrap.pypa.io/get-pip.py 
 
 
 ## More on OSX
