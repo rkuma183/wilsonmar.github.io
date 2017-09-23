@@ -19,14 +19,13 @@ comments: true
 This tutorial is a step-by-step hands-on introduction to use of Terraform to deploy a cluster of web servers and a load balancer on AWS and other providers (clouds).
 
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.
-
 Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
 https://www.terraform.io/intro/index.html
 
 ## Competitors to Terraform
 
-<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a> Other IAC tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
+<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: Other IAC (Infrastructure as Code) tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> &nbsp; </th><th> CloudFormation </th><th> Terraform </th></tr>
@@ -45,12 +44,42 @@ Both CF and Terraform work with JSON, but Terraform works with HCL (Hashicorp Co
 
 But Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
+## Providers
+
+Terraform providers reference APIs. Examples are AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack.
+
+   https://github.com/terraform-providers
+
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers
+
+Metadata related to each provider are defined like this:
+
+   <pre>
+provider "aws" {
+  alias = "NorthEast"
+  region = "us-east-1"
+}
+   </pre>
+
+resource definitions specify the desired state of resources.
+
+Provisioners configurations are also plugins:
+
+Provisioner definitions define the properties of each resource, such as initialization commands. For example, this installs an nginx web server and displays a minimal HTML page:
+
+   <pre>
+provisioner "remote-exec" {
+  inline = [
+    "sudo yum install nginx -y",
+    "sudo service nginx start",
+    "echo "<html><head><title><title>NGINX server</title></head><body style=\"background-color"></body></html>"
+  ]
+}
+   </pre>
+
+
 
 ## Installation #
-
-Release 0.6.8 (2.12.2015)
-
-Terraform was written in Golang. ["Read all about it here"](/golang/).
 
 On MacOS:
 
@@ -70,7 +99,7 @@ zsh completions have been installed to:
 🍺  /usr/local/Cellar/terraform/0.10.6: 7 files, 63.6MB
    </pre>   
 
-   PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.
+   PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.  ["Read all about it here"](/golang/).
 
 
 0. Initialize plug-ins:
@@ -151,15 +180,22 @@ Unpacking objects: 100% (12/12), done.
 
    It also dentifies additions and deletions.
 
-   A lock file is creaetd to prevent other Terraform instances to 
-
-   <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
-   NOTE</a>: Terraform code is written in a declarative language called HCL (HashiCorp Configuration Language).
+   A lock file is created by Terraform to prevent other Terraform instances from simultaneous reference.
 
 0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
 
-   Annotations are as in bash scripts: Single line comments start with # (pound sign).<br />
-   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in ${}, such as ${var.foo}. 
+   <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
+   NOTE</a>: Terraform code is written in a declarative language called HCL (HashiCorp Configuration Language). It's less verbose than JSON and more concise than YML.
+
+   Unlike JSON and YML, HCL allows annotations as in bash scripts: Single line comments start with # (pound sign).<br />
+   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in ${}, in the format of ${type.name.attribute}. Literal $ are coded by doubling up $$.
+
+   Back-slashes specify continuation.
+
+
+   Variables can be assigned default values.
+
+   HCL does not have conditional if/else logic.
 
 0.
 
@@ -168,6 +204,7 @@ Unpacking objects: 100% (12/12), done.
    <pre>
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
+# export AWS_DEFAULT_REGION=xx-yyyy-0
 
 variable "server_port" {
   description = "The port the server will use for HTTP requests"
@@ -194,7 +231,25 @@ output "public_ip" {
 
     <pre>ami = "ami-2d39803a"</pre>
 
+   NOTE: Components of Terrform are: Providers, Resources, Provisioners.
 
+   ### AWS Configuration
+
+export AWS_ACCESS_KEY_ID=(your access key id)
+export AWS_SECRET_ACCESS_KEY=(your secret access key)
+
+   Alternatively, specify a file named `hoge` containing credentials:
+
+   <pre>
+[hoge]
+aws_access_key_id = blahblahbalh
+aws_secret_access_key = FugaFuga
+   </pre>
+
+   so you can pass profile name by --profile option:
+
+   <tt><strong>terraforming s3 \-\-profile hoge
+   </strong></tt>
 
    ### Terraform Plan
 
@@ -203,12 +258,27 @@ output "public_ip" {
    <tt><strong>terraform plan -var-file='..\terraform.tfvars'
    </strong></tt>
 
+   The stages of processing:
+
+   1. Generate model from logical definition (the Desired State).
+   2. Load current model (preliminary source data).
+   3. Refresh current state model by querying remote provider (final source state).
+   4. Calculate difference from source state to target state (plan).
+   5. Apply plan.
+
    A sample response:
 
    "&LT;computered>" means Terraform figures it out.
 
+   ### Remote state
 
-   * terraform.tfstate stored in S3, Atlas, Consul, etcd, HTTP
+   <a target="_blank" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">NOTE</a>
+
+   terraform.tfstate can be stored in S3, Atlas, Consul, etcd, HTTP
+
+   `terraform remote pull` obtains state.
+
+   Hashicorp Atlas is a licensed solution 
 
 
    ### Version
@@ -229,14 +299,9 @@ output "public_ip" {
    	Terraform v0.10.6
    </pre>
 
-   QUESTION: Pace of change?
+   QUESTION: Pace of change in Terraform?
 
-   TODO: Update terraform
-
-   ### AWS Configuration
-
-export AWS_ACCESS_KEY_ID=(your access key id)
-export AWS_SECRET_ACCESS_KEY=(your secret access key)
+   Release 0.6.8 (2.12.2015)
 
 
    ### Command list
@@ -285,16 +350,60 @@ All other commands:
     state              Advanced state management
    </pre>
 
-  Automating infrastructure deployment consists of:
+0. Define enviornment variables:
 
-  * Provisioning resources
-  * Planning updates
-  * Using source control
-  * Reusing templates
+   <pre>
+   TF_VAR_first_name=John terraform apply
+   </pre>
+
+0. Define Terraform variable:
+
+   <pre>
+   terraform apply -var 'first_name=John' -var 'last_name=Bunyan'
+   </pre>
+
+   Values to Terraform variables define inputs such as run-time DNS/IP addresses into Terraform modules.
+
+   NOTE: Built-in functions:
+
+   https://terraform.io/docs/configuration/interpolation.html
+
+0. Output Terraform variable:
+
+   <pre>
+output "loadbalancer_dns_name" {
+  value = "${aws_elb.loadbalancer.dns_name}"
+}
+   </pre>
+
+
+## Automation
+
+   NOTE: Automating infrastructure deployment consists of:
+
+   * Provisioning resources
+   * Planning updates
+   * Using source control
+   * Reusing templates
+   <br /><br />
 
   PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). Thus Terraform defines the "desired state configuration".
 
 ## Modules
+
+https://github.com/terraform-community-modules
+
+https://github.com/objectpartners/tf-modules
+
+   <pre>
+module "rancher" {
+  source = "github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590"
+}
+   </pre>
+
+   The double slashes separate the repo from the subdirectory.
+
+   The ref is a commit ID 
 
 ## Deploy a single web server
 
@@ -303,6 +412,34 @@ All other commands:
 ## Deploy a load balancer
 
 ## Clean up
+
+## Plugins into Terraform
+
+All Terraform providers are plugins - multi-process RPC (Remote Procedure Calls).
+
+   https://github.com/hashicorp/terraform/plugin
+
+   https://terraform.io/docs/plugins/index.html
+
+Terraform expect plugins to follow a very specific naming convention of terraform-TYPE-NAME. For example, terraform-provider-aws, which tells Terraform that the plugin is a provider that can be referenced as "aws".
+
+PROTIP: Establish a standard for where plugins are located:
+
+For \*nix systems, `~/.terraformrc`
+
+For Windows, `%APPDATA%/terraform.rc`
+
+https://www.terraform.io/docs/internals/internal-plugins.html
+
+PROTIP: When writing your own terraform plugin, create a new Go project in GitHub, then locally use a  directory structure:
+
+   $GOPATH/src/github.com/USERNAME/terraform-NAME
+
+where USERNAME is your GitHub username and NAME is the name of the plugin you're developing. This structure is what Go expects and simplifies things down the road.
+
+Go library:
+
+   https://github.com/hashicorp/terraform/plugi
 
 
 ## Resources
@@ -344,13 +481,29 @@ Automating Infrastructure Management with Terraform</a>
 at SF CloudOps Meetup
 <br /><br />
 
-Blogs:
 
-* <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
-Gruntwork's Introduction</a>
+### Rock Stars
 
-http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform
+James Turnbull
 
+   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">The Terraform Book ($8 on Kindle)</a>
+
+   * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
+   Terraform Up & Running (OReilly book $11.99 on Amazon)</a>
+
+   * <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
+
+Yevgeniy (Jim) Brikman, Gruntwork co-founder 
+
+   * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
+   Gruntwork's Introduction</a>
+
+dtan4
+
+   http://terraforming.dtan4.net/
+
+   https://github.com/dtan4/terraforming
+   is a Ruby 
 
 ## AWS Cloud Formation
 
