@@ -143,7 +143,7 @@ commands will detect it and remind you to do so if necessary.
 
    ~/gits/terraform/gruntwork-io
 
-0. Get a sample repo 
+0. Get a sample repo (word-wrapped command):
 
    <tt><strong>git clone <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
    https://github.com/gruntwork-io/intro-to-terraform.git</a> \-\-depth=1 && cd intro-to-terraform
@@ -251,12 +251,31 @@ aws_secret_access_key = FugaFuga
    <tt><strong>terraforming s3 \-\-profile hoge
    </strong></tt>
 
+
    ### Terraform Plan
 
 0. Have Terrform evaluate based on vars in a different (parent) folder:
 
    <tt><strong>terraform plan -var-file='..\terraform.tfvars'
    </strong></tt>
+
+   The two dots specifies to look above the current folder.
+
+   In this example terraform.tfvars file:
+
+   <pre>
+aws_access_key = "insert access key here>"
+aws_secret_key = "insert secret key here"
+private_key_path = "C:\\MyKeys1.pem"
+bucket_name = "mycompany-sys1-v1"
+environment_tag = "dev"
+billing_code_tag = "ACCT12345"
+   </pre>
+
+   The `private_key_path` should be a full path, containing `\\` so that the single slash is not interpreted as a special character.
+
+   `bucket_name` must be globally unique within all of the AWS provider customers.
+
 
    The stages of processing:
 
@@ -368,6 +387,8 @@ All other commands:
 
    https://terraform.io/docs/configuration/interpolation.html
 
+   ### Output variables #
+
 0. Output Terraform variable:
 
    <pre>
@@ -375,6 +396,10 @@ output "loadbalancer_dns_name" {
   value = "${aws_elb.loadbalancer.dns_name}"
 }
    </pre>
+
+   ### Processing flags
+
+   HCL can contain flags that affect processing. For example, within a resource specification, `force_destroy = true` forces the provider to delete the resource when done.
 
 
 ## Automation
