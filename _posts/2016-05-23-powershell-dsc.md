@@ -150,14 +150,16 @@ by Josh Duffney
 * ‏@CDwithWindows
 
 
-http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers
-How to search a string in multiple files and return the names of files in Powershell
+<a target="_blank" href="http://stackoverflow.com/questions/8153750/how-to-search-a-string-in-multiple-files-and-return-the-names-of-files-in-powers">
+How to search a string in multiple files and return the names of files in Powershell</a>
 
-## More on API Microservices #
+http://www.tomsitpro.com/articles/how-to-integrate-ansible-dsc,1-3474.html
+13 Jan 2017
+when Ansible didn't support DSC and required https://github.com/trondhindenes/Ansible-win_dsc
+by Trond Hindenes. That's since been merged into Ansible Core.
 
-This is one of a series:
-
-{% include api_links.html %}
+https://github.com/brikis98/infrastructure-as-code-talk
+Infrastructure-as-code: running microservices on AWS with Docker, ECS, and Terraform
 
 
 ## More on DevOps #

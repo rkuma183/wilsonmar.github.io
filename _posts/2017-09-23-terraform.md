@@ -126,6 +126,10 @@ Chocolatey installed 1/1 packages.
 
    Sample scripts have been prepared by several helpful people.
 
+   * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
+
+   ### This tutorial
+
    The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
 
    https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
@@ -384,14 +388,14 @@ aws_secret_access_key = FugaFuga
 
    The two dots specifies to look above the current folder.
 
-   In this example terraform.tfvars file:
+   In this example terraform.tfvars file are credentials for both AWS EC2 and Azure ARM providers:
 
    <pre>
-tenant_id = "223d"
 bucket_name = "mycompany-sys1-v1"
 arm_subscription_id = "???"
 arm_principal = "???"
 arm_passsord = "???"
+tenant_id = "223d"
 aws_access_key = "insert access key here>"
 aws_secret_key = "insert secret key here"
 private_key_path = "C:\\MyKeys1.pem"
@@ -815,5 +819,7 @@ AWS API libraries Boto, Fog
 
 ## References
 
+https://github.com/brikis98/infrastructure-as-code-talk
+Infrastructure-as-code: running microservices on AWS with Docker, ECS, and Terraform
 
 
