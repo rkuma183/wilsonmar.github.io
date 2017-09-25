@@ -19,7 +19,6 @@ comments: true
 This tutorial is a step-by-step hands-on introduction to use of Terraform to deploy a cluster of web servers and a load balancer on AWS and other providers (clouds).
 
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.
-Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
 Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
@@ -53,7 +52,9 @@ Terraform also provides execution control, iterations, and (perhaps most of all)
 
 ## Installation #
 
-On MacOS:
+### Install on MacOS
+
+In a Terminal window:
 
    <tt><strong>brew install -g terraform
    </strong></tt>
@@ -73,8 +74,88 @@ zsh completions have been installed to:
 
    PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.  ["Read all about it here"](/golang/).
 
+0. Proceed to <a href="#ScriptInit">Get sample Terraform scripts</a>.
 
-0. Initialize plug-ins:
+
+### Install on Windows
+
+1. In a Run command window as Administrator.
+2. Install Chocolatey cmd:
+3. Install Terraform using Chocolatey:
+
+   <tt><strong>choco install terraform
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+Chocolatey v0.10.8
+Installing the following packages:
+terraform
+By installing you accept licenses for the packages.
+Progress: Downloading terraform 0.10.6... 100%
+&nbsp;
+terraform v0.10.6 [Approved]
+terraform package files install completed. Performing other installation steps.
+The package terraform wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+&nbsp;
+Removing old terraform plugins
+Downloading terraform 64 bit
+  from 'https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_windows_amd64.zip'
+Progress: 100% - Completed download of C:\Users\vagrant\AppData\Local\Temp\chocolatey\terraform\0.10.6\terraform_0.10.6_windows_amd64.zip (12.89 MB).
+Download of terraform_0.10.6_windows_amd64.zip (12.89 MB) completed.
+Hashes match.
+Extracting C:\Users\vagrant\AppData\Local\Temp\chocolatey\terraform\0.10.6\terraform_0.10.6_windows_amd64.zip to C:\ProgramData\chocolatey\lib\terraform\tools...
+C:\ProgramData\chocolatey\lib\terraform\tools
+ ShimGen has successfully created a shim for terraform.exe
+ The install of terraform was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\terraform\tools'
+&nbsp;
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+    </pre>   
+
+
+<a name="ScriptInit"></a>
+
+## Sample Terraform scripts
+
+   Sample scripts have been prepared by several helpful people.
+
+   The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
+
+   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
+
+0. Create or navigate to a container folder where new repositories are added. For example:
+
+   `~/gits/terraform/gruntwork-io`
+
+0. Get a sample repo (word-wrapped command):
+
+   <tt><strong>git clone <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
+   https://github.com/gruntwork-io/intro-to-terraform.git</a> \-\-depth=1 && cd intro-to-terraform
+   </strong></tt>
+
+   At time of writing:
+
+   <pre>
+Cloning into 'intro-to-terraform'...
+remote: Counting objects: 12, done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 12 (delta 1), reused 9 (delta 0), pack-reused 0
+Unpacking objects: 100% (12/12), done.
+   </pre>  
+
+
+   <a name="TerraformInit"></a>
+
+   ### Plug-in Initialization
+
+0. Initialize Terraform plug-ins:
 
    <tt><strong>terraform init
    </strong></tt>
@@ -107,35 +188,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
    </pre>
 
-   ### Sample scripts
 
-   Sample scripts have been prepared by several helpful people.
+   ### .tf files
 
-   The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
-
-   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
-
-0. Create or navigate to a folder that will house new repositories. For example:
-
-   ~/gits/terraform/gruntwork-io
-
-0. Get a sample repo (word-wrapped command):
-
-   <tt><strong>git clone <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
-   https://github.com/gruntwork-io/intro-to-terraform.git</a> \-\-depth=1 && cd intro-to-terraform
-   </strong></tt>
-
-   At time of writing:
-
-   <pre>
-Cloning into 'intro-to-terraform'...
-remote: Counting objects: 12, done.
-remote: Compressing objects: 100% (12/12), done.
-remote: Total 12 (delta 1), reused 9 (delta 0), pack-reused 0
-Unpacking objects: 100% (12/12), done.
-   </pre>  
-
-0. Navigate into:
+0. Navigate into one of the folders (in the case of the example repo):
 
    <tt><strong>cd single-web-server
    </strong></tt>
@@ -145,7 +201,10 @@ Unpacking objects: 100% (12/12), done.
    <tt><strong>ls -al
    </strong></tt>
 
-   PROTIP: There should be only one <strong>main.tf</strong> per folder because Terraform commands look for that first.
+
+   ### Main.tf
+
+   PROTIP: There should be only one <strong>main.tf</strong> per folder.
 
    NOTE: Terraform declarative files coded end with <strong>.tf</strong> file type.
 
@@ -696,7 +755,7 @@ James Turnbull
    * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
    The Terraform Book ($8 on Kindle)</a>
 
-Yevgeniy (Jim) Brikman, Gruntwork.io co-founder 
+Yevgeniy (Jim) Brikman (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), co-founder of DevOps as a Service Gruntwork.io :
 
    * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
    Gruntwork's Introduction</a>
@@ -711,6 +770,9 @@ Yevgeniy (Jim) Brikman, Gruntwork.io co-founder
 
    1. <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
    Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
+
+   2. <a target="_blank" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">
+   How to manage Terraform state</a>
 
    5. <a target="_blank" href="https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9">
    Terraform tips & tricks: loops, if-statements, and gotchas</a>   
