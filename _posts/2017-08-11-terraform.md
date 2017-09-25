@@ -687,19 +687,22 @@ at SF CloudOps Meetup
 
 James Turnbull
 
-Blogs:
+   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
+   The Terraform Book ($8 on Kindle)</a>
 
-   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">The Terraform Book ($8 on Kindle)</a>
+Yevgeniy (Jim) Brikman, Gruntwork.io co-founder 
+
+   * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
+   Gruntwork's Introduction</a>
+
+   * <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
+   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
 
    * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
    Terraform Up & Running (OReilly book $11.99 on Amazon)</a>
 
    * <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
 
-Yevgeniy (Jim) Brikman, Gruntwork co-founder 
-
-   * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
-   Gruntwork's Introduction</a>
 
 dtan4
 
@@ -717,4 +720,9 @@ AWS API libraries Boto, Fog
 
 
    NOTE: Terraform remote configures remote state storage with Terraform.
+
+
+## References
+
+
 
