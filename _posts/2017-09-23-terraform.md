@@ -83,7 +83,7 @@ zsh completions have been installed to:
 2. Install Chocolatey cmd:
 3. Install Terraform using Chocolatey:
 
-   <tt><strong>choco install terraform
+   <tt><strong>choco install terraform -y
    </strong></tt>
 
    The response at time of writing:
@@ -130,6 +130,7 @@ Chocolatey installed 1/1 packages.
 
    https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
 
+1. Install a Git client if you haven't already.
 0. Create or navigate to a container folder where new repositories are added. For example:
 
    `~/gits/terraform/gruntwork-io`
