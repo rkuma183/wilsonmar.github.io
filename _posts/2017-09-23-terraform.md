@@ -670,6 +670,24 @@ output "loadbalancer_dns_name" {
 0. Verify in the provider's console.
 
 
+## Terraform Console
+
+0. On Windows, open the Terraform Console from a <strong>command Prompt</strong> rather than from within PowerShell.
+
+   <tt><strong>terraform console</strong></tt>
+
+   element(list("one","two","three"),0,2)
+
+   The response is (because counting begins from zero):
+
+   three
+
+   element(list("one","two","three"),0,2)
+
+   one,
+   two
+   
+
 ## Automation
 
    NOTE: Automating infrastructure deployment consists of:
