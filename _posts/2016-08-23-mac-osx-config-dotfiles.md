@@ -776,6 +776,10 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ## Activity Monitor #
 
+In Applications Utilities,
+https://support.apple.com/en-us/HT201464
+shows the processes that are running on your Mac, so you can manage them and see how they affect your Mac's activity and performance.
+
 {% highlight text %}
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
@@ -924,9 +928,10 @@ This is popular.
 cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 {% endhighlight %}
 
+
 ## Transmission.app #
 
-?
+For Bittorrent access into the Dark web
 
 {% highlight text %}
 # Use `~/Documents/Torrents` to store incomplete downloads
@@ -952,6 +957,10 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 {% endhighlight %}
 
 ## Twitter.app #
+
+https://support.twitter.com/articles/360575
+http://www.makeuseof.com/tag/twitter-os-x-5-best-apps-use-2016/
+https://thesweetsetup.com/apps/the-best-twitter-client-for-mac/
 
 {% highlight text %}
 # Disable smart quotes as it’s annoying for code tweets
@@ -984,6 +993,10 @@ defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 {% endhighlight %}
 
 ## Spectacle.app #
+
+https://www.spectacleapp.com/
+Move and resize windows with ease
+
 
 {% highlight text %}
 # Set up my preferred keyboard shortcuts
