@@ -51,40 +51,6 @@ Both CF and Terraform work with JSON, but Terraform works with HCL (Hashicorp Co
 
 But Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
-## Providers
-
-Terraform providers reference APIs. Examples are AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack.
-
-   https://github.com/terraform-providers
-
-   https://github.com/hashicorp/terraform/tree/master/builtin/providers
-
-Metadata related to each provider are defined like this:
-
-   <pre>
-provider "aws" {
-  alias = "NorthEast"
-  region = "us-east-1"
-}
-   </pre>
-
-resource definitions specify the desired state of resources.
-
-Provisioners configurations are also plugins:
-
-Provisioner definitions define the properties of each resource, such as initialization commands. For example, this installs an nginx web server and displays a minimal HTML page:
-
-   <pre>
-provisioner "remote-exec" {
-  inline = [
-    "sudo yum install nginx -y",
-    "sudo service nginx start",
-    "echo "<html><head><title><title>NGINX server</title></head><body style=\"background-color"></body></html>"
-  ]
-}
-   </pre>
-
-
 
 ## Installation #
 
@@ -146,6 +112,10 @@ commands will detect it and remind you to do so if necessary.
 
    Sample scripts have been prepared by several helpful people.
 
+   The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
+
+   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
+
 0. Create or navigate to a folder that will house new repositories. For example:
 
    ~/gits/terraform/gruntwork-io
@@ -187,7 +157,7 @@ Unpacking objects: 100% (12/12), done.
 
    It also dentifies additions and deletions.
 
-   A lock file is created by Terraform to prevent other Terraform instances from simultaneous reference.
+   Terraform apply creates a dev.state.lock.info file as a way to signal to other processes to stay away while changes to the environment are underway.
 
 0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
 
@@ -199,14 +169,57 @@ Unpacking objects: 100% (12/12), done.
 
    Back-slashes specify continuation.
 
+   HCL does not have conditional if/else logic, which is why modules are necessary.
 
-   Variables can be assigned default values.
 
-   HCL does not have conditional if/else logic.
+   ## Providers
 
-0.
+   Terraform providers reference APIs. Examples are AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack.
+
+   https://github.com/terraform-providers
+
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers
+
+   Metadata related to each provider are defined like this:
+
+   <pre>
+provider "aws" {
+  alias = "NorthEast"
+  region = "us-east-1"
+}
+   </pre>
+
+   resource definitions specify the desired state of resources.
+
+   Provisioners configurations are also plugins:
+
+   Provisioner definitions define the properties of each resource, such as initialization commands. For example, this installs an nginx web server and displays a minimal HTML page:
+
+   <pre>
+provisioner "remote-exec" {
+  inline = [
+    "sudo yum install nginx -y",
+    "sudo service nginx start",
+    "echo "<html><head><title><title>NGINX server</title></head><body style=\"background-color"></body></html>"
+  ]
+}
+   </pre>
+
+
+0. PROTIP: Make sure that the AWS region is what you want.
+
+   https://www.terraform.io/docs/providers/aws/r/instance.html
+   AWS provider
+
+   NOTE: The contents of the repo were written based on Terraform 0.7.x.
+
+0. Variables file:
 
    `vars.tf` file contains specifcation of values to variables, such as the server port (8080).
+
+   ### Defaults and lookup function
+
+   PROTIP: Variables can be assigned multiple default values selected by a lookup function:
 
    <pre>
 # AWS_ACCESS_KEY_ID
@@ -217,26 +230,63 @@ variable "server_port" {
   description = "The port the server will use for HTTP requests"
   default = 8080
 }
-    </pre>
+variable "amis" {
+  type = "map”"
+  default = {
+    us-east-1 = "ami-1234"
+    us-west-1 = "ami-5678"
+  }
+}
+ami = ${lookup(var.amis, "us-east-1")}
+   </pre>
+
+   PROTIP: With AWS EC2, the us-east-1 region must be used as the basis for creating others.
+
+   <a target="_blank" href="https://www.google.com/url?q=https%3A%2F%2Fdocs.aws.amazon.com%2FAWSEC2%2Flatest%2FUserGuide%2Flaunch-marketplace-console.html&sa=D&sntz=1&usg=AFQjCNGbWvcSfsheH4psSFED8ZF-w6mrqQ">NOTE</a>: Amazon has an approval process for making AMIs available on the public Amazon Marketplace.
+
+
+   ### CIDR Subnet function
+
+   <pre>
+variable network_info {
+   default = “10.0.0.0/8” #type, default, description
+}
+cidr_block = ${cidrsubnet(var.network_info, 8, 1)} # returns 10.1.0.0/16
+cidr_block = ${cidrsubnet(var.network_info, 8, 2)} # returns 10.2.0.0/16
+     </pre>
+
+
+   <pre>
+variable network_info {
+   default = “10.0.0.0/8” #type, default, description
+}
+cidr_block = ${cidrsubnet(var.network_info, 8, 1)} # returns 10.1.0.0/16
+cidr_block = ${cidrsubnet(var.network_info, 8, 2)} # returns 10.2.0.0/16
+     </pre>
+
+
+   ### Output
 
    `outputs.tf` file 
 
    <pre>
+output "aws_elb_public_dns" {
+  value = "${aws_elb.web.dns_name}"
+}
 output "public_ip" {
   value = "${aws_instance.example.public_ip}"
 }
+output "azure_rm_dns_cname" {
+  value = "${azurerm_dns_cname_record.elb.id}"
+}
    </pre>
-
-0. PROTIP: Make sure that the AWS region is what you want.
-
-   https://www.terraform.io/docs/providers/aws/r/instance.html
-   AWS provider
-
-   NOTE: The contents of the repo were written based on Terraform 0.7.x.
 
 0. PROTIP: If the AMI is no longer available, you will get an error message.
 
-    <pre>ami = "ami-2d39803a"</pre>
+
+
+
+
 
    NOTE: Components of Terrform are: Providers, Resources, Provisioners.
 
@@ -263,7 +313,7 @@ aws_secret_access_key = FugaFuga
 
 0. Have Terrform evaluate based on vars in a different (parent) folder:
 
-   <tt><strong>terraform plan -var-file='..\terraform.tfvars'
+   <tt><strong>terraform plan -var-file='..\terraform.tfvars' -var-file='.\Development\development.tfvars' -state='.\Development\dev.state'
    </strong></tt>
 
    The two dots specifies to look above the current folder.
@@ -271,20 +321,63 @@ aws_secret_access_key = FugaFuga
    In this example terraform.tfvars file:
 
    <pre>
+tenant_id = "223d"
+bucket_name = "mycompany-sys1-v1"
+arm_subscription_id = "???"
+arm_principal = "???"
+arm_passsord = "???"
 aws_access_key = "insert access key here>"
 aws_secret_key = "insert secret key here"
 private_key_path = "C:\\MyKeys1.pem"
-bucket_name = "mycompany-sys1-v1"
-environment_tag = "dev"
-billing_code_tag = "ACCT12345"
    </pre>
 
    The `private_key_path` should be a full path, containing `\\` so that the single slash is not interpreted as a special character.
 
    `bucket_name` must be globally unique within all of the AWS provider customers.
 
+   ### States & Environments #
 
-   The stages of processing:
+   PROTIP: Define a state file for each environment:
+
+   * dev.state
+   * uat.state
+   * perftest.state
+   * stage.state
+   * prod.state
+   <br /><br />
+
+   A development.tfvars file:
+
+   <pre>
+environment_tag = "dev"
+tenant_id = "223d"
+billing_code_tag = "DEV12345"
+dns_site_name = "dev-web"
+dns_zone_name = "mycorp.xyz"
+dns_resource_group = "DNS"
+instance_count = "2"
+subnet_count = "2"
+   </pre>
+
+   The production.tfvars file usually instead contain more instances and thus subnets that go through a load balancer for auto-scaling:
+
+   <pre>
+environment_tag = "prod"
+tenant_id = "223d"
+billing_code_tag = "PROD12345"
+dns_site_name = "marketing"
+dns_zone_name = "mycorp.com"
+dns_resource_group = "DNS"
+instance_count = "6"
+subnet_count = "3"
+   </pre>
+
+   All these would use `main_config.tf` and variables.tf files that are commonly used for all environments:
+
+   <tt><strong>
+   terraform apply -state=".\develop\dev.state" -var="environment_name=development"
+   </strong></tt>
+
 
    1. Generate model from logical definition (the Desired State).
    2. Load current model (preliminary source data).
@@ -305,114 +398,12 @@ billing_code_tag = "ACCT12345"
 
    `terraform remote pull` obtains state.
 
-   On MacOS:
-
-   <tt><strong>brew install -g terraform
-   </strong></tt>
-
-   The response at time of writing:
-
-   <pre>
-==> Downloading https://homebrew.bintray.com/bottles/terraform-0.10.6.sierra.bot
-######################################################################## 100.0%
-==> Pouring terraform-0.10.6.sierra.bottle.tar.gz
-==> Caveats
-zsh completions have been installed to:
-  /usr/local/share/zsh/site-functions
-==> Summary
-🍺  /usr/local/Cellar/terraform/0.10.6: 7 files, 63.6MB
-   </pre>   
-
-   PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.
 
 
-0. Initialize plug-ins:
 
-   <tt><strong>terraform init
-   </strong></tt>
 
-   Response:
 
-   <pre>
-Initializing provider plugins...
-- Checking for available provider plugins on https://releases.hashicorp.com...
-- Downloading plugin for provider "aws" (0.1.4)...   
-&nbsp;
-The following providers do not have any version constraints in configuration,
-so the latest version was installed.
-&nbsp;
-To prevent automatic upgrades to new major versions that may contain breaking
-changes, it is recommended to add version = "..." constraints to the
-corresponding provider blocks in configuration, with the constraint strings
-suggested below.
-&nbsp;
-* provider.aws: version = "~> 0.1"
-&nbsp;
-Terraform has been successfully initialized!
-&nbsp;
-You may now begin working with Terraform. Try running "terraform plan" to see
-any changes that are required for your infrastructure. All Terraform commands
-should now work.
-&nbsp;
-If you ever set or change modules or backend configuration for Terraform,
-rerun this command to reinitialize your working directory. If you forget, other
-commands will detect it and remind you to do so if necessary.
-   </pre>
 
-   ### Sample scripts
-
-   Sample scripts have been prepared by several helpful people.
-
-0. Create or navigate to a folder that will house new repositories. For example:
-
-   ~/gits/terraform/gruntwork-io
-
-0. Get a sample repo 
-
-   <tt><strong>git clone <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
-   https://github.com/gruntwork-io/intro-to-terraform.git</a> \-\-depth=1 && cd intro-to-terraform
-   </strong></tt>
-
-   At time of writing:
-
-   <pre>
-Cloning into 'intro-to-terraform'...
-remote: Counting objects: 12, done.
-remote: Compressing objects: 100% (12/12), done.
-remote: Total 12 (delta 1), reused 9 (delta 0), pack-reused 0
-Unpacking objects: 100% (12/12), done.
-   </pre>  
-
-0. Navigate into:
-
-   <tt><strong>cd single-web-server
-   </strong></tt>
-
-0. Open folder using Atom or list files:
-
-   <tt><strong>ls -al
-   </strong></tt>
-
-   PROTIP: There should be only one <strong>main.tf</strong> per folder because Terraform commands look for that first.
-
-   NOTE: Terraform declarative files coded end with <strong>.tf</strong> file type.
-
-   <strong>.tfstate</strong> files (containing JSON) are autogenerated to persist the state of runs. This can also be in a Hasicorp Consul server. Terraform creates a dependency graph (specfically, a Directed Acyclic Graph).
-   This is so that nodes are built in the order they are needed. 
-
-   NOTE: State files can contain secrets.
-
-   It also dentifies additions and deletions.
-
-   A lock file is creaetd to prevent other Terraform instances to 
-
-   <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
-   NOTE</a>: Terraform code is written in a declarative language called HCL (HashiCorp Configuration Language).
-
-0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
-
-   Annotations are as in bash scripts: Single line comments start with # (pound sign).<br />
-   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in ${}, such as ${var.foo}. 
 
 0.
 
@@ -571,6 +562,24 @@ output "loadbalancer_dns_name" {
    HCL can contain flags that affect processing. For example, within a resource specification, `force_destroy = true` forces the provider to delete the resource when done.
 
 
+   ### Verify websites
+
+0. The website accessible?
+
+0. In the provider's console (EC2), verify
+
+   ### Destroy clean up
+
+0. Destroy instances so they don't rack up charges unproductively:
+
+   <tt><strong>terraform destroy
+   </strong></tt>
+
+   PROTIP: Amazon charges by the hour while others charge by the minute.
+
+0. Verify in the provider's console.
+
+
 ## Automation
 
    NOTE: Automating infrastructure deployment consists of:
@@ -583,6 +592,9 @@ output "loadbalancer_dns_name" {
 
   PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). Thus Terraform defines the "desired state configuration".
 
+
+   <a name="modules"></a>
+   
 ## Modules
 
 https://github.com/terraform-community-modules
@@ -598,14 +610,6 @@ module "rancher" {
    The double slashes separate the repo from the subdirectory.
 
    The ref is a commit ID 
-
-   Deploy a single web server
-
-## Deploy a cluster of web servers
-
-## Deploy a load balancer
-
-## Clean up
 
 
 ## Plugins into Terraform
@@ -639,9 +643,11 @@ Go library:
 
 ## Resources
 
-   * IRC 
-   * Mailing List
-   * StackOverflow
+* IRC 
+
+* <a target="_blank" href="https://groups.google.com/forum/#!forum/terraform-tool">Google Group terraform-tool</a>
+
+* StackOverflow
 
 * <a target="_blank" href="https://www.terraform.io/intro/getting-started/install.html">
    Official Getting Started docs at Hashicorp</a>
