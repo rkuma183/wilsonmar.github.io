@@ -613,6 +613,26 @@ All other commands:
 
    https://terraform.io/docs/configuration/interpolation.html
 
+   ### Apps to install
+
+   <a target="_blank" href="https://www.terraform.io/docs/enterprise/runs/installing-software.html">NOTE</a>: Software can be specified for installation using Packer's `local-exec` provisioner which has Terraform on host machines executes commands. For example, on a Ubuntu machine:
+
+   <pre>
+resource "null_resource" "local-software" {
+  provisioner "local-exec" {
+    command = <<EOH
+sudo apt-get update
+sudo apt-get install -y ansible
+EOH
+  }
+}
+   </pre>
+
+   NOTE: apt-get is in-built within Ubuntu Linux distributions.
+
+   PROTIP: Use this to bootstrap automation such as assigning permissions and running Ansible or PowerShell DSC, then use DSC scripts for more flexibility and easier debugging.
+
+
    ### Output variables #
 
 0. Output Terraform variable:
@@ -698,16 +718,12 @@ https://www.terraform.io/docs/internals/internal-plugins.html
 
 PROTIP: When writing your own terraform plugin, create a new Go project in GitHub, then locally use a  directory structure:
 
-   $GOPATH/src/github.com/USERNAME/terraform-NAME
+   `$GOPATH/src/github.com/USERNAME/terraform-NAME`
 
 where USERNAME is your GitHub username and NAME is the name of the plugin you're developing. This structure is what Go expects and simplifies things down the road.
 
-Go library:
 
-   https://github.com/hashicorp/terraform/plugi
-
-
-## Resources
+## Learning Resources
 
 * IRC 
 

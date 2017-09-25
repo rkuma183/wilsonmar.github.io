@@ -15,28 +15,48 @@ comments: true
 <hr />
 {% include _toc.html %}
 
-This article describes the use of Windows PowerShell Desired State Configuration (DSC).
-introduced by PowerShell.
+This article describes the use of Windows PowerShell Desired State Configuration (DSC)
+introduced with PowerShell 4.0.
 
-"PowerShell" refers to both the command-line shell and scripting language designed system administration. 
+"PowerShell" refers to both the command-line shell and scripting language designed system administration. PowerShell files end with `.ps1`.
 
-Built on the .NET Framework, Windows PowerShell helps IT professionals and power users control and automate the administration of the Windows operating system and applications that run on Windows. 
+A DSC configuration is a special PowerShell function that defines how to configure one or more target computers (nodes).
 
 Windows PowerShell <strong>cmdlets</strong> (command-lets) enables computers to be managed from the command line,
 much like Bash on Linux machines.
 
-However, PowerShell offers much more consistence than the various commands added over time by various parties.
+However, PowerShell offers more consistency than the various commands added over time by various parties.
 
-   * It reads Excel files natively as well as JSON, XML, and even ASCII.
-   <br /><br />
+PowerShell also reads Excel files natively as well as JSON, XML, and even ASCII.
 
 DSC resources can be obtained from several places:
 
-* GitHub
-* PowerShell Gallery
-* PowerShell Package Manager (of PowerShell modules)
-<br /><br />
+   * <a target="_blank" href="https://github.com/">GitHub.com</a>
+   * <a target="_blank" href="https://www.powershellgallery.com/">powershellgallery.com/</a>
+   * PowerShell Package Manager (of PowerShell modules)
+   <br /><br />
 
+DSC can deliver configurations in either push and pull. The push method is delivered from a server to a computer thus the “pushing” instructions.  This method is generally only used for testing or one-off applications uncommon in a production environment. 
+
+The pull method is initiated from a client rather than the server.
+
+https://docs.microsoft.com/en-us/powershell/dsc/overview
+https://docs.microsoft.com/en-us/powershell/dsc/quickstart
+
+
+## Deploy as MOF #
+
+A DSC to configure a website server installs a .mof
+
+
+
+MOF is a file extension for a Windows Management Object file format. 
+
+MOF files created in the Managed Object Format have syntax based on Microsoft Visual C++.  
+
+MOF files can be compiled into the Windows Management Instrumentation (WMI) repository using mofcomp.exe.
+
+MOF files often have a partner DLL (dynamic link library) file that stores data needed for retrieval in the MOF file.
 
 ## Open source on Linux and MacOS #
 
@@ -67,15 +87,7 @@ FAQ</a>:
    <br /><br />
 
 
-## Deploy as MOF #
 
-MOF is a file extension for a Windows Management Object file format. 
-
-MOF files created in the Managed Object Format have syntax based on Microsoft Visual C++.  
-
-MOF files can be compiled into the Windows Management Instrumentation (WMI) repository using mofcomp.exe.
-
-MOF files often have a partner DLL (dynamic link library) file that stores data needed for retrieval in the MOF file.
 
 ## Chef incorporates DSC #
 

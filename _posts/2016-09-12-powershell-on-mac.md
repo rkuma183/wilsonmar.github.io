@@ -63,9 +63,14 @@ This article</a> notes Desired State Configuration for Linux and the promise of 
 
 ## Install PowerShell on MacOS #
 
-QUESTION: Is there a brew powershell?
+0. There is a brew powershell as of beta.7:
 
-0. Click to download the latest release for "OSX 10.11" at:<br />
+   <tt><strong>brew cask install powershell
+   </strong></tt>
+
+   (do a reinstall to upgrade).
+
+   Alternately, click to download the latest release for "OSX 10.11" at:<br />
    <a target="_blank" href="https://github.com/PowerShell/PowerShell/">
    https://github.com/PowerShell/PowerShell</a>
 
@@ -75,7 +80,11 @@ QUESTION: Is there a brew powershell?
 
    <table border="1" cellpadding="4" cellspacing="0">
    <th>Date</th><th> File </th><th> MB Size </th><th> Space</th><th> Cmds</th></tr>
-   
+
+   <tr valign="top"><td> Sep 13, 2017 </td><td> powershell-6.0.0-beta.7-osx.10.12-x64.pkg
+   </td><td align="right"> 50.8 MB 
+   </td></tr>
+
    <tr valign="top"><td> Sep 13, 2016 </td><td>
    <a target="_blank" href="https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.10/powershell-6.0.0-alpha.10.pkg">
    powershell-6.0.0-alpha.10.pkg</a>
@@ -127,27 +136,28 @@ Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 PS /Users/...>
    </pre>
 
-0. Check the version of PowerShell being used by calling a
-   <strong>pre-defined variable</strong>:
+0. Check the version of PowerShell being used by calling a <strong>pre-defined variable</strong>:
 
    <tt><strong>
    $psversiontable
    </strong></tt>
 
+   PROTIP: With PowerShell, a variable can act like a command.
+
    Response:
 
    <pre>
-Name                           Value
-----                           -----
-PSVersion                      6.0.0-alpha
+Name                           Value                                                                       
+----                           -----                                                                        
+PSVersion                      6.0.0-beta
 PSEdition                      Core
+GitCommitId                    v6.0.0-beta.7
+OS                             Darwin 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64   
+Platform                       Unix
 PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
-BuildVersion                   3.0.0.0
-GitCommitId                    v6.0.0-alpha.10
-CLRVersion
-WSManStackVersion              3.0
 PSRemotingProtocolVersion      2.3
-SerializationVersion           1.1.0.1       
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
    </pre>   
 
    QUESTION: What's the CLRVersion?
@@ -156,8 +166,7 @@ SerializationVersion           1.1.0.1
 
    * 6.0 for Mac/Linux in Windows 10 Anniversay Edition
    * 5.0 in 2015 for Visual Studio Code text editor
-   * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and 
-   Windows Management Framework 3.0
+   * 4.0 in 2014 with Windows 10 and .NET Framework 4.0 and Windows Management Framework 3.0
    * 3.0 in 2012 with Windows 8/Server 2012
    * 2.0 appeared in 2009
    * 1.0 appeared in 2006
@@ -173,19 +182,27 @@ SerializationVersion           1.1.0.1
    exit
    </strong></tt>
 
-   When you reuturn, get info:
+   When you return back in...
+
+0. Get help information for a command:
 
    <tt><strong>
    get-help stop-service
    </strong></tt>
 
 
+
 ## VSCode #
 
-One text editor 
-built for PowerShell is Microsoft's Visual Studio Code.
+One text editor built for PowerShell is Microsoft's Visual Studio Code.
+
+0. Install Visual Studio Code (see https://chocolatey.org/packages/VisualStudioCode):
+
+   choco install visualstudiocode -y
 
 0. After installing VSCode
+
+   choco install vscode-powershell -y
 
 0. Install the PowerShell Editor Services extension by pressing Ctrl+P, 
    then type “ext install PowerShell” for a list of add-ins.
