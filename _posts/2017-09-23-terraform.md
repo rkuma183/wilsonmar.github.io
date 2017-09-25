@@ -36,20 +36,19 @@ https://www.terraform.io/intro/index.html
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> &nbsp; </th><th> CloudFormation </th><th> Terraform </th></tr>
-<tr><td> Configuration format </td><td> JSON </td><td> HCL/JSON </td></tr>
-<tr><td> State management </td><td> JSON </td><td> HCL/JSON </td></tr>
+<tr><td> Configuration format </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
+<tr><td> State management </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
+<tr><td> <a href="#Providers">Providers</a> support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
 <tr><td> Execution control </td><td> No </td><td> Yes </td></tr>
-<tr><td> Logical comparisons </td><td> No </td><td> Limited </td></tr>
 <tr><td> Iterations </td><td> No </td><td> Yes </td></tr>
-<tr><td> Manage already create resources </td><td> No </td><td> Yes (hard) </td></tr>
-<tr><td> Providers support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
+<tr><td> Manage already created resources </td><td> No </td><td> Yes (hard) </td></tr>
 <tr><td> Failure handling </td><td> Optional rollback </td><td> Fix &amp; retry </td></tr>
-<tr><td> Contribute? </td><td> No </td><td> Yes (issue 28) </td></tr>
+<tr><td> Open Source contributions? </td><td> No </td><td> Yes (GitHub issues) </td></tr>
+<tr><td> Logical comparisons </td><td> No </td><td> Limited </td></tr>
+<tr><td> <a href="#Modules">Extensible Modules</a> </td><td> No </td><td> Yes </td></tr>
 </table>
 
-Both CF and Terraform work with JSON, but Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at https://www.terraform.io/docs/configuration/syntax.html
-
-But Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
+Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
 
 ## Installation #
@@ -161,6 +160,10 @@ Unpacking objects: 100% (12/12), done.
 
 0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
 
+   <a name="HCL"></a>
+
+   Both CloudFormation and Terraform work with JSON, but Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at https://www.terraform.io/docs/configuration/syntax.html
+
    <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
    NOTE</a>: Terraform code is written in a declarative language called HCL (HashiCorp Configuration Language). It's less verbose than JSON and more concise than YML.
 
@@ -171,6 +174,9 @@ Unpacking objects: 100% (12/12), done.
 
    HCL does not have conditional if/else logic, which is why modules are necessary.
 
+   
+
+   <a name="Providers"></a>
 
    ## Providers
 
@@ -695,13 +701,19 @@ Yevgeniy (Jim) Brikman, Gruntwork.io co-founder
    * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
    Gruntwork's Introduction</a>
 
-   * <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
-   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
-
    * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
    Terraform Up & Running (OReilly book $11.99 on Amazon)</a>
 
    * <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
+
+   <a target="_blank" href="https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca">
+   Comprehensive Guide to Terraform</a> includes:
+
+   1. <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
+   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
+
+   5. <a target="_blank" href="https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9">
+   Terraform tips & tricks: loops, if-statements, and gotchas</a>   
 
 
 dtan4
