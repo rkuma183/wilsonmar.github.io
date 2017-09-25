@@ -225,7 +225,7 @@ provisioner "remote-exec" {
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
 # export AWS_DEFAULT_REGION=xx-yyyy-0
-
+&nbsp;
 variable "server_port" {
   description = "The port the server will use for HTTP requests"
   default = 8080
