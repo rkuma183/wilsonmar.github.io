@@ -26,18 +26,20 @@ Concepts here are introduced after you take an action.
 
    DSC resources can be obtained from several places:
 
-   * <a target="_blank" href="https://github.com/">GitHub.com</a>
+   * <a href="#FromGitHub">GitHub.com</a>
    * <a target="_blank" href="https://www.powershellgallery.com/">powershellgallery.com/</a>
    * PowerShell Package Manager (of PowerShell modules)
    <br /><br />
 
-   On every target node, the process running in the background to parse and "enact" configurations sent to the node is the Local Configuration Manager (LCM). See https://docs.microsoft.com/en-us/powershell/dsc/metaconfig
+   On every target node, the process running in the background to parse and "enact" configurations sent to the node is the Local Configuration Manager (LCM). See https://docs.microsoft.com/en-us/powershell/dsc/metaconfig and https://docs.microsoft.com/en-us/powershell/dsc/metaconfig4
 
    https://msdn.microsoft.com/en-us/powershell/dsc
 
    http://blogs.msdn.com/b/powershell/
    Central repository for PowerShell Desired State Configuration (DSC) resources maintained within Microsoft.
 
+
+   <a name="FromGitHub"></a>
 
    ### From GitHub
 
@@ -60,7 +62,7 @@ Concepts here are introduced after you take an action.
 0. Click the <strong>Fork</strong> button to make it yours, since you will be making changes.
 
 0. Install a Git client.
-0. Open a PowerShell terminal.
+0. Open a Terminal command terminal.
 0. Navigate or create a subject container folder where repos are created, such as:
 
    <tt><strong>mkdir ~/DevSecOps/
@@ -71,16 +73,6 @@ Concepts here are introduced after you take an action.
    <tt><strong>git clone https://github.com/wilsonmar/powershell-dsc && powershell-dsc
    </strong></tt>
 
-
-   ### PowerShell Commands
-
-   PROTIP: A PowerShell DSC configuration file is a PowerShell script, and thus has a .ps1 file suffix and runs within the PowerShell command-line shell. DSC was introduced with PowerShell 4.0.
-
-0. On MacOS, install PowerShell.
-0. Enter PowerShell:
-
-   <tt><strong>powershell
-   </strong></tt>
 
 0. Use a text editor to view file `HelloConfig1`.
 
@@ -113,6 +105,47 @@ Configuration HelloConfig1 {
    When the name of the script (without the .ps1 suffix) is specified within PowerShell, that script is compiled into a <strong>MOF document for each node</strong> 
 
    within a folder created in the current directory with the same name as the configuration. For example:
+
+
+   ### PowerShell Commands
+
+   PROTIP: A PowerShell DSC configuration file is a PowerShell script, and thus has a .ps1 file suffix and runs within the PowerShell command-line shell. DSC was introduced with PowerShell 4.0.
+
+0. On MacOS, install PowerShell.
+0. Enter PowerShell:
+
+   <tt><strong>powershell
+   </strong></tt>
+
+0. List PowerShell functions for DSC:
+
+   <tt><strong>Get-command -Noun dsc*  
+   </strong></tt>
+
+   The response:
+
+   <pre>
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Find-DscResource                                   1.1.3.2    PowerShellGet
+Function        Get-DscResource                                    0.0        
+Function        Get-DSCResourceModules                             0.0        
+Function        New-DscChecksum                                    0.0        PSDesiredStateConfiguration
+   </pre>
+
+0. Get resources for DSC:
+
+   <tt><strong>Get-DscResource
+   </strong></tt>
+
+   The response:
+
+   <pre>
+???
+   </pre>
+
+   PowerShellGallery.com
+
 
    ### Compile to MOF
 
@@ -152,7 +185,8 @@ Mode                LastWriteTime         Length Name
 
    The pull method is initiated from a client rather than the server.
 
-   
+   See https://docs.microsoft.com/en-us/powershell/dsc/pullclientconfigid
+   on Setting up a pull client using configuration ID
 
 ## Open source on Linux and MacOS #
 

@@ -123,7 +123,30 @@ sudo systemsetup -setrestartfreeze on
 # Disable local Time Machine backups
 #hash tmutil &> /dev/null && sudo tmutil disablelocal
 
+osascript -e ‘tell application “Finder” to set desktop picture to POSIX file “/path/to/picture.jpg”’
 {% endhighlight %}
+
+
+## Desktop picture #
+
+Download the 1.3 MB 2880x1494 High Sierra image of orange Fall foliage shimmering over a lake beneath an icy mountain. From http://osxdaily.com/2017/06/13/get-macos-high-sierra-default-wallpaper/
+
+An 2880x1500 image from Apple at https://images.apple.com/macos/high-sierra-preview/overview/beta/image_large_2x.jpg
+
+<a target="_blank" href="https://discussions.apple.com/message/20465663#message20465663">NOTE</a>: Because the tilde shortcut does not get expanded in osascript arguments, substitute "wilsonmar" with your Mac user name in this command:
+
+{% highlight text %}
+osascript -e 'tell application "Finder" to set desktop picture to "/Users/wilsonmar/Pictures/wallpapers/macOS-High-Sierra-Wallpaper-2880x1494.jpg" as POSIX file'
+{% endhighlight %}
+
+There is no confirmation, the wallpaper will just change instantly.
+
+View the Desktop by spreading your thumb and 3 fingers on the trackpad.
+
+https://i.imgur.com/icu9yIJ.jpg
+has a 5120x2880 image for those big iMac desktop monitors.
+
+Other images are from https://www.deviantart.com/art/MAC-2-50913379
 
 
 ## General UI/UX #
