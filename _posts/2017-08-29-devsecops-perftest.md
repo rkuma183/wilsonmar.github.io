@@ -120,3 +120,10 @@ ELK stack vs. Tick stack<br />
 Elsticsearch vs. InfluxDB<br />
 Logstash vs. Telegraf<br />
 Kibana vs Graphana<br />
+
+
+## Learning Resources
+
+http://automationtoolsbootcamp.com
+
+
