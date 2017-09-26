@@ -291,7 +291,7 @@ commands will detect it and remind you to do so if necessary.
    NOTE</a>: Terraform code is written in a language called HCL (HashiCorp Configuration Language). It's less verbose than JSON and more concise than YML.
 
    Unlike JSON and YML, HCL allows annotations as in bash scripts: Single line comments start with # (pound sign).<br />
-   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in ${}, in the format of ${type.name.attribute}. Literal $ are coded by doubling up $$.
+   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in $\{\}, in the format of $\{type.name.attribute\}. Literal $ are coded by doubling up $$.
 
    Back-slashes specify continuation.
 
@@ -510,8 +510,6 @@ vpc
 
    CAUTION: State files can contain secrets.
 
-   It also identifies additions and deletions.
-
    Terraform apply creates a dev.state.lock.info file as a way to signal to other processes to stay away while changes to the environment are underway.
 
 
@@ -567,7 +565,9 @@ output "public_ip" {
    <tt><strong>terraform plan -var-file='..\terraform.tfvars'
    </strong></tt>
 
-   A sample response:
+   In the sample response:
+
+   Pluses and minuses flag additions and deletions. This is a key differentiator for Terraform as a ""
 
    "&LT;computered>" means Terraform figures it out.
 

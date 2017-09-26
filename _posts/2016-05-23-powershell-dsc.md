@@ -97,7 +97,7 @@ Configuration HelloConfig1 {
         }
     }
 }
-{% end highlight %}
+{% endhighlight %}
 
    Each target computer defined by a DSC script is called a <strong>node</strong>.
    The name of the node (a computer instance) is passed into the script using the $ComputerName parameter supplied when compiling the configuraton. The name defaults to "localhost" if not supplied.
