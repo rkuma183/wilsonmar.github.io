@@ -192,17 +192,19 @@ WSManStackVersion              3.0
 
 
 
-## VSCode #
+## Visual Studio Code Editor #
 
 One text editor built for PowerShell is Microsoft's Visual Studio Code.
 
 0. Install Visual Studio Code (see https://chocolatey.org/packages/VisualStudioCode):
 
-   choco install visualstudiocode -y
+   <tt><strong>choco install visualstudiocode -y
+   </strong></tt>
 
-0. After installing VSCode
+0. Install the PowerShell add-in to VSCode:
 
-   choco install vscode-powershell -y
+   <tt><strong>choco install vscode-powershell -y
+   </strong></tt>
 
 0. Install the PowerShell Editor Services extension by pressing Ctrl+P, 
    then type “ext install PowerShell” for a list of add-ins.
@@ -253,6 +255,8 @@ PowerShell errors occur if .NET Core is not installed, so:
 
 0. The web page asks for OpenSSL to be installed.
 
+   On a Mac:
+   
    <pre>
    brew update
    brew install openssl

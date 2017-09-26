@@ -18,7 +18,9 @@ comments: true
 
 This tutorial is a step-by-step hands-on introduction to use of Terraform to deploy a cluster of web servers and a load balancer on AWS and other providers (clouds).
 
-Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.
+https://www.terraform.io/intro/index.html
+
+Terraform is a tool for building, changing, and versioning infrastructure in the cloud.
 
 Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
@@ -26,15 +28,8 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
 <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: Other IAC (Infrastructure as Code) tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
 
-https://www.terraform.io/intro/index.html
-
-
-## Competitors to Terraform
-
-<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a> Other IAC tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
-
 <table border="1" cellpadding="4" cellspacing="0">
-<tr valign="bottom"><th> &nbsp; </th><th> CloudFormation </th><th> Terraform </th></tr>
+<tr valign="bottom"><th> Feature </th><th> CloudFormation </th><th> Terraform </th></tr>
 <tr><td> Configuration format </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
 <tr><td> State management </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
 <tr><td> <a href="#Providers">Providers</a> support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
@@ -49,12 +44,17 @@ https://www.terraform.io/intro/index.html
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
+   NOTE: Components of Terrform are: Providers, Resources, Provisioners.
+
+
 
 ## Installation #
 
+   PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.  ["Read all about it here"](/golang/).
+
 ### Install on MacOS
 
-In a Terminal window:
+1. In a Terminal window:
 
    <tt><strong>brew install -g terraform
    </strong></tt>
@@ -71,8 +71,6 @@ zsh completions have been installed to:
 ==> Summary
 🍺  /usr/local/Cellar/terraform/0.10.6: 7 files, 63.6MB
    </pre>   
-
-   PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.  ["Read all about it here"](/golang/).
 
 0. Proceed to <a href="#ScriptInit">Get sample Terraform scripts</a>.
 
@@ -128,7 +126,7 @@ Chocolatey installed 1/1 packages.
 
    * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
 
-   ### This tutorial
+### This tutorial
 
    The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
 
@@ -354,30 +352,19 @@ output "azure_rm_dns_cname" {
 0. PROTIP: If the AMI is no longer available, you will get an error message.
 
 
-
-
-
-
-   NOTE: Components of Terrform are: Providers, Resources, Provisioners.
-
    ### AWS Configuration
 
-export AWS_ACCESS_KEY_ID=(your access key id)
-export AWS_SECRET_ACCESS_KEY=(your secret access key)
+   You can pass profile name by --profile option:
 
-   Alternatively, specify a file named `hoge` containing credentials:
-
-   <pre>
-[hoge]
-aws_access_key_id = blahblahbalh
-aws_secret_access_key = FugaFuga
-   </pre>
-
-   so you can pass profile name by --profile option:
+   <a target="_blank" href="https://github.com/dtan4/terraforming">
+   https://github.com/dtan4/terraforming</a>
+   is a Ruby script that enables a command such as:   
 
    <tt><strong>terraforming s3 \-\-profile hoge
    </strong></tt>
 
+
+   <a name="TerraformPlan"></a>
 
    ### Terraform Plan
 
@@ -617,6 +604,7 @@ All other commands:
 
    https://terraform.io/docs/configuration/interpolation.html
 
+
    ### Apps to install
 
    <a target="_blank" href="https://www.terraform.io/docs/enterprise/runs/installing-software.html">NOTE</a>: Software can be specified for installation using Packer's `local-exec` provisioner which has Terraform on host machines executes commands. For example, on a Ubuntu machine:
@@ -658,7 +646,8 @@ output "loadbalancer_dns_name" {
 
 0. In the provider's console (EC2), verify
 
-   ### Destroy clean up
+
+   ### Destroy to clean up
 
 0. Destroy instances so they don't rack up charges unproductively:
 
@@ -699,6 +688,8 @@ output "loadbalancer_dns_name" {
    <br /><br />
 
   PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). Thus Terraform defines the "desired state configuration".
+
+   NOTE: Terraform remote configures remote state storage with Terraform.
 
 
    <a name="modules"></a>
@@ -824,15 +815,12 @@ dtan4
    https://github.com/dtan4/terraforming
    is a Ruby 
 
+
 ## AWS Cloud Formation
 
 <a target="_blank" href="http://www.slideshare.net/AntonBabenko/managing-aws-infrastructure-using-cloudformation">
 Puppet, Chef, Ansible, Salt</a>
 AWS API libraries Boto, Fog
-
-
-
-   NOTE: Terraform remote configures remote state storage with Terraform.
 
 
 ## References
