@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Terraform from Hashicorp"
-excerpt: "I declare! Client-only immutable multi-cloud provisioning. And open-sourced Enterprise support"
+excerpt: "I declare! Client-only immutable multi-cloud provisioning, with open-sourced Enterprise support"
 tags: [DevOps, ecosystem]
 shorturl: "https://goo.gl/"
 image:
@@ -16,26 +16,27 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial is a step-by-step hands-on introduction to use of Terraform to deploy a cluster of web servers and a load balancer on AWS and other providers (clouds).
+This tutorial is a step-by-step hands-on introduction to use of Terraform for creating a cluster of web servers through a load balancer on AWS, Azure, and Google Cloud.
 
-https://www.terraform.io/intro/index.html
-
-Terraform is a tool for building, changing, and versioning infrastructure in the cloud.
+Terraform, at <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>, is a tool for building, changing, and versioning infrastructure in the cloud.
 
 Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
 ## Competitors to Terraform
 
-<a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
-<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"></a>
 <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: Other IAC (Infrastructure as Code) tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
+
+<a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
+<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>Click to pop-up full screen image</small></a>
+
+"Immutable" means servers are treated like "cattle" (removed from the herd) and not as "pets" (kept alive as long as possible).
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> Feature </th><th> CloudFormation </th><th> Terraform </th></tr>
-<tr><td> Source code </td><td> Closed </td><td> open </td></tr>
+<tr><td> Source code </td><td> closed-source </td><td> <a target="_blank" href="https://github.com/hashicorp/terraform/">open source</a> </td></tr>
 <tr><td> Configuration format </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
 <tr><td> <a href="#State">State management</a> </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
-<tr><td> <a href="#Providers">Providers</a> support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
+<tr><td> <a href="#Providers">Cloud Providers</a> support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
 <tr><td> Execution control </td><td> No </td><td> Yes </td></tr>
 <tr><td> Iterations </td><td> No </td><td> Yes </td></tr>
 <tr><td> Manage already created resources </td><td> No </td><td> Yes (hard) </td></tr>
@@ -127,43 +128,60 @@ Chocolatey installed 1/1 packages.
 
 <a name="ScriptInit"></a>
 
-## Sample Terraform scripts
-
-   Sample scripts have been prepared by several helpful people.
-
-   * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
-
-### This tutorial
-
-   The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
-
-   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
+## Get Sample Terraform scripts
 
 1. Install a Git client if you haven't already.
+0. Use an internew browser (Chrome) to my sample PowerShell DSC scripts at:
+
+   <a target="_blank" href="https://github.com/wilsopnmar/terraform-starter">
+   https://github.com/wilsonmar/terraform-starter.git</a>
+
+   (I would be honored if you click Star)
+
+0. Create a GitHub account for yourself if you haven't already.
+0. Click the <strong>Fork</strong> button to make it yours, since you may be making changes.
 0. Create or navigate to a container folder where new repositories are added. For example:
 
-   `~/gits/terraform/gruntwork-io`
+   `~/gits/wilsonmar/terraform`
 
-0. Get a sample repo (word-wrapped command):
+0. Get my sample PowerShell scripts onto your laptop (substituting "wilsonmar" with your own account name):
 
-   <tt><strong>git clone <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
-   https://github.com/gruntwork-io/intro-to-terraform.git</a> \-\-depth=1 && cd intro-to-terraform
+   <tt><strong>git clone <a target="_blank" href="https://github.com/wilsopnmar/terraform-starter">
+   https://github.com/wilsonmar/terraform-starter.git</a> \-\-depth=1 && 
+   cd terraform-starter
    </strong></tt>
 
-   At time of writing:
+   The above is one line, but may be word-wrapped on your screen.
+
+   The response at time of writing:
 
    <pre>
-Cloning into 'intro-to-terraform'...
+Cloning into 'terraform-starter'...
 remote: Counting objects: 12, done.
 remote: Compressing objects: 100% (12/12), done.
 remote: Total 12 (delta 1), reused 9 (delta 0), pack-reused 0
 Unpacking objects: 100% (12/12), done.
    </pre>  
 
-   Alternately, https://github.com/wilsonmar/terraform-starter
+
+   ### Other scripts
+
+   These scripts is a combination of scripts prepared by several helpful people:
+
+   * <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
+   https://github.com/gruntwork-io/intro-to-terraform.git</a>
+
+   * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
+
+   <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
+   https://github.com/gruntwork-io/intro-to-terraform.git</a>
+
+   TODO: The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
+
+   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
 
 
-   ### Validate Environment folders
+   ### Environment folders Validate 
 
    PROTIP: Separate Terraform configurations by a folder for each environment.
 
@@ -502,7 +520,7 @@ output "azure_rm_dns_cname" {
 terraform.tfstate*
 *.tfstate
 *.tfstate.backup
-.terraform
+.terraform/
 *.iml
 *.plan
 vpc
@@ -510,7 +528,11 @@ vpc
 
    CAUTION: State files can contain secrets.
 
+   `.terraform/` specifies that the folder is ignored when pushing to GitHub.
+
    Terraform apply creates a dev.state.lock.info file as a way to signal to other processes to stay away while changes to the environment are underway.
+
+   `tfstate.backup` is created from the most recent previous execution before the current `tfstate` file contents.
 
 
    ### Remote state
@@ -779,6 +801,8 @@ module "rancher" {
 
    The ref is a commit ID 
 
+## Bootstrap Terraform
+
    https://forge.puppet.com/inkblot/terraform
 
    https://supermarket.chef.io/cookbooks/terraform
@@ -866,19 +890,23 @@ at SF CloudOps Meetup
 
 ### Rock Stars
 
-James Turnbull
+<strong>James Turnbull</strong>
 
    * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
-   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3
+   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3. Files referenced are at:
 
-   https://github.com/jason-azze/tf-web-exercise
+   <a target="_blank" href="https://github.com/turnbullpress/tfb-code">
+   https://github.com/turnbullpress/tfb-code</a>
 
-James Nugent
+   <a target="_blank" href="https://github.com/jason-azze/tf-web-exercise">
+   https://github.com/jason-azze/tf-web-exercise</a>
+
+<strong>James Nugent</strong>
 
    Engineer at Hashicorp
 
 
-Yevgeniy (Jim) Brikman (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), co-founder of DevOps as a Service Gruntwork.io :
+<strong>Yevgeniy (Jim) Brikman</strong> (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), co-founder of DevOps as a Service Gruntwork.io :
 
    * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
    Gruntwork's Introduction</a>

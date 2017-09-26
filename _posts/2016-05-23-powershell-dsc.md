@@ -58,14 +58,14 @@ Concepts here are introduced after you take an action.
 
    (I would be honored if it earns your clicking the Star)
 
-0. Create a GitHub account if you haven't already.
+0. Create a GitHub account for yourself if you haven't already.
 0. Click the <strong>Fork</strong> button to make it yours, since you will be making changes.
 
 0. Install a Git client.
 0. Open a Terminal command terminal.
 0. Navigate or create a subject container folder where repos are created, such as:
 
-   <tt><strong>mkdir ~/DevSecOps/
+   <tt><strong>mkdir ~/git/DevSecOps/
    </strong></tt>
 
 0. Get my sample PowerShell scripts onto your laptop (substituting "wilsonmar" with your own account name):
@@ -73,6 +73,7 @@ Concepts here are introduced after you take an action.
    <tt><strong>git clone https://github.com/wilsonmar/powershell-dsc && powershell-dsc
    </strong></tt>
 
+   The above is one line, but may be word-wrapped on your screen.
 
 0. Use a text editor to view file `HelloConfig1`.
 

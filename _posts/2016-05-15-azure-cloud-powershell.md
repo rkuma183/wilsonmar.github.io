@@ -28,6 +28,14 @@ If you don't want to install these from the
 <a target="_blank" href="https://www.microsoft.com/web/downloads/platform.aspx">Web Platform Installer (wpilauncher.exe) at
 https://www.microsoft.com/web/downloads/platform.aspx</a>
 
+
+### Install for ARM Declarative Templates #
+
+   <strong>declarative syntax</strong> are defined
+   in Resource Manager <strong>templates</strong>
+   used by ARM to enable infrastructure configurations to be defined
+   (much like Puppet).
+
 ### Install for ASM Imperative Commands #
 
    <strong>Imperative</strong> commands (verbs such as to start or stop an app or machine)
@@ -43,13 +51,6 @@ https://www.microsoft.com/web/downloads/platform.aspx</a>
 
    NOTE: "XPlat" means Cross-platform. It's for ASM portal usage.
 
-
-### Install for ARM Declarative Templates #
-
-   <strong>declarative syntax</strong> are defined
-   in Resource Manager <strong>templates</strong>
-   used by ARM to enable infrastructure configurations to be defined
-   (much like Puppet).
 
 ### Install PowerShell #
 
@@ -77,10 +78,12 @@ Powershell Gallery</a> the Workflow to Download All Gallery Modules:
 
 ### Make Imperative Commands #
 
-   <tt>PS C:\\>
-   </tt>
+   <tt><strong>PS C:\\>
+   </strong></tt>
 
-Windows PowerShell <strong>providers</strong> access data stores, such as the Windows Registry and certificate store, as easily as you access the file system. Install NuGet provider:
+Windows PowerShell <strong>providers</strong> access data stores, such as the Windows Registry and certificate store, as easily as you access the file system. 
+
+Install NuGet provider:
 
    <pre><strong>
    Install-PackageProvider -Name NuGet -Force
@@ -109,7 +112,7 @@ PowerShell commands can be be script files with <strong>.ps1</strong> file exten
    </strong></pre>
 
 
-### What Version #
+### PowerShell Version #
 
 As with all PowerShell versions:
 
@@ -117,18 +120,24 @@ As with all PowerShell versions:
    $PSVersionTable
    </strong></pre>
 
+On MacOS:
+
+{% highlight text %}
+{% endhighlight %}
+
+
 On Windows 10:
 
 {% highlight text %}
-Name                           Value                                                                                   
-----                           -----                                                                                   
-PSVersion                      5.0.10586.63                                                                            
-PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}                                                                 
-BuildVersion                   10.0.10586.63                                                                           
-CLRVersion                     4.0.30319.42000                                                                         
-WSManStackVersion              3.0                                                                                     
-PSRemotingProtocolVersion      2.3                                                                                     
-SerializationVersion           1.1.0.1                                                                                 
+Name                           Value
+----                           -----
+PSVersion                      5.0.10586.63
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   10.0.10586.63
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
 {% endhighlight %}
 
    Compare against the response on Windows 7:
@@ -145,9 +154,105 @@ SerializationVersion           1.1.0.1
 PSRemotingProtocolVersion      2.1
 {% endhighlight %}
 
-<hr />
 
-## On-going basic commands:
+   ## Azure 
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0">NOTE</a>:
+
+0. Establish admin rights on MacOS:
+
+   <tt><strong>sudo -v
+   </strong></tt>
+
+0. Install Azure PowerShell for .NET Core:
+
+   <tt><strong>Install-Module AzureRM.NetCore
+   </strong></tt>
+
+0. Press A for all to this prompt:
+
+   <pre>
+Untrusted repository
+You are installing the modules from an untrusted repository. If you trust this repository, change its InstallationPolicy value by running the 
+Set-PSRepository cmdlet. Are you sure you want to install the modules from 'PSGallery'?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): 
+   </pre>
+
+   <strong>BLAH: This keeps me from going further:
+
+   <pre>
+PackageManagement\Install-Package : Administrator rights are required to install modules in 
+'/usr/local/microsoft/powershell/6.0.0-beta.7/Modules'. Log on to the computer with an account that has Administrator rights, and then try 
+again, or install '/Users/wilsonmar/.local/share/powershell/Modules' by adding "-Scope CurrentUser" to your command. You can also try running 
+the Windows PowerShell session with elevated rights (Run as Administrator).
+At /usr/local/microsoft/powershell/6.0.0-beta.7/Modules/PowerShellGet/1.1.3.2/PSModule.psm1:1867 char:21
++ ...          $null = PackageManagement\Install-Package @PSBoundParameters
++                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (Microsoft.Power....InstallPackage:InstallPackage) [Install-Package], Exception
+    + FullyQualifiedErrorId : InstallModuleNeedsCurrentUserScopeParameterForNonAdminUser,Install-PackageUtility,Microsoft.PowerShell.PackageMan 
+   agement.Cmdlets.InstallPackage
+   </pre>
+
+0. Load the module into your PowerShell session. Modules are loaded using the Import-Module cmdlet:
+
+   Import-Module AzureRM.Netcore
+
+
+   http://www.signalwarrant.com/automate-creating-lab-virtual-machines-in-azure-with-powershell/
+
+
+   ## Environments
+
+   https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.4.0
+
+0. Get a list of environments available:
+
+   <tt><strong>Get-AzureRmEnvironment | Select-Object Name
+   </strong></tt>
+
+   Sample response:
+
+   <pre>
+AzureCloud
+AzureChinaCloud
+AzureUSGovernment
+AzureGermanCloud
+   </pre>
+
+0. Create an Azure Service Principal if you don't have one
+
+   https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps?view=azurermps-4.4.0
+
+0. Get your TenantId from your subscription after logging in interactively:
+
+   <tt><strong>Get-AzureRmSubscription
+   </strong></tt>
+
+   CAUTION: This sample response exposes senstive information:
+
+   <pre>
+Environment           : AzureCloud
+Account               : username@contoso.com
+TenantId              : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+SubscriptionId        : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+SubscriptionName      : My Production Subscription
+CurrentStorageAccount :
+   </pre>
+
+0. Get the dialog box asking for your Azure credentials to login interactively at <a target="_blank" href="https://aka.ms/devicelogin">https://aka.ms/devicelogin</a>:
+
+   <tt><strong>
+   Login-AzureRmAccount -EnvironmentName AzureCloud
+   </strong></tt>
+
+   Alternately, login by specifying an Azure Service Principle:
+
+   Login-AzureRmAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
+
+   PROTIP: Some put the above command in a command file with a short name.
+
+
+
 
 List Mangement Verbs
 
