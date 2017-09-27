@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "ZURB Foundation"
-excerpt: "Generate a website using the flexible UI framework the top pros use"
-tags: [UI, MacOS, setup]
+title: "ZURB Foundation on MacOS"
+excerpt: "Generate a website using the flexible UI framework top UI pros use"
+tags: [UI, MacOS, setup, Foundation]
 image:
 # foundation-form-1900x500-65699
   feature: https://user-images.githubusercontent.com/14143059/30937418-e98d386c-a393-11e7-8d17-4fa4c70e3a0b.jpg
@@ -40,7 +40,7 @@ Foundation is actually a family of responsive front-end frameworks that make it 
    * Handlebars templates 
    * Bower modules
    * Panini
-   <br />
+   <br /><br />
 
 * Foundation for web apps refers to the Apps Controller Using <strong>AngularJS</strong>.
 
@@ -57,58 +57,18 @@ PWA
 
 NativeScript
 
-
-## Installation
-
-0. Install the latest version of Foundation on any directory:
-
-   <tt><strong>
-   	npm install -g foundation-cli
-   </strong></tt>
-
-   The response at time of writing:
-
-   <pre>
-/usr/local/bin/foundation -> /usr/local/lib/node_modules/foundation-cli/bin/foundation.js
-+ foundation-cli@2.2.3
-added 376 packages in 37.966s
-&nbsp;
-   ╭─────────────────────────────────────╮
-   │                                     │
-   │   Update available 5.3.0 → 5.4.2    │
-   │     Run npm i -g npm to update      │
-   │                                     │
-   ╰─────────────────────────────────────╯
-   </pre>
-
-0. Update if that's what it says:
-
-   <tt><strong>
-   npm i -g npm
-   </strong></tt>
-
-   The response repeats the update message, which you can now ignore:
-
-   <pre>
-/usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js
-/usr/local/bin/npx -> /usr/local/lib/node_modules/npm/bin/npx-cli.js
-+ npm@5.4.2
-added 21 packages, removed 22 packages and updated 19 packages in 16.456s
-&nbsp;
-   ╭─────────────────────────────────────╮
-   │                                     │
-   │   Update available 5.3.0 → 5.4.2    │
-   │     Run npm i -g npm to update      │
-   │                                     │
-   ╰─────────────────────────────────────╯
-   </pre>
+## GitHub
 
 
-   ### Create repo in GitHub
+### Create repo in GitHub
 
    The following steps require switching between GitHub and Terminal, by pressing command+Tab until the icon for the app you want is highlighted.
 
-0. On an internet browser on <a target="_blank" href="https://www.github.com/">GitHub.com</a>, create an account if you don't already have one.
+   The following instructions assumes this is the first time you're running this.
+
+0. On an internet browser on <a target="_blank" href="https://www.github.com/">GitHub.com</a>, create an account if you don't already have one. You will be replacing your own account name with the stand-in example used in this tutorial:
+
+   <pre>hotwilson</pre>
 
 0. Switch to a Terminal to create a public and private key:
 
@@ -159,7 +119,7 @@ The key's randomart image is:
 
 0. Click on <strong>Add SSH key</strong> green button.
 
-   You can now upload to any repo for your GitHub account.
+   You can now upload from your laptop to any repo for your GitHub account.
 
 
    ### Create repo on GitHub
@@ -175,13 +135,6 @@ The key's randomart image is:
 
    PROTIP: Add a number to the name makes the word searcheable with less duplicates.
 
-0. PROTIP: Specify your GitHub account name in the container folder path (substituting "hotwilson"):
-
-   <tt><strong>mkdir ~/gits/hotwilson
-   </strong></tt>
-
-   PROTIP: Instead of `gits`, some use `dev` to house all development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
-
 0. Click <strong>Initialie this repository with a README</strong>.
 
    NOTE: The Description and .gitignore and license files can be added later.
@@ -190,6 +143,34 @@ The key's randomart image is:
 
    This creates the initial commit and enables you to skip needing to later type in a long "git remote add origin" command.
 
+
+   ### Get git-utilities from GitHub
+
+0. In a Terminal window:
+0. Click inside the field labeled <strong>Repository name</strong> so its border turns blue.
+
+   <tt><strong>
+   git clone https://github.com/wilsonmar/git-utilities \-\-depth=1
+   </strong></tt>
+
+0. Copy the file `foundation-website-init.sh` to 
+
+   In a bash shell script, the website name is defined, then put in a file for feeding into the command. 
+
+   <pre>
+  REPONAME='website1'
+  GITHUB_USER="hotwilson"
+  echo $\{REPONAME\} >website_name
+   </pre>
+
+0. PROTIP: Specify your GitHub account name in the container folder path (substituting "hotwilson"):
+
+   <tt><strong>mkdir ~/gits/hotwilson
+   </strong></tt>
+
+   PROTIP: Instead of `gits`, some use `dev` to house all development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
+
+0. Switch back to your GitHub.
 
    ### Get website local
 
@@ -205,18 +186,101 @@ The key's randomart image is:
    git clone https://github.com/hotwilson/website1
    </strong></tt>
 
-0. Create a new site folder on the path above using the CLI command:
+   The response with minimal objects in the repo:
+
+   <pre>
+Cloning into 'website1'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+   </pre>
+
+
+
+   ### Foundation Installation
+
+0. Install Node and NPM.
+0. Install the latest version of Foundation on any directory:
 
    <tt><strong>
-   foundation new \-\-framework sites \-\-template zurb
+npm install -g foundation-cli
    </strong></tt>
 
+   The response at time of writing:
+
+   <pre>
+/usr/local/bin/foundation -> /usr/local/lib/node_modules/foundation-cli/bin/foundation.js
++ foundation-cli@2.2.3
+added 376 packages in 37.966s
+&nbsp;
+   ╭─────────────────────────────────────╮
+   │                                     │
+   │   Update available 5.3.0 → 5.4.2    │
+   │     Run npm i -g npm to update      │
+   │                                     │
+   ╰─────────────────────────────────────╯
+   </pre>
+
+0. Update to the latest:
+
+   <tt><strong>
+   npm i -g npm
+   </strong></tt>
+
+   The response repeats the update message, which you can now ignore:
+
+   <pre>
+/usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js
+/usr/local/bin/npx -> /usr/local/lib/node_modules/npm/bin/npx-cli.js
++ npm@5.4.2
+added 21 packages, removed 22 packages and updated 19 packages in 16.456s
+&nbsp;
+   ╭─────────────────────────────────────╮
+   │                                     │
+   │   Update available 5.3.0 → 5.4.2    │
+   │     Run npm i -g npm to update      │
+   │                                     │
+   ╰─────────────────────────────────────╯
+   </pre>
+
+
+0. Verify the version of Foundation CLI installed:
+
+   <tt><strong>
+   foundation -version
+   </strong></tt>
+
+
+   ### New Foundation site
+
+   To create a new site folder on the path above using a CLI command:
+
+0. You can run this command without parameters so you are prompted to supply then manually:
+
+   <tt><strong>
+   foundation new
+   </strong></tt>
+
+   Alternately, specify pararmeters and feed in the variable automatically when prompted:
+
+   <tt><strong>
+   foundation new \-\-framework sites \-\-template zurb <${WEBSITE_NAME}
+   </strong></tt>
+
+   "sites" and "zurb" are keywords recognize by Foundation.
+
+   The template created is pulled from:
    https://github.com/zurb/foundation-zurb-template 
 
-0. If you didn't specify the parameters, you will be prompted for them: Click the keyboard cursor to select.
+0. If you are prompted, manually type it in, then press Enter. For example:
 
    <pre>
 ? What's the project called? (no spaces) <strong>website1</strong>
+   <pre>
+
+0. If the framework and template parameters were not specified, you would need to manually click the keyboard cursor to select:
+
+   <pre>
 ? Which template would you like to use? ZURB Template: includes Handlebars templates and Sass/JS compilers
 &nbsp;
             .
@@ -246,29 +310,6 @@ You're all set!
 Now run foundation watch while inside the folder created.
    </pre>
 
-0. If you want to start over:
-
-   <tt><strong>rm -rf 
-   </strong></tt>
-
-0. Open in an text editor that shows the folders of the name specified:
-
-   <tt><strong>
-   atom website1
-   </strong></tt>
-
-   Among the 861.6 MB created:
-
-   * `.babelrc` defines Babel for ES6 JavaScript
-   * `.bowerrc` defines Bower modules
-   * `.DS_Store` is created by MacOS to be ignored
-   * `.gitignore` is for GitHub
-   * `config.yml` 
-   * `gulpfile.babel.js` is used by the Gulp task running when `npm start` is run
-   * `package.json` is for NPM to know what dependencies to download
-   * `readme.md` is for people to read.
-   <br /><br />
-
 0. Install dependencies:
 
    <tt><strong>npm install
@@ -287,17 +328,6 @@ up to date in 11.122s
    </strong></tt>
 
    PROTIP: Upload to GitHub as well to avoid going through the above again.
-
-   <a name="gitignore"></a>
-
-   ### .gitignore
-
-   Entries in the .gitignore file keeps the node_modules and dist folders from being uploaded.
-
-   NOTE: From here on you can work in a cave with no internet. But only edit what's under the `src` folder to make it your own.
-
-   PROTIP: The folder `dist` generated should not be edited.
-
 
 0. Start a web server (which calls Gulp task runner):
 
@@ -333,9 +363,50 @@ up to date in 11.122s
    foundation watch
    </strong></tt>
 
-   ### Build for Production
+
+
+   ### Start over?
+   
+   If you want to start over: Manually...
 
 0. Close the localhost website by pressing <strong>control+C</strong>.
+
+0. Remove (delete) the generated files
+
+   <tt><strong>rm -rf website1
+   </strong></tt>
+
+0. Open in an text editor that shows the folders of the name specified:
+
+   <tt><strong>
+   atom website1
+   </strong></tt>
+
+   Among the 861.6 MB created:
+
+   * `.babelrc` defines Babel for ES6 JavaScript
+   * `.bowerrc` defines Bower modules
+   * `.DS_Store` is created by MacOS to be ignored
+   * `.gitignore` is for GitHub
+   * `config.yml` 
+   * `gulpfile.babel.js` is used by the Gulp task running when `npm start` is run
+   * `package.json` is for NPM to know what dependencies to download
+   * `readme.md` is for people to read.
+   <br /><br />
+
+
+   <a name="gitignore"></a>
+
+   ### .gitignore file
+
+   Entries in the .gitignore file keeps the node_modules and dist folders from being uploaded.
+
+   NOTE: From here on you can work in a cave with no internet. But only edit what's under the `src` folder to make it your own.
+
+   PROTIP: The folder `dist` generated should not be edited.
+
+
+   ### Build for Production
 
 0. Create compressed, production-ready assets, run 
 
