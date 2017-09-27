@@ -195,7 +195,7 @@ Unpacking objects: 100% (12/12), done.
 
 0. Navigate into the base folder.
 
-   PROTIP: Terraform acts only on the current directory, and does not recurse into sub directories.
+   PROTIP: Terraform commands act only on the current directory, and does not recurse into sub directories.
 
 0. View the development.tfvars file:
 
@@ -225,16 +225,6 @@ subnet_count = "3"
 
    All these would use `main_config.tf` and variables.tf files that are commonly used for all environments:
 
-   https://www.terraform.io/docs/commands/validate.html
-
-0. Navigate into
-
-0. Validate the folder:
-
-   <tt><strong>terraform validate 
-   </strong></tt>
-
-   If no issues are identified, no message appears. (no news is good news)
 
 
 
@@ -277,6 +267,8 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
    </pre>
 
+   This creates a hidden `.terraform\plugins" folder path containing a folder for your os - `darwin_amd64` for MacOS.
+
 
    ### .tf files
 
@@ -291,6 +283,16 @@ commands will detect it and remind you to do so if necessary.
    </strong></tt>
 
 
+   https://www.terraform.io/docs/commands/validate.html
+
+0. Navigate into
+
+0. Validate the folder:
+
+   <tt><strong>terraform validate 
+   </strong></tt>
+
+   If no issues are identified, no message appears. (no news is good news)
 
 
    ### Main.tf
