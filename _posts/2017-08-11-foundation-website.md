@@ -4,10 +4,10 @@ title: "ZURB Foundation"
 excerpt: "Generate a website using the flexible UI framework the top pros use"
 tags: [UI, MacOS, setup]
 image:
-# packer-build-2017-09-26a-1900x500-109798.jpg
-  feature: https://user-images.githubusercontent.com/300046/30911436-d98ba550-a345-11e7-97d8-08b28b5131ce.jpg
+# foundation-form-1900x500-65699
+  feature: https://user-images.githubusercontent.com/14143059/30937418-e98d386c-a393-11e7-8d17-4fa4c70e3a0b.jpg
   credit: Wilson Mar
-  creditlink: https://user-images.githubusercontent.com/300046/30911436-d98ba550-a345-11e7-97d8-08b28b5131ce.jpg
+  creditlink: https://user-images.githubusercontent.com/14143059/30937418-e98d386c-a393-11e7-8d17-4fa4c70e3a0b.jpg
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -40,10 +40,11 @@ Foundation is actually a family of responsive front-end frameworks that make it 
    * Handlebars templates 
    * Bower modules
    * Panini
+   <br />
 
 * Foundation for web apps refers to the Apps Controller Using <strong>AngularJS</strong>.
 
-* Foundation for Emails
+* Foundation for Emails refers to the tool that creates HTML used to display beautifully formatted email bodies.
 
 
 ## Competitors
@@ -112,21 +113,21 @@ added 21 packages, removed 22 packages and updated 19 packages in 16.456s
 0. Switch to a Terminal to create a public and private key:
 
    <tt><strong>ssh-keygen
-   </strong</tt>
+   </strong></tt>
 
    The response:
 
    <pre>
 Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/wilsonmar/.ssh/id_rsa): 
+Enter file in which to save the key (/Users/hotwilson/.ssh/id_rsa): 
    </pre>
 
 0. Press Enter to accept defaults until you see
 
    <pre>
-Your public key has been saved in /Users/wilsonmar/.ssh/id_rsa.pub.
+Your public key has been saved in /Users/hotwilson/.ssh/id_rsa.pub.
 The key fingerprint is:
-SHA256:lsjVHl3cuL/xRvbFzyWtSaFxVI59oDNyAuxicJeWqOs wilsonmar@Wilsons-MacBook-Pro.local
+SHA256:lsjVHl3cuL/xRvbFzyWtSaFxVI59oDNyAuxicJeWqOs hotwilson@Wilsons-MacBook-Pro.local
 The key's randomart image is:
 +---[RSA 2048]----+
 |       o.o   .o+.|
@@ -141,12 +142,12 @@ The key's randomart image is:
 +----[SHA256]-----+
    </pre>   
 
-   PROTIP: The "wilsonmar" shown above would be substituted with your own account name. But it doesn't matter because it's the certificates generated that are used for authentication.
+   PROTIP: The "hotwilson" shown above would be substituted with your own account name. But it doesn't matter because it's the certificates generated that are used for authentication.
 
 0. Get the public key in the .ssh folder into your Mac's clipboard:
 
    <tt><strong>cat ~/.ssh/id_rsa.pub | pbcopy
-   </strong</tt>
+   </strong></tt>
 
 0. Press command+Tab to switch back to the internet browser showing GitHub.
 0. Click the icon for your account at the upper-right of the screen to select <strong>Settings</strong>.
@@ -174,11 +175,10 @@ The key's randomart image is:
 
    PROTIP: Add a number to the name makes the word searcheable with less duplicates.
 
+0. PROTIP: Specify your GitHub account name in the container folder path (substituting "hotwilson"):
 
-0. PROTIP: Specify your GitHub account name in the container folder path such as (if you were wilsonmar):
-
-   <tt><strong>mkdir ~/gits/wilsonmar
-   </strong</tt>
+   <tt><strong>mkdir ~/gits/hotwilson
+   </strong></tt>
 
    PROTIP: Instead of `gits`, some use `dev` to house all development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
 
@@ -196,8 +196,14 @@ The key's randomart image is:
 0. Switch to a Terminal.
 0. Navigate into the containing folder for Foundation to build a new directory, such as:
 
-   <tt><strong>cd ~/gits/wilsonmar
-   </strong</tt>
+   <tt><strong>cd ~/gits/hotwilson
+   </strong></tt>
+
+0. Create a folder containing your repo in GitHub (subsituting "hotwilson/website1" with your own account and repo name):
+
+   <tt><strong>
+   git clone https://github.com/hotwilson/website1
+   </strong></tt>
 
 0. Create a new site folder on the path above using the CLI command:
 
@@ -243,7 +249,7 @@ Now run foundation watch while inside the folder created.
 0. If you want to start over:
 
    <tt><strong>rm -rf 
-   </strong</tt>
+   </strong></tt>
 
 0. Open in an text editor that shows the folders of the name specified:
 
@@ -339,11 +345,11 @@ up to date in 11.122s
    The response:
 
    <pre>
-> foundation-zurb-template@1.0.0 build /Users/wilsonmar/gits/wilsonmar/foundation/website1
+> foundation-zurb-template@1.0.0 build /Users/hotwilson/gits/hotwilson/foundation/website1
 > gulp build --production
 &nbsp;
 [12:38:46] Requiring external module babel-register
-[12:38:52] Using gulpfile ~/gits/wilsonmar/foundation/website1/gulpfile.babel.js
+[12:38:52] Using gulpfile ~/gits/hotwilson/foundation/website1/gulpfile.babel.js
 [12:38:52] Starting 'build'...
 [12:38:52] Starting 'clean'...
 [12:38:52] Finished 'clean' after 5.3 ms
@@ -374,18 +380,13 @@ app.js  678 kB       0  [emitted]  [big]  app
    <a target="_blank" href="https://zurb.com/university/lessons/zero-to-website-guide-br-part-6-br-deploying-your-site">
    VIDEO: Deploying Your Site to GitHub</a>
 
-0. Define:
-
-0. Create a new site folder on the path above using the CLI command:
+0. Send your changes to GitHub:
 
    <tt><strong>
-   foundation new \-\-framework sites \-\-template zurb
+   git add . && git commit -m"update" && git push
    </strong></tt>
 
 
-   <tt><strong>
-   git remote add xxx https://github.com/wilsonmar/website1
-   </strong></tt>
 
 
 ## Videos
