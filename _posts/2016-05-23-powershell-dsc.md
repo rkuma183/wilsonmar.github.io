@@ -79,7 +79,7 @@ Concepts here are introduced after you take an action.
 
    But a PowerShell DSC configuration has a block that uses the PowerShell keyword `Configuration` followed by the name of the configuration. 
 
-{% highlight text %}
+   {% highlight text %}
 Configuration HelloConfig1 {
 
     param(
@@ -98,7 +98,7 @@ Configuration HelloConfig1 {
         }
     }
 }
-{% endhighlight %}
+   {% endhighlight %}
 
    Each target computer defined by a DSC script is called a <strong>node</strong>.
    The name of the node (a computer instance) is passed into the script using the $ComputerName parameter supplied when compiling the configuraton. The name defaults to "localhost" if not supplied.
@@ -188,6 +188,7 @@ Mode                LastWriteTime         Length Name
 
    See https://docs.microsoft.com/en-us/powershell/dsc/pullclientconfigid
    on Setting up a pull client using configuration ID
+
 
 ## Open source on Linux and MacOS #
 
