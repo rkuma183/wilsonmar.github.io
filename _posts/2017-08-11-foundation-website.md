@@ -144,41 +144,76 @@ The key's randomart image is:
    This creates the initial commit and enables you to skip needing to later type in a long "git remote add origin" command.
 
 
-   ### Get git-utilities from GitHub
+   ### Create container path
 
 0. In a Terminal window:
-0. Click inside the field labeled <strong>Repository name</strong> so its border turns blue.
+0. Create a folder to house your development projects:
 
-   <tt><strong>
-   git clone https://github.com/wilsonmar/git-utilities \-\-depth=1
+   <tt><strong>mkdir ~/gits && gits
    </strong></tt>
 
-0. Copy the file `foundation-website-init.sh` to 
+   PROTIP: Instead of `gits`, some use `dev` or `Sites` or `Projects` to house related software development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
 
-   In a bash shell script, the website name is defined, then put in a file for feeding into the command. 
+0. Create a folder representing your GitHub account to house your new website (substituting "hotwilson" with your GitHub user name):
 
-   <pre>
-  REPONAME='website1'
-  GITHUB_USER="hotwilson"
-  echo $\{REPONAME\} >website_name
-   </pre>
-
-0. PROTIP: Specify your GitHub account name in the container folder path (substituting "hotwilson"):
-
-   <tt><strong>mkdir ~/gits/hotwilson
+   <tt><strong>mkdir hotwilson && cd hotwilson
    </strong></tt>
 
-   PROTIP: Instead of `gits`, some use `dev` to house all development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
-
-0. Switch back to your GitHub.
-
-   ### Get website local
-
-0. Switch to a Terminal.
 0. Navigate into the containing folder for Foundation to build a new directory, such as:
 
    <tt><strong>cd ~/gits/hotwilson
    </strong></tt>
+
+
+   ### Get batch utility from GitHub
+
+0. Get the Bash script that automates the instructions described below:
+
+   <tt><strong>
+   git clone https://github.com/wilsonmar/git-utilities \-\-depth=1
+   && git checkout HEAD foundation-website-init.sh
+   </strong></tt>
+
+0. Open for edit the file `foundation-website-init.sh` 
+
+   <tt><strong>
+   nano foundation-website-init.sh
+   </strong></tt>
+
+0. Edit the file to specify your account and website name:
+
+   <pre>
+  GITHUB_USER="hotwilson"
+  REPONAME='website1'
+   </pre>
+
+0. Save the changes.
+
+0. Set permissions:
+
+   <tt><strong>
+   chmod 555 foundation-website-init.sh
+   </strong></tt>
+
+0. Run the script:
+
+   <tt><strong>
+   ./foundation-website-init.sh
+   </strong></tt>
+
+
+0. Copy the file `foundation-website-init.sh` to your account folder:
+
+   <tt><strong>
+   cp foundation-website-init.sh website1
+   </strong></tt>
+
+
+## Processing
+
+The following steps are performed either manually or by the Bash script downloaded as above.
+
+   ### Get website local
 
 0. Create a folder containing your repo in GitHub (subsituting "hotwilson/website1" with your own account and repo name):
 
@@ -196,10 +231,10 @@ Unpacking objects: 100% (3/3), done.
    </pre>
 
 
-
    ### Foundation Installation
 
-0. Install Node and NPM.
+0. Install Node and NPM if it's not already installed.
+
 0. Install the latest version of Foundation on any directory:
 
    <tt><strong>
