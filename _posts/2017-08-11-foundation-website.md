@@ -15,6 +15,10 @@ comments: true
 
 {% include _toc.html %}
 
+This is a hands-on step-by-step tutorial on the quickest way for "newbies" to install Foundation Framework on a MacOS machine, using my Bash script or manually.
+
+## About Foundation Framework
+
 As its website address shows, the Foundation Framework's home page at https://foundation.zurb.com is from Zurb, a web design services firm based in the Silicon Valley since 1998.
 
 <a target="_blank" href="https://zurb.com/responsive">
@@ -22,15 +26,28 @@ Look at Zurb's showcase</a> of websites, web apps, and emails. Some run on a Wor
 
 Zurb's on-going work for <a target="_blank" href="https://foundation.zurb.com/showcase/brands.html">big brand clients</a> with money is the sustainable business model for continuous improvement. That's why Foundation can legitimately call itself "the most advanced responsive front-end framework in the world."
 
-So if you aspire to be a world-class pro, get on the long path to earn a certification class/test for $500.
 
-Skills development include their $99 design sketching class.
+## Competitors
+
+<a target="_blank" href="https://blog.templatetoaster.com/bootstrap-vs-foundation/">NOTE</a>: According to BuiltWith, among the top million websites <a target="_blank" href="https://trends.builtwith.com/docinfo/Twitter-Bootstrap">a steady 20.7% use Bootstrap</a> vs. <a target="_blank" href="https://trends.builtwith.com/framework/Foundation">1.8% (but growing) use the Foundation Framework</a>. 112k starred Bootstrap on Github vs. 25.8k stars for Foundation on Github. Indeed reports more job postings for Bootstrap. <a target="_blank" href="https://github.com/jhipster/generator-jhipster/issues/1039">
+Support for Foundation in JHipster</a> was requested in Jan 2016 and closed because it uses Twitter's Bootstrap instead.  
+
+Some feel Foundation is more intuitive to change and more "customizable" than Bootstrap.
+
+The lack of a cross-platform mobile + web app development approach is what may limit its potential in the future against:
+
+* React + React Native
+
+* PWA (Progressive Web App)
+
+* NativeScript
+<br /><br />
 
 <a target="_blank" href="https://foundation.zurb.com/learn/responsive-reading">
-Sign-up for their monthly newsletter</a> and Design Trends PDF on responsive design.
+Sign-up for Zurb's monthly newsletter</a> and Design Trends PDF on responsive design.
 
 
-## Suite
+## Foundation Suite
 
 Foundation is actually a family of responsive front-end frameworks that make it easy to design beautiful responsive experiences that look amazing on any device. Foundation is semantic, readable, flexible, and completely customizable.
 
@@ -38,9 +55,11 @@ Foundation is actually a family of responsive front-end frameworks that make it 
 
    * Handlebars templates 
    * Bower modules
-   * Panini
-   * SCSS 
+   * <a target="_blank" href="https://www.youtube.com/watch?v=P_uT3wnR7yo">Panini</a>
+   * <a target="_blank" href="https://www.youtube.com/watch?v=JlarIkhBj54">SCSS</a>
    * Zepto, a much lighter substitute for jQuery
+   * XY Grid, which applies CSS Grid so it works on older browsers
+   * Browsersync
    <br /><br />
 
 * Foundation for web apps refers to the Apps Controller Using <strong>AngularJS</strong>.
@@ -48,39 +67,23 @@ Foundation is actually a family of responsive front-end frameworks that make it 
 * Foundation for Emails refers to the tool that creates HTML used to display beautifully formatted email bodies.
 
 
-## Competitors
 
-The lack of a cross-platform mobile + web app development approach is what may render it out of the running.
-
-React + React Native
-
-PWA
-
-NativeScript
-
-<a target="_blank" href="https://blog.templatetoaster.com/bootstrap-vs-foundation/">NOTE</a>: According to BuiltWith, among the top million websites <a target="_blank" href="https://trends.builtwith.com/docinfo/Twitter-Bootstrap">a steady 20.7% use Bootstrap</a> vs. <a target="_blank" href="https://trends.builtwith.com/framework/Foundation">1.8% (but growing) use the Foundation Framework</a>. 112k starred Bootstrap on Github vs. 25.8k stars for Foundation on Github. Indeed reports more job postings for Bootstrap. <a target="_blank" href="https://github.com/jhipster/generator-jhipster/issues/1039">
-Support for Foundation in JHipster</a> was requested in Jan 2016 and closed because it uses Twitter's Bootstrap instead.  
-
-Some feel Foundation is more intuitive to change than Bootstrap.
-
-
-
-## Get Setup on GitHub
+## Get Yourself on GitHub
 
    The following steps require switching between GitHub and Terminal, by pressing command+Tab until the icon for the app you want is highlighted.
 
    The following instructions assumes this is the first time you're running this.
 
-   ### GitHub Account
+0. On an internet browser on <a target="_blank" href="https://www.github.com/">GitHub.com</a>, create an account if you don't already have one. 
 
-0. On an internet browser on <a target="_blank" href="https://www.github.com/">GitHub.com</a>, create an account if you don't already have one. You will be replacing your own account name with the stand-in example used in this tutorial:
+   Throughout this tutorial, you will be replacing your own account name with the stand-in example of:
 
-   <pre>hotwilson</pre>
+   <pre><strong>hotwilson</strong></pre>
 
 
    ### SSH Key into GitHub
 
-0. Switch to a Terminal to create a public and private key:
+0. Switch to a Terminal to create a public and private key. To use default parameters:
 
    <tt><strong>ssh-keygen
    </strong></tt>
@@ -92,7 +95,7 @@ Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/hotwilson/.ssh/id_rsa): 
    </pre>
 
-0. Press Enter to accept defaults until you see
+0. Press Enter repeatedly to accept defaults until you see:
 
    <pre>
 Your public key has been saved in /Users/hotwilson/.ssh/id_rsa.pub.
@@ -112,7 +115,7 @@ The key's randomart image is:
 +----[SHA256]-----+
    </pre>   
 
-   PROTIP: The "hotwilson" shown above would be substituted with your own account name. But it doesn't matter because it's the certificates generated that are used for authentication.
+   PROTIP: The account name shown above would be substituted with your own account name. But it doesn't matter because it's the certificates generated that are used for authentication.
 
 0. Get the public key in the .ssh folder into your Mac's clipboard:
 
@@ -125,33 +128,13 @@ The key's randomart image is:
 0. Click on <strong>New SSH key</strong> green button.
 0. Click inside the field labeled <strong>Key</strong> so its border turns blue.
 
-   PROTIP: You can leave the Label field blank.
+   PROTIP: You can leave the Label field blank. Others put a date there.
+
+   PROTIP: Enterprise versions of GitHub use single-sign-on capabilities that leverage corporate authentication mechanisms where you don't have to do this.
 
 0. Click on <strong>Add SSH key</strong> green button.
 
    You can now upload from your laptop to any repo for your GitHub account.
-
-
-   ### Create repo on GitHub
-
-0. Click the "+" icon to create a new repository.
-0. Click inside the field labeled <strong>Repository name</strong> so its border turns blue.
-0. Type in the name of your new repository. For example:
-
-   <pre>website1</pre>
-
-   PROTIP: Dashes between words are interpreted as different words. 
-   Underlines are interpreted as a single (hypenated) word.
-
-   PROTIP: Add a number to the name makes the word searcheable with less duplicates.
-
-0. Click <strong>Initialie this repository with a README</strong>.
-
-   NOTE: The Description and .gitignore and license files can be added later.
-
-0. Click on <strong>Create repository</strong> green button.
-
-   This creates the initial commit and enables you to skip needing to later type in a long "git remote add origin" command.
 
 
    ### Create container path
@@ -159,20 +142,30 @@ The key's randomart image is:
 0. In a Terminal window:
 0. Create a folder to house your development projects:
 
-   <tt><strong>mkdir ~/gits && gits
+   <tt><strong>mkdir ~/gits && cd gits
    </strong></tt>
 
    PROTIP: Instead of `gits`, some use `dev` or `Sites` or `Projects` to house related software development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
 
-0. Create a folder representing your GitHub account to house your new website (substituting "hotwilson" with your GitHub user name):
+0. Create a folder representing your GitHub account to house new websites to be created (substituting "hotwilson" with your GitHub user name):
 
-   <tt><strong>mkdir hotwilson && cd hotwilson
+   <tt><strong>mkdir hotwilson
    </strong></tt>
 
-0. Navigate into the containing folder for Foundation to build a new directory, such as:
+0. Set permissions for your MacOS user to write to the new folder (subsituting your own user instead of "wilsonmar" and GitHub account name instead of "hotwilson"):
+
+   <tt><strong>
+   sudo chown -R wilsonmar hotwilson<br />
+   sudo chmod -R +rwx hotwilson
+   </strong></tt>
+
+0. Type in your password when prompted.
+
+0. Navigate into the containing folder where a new directory is automatically built:
 
    <tt><strong>cd ~/gits/hotwilson
    </strong></tt>
+
 
 
    ### Get batch utility from GitHub
@@ -180,8 +173,14 @@ The key's randomart image is:
 0. Get the Bash script that automates the instructions described below:
 
    <tt><strong>
-   curl https://github.com/wilsonmar/git-utilities/blob/master/foundation-website-init.sh
+   wget https://github.com/wilsonmar/git-utilities/blob/master/foundation-website-init.sh
    </strong></tt>
+
+   The response ends with a line like this:
+
+   <pre>
+   2017-09-28 03:26:42 (441 KB/s) - ‘foundation-website-init.sh’ saved [46178]
+   </pre>
 
    Alternately, download the whole repo:
    
@@ -190,11 +189,13 @@ The key's randomart image is:
    && git checkout HEAD foundation-website-init.sh
    </strong></tt>
 
-0. Open for edit the file `foundation-website-init.sh` 
+0. Open for edit the file using the nano text editing program that comes with MacOS:
 
    <tt><strong>
    nano foundation-website-init.sh
    </strong></tt>
+
+   Alternately, you can use subl, atom, vscode, or IDE already installed.
 
 0. Edit the file to specify your account and website name:
 
@@ -205,44 +206,47 @@ The key's randomart image is:
 
 0. Save the changes.
 
-0. Set permissions:
-
-   <tt><strong>
-   chmod 555 foundation-website-init.sh
-   </strong></tt>
-
-0. Run the script:
+0. Run the script that performs what is described below:
 
    <tt><strong>
    ./foundation-website-init.sh
    </strong></tt>
 
 
-0. Copy the file `foundation-website-init.sh` to your account folder:
-
-   <tt><strong>
-   cp foundation-website-init.sh website1
-   </strong></tt>
 
 
 ## Processing
 
-The following steps are performed either manually or by the Bash script downloaded as above.
+The following steps are performed either manually or by the Bash script downloaded above.
 
 0. Navigate into the containing folder for Foundation to build a new directory, such as:
 
    <tt><strong>cd ~/gits/hotwilson
    </strong></tt>
 
+   ### Starting over?
+   
+   If you already created a folder using the script or manually...
+
+0. If you have a Terminal window running the localhost website, click on that Terminal screen and press <strong>control+C</strong>.
+
+0. Remove (delete) the generated folder (replacing "website1" with your site's name):
+
+   <tt><strong>rm -rf website1
+   </strong></tt>
+
+   By deleting the whole folder, makes the automation script "idempotent". In other words, running it would end up the same.
+
+
    ### Get website local
 
-0. Create a folder containing your repo in GitHub (subsituting "hotwilson/website1" with your own account and repo name):
+0. <strong>Create a folder</strong> containing your repo in GitHub (subsituting "hotwilson/website1" with your own account and repo name):
 
    <tt><strong>
    git clone https://github.com/hotwilson/website1
    </strong></tt>
 
-   The response with minimal objects in the repo:
+   The response for just .git folder and README.md in the repo:
 
    <pre>
 Cloning into 'website1'...
@@ -251,15 +255,35 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
    </pre>
 
+   ### gitignore website folder
+
+   Make sure that folders are not uploaded
+
+0. Create or open for edit the .gitignore file using the nano text editing program that comes with MacOS:
+
+   <tt><strong>
+   nano .gitignore
+   </strong></tt>
+
+   Alternately, you can use subl, atom, vscode, or IDE already installed.
+
+0. Edit the file to specify your account and website name:
+
+   <pre>
+   website1
+   </pre>
+
+0. Save the changes.
+
 
    ### Foundation Installation
 
 0. Install Node and NPM if it's not already installed.
 
-0. Install the latest version of Foundation on any directory:
+0. Install the latest version of Foundation <strong>on any directory</strong>:
 
    <tt><strong>
-npm install -g foundation-cli
+   npm install -g foundation-cli
    </strong></tt>
 
    The response at time of writing:
@@ -366,73 +390,7 @@ You're all set!
 Now run foundation watch while inside the folder created.
    </pre>
 
-0. Install dependencies:
-
-   <tt><strong>npm install
-   </strong></tt>
-
-   The response at time of writing:
-
-   <pre>
-npm notice created a lockfile as package-lock.json. You should commit this file.
-up to date in 11.122s
-   </pre>   
-
-0. As the prompt advises:
-
-   <tt><strong>git init && git add . && git commit -m"Initial"
-   </strong></tt>
-
-   PROTIP: Upload to GitHub as well to avoid going through the above again.
-
-0. Start a web server (which calls Gulp task runner):
-
-   <tt><strong>npm start
-   </strong></tt>
-
-   <pre>
-[Browsersync] Access URLs:
- ----------------------------------
-       Local: http://localhost:8000
-    External: http://10.0.0.4:8000
- ----------------------------------
-          UI: http://localhost:3001
- UI External: http://10.0.0.4:3001
- ----------------------------------
-[Browsersync] Serving files from: dist
-   </pre>
-
-0. Open the default internet browser to "Welcome" page generated:
-
-   <pre><strong>open http://localhost:8000
-   </strong></pre>
-
-
-
-
-   ### Watch
-
-0. Open another Terminal to the folder (in a different color) and cd to your working folder.
-
-
-0. Establish a watch on the pwd to watch for changes to files and invoke Gulp:
-
-   <tt><strong>
-   foundation watch
-   </strong></tt>
-
-
-
-   ### Start over?
-   
-   If you want to start over: Manually...
-
-0. Close the localhost website by pressing <strong>control+C</strong>.
-
-0. Remove (delete) the generated files
-
-   <tt><strong>rm -rf website1
-   </strong></tt>
+   ### What are the files?
 
 0. Open in an text editor that shows the folders of the name specified:
 
@@ -453,15 +411,88 @@ up to date in 11.122s
    <br /><br />
 
 
+   ### Download dependencies
+
+0. Install dependencies to the `node_modules` folder based on specifications in the `package.json`:
+
+   <tt><strong>npm install
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+npm notice created a lockfile as package-lock.json. You should commit this file.
+up to date in 11.122s
+   </pre>   
+
+   PROTIP: From here on you can work in a cave with no internet. But only edit what's under the `src` folder to make it your own.
+   Since folder `dist` is generated, its contents should not be edited.
+
+
+0. Start a web server (which calls Gulp task runner):
+
+   <tt><strong>npm start
+   </strong></tt>
+
+   <pre>
+[Browsersync] Access URLs:
+ ----------------------------------
+       Local: http://localhost:8000
+    External: http://10.0.0.4:8000
+ ----------------------------------
+          UI: http://localhost:3001
+ UI External: http://10.0.0.4:3001
+ ----------------------------------
+[Browsersync] Serving files from: dist
+   </pre>
+
+   PROTIP: The Browsersync UI at port 3001 is for configuring detection of file changes for auto-refresh of the browser.
+
+0. Open the default internet browser to "Welcome" page generated:
+
+   <pre><strong>open http://localhost:8000
+   </strong></pre>
+
+
+
+   ### Watch
+
+0. Open another Terminal to the folder (in a different color) and cd to your working folder.
+
+0. Establish a watch on the pwd to watch for changes to files and invoke Gulp:
+
+   <tt><strong>
+   foundation watch
+   </strong></tt>
+
+
+
+
    <a name="gitignore"></a>
 
    ### .gitignore file
 
-   Entries in the .gitignore file keeps the node_modules and dist folders from being uploaded.
+   Entries in the .gitignore file keeps the node_modules and dist folders from being uploaded to GitHub.
 
-   NOTE: From here on you can work in a cave with no internet. But only edit what's under the `src` folder to make it your own.
+0. Edit the `.gitignore` file:
 
-   PROTIP: The folder `dist` generated should not be edited.
+   <pre>
+.DS_Store
+node_modules
+npm-debug.log
+bower_components
+dist
+\*.swp
+   </pre>
+
+0. Add the `.gitignore` file:
+
+0. Get the site up to GitHub:
+
+   <tt><strong>git init && git add . && git commit -m"Initial"
+   </strong></tt>
+
+   PROTIP: Upload to GitHub as well to avoid going through the above again.
 
 
    ### Foundation Framer
@@ -476,15 +507,16 @@ up to date in 11.122s
 
    ### UI Themes
 
-   * <a target="_blank" href="https://foundationpress.olefredrik.com">
-   https://foundationpress.olefredrik.com</a>
-   FoundationPress "the ultimate WordPress starter-theme built on Foundation 6"
-
-   * https://foundation.zurb.com/templates.html
+   * <a target="_blank" href="https://foundation.zurb.com/templates.html">
+https://foundation.zurb.com/templates.html</a> has several
 
    * http://foundation.zurb.com/develop/resources.html
 
    * http://zurb.com/playground
+
+   * <a target="_blank" href="https://foundationpress.olefredrik.com">
+   https://foundationpress.olefredrik.com</a>
+   FoundationPress "the ultimate WordPress starter theme built on Foundation 6"
 
    * <a target="_blank" href="https://themeforest.net/collections/3435762-zurb-foundation-templates">
    ThemeForest</a> $15-$69 
@@ -554,13 +586,19 @@ app.js  678 kB       0  [emitted]  [big]  app
 
 
 
-## Videos
+## Learning resources
+
+So if you aspire to be a world-class pro, get on the long path to earn a certification class/test for $500.
+
+Skills development include their $99 design sketching class.
 
 <a target="_blank" href="https://www.youtube.com/channel/UC01kRrdHtuWrzerp4BcAsYg">
 Videos on Zurb's YouTube channel</a> 
 
 <a target="_blank" href="https://zurb.com/university/foundation-intro">
 Zurb's $299 Foundation intro class</a>
+
+Brad raversy's (<a target="_blank" href="http://www.traversymedia.com">traversymedia.com</a>) <a target="_blank" href="https://www.youtube.com/watch?v=DEu5xYEZx18">Foundation Framework Crash Course</a>
 
 
 ### Flexbox for XY Grid
