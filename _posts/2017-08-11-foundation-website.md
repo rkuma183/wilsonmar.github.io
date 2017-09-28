@@ -444,7 +444,7 @@ up to date in 11.122s
    Since folder `dist` is generated, its contents should not be edited.
 
 
-0. Start a web server (which calls Gulp task runner):
+0. Start a web server (after it runs Gulp task runner):
 
    <tt><strong>npm start
    </strong></tt>
@@ -461,18 +461,21 @@ up to date in 11.122s
 [Browsersync] Serving files from: dist
    </pre>
 
+
    ### Watch
 
    PROTIP: The Browsersync UI at port 3001 is for configuring detection of file changes for auto-refresh of the browser.
 
 0. Open another Terminal to the folder (in a different color) and cd to your working folder.
 
-0. Establish a watch on the pwd to watch for changes to files and invoke Gulp:
+   The script automatically establish a watch on the pwd to watch for changes to files and invoke Gulp as part of npm start, so there is no need to:
 
    <tt><strong>
    foundation watch
    </strong></tt>
 
+
+   ### Open localhost
 
 0. Open the default internet browser to "Welcome" page generated:
 
@@ -481,19 +484,9 @@ up to date in 11.122s
 
    Internally the default `index.html` is displayed.
 
-0. See 
+0. For documentation about formatting HTML and CSS (with videos), see 
    <a target="_blank" href="https://foundation.zurb.com/sites/docs/">
    https://foundation.zurb.com/sites/docs</a>
-   has 
-
-   ### Foundation Framer
-
-   <a target="_blank" href="http://www.coffeecup.com/help/articles/foundation-framer-themes/">v6 Themes</a> created using <a target="_blank" href="https://www.coffeecup.com/foundation-framer/">
-   $99 Foundation Framer</a> for code-free CSS and Google web fonts.
-   From CoffeeCup.com, which also sells a Web Form Builder and other tools for UX pros.
-
-   <a target="_blank" href="https://rapidweavercommunity.com/addons/themes/foundation">
-   $99.95 RapidWeaver</a> created a Foundation <a target="_blank" href="https://foundationstacks.com/theme/">theme</a> which adds Font Awesome icons and Animate.css to work with <a target="_blank" href="http://joeworkman.net">Joe Workman</a>'s <a target="_blank" href="http://yourhead.com/stacks">Stacks plugin</a> that add CMS, SEO, e-commerce, and other functionality.
 
 
    ### UI Themes
@@ -505,7 +498,7 @@ up to date in 11.122s
 0. In your email client, open the email with subject "Download Your Foundation 6 Templates" and click "Download Templates" - the `all-f6-templates.zip` to your Downloads folder.
 
 0. In Finder, double-click on the zip file to expand it.
-0. Open the demo page for each:
+0. Open the demo page for each
 
    * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/agency.html">agency.html</a>
    * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/blog-simple.html">blog-simple.html</a> (single column)
@@ -516,9 +509,107 @@ up to date in 11.122s
    * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/portfolio.html">portfolio.html</a>
    * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/product-page.html">product-page.html</a>
    * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/real-estate.html">real-estate.html</a>
+   <br /><br />
+
+   Within these html files are placeholder assets:
+
+   * CSS stylesheetes are from ... cloudfront.net/cdn/sites/foundation.min.css
+   * images are obtained from http://placehold.it/750x350
+   * links go nowhere
+   <br /><br />
+
+   PROTIP: Create a GitHub repo containing your customized starter set.
 
 
-   Other UI templates:
+   ### Replace index.html
+
+0. To use a particular demo template, open a Terminal window to the demo file:
+
+   <tt><strong>
+   cd ~/Downloads/all-f6-templates
+   </strong></tt>
+
+0. Copy the file into your website1 folder such that it substitute the index.html. For example:
+
+   <tt><strong>
+   cp blog.html ~/gits/hotwilson/website1/src/pages
+   </strong></tt>
+
+0. Navigate to the website source folder:
+
+   <tt><strong>cd ~/gits/hotwilson/website1
+   </strong></tt>
+
+0. Move (backup) the existing index.html to another name:
+
+   <tt><strong>mv index.html generated.index.html
+   </strong></tt>
+
+0. Rename the template:
+
+   <tt><strong>mv blog.html index.html
+   </strong></tt>
+
+0. The watch should referesh the browser automatically showing the new page.
+
+0. You can still see the original generated page:
+
+   <tt><strong>http://localhost:8001/generated.index.html
+   </strong></tt>
+
+   
+   ### Fuller sample
+
+   For a fuller sample site with images, we overlay files from GitHub which contains the same structure as Foundation's sample site.
+
+0. You can still see the original generated page:
+
+   <tt><strong>git clone https://github.com/hotwilson/bthosting.com
+   </strong></tt>
+
+   This site was forked from Brad Traversy's <a target="_blank" href="https://github.com/bradtraversy/bthosting_foundation">sample website on GitHub</a>, which he <a target="_blank" href="https://www.youtube.com/watch?v=aQuVW55zhmU">
+   explains in a video</a>.
+
+   ### Foundation folder structure
+
+0. Open the website directory with a text editor that displays folders:
+
+   <tt><strong>atom bthosting.com
+   </strong></tt>
+
+   The repo's files and empty folders:
+
+   # dist # generated by Gulp
+   # etc  # empty
+   # node_modules. # filled by npm install referencing package.json.
+   * src/assets/img
+   * src/assets/js/app.js
+   * src/assets/js/lib/foundation-explicit-pieces.js
+   * src/assets/scss/\_settings.scss
+   * src/assets/scss/app.scss # defines
+   * src/assets/scss/components  # empty
+   * src/data  # empty
+   * src/partials/.gitkeep 
+   * src/layouts/default.html # the base where other html are inserted.
+   # etc  #empty
+   <br /><br />
+
+   The repo adds the font-awesome SVG icons:
+
+   * src/fonts/font-awesome
+   <br /><br />
+
+0. Repeat install of Node.js  dependencies to the `node_modules` folder based on specifications in the `package.json`:
+
+   <tt><strong>npm install 
+   </strong></tt>
+
+   <tt><strong>npm start
+   </strong></tt>
+
+   ### Other UI templates
+
+   Consider using other templates:
 
    * http://foundation.zurb.com/develop/resources.html
 
@@ -541,6 +632,16 @@ up to date in 11.122s
    Template.net has v5 themes from $6 to $69</a>
 
    * https://www.foundationdeck.com has v6 themes but links are broken.
+
+
+   ### Foundation Framer
+
+   <a target="_blank" href="http://www.coffeecup.com/help/articles/foundation-framer-themes/">v6 Themes</a> created using <a target="_blank" href="https://www.coffeecup.com/foundation-framer/">
+   $99 Foundation Framer</a> for code-free CSS and Google web fonts.
+   From CoffeeCup.com, which also sells a Web Form Builder and other tools for UX pros.
+
+   <a target="_blank" href="https://rapidweavercommunity.com/addons/themes/foundation">
+   $99.95 RapidWeaver</a> created a Foundation <a target="_blank" href="https://foundationstacks.com/theme/">theme</a> which adds Font Awesome icons and Animate.css to work with <a target="_blank" href="http://joeworkman.net">Joe Workman</a>'s <a target="_blank" href="http://yourhead.com/stacks">Stacks plugin</a> that add CMS, SEO, e-commerce, and other functionality.
 
 
 
