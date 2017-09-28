@@ -15,14 +15,12 @@ comments: true
 
 {% include _toc.html %}
 
-As its website address shows, https://foundation.zurb.com, 
-it's from Zurb, a web design services firm based in the Silicon Valley since 1998.
+As its website address shows, the Foundation Framework's home page at https://foundation.zurb.com is from Zurb, a web design services firm based in the Silicon Valley since 1998.
 
 <a target="_blank" href="https://zurb.com/responsive">
-Look at their showcase</a> of websites, web apps, and emails running on a WordPress backend.
-Zurb's publicly named customers include Slack, Asana, Amazon, Disney, and eBay.
+Look at Zurb's showcase</a> of websites, web apps, and emails. Some run on a WordPress backend. Zurb's publicly named customers include Slack, Asana, Amazon, Disney, eBay, National Geographic, etc.
 
-Their continuual work for clients with money is why Foundation can legitimately call itself "the most advanced responsive front-end framework in the world."
+Zurb's on-going work for <a target="_blank" href="https://foundation.zurb.com/showcase/brands.html">big brand clients</a> with money is the sustainable business model for continuous improvement. That's why Foundation can legitimately call itself "the most advanced responsive front-end framework in the world."
 
 So if you aspire to be a world-class pro, get on the long path to earn a certification class/test for $500.
 
@@ -30,6 +28,7 @@ Skills development include their $99 design sketching class.
 
 <a target="_blank" href="https://foundation.zurb.com/learn/responsive-reading">
 Sign-up for their monthly newsletter</a> and Design Trends PDF on responsive design.
+
 
 ## Suite
 
@@ -40,6 +39,8 @@ Foundation is actually a family of responsive front-end frameworks that make it 
    * Handlebars templates 
    * Bower modules
    * Panini
+   * SCSS 
+   * Zepto, a much lighter substitute for jQuery
    <br /><br />
 
 * Foundation for web apps refers to the Apps Controller Using <strong>AngularJS</strong>.
@@ -57,18 +58,27 @@ PWA
 
 NativeScript
 
-## GitHub
+<a target="_blank" href="https://blog.templatetoaster.com/bootstrap-vs-foundation/">NOTE</a>: According to BuiltWith, among the top million websites <a target="_blank" href="https://trends.builtwith.com/docinfo/Twitter-Bootstrap">a steady 20.7% use Bootstrap</a> vs. <a target="_blank" href="https://trends.builtwith.com/framework/Foundation">1.8% (but growing) use the Foundation Framework</a>. 112k starred Bootstrap on Github vs. 25.8k stars for Foundation on Github. Indeed reports more job postings for Bootstrap. <a target="_blank" href="https://github.com/jhipster/generator-jhipster/issues/1039">
+Support for Foundation in JHipster</a> was requested in Jan 2016 and closed because it uses Twitter's Bootstrap instead.  
+
+Some feel Foundation is more intuitive to change than Bootstrap.
 
 
-### Create repo in GitHub
+
+## Get Setup on GitHub
 
    The following steps require switching between GitHub and Terminal, by pressing command+Tab until the icon for the app you want is highlighted.
 
    The following instructions assumes this is the first time you're running this.
 
+   ### GitHub Account
+
 0. On an internet browser on <a target="_blank" href="https://www.github.com/">GitHub.com</a>, create an account if you don't already have one. You will be replacing your own account name with the stand-in example used in this tutorial:
 
    <pre>hotwilson</pre>
+
+
+   ### SSH Key into GitHub
 
 0. Switch to a Terminal to create a public and private key:
 
@@ -170,6 +180,12 @@ The key's randomart image is:
 0. Get the Bash script that automates the instructions described below:
 
    <tt><strong>
+   curl https://github.com/wilsonmar/git-utilities/blob/master/foundation-website-init.sh
+   </strong></tt>
+
+   Alternately, download the whole repo:
+   
+   <tt><strong>
    git clone https://github.com/wilsonmar/git-utilities \-\-depth=1
    && git checkout HEAD foundation-website-init.sh
    </strong></tt>
@@ -212,6 +228,11 @@ The key's randomart image is:
 ## Processing
 
 The following steps are performed either manually or by the Bash script downloaded as above.
+
+0. Navigate into the containing folder for Foundation to build a new directory, such as:
+
+   <tt><strong>cd ~/gits/hotwilson
+   </strong></tt>
 
    ### Get website local
 
@@ -381,10 +402,12 @@ up to date in 11.122s
 [Browsersync] Serving files from: dist
    </pre>
 
-0. Switch to an internet browser (Chrome or Firefox) to visit the "Welcome" page generated:
+0. Open the default internet browser to "Welcome" page generated:
 
-   <pre><strong>http://localhost:8000
+   <pre><strong>open http://localhost:8000
    </strong></pre>
+
+
 
 
    ### Watch
@@ -441,7 +464,44 @@ up to date in 11.122s
    PROTIP: The folder `dist` generated should not be edited.
 
 
-   ### Build for Production
+   ### Foundation Framer
+
+   <a target="_blank" href="http://www.coffeecup.com/help/articles/foundation-framer-themes/">v6 Themes</a> created using <a target="_blank" href="https://www.coffeecup.com/foundation-framer/">
+   $99 Foundation Framer</a> for code-free CSS and Google web fonts.
+   From CoffeeCup.com, which also sells a Web Form Builder and other tools for UX pros.
+
+   <a target="_blank" href="https://rapidweavercommunity.com/addons/themes/foundation">
+   $99.95 RapidWeaver</a> created a Foundation <a target="_blank" href="https://foundationstacks.com/theme/">theme</a> which adds Font Awesome icons and Animate.css to work with <a target="_blank" href="http://joeworkman.net">Joe Workman</a>'s <a target="_blank" href="http://yourhead.com/stacks">Stacks plugin</a> that add CMS, SEO, e-commerce, and other functionality.
+
+
+   ### UI Themes
+
+   * <a target="_blank" href="https://foundationpress.olefredrik.com">
+   https://foundationpress.olefredrik.com</a>
+   FoundationPress "the ultimate WordPress starter-theme built on Foundation 6"
+
+   * https://foundation.zurb.com/templates.html
+
+   * http://foundation.zurb.com/develop/resources.html
+
+   * http://zurb.com/playground
+
+   * <a target="_blank" href="https://themeforest.net/collections/3435762-zurb-foundation-templates">
+   ThemeForest</a> $15-$69 
+
+   * http://patterntap.com/code
+
+   * http://codepen.io/search?q=foundation&limit=all&depth=everything&show_forks=false
+
+   * <a target="_blank" href="http://es-di.com/foundation/">
+   es-di.com</a> has 6 free basic themes.
+   * <a target="_blank" href="https://www.template.net/web-templates/foundation-template/">
+   Template.net has v5 themes from $6 to $69</a>
+
+   * https://www.foundationdeck.com has v6 themes but links are broken.
+
+
+## Build for Production
 
 0. Create compressed, production-ready assets, run 
 
@@ -491,7 +551,6 @@ app.js  678 kB       0  [emitted]  [big]  app
    <tt><strong>
    git add . && git commit -m"update" && git push
    </strong></tt>
-
 
 
 
