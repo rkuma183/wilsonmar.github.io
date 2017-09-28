@@ -558,7 +558,7 @@ up to date in 11.122s
    </strong></tt>
 
    
-   ### Fuller sample
+   ### TODO: Fuller sample   
 
    For a fuller sample site with images, we overlay files from GitHub which contains the same structure as Foundation's sample site.
 
@@ -584,12 +584,13 @@ up to date in 11.122s
    # node_modules. # filled by npm install referencing package.json.
    * src/assets/img
    * src/assets/js/app.js
-   * src/assets/js/lib/foundation-explicit-pieces.js
-   * src/assets/scss/\_settings.scss
-   * src/assets/scss/app.scss # defines
-   * src/assets/scss/components  # empty
+   * src/assets/js/lib/foundation-explicit-pieces.js  # 
+   * src/assets/scss/\_settings.scss  # CSS source for the custom app to be compiled
+   * src/assets/scss/_custom.scss # added for app.
+   * src/assets/scss/app.scss # defines variables for CSS
+   * src/assets/scss/components/.gitkeep  # Git can't stand empty folders
    * src/data  # empty
-   * src/partials/.gitkeep 
+   * src/partials/.gitkeep  #
    * src/layouts/default.html # the base where other html are inserted.
    # etc  #empty
    <br /><br />
