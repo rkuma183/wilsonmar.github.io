@@ -4,10 +4,10 @@ title: "ZURB Foundation on MacOS"
 excerpt: "Generate a website using the flexible UI framework top UI pros use"
 tags: [UI, MacOS, setup, Foundation]
 image:
-# foundation-form-1900x500-65699
-  feature: https://user-images.githubusercontent.com/14143059/30937418-e98d386c-a393-11e7-8d17-4fa4c70e3a0b.jpg
+# foundation-yeti-point-1900x500-26464.jpg
+  feature: https://user-images.githubusercontent.com/300046/30966202-5e660962-a415-11e7-9347-4af25029af26.jpg
   credit: Wilson Mar
-  creditlink: https://user-images.githubusercontent.com/14143059/30937418-e98d386c-a393-11e7-8d17-4fa4c70e3a0b.jpg
+  creditlink: https://user-images.githubusercontent.com/300046/30966202-5e660962-a415-11e7-9347-4af25029af26.jpg
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -36,15 +36,25 @@ Some feel Foundation is more intuitive to change and more "customizable" than Bo
 
 The lack of a cross-platform mobile + web app development approach is what may limit its potential in the future against:
 
-* React + React Native
+   * React + React Native
 
-* PWA (Progressive Web App)
+   * PWA (Progressive Web App)
 
-* NativeScript
-<br /><br />
+   * NativeScript
+   <br /><br />
+
+## Social
 
 <a target="_blank" href="https://foundation.zurb.com/learn/responsive-reading">
 Sign-up for Zurb's monthly newsletter</a> and Design Trends PDF on responsive design.
+
+Follow <a target="_blank" href="https://twitter.com/ZURBfoundation">
+@ZURBfoundation</a>
+
+<a target="_blank" href="https://foundation.zurb.com/forum">
+https://foundation.zurb.com/forum</a>
+
+(No Slack, LinkedIn, Facebook, Instagram, etc. ?)
 
 
 ## Foundation Suite
@@ -53,13 +63,14 @@ Foundation is actually a family of responsive front-end frameworks that make it 
 
 * [Foundation for Sites](http://foundation.zurb.com/sites) (websites) consists of Node.js packages. The framework provides a XY Grid and coded UI components. It provides fine-grained control of font typography and forms. The ZURB Stack (ZURB template) uses Gulp to compresses JavaScripts, watches for file changes to rerun. 
 
-   * Handlebars templates 
-   * Bower modules
-   * <a target="_blank" href="https://www.youtube.com/watch?v=P_uT3wnR7yo">Panini</a>
+   * Gulp task runner (instead of Grunt)
+   * <a target="_blank" title="14:52" href="https://www.youtube.com/watch?v=P_uT3wnR7yo">Panini</a> generates flat files using the <a target="_blank" href="http://handlebarsjs.com/">Handlebars</a> templating engine (see https://github.com/zurb/panini). It uses a layout like Jekyll, Middleman, or Assemble. JSON or YML files are used instead of a database like WordPress needs.
    * <a target="_blank" href="https://www.youtube.com/watch?v=JlarIkhBj54">SCSS</a>
-   * Zepto, a much lighter substitute for jQuery
-   * XY Grid, which applies CSS Grid so it works on older browsers
+   * Zepto, a lighter substitute for jQuery
+   * Foundation's own XY Grid, a customized CSS Grid so it works on older browsers
    * Browsersync
+   * Bower to download front-end UI modules dependencies to custom Node.Js code
+   * Motion UI
    <br /><br />
 
 * Foundation for web apps refers to the Apps Controller Using <strong>AngularJS</strong>.
@@ -348,9 +359,13 @@ added 21 packages, removed 22 packages and updated 19 packages in 16.456s
    </strong></tt>
 
    "sites" and "zurb" are keywords recognize by Foundation.
+   https://foundation.zurb.com/sites/docs/starter-projects.html
 
-   The template created is pulled from:
+   Template "zurb" is pulled from:
    https://github.com/zurb/foundation-zurb-template 
+   and described in <a target="_blank" href="https://youtu.be/3Uj74uJ3GSQ">this video</a>.
+
+   Alternately, specify <a target="_blank" href="https://youtu.be/ofSZUKkjPRY">basic</a>.
 
 0. If you are prompted, manually type it in, then press Enter. For example:
 
@@ -446,16 +461,9 @@ up to date in 11.122s
 [Browsersync] Serving files from: dist
    </pre>
 
-   PROTIP: The Browsersync UI at port 3001 is for configuring detection of file changes for auto-refresh of the browser.
-
-0. Open the default internet browser to "Welcome" page generated:
-
-   <pre><strong>open http://localhost:8000
-   </strong></pre>
-
-
-
    ### Watch
+
+   PROTIP: The Browsersync UI at port 3001 is for configuring detection of file changes for auto-refresh of the browser.
 
 0. Open another Terminal to the folder (in a different color) and cd to your working folder.
 
@@ -466,7 +474,93 @@ up to date in 11.122s
    </strong></tt>
 
 
+0. Open the default internet browser to "Welcome" page generated:
 
+   <pre><strong>open http://localhost:8000
+   </strong></pre>
+
+   Internally the default `index.html` is displayed.
+
+0. See 
+   <a target="_blank" href="https://foundation.zurb.com/sites/docs/">
+   https://foundation.zurb.com/sites/docs</a>
+   has 
+
+   ### Foundation Framer
+
+   <a target="_blank" href="http://www.coffeecup.com/help/articles/foundation-framer-themes/">v6 Themes</a> created using <a target="_blank" href="https://www.coffeecup.com/foundation-framer/">
+   $99 Foundation Framer</a> for code-free CSS and Google web fonts.
+   From CoffeeCup.com, which also sells a Web Form Builder and other tools for UX pros.
+
+   <a target="_blank" href="https://rapidweavercommunity.com/addons/themes/foundation">
+   $99.95 RapidWeaver</a> created a Foundation <a target="_blank" href="https://foundationstacks.com/theme/">theme</a> which adds Font Awesome icons and Animate.css to work with <a target="_blank" href="http://joeworkman.net">Joe Workman</a>'s <a target="_blank" href="http://yourhead.com/stacks">Stacks plugin</a> that add CMS, SEO, e-commerce, and other functionality.
+
+
+   ### UI Themes
+
+0. In a browser, sign-up to receive UI templates by providing your email at 
+   <a target="_blank" href="https://foundation.zurb.com/templates.html">
+   https://foundation.zurb.com/templates.html</a> 
+
+0. In your email client, open the email with subject "Download Your Foundation 6 Templates" and click "Download Templates" - the `all-f6-templates.zip` to your Downloads folder.
+
+0. In Finder, double-click on the zip file to expand it.
+0. Open the demo page for each:
+
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/agency.html">agency.html</a>
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/blog-simple.html">blog-simple.html</a> (single column)
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/blog.html">blog.html</a> (with sidebar)
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/ecommerce.html">ecommerce.html</a>
+   * <a target="_blank" href="">marketing-site.html</a>
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html">news-magazine.html</a>
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/portfolio.html">portfolio.html</a>
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/product-page.html">product-page.html</a>
+   * <a target="_blank" href="https://foundation.zurb.com/templates-previews-sites-f6/real-estate.html">real-estate.html</a>
+
+
+   Other UI templates:
+
+   * http://foundation.zurb.com/develop/resources.html
+
+   * http://zurb.com/playground
+
+   * <a target="_blank" href="https://foundationpress.olefredrik.com">
+   https://foundationpress.olefredrik.com</a>
+   FoundationPress "the ultimate WordPress starter theme built on Foundation 6"
+
+   * <a target="_blank" href="https://themeforest.net/collections/3435762-zurb-foundation-templates">
+   ThemeForest</a> $15-$69 
+
+   * http://patterntap.com/code
+
+   * http://codepen.io/search?q=foundation&limit=all&depth=everything&show_forks=false
+
+   * <a target="_blank" href="http://es-di.com/foundation/">
+   es-di.com</a> has 6 free basic themes.
+   * <a target="_blank" href="https://www.template.net/web-templates/foundation-template/">
+   Template.net has v5 themes from $6 to $69</a>
+
+   * https://www.foundationdeck.com has v6 themes but links are broken.
+
+
+
+   ### Testing
+
+   https://github.com/zurb/foundation-sites
+   notes that Foundation has three kinds of tests: JavaScript, Sass, and visual regression. 
+   
+   https://github.com/zurb/foundation-sites/wiki/Testing-Guide
+
+   These commands will run the various tests:
+
+   <pre>
+npm run test:sass
+npm run test:javascript:phantomjs
+npm run test:visual
+   </pre>
+
+
+## Up to GitHub
 
    <a name="gitignore"></a>
 
@@ -493,44 +587,6 @@ dist
    </strong></tt>
 
    PROTIP: Upload to GitHub as well to avoid going through the above again.
-
-
-   ### Foundation Framer
-
-   <a target="_blank" href="http://www.coffeecup.com/help/articles/foundation-framer-themes/">v6 Themes</a> created using <a target="_blank" href="https://www.coffeecup.com/foundation-framer/">
-   $99 Foundation Framer</a> for code-free CSS and Google web fonts.
-   From CoffeeCup.com, which also sells a Web Form Builder and other tools for UX pros.
-
-   <a target="_blank" href="https://rapidweavercommunity.com/addons/themes/foundation">
-   $99.95 RapidWeaver</a> created a Foundation <a target="_blank" href="https://foundationstacks.com/theme/">theme</a> which adds Font Awesome icons and Animate.css to work with <a target="_blank" href="http://joeworkman.net">Joe Workman</a>'s <a target="_blank" href="http://yourhead.com/stacks">Stacks plugin</a> that add CMS, SEO, e-commerce, and other functionality.
-
-
-   ### UI Themes
-
-   * <a target="_blank" href="https://foundation.zurb.com/templates.html">
-https://foundation.zurb.com/templates.html</a> has several
-
-   * http://foundation.zurb.com/develop/resources.html
-
-   * http://zurb.com/playground
-
-   * <a target="_blank" href="https://foundationpress.olefredrik.com">
-   https://foundationpress.olefredrik.com</a>
-   FoundationPress "the ultimate WordPress starter theme built on Foundation 6"
-
-   * <a target="_blank" href="https://themeforest.net/collections/3435762-zurb-foundation-templates">
-   ThemeForest</a> $15-$69 
-
-   * http://patterntap.com/code
-
-   * http://codepen.io/search?q=foundation&limit=all&depth=everything&show_forks=false
-
-   * <a target="_blank" href="http://es-di.com/foundation/">
-   es-di.com</a> has 6 free basic themes.
-   * <a target="_blank" href="https://www.template.net/web-templates/foundation-template/">
-   Template.net has v5 themes from $6 to $69</a>
-
-   * https://www.foundationdeck.com has v6 themes but links are broken.
 
 
 ## Build for Production
