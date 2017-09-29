@@ -115,6 +115,9 @@ and then sends that information to the next layer.
 That next layer combines it with other features and passes it to the next layer, and so on,
 sequentially.
 
+![ml-model-google-878x356-61242](https://user-images.githubusercontent.com/300046/30997127-ee8083b6-a482-11e7-8b7a-0dd4ea518fdc.jpg)
+<a target="_blank" href="https://www.coursera.org/learn/serverless-machine-learning-gcp/lecture/3kcXm/what-is-machine-learning-ml">*</a>
+
 The design of the layers of a particular network is called a <strong>model</strong>.
 A model is a statistical representation of a prediction task. 
 Models trained using examples so they can be used to make predictions.
