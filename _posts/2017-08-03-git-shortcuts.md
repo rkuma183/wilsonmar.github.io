@@ -336,6 +336,8 @@ alias gb='git branch -avv'
   remotes/origin/master 54e5bb0 Update
    </pre>   
 
+   [<a href="https://wilsonmar.github.io/git-flow#BranchList">Return to git-flow</a>]
+
 
    <a name="gl"></a>
 
@@ -362,6 +364,9 @@ Date:   Fri Sep 29 12:04:29 2017 -0600
     Update
    </pre>
 
+   [<a href="https://wilsonmar.github.io/git-flow#Log">Return to git-flow</a>]
+
+
 
    <a name="gbs"></a>
 
@@ -376,6 +381,7 @@ Date:   Fri Sep 29 12:04:29 2017 -0600
 alias gbs='git status;git add . -A;git commit -m"Update";git push'
    </pre>
 
+   [<a href="https://wilsonmar.github.io/git-flow#gbs">Return to git-flow</a>]
 
 
 
@@ -393,6 +399,29 @@ function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
    </pre>
 
    PROTIP: Time saved using this can be huge because this reduces the "friction" to make small incremental changes.
+
+   [<a href="https://wilsonmar.github.io/git-flow#gas">Return to git-flow</a>]
+
+
+
+
+
+   <a name="gfu"></a>
+
+0. Instead of typing out `git fetch upstream` and `git checkout master`, type:
+
+   <pre><strong>gfu
+   </strong></pre>
+
+   This invokes the alias defined:
+
+   <pre>
+alias gfu='git fetch upstream ; git checkout master'
+   </pre>
+
+   PROTIP: Time saved using this can be huge because this reduces the "friction" to make small incremental changes.
+
+   [<a href="https://wilsonmar.github.io/git-flow#Fetch">Return to git-flow</a>]
 
 
 
