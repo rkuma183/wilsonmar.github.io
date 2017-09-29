@@ -405,7 +405,6 @@ function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
 
 
 
-
    <a name="gfu"></a>
 
 0. Instead of typing out `git fetch upstream` and `git checkout master`, type:
