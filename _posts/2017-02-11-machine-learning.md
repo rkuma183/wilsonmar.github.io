@@ -109,19 +109,19 @@ GoogleNet in 2014 used 22 layers. In 2016, one network uses over 1,000 layers.
 By contrast, the human brain has 300 million modules that recognize patterns,
 each having 100 neurons.
 
-At the top (or left) input layer, 
+At the input layer, 
 the network trains on a specific set of "features" 
 and then sends that information to the next layer. 
-That next layer combines it with other features and passes it to the next layer, and so on,
-sequentially.
+That next layer combines previous conclusions with other features and passes it to the next layer, and so on, sequentially.
 
 ![ml-model-google-878x356-61242](https://user-images.githubusercontent.com/300046/30997127-ee8083b6-a482-11e7-8b7a-0dd4ea518fdc.jpg)
 <a target="_blank" href="https://www.coursera.org/learn/serverless-machine-learning-gcp/lecture/3kcXm/what-is-machine-learning-ml">*</a>
 
-The design of the layers of a particular network is called a <strong>model</strong>.
+The design of the layers of a particular network is a mathematical <strong>model</strong>.
 A model is a statistical representation of a prediction task. 
-Models trained using examples so they can be used to make predictions.
+Models are trained using examples so they can be used to make predictions.
 
+The result of training is a model that can take an unlabled photo and derive the label, such as "cat".
 
 
 ## Terminology
