@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Macros"
+title: "Git Macros (in a CLI Terminal)"
 excerpt: "A few swipes of your hand and it's done for you"
 tags: [git, commands, utilities]
 shorturl: "https://git.io/"
@@ -17,6 +17,8 @@ comments: true
 {% include _toc.html %}
 
 This is a hands-on tutorial on how you can configure and use Terminal and macros to save time working with Git and GitHub. The steps are intended for "newbies" new to the operating system.
+
+Windows users: <a href="#WindowsInstall">skip to the Windows installation section</a>.
 
 ## Default Terminal on MacOS
 
@@ -41,6 +43,7 @@ To open the Terminal program that comes with MacOS:
    * Red Sands I cd to the code repository I'm working on
    * Homebrew (green font on black) I cd to the server I'm working on
    <br /><br />
+
 
 ## Alt Terminal on MacOS
 
@@ -145,16 +148,22 @@ alias aih='iothub-explorer'
    </strong></tt>
    
 
-   ### Clone my repo
+   ### Container for Git cloning
 
    Some of the <a href="#MacAliases">aliases defined above</a> need a GitHub repository to work with. So you're welcome to my git-utilities repo, which has some commands you may like.
 
    PROTIP: Setup a container directory to house (group together) repositories you clone from GitHub. This is because cloning creates only the repository name and not the user. Although the author can be found with a `git remote -v` command, you may want a way to put several repos for the same folder together, or additional related files such as pdf's and website links.
 
-0. In a Terminal window:
+0. On Mac: Open a Terminal window<br />
+   On Windows, click on the Windows or Search icon, then type Po and right-click "Windows PowerShell" to select "Run as Admistrator. Click Yes to allow.
+0. Begin from your user account's home page. On Mac or Windows PowerShell:
+
+   <tt><strong>cd ~
+   </strong></tt>
+
 0. Create a folder to house your development projects:
 
-   <tt><strong>mkdir ~/gits && cd gits
+   <tt><strong>mkdir gits && cd gits
    </strong></tt>
 
    PROTIP: Instead of `gits`, some use `dev` or `Sites` or `Projects` to house related software development work, separate from other folders such as "Desktop" and "Document" under your MacOS user account folder.
@@ -181,7 +190,7 @@ alias aih='iothub-explorer'
    </strong></tt>
 
 
-   ### Fork and Clone git-utilities
+   ### Fork and/or Clone git-utilities
 
 0. Install a Git client if you have not already.
 0. Open another Terminal instance.
@@ -200,7 +209,81 @@ alias aih='iothub-explorer'
    </strong></tt>
 
 
-   ### Try it
+
+   ### Edit aliases for Mac
+   
+   You can delete the aliases you want or add others, then save the file again.
+
+0. Switch back and forth between the text editor and
+0. Remember to source the file or open a new window.
+
+   <a name="sbp"></a>
+
+0. Instead of typing out `source ~/.bash_profile`, type:
+
+   <tt><strong>sbp
+   </strong></tt>
+
+   This invokes the alias defined:
+
+   <pre>
+alias sbp='source ~/.bash_profile'
+   </pre>
+
+   This command just returns another prompt.
+
+
+<hr />
+
+
+<a name="WindowsInstall"></a>
+
+## Windows Git Bash
+
+0. Click the Windows icon at the lower-left corner of your Desktop.
+0. Type "Git". f you see <strong>Git Bash</strong>, you like used `choco install git` and you can create a `.bashrc` file in the folder that installer created at:
+
+   <pre>C:\Program Files\Git\cmd</pre>
+
+   Alternately, you would need to <a href="#AddPATH">add a folder and edit the Path system environment variable</a>.
+   
+0. Open Notepad: click the Windows icon, type no and click on Notepad in the list that appears.
+0. Highlight and press Ctrl+C to copy it to your Clipboard.
+
+   <a name="WindowsAliases"></a>
+
+   <pre>
+alias gwm='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
+alias gs='git status'
+alias gf='cd ~/gits/wilsonmar/futures;git status'
+alias gb='git branch -avv'
+alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
+alias gbs='git status;git add . -A;git commit -m"Update";git push'
+   </pre>
+
+   TODO: Figure out a replacement for this:
+
+   <pre>
+function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
+   </pre>
+
+0. Click Notepad menu File > Save As.
+0. Save to `C:\Program Files\Git\cmd`
+0. For File Name, type `.bashrc`.
+0. To the right or "Save as Type" click on "Text Documents (\*.txt)" and select <strong>All files (\*.\*)</strong>.
+
+   This is so Windows does not automatically add ".txt" to the file name.
+
+0. Click Save.
+0. Try the <a name="TryIt"></a>
+
+
+
+<hr />
+   
+<a name="TryIt"></a>
+
+## Try it
 
    Try the <a href="#MacAliases">aliases defined above</a>.
 
@@ -300,29 +383,6 @@ function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
 
 
 
-   ### Edit aliases for Mac
-   
-   You can delete the aliases you want or add others, then save the file again.
-
-0. Switch back and forth between the text editor and
-0. Remember to source the file or open a new window.
-
-   <a name="sbp"></a>
-
-0. Instead of typing out `source ~/.bash_profile`, type:
-
-   <tt><strong>sbp
-   </strong></tt>
-
-   This invokes the alias defined:
-
-   <pre>
-alias sbp='source ~/.bash_profile'
-   </pre>
-
-   This command just returns another prompt.
-
-
    ### Backup!
 
 0. When you're done, save the file again and exit the program using the command expected by the editor you're using.
@@ -332,27 +392,10 @@ alias sbp='source ~/.bash_profile'
 0. PROTIP: So that you can recover quickly in case your laptop is no longer available, copy the `~/.bash_profile` file to an off-site backup location such as drive.google.com, in a folder called "mac-setup" or whatever you prefer.
 
 
-## On Windows
+<hr />
 
 
-### .bashrc file
-
-If you installed a <strong>Git Bash</strong> using `choco install git`, create a `.bashrc` file (on Win7 it should is named `.bashrc`.). 
-
-   <a name="BashAliases"></a>
-
-   <pre>
-alias gwm='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
-alias gs='git status'
-alias gf='cd ~/gits/wilsonmar/futures;git status'
-alias gb='git branch -avv'
-alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
-alias gbs='git status;git add . -A;git commit -m"Update";git push'
-function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
-   </pre>
-
-
-   ### Windows Command File
+## Windows Doskey
 
 The Windows equivalant of the `alias` command on Mac is:
 
@@ -372,6 +415,22 @@ Usage (from command line or script)
 See https://superuser.com/questions/560519/how-to-set-an-alias-in-windows-command-line
 
 https://technet.microsoft.com/en-us/library/bb490894.aspx
+
+
+   PROTIP: Many Windows users are limited to save files only in their own user folder. So we'll go with that limitation.
+
+0. Navigate
+
+   cd C:\Users\%USERNAME%
+
+0. Create:
+
+   mkdir gits
+
+   ### .bashrc file
+
+
+
 
 
 ## More #
