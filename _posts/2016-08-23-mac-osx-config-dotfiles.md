@@ -345,12 +345,17 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 ## Finder #
 
+After making changes below, Relauch the Finder by positioning the cursor over the Finder icon, then holding the option key while you press down with two fingers. This reveals the <strong>Relaunch</strong> option to click on. The equivalent of the above manual action is:
+
 {% highlight text %}
+killall Finder /System/Library/CoreServices/Finder.app
+
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles YES
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -366,7 +371,6 @@ chflags nohidden ~/Library
 
 # Show the /Volumes folder (requires password)
 sudo chflags nohidden /Volumes
-
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
