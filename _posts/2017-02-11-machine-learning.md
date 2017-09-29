@@ -117,11 +117,7 @@ That next layer combines previous conclusions with other features and passes it 
 ![ml-model-google-878x356-61242](https://user-images.githubusercontent.com/300046/30997127-ee8083b6-a482-11e7-8b7a-0dd4ea518fdc.jpg)
 <a target="_blank" href="https://www.coursera.org/learn/serverless-machine-learning-gcp/lecture/3kcXm/what-is-machine-learning-ml">*</a>
 
-The design of the layers of a particular network is a mathematical <strong>model</strong>.
-A model is a statistical representation of a prediction task. 
-Models are trained using examples so they can be used to make predictions.
-
-The result of training is a model that can take an unlabled photo and derive the label, such as "cat".
+Models are trained using examples so they can be used to make predictions. The result of training is a mathematical <strong>model</strong> used to make <strong>predictions</strong>, such as taking an unlabled photo and deriving the label "cat".
 
 
 ## Terminology
@@ -132,7 +128,7 @@ is a 10-way "softmax" layer returning an array of 10 probability scores (all sum
 Each of the 10 contains the probability that the digit image belongs to one of 
 10 digit <strong>classes</strong>.
 
-Machine learning uses some terms that have alternate meanings for words also used in programming:
+Machine learning uses some terms that have alternate meanings for words also used by traditional programmers and statisticians:
 
 * Data points are called "samples". 
 
@@ -145,44 +141,41 @@ Machine learning uses some terms that have alternate meanings for words also use
 ­   either the answer produced by a machine learning
    system, or the right answer supplied in training data. 
 
-   (In statistics, a target is called a dependent variable.)
-   In machine learning, a target is also called a label.
-   A targe is what a model should ideally have predicted, 
+* (In statistics, a "target" is called a dependent variable.)
+   In machine learning, a target is also called a label,
+   what a model should ideally have predicted, 
    according to an external source of data.
 
-* The <strong>prediction error</strong>, also called <strong>loss value</strong> 
-   is the measure of the distance between a model’s prediction and the target.
+* The <strong>prediction error</strong>, also called <strong>loss value</strong>,
+  the measure of the distance between a model’s prediction and the target.
    
-   It's a <strong>metric</strong> of measurements that you care about, 
-   which may or may not be directly optimized.
-
+  It's a <strong>metric</strong> of measurements that you care about, 
+  which may or may not be directly optimized.
 
 * An <strong>instance</strong> is the aspect about which you want to make a prediction. 
    (An instance is called an "objective" in other fields.)
 
-A <strong>feature</strong> is a property of an instance used in a prediction task. 
-For example, a web page might
-have a feature "contains the word 'cat'".
-A feature in machine learning is called a "variable" in statistics.
-(Feature creation in machine learning is called a "transformation" in statistics.)
+* A <strong>feature</strong> is a property of an instance used in a prediction task. 
+   For example, a web page might
+   have a feature "contains the word 'cat'".
+   A feature in machine learning is called a "variable" in statistics.
+   (Feature creation in machine learning is called a "transformation" in statistics.)
 
-A <strong>feature Column</strong> is a set of related features, 
-such as the set of all possible countries in which users might live. 
-An example may have one or more features present in a feature column. A
-feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a
-field.
-Example: An instance (with its features) and a label.
+* A <strong>feature Column</strong> is a set of related features, 
+   such as the set of all possible countries in which users might live. 
+   An example may have one or more features present in a feature column. A
+   feature column is referred to as a “namespace” in the VW system (at Yahoo/Microsoft), or a field.
+   Example: An instance (with its features) and a label.
 
-An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
+* An <strong>objective</strong> is a metric that an algorithm is trying to optimize.
 
-A <strong>pipeline</strong> is the infrastructure surrounding a machine learning algorithm. 
-A particular pipeline can include:
+* A <strong>pipeline</strong> is the infrastructure surrounding a machine learning algorithm. A particular pipeline can include:
 
    1. gathering the data from the front end, 
    2. putting it into training data files, 
    3. training one or more models, and
    4. exporting the models to production.
-
+   <br /><br />
 
 ## Types of machine learning
 
