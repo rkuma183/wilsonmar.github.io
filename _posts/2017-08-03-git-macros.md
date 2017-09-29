@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on tutorial on how you can save time working with Git and GitHub. The steps are intended for "newbies" new to the operating system.
+This is a hands-on tutorial on how you can configure and use Terminal and macros to save time working with Git and GitHub. The steps are intended for "newbies" new to the operating system.
 
 ## Default Terminal on MacOS
 
@@ -84,6 +84,7 @@ PROTIP: Alternately, some prefer to use a 3rd-party Terminal program which has a
    * `~` designates the home folder for you account.
    * `"#">>` adds a comment (#) to the bottom of the file in case the file has already been created, rather than wiping out the file.
    * `.` in front of a file (in \*nix systems such as Mac) denotes a hidden file.
+   <br /><br />
 
 0. In a Terminal, open to edit. Different editors have different commands. In this example, the Nano text editor is being used because Nano is built into MacOS:
 
@@ -100,12 +101,13 @@ PROTIP: Alternately, some prefer to use a 3rd-party Terminal program which has a
    <a name="Aliases"></a>
 
    <pre>
-alias bp='subl ~/.bash_profile'
+alias sbp='source ~/.bash_profile'
 alias rs='exec -l $SHELL'
 alias ll='ls -lri'
 alias dir='ls -alr'
 &nbsp;
-alias gs='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
+alias gwm='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
+alias gs='git status'
 alias gf='cd ~/gits/wilsonmar/futures;git status'
 &nbsp;
 alias gb='git branch -avv'
@@ -118,6 +120,7 @@ alias gcs='cd ~/.google-cloud-sdk'
 alias myip="ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2"
 alias aih='iothub-explorer'
    </pre>
+
 
    ### Switch programs
 
@@ -201,6 +204,7 @@ alias aih='iothub-explorer'
 
    Try the <a href="#Aliases">aliases defined above</a>.
 
+
    <a name="gs"></a>
 
 0. Instead of typing out `git status`, type:
@@ -228,6 +232,13 @@ alias gs='git status'
 alias gb='git branch -avv'
    </pre>
 
+   A sample response:
+
+   <pre>
+* master                54e5bb0 [origin/master] Update
+  remotes/origin/HEAD   -> origin/master
+  remotes/origin/master 54e5bb0 Update
+   </pre>   
 
 
    <a name="gl"></a>
@@ -243,6 +254,17 @@ alias gb='git branch -avv'
 alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
    </pre>
 
+   A sample response:
+
+   <pre>
+* d590833 Update 19 hours ago
+* 6994b57 Update 21 hours ago
+commit 54e5bb00b5ea0bce2cdcb7626f94a8cad83b1abd (HEAD -> master, origin/master, origin/HEAD)
+Author: Wilson Mar &LT;wilsonmar+github@gmail.com>
+Date:   Fri Sep 29 12:04:29 2017 -0600
+&nbsp;
+    Update
+   </pre>
 
 
    <a name="gbs"></a>
@@ -265,8 +287,8 @@ alias gbs='git status;git add . -A;git commit -m"Update";git push'
 
 0. Instead of typing out `git add` and `git commit` for a single commit, type:
 
-   <tt><strong>gas "Closes JIRA #231"
-   </strong></tt>
+   <pre><strong>gas "Closes JIRA #231"
+   </strong></pre>
 
    This invokes the alias defined:
 
@@ -285,18 +307,20 @@ function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
 0. Switch back and forth between the text editor and
 0. Remember to source the file or open a new window.
 
-   <a name="gas"></a>
+   <a name="sbp"></a>
 
 0. Instead of typing out `source ~/.bash_profile`, type:
 
-   <tt><strong>bp
+   <tt><strong>sbp
    </strong></tt>
 
    This invokes the alias defined:
 
    <pre>
-alias bs='source ~/.bash_profile'
+alias sbp='source ~/.bash_profile'
    </pre>
+
+   This command just returns another prompt.
 
 
    ### Backup!
