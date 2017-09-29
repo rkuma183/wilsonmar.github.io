@@ -98,7 +98,7 @@ PROTIP: Alternately, some prefer to use a 3rd-party Terminal program which has a
 
 0. Highlight these lines, then press command+C to copy it your machine's (invisible) Clipboard:
 
-   <a name="Aliases"></a>
+   <a name="MacAliases"></a>
 
    <pre>
 alias sbp='source ~/.bash_profile'
@@ -147,7 +147,7 @@ alias aih='iothub-explorer'
 
    ### Clone my repo
 
-   Some of the <a href="#Aliases">aliases defined above</a> need a GitHub repository to work with. So you're welcome to my git-utilities repo, which has some commands you may like.
+   Some of the <a href="#MacAliases">aliases defined above</a> need a GitHub repository to work with. So you're welcome to my git-utilities repo, which has some commands you may like.
 
    PROTIP: Setup a container directory to house (group together) repositories you clone from GitHub. This is because cloning creates only the repository name and not the user. Although the author can be found with a `git remote -v` command, you may want a way to put several repos for the same folder together, or additional related files such as pdf's and website links.
 
@@ -202,7 +202,7 @@ alias aih='iothub-explorer'
 
    ### Try it
 
-   Try the <a href="#Aliases">aliases defined above</a>.
+   Try the <a href="#MacAliases">aliases defined above</a>.
 
 
    <a name="gs"></a>
@@ -300,7 +300,7 @@ function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
 
 
 
-   ### Edit the aliases
+   ### Edit aliases for Mac
    
    You can delete the aliases you want or add others, then save the file again.
 
@@ -332,23 +332,46 @@ alias sbp='source ~/.bash_profile'
 0. PROTIP: So that you can recover quickly in case your laptop is no longer available, copy the `~/.bash_profile` file to an off-site backup location such as drive.google.com, in a folder called "mac-setup" or whatever you prefer.
 
 
-## on Windows
+## On Windows
 
-See https://superuser.com/questions/560519/how-to-set-an-alias-in-windows-command-line
 
-https://technet.microsoft.com/en-us/library/bb490894.aspx
+### .bashrc file
 
-doskey macroName=macroDefinition
+If you installed a <strong>Git Bash</strong> using `choco install git`, create a `.bashrc` file (on Win7 it should is named `.bashrc`.). 
+
+   <a name="BashAliases"></a>
+
+   <pre>
+alias gwm='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
+alias gs='git status'
+alias gf='cd ~/gits/wilsonmar/futures;git status'
+alias gb='git branch -avv'
+alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
+alias gbs='git status;git add . -A;git commit -m"Update";git push'
+function gas() { git status ;  git add . -A ; git commit -m "$1" ; git push; }
+   </pre>
+
+
+   ### Windows Command File
+
+The Windows equivalant of the `alias` command on Mac is:
+
+   doskey macroName=macroDefinition
 
 Windows Macro parameters are referenced in the definition via $ prefixed positions: $1 through $9 and $* for all.
 
-   <tt><strong>set "cdMe=cd a_very_long_path"
+   <tt><strong>set "cdMe=cd <em>some_path</em>"
    </strong></tt>
 
 Usage (from command line or script)
 
    <tt><strong>%cdMe%
    </strong></tt>
+
+
+See https://superuser.com/questions/560519/how-to-set-an-alias-in-windows-command-line
+
+https://technet.microsoft.com/en-us/library/bb490894.aspx
 
 
 ## More #
