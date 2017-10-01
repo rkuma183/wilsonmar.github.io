@@ -125,7 +125,6 @@ CentOS.
 <tr valign="top" class="tblEven"><th align="left">App/Desktop Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/remoteapp/">Azure RemoteApp</a></td><td><a target="_blank" href="http://aws.amazon.com/workspaces/">WorkSpaces</a><br /><a target="_blank" href="http://aws.amazon.com/appstream/">Amazon AppStream</a><br /></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Storage Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/documentation/services/storage/">Azure Storage (Blobs, Tables, Queues, Files)</a></td><td><a target="_blank" href="http://aws.amazon.com/s3/">S3 (SimpleStorage)</a></td></tr>
 <tr valign="top" class="tblEven"><th align="left">Block Storage</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Azure Blob Storage (how to)</a></td><td><a target="_blank" href="http://aws.amazon.com/ebs/">Elastic Block Storage (EBS)</a></td></tr>
-<!--
 <tr valign="top" class="tblOdd"><th align="left">Hybrid Cloud Storage</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/storsimple/">StorSimple</a></td><td>None</td></tr>
 <tr valign="top" class="tblEven"><th align="left">Backup Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/backup/">Azure Backup</a></td><td><a target="_blank" href="http://aws.amazon.com/glacier/">Glacier</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Storage Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/">Azure Import Export (how to)</a></td><td><a target="_blank" href="http://aws.amazon.com/importexport/">ImportExport</a></td></tr>
@@ -172,6 +171,7 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudformation/">CloudFormation</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">API Management</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/api-management/">Azure API Management</a>
 </td><td>None</td></tr>
+<!--
 <tr valign="top" class="tblEven"><th align="left">Automation</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/automation/">Azure Automation</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/opsworks/">OpsWorks</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td rowspan="1"><a target="_blank" href="http://azure.microsoft.com/en-us/services/batch/">Azure Batch </a>
