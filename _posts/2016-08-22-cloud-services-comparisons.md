@@ -17,16 +17,12 @@ image: # pic-black-bkg-white-cloud_1920x1200
 <img class="img-right" align="right"
 alt="cloud platforms black icons 300x330-300-58kb.jpg" width="300" height="330" src="https://cloud.githubusercontent.com/assets/300046/17864330/e4dbabc0-685a-11e6-84e5-361c5fc8c28d.jpg">
 
-This article compares the pricing and services 
-for various cloud services platforms:
+This page houses my random collection of information about comparing the various cloud services platforms:
 Amazon AWS vs.
 IBM Softlayer vs. 
 Google Compute Cloud vs.
 Microsoft Azure vs. 
-Rackspace 
-
-There are also Oracle,
-SalesForce Heroku, SkyTap, etc.
+Rackspace vs. Oracle, SalesForce Heroku, SkyTap, etc.
 
 EDITOR's NOTE: This is not a complete treatment. 
 Additional information will be added over time.
@@ -35,9 +31,18 @@ Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfou
 
 <a target="_blank" href="http://cloudcomparison.rightscale.com/">http://cloudcomparison.rightscale.com</a>
 presents all the details well. <a target="_blank" href="http://docs.rightscale.com/ca/cloud_comp/">DOCS</a> 
-So here I'm adding just my commentary.
+So here I'm adding additional commentary here.
 
-<hr />
+
+## TL;DR - The biggest difference
+
+* AWS has matched Azure pricing, and also per-minute billing.
+* For large loads, Google offers the fast fiber that may limit large machines can achieve on other clouds
+* One cloud may cover a particular country, if you need to have that to do business there.
+* IBM has bare-metal machines, if that's your thing.
+* Google's SSD drives are expensive.
+
+## Table
 
 Factor | AWS EC2 | Azure |
 :----- | :--- | :----- |
@@ -49,6 +54,7 @@ Entrepreneurial Discount | - | BizSpark |
 Largest server | <a target="_blank" href="https://goo.gl/64UcCb">x1.32xlarge</a> | G: |
 Largest # cores | 128 | 32 |
 Largest RAM GB | 1,952 GB | 448 GB |
+
 
 ### Pricing #
 
@@ -94,13 +100,13 @@ But its free server images are based on
 CentOS.
 
 
+<!--
 ## Links to service brand names #
 
 <table valign="top" border="1" cellspacing="0" cellpadding="4">
 <thead>
 <tr valign="bottom">
-<th align="left"><br /></th><th align="left">Microsoft Azure
-</th><th align="left">Amazon Web Services (AWS) docs</th></tr>
+<th align="left"><br /></th><th align="left">Microsoft Azure</th><th align="left">Amazon Web Services (AWS) docs</th></tr>
 </thead><tbody>
 <tr valign="top" class="tblOdd"><th align="left">Data center geography</th>
     <td><a target="_blank" href="http://azure.microsoft.com/en-us/regions/">Azure Regions</a></td>
@@ -194,7 +200,7 @@ CentOS.
 <tr valign="top" class="tblOdd"><th align="left">Billing</th><td>?
 </td><td><a target="_blank" href="http://aws.amazon.com/billing/">Billing</a></td></tr>
 </tbody></table>
-
+-->
 &nbsp;
 
 <hr />
