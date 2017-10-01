@@ -19,8 +19,8 @@ alt="cloud platforms black icons 300x330-300-58kb.jpg" width="300" height="330" 
 
 This page houses my random collection of information about comparing the various cloud services platforms:
 Amazon AWS vs.
+[Google Cloud Platform](/gcp/) vs.
 IBM Softlayer vs. 
-Google Compute Cloud vs.
 Microsoft Azure vs. 
 Rackspace vs. Oracle, SalesForce Heroku, SkyTap, etc.
 
@@ -29,7 +29,7 @@ Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfou
 
 ## TL;DR - The biggest difference
 
-* If you write in C# on .NET, Azure is the most mature for you even though Google is trying.
+* If you write in C# on .NET, Azure is the most mature but Google is trying.
 * If you're looking for any job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>.
 * For large loads, Google offers the fast fiber that doesn't limit what large machines can achieve.
 * AWS has matched Azure pricing, and also per-minute billing.
