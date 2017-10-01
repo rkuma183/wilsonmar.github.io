@@ -138,6 +138,13 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/rds/">RDS (Relational Database Service)</a>
 <br /><a target="_blank" href="http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/">Redshift</a><br />
 </td></tr>
+<tr valign="top" class="tblEven"><th align="left">NoSQL Database Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/documentdb/">Azure DocumentDB</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/dynamodb/">DynamoDB</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/cache/">Azure Managed Cache (Redis Cache)</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/elasticache/">ElasticCache</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left">Data Orchestration</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/data-factory/">Azure Data Factory</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/datapipeline/">DataPipeline</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Networking Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/virtual-network/">Azure Virtual Network</a>
 </tbody></table>
 
 <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
