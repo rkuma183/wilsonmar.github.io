@@ -26,12 +26,16 @@ Microsoft Azure vs.
 Rackspace 
 
 There are also Oracle,
-<a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, 
 SalesForce Heroku, SkyTap, etc.
 
 EDITOR's NOTE: This is not a complete treatment. 
 Additional information will be added over time.
 
+Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, Hashicorp Terraform.
+
+<a target="_blank" href="http://cloudcomparison.rightscale.com/">http://cloudcomparison.rightscale.com</a>
+presents all the details well. <a target="_blank" href="http://docs.rightscale.com/ca/cloud_comp/">DOCS</a> 
+So here I'm adding just my commentary.
 
 <hr />
 
