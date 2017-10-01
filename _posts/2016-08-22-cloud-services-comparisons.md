@@ -38,9 +38,9 @@ So here I'm adding additional commentary here.
 
 * AWS has matched Azure pricing, and also per-minute billing.
 * For large loads, Google offers the fast fiber that may limit large machines can achieve on other clouds
-* One cloud may cover a particular country, if you need to have that to do business there.
 * IBM has bare-metal machines, if that's your thing.
 * Google's SSD drives are expensive.
+* One cloud may cover a particular country, if you need to have that to do business there (such as Google in Belgium).
 
 ## Table
 
@@ -100,7 +100,6 @@ But its free server images are based on
 CentOS.
 
 
-<!--
 ## Links to service brand names #
 
 <table valign="top" border="1" cellspacing="0" cellpadding="4">
@@ -112,6 +111,7 @@ CentOS.
     <td><a target="_blank" href="http://azure.microsoft.com/en-us/regions/">Azure Regions</a></td>
     <td><a target="_blank" href="http://aws.amazon.com/about-aws/global-infrastructure/">global infrastructure</a></td>
     </tr>
+<!--
 <tr valign="top" class="tblEven"><th align="left">Compute Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/virtual-machines/">Virtual Machines (VMs)</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/ec2/">EC2 (Elastic Compute Cloud)</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/cloud-services/">Cloud Services</a>
@@ -199,16 +199,16 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/config/">AWS Config</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Billing</th><td>?
 </td><td><a target="_blank" href="http://aws.amazon.com/billing/">Billing</a></td></tr>
-</tbody></table>
 -->
-&nbsp;
+</tbody></table>
+
+<a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
+Credit:TomsITPro</a>
 
 <hr />
 
 ## Resources #
 
-This table is an update from <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
-this site</a>.
 
 <a target="_blank" href="http://resources.sdtimes.com/whitepaper-ibm-q4-2015-bluemix-ebook">
 IBM Bluemix</a>
