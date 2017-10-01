@@ -29,7 +29,7 @@ Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfou
 
 ## TL;DR - The biggest difference
 
-* For large loads, Google offers the fast fiber that may limit large machines can achieve on other clouds.
+* For large loads, Google offers the fast fiber that doesn't limit what large machines can achieve.
 * AWS has matched Azure pricing, and also per-minute billing.
 * IBM has bare-metal machines, if that's your thing.
 * Google's SSD drives are expensive.
@@ -157,50 +157,7 @@ CentOS.
 <tr valign="top" class="tblEven"><th align="left">Monitoring<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/operational-insights/">Azure Operational Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudtrail/">CloudTrail</a>
 </td></tr>
-<!--
-<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/application-insights/">Azure Application Insights</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/cloudwatch/">CloudWatch</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hubs</a>
-</td><td>None<br /></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Messaging</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/notification-hubs/">Azure Notification Hubs</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/sns/">SNS (Simple Notification Service)</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Encryption</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/key-vault/">Azure Key Vault</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/kms/">KMS (Key Management Service)</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Compliance</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/support/trust-center/compliance/">Azure Trust Center</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/cloudhsm/">CloudHSM (Hardware Security Module)</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Management Services &amp; Options</th><td><a target="_blank" href="http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/">Azure Resource Manager</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/cloudformation/">CloudFormation</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">API Management</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/api-management/">Azure API Management</a>
-</td><td>None</td></tr>
-<tr valign="top" class="tblEven"><th align="left">Automation</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/automation/">Azure Automation</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/opsworks/">OpsWorks</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left"><br /></th><td rowspan="1"><a target="_blank" href="http://azure.microsoft.com/en-us/services/batch/">Azure Batch </a>
-<br /><a target="_blank" href="http://azure.microsoft.com/en-us/services/service-bus/">Azure Service Bus</a>
-</td><td><a href="http://aws.amazon.com/sqs/">SQS (Simple Queue Service)</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left"><br /></th><td>None<br />
-</td><td><a target="_blank" href="http://aws.amazon.com/codedeploy/">CodeDeploy</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/scheduler/">Azure Scheduler</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/swf/">SWF (Simple Workflow)</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Search</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/search/">Azure Search</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/cloudsearch/">CloudSearch</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Analytics</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/kinesis/">Kinesis</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Email Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/biztalk-services/">Azure BizTalk Services</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/ses/">SES (Simple Email Services)</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Media Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/media-services/">Azure Media Services</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/elastictranscoder/">ElasticTranscoder</a><br /><span style="text-decoration:underline;"><a target="_blank" href="http://aws.amazon.com/mobileanalytics/">MobileAnalytics</a>
-<br /><a target="_blank" href="http://aws.amazon.com/cognito/">Cognitor</a><br /></span></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Machine Learning (ML)</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
-</td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">MachineLearning</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Triggers</th>
-    <td><a target="_blank" href="https://azure.microsoft.com/en-us/documentation/services/app-service/logic/">Logic Apps</a></td>
-    <td><a target="_blank" href="http://aws.amazon.com/lambda/">AWS Lambda</a></td>
-    </tr>
-<tr valign="top" class="tblEven"><th align="left"><br /></th><td>None
-</td><td><a target="_blank" href="http://aws.amazon.com/config/">AWS Config</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Billing</th><td>?
-</td><td><a target="_blank" href="http://aws.amazon.com/billing/">Billing</a></td></tr>
--->
+
 </tbody></table>
 
 <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
