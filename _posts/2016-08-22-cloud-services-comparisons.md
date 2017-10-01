@@ -30,7 +30,7 @@ Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfou
 ## TL;DR - The biggest difference
 
 * If you write in C# on .NET, Azure is the most mature but Google is trying.
-* If you're looking for any job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>.
+* If you're looking for any job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>. AWS has the most sophisticated database services.
 * For large loads, Google offers the fast fiber that doesn't limit what large machines can achieve.
 * AWS has matched Azure pricing, and also per-minute billing.
 * IBM has bare-metal machines, if that's your thing.
