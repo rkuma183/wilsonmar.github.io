@@ -29,6 +29,8 @@ Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfou
 
 ## TL;DR - The biggest difference
 
+* If you write in C# on .NET, Azure is the most mature for you even though Google is trying.
+* If you're looking for any job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>.
 * For large loads, Google offers the fast fiber that doesn't limit what large machines can achieve.
 * AWS has matched Azure pricing, and also per-minute billing.
 * IBM has bare-metal machines, if that's your thing.
@@ -79,6 +81,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15745
    which are of low cost because they can be taken away at any moment
    by someone who outbids.
 
+<a name="marketshare"></a>
 
 ## Market share #
 
@@ -144,20 +147,6 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/datapipeline/">DataPipeline</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Networking Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/virtual-network/">Azure Virtual Network</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/vpc/">VPC</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/expressroute/">Azure ExpressRoute</a></td><td><a target="_blank" href="http://aws.amazon.com/directconnect/">AWS Direct Connect</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/traffic-manager/">Azure Traffic Manager</a></td><td><a target="_blank" href="http://aws.amazon.com/route53/">Amazon Route 53</a></td></tr>
-<tr valign="top" class="tblEven"><th align="left">Load Balancing</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-load-balance/">Load Balancing for Azure (how to)</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/elasticloadbalancing/">ELB (Elastic Load Balancing)</a></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Administration &amp; Security</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/active-directory/">Azure Active Directory</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/directoryservice/">DirectoryService</a>
-<br /><a target="_blank" href="http://aws.amazon.com/iam/">IAM (Identity and Access Management)</a><br /></td></tr>
-<tr valign="top" class="tblOdd"><th align="left">Multi-Factor Authentication<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/multi-factor-authentication/">MFA (Multi-Factor Authentication)</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/iam/details/mfa/">MFA (Multi-Factor Authentication)</a>
-</td></tr>
-<tr valign="top" class="tblEven"><th align="left">Monitoring<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/operational-insights/">Azure Operational Insights</a>
-</td><td><a target="_blank" href="http://aws.amazon.com/cloudtrail/">CloudTrail</a>
-</td></tr>
-
 </tbody></table>
 
 <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
