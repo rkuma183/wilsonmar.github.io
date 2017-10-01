@@ -26,14 +26,6 @@ Rackspace vs. Oracle, SalesForce Heroku, SkyTap, etc.
 
 Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, Hashicorp Terraform.
 
-EDITOR's NOTE: This is not a complete treatment. 
-Additional information will be added over time.
-
-![cloud-compare-364x172](https://user-images.githubusercontent.com/300046/31053622-f49c9f86-a65e-11e7-9fa8-c6f367b1beb2.png)
-at <a target="_blank" href="http://cloudcomparison.rightscale.com/">http://cloudcomparison.rightscale.com</a>
-presents all the details well. <a target="_blank" href="http://docs.rightscale.com/ca/cloud_comp/">DOCS</a> 
-So here I'm adding additional commentary here.
-
 
 ## TL;DR - The biggest difference
 
@@ -43,7 +35,15 @@ So here I'm adding additional commentary here.
 * Google's SSD drives are expensive.
 * One cloud may cover a particular country, if you need to have that to do business there (such as Google in Belgium).
 
-## Table
+EDITOR's NOTE: This is not a complete treatment. 
+Additional information will be added over time.
+
+<a target="_blank" href="http://cloudcomparison.rightscale.com/">
+<img alt="cloud-compare-364x172" src="https://user-images.githubusercontent.com/300046/31053622-f49c9f86-a65e-11e7-9fa8-c6f367b1beb2.png">
+http://cloudcomparison.rightscale.com</a> presents all the details well. <a target="_blank" href="http://docs.rightscale.com/ca/cloud_comp/">DOCS</a> 
+So here I'm adding additional commentary here.
+
+## Additionally...
 
 Factor | AWS EC2 | Azure |
 :----- | :--- | :----- |
@@ -157,6 +157,7 @@ CentOS.
 <tr valign="top" class="tblEven"><th align="left">Monitoring<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/operational-insights/">Azure Operational Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudtrail/">CloudTrail</a>
 </td></tr>
+<!--
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/application-insights/">Azure Application Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudwatch/">CloudWatch</a></td></tr>
 <tr valign="top" class="tblEven"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hubs</a>
@@ -171,7 +172,6 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudformation/">CloudFormation</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">API Management</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/api-management/">Azure API Management</a>
 </td><td>None</td></tr>
-<!--
 <tr valign="top" class="tblEven"><th align="left">Automation</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/automation/">Azure Automation</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/opsworks/">OpsWorks</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td rowspan="1"><a target="_blank" href="http://azure.microsoft.com/en-us/services/batch/">Azure Batch </a>
