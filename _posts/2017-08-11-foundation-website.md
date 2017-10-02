@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "ZURB Foundation on MacOS"
-excerpt: "Generate a website using the flexible UI framework top UI pros use"
+title: "Foundation website generation on MacOS"
+excerpt: "Install a complete development environment for generating a website using the flexible UI Foundation Framework top UI pros use"
 tags: [UI, MacOS, setup, Foundation]
 image:
 # foundation-yeti-point-1900x500-26464.jpg
   feature: https://user-images.githubusercontent.com/300046/30966202-5e660962-a415-11e7-9347-4af25029af26.jpg
-  credit: Wilson Mar
-  creditlink: https://user-images.githubusercontent.com/300046/30966202-5e660962-a415-11e7-9347-4af25029af26.jpg
+  credit: Zurb
+  creditlink: https://www.zurb.org
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
