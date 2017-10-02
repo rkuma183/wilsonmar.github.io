@@ -160,6 +160,8 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/iam/details/mfa/">MFA (Multi-Factor Authentication)</a>
 </td></tr>
 
+</tbody></table>
+
 <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
 Credit:TomsITPro</a>
 
