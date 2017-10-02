@@ -165,6 +165,21 @@ CentOS.
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/application-insights/">Azure Application Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudwatch/">CloudWatch</a></td></tr>
 
+<tr valign="top" class="tblEven"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hubs</a>
+</td><td>None<br /></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Messaging</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/notification-hubs/">Azure Notification Hubs</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/sns/">SNS (Simple Notification Service)</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left">Encryption</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/key-vault/">Azure Key Vault</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/kms/">KMS (Key Management Service)</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Compliance</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/support/trust-center/compliance/">Azure Trust Center</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/cloudhsm/">CloudHSM (Hardware Security Module)</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left">Management Services &amp; Options</th><td><a target="_blank" href="http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/">Azure Resource Manager</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/cloudformation/">CloudFormation</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">API Management</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/api-management/">Azure API Management</a>
+</td><td>None</td></tr>
+<tr valign="top" class="tblEven"><th align="left">Automation</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/automation/">Azure Automation</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/opsworks/">OpsWorks</a></td></tr>
+
 </tbody></table>
 
 <a target="_blank" href="http://www.tomsitpro.com/articles/azure-vs-aws-cloud-comparison,2-870-2.html"> 
