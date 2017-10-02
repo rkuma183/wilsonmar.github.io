@@ -15,6 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
+Many reference keys using symbols, so memorize this:
+
 <amp-img width="413" height="399" alt="Apple keys symbols" src="https://cloud.githubusercontent.com/assets/300046/15536540/fe6cb344-222e-11e6-9f2b-c37419a9d42f.gif"></amp-img>
 
 <a id="OSComponentz"></a>

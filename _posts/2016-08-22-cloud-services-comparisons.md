@@ -189,7 +189,6 @@ CentOS.
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudsearch/">CloudSearch</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Analytics</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/kinesis/">Kinesis</a></td></tr>
-
 <tr valign="top" class="tblEven"><th align="left">Email Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/biztalk-services/">Azure BizTalk Services</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/ses/">SES (Simple Email Services)</a></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Media Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/media-services/">Azure Media Services</a>
@@ -197,6 +196,13 @@ CentOS.
 <br /><a target="_blank" href="http://aws.amazon.com/cognito/">Cognitor</a><br /></span></td></tr>
 <tr valign="top" class="tblEven"><th align="left">Machine Learning (ML)</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
 </td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">MachineLearning</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Triggers</th>
+<td><a target="_blank" href="https://azure.microsoft.com/en-us/documentation/services/app-service/logic/">Logic Apps</a></td>
+<td><a target="_blank" href="http://aws.amazon.com/lambda/">AWS Lambda</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left"><br /></th><td>None
+</td><td><a target="_blank" href="http://aws.amazon.com/config/">AWS Config</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Billing</th><td>?
+</td><td><a target="_blank" href="http://aws.amazon.com/billing/">Billing</a></td></tr>
 
 </tbody></table>
 
