@@ -164,7 +164,6 @@ CentOS.
 </td></tr>
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/application-insights/">Azure Application Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudwatch/">CloudWatch</a></td></tr>
-
 <tr valign="top" class="tblEven"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hubs</a>
 </td><td>None<br /></td></tr>
 <tr valign="top" class="tblOdd"><th align="left">Messaging</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/notification-hubs/">Azure Notification Hubs</a>
@@ -179,6 +178,18 @@ CentOS.
 </td><td>None</td></tr>
 <tr valign="top" class="tblEven"><th align="left">Automation</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/automation/">Azure Automation</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/opsworks/">OpsWorks</a></td></tr>
+
+<tr valign="top" class="tblOdd"><th align="left"><br /></th><td rowspan="1"><a target="_blank" href="http://azure.microsoft.com/en-us/services/batch/">Azure Batch </a>
+<br /><a target="_blank" href="http://azure.microsoft.com/en-us/services/service-bus/">Azure Service Bus</a>
+</td><td><a href="http://aws.amazon.com/sqs/">SQS (Simple Queue Service)</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left"><br /></th><td>None<br />
+</td><td><a target="_blank" href="http://aws.amazon.com/codedeploy/">CodeDeploy</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/scheduler/">Azure Scheduler</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/swf/">SWF (Simple Workflow)</a></td></tr>
+<tr valign="top" class="tblEven"><th align="left">Search</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/search/">Azure Search</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/cloudsearch/">CloudSearch</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Analytics</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/stream-analytics/">Azure Stream Analytics</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/kinesis/">Kinesis</a></td></tr>
 
 </tbody></table>
 

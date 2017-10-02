@@ -48,13 +48,18 @@ published by several people on their GitHub repositories:
    from Dan Eden, #8 among all GitHub at GitScore.
    He uses YADR:
 
+* https://github.com/atomantic/dotfiles
+   has submodules   
+
 * https://github.com/aviau/dotfiles
 
 * https://github.com/whiteinge/dotfiles
 
 * https://github.com/ryanb/dotfiles
 
-https://github.com/amlweems/dotfiles/blob/master/bin/bin/osx
+* https://github.com/amlweems/dotfiles/blob/master/bin/bin/osx
+
+
 
 <a id="SheBang"></a>
 
