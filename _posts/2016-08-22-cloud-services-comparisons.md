@@ -162,6 +162,8 @@ CentOS.
 <tr valign="top" class="tblEven"><th align="left">Monitoring<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/operational-insights/">Azure Operational Insights</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/cloudtrail/">CloudTrail</a>
 </td></tr>
+<tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/application-insights/">Azure Application Insights</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/cloudwatch/">CloudWatch</a></td></tr>
 
 </tbody></table>
 
