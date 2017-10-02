@@ -31,3 +31,12 @@ Changes I've made:
 * Change _config.yml at the root to add citrix: to take advantage of JavaScript added
 
 * Add Microsoft Windows 10 icons
+* Add category list of links in _includes folder.
+
+* Add [Calendar](/calendar/) page outside of posts
+
+What I would like to add:
+
+* Search with Algorithmia
+* Make portions of images clickable 
+
