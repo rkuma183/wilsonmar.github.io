@@ -159,6 +159,9 @@ CentOS.
 <tr valign="top" class="tblOdd"><th align="left">Multi-Factor Authentication<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/multi-factor-authentication/">MFA (Multi-Factor Authentication)</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/iam/details/mfa/">MFA (Multi-Factor Authentication)</a>
 </td></tr>
+<tr valign="top" class="tblEven"><th align="left">Monitoring<br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/operational-insights/">Azure Operational Insights</a>
+</td><td><a target="_blank" href="http://aws.amazon.com/cloudtrail/">CloudTrail</a>
+</td></tr>
 
 </tbody></table>
 
