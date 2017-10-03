@@ -127,3 +127,9 @@ Kibana vs Graphana<br />
 http://automationtoolsbootcamp.com
 
 
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

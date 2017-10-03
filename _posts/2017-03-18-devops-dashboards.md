@@ -211,3 +211,10 @@ https://github.com/capitalone/Hygieia</a>
 
 PROTIP: Have computer programs monitor servers and take automatic actions.
 
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}
