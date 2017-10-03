@@ -21,7 +21,7 @@ Hygieia (pronouced hi-GEE-ya, the name of the <a target="_blank" href="https://w
 daughter of the Greek god of medicine and personification of hygiene and prevention of illness</a>.
 
 The name is adopted for an open-source software project created at CapitalOne (the credit card company) 
-which displays in a single <strong>dashboard</strong> the various statistics of a software delivery pipeline.
+which displays in a single <strong>dashboard</strong> the various statistics of a software delivery pipeline. 
 
 ## Demos and videos
 
