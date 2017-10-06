@@ -18,13 +18,11 @@ comments: true
 {% include _toc.html %}
 
 
-This is a hands-on tutorial showing how to run a Python server program that processes REST API calls from a browser. Instructions to setup the enviornment is included.
-
-Explanations are provided after you do each action.
+This is a hands-on tutorial showing how to quickly create a simple Python blog server program which processes REST API calls from a user's browser. By hands-on I mean explanations are provided after you do each action.
 
 <hr />
 
-1. Open a Terminal shell window on Mac or cmd window on Windows.
+1. [Open a Terminal shell window on Mac or cmd window on Windows](/terminal/).
 0. Create a folder where you hold various projects under your user home folder. On a Mac:
 
    <tt><strong>
@@ -443,6 +441,8 @@ Werkzeug==0.12.2
    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
    </pre>
 
+   TODO: Add HATEOS to respond to URL with no resource (folder) specified.
+
 
    ## Routes Walkthough
 
@@ -458,6 +458,9 @@ if __name__ == '__main__':
    Up from the bottom of the program are three `api.add_resource` statements that define <strong>routes</strong> the server processes.
 
    Note how <strong>modular</strong> each route is. This enables incremental addition of programming code capabilities over time.
+
+
+   ### Get Tracks
 
 0. In your browser, go to the first URL:
 
@@ -513,7 +516,9 @@ class Tracks(Resource):
    The `jsonify` function formats the result object to JSON formatting for display.
 
 
-0. In your browser, go to the second URL:
+   ### List Employees
+
+0. In your browser, go to the URL accessing the "employees" list route:
 
    <a target="_blank" href="http://127.0.0.1:5000/employees">http://127.0.0.1:5000/employees</a>
 
@@ -529,7 +534,12 @@ class Tracks(Resource):
    {"employees": [1, 2, 3, 4, 5, 6, 7, 8]}
    </pre>
 
-0. In your browser, go to the third URL:
+   TODO: Now we change the code to list employee names instead of just their numbers.
+
+
+   ### List specific employee
+
+0. In your browser, go to the URL accessing the employees/item route:
 
    * <a target="_blank" href="http://127.0.0.1:5000/employees/8">http://127.0.0.1:5000/employees/8</a> 
 
@@ -565,17 +575,88 @@ class Tracks(Resource):
 }
    </pre>
 
+   The output output is from this code which makes a database query:
+
+   ```
+class Employees(Resource):
+    def get(self):
+        conn = db_connect.connect() # connect to database
+        query = conn.execute("select * from employees") # This line performs query and returns json result
+        return {'employees': [i[0] for i in query.cursor.fetchall()]} # Fetches first column that is Employee ID
+   ```
+
+0. Instead of "8", use annother number to obtain data for another employee.
+
+   PROTIP: This is no longer considered a secure design. Services now use hashed values instead of allowing incrementable numbers to identify specific rows.
+
+
+   ### Post new employee
+
+   PROTIP: The previous code defines the response to "get" requests.
+
+   The code to post a new entry is this:
+
+   <pre>
+   def post(self):
+        conn = db_connect.connect()
+        print(request.json)  # used during testing.
+        LastName = request.json['LastName']
+        FirstName = request.json['FirstName']
+        Title = request.json['Title']
+        ReportsTo = request.json['ReportsTo']
+        BirthDate = request.json['BirthDate']
+        HireDate = request.json['HireDate']
+        Address = request.json['Address']
+        City = request.json['City']
+        State = request.json['State']
+        Country = request.json['Country']
+        PostalCode = request.json['PostalCode']
+        Phone = request.json['Phone']
+        Fax = request.json['Fax']
+        Email = request.json['Email']
+        query = conn.execute("insert into employees values(null,'{0}','{1}','{2}','{3}', \
+                             '{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}', \
+                             '{13}')".format(LastName,FirstName,Title,
+                             ReportsTo, BirthDate, HireDate, Address,
+                             City, State, Country, PostalCode, Phone, Fax,
+                             Email))
+        return {'status':'success'}
+   </pre>
+
+   `def post(self):` appears instead of a `get` in the definition.
+
+   Unlike Get requests, which involve specification of just an URL, post requests also require the client to submit to the server additional fields in the <strong>HTTP header</strong>. 
+
+   The Python server program expects from the client to add into the database with this coding:
+
+   `LastName = request.json['LastName']` 
+
+   If a curl utility program is used as the client, it would look like this:
+
+   <tt><strong>
+   curl -X POST http://127.0.0.1:5000/employees/9 -d '{"LastName":"Wayne", "FirstName":"Bruce"}' -H "Content-Type: application/json"
+   </strong></tt>
+
+   PROTIP: The simple sample code contains no editing of inputs which all "production worthy" code should have. Examples of edits include whether all required fields are supplied and that content are valid. Such edits would be in client software as well.
+
+   The content following `-d` provides what is specified in server code such as:
+
+   `LastName = request.json['LastName']` 
+
+   The `application/json` specifes the format expected back from the server.
+
+   PROTIP: This starter program does not have logic to prevent duplicates from being added.
+
 
 
 ## Next
 
-   TODO: Add HATEOS
-
-   TODO: Generation of code from database?
+   TODO: Generation of code from database using Swagger (OpenAPI).
 
    TODO: Lint code with default SonarQube rules.
 
-   TODO: GraphQL
+   TODO: GraphQL - https://github.com/graphql-python/flask-graphql or 
+   after buiding schemas using http://graphene-python.org/
 
 
 ## Resources
