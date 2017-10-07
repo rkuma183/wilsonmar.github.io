@@ -466,15 +466,19 @@ complete
 
 <a name="Code"></a>
 
-## Microsoft Code #
+## Visual Studio Code #
 
 On Mac: 
-   To get VS Code to make use of the current working directory, follow
-   <a target="_blank" href="http://stackoverflow.com/questions/30159158/how-do-i-set-up-a-link-to-open-up-visual-studio-code-from-terminal-on-osx">
-   these instructions</a>:   
 
-0. In Finder, click on a file using two fingers to select
-   <strong>Open with</strong> Visual Studio Code (version 1.0+).
+1. Install the GUI program using Homebrew:
+
+   <tt><strong>brew cask install visual-studio-code
+   </strong></tt>
+
+0. My favorite approach is to open Code from the Mac Finder, by right-clicking on a folder
+   and select <strong>Open with</strong> Visual Studio Code (version 1.0+).
+   <a target="_blank" href="http://stackoverflow.com/questions/30159158/how-do-i-set-up-a-link-to-open-up-visual-studio-code-from-terminal-on-osx">
+   per these instructions</a>
 
 0. Select Code's menu View, Command Palette at the top of the screen.
 
@@ -495,10 +499,15 @@ On Mac:
 
    BTW, "hello" in the example above can be any file.
 
-* http://michaelcrump.net/using-github-with-visualstudio-code/
+   ### Tutorials on VSCode
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=UcW1FHNvy8M">
+   * http://michaelcrump.net/using-github-with-visualstudio-code/
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=UcW1FHNvy8M">
    VIDEO: Supercharge Your JavaScript Debugging Workflow With VS Code</a>
+
+   * <a target="_blank" href="https://scotch.io/courses/make-visual-studio-code-your-editor/">
+   Make Visual Studio Code Your Editor video course at Scotch.io</a>
 
 
 ## More on front-end styling #

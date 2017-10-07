@@ -311,7 +311,9 @@ commands will detect it and remind you to do so if necessary.
    NOTE</a>: Terraform code is written in a language called HCL (HashiCorp Configuration Language). It's less verbose than JSON and more concise than YML.
 
    Unlike JSON and YML, HCL allows annotations as in bash scripts: Single line comments start with # (pound sign).<br />
-   Multi-line comments are wrapped between /* and \*/. Values can be interpolated usning syntax wrapped in $\{\}, in the format of $\{type.name.attribute\}. Literal $ are coded by doubling up $$.
+   Multi-line comments are wrapped between /* and \*/. 
+
+   Values can be interpolated usning syntax wrapped in $\{\}, called interpolation syntax, in the format of $\{type.name.attribute\}. Literal $ are coded by doubling up $$. For example, $\{aws.instance.base.id\} is interpolated to `i-28978a2`.
 
    Back-slashes specify continuation.
 
