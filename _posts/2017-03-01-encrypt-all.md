@@ -177,5 +177,4 @@ Well, that's unless the keys to your file are also stored on the drive.
 So we need to store keys for de-cryption separately from the data,
 such as emailed to yourself, then deleted from the device.
 
-> Want a home server to hold files securely.
-Let me know!
+> Want a home server to hold files securely? Let me know!
