@@ -23,7 +23,7 @@ There are several parts to this:
 1. <a href="#Download">Download disk image</a> 
 0. <a href="#CalcHash">Calculage and compare SHA hash for download integrity</a>
 0. <a href="#Adapter">Insert micro-SD card via a USB adapter</a>
-0. Format micro-SD card with Raspbian image on <a href="#WinPrep">Windows</a> or <a href="#MacPrep">Mac</a>
+0. Format micro-SD card with Raspbian image on <a href="#WinPrep">Windows</a> or <a href="#MacPrep">MacOS</a>
 0. <a href="#PowerUp">Power up the stock Pi into the Raspbian GUI</a>
 0. <a href="#WiFi">Configure wi-fi connections</a> on the Pi
 0. <a href="#SSH">Configure SSH into Pi</a> from your laptop
@@ -204,9 +204,9 @@ There are several parts to this:
 
 0. In File Explorer, right-click on the drive and select <strong>Eject</strong>.
 
-   <a name="MacPrep""></a>
+   <a name="MacPrep"></a>
 
-   ### Mac Prep
+   ### Mac Prep Micro-SD
 
    A new entry should appear in Finder.
 
