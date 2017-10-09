@@ -20,7 +20,10 @@ run apps under Raspbian on a Raspberry Pi 3 B.
 
 There are several parts to this:
 
-0. Create a micro-SD card with Raspbian Jesse image
+1. <a href="#Download">Download disk image</a> 
+0. <a href="#CalcHash">Calculage and compare SHA hash for download integrity</a>
+0. <a href="#Adapter">Insert micro-SD card via a USB adapter</a>
+0. Format micro-SD card with Raspbian image on <a href="#WinPrep">Windows</a> or <a href="#MacPrep">Mac</a>
 0. <a href="#PowerUp">Power up the stock Pi into the Raspbian GUI</a>
 0. <a href="#WiFi">Configure wi-fi connections</a> on the Pi
 0. <a href="#SSH">Configure SSH into Pi</a> from your laptop
@@ -34,12 +37,132 @@ There are several parts to this:
 
 <hr />
 
-## Prepare Micro SD card
+<a name="Download"></a>
 
-### Re-partion to reclaim space
+## Download Raspbian disk image
 
-To get full capacity from USB/SD drives 
-(which format does not solve):
+   We need an operating system written for the <strong>ARMv8 CPU on the Pi 3</strong>.<br />
+   It replaces Pi 2 and its ARMv7 CPU.
+
+   Based on <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">this</a>.
+
+   NOTE: Only one operating system can be loaded.
+
+0. At <a target="_blank" href="https://www.raspberrypi.org/downloads/raspbian/">
+   https://www.raspberrypi.org/downloads/raspbian</a><br />
+   click the red <strong>Download ZIP</strong> below
+   <strong>Raspbian STRETCH WITH DESKTOP</strong>
+
+   PROTIP: The button goes to URL https://downloads.raspberrypi.org/raspbian_latest
+   which can be used in unattended shell scripts to automate this, such as
+   <a target="_blank" href="https://github.com/debian-pi/raspbian-ua-netinst/releases/">
+   this</a>.
+
+   NOTE: The previous version name included PIXEL, which stands for "Pi Improved X-Windows Environmet, Lightweight". But many refer it simply as "X".
+
+   <a target="_blank" href="https://distrowatch.com/table.php?distribution=raspbian">
+   BTW</a>: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
+
+   Versions of Debian are named after 
+   <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>
+
+   * "Stretch" the rubber octopus is voiced by Whoopi Goldberg
+   * "Jessie" is the cowgirl.
+   * "Wheezy" (the squeeze toy penguin with the red bow tie)
+   was the previous 4.2 version of Raspbian.
+   QUESTION: Where is the history of old versions 
+   and how does one get announcement emails?
+
+   * "Sid" is the bad boy.
+
+0. Click "Save File", the OK in the pop-up to begin download 
+
+   | Date/File | Version | Download | Unzipped |
+   | --------- | ------- | ----: | ---: |
+   | 2017-09-07-raspbian-stretch.zip | 4.9 | 1.76 GB | 4.92 GB |
+   | 2017-04-10-raspbian-jessie.zip | 4.4 | 1.57 GB | ? GB |
+   | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.40 GB | 4.3 GB |
+
+   The large size of the file means it will take a while,
+   depending on the speed of your network.
+
+   NOTE: Raspian provides sudo-free access to GPIO.
+
+0. While you're waiting, read blogs at 
+   <a target="_blank" href="https://www.raspberrypi.org/blog/">
+   blog at Raspberrypi.org</a>.
+
+   <a target="_blank" href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">
+   Raspbian Jessie was first released</a>
+
+
+   <a name="CalcHash"></a>
+
+   ### Calculate and compare hash
+
+0. Calculate a SHA hash from the downloaded file to verify SHA from the website.
+
+   NOTE: The image contains
+   .elf (Executable Linkable Format) 
+   and .dtb (Device Tree Blob) files.
+
+   On MacOS, open a Terminal and cd to the downloads folder to use a built-in command:
+
+   <pre><strong>cd ~/Downloads
+   shasum <em>2017-09-07-raspbian-stretch.zip</em>
+   </strong></pre>
+
+   <a target="_blank" href="http://osxdaily.com/2012/02/05/check-sha1-checksum-in-mac-os-x/">
+   PROTIP</a>: Type just `shasum ` with a trailing space, then from Finder drag the file 
+   and drop it to the right of the command.
+
+   Alternately, use the openssl utility:
+
+   <pre><strong>
+   openssl sha256 2017-09-07-raspbian-stretch.zip
+   </strong></pre>
+
+   The output should match the SHA-256 associated with the downloaded file on the website.
+   Example:
+
+   <pre>a64d742bc525b548f0435581fac5876b50a4e9ba1d1cd6433358b4ab6c7a770b</pre>
+
+0. PROTIP: Save the .zip file to a DVD, then delete the file on your laptop
+   (to make room for other stuff on your hard drive):
+
+   A regular single-sided, single layer DVD (R+ or R-) holds 4.7GB. 
+   A dual-layer "DL" DVD disk holds 8.5GB.
+
+
+   <a name="Adapter"></a>
+
+   ### Micro-SD and USB Adapter
+
+0. CAUTION: Before touching delicate electrical boards,
+   dissipate static electricity (from just walking around)
+   by touching a grounded metal.
+
+0. Get an adapter if you need one.
+
+   Some laptops require an adapter for USB. 
+   Be sure the adapter can read the size of chip.
+   Older ones that read 4GB may not read the 32GB or 64GB.
+
+   WARNING: You need to plug the micro SD chip into a full-size SD chip adapter,
+   which goes into the Mac's SD card slot.
+   You may also use an adapter for USB, which may need to be plugged into a USB port
+   rather than on a USB hub (even a powered one).
+
+0. Insert the Micro-SD chip into your laptop. 
+
+0. If you are using a Mac, skip to <a href="#MacPrep"">Mac Prep SD</a>
+
+   <a name="WinPrep"></a>
+
+   ### Windows Prep SD
+
+   To get full capacity from USB/SD drives 
+   (which format does not solve):
 
 0. On a Windows machine, press the Windows key and type in the omni-search box
 
@@ -81,98 +204,76 @@ To get full capacity from USB/SD drives
 
 0. In File Explorer, right-click on the drive and select <strong>Eject</strong>.
 
+   <a name="MacPrep""></a>
 
-   ### Download Raspbian disk image
+   ### Mac Prep
 
-   We need an operating system written for the <strong>ARMv8 CPU on the Pi 3</strong>.<br />
-   It replaces Pi 2 and its ARMv7 CPU.
+   A new entry should appear in Finder.
 
-   Based on <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">this</a>.
+0. Open a Finder window. 
+   Scroll down the left panel to see it appear among the Device section.
 
-   NOTE: Only one operating system can be loaded.
+0. Open a Terminal shell window.
 
-   QUESTION: Is there a shell script to automate all this below?
+0. Identify the SD disk identifier:
 
-0. At <a target="_blank" href="https://www.raspberrypi.org/downloads/raspbian/">
-   https://www.raspberrypi.org/downloads/raspbian</a><br />
-   click the red <strong>Download ZIP</strong> below
-   <strong>Raspbian JESSIE WITH PIXEL</strong>
-   to download Raspbian.
+   <tt><strong>
+   diskutil list
+   </strong></tt>
 
-   NOTE: PIXEL stands for "Pi Improved X-Windows Environmet, Lightweight".
-   But many refer it simply as "X".
+   A sample response:
 
-   <a target="_blank" href="https://distrowatch.com/table.php?distribution=raspbian
-">
-   BTW</a>: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
+   <pre>
+/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *500.1 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:          Apple_CoreStorage Untitled 1              499.2 GB   disk0s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+&nbsp;
+/dev/disk1 (internal, virtual):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:                            Macintosh HD           +498.9 GB   disk1
+                                 Logical Volume on disk0s2
+                                 8B999D6F-A427-4EC5-A197-85AF9E00C10E
+                                 Unencrypted
+/dev/disk3 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *63.9 GB    disk3
+   1:               Windows_NTFS                         63.8 GB    disk3s1
+   </pre>
 
-0. Click "Save File", the OK in the pop-up to begin download 
+   In the above example, the 64 GB SD card IDENTIFIER is "disk3".
 
-   | Date/File | Version | Download | Unzipped |
-   | --------- | ------- | ----: | ---: |
-   | 2017-04-10-raspbian-jessie.zip | 4.4 | 1.57 GB | ? GB |
-   | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.40 GB | 4.3 GB |
+0. Unmount your SD card (so a utility can overwrite the entire disk)
+   by constructing a command containing the disk identifier number
+   for your SD card (3 in the example above):
 
-   The large size of the file means it will take a while,
-   depending on the speed of your network.
+   <tt><strong>
+   diskutil unmountDisk /dev/disk3
+   </strong></tt>
 
-   PROTIP: You don't need to unzip.
-   The Unzipped size is for the .img file created during un-zip.
-
-   NOTE: Jessie provides sudo-free access to GPIO.
-
-0. While you're waiting, read blogs written when
-   <a target="_blank" href="https://www.raspberrypi.org/blog/raspbian-jessie-is-here/">
-   Raspbian Jessie was first released</a>
-   (Versions of Debian are named after 
-   <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>)
-
-   "Wheezy" (the squeeze toy penguin with the red bow tie)
-   was the previous 4.2 version of Raspbian.
-   QUESTION: Where is the history of old versions 
-   and how does one get announcement emails?
-
-   "Sid" (the bad boy in Toy Story) is the nickname for the next release.
-
-   ### Calculate and compare hash
-
-0. Calculate a SHA hash from the downloaded file to verify SHA from the website.
-
-   NOTE: The image contains
-   .elf (Executable Linkable Format) 
-   and .dtb (Device Tree Blob) files.
-
-   On MacOS, open a Terminal and cd to the downloads folder to use a built-in command:
-
-   <pre><strong>cd ~/Downloads
-   shasum <em>2017-04-10-raspbian-jessie.zip</em>
-   </strong></pre>
-
-   <a target="_blank" href="http://osxdaily.com/2012/02/05/check-sha1-checksum-in-mac-os-x/">
-   PROTIP</a>: Type just `shasum ` with a trailing space, then from Finder drag the file 
-   and drop it to the right of the command.
-
-   The output should match the SHA-1 associated with the downloaded file on the website.
-   Example:
-
-   <pre>6d7b11bb3d64524203edf6c80c499456fb5fef53</pre>
-
-0. PROTIP: Save the .zip file to a DVD, then delete the file
-   (to make room for other stuff on your hard drive):
-
-   A regular single-sided, single layer DVD (R+ or R-) holds 4.7GB. 
-   A dual-layer "DL" DVD disk holds 8.5GB.
+   Again, instead of "disk3", you may type a different one.
 
 
-   ### Flash .img onto SD card using Etcher
+0. If you are using Windows, skip to <a href="#WinFlash">WindowsFlash</a>.
+
+
+   ### Get Etcher for MacOS
    
-   Although the <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">official Raspberry Pi site describes use of</a>
-   another tool
+   PROTIP: The <a target="_blank" href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">official Raspberry Pi site describes use of</a>
+   another tool, but
    (Etcher) reads from a zip file to skip unzipping hassle, 
    and verifies the SD card image was written correctly to the SD card.
    It also automatically dismounts the SD card so it can be safely removed.
- 
-0. At website
+
+0. On MacOS, use Homebrew:
+
+   <tt><strong>
+   brew cask install etcher
+   </strong></tt>
+
+   Alternately, at website
    <a target="_blank" href="https://www.etcher.io/">
    etcher.io</a> select a platform to download the 
    Etcher app for your platform.
@@ -181,6 +282,7 @@ To get full capacity from USB/SD drives
 
    | File downloaded | Size |
    | --------------- | ---: |
+   | Etcher-1.1.2.dmg | 58.9 MB |
    | Etcher-1.0.0-darwin-x64.dmg | 67.9 MB |
    | Etcher-1.0.0-beta.16-darwin-x64 | 75.4 MB |
 
@@ -189,14 +291,79 @@ To get full capacity from USB/SD drives
    Beginner's Guide to installing Node.js on a Raspberry Pi</a>:
    (made by Resin.io) 
 
-0. On a Mac, invoke the program from Applications.
-0. Select the drive containing the .img file.
+   In Finder, drag and drop the .dmg file onto your ~/Applications folder.
+
+0. In a MacOS Terminal, navigate to the user Applications folder and invoke the program:
+
+   <tt><strong>
+   cd ~/Applications<br />
+   open Etcher.app
+   </strong></tt>
+
+0. In the pop-up, click "Select Image", select the drive containing the .img file.
+
+
+   ### Flash OS on SD card using a Mac
+
+0. cd to the folder where your .img file exists. For example, to go to the Desktop:
+
+   <tt><strong>cd ~/Desktop
+   </strong></tt>
+
+
+0. Construct a command to write the image downloaded onto the SD Card. 
+   Replace the X in rdiskX with the disk number from before.
+
+   <tt><strong>
+   sudo dd bs=1m if=2017-09-07-raspbian-stretch.img of=/dev/rdisk3
+   </strong></tt>
+
+   <a target="_blank" href="http://www.computerhope.com/unix/dd.htm">
+   The Linux dd command</a>
+   copies a file and also optionally re-formats.
+   But `conv=` for is not specified here.
+
+   `if=` specifies the input file name.
+   The previous version is `if=2014-01-07-wheezy-raspbian.img`.
+
+   `of=` specifies the output file disk.
+
+   `bs=1m` specifies 1 megabyte chunks to write at a time.
+
+   `rdisk` gives faster write speed to the SD card.
+
+   BLAH: The dd command does not have a verbose mode to show progress.
+
+   NOTE: The dd program is also used to <a href="#Backup">
+   backup the SD onto your laptop</a>.
+
+0. Type in your password then wait. 
+   No status is shown during the 30 minutes or more that it takes.
+   An example of the ending response:
+
+   <pre>
+4147+0 records in
+4147+0 records out
+4348444672 bytes transferred in 265.020326 secs (16407967 bytes/sec)
+   </pre>
+
+   You should now have a working SD card at the end.
+
+0. Verify what devices are mounted <a target="_blank" href="http://wiki.farmbot.org/problems-solved/installing-farmbotos/linux">:</a>
+
+   <tt><strong>df -h
+   </strong></tt>
+
+
+0. In Finder, press the eject button for the disk.
+
 
 0. Skip past alternative activity below (for Windows) to <a href="#PowerUp">Power Up</a>.
 
 
+<a name="WinFlash"></a>
 
-### Unzip and Flash using Windows
+## Unzip and Flash using Windows
 
 0. Unzip to an <strong>.img</strong> file.
 
@@ -261,120 +428,7 @@ To get full capacity from USB/SD drives
 
 
 0. Invoke the program.
-0. Select the drive containing the .img file.
-
-
-   ### Flash OS on SD card using a Mac
-
-   ALTERNATIVE: Unattended Raspbian minimal installer for Pi up to 2B:
-   https://github.com/debian-pi/raspbian-ua-netinst/releases/
-
-0. CAUTION: Before touching delicate electrical boards,
-   dissipate static electricity (from just walking around)
-   by touching a grounded metal.
-
-0. Plug in the SD card.
-
-   WARNING: You need to plug the micro SD chip into a full-size SD chip adapter,
-   which goes into the Mac's SD card slot.
-   You may also use an adapter for USB, which may need to be plugged into a USB port
-   rather than on a USB hub (even a powered one).
-
-0. Open a Finder window. 
-   Scroll down the left panel to see it appear among the Device section.
-
-0. Open a Terminal shell window.
-
-0. Identify the SD disk identifier:
-
-   <tt><strong>
-   diskutil list
-   </strong></tt>
-
-   A sample response:
-
-   <pre>
-/dev/disk0 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *500.1 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:          Apple_CoreStorage Untitled 1              499.2 GB   disk0s2
-   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
-&nbsp;
-/dev/disk1 (internal, virtual):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:                            Macintosh HD           +498.9 GB   disk1
-                                 Logical Volume on disk0s2
-                                 8B999D6F-A427-4EC5-A197-85AF9E00C10E
-                                 Unencrypted
-/dev/disk3 (external, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:     FDisk_partition_scheme                        *63.9 GB    disk3
-   1:               Windows_NTFS                         63.8 GB    disk3s1
-   </pre>
-
-   In the above example, the 64 GB SD card IDENTIFIER is "disk3".
-
-0. Unmount your SD card (so a utility can overwrite the entire disk)
-   by constructing a command containing the disk identifier number
-   for your SD card (3 in the example above):
-
-   <tt><strong>
-   diskutil unmountDisk /dev/disk3
-   </strong></tt>
-
-   Again, instead of "disk3", you may type a different one.
-
-0. cd to the folder where your .img file exists. For example, to go to the Desktop:
-
-   <tt><strong>cd ~/Desktop
-   </strong></tt>
-
-0. Construct a command to write the image downloaded onto the SD Card. 
-   Replace the X in rdiskX with the disk number from before.
-
-   <tt><strong>
-   sudo dd bs=1m if=2016-09-23-raspbian-jessie.img of=/dev/rdisk3
-   </strong></tt>
-
-   <a target="_blank" href="http://www.computerhope.com/unix/dd.htm">
-   The Linux dd command</a>
-   copies a file and also optionally re-formats.
-   But `conv=` for is not specified here.
-
-   `if=` specifies the input file name.
-   The previous version is `if=2014-01-07-wheezy-raspbian.img`.
-
-   `of=` specifies the output file disk.
-
-   `bs=1m` specifies 1 megabyte chunks to write at a time.
-
-   `rdisk` gives faster write speed to the SD card.
-
-   BLAH: The dd command does not have a verbose mode to show progress.
-
-   NOTE: The dd program is also used to <a href="#Backup">
-   backup the SD onto your laptop</a>.
-
-0. Type in your password then wait. 
-   No status is shown during the 30 minutes or more that it takes.
-   An example of the ending response:
-
-   <pre>
-4147+0 records in
-4147+0 records out
-4348444672 bytes transferred in 265.020326 secs (16407967 bytes/sec)
-   </pre>
-
-   You should now have a working SD card at the end.
-
-0. Verify what devices are mounted <a target="_blank" href="http://wiki.farmbot.org/problems-solved/installing-farmbotos/linux">:</a>
-
-   <tt><strong>df -h
-   </strong></tt>
-
-
-0. In Finder, press the eject button for the disk.
+0. Select the drive containing the .img file on your laptop.
 
 
 <a name="PowerUp"></a>
@@ -417,7 +471,7 @@ it would by default display a GUI, and have no WiFi connection.
    Rather than booting up to the Linux command line and
    <a target="_blank" href="https://www.raspberrypi.org/documentation/configuration/raspi-config.md">
    raspi-config</a>,
-   the default behaviour with Jessie is now to boot up to the desktop GUI 
+   the default behaviour since Jessie is now to boot up to the desktop GUI 
    (version 3 of GTK+, the user interface toolkit used for the LXDE desktop environment). 
 
    ### Exit and return to GUI 
@@ -963,7 +1017,6 @@ become: false
    </pre>
 
 
-
 <a name="Config"></a>
 
 ## Configuration
@@ -1360,7 +1413,7 @@ Disk /dev/sda: 15 GiB, 16106127360 bytes, 31457280 sectors
 
    ### Additional utilities
 
-0. Install the <a target="_blank" href="https://packages.debian.org/jessie/htop">
+0. Install the <a target="_blank" href="https://packages.debian.org/stretch/htop">
    htop</a> interactive processes viewer that replaces the top command:
 
    <pre><strong>sudo apt-get install htop
