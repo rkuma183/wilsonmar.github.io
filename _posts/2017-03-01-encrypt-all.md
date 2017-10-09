@@ -113,13 +113,7 @@ Here's how to send files to someone securely:
 
    Your user name can be something like "JamesBond007" if that's not already taken, which it is.
 
-0. Click the <strong>Sign in</strong> tab.
-
-   ![xmpp-kode-signup-214x253-12971](https://user-images.githubusercontent.com/300046/31353452-7bbd50b2-ace7-11e7-9881-5c9a746d822c.jpg)
-
-   This is not an email address, but you can specify `JamesBond007@kode.im` as the user name.
-
-0. Type in a strong password. 
+0. Type in a strong password, then click Register. 
 
    PROTIP: [1Password](1password) can generate a random password for you
    based on the strength you choose, 
@@ -127,7 +121,11 @@ Here's how to send files to someone securely:
    to get to all your passwords.
    This is especially useful since no email is involved.
 
-   This (and installation) only needs to be done once.
+0. Click the <strong>Sign in</strong> tab.
+
+   NOTE: It's not an email address, specify the user name with the registry name, such as `JamesBond007@kode.im`.
+
+   The above (and installation) only needs to be done once.
 
 
    ### Peer-to-peer client
@@ -137,9 +135,9 @@ Here's how to send files to someone securely:
    <a href="http://www.littlesister.se/" target="_blank">
    http://www.littlesister.se</a>
 
-0. Run the installer.
-
    It is currently available only for Windows.
+
+0. Run the installer.
 
 0. Provide the user name you created, as described above.
 
