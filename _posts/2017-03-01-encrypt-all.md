@@ -105,9 +105,15 @@ Here's how to send files to someone securely:
 
    You can use another broker registry if you wish.
 
-0. Click the blue <strong>Toggle chat</strong> 
+0. Click the blue <strong>Toggle chat</strong> at the lower left corner.
 
-   So your user name can be "JamesBond007" if that's not already taken.
+0. Click the blue <strong>Register</strong> tab. Type "kode.im".
+
+   ![xmpp-kode-regis-214x405-21955](https://user-images.githubusercontent.com/300046/31353764-a702ff8c-ace8-11e7-8c8a-5500e2dd82a4.jpg)
+
+   Your user name can be something like "JamesBond007" if that's not already taken, which it is.
+
+0. Click the <strong>Sign in</strong> tab.
 
    ![xmpp-kode-signup-214x253-12971](https://user-images.githubusercontent.com/300046/31353452-7bbd50b2-ace7-11e7-9881-5c9a746d822c.jpg)
 
