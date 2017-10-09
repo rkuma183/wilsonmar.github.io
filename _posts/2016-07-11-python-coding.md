@@ -16,7 +16,11 @@ comments: true
 
 {% include _toc.html %}
 
-Here are the classes I've seen that teach Python programming.
+Here are various coding tips I've seen while going through [Python programming classes](/python-tutorials/) after [installing Python](/python-install/) and [Juypter](/juypter/).
+
+Also see [Python REST API programming](/python-api-flask/).
+[Python Robot testing](/python-robot/).
+[Running Python on Raspberry Pi IoT devices](/iot-raspberry-install/).
 
 
 ## List comprehension
@@ -24,6 +28,7 @@ Here are the classes I've seen that teach Python programming.
 <pre>
 squares = [x * x for x in range(10)]
 </pre>
+
 
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
