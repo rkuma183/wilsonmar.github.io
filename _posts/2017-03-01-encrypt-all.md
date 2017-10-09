@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Encrypt all the things"
-excerpt: "How to store and send files securely over the hostile internet"
+excerpt: "How to store and send files securely using XMPP over the hostile internet"
 tags: [XMPP, Security]
 shorturl: "https://goo.gl/eToZh7"
 image:
@@ -34,11 +34,9 @@ It is now well-known that public wi-fi enables others to listen in to what you s
 
 ### Insecure cloud storage
 
-Storing files on iCloud, Dropbox, Box, Google Drive, 
-and other "third-party" cloud services have caused Taylor Swift and
-other celebrities embarassment.
-
-An alternative to cloud storage is needed to transfer file securely.
+Storing files on iCloud caused Taylor Swift and
+other celebrities embarassment. Use of Dropbox, Box, Google Drive, 
+and other "third-party" cloud services are suspect because they are a known target for hackers out to collect ransom money.
 
 But people are using cloud storage because it's convenient.
 Take a picture on your smart phone and it gets sent to iCloud.
@@ -53,13 +51,16 @@ Passwords can get hacked.
 That can happen when a password used on several websites is stolen on one site, then used on other sites.
 We've heard of that happening regularly.
 
+An alternative to cloud storage is needed to transfer file securely.
 
-So the solution is an approach that encrypts both your file for transmission AND
-stores your data "at rest" in an encrypted format AND
-no middleman holds on to files or the keys to un-encrypt the files.
+The more secure solution is an approach that encrypts both your file for transmission AND
+stores your data "at rest" in an encrypted format. 
+AND no middleman holds on to files or the keys to un-encrypt the files.
 
-Instead of a "middleman" such as iCloud, 
-we use a "<strong>peer-to-peer</strong>" approach.
+Google does this except for the last middleman part.
+
+Instead of a "middleman" such as iCloud or other central cloud service,
+use a "<strong>peer-to-peer</strong>" approach.
 
 
 ## What is needed
@@ -94,7 +95,7 @@ but do not provide a way to store individual files in encrypted form.
 
 Here's how to send files to someone securely:
 
-   ### Get an XMPP account
+### Get an XMPP account
 
 0. Use an internet browser to register (for free) with registry 
    <a target="_blank" href="https://kode.im/">kode.im</a>.
@@ -104,9 +105,13 @@ Here's how to send files to someone securely:
 
    You can use another broker registry if you wish.
 
-0. Click the blue <strong>Toggle chat</strong> ato
+0. Click the blue <strong>Toggle chat</strong> 
 
    So your user name can be "JamesBond007" if that's not already taken.
+
+   ![xmpp-kode-signup-214x253-12971](https://user-images.githubusercontent.com/300046/31353452-7bbd50b2-ace7-11e7-9881-5c9a746d822c.jpg)
+
+   This is not an email address, but you can specify `JamesBond007@kode.im` as the user name.
 
 0. Type in a strong password. 
 
