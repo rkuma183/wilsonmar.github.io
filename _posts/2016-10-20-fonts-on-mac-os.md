@@ -17,6 +17,80 @@ comments: true
 
 I had to install several fonts and throught you'd want to benefit from my experience.
 
+<a name="Brew"></a>
+
+## Easy install via Homebrew Fonts
+
+The easiest way to install free fonts is to use <a target="_blank" href="https://caskroom.github.io">Homebrew Caskroom</a>.
+
+1. First, do this command one time to configure:
+
+   <tt><strong>
+   brew tap caskroom/fonts
+   </strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+==> Tapping caskroom/fonts
+Cloning into '/usr/local/Homebrew/Library/Taps/caskroom/homebrew-fonts'...
+remote: Counting objects: 1140, done.
+remote: Compressing objects: 100% (677/677), done.
+remote: Total 1140 (delta 769), reused 527 (delta 459), pack-reused 0
+Receiving objects: 100% (1140/1140), 210.54 KiB | 795.00 KiB/s, done.
+Resolving deltas: 100% (769/769), done.
+Tapped 0 formulae (1,156 files, 945.1KB)
+   </pre>
+
+2. See the list of fonts at:
+
+   <a target="_blank" href="https://github.com/caskroom/homebrew-fonts/tree/master/Casks">
+   https://github.com/caskroom/homebrew-fonts/tree/master/Casks</a>
+
+3. For each font you want installed. The most popular are:
+
+   <tt><strong>
+   brew cask install font-open-sans
+   </strong></tt>
+
+   PROTIP: This draws from font-open-sans.rb at
+   https://github.com/caskroom/homebrew-fonts/blob/master/Casks/font-open-sans.rb
+
+   Note in the response that all the variants are installed:
+
+   <pre>
+==> Satisfying dependencies
+==> Checking out https://github.com/google/fonts/trunk/apache/opensans
+==> No checksum defined for Cask font-open-sans, skipping verification
+==> Installing Cask font-open-sans
+==> Moving Font 'OpenSans-Bold.ttf' to '/Users/wilsonmar/Library/Fonts/OpenSans-
+==> Moving Font 'OpenSans-BoldItalic.ttf' to '/Users/wilsonmar/Library/Fonts/Ope
+==> Moving Font 'OpenSans-ExtraBold.ttf' to '/Users/wilsonmar/Library/Fonts/Open
+==> Moving Font 'OpenSans-ExtraBoldItalic.ttf' to '/Users/wilsonmar/Library/Font
+==> Moving Font 'OpenSans-Italic.ttf' to '/Users/wilsonmar/Library/Fonts/OpenSan
+==> Moving Font 'OpenSans-Light.ttf' to '/Users/wilsonmar/Library/Fonts/OpenSans
+==> Moving Font 'OpenSans-LightItalic.ttf' to '/Users/wilsonmar/Library/Fonts/Op
+==> Moving Font 'OpenSans-Regular.ttf' to '/Users/wilsonmar/Library/Fonts/OpenSa
+==> Moving Font 'OpenSans-Semibold.ttf' to '/Users/wilsonmar/Library/Fonts/OpenS
+==> Moving Font 'OpenSans-SemiboldItalic.ttf' to '/Users/wilsonmar/Library/Fonts
+🍺  font-open-sans was successfully installed!
+   </pre>
+
+
+## Popular
+
+According to a research study done by Hongkiat, the top 10 free and paid fonts mentioned by web and graphic designers were:
+
+* Myriad Pro (Free)
+* Bebas Neue (Free)
+* Ubuntu (Free)
+* PT Serif (Free)
+* Futura (Paid)
+* Helvetica (Paid)
+* Fedra Sans (Paid)
+<br /><br />
+
+http://www.aumcore.com/
 
 
 <a id="FontBook"></a>

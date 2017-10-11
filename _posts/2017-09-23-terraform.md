@@ -294,6 +294,10 @@ commands will detect it and remind you to do so if necessary.
 
    If no issues are identified, no message appears. (no news is good news)
 
+   <a target="_blank" href="https://gist.github.com/jamtur01/a567078b7ba545c3492f7cd32a65450d">
+   pre-commit hook to validate in your Git repository</a>
+
+
 
    ### Main.tf
 
@@ -466,10 +470,12 @@ private_key_path = "C:\\MyKeys1.pem"
 
 0. Have Terrform evaluate based on vars in a different (parent) folder:
 
-   <tt><strong>terraform plan -var-file='..\terraform.tfvars' -var-file='.\Development\development.tfvars' -state='.\Development\dev.state'
+   <tt><strong>terraform plan -var-file='..\terraform.tfvars' -var-file='.\Development\development.tfvars' -state='.\Development\dev.state' -out base-`date-+'%s'`.plan
    </strong></tt>
 
    The two dots in the command specifies to look above the current folder.
+
+   The `-out` parameter outputs to a file name that begins with `base-` and ends with .plan. The date is like 147772345 which is the numer of seconds since 1/1/1970.
 
    A sample response:
 
@@ -969,4 +975,8 @@ includes:
   July 12, 2017 by taking input from a CSV file.
 
 
+## More on DevOps #
 
+This is one of a series on DevOps:
+
+{% include devops_links.html %}

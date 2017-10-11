@@ -395,18 +395,21 @@ Keras (at <a target="_blank" href="https://keras.io">https://keras.io</a>)
 is a <strong>model-level</strong> modular library, 
 providing high-level building blocks for developing deep learning models.
 
-Keras runs on both CPU and GPU through 
-backend engines Google's TensorFlow 
-and Theano developed by the MILA lab at Universite de Montreal.
+   * Keras runs on both CPU and GPU through 
+   backend engines Google's TensorFlow 
+   and Theano developed by the MILA lab at Universite de Montreal.
+
+   * PROTIP: Bypass manual installation by using the Docker image for Keras at<br />
+   https://github.com/fchollet/keras/tree/master/docker
+   based on Ubuntu.
 
 In 2007, Nvidia launched CUDA, a C++ programming interface for its line of 
 GPUs (Graphic Processing Units) begins to replace clusters of less efficient CPUs.
 
+   * In 2017, NVIDIA provides GPU supercomputers used in many self-driving cars.
+
 In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
 
-PROTIP: Bypass manual installation by using the Docker image for Keras at<br />
-https://github.com/fchollet/keras/tree/master/docker
-based on Ubuntu.
 
 
 ### Deep Learning Frameworks

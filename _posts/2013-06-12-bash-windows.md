@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bash Windows (Windows Subystem for Linux - WSL)"
+title: "Bash shell running within Windows using Microsoft's WSL (Windows Subystem for Linux)"
 excerpt: "It's less like Power Rangers clicking rings, more like living in a foreign country"
 tags: [Bash, Windows, IoT]
 image:

@@ -360,8 +360,9 @@ To get started, let's first look at sample React Native apps.
    and the library at:
 
 
-<a name="i18n">
-## Internationalization</a>
+<a name="i18n"></a>
+
+## Internationalization
 
 The app that I show makes use of the internationalization library from Yahoo.
 
