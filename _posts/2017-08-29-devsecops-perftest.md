@@ -16,38 +16,35 @@ comments: true
 {% include _toc.html %}
 
 ## Valuable Insights
-Get <strong>hands-on</strong> experience with continuos integration using the latest versions of the most popular DevSecOps tools, all working together, end-to-end, in a set of servers in the cloud each participant controls.
+Get <strong>hands-on</strong> experience with continuos integration using the latest versions of the most popular DevSecOps tools, all working together, end-to-end, in a set of servers participants control.
 
-The hands-on approach enables participants to truly gain important insights into the benefits and trade-offs related to agile test automation. 
+Only this course provides participants a full set of <strong>several cloud-based servers</strong> to work on live during the class. This is an opportunity few get even with on-the-job experience.
 
-Included is a "guided tour" of how the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">21 groups of DevOps technologies</a> work together in a <strong>toolchain</strong> that builds and deploy software: Git/GitHub/GitLab, Maven/Yarn, Nexus, Jenkins/Cloudbees, Vault, SonarQube, Selenium, Ansible.
+See how the <a target="_blank" href="https://wilsonmar.github.io/ci-cd">21 groups of DevOps technologies</a> work together in a complete <strong>toolchain</strong> that builds and deploy software: AWS CLI, Git, GitHub/GitLab, Maven/Yarn, Nexus, Jenkins/Cloudbees, Vault, SonarQube, Selenium, Terraform.
+
+Commentary during this "guided tour" include tips and tricks for moving organizations to the end-state shown -- for deep insight into both benefits and challenges related to agile automation in DevSecOps.
 
 The "Sec" part of "DevSecOps" means security, which include scans of code for vulnerabilities, use of digital certificates to control access, and tools to manage secrets using secure vaults.
 
-To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo  presentations</a>.
-
-## Who Should Attend
-This course is for anyone new to DevOps but experienced with information technology and software development. No specific prerequisites are assumed, and all technical concepts are explained;  This course is for testers, programmers, business analysts, and managers who need to see first-hand how DevOps works.
-
-## Editions of the course
-There are several editions of this class, of different length:
-
-* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps terms and concepts possible only from seeing the various tools all working together. Participants pull from and push to GitHub, edit files, and see first-hand programs built and software tested automatically. Participants leave with an understanding of the meaning behind <a target="_blank" href="https://quizlet.com/222277746/devsecops-acronyms-and-buzzwords-flash-cards/">buzzwords and abbreviations in DevSecOps</a>.
-
-* The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with an ability to identify DevSecOps toolchain components and usage workflow and have an appreciation for some of the subtleties about each technology.
-
-* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters -- crucial for working in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
-<br /><br />
-
-   <strong>Shift left</strong>
+To ensure quality at speed, Agile software developers are increasingly required to include in each sprint automated performance status in their <a target="_blank" href="http://www.scaledagileframework.com/system-demo/">System Demo presentations</a>.
 
    The traditional approach of performance testing only before final release to production means that potentially major risks and technical debt can remain hidden. Here is how organizations make performance testing and engineering "shift-left" earlier in the software development lifecycle. 
 
    <amp-youtube data-videoid="ZG073qSgh_0" layout="responsive" width="480" height="270"></amp-youtube>
    VIDEO: https://youtu.be/ZG073qSgh_0
 
-## Unique 
-Only this course provides participants a full set of <strong>dozens of cloud-based servers</strong> to work on live during the class. This is an opportunity few get even with on-the-job experience.
+## Who Should Attend
+This course is for anyone new to DevSecOps but experienced with information technology and software development. No specific prerequisites are assumed, and new technical concepts are explained. Executives, directors, managers, product owners, analysts, testers, programmers can all benefit from this first-hand experience.
+
+## Editions of the course
+There are several editions of this class, of different length:
+
+* The <strong>half-day introduction</strong> provides an understanding of key DevSecOps buzzwords and concepts possible only from seeing the various tools all working together. Participants pull from then push to GitHub, edit files, and see first-hand programs built and software tested automatically. Participants leave with an understanding of the meaning behind <a target="_blank" href="https://quizlet.com/222277746/devsecops-acronyms-and-buzzwords-flash-cards/">buzzwords and abbreviations in DevSecOps</a>.
+
+* The <strong>full-day experience</strong> has you generating both application code and the whole DevOps toolchain for an architecture that automatically scales. You then <strong>re-build the whole setup</strong> after making configuration changes. Participants leave with an ability to identify DevSecOps toolchain components and usage workflow and have an appreciation for some of the subtleties about each technology.
+
+* The <strong>two-day immersion</strong> enables you to see code moving through <strong>multiple environments</strong> from development servers to production clusters -- crucial for working in corporate enterprises. Participants see a live "blue/green" deployment and fall-back. Participants leave with a visceral understanding of both the advantages and limitations modern DevSecOps offers.
+<br /><br />
 
 ## Course Outline
 
