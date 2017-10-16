@@ -1069,12 +1069,15 @@ QUESTION: Spell checking in GitHub?
 
 * Tutorial: http://jekyll.tips/jekyll-casts/
 
+https://geekflare.com/cloud-storage-static-website/
+
 ## Jekyll MinimalMistake users in the wild #
 
 * http://udaypal.com/jenkins-workflow-getting-started/
 * http://udaypal.com/2015-04-08-continuous-delivery-using-jenkins-workflow/
 * http://michaelcrump.net/running-jekyll-locally/
 
+* http://blog.christianposta.com/microservices/netflix-oss-or-kubernetes-how-about-both/
 
 ## More on front-end styling #
 
