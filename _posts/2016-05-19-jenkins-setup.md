@@ -75,6 +75,7 @@ From the easiest to the most effort:
 
    * <a href="#AmazonInstall">Amazon EC2 instance you setup</a>
      with Ansible script using Docker image
+   * <a href="#GKCInstall">Google Kubernetes container Cloud instance</a>
    * <a href="#DockerInstall">Local Docker install</a>
 
    * <a href="#Install_Mac">Mac</a> locally from download
@@ -768,7 +769,7 @@ The most commonly used git commands are:
    tag        Create, list, delete or verify a tag object signed with GPG
 &nbsp;
 'git help -a' and 'git help -g' lists available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
+concept guides. See 'git help <command>' or 'git help &LT;concept>'
 to read about a specific subcommand or concept.
    </pre>
 
@@ -1069,6 +1070,39 @@ Jeff Shantz did a great job on his videos on "Continuous Integration with Jenkin
    5</a>
 
 However, there are some updates necessary two years later.
+
+<a name="GKCInstall"></a>
+
+## GKC (Google Compute Engine) #
+
+To instantiate a Jenkins instance within a Docker container on the Google Kubernetes-based Compute Engine Cloud within the [Google Compute Platform](/gcp/):
+
+<a target="_blank" href="https://cloud.google.com/container-engine/docs/tutorials/hello-app">DOC</a>
+
+https://cloud.google.com/compute/docs/containers/deploying-containers
+
+Google provides a <a target="_blank" href="https://cloud.google.com/container-optimized-os/docs/">
+Container-optimized OS</a>.
+
+    Deploying software on VM boot using a startup script or cloud-init.
+
+1. Identify a containerized app within a Docker image published publicly on Docker Hub:
+
+   https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=jenkins&starCount=0
+
+0. Pull the official Long Term one at https://hub.docker.com/r/jenkins/jenkins/
+
+   <tt><strong>
+   docker pull jenkins/jenkins:lts
+   </strong></tt>
+
+   <pre>
+# install docker-ce RUN apt-get update RUN apt-get install -y \ apt-transport-https \ ca-certificates \ curl \ gnupg2 \ software-properties-common RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - RUN add-apt-repository \ "deb [arch=amd64] https://download.docker.com/linux/debian \ $(lsb_release -cs) \ stable" RUN apt-get update RUN apt-get install -y docker-ce 
+   </pre>
+
+0. Mount your docker socket as a volume inside the container - 
+
+   /var/run/docker.sock:/var/run/docker.sock:ro
 
 
 <a name="Install_Linux"></a>

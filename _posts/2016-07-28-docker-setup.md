@@ -165,25 +165,22 @@ Canonical of Ubuntu has their LXD</a>
 
 ## Linux installer boots #
 
-Docker was originally created for different flavors of Linux:
+PROTIP: Docker was initially developed to run under different flavors of GNU/Linux, not FreeBSD.
 
    * Ubuntu
    * <a href="#Docker4Centos">CentOS</a>
    * BSDLinux
-   * etc.
+   * Debian
 
 ![docker-filesystems-multilayer 650x534-211kb](https://cloud.githubusercontent.com/assets/23315276/20216569/a1cddf84-a7d8-11e6-8265-8dbaf25be1b0.jpg)
 
-PROTIP: Docker was initially developed to run under GNU/Linux, not FreeBSD.
-
 Different operating systems use different file-system software for union-mount.
 For example, Debian uses <strong>bootfs</strong>.
-
 <a target="_blank" href="https://www.wikiwand.com/en/Aufs">
-aufs</a> (Advanced multi-layered Unification File System).
-Wikipedia notes it was rejected for merging into mainline Linux. 
+Wikipedia notes aufs</a> (Advanced multi-layered Unification File System)
+was rejected for merging into mainline Linux. 
 Its code was criticized for being "dense, unreadable, and uncommented".
-Instead, OverlayFS was merged in the Linux kernel.
+Instead, <strong>OverlayFS</strong> was merged into the Linux kernel.
 
 <a target="_blank" href="https://www.wikiwand.com/en/Btrfs">
 btrfs</a> (B-tree File System)
@@ -194,7 +191,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 ## Install Docker on Mac OSX #
 
-   NOTE: The version of Linux that comes with Mac isn't completely compatible with Linux.
+   PROTIP: The version of Linux that comes with Mac isn't completely compatible with Linux.
    So an extra layer is needed to emulate a Docker host.
    That’s <a target="_blank" href="https://github.com/boot2docker/osx-installer/releases/tag/v1.6.0">
    Boot2Docker</a>.
@@ -215,13 +212,20 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 0. In Finder, within Applications, remove the Docker app and Docker folder.
 
-0. Use Homebrew:
+0. Install the Stable version of Homebrew:
 
    <tt><strong>brew cask install docker && docker ps
    </strong></tt>
  
+   If one was already installed, it is replaced:
+
    <pre>
- ==> Downloading https://download.docker.com/mac/stable/19124/Docker.dmg
+ ==> Downloading https://download.docker.com/mac/stable/19611/Docker.dmg
+==> Verifying checksum for Cask docker
+==> Installing Cask docker
+==> Moving App 'Docker.app' to '/Users/wilsonmar/Applications/Docker.app'.
+🍺  docker was successfully installed!
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
    </pre>
 
    Skip to <a href="#OpenDocker">Open Docker client app</a> later in this doc.
@@ -229,7 +233,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    Alternately:
    
-   ### Manual Desktop for Mac
+   ### Manual Docker for Mac
 
    <strong>Docker for Mac</strong> was added 2016 for installing Docker on Mac OSX.
    It uses the
@@ -243,16 +247,15 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    https://store.docker.com/editions/community/docker-ce-desktop-mac</a>
    
 0. Scroll down to "Get Docker CE for Mac (stable)".
-0. Click "Get Docker for Mac" to download to your Downloads folder.
-0. In Finder, navigate to you Download folder to double-click
-   <strong>Docker.dmg</strong>
-
+0. Click "Get Docker for Mac" to download <strong>Docker.dmg</strong> to your Downloads folder.
+0. In the browser or Finder, navigate to you Download folder to double-click the Docker.dmg file
 0. PROTIP: Change the file name if you're keeping back versions.
 
    | Date of file | Version           | Download | Unzipped   |
    | -----------: | ----------------- | -------: | -------: | 
+   | Oct 17, 2017 | Docker.dmg | 133.6 MB | 129.9 MB |
    | Aug 27, 2017 | Docker.dmg | 129.9 MB | 129.9 MB |
-   | Oct 17, 2016 | Docker.dmg | 111 MB | 208.1 MB |
+   | Oct 17, 2016 | Docker.dmg | 111.0 MB | 208.1 MB |
    | July 19, 2016 | Docker.dmg | 114.0 MB | 225.1 MB |
    | July 19, 2016 | Docker.dmg | 107.0 MB | 225.1 MB |
    | June 17, 2016 | 1.12.0-rc2-beta16 | 113.5 MB | 224.1 MB |
@@ -262,7 +265,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    ![docker-drag-and-drop-600x284-99025](https://user-images.githubusercontent.com/300046/29752990-4666a56c-8b36-11e7-9029-a93551a8b4d9.jpg)
 
-0. Drag and drop the whale into the Applications folder.
+0. In the pop-up, drag and drop the "Docker.app" whale onto the Applications folder.
 0. Click <strong>Replace</strong> the previous version with the new one, if applicable.
 0. If the "Docker needs privileged access" pop-up appears, click OK and type it in, then dismiss the pop-up.
 0. Click outside the drop-down to dismiss it.
@@ -279,21 +282,26 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
    ### Open Docker client app
 
-0. In the Applications folder, open the Docker app.
+0. In the Applications folder, click on the Docker.app.
 
    <a target="_blank" href="https://docs.docker.com/engine/reference/commandline/cli/">
    PROTIP:</a> The Docker command line stores its configuration files in 
    a hidden directory <strong>.docker</strong> within your $HOME directory (cd ~).
 
+0. Click "Open" if the pop-up appears.
+0. Click "Next" at the "Welcome to Docker for Mac!".
+0. Click "OK" to the "Docker needs privileged access" pop-up.
+0. Provide your password when asked.
 0. Click the whale icon at the top of your Mac for this menu:
 
    ![docker-menu-281x368-59736](https://user-images.githubusercontent.com/300046/29753015-bfba2088-8b36-11e7-9697-60e4cf0c2887.jpg)
 
-0. If you are not a frequent user, 
+0. PROTIP: If you are not a frequent user, 
    click Preferences (or press command + comma) to
-   un-check "Automatically start Docker when you log in".
+   un-check "Automatically start Docker when you log in" to avoid using up memory.
 
 0. Skip to <a href="#VerifyInstall">verify Docker install</a> below.
+
 
    ### Previously
 
@@ -315,7 +323,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
 
 <a name="Docker4Windows"></a>
 
-### Install Docker on Windows 10 #
+## Install Docker on Windows 10 #
 
 #### Windows 10 Docker images within AWS  #
 
@@ -333,7 +341,7 @@ is intended to address the lack of pooling, snapshots, checksums, and integral m
    https://console.aws.amazon.com/console/home</a>
 
 
-## Install Docker on Windows 10 #
+## Install local Windows 10 #
 
 The below enhances https://docs.docker.com/docker-for-windows/
 
@@ -626,10 +634,9 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
    The response:
 
    <pre>
-Usage: docker [OPTIONS] COMMAND [arg...]
-       docker [ --help | -v | --version ]
+Usage:   docker COMMAND
 &nbsp;
-A self-sufficient runtime for containers.
+A self-sufficient runtime for containers
 &nbsp;
 Options:
 &nbsp;
@@ -707,7 +714,7 @@ Run 'docker COMMAND --help' for more information on a command.
    The response:
    
    <pre>
-Docker version 17.06.1-ce, build 874a737
+Docker version 17.09.0-ce, build afdb6d4
    </pre>
 
    The "experimental" in previous versions has been removed.
@@ -721,19 +728,19 @@ Docker version 17.06.1-ce, build 874a737
 
     <pre>
 Client:
- Version:      17.06.1-ce
- API version:  1.30
+ Version:      17.09.0-ce
+ API version:  1.32
  Go version:   go1.8.3
- Git commit:   874a737
- Built:        Thu Aug 17 22:53:38 2017
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:40:09 2017
  OS/Arch:      darwin/amd64
 &nbsp;
 Server:
- Version:      17.06.1-ce
- API version:  1.30 (minimum version 1.12)
+ Version:      17.09.0-ce
+ API version:  1.32 (minimum version 1.12)
  Go version:   go1.8.3
- Git commit:   874a737
- Built:        Thu Aug 17 22:54:55 2017
+ Git commit:   afdb6d4
+ Built:        Tue Sep 26 22:45:38 2017
  OS/Arch:      linux/amd64
  Experimental: true
    </pre>
@@ -799,20 +806,19 @@ Server:
    An example of command output for docker info on Windows:
 
    <pre>
-Containers: 1
+Containers: 0
  Running: 0
  Paused: 0
- Stopped: 1
-Images: 4
-Server Version: 17.06.1-ce
-<strong>Storage Driver: aufs</strong>
- Root Dir: /var/lib/docker/aufs
+ Stopped: 0
+Images: 0
+Server Version: 17.09.0-ce
+Storage Driver: overlay2
  Backing Filesystem: extfs
- Dirs: 18
- Dirperm1 Supported: true
+ Supports d_type: true
+ Native Overlay Diff: true
 Logging Driver: json-file
 Cgroup Driver: cgroupfs
-Plugins: 
+Plugins:
  Volume: local
  Network: bridge host ipvlan macvlan null overlay
  Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
@@ -820,26 +826,26 @@ Swarm: inactive
 Runtimes: runc
 Default Runtime: runc
 Init Binary: docker-init
-containerd version: 6e23458c129b551d5c9871e5174f6b1b7f6d1170
-runc version: 810190ceaa507aa2727d7ae6f4790c76ec150bd2
+containerd version: 06b9cb35161009dcb7123345749fef02f7cea8e0
+runc version: 3f2f8b84a77f73d38244dd690525642a72156c64
 init version: 949e6fa
 Security Options:
  seccomp
   Profile: default
-Kernel Version: 4.9.41-moby
+Kernel Version: 4.9.49-moby
 Operating System: Alpine Linux v3.5
 OSType: linux
 Architecture: x86_64
 CPUs: 4
 Total Memory: 1.952GiB
 Name: moby
-ID: SXK4:Q3CD:WA4O:3PNI:OLEZ:77QQ:PICU:KWYG:PGZF:VZUR:5MLP:ZISE
+ID: JCZB:QL6G:SWXG:GURD:53OL:57EY:WNDW:QDHX:GDPD:H3G7:PGU7:45HU
 Docker Root Dir: /var/lib/docker
 Debug Mode (client): false
 Debug Mode (server): true
- File Descriptors: 17
+ File Descriptors: 18
  Goroutines: 29
- System Time: 2017-08-27T18:56:58.350490043Z
+ System Time: 2017-10-17T22:22:38.984450422Z
  EventsListeners: 1
 No Proxy: *.local, 169.254/16
 Registry: https://index.docker.io/v1/
@@ -851,26 +857,7 @@ Live Restore Enabled: false
 
 
 
-
    <a name="DockerLogin"></a>
-
-   ### Login Docker
-
-   When Docker is installed, it creates a <strong>.docker</strong> folder at your account root folder.
-
-   <pre>
-{
-  "auths" : {
-    "https://index.docker.io/v1/" : {
-
-    }
-  },
-  "credsStore" : "osxkeychain"
-}
-   </pre>
-
-   PROTIP: There are other auths.
-
 
    ### Setup Docker Hub #
 
@@ -921,23 +908,165 @@ Tag latest not found in repository docker.io/wilsonmar/99bottles-jmeter
    </pre>
 
 
-   ### Log into Docker Hub
+   ### List and remove image 
 
-0. Log into Docker Hub:
+0. List images pulled:
 
-   <tt><strong>docker login
+   <tt><strong>docker images -a -q
    </strong></tt>
 
-   Provide the username and password you setup at https://hub.docker.com/ and Sign In.
+   A sample response:
+
+   <pre>
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+jenkins/jenkins     latest              9ec0e1781a1b        41 hours ago        815MB
+nginx               latest              1e5ab59102ce        8 days ago          108MB
+   </pre>
+
+0. Remove all images pulled:
+
+   <tt><strong>docker rmi $(docker images -a -q)
+   </strong></tt>
+
+0. Remove a list of dangling images:
+
+   <tt><strong>docker rmi $(docker images -f dangling=true -q)
+   </strong></tt>
+
+
+   ### Setup Credential Store
+
+   https://github.com/docker/docker-credential-helpers/releases
+
+0. Click the latest "osxkeychain":
+
+   docker-credential-osxkeychain-v0.6.0-amd64.tar.gz
+
+0. In Finder, double-click to expand the file
+0. Move to within a $PATH:
+
+   <pre><strong>
+   cd ~/Downloads
+   mv docker-credential-osxkeychain /usr/local/bin
+   chmod 555 /usr/local/bin/docker-credential-osxkeychain
+   </strong></pre>
+
+   <a target="_blank" href="https://github.com/docker/for-mac/issues/1359">
+   CAUTION</a>: The credential helper is used whenever it is discovered on $PATH,
+   not only if config.json "credsStore" value declares it.
+
+0. Open Apple's <strong>Keychain Access.app</strong> within Applications Utilities.
+0. Store your Docker credentials:
+
+   <pre><strong>
+   docker-credential-osxkeychain store
+   </strong></pre>
+
+
+   ### Log into Docker Hub
+
+   https://cloud.google.com/container-registry/docs/advanced-authentication
+
+   https://github.com/docker/cli/blob/master/docs/reference/commandline/login.md
+
+0. Login using your Docker:
+
+   The response:
+
+   <pre>
+   WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+   </pre>
+
+   PROTIP: Using STDIN prevents the password from ending up in the shell's history and log files.
+
+0. PROTIP: At your home folder create a `.secrets` file containing set statements:
+
+   <tt><strong>
+   cd 
+   echo set >.secrets
+   </strong></tt>
+
+0. Edit the text file to contain the username and password you setup at https://hub.docker.com/  for example:
+
+   <tt><strong>
+   export DOCKER_USERNAME=wilsonmar
+   export DOCKER_PASSWORD=12345abcde7890jl;k
+   echo $DOCKER_USERNAME
+   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin -e none
+   </strong></tt>
+
+0. Run the file:
+
+   <tt><strong>
+   source .secrets
+   </strong></tt>
+
+   You should see your user name reflected.
 
    Alternately, supply the authentication information in the command (replacing **** with your own):
 
-   <tt><strong>docker login \-\-username=**** \-\-password=**** 
+   <tt><strong>docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
    </strong></tt>
+
+   (The --email flag was required by Docker older that 1.11)
 
    PROTIP: TODO: Advanced users create a .dockercfg file. 
 
-   If you are not setup correctly, you'll see:
+   The successful response is:
+
+   <pre>
+   WARNING: login credentials saved in C:\Users\...\\.docker\config.json
+   </pre>
+
+   When Docker is installed, it creates a <strong>.docker</strong> folder at your account root folder. It contains files daemon.json and ~/.docker/config.json:
+
+   <pre>
+{
+  "auths" : {
+    "https://index.docker.io/v1/" : {
+         "auth": "YW11cmRhY2E6c3VwZXJzZWNyZXRwYXNzd29yZA==",
+         "email": "amurdaca@redhat.com"
+     }
+  },
+  "credsStore" : "osxkeychain"
+}
+   </pre>
+
+   <a target="_blank" href="https://www.projectatomic.io/blog/2016/03/docker-credentials-store/">
+   On Linux</a>, the credsStore is populated with the string `secretservice`.
+
+   PROTIP: Other auths can be added.
+
+   After a successful Docker login, Docker stores a base64 encoded string from the concatenation of the username, a colon, and the password and associates this string to the registry the user is logging into
+   file `...\myuser.docker\config.json` 
+
+   The trouble with this is that it’s encrypted. The base64 string can be converted back to clear ASCII text:
+
+   <tt><strong>
+   echo YW11cmRhY2E6c3VwZXJzZWNyZXRwYXNzd29yZA== | base64 -d -
+   </strong></tt>
+
+0. The authentication information is removed upon:
+
+   <tt><strong>
+   docker logout
+   </strong></tt>
+
+   The response is about `cat ~/.docker/config.json`
+
+   <pre>Removing login credentials for https://index.docker.io/v1/
+   </pre>
+
+
+   which would avoid the following error later:
+
+   <pre>
+docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: unauthorized: incorrect username or password.
+   </pre>
+
+
+
+   However, if you are not setup correctly, you'll see:
 
    <pre>
 Warning: failed to get default registry endpoint from daemon (Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?). Using system default: https://index.docker.io/v1/
@@ -948,11 +1077,6 @@ Login with your Docker ID to push and pull images from Docker Hub. If you don't 
 
    <pre>Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password</pre>
 
-   Successful login saves credentials in `...\myuser.docker\config.json` which would avoid the following error later:
-
-   <pre>
-docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/hello-world/manifests/latest: unauthorized: incorrect username or password.
-   </pre>
 
 
    ### Troubleshoot Docker daemon start
@@ -973,7 +1097,9 @@ docker: Error response from daemon: Get https://registry-1.docker.io/v2/library/
    <tt><strong>journalctl -u docker.service
    </strong></tt>
 
-   On ubuntu server, restart: sudo shutdown -r now
+   On ubuntu server, restart: 
+
+   sudo shutdown -r now
 
    $ systemctl daemon-reload
 
@@ -1729,18 +1855,24 @@ Options:
 
 0. Run an NGINX web server detached:
    
-   <tt><strong>docker run -d -p 8000:80 nginx
+   <tt><strong>docker run -d -p 8080:80 nginx
    </strong></tt>
 
    `-d` means detach: Run container in background and print container ID
 
    `-p` means publish list: Publish a container's port(s) to the host
 
-   The "8000:80" means we'll use localhost:8080.
+   The "8000:80" means we'll use http://localhost:8080.
+
+   The correct response is a hash, the container's ID, such as:
+
+   <pre>
+   254d5641eee4ef4882fe2d803068c9b6dd4477836406833a3cc71a0f7a31d36c
+   </pre>
 
 0. To see if that machine responds:
 
-   <tt><strong>curl $(docker-machine ip default):8000
+   <tt><strong>curl $(docker-machine ip default):8080
    </strong>
 
    A common error message is:
@@ -1772,15 +1904,27 @@ aa2ccdb153cc        nginx               "nginx -g 'daemon ..."   5 hours ago    
    However, other scripts, such as web services, do not exit on their own.
 
 
-   ### Remove image ???
+   ### Stop 
 
-0. To remove an image:
+0. Stop running containers based on list:
 
-   <tt><strong>docker rmi ubuntu:trusty
+   <tt><strong>docker stop $(docker ps -a -q)
    </strong></tt>
 
+   The response is a list of container IDs:
 
+   <pre>
+254d5641eee4
+dad20a229af5
+62aa89bb8170
+   </pre>
 
+0. Remove the list of all containers listed:
+
+   <tt><strong>docker rm $(docker ps -a -q)
+   </strong></tt>
+
+   See https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
 
 <hr />
 
@@ -2495,6 +2639,10 @@ https://github.com/StefanScherer/packer-windows
 https://github.com/StefanScherer/dockerfiles-windows
 You can do this on Windows as well today with the Windows 10 1607 or Windows Server 2016 using Windows Containers.
 
+## Social
+
+Register for Slack channel at
+https://community.docker.com/registrations/groups/4316
 
 ## More on DevOps #
 
