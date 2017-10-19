@@ -15,24 +15,22 @@ comments: true
 
 {% include _toc.html %}
 
-The object of this tutorial is to get you to confidently create
-Dockerfile and 
-docker-compose files
-which define how Docker instantiate containers across several operating systems.
+This is a hands-on tutorial on how to create
+Dockerfile and docker-compose files
+that contain commands controlling how Docker instantiates containers across several operating systems.
 
-{% include _intro.html %}
+Some refrences:
 
+   * https://deis.com/blog/2015/dockerfile-instructions-syntax/
 
-## Basic Concepts #
+   * https://runnable.com/docker/java/dockerize-your-java-application
 
-Docker containers are created using docker images, 
-built by parsing a <strong>Dockerfile</strong> 
-containing Docker commands.
-
+A Docker image is a read-only template used to create and launch a Docker container.
 
 ## Dockerize apps #
 
-"Dockerizing" an application is the process of converting an application to run within a Docker container.
+"Dockerizing" an application is the process of converting an application to run within a Docker container
+and creating the Dockerfile for it.
 
 Let's begin with an example.
 
@@ -48,7 +46,7 @@ Let's begin with an example.
 
     Alternately, you may prefer to open the file using a text editor or IDE.
 
-    The response:
+    There are only a handful of instructions in a Dockerfile.
 
     <pre>
 FROM node:0.10.44-slim
@@ -121,6 +119,11 @@ RUN bash -c 'touch /app.jar'
 ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/07/whats-so-special-about-devurandom.html">-Djava.security.egd=file:/dev/./urandom</a>","-jar","/app.jar"]
    </pre>
 
+  After a Dockerfile is prepared, execute from command prompt to create the corresponding image:
+
+  docker build . 
+
+  Run docker run <em>image-name</em> to create a container out of the image to execute it.
 
 
 ### Dockerizing programming code #
@@ -142,7 +145,7 @@ ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/
    then modifies the data.
 
 
-   ### Common Logging #
+### Common Logging #
 
    Also, rather than writing event information to a custom database,
    "cloud native" application programming code print to STDOUT/STDERR.
@@ -160,12 +163,18 @@ ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/
    here</a>. It works by wrapping calls to apps using the ENTRYPOINT or CMD directives.
 
 
-   ### .dockerignore #
+### .dockerignore #
 
    The .dockerignore file is like a .gitignore file,
    but specifies items for Docker to ignore in the Dockerfile.
 
    See https://docs.docker.com/engine/reference/builder/#/dockerignore-file
+
+### Mount
+
+   mount a local path and map it to a path within the container 
+
+   ~/Source/projecta:/usr/src/app
 
 
 <a name="DockerCompose"></a>
