@@ -78,7 +78,7 @@ these 16 gates in the pipeline (10 Commandments in octal):
 0. Source code version control
 0. Optimum branching strategy [Git and GitHub or GitLab, etc.]
 0. Static analysis [SonarQube]
-0. > 80% code coverage
+0. GT; 80% code coverage
 0. Vulnerability scan
 0. Open source scan [Black Duck]
 0. Artifact version control [Nexus or Artifactory]

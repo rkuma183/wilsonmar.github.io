@@ -1238,9 +1238,113 @@ OSX with Docker Toolbox
    PROTIP: Similar to Python, most people run commands within a Docker machine
    (which is the whole point of installing Docker).
 
+![docker-flow-505x264-37904](https://user-images.githubusercontent.com/300046/31818177-94513b16-b55c-11e7-834e-699f7ea9c4d6.jpg)
+
    This section describes how to run a Docker image.
 
 0. You need to be <a href="#DockerLogin">logged into Docker Hub</a>.
+
+   <a name="DockerHello"></a>
+
+   ### Run from Docker Hub #
+
+0. To verify whether you can access a simple image:
+
+   <tt><strong>docker run hello-world
+   </strong>
+
+   Like Maven Central, 
+   a Docker run command automatically pulls from the public Docker Repository, 
+   such as:<br />
+   <a target="_blank" href="https://hub.docker.com/_/hello-world/">
+   https://hub.docker.com/_/hello-world</a>
+
+   It's defined at<br />
+   https://github.com/docker-library/hello-world<br />
+   with docs at<br />
+   https://github.com/docker-library/docs/tree/master/hello-world
+
+   If the image is not available locally, it is pulled from Dockerhub:
+
+   <pre>
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+c04b14da8d14: Pull complete 
+Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
+Status: Downloaded newer image for hello-world:latest
+   </pre>
+
+   The expected response is:
+
+   <pre>
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+&nbsp;
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+&nbsp;
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+&nbsp;
+Share images, automate workflows, and more with a free Docker Hub account:
+ https://hub.docker.com
+    </pre>
+
+
+0. Run the container just downloaded in a Mac:
+
+   <tt><strong>
+   docker run -it ubuntu bash
+   </strong></tt>
+
+   PROTIP: Mac uses ubuntu commands.
+
+   The response:
+
+   <pre>
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+43db9dbdcb30: Pull complete 
+2dc64e8f8d4f: Pull complete 
+670a583e1b50: Pull complete 
+183b0bfcd10e: Pull complete 
+Digest: sha256:c6674c44c6439673bf56536c1a15916639c47ea04c3d6296c5df938add67b54b
+Status: Downloaded newer image for ubuntu:latest
+root@27eb89b0dc54:
+   </pre>
+
+   Wait for "Pull complete" for all the dependencies.
+
+   Alternately, on a CentOS machine:
+
+   <tt><strong>
+   docker run -it centos bash
+   </strong></tt>
+
+   The response:
+
+   <pre>
+Unable to find image 'centos:latest' locally
+latest: Pulling from library/centos
+8c3d77a518cb: Pull complete 
+Digest: sha256:7b754086d2c7d74ac39dc0a2545d7b06d4266f873d502feb5b3e8bfca27c5dd8
+Status: Downloaded newer image for centos:latest
+   </pre>
+
+   WARNING: The terminal prompt has changed
+   because you are now <strong>inside</strong> the container.
+
+
+   <a name="DockerHelp"></a>
+
+   ### Docker Help
+
+   `-it` means iteractive and TTY, which provides you the terminal prompt.
 
 0. Get a list of all the docker run command parameters:
 
@@ -1354,100 +1458,6 @@ Options:
    </pre>
 
 
-   <a name="DockerHello"></a>
-
-   ### Run from Docker Hub #
-
-   Like Maven Central, 
-   a docker command automatically pulls from the public Docker Repository, such as:<br />
-   <a target="_blank" href="https://hub.docker.com/_/hello-world/">
-   https://hub.docker.com/_/hello-world</a>
-
-   It's defined at<br />
-   https://github.com/docker-library/hello-world<br />
-   with docs at<br />
-   https://github.com/docker-library/docs/tree/master/hello-world
-
-0. Run it to verify whether you can access the public Docker Repository:   
-
-   <tt><strong>docker run hello-world
-   </strong>
-
-   If the image is not available locally, it is pulled from Dockerhub:
-
-   <pre>
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-c04b14da8d14: Pull complete 
-Digest: sha256:0256e8a36e2070f7bf2d0b0763dbabdd67798512411de4cdcf9431a1feb60fd9
-Status: Downloaded newer image for hello-world:latest
-   </pre>
-
-   The expected response is:
-
-   <pre>
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-&nbsp;
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-&nbsp;
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-&nbsp;
-Share images, automate workflows, and more with a free Docker Hub account:
- https://hub.docker.com
-    </pre>
-
-
-0. Run the container just downloaded in a Mac:
-
-   <tt><strong>
-   docker run -it ubuntu bash
-   </strong></tt>
-
-   PROTIP: Mac uses ubuntu commands.
-
-   The response:
-
-   <pre>
-Unable to find image 'ubuntu:latest' locally
-latest: Pulling from library/ubuntu
-43db9dbdcb30: Pull complete 
-2dc64e8f8d4f: Pull complete 
-670a583e1b50: Pull complete 
-183b0bfcd10e: Pull complete 
-Digest: sha256:c6674c44c6439673bf56536c1a15916639c47ea04c3d6296c5df938add67b54b
-Status: Downloaded newer image for ubuntu:latest
-root@27eb89b0dc54:
-   </pre>
-
-   Wait for "Pull complete" for all the dependencies.
-
-   Alternately, on a CentOS machine:
-
-   <tt><strong>
-   docker run -it centos bash
-   </strong></tt>
-
-   The response:
-
-   <pre>
-Unable to find image 'centos:latest' locally
-latest: Pulling from library/centos
-8c3d77a518cb: Pull complete 
-Digest: sha256:7b754086d2c7d74ac39dc0a2545d7b06d4266f873d502feb5b3e8bfca27c5dd8
-Status: Downloaded newer image for centos:latest
-   </pre>
-
-   WARNING: The terminal prompt has changed
-   because you are now <strong>inside</strong> the container.
-
    <a name="CanDockerRun"></a>
 
    ### Can Docker Run? #
@@ -1471,7 +1481,7 @@ See 'docker run --help'.
 
    ### Docker pull
    
-0. To bring the Dockerfile local:
+0. To bring the Dockerfile local without running it also:
 
    <tt><strong>docker pull library/hello-world
    </strong></tt>
@@ -1521,7 +1531,7 @@ node                0.10.44-slim        f73347dab179        12 weeks ago        
 
    ### Dockviz
 
-0. PROTIP: Evaluate a third-party tool to display visualizations of image data:
+0. PROTIP: Consider a third-party tool to display visualizations of image data:
 
    <a target="_blank" href="https://github.com/justone/dockviz">
    dockviz</a> presents Docker image and container information in graphic form
@@ -1535,6 +1545,7 @@ node                0.10.44-slim        f73347dab179        12 weeks ago        
    shows how each command in Dockerfile contributes to the final Docker image,
    and discover which layers are shared by multiple images.
    It presents an ImageLayers badge about the size of an image, and how many layers it is composed of.
+
 
    <a name="DockerSearch"></a>
 
@@ -1552,6 +1563,7 @@ node                0.10.44-slim        f73347dab179        12 weeks ago        
    * blog app server base (wordpress, alpine)
    <br /><br />
 
+
    ### Windows Insider Images
 
    Before pulling Microsoft's images from https://hub.docker.com/u/microsoft/
@@ -1559,6 +1571,7 @@ node                0.10.44-slim        f73347dab179        12 weeks ago        
    They are of "beta" quality.
 
    docker pull microsoft/windowsservercore-insider
+
 
    ### Ubuntu search
 
@@ -1731,115 +1744,6 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
 
 <hr />
 
-## Run parameters
-
-Here are parameters to run an Nginx web server.
-
-   <tt><strong>docker help run
-   </strong></tt>
-
-   results in this:
-
-   <pre>
-Usage:   docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
-&nbsp;
-Run a command in a new container
-&nbsp;
-Options:
-      --add-host list                  Add a custom host-to-IP mapping (host:ip)
-  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
-      --blkio-weight uint16            Block IO (relative weight), between 10 and 1000, or 0 to disable (default 0)
-      --blkio-weight-device list       Block IO weight (relative device weight) (default [])
-      --cap-add list                   Add Linux capabilities
-      --cap-drop list                  Drop Linux capabilities
-      --cgroup-parent string           Optional parent cgroup for the container
-      --cidfile string                 Write the container ID to the file
-      --cpu-period int                 Limit CPU CFS (Completely Fair Scheduler) period
-      --cpu-quota int                  Limit CPU CFS (Completely Fair Scheduler) quota
-      --cpu-rt-period int              Limit CPU real-time period in microseconds
-      --cpu-rt-runtime int             Limit CPU real-time runtime in microseconds
-  -c, --cpu-shares int                 CPU shares (relative weight)
-      --cpus decimal                   Number of CPUs
-      --cpuset-cpus string             CPUs in which to allow execution (0-3, 0,1)
-      --cpuset-mems string             MEMs in which to allow execution (0-3, 0,1)
-  -d, --detach                         Run container in background and print container ID
-      --detach-keys string             Override the key sequence for detaching a container
-      --device list                    Add a host device to the container
-      --device-cgroup-rule list        Add a rule to the cgroup allowed devices list
-      --device-read-bps list           Limit read rate (bytes per second) from a device (default [])
-      --device-read-iops list          Limit read rate (IO per second) from a device (default [])
-      --device-write-bps list          Limit write rate (bytes per second) to a device (default [])
-      --device-write-iops list         Limit write rate (IO per second) to a device (default [])
-      --disable-content-trust          Skip image verification (default true)
-      --dns list                       Set custom DNS servers
-      --dns-option list                Set DNS options
-      --dns-search list                Set custom DNS search domains
-      --entrypoint string              Overwrite the default ENTRYPOINT of the image
-  -e, --env list                       Set environment variables
-      --env-file list                  Read in a file of environment variables
-      --expose list                    Expose a port or a range of ports
-      --group-add list                 Add additional groups to join
-      --health-cmd string              Command to run to check health
-      --health-interval duration       Time between running the check (ms|s|m|h) (default 0s)
-      --health-retries int             Consecutive failures needed to report unhealthy
-      --health-start-period duration   Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
-      --health-timeout duration        Maximum time to allow one check to run (ms|s|m|h) (default 0s)
-      --help                           Print usage
-  -h, --hostname string                Container host name
-      --init                           Run an init inside the container that forwards signals and reaps processes
-  -i, --interactive                    Keep STDIN open even if not attached
-      --ip string                      IPv4 address (e.g., 172.30.100.104)
-      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
-      --ipc string                     IPC namespace to use
-      --isolation string               Container isolation technology
-      --kernel-memory bytes            Kernel memory limit
-  -l, --label list                     Set meta data on a container
-      --label-file list                Read in a line delimited file of labels
-      --link list                      Add link to another container
-      --link-local-ip list             Container IPv4/IPv6 link-local addresses
-      --log-driver string              Logging driver for the container
-      --log-opt list                   Log driver options
-      --mac-address string             Container MAC address (e.g., 92:d0:c6:0a:29:33)
-  -m, --memory bytes                   Memory limit
-      --memory-reservation bytes       Memory soft limit
-      --memory-swap bytes              Swap limit equal to memory plus swap: '-1' to enable unlimited swap
-      --memory-swappiness int          Tune container memory swappiness (0 to 100) (default -1)
-      --mount mount                    Attach a filesystem mount to the container
-      --name string                    Assign a name to the container
-      --network string                 Connect a container to a network (default "default")
-      --network-alias list             Add network-scoped alias for the container
-      --no-healthcheck                 Disable any container-specified HEALTHCHECK
-      --oom-kill-disable               Disable OOM Killer
-      --oom-score-adj int              Tune host's OOM preferences (-1000 to 1000)
-      --pid string                     PID namespace to use
-      --pids-limit int                 Tune container pids limit (set -1 for unlimited)
-      --privileged                     Give extended privileges to this container
-  -p, --publish list                   Publish a container's port(s) to the host
-  -P, --publish-all                    Publish all exposed ports to random ports
-      --read-only                      Mount the container's root filesystem as read only
-      --restart string                 Restart policy to apply when a container exits (default "no")
-      --rm                             Automatically remove the container when it exits
-      --runtime string                 Runtime to use for this container
-      --security-opt list              Security Options
-      --shm-size bytes                 Size of /dev/shm
-      --sig-proxy                      Proxy received signals to the process (default true)
-      --stop-signal string             Signal to stop a container (default "SIGTERM")
-      --stop-timeout int               Timeout (in seconds) to stop a container
-      --storage-opt list               Storage driver options for the container
-      --sysctl map                     Sysctl options (default map[])
-      --tmpfs list                     Mount a tmpfs directory
-  -t, --tty                            Allocate a pseudo-TTY
-      --ulimit ulimit                  Ulimit options (default [])
-  -u, --user string                    Username or UID (format: &LT;name|uid>[:&LT;group|gid>])
-      --userns string                  User namespace to use
-      --uts string                     UTS namespace to use
-  -v, --volume list                    Bind mount a volume
-      --volume-driver string           Optional volume driver for the container
-      --volumes-from list              Mount volumes from the specified container(s)
-  -w, --workdir string                 Working directory inside the container
-   </pre>
-
-
 ### Run Latest Nginx from Docker Hub
 
 0. Run the latest version image pulled for nginx:
@@ -1849,18 +1753,21 @@ Options:
 
    `-i` means interactive: Keep STDIN open even if not attached
 
-   `-t` means tty: Allocate a pseudo-TTY
+   `-t` means tty: Allocate a pseudo-TTY (command line)
 
    Alternately:
 
-0. Run an NGINX web server detached:
+   Run an NGINX web server detached:
    
    <tt><strong>docker run -d -p 8080:80 nginx
    </strong></tt>
 
-   `-d` means detach: Run container in background and print container ID
+   `-d` specifies running in <strong>detached mode</strong>
+   so the container continues to run in background until stopped,
+   but does not respond to commands run on the command line. 
 
    `-p` means publish list: Publish a container's port(s) to the host
+   to set port mappings manually.
 
    The "8000:80" means we'll use http://localhost:8080.
 
@@ -1928,6 +1835,7 @@ dad20a229af5
 
 <hr />
 
+
    ### Run a custom reference 
 
 0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
@@ -1945,12 +1853,6 @@ dad20a229af5
    something like this:
 
    <tt>0.0.0.0:49166->443/tcp, 0.0.0.0:49167->80/tcp</tt>
-
-   "-p" (lower case p) is used to set port mappings manually.
-
-   "-d" specifies running in <strong>detached mode</strong>
-   so the container continues to run until stopped,
-   but does not respond to commands run on the command line. 
 
 0. To interact with a detached container:
 
@@ -2643,6 +2545,42 @@ You can do this on Windows as well today with the Windows 10 1607 or Windows Ser
 
 Register for Slack channel at
 https://community.docker.com/registrations/groups/4316
+
+
+## Dependencies in Docker 
+
+When an application starts, it's a problem if its dependencies are not available.
+
+   * Load configuration settings from a JSON encoded config file
+   * Access a working data directory
+   * Establish a connection to an external mysql database
+   <br /><br />
+
+Traditionally, the approach is to ensure the database is started before starting the applications that depend on it by using Puppet, Chef, Ansible, or other configuration management tool.
+
+<a target="_blank" href="https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c">
+"This is nothing more then a band-aid covering up the larger problem."</a>
+Kelsey Hightower says and recommends having app code handle the dependency problem.
+His sample in Go:
+
+   <a target="_blank" src="
+   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go">
+   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go</a>
+
+* load configuration files if it exists, but fall back to sane defaults.
+
+* Read environment variables to override configuration settings.
+
+* Manage working directories inside the application. If they are missing create them.
+
+* <strong>Retry</strong> the database connection, using some sort of backoff, and log errors along the way so alerts can be sent out.
+
+   This "defensive programming" code is the "optimistic" approach.
+   It's usually a transient problem.
+   At some point the database will come online.
+
+TODO: Put startup-related code in a library for re-use.
+
 
 ## More on DevOps #
 

@@ -121,7 +121,7 @@ ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/
 
   After a Dockerfile is prepared, execute from command prompt to create the corresponding image:
 
-  docker build . 
+  <pre>docker build . </pre>
 
   Run docker run <em>image-name</em> to create a container out of the image to execute it.
 
@@ -132,7 +132,8 @@ ENTRYPOINT ["java","<a target="_blank" href="http://www.thezonemanager.com/2015/
    operating systems.
    But different operating systems have different ways of specifying file paths such as:
 
-   <tt>APP_CONFIG=/etc/dev.config</tt>
+   <tt><strong>APP_CONFIG=/etc/dev.config
+   </strong></tt>
 
    Such files would contain API keys and flags to vary app behavior without requiring a re-deploy.
 
