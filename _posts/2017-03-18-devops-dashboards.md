@@ -58,9 +58,9 @@ Each team has its own "tactical" dashboard to present detailed information real-
 
 Hygeia provides visual and quick access to detailed process data collected from several sources:
 
-   * "Build" from individual projects in Jenkins, Hudson, TeamCity CI tools
+   * "Build" from individual projects in Jenkins, Hudson, TeamCity, udeploy, xldeploy CI tools
 
-   * "Feature" shows features and items in projects within <strong>JIRA</strong>.
+   * "Feature" shows features and items in projects within <strong>JIRA</strong>, versionone.
 
    * "Code repo" (commits per day) of a specific branch of a single repo within GitHub, Subversion, BitBucket, GitLab
 
@@ -68,11 +68,9 @@ Hygeia provides visual and quick access to detailed process data collected from 
 
    * "Monitor" shows deployments to servers. Red and green dots represent whether the server is up or down.
 
-      PROTIP: What about response time and network latency?
-
    * Version numbers in a Maven build specification file.
 
-   * Performance testing?
+Additional collectors specified in <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/docker-compose.yml">docker-compose.yml</a> include artifactory, appdynamics.
 
 QUESTION: Does the dashboard cover 
 these 16 gates in the pipeline (10 Commandments in octal):
@@ -104,11 +102,29 @@ these 16 gates in the pipeline (10 Commandments in octal):
 ![hygieia-pgm-shift-left-600x219](https://cloud.githubusercontent.com/assets/300046/24074674/af146176-0be3-11e7-9eac-358a0a657ba7.png)
 <a target="_blank" href="https://www.dynatrace.com/blog/scaling-continuous-delivery-shift-left-performance-to-improve-lead-time-pipeline-flow/">*</a>
 
+Added since <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/gh-pages/pages/hygieia/Hygieia2.md">version 2</a> is statistical analysis for <strong>trends</strong> of health and speed.
+One row for each team (such as "Tetris" in the example).
+
+PROTIP: I recommend against a competitive comparison of numbers achieved by each team
+because that encourages unintended consequences such as increase in hidden quality issues and technical debt.
+Each team has different challenges.
+
 Hygieia limits itself to just these environments:
 
    commit > build > DEV > QA > INT > PERF > PROD
 
+
+<a name="HealthMetrics"></a>
+
+## More Health Metrics
+
 PROTIP: Symptoms of health should also include:
+
+   * Response time and network latency as a function of load?
+
+   ![perf-607x173](https://user-images.githubusercontent.com/300046/31853188-3c88f15a-b64a-11e7-8a79-db8ce889c4a3.jpg)
+
+   Was this pattern of performance predicted from testing?
 
    * <strong>Cycle time</strong> from idea to production, time to instantiate a server.
 
@@ -171,17 +187,29 @@ that reflect <strong>customer experience</strong>
 
    * Employee satisfaction
    * Employee turnover rate
+   <br /><br />
+
+Many may balk that the above are not "relevant" to DevOps.
+But if not, then how important is the justification for going DevOps?
 
 
 ## Hygieia Build
 
-http://www.capitalone.io/Hygieia/setup.html
-
-https://github.com/capitalone/Hygieia
+<a target="_blank" href="
+http://www.capitalone.io/Hygieia/setup.html">
+http://www.capitalone.io/Hygieia/setup.html</a> references code and automation at<br />
+<a target="_blank" href="
+https://github.com/capitalone/Hygieia">
+https://github.com/capitalone/Hygieia</a>
 
 0. In a Google Compute Cloud Console.
 
    QUESTION: Is there a Terraform template?
+
+0. Within the Google Cloud Console execute:
+
+   curl -fsSL https://github.com/wilsonmar/hygieia | sh
+
 
 0. Automation to instantiate a cluster of servers to establish Hygieia is at:
 
