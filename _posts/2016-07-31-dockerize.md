@@ -41,7 +41,7 @@ Let's begin with an example.
 
     Alternately, you may prefer to open the file using a text editor or IDE.
 
-    There are only a handful of instructions in a Dockerfile.
+    There are only a handful of instructions (verbs) in a Dockerfile.
 
     <pre>
 FROM node:0.10.44-slim
@@ -57,16 +57,15 @@ ENTRYPOINT ["/home/demo/box/boot.sh"]
    
    \# ("pound sign") begins a comments line or a directive.
 
-   * FROM sets the image to an operating system image. For options, do a 
-   <a href="#DockerSearch">. This must be the first line.
-   docker search</a>.
-   * MAINTAINER defines the file's author
+   * FROM must be the first line. It sets the image to an operating system image. For options, do a 
+   <a href="#DockerSearch">docker search</a>.
+   * MAINTAINER Wilson Mar \<wilsonmar@gmail.com> # defines the file's author
    * USER
    * ARG user1=someuser # referenced by --build-arg user=what_user in docker build
    * ARG CONT_IMG_VER 
    * ENV CONT_IMG_VER ${CONT_IMG_VER:-v1.0.0}
-   * ENV foo /bar
    * ENV def=$abc
+   * ENV foo /bar
    * WORKDIR ${foo}    # sets working directory to /bar
    * VOLUME /tmp
    * ADD . $foo        # add . /bar to file system
