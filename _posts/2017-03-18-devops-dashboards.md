@@ -17,13 +17,20 @@ comments: true
 
 {% include _toc.html %}
 
-Hygieia (pronouced hi-GEE-ya, the name of the <a target="_blank" href="https://www.wikiwand.com/en/Hygieia">
+There are several approaches to providing visibility of workflow to DevSecOps, to
+display <strong>dashboard</strong> the various statistics of a software delivery pipeline. 
+
+Organizations can make use of general-purpose visualization tools 
+
+There are also purpose-built dashboard software.
+Hygieia (pronouced hi-GEE-ya), <a target="_blank" href="https://developer.capitalone.com/opensource-projects/hygieia/">open-sourced by Capital One</a> (the credit card company) 
+is named after the <a target="_blank" href="https://www.wikiwand.com/en/Hygieia">
 daughter of the Greek god of medicine and personification of hygiene and prevention of illness</a>.
 
-The name is adopted for an open-source software project created at CapitalOne (the credit card company) 
-which displays in a single <strong>dashboard</strong> the various statistics of a software delivery pipeline. 
 
-## Demos and videos
+## Videos
+
+These videos describes:
 
 <a target="_blank" href="https://www.youtube.com/watch?v=WuPQOBMmzSE">
 https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
@@ -39,34 +46,33 @@ https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
 
 https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
 
-## Info
-
-<a target="_blank" href="https://developer.capitalone.com/opensource-projects/hygieia/">
-https://developer.capitalone.com/opensource-projects/hygieia</a>
-
-<a target="_blank" href="https://gitter.im/capitalone/Hygieia/">
-https://gitter.im/capitalone/Hygieia</a>
-
 
 <a name="TeamDashboard"></a>
 
 ## Team Dashboard Widget View
 
+Each team has its own "tactical" dashboard to present detailed information real-time (NOW):
+
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg">
 <img width="400" alt="hygiea-screenshot-2848x1666" src="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg"><br />(Click for pop-up full image)</a>
 
-   * Features and items in progress
+Hygeia provides visual and quick access to detailed process data collected from several sources:
 
-   * Code repo (commits per day) -- from GitLab
+   * "Build" from individual projects in Jenkins, Hudson, TeamCity CI tools
 
-   * Builds from Jenkins
+   * "Feature" shows features and items in projects within <strong>JIRA</strong>.
 
-   * Quality of code from scans for compliance to rules for security and other aspects of coverage -- from SonarQube
+   * "Code repo" (commits per day) of a specific branch of a single repo within GitHub, Subversion, BitBucket, GitLab
 
-   * Unit/Functional tests 
+   * "Quality" shows code coverage and number of defects found in code scans done by SonarQube
 
-   * Deployments to servers -- from Jenkins<br />
-   with server status
+   * "Monitor" shows deployments to servers. Red and green dots represent whether the server is up or down.
+
+      PROTIP: What about response time and network latency?
+
+   * Version numbers in a Maven build specification file.
+
+   * Performance testing?
 
 QUESTION: Does the dashboard cover 
 these 16 gates in the pipeline (10 Commandments in octal):
@@ -78,17 +84,20 @@ these 16 gates in the pipeline (10 Commandments in octal):
 0. Source code version control
 0. Optimum branching strategy [Git and GitHub or GitLab, etc.]
 0. Static analysis [SonarQube]
-0. GT; 80% code coverage
+0. Code coverage
 0. Vulnerability scan
 0. Open source scan [Black Duck]
 0. Artifact version control [Nexus or Artifactory]
-0. Auto provision [Puppet or Chef]
+0. Auto provision
 0. Immutable servers
 0. Integration testing
 0. Performance testing
 0. Build, Deploy, Testing automated for every commit
 0. Automated Change Order
 0. Zero downtime release
+
+
+<a name="ProgramLevel"></a>
 
 ## Program-level Pipeline Dashboard
 
@@ -101,7 +110,7 @@ Hygieia limits itself to just these environments:
 
 PROTIP: Symptoms of health should also include:
 
-   * <strong>Cycle time</strong> from idea to production
+   * <strong>Cycle time</strong> from idea to production, time to instantiate a server.
 
    * Man-Months of backlog in innovations and defect fix effort
 
@@ -111,6 +120,8 @@ PROTIP: Symptoms of health should also include:
 
    * Percent of development (coding) innovation vs. repetitive work
 
+
+<a name="Trends"></a>
 
 ## Trends over time 
 
@@ -135,7 +146,10 @@ over <strong>innovation</strong>.
 QUESTION: Should trend information be considered during a
 Production Readiness Review (PRR)?
 
-### Financial
+
+<a name="Financial"></a>
+
+## Financial and Strategic
 
 <strong>Executives and business managers</strong>
 typically focus on <strong>financials</strong> :
@@ -144,9 +158,7 @@ typically focus on <strong>financials</strong> :
    * Total cost as percent of revenue
    * Total revenue per employee
 
-## Bottom Line For Executives
-
-Upper management need to manager a longer time horizon.
+Upper management need to manage over a longer time horizon.
 So they need to see <strong>trends</strong> over time, especially those 
 that reflect <strong>customer experience</strong>
 (not just internal processes):
@@ -161,16 +173,25 @@ that reflect <strong>customer experience</strong>
    * Employee turnover rate
 
 
-## Architecture
+## Hygieia Build
 
-Hygieia was written in Java to store data in a MongoDB database.
+http://www.capitalone.io/Hygieia/setup.html
 
-The Hygieia API server exposes REST APIs written in Spring Boot and mysema.querydsl.
+https://github.com/capitalone/Hygieia
 
-The Hygieia core server provides the UI to data collected.
+0. In a Google Compute Cloud Console.
 
+   QUESTION: Is there a Terraform template?
 
-## Install server
+0. Automation to instantiate a cluster of servers to establish Hygieia is at:
+
+   https://github.com/wilsonmar/Dockfiles/Hygieia
+
+   NOTE: Hygieia was written in Java to store data in a MongoDB database.
+
+   The Hygieia API server exposes REST APIs written in Spring Boot and mysema.querydsl.
+
+   The Hygieia core server provides the UI to data collected.
 
 0. Fork <a target="_blank" href="https://github.com/capitalone/Hygieia/">
 https://github.com/capitalone/Hygieia</a>
@@ -210,6 +231,11 @@ https://github.com/capitalone/Hygieia</a>
 
 
 PROTIP: Have computer programs monitor servers and take automatic actions.
+
+## More Info
+
+<a target="_blank" href="https://gitter.im/capitalone/Hygieia/">
+https://gitter.im/capitalone/Hygieia</a>
 
 
 

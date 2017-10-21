@@ -19,13 +19,8 @@ This is a hands-on tutorial on how to create
 Dockerfile and docker-compose files
 that contain commands controlling how Docker instantiates containers across several operating systems.
 
-Some refrences:
-
-   * https://deis.com/blog/2015/dockerfile-instructions-syntax/
-
-   * https://runnable.com/docker/java/dockerize-your-java-application
-
 A Docker image is a read-only template used to create and launch a Docker container.
+
 
 ## Dockerize apps #
 
@@ -50,15 +45,13 @@ Let's begin with an example.
 
     <pre>
 FROM node:0.10.44-slim
-&nbsp;
 ADD . /home/demo/box/
-&nbsp;
 RUN cd /home/demo/box && npm install
-&nbsp;
 ENTRYPOINT ["/home/demo/box/boot.sh"]
    </pre>
 
    <a href="#VerifyInstall">Skip to see this built</a>.
+
 
    ### Docker builder instructions #
    
@@ -231,14 +224,21 @@ See https://docs.docker.com/v1.11/compose/compose-file/
 
 ## More resources #
 
-Blogs on this topic:
+This tutorial is based on these and other resources:
+
+   * https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#user
+   details ENTRYPOINT
 
    * http://thediscoblog.com/blog/2014/05/05/dockerfiles-in-a-jiffy/
 
    * https://github.com/prakhar1989/docker-curriculum
    by prakhar1989, who was propelled to #18 on GitHub
    due largely to this tutorial.
-   
+
+   * https://deis.com/blog/2015/dockerfile-instructions-syntax/
+
+   * https://runnable.com/docker/java/dockerize-your-java-application
+
 
 ## More on DevOps #
 
