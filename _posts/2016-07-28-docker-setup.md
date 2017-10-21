@@ -1233,10 +1233,12 @@ OSX with Docker Toolbox
 
 
 
-## Run Dockerfiles
+## Run from Docker Hub
 
    PROTIP: Similar to Python, most people run commands within a Docker machine
    (which is the whole point of installing Docker).
+
+   From https://docs.docker.com/v1.8/introduction/understanding-docker/
 
 ![docker-flow-505x264-37904](https://user-images.githubusercontent.com/300046/31818177-94513b16-b55c-11e7-834e-699f7ea9c4d6.jpg)
 
@@ -1244,9 +1246,8 @@ OSX with Docker Toolbox
 
 0. You need to be <a href="#DockerLogin">logged into Docker Hub</a>.
 
-   <a name="DockerHello"></a>
 
-   ### Run from Docker Hub #
+   <a name="DockerHello"></a>
 
 0. To verify whether you can access a simple image:
 
@@ -1769,6 +1770,8 @@ repositoryjp/centos           Docker Image for CentOS.                        0 
    `-p` means publish list: Publish a container's port(s) to the host
    to set port mappings manually.
 
+   PROTIP: Even though we are using the MySQL default port, if we don't tell docker explicitly we want to map it, it will block access through that port (because containers are isolated until you tell them you want access).
+
    The "8000:80" means we'll use http://localhost:8080.
 
    The correct response is a hash, the container's ID, such as:
@@ -1809,6 +1812,16 @@ aa2ccdb153cc        nginx               "nginx -g 'daemon ..."   5 hours ago    
 
    NOTE: The hello-world script contains an exit statement, so it automatically stopped on its own.
    However, other scripts, such as web services, do not exit on their own.
+   
+0. Get the history of space for an image:
+
+   <tt><strong>docker history hello-world
+   </strong></tt>
+
+0. To get the JSON associated with a 12-character container ID:
+
+   <tt><strong>docker inspect 0b7f9b9eb35a
+   </strong>
 
 
    ### Stop 
@@ -1835,8 +1848,98 @@ dad20a229af5
 
 <hr />
 
+## MySQL
 
-   ### Run a custom reference 
+   <a targt="_blank" href="http://www.dwmkerr.com/learn-docker-by-building-a-microservice/">DOC</a>
+
+   To prevent attacks using default passwords,
+   MySQL now requires its password to be changed when instantiated:
+
+   <pre>
+   docker run --name db -d -e MYSQL_ROOT_PASSWORD=123 -p 3306:3306 mysql:latest
+   </pre>
+
+0. Connect to the image:
+
+   <tt><strong>docker exec -it db /bin/bash
+   </strong></tt>
+
+   The prompt changes to include the Container ID:
+
+   <pre>root@39342b61defb:/# </pre>
+
+0. Run a process:
+
+   <tt><strong>mysql -uroot -p123  
+   </strong></tt>
+
+   The prompt changes to SQL after some information:
+
+   <pre>
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.20 MySQL Community Server (GPL)
+&nbsp;
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+&nbsp;
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+&nbsp;
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+&nbsp;
+mysql>
+   </pre>
+
+
+## Dependencies in Docker 
+
+When an application starts, it's a problem if its dependencies are not available:
+
+   * Load configuration settings from a JSON encoded config file
+   * Access a working data directory
+   * Establish a connection to an external mysql database
+   <br /><br />
+
+Traditionally, the approach is to ensure the database is started before starting the applications that depend on it by using Puppet, Chef, Ansible, or other configuration management tool.
+
+<a target="_blank" href="https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c">
+"This is nothing more then a band-aid covering up the larger problem."</a>
+Kelsey Hightower says and recommends having app code handle the dependency problem.
+His sample in Go:
+
+   <a target="_blank" src="
+   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go">
+   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go</a>
+
+TODO: Put startup-related code in a library for re-use.
+
+* load configuration files if it exists, but fall back to sane defaults.
+
+* Read environment variables to override configuration settings.
+
+* Manage working directories inside the application. If they are missing create them.
+
+* <strong>Retry</strong> the database connection, using some sort of backoff, and log errors along the way so alerts can be sent out.
+
+   This "defensive programming" code is the "optimistic" approach.
+   It's usually a transient problem.
+   At some point the database will come online.
+
+
+### MySQL security #
+
+Docker does have different security requirements which can seem to be a hindrance. 
+
+Security can be integrated but it does require knowledge of the Linux container environment.
+
+https://blog.docker.com/2013/08/containers-docker-how-secure-are-they/
+
+
+<hr />
+
+## Run custom reference 
 
 0. <a target="_blank" href="https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/">
    This blog</a> shows this command to run image named "mynginx1":
@@ -1865,13 +1968,9 @@ dad20a229af5
 
 0. To run the latest Ubuntu box inside your Mac:
 
-   <tt><strong>
+   <pre><strong>
    docker run -it --rm --publish 3000:3000 ubuntu bash
-   </strong></tt>
-
-   "-it" means interactive (tty) terminal, 
-   specifying that the image should contain a shell when it runs
-   so it can be terminated manually by Ctrl+C.
+   </strong></pre>
 
    "--publish" forwards port 3000 on the host from port 3000 in the container.
 
@@ -1880,9 +1979,9 @@ dad20a229af5
 
    Alternately, run version 14.04 of Ubuntu:
 
-   <tt><strong>
-   docker run --net=host -ti ubuntu:14.04 bash
-   </strong></tt>
+   <pre><strong>
+   docker run \-\-net=host -ti ubuntu:14.04 bash
+   </strong></pre>
 
    After downloads, you should see a bash prompt such as:
 
@@ -2427,13 +2526,6 @@ See https://docs.docker.com/swarm/
 See http://autopilotpattern.io/
 
 
-## Additional notes on security #
-
-Docker does have different security requirements which will be a hindrance. 
-Security can be integrated but it does require knowledge of the Linux container environment.
-
-https://blog.docker.com/2013/08/containers-docker-how-secure-are-they/
-
 ## Resources
 
 ### Articles
@@ -2545,41 +2637,6 @@ You can do this on Windows as well today with the Windows 10 1607 or Windows Ser
 
 Register for Slack channel at
 https://community.docker.com/registrations/groups/4316
-
-
-## Dependencies in Docker 
-
-When an application starts, it's a problem if its dependencies are not available.
-
-   * Load configuration settings from a JSON encoded config file
-   * Access a working data directory
-   * Establish a connection to an external mysql database
-   <br /><br />
-
-Traditionally, the approach is to ensure the database is started before starting the applications that depend on it by using Puppet, Chef, Ansible, or other configuration management tool.
-
-<a target="_blank" href="https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c">
-"This is nothing more then a band-aid covering up the larger problem."</a>
-Kelsey Hightower says and recommends having app code handle the dependency problem.
-His sample in Go:
-
-   <a target="_blank" src="
-   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go">
-   https://github.com/kelseyhightower/12-fractured-apps/blob/master/v3/main.go</a>
-
-* load configuration files if it exists, but fall back to sane defaults.
-
-* Read environment variables to override configuration settings.
-
-* Manage working directories inside the application. If they are missing create them.
-
-* <strong>Retry</strong> the database connection, using some sort of backoff, and log errors along the way so alerts can be sent out.
-
-   This "defensive programming" code is the "optimistic" approach.
-   It's usually a transient problem.
-   At some point the database will come online.
-
-TODO: Put startup-related code in a library for re-use.
 
 
 ## More on DevOps #
