@@ -221,6 +221,8 @@ https://github.com/capitalone/Hygieia</a>
 
    The Hygieia core server provides the UI to data collected.
 
+   https://stackoverflow.com/questions/21065922/how-to-open-a-specific-port-such-as-9090-in-google-compute-engine
+
 0. Fork <a target="_blank" href="https://github.com/capitalone/Hygieia/">
 https://github.com/capitalone/Hygieia</a>
    to your own account.
