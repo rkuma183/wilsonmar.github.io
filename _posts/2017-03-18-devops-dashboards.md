@@ -67,9 +67,11 @@ Hygeia provides visual and quick access to detailed process data collected from 
 
    * "Quality" shows code coverage and number of defects found in code scans done by SonarQube
 
-   * "Monitor" shows deployments to servers. Red and green dots represent whether the server is up or down.
+   * "Monitor" shows deployments to servers. Red and green dots represent whether the server is up or down
 
-   * Version numbers in a Maven build specification file.
+   * Version numbers in a Maven build specification file
+
+   * "Nexus artifacts" from the binary repository
 
    * <a target="_blank" <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/misc/chat-ops">ChatOps</a>
 
