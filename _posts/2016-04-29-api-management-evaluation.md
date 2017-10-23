@@ -144,6 +144,8 @@ https://en.wikipedia.org/wiki/Comparison_of_text_editors
 
 ### Gartner Magic Quadrant
 
+![api-gartner-2016-oct-697x697-48797](https://user-images.githubusercontent.com/300046/31918141-ff1d6306-b80f-11e7-898e-41f1f390c30d.jpg)
+
 ![gartner-api-governance-2015](https://cloud.githubusercontent.com/assets/300046/15166279/858e6896-16da-11e6-9075-76191c993feb.png)
 
 
