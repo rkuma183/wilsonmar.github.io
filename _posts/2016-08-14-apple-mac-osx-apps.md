@@ -16,6 +16,43 @@ comments: true
 
 PROTIP: After installation, in the Finder, right-click on the installer to free up disk space.
 
+<a id="VNC"></a>
+
+## VNC 
+
+1. Enable screen sharing on the server.
+
+   There are also 3rd-party apps to VNC into (typically Linux) servers:
+   "Chicken of the VNC" sucks, CotVNC sucks,
+   Real VNC at http://www.realvnc.com/download/viewer/
+
+   One that requires no additional downloads is "Screen Sharing" that Apple includes.
+
+   There are two ways to open it: 
+
+0. Press <strong>command+Tab</strong> to the Finder, then 
+   <strong>command+K</strong> for the "Connect to Server" dialog.
+
+   This enables you to select prior addresses.
+
+   Alternately, in a Safari browser tab and instead of typing protocol 
+   "http://" or "https://", type "VNC://" followed by an IP address, such as:
+
+   `vnc://35.197.119.148`
+
+   The browser approach requires an extra step to click "Connect To" IP address at the pop-up confirmation page.
+
+   NOTE: This uses the "Screen Sharing" app within `/System/Library/CoreServices/Applications` since Yosemite.
+
+
+
+### VNC from Finder
+
+0. 
+
+
+
+
 <a id="BrowserPlugins"></a>
 
 ## Browser Plugins

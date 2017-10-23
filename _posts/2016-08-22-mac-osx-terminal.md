@@ -21,24 +21,25 @@ This tutorial describes how to make use of Terminal to make your life easier and
 What Apple calls the Terminal is a Bash shell.
 
 
-## Finder
-
-Three ways to relaunch the Finder:
-
-0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
-
-0. Press the command key with your right hand and option+esc key combo with your left hand
-   for the Force Quit menu. Then select the Finder and click Relaunch.
-
-0. Click the Apple button at the upper-left corner to select <strong>Log out</strong>. 
-   Then log back in to your user account.
-
 
 <a id="Terminalz"></a>
 
 ## Open Terminal from Finder Folder #
 
-If you're a developer, it's hard to get away from using a command-line terminal. But if you're using a MacOS just for social media, you won't need a Terminal. That's why it's kinda buried:
+Three ways to relaunch the Finder:
+
+   0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
+
+   0. Press the command key with your right hand and option+esc key combo with your left hand
+   for the Force Quit menu. Then select the Finder and click Relaunch.
+
+   0. Click the Apple button at the upper-left corner to select <strong>Log out</strong>. 
+   Then log back in to your user account.
+
+
+If you're a developer, it's hard to get away from using a command-line terminal. 
+But if you're using a MacOS just for social media, you won't need a Terminal. 
+Perhaps that's why it's kinda buried:
 
 0. Click the Finder icon on the bottom.
 0. Click Applications on the left pane.

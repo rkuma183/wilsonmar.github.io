@@ -96,13 +96,20 @@ The vendors and their product, ranked by total points averaged among raters:
 
 Each link may go to text lower in this document, to another page on this site, or the home page of the vendor:
 
-0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited.
-   For Microsoft shops. No SOAP or RAML support yet.
-0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">Amazon's API Gateway</a>. SaaS-only proprietary code.
-   The most flexible.
-0. <a target="_blank" href="https://www.mulesoft.com/">Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code. Full featured.
-0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">Apigee</a> Edge Microgateway + hosting. Proprietary code.
-   OEM'd by SAP.
+0. CA (acquired Layer 7), on-prem only, but vaulted to the top of Gartner's "Ability to Execute" in 2016.
+0. <a target="_blank" href="http://apigee.com/about/products/predictive-analytics">
+   Apigee</a> Edge Microgateway + hosting. Proprietary code.
+   OEM'd by SAP. Leads in Gartner's "Completeness of vision" scale.
+0. <a target="_blank" href="https://www.mulesoft.com/">
+   Mulesoft</a> CloudHub, Anypoint Platform. Proprietary code. "Full featured".
+
+0. [Microsoft API Management in the Azure cloud](/api-management-microsoft/) is SaaS-only and proprietary. Advanced features limited. For Microsoft shops. No SOAP or RAML support yet. Dropped off Gartner's report in 2016.
+0. <a target="_blank" href="https://aws.amazon.com/api-gateway/">
+   Amazon's API Gateway</a>. SaaS-only proprietary code. Seems flexible.
+   Dropped off Gartner's report in 2016.    
+
+0. IBM's API management offering is IBM API Connect (previously known as IBM API Management).
+   Has an "Essentials" level (StrongLoop) for free use by developers and "Enterprise" on-premises option.
 
 0. <a target="_blank" href="http://wso2.com/advantages/">WSO2</a> open-source
 0. <a target="_blank" href="https://www.apinf.io/">apinf.com</a> from Finland (@APInf_io) open-source in
@@ -115,7 +122,6 @@ Each link may go to text lower in this document, to another page on this site, o
 0. <a target="_blank" href="http://www.apiversity.com/">APIversity</a> API Manager.
 0. Akana (formerly SOA Software)
 0. Axway (acquired Vordel)
-0. CA (acquired Layer 7), on-prem only
 0. <a target="_blank" href="http://www.mashery.com/">Mashery</a> + Intel acquired + Tibco API Exchange CloudBus Aug. 2015
 0. Torry Harris mostly open-source API-o-Blocks, API Connect in EMEA, India and Latin America.
 0. Oracle
