@@ -58,17 +58,22 @@ Each team has its own "tactical" dashboard to present detailed information real-
 
 Hygeia provides visual and quick access to detailed process data collected from several sources:
 
-   * "Build" from individual projects in Jenkins, Hudson, TeamCity, udeploy, xldeploy CI tools
+   * "Build" from individual projects in Jenkins, Bamboo, Hudson, TeamCity, udeploy, xldeploy, <a target="_blank" href="https://github.com/capitalone/Hygieia/tree/master/collectors/build/jenkins-cucumber">Cucumber</a> CI tools
 
    * "Feature" shows features and items in projects within <strong>JIRA</strong>, versionone.
 
-   * "Code repo" (commits per day) of a specific branch of a single repo within GitHub, Subversion, BitBucket, GitLab
+   * "Code repo" (commits per day) of a specific branch of a single repo collected from within 
+   <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/scm/github">GitHub</a>, <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/scm/subversion">Subversion</a>, <a target="_blank" href="https://github.com/capitalone/Hygieia/tree/master/collectors/scm/bitbucket">BitBucket</a>, <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/scm/gitlab">GitLab</a>
 
    * "Quality" shows code coverage and number of defects found in code scans done by SonarQube
 
    * "Monitor" shows deployments to servers. Red and green dots represent whether the server is up or down.
 
    * Version numbers in a Maven build specification file.
+
+   * <a target="_blank" <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/misc/chat-ops">ChatOps</a>
+
+   * <a target="_blank" <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/cloud/aws">AWS</a>
 
 Additional collectors specified in <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/docker-compose.yml">docker-compose.yml</a> include artifactory, appdynamics.
 
@@ -116,15 +121,21 @@ Hygieia limits itself to just these environments:
 
 <a name="HealthMetrics"></a>
 
-## More Health Metrics
+## Higher Order Metrics
 
-PROTIP: Symptoms of health should also include:
+PROTIP: Consider using metrics that reveal "higher order" calculations that can be use to
+<strong>predict</strong> future health and be used as the basis for recommendations.
 
-   * Response time and network latency as a function of load?
+   * Elapsed response time as a function of load?
 
    ![perf-607x173](https://user-images.githubusercontent.com/300046/31853188-3c88f15a-b64a-11e7-8a79-db8ce889c4a3.jpg)
 
    Was this pattern of performance predicted from testing?
+
+   * Network latency separate from server response time by having monitoring clients near the server.
+
+   * Difference in response time before and after a change.
+
 
    * <strong>Cycle time</strong> from idea to production, time to instantiate a server.
 
@@ -136,6 +147,11 @@ PROTIP: Symptoms of health should also include:
 
    * Percent of development (coding) innovation vs. repetitive work
 
+   * http://www.veracode.com/services/veracode-vs.-on-premise-tools
+   
+See
+
+   * http://www.smlcodes.com/tutorials/hygieia-dashboard-tutorial/
 
 <a name="Trends"></a>
 
