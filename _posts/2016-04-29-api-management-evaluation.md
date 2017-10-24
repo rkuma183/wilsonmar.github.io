@@ -157,7 +157,7 @@ https://en.wikipedia.org/wiki/Comparison_of_text_editors
 <!-- 766x602 -->
 
 This radar polar chart visually illustrates the relative importance of
-each criteria we used to evaluate options.
+each criteria that can be used to evaluate each vendor offering.
 
 If everything has the same importance, no trade-offs are considered.
 
@@ -178,6 +178,8 @@ But here are more considerations:
 ![polar-chart-2](https://cloud.githubusercontent.com/assets/300046/14914539/44f83b42-0dc8-11e6-84ff-ba8c2317a808.png)
 
 TODO: The above is an example placeholder.
+
+This is like the CAP Theorem.
 
 
 <a name="VariationAmongRaters"></a>

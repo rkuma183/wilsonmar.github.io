@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jenkins Setup"
-excerpt: "Meet your robot butler"
+excerpt: "Make your robot butler"
 tags: [Jenkins, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -82,6 +82,8 @@ From the easiest to the most effort:
    * <a href="#Choco_Windows">Windows</a> locally using Chocolatey
    * <a href="#Install_Windows">Windows</a> locally by download
    * <a href="#Install_Linux">Linux</a> locally
+
+   * <a href="#Ansible">Ansible</a>
 
 <hr />
 
@@ -1229,7 +1231,14 @@ So here is the approach that Umesh Lakana recommends:
    <a target="_blank" href="http://ftp.tsukuba.wide.ad.jp/software/jenkins/war-stable/2.7.1/jenkins.war">
    http://ftp.tsukuba.wide.ad.jp/software/jenkins/war-stable/2.7.1/jenkins.war</a>
 
-TODO: 
+
+<a name="Ansible"></a>
+
+## Ansible #
+
+   See https://blog.nimbleci.com/2016/10/11/how-to-deploy-jenkins-completely-pre-configured/
+
+<hr />
 
 <a id="Verify_install"></a>
 
