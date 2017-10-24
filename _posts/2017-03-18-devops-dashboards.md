@@ -51,12 +51,12 @@ https://www.spreaker.com/user/pureperformance/012-automating-performance-into-th
 
 ## Team Dashboard Widget View
 
-Each team has its own "tactical" dashboard to present detailed information real-time (NOW):
+Each team has its own "tactical" dashboard to present detailed information real-time:
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg">
 <img width="400" alt="hygiea-screenshot-2848x1666" src="https://cloud.githubusercontent.com/assets/300046/24074613/8b7f7f62-0be2-11e7-9c78-867c0343fd00.jpg"><br />(Click for pop-up full image)</a>
 
-Hygeia provides visual and quick access to detailed process data collected from several sources:
+Hygeia provides visual and quick access to detailed process data collected from several sources, so team members don't have to keep several tabs open:
 
    * "Build" from individual projects in Jenkins, Bamboo, Hudson, TeamCity, udeploy, xldeploy, <a target="_blank" href="https://github.com/capitalone/Hygieia/tree/master/collectors/build/jenkins-cucumber">Cucumber</a> CI tools
 
@@ -77,7 +77,9 @@ Hygeia provides visual and quick access to detailed process data collected from 
 
    * <a target="_blank" <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/collectors/cloud/aws">AWS</a>
 
-Additional collectors specified in <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/docker-compose.yml">docker-compose.yml</a> include artifactory, appdynamics.
+Additional collectors specified in <a target="_blank" href="https://github.com/capitalone/Hygieia/blob/master/docker-compose.yml">docker-compose.yml</a> include artifactory, appdynamics.  Emmett?
+
+PROTIP: Again, this visibility should not used for those outside the team to meddle with questions such as "why is this particular one 15"?
 
 QUESTION: Does the dashboard cover 
 these 16 gates in the pipeline (10 Commandments in octal):
@@ -138,6 +140,8 @@ PROTIP: Consider using metrics that reveal "higher order" calculations that can 
 
    * Difference in response time before and after a change.
 
+   <a target="_blank" href="http://performance1.teachable.com/courses/204458/lectures/3137292">
+   <img alt="dashboard-diff-689x291-28926" width="689" src="https://user-images.githubusercontent.com/300046/31932540-657936b6-b85b-11e7-9ba3-4ee4bdbccf86.jpg"></a>
 
    * <strong>Cycle time</strong> from idea to production, time to instantiate a server.
 
