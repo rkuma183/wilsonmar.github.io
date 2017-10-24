@@ -143,7 +143,9 @@ PROTIP: Consider using metrics that reveal "higher order" calculations that can 
    <a target="_blank" href="http://performance1.teachable.com/courses/204458/lectures/3137292">
    <img alt="dashboard-diff-689x291-28926" width="689" src="https://user-images.githubusercontent.com/300046/31932540-657936b6-b85b-11e7-9ba3-4ee4bdbccf86.jpg"></a>
 
-   * <strong>Cycle time</strong> from idea to production, time to instantiate a server.
+   * <strong>Cycle time</strong> to instantiate a server.
+
+   ![gce-startup-time-640x326](https://user-images.githubusercontent.com/300046/31769426-262e939a-b499-11e7-8c7d-7e4bf0057107.png)
 
    * Man-Months of backlog in innovations and defect fix effort
 
