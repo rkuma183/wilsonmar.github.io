@@ -29,7 +29,7 @@ https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
 * https://groups.google.com/forum/#!forum/jmeter-plugins
 
 
-## Install Java
+## Install Java Dependency
 
 JMeter is written in Java for cross-platform sweetness.
 
@@ -68,53 +68,105 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ## Install JMeter
 
-   There are several ways to obtain a running instance of JMeter.
+There are several ways to obtain a running instance of JMeter,
+listed from easiest to most difficult:
+
+A) You don't need a local machine if you use the cloud service 
+   <a href="#Blazemeter">Blazemeter</a> or Flood.io
+
+B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
+   within a Google Compute or AWS cloud instance.
+
+C) Use the Dockerfile to build your own Docker image containing JMeter.
+
+D) <a href="Homebrew">Use Homebrew to install JMeter natively on you Mac</a>.
+
+E) <a href="#BinaryInstall">Download installer to install locally</a>.
+
 
 CAUTION: If you are in a large enterprise, confer with your security team before 
 installing. They often have a repository such as Artifactory or Nexus where
 installers are available after being vetted and perhaps patched
 for security vulnerabilities.
 
-### Blazemeter
 
-   You practically don't need a local machine if you use the cloud service<br />
-   https://blazemeter.com
+<a name="Blazemeter"></a>
 
-### Docker container
+### Blazemeter SaaS
 
-A Docker image contains bits.
+You don't need a local machine if you use the cloud service<br />
+<a target="_blank" href="https://blazemeter.com">blazemeter.com</a>
 
-There are <a target="_blank" href="https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=jmeter&starCount=0">many on DockerHub</a>. But the most popular is:
+The SaaS vendor was purchased by CA in 2017.
 
-   <a target="_blank" href="https://hub.docker.com/r/cirit/jmeter/">
-   https://hub.docker.com/r/cirit/jmeter</a>, which runs
-   Jmeter 2.13 + Debian OS + Java Server JRE 8
+Users of Blazemeter can use their add-on test framework.
 
-### Package managers
+Blogs about this:
 
-On a Mac:
+* https://www.artofsoftwaredevelopment.com/performance/performance-testing-in-the-cloud-with-jmeter-aws
+
+
+<a name="DockerHub"></a>
+
+### Images from DockerHub.com
+
+A Docker image is ready to run, after having Docker build it based on a Dockerfile.
+
+There are <a target="_blank" href="https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=jmeter&starCount=0">
+many JMeter images on DockerHub</a>. 
+
+The most popular:
+
+   <pre>
+   docker pull <a target="_blank" href="https://hub.docker.com/r/cirit/jmeter/">cirit/jmeter</a>
+   </pre>
+
+   It runs Jmeter 2.13 + Debian OS + Java Server JRE 8 on https://cloud.docker.com/
+
+Another image containing a JMeter server include:
+
+   <pre>
+   docker pull <a target="_blank" href="https://hub.docker.com/r/justb4/jmeter/">justb4/jmeter</a>
+   </pre>
+
+The image used in the <a target="_blank" href="https://www.flood.io">flood.io</a> SaaS  service is:
+
+   docker pull <a target="_blank" href="https://hub.docker.com/r/floodio/jmeter/">floodio/jmeter</a>
+
+Videos:
+
+   * https://www.youtube.com/watch?v=sl2mfyjnkXk
+   * https://docs.docker.com/docker-cloud/builds/automated-build/
+
+<a name="Homebrew"></a>
+
+### Use Homebrew package manager on Mac
+
+0. Create a folder container.
 
    <pre><strong>brew update
    brew install jmeter --with-plugins
    </strong></pre>
 
-   PROTIP: JMeter won't appear in your Mac's Applications folder.
+   It downloads from: <br />
+   https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-3.3.tgz
+   into:
 
-0. To open it:
-
-   <pre><strong>open /usr/local/bin/jmeter
-   </strong></pre>
-
-   CAUTION: Package managers put bits into a different folder than installation by download.
-
-0. Open ~/.bash_profile to add:
-
-   <pre># Following https://wilsonmar/github.io/jmeter-install ::
-   export JMETER_HOME=/usr/local/Cellar/jmeter/3.1/libexec  # if installed using Homebrew
+   <pre>
+🍺  /usr/local/Cellar/jmeter/3.3: 2,924 files, 131.4MB, built in 1 minute 14 seconds
    </pre>
 
-   WARNING: Package managers may install older versions than what is available for direct download.
+   Alternately, if it's already installed:
 
+   <pre><strong>
+   brew upgrade jmeter
+   </strong></pre>
+
+   PROTIP: As with other package managers, Brew does not save JMeter in your Mac's Applications folder.
+
+
+
+<a name="BinaryInstall"></a>
 
 ### Download installer from developers
 
@@ -125,11 +177,11 @@ Even if you're not intending to download, go here to see the dates of each versi
    <a target="_blank" href="http://jmeter.apache.org/download_jmeter.cgi">
    http://jmeter.apache.org/download_jmeter.cgi</a>
 
-   apache-jmeter-3.2.zip
+   apache-jmeter-3.3.zip
 
 0. In Finder, double-click the file to unzip to folder:
 
-   apache-jmeter-3.2
+   apache-jmeter-3.3
 
 0. Move the folder to a folder with a path containing no spaces, such as:
 
@@ -137,25 +189,32 @@ Even if you're not intending to download, go here to see the dates of each versi
 
    <pre>
    cd ~/Downloads
-   mv apache-jmeter-3.2  ~/jmeter
+   mv apache-jmeter-3.3  ~/jmeter
    cd jmeter
    </pre> 
 
+   export PATH="$HOME/jmeter:$PATH"
+
+
+<a name="SetPath"></a>
+
+### Set Path 
+
    On Mac/Linux:
 
-0. Edit <tt>subl ~/.bash_profile</tt>
+0. In a Text Editor, edit file <strong>~/.bash_profile</strong>
 
-0. Add the path, with a colon:
+   <tt>subl ~/.bash_profile</tt>
+
+0. Insert these lines to make JMeter within the Path sought for executables:
 
    <pre>
-export PATH="$HOME/jmeter:$PATH"
+   # Following https://wilsonmar/github.io/jmeter-install ::
+   export PATH="/usr/local/Cellar/jmeter/3.3/libexec/bin:$PATH"
+   export JMETER_HOME=/usr/local/Cellar/jmeter/3.3/libexec  # if installed using Homebrew
    </pre>
 
-0. Define $JMETER_HOME
-
-   <pre># Following https://wilsonmar/github.io/jmeter-install ::
-   export JMETER_HOME=$HOME/jmeter
-   </pre>
+   WARNING: Package managers may install older versions than what is available for direct download.
 
 0. Close existing terminals or refresh on each window:
 
@@ -163,56 +222,28 @@ export PATH="$HOME/jmeter:$PATH"
    source ~/.bash_profile
    </pre>
 
-0. Verify $JMETER_HOME
+0. Verify `$JMETER_HOME`
 
-   <pre>
-   echo $JMETER_HOME
-   </pre>
-
-
-## Configure
-
-0. Close existing terminals or refresh on each window:
-
-   <pre>
-   source ~/.bash_profile
-   </pre>
-
-0. Verify $JMETER_HOME
-
-   <pre>
-   echo $JMETER_HOME
-   </pre>
-
-0. Edit properties file:
-
-   <pre><strong>cd bin
-   edit jmeter.properties
+   <pre><strong>
+   cd $JMETER_HOME
+   pwd
    </strong></pre>
 
-0. Specify slave computers IP addresses, separated by commas. Example:
+   <pre>/usr/local/Cellar/jmeter/3.3/libexec</pre>
 
-   <pre>
-   remote_hosts=192.168.0.10,192.168.0.11,192.168.0.12,192.168.0.13,192.168.0.14
-   </pre>
 
-   All on the same subnet?
+<hr />
 
-   CAUTION: All instances of JMeter should have the same version.
-
-   DEFINITIONS: 
-
-   <strong>Slave</strong> is the system running jmeter-server, which takes commands from the GUI and send requests to 
-
-   <strong>Target</strong> servers, the web server under test
-
-   <strong>Master</strong> is the JMeter system running Jmeter GUI controlling the server which controls slaves.
-
-   ### JMeter folders
+## JMeter folders
 
 0. List folders and top-level files:
 
    <pre>ls -al
+   </pre> 
+
+   Alternately:
+
+   <pre>tree -L 1
    </pre> 
 
    The folders:
@@ -236,6 +267,11 @@ export PATH="$HOME/jmeter:$PATH"
    ./jmeter.sh
    </strong></pre>
 
+   Alternately, invoke the JMeter GUI program using the link:
+
+   <pre><strong>open /usr/local/bin/jmeter
+   </strong></pre>
+
    Alternately, if you are using Windows:
 
    <pre><strong>jmeter.bat
@@ -251,8 +287,118 @@ export PATH="$HOME/jmeter:$PATH"
    If it does not happen, either the environment settings are incorrect, 
    or there are several JREs installed on the system. 
 
+   Either way, the response:
 
-   ### Help
+   <pre>
+================================================================================
+Don't use GUI mode for load testing, only for Test creation and Test debugging !
+For load testing, use NON GUI Mode:
+   jmeter -n -t [jmx file] -l [results file] -e -o [Path to output folder]
+& adapt Java Heap to your test requirements:
+   Modify HEAP="-Xms512m -Xmx512m" in the JMeter batch file
+================================================================================
+   </pre>
+
+   The default JMeter GUI:
+
+   <img alt="jmeter-3.3-UI-default-2046x1240-85392.png" width="650" src="https://user-images.githubusercontent.com/300046/32251766-b1b65cda-be4f-11e7-87e6-16ed8ff06083.png">
+
+   PROTIP: Press command+Q to Quit out of the JMeter GUI.
+
+
+<a name="SampleScripts"></a>
+
+## Sample test.jmx
+
+0. Open another Terminal and be at:
+
+   <pre><strong>
+   cd $JMETER_HOME/extras/
+   </strong></pre>
+
+0. View JMeter example files that comes with the installer:
+
+   <pre><strong>
+   ls *.jmx
+   </strong></pre>
+
+   The response is:
+
+   <pre>
+   Test.jmx
+   </pre>
+
+   PROTIP: JMeter test scripts are defined within XML-formatted files.
+
+0. Remove graphic data writers for batch.
+
+0. Set Up at Least One Thread Group:
+
+   PROTIP: A JMeter
+   thread group contains both the automated script (URLs, etc.) and the load scenario. 
+   This is unlike LoadRunner, which has scripts in files folders separate from the Scenario (.lrs) file.
+
+   In thread groups is defined the number of users to simulate. 
+   Each user is emulated by a separate thread. 
+
+   The ramp-up period tells JMeter how long it should take to reach the desired number of threads chosen. 
+
+   Set the number of iterations to process each user in the group with the Loop Count.
+
+   Click on the thread group to see the load configurations. Expand a thread group to see the steps of the load script.
+
+0. Set up Samplers:
+
+   Samplers emulate the actual work done within clients. When JMeter executes samplers, it writes down the results such as: 
+   start time, duration, success, response messages, etc.  
+
+   Listeners are used to view results. 
+   The most commonly used sampler is the HTTP Request, which sends a HTTP or HTTPS request to a web server.
+
+0. Add Timers:
+
+   Set the duration of the delay from one request to the next.
+   The specification is how many seconds JMeter waits before navigating from the homepage to the features page.
+
+0. Add Configuration Elements:
+
+   This manages elements like the cache and the cookies, during test runs. 
+
+   Adding the “HTTP Cache Manager” and the “HTTP Cookie Manager” simulates the browser’s behavior. 
+
+   See <a target="_blank" href="https://guide.blazemeter.com/hc/en-us/articles/206733719-How-to-make-JMeter-behave-more-like-a-real-browser">
+   this</a>.
+
+0. Add Assertions:
+
+   These define pass or fail criteria for the test.
+
+   Let’s say you want to make sure your site or app responds within 100 milliseconds. 
+
+   You can set a Duration Assertion to specify that if any response lasts longer than 100 milliseconds, the sample will be marked as “failed.”
+ 
+   The most important assertion to know is the Response Assertion. This covers 99% of your needs - so no wonder it’s so popular! You can use it to test the URL, response body, messages, embedded resources, redirects, headers and more. This assertion gives you loads of flexibility as it lets you test regular expressions rather than text patterns. JMeter handles regular expressions in a very similar way to Perl - except you don’t enclose the expression in //’s.
+ 
+0. Add Listeners
+
+   Listeners display the results of a sampler. 
+
+   Listeners can be viewed in various formats (table, graph, tree, or log file). 
+
+   Listeners can be added anywhere in the test - but only collect data (listens) to elements on the same level or below.
+
+   The most commonly used listener is "View Results Tree", which presents in the GUI all test plan results in a user-friendly tree structure.
+
+   Other listeners include Assertion Results, Aggregate Report and Beanshell Listener.
+ 
+   WARNING: Disable all your listeners as they use up a lot of memory.
+
+0. Add a Thread Group component by right-clicking on the name of a test plan to select ‘Add’, then
+   choose the component to set up and configure.
+
+
+
+## JMeter commands
 
 0. To view information:
 
@@ -265,8 +411,6 @@ export PATH="$HOME/jmeter:$PATH"
    <pre>
 Writing log file to: /Users/mac/jmeter.log
    </pre>   
-<a name="Plugins"></a>
-
 
 0. To view all possible command line options:
 
@@ -343,15 +487,15 @@ Copyright (c) 1999-2016 The Apache Software Foundation
    -o, --reportoutputfolder &LT;argument>
       output folder for report dashboard
    </pre>   
-<a name="Plugins"></a>
 
 
+   <a name="BatchRun"></a>
 
-## Start JMeter Batch run
+   ## Run JMeter in Batch
 
-0. Substituting <em>script</em> with your script name:
+   The format of command line:
 
-   <pre><strong>jmeter -n -t .../Test.jmx -l .../test.jtl -e -o [Path to output folder]
+   <pre><strong>jmeter -n -t .../<em>Test</em>.jmx -l .../<em>test</em>.jtl -e -o <em>[Path to output folder]</em>
    </strong></pre>
  
    where:
@@ -377,9 +521,10 @@ Copyright (c) 1999-2016 The Apache Software Foundation
    <tt>-P</tt> proxy server port.
 
 
-## Shutdown and Abort run
+   ### Shutdown and Abort run
 
-   Running JMeter in non-GUI mode means there is no Menu which listens to keystrokes such as Control + '.'. 
+   Running JMeter in non-GUI (batch) mode means there is no Menu which listens to keystrokes such as 
+   Control + '.'. 
 
    However, JMeter in non-GUI mode listens for commands on port <strong>4445</strong> 
    (set at default in the JMeter property <tt>jmeterengine.nongui.port</tt>). 
@@ -399,18 +544,55 @@ Copyright (c) 1999-2016 The Apache Software Foundation
 0. Gracefully shutdown
    using these scripts the installer puts in the JMeter /bin directory. 
 
-   <pre><strong>Shutdown.cmd
+   <pre><strong>
+   shutdown.cmd
    </strong></pre>
 
    Alternately, shutdown immediately:
 
-   <pre><strong>StopTestNow.cmd
+   <pre><strong>
+   StopTestNow.cmd
    </strong></pre>
 
    The commands will only be accepted if the script is run from the same host.
 
 
-## Plug-ins
+
+<hr />
+
+## Servers in user.properties
+
+Specify the various slave servers the master JMeter server uses.
+
+
+0. Use your favorite text editor instead of vi to edit properties file:
+
+   <pre><strong>cd $JMETER_HOME/bin
+   vi user.properties
+   </strong></pre>
+
+0. Specify slave computers IP addresses, separated by commas. Example:
+
+   <pre>
+   remote_hosts=192.168.0.10,192.168.0.11,192.168.0.12,192.168.0.13,192.168.0.14
+   </pre>
+
+   All on the same subnet?
+
+   CAUTION: All instances of JMeter should have the same version.
+
+   DEFINITIONS: 
+
+   <strong>Slave</strong> is the system running jmeter-server, which takes commands from the GUI and send requests to 
+
+   <strong>Target</strong> servers, the web server under test
+
+   <strong>Master</strong> is the JMeter system running Jmeter GUI controlling the server which controls slaves.
+
+
+<a name="Plugins"></a>
+
+## Plugins
 
 There are many plug-ins various people have developed for JMeter:
 
@@ -438,6 +620,7 @@ Other samplers have different library JAR dependencies:
 <br /><br />
 
 
+
 ## Integrate JMeter with Apache Ant 
 
 0. Install the JMeter Ant Task
@@ -449,82 +632,6 @@ http://www.programmerplanet.org/projects/jmeter-ant-task/
 http://ant.apache.org/manual/install.html
 
 http://www.programmerplanet.org/projects/jmeter-ant-task/
-
-
-## Prepare sample test.jmx
-
-JMeter tests are defined in an XML-format file.
-
-0. View JMeter example files that comes with the installer in 
-
-   <em>script</em>/extras/
-
-   This path is shown as "..." below.
-
-0. Remove graphic data writers for batch.
-
-
-0. Set Up at Least One Thread Group and Sampler
-
-   Unlike LoadRunner, a JMeter
-   thread group contains both the automated script (URLs, etc.) and the load scenario. 
-
-   In thread groups is defined the number of users to simulate. Each user is emulated by each thread. 
-
-   The ramp-up period tells JMeter how long it should take to reach the desired number of threads chosen. 
-
-   Set the number of iterations to process each user in the group with the Loop Count.
-
-   Click on the thread group to see the load configurations. Expand a thread group to see the steps of the load script.
-
-0. Set up Samplers
-
-   Samplers emulate the actual work done within clients. When JMeter executes samplers, it writes down the results such as: 
-   start time, duration, success, response messages, etc.  
-
-   Listeners are used to view results. 
-   The most commonly used sampler is the HTTP Request, which sends a HTTP or HTTPS request to a web server.
-
-0. Add Timers
-
-   Set the duration of the delay from one request to the next.
-   The specification is how many seconds JMeter waits before navigating from the homepage to the features page.
-
-0. Add Configuration Elements
-
-   This manages elements like the cache and the cookies, during test runs. 
-
-   Adding the “HTTP Cache Manager” and the “HTTP Cookie Manager” simulates the browser’s behavior. 
-
-   See <a target="_blank" href="https://guide.blazemeter.com/hc/en-us/articles/206733719-How-to-make-JMeter-behave-more-like-a-real-browser">
-   this</a>.
-
-0. Add Assertions
-
-   These define pass or fail criteria for the test.
-
-   Let’s say you want to make sure your site or app responds within 100 milliseconds. 
-
-   You can set a Duration Assertion to specify that if any response lasts longer than 100 milliseconds, the sample will be marked as “failed.”
- 
-   The most important assertion to know is the Response Assertion. This covers 99% of your needs - so no wonder it’s so popular! You can use it to test the URL, response body, messages, embedded resources, redirects, headers and more. This assertion gives you loads of flexibility as it lets you test regular expressions rather than text patterns. JMeter handles regular expressions in a very similar way to Perl - except you don’t enclose the expression in //’s.
- 
-0. Add Listeners
-
-   Listeners display the results of a sampler. 
-
-   Listeners can be viewed in various formats (table, graph, tree, or log file). 
-
-   Listeners can be added anywhere in the test - but only collect data (listens) to elements on the same level or below.
-
-   The most commonly used listener is "View Results Tree", which presents in the GUI all test plan results in a user-friendly tree structure.
-
-   Other listeners include Assertion Results, Aggregate Report and Beanshell Listener.
- 
-   WARNING: Disable all your listeners as they use up a lot of memory.
-
-0. Add a Thread Group component by right-clicking on the name of a test plan to select ‘Add’, then
-   choose the component to set up and configure.
 
 
 ## Certificates
@@ -562,6 +669,12 @@ JMeter ThreadGroup and Samplers.
 <a target="_blank" href="http://stackoverflow.com/questions/19147235/how-to-create-and-run-apache-jmeter-test-scripts-from-a-java-program">
 this</a>
 
+
+## Jenkins
+
+In a Continuous Integration environment, we would incorporate JMeter runs within a Jenkinsfile.
+
+
 ## SonarQube
 
 In addition to scanning code,
@@ -579,8 +692,9 @@ Generate JMeter Code from Swagger
 
 What others have written:
 
+* https://www.guru99.com/introduction-to-jmeter.html
+
 * http://biscminds.blogspot.fr/2011/12/quick-jmeter-setup-on-mac.html
 
 * http://zacster.blogspot.com/2008/03/quick-howto-to-setup-jmeter.html
-
 
