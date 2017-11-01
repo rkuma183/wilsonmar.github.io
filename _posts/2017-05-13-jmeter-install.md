@@ -5,10 +5,10 @@ excerpt: "Load up a free Java-based tool to impose load on web sites, whether it
 tags: [perftest, JMeter]
 shorturl: "https://"
 image:
-# pic silver robot white skin handshake 1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dadbf6.jpg
-  credit: 
-  creditlink: 
+# devsecops-diagram-784x232.png
+  feature: https://user-images.githubusercontent.com/300046/32279226-53cabb62-bed5-11e7-8325-2ef07966a838.png
+  credit: Zapamfsupport
+  creditlink: https://zapamfsupport.wordpress.com/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

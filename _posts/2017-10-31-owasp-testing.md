@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "OWASP testing with BWA"
-excerpt: "Practice identifying security vulnerabilities in sample broken web apps"
+title: "OWASP testing with sample BWA (Broken Web App)"
+excerpt: "Practice identifying security vulnerabilities in sample app"
 tags: [API, devops, evaluation]
 filename: owasp-testing.md
 image:
@@ -11,8 +11,6 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-
-{% include api_links.html %}
 
 
 ## Background
@@ -214,3 +212,8 @@ You can also:
 https://app.pluralsight.com/library/courses/owasp-zap-web-app-pentesting-getting-started/table-of-contents
 Getting Started with OWASP Zed Attack Proxy (ZAP) for Web Application Penetration Testing</a>	
 1h 40m video course 16 Feb 2017 by Mike Woolard
+
+More about API usage and management:
+
+{% include api_links.html %}
+
