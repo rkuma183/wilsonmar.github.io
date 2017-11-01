@@ -37,6 +37,8 @@ a collection of intentionally vulnerable web applications
 distributed by OWASP in a Virtual Machine (VM) file used by Virtualbox, HyperV.
 VMware Workstation on Windows or VMware Fusion on Mac:
 
+NOTE: Google Compute Engine
+
 <a target="_blank" href="https://groups.google.com/forum/#!topic/gce-discussion/SKdU6JMHbE8">
 In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Group Product Manager, Google Compute Engine 206-876-1620
 
@@ -51,8 +53,8 @@ In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Grou
    https://owaspbwa.org, which resolves to
    https://code.google.com/archive/p/owaspbwa/
 
-0. Unpack the 7z file.
-0. Open image in Virtualbox
+0. Unpack the 7z file. Navigate into the folder.
+0. Double-click on file <strong>OWASP Broken Web Apps.vmx</strong> to open image in Virtualbox or VMWare workstation:
 
    See 
    <a target="_blank" href="https://www.youtube.com/watch?v=O2JtPddnbuQ">
@@ -65,7 +67,7 @@ In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Grou
    Video showing version 1.1.1</a> 
    [21:53]
    by Chuck Willis 
-   provides how to take advantage of the "Top 10" vulnerabilities described by OWASP.
+   shows how to use BWA to demonstrate occurance of "Top 10" vulnerabilities described by OWASP.
    Mutillidae:
 
    ![owaspbwa-top10-842x790-451990](https://user-images.githubusercontent.com/300046/32273940-cc6541e6-bec1-11e7-9dc0-75af0c82efba.png)
@@ -86,7 +88,7 @@ There are several ways to obtain a proxy server.
 
 ### SaaS
 
-QUESTION: Who are SaaS vendors operating on public cloud?
+Google cloud QUESTION: Who are SaaS vendors operating on public cloud?
 
 ### Instantiate on Docker
 
