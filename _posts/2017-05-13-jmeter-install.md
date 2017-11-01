@@ -674,6 +674,10 @@ this</a>
 
 In a Continuous Integration environment, we would incorporate JMeter runs within a Jenkinsfile.
 
+Blogs about this topic:
+
+* http://www.theserverlabs.com/blog/?p=280
+
 
 ## SonarQube
 
