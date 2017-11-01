@@ -90,7 +90,9 @@ There are several ways to obtain a proxy server.
 
 Google cloud QUESTION: Who are SaaS vendors operating on public cloud?
 
-### Instantiate on Docker
+### From Docker Hub
+
+For those working on public clouds:
 
 0. Bring up Docker
 0. In a Terminal, 
@@ -119,6 +121,31 @@ Google cloud QUESTION: Who are SaaS vendors operating on public cloud?
 Blogs about this:
 
    * https://github.com/zaproxy/zaproxy/wiki/Docker
+
+### On private servers
+
+1. Download
+
+   <tt><strong>
+   wget -q -O - https://github.com/zaproxy/zaproxy/releases/download/2.4.3/ZAP_2.4.3_Linux.tar.gz
+   </strong></tt>
+
+   CAUTION: Enterprise security should review this.
+
+0. Un-tar
+
+   <tt><strong>
+   tar zxf - -C /opt
+   ln -s /opt/ZAP_2.4.3 /opt/zap
+   </strong></tt>
+
+0. Since ZAP does not come with a script,
+
+   <tt><strong>
+   tar zxf - -C /opt
+   ln -s /opt/ZAP_2.4.3 /opt/zap
+   </strong></tt>
+
 
 
 ## Instantiate within Google Cloud
