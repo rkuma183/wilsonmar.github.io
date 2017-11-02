@@ -38,10 +38,9 @@ a collection of intentionally vulnerable web applications
 distributed by OWASP in a Virtual Machine (VM) file used by Virtualbox, HyperV.
 VMware Workstation on Windows or VMware Fusion on Mac:
 
-NOTE: Google Compute Engine
+0. Instantiate a server. <a target="_blank" href="https://groups.google.com/forum/#!topic/gce-discussion/SKdU6JMHbE8"> In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Group Product Manager, Google Compute Engine.
 
-<a target="_blank" href="https://groups.google.com/forum/#!topic/gce-discussion/SKdU6JMHbE8">
-In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Group Product Manager, Google Compute Engine 206-876-1620
+0. Within the server, download:
 
    <pre><strong>
    curl -O https://sourceforge.net/projects/owaspbwa/files/latest/download
