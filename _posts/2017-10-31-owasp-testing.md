@@ -2,12 +2,13 @@
 layout: post
 title: "OWASP testing with sample BWA (Broken Web App)"
 excerpt: "Practice identifying security vulnerabilities in sample app"
-tags: [API, devops, evaluation]
+tags: [API, devsecops]
 filename: owasp-testing.md
 image:
-  feature: https://cloud.githubusercontent.com/assets/300046/14612210/373cb4e2-0553-11e6-8a1a-4b5e1dabe181.jpg
-  credit: And Beyond
-  creditlink: http://www.andbeyond.com/chile/places-to-go/easter-island.htm
+# devsecops-diagram-784x232.png
+  feature: https://user-images.githubusercontent.com/300046/32320696-dd1e8f82-bf7b-11e7-891b-6b248fba5a0a.png
+  credit: 
+  creditlink: 
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -15,9 +16,9 @@ comments: true
 
 ## Background
 
-Among web app penetration testing tools listed at:
-https://www.owasp.org/index.php/Appendix_A:_Testing_Tools,
-the Zed Attack Proxy (ZAP) described at https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project
+Among web app penetration testing tools listed <a target="_blank" href="
+https://www.owasp.org/index.php/Appendix_A:_Testing_Tools">here</a>,
+the Zed Attack Proxy (ZAP) described <a target="_blank" href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">here</a>
 provides automated scanners to find vulnerabilities described by the non-profit 
 OWASP (Open Web Application Security Project).
 
@@ -84,11 +85,11 @@ In Sep 2017</a> nested VT-x is supported on GCE, according to Paul R. Nash, Grou
 
 ## Install proxy server
 
-There are several ways to obtain a proxy server.
+There are several ways to obtain and instantiate a proxy server.
 
 ### SaaS
 
-Google cloud QUESTION: Who are SaaS vendors operating on public cloud?
+QUESTION: Who are SaaS vendors operating on public cloud?
 
 ### From Docker Hub
 
@@ -105,17 +106,27 @@ For those working on public clouds:
 
    docker images say it's 1.33GB.
 
-   The image was created based on code at:
+   Alternately, for use in CI environments:
+
+   <pre><strong>
+   docker pull owasp/zap2docker-bare
+   </strong></pre>
+
+   docker images say it's 525 MB, which is a third of the stable edition.
+
+   The images above were created based on code at:
    https://github.com/zaproxy/zaproxy/tree/develop/build/docker
 
-   The project leader is Simon Bennetts (@psilnon).
+   ZAP's project leader is Simon Bennetts (@psilnon).
    His lecture on 2 Jun 2015 [59:59]:
    https://www.youtube.com/watch?v=_MmDWenz-6U
 
-0. Start ZAP in headless mode with following command:
+0. Start ZAP in with xvfb (X virtual frame buffer) which allows add-ons that use Selenium (like the Ajax Spider and DOM XSS scanner) to run in a headless environment. Firefox is also installed so can be used with these add-ons.
+
+   Alternately: Start ZAP in headless mode with following command:
 
    <pre><strong>
-   docker run -u zap -p 8080:8080 -i owasp/zap2docker-stable zap.sh -daemon -host 0.0.0.0 -port 8080
+   docker run -u zap -p 8080:8080 -i owasp/zap2docker-bare zap.sh -daemon -host 127.0.0.1 -port 8080
    </strong></pre>
 
 Blogs about this:
@@ -139,11 +150,11 @@ Blogs about this:
    ln -s /opt/ZAP_2.4.3 /opt/zap
    </strong></tt>
 
-0. Since ZAP does not come with a script,
+0. Since ZAP does not come with a script, this script for Debian:
 
    <tt><strong>
-   tar zxf - -C /opt
-   ln -s /opt/ZAP_2.4.3 /opt/zap
+   wget -q -O /etc/init.d/zap https://raw.githubusercontent.com/stelligent/zap/master/packer/roles/zap/files/zap-init.sh
+   chmod 755 /etc/init.d/zap
    </strong></tt>
 
 
@@ -179,10 +190,13 @@ In Internet Explorer:
 
 In Firefox:
 
-   1. Menu > Add-ons
-   2. Search for "foxy boxy basix"
-   3. 
-
+   1. Menu > Add-ons (shift+command+A)
+   2. Click "See more Add-ins"
+   3. In "Search for add-ons" search box, type "foxy boxy basix".
+   4. Select "FoxyProxy Standard".
+   5. Click "+ Add to Firefox".
+   6. Click "Add" in the pop-up.
+   7. Restart now.
 
 
 ## Install Jenkins plugin
@@ -199,6 +213,7 @@ The plug-in is at:
 1. ZAP is written in Java, so a Java SDK is needed to run it.
 
    https://github.com/zapproxy/zapproxy/wiki/
+
 
 ## ZAP UI OWASP
 
@@ -220,9 +235,6 @@ The drop-down at the upper-left corner of the ZAP UI provides for 4 modes:
 
 
 ## ZAP scripts
-
-uses APIs
-
 
 The plugin:
 
