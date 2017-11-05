@@ -304,6 +304,20 @@ Docker version 17.09.0-ce, build afdb6d4
    docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ hashicorp/Vault-rest-bdd
    </strong></pre>
 
+0. Create Docker image from Dockerfile:
+
+   <pre><strong>
+   git clone https://github.com/wilsonmar/vault.git --depth=1 
+   cd cucumber
+   </strong></pre>
+
+0. Create a docker image locally:
+
+   <pre><strong>
+   sudo docker build -f Dockerfile -t demo:vault . 
+   </strong></pre>
+
+   This would run Maven, and a test job.
 
 
 <a name="BinaryInstall"></a>
