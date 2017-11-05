@@ -141,7 +141,7 @@ RUN cd vault-jvm/examples/sample-app --depth=1 && mvn test
 
    OK is the expected response.
 
-0. Get the Linux version code:
+0. View the Linux version code referenced in a later command:
 
    <pre><strong>
    lsb_release -cs
@@ -243,7 +243,7 @@ Processing triggers for ureadahead (0.100.0-19) ...
    </pre>   
 
 
-0. Start Docker container:
+0. List Docker container status:
 
    <pre><strong>
    sudo systemctl status docker
@@ -260,25 +260,18 @@ Processing triggers for ureadahead (0.100.0-19) ...
    CGroup: /system.slice/docker.service
            ├─13524 /usr/bin/dockerd -H fd://
            └─13544 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout
-Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.552925012Z" level=warning msg="Your kernel does not support swap me
-Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.553123462Z" level=warning msg="Your kernel does not support cgroup 
-Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.553267498Z" level=warning msg="Your kernel does not support cgroup 
-Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.554662024Z" level=info msg="Loading containers: start."
-Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.973517284Z" level=info msg="Default bridge (docker0) is assigned wi
-Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.019418706Z" level=info msg="Loading containers: done."
-Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.029599857Z" level=info msg="Docker daemon" commit=afdb6d4 graphdriv
-Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.029962340Z" level=info msg="Daemon has completed initialization"
-Nov 04 22:00:35 cucumber-1 systemd[1]: Started Docker Application Container Engine.
-Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.054191848Z" level=info msg="API listen on /var/run/docker.sock"
+Nov 04 22:00:34 vault-1 dockerd[13524]: time="2017-11-04T22:00:34.552925012Z" level=warning msg="Your kernel does not support swap me
+Nov 04 22:00:34 vault-1 dockerd[13524]: time="2017-11-04T22:00:34.553123462Z" level=warning msg="Your kernel does not support cgroup 
+Nov 04 22:00:34 vault-1 dockerd[13524]: time="2017-11-04T22:00:34.553267498Z" level=warning msg="Your kernel does not support cgroup 
+Nov 04 22:00:34 vault-1 dockerd[13524]: time="2017-11-04T22:00:34.554662024Z" level=info msg="Loading containers: start."
+Nov 04 22:00:34 vault-1 dockerd[13524]: time="2017-11-04T22:00:34.973517284Z" level=info msg="Default bridge (docker0) is assigned wi
+Nov 04 22:00:35 vault-1 dockerd[13524]: time="2017-11-04T22:00:35.019418706Z" level=info msg="Loading containers: done."
+Nov 04 22:00:35 vault-1 dockerd[13524]: time="2017-11-04T22:00:35.029599857Z" level=info msg="Docker daemon" commit=afdb6d4 graphdriv
+Nov 04 22:00:35 vault-1 dockerd[13524]: time="2017-11-04T22:00:35.029962340Z" level=info msg="Daemon has completed initialization"
+Nov 04 22:00:35 vault-1 systemd[1]: Started Docker Application Container Engine.
+Nov 04 22:00:35 vault-1 dockerd[13524]: time="2017-11-04T22:00:35.054191848Z" level=info msg="API listen on /var/run/docker.sock"
 log files:
    </pre>
-
-0. Verify Docker version:
-
-   <pre><strong>
-   sudo systemctl status docker
-   </strong></pre>
-
 
 0. Verify Docker version:
 
@@ -292,23 +285,31 @@ docker --version
 Docker version 17.09.0-ce, build afdb6d4
    </pre>
 
-0. Instantiate Docker
+0. Download the Docker image maintained by Hashicorp:
 
    <pre><strong>
-    docker pull <a target="_blank" href="https://hub.docker.com/r/graze/Vault-rest-bdd/">graze/Vault-rest-bdd</a>
+    docker pull <a target="_blank" href="https://hub.docker.com/_/vault/">graze/Vault-rest-bdd</a>
    </pre>
+
+   ### Alternate Docker images
+
+   https://hub.docker.com/r/kintoandar/hashicorp-vault/
+   has Hashicorp Vault on a tiny busybox
+
+   https://hub.docker.com/r/sjourdan/vault/
+   has Hashicorp Vault on a minimal Alpine Linux box
 
 0. Run the image:
 
    <pre><strong>
-   docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ hashicorp/Vault-rest-bdd
+   docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ hashicorp/Vault
    </strong></pre>
 
-0. Create Docker image from Dockerfile:
+0. Obtain the Dockerfile using Git:
 
    <pre><strong>
    git clone https://github.com/wilsonmar/vault.git --depth=1 
-   cd cucumber
+   cd vault
    </strong></pre>
 
 0. Create a docker image locally:
