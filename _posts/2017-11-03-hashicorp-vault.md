@@ -16,7 +16,9 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on tutorial on how to install and use Hashicorp Vault.
+Here is a hands-on tutorial on how to install and use Hashicorp Vault. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
+
+This course assumes participants bring a Mac of Windows laptop and have prior experience with Linux CLI commands.
 
 At the end of this tutorial, you should be able to:
 
@@ -63,13 +65,13 @@ listed from easiest to most difficult:
 A) You don't need a local machine if you use a cloud service 
 
 B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
-   within a Google Compute or AWS cloud instance.
+   within a cloud instance.
 
-C) Use the Dockerfile to build your own Docker image containing JMeter.
+C) Use a Dockerfile to build your own Docker image.
 
-D) <a href="Homebrew">Use Homebrew to install JMeter natively on you Mac</a>.
+D) <a href="Homebrew">Use Homebrew to install Vault natively on you Mac</a>.
 
-E) <a href="#BinaryInstall">Download installer to install locally</a>.
+E) <a href="#BinaryInstall">Download from Hashicorp to install locally</a>.
 
 CAUTION: If you are in a large enterprise, confer with your security team before 
 installing. They often have a repository such as Artifactory or Nexus where
@@ -113,14 +115,14 @@ RUN apt-get update && apt-get install -y \
   maven 
 &nbsp;
 RUN mvn -version
-RUN git clone https://github.com/hashicorp/hashicorp-jvm.git --depth=1
+RUN git clone https://github.com/hashicorp/vault???.git --depth=1
 CMD ls
-RUN cd vault-jvm/examples/java-calculator --depth=1 && mvn test
+RUN cd vault-jvm/examples/sample-app --depth=1 && mvn test
    </pre>
 
    The above provides commands to install Vault within a blank Docker container.
 
-   `Vault-jvm/examples/java-calculator` is a simple sample app, 
+   `Vault-jvm/examples/sample-app` is a simple sample app, 
    which is replaced with a real app in the real world.
 
 
@@ -129,17 +131,178 @@ RUN cd vault-jvm/examples/java-calculator --depth=1 && mvn test
 
    ### Use Docker image
 
-0. Install Docker.
+   On a Linux server instance's Terminal CLI:
+
+1. Add Docker's public GPG key :
+
+   <pre><strong>
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   </strong></pre>
+
+   OK is the expected response.
+
+0. Get the Linux version code:
+
+   <pre><strong>
+   lsb_release -cs
+   </strong></pre>
+
+   This returns stretch for Debinan and xenial for Ubuntu.
+
+0. Install Docker for Ubuntu (not Debian):
+
+   <pre><strong>
+   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   </strong></pre>
+
+0. Update repository:
+
+   <pre><strong>
+   sudo apt-get update
+   </strong></pre>
+
+0. List policies:
+
+   <pre><strong>
+   apt-cache policy docker-ce
+   </strong></pre>
+
+   The response:
 
    <pre>
+docker-ce:
+  Installed: (none)
+  Candidate: 17.09.0~ce-0~ubuntu
+  Version table:
+     17.09.0~ce-0~ubuntu 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.06.2~ce-0~ubuntu 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.06.1~ce-0~ubuntu 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.06.0~ce-0~ubuntu 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.03.2~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.03.1~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.03.0~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+   </pre>
+
+0. Install Docker Community Edition:
+
+   <pre><strong>
+   sudo apt-get install -y docker-ce
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  aufs-tools cgroupfs-mount libltdl7
+Suggested packages:
+  mountall
+The following NEW packages will be installed:
+  aufs-tools cgroupfs-mount docker-ce libltdl7
+0 upgraded, 4 newly installed, 0 to remove and 17 not upgraded.
+Need to get 21.2 MB of archives.
+After this operation, 100 MB of additional disk space will be used.
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu xenial/universe amd64 aufs-tools amd64 1:3.2+20130722-1.1ubuntu1 [92.9 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu xenial/universe amd64 cgroupfs-mount all 1.2 [4,970 B]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu xenial/main amd64 libltdl7 amd64 2.4.6-0.1 [38.3 kB]
+Get:4 https://download.docker.com/linux/ubuntu xenial/stable amd64 docker-ce amd64 17.09.0~ce-0~ubuntu [21.0 MB]
+Fetched 21.2 MB in 0s (22.7 MB/s)     
+Selecting previously unselected package aufs-tools.
+(Reading database ... 66551 files and directories currently installed.)
+Preparing to unpack .../aufs-tools_1%3a3.2+20130722-1.1ubuntu1_amd64.deb ...
+Unpacking aufs-tools (1:3.2+20130722-1.1ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../cgroupfs-mount_1.2_all.deb ...
+Unpacking cgroupfs-mount (1.2) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../libltdl7_2.4.6-0.1_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-0.1) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../docker-ce_17.09.0~ce-0~ubuntu_amd64.deb ...
+Unpacking docker-ce (17.09.0~ce-0~ubuntu) ...
+Processing triggers for libc-bin (2.23-0ubuntu9) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu20) ...
+Setting up aufs-tools (1:3.2+20130722-1.1ubuntu1) ...
+Setting up cgroupfs-mount (1.2) ...
+Setting up libltdl7:amd64 (2.4.6-0.1) ...
+Setting up docker-ce (17.09.0~ce-0~ubuntu) ...
+Processing triggers for libc-bin (2.23-0ubuntu9) ...
+Processing triggers for systemd (229-4ubuntu20) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+   </pre>   
+
+
+0. Start Docker container:
+
+   <pre><strong>
+   sudo systemctl status docker
+   </strong></pre>
+
+   The response:
+
+   <pre>
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2017-11-04 22:00:35 UTC; 1min 28s ago
+     Docs: https://docs.docker.com
+ Main PID: 13524 (dockerd)
+   CGroup: /system.slice/docker.service
+           ├─13524 /usr/bin/dockerd -H fd://
+           └─13544 docker-containerd -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --metrics-interval=0 --start-timeout
+Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.552925012Z" level=warning msg="Your kernel does not support swap me
+Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.553123462Z" level=warning msg="Your kernel does not support cgroup 
+Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.553267498Z" level=warning msg="Your kernel does not support cgroup 
+Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.554662024Z" level=info msg="Loading containers: start."
+Nov 04 22:00:34 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:34.973517284Z" level=info msg="Default bridge (docker0) is assigned wi
+Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.019418706Z" level=info msg="Loading containers: done."
+Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.029599857Z" level=info msg="Docker daemon" commit=afdb6d4 graphdriv
+Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.029962340Z" level=info msg="Daemon has completed initialization"
+Nov 04 22:00:35 cucumber-1 systemd[1]: Started Docker Application Container Engine.
+Nov 04 22:00:35 cucumber-1 dockerd[13524]: time="2017-11-04T22:00:35.054191848Z" level=info msg="API listen on /var/run/docker.sock"
+log files:
+   </pre>
+
+0. Verify Docker version:
+
+   <pre><strong>
+   sudo systemctl status docker
+   </strong></pre>
+
+
+0. Verify Docker version:
+
+   <pre><strong>
+docker --version
+   </strong></pre>
+
+   The response:
+
+   <pre>
+Docker version 17.09.0-ce, build afdb6d4
+   </pre>
+
+0. Instantiate Docker
+
+   <pre><strong>
     docker pull <a target="_blank" href="https://hub.docker.com/r/graze/Vault-rest-bdd/">graze/Vault-rest-bdd</a>
    </pre>
 
 0. Run the image:
 
-   <pre>
-   docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ graze/Vault-rest-bdd
-   </pre>
+   <pre><strong>
+   docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ hashicorp/Vault-rest-bdd
+   </strong></pre>
 
 
 
