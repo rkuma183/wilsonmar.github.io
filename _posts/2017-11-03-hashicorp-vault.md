@@ -525,6 +525,7 @@ Upon success, a Vault token will be stored at $HOME/.vault-token.
 
    See http://chairnerd.seatgeek.com/practical-vault-usage/
 
+https://www.vaultproject.io/intro/getting-started/deploy.html
 
 
 <a name="SecretsCLI"></a>
