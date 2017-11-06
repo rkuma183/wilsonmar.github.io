@@ -46,8 +46,8 @@ What I would like to add:
 
 1. ej
 
-   {% highlight %}
+   {% highlight ruby %}
    coding
-   {% end highlight %}
+   {% endhighlight %}
 
 1. too
