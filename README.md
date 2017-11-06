@@ -46,8 +46,8 @@ What I would like to add:
 
 1. ej
 
-   <pre>
+   <tt>
    coding
-   </pre>
+   </tt>
 
 1. too
