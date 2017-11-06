@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on tutorial on how to install and use Hashicorp Vault. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
+Here is a hands-on tutorial on how to install and use Hashicorp Vault to securely accessing secrets and Consul to store secrets. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
 
 This course assumes participants bring a Mac of Windows laptop and have prior experience with Linux CLI commands.
 
@@ -27,8 +27,9 @@ At the end of this tutorial, you should be able to:
 * <a href="#SecretsCLI">Store and access secrets in vault from a CLI</a>
 * <a href="#AppProgramming">Store and access secrets in vault within a program</a>
 
-
 ## What is it?
+
+A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
 Among devops tools from HashiCorp is <br />
 <a target="_blank" href="https://vaultproject.io/">
@@ -42,32 +43,29 @@ Alternatives to secret management include:
 
 * variable definitions in a clear-text file loaded into <strong>operating system variables</strong>.
 * physical HSMs (Hardware Security Modules)
-* cloud-base KMS (Key Management Service) from Amazon
+* cloud-base KMS (Key Management Service) such as from Amazon
 
 ## Advantages
 
-Vault provides higher level policy management, secret leasing, audit logging, and automatic revocation.
+Vault is useful for both enterprise as well as by smaller startup teams.
 
-Vault forces a mandatory lease contract with clients. All secrets read from Vault have an associated lease which enables operations to audit key usage, perform key rolling, and ensure automatic revocation. Vault provides multiple revocation mechanisms to give operators a clear "break glass" procedure after a potential compromise.
+Vault provides high-level policy management, secret leasing, audit logging, and automatic revocation.
 
-What's more, it's suitable for enterprise scenarios as well as smaller startup teams.
+Vault forces a mandatory lease contract with clients. All secrets read from Vault have an associated lease to enable key usage auditing, perform key rolling, and ensure automatic revocation. Vault provides multiple revocation mechanisms to give operators a clear "break glass" procedure after a potential compromise.
 
 
 <a name="InstallServer"></a>
 
 ## Install Vault server
 
-Vault is an open source tool that can be deployed to any environment, and does not require any special hardware. This makes it well suited for cloud environments where HSMs are not available or are cost prohibitive.
-
 There are several ways to obtain a running instance of Hashicorp Vault,
 listed from easiest to most difficult:
 
-A) You don't need a local machine if you use a cloud service 
+A) You don't need a local machine if you use a Vault cloud service 
 
-B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
-   within a cloud instance.
+B) <a href="#Dockerfile">Use a Dockerfile to build your own Docker image.</a>
 
-C) Use a Dockerfile to build your own Docker image.
+C) <a href="#DockerHub">Pull an image from Docker Hub</a> 
 
 D) <a href="Homebrew">Use Homebrew to install Vault natively on you Mac</a>.
 
@@ -82,6 +80,9 @@ for security vulnerabilities.
 
 ### Cloud service
 
+Vault is an open source tool that can be deployed to any environment.
+It is well suited for cloud environments where HSMs are either not available or are cost prohibitive.
+
 1. Create within your internal cloud, Google Cloud, Amazon EC2, Microsoft Azure, etc.
    a VM instance of an Ubuntu server. 4 GB RAM and 10 GB drive is the minimum.
 
@@ -94,9 +95,31 @@ for security vulnerabilities.
 
    <a name="Dockerfile"></a>
 
-   ### Use Dockerfile to image
+   ### Build image using Dockerfile
 
-1. Install Git and Docker.
+0. Install Git 
+
+   <pre><strong>
+apt-get update && apt-get install -y \
+  git
+   </strong></pre>
+
+0. Use Git to obtain the Dockerfile :
+
+   <pre><strong>
+   git clone https://github.com/wilsonmar/vault.git --depth=1 
+   cd vault
+   </strong></pre>
+
+0. Create a docker image locally:
+
+   <pre><strong>
+   sudo docker build -f Dockerfile -t demo:vault . 
+   </strong></pre>
+
+   This would run Maven, and a test job.
+
+
 2. Run the Dockerfile at 
 
    <a target="_blank" href="
@@ -116,8 +139,6 @@ RUN apt-get update && apt-get install -y \
 &nbsp;
 RUN mvn -version
 RUN git clone https://github.com/hashicorp/vault???.git --depth=1
-CMD ls
-RUN cd vault-jvm/examples/sample-app --depth=1 && mvn test
    </pre>
 
    The above provides commands to install Vault within a blank Docker container.
@@ -288,37 +309,40 @@ Docker version 17.09.0-ce, build afdb6d4
 0. Download the Docker image maintained by Hashicorp:
 
    <pre><strong>
-    docker pull <a target="_blank" href="https://hub.docker.com/_/vault/">graze/Vault-rest-bdd</a>
+   docker pull <a target="_blank" href="https://hub.docker.com/_/vault/">vault</a>
    </pre>
 
    ### Alternate Docker images
 
-   https://hub.docker.com/r/kintoandar/hashicorp-vault/
-   has Hashicorp Vault on a tiny busybox
-
    https://hub.docker.com/r/sjourdan/vault/
    has Hashicorp Vault on a minimal Alpine Linux box
 
-0. Run the image:
+   https://hub.docker.com/r/kintoandar/hashicorp-vault/
+   has Hashicorp Vault on a tiny busybox
+
+0. Set environment variables so IP addresses used for the redirect and cluster addresses in Vault's configuration is the address of the named interface inside the container (e.g. eth0):
+
+   VAULT_REDIRECT_INTERFACE 
+   VAULT_CLUSTER_INTERFACE 
+
+
+0. Run the image using the file storage backend at path /vault/file, with a default secret lease duration of one week and a maximum of (720h/24) 30 days:
 
    <pre><strong>
-   docker run --rm -v $(pwd):/opt/src -e endpoint=http://server/ hashicorp/Vault
+docker run --cap-add=IPC_LOCK -e 'VAULT_LOCAL_CONFIG={"backend": {"file": {"path": "/vault/file"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h"}' vault server
    </strong></pre>
 
-0. Obtain the Dockerfile using Git:
+   `--cap-add=IPC_LOCK:` locks memory, which prevents it from being swapped to disk (and thus exposing keys).
+
+   See https://www.vaultproject.io/docs/config/index.html
+
+   NOTE: At startup, the server reads configuration HCL and JSON files from /vault/config. Information passed into VAULT_LOCAL_CONFIG is written into local.json in this directory and read as part of reading the directory for configuration files.
+
+0. Start consul container with web ui on default port 8500:
 
    <pre><strong>
-   git clone https://github.com/wilsonmar/vault.git --depth=1 
-   cd vault
+   docker run -p 8400:8400 -p 8500:8500 -p 8600:53/udp --hostname consul --name consul progrium/consul -server -bootstrap -ui-dir /ui
    </strong></pre>
-
-0. Create a docker image locally:
-
-   <pre><strong>
-   sudo docker build -f Dockerfile -t demo:vault . 
-   </strong></pre>
-
-   This would run Maven, and a test job.
 
 
 <a name="BinaryInstall"></a>
