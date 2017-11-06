@@ -46,8 +46,8 @@ What I would like to add:
 
 1. ej
 
-   <tt>
+   {% highlight %}
    coding
-   </tt>
+   {% end highlight %}
 
 1. too
