@@ -16,16 +16,17 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on tutorial on how to install and use Hashicorp Vault to securely accessing secrets and Consul to store secrets. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
+Here is a hands-on tutorial on how to install and use Hashicorp Vault to securely access secret keys and Consul to store key/value pairs. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
 
 This course assumes participants bring a Mac of Windows laptop and have prior experience with Linux CLI commands.
 
 At the end of this tutorial, you should be able to:
 
-* <a href="#InstallServer">Install Vault and Consul on a server</a>
+* <a href="#InstallServer">Install Vault and Consul on a server using Docker</a>
 * <a href="#Config">Initialize and Configure Vault</a>
 * <a href="#SecretsCLI">Store and access secrets in vault from a CLI</a>
 * <a href="#AppProgramming">Store and access secrets in vault within a program</a>
+* Jenkins
 
 ## What is it?
 
@@ -148,11 +149,11 @@ RUN git clone https://github.com/hashicorp/vault???.git --depth=1
 
 
 
-   <a name="DockerHub"></a>
+<a name="DockerHub"></a>
 
-   ### Use Docker image
+### Use Docker image
 
-   On a Linux server instance's Terminal CLI:
+On a Linux server instance's Terminal CLI:
 
 1. Add Docker's public GPG key :
 
@@ -501,13 +502,30 @@ Github Access Token (https://github.com/blog/1509-personal-api-tokens)
 
 Alternately, a Vault Token - either configured directly in Jenkins or read from an arbitrary file on the Jenkins Machine.
 
-
 An example in Java is 
 https://github.com/jenkinsci/hashicorp-vault-plugin/blob/master/src/main/java/com/datapipe/jenkins/vault/credentials/VaultAppRoleCredential.java
 
 ??? Vault Token Credential, just that the token is read from a file on your Jenkins Machine. You can use this in combination with a script that periodically refreshes your token.
 
 https://github.com/amarruedo/hashicorp-vault-jenkins
+
+
+   ### GitHub Token
+
+   <pre><strong>
+   vault auth -method=github token=GITHUB_ACCESS_TOKEN
+   </strong></pre>
+
+Upon success, a Vault token will be stored at $HOME/.vault-token.
+
+   <pre><strong>vault list secret/path/to/bucket
+   </strong></pre>
+
+   This uses the token at $HOME/.vault-token if it exists. 
+
+   See http://chairnerd.seatgeek.com/practical-vault-usage/
+
+
 
 <a name="SecretsCLI"></a>
 
@@ -520,8 +538,7 @@ https://github.com/amarruedo/hashicorp-vault-jenkins
 
    The "secret/" is necessary.
 
-   Because commands are stored in shell history, it's preferred to use files when handling
-   secrets.
+   Because commands are stored in shell history, it's preferred to use files when handling secrets.
 
 0. Retrieve the secret just added:
 
@@ -564,20 +581,6 @@ value               Pa$$word321
    <pre>
 Success! Deleted 'secret/donttel' if it existed.
    </pre>
-
-
-   ### GitHub Token
-
-vault auth -method=github token=GITHUB_ACCESS_TOKEN
-
-Upon success, a Vault token will be stored at $HOME/.vault-token.
-
-   <pre><strong>vault list secret/path/to/bucket
-   </strong></pre>
-
-   This uses the token at $HOME/.vault-token if it exists. 
-
-   See http://chairnerd.seatgeek.com/practical-vault-usage/
 
 
    ### Write files
