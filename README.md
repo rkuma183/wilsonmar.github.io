@@ -50,4 +50,3 @@ What I would like to add:
    coding
    {% endhighlight %}
 
-1. too
