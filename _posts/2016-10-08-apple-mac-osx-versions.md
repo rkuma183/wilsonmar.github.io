@@ -25,6 +25,14 @@ comments: true
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
+<tr valign="top"><td> 10.12.6
+</td><td align="right"> MacOS<br />High<br />Sierra
+</td><td align="right"> Oct. 2017
+</td><td align="right"> 2.6.0
+</td><td align="right"> -
+</td><td align="right"> -
+</td><td align="left"> H.265 video, Metal 2
+</td></tr>
 <tr valign="top"><td> 10.12
 </td><td align="right"> MacOS<br />Sierra
 </td><td align="right"> Oct. 2016
