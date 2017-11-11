@@ -78,9 +78,9 @@ https://weather-pwa-sample.firebaseapp.com/demo</a>
 
 1. Install Git and get it on your machine:
 
-   <tt><strong>git clone <a target="_blank" href="https://www.github.com/wilsonmar/ud811">
+   <pre><strong>git clone <a target="_blank" href="https://www.github.com/wilsonmar/ud811">
    https://www.github.com/wilsonmar/ud811</a> --depth=1
-   <strong></tt>
+   <strong></pre>
 
    This is forked from the original so that my commentary below would stay consistent
    with what is in GitHub. The original repo is:

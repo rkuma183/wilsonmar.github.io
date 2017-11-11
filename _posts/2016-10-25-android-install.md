@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Android Development on Mac"
-excerpt: "Make an app to call your significant other with just one tap"
+title: "Android Development install on Mac"
+excerpt: "Install Android Studio and other steps to Android Things"
 tags: [IoT, Android, Mac]
 image:
 # feature: pic white robots woman 1900x500.jpg
