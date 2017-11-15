@@ -61,7 +61,7 @@ PWA combines the best of the web with the best of native apps.
 
 
 
-## Classes
+## Tutorials
 
 ### Udacity class
 
@@ -80,7 +80,7 @@ https://weather-pwa-sample.firebaseapp.com/demo</a>
 
    <pre><strong>git clone <a target="_blank" href="https://www.github.com/wilsonmar/ud811">
    https://www.github.com/wilsonmar/ud811</a> --depth=1
-   <strong></pre>
+   </strong></pre>
 
    This is forked from the original so that my commentary below would stay consistent
    with what is in GitHub. The original repo is:
@@ -229,15 +229,15 @@ Firebase redirects to HTTPS automatically from HTTP.
 CAUTION: Support by Apple Safari has a custom implementation.
 But other browsers support.
 
-Strategy
-
-   * Network first, then cache for game leader board data
-
-   * Network only for inventory and prices for an ecom site
+Strategy for caching vs. obtaining from network every time:
 
    * Cache only for images required for first render
 
    * Cache, then network for social media timeline data
+
+   * Network first, then cache for game leader board data
+
+   * Network only for inventory and prices from an ecom site
 
 ## App Shell
 
