@@ -2539,10 +2539,15 @@ http://jdlm.info/ds-docker-demo
 https://github.com/jdleesmiller/ds-docker-demo
 
 * <a target="_blank" href="https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/">
-   Docker is not designef for SSH</a>
+   Docker is not designed for SSH</a>
    to "get inside" a running image.
    You don't need SSH to
    restart the process, tweak configurations, debug with gdb, strace, etc.
+
+<a target="_blank" href="https://google-run.qwiklab.com/focuses/7010">
+Google's Intro to Docker Qwiklab</a>
+include 40 minutes of FREE cloud instance time after you click "Start Lab".
+And you get a certificate for your resume.
 
 
 ### Pluralsight video courses #
@@ -2583,7 +2588,7 @@ Dan Wahlin
    12 Jul 2016 / 1h 34m
 
 
-### YouTub videos #
+### YouTube videos #
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=vQSpztWcGmw">
    Continuous Delivery with Jenkins Workflow and Docker Explained</a>

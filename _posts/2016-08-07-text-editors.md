@@ -169,9 +169,11 @@ The ^ character means hold down the <strong>control</strong> key while you press
 
 ## Sublime Text
 
-Many tutorials make use of this tool.
+Many tutorials make use of this tool from Jon Skinner.
 
 There are two simultaneous production versions of Sublime Text: 2 and 3.
+This is because Sublime contains its own Python interpreter to run add-ons.
+Choose version 3.
 
 ### Download and Install Sublime Text
 
@@ -195,7 +197,6 @@ make a symlink to subl.
 
    <pre>
    mkdir /usr/local/bin/
-   ls
    </pre>
 
 0. Assuming you've placed Sublime Text in the Applications folder:
@@ -213,10 +214,14 @@ make a symlink to subl.
 
    Specifying -w causes the subl command to not exit until the file is closed.
 
-0. Use the Sublime text editor to open the profile file:
+0. To open for edit a file using the Sublime text editor, for example:
 
    <pre><strong>subl ~/.bash_profile</strong></pre>
 
+   PROTIP: Sublime Text runs in the background to index your source files.
+
+   One nice feature of Sublime is that if you are already editing a file.
+   You are brought to the file being edited instead of seeing another instance of that file.
 
 ### Install Package Control
 
@@ -224,6 +229,7 @@ One advantage of Sublime Text is its plug-ins.
 
 0. Switch to an internet browser to visit
    <a target="_blank" href="https://sublime.wbond.net/">Package Control home page</a>.
+
 0. Click Browse at the upper right for the most popular:
 
    * Emmet for keyboard shortcuts
@@ -295,6 +301,61 @@ Use Sublime Text on Retina? for crisp, readable text, to Settings add
    <pre><strong>
    "font_options" : ["gray_antialias"] 
    </strong></pre>
+
+### Install Python linter
+
+1. Install Flake8 -- a favorite Python linters because it's fast yet has a low rate of false positives. 
+
+   pip3 install --upgrade flake8
+
+   The response shows it is a combination of the Pyflakes static-analysis tool and Pycodestyle (former pep8) code style checker.
+
+0. Verify
+
+   flake8 --help
+
+   ### SublimeLinter
+
+   SublimeLinter is the most popular linting framework for Sublime Text due to its focus, simplicity, and performance.
+   Install the SublimeLinter and the SublimeLinter-flake8 plugins for Sublime Text. 
+
+
+1. GotoSublimeTextandopentheCommandPalette (Cmd+Shift+p)
+2. IntheCommandPalette,type“installpackage”.
+3. ThenselectthePackageControl:InstallPackageoptionand
+hit Return.
+4. Packagecontrolwillpresentyouwithalistofavailable
+packages. Type SublimeLinter and select the SublimeLinter - Interactive code linting framework for Sublime Text 3 package.
+5. HitReturntobegintheinstallationprocess.
+
+   ### Integrate
+
+4. Install SublimeLinter-flake8
+Now we need to integrate SublimeLinter with Flake8. This is done through another plugin called SublimeLinter-flake8. Let’s install it:
+1. OpenSublimeText’sCommandPalette(Cmd+Shift+p)
+2. IntheCommandPalette,type“installpackage”.
+3. ThenselectthePackageControl:InstallPackageoptionand
+hit Return.
+4. Packagecontrolwillpresentyouwithalistofavailable
+packages. Type flake8 and select the SublimeLinter-flake8 -
+SublimeLinter plugin for Python, using flake8 package.
+5. HitReturntobegintheinstallationprocess.
+
+   ### Restart Sublime Text to Finalize the Plugin Install
+
+   For SublimeLinter to start working correctly we need to exit Sublime Text and start it again. Click on Sublime Text → Quit Sublime Text to shut down Sublime Text and then launch it again.
+
+1. AfterrestartingSublime,openaPython(.py)file.
+2. Changealineinthefiletointroduceasyntaxorformatting
+error.
+3. Afterashortdelayyoushouldseewarningmessagesfrom
+SublimeLinter right alongside your code.   BTW SublimeLinter supports more than just Python. IAdditional linters for JavaScript or CSS all have the same look and feel on your editor window.
+
+   ### Disable
+
+   To disable individual linter warnings, put a "\# noqa" comment at the end of a line. See documentation at: http://flake8.pycqa.org/
+
+
 
 ### Install spell check
 
