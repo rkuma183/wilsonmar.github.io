@@ -31,7 +31,8 @@ with yoru chatbot programs running on Amazon Lamba (serverless) programs.
    <a target="_blank" href="https://www.youtube.com/watch?v=tAKbXEsZ4Iw&t=25m40s">
    Introducing Amazon Lex: Service for Building Voice/Text Chatbots</a> [20:20] Mar 6, 2017
 
-   ![aws-lex-arch-748x342](https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png)
+   <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png">
+   <img alt="aws-lex-arch-748x342" width="650" src="https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png"><small>Click image for larger image pop-up</small></a>
 
 
 
@@ -105,7 +106,7 @@ COOL:
    * awschatbot.devpost.com
 
    
-   ### Utterances
+### Utterances
 
    Instead of using an Alexa program name, users can invoke a specific intent (program) by saying:
 
@@ -183,6 +184,7 @@ This video walks through use of the Lex Console to create a voice conversational
    * Insults from Don Rickles or Sheakespeare or Mark Twain.
    * Self-Deprecating humor like Rodney Dangerfield.
    * Funny Observerations like from Jerry Seinfeld or Sarah Silverman or other comics.
+   <br /><br />
 
    Adjustment of tone in voice would enable:
 
@@ -209,14 +211,15 @@ This video walks through use of the Lex Console to create a voice conversational
    <a target="_blank" href="https://aws.amazon.com/documentation/polly/">
    Amazon Polly</a> is a Text-to-Speech (TTS) cloud service that converts text into lifelike speech.
 
-   https://aws.amazon.com/blogs/aws/polly-text-to-speech-in-47-voices-and-24-languages/
+   <a target="_blank" href="https://aws.amazon.com/blogs/aws/polly-text-to-speech-in-47-voices-and-24-languages/">
+   Among Polly's 47 voices in 24 languages</a> are these American English voices:
 
    Female:
 
-   * Joanna sounds the most natural to me.
-   * Salli
-   * Kimberly has a bit of a raspy voice
-   * Kendra is a deeper voice, the most "athoratative" to me.
+   * Joanna sounds the most natural to me [Google]
+   * Salli I can't describe other than "girl next door" [Amazon]
+   * Kimberly has a bit of a raspy voice [Azure]
+   * Kendra is a deeper voice, the most "authoratative" to me. [IBM]
    * Ivy sounds like a girl (about 10 years old is my guess)
 
    Male:
@@ -226,6 +229,8 @@ This video walks through use of the Lex Console to create a voice conversational
 
    IDEA: Having a child voice can enhance a bot to help shopping for children.
 
+   IDEA: Have different voices present information for a competitive comparison.
+   For example, make calls to APIs in Google, Amazon, IBM, and Azure clouds.
 
    Used on website https://germanverbs.lang.global/
 
@@ -270,6 +275,7 @@ It has built-in archival of communications.
    * Yeobot for SQL queries against AWS account metadata
    * Burnerapp.com SMS/voicemail to slack, two-way
    * Statuspage.io - integrate public and private status feeds
+   <br /><br />
 
 0. Create a Slack channel to receive incoming Slack webhooks:
 
