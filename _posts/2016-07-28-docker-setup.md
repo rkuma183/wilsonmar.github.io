@@ -2500,6 +2500,13 @@ Commands:
    * Cloudify
    * Helios
 
+0. Get the IP address of the running Docker instance:
+
+   <pre>
+DOCKER_HOST=$(docker-machine ip $(docker-machine active))
+curl -v http://$DOCKER_HOST  # visit in your browser.
+   </pre>
+
 
 <a name="DockerSwarm"></a>
 
