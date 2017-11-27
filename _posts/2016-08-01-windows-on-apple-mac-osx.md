@@ -15,8 +15,8 @@ comments: true
 
 {% include _toc.html %}
 
-There are several ways to run Microsoft Windows on an Apple Mac computer.
-Each has its own advantages and disadvantages:
+There are several ways to run Microsoft Windows on an Apple Mac osX computer.
+Each approach has its own advantages and disadvantages:
 
 * <a href="#Amazon">Amazon EC2 Cloud Images</a>
 * <a href="#WorkSpaces">On an internet browser to Amazon WorkSpaces</a>
@@ -26,7 +26,19 @@ Each has its own advantages and disadvantages:
 * <a href="#VMwareFusion">VMWare Fusion</a>
 * <a href="#Parallels">Parallels</a>
 
+<hr />
+
 Access Windows machines by running a [client software that runs Microsoft's Remote Desktop Protocol (RDP)](/rdp/), from within a Windows, MacOS, or Linux machine.
+
+Apple offers the "Mac OS X - Certified Associate" certification exam on this topic (Mac Integration) on each OSX version. Those who pass get on <a target="_blank" href="https://i7lp.integral7.com/durango/do/pr/prSearch?ownername=apple&channel=apple">Apple's Registry</a>.
+
+<a target="_blank" href="https://training.apple.com/pdf/Mac_Integration_Basics_10.13_Participant_Guide.pdf">Apple has a document</a>
+that shows how to:
+ Integrate a Mac into a Windows network environment and configure a Mac to work with Active Directory to take advantage of network services, file sharing, printing, instant messaging, email, calendars, and contacts.
+Included is security at the user, local-networking, and remote-networking levels.
+Migrate data from a Windows computer to a Mac.
+Back up data.
+Run Windows programs on a Mac. 
 
 <hr />
 

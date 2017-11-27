@@ -16,32 +16,30 @@ comments: true
 
 {% include _toc.html %}
 
-Amazon Lex works through an Alexa Echo and Alexa's natural language understanding
-to hold <strong>natural voice conversational interactions</strong> 
-with yoru chatbot programs running on Amazon Lamba (serverless) programs.
+Amazon Lex is used by developers to make chatbot programs that 
+hold <strong>natural voice conversational interactions</strong>.
 
-0. The marketing page for Lex is at:
+Lex uses the back-end services used by 
+Amazon's Alexa Echo and its natural language understanding
+running Amazon Lamba (serverless) programs.
+
+
+1. The marketing page for Lex is at:
 
    <a target="_blank" href="https://aws.amazon.com/lex/">
    https://aws.amazon.com/lex</a>
 
-   ### Architecture
-
-   Hira Niranjan, Lex Product Manager shows this diagram in 
+0. Hira Niranjan, Lex Product Manager shows this diagram in 
    <a target="_blank" href="https://www.youtube.com/watch?v=tAKbXEsZ4Iw&t=25m40s">
    Introducing Amazon Lex: Service for Building Voice/Text Chatbots</a> [20:20] Mar 6, 2017
 
    <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png">
    <img alt="aws-lex-arch-748x342" width="650" src="https://cloud.githubusercontent.com/assets/300046/25693225/336c527e-3076-11e7-9e31-d29209e2bbdb.png"><small>Click image for larger image pop-up</small></a>
 
+   Lex provides developers pre-integration with Amazon's other services:
 
-
-   ### Value of Amazon
-
-   The value Lex provides developers is pre-integration with Amazon's other services:
-
-   * Security
    * Authentication Cognito
+   * Security (IAM)
    * Mobile Hub connectors to business applications
 
    <a target="_blank" title="aws-lex-flow-1581x841" href="https://cloud.githubusercontent.com/assets/300046/25696243/6d3d1b24-3084-11e7-9f2e-1337912bf789.png">

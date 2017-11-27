@@ -25,7 +25,7 @@ comments: true
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
-<tr valign="top"><td> 10.12.6
+<tr valign="top"><td> 10.13.1
 </td><td align="right"> MacOS<br />High<br />Sierra
 </td><td align="right"> Oct. 2017
 </td><td align="right"> 2.6.0
@@ -104,6 +104,21 @@ comments: true
 Based on <a target="_blank" rel="amphtml" href="http://en.wikipedia.org/wiki/OS_X#Versions">
 http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
+## Versioned Certifications
+
+Apple Certified Support Professional certifications are for specific versions:<br />
+<a target="_blank" href="
+https://training.apple.com/en/osx.html">
+https://training.apple.com/en/osx.html</a>
+
+The two-hour exams are $65 each at
+Apple Certification Records System (ACRS) at 
+https://training.apple.com/acrs
+
+<a target="_blank" href="http://www.peachpit.com/promotions/welcome-apple-customers-books-138516"> Apple Training Series books from Peachpit Press</a>
+to help you prepare for the exam are expensive ($100).
+ 
+
 
 <a id="MacVer"></a>
 
@@ -114,7 +129,7 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
    <pre><strong>sw_vers
    </strong></pre>
 
-   The response I got:
+   Sample response:
 
    <pre>ProductName: mac OS X
    ProductVersion: 10.12.5
@@ -162,6 +177,50 @@ http://en.wikipedia.org/wiki/OS_X#Versions</a>
 
    <pre><strong>arch
    </strong></pre>
+
+
+## Upgrades
+
+The App Store app nags you every day to upgrade.
+
+Do a full backup before.
+
+MacOSX To find out more about why a macOS Sierra installation failed:
+
+   /var/log/install.log
+
+
+Each user starts with a login keychain saved at 
+
+   /Users/username/Library/Keychain/login.keychain 
+
+and a Local Items/iCloud keychain saved in folder: 
+
+   /Users/username/ Library/Keychains/UUID
+
+Administrative users can manage macOS authentication assets with the /Library/Keychain/System.keychain. 
+
+Apple maintains several items for macOS use in:
+
+   /System/Library/Keychains/ 
+
+
+## Use Touchbar to auth Terminal
+
+Within Terminal app:
+
+1. Edit the file:
+
+   <pre><strong>
+   sudo nano /etc/pam.d/sudo
+   </strong></pre>
+
+2. Provide your password.
+3. Add the following line to the top:
+
+   <pre>auth sufficient pam_tid.so</pre>
+
+4. Save the change within Nano using Control+O and then exit nano with Control+X
 
 
 ## Create a bootable installer for macOS
@@ -276,7 +335,6 @@ Want to add the Windows 10 wallpaper to your desktop?
 0. Get to folder where system wallpapers are held from the 
    Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
 0. Sort by File Size. 
-
 
 
 ## More on OSX
