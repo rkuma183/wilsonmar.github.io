@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker setup"
-excerpt: "Get little bits working together"
+excerpt: "Get little bits working in containers"
 tags: [Docker, devops, ci, setup]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -41,7 +41,7 @@ Prior to Docker, a developer working on a Mac Pro can,
 in addition to native apps for Mac, 
 also run Microsoft Visual Studio for Windows
 in a full install of Windows 10 by running them
-within a VMware Fusion or Vagrant <strong>hypervisor</strong> that manages Virtual Memory instances.
+within a VMware Fusion or Vagrant <strong>hypervisor</strong> that manages Virtual Memory instances. See https://www.upguard.com/articles/docker-vs-vagrant
 
 Each additional VM (virtual machine) instance would take 
 several more Gigabytes of disk space and memory
@@ -325,7 +325,9 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 
 ## Install Docker on Windows 10 #
 
-#### Windows 10 Docker images within AWS  #
+<a name="DockerAWS"></a>
+
+### Install in Amazon EC2 clouds #
 
    Native Windows images have been running within AWS EC2 clouds.
 
@@ -340,62 +342,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 0. Login to the Console at<br /><a target="_blank" href="https://console.aws.amazon.com/console/home">
    https://console.aws.amazon.com/console/home</a>
 
-
-## Install local Windows 10 #
-
-The below enhances https://docs.docker.com/docker-for-windows/
-
-CAUTION: A 64-bit machine is necessary.
-
-0. Enable Microsoft Hyper-V necessary to run Docker for Windows.
-
-   CAUTION: This renders ususable Oracle Virtual Box VMs running
-   <a target="_blank" href="https://docs.docker.com/toolbox/overview/">
-   Docker Toolbox</a>.
-
-0. Upgrade Windows 10 to the <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#3jvuXUzhTHYift0W.97">
-   <strong>"Anniversary Update"</strong></a> 
-   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#VjM80RVylUUJ9pJ6.99">1607 (KB3194798)</a>
-   released October 11, 2016 or
-   <a target="_blank" href="https://support.microsoft.com/en-us/help/12387/windows-10-update-history">
-   more recent</a>.
-
-   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/new-video-series-this-week-on-windows-highlights-windows-10-anniversary-update/#dfSWt7CfzxgoJYIF.97">
-   See the video</a>.
-
-   In Settings > Updates & Security > Windows Update > Update &amp; Security > Check for Updates > Update.
-
-0. At <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
-   https://docs.docker.com/docker-for-windows</a>,<br />
-   Click "Get Docker for Windows (stable)" (not the more volatile Beta).
-
-   This downloads InstallDocker.msi (105 MB),
-   typically to your Downloads folder.
-
-   NOTE: There is no Chocolatey module yet as of this writing.
-
-0. Double-click InstallDocker.msi to run the installer.
-
-0. If you haven’t already downloaded the installer (InstallDocker.msi), you can get it here. It 
-
-0. Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
-
-0. Authorize Docker.app with your system password when prompted, 
-   since privileged access is needed to install networking components, 
-   links to the Docker apps, and manage the Hyper-V VMs.
-
-0. Click Finish on the setup complete dialog to launch Docker.
-
-   The same <a href="#ModulesInstalled">modules are installed</a>.
-
-0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
-
-
-<a name="DockerAWS"></a>
-
-### Install in Amazon EC2 clouds #
-
-Using the Amazone CLI:
+   Using the Amazone CLI:
 
 0. Create `~/.aws/credentials` file based on keys copied during user creation in AWS IAM, such as:
 
@@ -425,6 +372,67 @@ Using the Amazone CLI:
    `--volumes-from` is how data volumes are associated (for sharing).
 
 
+
+### Install local Windows 10 #
+
+CAUTION: A 64-bit Windows machine is necessary to run Docker. Not 32-bit.
+
+1. Enable Microsoft Hyper-V necessary to run Docker for Windows.
+
+   CAUTION: This renders ususable Oracle Virtual Box VMs running
+   <a target="_blank" href="https://docs.docker.com/toolbox/overview/">
+   Docker Toolbox</a>.
+
+2. Upgrade Windows 10 to at least the <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#3jvuXUzhTHYift0W.97">
+   <strong>"Anniversary Update"</strong></a> 
+   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#VjM80RVylUUJ9pJ6.99">1607 (KB3194798)</a>
+   released October 11, 2016 or
+   <a target="_blank" href="https://support.microsoft.com/en-us/help/12387/windows-10-update-history">
+   more recent</a>.
+
+   <a target="_blank" href="https://blogs.windows.com/windowsexperience/2016/08/02/new-video-series-this-week-on-windows-highlights-windows-10-anniversary-update/#dfSWt7CfzxgoJYIF.97">
+   See the video</a>.
+
+   In Settings > Updates & Security > Windows Update > Update &amp; Security > Check for Updates > Update.
+
+
+   ### Chocolatey
+
+3. The easiest approach is to use <a target="_blank" href="https://chocolatey.org/packages/docker">Docker on Chocolately.org</a>
+
+   <pre><strong>
+   choco install -y docker
+   </strong></pre>
+
+   Ignore the installer "docker-machine". It's for an older version of Docker.
+
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+
+### Manual install
+
+1. Alternately, at <a target="_blank" href="https://docs.docker.com/docker-for-windows/">
+   https://docs.docker.com/docker-for-windows</a>,<br />
+   Click "Get Docker for Windows (stable)" (not the more volatile Beta).
+
+0. This downloads InstallDocker.msi (105 MB),
+   typically to your account's Downloads folder.
+
+0. Right-click file InstallDocker.msi to run (not just Save) the installer as Administrator.
+
+0. Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
+
+0. Authorize Docker.app with your system password when prompted, 
+   since privileged access is needed to install networking components, 
+   links to the Docker apps, and manage the Hyper-V VMs.
+
+0. Click Finish on the setup complete dialog to launch Docker.
+
+   <a href="#ModulesInstalled">Modules are installed</a>.
+
+0. Skip to <a href="#VerifyInstall">verify Docker install</a>.
+
+
+
    ### Default folders
 
    The default NGINX configuration root directory 
@@ -443,7 +451,7 @@ Using the Amazone CLI:
 
 <a name="Docker4Alpine"></a>
 
-### Alpine Linux #
+## Alpine Linux #
 
 Within Docker for Mac, the Docker engine runs in an 
 Alpine Linux distribution on top of a Mac xhyve (pronounced "x-hive") Virtual Machine.
@@ -467,7 +475,7 @@ edition of it for the Raspberry Pi</a>.
 
 <a name="Docker4Centos"></a>
 
-### Install Docker in CentOS #
+## Install Docker in CentOS #
 
    There are two methods for installing Docker on CentOS 7:
 
@@ -620,7 +628,9 @@ Jul 27 22:37:40 centos-512mb-sfo2-01 systemd[1]: Started Docker Application Cont
 
 ## After install, Menu, Verify #
 
-0. Open a Terminal shell window.
+These instructions apply to Docker running within all operating systems.
+
+1. Open a Terminal shell window.
 
    After Docker installation, the same Docker commands are applicable on all operating systems:
 
@@ -2481,13 +2491,12 @@ Commands:
    The above command refers to Dockerfile and compose.yml files.
 
 
-   ### Monitoring
+## Kubernetes
 
-   Monitor using cAdvisor collecting stats to write to InfluxDB, displayed by Grafana,
-   described
-   <a target="_blank" href="https://dockerhanoi.wordpress.com/2015/08/19/docker-monitoring-with-cadvisor-influxdb-and-grafana/">
-   here</a>
+   https://chocolatey.org/packages/kubernetes-kompose
+   TOOL: Kompose is a convenience tool to go from local Docker development to managing your application with Kubernetes. Transformation of the Docker Compose format to Kubernetes resources manifest may not be exact, but it helps tremendously when first deploying an application on Kubernetes. Install on Windows machines:
 
+   choco install kubernetes-kompose
 
    ### Alternatives include 
 
@@ -2499,6 +2508,15 @@ Commands:
    * Serf
    * Cloudify
    * Helios
+
+
+   ### Monitoring
+
+   Monitor using cAdvisor collecting stats to write to InfluxDB, displayed by Grafana,
+   described
+   <a target="_blank" href="https://dockerhanoi.wordpress.com/2015/08/19/docker-monitoring-with-cadvisor-influxdb-and-grafana/">
+   here</a>
+
 
 0. Get the IP address of the running Docker instance:
 

@@ -35,9 +35,11 @@ https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
  6:35  up 9 days, 11:56, 7 users, load averages: 2.09 2.08 2.06
    </pre>
 
-   Load averages are also shown in the top command.
+   Load averages lists calcuations of the average system load over three period of times:
+   the last one-, five-, and fifteen-minute periods.
+   Each process using or <strong>waiting</strong> for CPU (the ready queue or run queue) increments the load number by 1. In a system with four CPUs, a load average of 3.73 would indicate that there were, on average, 3.73 processes ready to run, and each one could be scheduled into a CPU.
 
-   ### Top processes
+### Top processes
 
 0. To list the top hungry processes, and refersh the screen:
 
@@ -80,6 +82,13 @@ https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
    <pre><strong>ps -l
    </strong></pre>
 
+   Expand the terminal window width to avoid line wrapping.
+
+  <pre>
+UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD
+501  2752  2749     4006   0  31  0  4320804     44 -      Ss                  0 ttys001    0:00.19 /Users/wilsonmar
+   </pre>
+
    ### Niceness of priority
 
    Default niceness of zero, but can be -20 to +19.
@@ -96,14 +105,15 @@ https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
    <pre><strong>renice -n 5 sleep 1000&
    </strong></pre>
 
+
    ## Kill
 
-0. To kill a single progam by name, such 
+0. To kill a single program by name: 
 
    <pre><strong>pkill sleep
    </strong></pre>
 
-0. To kill several progams by name, such 
+0. To kill several progams by name: 
 
    <pre><strong>killall sleep
    </strong></pre>
@@ -145,13 +155,13 @@ the computer is <strong>asleep</strong> when the job should have run
 
 My version of the Grep utility that filters what is piped into it:
 
-   <tt><strong>grep --version</strong></tt>
+   <pre><strong>grep --version</strong></pre>
 
-is
+   response:
 
    <tt>grep (BSD grep) 2.5.1-FreeBSD</tt>
 
-   NOTE: The Mac is a combination of BSD and Linux goodness.
+   PROTIP: The Mac is a combination of BSD and Linux goodness.
 
 Grep filters what is piped into it:
 
