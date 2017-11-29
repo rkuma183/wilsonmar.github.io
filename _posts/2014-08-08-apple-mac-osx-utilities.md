@@ -137,181 +137,60 @@ UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR
 ## Cron Launchd Background Jobs
 
 <a target="_blank" href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html">This</a> mentions that Apple has deprecated
-cron in favor of launchd (a daemon running under the System context).
-Since it's a background process, it doesn't present a user interface.
+cron in favor of <strong>launchd</strong> (a daemon running under the System context).
+to automatically start (after reboots) service programs at boot time.
 
 If the system is turned off or asleep, <strong>cron</strong> jobs 
-do not execute until the next designated time occurs.
+do not execute until the <strong>next</strong> designated time occurs.
 
-However, launchd job will run when the computer wakes up if 
-the computer is <strong>asleep</strong> when the job should have run
+However, a launchd job will run when the computer wakes up if 
+the computer was <strong>asleep</strong> when the job should have run
 (if the StartCalendarInterval key has been set).
 
+Since it's a background process, launchd doesn't present a user interface.
+So you get "launchd cannot be run directly." when you run launchd like other commands.
 
 
-<a name="Grep"></a>
+The standard way now to run a service on Mac OS X is to use launchd , a program that starts, stops and manages daemons and scripts in Apple OS X environments. 
 
-## Grep Utilities
+An XML document named with file extension <strong> .plist</strong> defines its properties. 
+The sample file below defines the Nexus Repository Manager from Sonatype.com installed in `/opt`
+:
 
-My version of the Grep utility that filters what is piped into it:
+{% highlight xml %}
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sonatype.nexus</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/nexus/bin/nexus</string>
+        <string>start</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+{% endhighlight %}
 
-   <pre><strong>grep --version</strong></pre>
+The above is the `com.sonatype.nexus.plist` file in `/Library/LaunchDaemons/` 
 
-   response:
+Change its ownership and access rights:
 
-   <tt>grep (BSD grep) 2.5.1-FreeBSD</tt>
-
-   PROTIP: The Mac is a combination of BSD and Linux goodness.
-
-Grep filters what is piped into it:
-
-   <tt>grep "my string of text" -R</tt>
-
-
-Find the word "server" with case -insensitive in a file:
-
-   <pre><strong>grep -i Server /etc/ntp.conf
+   <pre><strong>
+sudo chown root:wheel /Library/LaunchDaemons/com.sonatype.nexus.plist
+sudo chmod 644 /Library/LaunchDaemons/com.sonatype.nexus.plist
    </strong></pre>
 
-   The response contains the word "server" searched::
+PROTIP: Consider setting up a different user to run the repository manager and adapt permissions and the RUN_AS_USER setting in the nexus startup script. 
 
-   <pre>
-server time.apple.com.
-   </pre>
+To manually start it after the configuration:
 
-Find lines that don't (-v to reverse search) 
-begin with # (specified by a ^)
-   or blank lines (specified by a ^) to the end of line $:
-
-   <pre><strong>grep -ve'^#' -ve'^$'/etc/ntp.conf
+   <pre><strong>
+sudo launchctl load /Library/LaunchDaemons/com.sonatype.nexus.plist
    </strong></pre>
-
-   The response:
-
-   <pre>
-server time.apple.com.
-   </pre>
-
-
-
-   <a name="Regex"></a>
-
-## Regular Expressions
-
-   We'll use the spelling dictionary of English words that comes with Linux.
-
-   * <a target="_blank" href="https://dzone.com/articles/abc-of-regex">ABCs of Regex</a>
-
-0. Search for words ending with "fine":
-
-   <pre><strong>grep 'fine$' /usr/share/dict/words
-   </strong></pre>
-
-   $ (Shift+4) specifies search from the end of string.
-
-   Responses include "refine".
-
-0. Search for words beginng with "fine":
-
-   <pre><strong>grep '^fine' /usr/share/dict/words
-   </strong></pre>
-
-   ^ (Shift+6) specifies search from the beginning of string.
-
-   Responses include "refine".
-
-0. Search for "fine" anywhere within the line:
-
-   <pre><strong>grep 'fine' /usr/share/dict/words
-   </strong></pre>
-
-0. Search for lines containing "fine" anywhere within words:
-
-   <pre><strong>grep 'fine' /usr/share/dict/words
-   </strong></pre>
-
-   ### Whitespace 
-
-0. Search for a **s**pace before "system" in lines, such as either "system" or "file system":
-
-   <pre><strong>grep '\ssystem' /etc/ntp.conf
-   </strong></pre>
-
-0. Search for any word **b**oundary after "server" in lines, such as 
-   "servers" or "serverless":
-
-   <pre><strong>grep 'server\b' /etc/ntp.conf
-   </strong></pre>
-
-   PROTIP: The response "server time.apple.com" is the server used for Network Time Protocol
-   used to update your machine's clock.
-
-   ### Reverse search
-
-0. Return lines that do not start with # for comment:
-
-   <pre><strong>grep -v '^\s*#' /etc/hosts
-   </strong></pre>
-
-
-0. Search for specific characters C or c:
-
-   <pre><strong>grep '[Cc]'
-   </strong></pre>
-
-   ### Quantifiers
-
-0. Search for "color" or "colour" in any line, using a combination, including
-   a ? to specify the previous character u as an optional character:
-
-   <pre><strong>grep '\b[Cc]olou?r\b' /usr/share/dict/words
-   </strong></pre>
-
-   `u+` matches one or more occurrences.
-
-   `u*` matches zero or more times.
-
-   `u{4}` matches exactly four occurrences.
-
-   ## enhanced grep
-
-0. Return words with five consequtive vowel characters:
-
-   <pre><strong>grep -E '[aeiou]{5}' /usr/share/dict/words
-   </strong></pre>
-
-   BTW, "euouae" (<a target="_blank" href="https://www.youtube.com/watch?v=i5IVh7245hg">pronounced your-you-ee"</a>) consists only of vowels.
-
-
-   ### Regex ranges
-
-0. Search for characters, upper and lower case ranges from A to Z, 
-   plus underscores:
-
-   <pre><strong>grep '[A-Za-z_]' ???
-   </strong></pre>
-
-0. Search for just numbers range 1 through 9:
-
-   <pre><strong>grep '[0-9]' ???
-   </strong></pre>
-
-
-
-
-<a name="Sed"></a>
-
-## Sed
-
-The Linux sed utility replaces contents within a file.
-
-To delete empty lines and comment lines:
-
-   sed -i.bak '/^s*#/d;/^$/d' somefile
-
-   The -i generates a backup.
-
-   The semicolon separates multiple specifications.
 
 
 ## Install appium_console gem
