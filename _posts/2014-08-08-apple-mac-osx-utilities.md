@@ -154,8 +154,7 @@ So you get "launchd cannot be run directly." when you run launchd like other com
 The standard way now to run a service on Mac OS X is to use launchd , a program that starts, stops and manages daemons and scripts in Apple OS X environments. 
 
 An XML document named with file extension <strong> .plist</strong> defines its properties. 
-The sample file below defines the Nexus Repository Manager from Sonatype.com installed in `/opt`
-:
+The sample file below defines the <a target="_blank" href="https://help.sonatype.com/display/NXRM3/Run+as+a+Service#RunasaService-MacOSX">Nexus Repository Manager</a> from Sonatype.com installed in `/opt`:
 
 {% highlight xml %}
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
