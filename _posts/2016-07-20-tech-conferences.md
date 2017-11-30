@@ -18,14 +18,16 @@ comments: true
 Even if you don't go, you need to know when and where conferences are
 because that's where you customers (potential and otherwise) may be.
 
+You don't want to schedule your own events which competes with when your customers and vendors are away at conferences.
+
 There are many ways to take advantage of events even if you are not an exhibitor
 (which requires thousands of dollars).
 
-Also, you may not want to schedule your own events that competes with some dates.
 
 ## General #
 
-* Consumer Electronics Show each January
+* Consumer Electronics Show in Las Vegas each January. 
+   The largest convention in the world for any industry.
 
 * Techcrunch Disrupt Sep 12-14, 2016 San Francisco
 
@@ -50,6 +52,10 @@ Also, you may not want to schedule your own events that competes with some dates
 
 ## Specific Technology focus #
 
+Many conferences are setup like flash mobs about whatever hot buzzword is popular at the moment.
+
+In 2017, it's "cloud-native", "12 factor app", etc.
+
 Alphabetically:
 
 * AnDevCon for Android
@@ -65,8 +71,12 @@ Alphabetically:
    Boston, MA 
    <a target="_blank" href="https://www.youtube.com/channel/UCVrBi5B3I4yNNOY9nRInnOQ">
    [videos]</a>
+
+* <a target="_blank" href="https://archconf.com/">
+   ArchConf</a> in Clearwater (St. Petersburg Tampa), Florida $2,555 December 11-14, 2017
+
 * <a target="_blank" href="https://2016.restfest.org/us/">
-   2016.restfest.org/us</a> RESTful Web Services Unconference
+   Restfest.org/us</a> RESTful Web Services Unconference
    September 15-17, 2016
    Greenville, SC
    [<a target="_blank" href="http://productforge.io/livestreams/rest-fest/2016/07/16/rest-fest-uk-2016-conference-day/">video</a>]
@@ -152,7 +162,7 @@ Alphabetically:
    #qconsf 
    Nov 7-9, workshops Nov 10-11
 
-* DeveloperWeek San Francisco
+* DeveloperWeek was first in San Francisco, then spread to New York City.
 
 * No Fluff Just Stuff (NFJS)
 
@@ -162,7 +172,7 @@ Alphabetically:
 * Apple WWDC each Spring
 * Google I/O each Spring
 * Amazon Re:Invent <a target="_blank" href="https://www.portal.reinvent.awsevents.com/portal/startNewRegistration.do">
-   2016 11/28-12/2 Las Vegas
+   November, Las Vegas
    
 * ApacheCon by Linux Foundation 
    <a target="_blank" href="http://events.linuxfoundation.org/events/apachecon-north-america/">
@@ -197,9 +207,11 @@ Alphabetically:
 * <a target="_blank" href="https://cloudplatformonline.com/NEXT2016-Tokyo.html">
    GCP (Google Cloud Compute) Tokyo</a> (in Japanese)
 
+
 ## More #
 
 TODO: Arrange this in a sortable table using https://datatables.net/
+
 
 ## More on Evanglism #
 
