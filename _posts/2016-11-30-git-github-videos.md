@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git and GitHub Videos"
+title: "Git and GitHub Videos (and Blogs)"
 excerpt: "Binge watch all the vidoes on distributed source version control"
 tags: [GitHub]
 shorturl: "https://goo.gl/hOUsKE"
@@ -1414,6 +1414,15 @@ his playlist</a>:
 * <a target="_blank" href="https://www.youtube.com/watch?v=T1uTjNEKc6M">
    Extending DevOps practices to SQL Server databases - Branching & Merging with Git</a>
    [1:00:29] 18 Jan 2017 by Redgate (database tool vendor)
+
+* <a target="_blank" href="https://www.datacamp.com/teach/repositories/1545/branches/master">
+   Introduction to Git for Data Science at Datacamp.com</a>
+   by Greg Wilson, Head of Instructor Training.
+   This is a text-based tutorial with frequent quizzes that make you think.
+   Data sets referenced are in
+   <a target="_blank" href="https://github.com/datacamp/courses-intro-to-git">
+   this GitHub</a>. It focuses on Git CLI commands.
+
 
 ## Books
 

@@ -37,16 +37,16 @@ published by several people on their GitHub repositories:
 
    YADR includes git aliases plus super-geeky vim and zsh plugins.
 
+   * <a target="_blank" href="https://github.com/daneden/dotfiles">
+   https://github.com/daneden/dotfiles</a>
+   from Dan Eden, #8 among all GitHub at GitScore.
+   He uses YADR.
+
 * <a target="_blank" href="https://github.com/afranken/dotfiles/blob/master/osx/osx-bootstrap.sh">
    https://github.com/afranken/dotfiles</a>
 
 * <a target="_blank" href="https://github.com/mathiasbynens/dotfiles">
    https://github.com/mathiasbynens/dotfiles</a>
-
-* <a target="_blank" href="https://github.com/daneden/dotfiles">
-   https://github.com/daneden/dotfiles</a>
-   from Dan Eden, #8 among all GitHub at GitScore.
-   He uses YADR:
 
 * https://github.com/atomantic/dotfiles
    has submodules   
@@ -59,7 +59,9 @@ published by several people on their GitHub repositories:
 
 * https://github.com/amlweems/dotfiles/blob/master/bin/bin/osx
 
-
+* https://github.com/apjanke/dotfiles
+* https://github.com/mathiasbynens/dotfiles
+* https://github.com/von/mac-setup
 
 <a id="SheBang"></a>
 
