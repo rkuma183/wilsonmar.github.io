@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kubernetes (abbreviated k8s)"
+title: "Kubernetes (K8s)"
 excerpt: "Container engine"
 shorturl: "https://goo.gl/"
 filename: kubernetes.md
@@ -23,6 +23,16 @@ This page is being actively worked on, so please pardon the "dust".
 This is a tutorial presented as a hands-on workshop with commentary along the way.
 Here, you do something, then the command and responses are explained.
 
+![k8s_arch-ruo91-ani-800x450](https://user-images.githubusercontent.com/300046/33525509-1eb3964c-d7ee-11e7-87d2-10385a3e7a82.gif)
+
+<a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
+Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
+<small>Click on the diagram to pop-up a full-sized diagram</small>:
+<a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
+<img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
+
+
+
 * <a href="#IAC">Infrastructure as code</a>
 * Manage containers
 * Naming and discovery
@@ -43,7 +53,7 @@ Here, you do something, then the command and responses are explained.
 
 Kubernetes automates the deployment and scaling of containers within pods arranged in clusters.
 
-Kubernetes is called an "orchestrator" of <a href="#micro-services">micro-service apps</a> and utilities that run on containers built using Docker or rkt. (Micro services are a set of small and independent services.)
+Kubernetes is called an "orchestrator" of <a href="#micro-services">micro-service apps</a> and utilities that run on containers built using Docker or rkt.
 
 Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
 
@@ -59,27 +69,26 @@ The predecessor to Kub was called Borg.
 A key Borg character is called "7 of 9".
 
 
-### Open Source with OpenShift Support
+### Open Sourced
 
 Google created Kubernetes (using Golang) 
 for internal use over a decade before open-sourcing it to CNCF in 2014.
 
-v1.0 was committed on July 2015 within GitHub as:
-
-   * <a target="_blank" href="https://github.com/kubernetes/kubernetes">
-   https://github.com/kubernetes/kubernetes</a>
-   * <a target="_blank" href="https://twitter.com/kubernetesio/">@kubernetesio</a>
-
-These open source projects on GitHub and 
 "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
-<a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a>
+<a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
+source code at
 
-   * 1.8 is led by a Microsoft employee (Jaice Singer DuMars specifically) after Microsoft joined the CNCF July 2017.
-   * 1.7 was led by Google.
-   * 1.6 was led by a CoreOS developer.
-   <br /><br />
+   <a target="_blank" href="https://github.com/kubernetes/kubernetes">
+   https://github.com/kubernetes/kubernetes</a>
 
-If you want to pay for it,
+   * v1.0 was committed on July 2015 within GitHub
+   * v1.6 was led by a CoreOS developer.
+   * v1.7 was led by Google.
+   * v1.8 is led by a Microsoft employee (Jaice Singer DuMars specifically) after Microsoft joined the CNCF July 2017.
+
+### OpenShift support
+
+If you want to pay for Kubernetes,
 <a target="_blank" href="
 https://www.redhat.com/en/technologies/cloud-computing/openshift">
 https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
@@ -87,8 +96,8 @@ Red Hat® OpenShift is a container application platform that brings Docker and K
 
 ### Social media
 
+   * <a target="_blank" href="https://twitter.com/kubernetesio/">Twitter: @kubernetesio</a>
    * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
-
 
 ### Competitors
 
@@ -305,12 +314,6 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 <a name="GKE"></a>
 
 ### How Kubernetes Engine works
-
-<a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
-Yongbok Kim (who writes Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
-<a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
-<img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg">
-Click to pop-up full image</a> 
 
 Kubernetes 
 
