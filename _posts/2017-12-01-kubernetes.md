@@ -21,9 +21,121 @@ comments: true
 This page is being actively worked on, so please pardon the "dust".
 
 This is a tutorial presented as a hands-on workshop with commentary along the way.
-Here, you do something, then the command and responses are explained.
 
-![k8s_arch-ruo91-ani-800x450](https://user-images.githubusercontent.com/300046/33525509-1eb3964c-d7ee-11e7-87d2-10385a3e7a82.gif)
+### Open Sourced
+
+Google created Kubernetes (using Golang) 
+for internal use over a decade before open-sourcing it to CNCF in 2014.
+
+"Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
+<a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
+source code at
+
+   <a target="_blank" href="https://github.com/kubernetes/kubernetes">
+   https://github.com/kubernetes/kubernetes</a>
+
+   * v1.0 was committed on July 2015 within GitHub
+   * v1.6 was led by a CoreOS developer.
+   * v1.7 was led by Google.
+   * v1.8 is led by a Microsoft employee (Jaice Singer DuMars specifically) after Microsoft joined the CNCF July 2017.
+
+<img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
+<a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
+This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> about origins note
+that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
+The predecessor to Kub was called Borg.
+A key Borg character is called "7 of 9".
+
+Anyway, its Google heritage means Kubernetes is about scaling for a lot of traffic
+with redundancies to achieve high availability (HA).
+
+
+### OpenShift support
+
+If you want to pay for Kubernetes,
+<a target="_blank" href="
+https://www.redhat.com/en/technologies/cloud-computing/openshift">
+https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
+Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
+
+### Social media
+
+   * <a target="_blank" href="https://twitter.com/kubernetesio/">Twitter: @kubernetesio</a>
+   * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
+   * <a target="_blank" href="https://plus.google.com/communities/115402602543170235291">
+   Google+ Group: Kubernetes</a>
+
+### Competitors
+
+Other orchestration systems for Docker containers:
+
+* Docker Swarm
+
+* Mesos, which runs other as well as Docker.
+
+https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/
+Kubernetes in the Cloud: AWS vs. GCP vs. Azure
+
+
+
+## What Kubernetes does
+
+Kubernetes adds value needed to automate the deployment (creation) of containers within 
+<strong>pods</strong> arranged in <strong>clusters</strong> running on <strong>nodes</strong>
+(previously called minions).
+
+![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
+<!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
+
+My narrative below is illustrated by <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+this diagram</a> gradually revealing how the various aspects of Kubernetes fit together.
+
+![k8s-arch-ruo91-797x451-104467](https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg)
+
+Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
+built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
+The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
+
+BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
+But this tutorial focuses on Docker.
+
+
+<a href="#kubelet">Kubelet agents</a>
+
+System administrators control the <strong>Master node</strong>
+UI in the cloud or write scripts that invoke 
+<a href="#kubectl">kubectl command-line client program</a>
+that controls the <strong>Kubernetes Master</strong> node.
+
+The program talks to the <strong>Kubernetes API Server</strong>.
+
+The Server gets Scheduler ???
+
+The Server obtains from Controller Manager ???
+
+The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
+
+Kubernetes instantiates and then manages the state of containers.
+
+Kubernestes can move 
+
+HAProxy
+VRRP (Virtual Router Redundancy Protocol)
+http://searchnetworking.techtarget.com/definition/VRRP
+automatically assigns available Internet Protocol routers to participating hosts.
+
+6. communicate
+7. over
+8. Master
+9. ETCD
+
+cAdvisor https://github.com/google/cadvisor
+(Container Advisor) collects, aggregates, processes, and exports information about running containers in order to
+provide container admins an understanding of the resource usage and performance characteristics of their running containers.
+
+
+
+## Detail
 
 <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
 Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
@@ -31,6 +143,14 @@ Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yong
 <a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
 <img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
 
+https://github.com/coreos/flannel
+flannel
+configures a IPv4 "layer 3" network fabric designed for Kubernetes.
+between multiple nodes in a cluster. 
+
+CoreOS's Tectonic sets up flannel in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process.
+
+flannel is also widely used outside of kubernetes. When deployed outside of kubernetes, etcd is always used as the datastore.
 
 
 * <a href="#IAC">Infrastructure as code</a>
@@ -51,58 +171,13 @@ Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yong
 
 ## Terminology background
 
-Kubernetes automates the deployment and scaling of containers within pods arranged in clusters.
-
-Kubernetes is called an "orchestrator" of <a href="#micro-services">micro-service apps</a> and utilities that run on containers built using Docker or rkt.
-
 Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
 
 Kubernetes is the ancient Greek word for "helmsman" (people who pilot cargo ships). 
-Thus the nautical references and why k8s experts are called "captain" and why associated product have nautical themes,
+Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
 such as "helm".
 
-<img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
-<a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
-This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> about origins note
-that the Kubernetes logo has 7 sides because its developers are Star Trek fans:
-The predecessor to Kub was called Borg.
-A key Borg character is called "7 of 9".
 
-
-### Open Sourced
-
-Google created Kubernetes (using Golang) 
-for internal use over a decade before open-sourcing it to CNCF in 2014.
-
-"Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
-<a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
-source code at
-
-   <a target="_blank" href="https://github.com/kubernetes/kubernetes">
-   https://github.com/kubernetes/kubernetes</a>
-
-   * v1.0 was committed on July 2015 within GitHub
-   * v1.6 was led by a CoreOS developer.
-   * v1.7 was led by Google.
-   * v1.8 is led by a Microsoft employee (Jaice Singer DuMars specifically) after Microsoft joined the CNCF July 2017.
-
-### OpenShift support
-
-If you want to pay for Kubernetes,
-<a target="_blank" href="
-https://www.redhat.com/en/technologies/cloud-computing/openshift">
-https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
-Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
-
-### Social media
-
-   * <a target="_blank" href="https://twitter.com/kubernetesio/">Twitter: @kubernetesio</a>
-   * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
-
-### Competitors
-
-https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/
-Kubernetes in the Cloud: AWS vs. GCP vs. Azure
 
 
 <a name="Install"></a>
@@ -169,6 +244,7 @@ minikube stop
 minikube delete
 
 
+<a name="kubectl"></a>
 
 ## kubectl CLI client install
 
@@ -667,8 +743,16 @@ This diagram</a>
 ![k8s-services-flow-847x644-100409](https://user-images.githubusercontent.com/300046/33525135-9b69e09a-d7e6-11e7-857f-513e8582d450.jpg)
 
 
-customers were paying for a lot of CPUs, but their utilization rates were extremely low because they were running VMs.
+https://twitter.com/TectonicStack
 
+https://www.pelo.tech/blog/running-kubernetes
+ Kubernetes with Gcloud and Terraform
+by Adron Hall
+April 5, 2017
 
+http://blog.adron.me/articles/setting-up-gcp-container-cluster/
+Setting up a GCP Container Cluster - Part I
+by Adron Hall and published on January, 31 of 2017.
 
-https://twitter.com/TectonicStack?refsrc=email
+Drone.io
+

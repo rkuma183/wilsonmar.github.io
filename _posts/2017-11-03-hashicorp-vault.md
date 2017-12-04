@@ -618,3 +618,8 @@ https://www.codementor.io/slavko/how-to-install-vault-hashicorp-secure-deploymen
 https://github.com/dandb/jenkins-provisioning<br />
 https://www.youtube.com/watch?v=ZcK_80P-68Q&t=8m31s
    by Damien Roche at Dun & Bradstreet on 30 April 2017.
+
+https://medium.com/qubit-engineering/kubernetes-up-integrated-secrets-configuration-5a15b9f5a6c6
+Kubernetes: Up & Integrated — Secrets & Configuration
+by Tristan Colgate-McFarlane
+![vault-qubit-895x759-56525](https://user-images.githubusercontent.com/300046/33553286-55801548-d8b5-11e7-878c-f085cc42532d.png)
