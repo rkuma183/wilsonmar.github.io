@@ -24,7 +24,7 @@ This is a tutorial presented as a hands-on workshop with commentary along the wa
 
 ### Open Sourced
 
-Google created Kubernetes (using Golang) 
+Google refined Kubernetes (using the [Golang](/Golang/) programming language) 
 for internal use over a decade before open-sourcing it to CNCF in 2014.
 
 "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
@@ -37,7 +37,7 @@ source code at
    * v1.0 was committed on July 2015 within GitHub
    * v1.6 was led by a CoreOS developer.
    * v1.7 was led by Google.
-   * v1.8 is led by a Microsoft employee (Jaice Singer DuMars specifically) after Microsoft joined the CNCF July 2017.
+   * v1.8 is led by a Microsoft employee (<a target="_blank" href="https://twitter.com/jaydumars?lang=en">Jaice Singer DuMars</a>) after Microsoft joined the CNCF July 2017.
 
 <img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
 <a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
@@ -58,12 +58,26 @@ https://www.redhat.com/en/technologies/cloud-computing/openshift">
 https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
 Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
 
-### Social media
+### Social
 
    * <a target="_blank" href="https://twitter.com/kubernetesio/">Twitter: @kubernetesio</a>
    * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
    * <a target="_blank" href="https://plus.google.com/communities/115402602543170235291">
    Google+ Group: Kubernetes</a>
+   * https://groups.google.com/forum/#!forum/kubernetes-dev for contributors to the Kubernetes project to discuss design and implementation issues.
+
+   * https://stackoverflow.com/search?q=k8s+or+kubernetes for developers
+   * https://serverfault.com/search?q=k8s+or+kubernetes for sysadmins.
+   * https://groups.google.com/forum/#!forum/kubernetes-sig-scale
+   * https://www.youtube.com/playlist?list=PL69nYSiGNLP1pkHsbPjzAewvMgGUpkCnJ&disable_polymer=true
+   Kubernetes Google Community video chats
+
+   * https://cloud.google.com/support/docs/issue-trackers to report bugs
+   <br /><br />
+
+Conferences:
+
+   * #KubeCon 
 
 ### Competitors
 
@@ -71,26 +85,25 @@ Other orchestration systems for Docker containers:
 
 * Docker Swarm
 
-* Mesos, which runs other as well as Docker.
+* <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
 
 https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/
 Kubernetes in the Cloud: AWS vs. GCP vs. Azure
 
 
 
-## What Kubernetes does
+## Kubernetes vernacular exposed
 
-Kubernetes adds value needed to automate the deployment (creation) of containers within 
+Kubernetes automates the deployment (creation) of containers within 
 <strong>pods</strong> arranged in <strong>clusters</strong> running on <strong>nodes</strong>
 (previously called minions).
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-My narrative below is illustrated by <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-this diagram</a> gradually revealing how the various aspects of Kubernetes fit together.
-
-![k8s-arch-ruo91-797x451-104467](https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg)
+Click on the diagram for an animation of how the various aspects of Kubernetes fit together:
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
 Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
 built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
@@ -99,6 +112,7 @@ The images are built by Docker reading <strong>Dockerfiles</strong> in a configu
 BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
 But this tutorial focuses on Docker.
 
+Deployments manage Pods. 
 
 <a href="#kubelet">Kubelet agents</a>
 
@@ -118,6 +132,9 @@ The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
 Kubernetes instantiates and then manages the state of containers.
 
 Kubernestes can move 
+
+The Kube Proxy communicates only with Pod admin. whereas
+Kubelets communicate with individual pods as well.
 
 HAProxy
 VRRP (Virtual Router Redundancy Protocol)
@@ -177,6 +194,10 @@ Kubernetes is the ancient Greek word for "helmsman" (people who pilot cargo ship
 Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
 such as "helm".
 
+Kops for AWS (at https://github.com/kubernetes/kops)
+enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
+See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
+"How Qubit built its production ready Kubernetes (k8s) environments"</a>
 
 
 
@@ -756,3 +777,6 @@ by Adron Hall and published on January, 31 of 2017.
 
 Drone.io
 
+For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
+
+http://www.nkode.io/2016/10/18/valuable-container-platform-links-kubernetes.html
