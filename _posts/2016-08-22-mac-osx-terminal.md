@@ -100,6 +100,13 @@ By default, the Terminal shows the hard drive and lowest level file folder name,
    <pre><strong>cd ~/
    </strong></pre>
 
+   Alternately, use the $OLDPWD environment variable that MacOS automatically maintains to
+   remember the previous working directory so that you can switch back to it:
+
+   <pre><strong>cd -
+   </strong></pre>
+
+
    ### List files and folders
 
 0. List all file names (without any metadata):

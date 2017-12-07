@@ -25,7 +25,8 @@ This is a tutorial presented as a hands-on workshop with commentary along the wa
 ### Open Sourced
 
 Google refined Kubernetes (using the [Golang](/Golang/) programming language) 
-for internal use over a decade before open-sourcing it to CNCF in 2014.
+for internal use over a decade before open-sourcing it in 2014 to 
+<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
 
 "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
 <a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
@@ -81,6 +82,8 @@ Conferences:
 
 ### Competitors
 
+See https://kubernetes.io/docs/setup/pick-right-solution/
+
 Other orchestration systems for Docker containers:
 
 * Docker Swarm
@@ -94,8 +97,8 @@ Kubernetes in the Cloud: AWS vs. GCP vs. Azure
 
 ## Kubernetes vernacular exposed
 
-Kubernetes automates the deployment (creation) of containers within 
-<strong>pods</strong> arranged in <strong>clusters</strong> running on <strong>nodes</strong>
+Kubernetes automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
+<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>
 (previously called minions).
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
