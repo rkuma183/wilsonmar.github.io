@@ -117,6 +117,10 @@ But this tutorial focuses on Docker.
 
 Deployments manage Pods. 
 
+Every Pod has a unique IP.
+
+Every container has a unique port number for its pod's IP.
+
 <a href="#kubelet">Kubelet agents</a>
 
 System administrators control the <strong>Master node</strong>
@@ -148,6 +152,8 @@ automatically assigns available Internet Protocol routers to participating hosts
 7. over
 8. Master
 9. ETCD
+
+## cAdvisor
 
 cAdvisor https://github.com/google/cadvisor
 (Container Advisor) collects, aggregates, processes, and exports information about running containers in order to
@@ -783,3 +789,6 @@ Drone.io
 For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
 
 http://www.nkode.io/2016/10/18/valuable-container-platform-links-kubernetes.html
+
+https://medium.com/@ApsOps/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727
+

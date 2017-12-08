@@ -292,18 +292,18 @@ custom configured to your needs.
 
 ### PRODUCT 15 - Satellite File Transfers
 
-MAKE FOR SALE: A device that receives and sends files to the 98W satellite in outer space.
+MAKE FOR SALE: A device that receives and sends files to the two 98W satellites in outer space over the US and Europe.
 
 This is a hobbyist fascination for nerdy bragging rights.
 
-0. Evaluate <a target="_blank" href="https://www.raspberrypi.org/blog/outernet/">Outernet projects</a> by others and files such already, such as <a target="_blank" href="http://pu2vlw.dyndns.org:8090/en/files/Wikipedia?view=generic">some Wikipedia articles</a>.
-0. Order L-band satellite antenna and amplifier hardware from the <a target="_blank" href="https://store.outernet.is/collections/store">Outernet store</a> in Chicago.
-0. Install rxOS software.
+0. Evaluate <a target="_blank" href="https://www.raspberrypi.org/blog/outernet/">Outernet projects</a> by others and files such already, such as <a target="_blank" href="http://pu2vlw.dyndns.org:8090/en/files/Wikipedia?view=generic">some Wikipedia articles</a>. <a target="_blank" href="https://news.bitcoin.com/outernet-can-bring-real-life-use-cases-bitcoin-ecosystem/">Bitcoin datacasting</a>.
+0. Order L-band satellite antenna and amplifier hardware from the non-profit <a target="_blank" href="https://store.outernet.is/collections/store">Outernet store</a> in Chicago.
+0. Install <a target="_blank" href="https://github.com/Outernet-Project/rxOS/">rxOS software</a>.
 0. Configure Software-defined Radio (SDR) 25MHz-2200MHz <a target="_blank" href="http://pu2vlw.dyndns.org:8090/">http://pu2vlw.dyndns.org:8090</a>
-0. Test (inmarsat signal level above 15 db?)
-0. Perform, track, and schedule predicted maintenace 
+0. Test (Inmarsat signal level above 15 db?), 10KB at a time.
+0. Perform, track, and schedule predicted maintenace https://www.wikiwand.com/en/Outernet
 0. Check product operation and package safely for shipment
-0. Train users/customers
+0. Train users/customers 
 
 
 ## Topics covered
