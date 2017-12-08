@@ -16,84 +16,19 @@ comments: true
 
 {% include _toc.html %}
 
-## Useful tools, not just toys and games
+## Useful tools people buy
 
-<a target="_blank" href="https://boldomatic.com/shop/product/mug/-zK2MA?mockup=B-TPAC-MUG-N-m1&design=blacktext&color=white&size=standard"
-alt="iot mkt mug more feature less stress 650x552-130kb">
-<img alt="MORE FEATURES OF LESS STRESS" width="650" height="552" src="https://cloud.githubusercontent.com/assets/300046/20648066/1d9b085c-b45a-11e6-9970-86ae82498db0.png"></a>
+Our objective is to make innovations available to the public
+by putting together teams that make things for sale.
 
-We experiment and train other people to build things
-that help people save time and money, safely.
+We want to make things that make a difference,
+products that help people and organizations save time and money, safely.
 
-The unique aspect of our curriculum is that you
-create complete <strong>products consumers buy</strong>
-to plug in and simply work for them.
+Below are ideas for various products, with an outline for how to put them together.
 
-We provide all that you need.
-Instructions. Equipment. Quality controls.
+The products are sequenced in rough order of production capability (maturity).
 
-Rather than starting by messing with toys and games,
-we connect to <strong>enterprise clouds</strong>
-in a secure way.
-
-
-## Start from examples, not blank stares
-
-Rather than starting by memorizing code from scratch,
-you run <strong>pre-programmed</strong>
-automation scripts that perform the steps,
-then make changes to 
-see the impact and troubleshoot.
-This is what happens on real jobs,
-which is the purpose of this curriculum.
-
-NOTE: Even though all manual steps are specified in training materials, 
-participants experienced with Linux commands and programming experience will 
-have an easier time than those who do not.
-
-
-## Hands-on step-by-step training
-
-Curriculum materials include 
-<strong>step-by-step tutorial guidebooks</strong>
-with pro tips, quizzes, and video diagrams.
-
-Among the steps, 
-we instill habits for good safety and vigilent security
-necessary at today's enterprises.
-
-
-
-## Reliable products, not elegant code
-
-Testing for reliability and adequate performance
-is emphasized here over tricky algorithms not used.
-
-Programming of Python code, shell scripts, and 
-JavaScript with Node is learned by examining examples
-and discussion about <strong>automated code checking rules</strong>.
-This is how professional programmers work.
-
-Quality assurance is an integral part of the curriculum,
-to ensure that everything just works for the consumer.
-
-## Customer training and service
-
-A key differentiator with our school is that students are trained 
-to explain to customers in plain language
-how to use products constructed.
-
-We also ensure that our graduates apply the latest techniques for
-excellent customer service and fast turnaround.
-That includes training in effective use of social media.
-
-
-## Products and Curriculum
-
-In the class, each learner is provided with everything except a laptop:
-a Raspberry Pi 3 B board 
-with power adapter and two 32 GB class 10 SD chips.
-A router is available during classes.
+<a name="SDCards"></a>
 
 ### PRODUCT 1 - Configured SD cards
 
@@ -123,6 +58,7 @@ Two cards in case one goes bad.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="Enclosures"></a>
 
 ### PRODUCT 2 - Custom enclosures
 
@@ -132,6 +68,8 @@ long-range communications
 using cell phone signals, Zigbee, or other advanced board.
 
 <img alt="iot raspberry-pi-3-overclock-case-400x337" src="https://cloud.githubusercontent.com/assets/300046/20623425/bab6bcfe-b2c4-11e6-929f-f367844a254b.jpg">
+
+This is needed to both dissipate heat and protect the device from dust, moisture, etc.
 
 0. Configure a service to recognize GPIO pin connections
 0. Wire-up and configure an on/off button for orderly shutdown
@@ -144,6 +82,7 @@ using cell phone signals, Zigbee, or other advanced board.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="Dashboard"></a>
 
 ### PRODUCT 3 - Cloud-connected dashboard TVs
 
@@ -165,8 +104,9 @@ MAKE FOR SALE: Plug a device on a TV to display (on a schedule)
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="AlertingButton"></a>
 
-### PRODUCT 4 - Cloud-connected alerting device
+### PRODUCT 4 - Cloud-connected button
 
 MAKE FOR SALE: A button on bathroom exits that when pressed, 
 sends an SMS or email to whoever <strong>you pre-configure</strong>.
@@ -182,6 +122,7 @@ sends an SMS or email to whoever <strong>you pre-configure</strong>.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="DataServer"></a>
 
 ### PRODUCT 5 - Local redundant data server
 
@@ -203,6 +144,7 @@ without fees for cloud access.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="AlertingSensor"></a>
 
 ### PRODUCT 6 - Predictive alerts from sensors
 
@@ -218,12 +160,13 @@ to alert you whenever an event of your choosing is detected.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="Camera"></a>
 
 ### PRODUCT 7 - Recordings with cameras
 
 MAKE FOR SALE: Take photos periodically and relay them to a server
 
-0. Identify options for recording images and video
+0. Identify options for recording images and video with sound
 0. Consider implications for constant-on webcams
 0. Configure a closed-circuit camera feed
 0. Configure fswebcam to use a 640x480 USB camera
@@ -233,6 +176,9 @@ MAKE FOR SALE: Take photos periodically and relay them to a server
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+Movidius Neural Computer Stick
+
+<a name="MediaProcessor"></a>
 
 ### PRODUCT 8 - Media file processor service
 
@@ -247,6 +193,7 @@ MAKE FOR SALE: Intelligently process photos and movies locally or in the cloud
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="Autonomous"></a>
 
 ### PRODUCT 9 - Autonomous outdoor device
 
@@ -263,6 +210,7 @@ time-lapse videos</a>
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="ControlSmartPhone"></a>
 
 ### PRODUCT 10 - Mobile phone remote control
 
@@ -277,6 +225,7 @@ such as make it ring so you can find it.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="ControlLights"></a>
 
 ### PRODUCT 11 - Control Lights 
 
@@ -294,6 +243,7 @@ We configure it for you to just plug in and it works.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="HomeAutomation"></a>
 
 ### PRODUCT 12 - Custom home automation programs
 
@@ -309,6 +259,7 @@ We configure it for you to just plug in and it works.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="MoveThings"></a>
 
 ### PRODUCT 13 - Move things with actuators
 
@@ -320,6 +271,7 @@ MAKE FOR SALE: Make things that move on a schedule or event of your choosing.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="DroneFlights"></a>
 
 ### PRODUCT 14 - Custom drone flights
 
@@ -336,14 +288,19 @@ custom configured to your needs.
 0. Check product operation and package safely for shipment
 0. Train users/customers
 
+<a name="SatelliteFileTransfer"></a>
 
 ### PRODUCT 15 - Satellite File Transfers
 
-MAKE FOR SALE: A device that sends and receive files litteraly out of this world, to a satellite in space.
+MAKE FOR SALE: A device that receives and sends files to the 98W satellite in outer space.
 
-0. Order satellite hardware and cables
-0. Configure
-0. Test 
+This is a hobbyist fascination for nerdy bragging rights.
+
+0. Evaluate <a target="_blank" href="https://www.raspberrypi.org/blog/outernet/">Outernet projects</a> by others and files such already, such as <a target="_blank" href="http://pu2vlw.dyndns.org:8090/en/files/Wikipedia?view=generic">some Wikipedia articles</a>.
+0. Order L-band satellite antenna and amplifier hardware from the <a target="_blank" href="https://store.outernet.is/collections/store">Outernet store</a> in Chicago.
+0. Install rxOS software.
+0. Configure Software-defined Radio (SDR) 25MHz-2200MHz <a target="_blank" href="http://pu2vlw.dyndns.org:8090/">http://pu2vlw.dyndns.org:8090</a>
+0. Test (inmarsat signal level above 15 db?)
 0. Perform, track, and schedule predicted maintenace 
 0. Check product operation and package safely for shipment
 0. Train users/customers
