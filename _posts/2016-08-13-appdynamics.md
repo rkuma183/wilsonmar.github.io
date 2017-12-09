@@ -38,7 +38,7 @@ The AppDynamics Controller can be either
 installed on-premises</a>
 or hosted on public cloud (SaaS option), which is what is used in
 <a target="_blank" href="https://www.youtube.com/watch?v=HxPvIz68E2A">
-self-service trials/a>.
+self-service trials</a>.
 
    Controllers are configured by a <strong>controller-info.xml</strong> file.
 

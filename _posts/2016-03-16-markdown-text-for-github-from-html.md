@@ -24,10 +24,16 @@ I'm having to convert hundreds of pages I've written in HTML since the 90's.
 
 ## Why Markdown? #
 
+Back in 2004, Apple pundit John Gruber <a target="_blank" href="http://daringfireball.net/projects/markdown/
+">came up with the idea</a> after becoming frustrated by laborious HTML tags to properly format his content. 
+
+Markdown is a simple writing system which makes web-based documents both easier to write and 
+easier to read in their raw state.
+
 Many non-technical writers prefer writing Markdown text instead of using the mouse-enabled Microsoft Word.
 They say writing pure text allows them to keep their fingers firmly planted on the keyboard
 even as they apply formatting on the fly. 
-Being able to format using text codes means they don't have to stop typing or think about anything else to apply styles.
+Being able to format using text codes means they don't have to stop typing or think about anything else to apply text styling.
 
 This tutorial is for such people.
 
@@ -397,11 +403,14 @@ A discussion forum about markdown is at:
 
 ## References #
 
+* <a target="_blank" href="http://whatismarkdown.com/">
+   whatismarkdown.com</a>
+
 * <a target="_blank" href="https://blog.ghost.org/markdown/">
    List of markdown editors across operating systems</a>
 
-* <a target="_blank" href="http://whatismarkdown.com/">
-   whatismarkdown.com</a>
+* https://blog.ghost.org/markdown/
+
 
 
 

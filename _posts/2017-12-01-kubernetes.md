@@ -24,11 +24,11 @@ This is a tutorial presented as a hands-on workshop with commentary along the wa
 
 ### Open Sourced
 
-Google refined Kubernetes (using the [Golang](/Golang/) programming language) 
-for internal use over a decade before open-sourcing it in 2014 to 
+Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
+and used for over a decade before being open-sourced in 2014 to the 
 <a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
 
-"Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
+The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
 <a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
 source code at
 
@@ -93,9 +93,16 @@ Other orchestration systems for Docker containers:
 https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/
 Kubernetes in the Cloud: AWS vs. GCP vs. Azure
 
+<a target="_blank" href="https://aws.amazon.com/eks/">
+Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
+was introduced December 2017 to work with AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
+EKS runs three Kubernetes masters across three Availability Zones in order to ensure high availability. 
+EKS automatically provides a "highly available and scalable Kubernetes service"
+EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. 
+so you don't have to choose appropriate instance types.
 
 
-## Kubernetes vernacular exposed
+## Kubernetes vernacular cartoon
 
 Kubernetes automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
 <strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>
@@ -117,9 +124,13 @@ But this tutorial focuses on Docker.
 
 Deployments manage Pods. 
 
-Every Pod has a unique IP.
+Every Pod has a unique IP. There is one IP Address per Pod.
+In other words, containers within a Pod share a network namespace. 
 
 Every container has a unique port number for its pod's IP.
+
+Containers also share attached data <strong>volumes</strong> available within each Pod.
+
 
 <a href="#kubelet">Kubelet agents</a>
 
