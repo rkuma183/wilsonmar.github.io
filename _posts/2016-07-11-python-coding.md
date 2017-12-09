@@ -22,6 +22,32 @@ Also see [Python REST API programming](/python-api-flask/).
 [Python Robot testing](/python-robot/).
 [Running Python on Raspberry Pi IoT devices](/iot-raspberry-install/).
 
+TODO: Move more here.
+
+## Command-line
+
+<a target="_blank" href="https://dbader.org/blog/python-commandline-tools-with-click">
+Dan Bader recommends</a> the use of the 
+
+http://click.pocoo.org/6/why/
+click custom package (from Armin Ronacher) instead of the
+argparse package that comes with Python 3.2+ (and the optparse package that comes with Python 2).
+
+Click provides decorators such as the "@click.command()" below:
+
+   <pre>
+\# cli.py
+import click
+
+@click.command()
+def main():
+    print("I'm a beautiful CLI ✨")
+
+if __name__ == "__main__":
+    main()
+   </pre>
+
+
 
 ## List comprehension
 
@@ -31,4 +57,5 @@ squares = [x * x for x in range(10)]
 
 
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
 
