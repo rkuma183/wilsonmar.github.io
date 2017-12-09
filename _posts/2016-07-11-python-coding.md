@@ -24,7 +24,17 @@ Also see [Python REST API programming](/python-api-flask/).
 
 TODO: Move more here.
 
-## Command-line
+## Command generator
+
+docopt at https://github.com/docopt/docopt
+and described at http://docopt.org/
+creates custom CLI commands by
+parsing a command help text into cli code that implements it.
+
+Brilliant.
+
+
+## Click 
 
 <a target="_blank" href="https://dbader.org/blog/python-commandline-tools-with-click">
 Dan Bader recommends</a> the use of the 
