@@ -15,6 +15,13 @@ comments: true
 
 {% include _toc.html %}
 
+"Dockerizing" an application is the process of converting an application to run within a Docker container
+and creating the Dockerfile for it.
+
+I keep examples of Dockerfiles at<br />
+<a target="_blank" href="https://github.com/wilsonmar/Dockerfiles">
+https://github.com/wilsonmar/Dockerfiles</a>
+
 This is a hands-on tutorial on how to create
 Dockerfile and docker-compose files
 that contain commands controlling how Docker instantiates containers across several operating systems.
@@ -22,10 +29,10 @@ that contain commands controlling how Docker instantiates containers across seve
 A Docker image is a read-only template used to create and launch a Docker container.
 
 
-## Dockerize apps #
 
-"Dockerizing" an application is the process of converting an application to run within a Docker container
-and creating the Dockerfile for it.
+
+
+## Dockerize apps #
 
 Let's begin with an example.
 
@@ -237,6 +244,11 @@ This tutorial is based on these and other resources:
    * https://deis.com/blog/2015/dockerfile-instructions-syntax/
 
    * https://runnable.com/docker/java/dockerize-your-java-application
+
+https://www.udemy.com/zero-to-docker/learn/v4/t/lecture/7270460?start=0
+https://github.com/schoolofdevops/voting-app-worker
+https://schoolofdevops.com
+https://hub.docker.com/u/schoolofdevops/
 
 
 ## More on DevOps #

@@ -127,7 +127,7 @@ Deployments manage Pods.
 Every Pod has a unique IP. There is one IP Address per Pod.
 In other words, containers within a Pod share a network namespace. 
 
-Every container has a unique port number for its pod's IP.
+Every container has its own unique <strong>port number</strong> within its pod's IP.
 
 Containers also share attached data <strong>volumes</strong> available within each Pod.
 
