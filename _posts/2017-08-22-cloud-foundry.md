@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Cloud-Foundry"
-excerpt: "The one tool to rule all cloud providers?"
+excerpt: "From Pivotal, the Java Spring Boot web services people."
 shorturl: "https://goo.gl/yb4WGG"
-modified:
 tags: []
 image:
 # feature: pic blue black stars spin 1900x500.jpg
@@ -25,10 +24,10 @@ so that you learn in the least time possible.
 
 The sequence is different that the Syllbus of the Linux Foundation's 
 <a target="_blank" href="https://www.cloudfoundry.org/certification/">
-$300/€285 4-hour Cloud Foundry Certified Developer (CFCD)</a> proctored exam.
+€285 (currently USD $439) 4-hour Cloud Foundry Certified Developer (CFCD)</a> proctored exam.
 
 
-## Competition
+## Different builds
 
 There are several distributions of Cloud Foundry:
 
@@ -36,6 +35,16 @@ There are several distributions of Cloud Foundry:
    * PCF (Pivotal Cloud Foundry)
    * IBM Bluemix
    * <a target="_blank" href="https://docs.stackato.com/">HPE Helion Stackato</a>
+
+## Competition
+
+<a target="_blank" href="https://stackoverflow.com/questions/32047563/kubernetes-vs-cloudfoundry">
+QUOTE:</a> CF has a staging layer that takes a (12-factor) user app (e.g. jar or gem) deployed in Heroku-style 
+<strong>buildpack</strong> (e.g. Java+Tomcat or Ruby) and produces a droplet (analogous to a Docker image). 
+
+CF doesn't expose the containerization interface to users, but Kubernetes does.
+
+Some expect that over time, the inflexibility of Cloud Foundry and momentum surrounding Docker will drive users to Kubernetes, Mesos, or Docker Swarm/Datacenter. This trend is accelerated by the emergence of AI features in the Google Cloud, which integrates with Kubernetes.
 
 
 ## A Cloud Above Clouds
@@ -58,6 +67,7 @@ Cloud Foundry open source project at
 
    * Abby Kearns is the Executive Director (@ab415)
    * Chip Childers is the CTO.
+   <br /><br />
 
 For example, putting SAP's on-premise <a target="_blank" href="https://open.sap.com/courses/cp1-2/items/4YaGyMu7IkF0WH2QzVPF1A
 ">stack on CloudFoundry</a> adds a choice of cloud providers at the bottom:
@@ -67,7 +77,8 @@ For example, putting SAP's on-premise <a target="_blank" href="https://open.sap.
 
 > Having hybrid computing capability enables bi-modal organizational capability: managing two separate but coherent styles of work: one focused on predictability, the other on exploration.
 
-Although its competitors include OpenShift and Kubernetes (k8s), they integrate to form an IaaS (Infrastructure as a Service):
+Although its competitors include OpenShift and [Kubernetes](/kubernetes/), 
+they integrate to form an IaaS (Infrastructure as a Service):
 
 ![cf-multi-cloud-multi-650x380-119418](https://user-images.githubusercontent.com/300046/30091512-28c6c06c-9277-11e7-9c6b-23f3d6e61831.jpg)
 
@@ -87,7 +98,7 @@ Although its competitors include OpenShift and Kubernetes (k8s), they integrate 
    Myriad factors influence price: 
    Size of the virtual machine, type of VM, contract length, use of SSD, to name a few.
 
-   Plus, you'd be amazed the difference it makes with per-minute charges from Google vs. per-hour charges by Amazon.
+   Plus, there is a difference in the bills due to per-minute charges from Google vs. per-hour charges by Amazon.
 
    Different techniques to calculate volume discounts make it complex to compare prices. 
    While Microsoft and Amazon provide discounts for up-front commitments, you forfeit money if committed
@@ -379,6 +390,17 @@ See 'cf help &LT;command>' to read about a specific command.
 
    It passes tokens around -- a unique identifier that provides both credentials for authentication (getting in), as well as authorization (what can be used).
 
+   ### Monolith app
+
+   A "monolith" is a technical term used to identify an application that has all of its components residing together as one unit. A web application is a software program running on a web server. An application consists of three main components released as a single unit:
+
+   * User interface(UI)
+   * Database
+   * Server
+   <br /><br />
+
+   Internally. the codebase might be modular, but the components are all deployed together and are only designed to work within that same application.
+
 
    ### Set Endpoint
 
@@ -654,6 +676,7 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    * Provide user authentication
    * Protect against malicious activity
    * Mitigate denial-of-service (DoS) attacks.
+   <br /><br />
 
    Staging, functional testing, and development environments typically do not use a hardware device. 
    Instead, they will use <strong>HAProxy</strong> software to simulate the capabilities in software that the hardware device provides.
@@ -670,6 +693,7 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    </pre>
 
    Without the "whoami", the HTML is returned.
+
 
    ### Logging
 
@@ -696,7 +720,8 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    * "LGR" for problems wth the logging process.
    * "APP" for application
    * "SSH" for reporting successful remote access, etc.
-   
+   <br /><br />
+
 0. View the app's SSH logs:
 
    <tt><strong>cf ssh web-app 
@@ -708,6 +733,7 @@ development   web-app-unstridulating-bronchobuster   cfapps.io                  
    * Finding specific events in the past
    * Large-scale graphing of trends (such as requests per minute)
    * Active alerting according to user-defined heuristics (such as an alert when the quantity of errors per minute exceeds a certain threshold).
+   <br /><br />
 
    The amount of data can be overwhelming, so apply a <strong>nozzle</strong> to filter logs not analyzed.
 
@@ -797,7 +823,7 @@ which will connect you to an instance of your application. If you have multiple 
    <a target="_blank" href="https://www.youtube.com/watch?v=e6ipgAin9ak">
    VIDEO</a>
 
-0. To scale 2 instances containing myApp :
+0. To scale 2 instances of myApp :
 
    <tt><strong>cf scale myApp -i 2
    </strong></tt>
@@ -963,11 +989,13 @@ Roles are designed using the principle of least privilege -- only the permission
 
 ### BOSH Agents
 
+BOSH is the "lifecycle manager".
+
 BOSH deploys agent software on each part of the system, so that if one piece fails, 
 the agent can quickly alert operators and perhaps even automatically repair the problem. 
 
-You only need special permissions to add, move, or delete them.
 You do not need special permissions to use them in your manifests or push command correct.
+You only need special permissions to add, move, or delete them.
 
 
 
@@ -1063,16 +1091,17 @@ Cloud Foundry provides comprehensive API endpoints that manage how applications 
 
 ### Storage in Diego
 
-Buildpacks are stored in a <strong>blobstore</strong>, a database for storing BLOB data.
+Buildpacks are stored in the <strong>blobstore</strong> database which stores BLOB data.
 
-A Binary Large OBject (BLOB) is a collection of binary data stored as a single entity in a database management system.
+Each BLOB (Binary Large OBject) is a collection of binary data stored as a single entity in a database.
 
-These are different that SQL databases which were designed to read rows of data. 
-But Diego stores in each row a pointer to the BLOB on the filesystem.
+A blogstore is different than SQL databases designed to store and read rows of data. 
+
+Diego stores in each row a pointer to the BLOB on the filesystem.
 Read and write of BLOB data can be optimized since the large binary data is the only object it needs to worry about. 
 
-The blobstore uses the Fog Ruby gem in order to use services like Amazon S3, WebDAV, or the NFS filesystem for storage.
-http://fog.io/
+The blobstore uses the Fog Ruby gem (http://fog.io/)
+so it can use services Amazon S3, WebDAV, or the NFS filesystem for storage.
 
 The Cloud Controller may be configured to use a separate blobstore for each type.
 But, typically, the same blobstore is used to store all five types of blobs.
@@ -1291,7 +1320,8 @@ AutoSleep
 
 ## Diego
 
-As of May 2017, Diego is the official run-time taking over DEAs.
+Diego is written in Go to replace DEA (Droplet Execution Manager), which occured as of May 2017.
+The name Diego is derived from the phonetic of "DEA-Go".
 
 https://www.youtube.com/watch?v=gB-nrdYTTKU
 
@@ -1312,16 +1342,14 @@ Its command toolset:
 * <a target="_blank" href="https://cloudfoundry.org/events-archive/">
    Past Summits</a> in Frankfurt, Germany 26 Sep 2017 and 2016.
 
-* October 11-12, 2017 | Basel, Switzerland
-
 * Free EdX class
 <a target="_blank" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS132x+1T2017/">
 Introduction to Cloud Foundry and Cloud Native Software Architecture</a>
+https://www.edx.org/course/introduction-cloud-foundry-cloud-native-linuxfoundationx-lfs132x#
 by Tyler Bird
 and Kevin Rutten
 
-   BTW, the 
-   "starkandWayne.com" emails mentioned in the example is a <a target="_blank" href="https://www.linkedin.com/company-beta/5230623/">
+   The "starkandWayne.com" emails mentioned in the example is a <a target="_blank" href="https://www.linkedin.com/company-beta/5230623/">
    real cloud consultantcy company</a> in San Francisco, where the helpful
    <a target="_blank" href="https://www.linkedin.com/in/norman-abramovitz-8690482">Norman Abramnovitz</a> works.
 
