@@ -265,3 +265,5 @@ verify its using the online validator:
 http://online.swagger.io/validator/debug?url=http://petstore.swagger.io/v2/swagger.json
 
 
+http://www.nvisia.com/insights/swagger-cataloging-with-the-worlds-most-popular-framework-for-apis
+
