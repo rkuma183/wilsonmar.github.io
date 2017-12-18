@@ -277,9 +277,12 @@ This is a list of physical hardware categorized by basics and optional.
    This may be more reliable.
 
 
-## Enclosure
+## Enclosures
 
    Case (enclosure) that accomodates <a href="#HeatSink">heat dissipation contraptions</a>.
+
+   NES Case for the Raspberry Pi
+   <a target="_blank" href="https://www.youtube.com/watch?v=4OYZnu3Xm6c">reviewed here</a>.
 
    <a target="_blank" href="https://www.raspberrypi.org/learning/tweeting-babbage/worksheet/">
    Embed a Raspberry Pi inside a Tweeting Babbage Bear</a>

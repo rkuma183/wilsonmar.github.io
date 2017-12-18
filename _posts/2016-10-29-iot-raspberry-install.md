@@ -18,7 +18,11 @@ comments: true
 This tutorial provides manual instructions and automation scripts to setup and 
 run apps under Raspbian on a Raspberry Pi 3 B.
 
-There are several parts to this:
+Several operating systems can be installed on a Raspberry Pi
+* Raspbian, a derivative of Debina Linux
+* AndroidThings from Google.
+
+This is about using Raspian:
 
 1. <a href="#Download">Download disk image</a> 
 0. <a href="#CalcHash">Calculage and compare SHA hash for download integrity</a>

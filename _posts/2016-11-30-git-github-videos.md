@@ -1395,6 +1395,12 @@ his playlist</a>:
 
 ## Others #
 
+* <a target="_blank" href="https://www.youtube.com/watch?v=7YXsj7A9aYI">
+   Basics of Git tutorial [52:20]</a> 26 Feb 2015
+   from Justin Huang at
+   the Human-Centered Robotics Lab at the University of Washington.
+   Topics include how to create repository, commits, branching, merging, rebasing, resolving merge conflicts, Github, and other git subcommands.
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=RG26-Iozg70&t=213s">
    Life's better with Git hooks</a>
 
