@@ -15,8 +15,26 @@ comments: true
 
 {% include _toc.html %}
 
-RPA (Robotic Process Automation) is the collective term for several technologies
-that are maturing in 2017:
+Let's begin with is an open source RPA (Robotic Process Automation) package:
+
+   * https://www.uipath.com/community 
+   <br /><br />
+
+RPA is an "auto-pilot" to automate any repetitive, data intensive task. 
+It can "screen scrap" to extract data from web pages.
+It has a macro recorder to generate scripts which can be edited.
+
+All the things that Selenium and other traditional testing tools do.
+
+## So much more?
+
+In 2013 Frank Casale created an association to increase his consulting services:
+
+   http://irpaai.com/what-is-robotic-process-automation/
+
+The association provides some definitions:
+
+RPA (Robotic Process Automation) is the collective term for several technologies that are maturing in 2017:
 
    * Source control (Git, GitHub, etc.)
    * Configuration management (Ansible, Puppet, Chef, SALT)
@@ -24,12 +42,6 @@ that are maturing in 2017:
    * Cloud (AWS, Azure, etc.)
    * Monitoring systems
    * ITSM (ServiceNow, etc.)
-
-In 2013 Frank Casale created an association to increase his consulting services:
-
-   http://irpaai.com/what-is-robotic-process-automation/
-
-The association provides some definitions:
 
 ### Autonomic
 
