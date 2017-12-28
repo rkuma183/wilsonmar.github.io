@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making videos"
-excerpt: "Visual"
+excerpt: "Using Camtasia to make a video from PowerPoint is tedious."
 tags: [Videos, Evangelism]
 image:
 # pic silver robot white skin handshake 1900x500
