@@ -16,13 +16,23 @@ comments: true
 
 I'm looking for a more efficient way to make videos to explain concepts.
 
+Here is an example of a video I created and put on YouTube:
+
+<amp-youtube data-videoid="-ivRuvEIeIY" layout="responsive" width="480" height="270">
+</amp-youtube>
+
+Click the "CC" at the bottom of the frame for Closed Captions which I input into Camtasia to sync with audio and visuals.
+
+Its highest resolution is 720p HD.
+
+
 ## Options for software
 
 Sony Vegas is only for Windows.
 
 ## Camtasia 3 Annoyances
 
-I use Camtasia 3 for Mac.
+I use Camtasia for Mac.
 The earlier version used to crash a lot after the file grew beyond 2 GB.
 
 One annoying flaw with Camtasia 3 is that I can't freeze frame and extend an image.
