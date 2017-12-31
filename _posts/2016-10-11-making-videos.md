@@ -26,56 +26,136 @@ Click the "CC" at the bottom of the frame for Closed Captions which I input into
 Its highest resolution is 720p HD.
 
 
-## Options for software
+## Video editing software options
 
 Sony Vegas is only for Windows.
 
-## Camtasia 3 Annoyances
+Adobe Premiere, at $800, is more expensive than Camtasia's $299.
 
-I use Camtasia for Mac.
+## Camtasia Annoyances
+
+I use Camtasia for Mac for capturing Skype and Hangout video calls.
+
 The earlier version used to crash a lot after the file grew beyond 2 GB.
 
-One annoying flaw with Camtasia 3 is that I can't freeze frame and extend an image.
+One annoying flaw still with Camtasia is that I can't freeze frame and extend an image. So I have to capture each PowerPoint screen I've animated.
 
-I have to take stills in order to expand a clip to fit the narration timing.
+Since Mac screens are a different aspect ratio than YouTube, I have to add an overlay on each frame.
 
-It used to take me about one day for each second of video produced using this approach:
+However, adding narration at specific spots is relatively simple.
+
+It takes me about one day for each second of video produced using this approach:
 
 ## The steps
 
-0. Create a folder in the Camtasia 3 folder. In there I create the PowerPoint file.
-0. Write down every word I plan to say as I create a diagram or flowchart in PowerPoint.
-0. Define <strong>animations</strong> to reveal parts of the diagram in sequence (within PowerPoint).
-0. Record voice narration as I reveal each part of the diagram. 
+1. Create a folder in the Camtasia folder within "Movies". 
+2. In there create a PowerPoint file.
 
-   I use Audacity to record sound files, then export in mp3 format.
+   ### Animation with narration
 
-   It usually takes me several passes.
+3. In the PowerPoint Notes section, write down every word I plan to say as I create a diagram or flowchart.
 
-   I do this early in the morning when there is the least noise.
+   PROTIP: Some Mac users prefer using Apple's presentation program, which has superior features. However, I prefer Microsoft PowerPoint simply because I may work on the file with others who work on Windows laptops.
 
-   I usually tweak the text and graphics when I realize 
-   words on paper often don't sound right coming out of my mouth.
+4. Define <strong>animations</strong> in PowerPoint to reveal objects and lines of the diagram in sequence (within PowerPoint).
 
-   Export the mp3 narration voice media into the Camtasia project folder.
+   PROTIP: Since the diagram is an introduction, consider beginning with the objective output and work backward. The diagram does not need to be the sequence of the actual data flow.
 
-0. Record live video or animated introduction and ending.
+5. Highlight and bold words where animation appears.
 
-   It's friendlier to see someone's face initially.
+   Record voice narration as I reveal each part of the diagram. 
+   To record sound files, then export in mp3 format:
+   
+   ### Narration audio
+
+6. I manually download and install <a target="_blank" href="https://www.audacityteam.org/download/">Audacity</a> from FOSSHUB. 
+   It has no brew. So I invoke the .dmg file, drag the icon, etc.
+
+   PROTIP: Click the red dot to exit from the installer window and
+   eject the installer from the left panel of Finder. 
+   Move to Trash the installer file to save disk space.
+
+7. When invoking Audacity for the first time, check "Don't show this again at start up".
+
+8. PROTIP: To avoid an echo, record early in the morning within a padded room,
+   when/where there is the least noise.
+
+9. PROTIP: Audacity's UI was not designed well. Use a second monitor to dispaly the narration. Audacity seems to like being on the primary display.
+
+   PROTIP: I think it's too mentally taxing to coordinate the graphics as I speak. So I prefer recording the entire narration before messing with the visuals.
+
+10. Create a folder named with a zero-filled version number, such as:
+
+   SwaggerLoadGen-v01
+
+
+
+   <a name="RecordAudio"></a>
+
+   ### Record audio
+
+10. Press command+N to open a new Audacity session dialog.
+
+11. Drink a warm drink to hydrate your mouth so you make less pronouciation mistakes.
+
+   PROTIP: Anything that makes you unfortable will appear in the tone of your voice. So get comfortable.
+
+12. PROTIP: Read each sentence out loud before recording so during recording you can focus on emphasis rather than understanding the meaning of that sentence.
+
+13. Click the red dot to begin recording.
+
+   PROTP: Speak slower than usual. Enunciate by moving your cheeks.
+
+   PROTIP: Record and save small sentences. This makes it easier to manipulate.
+
+   PROTIP: Spikes on the level meter should ocassionally reach the top. Beyond that, "clipping" is occuring.
+
+12. PROTIP: Allow about a half-second lead-in and load-out. It's easier to cut it than having to add it later, to maintain consistency in background noise.
+
+13. If you know immediately you don't want to save a version, click the red X at the upper-left corner, then click No to the pop-up.
+
+   PROTIP: It usually takes me several passes to get the speech the way I like.
+   By talking out load, I often realize I should change the text and graphics. Words on paper often don't sound right coming out of my mouth.
+   
+14. Stop the recording by pressing the big space key on the keyboard or clicking the square icon (using your mouse).
+
+   PROTIP: To avoid a clicking sound which you would have to edit out,
+   Use a mouse and hold it below the table so it can't be heard.
+
+15. Remove noise at the begging and end of the segment by clicking on a quiet part on the timeline and dragging to either end. Then press command/control+X to delete.
+
+16. Press Shift + Command + E to <strong>Export</strong> the mp3 narration voice media into your project folder within the Camtasia folder.
+
+   CAUTION: Do not "Save" the file because it would not be in a format that
+   Camtasia can import.
+
+   PROTIP: Name the file with a sequence number. Use even numbers so you can insert later.
+
+16. Press OK without entering anything in the metadata dialog. Camtasia doesn't look at it.
+
+17. Press Commad + W to exit the Audacity file.
+
+18. Repeat from <a href="#RecordAudio">Record Audio</a> step above.
+
+
+   ### Video
+
+   PROTIP: It's friendlier to see someone's face initially.
+
+15. Record live video or animated introduction and ending.
 
    The recording would be in 1920x1080 pixels for 1080p.
 
    The title formats can be re-used, with differeent text.
 
-   I like to have a "ding" sound at the end to let people know that the video is done.
+16. PROTIP: I like to have a "ding" sound at the end to let people know that the video is done.
 
-0. In PowerPoint begin the Slide Show and click the green dot at the upper right to expand the screen full size
-   so headings and footers don't appear.
+17. In PowerPoint begin the Slide Show and click the green dot at the upper right to expand the screen full size so headings and footers don't appear.
 
-   Black areas are above and below the area we want to show in the video because the aspect ratio we want
+18. Black areas are above and below the area we want to show in the video because the aspect ratio we want
    is 16:9 but the Mac's Retina screen is more of a square.
 
-0. Create one image for each step in the process. On my Mac I press command+shift+3.
+19. Create one image for each step in the process. On my Mac I press command+shift+3.
 
    By default, the Mac stores png files on the Desktop.
 
