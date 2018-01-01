@@ -53,16 +53,14 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    brew install maven
    </strong></tt>
 
-   the response:
+   the response I got on Dec 29, 2017:
 
    <pre>
-   ==> Downloading https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/b
-   ==> Best Mirror http://apache.mirrors.pair.com/maven/maven-3/3.3.9/binaries/apac
-   ######################################################################## 100.0%
-   🍺  /usr/local/Cellar/maven/3.3.9: 94 files, 9.6M, built in 31 seconds
+==> Downloading https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+==> Best Mirror http://apache.mirrors.lucidnetworks.net/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+######################################################################## 100.0%
+🍺  /usr/local/Cellar/maven/3.5.2: 104 files, 10.1MB, built in 21 seconds
    </pre>
-
-0. Copy the version number (3.3.9) to your Clipboard.
 
    Alternately:
 
@@ -95,12 +93,12 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    I got this response:
 
    <pre>
-   Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T09:41:47-07:00)
-   Maven home: /usr/local/Cellar/maven/3.3.9/libexec
-   Java version: 1.8.0_74, vendor: Oracle Corporation
-   Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre
-   Default locale: en_US, platform encoding: US-ASCII
-   OS name: "mac os x", version: "10.11.5", arch: "x86_64", family: "mac"
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T03:58:13-04:00)
+Maven home: /usr/local/Cellar/maven/3.5.2/libexec
+Java version: 1.8.0_25, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
    </pre>
 
 
@@ -121,16 +119,18 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    Maven</a> was installed by default in:<br />
    <tt>/usr/share/maven/bin/mvn</tt>
 
-0. Confirm the path. Substitute the version (3.3.9) with the version
+0. Confirm the path. Substitute the version (3.5.2) with the version
    you just installed:
 
    <tt><strong>
-   cd /usr/local/Cellar/maven/3.3.9/libexec<br />
+   cd /usr/local/Cellar/maven/3.5.2/libexec<br />
    cd bin<br />
    ls
    </strong></tt>
 
-   mvn files should be listed.
+   mvn files should be listed:
+
+   m2.conf     mvn      mvnDebug mvnyjp
 
 0. Open using a text editor, substituting subl (for Sublime) with atom or vim:
 
@@ -139,11 +139,10 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    subl .bash_profile
    </strong></tt>
 
-
-0. Add the following to under export PATH=, changing the version (3.3.9) to whatever appears above:
+0. Add the following to under export PATH=, changing the version (3.5.2) to whatever appears above:
 
    <tt><strong>
-   export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec<br />
+   export M2_HOME=/usr/local/Cellar/maven/3.5.2/libexec<br />
    export M2=$M2_HOME/bin<br />
    export PATH=$PATH:$M2_HOME/bin
    </strong></tt>
@@ -164,13 +163,13 @@ http://javarevisited.blogspot.com/2015/01/difference-between-maven-ant-jenkins-a
    </strong></tt>
 
    The response if installed by Homebrew on Mac:<br />
-   `/usr/local/Cellar/maven/3.3.9/libexec`
+   `/usr/local/Cellar/maven/3.5.2/libexec`
 
    <tt><strong>echo $M2
    </strong></tt>
 
    The response if installed by Homebrew on Mac:<br />
-   `/usr/local/Cellar/maven/3.3.9/libexec/bin`
+   `/usr/local/Cellar/maven/3.5.2/libexec/bin`
 
    <tt><strong>echo $PATH
    </strong></tt>
