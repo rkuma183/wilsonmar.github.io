@@ -173,6 +173,8 @@ It takes me about one day for each second of video produced using this approach:
 
 19. Create one image for each step in the process. On my Mac I press command+shift+3.
 
+   brew cask install ImageOptim
+
    By default, the Mac stores png files on the Desktop.
 
    The default file name is "Screenshot..."
