@@ -22,15 +22,27 @@ Here is an example of a video I created and put on YouTube:
 </amp-youtube>
 
 Click the "CC" at the bottom of the frame for Closed Captions which I input into Camtasia to sync with audio and visuals.
-
 Its highest resolution is 720p HD.
 
 
 ## Video editing software options
 
-Sony Vegas is only for Windows.
+<a target="_blank" href="https://www.apple.com/final-cut-pro/">
+Apple's $300 Final Cut Pro X</a> (FCPX) is what many 360 degree equirectangular VR videographers use to make experiences on HTC Vive VR headsets. Intuitive yet powerful. Great if you have the latest iMac Pro with the 5K monitor, multiple camera inputs. Also lots of 3rd-party plug-ins. It's the upgrade to the $70 iMovie.
 
-Adobe Premiere, at $800, is more expensive than Camtasia's $299.
+Adobe Premiere Pro
+
+Pros tell they prefer the above over $999 Avid Media Composer 7.
+
+$1115 Pinnacle Studio 16 Ultimate
+
+$95 Sony Movie Studio Vegas is only for Windows.
+
+The program I'd like to try next is Articulate Storyline and Replay 
+https://articulate.com/360/replay
+so that I can create interactive video tutorials with webcam.
+
+
 
 ## Camtasia Annoyances
 
@@ -130,6 +142,10 @@ It takes me about one day for each second of video produced using this approach:
    Camtasia can import.
 
    PROTIP: Name the file with a sequence number. Use even numbers so you can insert later.
+
+16. Select ".WAV".
+
+   <a target="_blank" href="https://feedback.techsmith.com/techsmith/topics/how_to_export_audio_file_mp3_from_an_video_using_camtasia_for_mac">Camtasia does not export .mp3</a> either.
 
 16. Press OK without entering anything in the metadata dialog. Camtasia doesn't look at it.
 

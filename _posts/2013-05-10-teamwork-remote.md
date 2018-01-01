@@ -142,3 +142,8 @@ They take turns talking.
 And members demonstrate ostentatious listening -- they repeat when each other is saying and maintain eye contact.
 These two create the psychological safety necessary for teamwork.
 
+https://www.inc.com/dom-price/why-ending-remote-work-in-name-of-collaboration-is-bs.html
+
+https://www.skillshare.com/classes/Building-Great-Teams-8-Attributes-for-the-Modern-World-Learn-with-Atlassian/1328937032
+Building Great Teams: 8 Attributes for the Modern World | Learn with Atlassian
+by Dominic Price, Head of R&D and Work Futurist
