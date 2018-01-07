@@ -27,10 +27,12 @@ Its highest resolution is 720p HD.
 
 ## Video editing software options
 
+I've been using Camtasia.
+
 <a target="_blank" href="https://www.apple.com/final-cut-pro/">
 Apple's $300 Final Cut Pro X</a> (FCPX) is what many 360 degree equirectangular VR videographers use to make experiences on HTC Vive VR headsets. Intuitive yet powerful. Great if you have the latest iMac Pro with the 5K monitor, multiple camera inputs. Also lots of 3rd-party plug-ins. It's the upgrade to the $70 iMovie.
 
-Adobe Premiere Pro
+Adobe Premiere Pro "works with" other Adobe tools such as Photoshop to manipulate pictures.
 
 Pros tell they prefer the above over $999 Avid Media Composer 7.
 
@@ -40,8 +42,16 @@ $95 Sony Movie Studio Vegas is only for Windows.
 
 The program I'd like to try next is Articulate Storyline and Replay 
 https://articulate.com/360/replay
-so that I can create interactive video tutorials with webcam.
+so that I can create interactive video tutorials with webcam and other aspects of a full "learning management suite".
+Although Articulate360 provides a 
+<a target"_blank" href"https://itunes.apple.com/us/app/peek/id1164486237?ls=1&mt=12">free Peek desktop client</a> installed to record on MacOS, the video editing product consists of these 3 Windows clients:
 
+   * Rise for responsive authoring
+   * Articulate Review for collaboration
+   * Articulate Live for training
+   * Storyline 
+   * Studio
+   * Replay
 
 
 ## Camtasia Annoyances
