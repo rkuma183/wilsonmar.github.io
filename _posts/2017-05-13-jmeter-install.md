@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "JMeter installation to load test RabbitMQ AQMP protocol service"
-excerpt: "Use free Java-based tool to make sure the service is production-worthy"
+title: "JMeter install on a Mac to load test a RabbitMQ service"
+excerpt: "Know the options, including my shell script that does it all, each step explained"
 tags: [perftest, JMeter]
 shorturl: "https://"
 image:
@@ -26,16 +26,14 @@ This tutorial introduces "newbies" to the installation of JMeter by explaining e
    https://github.com/apache/jmeter">
    https://github.com/apache/jmeter</a>
 
-   BTW: Historically, JMeter first became available December 2003 as the Jakarta project until it became a full-fledged product. Its previous URL is automatically routed from:
-   
+   BTW: Historically, JMeter first became available December 2003 as the Jakarta project until it became a full-fledged product. Its previous URL is automatically routed from
    http://jakarta.apache.org/jmeter/
 
-   For now, just look at the webpage header.
-
+   For now, just look at the webpage header:
    JMeter is open-sourced by the Apache Foundation project. 
    This means JMeter is offered free.
 
-   The "J" in JMeter refers to Java. 
+   The "J" in JMeter refers to the Java Virtual Machine (JVM).
    JMeter is written in Java.
    This makes JMeter <strong>multi-platform</strong> on Windows, MacOS, Linux.
 
@@ -46,7 +44,7 @@ This tutorial introduces "newbies" to the installation of JMeter by explaining e
 
    From the Apache web page:
 
-   "JMeter is not a browser, it works at protocol level. As far as web-services and remote services are concerned, JMeter looks like a browser (or rather, multiple browsers); however JMeter does not perform all the actions supported by browsers. In particular, JMeter does not execute the Javascript found in HTML pages. Nor does it render the HTML pages as a browser does (it's possible to view the response as HTML etc., but the timings are not included in any samples, and only one sample in one thread is ever displayed at a time)."
+   BLAH: "JMeter is not a browser, it works at protocol level. As far as web-services and remote services are concerned, JMeter looks like a browser (or rather, multiple browsers); however JMeter does not perform all the actions supported by browsers. In particular, JMeter does not execute the Javascript found in HTML pages. Nor does it render the HTML pages as a browser does (it's possible to view the response as HTML etc., but the timings are not included in any samples, and only one sample in one thread is ever displayed at a time)."
 
 ## Installation options
 
@@ -57,7 +55,7 @@ A) You don't need a local machine at all if you run JMeter using a cloud service
    <a href="#Blazemeter">Blazemeter.com</a> or 
    <a target="_blank" href="https://www.flood.io/">Flood.io</a>
 
-   But customers at some companies do not trust public clouds.
+   But customers at some companies do not trust public clouds. So...
 
 B) <a href="#BinaryInstall">Manually download installer to install locally</a>.
 
@@ -66,9 +64,9 @@ C) <a href="#DockerHub">Pull an image from Docker Hub</a>
 
 D) <a href="#Dockerfile">Use the Dockerfile to build your own Docker image</a> containing JMeter.
 
-E) <a href="AutoScript">Run a Bash scrpt to install JMeter natively on you Mac</a>.
+E) <a href="#AutoScript">Run a Bash scrpt to install JMeter natively on you Mac</a>.
 
-F) <a href="Manually">Manually type in Terminal commands executed in the automated script</a>.
+F) <a href="#Manually">Manually type in Terminal commands executed in the automated script</a>.
 
 CAUTION: If you are in a large enterprise, confer with your security team before 
 installing. They often have a repository such as Artifactory or Nexus where
@@ -98,12 +96,12 @@ Blogs about this:
 
 ## Manually download installer
 
-Even if you're not intending to download, go here to see the dates of each version.
-
-1. Download <strong>binary</strong> installer from:
+1. Even if you're not intending to download, go here to see the dates of each version available for download:
 
    <a target="_blank" href="http://jmeter.apache.org/download_jmeter.cgi">
    http://jmeter.apache.org/download_jmeter.cgi</a>
+
+   At time of writing:
 
    apache-jmeter-3.3.zip
 
@@ -140,7 +138,8 @@ The most popular:
    docker pull <a target="_blank" href="https://hub.docker.com/r/cirit/jmeter/">cirit/jmeter</a>
    </pre>
 
-   It runs Jmeter 2.13 + Debian OS + Java Server JRE 8 on https://cloud.docker.com/
+   CAUTION: This runs the older Jmeter 2.13 + Debian OS + Java Server JRE 8 on<br />
+   https://cloud.docker.com/
 
 Another image containing a JMeter server include:
 
@@ -150,9 +149,11 @@ Another image containing a JMeter server include:
 
 The image used in the <a target="_blank" href="https://www.flood.io">flood.io</a> SaaS  service is:
 
+   <pre>
    docker pull <a target="_blank" href="https://hub.docker.com/r/floodio/jmeter/">floodio/jmeter</a>
+   </pre>
 
-Videos:
+Videos about this topic:
 
    * https://www.youtube.com/watch?v=sl2mfyjnkXk
    * https://docs.docker.com/docker-cloud/builds/automated-build/
@@ -162,15 +163,14 @@ Videos:
 
 ## Build by Dockerfile
 
+PROTIP: Although it takes more time, this approach is often necessary to incorporate new security patches
+in all levels of the tech stack, from the operating system up.
 Building an image Dockerfile means that you have the <strong>very latest versions</strong> of all components.
 
-Although it takes more time, this approach is often necessary to incorporate new security patches
-in all levels of the tech stack, from the operating system up.
-
-Installing within a Docker image means you are not "cluttering up" you native operating system.
+Installing within a Docker container means you are not "cluttering up" you native operating system.
 In case a particular combination does not work, you can change it without jepordizing your laptop being in a working state.
 
-Rather than repeating the instructions here, 
+Rather than repeating the instructions here, for AWS and Blue Ocean clouds,
 see https://gist.github.com/hhcordero/abd1dcaf6654cfe51d0b
 
 The script below can be invoked to setup either a Docker image or your local laptop.
@@ -183,7 +183,7 @@ The script below can be invoked to setup either a Docker image or your local lap
 
    PROTIP: This script is the starting point for invoking JMeter using continuous integration such as TeamCity or Jenkins.
 
-If you're on a Mac, all the manual steps described below is automatically performed ("bam" as that chef says).
+If you're on a Mac, all the manual steps described below are automatically performed in the script.
 
 1. In a Terminal, navigate to the folder under which a new folder is created. The script creates this under your user home page:
 
@@ -520,15 +520,89 @@ compile:
    Alternately, on Windows:
 
    <pre><strong>
-   java -jar ivy.jar -dependency com.rabbitmq amqp-client 3.6.1 -retrieve "%JAVA_HOMEA%/lib/lib/[artifact](-[classifier]).[ext]"
+   java -jar ivy.jar -dependency com.rabbitmq amqp-client 3.6.1 -retrieve "%JAVA_HOME%/lib/lib/[artifact](-[classifier]).[ext]"
    </strong></pre>
 
    See: https://www.mkyong.com/ant/ant-how-to-create-a-jar-file-with-external-libraries/
 
 
+   <a name="InstallRabbitMQ"></a>
+
+   ### Install RabbitMQ server under test
+
+   Based on http://www.rabbitmq.com/install-homebrew.html
+   and video https://www.youtube.com/watch?v=8mFsh1cwlsA  Feb 18, 2015 (on Yosemite) by YouTube DevOps celebrity Derek Bailey of http://watchmecode.net/
+
+1. Install RabbitMQ 
+
+   <pre><strong>
+   brew install rabbitmq
+   </strong></pre>
+
+   The response (at time of writing):
+
+   <pre>
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 1 tap (caskroom/cask).
+No changes to formulae.
+&nbsp;
+==> Downloading https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.2/rabbit
+Already downloaded: /Users/wilsonm/Library/Caches/Homebrew/rabbitmq-3.7.2.tar.xz
+==> /usr/bin/unzip -qq -j /usr/local/Cellar/rabbitmq/3.7.2/plugins/rabbitmq_mana
+==> Caveats
+Management Plugin enabled by default at http://localhost:15672
+&nbsp;
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+&nbsp;
+To have launchd start rabbitmq now and restart at login:
+  brew services start rabbitmq
+Or, if you don't want/need a background service you can just run:
+  rabbitmq-server
+==> Summary
+🍺  /usr/local/Cellar/rabbitmq/3.7.2: 232 files, 12.6MB, built in 2 seconds
+   </pre>
+
+1. Put the executable within the PATH so it can be executed from any folder:
+   https://rabbitmq.com/install-homebrew.htm
+ 
+   <pre><strong>
+   export PATH=$PATH:/usr/local/sbin
+   </strong></pre>
+
+   Do this permanently to your .bash_profile or .profile file.
+
+1. Startup the server in the background so the script can continue doing other things:
+
+   <pre><strong>
+   rabbitmq-server &
+   </strong></pre>
+
+   The response (at time of writing):
+
+   <pre>
+  ##  ##
+  ##  ##      RabbitMQ 3.7.2. Copyright (C) 2007-2017 Pivotal Software, Inc.
+  ##########  Licensed under the MPL.  See http://www.rabbitmq.com/
+  ######  ##
+  ##########  Logs: /usr/local/var/log/rabbitmq/rabbit@localhost.log
+                    /usr/local/var/log/rabbitmq/rabbit@localhost_upgrade.log
+&nbsp;
+              Starting broker...
+   completed with 6 plugins.
+   </pre>
+
+   This stops.
+
+
+
+
+   <a name="RunJMeter"></a>
+
    ### Run JMeter
 
-1. The automated script brings up the JMeter GUI using a .sh file (on Mac) or .bat file (in Windows).
+1. The automated install script brings up the JMeter GUI using a .sh file (on Mac) or .bat file (in Windows).
 
    There are several parameters:
 
@@ -569,4 +643,18 @@ For load testing, use NON GUI Mode:
    PROTIP: JMeter should be invoked with more than the default amount of memory by adding paramenters to the HEAP environment variable.
 
 
+
+   <a name="WatchRun"></a>
+
+   ### Watch run
+
+1. Manually, switch to an internet browser to see the GUI:
+
+   <pre><strong>
+   http://localhost:15672
+   </strong></pre>
+
+   The default username and password are "guest" and "guest".
+
+   PROTIP: The run.xml file in this repo has been edited to reference the above URL.
 
