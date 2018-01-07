@@ -573,13 +573,19 @@ Or, if you don't want/need a background service you can just run:
 
    Do this permanently to your .bash_profile or .profile file.
 
-1. Startup the server in the background so the script can continue doing other things:
+   ### Startup service under test
+
+1. Startup the server in the background so the script can continue doing other things by using nohup to bypass the HUP (hung up) signal.
 
    <pre><strong>
-   rabbitmq-server &
+   nohup rabbitmq-server &>/dev/null &
    </strong></pre>
 
-   The response (at time of writing):
+   The response is the process number assigned, such as:
+
+   <tt>[1] 26316</tt>
+
+   PROTIP: The "&>/dev/null" is to prevent nohup by automatically creating a <tt>nohup.out</tt> file which would contain output from the command such as:
 
    <pre>
   ##  ##
@@ -593,9 +599,60 @@ Or, if you don't want/need a background service you can just run:
    completed with 6 plugins.
    </pre>
 
-   This stops.
+   Alternately, 
+   
+   <pre><strong>
+   rabbitmq-server &
+   </strong></pre>
 
 
+https://www.maketecheasier.com/systemd-what-you-need-to-know-linux/
+
+   Another alternative is to startup the server in the background so the script can continue doing other things:
+
+   <pre><strong>
+   brew services start rabbitmq
+   </strong></pre>
+
+   The response:
+
+   <pre>
+==> Tapping homebrew/services
+Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-services'...
+remote: Counting objects: 14, done.
+remote: Compressing objects: 100% (10/10), done.
+Unpacking objects: 100% (14/14), done.
+remote: Total 14 (delta 0), reused 9 (delta 0), pack-reused 0
+Checking connectivity... done.
+Tapped 0 formulae (42 files, 55.2KB)
+==> Successfully started `rabbitmq` (label: homebrew.mxcl.rabbitmq)
+   </pre>   
+
+
+   ### Stop background service
+
+1. List the background jobs running:
+
+   <pre><strong>
+   jobs
+   </strong></pre>
+
+   The response:
+
+   <pre>
+[1]+  Running                 rabbitmq-server &
+[1]+  Exit 1                  nohup rabbitmq-server >&/dev/null
+   </pre>
+
+   WARNING: Be sure to remember to stop this service when it's not needed.
+
+1. To remove jobs in the background:
+
+   <pre><strong>
+   disown
+   </strong></pre>
+
+   
 
 
    <a name="RunJMeter"></a>
@@ -651,7 +708,8 @@ For load testing, use NON GUI Mode:
 1. Manually, switch to an internet browser to see the GUI:
 
    <pre><strong>
-   http://localhost:15672
+   open http://localhost:15672
+   curl --user guest:guest http://localhost:15672 -v
    </strong></pre>
 
    The default username and password are "guest" and "guest".
