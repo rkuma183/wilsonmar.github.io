@@ -138,7 +138,7 @@ The most popular:
    docker pull <a target="_blank" href="https://hub.docker.com/r/cirit/jmeter/">cirit/jmeter</a>
    </pre>
 
-   CAUTION: This runs the older Jmeter 2.13 + Debian OS + Java Server JRE 8 on<br />
+   BLAH: As of this writing, it runs the <strong>older Jmeter 2.13</strong> + Debian OS + Java Server JRE 8 on<br />
    https://cloud.docker.com/
 
 Another image containing a JMeter server include:
@@ -188,7 +188,8 @@ If you're on a Mac, all the manual steps described below are automatically perfo
 1. In a Terminal, navigate to the folder under which a new folder is created. The script creates this under your user home page:
 
    <pre><strong>
-   cd ~/gits
+   mkdir temp
+   cd ~/temp
    </strong></pre>   
 
 2. Type or copy and paste this command on your Terminal:
@@ -210,6 +211,8 @@ If you're on a Mac, all the manual steps described below are automatically perfo
 
 ### Java
 
+   PROTIP: JMeter is written in Java, so it can be run on Windows, Mac, and Linux.
+
    If you were to manually click at
    http://www.oracle.com/technetwork/java/javase/downloads/index.html
    installation would be to:
@@ -220,18 +223,68 @@ If you're on a Mac, all the manual steps described below are automatically perfo
 
    But instead use the automated approach:
 
-1. Install the latest 64-bit Java Development Kit (JDK).
+1. First see what version is considered the latest 64-bit Java Development Kit (JDK) by brew:
 
    <pre><strong>
    brew cask info java
-   brew install java
    </strong></pre>
 
-   PROTIP: JMeter is written in Java, so it can be run on Windows, Mac, and Linux.
+   BLAH: We don't want to install version 9 just yet because when JMeter is installed, it throws up this error:
+
+   <pre>
+   Error: Java version is too low to run JMeter. Needs at least Java >= 1.8.0.
+   </pre>
+
+1. If you have it already installed, <a target="_blank" href="https://planwithvoyant.zendesk.com/hc/en-us/articles/209725003-Install-or-revert-to-a-prior-version-of-Java-Mac-OS-X">uninstall it</a>.
+
+1. PROTIP: Install not the latest 64-bit Java Development Kit (JDK), but the last stable v1.8 version:
+
+   <pre><strong>
+   brew tap caskroom/versions
+   brew cask install java8
+   </strong></pre>
+
+   The response:
+
+   <pre>
+==> Caveats
+This Cask makes minor modifications to the JRE to prevent issues with
+packaged applications, as discussed here:
+&nbsp;
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=411361
+&nbsp;
+If your Java application still asks for JRE installation, you might need
+to reboot or logout/login.
+&nbsp;
+Installing this Cask means you have AGREED to the Oracle Binary Code
+License Agreement for Java SE at
+&nbsp;
+  https://www.oracle.com/technetwork/java/javase/terms/license/index.html
+&nbsp;
+==> Satisfying dependencies
+==> Downloading http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd30
+######################################################################## 100.0%
+==> Verifying checksum for Cask java8
+==> Installing Cask java8
+==> Running installer for java8; your password may be necessary.
+==> Package installers may write to any location; options such as --appdir are i
+Password:
+==> installer: Package name is JDK 8 Update 152
+==> installer: Installing at base path /
+==> installer: The install was successful.
+🍺  java8 was successfully installed!
+   </pre>
+
 
 2. Provide your administrator password when prompted.
 
-3. Confirm it works by returning the version of the Java compiler installed:
+3. Confirm it works by returning the version of the Java compiler installed. In version 9:
+
+   <pre><strong>
+   javac --version
+   </strong></pre>
+
+   Alternately, in version 8, use a single dash:
 
    <pre><strong>
    javac -version
@@ -575,7 +628,9 @@ Or, if you don't want/need a background service you can just run:
 
    ### Startup service under test
 
-1. Startup the server in the background so the script can continue doing other things by using nohup to bypass the HUP (hung up) signal.
+   PROTIP: Start up the server in the background so the script can continue doing other things.
+
+1. Use the nohup to bypass the HUP (hung up) signal that would otherwise cause a shutdown:
 
    <pre><strong>
    nohup rabbitmq-server &>/dev/null &
@@ -585,7 +640,7 @@ Or, if you don't want/need a background service you can just run:
 
    <tt>[1] 26316</tt>
 
-   PROTIP: The "&>/dev/null" is to prevent nohup by automatically creating a <tt>nohup.out</tt> file which would contain output from the command such as:
+   PROTIP: The <tt>&&LT;/dev/null</tt> prevents nohup from automatically creating a <tt>nohup.out</tt> file which would contain output from the  <tt>rabbitmq-server</tt> command, such as:
 
    <pre>
   ##  ##
@@ -599,16 +654,34 @@ Or, if you don't want/need a background service you can just run:
    completed with 6 plugins.
    </pre>
 
-   Alternately, 
-   
+   <a target="_blank" href="https://www.maketecheasier.com/systemd-what-you-need-to-know-linux/">
+   PROTIP</a>: The "&" ampersand at the end of the command
+
+
+   ### Stop background service
+
+1. List the background jobs running:
+
    <pre><strong>
-   rabbitmq-server &
+   jobs
    </strong></pre>
 
+   The response:
 
-https://www.maketecheasier.com/systemd-what-you-need-to-know-linux/
+   <pre>
+[1]+  Exit 1                  nohup rabbitmq-server >&/dev/null
+   </pre>
 
-   Another alternative is to startup the server in the background so the script can continue doing other things:
+   WARNING: Be sure to remember to stop this service when it's not needed.
+
+1. To remove jobs in the background:
+
+   <pre><strong>
+   disown
+   </strong></pre>
+
+   
+   NOTE: Alternatively, start up the server every reboot using brew:
 
    <pre><strong>
    brew services start rabbitmq
@@ -628,44 +701,97 @@ Tapped 0 formulae (42 files, 55.2KB)
 ==> Successfully started `rabbitmq` (label: homebrew.mxcl.rabbitmq)
    </pre>   
 
-
-   ### Stop background service
-
-1. List the background jobs running:
-
-   <pre><strong>
-   jobs
-   </strong></pre>
-
-   The response:
-
-   <pre>
-[1]+  Running                 rabbitmq-server &
-[1]+  Exit 1                  nohup rabbitmq-server >&/dev/null
-   </pre>
-
-   WARNING: Be sure to remember to stop this service when it's not needed.
-
-1. To remove jobs in the background:
-
-   <pre><strong>
-   disown
-   </strong></pre>
-
-   
+   Such would create processes listed by the ps command and killed by the pkill or pskill command.
 
 
    <a name="RunJMeter"></a>
 
    ### Run JMeter
 
-1. The automated install script brings up the JMeter GUI using a .sh file (on Mac) or .bat file (in Windows).
+1. <a target="_blank" href="https://lincolnloop.com/blog/load-testing-jmeter-part-2-headless-testing-and-je/">
+   PROTIP</a>: Run the automated install script runs a "headless" JMeter instance since humans are not involved during script execution. Plus, the memory taken to display a GUI is saved for testing work.
 
-   There are several parameters:
+   When running headless, parameters are used. 
+
+2. Get a list of parameters recognized by jmeter:   
+
+   <pre><strong>
+   jmeter -?
+   </strong></pre>
+
+   The response has the version at the right edge (3.1 at time of writing):
 
    <pre>
-   jmeter ???
-   </pre>
+Writing log file to: /Users/mac/jmeter.log
+    _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____     
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \   
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) | 
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <  
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 3.1 r1770033  
+&nbsp;
+Copyright (c) 1999-2016 The Apache Software Foundation
+&nbsp;
+   --?
+      print command line options and exit
+   -h, --help
+      print usage information and exit
+   -v, --version
+      print the version information and exit
+   -p, --propfile &LT;argument>
+      the jmeter property file to use
+   -q, --addprop &LT;argument>
+      additional JMeter property file(s)
+   -t, --testfile &LT;argument>
+      the jmeter test(.jmx) file to run
+   -l, --logfile &LT;argument>
+      the file to log samples to
+   -j, --jmeterlogfile &LT;argument>
+      jmeter run log file (jmeter.log)
+   -n, --nongui
+      run JMeter in nongui mode
+   -s, --server
+      run the JMeter server
+   -H, --proxyHost &LT;argument>
+      Set a proxy server for JMeter to use
+   -P, --proxyPort &LT;argument>
+      Set proxy server port for JMeter to use
+   -N, --nonProxyHosts &LT;argument>
+      Set nonproxy host list (e.g. *.apache.org|localhost)
+   -u, --username &LT;argument>
+      Set username for proxy server that JMeter is to use
+   -a, --password &LT;argument>
+      Set password for proxy server that JMeter is to use
+   -J, --jmeterproperty &LT;argument>=<value>
+      Define additional JMeter properties
+   -G, --globalproperty &LT;argument>=&LT;value>
+      Define Global properties (sent to servers)
+      e.g. -Gport=123
+       or -Gglobal.properties
+   -D, --systemproperty &LT;argument>=&LT;value>
+      Define additional system properties
+   -S, --systemPropertyFile &LT;argument>
+      additional system property file(s)
+   -L, --loglevel &LT;argument>=&LT;value>
+      [category=]level e.g. jorphan=INFO or jmeter.util=DEBUG
+   -r, --runremote
+      Start remote servers (as defined in remote_hosts)
+   -R, --remotestart &LT;argument>
+      Start these remote servers (overrides remote_hosts)
+   -d, --homedir &LT;argument>
+      the jmeter home directory to use
+   -X, --remoteexit
+      Exit the remote servers at end of test (non-GUI)
+   -g, --reportonly &LT;argument>
+      generate report dashboard only, from a test results file
+   -e, --reportatendofloadtests
+      generate report dashboard after load test
+   -o, --reportoutputfolder &LT;argument>
+      output folder for report dashboard
+   </pre>   
+
+
+
+
 
    To prepare Test plan in JMeter
 
