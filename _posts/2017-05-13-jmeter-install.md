@@ -88,6 +88,7 @@ Users of Blazemeter can use their add-on test framework.
 
 Blogs about this:
 
+* https://www.blazemeter.com/blog/5-ways-launch-jmeter-test-without-using-jmeter-gui
 * https://www.artofsoftwaredevelopment.com/performance/performance-testing-in-the-cloud-with-jmeter-aws
 
 
@@ -674,7 +675,7 @@ Or, if you don't want/need a background service you can just run:
 
    WARNING: Be sure to remember to stop this service when it's not needed.
 
-1. To remove jobs in the background:
+1. To remove all jobs in the background:
 
    <pre><strong>
    disown
