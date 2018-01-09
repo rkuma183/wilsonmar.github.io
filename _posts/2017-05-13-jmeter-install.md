@@ -843,3 +843,7 @@ For load testing, use NON GUI Mode:
 
    PROTIP: The run.xml file in this repo has been edited to reference the above URL.
 
+
+
+## Learning Resources
+https://www.guru99.com/jmeter-tutorials.html
