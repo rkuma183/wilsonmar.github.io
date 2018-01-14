@@ -15,16 +15,24 @@ comments: true
 
 {% include _toc.html %}
 
-Let's begin with is an open source RPA (Robotic Process Automation) package:
 
-   * https://www.uipath.com/community 
-   <br /><br />
-
+RPA (Robotic Process Automation) programs are like Selenium, QTP, SmartBear, and other functional test tools:
+They are programs that mimic what human users do.
 RPA is an "auto-pilot" to automate any repetitive, data intensive task. 
 It can "screen scrap" to extract data from web pages.
 It has a macro recorder to generate scripts which can be edited.
 
-All the things that Selenium and other traditional testing tools do.
+1. Request their free "Community Edition":
+
+   * https://www.uipath.com/community 
+   <br /><br />
+   Alternately, download the installer "UiPathStudioSetup.exe" from
+   
+   http://download.uipath.com/UiPathStudioSetup.exe
+
+The program offers a UI like the Visio diagramming tool 
+to design automation actions, without coding need by testing programs.
+
 
 ## So much more?
 
