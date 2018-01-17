@@ -51,7 +51,7 @@ This tutorial introduces "newbies" to the installation of JMeter by explaining e
 There are several ways to obtain a running instance of JMeter,
 listed from easiest to most difficult:
 
-A) You don't need a local machine at all if you run JMeter using a cloud service such as at
+A) You don't need a local machine if you run JMeter within a cloud service such as at
    <a href="#Blazemeter">Blazemeter.com</a> or 
    <a target="_blank" href="https://www.flood.io/">Flood.io</a>
 

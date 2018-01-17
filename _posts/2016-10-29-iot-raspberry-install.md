@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "IoT Raspberry Install "
+title: "IoT Raspberry Install"
 excerpt: "How to setup a Raspberry Pi 3B Pi Raspbian with Python Ansible Node"
 tags: [IoT, Raspberry, Mono, Mac]
 image:
@@ -19,8 +19,9 @@ This tutorial provides manual instructions and automation scripts to setup and
 run apps under Raspbian on a Raspberry Pi 3 B.
 
 Several operating systems can be installed on a Raspberry Pi
-* Raspbian, a derivative of Debina Linux
-* AndroidThings from Google.
+* Raspbian, a derivative of Debian Linux (described on this page)
+* AndroidThings from Google (another page)
+<br /><br />
 
 This is about using Raspian:
 
@@ -52,17 +53,20 @@ This is about using Raspian:
 
    NOTE: Only one operating system can be loaded.
 
-0. At <a target="_blank" href="https://www.raspberrypi.org/downloads/raspbian/">
-   https://www.raspberrypi.org/downloads/raspbian</a><br />
-   click the red <strong>Download ZIP</strong> below
+1. At <a target="_blank" href="https://www.raspberrypi.org/downloads/raspbian/">
+   https://www.raspberrypi.org/downloads/raspbian</a>
+
+   ![iot-rasp-stretch-download-942x496-65658](https://user-images.githubusercontent.com/300046/35048284-8965e086-fb6a-11e7-87d3-a792e85e812e.png)
+
+1. Click the red <strong>Download ZIP</strong> below
    <strong>Raspbian STRETCH WITH DESKTOP</strong>
 
-   PROTIP: The button goes to URL https://downloads.raspberrypi.org/raspbian_latest
-   which can be used in unattended shell scripts to automate this, such as
+   PROTIP: The button sends you to URL https://downloads.raspberrypi.org/raspbian_latest
+   which can be used in unattended shell scripts to automate the click, such as
    <a target="_blank" href="https://github.com/debian-pi/raspbian-ua-netinst/releases/">
    this</a>.
 
-   NOTE: The previous version name included PIXEL, which stands for "Pi Improved X-Windows Environmet, Lightweight". But many refer it simply as "X".
+   NOTE: The previous version name PIXEL, which stands for "Pi Improved X-Windows Environmet, Lightweight". But many refer it simply as "X".
 
    <a target="_blank" href="https://distrowatch.com/table.php?distribution=raspbian">
    BTW</a>: The Raspbian OS (based on Debian) is the official release for Raspberry Pi.
@@ -71,13 +75,14 @@ This is about using Raspian:
    <a target="_blank" href="https://www.wikiwand.com/en/List_of_Toy_Story_characters">characters in Disney's “Toy Story” films</a>
 
    * "Stretch" the rubber octopus is voiced by Whoopi Goldberg
-   * "Jessie" is the cowgirl.
-   * "Wheezy" (the squeeze toy penguin with the red bow tie)
+   * "Jessie" is the cowgirl, voiced by Joan Cusack
+   * <a target="_blank" href="http://disney.wikia.com/wiki/Wheezy_(Toy_Story)">Wheezy"</a> (the squeeze toy penguin with the red bow tie)
    was the previous 4.2 version of Raspbian.
    QUESTION: Where is the history of old versions 
    and how does one get announcement emails?
+   <br /><br />
 
-   * "Sid" is the bad boy.
+   * <a target="_blank" href="http://pixar.wikia.com/wiki/Sid_Phillips">"Sid"</a> is the bad boy.
 
 0. Click "Save File", the OK in the pop-up to begin download 
 
@@ -2330,6 +2335,30 @@ https://mike632t.wordpress.com/2015/09/26/raspbian-minimal-install-using-console
 
 http://homecontrols.ch/rasp_raspbian.php
 
+
+To force the screen to stay on all the time rather than timing out:
+
+   sudo nano /etc/lightdm/lightdm.conf
+
+Add the following lines to the [SeatDefaults] section:
+
+   \# don't sleep the screen
+   xserver-command=X -s 0 dpms
+
+
+https://chrome.google.com/webstore/detail/rotisserie-url-rotator/iljemanjjfjlglhkmojkmfbpphiaheja?hl=en
+Rotisserie URL Rotator
+by C.Haynes,Jr.
+Automatically rotate through URLs in one tab.
+
+https://chrome.google.com/webstore/detail/revolver-tabs/dlknooajieciikpedpldejhhijacnbda?hl=en
+"Revolver - Tabs" Chrome plug-in by Ben Hedrington
+Automatically rotate through open tabs. 
+
+
+https://chrome.google.com/webstore/detail/tabcarousel/ddldimidiliclngjipajmjjiakhbcohn?hl=en
+TabCarousel
+by Benjamin Oakes
 
 ## More on IoT #
 
