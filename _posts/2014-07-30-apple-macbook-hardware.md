@@ -201,8 +201,13 @@ move the cursor to the very top of the screen for a few seconds.</li>
 ## Display
 
 <ol type="1">
-<li> Within <a href="#SysPrefs">System Preferences</a>:</li>
-<li> Click <strong>Displays</strong>.</li>
+<li> Click the Apple icon for <a href="#SysPrefs">System Preferences</a></li>
+<li> Hold down Command+Option and click <strong>Displays</strong> so the Rotation selection is visible.</li>
+
+   In the dialog for the additional screen, select 270 for the vertical screen.
+
+   WARNING: Use of additional screens often cause the laptop fan to activate due to the additional heat from additional CPU usage.
+
 <li> Set <strong>Resolution</strong> to <strong>Scaled</strong></li>
 
 <li><a href="_blank" href="https://www.esolutions.se/en-GB/test">

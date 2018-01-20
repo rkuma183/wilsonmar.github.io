@@ -305,7 +305,7 @@ VIDEO</a>:
 
 0. Use the `cf` CLI program.
 
-   <tt><strong>cf --version</strong></tt>
+   <pre><strong>cf --version</strong></pre>
 
    The response (on August 23, 2017):
 
