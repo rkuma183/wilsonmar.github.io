@@ -79,6 +79,16 @@ displays the current battery drain.
 ![macbook-hardware-battery-307x366](https://user-images.githubusercontent.com/300046/27984588-d9e61542-6396-11e7-84bf-0e383537dc54.png)
 
 
+## Charger
+
+15 inch diagonal MacBooks use a 85 watt charger cube.
+
+<a target="_blank" href="https://www.thingiverse.com/thing:2768119">
+Make on a Formlab</a> a Magsafe anti-fray - Apple charger
+
+13 inch diagonal MacBooks use a 65 watt charger cube.
+
+
 <a id="WristRest"></a>
 
 ## Wrist Rest Cushion
