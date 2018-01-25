@@ -34,17 +34,6 @@ Beats are small, lightweight (written in Golang)
 Beats usually sends its data to a Logstash receiver, but they can send directly to ElasticSearch database.
 
 
-## Beats Marketing
-
-The product marketing page for LogStash is at:
-
-  <a target="_blank" href="https://www.elastic.co/products/beats">
-                      https://www.elastic.co/products/beats</a>
-
-## Install
-
-Beats is written in [the Go Language (Golang)](/golang/), which compiles to a static binary containing its own VM. So there is no need to install a run-time such as JVM to run Java.
-
 Alternatives to get bits onto a server:
 
 A) Ansible
@@ -54,6 +43,51 @@ B) Chef
 C) Microsoft SCCM
 
 D) Direct download
+
+
+## Beats Marketing
+
+The product marketing page for LogStash is at:
+
+  <a target="_blank" href="https://www.elastic.co/products/beats">
+                      https://www.elastic.co/products/beats</a>
+
+## Install on Ubuntu
+
+PROTIP: Beats is written in [the Go Language (Golang)](/golang/), which compiles to a static binary containing its own VM. So there is no need to install a run-time such as JVM to run Java.
+
+1. Add the Elastic public signing key to server:
+
+   <tt><strong>
+   wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+   </strong></tt>
+
+2. Install on Ubuntu:
+
+   <tt><strong>
+   apt-get update && apt-get install filebeat
+   </strong></tt>
+
+3. Look at the tail end (last few lines) in the system log:
+
+   <tt><strong>
+   tail /var/logs/sys.log
+   </strong></tt>
+
+3. Configure the Filebeat configuration file from "/var/log/\*.log" for all files to 
+   "/var/log/syslog.log" plus add "document_type: syslog":
+
+   <tt><strong>
+   sed /etc/filebeat/filebeat.yml  "/var/log/\*.log"  "/var/log/syslog.log \n document_type: syslog"
+   </strong></tt>
+
+   See https://www.elastic.co/guide/logstash/current/index.html
+
+   ### beats.yml
+
+
+
+
 
 ### Download Beats
 
