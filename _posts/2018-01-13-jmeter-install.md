@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial introduces "newbies" to the installation of JMeter by explaining each setp of an automated script for imposing artificial load on a local server running RabbitMQ.
+This tutorial introduces JMeter by explaining each setp of an automated script for imposing artificial load on a server created to run RabbitMQ.
 
 ## Background
 
@@ -64,7 +64,7 @@ C) <a href="#DockerHub">Pull an image from Docker Hub</a>
 
 D) <a href="#Dockerfile">Use the Dockerfile to build your own Docker image</a> containing JMeter.
 
-E) <a href="#AutoScript">Run a Bash scrpt to install JMeter natively on you Mac</a>.
+E) <a href="#AutoScript">Run a Bash script to install JMeter natively on you Mac</a>.
 
 F) <a href="#Manually">Manually type in Terminal commands executed in the automated script</a>.
 
