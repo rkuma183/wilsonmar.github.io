@@ -96,28 +96,28 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 0. Use a modern internet browser to the STS download page at<br />
    <a target="_blank" href="https://spring.io/tools/sts/all">
    https://spring.io/tools/sts/all</a>
-0. Click on "Based on Eclipse 4.7.0", then "tar.gz".
+0. Click on "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
+0. Click "Save File" in the pop-up.
 
-   spring-tool-suite-3.9.0.RELEASE-e4.7.0-macosx-cocoa-x86_64.tar is 412.5 MB.
+   spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg
 
-0. In Finder, select the Download folder to receive the file, then click "Save".
-0. While you're waiting, switch to exit the download web page.
-0. Double click on the file to unzip it to a new folder.
+0. Click the downloads icon for your browser to expand it.
+0. Drag the "Spring" icon STS and drop on the Applications folder.
+
+0. Switch to Finder. Click the Go menu for the
+   <strong>/Applications</strong> folder.
 
    CAUTION: If you see a number to the right of the "sts-bundle" folder name,
    another installer was downloaded previously.
 
-0. In Finder, navigate inside the "sts-bundle" folder.
-0. Open a new Finder new window and click the Go menu for the
-   <strong>/Applications</strong> folder.
 0. If there is another STS app there, move it to Trash.
-
-0. Long-Click on the <strong>STS</strong> app file, then drag and drop it 
-   onto the Applications window.
+0. If you will be using it a lot, drag and drop the STS icon to Apple's bar.
 0. Open STS by double-clicking the icon. It may take a minute to load the first time.
-0. Press command+tab until your land on the green Spring app icon for the Eclipse Launcher.
-0. Check "Use this as the default and do not ask again".
-0. PROTIP: The default directory generated should be changed per your organization's standards.
+0. If you get an "Are you sure you want to open it?", click Yes.
+0. Select a directory as workspace. PROTIP: Instead of something like "/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE"
+   use a folder under Git. 
+
+   PROTIP: The default directory generated should be changed per your organization's standards.
 
    /Users/mac/Documents/workspace-sts-3.9.0.RELEASE
 
@@ -125,24 +125,22 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
    `/Users/mac/gits/spring`. Others define a "dev" folder<br />
    `/Users/mac/dev/workspace`
 
-
    This can be changed to something else later (in Files, Switch Workspace).
 
-   The folder path is created when you click "Launch".
+   The folder path is created when you click "Launch". STS will create folders that don't exist.
 
-0. For the menu, click on the white space in the <strong>Dashboard</strong> with Package Explorer.
+0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
 
    See <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html#1607">
    https://www.predix.io/resources/tutorials/journey.html#1607</a>
 
-<a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
-Included with STS</a> (Spring Tools Suite)
-is the developer edition of Pivotal <strong>tc</strong> Server, 
-the drop-in replacement for Apache Tomcat 
-that’s optimized for Spring.
+   <a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
+   Included with STS</a> (Spring Tools Suite)
+   is the developer edition of Pivotal <strong>tc</strong> Server, 
+   the drop-in replacement for Apache Tomcat web server optimized for Spring.
 
-The Spring Insight console, tc Server Developer Edition, 
-provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
+   The Spring Insight console, tc Server Developer Edition, 
+   provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
 
 
 
@@ -249,6 +247,9 @@ Views
 <a name="Tutorials"></a>
 
 ## Video Tutorials #
+
+https://www.udemy.com/spring-framework-4-course-and-core-spring-certification/learn/v4/t/lecture/3106412?start=0
+video course uses STS 3.6.4 under Java JDK 8u45.
 
 There are a lot on YouTube:
 

@@ -2360,6 +2360,9 @@ https://chrome.google.com/webstore/detail/tabcarousel/ddldimidiliclngjipajmjjiak
 TabCarousel
 by Benjamin Oakes
 
+https://www.techcoil.com/blog/setting-up-a-fast-git-server-on-raspberry-pi-zero-w-with-go-git-service-gogs-and-raspbian-stretch-lite/
+
+
 ## More on IoT #
 
 This is one of a series on IoT:
