@@ -167,6 +167,11 @@ For example, Kibana can create a dashboard with these panes:
 
 3) a pie chart to summarize the percentage of different error log levels.
 
+## Plug-ins
+
+https://github.com/ommsolutions/kibana_ext_metrics_vis
+is a plugin for Kibana 5.0.0+ based on the core Metric-Plugin but 
+outputs custom aggregates on metric-results by using custom formula and/or JavaScript.
 
 
 <a name="Videos"></a>
