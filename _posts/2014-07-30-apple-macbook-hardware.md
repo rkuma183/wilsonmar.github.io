@@ -45,6 +45,15 @@ Dropping a Macbook can crack the screen.
 
 But a protective case adds to weight.
 
+Unlike some PCs, MacBooks do not have a slot for physical locks.
+So to put a Mac at the end of a cable, consider the docking station from Landing Zone.
+Install the driver at 
+
+   <a target="_blank" href="
+   https://landingzone.net/driver-lxd">
+   https://landingzone.net/driver-lxd</a>
+
+
 ## Screws
 
 Apple uses tiny screws for their products.
