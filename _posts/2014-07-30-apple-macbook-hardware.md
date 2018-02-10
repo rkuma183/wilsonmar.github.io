@@ -20,10 +20,29 @@ comments: true
 ## Register it. Now.
 
 <a target="_blank" href="https://support.apple.com/en-us/HT204308">
-Find your serial number</a>
-and enter it in
+Find your serial number</a> then Confirm your warranty and support status:
+
+1. Click the Apple icon at the upper left corner and select
+<strong>About this Mac</strong>.
+
+2. Double-click to the right of the "Serial Number" label and press command + C to copy it to your internal clipboard.
+
+3. PROTIP: Paste the serial number in a document that you store separate from your laptop
+so that you'll have it in case your laptop is lost or stolen.
+
+3. Click the red X at the upper-left of the pop-up to dismiss it.
+
+4. Open web page: 
 <a target="_blank" href="https://selfsolve.apple.com/agreementWarrantyDynamic.do">
-Apple Online Service Assistant</a> to confirm your warranty and support status.
+Apple Online Service Assistant</a>
+
+4. Click on the box under "Enter your serial number" and press command + V to paste.
+
+5. Click on the box under "Please enter the code" and retype the jumbled letters.
+
+6. Click Continue.
+
+   PROTIP: Apple Care can be purchased for 3 years.
 
 <a target="_blank" href="https://www.ifixit.com/info/ID-your-Mac">
 Identify your Mac</a> for 
