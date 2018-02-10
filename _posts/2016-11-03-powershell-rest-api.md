@@ -345,6 +345,9 @@ http://www.powershellmagazine.com/2014/12/24/using-azure-resource-management-res
 
 * http://www.powershellatoms.com/basic/download-file-website-powershell/
 
+https://www.youtube.com/watch?v=U3Ne_yX4tYo&index=1&list=PL5uoqS92stXioZw-u-ze_NtvSo0k0K0kq
+PowerShell Excel Module - ImportExcel Playlist of 5 vidoes Oct 5, 2017 
+by Doug Finke
 
 
 ## More on DevOps #

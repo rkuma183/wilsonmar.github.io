@@ -241,6 +241,15 @@ Test Page</a> reports the screen and resolution along with browser version.</li>
 </ol>
 
 
+## Control lights
+
+To control Phillips Hue light bulbs from your Mac's menu bar, get and install
+<a target="_blank" href="https://itunes.apple.com/us/app/colors-for-hue/id581915465?mt=12&ign-mpt=uo%3D8">
+Colors for Hue 4+</a>
+by Furiki Designs. Click on the hub's button.
+
+
+
 ## Stylus on Touch Pad
 
 <strong>Pen tablets</strong> are useful on Photoshop, Sketch, Pixelmator and other paint and calligraphy programs. 
