@@ -28,7 +28,7 @@ Find your serial number</a> then Confirm your warranty and support status:
 2. Double-click to the right of the "Serial Number" label and press command + C to copy it to your internal clipboard.
 
 3. PROTIP: Paste the serial number in a document that you store separate from your laptop
-so that you'll have it in case your laptop is lost or stolen.
+so that you'll have it in case your laptop is lost or stolen. Notify someone about that location in case you're lost or stolen ;)
 
 3. Click the red X at the upper-left of the pop-up to dismiss it.
 
@@ -42,7 +42,19 @@ Apple Online Service Assistant</a>
 
 6. Click Continue.
 
-   PROTIP: Apple Care can be purchased for 3 years.
+   PROTIP: AppleCare Protection Plan (APP) can be purchased for 3 years.
+
+   <a target="_blank" href="https://support.apple.com/en-us/ht201880">
+   BLAH:</a> Liquid damage is not covered by AppleCare because it's so common,
+   even though many consider that a defect. There should be drainage.
+
+   MacBooks have several physical Liquid Contact Indicators (LCI) that turn color when exposed to liquid.
+
+   * https://www.youtube.com/watch?v=x1ALMOgXams
+   * https://www.youtube.com/watch?v=Setz768BcJ0
+   * https://www.youtube.com/watch?v=x1ALMOgXams
+   * https://www.youtube.com/watch?v=e_5lzXGtanQ
+   * https://www.youtube.com/watch?v=RqIQcV2Viy8
 
 <a target="_blank" href="https://www.ifixit.com/info/ID-your-Mac">
 Identify your Mac</a> for 
