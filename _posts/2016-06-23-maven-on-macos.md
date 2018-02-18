@@ -18,7 +18,7 @@ comments: true
 
 This shows you how install Maven using Homebrew.
 
-Maven is a [task runnner, like Ant and Gradle, Grunt](/task-runners/).
+Maven is a [task runnner, like Ant, Gradle, Grunt](/task-runners/).
 
 Unlike Ant, Maven also provides 
 dependency management, 
@@ -130,7 +130,8 @@ OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
 
    mvn files should be listed:
 
-   m2.conf     mvn      mvnDebug mvnyjp
+   <pre>m2.conf     mvn      mvnDebug mvnyjp
+   </pre>
 
 0. Open using a text editor, substituting subl (for Sublime) with atom or vim:
 
@@ -232,13 +233,32 @@ OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
 
    The "clean" cleans out results from the prior build before starting with install.
 
-   Maven enforces a standard naming convention for artifacts defined using
-   groupId, artifactId, and version.
+   During the first full run, testing jars are installed in your local maven repository. 
 
-   Maven is said to also act as project management tool because
+   <pre>
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 26.549 s
+[INFO] Finished at: 2018-02-15T09:55:56-05:00
+[INFO] Final Memory: 86M/639M
+[INFO] ------------------------------------------------------------------------
+   </pre>
+
+0. Maven is said to also act as project management tool because
    it can generate reports etc.
 
    <strong>build.xml</strong>
+
+   Maven enforces a standard naming convention for artifacts defined using
+   groupId, artifactId, and version.
+
+0. After the first run, builds can skip tests with this additional parameter:
+
+   <tt><strong>
+   mvn clean install -Dmaven.test.skip=true
+   </strong></tt>
+
 
 
 ### Maven lifecycle phases #
