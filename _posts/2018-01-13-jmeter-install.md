@@ -46,6 +46,12 @@ This tutorial introduces JMeter by explaining each setp of an automated script f
 
    BLAH: "JMeter is not a browser, it works at protocol level. As far as web-services and remote services are concerned, JMeter looks like a browser (or rather, multiple browsers); however JMeter does not perform all the actions supported by browsers. In particular, JMeter does not execute the Javascript found in HTML pages. Nor does it render the HTML pages as a browser does (it's possible to view the response as HTML etc., but the timings are not included in any samples, and only one sample in one thread is ever displayed at a time)."
 
+2. Wikipedia lists the version history:
+
+   https://en.wikipedia.org/wiki/Apache_JMeter
+
+   Note version 4 became available on Feb. 10, 2018 to support Java 9.
+
 ## Installation options
 
 There are several ways to obtain a running instance of JMeter,
