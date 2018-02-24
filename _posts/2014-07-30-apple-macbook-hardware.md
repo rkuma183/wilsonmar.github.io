@@ -85,7 +85,7 @@ Install the driver at
    https://landingzone.net/driver-lxd</a>
 
 
-## Screws
+## Screws on case
 
 Apple uses tiny screws for their products.
 Screws for older Mac Book Pro's have a + pattern requiring a 1.5mm screwdriver.
@@ -127,6 +127,57 @@ displays the current battery drain.
 Make on a Formlab</a> a Magsafe anti-fray - Apple charger
 
 13 inch diagonal MacBooks use a 65 watt charger cube.
+
+
+
+<a id="Trackpad"></a>
+
+## Trackpad and Mouse Speed
+
+
+1. In a Terminal window, get the current setting:
+
+   <pre><strong>
+   defaults read -g com.apple.trackpad.scaling
+   </strong></pre>
+
+   In System Preferences, Mouse, if you max out the slider to the right, the value is <strong>3</strong>.
+
+2. To set the maximum speed up for Touchpad in a bash shell script:
+
+   <pre><strong>
+   defaults write -g com.apple.touchpad.scaling  3.0
+   </strong></pre>
+
+3. <a target="_blank" href="https://www.tylernichols.com/apple/speed-up-mouse-tracking-on-mac-os-x">PROTIP:</a> If you use an external mouse a 24 inch iMac, use the command to set a faster speed than what can be set in the GUI:
+
+   <pre><strong>
+   defaults write -g com.apple.mouse.scaling  5.0
+   </strong></pre>
+
+
+### Stylus on Touch Pad
+
+<strong>Pen tablets</strong> are useful on Photoshop, Sketch, Pixelmator and other paint and calligraphy programs. 
+Google's training videos use them for live illustrations.
+
+Some professional drawing tablets are hundreds of dollars.
+
+<a target="_blank" href="https://www.apartmenttherapy.com/quick-tip-use-a-tablet-stylus-with-your-macbook-175342">
+NOTE</a> 
+You can turn the touch pad on MacBook Pro laptops into a drawing tablet by installing the $29.95 <a target="_blank" href="http://tenonedesign.com/inklet.php/">Inklet OSX program</a> which runs in the background.
+
+If you have a new Apple MacBook Pro, Inklet takes advantage of its "Multitouch Force Touch" trackpad that senses different levels of pressure.
+
+Inklet recognizes those squishy rubber-tipped <strong>capacitive stylus</strong> given out by vendors at conferences and sold at dollar stores. For more precision, Inklet's $44.90 combo package includes the <a target="_blank" href="https://tenonedesign.com/pogo.php">$19.95 Pogo stylus</a>
+(not the 
+https://www.amazon.com/Ten-One-Design-T1-PGCT-302-Bluetooth/dp/B009K448L4/
+Pogo Connect or Magnus Air even though they are also useful on 3D touch iPhone and iPads.)
+
+Inklet has a palm rejection feature that ignores where  hands typically rest on the touch pad while drawing with the stylus.
+
+Open a drawing program before opening Inklet tablet mode by 
+a) clicking on the droplet icon and select 'Start Inklet', b) sliding across the bottom of the track pad. or c)vuse the hotkey control+option+i. A transparent workspace appears where drawing occurs from the trackpad.
 
 
 <a id="WristRest"></a>
@@ -279,30 +330,6 @@ To control Phillips Hue light bulbs from your Mac's menu bar, get and install
 Colors for Hue 4+</a>
 by Furiki Designs. Click on the hub's button.
 
-
-
-## Stylus on Touch Pad
-
-<strong>Pen tablets</strong> are useful on Photoshop, Sketch, Pixelmator and other paint and calligraphy programs. 
-Google's training videos use them for live illustrations.
-
-Some professional drawing tablets are hundreds of dollars.
-
-<a target="_blank" href="https://www.apartmenttherapy.com/quick-tip-use-a-tablet-stylus-with-your-macbook-175342">
-NOTE</a> 
-You can turn the touch pad on MacBook Pro laptops into a drawing tablet by installing the $29.95 <a target="_blank" href="http://tenonedesign.com/inklet.php/">Inklet OSX program</a> which runs in the background.
-
-If you have a new Apple MacBook Pro, Inklet takes advantage of its "Multitouch Force Touch" trackpad that senses different levels of pressure.
-
-Inklet recognizes those squishy rubber-tipped <strong>capacitive stylus</strong> given out by vendors at conferences and sold at dollar stores. For more precision, Inklet's $44.90 combo package includes the <a target="_blank" href="https://tenonedesign.com/pogo.php">$19.95 Pogo stylus</a>
-(not the 
-https://www.amazon.com/Ten-One-Design-T1-PGCT-302-Bluetooth/dp/B009K448L4/
-Pogo Connect or Magnus Air even though they are also useful on 3D touch iPhone and iPads.)
-
-Inklet has a palm rejection feature that ignores where  hands typically rest on the touch pad while drawing with the stylus.
-
-Open a drawing program before opening Inklet tablet mode by 
-a) clicking on the droplet icon and select 'Start Inklet', b) sliding across the bottom of the track pad. or c)vuse the hotkey control+option+i. A transparent workspace appears where drawing occurs from the trackpad.
 
 
 
