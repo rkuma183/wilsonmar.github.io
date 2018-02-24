@@ -22,8 +22,8 @@ Eclipse was originally funded by IBM as open source.
 
 Chose an edition of Eclipse IDE:
 
-   a. The "Standard" edition for working with Java is free
-   b. <a href="#STS">STS</a> edition
+   a. The "Standard" edition for working with Java is free<br />
+   b. <a href="#STS">STS</a> edition<br />
    c. The edition working with Web (HTML) is licensed (costs money)
 
 
@@ -70,7 +70,7 @@ is to use [Homebrew](/macos-homebrew/) to
 
    ### Add STS
 
-   In a Standard Eclipse, you can add STS in 
+   Optionally, you can add STS to a Standard Eclipse install:
 
 0. Help > Eclipse Marketplace and Find: Spring.
 0. Click Install.
@@ -89,14 +89,20 @@ is to use [Homebrew](/macos-homebrew/) to
 
 <a name="STS"></a>
 
-## b. STS install on Macs #
+## b. STS install from Spring #
 
 There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
 0. Use a modern internet browser to the STS download page at<br />
    <a target="_blank" href="https://spring.io/tools/sts/all">
    https://spring.io/tools/sts/all</a>
-0. Click on "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
+
+   Alternately, download the installer from:<br />
+   <a target="_blank" href="
+   https://www.eclipse.org/downloads/">
+   https://www.eclipse.org/downloads</a>
+
+0. Click on the file just downloaded: "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
 0. Click "Save File" in the pop-up.
 
    spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg
