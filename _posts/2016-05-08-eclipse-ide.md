@@ -129,16 +129,20 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
 0. If you will be using it a lot, drag and drop the STS icon to Apple's bar.
 0. Open STS by double-clicking the icon. It may take a minute to load the first time.
+
+0.  When you invoke Eclipse for the first time, you may see a "Welcome" screen.
+   If so, at the lower-right of the screen, uncheck "Always show Welcome at start up".
+
 0. If you get an "Are you sure you want to open it?", click Open for the Launcher pop-up:
 
    <!-- eclipse-sts-launcher-new.png -->
+
+   ### Workspace config.
 
    By default, the folder is something like:
 
    <tt>/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE</tt>
 
-   https://www.youtube.com/watch?time_continue=70&v=6mtI4vmsQ08
-   VIDEO: Spring Tips: Spring Tool Suite" by Josh Long is dated Dec 21, 2016 is based 3.8.2.
 
 0. PROTIP: Change the <strong>Workspace</strong> to a directory per your personal or your organization's standards
    which is under Git source version control.
@@ -153,12 +157,22 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
    PROTIP: STS will create folders that don't yet exist.
 
-   This tutorial has you changing the folder later (in Files, Switch Workspace), so:
-
 0. Click "Use this as the default and do not ask again", then the blue Launch button for 
 the Eclipse Dashboard in the middle pane.
 
-0. Take the time to click "GUIDES" to visit https://spring.io/guides
+0. In the Eclipse Spring Tools Suite menu bar, select File, Switch Workspace, and Other... 
+   to change the Workspace folder.
+
+
+   ## Tutorials
+
+0. Take the time to click "GUIDES" to visit https://spring.io/guides such as
+
+   https://spring.io/guides/gs/accessing-twitter
+
+   <a target="_blank" href="https://www.youtube.com/watch?time_continue=70&v=6mtI4vmsQ08">
+   VIDEO:</a> Spring Tips: Spring Tool Suite" by Josh Long is dated Dec 21, 2016 is based 3.8.2.
+
 
 0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
 
@@ -166,10 +180,6 @@ the Eclipse Dashboard in the middle pane.
 <a name="FirstTime"></a>
 
 ## First Time Preferences #
-
-When you invoke Eclipse for the first time, you see a "Welcome" screen.
-
-0. At the lower-right of the screen, uncheck "Always show Welcome at start up".
 
 0. Click "Review IDE configuration settings" to "Review the IDE's most fiercely contested preferences".
 
@@ -234,6 +244,18 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
 0. Type the Name for Java Class, such as "helloworld".
 
 
+<a name="ImportProject"></a>
+
+## Import Project #
+
+1. Open your existing workspace in Eclipse.
+2. In the Eclipse (Spring Tools Suite) menu, choose File -> Import.
+3. Expand the General folder by clicking the icon in front of it.
+4. Select "Existing Projects into Workspace"
+5. Xlick Next for the Import Projects dialog.
+6. Click Browse... to the location containing the files.
+
+
 <a name="Perspectives"></a>
 
 ## Perspectives #
@@ -246,7 +268,7 @@ Perspectives define the size and location of different views on the workspace wi
 0. Click the icon to the right of the Perspective icon to open a list of perspectives.
 0. Click Cancel
 
-Views
+## Views
 
 
 
