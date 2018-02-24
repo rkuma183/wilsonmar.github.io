@@ -22,14 +22,15 @@ Eclipse was originally funded by IBM as open source.
 
 Chose an edition of Eclipse IDE:
 
-   a. The "Standard" edition for working with Java is free<br />
-   b. <a href="#STS">STS</a> edition<br />
-   c. The edition working with Web (HTML) is licensed (costs money)
+   a. The edition working with Web (HTML) is licensed (costs money)
+   b. <a href="HomebrewInstall">The "Standard" edition</a> for working with Java is free<br />
+   c. <a href="#STS">STS</a> (Spring Tools Suite) edition<br />
 
+<hr />
 
 <a name="HomebrewInstall"></a>
 
-## a. Standard Edition Homebrew install #
+## b. Standard Edition Homebrew install #
 
 The simplest way to install the <strong>standard</strong> edition of Eclipse
 is to use [Homebrew](/macos-homebrew/) to 
@@ -89,7 +90,7 @@ is to use [Homebrew](/macos-homebrew/) to
 
 <a name="STS"></a>
 
-## b. STS install from Spring #
+## c. STS install from spring.io #
 
 There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
@@ -102,52 +103,64 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
    https://www.eclipse.org/downloads/">
    https://www.eclipse.org/downloads</a>
 
-0. Click on the file just downloaded: "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
-0. Click "Save File" in the pop-up.
+0. Click on the web page "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
 
-   spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg
+0. Click "Save File" in the pop-up if it appears.
 
-0. Click the downloads icon for your browser to expand it.
-0. Drag the "Spring" icon STS and drop on the Applications folder.
-
-0. Switch to Finder. Click the Go menu for the
-   <strong>/Applications</strong> folder.
-
+0. In the Finder's Downloads folder,
    CAUTION: If you see a number to the right of the "sts-bundle" folder name,
    another installer was downloaded previously.
+   If there is another STS app there, move it to Trash.
 
-0. If there is another STS app there, move it to Trash.
+0. Expand the installer file just downloaded by clicking it :
+
+   <tt>spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg</tt>
+
+0. Drag the green "STS" icon (for the Spring brand) and drop it on the Applications folder
+   (this is a type of manual security requirement Apple imposes to copy into the Applications folder.
+0. Close the dialog by clicking the top left-most (red) button.
+
+0. Switch to Finder and click the eject icon for the STS installer under the Devices section.
+
+0. Click Applications if it's among Favorites or if it's not, the Go menu for the
+   <strong>/Applications</strong> folder.
+
+   ### First time config.
+
 0. If you will be using it a lot, drag and drop the STS icon to Apple's bar.
 0. Open STS by double-clicking the icon. It may take a minute to load the first time.
-0. If you get an "Are you sure you want to open it?", click Yes.
-0. Select a directory as workspace. PROTIP: Instead of something like "/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE"
-   use a folder under Git. 
+0. If you get an "Are you sure you want to open it?", click Open for the Launcher pop-up:
 
-   PROTIP: The default directory generated should be changed per your organization's standards.
+   <!-- eclipse-sts-launcher-new.png -->
 
-   /Users/mac/Documents/workspace-sts-3.9.0.RELEASE
+   By default, the folder is something like:
 
-   PROTIP: This folder path is where you should do git clone. The one I use is<br />
-   `/Users/mac/gits/spring`. Others define a "dev" folder<br />
-   `/Users/mac/dev/workspace`
+   <tt>/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE</tt>
 
-   This can be changed to something else later (in Files, Switch Workspace).
+   https://www.youtube.com/watch?time_continue=70&v=6mtI4vmsQ08
+   VIDEO: Spring Tips: Spring Tool Suite" by Josh Long is dated Dec 21, 2016 is based 3.8.2.
 
-   The folder path is created when you click "Launch". STS will create folders that don't exist.
+0. PROTIP: Change the <strong>Workspace</strong> to a directory per your personal or your organization's standards
+   which is under Git source version control.
+
+   PROTIP: I like to create under my persoal home directory a folder named "gits" for various projects. 
+   Others may prefer "projects" or "dev".
+
+   Under that I create a folder for the account name in GitHub which in my case is "wilsonmar".
+   If the repository is from someone else, I create a folder (such as "baedlund").
+
+   Under that I let my git client create repository folders cloned from my GitHub account.
+
+   PROTIP: STS will create folders that don't yet exist.
+
+   This tutorial has you changing the folder later (in Files, Switch Workspace), so:
+
+0. Click "Use this as the default and do not ask again", then the blue Launch button for 
+the Eclipse Dashboard in the middle pane.
+
+0. Take the time to click "GUIDES" to visit https://spring.io/guides
 
 0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
-
-   See <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html#1607">
-   https://www.predix.io/resources/tutorials/journey.html#1607</a>
-
-   <a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
-   Included with STS</a> (Spring Tools Suite)
-   is the developer edition of Pivotal <strong>tc</strong> Server, 
-   the drop-in replacement for Apache Tomcat web server optimized for Spring.
-
-   The Spring Insight console, tc Server Developer Edition, 
-   provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
-
 
 
 <a name="FirstTime"></a>
