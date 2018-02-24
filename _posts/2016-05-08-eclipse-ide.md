@@ -20,16 +20,16 @@ This article contains note on my personal experience installing and using Eclips
 
 Eclipse was originally funded by IBM as open source.
 
-The editions of Eclipse IDE:
+Chose an edition of Eclipse IDE:
 
-   * The "Standard" edition for working with Java is free
-   * The edition working with Web (HTML) is licensed (costs money)
-   * <a href="#STS">STS</a> edition
+   a. The "Standard" edition for working with Java is free
+   b. <a href="#STS">STS</a> edition
+   c. The edition working with Web (HTML) is licensed (costs money)
 
 
 <a name="HomebrewInstall"></a>
 
-## Standard Edition Homebrew install #
+## a. Standard Edition Homebrew install #
 
 The simplest way to install the <strong>standard</strong> edition of Eclipse
 is to use [Homebrew](/macos-homebrew/) to 
@@ -89,7 +89,7 @@ is to use [Homebrew](/macos-homebrew/) to
 
 <a name="STS"></a>
 
-## STS install on Macs #
+## b. STS install on Macs #
 
 There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
