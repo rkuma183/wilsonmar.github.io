@@ -113,10 +113,12 @@ Use of an external monitor may also cause the fan to engage.
 
 ## Battery
 
-https://macdaddy.io/mac-battery-guru/
-displays the current battery drain.
+Install https://macdaddy.io/mac-battery-guru/
+to display current battery drain.
 
 ![macbook-hardware-battery-307x366](https://user-images.githubusercontent.com/300046/27984588-d9e61542-6396-11e7-84bf-0e383537dc54.png)
+
+The number shown at the top is 0 (zero) when the laptop is plugged in.
 
 
 ## Charger
@@ -127,6 +129,35 @@ displays the current battery drain.
 Make on a Formlab</a> a Magsafe anti-fray - Apple charger
 
 13 inch diagonal MacBooks use a 65 watt charger cube.
+
+
+
+## USB-C ports
+
+2015 Macbooks 
+don't come with regular USB ports so one has to buy 
+<a target="_blank" href="http://store.apple.com/us/product/MJ1M2AM/A/usb-c-to-usb-adapter">
+$19 Apple proprietary adapter cables</a>.
+
+Another power plug runs 
+<a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
+$49</a>
+
+2015 Macbooks combine power and communication (Ethernet) into a single
+proprietary oblong rounded USB-C connector.
+USB-C connectors can be inserted on either side (unlike earlier USB plugs).
+It follows the USB 3.1 standard, which has a theoretical
+maximum speed of up to 10Gbps (gigabits per second)
+-- two times faster than USB 3.0. But the Macbook is at 5Gbps for now.
+
+3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
+and by upcoming MHL (Mobile High-definition Link) 3 devices to 
+stream 4K video from mobile devices to TV sets.
+
+Get a USB-C to USB-B cable.
+Plug it into a battery pack and you can charge the laptop.
+
+* https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260
 
 
 
@@ -793,35 +824,6 @@ Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus
 Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus 
 Bus 000 Device 001: ID 1d6b:IPPT Linux Foundation USB 3.0 Bus 
    </pre>
-
-
-### USB-C ports
-
-2015 Macbooks 
-don't come with regular USB ports so one has to buy 
-<a target="_blank" href="http://store.apple.com/us/product/MJ1M2AM/A/usb-c-to-usb-adapter">
-$19 Apple proprietary adapter cables</a>.
-
-Another power plug runs 
-<a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
-$49</a>
-
-2015 Macbooks combine power and communication (Ethernet) into a single
-proprietary oblong rounded USB-C connector.
-USB-C connectors can be inserted on either side (unlike earlier USB plugs).
-It follows the USB 3.1 standard, which has a theoretical
-maximum speed of up to 10Gbps (gigabits per second)
--- two times faster than USB 3.0. But the Macbook is at 5Gbps for now.
-
-3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
-and by upcoming MHL (Mobile High-definition Link) 3 devices to 
-stream 4K video from mobile devices to TV sets.
-
-Get a USB-C to USB-B cable.
-Plug it into a battery pack and you can charge the laptop.
-
-* https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260
-
 
 
 ## More on OSX
