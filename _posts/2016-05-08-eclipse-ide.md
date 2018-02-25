@@ -170,6 +170,8 @@ the Eclipse Dashboard in the middle pane.
    to change the Workspace folder.
 
 
+   <a name="Tutorials"></a>
+
    ## Tutorials
 
 0. Take the time to click "GUIDES" to visit https://spring.io/guides such as
@@ -179,25 +181,74 @@ the Eclipse Dashboard in the middle pane.
    <a target="_blank" href="https://www.youtube.com/watch?time_continue=70&v=6mtI4vmsQ08">
    VIDEO:</a> Spring Tips: Spring Tool Suite" by Josh Long is dated Dec 21, 2016 is based 3.8.2.
 
+   <a target="_blank" href="https://www.udemy.com/spring-framework-4-course-and-core-spring-certification/learn/v4/t/lecture/3106412?start=0">
+   This video course on Udemy</a> uses STS 3.6.4 under Java JDK 8u45.
 
-0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
+   Pluralsight.com has a two-part series on Eclipse
+   from 2013 by Tod Gentille (@Tod Gentille) of syncorsystems.com:
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part1/table-of-contents"> Part 1</a>
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part2/table-of-contents"> Part 2</a>
+   <br /><br />
+
+   On YouTube:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
+   Introduction to Eclipse: Driving Java Productivity</a> from 2012
+   by Marakana
+   <br /><br />
 
 
-## Build
+<a name="Plugins"></a>
 
-Here is a flexible approach to define a single run configuration for a project imported.
+## Plug-ins #
 
-First, import the parent of and run a build to create the .project file the IDE uses.
+* Cargo Maven Plug-in
 
+* Checkstyle
 
+* EclEmma - Java Code Coverage for Eclipse
 
+* Spelling checking
 
+* Formatter
 
 
 
 <a name="FirstTime"></a>
 
 ## Preferences #
+
+0. Click Spring Tool Suite - Preferences - 
+
+0. Expand Java - Expand Code Style - select Formatter - Import - select
+   the formatter-rest.xml file containing code formatting from the course repository downloaded from 
+   https://github.com/eugenp/REST-With-Spring/blob/module1/eclipse/formatter-rest.xml
+   - click Apply.
+
+0. Expand XML > expand XML Files > click Editor
+
+   * set: Line Width to 180 (from default 72)
+   * check: Align final bracket in multi-line element tags
+   * check: Format comments (the default)
+   * check: Join lines (the default)
+   * check: Indent using spaces (instead of default tabs)
+   * set: Indentation size to 3 (instead of 1)
+   * uncheck: Use inferred grammar in absence of DTD/Schema
+   * click Apply
+   <br /><br />
+
+0. Expand Web > expand HTML Files > click Editor
+
+   * set: Line Width to 180 (from default 72)
+   * check: Align final bracket in multi-line element tags
+   * check: Indent using spaces (instead of tabs)
+   * set: Indentation size to 3 (instead of 1)
+   * within Inline Elements, select: input
+   * click: Remove 
+   * uncheck: everything else (from the Formatting section)
+   * click Apply
+   <br /><br />
 
 0. Click "Review IDE configuration settings" to "Review the IDE's most fiercely contested preferences".
 
@@ -208,16 +259,59 @@ First, import the parent of and run a build to create the .project file the IDE 
    * Enable preference recorder
    <br /><br />
 
-0. Check "Always exit without prompt" (your call).
+0. Click "Apply and Close" to close the Preferences dialog.
 
-0. Click "Open an existing file".
+The changes above update the <tt>settings.properties</tt> text file for the environment envTarget. ???
 
 
-   <a name="ExistingProject"></a>
+<a name="ImportProject"></a>
+
+## Import Project #
+
+A flexible approach to define a single run configuration for an imported project 
+keeps the parent and the working modules separate.
+
+First, import the parent <strong>pom.xml</strong> and run a build to create the .project file the IDE uses.
+
+1. In the Eclipse (Spring Tools Suite) 
+2. Open your existing workspace in Eclipse STS.
+
+3. Choose menu File -> Import...
+4. If you're using Maven, select that. Double-click "Existing Maven Project". Click Next.
+5. Click Browse... to open Finder to your default workspace.
+6. Click to navigate to the project folder which contains the pom.xml file Maven reads. Click Open.
+7. Deselect All.
+8. Click the checkbox to just the pom.xml file.
+9. Type "PARENT" over whatever is under the "Add project(s) to working set" field.
+
+   Next, import files specific only to the child module you are actively working on.
+
+3. Choose menu File -> Import...
+4. If you're using Maven, select that. Double-click "Existing Maven Project". Click Next.
+5. Click Browse... to open Finder to your default workspace.
+6. Click to navigate to the project folder which contains the pom.xml file Maven reads. Click Open.
+7. Deselect All.
+8. Click the checkbox to the common/pom.xml and um-webapp/pom.xml for the module you are working on (starting with lesson 1).
+
+9. Type "<strong>WORK</strong>" under the "Add project(s) to working set" field.
+10. Click Finish.
+
+11. There should now be three top-level items in the Package Explorer.
+
 
    ### Compile from Eclipse #
 
-0. Click Finish.
+0. Click the black arrow icon to the right of the green Run icon.
+
+   <img width="183" alt="eclipse-run-config" src="https://user-images.githubusercontent.com/300046/36644221-f74fc9b2-1a24-11e8-9aca-739b78c24a34.png">
+
+0. Right-Click on "Maven Build", then "New".
+0. In Base directory type in a variable: <tt>${project_loc}</tt> so that it points to whatever project is selected in Package Explorer.
+0. In Goals: clean install
+0. In User Settings: ???
+0. Click Apply to save.
+0. Click Run.
+0. Look in the Console pane for "BUILD SUCCESS".
 
 0. To compile and run your program, keep the "Main" app Java file tab active and 
 
@@ -229,20 +323,6 @@ First, import the parent of and run a build to create the .project file the IDE 
 
 
 <hr />
-
-
-<a name="ImportProject"></a>
-
-## Import Project #
-
-1. Open your existing workspace in Eclipse.
-2. In the Eclipse (Spring Tools Suite) menu, choose File -> Import.
-
-3. If you're using Maven, select that, then double-click "Existing Maven Project".
-
-4. Click Browse... to open Finder to your default workspace.
-5. Navigate to where the project is stored.
-
 
 <a name="NewProject"></a>
 
@@ -313,7 +393,8 @@ Seeing how source code displays locally is important to not upload bad code into
 
    Use that in the next step:
 
-2. In STS Preferences - Server - Runtime Environment - Add - Apache Tomcat 9 (the latest version) - Next.
+2. In STS Preferences - expand Server - click Runtime Environment - Add - Apache Tomcat v9 (the latest version).
+3. Paste "/usr/local/opt/tomcat". Drill down to bin, Catalina. Press Next.
 
 3. Add the Servers view in Eclipse (Window - Show View - Servers)
 
@@ -340,39 +421,6 @@ Seeing how source code displays locally is important to not upload bad code into
    http://localhost:8080
 
 
-<a name="Plugins"></a>
-
-## Plug-ins #
-
-* Cargo Maven Plug-in
-
-* Checkstyle
-
-* EclEmma - Java Code Coverage for Eclipse
-
-* Spelling checking
-
-* Formatter
-
-
-<a name="Tutorials"></a>
-
-## Video Tutorials #
-
-https://www.udemy.com/spring-framework-4-course-and-core-spring-certification/learn/v4/t/lecture/3106412?start=0
-video course uses STS 3.6.4 under Java JDK 8u45.
-
-There are a lot on YouTube:
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
-   Introduction to Eclipse: Driving Java Productivity</a> from 2012
-   by Marakana
-
-Pluralsight.com has a two-part series on Eclipse
-from 2013 by Tod Gentille (@Tod Gentille) of syncorsystems.com:
-
-   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part1/table-of-contents"> Part 1</a>
-   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part2/table-of-contents"> Part 2</a>
 
 ## Shortcuts
 
