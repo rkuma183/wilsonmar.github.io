@@ -394,11 +394,21 @@ Seeing how source code displays locally is important to not upload bad code into
    Use that in the next step:
 
 2. In STS Preferences - expand Server - click Runtime Environment - Add - Apache Tomcat v9 (the latest version).
-3. Paste "/usr/local/opt/tomcat". Drill down to bin, Catalina. Press Next.
+3. Paste "/usr/local/opt/tomcat". 
+4. Drill down to bin, Catalina. /usr/local/Cellar/tomcat/9.0.5/bin
+5. Press Next.
 
-3. Add the Servers view in Eclipse (Window - Show View - Servers)
+   <img width="688" alt="eclipse-sts-tomcat-config" src="https://user-images.githubusercontent.com/300046/36644994-57c7f476-1a30-11e8-9054-a83c338ed941.png">
 
-4. Create a new Server (rightclick - New - Server) and choose the Tomcat 8 Runtime Environment (defined above)
+6. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
+
+   ### Add server
+
+3. Add the Servers view using a mouse to click menu Window - Show View - Servers.
+4. Click the link to "create a new server" (or rightclick - New - Server).
+6. Expand Apache by clicking the icon to its left.
+7. Choose "Tomcat v9 Server" Runtime Environment defined above.
+8. Click Next.
 
 5. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
 
