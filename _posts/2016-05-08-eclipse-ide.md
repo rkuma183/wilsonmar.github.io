@@ -20,6 +20,8 @@ This article contains note on my personal experience installing and using Eclips
 
 Eclipse was originally funded by IBM as open source.
 
+## Installation
+
 Chose an edition of Eclipse IDE:
 
    a. The edition working with Web (HTML) is licensed (costs money)<br />
@@ -84,7 +86,7 @@ is to use [Homebrew](/macos-homebrew/) to
 0. In Confirm Selected Features, check all (for AOP, AERI, Roo, etc.) explained later.
 
    QUESTION: Can the above be automated?
-   
+
 
    ### Uninstall Homebrew
 
@@ -181,9 +183,21 @@ the Eclipse Dashboard in the middle pane.
 0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
 
 
+## Build
+
+Here is a flexible approach to define a single run configuration for a project imported.
+
+First, import the parent of and run a build to create the .project file the IDE uses.
+
+
+
+
+
+
+
 <a name="FirstTime"></a>
 
-## First Time Preferences #
+## Preferences #
 
 0. Click "Review IDE configuration settings" to "Review the IDE's most fiercely contested preferences".
 
@@ -215,6 +229,20 @@ the Eclipse Dashboard in the middle pane.
 
 
 <hr />
+
+
+<a name="ImportProject"></a>
+
+## Import Project #
+
+1. Open your existing workspace in Eclipse.
+2. In the Eclipse (Spring Tools Suite) menu, choose File -> Import.
+
+3. If you're using Maven, select that, then double-click "Existing Maven Project".
+
+4. Click Browse... to open Finder to your default workspace.
+5. Navigate to where the project is stored.
+
 
 <a name="NewProject"></a>
 
@@ -248,17 +276,6 @@ the Eclipse Dashboard in the middle pane.
 0. Type the Name for Java Class, such as "helloworld".
 
 
-<a name="ImportProject"></a>
-
-## Import Project #
-
-1. Open your existing workspace in Eclipse.
-2. In the Eclipse (Spring Tools Suite) menu, choose File -> Import.
-3. Expand the General folder by clicking the icon in front of it.
-4. Select "Existing Projects into Workspace"
-5. Xlick Next for the Import Projects dialog.
-6. Click Browse... to the location containing the files.
-
 
 <a name="Perspectives"></a>
 
@@ -270,15 +287,64 @@ Perspectives define the size and location of different views on the workspace wi
    and select "Show Text".
 
 0. Click the icon to the right of the Perspective icon to open a list of perspectives.
-0. Click Cancel
+0. Click Cancel.
 
-## Views
 
+
+## Tomcat 8 server
+
+Seeing how source code displays locally is important to not upload bad code into the team repository.
+
+1. Download and unarchive the latest Tomcat 8 distribution.
+
+   brew install tomcat
+
+   Alternately, install manually using instructions at https://wolfpaulus.com/mac/tomcat/
+
+2. To see where brew stores the formula:
+
+   brew --prefix tomcat
+
+   The response:
+
+   <pre>
+/usr/local/opt/tomcat
+   </pre>
+
+   Use that in the next step:
+
+2. In STS Preferences - Server - Runtime Environment - Add - Apache Tomcat 9 (the latest version) - Next.
+
+3. Add the Servers view in Eclipse (Window - Show View - Servers)
+
+4. Create a new Server (rightclick - New - Server) and choose the Tomcat 8 Runtime Environment (defined above)
+
+5. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
+
+6. Start from folder "/Library/Tomcat" or /usr/local/opt/tomcat" if brew was used to install:
+
+   catalina run
+
+   Alternately, use shell scripts:
+
+   $ /Library/Tomcat/bin/startup.sh
+
+   $ /Library/Tomcat/bin/shutdown.sh
+
+7. Install a tiny freeware app, providing a UI to quickly start/stop Tomcat. It may not say so, but Tomcat Controller works on macOS 10.12 just fine.
+
+   http://www.activata.co.uk/tomcatcontroller/
+
+8. In a browser, go to 
+
+   http://localhost:8080
 
 
 <a name="Plugins"></a>
 
 ## Plug-ins #
+
+* Cargo Maven Plug-in
 
 * Checkstyle
 
