@@ -185,9 +185,9 @@ Alternatives to Homebrew:
 
 0. Get a count of kegs, how many files, and the disk space they take:
 
-   <tt><strong>
+   <pre><strong>
    brew info --all
-   </strong></tt>
+   </strong></pre>
 
    A sample response:
 
@@ -203,9 +203,9 @@ Alternatives to Homebrew:
    instead of building from source.
    It can be unpacked.
 
-   <tt><strong>
+   <pre><strong>
    brew --cache
-   </strong></tt>
+   </strong></pre>
 
    The response includes your user name, which enables
    Homebrew to work without using sudo (elevation to root). 
@@ -309,9 +309,9 @@ Alternatives to Homebrew:
    
    One way is to install Apple's Xcode.
 
-   <tt><strong>	
+   <pre><strong>	
    brew install --build-from-source wget
-   </strong></tt>
+   </strong></pre>
 
    Test wget operating:
 
@@ -348,9 +348,9 @@ Alternatives to Homebrew:
 
    First, see what exactly will be overwritten, without actually doing it:
 
-   <tt><strong>
+   <pre><strong>
    brew link --overwrite --dry-run openssl
-   </strong></tt>
+   </strong></pre>
 
    The response is:
 
