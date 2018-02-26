@@ -431,6 +431,8 @@ Seeing how source code displays locally is important to not upload bad code into
    http://localhost:8080
 
 
+0. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
+
 
 ## Shortcuts
 
