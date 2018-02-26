@@ -28,6 +28,9 @@ Chose an edition of Eclipse IDE:
    b. <a href="HomebrewInstall">The "Standard" edition Homebrew</a> for working with Java is free<br />
    c. <a href="#STS">STS</a> (Spring Tools Suite) edition<br />
 
+<a target="_blank" href="https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1574&tag=1607&journey=Development%20environment&resources=1466,1557,1574,1545">
+NOTE: Predix Dev Tools: Set up a Mac OS X development environment</a> for the older Yosmite (Mac OS 10.10).
+
 <hr />
 
 <a name="HomebrewInstall"></a>
@@ -85,7 +88,15 @@ is to use [Homebrew](/macos-homebrew/) to
 0. Click Install.
 0. In Confirm Selected Features, check all (for AOP, AERI, Roo, etc.) explained later.
 
-   QUESTION: Can the above be automated?
+   <a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
+   Included with STS</a> (Spring Tools Suite)
+   is the developer edition of Pivotal <strong>tc</strong> Server, 
+   the drop-in replacement for Apache Tomcat web server optimized for Spring.
+
+   The Spring Insight console, tc Server Developer Edition, 
+   provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
+
+   QUESTION: Can actions inside Eclipse be automated?
 
 
    ### Uninstall Homebrew
