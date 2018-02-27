@@ -114,9 +114,31 @@ is to use [Homebrew](/macos-homebrew/) to
 
 ## c. STS install from spring.io #
 
-There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
+PROTIP: Use the Homebrew module for the Spring Tools Suite (STS) for Mac.
 
-0. Use a modern internet browser to the STS download page at<br />
+1. In a Terminal:
+
+   <pre><strong>brew cask install sts
+   </strong></pre>
+
+   The response (as of 29 Feb 2018):
+
+   <pre>
+==> Satisfying dependencies
+==> Downloading http://download.springsource.com/release/STS/3.9.2.RELEASE/dist/
+######################################################################## 100.0%
+==> Verifying checksum for Cask sts
+==> Installing Cask sts
+==> Moving App 'STS.app' to '/Applications/STS.app'.
+🍺  sts was successfully installed!
+   </pre>
+
+2. Proceed to <a href="#FirstTime">First Time Config</a> below.
+
+
+Alternately:
+
+1. Use a modern internet browser to the STS download page at<br />
    <a target="_blank" href="https://spring.io/tools/sts/all">
    https://spring.io/tools/sts/all</a>
 
@@ -139,15 +161,22 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
 0. Switch to Finder and click the eject icon for the STS installer under the Devices section.
 
-0. Click Applications if it's among Favorites or if it's not, the Go menu for the
-   <strong>/Applications</strong> folder.
+0. Click Applications if it's among Favorites or if it's not: 
+
+   <a name="FirstTime"></a>
 
    ### First time config.
 
-0. If you will be using it a lot, drag and drop the STS icon to Apple's bar.
+0. Switch to Finder and navigate to the <strong>/Applications</strong> folder.
+   (select the Go menu and select Applications).
+
+   NOTE: The version at time of this writing is dated December 21, 2017.
+
+0. If you will be using the app a lot, drag and drop the STS icon to Apple's bar at the bottom.
+
 0. Open STS by double-clicking the icon. It may take a minute to load the first time.
 
-0.  When you invoke Eclipse for the first time, you may see a "Welcome" screen.
+0. When you invoke Eclipse for the first time, you may see a "Welcome" screen.
    If so, at the lower-right of the screen, uncheck "Always show Welcome at start up".
 
 0. If you get an "Are you sure you want to open it?", click Open for the Launcher pop-up:
@@ -156,7 +185,7 @@ There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
    ### Workspace config.
 
-   By default, the folder is something like:
+   By default, the folder is something like (where you see your account instead of "wilsonmar"):
 
    <tt>/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE</tt>
 

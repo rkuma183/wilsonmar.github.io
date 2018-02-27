@@ -165,7 +165,6 @@ Plug it into a battery pack and you can charge the laptop.
 
 ## Trackpad and Mouse Speed
 
-
 1. In a Terminal window, get the current setting:
 
    <pre><strong>
@@ -185,6 +184,19 @@ Plug it into a battery pack and you can charge the laptop.
    <pre><strong>
    defaults write -g com.apple.mouse.scaling  5.0
    </strong></pre>
+
+If you drag and drop didn't work on the Trackpad, relaunch Force Quit the Finder.
+
+If that still doesnt' work, follow <a target="_blank" href="http://osxdaily.com/2015/09/07/drag-and-drop-not-working-mac-os-x-troubleshooting/">
+this blog</a> which advised from the OS X Finder, hit Command+Shift+G for the “Go To Folder” screen to
+specify <strong>~/Library/Preferences/</strong> as the destination. Then drag:
+
+   * com.apple.AppleMultitouchTrackpad.plist
+   * com.apple.driver.AppleBluetoothMultitouch.trackpad.plist
+   * com.apple.preference.trackpad.plist
+   * com.apple.driver.AppleBluetoothMultitouch.mouse.plist
+   * com.apple.driver.AppleHIDMouse.plist
+   <br /><br />
 
 
 ### Stylus on Touch Pad
