@@ -579,7 +579,8 @@ Click Restart Now.
 These come from the bash terminal on Linux machines:
 
 <ul>
-<li> control + A = Beginning of the line (as in A to Z)<br /></li>
+<li> control + A = Beginning of the line (as in A to Z)</li>
+<li> control + E = End of the line<br /></li>
 
 <li> control + H = Backspace left of cursor</li>
 <li> control + D = Delete right of cursor<br /></li>
