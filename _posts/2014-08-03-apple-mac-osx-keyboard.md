@@ -591,7 +591,7 @@ These come from the bash terminal on Linux machines:
 <li> control + N = Next line </li>
 <li> control + P = Previous line<br /></li>
 
-<li> control + K = Kill line</li>
+<li> control + K = Kill line from under the cursor to the end of the line.</li>
 </ul>
 
 
