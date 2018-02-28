@@ -376,12 +376,18 @@ To view data in ES within Splunk:
    * https://github.com/hvandenb/splunk-elasticsearch
    * https://answers.splunk.com/answers/372999/is-there-anyway-to-push-data-from-elasticsearch-or.html
 
-## Integrate
-
-
 <hr />
 
 ## Videos
+
+YouTube playlists:
+
+   * Classic AppMon: http://bit.ly/dttutorials
+
+   * Dynatrace Fullstack: http://bit.ly/oneagenttutorials
+
+Dynatrace University Self-Learning portal at http://university.dynatrace.com 
+
 
 https://www.youtube.com/watch?v=wExU-AQ0ydk&index=1&list=PLqt2rd0eew1bmDn54E2_M2uvbhm_WxY_6
 
