@@ -20,16 +20,22 @@ This article contains note on my personal experience installing and using Eclips
 
 Eclipse was originally funded by IBM as open source.
 
-The editions of Eclipse IDE:
+## Installation
 
-   * The "Standard" edition for working with Java is free
-   * The edition working with Web (HTML) is licensed (costs money)
-   * <a href="#STS">STS</a> edition
+Chose an edition of Eclipse IDE:
 
+   a. The edition working with Web (HTML) is licensed (costs money)<br />
+   b. <a href="HomebrewInstall">The "Standard" edition Homebrew</a> for working with Java is free<br />
+   c. <a href="#STS">STS</a> (Spring Tools Suite) edition<br />
+
+<a target="_blank" href="https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1574&tag=1607&journey=Development%20environment&resources=1466,1557,1574,1545">
+NOTE: Predix Dev Tools: Set up a Mac OS X development environment</a> for the older Yosmite (Mac OS 10.10).
+
+<hr />
 
 <a name="HomebrewInstall"></a>
 
-## Standard Edition Homebrew install #
+## b. Standard Edition Homebrew install #
 
 The simplest way to install the <strong>standard</strong> edition of Eclipse
 is to use [Homebrew](/macos-homebrew/) to 
@@ -68,13 +74,30 @@ is to use [Homebrew](/macos-homebrew/) to
 
 0. Type the portion of "Eclipse Java" until the icon appears.
 
+   Alternately, download the installer from:<br />
+   <a target="_blank" href="
+   https://www.eclipse.org/downloads/">
+   https://www.eclipse.org/downloads</a>
+   and add STS components.
+
    ### Add STS
 
-   In a Standard Eclipse, you can add STS in 
+   To add STS inside a Standard Eclipse install:
 
 0. Help > Eclipse Marketplace and Find: Spring.
 0. Click Install.
 0. In Confirm Selected Features, check all (for AOP, AERI, Roo, etc.) explained later.
+
+   <a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
+   Included with STS</a> (Spring Tools Suite)
+   is the developer edition of Pivotal <strong>tc</strong> Server, 
+   the drop-in replacement for Apache Tomcat web server optimized for Spring.
+
+   The Spring Insight console, tc Server Developer Edition, 
+   provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
+
+   QUESTION: Can actions inside Eclipse be automated?
+
 
    ### Uninstall Homebrew
 
@@ -89,68 +112,154 @@ is to use [Homebrew](/macos-homebrew/) to
 
 <a name="STS"></a>
 
-## STS install on Macs #
+## c. STS install from spring.io #
 
 There is no Homebrew module for the Spring Tools Suite (STS) for Mac.
 
 0. Use a modern internet browser to the STS download page at<br />
    <a target="_blank" href="https://spring.io/tools/sts/all">
    https://spring.io/tools/sts/all</a>
-0. Click on "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
-0. Click "Save File" in the pop-up.
 
-   spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg
+0. Click on the web page "Based on Eclipse 4.7.0" under "Mac", then "dmg 397MB".
 
-0. Click the downloads icon for your browser to expand it.
-0. Drag the "Spring" icon STS and drop on the Applications folder.
+0. Click "Save File" in the pop-up if it appears.
 
-0. Switch to Finder. Click the Go menu for the
-   <strong>/Applications</strong> folder.
-
+0. In the Finder's Downloads folder,
    CAUTION: If you see a number to the right of the "sts-bundle" folder name,
    another installer was downloaded previously.
+   If there is another STS app there, move it to Trash.
 
-0. If there is another STS app there, move it to Trash.
+0. Expand the installer file just downloaded by clicking it :
+
+   <tt>spring-tool-suite-3.9.2.RELEASE-e4.7.2-macosx-cocoa-x86_64.dmg</tt>
+
+0. Drag the green "STS" icon (for the Spring brand) and drop it on the Applications folder
+   (this is a type of manual security requirement Apple imposes to copy into the Applications folder.
+0. Close the dialog by clicking the top left-most (red) button.
+
+0. Switch to Finder and click the eject icon for the STS installer under the Devices section.
+
+0. Click Applications if it's among Favorites or if it's not, the Go menu for the
+   <strong>/Applications</strong> folder.
+
+   ### First time config.
+
 0. If you will be using it a lot, drag and drop the STS icon to Apple's bar.
 0. Open STS by double-clicking the icon. It may take a minute to load the first time.
-0. If you get an "Are you sure you want to open it?", click Yes.
-0. Select a directory as workspace. PROTIP: Instead of something like "/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE"
-   use a folder under Git. 
 
-   PROTIP: The default directory generated should be changed per your organization's standards.
+0.  When you invoke Eclipse for the first time, you may see a "Welcome" screen.
+   If so, at the lower-right of the screen, uncheck "Always show Welcome at start up".
 
-   /Users/mac/Documents/workspace-sts-3.9.0.RELEASE
+0. If you get an "Are you sure you want to open it?", click Open for the Launcher pop-up:
 
-   PROTIP: This folder path is where you should do git clone. The one I use is<br />
-   `/Users/mac/gits/spring`. Others define a "dev" folder<br />
-   `/Users/mac/dev/workspace`
+   <!-- eclipse-sts-launcher-new.png -->
 
-   This can be changed to something else later (in Files, Switch Workspace).
+   ### Workspace config.
 
-   The folder path is created when you click "Launch". STS will create folders that don't exist.
+   By default, the folder is something like:
 
-0. For the menu, right-click on the white space in the <strong>Dashboard</strong> with Package Explorer.
+   <tt>/Users/wilsonm/Documents/workspace-sts-3.9.2.RELEASE</tt>
 
-   See <a target="_blank" href="https://www.predix.io/resources/tutorials/journey.html#1607">
-   https://www.predix.io/resources/tutorials/journey.html#1607</a>
 
-   <a target="_blank" href="https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse">
-   Included with STS</a> (Spring Tools Suite)
-   is the developer edition of Pivotal <strong>tc</strong> Server, 
-   the drop-in replacement for Apache Tomcat web server optimized for Spring.
+0. PROTIP: Change the <strong>Workspace</strong> to a directory per your personal or your organization's standards
+   which is under Git source version control.
 
-   The Spring Insight console, tc Server Developer Edition, 
-   provides a graphical real-time view of application performance metrics that lets developers identify and diagnose problems from their desktops.
+   PROTIP: I like to create under my persoal home directory a folder named "gits" for various projects. 
+   Others may prefer "projects" or "dev".
+
+   Under that I create a folder for the account name in GitHub which in my case is "wilsonmar".
+   If the repository is from someone else, I create a folder (such as "baedlund").
+
+   Under that I let my git client create repository folders cloned from my GitHub account.
+
+   PROTIP: STS will create folders that don't yet exist.
+
+0. Click "Use this as the default and do not ask again", then the blue Launch button for 
+the Eclipse Dashboard in the middle pane.
+
+0. In the Eclipse Spring Tools Suite menu bar, select File, Switch Workspace, and Other... 
+   to change the Workspace folder.
+
+
+   <a name="Tutorials"></a>
+
+   ## Tutorials
+
+0. Take the time to click "GUIDES" to visit https://spring.io/guides such as
+
+   https://spring.io/guides/gs/accessing-twitter
+
+   <a target="_blank" href="https://www.youtube.com/watch?time_continue=70&v=6mtI4vmsQ08">
+   VIDEO:</a> Spring Tips: Spring Tool Suite" by Josh Long is dated Dec 21, 2016 is based 3.8.2.
+
+   <a target="_blank" href="https://www.udemy.com/spring-framework-4-course-and-core-spring-certification/learn/v4/t/lecture/3106412?start=0">
+   This video course on Udemy</a> uses STS 3.6.4 under Java JDK 8u45.
+
+   Pluralsight.com has a two-part series on Eclipse
+   from 2013 by Tod Gentille (@Tod Gentille) of syncorsystems.com:
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part1/table-of-contents"> Part 1</a>
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part2/table-of-contents"> Part 2</a>
+   <br /><br />
+
+   On YouTube:
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
+   Introduction to Eclipse: Driving Java Productivity</a> from 2012
+   by Marakana
+   <br /><br />
+
+
+<a name="Plugins"></a>
+
+## Plug-ins #
+
+* Cargo Maven Plug-in
+
+* Checkstyle
+
+* EclEmma - Java Code Coverage for Eclipse
+
+* Spelling checking
+
+* Formatter
 
 
 
 <a name="FirstTime"></a>
 
-## First Time Preferences #
+## Preferences #
 
-When you invoke Eclipse for the first time, you see a "Welcome" screen.
+0. Click Spring Tool Suite - Preferences - 
 
-0. At the lower-right of the screen, uncheck "Always show Welcome at start up".
+0. Expand Java - Expand Code Style - select Formatter - Import - select
+   the formatter-rest.xml file containing code formatting from the course repository downloaded from 
+   https://github.com/eugenp/REST-With-Spring/blob/module1/eclipse/formatter-rest.xml
+   - click Apply.
+
+0. Expand XML > expand XML Files > click Editor
+
+   * set: Line Width to 180 (from default 72)
+   * check: Align final bracket in multi-line element tags
+   * check: Format comments (the default)
+   * check: Join lines (the default)
+   * check: Indent using spaces (instead of default tabs)
+   * set: Indentation size to 3 (instead of 1)
+   * uncheck: Use inferred grammar in absence of DTD/Schema
+   * click Apply
+   <br /><br />
+
+0. Expand Web > expand HTML Files > click Editor
+
+   * set: Line Width to 180 (from default 72)
+   * check: Align final bracket in multi-line element tags
+   * check: Indent using spaces (instead of tabs)
+   * set: Indentation size to 3 (instead of 1)
+   * within Inline Elements, select: input
+   * click: Remove 
+   * uncheck: everything else (from the Formatting section)
+   * click Apply
+   <br /><br />
 
 0. Click "Review IDE configuration settings" to "Review the IDE's most fiercely contested preferences".
 
@@ -161,16 +270,59 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
    * Enable preference recorder
    <br /><br />
 
-0. Check "Always exit without prompt" (your call).
+0. Click "Apply and Close" to close the Preferences dialog.
 
-0. Click "Open an existing file".
+The changes above update the <tt>settings.properties</tt> text file for the environment envTarget. ???
 
 
-   <a name="ExistingProject"></a>
+<a name="ImportProject"></a>
+
+## Import Project #
+
+A flexible approach to define a single run configuration for an imported project 
+keeps the parent and the working modules separate.
+
+First, import the parent <strong>pom.xml</strong> and run a build to create the .project file the IDE uses.
+
+1. In the Eclipse (Spring Tools Suite) 
+2. Open your existing workspace in Eclipse STS.
+
+3. Choose menu File -> Import...
+4. If you're using Maven, select that. Double-click "Existing Maven Project". Click Next.
+5. Click Browse... to open Finder to your default workspace.
+6. Click to navigate to the project folder which contains the pom.xml file Maven reads. Click Open.
+7. Deselect All.
+8. Click the checkbox to just the pom.xml file.
+9. Type "PARENT" over whatever is under the "Add project(s) to working set" field.
+
+   Next, import files specific only to the child module you are actively working on.
+
+3. Choose menu File -> Import...
+4. If you're using Maven, select that. Double-click "Existing Maven Project". Click Next.
+5. Click Browse... to open Finder to your default workspace.
+6. Click to navigate to the project folder which contains the pom.xml file Maven reads. Click Open.
+7. Deselect All.
+8. Click the checkbox to the common/pom.xml and um-webapp/pom.xml for the module you are working on (starting with lesson 1).
+
+9. Type "<strong>WORK</strong>" under the "Add project(s) to working set" field.
+10. Click Finish.
+
+11. There should now be three top-level items in the Package Explorer.
+
 
    ### Compile from Eclipse #
 
-0. Click Finish.
+0. Click the black arrow icon to the right of the green Run icon.
+
+   <img width="183" alt="eclipse-run-config" src="https://user-images.githubusercontent.com/300046/36644221-f74fc9b2-1a24-11e8-9aca-739b78c24a34.png">
+
+0. Right-Click on "Maven Build", then "New".
+0. In Base directory type in a variable: <tt>${project_loc}</tt> so that it points to whatever project is selected in Package Explorer.
+0. In Goals: clean install
+0. In User Settings: ???
+0. Click Apply to save.
+0. Click Run.
+0. Look in the Console pane for "BUILD SUCCESS".
 
 0. To compile and run your program, keep the "Main" app Java file tab active and 
 
@@ -215,6 +367,7 @@ When you invoke Eclipse for the first time, you see a "Welcome" screen.
 0. Type the Name for Java Class, such as "helloworld".
 
 
+
 <a name="Perspectives"></a>
 
 ## Perspectives #
@@ -225,43 +378,72 @@ Perspectives define the size and location of different views on the workspace wi
    and select "Show Text".
 
 0. Click the icon to the right of the Perspective icon to open a list of perspectives.
-0. Click Cancel
-
-Views
+0. Click Cancel.
 
 
 
-<a name="Plugins"></a>
+## Tomcat 8 server
 
-## Plug-ins #
+Seeing how source code displays locally is important to not upload bad code into the team repository.
 
-* Checkstyle
+1. Download and unarchive the latest Tomcat 8 distribution.
 
-* EclEmma - Java Code Coverage for Eclipse
+   brew install tomcat
 
-* Spelling checking
+   Alternately, install manually using instructions at https://wolfpaulus.com/mac/tomcat/
 
-* Formatter
+2. To see where brew stores the formula:
+
+   brew --prefix tomcat
+
+   The response:
+
+   <pre>
+/usr/local/opt/tomcat
+   </pre>
+
+   Use that in the next step:
+
+2. In STS Preferences - expand Server - click Runtime Environment - Add - Apache Tomcat v9 (the latest version).
+3. Paste "/usr/local/opt/tomcat". 
+4. Drill down to bin, Catalina. /usr/local/Cellar/tomcat/9.0.5/bin
+5. Press Next.
+
+   <img width="688" alt="eclipse-sts-tomcat-config" src="https://user-images.githubusercontent.com/300046/36644994-57c7f476-1a30-11e8-9054-a83c338ed941.png">
+
+6. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
+
+   ### Add server
+
+3. Add the Servers view using a mouse to click menu Window - Show View - Servers.
+4. Click the link to "create a new server" (or rightclick - New - Server).
+6. Expand Apache by clicking the icon to its left.
+7. Choose "Tomcat v9 Server" Runtime Environment defined above.
+8. Click Next.
+
+5. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
+
+6. Start from folder "/Library/Tomcat" or /usr/local/opt/tomcat" if brew was used to install:
+
+   catalina run
+
+   Alternately, use shell scripts:
+
+   $ /Library/Tomcat/bin/startup.sh
+
+   $ /Library/Tomcat/bin/shutdown.sh
+
+7. Install a tiny freeware app, providing a UI to quickly start/stop Tomcat. It may not say so, but Tomcat Controller works on macOS 10.12 just fine.
+
+   http://www.activata.co.uk/tomcatcontroller/
+
+8. In a browser, go to 
+
+   http://localhost:8080
 
 
-<a name="Tutorials"></a>
+0. Customize server (double click the server in the Servers view) -- In the Publishing section - check Never Publish Automatically -- In the Timeouts section - set the Start timeout to 90 sec 
 
-## Video Tutorials #
-
-https://www.udemy.com/spring-framework-4-course-and-core-spring-certification/learn/v4/t/lecture/3106412?start=0
-video course uses STS 3.6.4 under Java JDK 8u45.
-
-There are a lot on YouTube:
-
-   * <a target="_blank" href="https://www.youtube.com/watch?v=BJAKDaaWfh0&t=20s">
-   Introduction to Eclipse: Driving Java Productivity</a> from 2012
-   by Marakana
-
-Pluralsight.com has a two-part series on Eclipse
-from 2013 by Tod Gentille (@Tod Gentille) of syncorsystems.com:
-
-   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part1/table-of-contents"> Part 1</a>
-   * <a target="_blank" href="https://app.pluralsight.com/library/courses/eclipse-guided-tour-part2/table-of-contents"> Part 2</a>
 
 ## Shortcuts
 

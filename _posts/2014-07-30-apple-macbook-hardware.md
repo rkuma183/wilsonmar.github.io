@@ -20,10 +20,41 @@ comments: true
 ## Register it. Now.
 
 <a target="_blank" href="https://support.apple.com/en-us/HT204308">
-Find your serial number</a>
-and enter it in
+Find your serial number</a> then Confirm your warranty and support status:
+
+1. Click the Apple icon at the upper left corner and select
+<strong>About this Mac</strong>.
+
+2. Double-click to the right of the "Serial Number" label and press command + C to copy it to your internal clipboard.
+
+3. PROTIP: Paste the serial number in a document that you store separate from your laptop
+so that you'll have it in case your laptop is lost or stolen. Notify someone about that location in case you're lost or stolen ;)
+
+3. Click the red X at the upper-left of the pop-up to dismiss it.
+
+4. Open web page: 
 <a target="_blank" href="https://selfsolve.apple.com/agreementWarrantyDynamic.do">
-Apple Online Service Assistant</a> to confirm your warranty and support status.
+Apple Online Service Assistant</a>
+
+4. Click on the box under "Enter your serial number" and press command + V to paste.
+
+5. Click on the box under "Please enter the code" and retype the jumbled letters.
+
+6. Click Continue.
+
+   PROTIP: AppleCare Protection Plan (APP) can be purchased for 3 years.
+
+   <a target="_blank" href="https://support.apple.com/en-us/ht201880">
+   BLAH:</a> Liquid damage is not covered by AppleCare because it's so common,
+   even though many consider that a defect. There should be drainage.
+
+   MacBooks have several physical Liquid Contact Indicators (LCI) that turn color when exposed to liquid.
+
+   * https://www.youtube.com/watch?v=x1ALMOgXams
+   * https://www.youtube.com/watch?v=Setz768BcJ0
+   * https://www.youtube.com/watch?v=x1ALMOgXams
+   * https://www.youtube.com/watch?v=e_5lzXGtanQ
+   * https://www.youtube.com/watch?v=RqIQcV2Viy8
 
 <a target="_blank" href="https://www.ifixit.com/info/ID-your-Mac">
 Identify your Mac</a> for 
@@ -45,7 +76,16 @@ Dropping a Macbook can crack the screen.
 
 But a protective case adds to weight.
 
-## Screws
+Unlike some PCs, MacBooks do not have a slot for physical locks.
+So to put a Mac at the end of a cable, consider the docking station from Landing Zone.
+Install the driver at 
+
+   <a target="_blank" href="
+   https://landingzone.net/driver-lxd">
+   https://landingzone.net/driver-lxd</a>
+
+
+## Screws on case
 
 Apple uses tiny screws for their products.
 Screws for older Mac Book Pro's have a + pattern requiring a 1.5mm screwdriver.
@@ -73,10 +113,12 @@ Use of an external monitor may also cause the fan to engage.
 
 ## Battery
 
-https://macdaddy.io/mac-battery-guru/
-displays the current battery drain.
+Install https://macdaddy.io/mac-battery-guru/
+to display current battery drain.
 
 ![macbook-hardware-battery-307x366](https://user-images.githubusercontent.com/300046/27984588-d9e61542-6396-11e7-84bf-0e383537dc54.png)
+
+The number shown at the top is 0 (zero) when the laptop is plugged in.
 
 
 ## Charger
@@ -87,6 +129,86 @@ displays the current battery drain.
 Make on a Formlab</a> a Magsafe anti-fray - Apple charger
 
 13 inch diagonal MacBooks use a 65 watt charger cube.
+
+
+
+## USB-C ports
+
+2015 Macbooks 
+don't come with regular USB ports so one has to buy 
+<a target="_blank" href="http://store.apple.com/us/product/MJ1M2AM/A/usb-c-to-usb-adapter">
+$19 Apple proprietary adapter cables</a>.
+
+Another power plug runs 
+<a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
+$49</a>
+
+2015 Macbooks combine power and communication (Ethernet) into a single
+proprietary oblong rounded USB-C connector.
+USB-C connectors can be inserted on either side (unlike earlier USB plugs).
+It follows the USB 3.1 standard, which has a theoretical
+maximum speed of up to 10Gbps (gigabits per second)
+-- two times faster than USB 3.0. But the Macbook is at 5Gbps for now.
+
+3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
+and by upcoming MHL (Mobile High-definition Link) 3 devices to 
+stream 4K video from mobile devices to TV sets.
+
+Get a USB-C to USB-B cable.
+Plug it into a battery pack and you can charge the laptop.
+
+* https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260
+
+
+
+<a id="Trackpad"></a>
+
+## Trackpad and Mouse Speed
+
+
+1. In a Terminal window, get the current setting:
+
+   <pre><strong>
+   defaults read -g com.apple.trackpad.scaling
+   </strong></pre>
+
+   In System Preferences, Mouse, if you max out the slider to the right, the value is <strong>3</strong>.
+
+2. To set the maximum speed up for Touchpad in a bash shell script:
+
+   <pre><strong>
+   defaults write -g com.apple.touchpad.scaling  3.0
+   </strong></pre>
+
+3. <a target="_blank" href="https://www.tylernichols.com/apple/speed-up-mouse-tracking-on-mac-os-x">PROTIP:</a> If you use an external mouse a 24 inch iMac, use the command to set a faster speed than what can be set in the GUI:
+
+   <pre><strong>
+   defaults write -g com.apple.mouse.scaling  5.0
+   </strong></pre>
+
+
+### Stylus on Touch Pad
+
+<strong>Pen tablets</strong> are useful on Photoshop, Sketch, Pixelmator and other paint and calligraphy programs. 
+Google's training videos use them for live illustrations.
+
+Some professional drawing tablets are hundreds of dollars.
+
+<a target="_blank" href="https://www.apartmenttherapy.com/quick-tip-use-a-tablet-stylus-with-your-macbook-175342">
+NOTE</a> 
+You can turn the touch pad on MacBook Pro laptops into a drawing tablet by installing the $29.95 <a target="_blank" href="http://tenonedesign.com/inklet.php/">Inklet OSX program</a> which runs in the background.
+
+If you have a new Apple MacBook Pro, Inklet takes advantage of its "Multitouch Force Touch" trackpad that senses different levels of pressure.
+
+Inklet recognizes those squishy rubber-tipped <strong>capacitive stylus</strong> given out by vendors at conferences and sold at dollar stores. For more precision, Inklet's $44.90 combo package includes the <a target="_blank" href="https://tenonedesign.com/pogo.php">$19.95 Pogo stylus</a>
+(not the 
+https://www.amazon.com/Ten-One-Design-T1-PGCT-302-Bluetooth/dp/B009K448L4/
+Pogo Connect or Magnus Air even though they are also useful on 3D touch iPhone and iPads.)
+
+Inklet has a palm rejection feature that ignores where  hands typically rest on the touch pad while drawing with the stylus.
+
+Open a drawing program before opening Inklet tablet mode by 
+a) clicking on the droplet icon and select 'Start Inklet', b) sliding across the bottom of the track pad. or c)vuse the hotkey control+option+i. A transparent workspace appears where drawing occurs from the trackpad.
 
 
 <a id="WristRest"></a>
@@ -239,30 +361,6 @@ To control Phillips Hue light bulbs from your Mac's menu bar, get and install
 Colors for Hue 4+</a>
 by Furiki Designs. Click on the hub's button.
 
-
-
-## Stylus on Touch Pad
-
-<strong>Pen tablets</strong> are useful on Photoshop, Sketch, Pixelmator and other paint and calligraphy programs. 
-Google's training videos use them for live illustrations.
-
-Some professional drawing tablets are hundreds of dollars.
-
-<a target="_blank" href="https://www.apartmenttherapy.com/quick-tip-use-a-tablet-stylus-with-your-macbook-175342">
-NOTE</a> 
-You can turn the touch pad on MacBook Pro laptops into a drawing tablet by installing the $29.95 <a target="_blank" href="http://tenonedesign.com/inklet.php/">Inklet OSX program</a> which runs in the background.
-
-If you have a new Apple MacBook Pro, Inklet takes advantage of its "Multitouch Force Touch" trackpad that senses different levels of pressure.
-
-Inklet recognizes those squishy rubber-tipped <strong>capacitive stylus</strong> given out by vendors at conferences and sold at dollar stores. For more precision, Inklet's $44.90 combo package includes the <a target="_blank" href="https://tenonedesign.com/pogo.php">$19.95 Pogo stylus</a>
-(not the 
-https://www.amazon.com/Ten-One-Design-T1-PGCT-302-Bluetooth/dp/B009K448L4/
-Pogo Connect or Magnus Air even though they are also useful on 3D touch iPhone and iPads.)
-
-Inklet has a palm rejection feature that ignores where  hands typically rest on the touch pad while drawing with the stylus.
-
-Open a drawing program before opening Inklet tablet mode by 
-a) clicking on the droplet icon and select 'Start Inklet', b) sliding across the bottom of the track pad. or c)vuse the hotkey control+option+i. A transparent workspace appears where drawing occurs from the trackpad.
 
 
 
@@ -726,35 +824,6 @@ Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus
 Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus 
 Bus 000 Device 001: ID 1d6b:IPPT Linux Foundation USB 3.0 Bus 
    </pre>
-
-
-### USB-C ports
-
-2015 Macbooks 
-don't come with regular USB ports so one has to buy 
-<a target="_blank" href="http://store.apple.com/us/product/MJ1M2AM/A/usb-c-to-usb-adapter">
-$19 Apple proprietary adapter cables</a>.
-
-Another power plug runs 
-<a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
-$49</a>
-
-2015 Macbooks combine power and communication (Ethernet) into a single
-proprietary oblong rounded USB-C connector.
-USB-C connectors can be inserted on either side (unlike earlier USB plugs).
-It follows the USB 3.1 standard, which has a theoretical
-maximum speed of up to 10Gbps (gigabits per second)
--- two times faster than USB 3.0. But the Macbook is at 5Gbps for now.
-
-3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
-and by upcoming MHL (Mobile High-definition Link) 3 devices to 
-stream 4K video from mobile devices to TV sets.
-
-Get a USB-C to USB-B cable.
-Plug it into a battery pack and you can charge the laptop.
-
-* https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260
-
 
 
 ## More on OSX
