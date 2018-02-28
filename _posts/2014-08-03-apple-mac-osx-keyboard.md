@@ -574,21 +574,23 @@ Click Restart Now.
 
 <a id="ShortKeys"></a>
 
-## Text Line Bash Shortcuts #
+## Text Command Line Bash Shortcuts #
 
 These come from the bash terminal on Linux machines:
 
 <ul>
+<li> control + A = Beginning of the line (as in A to Z)<br /></li>
+
 <li> control + H = Backspace left of cursor</li>
-<li> control + D = Delete right of cursor</li>
+<li> control + D = Delete right of cursor<br /></li>
 
 <li> control + F = Forward cursor</li>
-<li> control + B = Backward </li>
+<li> control + B = Backward<br /></li>
 
 <li> control + N = Next line </li>
-<li> control + P = Previous line </li>
-<li> control + A = Beginning of the line (as in A to Z) </li>
-<li> control + K = Kill line </li>
+<li> control + P = Previous line<br /></li>
+
+<li> control + K = Kill line</li>
 </ul>
 
 
