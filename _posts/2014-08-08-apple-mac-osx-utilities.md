@@ -39,12 +39,15 @@ https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
    the last one-, five-, and fifteen-minute periods.
    Each process using or <strong>waiting</strong> for CPU (the ready queue or run queue) increments the load number by 1. In a system with four CPUs, a load average of 3.73 would indicate that there were, on average, 3.73 processes ready to run, and each one could be scheduled into a CPU.
 
+
 ### Top processes
 
 0. To list the top hungry processes, and refersh the screen:
 
    <pre><strong>top
    </strong></pre>
+
+   Alternately, there is a htop utility that can installed.
 
 0. To cancel the display, press <strong>control+C</strong>.
 
@@ -208,6 +211,30 @@ https://github.com/appium/flaky<br />
 gem uninstall -aIx flaky
 gem install --no-rdoc --no-ri flaky
 </pre>
+
+
+## Add wi-fi network
+
+<a target="_blank" href="http://hints.macworld.com/article.php?story=20101004114849586">
+NOTE</a> To avoid the manual effort to add a wi-fi, use this command:
+
+   <pre><strong>
+   /usr/sbin/networksetup -addpreferredwirelessnetworkatindex Airport my_ssid 0 my_security my_passkey
+   </strong></pre>
+
+* my_ssid is the SSID of your network. 
+* my_security is the level of encryption (WEP, WPA, WPA2, etc) 
+* my_passkey is your encryption passkey for your wireless network.
+<br /><br />
+
+<a target="_blank" href="http://osxdaily.com/2011/04/12/connect-wireless-network-command-line/">
+NOTE</a>:
+
+   <pre><strong>
+   networksetup -setairportnetwork [interface] [router SSID] [password]
+   </strong></pre>
+
+
 
 ## More on OSX
 
