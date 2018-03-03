@@ -20,7 +20,7 @@ comments: true
 ## Register it. Now.
 
 <a target="_blank" href="https://support.apple.com/en-us/HT204308">
-Find your serial number</a> then Confirm your warranty and support status:
+Find your serial number</a> then confirm your warranty and support status:
 
 1. Click the Apple icon at the upper left corner and select
 <strong>About this Mac</strong>.
@@ -76,9 +76,12 @@ Dropping a Macbook can crack the screen.
 
 But a protective case adds to weight.
 
-Unlike some PCs, MacBooks do not have a slot for physical locks.
-So to put a Mac at the end of a cable, consider the docking station from Landing Zone.
-Install the driver at 
+Unlike some PCs, MacBooks do not have a slot for <strong>physical lock</strong> 
+as many Windows PCs have.
+
+To put a Mac at the end of a cut-proof cable, 
+consider the docking station from Landing Zone.
+Install its driver from: 
 
    <a target="_blank" href="
    https://landingzone.net/driver-lxd">
