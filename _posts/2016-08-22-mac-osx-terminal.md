@@ -26,7 +26,13 @@ What Apple calls the Terminal is a Bash shell.
 
 ## Open Terminal from Finder Folder #
 
-Three ways to relaunch the Finder:
+Ways to open a Terminal command line:
+
+   0. Hold down the <strong>command</strong> key down while pressing <strong>tab</strong> multiple times until Finder is highlighted in the pop-up list.
+
+   <br /><br />
+      
+Get to the Finder list of files and folders:
 
    0. Hold the Option key and right-click the Finder icon in the Dock, then select Relaunch.
 
