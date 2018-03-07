@@ -110,9 +110,10 @@ alias ll='ls -lri'
 alias dir='ls -alr'
 &nbsp;
 alias gwm='cd ~/gits/wilsonmar/wilsonmar.github.io;git status'
-alias gs='git status'
 alias gf='cd ~/gits/wilsonmar/futures;git status'
 &nbsp;
+alias gs='git status'
+alias gp='git fetch;git log ..@{u}'
 alias gb='git branch -avv'
 alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
 alias gbs='git status;git add . -A;git commit -m"Update";git push'
