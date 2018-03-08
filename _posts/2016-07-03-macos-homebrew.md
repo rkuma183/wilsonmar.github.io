@@ -645,6 +645,15 @@ end{% endhighlight %}
    </strong></pre>
 
 
+## Analytics off
+
+Homebrew now defaults to retrieving behavioral analytics tracking. Although anonymized, you may not want to participate in that. To disable the extra network traffic:
+
+   <pre><strong>
+   brew analytics off
+   </strong></pre>
+
+
 ## Debian apt-get
 
 Download Fink commander Fink Installer.pkg from<br />

@@ -1058,6 +1058,12 @@ It starts by diving right in with diff:
 
 Several people, on their personal time, created videos for others to enjoy for free.
 
+### David Mahler
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=FyAAIHHClqI">
+    Introduction to Git - Branching and Merging Sep 18, 2017 [28:47]</a>
+
+
 ### Dan Gitschooldude
 
 From Sep 2015 to Nov 2016, <a target="_blank" href="https://gaming.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ">
@@ -1233,7 +1239,6 @@ Git - Interactive Rebase</a> [9:26] Feb 8, 2017
 
 <a target="_blank" href="https://www.youtube.com/watch?v=XjF6r9G66gc">
 Git - Resolving Conflicts</a> [7:39] Jan 12, 2017
-
 
 
 ### Lars 

@@ -114,7 +114,7 @@ alias gf='cd ~/gits/wilsonmar/futures;git status'
 &nbsp;
 alias gs='git status'
 alias gb='git branch -avv'
-alias gf='git fetch;git diff master...origin/master'
+alias gf='git fetch;git diff master..origin/master'
 alias gm='git merge origin/master'
 alias gl='clear;git status;git log --pretty=format:"%h %s %ad" --graph --since=1.days --date=relative;git log --show-signature -n 1'
 alias gbs='git status;git add . -A;git commit -m"Update";git push'
