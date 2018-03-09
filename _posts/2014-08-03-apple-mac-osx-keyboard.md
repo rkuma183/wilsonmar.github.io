@@ -23,20 +23,24 @@ This article provides an enhanced presentation of <a target="_blank" href="https
 
 <a id="Gymnastics"></a>
 
-## Finger Gymnastics of the Pros #
+## Full Screen Finger Gymnastics #
 
-Let's get right down to the most complicated yet often-used and useful key combination:
+Let's get right down to an often-used action invoked by a complicated key combination:
 toggle full screen, which enables you to <strong>focus on your content</strong> rather than be distracted by buttons, menus, lists, etc.
 
-   PROTIP: Look at how the most productive developers work and you'll see that their hands
-   stay on the keyboard. They rarely reach for the mouse.
-   This is why interviewers of developers ask "show me how you enter and exit Full Screen".
+   PROTIP: Some interviewers ask "show me how you enter and exit Full Screen" to screen developers. This is because they notice that the most productive developers work with their hands on the keyboard. They rarely reach for the mouse. These are people who actually like the vi text editor.
 
-PROTIP: To toggle <strong>Full Screen view</strong>, reach (far) with your left thumb to hold control and command with your right thumb, then pressing F with your left hand.
+Windows has its F12 key. Apple has Mac users do the equivalent of a double Summersault.
 
-PROTIP: Repeated practice trains muscle memory so you find the keys without the need to take your eyes off the screen. So do not look at the keyboard while you learn to do the routine, which includes getting your hands back to to "home row" with forefingers on F and J.
+PROTIP: To toggle <strong>Full Screen view</strong> using the default configuration from Apple: while keeping your left forefinger on the F "home" key, reach with your left thumb to hold down the control key. This may hurt at first until you get used to it. Now, while keeping your right forefinger on the J "home" key, reach with your right thumb to hold down the command key on the right side of the Space Bar. Then you're in position to press F with your left forefinger.
 
-   PROTIP: Some switch the control and command keys on the left side so that they can get to all such keys using thumbs, pressing two keys at once by pressing between the keys.
+   PROTIP: Some put tiny drops from a glue gun on strategic points on the keyboard so they can orient their finger in the dark.
+
+PROTIP: Repeated practice trains muscle memory so you can find the keys without the need to take your eyes off the screen. Do not make it a habit to look at the keyboard while you learn to do the routine, which includes getting your hands back to to "home row" with forefingers on F and J. (Like a Jedi Paduan in the Star Wars movies training blindfolded)
+
+   PROTIP: Some switch the control and command keys on the left side so that they can get to all such keys using thumbs, pressing two keys at once by pressing between the keys. 
+
+   PROTIP: Those who don't have people sitting nearby can enable <strong>voice recognition</strong> to do some key combinations.
 
 
 
