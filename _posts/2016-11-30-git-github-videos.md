@@ -1060,6 +1060,9 @@ Several people, on their personal time, created videos for others to enjoy for f
 
 ### David Mahler
 
+* <a target="_blank" href="https://www.youtube.com/watch?v=uR6G2v_WsRA">
+    Introduction to Git - Core Concepts Jun 21, 2017 [28:37]</a>
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=FyAAIHHClqI">
     Introduction to Git - Branching and Merging Sep 18, 2017 [28:47]</a>
 
@@ -1454,6 +1457,7 @@ David Demaree wrote Git for Humans at<br />
 https://abookapart.com/products/git-for-humans</a>
 
 
+https://marklodato.github.io/visual-git-guide/index-en.html
 
 
 ## More #

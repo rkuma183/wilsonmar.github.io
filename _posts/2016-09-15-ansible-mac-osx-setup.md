@@ -22,16 +22,26 @@ specific to what you want installed.
 
 One can <a target="_blank" href="https://www.youtube.com/watch?v=bjgZ93oEZF0">
 Set Up OS X For Web Development in 10 Minutes</a>.
-
-Try this for yourself. But first on a virtual machine (VMWare Fusion, Vagrant, or Virtualbox).
+Try this for yourself. 
+But first on a virtual machine (VMWare Fusion, Vagrant, or Virtualbox).
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
+To automate preparation of third-party software for mass deployment onto managed clients:
+
+   * Autopkg at https://github.com/autopkg/autopkg (requies Git)
+   aims to define the steps in a "Recipe" which can be defined in an understood (plist XML-based) format, run automatically instead of by hand, and shared with others.
+
+   * Software distribution server software: <a target="_blank" href="https://github.com/munki/munki">Munki</a> (pronounced like "monkey"), Casper, Absolute Manage, etc. 
+   <br /><br />
+
 There are two phases to this:
 
-   Phase one - supply your password to install Xcode, <a href="#Homebrew">Homebrew</a>, Tap, and Cask, and Ansible
+   1. Phase one - supply your password to install Xcode, <a href="#Homebrew">Homebrew</a>, Tap, and Cask, and Ansible
 
-   Phase two - supply your password again for Ansible to install what is not commented out in specification files:
+   2. Phase two - supply your password again for Ansible to install what is not commented out in specification files:
+
+## Dot files and Ansible
 
    I haven't seen it elsewhere on the internet, so I created an explanation of 
    <a target="_blank" href="https://wilsonmar.github.io/mac-osx-config-dotfiles/">
