@@ -19,6 +19,27 @@ Many reference keys using symbols, so memorize this:
 
 <amp-img width="413" height="399" alt="Apple keys symbols" src="https://cloud.githubusercontent.com/assets/300046/15536540/fe6cb344-222e-11e6-9f2b-c37419a9d42f.gif"></amp-img>
 
+This article provides an enhanced presentation of <a target="_blank" href="https://support.apple.com/en-us/HT201236">Apple's Keyboard Shortcuts at https://support.apple.com/en-us/HT201236</a>
+
+<a id="Gymnastics"></a>
+
+## Finger Gymnastics of the Pros #
+
+Let's get right down to the most complicated yet often-used and useful key combination:
+toggle full screen, which enables you to <strong>focus on your content</strong> rather than be distracted by buttons, menus, lists, etc.
+
+   PROTIP: Look at how the most productive developers work and you'll see that their hands
+   stay on the keyboard. They rarely reach for the mouse.
+   This is why interviewers of developers ask "show me how you enter and exit Full Screen".
+
+PROTIP: To toggle <strong>Full Screen view</strong>, reach (far) with your left thumb to hold control and command with your right thumb, then pressing F with your left hand.
+
+PROTIP: Repeated practice trains muscle memory so you find the keys without the need to take your eyes off the screen. So do not look at the keyboard while you learn to do the routine, which includes getting your hands back to to "home row" with forefingers on F and J.
+
+   PROTIP: Some switch the control and command keys on the left side so that they can get to all such keys using thumbs, pressing two keys at once by pressing between the keys.
+
+
+
 <a id="OSComponentz"></a>
 
 ## Apple components from any active app #
@@ -42,8 +63,8 @@ Many reference keys using symbols, so memorize this:
 </td><td> Esc
 </td></tr>
 <tr valign="top"><td> -
-</td><td> Desktop
-</td><td> Thumb and 3 finger spread [1]
+</td><td> Desktop <a name="DesktopShortcut"></a>
+</td><td> Thumb and 3 finger spread <a href="#[1]"></a>
 </td><td> -
 </td><td> F11 
 </td><td><em>toggle</em>
@@ -121,17 +142,19 @@ Many reference keys using symbols, so memorize this:
 </table>
 
 
-[1] = This does not work when the active program is on an extended screen.
+<a name="[1]"></a>
+<a href="#DesktopShortcut">[1]</a> = PROTIP: This command does not work when the active program is in an extended screen.
 
 <a id="Processes"></a>
 
 ## Process Navigation #
 
-* Press <strong>command + Tab</strong> to cycle through programs running.
+Press <strong>command + Tab</strong> to cycle through programs running.
 
-* Press <strong>control + F4</strong> to cycle through processes running.
+Press shift plus the above reverses the cycling direction.
 
-* Press shift plus the above reverses the cycling direction.
+Stop on the icon of the app you want to make active.
+
 
 
 <a id="ActiveWindowz"></a>
