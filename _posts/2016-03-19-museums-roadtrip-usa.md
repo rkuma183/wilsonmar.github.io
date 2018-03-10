@@ -590,6 +590,7 @@ US Holocost Memorial Museum</a> 10-5:30 every day, but timed passes are necessar
 <li><a target="_blank" href="http://www.norton.org/"><strong>Norton Museum of Art</strong></a>, West Palm Beach</li>
 <li><a target="_blank" href="http://www.lowemuseum.com/">Lowe Art Museum at the University of Miami</a>, Coral Gables</li>
 
+<li><a target="_blank" href="https://www.nps.gov/ever/planyourvisit/svdirections.htm">Shark Valley Observation Tower</a>, E of Miami</li>
 <li><a target="_blank" href="http://www.gulfcoastmuseum.org/">Gulf Coast Museum of Art</a>, Largo (the southern most point in the continental US)</li>
 </ul>
 
@@ -678,7 +679,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 
 <ul>
 <li><a target="_blank" href="http://www.albrecht-kemper.org/">Albrecht-Kemper Museum of Art</a>, St. Joseph</li>
-<li><a target="_blank" href="http://www.kemperart.org/">Kemper Museum of Contemporary Art and Design</a></li>
+<li><a target="_blank" href="http://www.kemperart.org/">Kemper Museum of Contemporary Art and Design</a>, Kansas City</li>
 <li><a target="_blank" href="http://www.nelson-atkins.org/"><strong>Nelson-Atkins Museum of Art</strong></a>, Kansas City</li>
 </ul>
 
@@ -704,6 +705,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.huntermuseum.org/">Hunter Museum of American Art</a>, Chattanooga</li>
 <li><a target="_blank" href="http://www.knoxart.org/">Knoxville Museum of Art</a></li>
 <li><a target="_blank" href="http://mcclungmuseum.utk.edu/">McClung Museum at the University of Tennesse</a>, Knoxville</li>
+<li><a target="_blank" href="https://www.dollywood.com/">Dollywood</a> (amusement park), Pigeon Forge</ll>
 </ul>
 
 ### Nashville:
@@ -730,9 +732,11 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 > <strong> Arkansas </strong>
 
 <ul>
-<li><a target="_blank" href="http://www.uca.edu/cfac/baum/">Baum Gallery of Fine Art at the University of Central Arkansas</a>, Conway</li>
+<li><a target="_blank" href="http://www.garvangardens.org/">Anthony Chapel in Garvan Woodland Gardens at U of Arkansas</a></li>
+<li><a target="_blank" href="http://crystalbridges.org/"><strong>Crystal Bridges Museum of American Art</strong></a>, Bentonville</li>
 <li><a target="_blank" href="http://www.ozarkheritage.org/">Ozark Heritage Arts Center and Museum</a>, Leslie</li>
-<li><a target="_blank" href="http://crystalbridges.org/">Crystal Bridges Museum of American Art</a>, Bentonville</li>
+<li><a target="_blank" href="http://www.uca.edu/cfac/baum/">Baum Gallery of Fine Art at the University of Central Arkansas</a>, Conway</li>
+<li><a target="_blank" href="https://www.clintonlibrary.gov/">Clinton Presidential Library and Museum</a>, Little Rock</li>
 </ul>
 
 <a name="MS"></a>
@@ -795,6 +799,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.normanrockwellvt.com/"><strong>Norman Rockwell Museum</strong></a>, Rutland Town</li>
 <li><a target="_blank" href="http://www.stjathenaeum.org/"> St. Johnsbury Athenaeum</a></li>
 <li><a target="_blank" href="http://www.shelburnemuseum.org/">Shelburne Museum</a></li>
+<li><a target="_blank" href="https://ArkEncounter.com/">Ark Encounter</a>, Williamstown</li>
 </ul>
 
 
@@ -1333,6 +1338,7 @@ The trail goes from St. Louis and Independence, Missouri through Kansas and Nebr
 <li><a target="_blank" href="http://www.artmissoula.org/">Art Museum of Missoula</a></li>
 <li><a target="_blank" href="http://www.umt.edu/partv/famus/">University of Montana Museum of Fine Arts</a>, Missoula</li>
 <li><a target="_blank" href="http://yellowstone.artmuseum.org/">Yellowstone Art Museum</a>, Billings</li>
+<li><a target="_blank" href="https://www.tippetrise.org/">Tippet Rise Art Center</a>, near Bozeman</li>
 </ul>
 
 
@@ -1361,12 +1367,12 @@ Thus its colloqual name the "Mother Road".
 <img alt="!map beige route-66 600x200.jpg" width="600" height="200" src="https://cloud.githubusercontent.com/assets/300046/14080916/1a0a42ca-f4c5-11e5-8230-cb0b95dde974.jpg"></a>
 
 Route 66 begins in Chicago, goes to St. Louis, Missouri, then through smaller road-side towns
-on the way to Oklahoma City, Amarillo, and Flagstaff before ending on the Santa Monica pier in Los Angeles.
+on the way to Oklahoma City, Amarillo, and Flagstaff before ending on the Santa Monica pier in Los Angeles, California.
+The <a target="_blank" href="https://en.wikipedia.org/wiki/Chisholm_Trail">Chisolm Trail</a> was used to drive cows to market from various cowtowns in Texas through Oklahoma Indian Territory to Abilene and other railheads in Kansas.
 
 Since Illinos and Missouri are already in our <a href="#DownMississippi">Mississippi route</a>,
 we begin from Oklahoma and take a long detour North to avoid too much desert along the way.
 
-&nbsp;
 
 <a name="OK"></a>
 
@@ -1378,8 +1384,6 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 <li><a target="_blank" href="http://www.cowboyhalloffame.org/">National Cowboy Hall of Fame and Western Heritage Museum</a>, Oklahoma City</li>
 <li><a target="_blank" href="http://www.philbrook.org/">Philbrook Museum of Art (Philbrook Art Centre)</a>, Tulsa</li>
 </ul>
-
-* The <a target="_blank" href="https://en.wikipedia.org/wiki/Chisholm_Trail">Chisolm Trail</a> was used to drive cows to market from various cowtowns in Texas through Oklahoma Indian Territory to Abilene and other railheads in Kansas.
 
 <a name="TX"></a>
 
@@ -1558,20 +1562,22 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 </ul>
 <br /><br />
 
-NOTE: Not included in this route is the 1,900-mile-long (3,100 km) 
-<a target="_blank" href="https://en.wikipedia.org/wiki/Pony_Express#Pony_Express_route">route taken by Pony Express riders</a>
-between April 3, 1860 to October 24, 1861
+## Poney Express
+
+<a target="_blank" href="https://en.wikipedia.org/wiki/Pony_Express#Pony_Express_route">
+"Pony Express" riders</a> (who include "Calamity Jane") operated less than 2 years: 
+between April 3, 1860 to October 24, 1861.
+Their route took 1,900-mile-long (3,100 km) 
 along 184 stations from St. Joseph, Missouri on the Missouri River
 to San Francisco, California.
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/14632396/b725f60a-05d5-11e6-8b45-7babd7649ae8.jpg">
 <img alt="map of Pony Express route" src="https://cloud.githubusercontent.com/assets/300046/14632487/35bdb3e0-05d6-11e6-9e8f-3293fe2ffa5b.jpg" width="649" height="221"></a>
-Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of CongressPhoto 
-<a target="_blank" href="https://commons.wikimedia.org/w/index.php?curid=10111804">image</a> obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain.
+Map by William Henry Jackson, American artist. Text: Howard Roscoe Driggs. Scan: US Library of Congress. Photo <a target="_blank" href="https://commons.wikimedia.org/w/index.php?curid=10111804">image</a> obtained/rendered by Gwillhickers. Restoration by Crisco 1492, Public Domain.
 
-<amp-img media="(min-width: 650px)" width="600" height="300" 
+<img media="(min-width: 650px)" width="600" height="300" 
 layout="responsive" src="https://en.wikipedia.org/wiki/Pony_Express#/media/File:Pony_Express_Map_William_Henry_Jackson.jpg">
-</amp-img>
+
 
 ## US Civil War #
 
@@ -1582,16 +1588,34 @@ src="https://cloud.githubusercontent.com/assets/300046/16953089/fc8c99ba-4d88-11
 The Confederacy included the 11 Southern states of 
 Texas, Arkansas, Louisiana, Tennessee, Mississippi, Alabama, Georgia, Florida, South Carolina, North Carolina, and Virginia. 
 
-The 5 "Border States" are Maryland, Delaware, West Virginia, Kentucky, and Missouri.
+The 5 "Border States" were Maryland, Delaware, West Virginia, Kentucky, and Missouri.
 
-States in white did not fight for either side.
-<a target="_blank" href="https://www.wikiwand.com/en/Idaho_in_the_American_Civil_War">
-Idaho</a> volunteers did not fight against the Confederacy.
+States in white (Oklahoma) did not fight for either side.
+Idaho <a target="_blank" href="https://www.wikiwand.com/en/Idaho_in_the_American_Civil_War">
+volunteers did not fight against the Confederacy</a>.
 <a target="_blank" href="https://www.wikiwand.com/en/Confederate_Arizona">
 Areas in Arizona and New Mexico were claimed by both sides</a>.
 
 
-## Footnote #
+## Additional sights
+
+   * National Monuments
+   * US Presidential libraries and museums (birth places)
+   * Cool Architecture - Bed and Breakfast / AirBnB
+   * Gardens and Farms
+   * Art festivals and notable galleries
+   * Restaurants with unique interiors/art
+   * Movie locations of note
+   * Caverns
+
+   * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
+   * <a target="_blank" href="https://www.huffingtonpost.com/2014/07/04/to-do-in-america_n_4775300.html">The ONE Thing You Must Do In Each U.S. State</a>
+   * Experiences sold by Viator
+   * Amusement parks
+   * State Fairs
+   * Tripadvisor Excellence award winners
+
+## Technical Footnote #
 
 This is rather large list, intentionally 
 to test how well the system can handle a large file
@@ -1599,18 +1623,6 @@ to test how well the system can handle a large file
 
 This is an upgrade of my terrible <a target="_blank" href="http://wilsonmar.com/1usa.htm">
 Roadtrips to visit museums across the USA</a> from 2005.
-
-Additional stops:
-
-   * US Presidential libraries and museums (birth places)
-   * Art galleries
-   * Architecture
-   * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
-   * Farms
-   * Bed and Breakfast
-
-
-## More #
 
 Next, I'd like to display a Google map of coordinates from a public Google spreadsheet
 like Jessica Lord's
