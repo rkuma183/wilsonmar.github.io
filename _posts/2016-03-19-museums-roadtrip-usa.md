@@ -15,10 +15,16 @@ comments: true
 
 {% include _toc.html %}
 
+This page lists where one can visit and see the most important cultural artifacts in America (given unlimited time and money). 
+
+I hope that someday soon everyone can see the treasures from anywhere with VR glasses.
+
+It's a large country, this list is by state along natural formations:
+
 Journeys on water as she flows:
 
    * <a href="#DownEastCoast"> Down the Atlantic Eastern Seaboard</a>
-   * <a href="#DownMississippi"> Down the Mississippi River</a> (on a riverboat)
+   * <a href="#DownMississippi"> Down the Mississippi River</a> (on a riverboat?)
    * <a href="#DownWestCoast"> Down the Pacific West Coast</a>
 
 Journeys on land:
@@ -27,14 +33,10 @@ Journeys on land:
    * <a href="#NorthernMiddleAmerica">Westward through Northern Middle America</a>
    * <a href="#Southwestward"> Westward through the Southwest</a>
 
-By "museums" I include here grand natural sights and 
-<a target="_blank" href="http://www.historichotels.org/hotels-resorts/?search=top-nav">
-historic landmark hotels</a> and restaurants.
-
 
 <a name="Google_route_map"></a>
 
-## Route on Google Maps
+## Route from Machine Learning 
 
 <a target="_blank" title="Route around the US on Google map" href="http://wilsonmar.github.io/US_Landmarks_Roadtrip_v01.html">
 <img alt="map us_landmarks_roadtrip_v01_683x396" width="683" height="396" src="https://cloud.githubusercontent.com/assets/300046/14229554/5531ac58-f8f3-11e5-8ce4-c01a5289358e.png"></a>
@@ -44,8 +46,7 @@ https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects/blob/mast
 
 But if you want to visit national parks, consider
 <a target="_blank" href="https://tbandjtravel.com/the-u-s-map/">
-this route</a>:
-
+the route</a> mapped below:
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/25560224/6b14fde6-2d1c-11e7-952e-52e883844808.jpg">
 <img alt="us-tour-natl-park-route" width="650" src="https://cloud.githubusercontent.com/assets/300046/25560224/6b14fde6-2d1c-11e7-952e-52e883844808.jpg"></a>
 
@@ -302,14 +303,14 @@ This is where America began as colonies of England (until 1776).
 <li> Morgan Library</li>
 <li> Museum of Holograph</li>
 <li><a target="_blank" href="http://www.metmuseum.org/">Metropolitan Museum of Art (the Met)</a></li>
-<li><a target="_blank" href="http://www.guggenheim.org/new_york_index.shtml"><strong>Guggenheim Museum</strong></a>, New York City</li>
+<li><a target="_blank" href="http://www.guggenheim.org/new_york_index.shtml"><strong>Guggenheim Museum</strong></a></li>
 <li>Solomon R. Guggenheim Museum, with
 <a target="_blank" href="http://www.Guggenheim.com/"> Guggenheim.com</a> for motorcycles and
 <a target="_blank" href="http://www.Guggenheim.org/">Guggenheim.org</a> for environmental art</li>
 <li> Museum of the American Indian</li>
-<li><a target="_blank" href="http://www.nyu.edu/greyart/">Grey Art Gallery at New York University</a>, New York City</li>
-<li><a target="_blank" href="http://www.frick.org/"> <strong>Frick Collection</strong></a>, New York City</li>
-<li><a target="_blank" href="http://hispanicsociety.org/">Hispanic Society of America</a>, New York City</li>
+<li><a target="_blank" href="http://www.nyu.edu/greyart/">Grey Art Gallery at New York University</a></li>
+<li><a target="_blank" href="http://www.frick.org/"> <strong>Frick Collection</strong></a></li>
+<li><a target="_blank" href="http://hispanicsociety.org/">Hispanic Society of America</a></li>
 </ul>
 
 
@@ -737,6 +738,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.ozarkheritage.org/">Ozark Heritage Arts Center and Museum</a>, Leslie</li>
 <li><a target="_blank" href="http://www.uca.edu/cfac/baum/">Baum Gallery of Fine Art at the University of Central Arkansas</a>, Conway</li>
 <li><a target="_blank" href="https://www.clintonlibrary.gov/">Clinton Presidential Library and Museum</a>, Little Rock</li>
+<li><a target="_blank" href="https://www.arkansasstateparks.com/toltecmounds/">Toltec Mounds</a>, Scott [site]</li>
 </ul>
 
 <a name="MS"></a>
@@ -1597,15 +1599,19 @@ volunteers did not fight against the Confederacy</a>.
 Areas in Arizona and New Mexico were claimed by both sides</a>.
 
 
-## Additional sights
+## All the sights
+
+In addition to "museums", also included here are grand natural sights,
+<a target="_blank" href="http://www.historichotels.org/hotels-resorts/?search=top-nav">
+historic landmark hotels</a> and:
 
    * National Monuments
    * US Presidential libraries and museums (birth places)
-   * Cool Architecture - Bed and Breakfast / AirBnB
+   * Cool Architecture - Bed and Breakfast / AirBnB, churches
    * Gardens and Farms
    * Art festivals and notable galleries
    * Restaurants with unique interiors/art
-   * Movie locations of note
+   * Iconic movie locations of note
    * Caverns
 
    * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
