@@ -51,15 +51,19 @@ this route</a>:
 
 > Do you have a roadtrip map? Send it to me and I'll post it here.
 
-## Tesla Charging #
+## Gas and Charging #
 
-Make sure your planning includes how much travel can occure between gas or electricity fill-ups.
-Here's the map of Tesla superchargers:
+Make sure your planning includes how much travel can occure between fill-ups along the way. Here's the map of Tesla superchargers:
 
 <a target="_blank" title="Tesla Superchargers in the US planned for 2016" href="https://www.tesla.com/supercharger">
 <img alt="map tesla charging stations 650x334-c59" width="650" height="334" src="https://cloud.githubusercontent.com/assets/300046/17037278/538ea0f8-4f4d-11e6-907a-6a0b65a807e5.jpg"></a>
 
-## Railroad #
+A map of stations offering Ethanol-free premium gasoline is at
+<a target="_blank" href="https://www.pure-gas.org/extensions/map.html">
+https://www.pure-gas.org/extensions/map.html</a>
+
+
+## ByRailroads #
 
 <a target="_blank" href="https://www.amtrak.com/empire-builder-train/">
 Amtrak's Empire Builder route</a> between Chicago to Seattle and Portland takes 46 hours.
@@ -542,46 +546,34 @@ US Holocost Memorial Museum</a> 10-5:30 every day, but timed passes are necessar
 
 > <strong> Florida</strong>
 
+### South along the East coast 
+
 <ul>
-<li> Fort Lauderdale Museum of Discovery and Science</li>
-<li> Fort Myers Edison Winter Home</li>
-<li> Gainsville: Florida State Museum </li>
-<li> Sarasota: Ringling Museum of Art</li>
-<li><a target="_blank" href="http://www.appletonmuseum.org/">Appleton Museum of Art</a>, Ocala</li>
-<li><a target="_blank" href="http://www.artandscience.org/">Brevard Museum of Art and Science</a>, Melbourne</li>
-<li><a target="_blank" href="http://www.rollins.edu/cfam/">Cornell Fine Arts Museum at Rollins College</a>, Winter Park</li>
 <li><a target="_blank" href="http://www.cummer.org/">Cummer Museum of Art and Gardens</a>, Jacksonville</li>
-<li><a target="_blank" href="http://www.mofa.fsu.edu/">Florida State University Museum of Fine Arts</a>, Tallahassee</li>
-<li><a target="_blank" href="http://www.harn.ufl.edu/">Harn Museum at the University of Florida</a>, Gainesville</li>
-<li><a target="_blank" href="http://www.hibel.com/museum.htm">Hibel Museum of Art</a>, Lake Worth</li>
-<li><a target="_blank" href="http://cartoon.org/">International Museum of Cartoon Art</a>, Boca Raton</li>
 <li><a target="_blank" href="http://www.jmoma.org/">Jacksonville Museum of Modern Art</a></li>
-<li><a target="_blank" href="http://www.ringling.org/">John and Mable Ringling Museum of Art</a>, Sarasota</li>
-<li><a target="_blank" href="http://www.lowemuseum.com/">Lowe Art Museum at the University of Miami</a>, Coral Gables</li>
-<li><a target="_blank" href="http://www.thebrogan.org/">Mary Brogan Museum of Art and Science</a>, Tallahassee</li>
-<li><a target="_blank" href="http://www.morikami.org/">Morikami Museum and Japanese Gardens</a>, Delray Beach</li>
-<li><a target="_blank" href="http://www.morsemuseum.org/">Morse Museum of American Art</a>, Winter Park</li>
-<li><a target="_blank" href="http://www.moas.org/">Museum of Arts and Sciences</a>, Daytona Beach</li>
-<li><a target="_blank" href="http://omart.org/">Orlando Museum of Art</a></li>
+
+<li>St. Augustine?</li>
 <li><a target="_blank" href="http://www.ormondartmuseum.org/">Ormond Memorial Art Museum and Gardens</a>, Ormond Beach</li>
-<li><a target="_blank" href="http://www.palmbeachica.org/">Palm Beach Institute of Contemporary Art</a>, Lake Worth</li>
-<li><a target="_blank" href="http://www.pensacolamuseumofart.org/">Pensacola Museum of Art</a></li>
-<li><a target="_blank" href="http://www.polkmuseumofart.org/">Polk Museum of Art</a>, Lakeland</li>
+<li><a target="_blank" href="http://www.moas.org/">Museum of Arts and Sciences</a>, Daytona Beach</li>
 <li><a target="_blank" href="http://www.smponline.org/">Southeast Museum of Photography</a>, Daytona Beach</li>
-<li><a target="_blank" href="http://www.tampagov.net/dept_Museum/">Tampa Museum of Art</a></li>
-<li><a target="_blank" href="http://cam.arts.usf.edu/">University of South Florida Contemporary Art Museum</a>, Tampa</li>
+
+<li><a target="_blank" href="http://www.rollins.edu/cfam/">Cornell Fine Arts Museum at Rollins College</a>, Winter Park</li>
+<li><a target="_blank" href="http://www.morsemuseum.org/">Morse Museum of American Art</a>, Winter Park</li>
+<li>Disneyworld EPCOT, Orlando</li>
+<li><a target="_blank" href="http://omart.org/">Orlando Museum of Art</a></li>
+
+<li><a target="_blank" href="http://www.artandscience.org/">Brevard Museum of Art and Science</a>, Melbourne</li>
 <li><a target="_blank" href="http://www.vbmuseum.org/">Vero Beach Museum of Art</a></li>
-<li>Disneyworld EPCOT</a></li>
-<li><a target="_blank" href="http://www.gulfcoastmuseum.org/">Gulf Coast Museum of Art</a>, Largo (the southern most point in the continental US)</li>
-</ul>
 
-### St. Petersburg:
+<li><a target="_blank" href="http://cartoon.org/">International Museum of Cartoon Art</a>, Boca Raton</li>
 
-<ul>
-<li><a target="_blank" href="http://floridamuseum.org/">Florida International Museum</a>, St. Petersburg</li>
-<li><a target="_blank" href="http://www.fine-arts.org/">Museum of Fine Arts</a>, St. Petersburg</li>
-<li><a target="_blank" href="http://salvadordalimuseum.org/">Salvador Dal&iacute; Museum</a>, St. Petersburg</li>
-<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="scripts/allr.pl?&c=c&search=11054"><font COLOR="#FF0000">Posters from this museum</font></a></li -->
+<li><a target="_blank" href="https://mods.org/visit/">Museum of Discovery and Science</a>, Fort Lauderdale</li>
+
+<li><a target="_blank" href="http://www.palmbeachica.org/">Palm Beach Institute of Contemporary Art</a>, Lake Worth</li>
+<li><a target="_blank" href="http://www.hibel.com/museum.htm">Hibel Museum of Art</a>, Lake Worth</li>
+<li><a target="_blank" href="http://www.morikami.org/">Morikami Museum and Japanese Gardens</a>, Delray Beach</li>
+<li><a target="_blank" href="http://www.polkmuseumofart.org/">Polk Museum of Art</a>, Lakeland</li>
+
 </ul>
 
 ### Miami:
@@ -596,7 +588,36 @@ US Holocost Memorial Museum</a> 10-5:30 every day, but timed passes are necessar
 <li><a target="_blank" href="http://www.wolfsonian.fiu.edu/">The Wolfsonian at Florida International University</a>, Miami Beach</li>
 <li><a target="_blank" href="http://www.bocamuseum.org/">Boca Raton Museum of Art</a></li>
 <li><a target="_blank" href="http://www.norton.org/"><strong>Norton Museum of Art</strong></a>, West Palm Beach</li>
+<li><a target="_blank" href="http://www.lowemuseum.com/">Lowe Art Museum at the University of Miami</a>, Coral Gables</li>
+
+<li><a target="_blank" href="http://www.gulfcoastmuseum.org/">Gulf Coast Museum of Art</a>, Largo (the southern most point in the continental US)</li>
 </ul>
+
+### Northward on 75 up the West coast 
+
+<ul>
+<li><a target="_blank" href="http://www.ringling.org/">John and Mable Ringling Museum of Art</a>, Sarasota</li>
+<li> Fort Myers Edison Winter Home</li>
+
+<li><a target="_blank" href="http://www.tampagov.net/dept_Museum/">Tampa Museum of Art</a></li>
+<li><a target="_blank" href="http://cam.arts.usf.edu/">University of South Florida Contemporary Art Museum</a>, Tampa</li>
+
+<li><a target="_blank" href="http://floridamuseum.org/">Florida International Museum</a>, St. Petersburg</li>
+<li><a target="_blank" href="http://www.fine-arts.org/">Museum of Fine Arts</a>, St. Petersburg</li>
+<li><a target="_blank" href="http://salvadordalimuseum.org/">Salvador Dal&iacute; Museum</a>, St. Petersburg</li>
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="scripts/allr.pl?&c=c&search=11054"><font COLOR="#FF0000">Posters from this museum</font></a></li -->
+
+
+<li> Florida State Museum, Gainsville </li>
+<li><a target="_blank" href="http://www.harn.ufl.edu/">Harn Museum at the University of Florida</a>, Gainesville</li>
+<li><a target="_blank" href="http://www.appletonmuseum.org/">Appleton Museum of Art</a>, Ocala
+</li>
+
+<li><a target="_blank" href="http://www.thebrogan.org/">Mary Brogan Museum of Art and Science</a>, Tallahassee</li>
+<li><a target="_blank" href="http://www.pensacolamuseumofart.org/">Pensacola Museum of Art</a><li><a target="_blank" href="http://www.mofa.fsu.edu/">Florida State University Museum of Fine Arts</a>, Tallahassee</li>
+</li>
+</ul>
+
 
 <a name="DownMississippi"></a>
 
