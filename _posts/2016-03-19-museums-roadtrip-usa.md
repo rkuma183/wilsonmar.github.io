@@ -17,9 +17,9 @@ comments: true
 
 This page lists where one can visit and see the most important cultural artifacts in America (given unlimited time and money). 
 
-I hope that someday soon everyone can see the treasures from anywhere using VR (Virtual Reality) glasses. Then enjoy visiting sites even more using AR (Augmented Reality).
+I hope that someday soon everyone can see treasures from anywhere using VR (Virtual Reality) glasses. Then enjoy visiting sites even more using AR (Augmented Reality).
 
-It's a large country, so sites here are listed by each state of the union, along natural formations:
+It's a large country, so sites here are listed by each state of the union, along natural geography:
 
 Journeys on water as she flows:
 
@@ -558,7 +558,7 @@ Jimmy Carter Presidential Library and Museum</a>, Atlanta</li>
 
 > <strong> Florida</strong>
 
-### South along the East coast 
+### South down the East coast 
 
 <ul>
 <li><a target="_blank" href="http://www.cummer.org/">Cummer Museum of Art and Gardens</a>, Jacksonville</li>
@@ -606,7 +606,7 @@ Jimmy Carter Presidential Library and Museum</a>, Atlanta</li>
 <li><a target="_blank" href="http://www.gulfcoastmuseum.org/">Gulf Coast Museum of Art</a>, Largo (the southern most point in the continental US)</li>
 </ul>
 
-### Northward on 75 up the West coast 
+### Northwest on 75 up the Gulf coast 
 
 <ul>
 <li><a target="_blank" href="http://www.ringling.org/">John and Mable Ringling Museum of Art</a>, Sarasota</li>
