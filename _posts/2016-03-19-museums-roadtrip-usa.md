@@ -673,7 +673,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://smartmuseum.uchicago.edu/">Smart Museum of Art at the University of Chicago</a></li>
 <li><a target="_blank" href="http://www.uima-art.org/">Ukrainian Institute of Modern Art</a></li>
 <li><a target="_blank" href="https://www.obamalibrary.gov/">
-Barack Obama Presidential Library</a>, Hoffman Estates</a>
+Barack Obama Presidential Library</a>, Hoffman Estates</li>
 </ul>
 
 
