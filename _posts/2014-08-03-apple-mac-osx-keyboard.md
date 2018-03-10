@@ -32,16 +32,55 @@ toggle full screen, which enables you to <strong>focus on your content</strong> 
 
 Windows has its F12 key. Apple has Mac users do the equivalent of a double Summersault.
 
-PROTIP: To toggle <strong>Full Screen view</strong> using the default configuration from Apple: while keeping your left forefinger on the F "home" key, reach with your left thumb to hold down the control key. This may hurt at first until you get used to it. Now, while keeping your right forefinger on the J "home" key, reach with your right thumb to hold down the command key on the right side of the Space Bar. Then you're in position to press F with your left forefinger.
-
-   PROTIP: Some put tiny drops from a glue gun on strategic points on the keyboard so they can orient their finger in the dark.
+PROTIP: To toggle <strong>Full Screen view</strong> using the default configuration from Apple: while keeping your left forefinger on the F "home" key, reach with your left thumb to hold down the control key. This may hurt at first (until you get used to it). Try raising your hand
+Now, while keeping your right forefinger on the J "home" key, reach with your right thumb to hold down the command key on the right side of the Space Bar. Then you're in position to press F with your left forefinger.
 
 PROTIP: Repeated practice trains muscle memory so you can find the keys without the need to take your eyes off the screen. Do not make it a habit to look at the keyboard while you learn to do the routine, which includes getting your hands back to to "home row" with forefingers on F and J. (Like a Jedi Paduan in the Star Wars movies training blindfolded)
 
-   PROTIP: Some switch the control and command keys on the left side so that they can get to all such keys using thumbs, pressing two keys at once by pressing between the keys. 
+   PROTIP: Some put tiny drops from a glue gun on strategic points on the keyboard so they can orient their finger in the dark.
 
-   PROTIP: Those who don't have people sitting nearby can enable <strong>voice recognition</strong> to do some key combinations.
+<a name="Hurts"></a>
 
+## Switch Escape
+
+   BLAH: The Esc (Escape) key is too far North on the keyboard and forces some to look down on the keyboard. And the Caps Lock key is too close to keys, causing problems with password entry and lockouts.
+
+   PROTIP: Make the <strong>caps lock</strong> the Esc key:
+
+1. Press the Apple icon and select System Preferences.
+2. Type K to highlight Keyboard. Press space bar to open it.
+3. Click "Modifier Keys" at the lower-right corner.
+4. Click the entry for "Caps Lock Key:" and select "Escape".
+5. Click OK.
+  
+   TODO: Is there a command line to switch Esc and caps lock?
+
+## Switch command and control
+
+   PROTIP: Some switch the control and command keys on the left side so that they can get to all such keys using thumbs.
+   This would also allow you to press two keys at once by pressing between the keys,
+   thus able to perform most combinations using your hands.
+
+   This can be done using a <a target="_blank" href="https://apple.stackexchange.com/questions/283252/how-do-i-remap-a-key-in-macos-sierra-e-g-right-alt-to-right-control">
+   Python script</a> or by downloading the free 
+   <a target="_blank" href="https://pqrs.org/osx/karabiner/">Karabiner</a>
+   which works on OSX Sierra after <a target="_blank" href="https://developer.apple.com/library/content/technotes/tn2450/_index.html">Apple remapped keys</a>. 
+   It's free but note the package has <a target="_blank" href="https://github.com/tekezo/Karabiner-Elements/issues">
+   many lingering issues</a>.
+
+
+<a name="Voice Recognition"></a>
+
+## Voice Recognition
+
+   PROTIP: Those who don't have people sitting nearby can enable <strong>voice recognition</strong> to automatically type some (not all) keys.
+
+   <a target="_blank" href="https://support.apple.com/en-us/HT203085">
+   https://support.apple.com/en-us/HT203085</a>
+
+   See https://www.macworld.com/article/2843499/how-to-command-your-mac-with-your-voice.html
+
+   CAUTION: Enabling "Use Enhanced Dictation" (In System Preferences > Dictation & Speech > Turn on Dictation) causes an approximately 800MB file to be downloaded to your Mac. 
 
 
 <a id="OSComponentz"></a>
