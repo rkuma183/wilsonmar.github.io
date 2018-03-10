@@ -19,7 +19,7 @@ This page lists where one can visit and see the most important cultural artifact
 
 I hope that someday soon everyone can see the treasures from anywhere using VR (Virtual Reality) glasses. Then enjoy visiting sites even more using AR (Augmented Reality).
 
-It's a large country, so sites listed here is listed by each state of the union, along natural formations:
+It's a large country, so sites here are listed by each state of the union, along natural formations:
 
 Journeys on water as she flows:
 
@@ -32,6 +32,8 @@ Journeys on land:
    * <a href="#WestwardVermont"> Westward from Vermont to Kentucky</a>
    * <a href="#NorthernMiddleAmerica">Westward through Northern Middle America</a>
    * <a href="#Southwestward"> Westward through the Southwest</a>
+
+BTW, finding where each site is located was a great geography lesson for me.
 
 
 <a name="Google_route_map"></a>
@@ -122,6 +124,8 @@ This is where America began as colonies of England (until 1776).
 <li><a target="_blank" href="http://www.mfa.org/"><strong>Museum of Fine Arts</strong></a></li>
 <li><a target="_blank" href="http://www.mos.org/planetarium">Museum of Science and Hayden Planetarium</a></li>
 <li><a target="_blank" href="https://ussconstitutionmuseum.org/">USS Constitution Museum</a>, Boston</li>
+<li><a target="_blank" href="https://www.archives.gov/presidential-libraries/visit#">
+John F. Kennedy Presidential Library and Museum</a>, Columbia Point, Boston</li>
 </ul>
 
 ### Cambridge (North of Boston):
@@ -260,11 +264,17 @@ This is where America began as colonies of England (until 1776).
 
 <a name="NYC"></a>
 
-> New York, New York
+> New York
+
+<ul>
+<li><a target="_blank" href="http://www.fdrlibrary.marist.edu/">
+Franklin D. Roosevelt Presidential Library and Museum</a>, Hyde Park</li>
+</ul>
 
 ### New York City:
 
 <ul>
+<li><strong>Metropolitan Museum of Art</strong> and the Cloisters</li>
 <li><a target="_blank" href="http://www.alternativemuseum.org/">Alternative Museum</a></li>
 <li><a target="_blank" href="http://www.folkartmuseum.org/">American Folk Art Museum</a></li>
 <li><a target="_blank" href="http://www.amnh.org/">American Museum of Natural History</a></li>
@@ -299,7 +309,6 @@ This is where America began as colonies of England (until 1776).
 <li> American Museum of Natural History</li>
 <li> Brooklyn Museum</li>
 <li> Gallery of Modern Art</li>
-<li><strong>Metropolitan Museum of Art</strong> and the Cloisters</li>
 <li> Morgan Library</li>
 <li> Museum of Holograph</li>
 <li><a target="_blank" href="http://www.metmuseum.org/">Metropolitan Museum of Art (the Met)</a></li>
@@ -536,6 +545,8 @@ US Holocost Memorial Museum</a> 10-5:30 every day, but timed passes are necessar
 <li><a target="_blank" href="http://www.high.org/">High Museum of Art</a></li>
 <li><a target="_blank" href="http://www.madisonmuseum.org/">Madison Museum of Fine Art</a></li>
 <li><a target="_blank" href="http://museum.oglethorpe.edu/">Oglethorpe University Museum</a>, Atlanta</li>
+<li><a target="_blank" href="http://www.jimmycarterlibrary.gov/">
+Jimmy Carter Presidential Library and Museum</a>, Atlanta</li>
 </ul>
 
 <ul>
@@ -661,6 +672,8 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://oi.uchicago.edu/OI/MUS/OI_Museum.html">Oriental Institute Museum at the University of Chicago</a></li>
 <li><a target="_blank" href="http://smartmuseum.uchicago.edu/">Smart Museum of Art at the University of Chicago</a></li>
 <li><a target="_blank" href="http://www.uima-art.org/">Ukrainian Institute of Modern Art</a></li>
+<li><a target="_blank" href="https://www.obamalibrary.gov/">
+Barack Obama Presidential Library</a>, Hoffman Estates</a>
 </ul>
 
 
@@ -670,6 +683,8 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 
 
 <ul>
+<li><a target="_blank" href="http://www.trumanlibrary.org/">
+Harry S. Truman Presidential Library and Museum</a>, Independence</li>
 <li><a target="_blank" href="http://www.cmc.edu/ashby/index.html">Ashby-Hodge Gallery of American Art</a>, Fayette</li>
 <li><a target="_blank" href="http://www.daummuseum.org/">Daum Museum of Contemporary Art</a>, Sedalia</li>
 <li><a target="_blank" href="http://www.mham.org/">Margaret Harwell Art Museum</a>, Poplar Bluff</li>
@@ -706,7 +721,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.huntermuseum.org/">Hunter Museum of American Art</a>, Chattanooga</li>
 <li><a target="_blank" href="http://www.knoxart.org/">Knoxville Museum of Art</a></li>
 <li><a target="_blank" href="http://mcclungmuseum.utk.edu/">McClung Museum at the University of Tennesse</a>, Knoxville</li>
-<li><a target="_blank" href="https://www.dollywood.com/">Dollywood</a> (amusement park), Pigeon Forge</ll>
+<li><a target="_blank" href="https://www.dollywood.com/">Dollywood</a> (amusement park), Pigeon Forge</li>
 </ul>
 
 ### Nashville:
@@ -873,6 +888,7 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.burchfield-penney.org/">The Burchfield Penney Art Center</a>, Buffalo</li>
 </ul>
 
+
 <a name="MI"></a>
 
 > <strong> Michigan </strong>
@@ -893,6 +909,8 @@ the 4th longest in the world (after Nile, Amazon, Yangtze).<br />
 <li><a target="_blank" href="http://www.shianet.org/~sac/sac.htm">Shiawassee Arts Center</a>, Owosso</li>
 <li><a target="_blank" href="http://www.umma.umich.edu/">University of Michigan Museum of Art</a>, Ann Arbor</li>
 <li><a target="_blank" href="http://www.uica.org/">Urban Institute for Contemporary Arts</a>, Grand Rapids</li>
+<li><a target="_blank" href="http://www.fordlibrarymuseum.gov/">
+Gerald R. Ford Presidential Library</a>, Ann Arbor</li>
 </ul>
 
 
@@ -1104,6 +1122,10 @@ Jundt Art Center and Museum at Gonzaga University</a></li>
 ### Los Angeles:
 
 <ul>
+<li><a target="_blank" href="http://www.nixonlibrary.gov/">
+Richard Nixon Presidential Library and Museum</a>, Yorba Linda</li>
+<li><a target="_blank" href="http://www.reagan.utexas.edu/">
+Ronald Reagan Presidential Library and Museum</a>, Simi Valley</li>
 <li><a target="_blank" href="http://www.getty.edu/museum/"><strong>J. Paul Getty Museum</strong></a>, Malibu</li>
 <li><a target="_blank" href="http://www.smmoa.org/">Santa Monica Museum of Art</a></li>
 <li><a target="_blank" href="http://www.fowler.ucla.edu/incEngine/">UCLA Fowler Museum of Cultural History</a>, Los Angeles</li>
@@ -1257,6 +1279,7 @@ The trail goes from St. Louis and Independence, Missouri through Kansas and Nebr
 <li><a target="_blank" href="http://www.uiowa.edu/uima/index.html">University of Iowa Museum of Art</a>, Iowa City</li>
 <li><a target="_blank" href="http://www.wplwloo.lib.ia.us/waterloo/arts/index.html">Waterloo Museum of Art</a></li>
 <li> Des Moines: Living History Farms (at Urbandale)</li>
+<li><a target="_blank" href="https://hoover.archives.gov/">Herbert Hoover Presidential Library and Museum</a>, West Branch</li>
 </ul>
 
 
@@ -1426,6 +1449,10 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 <li><a target="_blank" href="http://www.mamfw.org/">Modern Art Museum of Fort Worth</a></li>
 <li><a target="_blank" href="http://www.sidrmuseum.org/">Sid Richardson Collection of Western Art</a>, Fort Worth</li>
 <li><a target="_blank" href="http://www.baylor.edu/Art/index.php?id=5310">Baylor University Art Galleries</a>, Waco</li>
+<li><a target="_blank" href="https://bush41library.tamu.edu/">
+George Bush Presidential Library and Museum</a>, College Station</li>
+<li><a target="_blank" href="https://www.archives.gov/presidential-libraries/visit#">
+George W. Bush Presidential Library and Museum</a>, Dallas</li>
 </ul>
 
 ### Austin:
@@ -1435,6 +1462,8 @@ we begin from Oklahoma and take a long detour North to avoid too much desert alo
 <li><a target="_blank" href="http://www.amoa.org/">Austin Museum of Art</a></li>
 <li><a target="_blank" href="http://www.utexas.edu/cofa/bma/">Blanton Museum of Art at the University of Texas</a>, Austin</li>
 <li><a target="_blank" href="http://www.main.org/mexic-arte/">Mexic-Arte Museum</a>, Austin</li>
+<li><a target="_blank" href="http://www.georgewbushlibrary.smu.edu/">
+Lyndon Baines Johnson Presidential Library and Museum</a>, Austin</li>
 </ul>
 
 ### Houston:
@@ -1606,7 +1635,7 @@ In addition to "museums", also included here are grand natural sights,
 historic landmark hotels</a> and:
 
    * National Monuments
-   * US Presidential libraries and museums (birth places)
+   * <a target="_blank" href="https://www.archives.gov/presidential-libraries/visit">US Presidential libraries</a>, museums, and birth places
    * Cool Architecture - Bed and Breakfast / AirBnB, churches
    * Gardens and Farms
    * Art festivals and notable galleries
