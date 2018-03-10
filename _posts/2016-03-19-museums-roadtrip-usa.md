@@ -17,9 +17,9 @@ comments: true
 
 This page lists where one can visit and see the most important cultural artifacts in America (given unlimited time and money). 
 
-I hope that someday soon everyone can see the treasures from anywhere with VR glasses.
+I hope that someday soon everyone can see the treasures from anywhere using VR (Virtual Reality) glasses. Then enjoy visiting sites even more using AR (Augmented Reality).
 
-It's a large country, this list is by state along natural formations:
+It's a large country, so sites listed here is listed by each state of the union, along natural formations:
 
 Journeys on water as she flows:
 
@@ -54,7 +54,7 @@ the route</a> mapped below:
 
 ## Gas and Charging #
 
-Make sure your planning includes how much travel can occure between fill-ups along the way. Here's the map of Tesla superchargers:
+Tesla superchargers:
 
 <a target="_blank" title="Tesla Superchargers in the US planned for 2016" href="https://www.tesla.com/supercharger">
 <img alt="map tesla charging stations 650x334-c59" width="650" height="334" src="https://cloud.githubusercontent.com/assets/300046/17037278/538ea0f8-4f4d-11e6-907a-6a0b65a807e5.jpg"></a>
@@ -64,7 +64,7 @@ A map of stations offering Ethanol-free premium gasoline is at
 https://www.pure-gas.org/extensions/map.html</a>
 
 
-## ByRailroads #
+## Railroads #
 
 <a target="_blank" href="https://www.amtrak.com/empire-builder-train/">
 Amtrak's Empire Builder route</a> between Chicago to Seattle and Portland takes 46 hours.
