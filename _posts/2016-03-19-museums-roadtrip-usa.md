@@ -102,9 +102,9 @@ This is where America began as colonies of England (until 1776).
 
 <ul>
 <li><a target="_blank" href="http://www.almagilbert.com/">Cornish Colony Gallery and Museum</a></li>
+<li><a target="_blank" href="http://www.sgnhs.org/">Saint-Gaudens National Historic Site</a>, Cornish</li>
 <li><a target="_blank" href="http://www.currier.org/">Currier Gallery of Art</a>, Manchester</li>
 <li><a target="_blank" href="http://hoodmuseum.dartmouth.edu/">Hood Museum of Art</a>, Hanover</li>
-<li><a target="_blank" href="http://www.sgnhs.org/">Saint-Gaudens National Historic Site</a>, Cornish</li>
 <li><a target="_blank" href="http://www.keene.edu/tsag/">Thorne-Sagendorph Art Gallery at Keene State College</a></li>
 <li>Robert Frost House, Franconia</li>
 </ul>
@@ -264,7 +264,7 @@ John F. Kennedy Presidential Library and Museum</a>, Columbia Point, Boston</li>
 
 <a name="NYC"></a>
 
-> New York
+> <strong> New York </strong>
 
 <ul>
 <li><a target="_blank" href="http://www.fdrlibrary.marist.edu/">
@@ -1637,7 +1637,7 @@ historic landmark hotels</a> and:
    * National Monuments
    * <a target="_blank" href="https://www.archives.gov/presidential-libraries/visit">US Presidential libraries</a>, museums, and birth places
    * Cool Architecture - Bed and Breakfast / AirBnB, churches
-   * Gardens and Farms
+   * Gardens and <a target="_blank" href="http://www.farmstayus.com/map">Farms</a>
    * Art festivals and notable galleries
    * Restaurants with unique interiors/art
    * Iconic movie locations of note
