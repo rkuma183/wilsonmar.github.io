@@ -1637,15 +1637,16 @@ historic landmark hotels</a> and:
    * National Monuments
    * <a target="_blank" href="https://www.archives.gov/presidential-libraries/visit">US Presidential libraries</a>, museums, and birth places
    * Cool Architecture - Bed and Breakfast / AirBnB, churches
-   * Gardens and <a target="_blank" href="http://www.farmstayus.com/map">Farms</a>
-   * Art festivals and notable galleries
+   * <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_botanical_gardens_and_arboretums_in_the_United_States">Gardens</a> and <a target="_blank" href="http://www.farmstayus.com/map">Farms</a>
+   * <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_new_media_art_festivals">New Media</a> art <a target="_blank" href="http://www.artfaircalendar.com/">festivals</a> and notable galleries
    * Restaurants with unique interiors/art
-   * Iconic movie locations of note
-   * Caverns
+   * <a target="_blank" href="https://www.themarysue.com/film-locations-map/">Iconic movie locations</a> of note [<a target="_blank" href="http://www.boxofficequant.com/100-years-of-set-locations/full_screen.htm">map</a>]
+   * Caverns 
+   * Zoos
 
    * <a target="_blank" href="http://factorytoursusa.com/">Factory tours</a>
-   * <a target="_blank" href="https://www.huffingtonpost.com/2014/07/04/to-do-in-america_n_4775300.html">The ONE Thing You Must Do In Each U.S. State</a>
-   * Experiences sold by Viator
+   * Experiences sold by Viator, <a target="_blank" href="https://www.huffingtonpost.com/2014/07/04/to-do-in-america_n_4775300.html">The ONE Thing You Must Do In Each U.S. State</a>
+
    * Amusement parks
    * State Fairs
    * Tripadvisor Excellence award winners
