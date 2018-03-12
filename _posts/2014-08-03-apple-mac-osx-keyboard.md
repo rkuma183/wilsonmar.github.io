@@ -28,7 +28,7 @@ This article provides an enhanced presentation of <a target="_blank" href="https
 Let's get right down to an often-used action invoked by a complicated key combination:
 toggle full screen, which enables you to <strong>focus on your content</strong> rather than be distracted by buttons, menus, lists, etc.
 
-   PROTIP: Some interviewers ask "show me how you enter and exit Full Screen" to screen developers. This is because they notice that the most productive developers work with their hands on the keyboard. They rarely reach for the mouse. These are people who actually like the vi text editor.
+   PROTIP: To evaluate Mac developers, some interviewers ask "show me how you enter and exit Full Screen". This is because they assume that the most productive developers work with their hands on the keyboard. These are people who actually like the vi text editor. They make it so they don't need to waste time attention reaching for the mouse. 
 
 Windows has its F12 key. Apple has Mac users do the equivalent of a double Summersault.
 
@@ -74,13 +74,18 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 ## Voice Recognition
 
    PROTIP: Those who don't have people sitting nearby can enable <strong>voice recognition</strong> to automatically type some (not all) keys.
+   This has been available since the OSX Yosemite version.
 
    <a target="_blank" href="https://support.apple.com/en-us/HT203085">
    https://support.apple.com/en-us/HT203085</a>
 
-   See https://www.macworld.com/article/2843499/how-to-command-your-mac-with-your-voice.html
+   See <a target="_blank" href="https://www.macworld.com/article/2843499/how-to-command-your-mac-with-your-voice.html">this video</a>:
 
-   CAUTION: Enabling "Use Enhanced Dictation" (In System Preferences > Dictation & Speech > Turn on Dictation) causes an approximately 800MB file to be downloaded to your Mac. 
+1. CAUTION: Enabling "Use Enhanced Dictation" (In Apple System Preferences > Dictation & Speech > Turn on Dictation) causes an approximately 800MB file to be downloaded to your Mac. 
+
+2. Choose Accessibility. Scroll to Dictation. Scroll to see which commands.
+3. Check Enable Advanced Commands. Scroll to see which commands.
+4. Get into Automator.
 
 
 <a id="OSComponentz"></a>
