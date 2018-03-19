@@ -852,4 +852,16 @@ For load testing, use NON GUI Mode:
 
 
 ## Learning Resources
+
 https://www.guru99.com/jmeter-tutorials.html
+
+Sign up for Blazemeter's Slack channel on JMeter
+https://info.blazemeter.com/slack-jmeter-lp-0
+
+We have many channels and you’re always welcome to create your own. Here are 5 we recommend:
+
+* &#_questions_answers - A place to ask and answer JMeter questions
+* &#blog_posts - Share your JMeter blog posts here
+* &#plugins - Get and share info about JMeter’s plugins to customize your testing scripts
+* &#community_projects - A place to meet, plan and work together on JMeter load testing projects
+* &#meetups - Learn and share when there are JMeter meetups in your area.

@@ -1270,6 +1270,24 @@ GTIDs (Global Transaction Identifiers)</a>.
 This involves setting the db on and off as read-only.
 
 
+<a name="Monitoring"></a>
+
+## Monitoring #
+
+https://github.com/osterman/mysql_manager<br />
+https://github.com/osterman/mysql_health
+from <a target="_blank" href="http://www.osterman.com/">Erik Osterman</a>
+(<a target="_blank" href="https://twitter.com/eosterman/">@eosterman</a>)
+
+He uses @Helm, @codefresh, Kubernetes to, on every git commit, auto spin up and test containers of a 12-factor microservices app : https://t.co/xK8RAIuVzO
+
+https://github.com/osterman/kubernetes-on-aws
+Deploying Kubernetes on AWS with CloudFormation and CoreOS
+
+https://github.com/osterman/geoip-api
+RESTful GeoIP API backed by MaxMind Lite
+
+
 <a name="Resources"></a>
 
 ## Learn More #

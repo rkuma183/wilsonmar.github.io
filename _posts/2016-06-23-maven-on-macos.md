@@ -225,6 +225,12 @@ OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
    The <strong>pom.xml</strong> (Project Object Model)
    file describes project dependencies which Maven resolves by downloading them.
 
+   NOTE: Some prefer to install and use the <a target="_blank" href="https://codehaus-cargo.github.io/cargo/Maven2+Plugin+Installation.html">Cargo plugin (from Codehaus)</a> to Maven in order to eliminate use of pom.xml. In a folder that contains a pom.xml: 
+
+   mvn clean verify org.codehaus.cargo:cargo-maven2-plugin:run
+
+   https://codehaus-cargo.atlassian.net/wiki/spaces/CARGO/pages/491622/Maven2+Plugin+Reference+Guide
+
 0. The vast majority of Maven-built projects can be built with this command:
 
    <tt><strong>

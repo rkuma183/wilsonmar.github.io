@@ -39,7 +39,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 
    PROTIP: To evaluate Mac developers, some interviewers ask "show me how you enter and exit Full Screen". This is because they assume that the most productive developers work with their hands always on the keyboard. 
 
-   This may be a generalization. But many top coders actually like the vi text editor. They make it so they don't need to waste time and attention reaching for the mouse. 
+   This may be a generalization. But many top coders actually like the vi text editor. DevOps coders have to choice because computers can't move mice and click things. Resourceful coders make it so they don't need to waste time and attention reaching for the mouse. 
 
    PROTIP: Some put tiny drops from a glue gun on strategic points on the keyboard so they can orient their finger in the dark.
 

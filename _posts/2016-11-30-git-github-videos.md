@@ -1046,11 +1046,21 @@ It starts by diving right in with diff:
    Git Merge vs Rebase?</a> [7:40]
 
 
-### Harvard
+### Harvard students
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
    An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
    shows a clear presentation, with demos.
+
+
+### Lambda School
+
+<a target="_blank" href="https://www.youtube.com/watch?v=2TqKJHhMnuw">
+This Git and Github video on Mar 5, 2018 [5:28]</a>
+is the first of 12 sessions from the March '18 Mini Bootcamp by Lambda School.
+at https://github.com/LambdaSchool/Precourse/tree/master/Lesson1-Git
+
+A Slack lesson channel provided interation during the live class.
 
 
 

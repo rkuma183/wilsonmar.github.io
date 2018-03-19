@@ -104,6 +104,7 @@ If you didn't mean to fork a repository, but you did anyway,
    However, the "current" state of your project remains untouched in the master branch.
 
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-checkout/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Checkout">Return</a>
 
 
@@ -116,6 +117,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git branch -d <em>branch name</em>
    </strong></pre>
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-branch/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#NewBranch">Return</a>
 
 
@@ -137,6 +139,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git cherry-pick <em>[commit SHA1]</em>
    </strong></pre>
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-cherry-pick/">SCM</a>]
 
 
    <a name="Status"></a>
@@ -165,6 +168,8 @@ If you didn't mean to fork a repository, but you did anyway,
    * <strong>-d</strong> removes untracked directories.
    * <strong>-x</strong> removes files Git ignores due to mention in .gitignore.
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-clean">SCM</a>]
+
 
    <a name="Add"></a>
 
@@ -187,6 +192,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <br /><br />
 
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-reset/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Add">Return</a>
 
 
@@ -215,6 +221,7 @@ If you didn't mean to fork a repository, but you did anyway,
    You lose the ability to fall-back to previous versions.
    So use it only to fix minor typos.
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-commit/">SCM</a>],
 
    <a name="Revert"></a>
 
@@ -240,6 +247,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <a target="_blank" href="https://www.kernel.org/pub/software/scm/git/docs/git-revert.html">
    manual on the git revert command</a>.
 
+   <a target="_blank" href="https://git-scm.com/docs/git-revert">SCM</a>,
    <a href="https://wilsonmar.github.io/git-flow#Commit">Return</a>
 
 
@@ -279,6 +287,7 @@ If you didn't mean to fork a repository, but you did anyway,
    in the working tree.
    * The next step is usually a `git add`.
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-reset/">SCM</a>]
 
    <a name="Push"></a>
 
@@ -296,6 +305,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git push -f origin HEAD^:master
    </strong></pre>
    
+   [<a target="_blank" href="https://git-scm.com/docs/git-push/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Push">Return</a>
 
 
@@ -315,6 +325,7 @@ If you didn't mean to fork a repository, but you did anyway,
    </strong></pre>
 
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-tag/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Tags">Return</a>
 
 
@@ -335,6 +346,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    NOTE: The colon is the secret special sauce. There is no "delete" command with this.
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-branch/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#DeleteBranch">Return</a>
 
 
@@ -362,6 +374,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git remote -v
    </strong></pre>
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-remote/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Upstream">Return</a>
 
 
@@ -413,6 +426,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <pre><strong>git merge --abort
    </strong></pre>
 
+   [<a target="_blank" href="https://git-scm.com/docs/git-merge/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#MergeLocal">Return</a>
 
 
@@ -442,6 +456,7 @@ If you didn't mean to fork a repository, but you did anyway,
    <a target="_blank" href="https://www.youtube.com/watch?v=tvymSWfvkjw&list=PL0lo9MOBetEGRAJzoTCdco_fOKDfhqaOY">
    Git Merge 2017 Brussels</a>
 
+https://marklodato.github.io/visual-git-guide/index-en.html
 
 ## More #
 

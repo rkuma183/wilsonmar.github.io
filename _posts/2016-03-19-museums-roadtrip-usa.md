@@ -602,6 +602,7 @@ Jimmy Carter Presidential Library and Museum</a>, Atlanta</li>
 <li><a target="_blank" href="http://www.norton.org/"><strong>Norton Museum of Art</strong></a>, West Palm Beach</li>
 <li><a target="_blank" href="http://www.lowemuseum.com/">Lowe Art Museum at the University of Miami</a>, Coral Gables</li>
 
+<li><a target="_blank" href="https://www.trumanlittlewhitehouse.com/">Harry S. Truman Little White House</a>, Key West</li>
 <li><a target="_blank" href="https://www.nps.gov/ever/planyourvisit/svdirections.htm">Shark Valley Observation Tower</a>, E of Miami</li>
 <li><a target="_blank" href="http://www.gulfcoastmuseum.org/">Gulf Coast Museum of Art</a>, Largo (the southern most point in the continental US)</li>
 </ul>
