@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-
+This page was created so that you can search for a keyword to how various people talk about the same topic. This is because YouTube provides only a few on the same topic sought.
 
 ## By Me - Wilson Mar
 
@@ -1459,7 +1459,7 @@ his playlist</a>:
 
 ### Sam Cogan
 
-Git and Github series playlist Apr 21, 2014:
+Git and Github series playlist Apr - June 2014, with a great Irish accent:
 
 1. <a target="_blank" href="https://www.youtube.com/watch?v=AK9UVBmYunk&list=PLccPlNFtq5uHnHBHvlhtIja2ChOK8f18h">
    Setting up a local repo</a>
@@ -1472,7 +1472,7 @@ Git and Github series playlist Apr 21, 2014:
 5. <a target="_blank" href="https://www.youtube.com/watch?v=B2ouYUsohQ4&list=PLccPlNFtq5uEImaHGI_qA1NLg1mktA1Op&index=5">
    Adding Collaborators and Pulling from GitHub</a>
 6. <a target="_blank" href="https://www.youtube.com/watch?v=IcxW145oWAU&list=PLccPlNFtq5uHnHBHvlhtIja2ChOK8f18h">
-   Conflict Resolution</a>
+   Conflict Resolution</a> [7:59] creates a conflict on the same line on GitHub.
 
 
 <a name="edutechional"></a>

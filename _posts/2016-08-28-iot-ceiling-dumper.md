@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "IoT Ceiling Dumper project"
-excerpt: "Rain down food from above, automatically"
+title: "IoT Feed Dump from Ceiling project"
+excerpt: "Rain down food from above (like mana) automatically"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -16,14 +16,14 @@ comments: true
 
 {% include _toc.html %}
 
-Here is (the beginnings of) a description of how I made it happen, so you can, too.
-
-<hr />
+Here is (the beginnings of) a description of how one can feed animals in the morning without going out into the barn.
 
 ## Why drop stuff from the ceiling? #
 
 There are several reasons why someone would want to drop stuff from the ceiling.
+
 Balloons at a celebration.
+
 Red liquid at a <a target="_blank" href="http://www.imdb.com/title/tt0074285/">
 Carrie" movie</a> remake.
 
@@ -44,11 +44,7 @@ anyway for other chores with the chickens and ducks, etc. :)
 Anyway, I'm undeterred by practicality.
 So read on.
 
-<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
-This post talks about</a>
-a trap door held by a pin attached to a solenoid.
-A quick pulse releases it.
-A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
+## How it works #
 
 <a target="_blank" href="https://www.youtube.com/watch?v=zi3AFFOQSaw">
 One video</a>
@@ -57,8 +53,11 @@ using a 9 gram servo with an armature arm with a wire that holds
 (until release)
 a rubber band that holds the package.
 
-
-## How it works #
+<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
+This post talks about</a>
+a trap door held by a pin attached to a solenoid.
+A quick pulse releases it.
+A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
 
 Here's a wish list:
 
