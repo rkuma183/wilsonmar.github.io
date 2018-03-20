@@ -62,7 +62,7 @@ A transistor or MOSFET to drive the release to protect the Arduino from excess c
 
 ## Description #
 
-The parts listed below is used to construct a platform with a box to hold hay (material).
+The parts listed below are used to construct a platform with a box to hold hay (material).
 The box is raised by four ropes (one on each corner).
 There is a panel on 3 sides to hold material in.
 For loading, the platform is lowered.
@@ -100,7 +100,7 @@ that controls the angle depending on the time of day (minutes before/after sun u
 
 * [__] 192 wood screws (4 each for 14 brackets), 1/2 inch long with tapered head.
 
-* [__] 4 corner metal braces.
+* [__] 4 corner metal braces (drilling holes in baseboard would weaken it?)
 
 * [__] 4 <strong>eye rings</strong> on the top of the sides
    for ropes to attach to the box.
