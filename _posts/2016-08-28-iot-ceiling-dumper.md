@@ -72,6 +72,9 @@ So material can slide out of the platform, the front box edge is tilted down
 and up by a separate stepper motor controlled by an Arduino or Pi computer
 that controls the angle depending on the time of day (minutes before/after sun up).
 
+Two donkeys get half a "flake" each at 5am and 5pm.
+A half flake is 4 inches thick x 20 inch square, weighing 4 to 5 pounds.
+
 
 ## Parts and cuts #
 
