@@ -1054,13 +1054,6 @@ It starts by diving right in with diff:
    Git Merge vs Rebase?</a> [7:40]
 
 
-### Harvard students
-
-* <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
-   An Introduction to Git and GitHub by Brian Yu</a> (brianyu28) [38:26]
-   shows a clear presentation, with demos.
-
-
 ### Lambda School
 
 <a target="_blank" href="https://www.youtube.com/watch?v=2TqKJHhMnuw">
@@ -1070,11 +1063,36 @@ at https://github.com/LambdaSchool/Precourse/tree/master/Lesson1-Git
 
 A Slack lesson channel provided interation during the live class.
 
-
+<a name="FromIndividuals"></a>
 
 ## From Individuals
 
 Several people, on their personal time, created videos for others to enjoy, for free:
+
+### Brian Yu
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=MJUJ4wbFm_A">
+   An Introduction to Git and GitHub</a> [38:26] by Brian Yu(brianyu28) for Harvard CS50 class 
+   confidently uses clear graphics with demos.
+
+### Zach Govani
+
+On the Mobile Developers of Berkeley YouTube channel all on Sep 29, 2017 
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=5pGps0KsdL4">
+   Git and GitHub Basics</a> [4:57]
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=cIw0aOyXUcg">
+   How to deal with git merge conflicts using GitHub</a>
+   [5:39] shows his
+   https://github.com/zgovani/gitpractice
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Synh-q2c9ts">
+   Git Feature Branching</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=h4eeLy3TLG0">
+   How to use .gitignore files</a> [4:45] 
+
 
 ### David Mahler
 
@@ -1439,15 +1457,35 @@ his playlist</a>:
 * <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
    1650 - Rebasing Part 2</a>
 
+### Sam Cogan
+
+Git and Github series playlist Apr 21, 2014:
+
+1. <a target="_blank" href="https://www.youtube.com/watch?v=AK9UVBmYunk&list=PLccPlNFtq5uHnHBHvlhtIja2ChOK8f18h">
+   Setting up a local repo</a>
+2. <a target="_blank" href="https://www.youtube.com/watch?v=7XGLINmYKg4&list=PLccPlNFtq5uEImaHGI_qA1NLg1mktA1Op&index=2">
+   Staging and committing</a>
+3. <a target="_blank" href="https://www.youtube.com/watch?v=aXQsCbFkt18&list=PLccPlNFtq5uEImaHGI_qA1NLg1mktA1Op&index=3">
+   Better Logging and Checkouts</a>
+4. <a target="_blank" href="https://www.youtube.com/watch?v=HUjZCI3fNI8&list=PLccPlNFtq5uEImaHGI_qA1NLg1mktA1Op&index=4">
+   GitHub Setup - Creating and Pushing</a>
+5. <a target="_blank" href="https://www.youtube.com/watch?v=B2ouYUsohQ4&list=PLccPlNFtq5uEImaHGI_qA1NLg1mktA1Op&index=5">
+   Adding Collaborators and Pulling from GitHub</a>
+6. <a target="_blank" href="https://www.youtube.com/watch?v=IcxW145oWAU&list=PLccPlNFtq5uHnHBHvlhtIja2ChOK8f18h">
+   Conflict Resolution</a>
+
+
 <a name="edutechional"></a>
 
 ### edutechional
+
+These videos have ads:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=6UcjERNFTH4">
    Creating a new git repository</a> [8:33] Feb 1, 2016
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=tICdLNBJVFA">
-   Creating a git branch</a>
+   Creating a git branch</a> [10:28]  Feb 1, 2016
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=CEtqad1jM2E">
    Git Rebase Tutorial</a> [16:34] Mar 6, 2018
