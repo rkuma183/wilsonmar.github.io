@@ -16,6 +16,8 @@ comments: true
 
 {% include _toc.html %}
 
+
+
 ## By Me - Wilson Mar
 
 <a target="_blank" href="https://goo.gl/12C1BF">
@@ -145,6 +147,10 @@ Among many videos on GitHub's video channel at:<br />
 
 
 ### GitHub Universe conference
+
+<a target="_blank" href="https://githubuniverse.com/">
+https://githubuniverse.com</a>
+OCT 16 - 17, 2018 at PALACE OF FINE ARTS | SAN FRANCISCO
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=u9s_W8lCrDU">
     Opening Keynote</a>
@@ -402,7 +408,7 @@ GitLab YouTube channel</a>:
    GitLab University: Basics of Git & GitLab</a>
 
 
-## Client Tooling
+## From client tooling vendors
 
 ### JetBrains
 
@@ -1037,7 +1043,9 @@ It starts by diving right in with diff:
 ### SitePoint
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
-   Choosing to Rebase or Merge with Git?</a> [7:40]
+   Choosing to Rebase or Merge with Git?</a> [7:40] Mar 6, 2016
+
+   This video refers to "loops". But that's not technically possible with Git since Git uses  a forward-only chaining approach called "directed acyclic graph".
 
 
 ### TechJini
@@ -1066,7 +1074,7 @@ A Slack lesson channel provided interation during the live class.
 
 ## From Individuals
 
-Several people, on their personal time, created videos for others to enjoy for free.
+Several people, on their personal time, created videos for others to enjoy, for free:
 
 ### David Mahler
 
@@ -1076,6 +1084,26 @@ Several people, on their personal time, created videos for others to enjoy for f
 * <a target="_blank" href="https://www.youtube.com/watch?v=FyAAIHHClqI">
     Introduction to Git - Branching and Merging Sep 18, 2017 [28:47]</a>
 
+
+
+
+### Jack Lotkowski
+
+"jacklot" (The Modern Coder)
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=f1wnYdLEpgI&t=13s">
+   A better Git workflow with rebase (instead of merge)</a>
+   [6:42] Nov 24, 2017 has animated graphics that overlay on top of commands and responses.
+   "My team at Amazon [in Seattle] adopted this workflow."
+   Read the companion blog listing commands shown at <a target="_blank" href="
+   https://www.themoderncoder.com/a-better-git-workflow-with-rebase/">
+   https://www.themoderncoder.com/a-better-git-workflow-with-rebase</a>
+
+### Mahtab alam
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=xPKeNPLLss8">
+   How to resolve merge conflicts in Git</a> [10:58]
+   Jan 22, 2017
 
 ### Dan Gitschooldude
 
@@ -1410,6 +1438,26 @@ his playlist</a>:
    1600 - Rebasing Part 1</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=zcu_loJCF7E/">
    1650 - Rebasing Part 2</a>
+
+<a name="edutechional"></a>
+
+### edutechional
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=6UcjERNFTH4">
+   Creating a new git repository</a> [8:33] Feb 1, 2016
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=tICdLNBJVFA">
+   Creating a git branch</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=CEtqad1jM2E">
+   Git Rebase Tutorial</a> [16:34] Mar 6, 2018
+   Talks though a difficult to read https://git-scm.com/docs/git-rebase
+   "never perform a rebase"
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=__cR7uPBOIk">
+   A Step by Step Guide for How to Resolve Git Merge Conflicts</a>
+   [10"57] Mar 7, 2018
+
 
 ## Others #
 

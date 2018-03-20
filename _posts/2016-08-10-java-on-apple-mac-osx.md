@@ -550,6 +550,7 @@ Mac OSX Setup Guide</a>, developed and distributed as a
 ## Kotlin
 
 Kotlin is a language that makes use of the JVM.
+Invented by JetBrains (IntelliJ).
 
 
 ## More on OSX
