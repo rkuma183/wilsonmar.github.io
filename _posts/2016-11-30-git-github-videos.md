@@ -992,6 +992,12 @@ One-off episodes:
 * <a target="_blank" href="https://laracasts.com/series/setup-a-mac-dev-machine-from-scratch/episodes/12">
    SSH</a>
 
+Laravel News:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=FJh4ZyjCfeo">
+   Resolving Conflicts with Git Mergetool</a>
+   [11:22] Aug 16, 2017
+   shows use of OpenDiff for Mac
 
 ### Udacity
 
@@ -1044,9 +1050,12 @@ It starts by diving right in with diff:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=RA4aQxWirKA">
    Choosing to Rebase or Merge with Git?</a> [7:40] Mar 6, 2016
-
+   by Shaumik Daityari (@ds_mik).
    This video refers to "loops". But that's not technically possible with Git since Git uses  a forward-only chaining approach called "directed acyclic graph".
 
+   The video refers to SitePoint's paid <a target="_blank" href="
+   https://www.sitepoint.com/premium/courses/introduction-to-git-2902">
+   Introduction to Git course</a> as a prerequisite.
 
 ### TechJini
 
@@ -1494,8 +1503,30 @@ These videos have ads:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=__cR7uPBOIk">
    A Step by Step Guide for How to Resolve Git Merge Conflicts</a>
-   [10"57] Mar 7, 2018
+   [10:57] Mar 7, 2018
 
+### Alessandro Castellani
+
+9-part Learn Git from Scratch - May 3, 2016 Contains ads: 
+
+1. <a target="_blank" href="https://www.youtube.com/watch?v=evgZPMWqpHc&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G">
+   How to Install and configure Git</a> [11:10]
+2. <a target="_blank" href="https://www.youtube.com/watch?v=BQzpfloda3M&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=2">
+   Create your first Git Repository</a>
+3. <a target="_blank" href="https://www.youtube.com/watch?v=zeNLY4t436E&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=3">
+   GitHub repository and initial push</a>
+4. <a target="_blank" href="https://www.youtube.com/watch?v=pDmYNK68IEc&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=4">
+   How to create branches and push to GitHub</a>
+5. <a target="_blank" href="https://www.youtube.com/watch?v=sSD9jroO53Y&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=5">
+   How to merge and delete branches</a>
+6. <a target="_blank" href="https://www.youtube.com/watch?v=Y_p683r6uBw&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=6">
+   Auto Merging Conflict Issues</a>
+7. <a target="_blank" href="https://www.youtube.com/watch?v=q6rYglziOjM&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=7">
+   Fetch and pull from origin</a>
+8. <a target="_blank" href="https://www.youtube.com/watch?v=nheGzyk7--8&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=8">
+   What's the .gitignore file?</a>
+9. <a target="_blank" href="https://www.youtube.com/watch?v=U3uwMr3u2Q4&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=9">
+   The Git revert command</a>
 
 ## Others #
 

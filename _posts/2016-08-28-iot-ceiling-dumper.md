@@ -39,10 +39,13 @@ because they eat everything they can reach.
 Thus, I want a box above the animals to hold their hay 
 for release automatically at a set time.
 
-(BTW, my wife's against all this automation because she says she has to get up
-anyway for other chores with the chickens and ducks, etc. :)
-Anyway, I'm undeterred by practicality.
-So read on.
+<a target="_blank" href="https://countrysidenetwork.com/daily/poultry/chicken-coops-housing/automating-a-chicken-coop-door-using-arduino/">This video</a> shows an Arduino controlling the door to chicken coop that, rather than using a simple timer to open and close the chicken coop doors, a computer considers sunrise and sunset times.
+
+http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
+
+https://github.com/Megunolink/GarageDoorOpener
+
+
 
 ## How it works #
 
@@ -52,14 +55,6 @@ shows how to release from an RC plane a parachute release mechanism
 using a 9 gram servo with an armature arm with a wire that holds 
 (until release)
 a rubber band that holds the package.
-
-<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
-This post talks about</a>
-a trap door held by a pin attached to a solenoid.
-A quick pulse releases it.
-A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
-
-Here's a wish list:
 
    0. The shelf is raised and lowered by four ropes,
    one on each corner. 
@@ -106,9 +101,17 @@ Here's a wish list:
    This could be a multi-purpose button where one tap raises,
    two taps lowers it, and a long press to dump from above.
 
-## Parts #
 
   <a name="Platform"></a>
+
+## Parts #
+
+<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
+This post talks about</a>
+a trap door held by a pin attached to a solenoid.
+A quick pulse releases it.
+A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
+
 
 * [__] <a target="_blank" href="http://www.homedepot.com/p/Pine-Plywood-Common-23-32-in-x-4-ft-x-8-ft-Actual-0-688-in-x-48-in-x-96-in-799397/202677224">
    $30 from Home Depot</a>
