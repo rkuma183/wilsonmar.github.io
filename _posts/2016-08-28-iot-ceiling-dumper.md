@@ -45,10 +45,6 @@ http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
 
 https://github.com/Megunolink/GarageDoorOpener
 
-
-
-## How it works #
-
 <a target="_blank" href="https://www.youtube.com/watch?v=zi3AFFOQSaw">
 One video</a>
 shows how to release from an RC plane a parachute release mechanism
@@ -56,55 +52,7 @@ using a 9 gram servo with an armature arm with a wire that holds
 (until release)
 a rubber band that holds the package.
 
-   0. The shelf is raised and lowered by four ropes,
-   one on each corner. 
-
-   0. During the dumping (feed) operation, 
-   only one side is fully lowered so whatever is on it slides off.
-
-   0. The <a href="#Release">release</a> if a vertical door is needed
-   to hold enough stuff without spilling over.
-
-   0. We use two sets of <a href="#Pulleys">pulleys</a>, one for each side.
-   Pulleys enable a smaller motor to be used.
-
-   0. <strong>Safety wire cables</strong> 
-   keep the shelf from crashing to the floor ?
-
-   0. Like a garage door, <strong>lasers</strong> sense whether there is something in the
-   way before the platform is lowered.
-
-   0. <a href="#StepperMotors">Two stepper motor</a> 
-   controls each of 2 sides of the platform.
-   Both would operate to raise or lower. Only one would operate to dump contents.
-   
-   0. A <strong>bell</strong> sounds before the food is dumped
-   so the donkeys know to avoid the dump. Right.
-
-   0. <a href="#Sensors">Sensors</a> identify if conditions are safe - 
-   the position of the various parts (motor) 
-   and whether each is still working.
-
-   0. There would be <a href="#Logic">logic</a> on the Ardunio board that 
-   to not do something if sensors indicate.
-
-   0. In "productive mode", when it's time (5 minutes before dawn each day),
-   the shelf is emptied automatically by lowering one side
-   and releasing a latch.
-
-   0. There should be a <strong>manual alternative</strong>
-   to lower the shelf and open the door. That's in case of loss of electricity
-   or when the computer part doesn't work.
-
-   0. In "test mode", we would press a button to raise it; another button to lower it;
-   and a third button to dump the food.
-   This could be a multi-purpose button where one tap raises,
-   two taps lowers it, and a long press to dump from above.
-
-
-  <a name="Platform"></a>
-
-## Parts #
+Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
 
 <a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
 This post talks about</a>
@@ -112,6 +60,16 @@ a trap door held by a pin attached to a solenoid.
 A quick pulse releases it.
 A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
 
+## Description #
+
+The parts listed below is used to construct a platform raised by four ropes (one on each corner).
+There is a panel on 3 sides to hold material in.
+There is a door on the front side that opens to let the material slide out.
+All four ropes are lowered at the same time to enable loading.
+The two ropes on the side with the open door is lowered separetly so material can slide out.
+
+
+## Parts and cuts #
 
 * [__] <a target="_blank" href="http://www.homedepot.com/p/Pine-Plywood-Common-23-32-in-x-4-ft-x-8-ft-Actual-0-688-in-x-48-in-x-96-in-799397/202677224">
    $30 from Home Depot</a>
@@ -138,14 +96,14 @@ A transistor or MOSFET to drive the release to protect the Arduino from excess c
 
 * [__] 192 wood screws (4 each for 14 brackets), 1/2 inch long with tapered head.
 
-* [__] Drill a hole on each of 4 corners.
+* [__] 4 corner metal braces.
 
 * [__] 4 <strong>eye rings</strong> on the top of the sides
    for ropes to attach to the box.
 
   <a name="Release"></a>
 
-* [__] Hinges for the door.
+* [__] Hinges on the edge for the front door.
 
 * [__] <a target="_blank" href="https://solarbotics.com/product/gm2/">
    gear motor</a> actuator to lock and release latch.
@@ -200,6 +158,58 @@ A transistor or MOSFET to drive the release to protect the Arduino from excess c
 * [__] Arduino board to signal the stepper motor.
 
 * [__] Power supply
+
+
+## How it works (I think) #
+
+
+   1. The shelf is raised and lowered by four ropes,
+   one on each corner. 
+
+   0. During the dumping (feed) operation, 
+   only one side is fully lowered so whatever is on it slides off.
+
+   0. The <a href="#Release">release</a> if a vertical door is needed
+   to hold enough stuff without spilling over.
+
+   0. We use two sets of <a href="#Pulleys">pulleys</a>, one for each side.
+   Pulleys enable a smaller motor to be used.
+
+   0. <strong>Safety wire cables</strong> 
+   keep the shelf from crashing to the floor ?
+
+   0. Like a garage door, <strong>lasers</strong> sense whether there is something in the
+   way before the platform is lowered.
+
+   0. <a href="#StepperMotors">Two stepper motor</a> 
+   controls each of 2 sides of the platform.
+   Both would operate to raise or lower. Only one would operate to dump contents.
+   
+   0. A <strong>bell</strong> sounds before the food is dumped
+   so the donkeys know to avoid the dump. Right.
+
+   0. <a href="#Sensors">Sensors</a> identify if conditions are safe - 
+   the position of the various parts (motor) 
+   and whether each is still working.
+
+   0. There would be <a href="#Logic">logic</a> on the Ardunio board that 
+   to not do something if sensors indicate.
+
+   0. In "productive mode", when it's time (5 minutes before dawn each day),
+   the shelf is emptied automatically by lowering one side
+   and releasing a latch.
+
+   0. There should be a <strong>manual alternative</strong>
+   to lower the shelf and open the door. That's in case of loss of electricity
+   or when the computer part doesn't work.
+
+   0. In "test mode", we would press a button to raise it; another button to lower it;
+   and a third button to dump the food.
+   This could be a multi-purpose button where one tap raises,
+   two taps lowers it, and a long press to dump from above.
+
+
+  <a name="Platform"></a>
 
 
 ## Breadboard #
