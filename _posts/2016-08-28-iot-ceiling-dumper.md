@@ -62,11 +62,15 @@ A transistor or MOSFET to drive the release to protect the Arduino from excess c
 
 ## Description #
 
-The parts listed below is used to construct a platform raised by four ropes (one on each corner).
+The parts listed below is used to construct a platform with a box to hold hay (material).
+The box is raised by four ropes (one on each corner).
 There is a panel on 3 sides to hold material in.
+For loading, the platform is lowered.
+Due to the weight, the box is raised and lowered by a garage door opener.
 There is a door on the front side that opens to let the material slide out.
-All four ropes are lowered at the same time to enable loading.
-The two ropes on the side with the open door is lowered separetly so material can slide out.
+So material can slide out of the platform, the front box edge is tilted down
+and up by a separate stepper motor controlled by an Arduino or Pi computer
+that controls the angle depending on the time of day (minutes before/after sun up).
 
 
 ## Parts and cuts #
