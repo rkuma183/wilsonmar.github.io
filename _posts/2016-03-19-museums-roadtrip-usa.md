@@ -543,7 +543,6 @@ US Holocost Memorial Museum</a> 10-5:30 every day, but timed passes are necessar
 <ul>
 <li><a target="_blank" href="http://carlos.emory.edu/">Carlos Museum at Emory University</a></li>
 <li><a target="_blank" href="http://www.high.org/">High Museum of Art</a></li>
-<li><a target="_blank" href="http://www.madisonmuseum.org/">Madison Museum of Fine Art</a></li>
 <li><a target="_blank" href="http://museum.oglethorpe.edu/">Oglethorpe University Museum</a>, Atlanta</li>
 <li><a target="_blank" href="http://www.jimmycarterlibrary.gov/">
 Jimmy Carter Presidential Library and Museum</a>, Atlanta</li>
