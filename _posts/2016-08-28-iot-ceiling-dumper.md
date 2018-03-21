@@ -57,6 +57,10 @@ a trap door held by a pin attached to a solenoid.
 A quick pulse releases it.
 A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
 
+This project is similar to <a target="_blank" href="http://www.instructables.com/id/Paracord-and-Pulley-Hanging-Table/">
+a hanging table</a> held up by pulleys.
+
+
 ## Description #
 
 The parts listed below are used to construct a platform with a box to hold hay (material).

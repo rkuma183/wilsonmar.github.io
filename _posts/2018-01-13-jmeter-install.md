@@ -26,12 +26,14 @@ This tutorial introduces JMeter by explaining each setp of an automated script f
    https://github.com/apache/jmeter">
    https://github.com/apache/jmeter</a>
 
-   BTW: Historically, JMeter first became available December 2003 as the Jakarta project until it became a full-fledged product. Its previous URL is automatically routed from
-   http://jakarta.apache.org/jmeter/
+   BTW: Historically, JMeter first became available December 2003 as the "Jakarta" project until it became the full-fledged product. Its previous URL is automatically routed from
+   http://jakarta.apache.org/jmeter
 
    For now, just look at the webpage header:
    JMeter is open-sourced by the Apache Foundation project. 
    This means JMeter is offered free.
+
+   ### Java based
 
    The "J" in JMeter refers to the Java Virtual Machine (JVM).
    JMeter is written in Java.
@@ -48,9 +50,11 @@ This tutorial introduces JMeter by explaining each setp of an automated script f
 
 2. Wikipedia lists the version history:
 
-   https://en.wikipedia.org/wiki/Apache_JMeter
+   <a target="_blank" href="https://en.wikipedia.org/wiki/Apache_JMeter/">
+   https://en.wikipedia.org/wiki/Apache_JMeter</a>
 
    Note version 4 became available on Feb. 10, 2018 to support Java 9.
+
 
 ## Installation options
 
@@ -64,6 +68,8 @@ A) You don't need a local machine if you run JMeter within a cloud service such 
    But customers at some companies do not trust public clouds. So...
 
 B) <a href="#BinaryInstall">Manually download installer to install locally</a>.
+
+   This is the approach shown by many <a href="#Tutorials">tutorials (see below)</a>
 
 C) <a href="#DockerHub">Pull an image from Docker Hub</a> 
    within a Google Compute or AWS cloud instance.
@@ -850,10 +856,7 @@ For load testing, use NON GUI Mode:
    PROTIP: The run.xml file in this repo has been edited to reference the above URL.
 
 
-
-## Learning Resources
-
-https://www.guru99.com/jmeter-tutorials.html
+## Social
 
 Sign up for Blazemeter's Slack channel on JMeter
 https://info.blazemeter.com/slack-jmeter-lp-0
@@ -865,3 +868,69 @@ We have many channels and you’re always welcome to create your own. Here are 5
 * &#plugins - Get and share info about JMeter’s plugins to customize your testing scripts
 * &#community_projects - A place to meet, plan and work together on JMeter load testing projects
 * &#meetups - Learn and share when there are JMeter meetups in your area.
+
+
+<a name="Tutorials"></a>
+
+## Videos on YouTube
+
+### Raghav Pal
+
+Raghav Pal (since Jan 2, 2016) has an excellent JMeter Beginner Tutorial in his
+Automation Step by Step channel (supported by ads):
+
+1. <a target="_blank" href="https://www.youtube.com/watch?v=M-iAXz8vs48&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to install Jmeter</a> [6:54] Jun 30, 2016
+2. <a target="_blank" href="https://www.youtube.com/watch?v=8loLHbhfyh0&index=2&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to create first Jmeter test</a> [16:21] Jul 1, 2016
+3. <a target="_blank" href="https://www.youtube.com/watch?v=mXhC9CtQBC8&index=3&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to use assertions</a> [18:25] Jul 6, 2016
+4. <a target="_blank" href="https://www.youtube.com/watch?v=5FyVKVAqEJo&index=4&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to use Listeners</a> [18:53] Jul 8, 2016
+5. <a target="_blank" href="https://www.youtube.com/watch?v=JI99ZOuI5tQ&index=5&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to record a UI (Web) test</a> [13:28] Jul 9, 2016
+6. <a target="_blank" href="https://www.youtube.com/watch?v=8loLHbhfyh0&index=2&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to create a Database Test Plan</a> [10:13] Jul 9, 2016
+7. <a target="_blank" href="https://www.youtube.com/watch?v=K26q5VgwLKk&index=7&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to run jmeter from Command Line (non GUI mode)</a> [11:32] Jul 10, 2016
+8. <a target="_blank" href="https://www.youtube.com/watch?v=8loLHbhfyh0&index=2&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to test FTP upload and download</a> [12:56] Jul 24, 2016
+9. <a target="_blank" href="https://www.youtube.com/watch?v=eaU7951fNuQ&index=9&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   Testing Web Services API</a> [20:32] Jul 31, 2016
+10. <a target="_blank" href="https://www.youtube.com/watch?v=SmSieTKYky8&index=10&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to create assertions for JDBC (Database) Test Plan</a> [9:45] Aug 2, 2016
+11. <a target="_blank" href="https://www.youtube.com/watch?v=aHV5IizW7u4&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=11">
+   How to create HTML Dashboard Reports from command line</a> [20:09] Aug 4, 2016
+12. <a target="_blank" href="https://www.youtube.com/watch?v=KQfoBOK37ms&index=12&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to use Plugins Manager</a> [7:23] Aug 6, 2016
+13. <a target="_blank" href="https://www.youtube.com/watch?v=aH_ZhMrhHhI&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=13">
+   How to read data from csv file (Parameterisation)</a> [14:47] Aug 11, 2016
+14. <a target="_blank" href="https://www.youtube.com/watch?v=3O40Wg_tqEE&index=14&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   Functions and Variables</a> [13:57] Aug 13, 2016
+15. <a target="_blank" href="https://www.youtube.com/watch?v=cOPnXUDmTBY&index=15&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to setup realistic performance test-PACING</a> [11:02] Aug 28, 2016
+16. <a target="_blank" href="https://www.youtube.com/watch?v=EUgLRmlkTGQ&index=16&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   TIMERS (How to add Think Time)</a> [11:13] Aug 29, 2016
+17. <a target="_blank" href="https://www.youtube.com/watch?v=Gwutv8adr9g&index=17&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to parameterize FTP test</a> [8:23] Sep 4, 2016
+18. <a target="_blank" href="https://www.youtube.com/watch?v=8_qz3NcHIZY&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=18">
+   How to run Scheduled + Sequential execution</a> [13:48] Sep 14, 2016
+19. <a target="_blank" href="https://www.youtube.com/watch?v=7-NcyZuUQnw&index=19&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   Correlation (with Regular Expression Extractor)</a> [12:30] Jan 15, 2017
+20. <a target="_blank" href="https://www.youtube.com/watch?v=V0cSlGpi-mA&index=20&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to use TEMPLATES</a> [7:13] Apr 11, 2017
+21. <a target="_blank" href="https://www.youtube.com/watch?v=amEHuq8auTU&index=21&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to use Test Script Recorder</a> [9:23] Apr 12, 2017
+22. <a target="_blank" href="https://www.youtube.com/watch?v=36QEqWcLb0o&index=22&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c">
+   How to test File Upload</a> [] Apr 14, 2017
+23. <a target="_blank" href="https://www.youtube.com/watch?v=Tzqd1xSPc3s&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=23">
+   How to test File Download</a> [6:25] Apr 14, 2017
+24. <a target="_blank" href="https://www.youtube.com/watch?v=S8ehjk9XWtE&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=24">
+   How to DEBUG</a> [8:56]  Apr 16, 2017
+25. <a target="_blank" href="https://www.youtube.com/watch?v=zn1DSUZ6t64&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=25">
+   How to record login test</a> [8:14] Sep 11, 2017 
+
+### Guru99
+
+https://www.guru99.com/jmeter-tutorials.html
+
