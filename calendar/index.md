@@ -32,25 +32,19 @@ NOTE: In this calendar I keep only the times I cannot move.
 I have a separate calendar I use to plan my day.
 
 
-## Events coming Up #
-
-Here are when I plan on traveling:
-
-   * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-starwest-2016">
-   Performance Testing 2-days Sunday & Monday</a></strong>.
-
-   * <strong><a target="_blank" href="https://starwest.techwell.com/program/tutorial/how-testers-master-git-and-github/">
-   Git and GitHub full-day Tuesday</a></strong>.
-   You'll leave with a new free blog website!
-
-   * <strong><a target="_blank" href="https://starwest.techwell.com/program/concurrent-sessions/git-and-github-testers">
-   Git and GitHub for Testers</a></strong>.
-   A one-hour introduction to Git and GitHub terms and workflows on Thursday afternoon.
+## Events #
 
 Next May, I'll be in Orlando, Florida for 
 <strong><a target="_blank" href="https://stareast.techwell.com/">
 StarEast</a></strong>. It's one of a <a target="_blank" href="https://www.techwell.com/software-conferences/star-software-testing-conferences">
 series</a>.
+
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/tutorial/how-testers-master-git-and-github/">
+   Git and GitHub full-day Tuesday</a></strong>.
+   You'll leave with a new free blog website!
+
+   * <strong><a target="_blank" href="https://starwest.techwell.com/program/preconference-training/mastering-hp-loadrunner-performance-testing-starwest-2016">
+   Performance Testing 2-days Sunday & Monday</a></strong>.
 
 <a target="_blank" href="https://blog.hubspot.com/marketing/google-calendar-invites-in-email-marketing">
 NOTE</a>: "Add this to your Google Calendar" links are constructed manually:
@@ -121,13 +115,11 @@ this article</a>.
 
 ## Most Creative Time Each Day
 
-Based on the 
+A "chronotype" is the propensity of a person to sleep and wake at particular times during a 24 hour period. It's biologically set.
+There is wide variation when various famous creatives go about various aspects of their lives, <a target="_blank" href="https://podio.com/site/creative-routines">
+visualized by this</a>, based on the 
 <a target="_blank" href="http://masoncurrey.com/Daily-Rituals/">
-book Daily Rituals</a>
-by Mason Currey,
-the wide variation when various famous creatives go about various aspects of their lives is 
-<a target="_blank" href="https://podio.com/site/creative-routines">
-visualized by this</a>:<br />
+book Daily Rituals</a> by Mason Currey:
 
 <a target="_blank" href="https://podio.com/site/creative-routines">
 <img alt="fig rainbow creative_routines partial" src="https://cloud.githubusercontent.com/assets/300046/14229206/bd6c04d4-f8ea-11e5-900a-b2cde317237b.jpg" width="465" height="201"></a><!-- full 976x532 -->
@@ -189,3 +181,6 @@ Over the years, the group did less touring and performing (in green).
 A similar format is used at<br />
 <a target="_blank" href="https://timelinestoryteller.com/app/">
 https://timelinestoryteller.com/app</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=aBi8M3DehQ0">
+How Ben Franklin Structured His Day</a>
