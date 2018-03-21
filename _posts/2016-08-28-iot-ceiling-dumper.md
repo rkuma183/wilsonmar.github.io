@@ -45,12 +45,9 @@ http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
 
 https://github.com/Megunolink/GarageDoorOpener
 
-<a target="_blank" href="https://www.youtube.com/watch?v=zi3AFFOQSaw">
-One video</a>
-shows how to release from an RC plane a parachute release mechanism
-using a 9 gram servo with an armature arm with a wire that holds 
-(until release)
-a rubber band that holds the package.
+<a target="_blank" href="https://www.wemustbegeeks.com/esp8266-nodemcu-wifi-iot-garage-door-opener-relay-with-cayenne/">
+The video in this blog</a>
+describes tweeks to a garage door opener.
 
 Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
 
