@@ -115,8 +115,10 @@ this article</a>.
 
 ## Most Creative Time Each Day
 
-A "chronotype" is the propensity of a person to sleep and wake at particular times during a 24 hour period. It's biologically set.
-There is wide variation when various famous creatives go about various aspects of their lives, <a target="_blank" href="https://podio.com/site/creative-routines">
+<a target="_blank" href="http://www.businessinsider.com/different-chronotypes-have-separate-dna-sleep-cycle-circadian-rhythm-genes-2015-9">
+NOTE</a>: Each individual has a propensity to sleep and wake at particular times during a 24 hour period. Whether you are a "morning" or "evening person" is called your "chronotype", which is biologically set in each person's unique DNA.
+
+There is wide variation among various famous creatives when each go about various aspects of their lives, <a target="_blank" href="https://podio.com/site/creative-routines">
 visualized by this</a>, based on the 
 <a target="_blank" href="http://masoncurrey.com/Daily-Rituals/">
 book Daily Rituals</a> by Mason Currey:
@@ -128,11 +130,6 @@ Which circadian (daily) pattern do you prefer?
 
 The site allows <strong>interactive</strong> selection of specific activities
 (sleep, creative work, admin, food/leisure, exercise, other).
-
-<a target="_blank" href="http://www.businessinsider.com/different-chronotypes-have-separate-dna-sleep-cycle-circadian-rhythm-genes-2015-9">
-BusinessInsider.com reports that</a>
-an individual preference for morning or evening is determined by the <strong>chronotype</strong> of
-each person's unique DNA.
 
 <a target="_blank" href="https://www.quora.com/I-want-to-study-but-I-waste-my-whole-day-without-doing-anything-significant-I-really-want-to-study-but-I-am-unable-to-concentrate-What-should-I-do/answer/Nupur-Joshi-1">This response on Quora</a>
 recommends "Start waking up at 5 in the morning and drink water immediately"
