@@ -1084,6 +1084,30 @@ Several people, on their personal time, created videos for others to enjoy, for 
    An Introduction to Git and GitHub</a> [38:26] by Brian Yu(brianyu28) for Harvard CS50 class 
    confidently uses clear graphics with demos.
 
+### Raghav Pal 
+
+On Jan 2, 2016, <a target="_blank" href="https://www.linkedin.com/in/raghavpal/">Raghav</a> has a Automation Step by Step channel where he has a Git and GitHub Beginner Tutorial, which actually covers more advanced features than most others,
+such as autocomplete:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=DqtZUvmPmo4&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
+   Why to use GIT (version control system)</a> [4:56] Apr 8, 2017
+1. <a target="_blank" href="https://www.youtube.com/watch?v=-U-eUHI6euM&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=2">
+   Introduction</a> [13:05] Oct 11, 2016
+2. <a target="_blank" href="https://www.youtube.com/watch?v=0Icla6TVNNo&index=3&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
+   Getting started - Install Git (mac)</a> [18:52] Oct 12, 2016
+3. <a target="_blank" href="https://www.youtube.com/watch?v=sBTAkHOxvOk&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=4">
+   Getting started - Install Git windows</a> [19:25] Oct 13, 2016
+4. <a target="_blank" href="https://www.youtube.com/watch?v=VI07ouVS5FE&index=5&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
+   Enable git commands autocomplete and colors on Mac</a> [7:21]  Oct 14, 2016
+5. <a target="_blank" href="https://www.youtube.com/watch?v=GZILYABgAoo&index=6&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
+   Branching and Merging</a> [10:56]  Oct 14, 2016
+6. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+   Git Tags - what, why, when and how</a> [10:41] Dec 30, 2016
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+   How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub</a>a>  [11:36] Nov 14, 2017
+
+
 ### Zach Govani
 
 On the Mobile Developers of Berkeley YouTube channel all on Sep 29, 2017 
