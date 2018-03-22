@@ -1072,6 +1072,19 @@ at https://github.com/LambdaSchool/Precourse/tree/master/Lesson1-Git
 
 A Slack lesson channel provided interation during the live class.
 
+
+### Lars Vogella
+
+Lars Vogella in Germany turned his experience as a Eclipse developer with a knack for clear explanations 
+into a publishing, training, and consulting business at
+<a target="_blank" href="http://vogella.com/">vogella.com</a>.
+
+* He published a <a target="_blank" href="http://www.amazon.com/gp/product/B00R1XABSU/">
+   $9 book on git</a> referencing his git repository at<br />
+   <a target="_blank" href="http://github.com/vogella/">http://github.com/vogella</a>
+
+
+
 <a name="FromIndividuals"></a>
 
 ## From Individuals
@@ -1114,7 +1127,6 @@ On the Mobile Developers of Berkeley YouTube channel all on Sep 29, 2017
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=5pGps0KsdL4">
    Git and GitHub Basics</a> [4:57]
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=cIw0aOyXUcg">
    How to deal with git merge conflicts using GitHub</a>
    [5:39] shows his
@@ -1122,7 +1134,6 @@ On the Mobile Developers of Berkeley YouTube channel all on Sep 29, 2017
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=Synh-q2c9ts">
    Git Feature Branching</a>
-
 * <a target="_blank" href="https://www.youtube.com/watch?v=h4eeLy3TLG0">
    How to use .gitignore files</a> [4:45] 
 
@@ -1130,10 +1141,9 @@ On the Mobile Developers of Berkeley YouTube channel all on Sep 29, 2017
 ### David Mahler
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=uR6G2v_WsRA">
-    Introduction to Git - Core Concepts Jun 21, 2017 [28:37]</a>
-
+    Introduction to Git - Core Concepts</a> [28:37] Jun 21, 2017
 * <a target="_blank" href="https://www.youtube.com/watch?v=FyAAIHHClqI">
-    Introduction to Git - Branching and Merging Sep 18, 2017 [28:47]</a>
+    Introduction to Git - Branching and Merging</a> [28:47] Sep 18, 2017
 
 
 
@@ -1332,16 +1342,6 @@ Git - Interactive Rebase</a> [9:26] Feb 8, 2017
 <a target="_blank" href="https://www.youtube.com/watch?v=XjF6r9G66gc">
 Git - Resolving Conflicts</a> [7:39] Jan 12, 2017
 
-
-### Lars 
-
-Lars Vogella in Germany turned his experience as a Eclipse developer with a knack for clear explanations 
-into a publishing, training, and consulting business at
-<a target="_blank" href="http://vogella.com/">vogella.com</a>.
-
-* He published a <a target="_blank" href="http://www.amazon.com/gp/product/B00R1XABSU/">
-   $9 book on git</a> referencing his git repository at<br />
-   <a target="_blank" href="http://github.com/vogella/">http://github.com/vogella</a>
 
 
 ### Ryan Ireland (Mijingo)
