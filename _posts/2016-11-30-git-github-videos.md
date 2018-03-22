@@ -1101,10 +1101,10 @@ such as autocomplete:
    Enable git commands autocomplete and colors on Mac</a> [7:21]  Oct 14, 2016
 5. <a target="_blank" href="https://www.youtube.com/watch?v=GZILYABgAoo&index=6&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
    Branching and Merging</a> [10:56]  Oct 14, 2016
-6 <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
-   How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub</a> [11:36] Nov 14, 2017
-7. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+6. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
    Git Tags - what, why, when and how</a> [10:41] Dec 30, 2016
+7. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+   How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub</a> [11:36] Nov 14, 2017
 
 
 
