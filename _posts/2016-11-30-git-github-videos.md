@@ -1089,7 +1089,7 @@ Several people, on their personal time, created videos for others to enjoy, for 
 On Jan 2, 2016, <a target="_blank" href="https://www.linkedin.com/in/raghavpal/">Raghav</a> has a Automation Step by Step channel where he has a Git and GitHub Beginner Tutorial, which actually covers more advanced features than most others,
 such as autocomplete:
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=DqtZUvmPmo4&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
+0. <a target="_blank" href="https://www.youtube.com/watch?v=DqtZUvmPmo4&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
    Why to use GIT (version control system)</a> [4:56] Apr 8, 2017
 1. <a target="_blank" href="https://www.youtube.com/watch?v=-U-eUHI6euM&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=2">
    Introduction</a> [13:05] Oct 11, 2016
@@ -1101,11 +1101,11 @@ such as autocomplete:
    Enable git commands autocomplete and colors on Mac</a> [7:21]  Oct 14, 2016
 5. <a target="_blank" href="https://www.youtube.com/watch?v=GZILYABgAoo&index=6&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG">
    Branching and Merging</a> [10:56]  Oct 14, 2016
-6. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+6 <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
+   How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub</a> [11:36] Nov 14, 2017
+7. <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
    Git Tags - what, why, when and how</a> [10:41] Dec 30, 2016
 
-* <a target="_blank" href="https://www.youtube.com/watch?v=Ft2LXlaSEfs&list=PLhW3qG5bs-L8OlICbNX9u4MZ3rAt5c5GG&index=7">
-   How To Add Eclipse Project To GitHub | How to Commit, Push, Pull from Eclipse to GitHub</a>a>  [11:36] Nov 14, 2017
 
 
 ### Zach Govani
