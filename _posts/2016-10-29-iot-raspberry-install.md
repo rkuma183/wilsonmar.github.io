@@ -18,12 +18,12 @@ comments: true
 This tutorial provides manual instructions and automation scripts to setup and 
 run apps under Raspbian on a Raspberry Pi 3 B.
 
-Several operating systems can be installed on a Raspberry Pi
-* Raspbian, a derivative of Debian Linux (described on this page)
+Several operating systems can be installed on a Raspberry Pi:
 * AndroidThings from Google (another page)
+* Raspbian, a derivative of Debian Linux (described on this page):
 <br /><br />
 
-This is about using Raspian:
+To install the Raspian operating system on a Raspberry Pi 3 board:
 
 1. <a href="#Download">Download disk image</a> 
 0. <a href="#CalcHash">Calculage and compare SHA hash for download integrity</a>
@@ -31,14 +31,13 @@ This is about using Raspian:
 0. Format micro-SD card with Raspbian image on <a href="#WinPrep">Windows</a> or <a href="#MacPrep">MacOS</a>
 0. <a href="#PowerUp">Power up the stock Pi into the Raspbian GUI</a>
 0. <a href="#WiFi">Configure wi-fi connections</a> on the Pi
-0. <a href="#SSH">Configure SSH into Pi</a> from your laptop
+0. <a href="#SSH">Configure SSH into Pi</a> from your Mac laptop
 0. <a href="#GetConfigScripts">Get and run configuration scripts</a> 
 
 * Run Bash shell script on boot-up to download a script from GitHub and run it.
 
-* <a href="#CronJob">Run cron background</a> to periodically 
-   <a href="#Temp">measure board's temperature</a>
-* Run Python code to measure board temperature and free memory over time.
+* <a href="#CronJob">Run cron background</a> Python code to periodically 
+   <a href="#Temp">measure board's temperature</a> and free memory over time.
 
 <hr />
 

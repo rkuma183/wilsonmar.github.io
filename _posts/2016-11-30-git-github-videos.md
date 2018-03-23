@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git and GitHub Videos (and Blogs)"
+title: "Git and GitHub Videos and Tutorials"
 excerpt: "Binge watch all the vidoes on distributed source version control"
 tags: [GitHub]
 shorturl: "https://goo.gl/hOUsKE"
@@ -685,11 +685,6 @@ Nice that folders are shown along with commands.
 
 For $300 per year, Pluralsight has purchased several other video training companies.
 
-* <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
-   Git Internals pdf (from 2008, last updated 2013)</a>
-   by Scott Chacon (CTO of GitHub)
-   is carried forward from PeepCode before Pluralsight bought it.
-
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/using-git-with-gui">
    Using Git with a GUI Mar 08, 2016</a> 
    [2h 38m]
@@ -720,6 +715,15 @@ For $300 per year, Pluralsight has purchased several other video training compan
    [4h 26m]
    by Esteban Garcia
 
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/git-visual-studio-developers/table-of-contents">
+   Git for Visual Studio Developers</a> 2h 58m 18 Dec 2013
+   by Esteban Garcia
+
+* <a target="_blank" href="https://github.com/pluralsight/git-internals-pdf">
+   Git Internals pdf (from 2008, last updated 2013)</a>
+   by Scott Chacon (CTO of GitHub)
+   is carried forward from PeepCode before Pluralsight bought it.
+
 
 
 ### Lynda.com/LinkedIn.com
@@ -747,20 +751,20 @@ in YouTube. But realize that
 0. <a target="_blank" href="https://www.youtube.com/watch?v=vsqsRhxGyKo">
    Understanding version control</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=dmwTGu_M_YM&index=4&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   02 The history of Git</a>
+   The history of Git</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=BKcEkXdNjRs&index=3&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   03 About distributed version control</a>
+   About distributed version control</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=PmOJtA8KF5c&index=2&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   04 Who should use Git</a>
+   Who should use Git</a>
 
 2) Installing Git
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hS3vq91DBR0&index=5&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Installing Git on a Mac</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=MN4F2Ag34-o&index=6&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   02 Installing Git on Windows</a>
+   Installing Git on Windows</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GMpRc8g5Jvo&index=7&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   03 Installing Git Installing Git on Linux</a>
+   Installing Git Installing Git on Linux</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=yZUEzb-7-UY&index=8&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    05 Installing Git Exploring Git auto completion</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LsF9Bp5nWyY&index=9&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
@@ -1069,8 +1073,7 @@ It starts by diving right in with diff:
 This Git and Github video on Mar 5, 2018 [5:28]</a>
 is the first of 12 sessions from the March '18 Mini Bootcamp by Lambda School.
 at https://github.com/LambdaSchool/Precourse/tree/master/Lesson1-Git
-
-A Slack lesson channel provided interation during the live class.
+And a Slack channel enabled interations during and after the live class.
 
 
 ### Lars Vogella
@@ -1083,6 +1086,22 @@ into a publishing, training, and consulting business at
    $9 book on git</a> referencing his git repository at<br />
    <a target="_blank" href="http://github.com/vogella/">http://github.com/vogella</a>
 
+
+### Ryan Ireland (Mijingo)
+
+A 40-video intro for $71 at<br />
+<a target="_blank" href="https://mijingo.com/git-essentials">
+https://mijingo.com/git-essentials</a> (or $289 with a one-hour call).
+Some of them:
+
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QddBztXi2o8">
+   Using Git Archive to Export Files</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">
+   Using Git in Sublime Text</a> [7:03] Apr 3, 2016
+0. <a target="_blank" href="https://www.youtube.com/watch?v=hO8hSFVbbVw">
+   Changing Terms in Git Bisect</a> 
+0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
+   How to Create and Apply Git Patches</a>
 
 
 <a name="FromIndividuals"></a>
@@ -1342,23 +1361,6 @@ Git - Interactive Rebase</a> [9:26] Feb 8, 2017
 <a target="_blank" href="https://www.youtube.com/watch?v=XjF6r9G66gc">
 Git - Resolving Conflicts</a> [7:39] Jan 12, 2017
 
-
-
-### Ryan Ireland (Mijingo)
-
-A 40-video intro for $71 at<br />
-<a target="_blank" href="https://mijingo.com/git-essentials">
-https://mijingo.com/git-essentials</a> (or $289 with a one-hour call).
-Some of them:
-
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QddBztXi2o8">
-   Using Git Archive to Export Files</a> [7:03] Apr 3, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=HLU_D8ZiqRs">
-   Using Git in Sublime Text</a> [7:03] Apr 3, 2016
-0. <a target="_blank" href="https://www.youtube.com/watch?v=hO8hSFVbbVw">
-   Changing Terms in Git Bisect</a> 
-0. <a target="_blank" href="https://www.youtube.com/watch?v=QtXj9tt-RUE">
-   How to Create and Apply Git Patches</a>
 
 
 ### Dustin Davis
