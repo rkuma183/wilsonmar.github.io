@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-This article contains note on my personal experience installing and using Eclipse IDE.
+This article contains notes on my personal experience installing and using Eclipse IDE.
 
 Eclipse was originally funded by IBM as open source.
 
@@ -41,14 +41,7 @@ The simplest way to install the <strong>standard</strong> edition of Eclipse
 is to use [Homebrew](/macos-homebrew/) to 
 <a target="_blank" href="http://macappstore.org/eclipse-java/">eclipse-java</a>:
 
-0. First, update the Homebrew installation bits shared:
-
-   <pre><strong>brew update
-   </strong></pre>
-
-   This can take a while.
-
-0. Use cask to install GUI programs:
+0. Use brew cask to install GUI programs:
 
    <pre><strong>brew cask install eclipse-java
    </strong></pre>
@@ -253,11 +246,14 @@ the Eclipse Dashboard in the middle pane.
 
 * Formatter
 
+* <a target="_blank" href="https://github.com/Agilefant/agilefant/wiki/Installing-Agilefant-development-environment-on-Mac">Agilefant</a>
 
 
 <a name="FirstTime"></a>
 
 ## Preferences #
+
+QUESTION: Is there a command line script that does all this automatically?
 
 0. Click Spring Tool Suite - Preferences - 
 

@@ -36,7 +36,7 @@ where I put the latest versions of each:
    Git and GitHub View and Documentation Flow</a>
 
 
-## By GitHub people
+## By people in GitHub:
 
 ### Linus Torvalds
 
@@ -197,7 +197,7 @@ quick (conceptual) videos with captions and graphics on a white board:
 
 
 
-## From Microsoft
+## From Microsoft:
 
 * <a target="_blank" href="http://www.radiotfs.com/">
    radiotfs.com</a>
@@ -390,7 +390,7 @@ by @StevenBorg (salesy hand-wavy boss) and
    [25:40] http://rypress.com/tutorials/git/index<br />
 
 
-## From Git hosting companies
+## From Git hosting companies:
 
 ### GitLab
 
@@ -408,7 +408,7 @@ GitLab YouTube channel</a>:
    GitLab University: Basics of Git & GitLab</a>
 
 
-## From client tooling vendors
+## From client tooling vendors:
 
 ### JetBrains
 
@@ -556,7 +556,7 @@ and (since 2017) for Windows.
    Git for Developers -- Introduction</a>
 
 
-## From free training vendors
+## From free training vendors:
 
 
 ### Git Real 1 and 2
@@ -657,7 +657,15 @@ series</a>:
    [6:53] 1 Jan 2016
 
 
-## From those who ask for money
+## From those who ask for money:
+
+### BuildAModule.com
+
+There are several free videos among BuildAModule.com's library of 1800+ videos on <a href="https://buildamodule.com/video/change-management-and-version-control-installing-git-and-working-on-the-command-line-welcome-to-change-management-and-version-control">Change Management and Version Control using Git</a>. 
+
+Text spoken in its videos are highlighted in a panel on the right (like Lynda/LinkedIn). 
+
+The site specializes in enabling you to use Drupal for web content mangement, at $29 a month.
 
 ### Skillshare.com
 
@@ -726,7 +734,7 @@ For $300 per year, Pluralsight has purchased several other video training compan
 
 
 
-### Lynda.com/LinkedIn.com
+### LinkedIn.com (formerly Lynda.com)
 
 When LinkedIn bought Lynda in 2016, the whole Lynda library of videoes got included
 in LinkedIn's Premium subscription of $29/month.
@@ -765,15 +773,16 @@ in YouTube. But realize that
    Installing Git on Windows</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=GMpRc8g5Jvo&index=7&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Installing Git Installing Git on Linux</a>
+0. Missing.
 0. <a target="_blank" href="https://www.youtube.com/watch?v=yZUEzb-7-UY&index=8&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   05 Installing Git Exploring Git auto completion</a>
+   Installing Git Exploring Git auto completion</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=LsF9Bp5nWyY&index=9&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   06 Installing Git Using Git help</a>
+   Installing Git Using Git help</a>
 
 3) Getting Started
 
 0. <a target="_blank" href="https://www.youtube.com/watch?v=e0vsW4Kajv0&index=10&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   01 Initializing a repository git init</a>
+   Initializing a repository git init</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=Fmfa_pMnmGQ&index=11&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Git Directory-How files are Stored HEAD,config,refs,objects</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=DL7JPfksbGo&index=12&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
@@ -876,7 +885,7 @@ in YouTube. But realize that
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hAtt2M1dB1Q&index=49&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Resolving merge conflicts - 1</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=NzXrOQAtoNc&index=50&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
-   SResolving merge conflicts - 2</a>
+   Resolving merge conflicts - 2</a>
 0. <a target="_blank" href="https://www.youtube.com/watch?v=hmTJK4EXNbk&index=51&list=PLb5HO8RZjX-kZnThtY4f4yKgb2CQWwh8c">
    Exploring strategies to reduce merge conflicts</a>
 

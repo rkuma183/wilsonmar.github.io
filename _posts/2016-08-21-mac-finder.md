@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac Finder"
+title: "Mac Finder Terminal"
 excerpt: "This is the Mac equivalent of Windows File Explorer"
 shorturl: "https://goo.gl/"
 tags: [apple, mac, setup]

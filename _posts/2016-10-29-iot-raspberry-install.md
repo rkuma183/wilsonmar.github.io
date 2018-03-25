@@ -20,17 +20,19 @@ run apps under Raspbian on a Raspberry Pi 3 B.
 
 Several operating systems can be installed on a Raspberry Pi:
 * AndroidThings from Google (another page)
+* Windows 10 IoT from Microsoft (another page)
 * Raspbian, a derivative of Debian Linux (described on this page):
 <br /><br />
 
 To install the Raspian operating system on a Raspberry Pi 3 board:
 
 1. <a href="#Download">Download disk image</a> 
-0. <a href="#CalcHash">Calculage and compare SHA hash for download integrity</a>
+0. <a href="#CalcHash">Calculate and compare SHA hash for download integrity</a>
 0. <a href="#Adapter">Insert micro-SD card via a USB adapter</a>
 0. Format micro-SD card with Raspbian image on <a href="#WinPrep">Windows</a> or <a href="#MacPrep">MacOS</a>
 0. <a href="#PowerUp">Power up the stock Pi into the Raspbian GUI</a>
 0. <a href="#WiFi">Configure wi-fi connections</a> on the Pi
+0. <a href="#Addons">Configure HAT addons</a>
 0. <a href="#SSH">Configure SSH into Pi</a> from your Mac laptop
 0. <a href="#GetConfigScripts">Get and run configuration scripts</a> 
 
@@ -60,10 +62,10 @@ To install the Raspian operating system on a Raspberry Pi 3 board:
 1. Click the red <strong>Download ZIP</strong> below
    <strong>Raspbian STRETCH WITH DESKTOP</strong>
 
-   PROTIP: The button sends you to URL https://downloads.raspberrypi.org/raspbian_latest
-   which can be used in unattended shell scripts to automate the click, such as
-   <a target="_blank" href="https://github.com/debian-pi/raspbian-ua-netinst/releases/">
-   this</a>.
+   PROTIP: The button sends you to URL <a target="_blank" href="https://downloads.raspberrypi.org/raspbian_latest">
+   https://downloads.raspberrypi.org/raspbian_latest</a>
+   which can be used in <a target="_blank" href="https://github.com/debian-pi/raspbian-ua-netinst/releases/">
+   unattended shell scripts to automate the clicking</a>.
 
    NOTE: The previous version name PIXEL, which stands for "Pi Improved X-Windows Environmet, Lightweight". But many refer it simply as "X".
 
@@ -79,14 +81,14 @@ To install the Raspian operating system on a Raspberry Pi 3 board:
    was the previous 4.2 version of Raspbian.
    QUESTION: Where is the history of old versions 
    and how does one get announcement emails?
-   <br /><br />
-
    * <a target="_blank" href="http://pixar.wikia.com/wiki/Sid_Phillips">"Sid"</a> is the bad boy.
+   <br /><br />
 
 0. Click "Save File", the OK in the pop-up to begin download 
 
    | Date/File | Version | Download | Unzipped |
    | --------- | ------- | ----: | ---: |
+   | 2018-03-13-raspbian-stretch.zip | 4.9 | 1.78 GB | 4.96 GB |
    | 2017-09-07-raspbian-stretch.zip | 4.9 | 1.76 GB | 4.92 GB |
    | 2017-04-10-raspbian-jessie.zip | 4.4 | 1.57 GB | ? GB |
    | 2016-09-23-Raspbian-jessie.zip | 4.3 | 1.40 GB | 4.3 GB |
@@ -163,7 +165,7 @@ To install the Raspian operating system on a Raspberry Pi 3 board:
 
 0. Insert the Micro-SD chip into your laptop. 
 
-0. If you are using a Mac, skip to <a href="#MacPrep"">Mac Prep SD</a>
+0. If you are using a Mac, <a href="#MacPrep">skip to the Mac Prep SD section below</a>.
 
    <a name="WinPrep"></a>
 
