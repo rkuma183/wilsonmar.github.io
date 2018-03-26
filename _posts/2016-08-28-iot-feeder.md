@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "IoT Feed Dump from Ceiling project"
+title: "IoT barn feeder project"
 excerpt: "Rain down food from above (like mana) automatically"
 tags: [Clouds, IoT]
 image:
@@ -16,7 +16,10 @@ comments: true
 
 {% include _toc.html %}
 
-Here is (the beginnings of) a description of how one can feed animals in the morning without going out into the barn.
+Here is (the beginnings of) a description of how one can feed donkeys in the morning without going out into the barn.
+
+![iot-haybag-v01-804x804-400408](https://user-images.githubusercontent.com/300046/37868902-f44590f8-2f73-11e8-8439-1acbe68c70ab.png)
+
 
 ## Why drop stuff from the ceiling? #
 
