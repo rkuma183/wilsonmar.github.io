@@ -49,23 +49,25 @@ bray annoyingly</a>.
 
 We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable.
 
-### Bag
+### Bag of feed
 
-The one with the least moving parts is a <strong>bag</strong> that is lowered and raised
- by an electric hoist. It can lift up to 220 pounds (just in case).
- But it can be kinda slow.
+The one with the least moving parts is a <strong>bag</strong> used to slow down how quickly horses and other equine eat.
 
 ![iot-haybag-v01-804x804-400408](https://user-images.githubusercontent.com/300046/37868902-f44590f8-2f73-11e8-8439-1acbe68c70ab.png)
 
-http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
+It is lowered and raised by an electric hoist. The 125 Watt motor shown below can lift up to 110 pounds 40ft with a single line. A double-line configuration can lift 220 lbs 20ft. But it can be kinda slow, at 16.4 ft./minute.
 
-https://github.com/Megunolink/GarageDoorOpener
+![iot-hoist-276x316-24324](https://user-images.githubusercontent.com/300046/37920018-e606b7fe-30e2-11e8-9cd3-7ca6fc411d80.jpg)
+<!-- https://www.northerntool.com/shop/tools/product_200660033_200660033 -->
 
-<a target="_blank" href="https://www.wemustbegeeks.com/esp8266-nodemcu-wifi-iot-garage-door-opener-relay-with-cayenne/">
-The video in this blog</a>
-describes tweeks to a garage door opener.
+### Actuator 
 
-Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
+The project is to add to the manually controlled toggle switch on the yellow box with an actuator controlled by a Pi or Arduino that runs on a timer. 
+
+A later phase would add consideration of Sunrise/Sunset times for a specified Latitude.
+
+The Pi case would need to have some dust filter and a fan powerful enough.
+
 
 
 ### Box #
@@ -75,6 +77,16 @@ This post talks about</a>
 a trap door held by a pin attached to a solenoid.
 A quick pulse releases it.
 A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
+
+Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
+
+http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
+
+https://github.com/Megunolink/GarageDoorOpener
+
+<a target="_blank" href="https://www.wemustbegeeks.com/esp8266-nodemcu-wifi-iot-garage-door-opener-relay-with-cayenne/">
+The video in this blog</a>
+describes tweeks to a garage door opener.
 
 This project is similar to <a target="_blank" href="http://www.instructables.com/id/Paracord-and-Pulley-Hanging-Table/">
 a hanging table</a> held up by pulleys.
