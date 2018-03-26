@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "IoT barn feeder project"
-excerpt: "Rain down food from above (like mana) automatically"
+title: "IoT barn feeder"
+excerpt: "Provide just enough food for animals at just the right time, automatically"
 tags: [Clouds, IoT]
 image:
 # pic silver robot white skin handshake 1900x500
@@ -18,31 +18,44 @@ comments: true
 
 Here is (the beginnings of) a description of how one can feed donkeys in the morning without going out into the barn.
 
-![iot-haybag-v01-804x804-400408](https://user-images.githubusercontent.com/300046/37868902-f44590f8-2f73-11e8-8439-1acbe68c70ab.png)
-
-
-## Why drop stuff from the ceiling? #
+## Why ? #
 
 There are several reasons why someone would want to drop stuff from the ceiling.
 
-Balloons at a celebration.
+* Balloons at a celebration.
 
-Red liquid at a <a target="_blank" href="http://www.imdb.com/title/tt0074285/">
+* Red liquid at a <a target="_blank" href="http://www.imdb.com/title/tt0074285/">
 Carrie" movie</a> remake.
 
-Or hay for animals in a barn, which is my interest here.
+* Hay for animals in a barn is my interest here.
 I have a barn for two donkeys.
 My wife gets up before dawn each morning to feed them,
 or they will <a target="_blank" href="https://www.youtube.com/watch?v=nWS4Eu8E2z4&t=5s">
 bray annoyingly</a>.
 
-We can't leave a lot of food laying around 
-because they eat everything they can reach.
+   Two donkeys get half a "flake" each at 5am and 5pm.
+   A half flake is 4 inches thick x 20 inch square, weighing 4 to 5 pounds.
 
-Thus, I want a box above the animals to hold their hay 
-for release automatically at a set time.
+   We can't leave a lot of food laying around 
+   because they eat everything they can reach.
 
-<a target="_blank" href="https://countrysidenetwork.com/daily/poultry/chicken-coops-housing/automating-a-chicken-coop-door-using-arduino/">This video</a> shows an Arduino controlling the door to chicken coop that, rather than using a simple timer to open and close the chicken coop doors, a computer considers sunrise and sunset times.
+   Thus, I need a way to hold their hay 
+   for release automatically at a set time.
+
+* <a target="_blank" href="https://countrysidenetwork.com/daily/poultry/chicken-coops-housing/automating-a-chicken-coop-door-using-arduino/">This video</a> shows an Arduino controlling the door to chicken coop that, rather than using a simple timer to open and close the chicken coop doors, a computer considers sunrise and sunset times.
+
+
+## Options considered
+
+We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable.
+
+### Bag
+
+The one with the least moving parts is a <strong>bag</strong> that is lowered and raised
+ by an electric hoist. It can lift up to 220 pounds (just in case).
+ But it can be kinda slow.
+
+![iot-haybag-v01-804x804-400408](https://user-images.githubusercontent.com/300046/37868902-f44590f8-2f73-11e8-8439-1acbe68c70ab.png)
 
 http://www.instructables.com/id/Arduino-WiFi-Garage-Door-Opener/
 
@@ -54,6 +67,9 @@ describes tweeks to a garage door opener.
 
 Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
 
+
+### Box #
+
 <a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
 This post talks about</a>
 a trap door held by a pin attached to a solenoid.
@@ -62,9 +78,6 @@ A transistor or MOSFET to drive the release to protect the Arduino from excess c
 
 This project is similar to <a target="_blank" href="http://www.instructables.com/id/Paracord-and-Pulley-Hanging-Table/">
 a hanging table</a> held up by pulleys.
-
-
-## Description #
 
 The parts listed below are used to construct a platform with a box to hold hay (material).
 The box is raised by four ropes (one on each corner).
@@ -75,9 +88,6 @@ There is a door on the front side that opens to let the material slide out.
 So material can slide out of the platform, the front box edge is tilted down
 and up by a separate stepper motor controlled by an Arduino or Pi computer
 that controls the angle depending on the time of day (minutes before/after sun up).
-
-Two donkeys get half a "flake" each at 5am and 5pm.
-A half flake is 4 inches thick x 20 inch square, weighing 4 to 5 pounds.
 
 
 ## Parts and cuts #
