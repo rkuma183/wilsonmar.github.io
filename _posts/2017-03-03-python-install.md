@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Conda Anaconda Miniconda Pip on Mac OSX"
+title: "Python Conda Anaconda Miniconda Pip on Mac OS"
 excerpt: "Confusion and errors from many alternatives and options"
 tags: [python, apple, mac, setup]
 shorturl: "https://goo.gl/wNVxWD"
@@ -234,7 +234,7 @@ This table</a> lists the difference in commands between Conda and pip:
 
 ## Python comes with Mac OSX #
 
-Ever since the Mavericks version of Mac OSX,
+Ever since the <a target="_blank" href="https://wilsonmar.github.io/python-install.md">Mavericks version of Mac OSX</a>,
 Python 2 comes installed on MacOS machines.
 
 (Use the index at the right if you want to jump ahead)
@@ -251,7 +251,7 @@ Python 2 comes installed on MacOS machines.
    Python 2.7.6
    </pre>
 
-   CAUTION: The sub-version that comes installed with MacOS may be obsolete
+   CAUTION: The sub-version of Python that comes installed with MacOS may be obsolete
    and needs to be <a href="#UpgradePython">upgraded</a>.
    But keep to version 2, not version 3 of Python.
 
@@ -290,9 +290,9 @@ Type "help", "copyright", "credits" or "license" for more information.
    >>> 
    </pre>
 
-   \>\>\> is the Python interpreter prompt.
+   \>\>\> &nbsp; is the Python interpreter prompt.
 
-   Don't enter or copy \>\>\> when typeing or copying Python commands.
+   Don't enter or copy \>\>\> when typing or copying Python commands.
    
    ### Current Working Directory
 
@@ -363,6 +363,10 @@ Type "help", "copyright", "credits" or "license" for more information.
    <pre>
 Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...   
    </pre>
+
+   CAUTION: Hitting Ctrl-C, does not shutdown the server gracefully, and the binded address will still be in use.
+
+   TODO: Add port designation in command line.
 
 
 ## Don't Uninstall Python 2.7 #
