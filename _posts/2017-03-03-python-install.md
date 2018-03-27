@@ -2086,10 +2086,15 @@ http://stackoverflow.com/questions/509211/explain-pythons-slice-notation/
 <hr />
 ## Miscellaneous #
 
+PROTIP: For python3 scripts, use the shebang line "#! /usr/bin/env python3".
+
 http://stackoverflow.com/questions/990754/how-to-leave-exit-deactivate-a-python-virtualenv?rq=1
 
 https://gist.github.com/alyssaq/f60393545173379e0f3f
 describes install of https://bootstrap.pypa.io/get-pip.py 
+
+https://docs.python.org/3/library/2to3.html
+2to3 is a Python program that reads Python 2.x source code and applies a series of fixers to transform it into valid Python 3.x code.
 
 
 ## More on OSX

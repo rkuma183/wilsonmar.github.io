@@ -69,3 +69,21 @@ squares = [x * x for x in range(10)]
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
+## Advanced
+
+Dan Bader (aka Benedict Cumberbatch of Dr Strange and Sherlock Holmes) 
+has emails and courses on Python:
+<a target="_blank" href="https://www.youtube.com/watch?v=p-89r5QvQvQ">
+What Python Projects Should I Build to Get a Job?</a>
+Aug 23, 2017
+
+1) tensorflow ( for machine learning) 
+2) crawling (spider based projects) 
+3) database handling (firebase, Mysql etc.)
+
+<a target="_blank" href="https://github.com/austin-taylor/code-vault/blob/master/python_expert_notebook.ipynb">
+The Playbook</a> of code shown on 
+<a target="_blank" href="https://www.youtube.com/watch?v=7lmCu8wz8ro">
+What Does It Take To Be An Expert At Python?</a> [1:52:02] presented by 
+by James Powell at the PyData conference on Aug 2, 2017.
+
