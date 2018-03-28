@@ -108,7 +108,7 @@ Boards, burn-down charts.
    * Apple Macintosh OSX
    * Microsoft Windows 7
    * Microsoft Windows 10
-   * Linux
+   * Tablet?
 
    <a name="MicroserviceMgmt"></a>
 
@@ -120,16 +120,19 @@ Boards, burn-down charts.
    * Marathon
    * Docker Swarm
    * Kubernetes
+   * VMWare vRealize suite (vRA, vRO)
    * etc.
 
    <a name="SingleSignOn"></a>
 
 ### Single-Sign On Authentication / User Management
 
+   * Forgerock (federated)
    * Okta
    * LDAP
    * ASP.Net Identity 
    * PKI/encryption CA server
+   * OAuth0 (SaaS)
    * OAuth1 (PKI certificates)
    * OAuth2 (SHA1)
    * etc.
@@ -177,6 +180,7 @@ Boards, burn-down charts.
    * Rackspace (runs in AWS)
 
    * HP private cloud
+   * Red Hat OpenStack
    * Oracle
    * etc.
 
@@ -232,6 +236,7 @@ Boards, burn-down charts.
 ### Bit and Image Repository
 
    * Artifactory (open source)
+   * Nexus
    * etc.
 
    <a name="CITaskRunner"></a>
@@ -241,6 +246,7 @@ Boards, burn-down charts.
    * Jenkins (licensed Cloudbees SaaS)
    * CircleCI
    * TravisCI
+   * Concourse (from )
    * Fabric
    * CodeShip.com
    * <a target="_blank" href="https://cruisecontrol.sourceforge.net/"> CruiseControl</a>

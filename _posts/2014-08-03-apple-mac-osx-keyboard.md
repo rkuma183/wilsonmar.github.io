@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apple Mac OSX Keyboard"
+title: "Apple Mac OSX Keyboard Shortcuts"
 excerpt: "Shortcuts and utilities"
 tags: [apple, mac, keyboard]
 image:
@@ -653,8 +653,15 @@ Click Restart Now.
 These come from the bash terminal on Linux machines:
 
 <ul>
-<li> control + A = Beginning of the line (as in A to Z)</li>
-<li> control + E = End of the line<br /></li>
+<li> control + A = Go to Beginning of line (as in A to Z)</li>
+<li> control + E = Go to End of line<br /></li>
+
+<li> control + U = Clean line<br /></li>
+<li> control + K = Kill line from under the cursor to the end of the line.</li>
+<li> control + Y = Retrieve line<br /></li>
+
+<li> control + N = Next line </li>
+<li> control + P = Previous line<br /></li>
 
 <li> control + H = Backspace left of cursor</li>
 <li> control + D = Delete right of cursor<br /></li>
@@ -662,13 +669,11 @@ These come from the bash terminal on Linux machines:
 <li> control + F = Forward cursor</li>
 <li> control + B = Backward<br /></li>
 
-<li> control + N = Next line </li>
-<li> control + P = Previous line<br /></li>
+<li> control + R = Record a shortcut between quotes<br /></li>
 
-<li> control + K = Kill line from under the cursor to the end of the line.</li>
 </ul>
 
-
+See https://linuxacademy.com/blog/linux/ten-things-i-wish-i-knew-earlier-about-the-linux-command-line-2/
 
 <a id="WordKeyz"></a>
 
