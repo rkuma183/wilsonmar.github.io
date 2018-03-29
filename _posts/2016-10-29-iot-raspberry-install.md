@@ -19,9 +19,10 @@ This tutorial provides manual instructions and automation scripts to setup and
 run apps under Raspbian on a Raspberry Pi 3 B.
 
 Several operating systems can be installed on a Raspberry Pi:
-* AndroidThings from Google (another page)
+* <a target="_blank" href="https://developer.android.com/things/get-started/index.html">AndroidThings</a> from Google (another page)
 * Windows 10 IoT from Microsoft (another page)
-* Raspbian, a derivative of Debian Linux (described on this page):
+* <a target="_blank" href="https://learn.adafruit.com/welcome-to-circuitpython/what-is-circuitpython">CircuitPython</a> from Adafruit
+* Raspbian, a derivative of Debian Linux (described on this page, below):
 <br /><br />
 
 To install the Raspian operating system on a Raspberry Pi 3 board:
