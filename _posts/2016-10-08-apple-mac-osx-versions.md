@@ -31,7 +31,7 @@ comments: true
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
 </td><td align="right"> -
-</td><td align="left"> H.265 video, Metal 2
+</td><td align="left"> ADFS, H.265 video, Metal 2
 </td></tr>
 <tr valign="top"><td> 10.12
 </td><td align="right"> MacOS<br />Sierra
