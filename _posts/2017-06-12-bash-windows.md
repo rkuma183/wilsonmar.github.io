@@ -137,7 +137,6 @@ As of this writing (June 2017), this was as its first "beta" release.
 
 ## Architecture
 
-
 ![bash-windows-wsl file-system-graphic-1024x547](https://user-images.githubusercontent.com/300046/27129463-644687dc-50d0-11e7-92fc-f9862d9c04cd.png)
 
 Lxcore.sys is the driver that recognizes Bash commands and other Linux utilities such as chmod
@@ -150,6 +149,12 @@ From inside Bash, DrvFS gets to Windows.
 From inside Windows, VolFS gets to Linux symbolic files and its case sensitivity.
 
 NTFS is the NT File System controlling hard drives.
+
+
+## Testing
+
+<a target="_blank" href="https://blog.henrypoon.com/blog/2017/06/18/running-selenium-webdriver-on-bash-for-windows/">
+NOTE</a>: To run Python for Selenium controlling Firefox, install Xming with gekoDriver.
 
 
 ## References
