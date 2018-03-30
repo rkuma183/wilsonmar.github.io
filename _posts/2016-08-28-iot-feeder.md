@@ -47,7 +47,13 @@ bray annoyingly</a>.
 
 ## Options considered
 
-We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable.
+We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable. The less moving parts the better. Movements would occur on a timed schedule:
+
+   * <a href="#BagOfFeed">A feed bag</a> filled and then raised and lowered by a hoist
+   * <a href="#Box">A box that is lowered to the ground by one motor
+   * <a href="#BoxDumper">A box that dumps food</a> on the ground from the ceiling. One motor raises and lowers the box. Another opens the trap door containing food.
+
+<a name="BagOfFeed"></a>
 
 ### Bag of feed
 
@@ -69,14 +75,13 @@ A later phase would add consideration of Sunrise/Sunset times for a specified La
 The Pi case would need to have some dust filter and a fan powerful enough.
 
 
+<a name="BoxLowered"></a>
 
-### Box #
+### Box Lowered #
 
-<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
-This post talks about</a>
-a trap door held by a pin attached to a solenoid.
-A quick pulse releases it.
-A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
+The platform with an open box (feed tray) would be lowered by something like a garage door opener. 
+
+The advantage of this approach is that food is not on the ground, which causes some waste and is less hygienic (if that matters).
 
 Arduino web garage door opener Mar 9, 2014: <a target="_blank" href="https://www.youtube.com/watch?v=2YkLJx9ev64">1 - The Circuit</a>, <a target="_blank" href="https://www.youtube.com/watch?v=SQy-hrKAzJc">3 - Building and Testing the Project</a>.
 
@@ -87,6 +92,17 @@ https://github.com/Megunolink/GarageDoorOpener
 <a target="_blank" href="https://www.wemustbegeeks.com/esp8266-nodemcu-wifi-iot-garage-door-opener-relay-with-cayenne/">
 The video in this blog</a>
 describes tweeks to a garage door opener.
+
+
+<a name="BoxDumper"></a>
+
+### Box Dump #
+
+<a target="_blank" href="http://forum.arduino.cc/index.php?topic=300690.0">
+This post talks about</a>
+a trap door held by a pin attached to a solenoid.
+A quick pulse releases it.
+A transistor or MOSFET to drive the release to protect the Arduino from excess current or spikes.
 
 This project is similar to <a target="_blank" href="http://www.instructables.com/id/Paracord-and-Pulley-Hanging-Table/">
 a hanging table</a> held up by pulleys.
