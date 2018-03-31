@@ -66,6 +66,11 @@ It is lowered and raised by an electric hoist. The 125 Watt motor shown below ca
 ![iot-hoist-276x316-24324](https://user-images.githubusercontent.com/300046/37920018-e606b7fe-30e2-11e8-9cd3-7ca6fc411d80.jpg)
 <!-- https://www.northerntool.com/shop/tools/product_200660033_200660033 -->
 
+<!-- https://www.youtube.com/watch?v=hYtsFdbD1i4 
+https://www.youtube.com/watch?v=vbXlmIjxVPE pulling logs
+https://www.youtube.com/watch?v=usH8fFVrpWY pulls a golf cart onto a flatbed
+-->
+
 ### Actuator 
 
 The project is to add to the manually controlled toggle switch on the yellow box with an actuator controlled by a Pi or Arduino that runs on a timer. 
