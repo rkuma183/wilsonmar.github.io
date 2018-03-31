@@ -42,6 +42,8 @@ to extract text from pictures.
 
 All this to make you more "productive" at playing games. ;)
 
+## Why?
+
 The benefit of repeating some action repeatedly (and not get bored or distracted) extends to:
 
    * Videographers making screencast videos in multiple takes
@@ -60,7 +62,45 @@ finding identifiers in the DOM (Document Object Model) behind each internet brow
 
 
 
+## Social
+
+<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
+Gitter channel at<br/>
+https://gitter.im/RaiMan/SikuliX-2014</a>
+
+<a target="_blank" href="https://answers.launchpad.net/sikuli">
+https://answers.launchpad.net/sikuli</a>
+
+
+## Websites 
+
+<a target="_blank" href="http://sikulix.com">
+http://sikulix.com</a> is the new web page.
+
+Detailed docs are at<br />
+<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics">
+http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics</a
+(with source at https://github.com/RaiMan/SikuliX-2014-Docs)
+
+(Ignore abandoned sites:<br />
+http://sikulix.weebly.com/quickstart.html and <br />
+https://sikulix.wordpress.com)
+
+<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/">
+http://sikulix-2014.readthedocs.io/en/latest/<br />
+has the most detail, which are repeated several places:
+
+Installer bits are obtained from Ubuntu <br />
+<a target="_blank" href="https://launchpad.net/sikuli">
+https://launchpad.net/sikuli</a>
+
+<a target="_blank" href="https://github.com/wilsonmar/sikuli-scripts/">
+https://github.com/wilsonmar/sikuli-scripts</a> 
+
+
 ## Versions
+
+Sikuli was started somewhen in 2009 as an open-source research project at the User Interface Design Group at MIT by Tsung-Hsiang Chang and Tom Yeh.
 
 There are three versions:
 
@@ -93,44 +133,6 @@ There are three versions:
    https://github.com/RaiMan/Sikulix2opencv
 
 
-## Websites 
-
-<a target="_blank" href="http://sikulix.com">
-http://sikulix.com</a> is the new web page.
-
-Detailed docs are at<br />
-<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics">
-http://sikulix-2014.readthedocs.io/en/latest/basicinfo.html#sikulix-system-specifics</a
-(with source at https://github.com/RaiMan/SikuliX-2014-Docs)
-
-(Ignore abandoned sites:<br />
-http://sikulix.weebly.com/quickstart.html and <br />
-https://sikulix.wordpress.com)
-
-<a target="_blank" href="http://sikulix-2014.readthedocs.io/en/latest/">
-http://sikulix-2014.readthedocs.io/en/latest/<br />
-has the most detail, which are repeated several places:
-
-Installer bits are obtained from Ubuntu <br />
-<a target="_blank" href="https://launchpad.net/sikuli">
-https://launchpad.net/sikuli</a>
-
-<a target="_blank" href="https://github.com/wilsonmar/sikuli-scripts/">
-https://github.com/wilsonmar/sikuli-scripts</a> 
-
-Sikuli was started somewhen in 2009 as an open-source research project at the User Interface Design Group at MIT by Tsung-Hsiang Chang and Tom Yeh.
-
-
-## Social
-
-<a target="_blank" href="https://gitter.im/RaiMan/SikuliX-2014">
-Gitter channel at<br/>
-https://gitter.im/RaiMan/SikuliX-2014</a>
-
-<a target="_blank" href="https://answers.launchpad.net/sikuli">
-https://answers.launchpad.net/sikuli</a>
-
-
 
 <a name="SikuliXInstall"></a> 
 
@@ -138,47 +140,45 @@ https://answers.launchpad.net/sikuli</a>
 
 ### Automated installers
 
-<a target="_blank" href="https://github.com/wernight/docker-sikulix">
+A) <a target="_blank" href="https://github.com/wernight/docker-sikulix">
 https://github.com/wernight/docker-sikulix</a>
 
-<a target="_blank" href="https://github.com/dhoer/chef-sikulix">
+B) <a target="_blank" href="https://github.com/dhoer/chef-sikulix">
 https://github.com/dhoer/chef-sikulix</a>
 
-Download and compile it locally<a target="_blank" href="https://github.com/Caesim404/sikulix-git/">*</a>
+C) Download and compile it locally<a target="_blank" href="https://github.com/Caesim404/sikulix-git/">*</a>
 
    exec java -Xmx512M -Dfile.encoding=UTF-8 -Dsikuli.FromCommandLine -jar /usr/share/sikulix/sikulix.jar "$@"
 
-
+D) Manual install (see below)
 
 
 ### Manual install
 
 Pre-requisites:
 
-0. Install JRE
+0. Install JRE 8 or 9
 0. Install the Java language IDE you want to use (Eclipse or IntelliJ)
-0. Optionally, Install Robot Framework (which uses Python)
+0. Install Eclipse or Robot Framework (which uses Python)
 0. <a href="#SikuliXinstall">Download SikuliX</a> 
 
 The installer installs its own version of Python.
 
-Instructions below are based on run on Mac 10.12 (Sierra)
+
+
+<a name="Install-1.1.2"></a>
+
+### Install-1.1.2 Dev build
+
+1. Instructions below are based on run on Mac 10.12 (Sierra)
 referencing http://sikulix.com/quickstart/
 
-
-
-<a name="Install-1.1.1"></a>
-
-### Install-1.1.1 Dev build
-
-0. Create a version-specific installer folder:
-
-   On a Mac:
+1. On a Mac, create a version-specific installer folder on your $HOME folder:
 
    <pre>
    cd ~
-   mkdir sikulix-1.1.1-install
-   cd ~/sikulix-1.1.1-install
+   mkdir sikulix-1.1.2-install
+   cd    sikulix-1.1.2-install
    </pre>
 
 0. Download from <a target="_blank" href="http://nightly.sikuli.de/">http://nightly.sikuli.de</a>
@@ -189,7 +189,7 @@ referencing http://sikulix.com/quickstart/
 
    At the time of writing, the URL is:
 
-   https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetup/1.1.1-SNAPSHOT/sikulixsetup-1.1.1-20170316.001623-90-forsetup.jar
+   https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetup/1.1.2-SNAPSHOT/sikulixsetup-1.1.2-20170316.001623-90-forsetup.jar
 
    By the time you read this, the date in the link will change because the code is actively worked on.
 
@@ -201,10 +201,10 @@ referencing http://sikulix.com/quickstart/
 
 0. Expand the installer (in Downloads):
 
-   <path><strong>java -jar sikulixsetup-1.1.1.jar</strong></pre>
+   <path><strong>java -jar sikulixsetup-1.1.2.jar</strong></pre>
 
    This creates file:<br />
-   SikuliX-1.1.1-SetupLog. (which reflects what goes to the Terminal)
+   SikuliX-1.1.2-SetupLog. (which reflects what goes to the Terminal)
    and an empty <strong>SetupStuff</strong> folder.
 
 
