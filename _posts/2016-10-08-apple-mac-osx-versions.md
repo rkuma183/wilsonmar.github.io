@@ -30,7 +30,7 @@ comments: true
 </td><td align="right"> Oct. 2017
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
-</td><td align="right"> -
+</td><td align="right"> 2.4.2p198
 </td><td align="left"> ADFS, H.265 video, Metal 2
 </td></tr>
 <tr valign="top"><td> 10.12
