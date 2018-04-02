@@ -393,15 +393,16 @@ and de-crypt while pulling from GitHub.
 The hook program can be written to encrypt files with a specific name
 such as "secret".
 
-PROTIP: This is not really a practical approach for very sensitive data
-because, on the long term encryption can be hacked given enough time
-on supercomputers now commonly available on cloud services.
+<a title="github-data-security-git-v02-1028x404-95865.jpg" href="https://user-images.githubusercontent.com/300046/38179388-ec6d44a8-35df-11e8-958a-c7e47595a922.jpg">
+<img alt="github-data-security-git-v02-640x252-49096.jpg" src="https://user-images.githubusercontent.com/300046/38179382-e4aae932-35df-11e8-88a0-d369421835b6.jpg"></a>
 
-<a target="_blank" title="git-github-data-security-git-v01-1028x411.png" href="https://user-images.githubusercontent.com/300046/38179006-094e65f2-35db-11e8-883f-5e046ba82ecf.png">
-<img alt="github-data-security-git-v01-640x256-44362.jpg" src="https://user-images.githubusercontent.com/300046/38178981-9a23430a-35da-11e8-9554-d85d527cf5e9.jpg"></a>
 
 TODO: Add commentary to the diagram above making use of git custom commands from 
 https://github.com/sobolevn/git-secret
+
+PROTIP: This is not really a practical approach for very sensitive data
+because, on the long term encryption can be hacked given enough time
+on supercomputers now commonly available on cloud services.
 
 
 ## Resources #
