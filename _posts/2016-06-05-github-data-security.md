@@ -383,26 +383,32 @@ environment variables.
 
 ## Automatic Encryption
 
+<a target="_blank" href="github-data-security-git-v03-994x482-113971.jpg" href="https://user-images.githubusercontent.com/300046/38209662-4fb07458-3672-11e8-84a5-094796f3e17c.jpg">
+<img alt="github-data-security-git-v03-648x315-61552.jpg" src="https://user-images.githubusercontent.com/300046/38209644-43093f3c-3672-11e8-8512-32ee3184c4ec.jpg"></a>
+
+After initializing a git repository locally, an automation script running on the desktop may often need to do work without the owner repetitively type in secrets such as passwords.
+But to define credentials stored in a secrets file, we need that file to be in <strong>clear text</strong>.
+When git add, commit, and push is issued, files specified in <strong>.gitignore</strong> are blocked from being uploaded to GitHub or other online repository.
+The problem with this approach is that if the local secrets file is ever deleted,
+there would be no history of it.
+
+What we want is an <strong>encrypted</strong> secrets file brought in from one resting encrypted within the GitHub cloud. This is done by a utility in GitHub 
+
+   * <a target="_blank" href="https://github.com/sobolevn/git-secret">
+   https://github.com/sobolevn/git-secret</a>
+   <br /><br />
+
+which provides for initalization of a .gitsecrets folder to hold <strong>public keys</strong> locally. Its tell program emails keys it creates.
+
+When files are placed on the local workspace using a git checkout, a <strong>git hook</strong> is automatically fired to decrypt that file into the clear text file which can be edited and recognized by scripts running.
+
+On <strong>git commit</strong>, another hook encrypts the file again before getting pushed into GitHub again. For security, the clear text file can be deleted locally after editing if shell scripts are able to decrypt files based on keys stored locally.
+
 <a target="_blank" href="https://gist.github.com/shadowhand/873637">
-This blog</a> explains how to 
-keep text at rest in GitHub is encrypted.
-It uses Git hooks to 
-automatically encrypt files before pushing to GitHub 
-and de-crypt while pulling from GitHub.
+This blog</a> explains in detail how this works.
 
-The hook program can be written to encrypt files with a specific name
-such as "secret".
-
-<a title="github-data-security-git-v02-1028x404-95865.jpg" href="https://user-images.githubusercontent.com/300046/38179388-ec6d44a8-35df-11e8-958a-c7e47595a922.jpg">
-<img alt="github-data-security-git-v02-640x252-49096.jpg" src="https://user-images.githubusercontent.com/300046/38179382-e4aae932-35df-11e8-88a0-d369421835b6.jpg"></a>
-
-
-TODO: Add commentary to the diagram above making use of git custom commands from 
-https://github.com/sobolevn/git-secret
-
-PROTIP: This is not really a practical approach for very sensitive data
-because, on the long term encryption can be hacked given enough time
-on supercomputers now commonly available on cloud services.
+PROTIP: This is not a totally secure approach for extremely sensitive production data
+because, any encryption can be hacked given enough time using on supercomputers now commonly available to hackers.
 
 
 ## Resources #
