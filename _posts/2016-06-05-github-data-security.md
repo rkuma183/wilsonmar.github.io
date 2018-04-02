@@ -383,8 +383,9 @@ environment variables.
 
 ## Automatic Encryption
 
-<a target="_blank" href="github-data-security-git-v03-994x482-113971.jpg" href="https://user-images.githubusercontent.com/300046/38209662-4fb07458-3672-11e8-84a5-094796f3e17c.jpg">
-<img alt="github-data-security-git-v03-648x315-61552.jpg" src="https://user-images.githubusercontent.com/300046/38209644-43093f3c-3672-11e8-8512-32ee3184c4ec.jpg"></a>
+<a target="_blank
+ href="github-data-security-git-v04-1010x479-113713.jpg" href="https://user-images.githubusercontent.com/300046/38212884-a4e2121a-367c-11e8-8f2d-5fdb81824943.jpg">
+<img alt="github-data-security-git-v04-640x304-60868.jpg" src="https://user-images.githubusercontent.com/300046/38212936-d1cdd5ac-367c-11e8-97c2-9f047febbbfe.jpg"></a>
 
 After initializing a git repository locally, an automation script running on the desktop may often need to do work without the owner repetitively type in secrets such as passwords.
 But to define credentials stored in a secrets file, we need that file to be in <strong>clear text</strong>.
