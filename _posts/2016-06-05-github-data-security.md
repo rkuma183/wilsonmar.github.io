@@ -398,11 +398,13 @@ What we want is an <strong>encrypted</strong> secrets file brought in from one r
    https://github.com/sobolevn/git-secret</a>
    <br /><br />
 
-which provides for initalization of a .gitsecrets folder to hold <strong>public keys</strong> locally. Its tell program emails keys it creates.
+which provides for initalization of a .gitsecrets folder to hold <strong>public keys</strong> locally. Its tell program emails the private keys it creates so it's off the machine.
 
-When files are placed on the local workspace using a git checkout, a <strong>git hook</strong> is automatically fired to decrypt that file into the clear text file which can be edited and recognized by scripts running.
+Encrypted files do not need to be automatically decrypted into clear text file until secrets need to be <strong>edited</strong> to change the behavior desired in shell scripts when they are run.
 
-On <strong>git commit</strong>, another hook encrypts the file again before getting pushed into GitHub again. For security, the clear text file can be deleted locally after editing if shell scripts are able to decrypt files based on keys stored locally.
+The secreate file can be encrypted automatically on <strong>git commit</strong> when another git hook recognizes the need for encryption so the file can be safely pushed into GitHub again. 
+
+If the script has code to decrypt the secret files itself based on the public key generated, the clear text file can be <strong>removed</strong> locally after editing and not referenced.
 
 <a target="_blank" href="https://gist.github.com/shadowhand/873637">
 This blog</a> explains in detail how this works.
