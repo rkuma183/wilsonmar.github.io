@@ -397,6 +397,12 @@ PROTIP: This is not really a practical approach for very sensitive data
 because, on the long term encryption can be hacked given enough time
 on supercomputers now commonly available on cloud services.
 
+<a target="_blank" title="git-github-data-security-git-v01-1028x411.png" href="https://user-images.githubusercontent.com/300046/38179006-094e65f2-35db-11e8-883f-5e046ba82ecf.png">
+<img alt="github-data-security-git-v01-640x256-44362.jpg" src="https://user-images.githubusercontent.com/300046/38178981-9a23430a-35da-11e8-9554-d85d527cf5e9.jpg"></a>
+
+TODO: Add commentary to the diagram above making use of git custom commands from 
+https://github.com/sobolevn/git-secret
+
 
 ## Resources #
 
