@@ -383,7 +383,7 @@ environment variables.
 
 ## Automatic Encryption
 
-<a target="_blank
+<a target="_blank" 
  href="github-data-security-git-v04-1010x479-113713.jpg" href="https://user-images.githubusercontent.com/300046/38212884-a4e2121a-367c-11e8-8f2d-5fdb81824943.jpg">
 <img alt="github-data-security-git-v04-640x304-60868.jpg" src="https://user-images.githubusercontent.com/300046/38212936-d1cdd5ac-367c-11e8-97c2-9f047febbbfe.jpg"></a>
 
