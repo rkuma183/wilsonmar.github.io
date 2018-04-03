@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-Here is a hands-on tutorial on how to install and use Hashicorp Vault to securely access secret keys and Consul to store key/value pairs. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
+Here is a hands-on tutorial on how to install and use Hashicorp <strong>Vault</strong> to securely access secret keys and Hashicorp <strong>Consul</strong> to store key/value pairs. Installation is from scrath on a cloud environment using Docker. Use of Jenkins is also covered.
 
 This course assumes participants bring a Mac of Windows laptop and have prior experience with Linux CLI commands.
 
@@ -24,8 +24,8 @@ At the end of this tutorial, you should be able to:
 
 * <a href="#InstallServer">Install Vault and Consul on a server using Docker</a>
 * <a href="#Config">Initialize and Configure Vault</a>
-* <a href="#SecretsCLI">Store and access secrets in vault from a CLI</a>
-* <a href="#AppProgramming">Store and access secrets in vault within a program</a>
+* <a href="#SecretsCLI">Store and access secrets in Vault from a CLI</a>
+* <a href="#AppProgramming">Store and access secrets in Vault within a program</a>
 * Jenkins
 
 ## What is it?
@@ -37,12 +37,18 @@ Among devops tools from HashiCorp is <br />
 https://vaultproject.io</a>, 
 an open source tool that can be deployed to any environment, and does not require any special hardware. 
 
+<a target="_blank" href="https://www.youtube.com/watch?v=VYfl-DpZ5wM">
+Introduction to HashiCorp Vault</a> Mar 23, 2018
+by Armon Dadgar, Hashicorp's CTO,
+is a whiteboard talk about avoiding "secret sprawl" living in clear text with
+empheral (temporary) passwords and cryptographic offload to a central service.
+
 
 ## Alternatives
 
 Alternatives to secret management include:
 
-* variable definitions in a clear-text file loaded into <strong>operating system variables</strong>.
+* variables in a clear-text file loaded into <strong>operating system variables</strong>.
 * physical HSMs (Hardware Security Modules)
 * cloud-base KMS (Key Management Service) such as from Amazon
 

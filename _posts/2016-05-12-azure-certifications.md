@@ -16,6 +16,8 @@ comments: true
 {% include _toc.html %}
 
 
+Exams as conducted by Pearson VUE testing centers.
+
 <a name="AzureCert"></a>
 
 ## Azure Certification #
@@ -35,8 +37,14 @@ comments: true
 * <a target="_blank" href="https://www.opsgility.com/">
    Opsgility.com</a> provides hands-on, deep-dive training
 
+* https://borntolearn.mslearn.net/goodstuff/p/microsoftspecialist
 
 ### Exam 70-532 - Developing Microsoft Azure Solutions
+
+* Create and Manage Azure Resource Manager Virtual Machines (20-25%)
+* Design and Implement a Storage and Data Strategy (25-30%)
+* Manage Identity, Application, and Network Services (10-15%)
+* Design and Implement Azure Compute, Web, and Mobile Services (35-40%)
 
 *    Compare the services available in the Azure platform
 *    Configure and deploy ASP.NET web applications
@@ -58,6 +66,7 @@ Design and Implement Web Apps for Azure Solutions (70-532)
 5h 31m video from Pluralsight</a> Aug 30, 2016
 by Tim Warner 
 
+https://examregistration.microsoft.com/?action=1&locale=en-us&examcode=532&examname=Developing%20Microsoft%20Azure%20Solutions
 
 ### Exam 70-533 - Implementing Microsoft Azure Infrastructure Solutions
 
@@ -104,6 +113,22 @@ by Razi bin Rais Intermediate Jul 09,  2015 2h 52m (111)
    by Orin ThomasIntermediateNov 22, 20153h 52m
 
 * Up to 5 VIPs per service.
+
+### Exam 70-535 - Architecting Microsoft Azure Solutions
+
+ARM templates.
+
+### Exam 70-538 - Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack
+
+Coming soon (in beta). $165
+
+https://www.microsoft.com/en-us/learning/exam-70-537.aspx
+
+
+* Deploying and Integrating an Azure Stack Environment (20-25%)
+* Configuring PaaS and IaaS for an Azure Stack Environment (25-30%)
+* Providing Services to and Enabling DevOps for Azure Stack Tenants (25-30%)
+* Maintaining and Monitoring an Azure Stack Environment (20-25%)
 
 
 ## Linux Azure

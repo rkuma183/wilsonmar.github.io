@@ -44,9 +44,9 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
    PROTIP: Some put tiny drops from a glue gun on strategic points on the keyboard so they can orient their finger in the dark.
 
 
-## Switch Escape
+## Caps Lock to Escape
 
-   BLAH: The Esc (Escape) key is too far North on the keyboard and forces some to look down on the keyboard. And the Caps Lock key is too close to keys, causing problems with password entry and lockouts.
+   BLAH: The Esc (Escape) key is too far North on the keyboard and forces some to look down on the keyboard. And the Caps Lock key is too close to keys, causing problems with accidental password entry and lockouts.
 
    PROTIP: Make the <strong>caps lock</strong> the Esc key:
 
@@ -56,7 +56,6 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 4. Click the entry for "Caps Lock Key:" and select "Escape".
 5. Click OK.
   
-   TODO: Is there a command line to switch Esc and caps lock?
 
 ## Switch command and control
 
@@ -67,7 +66,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
    This can be done using a <a target="_blank" href="https://apple.stackexchange.com/questions/283252/how-do-i-remap-a-key-in-macos-sierra-e-g-right-alt-to-right-control">
    Python script</a> or by downloading the free 
    <a target="_blank" href="https://pqrs.org/osx/karabiner/">Karabiner</a>
-   which works on OSX Sierra after <a target="_blank" href="https://developer.apple.com/library/content/technotes/tn2450/_index.html">Apple remapped keys</a>. 
+   which works on OSX Sierra since <a target="_blank" href="https://developer.apple.com/library/content/technotes/tn2450/_index.html">Apple remapped key commands</a>. 
    It's free but note the package has <a target="_blank" href="https://github.com/tekezo/Karabiner-Elements/issues">
    many lingering issues</a>.
 
@@ -264,11 +263,6 @@ Needing to change habits learned typing is difficult and takes time.
 It's literally taking physical therapy.
 This is perhaps the most frustrating aspect of changing from Windows to a Mac.
 
-Key ideas:
-
-* Holding down the <strong>control</strong> key during mouse clicks is the Mac's 
-  <strong>right-click</strong>.	
-
 Here are the most problematic among
 <a target="_blank" href="https://support.microsoft.com/en-us/kb/970299/">
 Keyboard mappings using a PC keyboard on a Macintosh</a>
@@ -277,6 +271,7 @@ on Microsoft's website:
 <table border="1" cellpadding="4" cellspacing="0">
 <tr align="left"><th> Microsoft Windows </th><th> Apple Macintosh </th><th> issue </th></tr>
 <tbody>
+<tr><td> Right-click (Alt) </td><td> Holding down <strong>control</strong> during mouse click </td><td> -</td></tr>
 <tr><td> Ctrl + <em>mouse click multiple items</em> </td><td> control + option + <em>mouse click</em></td><td> Two keys on Mac</td></tr>
 <tr><td> Delete (right of cursor) </td><td><a href="#DeleteBackspace">fn + delete</a><br />control + D</td><td rowspan="2"><a href="#DeleteBackspace">swapped</a></td></tr>
 <tr><td> Backspace (left of cursor) </td><td><a href="#DeleteBackspace">delete</a><br />control + H</td></tr>
