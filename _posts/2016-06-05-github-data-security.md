@@ -387,31 +387,40 @@ environment variables.
  href="github-data-security-git-v04-1010x479-113713.jpg" href="https://user-images.githubusercontent.com/300046/38212884-a4e2121a-367c-11e8-8f2d-5fdb81824943.jpg">
 <img alt="github-data-security-git-v04-640x304-60868.jpg" src="https://user-images.githubusercontent.com/300046/38212936-d1cdd5ac-367c-11e8-97c2-9f047febbbfe.jpg"></a>
 
-After initializing a git repository locally, an automation script running on the desktop may often need to do work without the owner repetitively type in secrets such as passwords.
-But to define credentials stored in a secrets file, we need that file to be in <strong>clear text</strong>.
-When git add, commit, and push is issued, files specified in <strong>.gitignore</strong> are blocked from being uploaded to GitHub or other online repository.
-The problem with this approach is that if the local secrets file is ever deleted,
-there would be no history of it.
+Automation scripts running on the desktop often need to provide passwords to various web services. It's inconvenient to type the credentials in every time the script runs, especially when it's run overnight on a schedule. Some make the credentials available in a secrets file on their laptop, with contents in <strong>clear text</strong> so they can be changed. 
 
-What we want is an <strong>encrypted</strong> secrets file brought in from one resting encrypted within the GitHub cloud. This is done by a utility in GitHub 
+When git add, commit, and push commands are issued to a folder initialized for git, files specified in <strong>.gitignore</strong> are blocked from being uploaded to GitHub or other online repository. 
+
+The problem with this approach is that if the local secrets file is ever deleted, or the whole laptop is destroyed or stolen, the secrets are gone too.
+
+What we want to consider here is an <strong>encrypted</strong> secrets file resting, encrypted, within the GitHub cloud and brought down locally by a git fetch or pull. This means that changes would be versioned. But what the changes are would not be evident due to the encrytion.
+
+Mechanisms for encryption and decryption is provided by a utility GitHub repository installed on Mac laptops using Homebrew from:
 
    * <a target="_blank" href="https://github.com/sobolevn/git-secret">
    https://github.com/sobolevn/git-secret</a>
    <br /><br />
 
-which provides for initalization of a .gitsecrets folder to hold <strong>public keys</strong> locally. Its tell program emails the private keys it creates so it's off the machine.
+The repository from sobolevn in Moscow, Russia, who specializes in Elixir. His library provides for initalization of a .gitsecrets folder to hold <strong>public keys</strong> created using the GPG utility. Its "tell" program emails the private keys it creates so it's off the machine.
 
 Encrypted files do not need to be automatically decrypted into clear text file until secrets need to be <strong>edited</strong> to change the behavior desired in shell scripts when they are run.
 
-The secreate file can be encrypted automatically on <strong>git commit</strong> when another git hook recognizes the need for encryption so the file can be safely pushed into GitHub again. 
+The secreate file can be encrypted automatically on <strong>git commit</strong> when a git hook program recognizes the need for encryption so the file can be safely pushed into GitHub again. 
 
-If the script has code to decrypt the secret files itself based on the public key generated, the clear text file can be <strong>removed</strong> locally after editing and not referenced.
+If the script has code to decrypt the secret files itself based on the public key generated, the clear text file can be <strong>removed</strong> locally after editing. There is then no need for the clear text file to be referenced.
 
-<a target="_blank" href="https://gist.github.com/shadowhand/873637">
-This blog</a> explains in detail how this works.
+When someone is out - just delete their public key, re-encrypt the files, and they won’t be able to decrypt secrets anymore.
 
 PROTIP: This is not a totally secure approach for extremely sensitive production data
 because, any encryption can be hacked given enough time using on supercomputers now commonly available to hackers.
+
+<hr />
+
+<a target="_blank" href="https://gist.github.com/shadowhand/873637">
+This blog</a> provides an alternative using the openssl utility.
+
+Hashicorp Consul
+
 
 
 ## Resources #
