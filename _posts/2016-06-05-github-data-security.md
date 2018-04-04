@@ -424,7 +424,7 @@ Hashicorp Consul
 ## LFS
 
 <a target="_blank" href="https://github.com/git-lfs/git-lfs/issues/1720">
-NOTE</a>: The Git smudge filter is what converts the LFS pointer stored in Git with the actual large file from the LFS server.
+NOTE</a>: The Git smudge filter is what converts the LFS pointer stored in Git with the actual large file from the LFS server. If your local repository does not have the LFS object, the smudge filter will have to download it. Network issues can affect downloading and thus smudge filter operation.
 
 
 ## Resources #

@@ -7,7 +7,7 @@ shorturl: "https://goo.gl/SYQ4rY"
 image:
   feature: https://cloud.githubusercontent.com/assets/300046/14583248/4b20c578-03d9-11e6-8f7a-c860b666bc73.jpg
   credit: Wall Street Journal
-  creditlink: http://graphics.wsj.com/job-market-tracker/
+  creditlink: https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,7 +16,19 @@ comments: true
 {% include _toc.html %}
 
 Here are my notes on how to create a multi-variate Linear Regression formula
-using Microsoft Excel and <a href="#Python">Python programs</a>.
+using Microsoft Excel and <a href="#PythonRegression">Python programs</a>.
+
+## Vocabulary
+
+"Loss" is how far off actual values are from the estimation function (model).
+
+To define the total loss for a function, we want to examine the length of loss regardless of whether it's over or under. Thus, we calculate the square of each sample loss
+so negative values are treated as positive.
+
+<strong>Mean square error (MSE)</strong> is the average squared loss per example, calculated by summing up all the squared losses for individual examples, then dividing by the number of examples.
+
+Although MSE is commonly-used, it is neither the only practical loss function nor the best loss function for all circumstances.
+
 
 ## Obtain Sample Data
 
@@ -148,6 +160,10 @@ The nice thing about datacamp's videos is that one can highlight and copy text f
 ggplot(data = mpg_manuals, aes(x = factor(year), y = hwy)) + 
   geom_boxplot()
    </pre>
+
+<a name="PythonRegression"></a>
+
+## Python Regression
 
 
 ## Resources

@@ -15,6 +15,10 @@ comments: true
 
 {% include _toc.html %}
 
+This article provides an overview of use Microsoft's Machine / Deep Learning capabilities
+running on the Azure cloud.
+
+
 ## History
 
 VIDEO:
@@ -27,10 +31,51 @@ to guess how old someone is. At conferences they built a booth that takes a pict
 
 In 2015, Microsoft unleashed the Tay chat bot.
 
+## Get an account #
+
+All their plans offer:
+
+   * Stock sample datasets
+   * R and Python script support
+   * Full range of ML alogorithms
+   * Predictive web services
+
+There are two ways to pay:
+
+* A free Machine Learning Account is just for learning. 
+
+   But you can't access SQL with this account.
+
+* Adding Machine Learning capabilities in your full account, for production use.
+
+   But charges apply.
+
+
+<a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
+https://azure.microsoft.com/en-us/services/machine-learning</a>
+offers free plans
+
+   * Guest Workspace for 8 hours on https://studio.azureml.net/Home/ViewWorkspaceCached/...
+
+   * Registered free workspaces with 10 GB storage
+   can scale resources to increase experiment execution performance.
+
+
+## Azure ML Studio
+
+The on-line IDE enables drap and drop ease of use.
+
+It supports R and Python.
+
+
 
 ## Algorithms from Azure
 
-Below are various initiatives by MS (Microsoft) and other organizations:
+From the <a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx">
+A-Z List of Machine Learning Studio Modules</a>
+from Microsoft Azure
+lists basic database and UI features such as forms,
+which means it's building standard computing functions on top of AI capabilities.
 
 <a name="x"></a>
 <a name="y"></a>
@@ -189,36 +234,20 @@ Below are various initiatives by MS (Microsoft) and other organizations:
   </td></tr>
 </tbody></table> 
 
-<a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx">
-A-Z List of Machine Learning Studio Modules</a>
-from Microsoft Azure
-lists basic database and UI features such as forms,
-which means it's building standard computing functions on top of AI capabilities.
-
+VIDEO:
 <a target="_blank" href="https://www.youtube.com/watch?v=02R-lZYccEY">
 Machine Learning Algorthms - Part 1</a>
 
+## Azure
+
 http://aka.ms/enterprisecloudebook
 
+<a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture">
+   Microsoft Azure: The Big Picture</a> 1h 50m Mar 10, 2016
+   by Matt Milner
+   makes use of VS 2010, which is rather obsolete now.
 
 ## Microsoft Azure Machine Learning #
-
-<a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
-https://azure.microsoft.com/en-us/services/machine-learning</a>
-offers free plans
-
-   * Guest Workspace for 8 hours on https://studio.azureml.net/Home/ViewWorkspaceCached/...
-
-   * Registered free workspaces with 10 GB storage
-   can scale resources to increase experiment execution performance.
-
-All their plans offer:
-
-   * Stock sample datasets
-   * R and Python script support
-   * Full range of ML alogorithms
-   * Predictive web services
-
 
 Follow 
 <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/">

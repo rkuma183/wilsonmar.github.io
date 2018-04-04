@@ -128,23 +128,31 @@ is a 10-way "softmax" layer returning an array of 10 probability scores (all sum
 Each of the 10 contains the probability that the digit image belongs to one of 
 10 digit <strong>classes</strong>.
 
+"Supervised" Machine Learning systems learn how to combine input to produce useful predictions on never-before-seen data.
+
 Machine learning uses some terms that have alternate meanings for words also used by traditional programmers and statisticians:
-
-* Data points are called "samples". 
-
-* A "category" of a classification problem is called a <strong>class</strong>.
-   For example, when classifying pictures, "puppy" and "muffin" are two of the classes.
-   Each class describes a set of possible labels to choose from.
-
-* A <strong>"label"</strong> is a specific instance of a class.
-   A label can be an answer for a prediction task ­--
-­   either the answer produced by a machine learning
-   system, or the right answer supplied in training data. 
 
 * (In statistics, a "target" is called a dependent variable.)
    In machine learning, a target is also called a label,
    what a model should ideally have predicted, 
    according to an external source of data.
+
+* A <strong>"label"</strong> is a specific instance of a class.
+   A label can be an answer (target) for a prediction task ­--
+­   either the <strong>answer</strong> produced by a machine learning
+   system, or the right answer supplied in training data. 
+   It's represented as "y" in mathematical notation.
+
+* Data points are called "samples" or "examples", represented as "x" in mathematical notation.
+
+* Unlabeled examples are used for making predictions on new data.
+
+* A "category" of a classification problem is called a <strong>class</strong>.
+   For example, when classifying pictures, "puppy" and "muffin" are two of the classes.
+   Each class describes a set of possible labels to choose from.
+
+* A <strong>model</strong> maps examples to predicted labels.
+   It's defined by internal parameters, which are learned.
 
 * The <strong>prediction error</strong>, also called <strong>loss value</strong>,
   the measure of the distance between a model’s prediction and the target.
@@ -158,7 +166,9 @@ Machine learning uses some terms that have alternate meanings for words also use
 * A <strong>feature</strong> is a property of an instance used in a prediction task. 
    For example, a web page might
    have a feature "contains the word 'cat'".
+
    A feature in machine learning is called a "variable" in statistics.
+   A feature is an input variable—the x variable in simple linear regression. 
    (Feature creation in machine learning is called a "transformation" in statistics.)
 
 * A <strong>feature Column</strong> is a set of related features, 
@@ -411,6 +421,24 @@ GPUs (Graphic Processing Units) begins to replace clusters of less efficient CPU
 In 2017, basic Python scripting skills suffice to do advanced deep learning research. 
 
 
+
+### Java in DL4j
+
+Although Python is vastly more popular, there is a Java library
+that can run on both Scala and Clojure.
+
+Adam Gibson at 
+SkyMind
+developed 
+Deeplearning4j (referred to as DL4j)
+to be commercial-grade library to run on a distributed, multi-node setup. 
+It comes with GPU support for distributed training. 
+
+The DL4j team built a vectorization library called Canova.
+
+In it one can select values for its hyper parameters. 
+
+DL4j supports most of the deep nets – RBM, DBN, Convolutional net, Recurrent net, RNTN, autoencoders, and vanilla MLP. 
 
 ### Deep Learning Frameworks
 
