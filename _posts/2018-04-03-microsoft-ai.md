@@ -262,12 +262,14 @@ Then iterate on a simple predictive analytics experiment after
    - Quantize Data
    - SQLite Transformation
    - Synthetic Minority Oversampling Technique
-
+   <br /><br />
+   
 0. Train the model
 
    * Cross Validation
    * Retraining
    * Parameter Sweep
+   <br /><br />
 
 0. Score and test the model
 
@@ -275,6 +277,7 @@ Then iterate on a simple predictive analytics experiment after
 
    - Request-Response Service (RRS) Predictive Experiment - Batch Execution Service (BES)
    - Retraining API
+   <br /><br />
 
 https://azure.microsoft.com/en-us/documentation/articles/machine-learning-studio-overview-diagram/
 
