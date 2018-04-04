@@ -90,18 +90,14 @@ The AWS Serverless Application Model (SAM) at
 <a target="_blank" href="https://github.com/awslabs/serverless-application-model">
 https://github.com/awslabs/serverless-application-model</a>
 was announced Nov 2016
-to build Cloud Formation templates accessing Amazon Lambda 
-with API Gateway, Lambda, DynamoDB, etc.
-
-Lambda has been getting a lot of press.
-
-AWS API Gateway
+to define the SAM format
+to build <strong>Cloud Formation templates</strong> to access Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by serverless applications. 
 
 Two AWS evangelists created <a target="_blank" href="https://github.com/aws-samples/aws-developer-workshop/blob/master/INSTRUCTIONS.md">pre-built templates</a> 
-they walked though in <a target="_blank" href="https://www.twitch.tv/events/PgC70I4pQoy14TP-RNS6Dw">30 minutes on Twitch.tv</a>:
+with manual instructions, which they walked though in <a target="_blank" href="https://www.twitch.tv/events/PgC70I4pQoy14TP-RNS6Dw">30 minutes on Twitch.tv</a>:
 
 1. [Get an AWS IAM User](/aws-iam/) with AWSCodeStarFullAccess.
-2. Login the AWS Console in region N. Virginia.
+2. Login the AWS Console to select region N. Virginia.
 3. In <strong>AWS CodeStar</strong>. Start a project. Node.js. create role.
 4. Choose a project template: 
    * Under Application Category select <strong>Web Application</strong>.
