@@ -28,13 +28,14 @@ attendees of #ServelessConf type in:<br />
 ## Serverless = FaaS
 
 "Serverless" refer to an architectural style called
-<strong>FaaS</strong> (Function as a service) where programming 
-function code are independently deployed and run on a cloud system.
-The developer simply uploads the code, 
+<strong>FaaS</strong> (Function as a Service) where programming 
+code are independently deployed and run on a cloud system rather than on-premises servers.
+The developer simply uploads the source code, 
 then leave it to pros at the cloud provider to take care of 
 security, monitoring, disk space management, log management, 
 scaling, redundancy, backup, crash reporting, etc..
-Zero system administration.
+
+Zero system administration by the developer.
 
 It's a fast route to get apps in production.
 
@@ -50,6 +51,19 @@ wrote
    "Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
 
 
+#### Database idle costs #
+
+   "You never pay for idle" Austen says 
+   in an interview with by CloudAcademy <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
+   Introduction to the Serverless Paradigm</a> [23:50]
+
+   PROTIP: But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
+   While Lambda does not incur charges while idle,
+   a DynamoDB incurs charges for data stored even though no data is read or written to it.
+
+   PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
+
+
 ## FaaS Providers
 
 There is plenty of competition to keep prices low.
@@ -60,33 +74,42 @@ Artificial Intelligence features such as image recognition,
 text sentiment analysis, natural language process (NLP), 
 and Machine Learning.
 
+* <a href="#AWS">AWS (Amazon Web Services)</a>
+* <a href="#Azure">Microsoft Azure</a>
+* <a href="#Google">Google Functions</a>
+* <a href="#IBM">IBM Bluemix OpenWhisk</a>
+* <a href="#IronIO">Iron.io for on-premises</a>
+
+<hr />
+
+<a name="AWS"></a>
 
 ### AWS Lambda
+
+The AWS Serverless Application Model (SAM) at
+<a target="_blank" href="https://github.com/awslabs/serverless-application-model">
+https://github.com/awslabs/serverless-application-model</a>
+was announced Nov 2016
+to build Cloud Formation templates accessing Amazon Lambda 
+with API Gateway, Lambda, DynamoDB, etc.
 
 Lambda has been getting a lot of press.
 
 AWS API Gateway
 
-The AWS Serverless Application Model (SAM) at
-<a target="_blank" href="https://github.com/awslabs/serverless-application-model">
-https://github.com/awslabs/serverless-application-model</a>
-(version 2016-10-31) was announced Nov 2016
-to build Cloud Formation templates accessing Amazon Lambda 
-with API Gateway, Lambda, DynamoDB, etc.
+Two AWS evangelists created <a target="_blank" href="https://github.com/aws-samples/aws-developer-workshop/blob/master/INSTRUCTIONS.md">pre-built templates</a> 
+they walked though in <a target="_blank" href="https://www.twitch.tv/events/PgC70I4pQoy14TP-RNS6Dw">30 minutes on Twitch.tv</a>:
 
-#### Database #
-
-   "You never pay for idle" Austen says 
-   in an interview with by CloudAcademy <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
-   Introduction to the Serverless Paradigm</a> [23:50]
-
-   But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
-   While Lambda does not incur charges while idle,
-   a DynamoDB incurs charges for data stored even though no data is read or written to it.
-
-   PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
+1. [Get an AWS IAM User](/aws-iam/) with AWSCodeStarFullAccess.
+2. Login the AWS Console in region N. Virginia.
+3. In <strong>AWS CodeStar</strong>. Start a project. Node.js. create role.
+4. Choose a project template: 
+   * Under Application Category select <strong>Web Application</strong>.
+   * Under Programming Languages select <strong>Node.js</strong>.
+   * Pick "Node.JS Web Application AWS Lambda (running serverless)".
 
 
+<a name="Azure"></a>
 
 ### Azure Functions
 
@@ -118,6 +141,8 @@ https://azure.microsoft.com/services/functions</a>
 0. Add a Parameter.
 
 
+<a name="IBM"></a>
+
 ### IBM Bluemix OpenWhisk
 
 <a target="_blank" href="https://developer.ibm.com/openwhisk/">
@@ -129,6 +154,7 @@ and then use command-line with OpenWhisk (which is open sourced).
 
 ![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
 
+<a name="Google"></a>
 
 ### Google Cloud Functions #
 
@@ -139,6 +165,8 @@ https://cloud.google.com/functions</a>
 
 Google Firebase
 
+
+<a name="IronIO"></a>
 
 ### Iron.io and other on-premises
 
@@ -160,11 +188,12 @@ Eric Jonas</a>
 does hyperperameter sweeps, Monte Carlo simulations.
 Spark requires dedicated servers and is not very elastic.
 map of map reduce.
-Simultaneous
-"Big Lambda"
-<a target="_blank" href="https://tothestars.io/blog/2016/11/12/serverless-mapreduce">
-talk</a>
 
+<a target="_blank" href="https://tothestars.io/blog/2016/11/12/serverless-mapreduce">
+His Simultaneous "Big Lambda" talk</a>
+
+
+<a name="Concerns"></a>
 
 ## Concerns
 
@@ -182,7 +211,7 @@ There is the danger vendor lock-in.
 But luckily, there is a way to alieviate that:
 
 
-## Frameworks
+## Serverless Coding Frameworks
 
 Apex is from Terraform, a more feature-rich server product.
 
@@ -197,6 +226,8 @@ Sparta for AWS Lambda, as a Golang app, is baked into deliverable binary
 Gordon is written in Python
 
 Zappa is written in Python for Flask apps
+
+Serverless
 
 
 ### Serverless the company
@@ -357,7 +388,7 @@ variables ...... list, set, unset
 0. Verify:
 
    <pre><strong>
-   which serverless
+   command -v serverless
    </strong></pre>
 
    The response:

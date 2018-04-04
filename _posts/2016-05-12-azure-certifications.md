@@ -39,7 +39,11 @@ Exams as conducted by Pearson VUE testing centers.
 
 * https://borntolearn.mslearn.net/goodstuff/p/microsoftspecialist
 
+* https://buildazure.com/certifications/
+
 ### Exam 70-532 - Developing Microsoft Azure Solutions
+
+https://www.microsoft.com/en-us/learning/exam-70-532.aspx
 
 * Create and Manage Azure Resource Manager Virtual Machines (20-25%)
 * Design and Implement a Storage and Data Strategy (25-30%)
@@ -61,16 +65,29 @@ Exams as conducted by Pearson VUE testing centers.
 *    Create a virtual network
 *    Implement a point to site network
 
-<a target="_blank" href="https://app.pluralsight.com/library/courses/azure-solutions-web-apps-70-532/table-of-contents/">
+Resources:
+
+* <a target="_blank" href="https://channel9.msdn.com/Blogs/mcpexamprep/70-532-Developing-Microsoft-Azure-Solutions">
+Video reviewing</a> 1hr 13  by Sidney Andrews
+
+<a target="_blank" href="https://www.pluralsight.com/courses/azure-solutions-web-apps-70-532">
 Design and Implement Web Apps for Azure Solutions (70-532)
 5h 31m video from Pluralsight</a> Aug 30, 2016
 by Tim Warner 
 
-https://examregistration.microsoft.com/?action=1&locale=en-us&examcode=532&examname=Developing%20Microsoft%20Azure%20Solutions
+<a target="_blank" href="https://examregistration.microsoft.com/?action=1&locale=en-us&examcode=532&examname=Developing%20Microsoft%20Azure%20Solutions">
+$165</a>
 
 ### Exam 70-533 - Implementing Microsoft Azure Infrastructure Solutions
 
 This is based on ASM vs. new ARM.
+
+• Implement a website
+• Implement virtual machines
+• Implement cloud services
+• Implement storage
+• Implement an Azure Active Directory
+• Implement virtual networks
 
 By <a target="_blank" href="http://www.timwarnertech.com/">Tim Warner</a>:
 
@@ -92,6 +109,15 @@ by Razi bin Rais Intermediate Jul 09,  2015 2h 52m (111)
 
 
 ### Exam 70-534 - Architecting Azure Solutions
+
+• Design Azure infrastructure and networking
+• Secure resources
+• Design an application storage and data access strategy
+• Design an advanced application
+• Design websites
+• Design a management, monitoring, and business continuity strategy
+
+Resources:
 
 * <a target="_blank" href="https://app.pluralsight.com/library/courses/architecting-azure-solutions-70-534-secure-resources">
    Secure Resources</a>
