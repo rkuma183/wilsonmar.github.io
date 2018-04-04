@@ -46,9 +46,14 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 
 ## Caps Lock to Escape
 
-   BLAH: The Esc (Escape) key is too far North on the keyboard and forces some to look down on the keyboard. And the Caps Lock key is too close to keys, causing problems with accidental password entry and lockouts.
+BLAH: It's annoying when all of a sudden everything I type is in caps.
+That happens because I accidentally had my hand too far to the left when I intended to press the A key.
 
-   PROTIP: Make the <strong>caps lock</strong> the Esc key:
+I can type all caps by holding down the shift key with my left or right hand.
+
+BLAH: The Esc (Escape) key is too far North on the keyboard and forces some to look down on the keyboard. And the Caps Lock key is too close to keys, causing problems with accidental password entry and lockouts.
+
+   PROTIP: Make the <strong>caps lock</strong> key work like the Esc key:
 
 1. Press the Apple icon and select System Preferences.
 2. Type K to highlight Keyboard. Press space bar to open it.
@@ -63,7 +68,13 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
    This would also allow you to press two keys at once by pressing between the keys,
    thus able to perform most combinations using your hands.
 
-   This can be done using a <a target="_blank" href="https://apple.stackexchange.com/questions/283252/how-do-i-remap-a-key-in-macos-sierra-e-g-right-alt-to-right-control">
+   PROTIP: In OS X Lion onward, change the caps lock key in:
+
+   System Preferences > Keyboard > Modifier Keys
+
+   ![mac-modifier-control-399x224-27632](https://user-images.githubusercontent.com/300046/31076959-877c6f84-a731-11e7-8fcc-7d12af4c2c8e.jpg)
+
+   This can also be done using a <a target="_blank" href="https://apple.stackexchange.com/questions/283252/how-do-i-remap-a-key-in-macos-sierra-e-g-right-alt-to-right-control">
    Python script</a> or by downloading the free 
    <a target="_blank" href="https://pqrs.org/osx/karabiner/">Karabiner</a>
    which works on OSX Sierra since <a target="_blank" href="https://developer.apple.com/library/content/technotes/tn2450/_index.html">Apple remapped key commands</a>. 
@@ -118,13 +129,13 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td><td> -
 </td><td> F11 
 </td><td><em>toggle</em>
-</td><td> -
 </td></tr>
 <tr valign="top"><td> Calculator, other Accessories
 </td><td> Dashboard
 </td><td> 3 finger swipe right
 </td><td> Lower left
 </td><td> ?
+</td><td> -
 </td></tr>
 <tr valign="top"><td> Apps icons customized
 </td><td> Dock bar (bottom of screen)
@@ -138,6 +149,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td><td> -
 </td><td> -
 </td><td> &#8984; + Tab<br /><em>Repeat</em>
+</td><td> -
 </td></tr>
 <tr valign="top"><td> Installed apps 
 </td><td> Launchpad
@@ -196,9 +208,31 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td></tr>
 </table>
 
-
 <a name="[1]"></a>
 <a href="#DesktopShortcut">[1]</a> = PROTIP: This command does not work when the active program is in an extended screen.
+
+
+
+<a id="AwkwardKeys"></a>
+
+### Awkward Keys #
+
+There are some key combinations that are so awkard to use that it's faster and easier to use a mouse or trackpad.
+
+Since the **fn** and **control** keys are only on the left side of a MacBook keyboard,
+using them requires a Carpel-tunnel Syndrome-inducing move of the left hand:
+
+   * control+F2 to highlight the Apple menu.
+   * control+F3 to highlight the Dock at the bottom of the screen.
+
+On a Mac without a visible Function keys, press fn to reveal them, thus:
+
+   * fn + control + F2 to highlight the Apple menu.
+   * fn + control + F3 to highlight the Dock at the bottom of the screen.
+
+PROTIP: The **fn** key is easy to find without looking because it's at a corner.
+But use a companion key on the right side of the keyboard.
+
 
 <a id="Processes"></a>
 
@@ -322,45 +356,6 @@ The ALT key on Windows is OPTION on Mac keyboards.
 To send key commands from a Mac into a Windows instance inside VMWare Fusion</a>.
 
 
-<a id="CapsLock"></a>
-
-### Modifier caps lock #
-
-It's annoying when all of a sudden everything I type is in caps.
-That happens because I accidentally had my hand too far to the left when I intended to press the A key.
-
-I can type all caps by holding down the shift key with my right hand.
-
-So In OS X Lion onward, change the caps lock key in:
-
-   System Preferences > Keyboard > Modifier Keys
-
-![mac-modifier-control-399x224-27632](https://user-images.githubusercontent.com/300046/31076959-877c6f84-a731-11e7-8fcc-7d12af4c2c8e.jpg)
-
-Wish I could change it to Esc.
-
-
-<a id="AwkwardKeys"></a>
-
-### Awkward Keys #
-
-There are some key combinations that are so awkard to use that it's better to use a mouse or another approach.
-
-Since the **fn** and **control** keys are only on the left side of a MacBook keyboard,
-using them requires a Carpel-tunnel Syndrome-inducing move of the left hand:
-
-   * control+F2 to highlight the Apple menu.
-   * control+F3 to highlight the Dock at the bottom of the screen.
-
-On a Mac without a visible Function keys, press fn to reveal them, thus:
-
-   * fn + control + F2 to highlight the Apple menu.
-   * fn + control + F3 to highlight the Dock at the bottom of the screen.
-
-PROTIP: The **fn** key is easy to find without looking because it's at a corner.
-But use a companion key on the right side of the keyboard.
-
-
 <a id="RemapKeyboard"></a>
 
 ## Trackpad Remapping Tool #
@@ -413,8 +408,27 @@ To reset during open, in the Application folder,
 hold down all keys SHIFT OPTION COMMAND then click the app's icon.
 
 
-### Emmet 
+<a name="KeyboardMapping"></a>
 
+## Keyboard Mapping
+
+<a target="_blank" href="https://apple.stackexchange.com/questions/16135/remap-home-and-end-to-beginning-and-end-of-line">
+NOTE</a>: MacOS defines most of its keybindings for editing text in:<br />
+<tt>/System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict</tt>
+
+PROTIP: Remap home and end key by creating folder <tt>~/Library/KeyBindings/</tt> 
+and in it file <tt>DefaultKeyBinding.dict</tt> containing a property list like this:
+
+<tt>
+{
+    "\UF729"  = moveToBeginningOfLine:; // home
+    "\UF72B"  = moveToEndOfLine:; // end
+    "$\UF729" = moveToBeginningOfLineAndModifySelection:; // shift-home
+    "$\UF72B" = moveToEndOfLineAndModifySelection:; // shift-end
+}
+</tt>
+
+This requires a reboot.
 
 
 ## App-specific keys #
