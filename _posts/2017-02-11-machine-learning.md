@@ -419,28 +419,24 @@ In 2017, basic Python scripting skills suffice to do advanced deep learning rese
 Here is a ranking of Deep Learning frameworks based on GitHub star count.
 
 
-TensorFlow r0.10
-from Google
+TensorFlow AI platform from Google
 
    * http://www.infoworld.com/article/3127397/artificial-intelligence/review-tensorflow-shines-a-light-on-deep-learning.html
 
    * When running on CPUs, TensorFlow wraps itself over a low-level library for tensor operations called Eigen. BLAS
    * When running on GPUs, TensorFlow wraps itself over a library of optimized deep learning operations called cuDNN (with CUDA drivers developed by NVIDIA).
-   * Google TPU?
+   * Google TPU (Tensor Processing Units)
 
+   * <a target="_blank" href="https://developers.google.com/machine-learning/crash-course/ml-intro">
+   Google's Machine Learning Crash Course</a>
 
 Microsoft Cognitive Toolkit v2.0 Beta 1 (aka CNTK 2), as of 2017:
 
    * http://www.infoworld.com/article/3138507/artificial-intelligence/review-microsoft-takes-on-tensorflow.html<br />
-
    * uses a declarative BrainScript neural network configuration language
-
    * No MacOS support yet
-
    * CNTK 2 models on GPU-equipped N-series family of Azure Virtual Machines.
-
    * Azure Machine Learning is part of the larger Microsoft Cortana Analytics Suite offering. 
-
 
 Caffe 1.0 RC3
 from Berkeley Artificial Intelligence...
@@ -466,7 +462,7 @@ from Distributed Machine Learning Amazon...
 
 ## Data representation
 
-Tensors generalize matrices to an arbitrary number of axes.
+Tensors generalize matrices to an arbitrary number of axes (3 or more "dimensions").
 
 A tensor that contains only one number is called a <strong>"scalar"</strong> 
 (aka "scalar tensor"), also called a <strong>"0D tensor"</strong> because
@@ -604,6 +600,6 @@ free class from SAP.
 
 ## More #
 
-This is one of a series on Artificial Intelligence:
+This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
 
 {% include ai_links.html %}
