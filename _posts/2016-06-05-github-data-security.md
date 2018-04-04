@@ -421,6 +421,10 @@ This blog</a> provides an alternative using the openssl utility.
 
 Hashicorp Consul
 
+## LFS
+
+<a target="_blank" href="https://github.com/git-lfs/git-lfs/issues/1720">
+NOTE</a>: The Git smudge filter is what converts the LFS pointer stored in Git with the actual large file from the LFS server.
 
 
 ## Resources #
