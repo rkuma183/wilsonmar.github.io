@@ -102,7 +102,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td><td> Mission Control<br />(formerly Expose)
 </td><td> 3 finger swipe up
 </td><td> -
-</td><td> fn + F3
+</td><td> control + up<br />fn + F3
 </td><td> Esc
 </td></tr>
 <tr valign="top"><td> Active apps dashboard
@@ -118,6 +118,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td><td> -
 </td><td> F11 
 </td><td><em>toggle</em>
+</td><td> -
 </td></tr>
 <tr valign="top"><td> Calculator, other Accessories
 </td><td> Dashboard
@@ -143,18 +144,21 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td><td> Thumb and 3 finger pinch
 </td><td> Upper right
 </td><td> fn + F4
+</td><td> -
 </td></tr>
 <tr valign="top"><td> Files and folders
 </td><td><a href="#Finderz">Finder</a>
 </td><td> -
 </td><td> -
 </td><td> &#8984; + option + T
+</td><td> -
 </td></tr>
 <tr valign="top"><td> Put display to sleep
 </td><td> Start screen saver
 </td><td> -
 </td><td> Lower right
 </td><td> control + Shift + Power button
+</td><td> -
 </td></tr>
 <tr valign="top"><td> omni-search
 </td><td> <strong>Spotlight</strong>
@@ -185,6 +189,7 @@ PROTIP: Repeated practice trains muscle memory so you can find the keys without 
 </td></tr>
 <tr valign="top"><td> Alerts
 </td><td> Notification Center
+</td><td> -
 </td><td> -
 </td><td> -
 </td><td> -
@@ -640,35 +645,6 @@ Click Add to Firefox.
 Click Install.
 Click Restart Now.
 
-
-<a id="ShortKeys"></a>
-
-## Text Command Line Bash Shortcuts #
-
-These come from the bash terminal on Linux machines:
-
-<ul>
-<li> control + A = Go to Beginning of line (as in A to Z)</li>
-<li> control + E = Go to End of line<br /></li>
-
-<li> control + U = Clean line<br /></li>
-<li> control + K = Kill line from under the cursor to the end of the line.</li>
-<li> control + Y = Retrieve line<br /></li>
-
-<li> control + N = Next line </li>
-<li> control + P = Previous line<br /></li>
-
-<li> control + H = Backspace left of cursor</li>
-<li> control + D = Delete right of cursor<br /></li>
-
-<li> control + F = Forward cursor</li>
-<li> control + B = Backward<br /></li>
-
-<li> control + R = Record a shortcut between quotes<br /></li>
-
-</ul>
-
-See https://linuxacademy.com/blog/linux/ten-things-i-wish-i-knew-earlier-about-the-linux-command-line-2/
 
 <a id="WordKeyz"></a>
 

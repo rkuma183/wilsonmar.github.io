@@ -21,7 +21,6 @@ This tutorial describes how to make use of Terminal to make your life easier and
 What Apple calls the Terminal is a Bash shell.
 
 
-
 <a id="Terminalz"></a>
 
 ## Open Terminal from Finder Folder #
@@ -66,6 +65,39 @@ Alternately:
 <li> Check on <strong>New Terminal at Folder</strong>.</li>
 <li> Close the dialog by clicking the red dot at the upper left corner.</li>
 </ol>
+
+<a id="Keyboard"></a>
+<a id="ShortKeys"></a>
+
+## Text Command Line Bash Shortcuts #
+
+These come from the bash terminal on Linux machines:
+
+<ul>
+<li> control + ` = cycle through session windows</li>
+<li> control + left = previous session</li>
+<li> control + right = previous session</li>
+<p></p>
+<li> control + A = Go to Beginning of line (as in A to Z)</li>
+<li> control + E = Go to End of line<br /></li>
+<p></p>
+<li> control + U = Clean line<br /></li>
+<li> control + K = Kill line from under the cursor to the end of the line.</li>
+<li> control + Y = Retrieve line<br /></li>
+<p></p>
+<li> control + N = Next line </li>
+<li> control + P = Previous line<br /></li>
+<p></p>
+<li> control + H = Backspace left of cursor</li>
+<li> control + D = Delete right of cursor<br /></li>
+<p></p>
+<li> control + F = Forward cursor</li>
+<li> control + B = Backward<br /></li>
+<p></p>
+<li> control + R = Record a shortcut between quotes<br /></li>
+</ul>
+
+See https://linuxacademy.com/blog/linux/ten-things-i-wish-i-knew-earlier-about-the-linux-command-line-2/
 
 
 <a id="Terminal_file_listing"></a>
