@@ -2083,6 +2083,80 @@ http://stackoverflow.com/questions/509211/explain-pythons-slice-notation/
 
 
 
+## Conda
+
+Conda is similar to virtualenv and pyenv, other popular environment managers.
+
+   https://virtualenv.pypa.io/en/stable/
+
+   https://github.com/yyuu/pyenv
+
+https://www.continuum.io/downloads
+
+   conda install numpy pandas matplotlib
+
+   conda install jupyter notebook
+
+0. List the packages installed, with its version number and
+   what version of Python:
+
+   conda list
+
+
+
+### Conda Environments
+
+0. Create new environment for Python, specifying packages needed:
+
+   conda create -n my_env python=3 numpy pandas
+
+0. Enter an environment on Mac:
+
+   source activate my_env
+
+   On Windows:
+
+   activate my_env
+
+   When you're in the environment, the environment's name 
+   appears in the prompt:
+
+   (my_env) ~ $. 
+
+0. Leave the environment
+
+   source deactivate 
+
+   On Windows, it's just deactivate.
+
+0. Get back in again.
+
+0. Create an enviornment file by piping the output from an export:
+
+   conda env export > some_env.yaml
+
+   When sharing your code on GitHub, it's good practice to make an environment file and include it in the repository. This will make it easier for people to install all the dependencies for your code. I also usually include a pip requirements.txt file using pip freeze (learn more here) for people not using conda.
+
+0. Load an environment metadata file:
+
+   conda env create -f some_env.yaml
+
+0. List environments created on your machine:
+
+   conda env list
+
+0. Remove an environment:
+
+   conda env remove -n some_env
+
+Read:
+
+   * https://conda.io/docs/using/index.html
+
+   * https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/
+
+
+
 <hr />
 ## Miscellaneous #
 
