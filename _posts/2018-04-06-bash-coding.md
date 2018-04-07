@@ -40,7 +40,7 @@ To verify the bash version used in the script:
 <pre>bash --version | grep 'bash'</pre>
 
 The response is:
-<tt>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)<tt>
+<tt>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</tt>
 
 See https://scriptingosx.com/2017/10/on-the-shebang/
 
