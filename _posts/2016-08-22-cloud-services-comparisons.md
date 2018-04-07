@@ -17,15 +17,15 @@ image: # pic-black-bkg-white-cloud_1920x1200
 <img class="img-right" align="right"
 alt="cloud platforms black icons 300x330-300-58kb.jpg" width="300" height="330" src="https://cloud.githubusercontent.com/assets/300046/17864330/e4dbabc0-685a-11e6-84e5-361c5fc8c28d.jpg">
 
-This page houses information about comparing the various cloud services platforms:
+This article compares the various cloud services platforms:
 Amazon AWS vs.
 [Google Cloud Platform](/gcp/) vs.
 IBM Softlayer vs. 
 Microsoft Azure vs. 
 Rackspace.
+These are the biggest ones.
 
-These are the biggest ones. 
-Multi-cloud vendors also include Oracle, SalesForce Heroku, SkyTap, and others.
+Major multi-cloud vendors include Oracle, SalesForce Heroku, SkyTap.
 
 Software for private clouds include Red Hat OpenStack and VMWare. 
 
@@ -45,16 +45,18 @@ Evaluations can be based on the 6 advantages of cloud:
 PROTIP: Memorize the above list for exams.
 
 
-## TL;DR - The biggest difference
+## TL;DR - The biggest differences
 
-* If you write in C# on .NET, Azure is the most mature. But others are trying.
+Most individuals are not in a position to select a cloud vendor, but to select the cloud vendor which provides the best career prospects. Here's my logic:
+
+* If you write in C# on .NET, Azure is the natural choice. But other clouds are trying to support Windows.
 * If you're looking to get a job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>. AWS has the most sophisticated authentication and database services.
 * If you're running really large loads, Google offers fast fiber networks that don't limit what large machines can achieve. Plus Google is ahead in Machine Learning with its popular Tensorflow in Python.
 * Google's SSD drives are expensive, though needed for speed.
 
 * AWS has matched Azure pricing, and also per-minute billing.
 * IBM has bare-metal machines, if that's your thing.
-* One cloud may cover a particular country, if you need to have that to do business there (such as Google in Belgium).
+* Increasingly, companies doing business in a particular country are required to keep data within a cloud data center within that country (such as Google in Belgium).
 <br /><br />
 
 EDITOR's NOTE: This is not a complete treatment. 
@@ -78,6 +80,8 @@ Largest server | <a target="_blank" href="https://goo.gl/64UcCb">x1.32xlarge</a>
 Largest # cores | 128 | 32 |
 Largest RAM GB | 1,952 GB | 448 GB |
 
+PROTIP: Moving up to double the RAM or cores usually does not yield a doubling of capacity
+due to overhead and limits in shared components such as networking.
 
 ### Pricing #
 
@@ -105,9 +109,7 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15745
 
 ## Market share #
 
-Different surveys contradict each other.
-
-Here is one:
+Different surveys contradict each other. Here is one:
 
    <amp-img layout="responsive" alt="cloud chart iaas market share 2015-529x488-c22.jpg" width="529" height="488" 
    src="https://cloud.githubusercontent.com/assets/300046/16921114/778410d8-4ccd-11e6-9bb8-faf3cd75a449.jpg">
