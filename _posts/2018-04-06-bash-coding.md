@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bash script coding"
-excerpt: "Justifications and explanations for coding Bash the way we do"
+excerpt: "Justifications and explanations for coding Bash on MacOS the way we do"
 tags: [API, devops, evaluation]
 Categories: Devops
 filename: bash-coding.md
@@ -31,7 +31,7 @@ However, this script specifies a Shebang for Bash v4 installed via brew:
 <pre>\#!/usr/local/bin/bash</pre>
 
 It's needed for Bash arrays used in the script.
-The above path looks for bash in a hard-coded path rather than the alternative of
+The above path looks for bash in a hard-coded path rather than the alternative of<br />
 <tt>\#!/usr/bin/env</tt>
 because the script is not meant to be portable among Linux, only Mac due to use of Homebrew.
 
@@ -40,7 +40,7 @@ To verify the bash version used in the script:
 <pre>bash --version | grep 'bash'</pre>
 
 The response is:
-<tte>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)<tt>
+<tt>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)<tt>
 
 See https://scriptingosx.com/2017/10/on-the-shebang/
 
@@ -50,6 +50,29 @@ The Bash trap command catches signals so it can execute some commands when appro
 such as <a target="_blank" href="https://www.shellscript.sh/trap.html>
 cleaning up temp files before the script finishes</a>, called an
 <a target="_blank" href="http://redsymbol.net/articles/bash-exit-traps/">exit trap</a>.
+
+   <pre>
+cleanup() {
+    err=$?
+    echo "Cleaning stuff up..."
+    trap '' EXIT INT TERM
+    exit $err 
+}
+sig_cleanup() {
+    trap '' EXIT # some shells will call EXIT after the INT handler
+    false # sets $?
+    cleanup
+}
+   <pre>
+
+<a target="_blank" href="https://unix.stackexchange.com/questions/57940/trap-int-term-exit-really-necessary">
+The above cleanup function</a> is invoked when INT TERM occurs to trigger the function,
+at the bottom of the script:
+
+   </pre>
+trap cleanup EXIT
+trap sig_cleanup INT QUIT TERM
+   </pre>
 
 This statement in the script...
 
