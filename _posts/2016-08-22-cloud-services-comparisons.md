@@ -17,14 +17,32 @@ image: # pic-black-bkg-white-cloud_1920x1200
 <img class="img-right" align="right"
 alt="cloud platforms black icons 300x330-300-58kb.jpg" width="300" height="330" src="https://cloud.githubusercontent.com/assets/300046/17864330/e4dbabc0-685a-11e6-84e5-361c5fc8c28d.jpg">
 
-This page houses my random collection of information about comparing the various cloud services platforms:
+This page houses information about comparing the various cloud services platforms:
 Amazon AWS vs.
 [Google Cloud Platform](/gcp/) vs.
 IBM Softlayer vs. 
 Microsoft Azure vs. 
-Rackspace vs. Oracle, SalesForce Heroku, SkyTap, etc.
+Rackspace.
 
-Multi-cloud vendors include <a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, Hashicorp Terraform.
+These are the biggest ones. 
+Multi-cloud vendors also include Oracle, SalesForce Heroku, SkyTap, and others.
+
+Software for private clouds include Red Hat OpenStack and VMWare. 
+
+Software for hybrid include <a target="_blank" href="https://github.com/cloudfoundry/bosh">CloudFoundry</a>, Hashicorp Terraform, and others.
+
+## Advantages of Cloud
+
+Evaluations can be based on the 6 advantages of cloud:
+
+1. Trade capital expense for variable expense (conserve cash)
+2. Benefit from massive economies of scale
+3. Stop guessing about capacity (over-provisioning)
+4. Increase speed and agility (big team of experts working on innovations)
+5. Stop spending money running and maintaining data centers "friends don't let friends build data centers"
+6. Go global in minutes (time consuming and dangerous to do on your own)
+
+PROTIP: Memorize the above list for exams.
 
 
 ## TL;DR - The biggest difference
