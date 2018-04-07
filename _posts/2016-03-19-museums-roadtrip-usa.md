@@ -1392,8 +1392,9 @@ Thus its colloqual name the "Mother Road".
 <img alt="!map beige route-66 600x200.jpg" width="600" height="200" src="https://cloud.githubusercontent.com/assets/300046/14080916/1a0a42ca-f4c5-11e5-8230-cb0b95dde974.jpg"></a>
 
 Route 66 begins in Chicago, goes to St. Louis, Missouri, then through smaller road-side towns
-on the way to Oklahoma City, Amarillo, and Flagstaff before ending on the Santa Monica pier in Los Angeles, California.
-The <a target="_blank" href="https://en.wikipedia.org/wiki/Chisholm_Trail">Chisolm Trail</a> was used to drive cows to market from various cowtowns in Texas through Oklahoma Indian Territory to Abilene and other railheads in Kansas.
+on the way to Oklahoma City, Amarillo TX, and Flagstaff AZ before ending on the Santa Monica pier in Los Angeles, California.
+
+The <a target="_blank" href="https://en.wikipedia.org/wiki/Chisholm_Trail">Chisolm Trail</a> was used between 1867-1884 to drive cows to market from various cowtowns in Texas through Oklahoma Indian Territory to Abilene and other railheads in Kansas. The Lonesome Dove TV series depicts that time.
 
 Since Illinos and Missouri are already in our <a href="#DownMississippi">Mississippi route</a>,
 we begin from Oklahoma and take a long detour North to avoid too much desert along the way.

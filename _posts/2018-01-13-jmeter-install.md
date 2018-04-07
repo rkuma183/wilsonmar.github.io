@@ -94,6 +94,8 @@ for security vulnerabilities.
 You don't need a local machine if you use the cloud service<br />
 <a target="_blank" href="https://blazemeter.com/">blazemeter.com</a>
 
+You can't use blazemeter if your server is behind a firewall because blazemeter is a Saas service running on the public internet.
+
 The SaaS vendor was purchased by CA in 2017.
 
 Users of Blazemeter can use their add-on test framework.

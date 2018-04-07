@@ -37,7 +37,7 @@ All their plans offer:
 
    * Stock sample datasets
    * R and Python script support
-   * Full range of ML alogorithms
+   * Full range of <a href="#Algorithms">ML alogorithms</a>
    * Predictive web services
 
 There are two ways to pay:
@@ -68,6 +68,7 @@ The on-line IDE enables drap and drop ease of use.
 It supports R and Python.
 
 
+<a name="Algorithms"></a>
 
 ## Algorithms from Azure
 
