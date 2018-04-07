@@ -63,7 +63,7 @@ sig_cleanup() {
     false # sets $?
     cleanup
 }
-   <pre>
+   </pre>
 
 <a target="_blank" href="https://unix.stackexchange.com/questions/57940/trap-int-term-exit-really-necessary">
 The above cleanup function</a> is invoked when INT TERM occurs to trigger the function,
@@ -86,6 +86,18 @@ trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 It's an asthetic choice.
 The if statement is the most common in the script. 
 So three spaces make the line indented under if align better.
+
+## Logging to file
+
+Echo statements are sent to a file:
+
+<pre>
+ >>$THISSCRIPT
+</pre>
+
+The file name of the log file contains a date in ISO 8601 format,
+so multiple editions of the file can be sorted by date.
+
 
 ## Functions
 
