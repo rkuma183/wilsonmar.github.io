@@ -13,11 +13,18 @@ comments: true
 ---
 <i>{{ page.excerpt }}</i>
 
-This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed.
+This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed. This was created during creation of a Bash Script to install all programs on a Mac that a typical developer needs:
 
-Bash Script such as:
+   mac-install-all.sh in https://github.com/wilsonmar/git-utilities/
 
-   mac-git-install.sh in https://github.com/wilsonmar/git-utilities/
+## References
+
+Many websites were referenced during the development of this, including:
+
+
+<hr />
+
+<a name="Shebang"></a>
 
 ## Top of file Shebang for Mac only
 
@@ -81,11 +88,25 @@ trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 </strong></pre>
 
 
+## Set "Strict Mode"
+
+<pre>set -o nounset -o pipefail -o errexit  # "strict mode"</pre>
+
+ <tt>pipefail</tt> means that when the program encounters an exit code != 0, the exit code for the pipeline (Bash script) becomes != 0.
+<a target="_blank" href="https://news.ycombinator.com/item?id=10736584">
+E.g.</a> pipefail can be useful to ensure `curl does-not-exist-aaaaaaa.com | wc -c` doesn't exit with exit code 0..!>
+
+
 ## Indent 3 spaces
 
 It's an asthetic choice.
-The if statement is the most common in the script. 
-So three spaces make the line indented under if align better.
+
+<a target="_blank" href="https://google.github.io/styleguide/shell.xml?showone=Use_Local_Variables#Use_Local_Variables">Google's Style Guide</a>
+calls for two spaces.
+
+But <strong>three spaces</strong> make the line indent under if align better.
+And the if statement is the most common in the script. 
+
 
 ## Logging to file
 
@@ -101,10 +122,14 @@ so multiple editions of the file can be sorted by date.
 
 ## Functions
 
-Bash library with various functions?
-https://stackoverflow.com/questions/11369522/bash-utility-script-library
+<a target="_blank" href="https://stackoverflow.com/questions/11369522/bash-utility-script-library">
+QUESTION</a>: What are good Bash libraries with common functions?
+Libraries for bash are not common. 
+One is /etc/rc.d/functions on RedHat-based systems.
+The file contains functions commonly used in sysV init script.
 
-Libraries for bash are out there, but not common. One of the reasons that bash libraries are scarce is due to the limitation of functions. I believe these limitations are best explained on "Greg's Bash Wiki":
+<a target="_blank" href="https://mywiki.wooledge.org/BashGuide">
+NOTE</a>: Bash libraries are scarce is due to limitation of Bash functions. 
 
 <a target="_blank" href="http://mywiki.wooledge.org/BashWeaknesses">
 NOTE</a>: Bash's "functions" have several issues:
@@ -115,9 +140,7 @@ Scope: Bash has a simple system of local scope which roughly resembles "dynamic 
 
 Closures: In Bash, functions themselves are always global (have "file scope"), so no closures. Function definitions may be nested, but these are not closures, though they look very much the same. Functions are not "passable" (first-class), and there are no anonymous functions (lambdas). In fact, nothing is "passable", especially not arrays. Bash uses strictly call-by-value semantics (magic alias hack excepted).
 
-There are many more complications involving: subshells; exported functions; "function collapsing" (functions that define or redefine other functions or themselves); traps (and their inheritance); and the way functions interact with stdio. Don't bite the newbie for not understanding all this. Shell functions are totally f***ed.
-
-One example of a shell "library" is /etc/rc.d/functions on Redhat based system. This file contains functions commonly used in sysV init script.
+There are many more complications involving: subshells; exported functions; "function collapsing" (functions that define or redefine other functions or themselves); and the way functions interact with stdio. Don't bite the newbie for not understanding all this. Shell functions are totally f***ed.
 
 
 ## Time Stamps for run duration

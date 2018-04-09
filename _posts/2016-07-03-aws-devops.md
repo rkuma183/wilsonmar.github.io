@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS DevOps"
-excerpt: "Developer Operations for you"
+excerpt: "Get certified in Developer Operations on AWS"
 tags: [AWS, EC2, cloud, on-boarding]
 image:
 # feature: pic data center slice 1900x500.jpg
@@ -18,7 +18,14 @@ https://wilsonmar.github.io/aws-devops/</a>
 
 {% include _toc.html %}
 
-This tutorial focuses on continuous integration and deployment.
+This tutorial describes information to get certified as a <a target="_blank" href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">
+AWS Certified DevOps Engineer - Professional</a>,
+which focuses on continuous integration and deployment in the AWS EC2 cloud.
+
+The pre-requisite is passing either one:
+* https://aws.amazon.com/certification/certified-sysops-admin-associate/
+* https://aws.amazon.com/certification/certified-developer-associate/
+
 
 <hr />
 
@@ -177,14 +184,8 @@ and make it available as an EBS volume that can be used to launch an EC2 instanc
 
 This is simpler than Packer from Hashicorp.
 
-## More on Amazon #
 
-This is one of a series on Amazon:
-
-{% include aws_links.html %}
-
-
-## More resources #
+## Learning Resources #
 
 Justin Manga (@jmenga, pseudo.co.de) in video course
 <a target="_blank" href="https://app.pluralsight.com/player?course=docker-ansible-continuous-delivery">
@@ -206,8 +207,28 @@ ARG DOCKER_COMPOSE=1.6.2
 
 * http://blog.serverbooter.com/blog/2013/10/24/simple-clouformation-with-multiple-aws-accounts/
 
+Mike Pfeiffer
+produced a series of 4 video courses at Pluralsight on AWS Certified DevOps Engineer: 
+
+1. <a target="_blank" href="https://app.pluralsight.com/library/courses/continuous-delivery-automation-aws-certified-devops-engineer">
+Continuous Delivery and Automation</a> 4h 16m Apr 28, 2016
+2. <a target="_blank" href="https://app.pluralsight.com/library/courses/monitoring-metrics-logging-aws-certified-devops-engineer">
+Monitoring, Metrics, and Logging</a> 2h 46m June 2, 2016
+3. <a target="_blank" href="https://app.pluralsight.com/library/courses/security-governance-validation-aws-certified-devops-engineer">
+Security, Governance, and Validation</a> 2h 11m July 26, 2016
+4. <a target="_blank" href="https://app.pluralsight.com/library/courses/high-availability-elasticity-aws-certified-devops-engineer">
+High Availability and Elasticity</a> 2h 51m Sept 26, 2016
+
+
 ## More on DevOps #
 
 This is one of a series on DevOps:
 
 {% include devops_links.html %}
+
+## More on Amazon #
+
+This is one of a series on Amazon:
+
+{% include aws_links.html %}
+
