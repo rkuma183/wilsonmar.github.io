@@ -39,7 +39,7 @@ However, this script specifies a Shebang for Bash v4 installed via brew:
 
 It's needed for Bash arrays used in the script.
 The above path looks for bash in a hard-coded path rather than the alternative of<br />
-<tt>\#!/usr/bin/env</tt>
+<tt>#!/usr/bin/env</tt>
 because the script is not meant to be portable among Linux, only Mac due to use of Homebrew.
 
 To verify the bash version used in the script:
@@ -47,6 +47,7 @@ To verify the bash version used in the script:
 <pre>bash --version | grep 'bash'</pre>
 
 The response is:
+
 <tt>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</tt>
 
 See https://scriptingosx.com/2017/10/on-the-shebang/
