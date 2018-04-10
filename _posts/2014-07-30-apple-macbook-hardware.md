@@ -507,48 +507,13 @@ such as an external microphone or some other line-in device.
 
 ## Hard Drives on Mac
 
-## Hard Drives
-
 Older Mac Book Pros have 2.5" hard drives.
 <a target="_blank" href="https://www.laptopmag.com/articles/how-to-replace-your-macbook-pros-hard-drive-with-an-ssd">
 Video:</a><br />
 The Seagate Thunderbolt Adapter ($99) provides the fastest connection.<br />
 The Seagate USB 3.0/2.0 Upgrade Cable costs just $19.99. 
 
-Drives in newer Mac Book Pros have SSD chip cards instead of drives.
-
-https://support.apple.com/en-us/HT201372
-Create a bootable installer for macOS
-
-After powering up the computer, 
-a folder with a question mark means that a boot folder is not found on the hard disk.
-
-Boot up with the installer Disc.
-
-
-<a id="MacBoot"></a>
-
-### Boot loader on Mac
-
-MacOS does not use the boot loader other Linux machines store in the /boot folder.
-
-MacOS machines boots from the <strong>boot.efi</strong> binary file within 
-cd /System/Library/CoreServices.
-This is for Intel Macs. Older PowerPC Macs (and an old enough version of OS X) boots from file BootX.
-
-The MacOS kernel, as of Yosemite (version 10.10), is at<br />
-`/System/Library/Kernels/kernel`,
-   but was just /mach_kernel in older versions.
-
-Apple-supplied loadable kernel modules (known as kernel extensions or kexts) are found in<br />
-`/System/Library/Extensions/`
-
-Third-party extensions are in<br />
-`/Library/Extensions/`.
-
-See <a target="_blank" href="https://developer.apple.com/library/content/documentation/Darwin/Conceptual/KernelProgramming/booting/booting.html">
-this Apple article</a>.
-
+Drives in newer 2017 Mac Book Pros have SSD chip cards instead of drives.
 
 ### Disk Drive Partitions
 
@@ -815,13 +780,17 @@ Thunderbolt can transfer at speeds up to 20Gbps (higher speeds than USB).
 
 ### USB drives
 
-BLAH: Apple's DVD drives don't play Bluray videos.
+BLAH: Apple's DVD drives don't play BluRay video DVDs.
 
-To watch Bluray disks, get a Samsung external drive and software.
+To watch BluRay disks, get a Samsung external drive and software.
 
-To list USB ports, use this Linux command:
+QUESTION: On Mac OS X, the Xcode developer suite includes the USB Proper.app app found in /Developer/Applications/Utilities/. 
 
-   <pre><strong>lsusb
+QUESTION: To list USB ports, use this Linux command:
+see https://github.com/jlhonora/lsusb
+
+   <pre><strong>brew tap jlhonora/lsusb && brew install lsusb
+   lsusb
    </strong></pre>
 
    An example response for my machine:

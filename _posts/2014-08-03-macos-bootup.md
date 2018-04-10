@@ -30,6 +30,10 @@ During boot-up (Apple logo):
 <li> Hold down shift key to boot in Safe Mode.</li>
 </ul>
 
+After powering up the computer, 
+a folder with a question mark means that a <a href="#MacBoot">boot folder (described below)</a> 
+was not found on the hard disk.
+
 If pressing the start button does not work:
 
 <ol type="1">
@@ -50,6 +54,37 @@ During login:
 <li> Hold down shift key to prevent startup items from 
 loading.</li>
 </ul>
+
+
+<a name="MacBoot"></a>
+
+### Boot loader on Mac
+
+MacOS does not use the boot loader other Linux machines store in the /boot folder.
+
+MacOS machines boots from the <strong>boot.efi</strong> binary file within 
+cd /System/Library/CoreServices.
+This is for Intel Macs. Older PowerPC Macs (and an old enough version of OS X) boots from file BootX.
+
+The MacOS kernel, as of Yosemite (version 10.10), is at<br />
+`/System/Library/Kernels/kernel`,
+   but was just /mach_kernel in older versions.
+
+Apple-supplied loadable kernel modules (known as kernel extensions or kexts) are found in<br />
+`/System/Library/Extensions/`
+
+Third-party extensions are in<br />
+`/Library/Extensions/`.
+
+See <a target="_blank" href="https://developer.apple.com/library/content/documentation/Darwin/Conceptual/KernelProgramming/booting/booting.html">
+this Apple article</a>.
+
+## Bootable Installer
+
+https://support.apple.com/en-us/HT201372
+Create a bootable installer for macOS
+
+Boot up with the installer Disc.
 
 
 ## More on OSX
