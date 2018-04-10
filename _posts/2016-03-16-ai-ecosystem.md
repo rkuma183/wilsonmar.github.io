@@ -29,17 +29,15 @@ Artificial intelligence and Machine Learning (ML) services in their clouds:
 
 Each of the above are cloud vendors hoping to cash in by charging for processing of other people's data.
 
-Benedict Evans, the resident futurist at venture capital firm Andreessen Horowitz, 
-observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google">
-recent blog post</a> that the future of AI remains opaque: 
-"This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference,"
+Benedict Evans, resident futurist at venture capital firm Andreessen Horowitz, 
+observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google"> blog post</a> that the future of AI remains opaque: 
+"This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference."
 
 
 ## Other companies
 
 <a target="_blank" href="https://algorithmia.com/algorithms">
 Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
-
 
 <a target="_blank" href="https://gibhut.com/josephmisiti/awesome-machine-learning/">
 awesome-machine-learning</a>
