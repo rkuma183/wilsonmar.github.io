@@ -10,22 +10,24 @@ image:
   creditlink:
 comments: true
 ---
-<a target="_blank" href="https://wilsonmar.github.io/aws-devops/">
-https://wilsonmar.github.io/aws-devops/</a>
-
 <i>{{ page.excerpt }}</i>
 <hr />
 
 {% include _toc.html %}
 
+You are at <a target="_blank" href="https://wilsonmar.github.io/aws-devops/">
+https://wilsonmar.github.io/aws-devops/</a>
+
 This tutorial describes information to get certified as a <a target="_blank" href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">
 AWS Certified DevOps Engineer - Professional</a>,
 which focuses on continuous integration and deployment in the AWS EC2 cloud.
+It costs $300 USD to <strong>write out</strong> 80 essay (not multiple-choice) questions in 170 minutes (with no breaks). <strong>That's 2.1 seconds per question.</strong>
+Those who fail the exam must wait 30 days before being allowed to retake the exam,
+and only 3 times in a 12 month period.
 
 The pre-requisite is passing either one:
 * https://aws.amazon.com/certification/certified-sysops-admin-associate/
 * https://aws.amazon.com/certification/certified-developer-associate/
-
 
 <hr />
 
@@ -187,6 +189,42 @@ This is simpler than Packer from Hashicorp.
 
 ## Learning Resources #
 
+<a target="_blank" href="https://au.linkedin.com/in/Nick Triantafillou">
+Australian</a> Nick Triantafillou (@xelfer)
+recorded 6 hours of videos that covers 60 lessons in
+<a target="_blank" href="https://acloud.guru/learn/aws-certified-devops-engineer-professional">
+his course</a> which can be purchased separately for $99.
+
+Mike Pfeiffer
+created at Pluralsight a series of video courses, one for each <strong>"domain" of the AWS Certified DevOps Engineer Professional exam:
+
+1. <a target="_blank" href="https://app.pluralsight.com/library/courses/continuous-delivery-automation-aws-certified-devops-engineer">
+Continuous Delivery and Process Automation</a> 4h 16m Apr 28, 2016
+
+2. <a target="_blank" href="https://app.pluralsight.com/library/courses/monitoring-metrics-logging-aws-certified-devops-engineer">
+Monitoring, Metrics, and Logging</a> 2h 46m June 2, 2016
+
+   * CloudWatch
+   * CloudTrail
+
+3. <a target="_blank" href="https://app.pluralsight.com/library/courses/security-governance-validation-aws-certified-devops-engineer">
+Security, Governance, and Validation</a> 2h 11m July 26, 2016
+
+   * Delegation & Federation
+   * Corporate Identity Federation
+   * Web Identity Federation
+
+4. <a target="_blank" href="https://app.pluralsight.com/library/courses/high-availability-elasticity-aws-certified-devops-engineer">
+High Availability and Elasticity</a> 2h 51m Sept 26, 2016
+
+   * Auto Scaling
+   * GSI/LSI
+   * RDS
+   * Dynamo
+   * Aurora
+   * SQS
+   * Kinesis
+
 Justin Manga (@jmenga, pseudo.co.de) in video course
 <a target="_blank" href="https://app.pluralsight.com/player?course=docker-ansible-continuous-delivery">
 Continuous Delivery using Docker and Ansible</a> 
@@ -206,19 +244,6 @@ ARG DOCKER_COMPOSE=1.6.2
    </pre>
 
 * http://blog.serverbooter.com/blog/2013/10/24/simple-clouformation-with-multiple-aws-accounts/
-
-Mike Pfeiffer
-produced a series of 4 video courses at Pluralsight on AWS Certified DevOps Engineer: 
-
-1. <a target="_blank" href="https://app.pluralsight.com/library/courses/continuous-delivery-automation-aws-certified-devops-engineer">
-Continuous Delivery and Automation</a> 4h 16m Apr 28, 2016
-2. <a target="_blank" href="https://app.pluralsight.com/library/courses/monitoring-metrics-logging-aws-certified-devops-engineer">
-Monitoring, Metrics, and Logging</a> 2h 46m June 2, 2016
-3. <a target="_blank" href="https://app.pluralsight.com/library/courses/security-governance-validation-aws-certified-devops-engineer">
-Security, Governance, and Validation</a> 2h 11m July 26, 2016
-4. <a target="_blank" href="https://app.pluralsight.com/library/courses/high-availability-elasticity-aws-certified-devops-engineer">
-High Availability and Elasticity</a> 2h 51m Sept 26, 2016
-
 
 ## More on DevOps #
 
