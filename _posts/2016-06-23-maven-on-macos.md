@@ -5,10 +5,10 @@ excerpt: "for Java, Jenkins, etc."
 tags: [homebrew, apple, mac, setup]
 shorturl: "https://git.io/v1wOy"
 image:
-# feature: pic brown homebrew logo 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14622020/60672448-0584-11e6-8202-41c36ba82d04.jpg
-  credit: Kickstarter
-  creditlink: https://www.kickstarter.com/projects/homebrew/brew-test-bot
+# feature: maven .jpg
+  feature: https://user-images.githubusercontent.com/300046/38535311-1d861d2e-3c40-11e8-88e1-efad8b72f771.gif
+  credit: Empeccableweb
+  creditlink: http://blog.empeccableweb.com/wp/deployments/maven/
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -16,7 +16,7 @@ comments: true
 
 {% include _toc.html %}
 
-This shows you how install Maven using Homebrew.
+This describes how to install Maven using Homebrew, the configure and use it.
 
 Maven is a [task runnner, like Ant, Gradle, Grunt](/task-runners/).
 
@@ -25,6 +25,9 @@ dependency management,
 standard project layout, and 
 project management.
 
+## Default in Jenkins
+
+Maven is the default build tool in the Jenkins continuous integration tool which triggers a Maven build whenever code is committed.
 
 ## Mated with Java
 
