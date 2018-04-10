@@ -786,8 +786,8 @@ To watch BluRay disks, get a Samsung external drive and software.
 
 QUESTION: On Mac OS X, the Xcode developer suite includes the USB Proper.app app found in /Developer/Applications/Utilities/. 
 
-QUESTION: To list USB ports, use this Linux command:
-see https://github.com/jlhonora/lsusb
+To list USB ports, use this Linux command brought to MacOS by
+https://github.com/jlhonora/lsusb
 
    <pre><strong>brew tap jlhonora/lsusb && brew install lsusb
    lsusb
@@ -809,6 +809,8 @@ Bus 000 Device 001: ID 1d6b:IPCI Linux Foundation USB 2.0 Bus
 Bus 000 Device 001: ID 1d6b:IPPT Linux Foundation USB 3.0 Bus 
    </pre>
 
+The above uses the built-in utility
+<tt>/usr/sbin/system_profiler SPHardwareDataType</tt>
 
 ## More on OSX
 
