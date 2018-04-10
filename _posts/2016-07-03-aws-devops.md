@@ -168,21 +168,23 @@ CodeDeploy agent in EC2 Deploy Group
 * https://github.com/mikepfeiffer/PowerShell
 
 
-## AMIs #
-
-<a target="_blank" href="https://github.com/Netflix/aminator/">
-Netflix/aminator</a> open-sourced their Python tool for creating EBS-backed AMIs.
-It's described in <a target="_blank" href="http://techblog.netflix.com/2013/03/ami-creation-with-aminator.html">
-this blog from 2013</a>.
-
-   "We knew that application startup latency would be very important, especially during scale-up operations."
+## Snapshot AMIs #
 
 Building a server from installers in S3
 can be time-consuming because it take so much I/O.
 
-To save time, their strategy is to create a <strong>Base AMI</strong>
+Michael Tripoli & Karate Vick at <a target="_blank" href="https://medium.com/@NetflixTechBlog">
+Netflix</a> <a target="_blank" href="https://github.com/Netflix/aminator/">
+open-sourced on GitHub</a> their Python tool called "Animator" for creating EBS-backed AMIs.
+The tool create a <strong>Base AMI</strong>
 by taking a snapshot of the root volume
-and make it available as an EBS volume that can be used to launch an EC2 instance.
+and making it available as an EBS volume that can be used to launch an EC2 instance.
+
+It's described <a target="_blank" href="https://medium.com/netflix-techblog/ami-creation-with-aminator-98d627ca37b0">
+on Medium</a> and in <a target="_blank" href="http://techblog.netflix.com/2013/03/ami-creation-with-aminator.html">
+this blog from 2013</a>.
+
+They said "We knew that application startup latency would be very important, especially during scale-up operations."
 
 This is simpler than Packer from Hashicorp.
 
