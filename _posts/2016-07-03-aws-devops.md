@@ -25,7 +25,7 @@ It costs $300 USD to <strong>write out</strong> 80 essay (not multiple-choice) q
 Those who fail the exam must wait 30 days before being allowed to retake the exam,
 and only 3 times in a 12 month period.
 
-The pre-requisite is passing either one:
+Its pre-requisite is passing either one:
 * https://aws.amazon.com/certification/certified-sysops-admin-associate/
 * https://aws.amazon.com/certification/certified-developer-associate/
 
