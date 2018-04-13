@@ -247,9 +247,9 @@ first install the azure CLI:
 Create a Service Principal</a> using <a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions">
    Naming Conventions</a> for RBAC (role-based access control):
    
-   PROTIP: Create a .pem file from the rsa.pub file created for GitHub:
+   PROTIP: Create a .pem file from the rsa.pub file named $SSH_USER created for GitHub:
 
-   <tt>ssh-keygen -f ~/.ssh/id_rsa.pub -m 'PEM' -e > public.pem
+   <tt>ssh-keygen -f ~/.ssh/$SSH_USER -m 'PEM' -e > public.pem
    chmod 600 public.pem
    </tt>
 
