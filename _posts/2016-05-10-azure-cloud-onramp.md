@@ -76,18 +76,19 @@ providing a single-resource point-of-view [i.e. manage a single resource at a ti
 
 ## What's the difference?
 
+ARM includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata.
+
 NOTE: Instead of 2 racks, ARM resources can span 3 racks.
 
-<a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
+See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
    Which portal supports each Azure service, listed alphabetically</a>
 
-Services NOT available in the newer portal:
+Services NOT available in the newer ARM portal:
 
    * API Management
    * BizTalk
    * Managed Cache 
    * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
-   * etc.
    <br /><br />
 
 
@@ -198,6 +199,65 @@ At <a target="_blank" href="https://portal.azure.com/">
 
 0. Click the X to close a blade.
 
+
+## AZ API
+
+1. Sign-up for an email to use.
+
+   ### Account ID and password
+
+2. Sign-up for a Microsoft Azure account with a password to your email account name.
+
+3. Use the automation bash script for MacOS at https://github.com/wilsonmar/mac-install-all 
+
+4. In the "mac-install-all" folder downloaded, edit the <strong>secrets.sh</strong> file to specify variables used in the script.
+
+5. Run the script, which does all the following:
+
+   Email > Account Password > Login > Tenant > Principal > APP_ID > Roles
+
+5. Login online:
+
+   az login -u "$AZ_USER" -p "$AZ_PASSWORD"
+
+   If you attempt to login using the user and password you use online (such as your hotmail credentials), you'll get an error.
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">
+NOTE</a>: To use your command line client to use services (such as create server instances),
+first install the azure CLI:
+
+   <pre>brew install azure</strong></pre>
+
+
+   ### Tenant ID
+
+2. Once you have logged in, when you sign up for a Microsoft cloud service, Microsoft assigns to your account a <a target="_blank" href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-howto-tenant">Tenant ID</a>. To obtain it:
+
+   <pre><strong>az account show --query 'tenantId' -o tsv</strong></pre>
+
+   <tt>a7a02378-1e4b-4017-972e-9dfe53bc2b2f</tt>
+
+   See: <a target="_blank"><a target="_blank" href="https://msdn.microsoft.com/en-us/library/hh534478.aspx">
+   Multi-tenant architecture</a>
+
+   Resource groups (RGs) are used for RBAC, Automated Deployments, and Billing/Monitoring purposes.
+   ![az-ad-analogy-480x483-28094](https://user-images.githubusercontent.com/300046/38739019-f324db20-3ef0-11e8-8c29-dd9ea31ddcd4.jpg)
+
+3. List what resources were assigned to a APP_ID:
+
+   az role assignment list --assignee $AZ_APP_ID
+
+   If your APP_ID has not already been created:
+
+4. <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">
+Create a Service Principal</a> using <a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions">
+   Naming Conventions</a> for RBAC (role-based access control):
+   
+   <pre><strong>az ad sp create-for-rbac --name "$AZ_PRINCIPAL" </strong></pre>
+
+3. Assign a role to the APP ID:
+
+   <pre><strong>az role assignment create --assignee $AZ_APP_ID --role Reader</strong></pre>
 
 ## Videos
 
