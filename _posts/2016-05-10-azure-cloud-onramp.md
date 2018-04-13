@@ -11,7 +11,7 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
-<hr />
+
 {% include _toc.html %}
 
 This is a step-by-step hands-on approach to getting you up and running on Azure cloud.
@@ -218,7 +218,7 @@ At <a target="_blank" href="https://portal.azure.com/">
 
 5. Login online:
 
-   az login -u "$AZ_USER" -p "$AZ_PASSWORD"
+   <pre>az login -u "$AZ_USER" -p "$AZ_PASSWORD"</pre>
 
    If you attempt to login using the user and password you use online (such as your hotmail credentials), you'll get an error.
 
@@ -233,9 +233,9 @@ first install the azure CLI:
 
 2. Once you have logged in, when you sign up for a Microsoft cloud service, Microsoft assigns to your account a <a target="_blank" href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-howto-tenant">Tenant ID</a>. To obtain it:
 
-   <pre><strong>az account show --query 'tenantId' -o tsv</strong></pre>
+   <pre><strong>AZ_TENANT=$(az account show --query 'tenantId' -o tsv)</strong></pre>
 
-   <tt>a7a02378-1e4b-4017-972e-9dfe53bc2b2f</tt>
+   echo $AZ_TENANT to yield something like: <tt>a7a02378-1e4b-4017-972e-9dfe53bc2b2f</tt>
 
    See: <a target="_blank"><a target="_blank" href="https://msdn.microsoft.com/en-us/library/hh534478.aspx">
    Multi-tenant architecture</a>
@@ -243,21 +243,59 @@ first install the azure CLI:
    Resource groups (RGs) are used for RBAC, Automated Deployments, and Billing/Monitoring purposes.
    ![az-ad-analogy-480x483-28094](https://user-images.githubusercontent.com/300046/38739019-f324db20-3ef0-11e8-8c29-dd9ea31ddcd4.jpg)
 
-3. List what resources were assigned to a APP_ID:
-
-   az role assignment list --assignee $AZ_APP_ID
-
-   If your APP_ID has not already been created:
-
-4. <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">
+3. <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">
 Create a Service Principal</a> using <a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions">
    Naming Conventions</a> for RBAC (role-based access control):
    
-   <pre><strong>az ad sp create-for-rbac --name "$AZ_PRINCIPAL" </strong></pre>
+   PROTIP: Create a .pem file from the rsa.pub file created for GitHub:
 
-3. Assign a role to the APP ID:
+   <tt>ssh-keygen -f ~/.ssh/id_rsa.pub -m 'PEM' -e > public.pem
+   chmod 600 public.pem
+   </tt>
+
+   This is recommended instead of the alternate of asking Azure to <tt>--create-cert</tt> in command:
+
+   <pre><strong>az ad sp create-for-rbac --name "$AZ_PRINCIPAL" --create-cert</strong></pre>
+
+   The response is this JSON file in your $HOME folder:
+
+   <pre>
+{
+  "appId": "APP_ID",
+  "displayName": "ServicePrincipalName",
+  "name": "http://ServicePrincipalName",
+  "password": ...,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+   </pre>
+
+   BLAH: The name of the file created contains something like "tmpcgzysdch", a random set of characters. 
+   So the script needs to figure out that file name.
+   Thus we create the pem file and tell Azure.
+
+5. TODO: Obtain the password text from within the file 
+
+   Create a folder <strong>$HOME/certs/</strong>
+
+6. Put the contents in a file name containing the value in $AZ_APP_ID,
+   in the $HOME folder so that it won't have a chance to get pushed to GitHub.
+
+6. Login using credentials built above:
+
+   <pre>az login --service-principal --username "$AZ_APP_ID" --tenant "$AZ_TENANT" --password "$HOME/certs/$AZ_APP_ID.pem" </pre>
+   
+   PROTIP: The APP_ID and username are the same.
+
+7. Assign the "Reader" role to the APP ID (username):
 
    <pre><strong>az role assignment create --assignee $AZ_APP_ID --role Reader</strong></pre>
+
+8. List what resources were assigned to a APP_ID:
+
+   <pre>az role assignment list --assignee $AZ_APP_ID</pre>
+
+   If your APP_ID has not already been created:
+
 
 ## Videos
 
