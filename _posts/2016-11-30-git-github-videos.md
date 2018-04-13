@@ -1563,7 +1563,13 @@ These videos have ads:
 9. <a target="_blank" href="https://www.youtube.com/watch?v=U3uwMr3u2Q4&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=9">
    The Git revert command</a>
 
-## Others #
+## Other video classes #
+
+* <a target="_blank" href="https://open.sap.com/courses/git1">
+  SAP Cloud Platform Version Control within SAP Web IDE</a> video course
+  presented by Arnaldo Cavazos ran on OpenSAP.com April 10 - May 16, 2018.
+  This class may not be available after that.
+  The class focuses on SAP's Web IDE (not on Git Bash).
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=7YXsj7A9aYI">
    Basics of Git tutorial [52:20]</a> 26 Feb 2015
@@ -1602,7 +1608,7 @@ These videos have ads:
 
 ## Books
 
-Are authors of these books on Git camera-shy?
+Are authors of these top books on Git camera-shy?
 
 Alan Hohn wrote 
 <a target="_blank" href="http://blog.anvard.org/conversational-git/">
@@ -1619,7 +1625,9 @@ David Demaree wrote Git for Humans at<br />
 https://abookapart.com/products/git-for-humans</a>
 
 
-https://marklodato.github.io/visual-git-guide/index-en.html
+Mark Lodato wrote the <a target="_blank" href="https://marklodato.github.io/visual-git-guide/index-en.html">Visual Git Guide</a>
+
+<a target="_blank" href="https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC">Ry's Git Tutorial Kindle book is free on Amazon</a>
 
 
 ## More #

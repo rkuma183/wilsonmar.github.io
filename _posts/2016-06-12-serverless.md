@@ -51,7 +51,7 @@ wrote
    "Depending on the circumstances, such systems can significantly reduce operational cost and complexity at a cost of <strong>vendor dependencies</strong> and (at the moment) immaturity of supporting services."
 
 
-#### Database idle costs #
+#### Database idle costs money! #
 
    "You never pay for idle" Austen says 
    in an interview with by CloudAcademy <a target="_blank" href="https://www.youtube.com/watch?v=pvmx0IVfBLc">
@@ -74,8 +74,8 @@ Artificial Intelligence features such as image recognition,
 text sentiment analysis, natural language process (NLP), 
 and Machine Learning.
 
-* <a href="#AWS">AWS (Amazon Web Services)</a>
-* <a href="#Azure">Microsoft Azure</a>
+* <a href="#AWS">AWS (Amazon Web Services) Lambda</a>
+* <a href="#Azure">Microsoft Azure Functions</a>
 * <a href="#Google">Google Functions</a>
 * <a href="#IBM">IBM Bluemix OpenWhisk</a>
 * <a href="#IronIO">Iron.io for on-premises</a>
@@ -150,6 +150,7 @@ and then use command-line with OpenWhisk (which is open sourced).
 
 ![ibm-openwhisk-arch-720x168](https://cloud.githubusercontent.com/assets/300046/25739620/aa1efd38-3150-11e7-8f7f-9438274e48e4.png)
 
+
 <a name="Google"></a>
 
 ### Google Cloud Functions #
@@ -167,8 +168,7 @@ Google Firebase
 ### Iron.io and other on-premises
 
 <a target="_blank" href="https://iron.io/">Iron.io</a>
-
-Gesalt Framework
+has their Gesalt Framework
 
 
 ## Usage in the wild
@@ -236,7 +236,9 @@ who built the
 Serverless company</a>
 around its open-source
 <a target="_blank" href="https://github.com/serverless/serverless-framework">
-serverless framework on GitHub</a>.
+Serverless Framework on GitHub</a>, a combination of 
+command-line utilities and conventions.
+
 
 His initial Serverless presentation at AWS:Invent 2015
    <amp-youtube data-videoid="D_U6luQ6I90" layout="responsive" width="480" height="270"></amp-youtube>
@@ -268,9 +270,6 @@ Social media:
 
    * When <a target="_blank" href="https://news.ycombinator.com/item?id=10005415">
    Hacker News</a> announced it in 2015 when the product was first called JAWS.
-
-The Serverless Framework is a combination of 
-command-line utilities and conventions.
 
 The company hosts on August 17 in San Francisco an Emit Conference
 for "event-driven architectures".
@@ -681,21 +680,21 @@ http://abalone0204.github.io/2016/05/22/serverless-simple-crud/
 
 BLAH: AWS Lambda doesn't allow setting and reference to operating system <strong>environment variables</strong>.
 
-Secrets such as DB connection string or encryption key
-are secure values that should not be checked into version control (specified in a .gitignore file).
-
-To provide Lambda functions with
+Lambda functions have a
 <strong>deploy.env</strong> file in combination with the
 <strong>`--configFile`</strong> flag to set values which will be
 prepended to your compiled Lambda function as
 <strong>process.env</strong> environment variables before it gets uploaded to S3.
+
+Secrets such as DB connection string or encryption key
+are secure values that should not be checked into version control (specified in a .gitignore file).
 
 
 <a name="LocalTesting"></a>
 
 ## Local Runs for testing #
 
-If we're taking a "test-first" approach to achieve code maturity,
+For a "test-first" approach to achieve code maturity,
 doing test runs locally before committing to a team branch is important.
 
 Let's examine the choices to emulate AWS Lambda locally:
@@ -806,7 +805,6 @@ aws-lambda-node-js-programming
 
 ## Resources #
 
-
 <a name="PhillipMuens"></a>
 Phillip Muens (@pmmuens, github.com/pmuens) from Germany
 
@@ -834,13 +832,11 @@ Phillip Muens (@pmmuens, github.com/pmuens) from Germany
    * Deprecated since Oct 2016 is <a target="_blank" href="https://github.com/JustServerless/learnserverless-book/issues/">
    https://github.com/JustServerless/learnserverless-book/issues</a>
 
-
 Matthew Fuller
 
    * <a target="_blank" href="https://www.amazon.com/AWS-Lambda-Guide-Serverless-Microservices-ebook/dp/B016JOMAEE/">
    AWS Lambda: A Guide to Serverless Microservices</a> Amazon Kindle book published 2016-01-11):
    $3.99
-
 
 Jake Knowles
 
@@ -852,10 +848,8 @@ John McKim  @johncmckim  blogs on Medium:
    Serverless Framework: The Good Parts</a>
 
 
+## More on Clouds #
 
+This is one of a series on Cloud computing
 
-## More on Serverless #
-
-This is one of a series on Serverless computing
-
-{% include serverless_links.html %}
+{% include cloud_links.html %}

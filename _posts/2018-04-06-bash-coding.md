@@ -35,7 +35,7 @@ The bash v3.2 shell is installed by default on macOS in the Bourne-compliant pat
 
 However, this script specifies a Shebang for Bash v4 installed via brew:
 
-<pre>\#!/usr/local/bin/bash</pre>
+<pre>#!/usr/local/bin/bash</pre>
 
 It's needed for Bash arrays used in the script.
 The above path looks for bash in a hard-coded path rather than the alternative of<br />
@@ -168,6 +168,18 @@ Filesystem   1024-blocks      Used Available Capacity iused               ifree 
 
 The number of blocks needs to be converted to MB (megabytes).
 
+
+## File Descriptors
+
+ulimit
+
+use the tee command to concatenate to the bottom of the <tt>/etc/profile</tt> file
+
+ 'ulimit -n 2048' | sudo tee -a /etc/profile
+
+A reboot is necessary for this to take.
+
+http://bencane.com/2013/09/16/understanding-a-little-more-about-etcprofile-and-etcbashrc/
 
 ## Save backup
 
