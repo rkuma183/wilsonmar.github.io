@@ -16,30 +16,46 @@ comments: true
 
 This is a step-by-step hands-on approach to getting you up and running on Azure cloud.
 
+## An email and credit card
 
-## Get an account - ASM Sign-up #
+1. You'll need a email address that you can share and transfer.
 
-The older steps to "Create an API gateway and Developer Portal in minutes".
+   PROTIP: Don't use an email that you use for your own banking, shopping, social media, etc.
 
-0. https://account.windowsazure.com/signup
+   If you're at a company, you will need to give someone else the password so that if you're ever "run over a bus",
+   your organization can continue.
 
-0. https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard
-   to activate my BizSpark account $25/month Azure credit.
+2. You'll need a credit card number.
+
+   Many companies have a company (corporate) credit card.
+
+   ### Get an account - ASM Sign-up #
+
+   The older steps to "Create an API gateway and Developer Portal in minutes":
+
+0. <a target="_blank" href="
+   https://account.windowsazure.com/signup">
+   https://account.windowsazure.com/signup</a>
+
+0. If you have a BizSpark account, activate the $25/month Azure credit at<br />
+   <a target="_blank" href="
+   https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">
+   https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard</a>
 
 0. Verfication by text message or call does not use land-line VOIP phone numbers,
    only cellular numbers.
 
 0. Input credit card (even though it's free).
 
-0. Click "Start Managing my service" for https://portal.azure.com/
+0. Click "Start Managing my service" for <a target="_blank" href="https://portal.azure.com/">
+   https://portal.azure.com</a>
 
 
 ## Azure.com
 
-0. If you are not logged in, type <strong>azure.com</strong> in your browser.
+0. If you are not logged in, type <a target="_blank" href="https://azure.com/">azure.com</a> in your browser's address.
 
-   You get sent to a marketing page such as:
-
+   You'll get sent to a marketing page such as:<br />
    https://azure.microsoft.com/en-us/?v=17.14
 
 0. Click the <strong>portal</strong> link at the upper right corner.
