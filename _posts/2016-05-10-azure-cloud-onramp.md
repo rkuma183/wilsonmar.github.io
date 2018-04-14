@@ -64,7 +64,7 @@ Azure Service Management (ASM) to the Azure Resource Manager (ARM).
    </td></tr>
 <tr valign="top"><td> <a href="#ARM-signup">ARM</a> </td><td>
    <a target="_blank" href="https://azure.com">
-   azure.com</a> (https://azure.microsoft.com/en-us/)
+   azure.com</a><br />azure.microsoft.com/en-us/
    </td><td>    
    <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
    </td></tr>
