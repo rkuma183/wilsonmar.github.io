@@ -18,7 +18,7 @@ comments: true
 
 The objective of this tutorial is to spare you the pain and confusion
 around installing, updating, and uninstalling 
-the various editions and versions of Node (aka NodeJs).
+the various editions and versions of Node (aka NodeJs, with Js for JavaScript).
 
 
 <a name="Editions"></a>
@@ -58,8 +58,9 @@ then maintained for a further 12 months.
 This means a particular LTS release stays in production for 30 months
 with bug and security fixes.
 
-QUESTION: What are the install instructions 
-If you're an enterprise user paying for LTS?
+![node-install-ver-742x371](https://user-images.githubusercontent.com/300046/38767344-94004a42-3f9c-11e8-93c1-2d15e3c92993.jpg)
+
+   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
 
 
 <a name="NjSolid"></a>
@@ -115,7 +116,8 @@ Uninstall</a>
 
 ### Which version of what? #
 
-   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
+QUESTION: What are the install instructions 
+If you're an enterprise user paying for LTS?
 
 Instead of using an internet browser to download an installer from<br />
    <a target="_blank" href="https://nodejs.org/en/download/releases/">

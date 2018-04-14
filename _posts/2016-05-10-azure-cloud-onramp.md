@@ -283,9 +283,9 @@ At <a target="_blank" href="https://portal.azure.com/">
 4. Also note that before getting here the script created a pem file
    PROTIP: Create a .pem file from the rsa.pub file named $SSH_USER created for GitHub:
 
-   <tt>ssh-keygen -f ~/.ssh/$SSH_USER -m 'PEM' -e > $SSH_USER.pem
+   <pre>ssh-keygen -f ~/.ssh/$SSH_USER -m 'PEM' -e > $SSH_USER.pem
    chmod 600 $SSH_USER.pem
-   </tt>
+   </pre>
 
    This is recommended instead of the alternative of asking Azure to <tt>--create-cert</tt> in command:
 
