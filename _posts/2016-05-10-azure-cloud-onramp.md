@@ -106,6 +106,10 @@ See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-p
    https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard">
    https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard</a>
 
+   <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create">
+   NOTE</a>: This can be done by the AZ CLI command "az account create" for those who have a
+   MS-AZR-0017P (EnterpriseAgreement) or MS-AZR-0148P (EnterpriseAgreement devTest).
+
 0. Verfication by text message or call does not use land-line VOIP phone numbers,
    only cellular numbers.
 
@@ -247,6 +251,24 @@ At <a target="_blank" href="https://portal.azure.com/">
 
 4. Edit the file there (not in the repo directory).
 
+   <a name="AZ-actions"></a>
+
+## TRYOUT
+
+If in the secrets.sh file the TRYOUT string is edited to contain "az":
+
+   <tt>TRYOUT="az"</tt>
+
+... the Bash script has been programmed to create an instance using az cli commands rather than manually copied and pasted onto a <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest">Azure Cloud Shell</a> instance launched on an internet browser as described at:
+
+    <a target="_blank" href="
+    https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest">
+    https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest</a>
+
+    Alternately, create an Azure (serverless) Function, as described in commands listed at:
+
+    https://docs.microsoft.com/en-us/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json&view=azure-cli-latest
+
 5. Run the script from your machine's Terminal, which does all the following:
 
    Account Password > Login > Tenant > Principal > APP_ID > Roles > Template > stop
@@ -387,6 +409,19 @@ Create a Service Principal</a> using <a target="_blank" href="https://docs.micro
    <pre>az role assignment list --assignee $AZ_APP_ID</pre>
 
    If your APP_ID has not already been created:
+
+## TRYOUT
+
+If in the secrets.sh file the TRYOUT string is edited to contain "az":
+
+   <tt>TRYOUT="az"</tt>
+
+
+
+## Batch commands
+
+Azure provides a way to perform the same process on many at once. See:
+https://docs.microsoft.com/en-us/cli/azure/batch?view=azure-cli-latest
 
 
 ## Videos
