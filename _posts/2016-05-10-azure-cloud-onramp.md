@@ -52,21 +52,9 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 ## Two Azure portals #
 
 Right off the bat, know that Microsoft is transitioning from the "classic" (older)
-Azure Service Management (ASM) website of "Cloud Services" and "Affinity Groups" at
-
-   * <a target="_blank" href="https://manage.windowsazure.com/"> manage.windowsazure.com</a>
-
-   * Signup at <a target="_blank" href="https://account.windowsazure.com/signup/"> 
-   https://account.windowsazure.com/signup</a>
-
+Azure Service Management (ASM) website of "Cloud Services" and "Affinity Groups"
 to the Azure Resource Manager (ARM) portal which is structured with Resource Groups (logical containers)
 providing a single-resource point-of-view [i.e. manage a single resource at a time] at
-
-   * <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
-
-   * <a href="#ARM-signup">Sign-up for ARM</a>
-
-## What's the difference?
 
 ARM includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata.
 
@@ -83,8 +71,25 @@ Services NOT available in the newer ARM portal:
    * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
    <br /><br />
 
+<table>
+<tr valign="bottom"><th> Sign-up page </th><th> Console page </th></tr>
+<tr valign="top"><td> <a href="#ASM-signup">ASM</a> </td><td>
+   <a target="_blank" href="https://account.windowsazure.com/signup/"> 
+   account.windowsazure.com/signup</a>
+   </td><td> 
+   <a target="_blank" href="https://manage.windowsazure.com/"> manage.windowsazure.com</a>
+   </td></tr>
+<tr valign="top"><td> <a href="#ARM-signup">ARM</a> </td><td>
+   <a target="_blank" href="https://azure.com">
+   azure.com</a> (https://azure.microsoft.com/en-us/)
+   </td><td>    
+   <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
+   </td></tr>
+</table>
 
-   ### Get an account - ASM Sign-up #
+<a name="ASM-signup"></a>
+
+## ASM Sign-up #
 
    The older steps to "Create an API gateway and Developer Portal in minutes":
 
@@ -106,7 +111,9 @@ Services NOT available in the newer ARM portal:
    https://portal.azure.com</a>
 
 
-## Azure.com
+<a name="ARM-signup"></a>
+
+## ARM Sign-up at Azure.com
 
 0. If you are not logged in, type <a target="_blank" href="https://azure.com/">azure.com</a> in your browser's address.
 
@@ -121,29 +128,12 @@ Services NOT available in the newer ARM portal:
 
 0. Enter the password.
 
-   You redirected to various URLs until you land on a URL such as:
+   You redirected to various URLs until you land on a URL such as this containing your Tenant ID GUID:
 
-   https://portal.azure.com/#dashboard/private/d32eb2fe-9636-4908-8854-89bc13154021
+   https://portal.azure.com/#dashboard/private/a7a02378-1e4b-4017-972e-9dfe53bc2b2f
 
    This is the <strong>Dashboard</strong>.
 
-
-
-## ASM Sign-up #
-
-The older steps to "Create an API gateway and Developer Portal in minutes".
-
-0. https://account.windowsazure.com/signup
-
-0. https://myprodscussu1.app.vssubscriptions.visualstudio.com/Dashboard
-   to activate my BizSpark account $25/month Azure credit.
-
-0. Verfication by text message or call does not use land-line VOIP phone numbers,
-   only cellular numbers.
-
-0. Input credit card (even though it's free).
-
-0. Click "Start Managing my service" for https://portal.azure.com/
 
 
 <a name="ARM-Menu"></a>
@@ -265,6 +255,8 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    <pre>brew install azure</strong></pre>
 
+
+   <a name="TenantID"></a>
 
    ### Tenant ID
 
