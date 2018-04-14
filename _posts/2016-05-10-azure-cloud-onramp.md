@@ -52,24 +52,7 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 ## Two Azure portals #
 
 Right off the bat, know that Microsoft is transitioning from the "classic" (older)
-Azure Service Management (ASM) website of "Cloud Services" and "Affinity Groups"
-to the Azure Resource Manager (ARM) portal which is structured with Resource Groups (logical containers)
-providing a single-resource point-of-view [i.e. manage a single resource at a time] at
-
-ARM includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata.
-
-NOTE: Instead of 2 racks, ARM resources can span 3 racks.
-
-See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
-   Which portal supports each Azure service, listed alphabetically</a>
-
-Services NOT available in the newer ARM portal:
-
-   * API Management
-   * BizTalk
-   * Managed Cache 
-   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
-   <br /><br />
+Azure Service Management (ASM) to the Azure Resource Manager (ARM).
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> Product </th><th> Sign-up page </th><th> Console page </th></tr>
@@ -86,6 +69,27 @@ Services NOT available in the newer ARM portal:
    <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
    </td></tr>
 </table>
+
+ASM has "Cloud Services" and "Affinity Groups"
+which is structured with Resource Groups (logical containers)
+providing a single-resource point-of-view [i.e. manage a single resource at a time]
+
+ARM includes <strong>parallelization</strong> when creating resources for faster deployment of complex, interdependent solutions. 
+ARM also includes granular access control, and the ability to tag resources with metadata.
+
+Services NOT available in the newer ARM portal:
+
+   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big deal)
+   * API Management
+   * BizTalk
+   * Managed Cache 
+   <br /><br />
+
+Also, instead of 2 racks, ARM resources can span 3 racks.
+
+See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
+   Which portal supports each Azure service, listed alphabetically</a>
+
 
 <a name="ASM-signup"></a>
 
