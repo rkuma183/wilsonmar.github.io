@@ -16,9 +16,13 @@ comments: true
 
 This is a step-by-step hands-on approach to getting you up and running on Azure cloud.
 
-1. You'll need a email address that you can share and transfer.
+1. Get an email adddress from hotmail.com or outlook.com
 
-   Unlike Google, Microsoft does not require the email you use to be one that Microsoft runs (hotmail.com or outlook.com).
+   <a target="_blank" href="
+   https://signup.live.com/signup">
+   https://signup.live.com/signup</a>
+
+   You'll need a email address that you can share and transfer to other people.
 
    PROTIP: Don't use an email that you use for your own banking, shopping, social media, etc.
 
@@ -28,6 +32,15 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 2. You'll need a credit card number.
 
    Many companies have a company (corporate) credit card.
+
+3. You'll need a phone number for 3FA (three Factor Authentication).
+
+   PROTIP: Give Googgle Voice the cell number that you've been giving out to people.
+   Then get a new phone number from your cell carrier (Verizon, ATT, etc.).
+   In Google Voice have that new number ring when someone calls you at your original number.
+   Give that new number only to Microsoft.
+   This enables you to transfer that new number to someone else without making your friends wonder where you went.
+
 
 ## Two Azure portals #
 
