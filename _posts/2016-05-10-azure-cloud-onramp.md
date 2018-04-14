@@ -16,9 +16,9 @@ comments: true
 
 This is a step-by-step hands-on approach to getting you up and running on Azure cloud.
 
-## An email and credit card
-
 1. You'll need a email address that you can share and transfer.
+
+   Unlike Google, Microsoft does not require the email you use to be one that Microsoft runs (hotmail.com or outlook.com).
 
    PROTIP: Don't use an email that you use for your own banking, shopping, social media, etc.
 
@@ -28,6 +28,41 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 2. You'll need a credit card number.
 
    Many companies have a company (corporate) credit card.
+
+## Two Azure portals #
+
+Right off the bat, know that Microsoft is transitioning from the "classic" (older)
+Azure Service Management (ASM) website of "Cloud Services" and "Affinity Groups" at
+
+   * <a target="_blank" href="https://manage.windowsazure.com/"> manage.windowsazure.com</a>
+
+   * Signup at <a target="_blank" href="https://account.windowsazure.com/signup/"> 
+   https://account.windowsazure.com/signup</a>
+
+to the Azure Resource Manager (ARM) portal which is structured with Resource Groups (logical containers)
+providing a single-resource point-of-view [i.e. manage a single resource at a time] at
+
+   * <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
+
+   * <a href="#ARM-signup">Sign-up for ARM</a>
+
+## What's the difference?
+
+ARM includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata.
+
+NOTE: Instead of 2 racks, ARM resources can span 3 racks.
+
+See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
+   Which portal supports each Azure service, listed alphabetically</a>
+
+Services NOT available in the newer ARM portal:
+
+   * API Management
+   * BizTalk
+   * Managed Cache 
+   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
+   <br /><br />
+
 
    ### Get an account - ASM Sign-up #
 
@@ -72,40 +107,6 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 
    This is the <strong>Dashboard</strong>.
 
-
-## Two Azure portals #
-
-Right off the bat, know that Microsoft is transitioning from the "classic" (older)
-Azure Service Management (ASM) website of "Cloud Services" and "Affinity Groups" at
-
-   * <a target="_blank" href="https://manage.windowsazure.com/"> manage.windowsazure.com</a>
-
-   * Signup at <a target="_blank" href="https://account.windowsazure.com/signup/"> 
-   https://account.windowsazure.com/signup</a>
-
-to the Azure Resource Manager (ARM) portal which is structured with Resource Groups (logical containers)
-providing a single-resource point-of-view [i.e. manage a single resource at a time] at
-
-   * <a target="_blank" href="https://portal.azure.com/"> portal.azure.com</a>
-
-   * <a href="#ARM-signup">Sign-up for ARM</a>
-
-## What's the difference?
-
-ARM includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata.
-
-NOTE: Instead of 2 racks, ARM resources can span 3 racks.
-
-See: <a target="_blank" href="https://azure.microsoft.com/en-us/features/azure-portal/availability/">
-   Which portal supports each Azure service, listed alphabetically</a>
-
-Services NOT available in the newer ARM portal:
-
-   * API Management
-   * BizTalk
-   * Managed Cache 
-   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
-   <br /><br />
 
 
 ## ASM Sign-up #
@@ -297,8 +298,9 @@ Create a Service Principal</a> using <a target="_blank" href="https://docs.micro
 }
    </pre>
 
-   The additiona <strong>--query</strong> attribute makes
-   first of three fields (fileWithCertAndPrivateKey) requested in the query is parsed using this command:
+   The additional <strong>--query</strong> attribute makes 
+   
+   The first of three fields (fileWithCertAndPrivateKey) requested in the query is parsed using this command:
    
    <pre>echo return | tr -d "[ ] \" \"" | awk -F, '{ print $1 }'
    </pre>
@@ -335,11 +337,9 @@ Create a Service Principal</a> using <a target="_blank" href="https://docs.micro
    Microsoft Graph at https://developer.microsoft.com/en-us/graph
    https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph
 
-
    BLAH: The name of the file created contains something like "tmpcgzysdch", a random set of characters. 
    So the script needs to figure out that file name.
    Thus we create the pem file and tell Azure.
-
 
 5. TODO: Obtain the password text from within the file 
 
