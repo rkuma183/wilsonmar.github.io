@@ -222,9 +222,9 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    If you attempt to login using the user and password you use online (such as your hotmail credentials), you'll get an error.
 
-<a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">
-NOTE</a>: To use your command line client to use services (such as create server instances),
-first install the azure CLI:
+   <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">
+   NOTE</a>: To use your command line client to use services (such as create server instances),
+   first install the azure CLI:
 
    <pre>brew install azure</strong></pre>
 
@@ -241,37 +241,89 @@ first install the azure CLI:
    Multi-tenant architecture</a>
 
    Resource groups (RGs) are used for RBAC, Automated Deployments, and Billing/Monitoring purposes.
+
    ![az-ad-analogy-480x483-28094](https://user-images.githubusercontent.com/300046/38739019-f324db20-3ef0-11e8-8c29-dd9ea31ddcd4.jpg)
 
-3. <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">
-Create a Service Principal</a> using <a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions">
-   Naming Conventions</a> for RBAC (role-based access control):
-   
+3. Put the Tenant ID value in the <strong>secrets.sh</strong> file
+   so that future script runs can check whether that value has already been created.
+
+4. Also note that before getting here the script created a pem file
    PROTIP: Create a .pem file from the rsa.pub file named $SSH_USER created for GitHub:
 
-   <tt>ssh-keygen -f ~/.ssh/$SSH_USER -m 'PEM' -e > public.pem
-   chmod 600 public.pem
+   <tt>ssh-keygen -f ~/.ssh/$SSH_USER -m 'PEM' -e > $SSH_USER.pem
+   chmod 600 $SSH_USER.pem
    </tt>
 
-   This is recommended instead of the alternate of asking Azure to <tt>--create-cert</tt> in command:
+   This is recommended instead of the alternative of asking Azure to <tt>--create-cert</tt> in command:
 
-   <pre><strong>az ad sp create-for-rbac --name "$AZ_PRINCIPAL" --create-cert</strong></pre>
+5. We next <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">
+Create a Service Principal</a> using <a target="_blank" href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions">
+    Conventions</a> for naming principals under RBAC (role-based access control):
 
-   The response is this JSON file in your $HOME folder:
+   This Azure CLI (command az) has the subcommand <strong>ad</strong> (for Active Directory)
+   to create Service Principals (sp's). We capture the response (in JSON format) in the variable return.
+
+   <pre><strong>return=$(az ad sp create-for-rbac --name "$AZ_PRINCIPAL" \
+   --role owner \
+   --create-cert \
+   --query ['fileWithCertAndPrivateKey, appId, tenant]
+   )</strong></pre>
+
+   This JSON file the command puts in your $HOME folder:
 
    <pre>
 {
-  "appId": "APP_ID",
+  "appId": "<em>username</em>",
   "displayName": "ServicePrincipalName",
-  "name": "http://ServicePrincipalName",
-  "password": ...,
+  "name": "http://<em>your app address</em>",
+  "password": <em>passkey</em>,
   "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 }
    </pre>
 
+   The additiona <strong>--query</strong> attribute makes
+   first of three fields (fileWithCertAndPrivateKey) requested in the query is parsed using this command:
+   
+   <pre>echo return | tr -d "[ ] \" \"" | awk -F, '{ print $1 }'
+   </pre>
+
+   To obtain the first part of the response, "/user/wisdom/tmpf14zjme.pem", which is used in subsequent commands.
+
+   <tt>AZ_PEM_LOC="echo return | tr -d "[ ] \" \"" | awk -F, '{ print $2 }'"</tt>
+
+   The second item in the query in the command above yields the APP_ID:
+
+   AZ_APP_ID="echo $return | tr -d "[ ] \" \"" | awk -F, '{ print $2 }'"
+   
+   The third item is the Tenant ID. Both of these are GUIDs.
+   
+   The command has additional options:
+
+   <tt>az ad sp create-for-rbac -n "lnx" \
+   --role contributor \
+   --scopes /subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss
+   </pre>
+
+
+   ### Login for sure
+
+6. Now we take the
+   <a target="_blank" href="https://lnx.azurewebsites.net/directory-roles-for-azure-ad-service-principal/">
+   NOTE</a>: 
+   
+   <tt>az login --service-principal -u "$AZ_APP_ID" \
+   -p "$AZ_PEM_LOC" --tenant "$AZ_TENANT"</tt>
+
+   https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
+   is the older version of
+   Microsoft Graph at https://developer.microsoft.com/en-us/graph
+   https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph
+
+
    BLAH: The name of the file created contains something like "tmpcgzysdch", a random set of characters. 
    So the script needs to figure out that file name.
    Thus we create the pem file and tell Azure.
+
 
 5. TODO: Obtain the password text from within the file 
 
@@ -282,13 +334,20 @@ Create a Service Principal</a> using <a target="_blank" href="https://docs.micro
 
 6. Login using credentials built above:
 
-   <pre>az login --service-principal --username "$AZ_APP_ID" --tenant "$AZ_TENANT" --password "$HOME/certs/$AZ_APP_ID.pem" </pre>
+   <pre>az login --service-principal $AZ_PRINCIPAL \
+   --username "$AZ_APP_ID" \
+   --role owner \
+   --tenant "$AZ_TENANT" \
+   --password "$HOME/certs/$SSH_USER.pem"
+   </pre>
    
-   PROTIP: The APP_ID and username are the same.
+   BLAH: The APP_ID and username are the same. Whatever.
 
-7. Assign the "Reader" role to the APP ID (username):
+7. Assign a role named "Reader" to the APP ID (username):
 
-   <pre><strong>az role assignment create --assignee $AZ_APP_ID --role Reader</strong></pre>
+   <pre><strong>az role assignment create \
+   --assignee "$AZ_APP_ID" \
+   --role reader</strong></pre>
 
 8. List what resources were assigned to a APP_ID:
 
