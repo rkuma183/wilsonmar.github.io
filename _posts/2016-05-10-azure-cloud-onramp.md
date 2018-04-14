@@ -29,9 +29,10 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
    If you're at a company, you will need to give someone else the password so that if you're ever "run over a bus",
    your organization can continue.
 
-2. You'll need a credit card number.
+2. Make up an adult birthdate: 2018 - 22 = 1996
 
-   Many companies have a company (corporate) credit card.
+   PROTIP: Write it down for account recovery, such as in a 1Password entry.
+   Also write down the date you created the account.
 
 3. You'll need a phone number for 3FA (three Factor Authentication).
 
@@ -41,6 +42,12 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
    Give that new number only to Microsoft.
    This enables you to transfer that new number to someone else without making your friends wonder where you went.
 
+   PROTIP: It's best security that for 3FA you use someone else's phone.
+   But as my wife will tell you this can get annoying if you work while she's sleeping with her phone next to her.
+
+4. You'll need a credit card number.
+
+   Many companies have a company (corporate) credit card.
 
 ## Two Azure portals #
 
