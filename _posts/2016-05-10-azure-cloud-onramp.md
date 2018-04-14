@@ -241,24 +241,25 @@ At <a target="_blank" href="https://portal.azure.com/">
 
 3. Use the automation bash script for MacOS at https://github.com/wilsonmar/mac-install-all 
 
-4. In the "mac-install-all" folder downloaded, edit the <strong>secrets.sh</strong> file to specify variables used in the script.
+   The "mac-install-all.sh" script places a <strong>secrets.sh</strong> file in your machine's home folder.
 
-5. Run the script, which does all the following:
+   The script takes care of <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">installing the azure CLI</a>
 
-   Email > Account Password > Login > Tenant > Principal > APP_ID > Roles
+4. Edit the file there (not in the repo directory).
 
-5. Login online:
+5. Run the script from your machine's Terminal, which does all the following:
+
+   Account Password > Login > Tenant > Principal > APP_ID > Roles > Template > stop
+
+6. The script uses this command to log you in:
 
    <pre>az login -u "$AZ_USER" -p "$AZ_PASSWORD"</pre>
 
-   If you attempt to login using the user and password you use online (such as your hotmail credentials), you'll get an error.
+   If you have not signed up for a <strong>subscription</strong>, you'll get an error such as:
+   "No subscriptions were found for 'None'. If this is expected, use '--allow-no-subscriptions' to have tenant level accesses"
 
-   <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">
-   NOTE</a>: To use your command line client to use services (such as create server instances),
-   first install the azure CLI:
-
-   <pre>brew install azure</strong></pre>
-
+   CAUTION: Logging in online imbues you with a full set of permissions that a login using the az command does not
+   fully possess.
 
    <a name="TenantID"></a>
 

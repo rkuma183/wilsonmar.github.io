@@ -1619,6 +1619,9 @@ Several blogs addresses issues related to this topic:
 * <a target="_blank" href="http://blog.teamtreehouse.com/install-node-js-npm-mac">
    Dave McFarland's blog on install is from 2014.</a>
 
+* <a target="_blank" href="https://app.pluralsight.com/library/courses/nodejs-express-web-applications-update/table-of-contents">
+Building Web Applications with Node.js and Express 4.0 (UPDATE)</a>
+released 23 Mar 2018 by Jonathan Mills
 
 
 ## More on MacOS #
