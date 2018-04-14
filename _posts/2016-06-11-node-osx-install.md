@@ -20,6 +20,13 @@ The objective of this tutorial is to spare you the pain and confusion
 around installing, updating, and uninstalling 
 the various editions and versions of Node (aka NodeJs, with Js for JavaScript).
 
+## Why Node?
+
+![npm-modules-ftw-566x369](https://user-images.githubusercontent.com/300046/38767577-2cb6d324-3fa1-11e8-9285-614afc0a82e5.jpg)
+
+Popularity is manifested in the number of new modules being contributed.
+And Node is fast. It's portable. What's not to like?
+
 
 <a name="Editions"></a>
 
@@ -60,7 +67,9 @@ with bug and security fixes.
 
 ![node-install-ver-742x371](https://user-images.githubusercontent.com/300046/38767344-94004a42-3f9c-11e8-93c1-2d15e3c92993.jpg)
 
-   PROTIP: Odd version numbers of Node.js are considered unstable development versions.
+PROTIP: Odd numbered versions are not destined for active status, unstable development versions.
+
+There are two versions active at the same time.
 
 
 <a name="NjSolid"></a>
