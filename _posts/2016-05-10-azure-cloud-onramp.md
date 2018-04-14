@@ -71,8 +71,8 @@ Services NOT available in the newer ARM portal:
    * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-faq">Multi-factor authentication</a> (this is a big thing)
    <br /><br />
 
-<table>
-<tr valign="bottom"><th> Sign-up page </th><th> Console page </th></tr>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr valign="bottom"><th> Product </th><th> Sign-up page </th><th> Console page </th></tr>
 <tr valign="top"><td> <a href="#ASM-signup">ASM</a> </td><td>
    <a target="_blank" href="https://account.windowsazure.com/signup/"> 
    account.windowsazure.com/signup</a>
