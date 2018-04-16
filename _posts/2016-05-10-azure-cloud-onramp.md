@@ -49,9 +49,11 @@ This is a step-by-step hands-on approach to getting you up and running on Azure 
 
    Many companies have a company (corporate) credit card.
 
-## Two Azure portals #
+5. Pay for a subscription.
 
-Right off the bat, know that Microsoft is transitioning from the "classic" (older)
+   ### Two Azure portals #
+
+Right off the bat, know that Microsoft has been transitioning from the "classic" (older)
 Azure Service Management (ASM) to the Azure Resource Manager (ARM).
 
 <table border="1" cellpadding="4" cellspacing="0">
@@ -197,15 +199,6 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    ![azure help upper right 220x267](https://cloud.githubusercontent.com/assets/300046/25567655/c2642352-2dc0-11e7-9e6d-ef60c659a152.png)
 
-   ### Keyboard Shortcuts
-
-0. Click Keyboard shortcuts in the menu.
-
-   BLAH: I have no idea what G means. See:
-
-   https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-keyboard-shortcuts
-
-   ### Help + Support
 
    Notice Support options are also listed behind the smily face icon.
 
@@ -215,6 +208,14 @@ At <a target="_blank" href="https://portal.azure.com/">
 
 0. Right-click on the "Help + Support" box on the Dashboard and select "unpin"
    becuase you now know you can reach it (in two places).
+
+   ### Keyboard Shortcuts
+
+0. Click Keyboard shortcuts in the menu.
+
+   BLAH: I have no idea what G means. See:
+
+   https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-keyboard-shortcuts
 
 
    ### Marketplace
@@ -253,27 +254,62 @@ At <a target="_blank" href="https://portal.azure.com/">
 
    <a name="AZ-actions"></a>
 
-## TRYOUT
+## TRYOUT "az-vm"
 
-If in the secrets.sh file the TRYOUT string is edited to contain "az":
+If in the secrets.sh file the TRYOUT string is edited to contain a known value for a module, that would be executed.
+To execute all modules:
 
-   <tt>TRYOUT="az"</tt>
+   <tt>TRYOUT="az-vm"</tt>
 
-... the Bash script has been programmed to create an instance using az cli commands rather than manually copied and pasted onto a <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest">Azure Cloud Shell</a> instance launched on an internet browser as described at:
+To execute only one or a few modules, for example:
 
-    <a target="_blank" href="
-    https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest">
-    https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest</a>
+   <tt>TRYOUT="az-vm"</tt>
 
-    Alternately, create an Azure (serverless) Function, as described in commands listed at:
+... the Bash script has been programmed to create an instance using az cli commands rather than manually copied and pasted onto a <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest">Azure Cloud Shell</a> instance launched on an internet browser as described (using command+shift+V) at:
 
-    https://docs.microsoft.com/en-us/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json&view=azure-cli-latest
+   <a target="_blank" href="
+   https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest">
+   https://docs.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial?view=azure-cli-latest</a>
 
-5. Run the script from your machine's Terminal, which does all the following:
+   * Log in
+   * Create a resource group
+   * Create a virtual machine
+   * Get VM information with queries
+   * Set environment variables from CLI output
+   * Create the new VM on an existing public subnet (contoso.ws)
+   * Verify public access to one-page static page (like isitchristmas.com)
+   * Cleanup (remove vm instance if TRYOUT_KEEP is not specified)
+   * Display cost of above
+   <br /><br />
+
+Alternately, if in the secrets.sh file the TRYOUT string is edited to contain this:
+
+   <tt>TRYOUT="az-func"</tt>
+
+   This creates an Azure (Serverless) Function, as described in commands listed at:
+
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json&view=azure-cli-latest">
+   Azure Functions</a>
+
+   The unique aspect of the mac-install-all.sh script is that it does NOT require you to go from screen to screen
+   typing steps by step starting from<br />
+   https://azure.microsoft.com/en-us/services/functions<br />
+   
+   The script executes a set of commands for you automatically
+   so you get past the installation and configuration confusion,
+   bringing your laptop to a point where you can work on changing the sample to the app you want.
+   You can then re-run the script, and any changes to the underlying framework would be upgraded if needed.
+
+   Since Azure provides a small amount of free time to all accounts each month under their
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan">
+   Consumption Plan</a>,
+   you can do several runs each month without spending any cash. See their <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/functions/">Pricing</a>.
+
+   The "az-func" TRYOUT does all the following:
 
    Account Password > Login > Tenant > Principal > APP_ID > Roles > Template > stop
 
-6. The script uses this command to log you in:
+1. The script uses this command to log you in:
 
    <pre>az login -u "$AZ_USER" -p "$AZ_PASSWORD"</pre>
 
@@ -412,16 +448,19 @@ Create a Service Principal</a> using <a target="_blank" href="https://docs.micro
 
 ## TRYOUT
 
+To specify a module to run (not just install):
 If in the secrets.sh file the TRYOUT string is edited to contain "az":
 
    <tt>TRYOUT="az"</tt>
 
-
+QUESTION: limits to total concurrent executions across all functions within a given region to 100?
 
 ## Batch commands
 
 Azure provides a way to perform the same process on many at once. See:
 https://docs.microsoft.com/en-us/cli/azure/batch?view=azure-cli-latest
+
+Azure has "Web Jobs" for Azure Functions background jobs.
 
 
 ## Videos

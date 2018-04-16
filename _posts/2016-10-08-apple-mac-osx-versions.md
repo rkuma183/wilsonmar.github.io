@@ -21,7 +21,7 @@ comments: true
 <table border="1" cellpadding="4" cellspacing="0">
 <tr><th> Ver. </th><th> Code Name </th><th> Avail. Date
 </th><th><a href="/php-on-apple-mac-osx/">PHP</a>
-</th><th><a href="/python-on-apple-mac-osx/">Python</a>
+</th><th><a href="/python-install/">Python</a>
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
@@ -187,40 +187,23 @@ Do a full backup before.
 
 MacOSX To find out more about why a macOS Sierra installation failed:
 
-   /var/log/install.log
-
+   <pre><strong>textedit /var/log/install.log
+   </strong></pre>
 
 Each user starts with a login keychain saved at 
 
-   /Users/username/Library/Keychain/login.keychain 
+   <pre>/Users/<em>username</em>/Library/Keychain/login.keychain</pre>
 
 and a Local Items/iCloud keychain saved in folder: 
 
-   /Users/username/ Library/Keychains/UUID
+   <pre>cd
+   /Library/Keychains/UUID</pre>
 
 Administrative users can manage macOS authentication assets with the /Library/Keychain/System.keychain. 
 
 Apple maintains several items for macOS use in:
 
    /System/Library/Keychains/ 
-
-
-## Use Touchbar to auth Terminal
-
-Within Terminal app:
-
-1. Edit the file:
-
-   <pre><strong>
-   sudo nano /etc/pam.d/sudo
-   </strong></pre>
-
-2. Provide your password.
-3. Add the following line to the top:
-
-   <pre>auth sufficient pam_tid.so</pre>
-
-4. Save the change within Nano using Control+O and then exit nano with Control+X
 
 
 ## Create a bootable installer for macOS
@@ -236,13 +219,22 @@ https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12</a>
 0. Close iTunes after download is finished into your user Applications folder.
 0. In Finder, press shift+command+A or click the Go menu to select Applications.
 
-   NOTE: The file "Install macOS Sierra.app" for 10.12.5 is 4.97 GB.
+   NOTE:<br />
+   The file "Install macOS Sierra.app" for 10.12.5 is 4.97 GB.<br />
+   The "Install macOS High Sierra.app" is ???
 
    Notice there are spaces within the file name of the download<br />
    "Install macOS Sierra.app". This means back slash (\\) escape characters
-   are needed in typed commands referencing the file:
+   are needed in typed commands referencing the file.
 
-   <pre>sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/
+   <pre>ls "/Applications/Install\ macOS\ Sierra.app/Contents/Resources/"
+   </pre>
+
+   PROTIP: The forward slash is used as an escape character before each space character.
+
+1. Run the installer:
+
+   <pre>"sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/startosinstall --converttoapfs NO"
    </pre>
 
    PROTIP: Use the GUI utility described below instead of the
@@ -335,6 +327,25 @@ Want to add the Windows 10 wallpaper to your desktop?
 0. Get to folder where system wallpapers are held from the 
    Finder > Go |> Go to Folder >  /Library/Desktop Pictures.
 0. Sort by File Size. 
+
+
+
+## Use Touchbar to auth Terminal
+
+Within Terminal app:
+
+1. Edit the file:
+
+   <pre><strong>
+   sudo nano /etc/pam.d/sudo
+   </strong></pre>
+
+2. Provide your password.
+3. Add the following line to the top:
+
+   <pre>auth sufficient pam_tid.so</pre>
+
+4. Save the change within Nano using Control+O and then exit nano with Control+X
 
 
 ## More on OSX
