@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac OSX Versions (plus Installers and Wallpapers)"
+title: "Apple Mac versions (plus Installers and Wallpapers)"
 excerpt: "From Mac OSX to MacOS"
 shorturl: "https://goo.gl/Ua6Pyv"
 tags: [apple, mac, setup]
@@ -25,7 +25,7 @@ comments: true
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
-<tr valign="top"><td> 10.13.1<br />MacOS
+<tr valign="top"><td> 10.13<br />MacOS
 </td><td align="right"> High<br />Sierra
 </td><td align="right"> Oct. 2017
 </td><td align="right"> 2.6.0
