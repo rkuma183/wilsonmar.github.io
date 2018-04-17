@@ -25,23 +25,23 @@ comments: true
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
-<tr valign="top"><td> 10.13.1
-</td><td align="right"> MacOS<br />High<br />Sierra
+<tr valign="top"><td> 10.13.1<br />MacOS
+</td><td align="right"> High<br />Sierra
 </td><td align="right"> Oct. 2017
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
 </td><td align="right"> 2.4.2p198
 </td><td align="left"> ADFS, H.265 video, Metal 2
 </td></tr>
-<tr valign="top"><td> 10.12
-</td><td align="right"> MacOS<br />Sierra
+<tr valign="top"><td> 10.12<br />MacOS
+</td><td align="right"> Sierra
 </td><td align="right"> Oct. 2016
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
 </td><td align="right"> -
 </td><td align="left"> Auto unlock, universal clipboard, Siri, Watch login
 </td></tr>
-<tr valign="top"><td> 10.11
+<tr valign="top"><td> 10.11<br />Mac OSX
 </td><td align="right"> El Capitan (Gala)
 </td><td align="right"> July 2015
 </td><td align="right"> -

@@ -303,7 +303,7 @@ Alternately, if in the secrets.sh file the TRYOUT string is edited to contain th
    Since Azure provides a small amount of free time to all accounts each month under their
    <a target="_blank" href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan">
    Consumption Plan</a>,
-   you can do several runs each month without spending any cash. See their <a target="_blank" href="https://azure.microsoft.com/en-us/pricing/details/functions/">Pricing</a>.
+   you can do several runs each month without spending any cash. See their <a target="_blank" href="``https://azure.microsoft.com/en-us/pricing/details/functions/">Pricing</a>.
 
    The "az-func" TRYOUT does all the following:
 
