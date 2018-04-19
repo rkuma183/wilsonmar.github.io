@@ -86,6 +86,57 @@ Create a bootable installer for macOS
 
 Boot up with the installer Disc.
 
+## Launch
+
+MacOS provices its <tt>launchctl</tt> utility to let you interact with the OS X init script system deamon launchd
+which controls the services that start up on boot.
+
+1. List what launch scripts are currently loaded:
+
+   <pre><strong>launchctl list | wc -l</strong></pre>
+
+   375 shows up. Remove the pipe to see the list.
+
+   Launchd scripts are stored in several folders:
+
+   * ~/Library/LaunchAgents
+   *  /Library/LaunchAgents
+   *  /Library/LaunchDaemons
+   *  /System/Library/LaunchAgents
+   *  /System/Library/LaunchDaemons 
+
+1. To stop and unload running scripts:
+
+   sudo launchctl unload [path/to/script] -w 
+
+   The -2 flag removes the script permanently from your boot sequence. 
+   
+   I like to run this one on all the auto-update " helpers"="" created="" by="" adobe="" apps="" and="" microsoft="" office.&LT;="" p="">
+
+1. To see what goes into a launch agent or daemon, there's a great blog post by Paul Annesley that walks you through the file format at:
+
+   http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool/
+
+   "I particularly like the idea of using QueueDirectories to monitor and act upon files dropped into a directory, without having to run any extra daemons. The files could be uploaded to S3, transcoded to a different video format, gzipped… anything."
+
+1. Learn how to write your own launchd scripts from Apple's Developer site:
+
+   https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+
+1. If you'd prefer a GUI rather than using the command line, install the Lingon app from:
+
+   http://www.peterborgapps.com/lingon/
+
+1. Consider setting up bash scripts to run periodically or at timed intervals in the background, similar to cron jobs on Linux. For example, to start the Apache web server start automatically when you turn on your Mac:
+
+   <pre><strong>
+   sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+   </strong>
+
+## Plists
+
+Plist files are how Macs define services.
+
 
 ## More on OSX
 

@@ -185,24 +185,31 @@ http://bencane.com/2013/09/16/understanding-a-little-more-about-etcprofile-and-e
 
 See "Reliable Writes" in https://www.greenend.org.uk/rjk/tech/shellmistakes.html
 
-A script overwrites files only after saving a backup copy.
-
-TODO: Where there may be relationships among several files, all files changed in the same run have the same timestamp.
-
-The file name of the backup contains a date and time stamp 
-
-A random number is also added
-
-Naming the file with a suffix of ".bak" 
+A script overwrites files only after saving a backup copy,
+naming the file with a suffix of ".bak" 
 
 
-## Lint check
+### Time stamps
+
+Where there may be relationships among several files, all files changed in the same run have the same timestamp.
+
+The file name of the backup contains a date and time stamp in ISO 8601 format such as:
+
+   <pre>
+LOG_DATETIME=$(date +%Y-%m-%dT%H:%M:%S%z)-$((1 + RANDOM % 1000))
+LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
+   </pre>
+
+A random number is added as the microseconds.
+
+
+## Lint Shellcheck
 
 Coding in this script is linted using ShellCheck online at
-https://shellcheck.com or installed from 
-https://github.com/koalaman/shellcheck
+<a target="_blank" href="https://shellcheck.com">shellcheck.com</a> or installed from 
+<a target="_blank" href="https://github.com/koalaman/shellcheck">https://github.com/koalaman/shellcheck</a>
 
-To override the triggering of one of its particular rules so that it does not appear,
+To override the triggering of one of its particular rules so that it does not appear as an error,
 a line like this is added
 
 <pre># shellcheck disable=SC2059</pre>
