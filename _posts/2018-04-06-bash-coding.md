@@ -198,9 +198,14 @@ Naming the file with a suffix of ".bak"
 
 ## Lint check
 
-https://shellcheck.com
-
+Coding in this script is linted using ShellCheck online at
+https://shellcheck.com or installed from 
 https://github.com/koalaman/shellcheck
+
+To override the triggering of one of its particular rules so that it does not appear,
+a line like this is added
+
+<pre># shellcheck disable=SC2059</pre>
 
 
 ## Variables
@@ -267,6 +272,26 @@ else
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
    </pre>   
+
+0. The meanjs sample app requires MongoDB to be running, so this code makes that so
+   by concatenating a control keyword text to a variable:
+
+   <pre>
+   if echo "$TRYOUT_KEEP" | grep -q "mongodb"; then
+      echo "mongodb already in string";
+   else
+      echo "$TRYOUT_KEEP,mongodb";  # add to string
+   fi
+   if echo "$TRYOUT" | grep -q "mongodb"; then
+      echo "mongodb already in string";
+   else
+      echo "$TRYOUT,mongodb";  # add to string
+   fi
+   MONGODB_INSTALL
+   </pre>   
+
+   Before calling MONGO_INSTALL, we mark the strings that brings up the MongoDB service
+   and keeps it running rather than shutting it down (the default action).
 
 
 ## Multiple terminals

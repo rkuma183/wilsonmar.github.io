@@ -16,22 +16,25 @@ comments: true
 
 {% include _toc.html %}
 
-Here is (the beginnings of) a description of how one can feed donkeys in the morning without going out into the barn.
+Here is (the beginnings of) a description of my attempts at automating the feeding of 
+donkeys in the morning without going out into the barn before they <a target="_blank" href="https://www.youtube.com/watch?v=nWS4Eu8E2z4&t=5s">
+bray annoyingly</a>.
 
-## Why ? #
+## Options considered
 
-There are several reasons why someone would want to drop stuff from the ceiling.
-
-* Balloons at a celebration.
-
-* Red liquid at a <a target="_blank" href="http://www.imdb.com/title/tt0074285/">
+At first I thought of the design as like dropping balloons from the ceiling or red liquid at a <a target="_blank" href="http://www.imdb.com/title/tt0074285/">
 Carrie" movie</a> remake.
 
-* Hay for animals in a barn is my interest here.
-I have a barn for two donkeys.
-My wife gets up before dawn each morning to feed them,
-or they will <a target="_blank" href="https://www.youtube.com/watch?v=nWS4Eu8E2z4&t=5s">
-bray annoyingly</a>.
+<a target="_blank" href="https://countrysidenetwork.com/daily/poultry/chicken-coops-housing/automating-a-chicken-coop-door-using-arduino/">
+This video</a> shows an Arduino controlling the door to chicken coop that, rather than using a simple timer to open and close the chicken coop doors, a computer considers sunrise and sunset times.
+
+We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable. The less moving parts the better. Movements would occur on a timed schedule:
+
+   * <a href="#BagOfFeed">A feed bag</a> filled and then raised and lowered by a hoist
+   * <a href="#Box">A box that is lowered to the ground by one motor
+   * <a href="#BoxDumper">A box that dumps food</a> on the ground from the ceiling. One motor raises and lowers the box. Another opens the trap door containing food.
+
+## How much feed?
 
    Two donkeys get half a "flake" each at 5am and 5pm.
    A half flake is 4 inches thick x 20 inch square, weighing 4 to 5 pounds.
@@ -42,22 +45,13 @@ bray annoyingly</a>.
    Thus, I need a way to hold their hay 
    for release automatically at a set time.
 
-* <a target="_blank" href="https://countrysidenetwork.com/daily/poultry/chicken-coops-housing/automating-a-chicken-coop-door-using-arduino/">This video</a> shows an Arduino controlling the door to chicken coop that, rather than using a simple timer to open and close the chicken coop doors, a computer considers sunrise and sunset times.
-
-
-## Options considered
-
-We've thought of several options. I'm looking for the lowest cost, least hassle, and most reliable. The less moving parts the better. Movements would occur on a timed schedule:
-
-   * <a href="#BagOfFeed">A feed bag</a> filled and then raised and lowered by a hoist
-   * <a href="#Box">A box that is lowered to the ground by one motor
-   * <a href="#BoxDumper">A box that dumps food</a> on the ground from the ceiling. One motor raises and lowers the box. Another opens the trap door containing food.
 
 <a name="BagOfFeed"></a>
 
 ### Bag of feed
 
-The one with the least moving parts is a <strong>bag</strong> used to slow down how quickly horses and other equine eat.
+The one with the least moving parts seems to be a <strong>netting bag</strong> 
+used to slow down how quickly horses and other equine eat.
 
 ![iot-haybag-v01-804x804-400408](https://user-images.githubusercontent.com/300046/37868902-f44590f8-2f73-11e8-8439-1acbe68c70ab.png)
 
@@ -79,6 +73,22 @@ A later phase would add consideration of Sunrise/Sunset times for a specified La
 
 The Pi case would need to have some dust filter and a fan powerful enough.
 
+<!-- https://www.adafruit.com/product/412 -->
+Small Push-Pull Solenoid - 12VDC $7.95
+
+https://www.adafruit.com/product/2776
+https://www.sparkfun.com/products/11015
+Mini Push-Pull Solenoid - 5V
+https://www.alibaba.com/product-detail/0626L-pull-push-type-solenoids_60076297489.html?spm=a2700.7724838.2017115.29.4a7c4d4f8DIlrS
+https://www.robotshop.com/en/5v-solenoid.html
+iot-solonoid-mini.jpg
+has a series resistance of 5.1Ω and inductance of 2359.25µF.
+Although rated at 5V, sending 9v pulse to the solenoid to give it some extra kick.
+18v for about 25ms
+It has a white JST connector.
+https://www.youtube.com/watch?time_continue=15&v=W9j6ZRsOUrI
+13V
+https://www.youtube.com/watch?v=vdDJG125rTE
 
 <a name="BoxLowered"></a>
 
