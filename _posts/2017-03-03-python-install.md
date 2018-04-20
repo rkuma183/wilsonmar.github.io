@@ -2170,6 +2170,11 @@ describes install of https://bootstrap.pypa.io/get-pip.py
 https://docs.python.org/3/library/2to3.html
 2to3 is a Python program that reads Python 2.x source code and applies a series of fixers to transform it into valid Python 3.x code.
 
+## References
+
+https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/
+recommends several pip libraries
+
 
 ## More on OSX
 

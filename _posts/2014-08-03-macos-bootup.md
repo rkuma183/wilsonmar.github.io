@@ -81,8 +81,10 @@ this Apple article</a>.
 
 ## Bootable Installer
 
-https://support.apple.com/en-us/HT201372
-Create a bootable installer for macOS
+<a target="_blank" href="
+https://support.apple.com/en-us/HT201372">
+https://support.apple.com/en-us/HT201372<br />
+Create a bootable installer for macOS</a>
 
 Boot up with the installer Disc.
 
@@ -95,7 +97,7 @@ which controls the services that start up on boot.
 
    <pre><strong>launchctl list | wc -l</strong></pre>
 
-   375 shows up. Remove the pipe to see the list.
+   375 shows up. Remove the "| wc -l" to see the list.
 
    Launchd scripts are stored in several folders:
 
@@ -104,6 +106,7 @@ which controls the services that start up on boot.
    *  /Library/LaunchDaemons
    *  /System/Library/LaunchAgents
    *  /System/Library/LaunchDaemons 
+   <br /><br />
 
 1. To stop and unload running scripts:
 
@@ -115,17 +118,21 @@ which controls the services that start up on boot.
 
 1. To see what goes into a launch agent or daemon, there's a great blog post by Paul Annesley that walks you through the file format at:
 
-   http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool/
+   <a target="_blank" href="
+   http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool/">
+   http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool</a>
 
    "I particularly like the idea of using QueueDirectories to monitor and act upon files dropped into a directory, without having to run any extra daemons. The files could be uploaded to S3, transcoded to a different video format, gzipped… anything."
 
-1. Learn how to write your own launchd scripts from Apple's Developer site:
+1. Learn how to write your own launchd scripts from 
+   <a target="_blank" href="
+   https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">Apple's Developer site:</a>
 
-   https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+1. If you'd prefer a GUI rather than using the command line, buy the $10 Lingon app from:
 
-1. If you'd prefer a GUI rather than using the command line, install the Lingon app from:
-
-   http://www.peterborgapps.com/lingon/
+   <a target="_blank" href="
+   http://www.peterborgapps.com/lingon/">
+   http://www.peterborgapps.com/lingon</a>
 
 1. Consider setting up bash scripts to run periodically or at timed intervals in the background, similar to cron jobs on Linux. For example, to start the Apache web server start automatically when you turn on your Mac:
 
