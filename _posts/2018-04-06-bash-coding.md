@@ -109,19 +109,52 @@ But <strong>three spaces</strong> make the line indent under if align better.
 And the if statement is the most common in the script. 
 
 
+## Time start and elapsed
+
+Near the script's beginning, the MacOS <tt>date</tt> command is used to obtain a starting time stamp:
+
+<pre>TIME_START="$(date -u +%s)"</pre>
+
+The output is like "1524256274", which is the number of seconds since the "epoch" of January 1, 1970.
+
+At the end of the script, the END timestamp is obtained for use in calculating the 
+time elapsed during the script run.
+
+
+## Disk Space Free and Used
+
+Near the script's beginning, the MacOS <tt>df</tt> command is used to obtain the number of blocks available:
+
+<pre>FREE_DISKBLOCKS_START="$(df | sed -n -e '2{p;q}' | cut -d' ' -f 6)"</pre>
+
+At the end of the script, the END variable is obtained for use in calculatubg the 
+space used during the script run.
+
+
 ## Logging to file
 
-Echo statements are sent to a file:
+The script is designed so the historical record of each run pops up at the end of the script.
+This is so you can easily <strong>scroll and search</strong> through the document, something that is difficult on the Console.
 
-<pre>
- >>$THISSCRIPT
-</pre>
+What sends statements to a file is this:
+
+   <pre>
+echo "something" >>$LOGFILE
+   </pre>
 
 The file name of the log file contains a date in ISO 8601 format,
 so multiple editions of the file can be sorted by date.
 
+The file is put in the user's $HOME folder so that logs don't accumulate unnoticed in an obscure location.
 
-## Functions
+Logs are not sent to the Linux <tt>/var/log</tt> folder because on a Mac its default owner for permissions is root:
+
+   <pre>ls -ld /var/log
+drwxr-xr-x  54 root  wheel  1728 Apr 21 05:01 /var/log
+   </pre>
+
+
+## Functions for dependencies
 
 <a target="_blank" href="https://stackoverflow.com/questions/11369522/bash-utility-script-library">
 QUESTION</a>: What are good Bash libraries with common functions?
@@ -202,6 +235,35 @@ LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
 
 A random number is added as the microseconds.
 
+## Processes started
+
+   <pre><strong>
+ps x | grep postgres
+   </strong></pre>
+
+   The response is:
+
+   <pre>
+86700   ??  Ss     0:00.00 postgres: checkpointer process     
+86701   ??  Ss     0:00.07 postgres: writer process     
+86702   ??  Ss     0:00.05 postgres: wal writer process     
+86703   ??  Ss     0:00.04 postgres: autovacuum launcher process     
+86704   ??  Ss     0:00.05 postgres: stats collector process     
+86705   ??  Ss     0:00.00 postgres: bgworker: logical replication launcher     
+86698 s000  S      0:00.04 /usr/local/Cellar/postgresql/10.3/bin/postgres -D /usr/local/var/postgres
+87259 s001  S+     0:00.00 grep postgres
+   </pre>
+
+To get the PID (Process ID) used by the kill command we add a slash in front of prostgres to differentiate it from other processes also for postgres:
+
+   <pre><strong>
+PID="$(ps x | grep -m1 '/postgresql' | grep -v "grep" | awk '{print $1}')"
+kill $PID
+   </strong></pre>
+
+Killing/stopping the "postgresql" process also stops several "postres:" automatically.
+
+<a name="ShellCheck></a>
 
 ## Lint Shellcheck
 
@@ -374,4 +436,10 @@ https://www.tldp.org/LDP/abs/html/abs-guide.html
 http://www.linuxjournal.com/article/9001  on CPU Load Averages
 
 https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes
+
+https://github.com/Bash-it/bash-it
+a collection of community Bash commands and scripts for Bash 3.2+. (And a shameless ripoff of oh-my-zsh 😃)
+Includes autocompletion, themes, aliases, custom functions, a few stolen pieces from Steve Losh, and more.
+
+https://github.com/denysdovhan/bash-handbook
 

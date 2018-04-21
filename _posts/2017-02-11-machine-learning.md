@@ -25,6 +25,8 @@ being explicitly programmed by human developers.
 Rather than explicit programming, Machine Learning algorithms identify 
 rules through "training” based on many examples.
 
+Recommended by Elon Musk: Nick Bostrom "SuperIntelligence: Paths, Dangers, Strategies"
+
 Computers are also dealing with less structured data than before, such as
 (natural language text, images, and videos)
 rather than neat rows in tables.
