@@ -59,14 +59,14 @@ wrote
 
    PROTIP: But this is not true within AWS if you use DynamoDB, which Amazon touts as the default database.
    While Lambda does not incur charges while idle,
-   a DynamoDB incurs charges for data stored even though no data is read or written to it.
+   DynamoDB instances do incur charges for data stored even though no data is read or written to it.
 
    PROTIP: On AWS use SimpleDB instead of DynamoDB for true no-cost idle.
 
 
 ## FaaS Providers
 
-There is plenty of competition to keep prices low.
+There is plenty of competition (to keep prices low).
 
 PROTIP: The future of FaaS vendors isn't the front-end but the back-end services
 that include API Gateways and 
@@ -78,7 +78,7 @@ and Machine Learning.
 * <a href="#Azure">Microsoft Azure Functions</a>
 * <a href="#Google">Google Functions</a>
 * <a href="#IBM">IBM Bluemix OpenWhisk</a>
-* <a href="#IronIO">Iron.io for on-premises</a>
+* <a href="#IronIO">Iron.io for on-premises</a>. Ironically, Iron originated the term "serverless" in 2012.
 
 <hr />
 
@@ -846,6 +846,11 @@ John McKim  @johncmckim  blogs on Medium:
 
    * <a target="_blank" href="https://medium.com/@johncmckim/serverless-framework-the-good-parts-9d84e5a02467#.yxruhhlna">
    Serverless Framework: The Good Parts</a>
+
+CNCF
+
+   * <a target="_blank" href="https://github.com/cncf/wg-serverless/blob/master/whitepaper/cncf_serverless_whitepaper_v1.0.pdf">white paper PDF</a> in 
+   https://github.com/cncf/wg-serverless
 
 
 ## More on Clouds #

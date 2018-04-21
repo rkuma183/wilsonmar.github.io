@@ -702,9 +702,9 @@ Or, if you don't want/need a background service you can just run:
 
    Before you boldly start:
 
-0. Verify
+0. Verify the location of mysql because mariadb is a flavor of it:
 
-   <tt><strong>which mysql
+   <tt><strong>command -v mysql
    </strong></tt>
 
    The response:
@@ -732,8 +732,8 @@ Or, if you don't want/need a background service you can just run:
 
 0. Invoke interactively from the command line (all in one line):
 
-   <tt><strong>mysql_install_db \-\-verbose \-\-user=`whoami` \-\-basedir="$(brew \-\-prefix mariadb)" \-\-datadir=/usr/local/var/mysql 
-   </strong></tt>
+   <pre><strong>mysql_install_db --verbose --user=$("$whoami") --basedir="$(brew --prefix mariadb)" --datadir=/usr/local/var/mysql
+   </strong></pre>
 
    NOTE: The `whoami` returns the output from running the whoami command.
 
