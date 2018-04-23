@@ -12,17 +12,17 @@ image:
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
+<hr />
+
+{% include _toc.html %}
 
 This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed. This was created during creation of a Bash Script to install all programs on a Mac that a typical developer needs:
 
-   mac-install-all.sh in https://github.com/wilsonmar/git-utilities/
+   mac-install-all.sh in <a target="_blank" href="
+   https://github.com/wilsonmar/mac-install/">
+   https://github.com/wilsonmar/mac-install</a>
 
-## References
-
-Many websites were referenced during the development of this, including:
-
-
-<hr />
+From the top:
 
 <a name="Shebang"></a>
 
@@ -381,8 +381,20 @@ Within the Python program:
 import urllib2
 from bs4 import BeautifulSoup
 quote_page = ‘http://www.bloomberg.com/quote/SPX:IND'
+page = urllib2.urlopen(quote_page)
+soup = BeautifulSoup(page, ‘html.parser’)
+name_box = soup.find(‘h1’, attrs={‘class’: ‘name’})
+name = name_box.text.strip() # strip() is used to remove starting and trailing
+print name
+# get the index price
+price_box = soup.find(‘div’, attrs={‘class’:’price’})
+price = price_box.text
+print price
 </pre>
 
+* http://www.gregreda.com/2013/03/03/web-scraping-101-with-python/
+* http://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/
+* https://github.com/ContentMine/quickscrape
 
 <hr />
 
