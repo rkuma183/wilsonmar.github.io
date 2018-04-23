@@ -289,8 +289,18 @@ You can also download a zip containing .png and .svg files of icons
 (AWS_Simple_Icons_EPS-SVG_v16.2.22.zip).
 
 
+## S3 Bucket names
 
-## People #
+S3 Bucket names are universally unique among all AWS customers.
+
+So just as there are domain name squatters who register and sit on .com host names
+for sale at high prices to those who actually use the names,
+the administrator of root accounts for an organization should
+register your organization's brand names before others get them first.
+
+
+
+## Tutorial People #
 
 * Matt Wood, @mza, Product Strategy @ Amazon Web Services
 

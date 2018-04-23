@@ -732,7 +732,9 @@ Or, if you don't want/need a background service you can just run:
 
 0. Invoke interactively from the command line (all in one line):
 
-   <pre><strong>mysql_install_db --verbose --user=$("$whoami") --basedir="$(brew --prefix mariadb)" --datadir=/usr/local/var/mysql
+   <pre><strong>mysql_install_db --verbose --user=$("$whoami") \
+      --basedir="$(brew --prefix mariadb)" \
+      --datadir=/usr/local/var/mysql
    </strong></pre>
 
    NOTE: The `whoami` returns the output from running the whoami command.

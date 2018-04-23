@@ -362,6 +362,29 @@ fi
    Before calling MONGO_INSTALL, we mark the strings that brings up the MongoDB service
    and keeps it running rather than shutting it down (the default action).
 
+## Scape web page for URL
+
+Most packages setup their installer for easy installation by the brew command.
+
+Gatling did not do that, so we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage.
+
+https://www.joyofdata.de/blog/using-linux-shell-web-scraping/
+reveals a command for Ubuntu.
+
+Python programmers have a utility called "Beautiful Soup"
+https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
+installed by pip install BeautifulSoup4
+
+Within the Python program:
+
+<pre>
+import urllib2
+from bs4 import BeautifulSoup
+quote_page = ‘http://www.bloomberg.com/quote/SPX:IND'
+</pre>
+
+
+<hr />
 
 ## Multiple terminals
 

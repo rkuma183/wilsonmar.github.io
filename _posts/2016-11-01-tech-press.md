@@ -15,14 +15,14 @@ comments: true
 
 {% include _toc.html %}
 
-Here are on-line publications with high subscription and thus are influencers of opinion:
+Here are some on-line publications with high subscription and thus are influencers of opinion:
 
 
 ## Previously print magazines
 
 <ol>
-<li><a target="_blank" href="https://www.bizjournals.com/seattle/blog/techflash/">
-   bizjournals.com/seattle/blog/techflash</a></li>
+<li><a target="_blank" href="https://www.wired.com/category/science/science-blogs/eruptions/">
+   wired.com</a></li>
 <li><a target="_blank" href="http://computerworld.com/">
    computerworld.com</a></li>
 <li><a target="_blank" href="http://forbes.com/">
@@ -35,35 +35,48 @@ Here are on-line publications with high subscription and thus are influencers of
    MacFormat.com</a></li>
 <li><a target="_blank" href="https://www.pcmagazine.com/">
    pcmagazine.com</a></li>
-<li><a target="_blank" href="https://www.wired.com/category/science/science-blogs/eruptions/">
-   wired.com</a></li>
+<li><a target="_blank" href="https://www.bizjournals.com/seattle/blog/techflash/">
+   bizjournals.com/seattle/blog/techflash</a></li>
 </ol>
 
 ### On-line only newsletters
 
 <ol>
-<li><a target="_blank" href="https://m.signalvnoise.com/">
-   m.signalvnoise.com</a> (previously 37 Signals)</li>
-<li><a target="_blank" href="http://alistapart.com/">
-   alistapart.com</a></li>
-<li><a target="_blank" href="http://businessinsider.com/sai/">
-   businessinsider.com/sai</a></li>
-<li><a target="_blank" href="http://businessinsider.com/">
-   cmswire.com</a></li>
-<li><a target="_blank" href="https://cnet.com/">
-   Cnet.com</a></li>
-<li><a target="_blank" href="https://blog.codinghorror.com/">
-   blog.codinghorror.com</a></li>
-<li><a target="_blank" href="https://css-tricks.com/">
-   css-tricks.com</a></li>
-<li><a target="_blank" href="http://insights.dice.com/2012/04/25/project-management-community/">
-   Dice.com</a></li>
-<li><a target="_blank" href="https://fastcodesign.com/">
-   Fastcodesign.com</a></li>
+<li><a target="_blank" href="https://www.reddit.com/">
+   Reddit.com</a></li>
+<li><a target="_blank" href="https://www.wired.com/category/gear/autopia/">
+   Wired.com</a> gear</li>
+<li><a target="_blank" href="https://mashable.com/">
+   Mashable.com</a></li>
+<li><a target="_blank" href="https://techcrunch.com/tag/blogs/">
+   techcrunch.com/tag/blogs/</a></li>
+<li><a target="_blank" href="https://live.theverge.com/">
+   live.theverge.com</a> has several blogs</li>
+<li><a target="_blank" href="https://www.smashingmagazine.com/">
+   SmashingMagazine.com</a></li>
 <li><a target="_blank" href="https://engadget.com/">
    Engadget.com</a></li>
 <li><a target="_blank" href="http://geekwire.com/">
    Geekwire.com</a></li>
+<li><a target="_blank" href="https://cnet.com/">
+   Cnet.com</a></li>
+<li><a target="_blank" href="http://businessinsider.com/sai/">
+   businessinsider.com/sai</a></li>
+
+<li><a target="_blank" href="https://m.signalvnoise.com/">
+   m.signalvnoise.com</a> (previously 37 Signals)</li>
+<li><a target="_blank" href="http://alistapart.com/">
+   alistapart.com</a></li>
+<li><a target="_blank" href="http://businessinsider.com/">
+   cmswire.com</a></li>
+<li><a target="_blank" href="https://blog.codinghorror.com/">
+   blog.codinghorror.com</a></li>
+<li><a target="_blank" href="https://css-tricks.com/">
+   css-tricks.com</a></li>
+<li><a target="_blank" href="http://insights.dice.com/">
+   insights.dice.com</a></li>
+<li><a target="_blank" href="https://fastcodesign.com/">
+   Fastcodesign.com</a></li>
 <li><a target="_blank" href="https://github.com/blog">
    GitHub.com/blog</a></li>
 <li><a target="_blank" href="https://news.ycombinator.com/">
@@ -72,31 +85,19 @@ Here are on-line publications with high subscription and thus are influencers of
    FrontendFocus.co</a></li>
 <li><a target="_blank" href="https://javascriptweekly.com/">
    JavascriptWeekly.com</a></li>
-<li><a target="_blank" href="https://mashable.com/">
-   Mashable.com</a></li>
 <li><a target="_blank" href="https://blogs.msdn.microsoft.com/">
    blogs.msdn.microsoft.com</a></li>
 <li><a target="_blank" href="https://networkworld.com/">
    NetworkWorld.com</a></li>
-<li><a target="_blank" href="https://www.reddit.com/">
-   Reddit.com</a></li>
-<li><a target="_blank" href="https://www.smashingmagazine.com/">
-   SmashingMagazine.com</a></li>
 <li><a target="_blank" href="https://stackoverflow.com/">
    Stackoverflow.com</a> question an answer</li>
-<li><a target="_blank" href="https://techcrunch.com/tag/blogs/">
-   techcrunch.com/tag/blogs/</a></li>
-<li><a target="_blank" href="https://live.theverge.com/">
-   live.theverge.com</a> has several blogs</li>
 <li><a target="_blank" href="http://www.tibco.com/blog/tag/trends-and-outliers/">
    tibco.com/blog/tag/trends-and-outliers/</a></li>
-<li><a target="_blank" href="https://www.wired.com/category/gear/autopia/">
-   Wired.com</a> gear</li>
 <li><a target="_blank" href="https://www.linuxuser.co.uk/">
    Linux User & Developer UK</a></li>
 </ol>
 
-### Consulting firms
+### Consulting firms's blogs
 
 <ol>
 <li><a target="_blank" href="https://www.accenture.com/us-en/blogs/blogs-technology-default">
