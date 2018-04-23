@@ -228,20 +228,38 @@ Where there may be relationships among several files, all files changed in the s
 
 The file name of the backup contains a date and time stamp in ISO 8601 format such as:
 
+   <tt>mac-install-all.sh.2018-04-22T19:26:20-0600-18.log</tt>
+
+The coding uses the bash date and RANDOM commands (for microseconds):
+
    <pre>
 LOG_DATETIME=$(date +%Y-%m-%dT%H:%M:%S%z)-$((1 + RANDOM % 1000))
 LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
    </pre>
 
-A random number is added as the microseconds.
 
-## Processes started
+## Process start/stop/kill
+
+There are several ways to start and stop processes:
+
+   * Invoke the program's cli command, such as <tt>redis-cli start</tt>
+   * Invoke the brew services start command
+   * Invoke <tt>launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.mongodb.plist</tt>
+   <br /><br />
+
+During installation, few installers create a Plist file to define a service that MacOS brings up automatically on boot-up.
+
+The preference is to use an approach which enables orderly saving of what may be in memory. This is preferrable to using a kill command which can be too abrupt.
+
+To kill a process, first obtain the PID:
 
    <pre><strong>
-ps x | grep postgres
+PID="$(ps -A | grep -m1 '/postgresql' | grep -v "grep" | awk '{print $1}')"
+kill $PID
    </strong></pre>
 
-   The response is:
+   PROTIP: The "/" in the process name is sometime added if there are several ("child") processes related to the one PID. Bringing that down would bring down the others automatically.
+   For example: 
 
    <pre>
 86700   ??  Ss     0:00.00 postgres: checkpointer process     
@@ -254,16 +272,11 @@ ps x | grep postgres
 87259 s001  S+     0:00.00 grep postgres
    </pre>
 
-To get the PID (Process ID) used by the kill command we add a slash in front of prostgres to differentiate it from other processes also for postgres:
+   PROTIP: The <tt>grep -v "grep"</tt> filters out the grep process itself.
+   Killing/stopping the "postgresql" process also stops several "postres:" automatically.
 
-   <pre><strong>
-PID="$(ps x | grep -m1 '/postgresql' | grep -v "grep" | awk '{print $1}')"
-kill $PID
-   </strong></pre>
 
-Killing/stopping the "postgresql" process also stops several "postres:" automatically.
-
-<a name="ShellCheck></a>
+<a name="ShellCheck"></a>
 
 ## Lint Shellcheck
 
@@ -364,14 +377,17 @@ fi
 
 ## Scape web page for URL
 
-Most packages setup their installer for easy installation by the brew command.
+Most packages setup their installer for easy installation by creating an entry in Homebrew website.
 
-Gatling did not do that, so we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage.
+Some don't do that, such as Gatling. So we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage. An analysis of the page (at gatling.io/download) shows it is one of two URLs which download the bundle.zip file.
 
-https://www.joyofdata.de/blog/using-linux-shell-web-scraping/
-reveals a command for Ubuntu.
+   <tt>
+DOWNLOAD_URL="gatling-version.html"; wget -q "https://gatling.io/download/" -O $outputFile; cat "$outputFile" | sed -n -e '/<\/header>/,/<\/footer>/ p' | grep "Format:" | sed -n 's/.*href="\([^"]*\).*/\1/p' ; rm -f $outputFile
+   </tt>
 
-Python programmers have a utility called "Beautiful Soup"
+   The code above (from Wisdom Hambolu) pulls down the page. The grep filters out all but the line containing "Format:" which has a link to "zip bundle".  The sed function extracts out the URL between the "href=".
+
+Alternately, Python programmers have a utility called "Beautiful Soup"
 https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
 installed by pip install BeautifulSoup4
 
@@ -392,6 +408,8 @@ price = price_box.text
 print price
 </pre>
 
+Others:
+* https://www.joyofdata.de/blog/using-linux-shell-web-scraping/
 * http://www.gregreda.com/2013/03/03/web-scraping-101-with-python/
 * http://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/
 * https://github.com/ContentMine/quickscrape
@@ -408,9 +426,9 @@ The options to do that depend on the operating system.
 
 On Mac, the "open" command is unique to Macs.
 
-   xterm -e crazy.sh
-
+   <pre>
    open -a Terminal.app crazy.sh
+   </pre>
 
    * See https://stackoverflow.com/questions/19440007/mac-gnome-terminal-equivalent-for-shell-script
 
