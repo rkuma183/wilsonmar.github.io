@@ -204,11 +204,13 @@ The number of blocks needs to be converted to MB (megabytes).
 
 ## File Descriptors
 
-ulimit
+Most services such as databases need more file descriptors than the <tt>2048</tt> default on MacOS. We can see the current limit with this command:
 
-use the tee command to concatenate to the bottom of the <tt>/etc/profile</tt> file
+   <pre><strong>ulimit -n</strong></pre>
 
- 'ulimit -n 2048' | sudo tee -a /etc/profile
+Use the tee command to concatenate to the bottom of the <tt>/etc/profile</tt> file:
+
+   <pre>'ulimit -n 10032' | sudo tee -a /etc/profile</pre>
 
 A reboot is necessary for this to take.
 
@@ -238,6 +240,53 @@ LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
    </pre>
 
 
+## Brew Project Linkages
+
+When we run brew install, it adds new packages to a folder under:
+
+   <tt>/usr/local/Cellar/</tt>
+
+For example, running <tt>brew install sonar</tt> creates a new folder:
+
+   <tt>/usr/local/Cellar/sonarqube/7.1</tt>
+
+   (Notice in this case the path contains "sonarqube" rather than "sonar".)
+
+PROTIP: It's best that version numbers not be hard-coded into scripts.
+
+QUESTION: How do we access the folder using a path that doesn't have a version number?
+
+One of the great reasons for using Homebrew is that it automatically creates a symlink from where it installs so that you can execute a command from any folder, such as:
+
+   <tt>sonar console</tt>
+
+Also, when my bash script wants to know if <tt>brew install sonar</tt> has been run already, it runs:
+
+   <tt>command -v sonar</tt>
+
+If it has not be installed, nothing is returned. If it has been installed, the response is a path such as "/usr/local/bin/sonar".
+
+BLAH: However, we cannot visit that path using <tt>ls /usr/local/bin/sonar</tt>:
+
+   <pre>-bash: cd: /usr/local/bin/sonar: Not a directory</pre>
+
+When we execute <tt>brew link sonar</tt>, it reports:
+
+   <pre>Warning: Already linked: /usr/local/Cellar/sonarqube/7.1</pre>
+
+When we look for "sonar" in the file system using this:
+
+   <pre>find / -name sonar 2>/dev/null</pre>
+
+two paths are reported:
+
+   <pre>/usr/local/bin/sonar
+   /usr/local/Cellar/sonarqube/7.1/bin/sonar
+   </pre>
+
+The solution (hack) is to have the script capture the current version number for use in creating a symlink to an "evergreen" path. That's what we did with gatling.
+
+
 ## Process start/stop/kill
 
 There are several ways to start and stop processes:
@@ -247,11 +296,21 @@ There are several ways to start and stop processes:
    * Invoke <tt>launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.mongodb.plist</tt>
    <br /><br />
 
-During installation, few installers create a Plist file to define a service that MacOS brings up automatically on boot-up.
+The typical caveats from a brew install is, for example:
+
+   <pre>
+To have launchd start sonarqube now and restart at login:
+  brew services start sonarqube
+Or, if you don't want/need a background service you can just run:
+  sonar console
+   </pre>
+
+During installation, few installers create a Plist file to define a service that MacOS brings up automatically on boot-up. 
 
 The preference is to use an approach which enables orderly saving of what may be in memory. This is preferrable to using a kill command which can be too abrupt.
 
-To kill a process, first obtain the PID:
+To kill a process within Terminal stopped while presenting a process, press command+. (period).
+But in a script, first obtain the PID:
 
    <pre><strong>
 PID="$(ps -A | grep -m1 '/postgresql' | grep -v "grep" | awk '{print $1}')"
