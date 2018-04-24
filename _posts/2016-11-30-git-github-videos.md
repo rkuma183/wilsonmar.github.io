@@ -1569,7 +1569,12 @@ These videos have ads:
   SAP Cloud Platform Version Control within SAP Web IDE</a> video course
   presented by Arnaldo Cavazos ran on OpenSAP.com April 10 - May 16, 2018.
   This class may not be available after that.
-  The class focuses on SAP's Web IDE (not on Git Bash).
+  The class focuses not on Git Bash commands but on <a target="_blank" href="https://account.hanatrial.ondemand.com/cockpit#/acc/p388752trial/service/webidecp/overview">SAP's Web IDE Full Stack</a> under Neo Trial (Europe Rot) of
+  <a target="_blank" href="
+  https://cloudplatform.sap.com">
+  https://cloudplatform.sap.com</a>
+  <a target="_blank" href="https://account.hanatrial.ondemand.com/cockpit#/acc/p388752trial/git">
+  Git Service</a>
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=7YXsj7A9aYI">
    Basics of Git tutorial [52:20]</a> 26 Feb 2015

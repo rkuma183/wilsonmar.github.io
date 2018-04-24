@@ -18,9 +18,9 @@ comments: true
 
 This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed. This was created during creation of a Bash Script to install all programs on a Mac that a typical developer needs:
 
-   mac-install-all.sh in <a target="_blank" href="
-   https://github.com/wilsonmar/mac-install/">
-   https://github.com/wilsonmar/mac-install</a>
+   mac-setup-all.sh in <a target="_blank" href="
+   https://github.com/wilsonmar/mac-setup/">
+   https://github.com/wilsonmar/mac-setup</a>
 
 From the top:
 
@@ -230,7 +230,7 @@ Where there may be relationships among several files, all files changed in the s
 
 The file name of the backup contains a date and time stamp in ISO 8601 format such as:
 
-   <tt>mac-install-all.sh.2018-04-22T19:26:20-0600-18.log</tt>
+   <tt>mac-setup-all.sh.2018-04-22T19:26:20-0600-18.log</tt>
 
 The coding uses the bash date and RANDOM commands (for microseconds):
 
@@ -240,7 +240,7 @@ LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
    </pre>
 
 
-## Brew Project Linkages
+## Brew Package Path Linkages
 
 When we run brew install, it adds new packages to a folder under:
 
@@ -284,7 +284,75 @@ two paths are reported:
    /usr/local/Cellar/sonarqube/7.1/bin/sonar
    </pre>
 
-The solution (hack) is to have the script capture the current version number for use in creating a symlink to an "evergreen" path. That's what we did with gatling.
+However, a find for sonarqube yields:
+
+   <pre>/usr/local/opt/sonarqube
+    /usr/local/var/homebrew/linked/sonarqube
+   </pre>
+
+PROTIP: So we use that URL found in the full path to the conf file to edit.
+
+### MySQL config files
+
+After brew installs mysql, this message appears:
+
+   <pre>A "/etc/mysql/my.cnf" from another install may interfere with a Homebrew-built
+server starting up correctly.
+   </pre>
+
+There is no folder, but there is folder <tt>/usr/local/etc/my.cnf</tt>.
+
+<a target="_blank" href="https://forums.mysql.com/read.php?11,366143,376017#msg-376017">
+NOTE</a>: By default, the OS X installation does not use a my.cnf, and MySQL just uses the default values. To set up your own my.cnf, you could just create a file straight in /etc.
+
+OS X provides example configuration files at /usr/local/mysql/support-files/
+
+BLAH: Thus I do not recommend using MySQL and to avoid installing it.
+The same errors are occuring for MariaDB as well.
+So let's just use Postgresql instead to avoid wasting time and headache.
+Go to another blog for advice on this terrible program.
+
+
+## No Brew, No problem
+
+## Scape web page for URL
+
+Most packages setup their installer for easy installation by creating an entry in Homebrew website.
+
+Some don't do that, such as Gatling. So we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage. An analysis of the page (at gatling.io/download) shows it is one of two URLs which download the bundle.zip file.
+
+   <tt>
+DOWNLOAD_URL="gatling-version.html"; wget -q "https://gatling.io/download/" -O $outputFile; cat "$outputFile" | sed -n -e '/<\/header>/,/<\/footer>/ p' | grep "Format:" | sed -n 's/.*href="\([^"]*\).*/\1/p' ; rm -f $outputFile
+   </tt>
+
+   The code above (from Wisdom Hambolu) pulls down the page. The grep filters out all but the line containing "Format:" which has a link to "zip bundle".  The sed function extracts out the URL between the "href=".
+
+Alternately, Python programmers have a utility called "Beautiful Soup"
+https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
+installed by pip install BeautifulSoup4
+
+Within the Python program:
+
+<pre>
+import urllib2
+from bs4 import BeautifulSoup
+quote_page = ‘http://www.bloomberg.com/quote/SPX:IND'
+page = urllib2.urlopen(quote_page)
+soup = BeautifulSoup(page, ‘html.parser’)
+name_box = soup.find(‘h1’, attrs={‘class’: ‘name’})
+name = name_box.text.strip() # strip() is used to remove starting and trailing
+print name
+# get the index price
+price_box = soup.find(‘div’, attrs={‘class’:’price’})
+price = price_box.text
+print price
+</pre>
+
+Others:
+* https://www.joyofdata.de/blog/using-linux-shell-web-scraping/
+* http://www.gregreda.com/2013/03/03/web-scraping-101-with-python/
+* http://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/
+* https://github.com/ContentMine/quickscrape
 
 
 ## Process start/stop/kill
@@ -434,44 +502,6 @@ fi
    Before calling MONGO_INSTALL, we mark the strings that brings up the MongoDB service
    and keeps it running rather than shutting it down (the default action).
 
-## Scape web page for URL
-
-Most packages setup their installer for easy installation by creating an entry in Homebrew website.
-
-Some don't do that, such as Gatling. So we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage. An analysis of the page (at gatling.io/download) shows it is one of two URLs which download the bundle.zip file.
-
-   <tt>
-DOWNLOAD_URL="gatling-version.html"; wget -q "https://gatling.io/download/" -O $outputFile; cat "$outputFile" | sed -n -e '/<\/header>/,/<\/footer>/ p' | grep "Format:" | sed -n 's/.*href="\([^"]*\).*/\1/p' ; rm -f $outputFile
-   </tt>
-
-   The code above (from Wisdom Hambolu) pulls down the page. The grep filters out all but the line containing "Format:" which has a link to "zip bundle".  The sed function extracts out the URL between the "href=".
-
-Alternately, Python programmers have a utility called "Beautiful Soup"
-https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
-installed by pip install BeautifulSoup4
-
-Within the Python program:
-
-<pre>
-import urllib2
-from bs4 import BeautifulSoup
-quote_page = ‘http://www.bloomberg.com/quote/SPX:IND'
-page = urllib2.urlopen(quote_page)
-soup = BeautifulSoup(page, ‘html.parser’)
-name_box = soup.find(‘h1’, attrs={‘class’: ‘name’})
-name = name_box.text.strip() # strip() is used to remove starting and trailing
-print name
-# get the index price
-price_box = soup.find(‘div’, attrs={‘class’:’price’})
-price = price_box.text
-print price
-</pre>
-
-Others:
-* https://www.joyofdata.de/blog/using-linux-shell-web-scraping/
-* http://www.gregreda.com/2013/03/03/web-scraping-101-with-python/
-* http://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/
-* https://github.com/ContentMine/quickscrape
 
 <hr />
 
