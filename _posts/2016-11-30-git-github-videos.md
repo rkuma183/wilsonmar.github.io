@@ -1576,6 +1576,8 @@ These videos have ads:
   <a target="_blank" href="https://account.hanatrial.ondemand.com/cockpit#/acc/p388752trial/git">
   Git Service</a>
 
+   https://git.hanatrial.ondemand.com/p388752trial/cprepo
+
 * <a target="_blank" href="https://www.youtube.com/watch?v=7YXsj7A9aYI">
    Basics of Git tutorial [52:20]</a> 26 Feb 2015
    from Justin Huang at

@@ -68,9 +68,7 @@ This article</a> notes Desired State Configuration for Linux and the promise of 
    <tt><strong>brew cask install powershell
    </strong></tt>
 
-   (do a reinstall to upgrade).
-
-   Alternately, click to download the latest release for "OSX 10.11" at:<br />
+   Alternately, click to download the latest release for MacOS at:<br />
    <a target="_blank" href="https://github.com/PowerShell/PowerShell/">
    https://github.com/PowerShell/PowerShell</a>
 
@@ -80,6 +78,10 @@ This article</a> notes Desired State Configuration for Linux and the promise of 
 
    <table border="1" cellpadding="4" cellspacing="0">
    <th>Date</th><th> File </th><th> MB Size </th><th> Space</th><th> Cmds</th></tr>
+
+   <tr valign="top"><td> Apr, 2018 </td><td> 6.0.2 on brew
+   </td><td align="right"> 50.8 MB 
+   </td></tr>
 
    <tr valign="top"><td> Sep 13, 2017 </td><td> powershell-6.0.0-beta.7-osx.10.12-x64.pkg
    </td><td align="right"> 50.8 MB 
@@ -125,6 +127,12 @@ This article</a> notes Desired State Configuration for Linux and the promise of 
 
    <tt><strong>
    powershell
+   </strong></tt>
+
+   Alternately:
+
+   <tt><strong>
+   pwsh
    </strong></tt>
 
    The response is <strong>"PS" in front of the file path prompt</strong>:

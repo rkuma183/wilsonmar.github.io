@@ -109,6 +109,21 @@ But <strong>three spaces</strong> make the line indent under if align better.
 And the if statement is the most common in the script. 
 
 
+<a name="ShellCheck"></a>
+
+## Lint Shellcheck
+
+Coding in this script is linted using ShellCheck online at
+<a target="_blank" href="https://shellcheck.com">shellcheck.com</a> or installed from 
+<a target="_blank" href="https://github.com/koalaman/shellcheck">https://github.com/koalaman/shellcheck</a>
+
+To override the triggering of one of its particular rules so that it does not appear as an error,
+a line like this is added
+
+<pre># shellcheck disable=SC2059</pre>
+
+
+
 ## Time start and elapsed
 
 Near the script's beginning, the MacOS <tt>date</tt> command is used to obtain a starting time stamp:
@@ -355,6 +370,39 @@ Others:
 * https://github.com/ContentMine/quickscrape
 
 
+
+<a name="GitHubReleases"></a>
+
+## Install from GitHub Releases
+
+Some apps do not have Homebrew but have installers in GitHub. An example is:
+
+   <a target="_blank" href="
+   https://github.com/pact-foundation/pact-go/releases">
+   https://github.com/pact-foundation/pact-go/releases</a>
+
+Unlike a brew command, which downloads into its Cask folder no matter what folder you're in,
+downloads using curl go to the current folder or one specified in the command.
+
+To download outside Homebrew, right-click the link for "Darwin" to copy for pasting it in a curl command:
+
+   curl -o https://github.com/pact-foundation/pact-go/releases/download/v0.0.12/pact-go_darwin_amd64.tar.gz 
+
+Alternately, the wget command can be used if it has been installed earlier.
+
+Either way, the "gunzip" file needs to be unzipped and verified.
+
+   <pre>unzip pact-go_darwin_amd64.tar.gz
+    </pre>
+
+    
+    Unzip the package into a known location, 
+     ensuring the pact-go binary is on the PATH, next to the pact folder.
+    Run pact-go to see what options are available.
+    Run go get -d github.com/pact-foundation/pact-go to install the source packages
+
+
+
 ## Process start/stop/kill
 
 There are several ways to start and stop processes:
@@ -403,19 +451,8 @@ kill $PID
    Killing/stopping the "postgresql" process also stops several "postres:" automatically.
 
 
-<a name="ShellCheck"></a>
 
-## Lint Shellcheck
-
-Coding in this script is linted using ShellCheck online at
-<a target="_blank" href="https://shellcheck.com">shellcheck.com</a> or installed from 
-<a target="_blank" href="https://github.com/koalaman/shellcheck">https://github.com/koalaman/shellcheck</a>
-
-To override the triggering of one of its particular rules so that it does not appear as an error,
-a line like this is added
-
-<pre># shellcheck disable=SC2059</pre>
-
+<a name="variables"></a>
 
 ## Variables
 

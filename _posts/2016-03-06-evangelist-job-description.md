@@ -34,9 +34,9 @@ you will <strong>be the face and voice</strong> of {{ page.company }} to develop
 using a wide range of development frameworks and languages, including Node.JS, Python, Ruby, and many others. 
 
 You will be the go to person for telling our story to the market - 
-on stage at events, during indusytry-wide webcasts and in confrence rooms at the largest companies. 
+on stage at events, during industry-wide webcasts and in conference rooms at the largest companies. 
 
-As both a product and customer expert, you will also be the sales force’s key marketing contact to help develop effective account specific go-to-market strategies. 
+As both a product and customer expert, you will also be the sales force's key marketing contact to help develop effective account specific go-to-market strategies. 
 
 The Product Evangelist will directly impact employers’ ability to source critical talent by helping them better understand online search and how to optimize their recruiting practices, leveraging Indeed’s portfolio of products. 
 
@@ -60,7 +60,7 @@ Your key responsibilities will include the following:
 (who want to be the best of the best, using the most efficient technologies and platforms)
  to write their applications.
 
-* Identify opportunities to bring content and perspective to <strong>senior executives</strong> in our target market.
+* Identify opportunities to bring content and perspective to <strong>senior executives</strong>  in our target market.
 
 * Leverage social networks, blog and video platforms, 
    and highly scalable marketing technologies to <strong>get the word out</strong>.
