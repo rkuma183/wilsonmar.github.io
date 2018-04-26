@@ -16,24 +16,31 @@ comments: true
 
 {% include _toc.html %}
 
-This page explains to someone relatively new to Mac machines the steps to automate installation of additional MacOS application programs. Along the way, we explore basic aspects of using a command-line Terminal and common commands.
+This page explains to someone relatively new to Mac machines the steps to automate installation of additional MacOS application programs. Along the way, we explore basic skills to use a command-line Terminal and common commands.
 
-1. Open a Terminal. 
+1. Obtain the Launch bar by positioning your mouse at the edge of the screen.
 
-   The Terminal is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
+2. If you don't see an icon for the Terminal program, click the magnifying glass icon always at the upper-right corner and type in Term until "Terminal app" is highlighted, then press Enter to accept it. 
+
+3. Click menu Shell then click New Window for a Terminal session.
+
+   PROTIP: More experienced people hover the mouse over New Window and click on one of the options.
+
+   The Terminal program is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
+
+
+   <a name="VersionWithGap"></a>
 
    ### Version with Grep
 
-1. Test if you have Bash v4 installed.
+1. Test if you have Bash v4 installed by typing this:
 
    <pre><strong>bash --version | grep 'bash'
    </strong></pre>
 
-   If the response shows version 4, you're good to go:
+   Hold the Shift key to press the | (called pipe) key at the upper-right of the keyboard.
 
-   <pre>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</pre>
-
-   The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash":
+   The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash" in the response such as:
 
    <pre>
 GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)
@@ -44,18 +51,24 @@ This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
    </pre>
 
+   If you have bash v3 that comes with MacOS, the next few steps will update it to version 4.
 
    ### mac-bash4.sh initialization
 
-1. If you have bash v3 that comes with MacOS, triple-click the script line here and copy, then click the Terminal and paste in the command to upgrade Bash to version 4:
+2. Switch to back to this web page by holding down the command key and pressing Tab repeatedly until it rests on the browser icon.
+
+3. Triple-click on the script line below:
 
    <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-bash4.sh)"</pre>
 
-   BTW, copy it by clicking on the line 3 times, then press Command+C, then click and paste using Command+V.
+4. Press Command+C to copy it to your invisible Clipboard.
+5. Switch to the Terminal by holding down command and pressing Tab repeatedly until it rests on the Termial icon.
+6. At the Terminal, click on a Terminal window and paste in the command by holding down command then V. It doesn't matter what folder you're on at this point.
+7. Press Enter to run the command, which upgrades Bash to version 4 and copies a file to your Home folder.
 
-   The script first makes use of the Ruby program to install Homebrew which in turn installs Bash v4 using the brew command to download and configure packages.
+   The script first makes use of the Ruby program to install Homebrew which, in turn, installs Bash v4 using the brew command to download and configure packages.
 
-2. After it runs, verify the version again to ensure it's version 4.
+8. After it runs, verify the version again <a href="#VersionWithGap">as described above</a> to ensure it's version 4.
 
    ### secrets.sh at Home
 
@@ -67,16 +80,16 @@ There is NO WARRANTY, to the extent permitted by law.
 
    ### Home folder
 
-2. The default location the Teminal command opens to by default is your "Home" folder, which you can reach anytime by:
+9. The default location the Teminal command opens to by default is your "Home" folder, which you can reach anytime by:
 
    <pre><strong>cd
    </strong></pre>
 
-3. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
+9. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
 
    <pre>/Users/wilsonmar</pre>
 
-4. You can also use this variable to reach Home:
+1. You can also use this variable to reach Home:
 
    <pre>cd $HOME</pre>
 
@@ -86,7 +99,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
    ### Text edit secrets.sh
 
-3. Use a text editor to edit the <tt>secrets.sh</tt> file using a text editor that comes pre-loaded on every Mac:
+1. Use a text editor to edit the <tt>secrets.sh</tt> file using a text editor that comes pre-loaded on every Mac:
 
    <pre><strong>textedit secrets.sh</strong></pre>
 
@@ -121,20 +134,20 @@ There is NO WARRANTY, to the extent permitted by law.
 
    The initial file does not have keywords which specify additional apps to install.
 
-4. Scroll down or press command+F to specify an app you want installed.
+1. Scroll down or press command+F to specify an app you want installed.
 
 
    ### Edit port numbers
 
-4. Scroll to the list of ports (listed alphabetically).
+1. Scroll to the list of ports (listed alphabetically).
 
-5. May sure that none of the ports are the same.
+1. May sure that none of the ports are the same.
 
-4. Save the file and exit the text editor.
+1. Save the file and exit the text editor.
 
    ### Setup all
 
-2. Now again copy and paste and run this command: 
+1. Now again copy and paste and run this command: 
 
    <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
 
@@ -146,9 +159,9 @@ There is NO WARRANTY, to the extent permitted by law.
 
    Within this folder is a script you can use to update what is installed on your Mac.
 
-3. cd into that folder.
+1. cd into that folder.
    
-5. To change what is installed, edit the secrets.sh file and run again locally:
+1. To change what is installed, edit the secrets.sh file then run again locally:
 
    <pre><strong>chmod +x mac-setup-all.sh
    ./mac-setup-all.sh
@@ -156,7 +169,10 @@ There is NO WARRANTY, to the extent permitted by law.
 
    The <tt>chmod</tt> (pronounced "che-mod") changes the permissions for executing the file.
 
-Now let's look at the code in file <strong>mac-setup-all.sh</strong>:
+   Now let's look at the Bash coding in Bash script file from <a target="_blank" href="
+   https://github.com/wilsonmar/mac-setup/">
+   https://github.com/wilsonmar/mac-setup</a>
+
 
 ## Traps
 
