@@ -28,21 +28,27 @@ From the top:
 
 ## Top of file Shebang for Mac only
 
-Unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. For example:
-
-   <pre>#!/bin/bash</pre>
-
-That is the Bourne-compliant path for the Bash v3.2 shell is installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
-
-   <pre>#!/usr/bin/env</pre>
-
-However, this mac-setup-all.sh script instead specifies a Shebang needed for <a href="#BashArrays">Bash arrays needed in the mac-setup.sh script</a>:
+Consider the first line of the ./mac-setup-all.sh file, which is called a "Shebang" line:
 
    <tt>#!/usr/local/bin/bash</tt>
 
-That is the path where <a href="#Bash4">Bash v4</a> is installed by Homebrew.
+That is the path associated with <a href="#Bash4">Bash v4</a>.
+Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
+
+Unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. Prior versions of Bash was installed to this folder:
+
+   <pre>#!/bin/bash</pre>
+
+That is the Bourne-compliant path for the Bash v3.2 shell installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
+
+   <pre>#!/usr/bin/env</pre>
 
 1. Open a Terminal. 
+
+   <a name="HomeFolder"></a>
+
+   ### Home folder
+
 2. The default location is your "Home" folder, which you can reach anytime by:
 
    <pre><strong>cd
@@ -101,22 +107,23 @@ There is NO WARRANTY, to the extent permitted by law.
 
    <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
 
-   This approach obtains files needed by cloning from a public GitHub repository a folder under your home folder.
+   Copy it by clicking on the line 3 times, then press Command+C, then click and paste using Command+V.
 
-3. Navigate to it:
+   The script referenced in the command obtains files needed by cloning from a public GitHub repository a folder under your home folder.
+
+   The script also copies the "secrets.sh" files from the repository folder into your home folder. This is so that you can add your secrets in the file but not chance have the file uploaded from the Git repository where it came from.
+
+3. Edit the <tt>secrets.sh</tt> file to
+
+   The initial file does not have keywords which specify additional apps to install.
+
+4. To use the secrets.sh file, run locally:
 
    <pre><strong>chmod +x mac-setup-all.sh
    ./mac-setup-all.sh
    </strong></pre>
 
-   The script also copies one of the files from the repository files your home folder. 
-
-   Alternately, run locally:
-
-   <pre><strong>chmod +x mac-setup-all.sh
-   ./mac-setup-all.sh
-   </strong></pre>
-
+Now let's look at the code in file <strong>mac-setup-all.sh</strong>:
 
 ## Traps
 
