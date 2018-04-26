@@ -38,6 +38,9 @@ This page explains to someone relatively new to Mac machines the steps to automa
    <pre><strong>bash --version | grep 'bash'
    </strong></pre>
 
+   PROTIP: The attribute "--version" to obtain the version can vary among different commands.
+   "-v" or "version" may be used instead.
+
    Hold the Shift key to press the | (called pipe) key at the upper-right of the keyboard.
 
    The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash" in the response such as:
@@ -93,7 +96,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
    <pre>cd $HOME</pre>
 
-   In other words these four commands all achieve the same result:
+   In other words these commands all achieve the same result:
 
    <tt>cd = cd ~ = cd $HOME</tt>
 
@@ -101,13 +104,15 @@ There is NO WARRANTY, to the extent permitted by law.
 
 1. Use a text editor to edit the <tt>secrets.sh</tt> file using a text editor that comes pre-loaded on every Mac:
 
-   <pre><strong>textedit secrets.sh</strong></pre>
+   <pre><strong>textedit ~/secrets.sh</strong></pre>
+
+   The tilde character specifies that the file is in your Home folder.
 
    <a name="Shebang"></a>
 
    ### Top of file Shebang
 
-   Consider the first line in the secrets.sh file:
+   Looking in the file, consider the first line in the secrets.sh file:
 
    <pre>#!/bin/bash</pre>
 
@@ -117,13 +122,18 @@ There is NO WARRANTY, to the extent permitted by law.
 
    BTW, unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. 
 
+1. Open another Terminal window
+1. View the above files to see that they are binary executable files, such as:
+
+   <pre><strong>textedit /usr/bin/bash</strong></pre>
+
    ### Version 4 Shebang
 
-   If you instead you see this on the first line:
+   If you instead see this on the first line:
 
    <tt>#!/usr/local/bin/bash</tt>
 
-   That is the path associated with where <a href="#Bash4">Bash v4</a> is installed.
+   that is the Bash program associated with <a href="#Bash4">Bash v4</a>.
 
    Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
 
@@ -134,7 +144,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
    The initial file does not have keywords which specify additional apps to install.
 
-1. Scroll down or press command+F to specify an app you want installed.
+1. Scroll down or press command+F to type an app keyword to find its category.
 
 
    ### Edit port numbers
