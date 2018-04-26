@@ -82,6 +82,12 @@ But <strong>three spaces</strong> make the line indent under if align better.
 And the if statement is the most common in the script. 
 
 
+
+<a name="Homebrew"></a>
+
+## Homebrew
+
+
 <a name="ShellCheck"></a>
 
 ## Lint Shellcheck
@@ -384,11 +390,18 @@ Either way, the "gunzip" file needs to be unzipped and verified.
 
 ## Process start/stop/kill
 
-There are several ways to start and stop processes:
+There are several ways to start processes:
 
    * Invoke the program's cli command, such as <tt>redis-cli start</tt>
    * Invoke the brew services start command
    * Invoke <tt>launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.mongodb.plist</tt>
+   <br /><br />
+
+Examples to stop processes:
+
+   * redis-cli stop
+   * brew services stop command
+   * launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
    <br /><br />
 
 The typical caveats from a brew install is, for example:
