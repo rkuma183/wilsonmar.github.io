@@ -60,9 +60,9 @@ There is NO WARRANTY, to the extent permitted by law.
 
 2. Switch to back to this web page by holding down the command key and pressing Tab repeatedly until it rests on the browser icon.
 
-3. Triple-click on the script line below:
+3. Triple-click on the script line below to highlight it for copying:
 
-   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-bash4.sh)"</pre>
+   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-bash-up.sh)"</pre>
 
 4. Press Command+C to copy it to your invisible Clipboard.
 5. Switch to the Terminal by holding down command and pressing Tab repeatedly until it rests on the Termial icon.
@@ -122,10 +122,13 @@ There is NO WARRANTY, to the extent permitted by law.
 
    BTW, unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. 
 
-1. Open another Terminal window
+1. Open another Terminal window.
 1. View the above files to see that they are binary executable files, such as:
 
    <pre><strong>textedit /usr/bin/bash</strong></pre>
+
+1. Exit the file.
+1. Press the command key with the back-tick (`) at the upper-left of the keyboard to switch among textedit windows.
 
    ### Version 4 Shebang
 
@@ -137,7 +140,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
    Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
 
-   This is why we need to first upgrade Bash before running other scripts.
+   This is why we needed to first upgrade Bash before running other scripts.
 
 
    ### App keywords
@@ -157,11 +160,24 @@ There is NO WARRANTY, to the extent permitted by law.
 
    ### Setup all
 
-1. Now again copy and paste and run this command: 
+1. Now copy, switch, click and paste in a Terminal window to run this command: 
 
    <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
 
    The script referenced in the command obtains more files needed by cloning from a public GitHub repository to a folder under your home folder.
+
+   A folder is necessary to hold additional folders such as "hooks" used by Git (if marked for install.)
+   File "mac-bash-profile.txt" contains starter entries to insert in ~/.bash_profile that is executed before MacOS opens a Terminal session. 
+   Ignore the other files.
+
+   On a 4mbps network the run takes less than 5 minutes for a minimal install.
+
+   PROTIP: A faster network or a proxy Nexus server providing installers within the firewall would speed things up and ensure that vetted installers are used.
+
+   When the script ends it pops up a log file in the TextEdit program that comes with MacOS.
+
+5. Within TextEdit, review the log file.
+6. Close the log file.
 
    <pre>mac-setup</pre>
 
