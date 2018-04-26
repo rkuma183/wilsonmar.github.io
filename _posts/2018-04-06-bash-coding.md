@@ -18,7 +18,7 @@ comments: true
 
 This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed. This was created during creation of a Bash Script to install all programs on a Mac that a typical developer needs:
 
-   mac-setup-all.sh in <a target="_blank" href="
+   <strong>mac-setup-all.sh</strong> in <a target="_blank" href="
    https://github.com/wilsonmar/mac-setup/">
    https://github.com/wilsonmar/mac-setup</a>
 
@@ -36,30 +36,25 @@ That is the Bourne-compliant path for the Bash v3.2 shell is installed by defaul
 
    <pre>#!/usr/bin/env</pre>
 
-However, this mac-setup.sh script instead specifies a Shebang for where <a href="#Bash4">Bash v4</a> is installed by Homebrew:
+However, this mac-setup-all.sh script instead specifies a Shebang needed for <a href="#BashArrays">Bash arrays needed in the mac-setup.sh script</a>:
 
    <tt>#!/usr/local/bin/bash</tt>
 
-Such a path is needed for <a href="#BashArrays">Bash arrays needed in this script</a>.
+That is the path where <a href="#Bash4">Bash v4</a> is installed by Homebrew.
 
-So if you do not have bash v4 installed, first run script to install it:
+1. Open a Terminal.
 
-   <tt>./mac-bash4.sh</tt>
+   ### Version with Grep
 
-The script first installs Homebrew which installs bash v4 using the brew command to download and configure packages.
-
-
-### Grep
-
-To verify the bash version used in the script:
+1. Test if you have Bash v4 installed.
 
    <pre>bash --version | grep 'bash'</pre>
 
-The response is:
+   The response is:
 
    <pre>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</pre>
 
-The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash":
+   The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash":
 
    <pre>
 GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)
@@ -70,7 +65,27 @@ This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
    </pre>
 
-See https://scriptingosx.com/2017/10/on-the-shebang/
+   See https://scriptingosx.com/2017/10/on-the-shebang/
+
+1. If you do not have bash v4 installed, first run this script to install it:
+
+   <tt>chmod +x mac-bash4.sh
+   ./mac-bash4.sh</tt>
+
+   The <tt>chmod</tt> (pronounced "che-mod") changes the permissions for executing the file.
+
+   The script first installs Homebrew which installs Bash v4 using the brew command to download and configure packages.
+
+   ### Invocation alternatives
+
+2. The <tt>mac-setup-all.sh</tt> script is designed so that it can run by this command:
+
+   <tt>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</tt>
+
+   Alternately, run locally:
+
+   <tt>chmod +x mac-setup-all.sh
+   ./mac-setup-all.sh
 
 
 ## Traps
