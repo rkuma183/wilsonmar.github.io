@@ -56,12 +56,16 @@ That is the path where <a href="#Bash4">Bash v4</a> is installed by Homebrew.
 
    <pre>cd $HOME</pre>
 
+   In other words these four commands all achieve the same result:
+
+   <tt>~ = cd = cd $HOME = cd ~</tt>
 
    ### Version with Grep
 
 1. Test if you have Bash v4 installed.
 
-   <pre>bash --version | grep 'bash'</pre>
+   <pre><strong>bash --version | grep 'bash'
+   </strong></pre>
 
    The response is:
 
