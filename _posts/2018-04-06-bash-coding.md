@@ -16,15 +16,11 @@ comments: true
 
 {% include _toc.html %}
 
-This page explains the decisions around coding bash shell scripts, quoting websites when techniques are discussed. This was created during creation of a Bash Script to install all programs on a Mac that a typical developer needs:
-
-   <strong>mac-setup-all.sh</strong> in <a target="_blank" href="
-   https://github.com/wilsonmar/mac-setup/">
-   https://github.com/wilsonmar/mac-setup</a>
+This page explains to someone relatively new to Mac machines the steps to automate installation of additional MacOS application programs. Along the way, we explore basic aspects of using a command-line Terminal and common commands.
 
 1. Open a Terminal. 
 
-   It is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
+   The Terminal is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
 
    ### Version with Grep
 
