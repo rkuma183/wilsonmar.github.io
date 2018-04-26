@@ -42,7 +42,20 @@ However, this mac-setup-all.sh script instead specifies a Shebang needed for <a 
 
 That is the path where <a href="#Bash4">Bash v4</a> is installed by Homebrew.
 
-1. Open a Terminal.
+1. Open a Terminal. 
+2. The default location is your "Home" folder, which you can reach anytime by:
+
+   <pre><strong>cd
+   </strong></pre>
+
+3. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
+
+   <pre>/Users/wilsonmar</pre>
+
+4. You can also use this variable to reach Home:
+
+   <pre>cd $HOME</pre>
+
 
    ### Version with Grep
 
@@ -67,6 +80,8 @@ There is NO WARRANTY, to the extent permitted by law.
 
    See https://scriptingosx.com/2017/10/on-the-shebang/
 
+   ### mac-bash4.sh
+
 1. If you do not have bash v4 installed, first run this script to install it:
 
    <tt>chmod +x mac-bash4.sh
@@ -76,16 +91,27 @@ There is NO WARRANTY, to the extent permitted by law.
 
    The script first installs Homebrew which installs Bash v4 using the brew command to download and configure packages.
 
-   ### Invocation alternatives
+   ### Initial invocation
 
 2. The <tt>mac-setup-all.sh</tt> script is designed so that it can run by this command:
 
-   <tt>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</tt>
+   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
+
+   This approach obtains files needed by cloning from a public GitHub repository a folder under your home folder.
+
+3. Navigate to it:
+
+   <pre><strong>chmod +x mac-setup-all.sh
+   ./mac-setup-all.sh
+   </strong></pre>
+
+   The script also copies one of the files from the repository files your home folder. 
 
    Alternately, run locally:
 
-   <tt>chmod +x mac-setup-all.sh
+   <pre><strong>chmod +x mac-setup-all.sh
    ./mac-setup-all.sh
+   </strong></pre>
 
 
 ## Traps
