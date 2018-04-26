@@ -74,7 +74,7 @@ Later on this page we identify how to get efficient at getting people along this
 
 Who looks into these at your organization?
 
-   * Tradtional marketing focuses only on the initial attention.
+   * Traditional marketing focuses only on the initial attention.
    by identifying the total market still needs to be defined.
 
    * Traditional sales focuses only on getting customers to sign.
@@ -88,12 +88,12 @@ Who looks into these at your organization?
 
 The role of a technical evangelist grew out of a need to better handle the 
 exponential growth of the **complexity** of software products
-that require integration of many many components:
+that require integration of many components:
 
    * Access to AWS, Google, or Microsoft Azure cloud
    * Shell scripts to move files and invoke programs
    * Puppet or Chef recipes to build services
-   * Kupernetes to spin up instances 
+   * Kubernetes to spin up instances 
    * Kafka to manage messaging traffic
    * Git client and GitHub cloud to manage version backups
    * Artifactory asset repository to manage binary assets
