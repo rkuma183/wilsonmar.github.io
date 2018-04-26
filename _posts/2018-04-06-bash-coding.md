@@ -22,49 +22,9 @@ This page explains the decisions around coding bash shell scripts, quoting websi
    https://github.com/wilsonmar/mac-setup/">
    https://github.com/wilsonmar/mac-setup</a>
 
-From the top:
-
-<a name="Shebang"></a>
-
-## Top of file Shebang for Mac only
-
-Consider the first line of the ./mac-setup-all.sh file, which is called a "Shebang" line:
-
-   <tt>#!/usr/local/bin/bash</tt>
-
-That is the path associated with <a href="#Bash4">Bash v4</a>.
-Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
-
-Unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. Prior versions of Bash was installed to this folder:
-
-   <pre>#!/bin/bash</pre>
-
-That is the Bourne-compliant path for the Bash v3.2 shell installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
-
-   <pre>#!/usr/bin/env</pre>
-
 1. Open a Terminal. 
 
-   <a name="HomeFolder"></a>
-
-   ### Home folder
-
-2. The default location is your "Home" folder, which you can reach anytime by:
-
-   <pre><strong>cd
-   </strong></pre>
-
-3. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
-
-   <pre>/Users/wilsonmar</pre>
-
-4. You can also use this variable to reach Home:
-
-   <pre>cd $HOME</pre>
-
-   In other words these four commands all achieve the same result:
-
-   <tt>~ = cd = cd $HOME = cd ~</tt>
+   It is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
 
    ### Version with Grep
 
@@ -73,7 +33,7 @@ That is the Bourne-compliant path for the Bash v3.2 shell installed by default o
    <pre><strong>bash --version | grep 'bash'
    </strong></pre>
 
-   The response is:
+   If the response shows version 4, you're good to go:
 
    <pre>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</pre>
 
@@ -88,40 +48,117 @@ This is free software; you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
    </pre>
 
-   See https://scriptingosx.com/2017/10/on-the-shebang/
 
-   ### mac-bash4.sh
+   ### mac-bash4.sh initialization
 
-1. If you do not have bash v4 installed, first run this script to install it:
+1. If you have bash v3 that comes with MacOS, triple-click the script line here and copy, then click the Terminal and paste in the command to upgrade Bash to version 4:
 
-   <tt>chmod +x mac-bash4.sh
-   ./mac-bash4.sh</tt>
+   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-bash4.sh)"</pre>
 
-   The <tt>chmod</tt> (pronounced "che-mod") changes the permissions for executing the file.
+   BTW, copy it by clicking on the line 3 times, then press Command+C, then click and paste using Command+V.
 
-   The script first installs Homebrew which installs Bash v4 using the brew command to download and configure packages.
+   The script first makes use of the Ruby program to install Homebrew which in turn installs Bash v4 using the brew command to download and configure packages.
 
-   ### Initial invocation
+2. After it runs, verify the version again to ensure it's version 4.
 
-2. The <tt>mac-setup-all.sh</tt> script is designed so that it can run by this command:
+   ### secrets.sh at Home
 
-   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
+   The script also copies the <strong>secrets.sh</strong> file from the public on-line repository into your laptop so that you can add your secrets in the file but have no chance the file will be uploaded from the Git repository where it came from.
 
-   Copy it by clicking on the line 3 times, then press Command+C, then click and paste using Command+V.
+   The file is placed in your account Home folder.
 
-   The script referenced in the command obtains files needed by cloning from a public GitHub repository a folder under your home folder.
+   <a name="HomeFolder"></a>
 
-   The script also copies the "secrets.sh" files from the repository folder into your home folder. This is so that you can add your secrets in the file but not chance have the file uploaded from the Git repository where it came from.
+   ### Home folder
 
-3. Edit the <tt>secrets.sh</tt> file to
+2. The default location the Teminal command opens to by default is your "Home" folder, which you can reach anytime by:
+
+   <pre><strong>cd
+   </strong></pre>
+
+3. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
+
+   <pre>/Users/wilsonmar</pre>
+
+4. You can also use this variable to reach Home:
+
+   <pre>cd $HOME</pre>
+
+   In other words these four commands all achieve the same result:
+
+   <tt>cd = cd ~ = cd $HOME</tt>
+
+   ### Text edit secrets.sh
+
+3. Use a text editor to edit the <tt>secrets.sh</tt> file using a text editor that comes pre-loaded on every Mac:
+
+   <pre><strong>textedit secrets.sh</strong></pre>
+
+   <a name="Shebang"></a>
+
+   ### Top of file Shebang
+
+   Consider the first line in the secrets.sh file:
+
+   <pre>#!/bin/bash</pre>
+
+   That is the "Bourne-compliant" path for the Bash v3.2 shell installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
+
+   <pre>#!/usr/bin/env</pre>
+
+   BTW, unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. 
+
+   ### Version 4 Shebang
+
+   If you instead you see this on the first line:
+
+   <tt>#!/usr/local/bin/bash</tt>
+
+   That is the path associated with where <a href="#Bash4">Bash v4</a> is installed.
+
+   Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
+
+   This is why we need to first upgrade Bash before running other scripts.
+
+
+   ### App keywords
 
    The initial file does not have keywords which specify additional apps to install.
 
-4. To use the secrets.sh file, run locally:
+4. Scroll down or press command+F to specify an app you want installed.
+
+
+   ### Edit port numbers
+
+4. Scroll to the list of ports (listed alphabetically).
+
+5. May sure that none of the ports are the same.
+
+4. Save the file and exit the text editor.
+
+   ### Setup all
+
+2. Now again copy and paste and run this command: 
+
+   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
+
+   The script referenced in the command obtains more files needed by cloning from a public GitHub repository to a folder under your home folder.
+
+   <pre>mac-setup</pre>
+
+   ### Subsequent runs
+
+   Within this folder is a script you can use to update what is installed on your Mac.
+
+3. cd into that folder.
+   
+5. To change what is installed, edit the secrets.sh file and run again locally:
 
    <pre><strong>chmod +x mac-setup-all.sh
    ./mac-setup-all.sh
    </strong></pre>
+
+   The <tt>chmod</tt> (pronounced "che-mod") changes the permissions for executing the file.
 
 Now let's look at the code in file <strong>mac-setup-all.sh</strong>:
 
@@ -701,3 +738,4 @@ Includes autocompletion, themes, aliases, custom functions, a few stolen pieces 
 
 https://github.com/denysdovhan/bash-handbook
 
+   See https://scriptingosx.com/2017/10/on-the-shebang/
