@@ -28,31 +28,52 @@ From the top:
 
 ## Top of file Shebang for Mac only
 
-As with all Linux files, there is a "shebang" on the first line of the file.
-The bash v3.2 shell is installed by default on macOS in the Bourne-compliant path:
+Unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. For example:
 
-<tt>\#!/bin/bash</tt>
+   <pre>#!/bin/bash</pre>
 
-However, this script specifies a Shebang for Bash v4 installed via brew:
+That is the Bourne-compliant path for the Bash v3.2 shell is installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
 
-<pre>#!/usr/local/bin/bash</pre>
+   <pre>#!/usr/bin/env</pre>
 
-It's needed for Bash arrays used in the script.
-The above path looks for bash in a hard-coded path rather than the alternative of<br />
-<tt>#!/usr/bin/env</tt>
-because the script is not meant to be portable among Linux, only Mac due to use of Homebrew.
+However, this mac-setup.sh script instead specifies a Shebang for where <a href="#Bash4">Bash v4</a> is installed by Homebrew:
+
+   <tt>#!/usr/local/bin/bash</tt>
+
+Such a path is needed for <a href="#BashArrays">Bash arrays needed in this script</a>.
+
+So if you do not have bash v4 installed, first run script to install it:
+
+   <tt>./mac-bash4.sh</tt>
+
+The script first installs Homebrew which installs bash v4 using the brew command to download and configure packages.
+
+
+### Grep
 
 To verify the bash version used in the script:
 
-<pre>bash --version | grep 'bash'</pre>
+   <pre>bash --version | grep 'bash'</pre>
 
 The response is:
 
-<tt>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</tt>
+   <pre>GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)</pre>
+
+The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash":
+
+   <pre>
+GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+&nbsp;
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+   </pre>
 
 See https://scriptingosx.com/2017/10/on-the-shebang/
 
-## Trap
+
+## Traps
 
 The Bash trap command catches signals so it can execute some commands when appropriate,
 such as <a target="_blank" href="https://www.shellscript.sh/trap.html>
@@ -381,12 +402,18 @@ Some apps do not have Homebrew but have installers in GitHub. An example is:
    https://github.com/pact-foundation/pact-go/releases">
    https://github.com/pact-foundation/pact-go/releases</a>
 
-Unlike a brew command, which downloads into its Cask folder no matter what folder you're in,
-downloads using curl go to the current folder or one specified in the command.
+Unlike a brew command, which downloads into its own folder no matter what folder you're in,
+the destination folder for downloads using curl needs to be specified in the command
+or it goes to the current folder.
 
-To download outside Homebrew, right-click the link for "Darwin" to copy for pasting it in a curl command:
+To download outside Homebrew, right-click the link for "Darwin" to copy for pasting it in a curl command such as:
 
-   curl -o https://github.com/pact-foundation/pact-go/releases/download/v0.0.12/pact-go_darwin_amd64.tar.gz 
+   <pre>curl "$DOWNLOAD_URL" -o "$GATLING_HOME/gatling.zip"  # 55.3M renamed
+ </pre>
+
+   DOWNLOAD_URL="https://github.com/pact-foundation/pact-go/releases/download/v0.0.12/pact-go_darwin_amd64.tar.gz"
+
+The trouble is that 
 
 Alternately, the wget command can be used if it has been installed earlier.
 
