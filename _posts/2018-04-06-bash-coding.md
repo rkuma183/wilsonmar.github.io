@@ -16,188 +16,13 @@ comments: true
 
 {% include _toc.html %}
 
-This page explains to someone relatively new to Mac machines the steps to automate installation of additional MacOS application programs. Along the way, we explore basic skills to use a command-line Terminal and common commands.
+This page dives into the <strong>technical ideosycracies</strong> of the <a target="_blank" href="https://github.com/wilsonmar/mac-setup/blob/master/mac-setup-all.sh">"mac-setup-all.sh" file</a> which installs apps on Macs.
 
-1. Obtain the Launch bar by positioning your mouse at the edge of the screen.
+This tutorial picks up from <a target="_blank" href="https://github.com/wilsonmar/mac-setup/blob/master/README.md">this README to the mac-setup scripts on GitHub</a>,
+which provides steps to run the bash scripts to install apps on Macs. 
+So first finish reading that about "shbangs" and Bash shell versions.
 
-2. If you don't see an icon for the Terminal program, click the magnifying glass icon always at the upper-right corner and type in Term until "Terminal app" is highlighted, then press Enter to accept it. 
-
-3. Click menu Shell then click New Window for a Terminal session.
-
-   PROTIP: More experienced people hover the mouse over New Window and click on one of the options.
-
-   The Terminal program is called a "Bash" shell, which is a contraction of the term "Bourne-agan shell", which is a play on words.
-
-
-   <a name="VersionWithGap"></a>
-
-   ### Version with Grep
-
-1. Test if you have Bash v4 installed by typing this:
-
-   <pre><strong>bash --version | grep 'bash'
-   </strong></pre>
-
-   PROTIP: The attribute "--version" to obtain the version can vary among different commands.
-   "-v" or "version" may be used instead.
-
-   Hold the Shift key to press the | (called pipe) key at the upper-right of the keyboard.
-
-   The <tt>grep 'bash'</tt> is needed to filter out lines that do not contain the word "bash" in the response such as:
-
-   <pre>
-GNU bash, version 4.4.19(1)-release (x86_64-apple-darwin17.3.0)
-Copyright (C) 2016 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-&nbsp;
-This is free software; you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-   </pre>
-
-   If you have bash v3 that comes with MacOS, the next few steps will update it to version 4.
-
-   ### mac-bash4.sh initialization
-
-2. Switch to back to this web page by holding down the command key and pressing Tab repeatedly until it rests on the browser icon.
-
-3. Triple-click on the script line below to highlight it for copying:
-
-   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-bash-up.sh)"</pre>
-
-4. Press Command+C to copy it to your invisible Clipboard.
-5. Switch to the Terminal by holding down command and pressing Tab repeatedly until it rests on the Termial icon.
-6. At the Terminal, click on a Terminal window and paste in the command by holding down command then V. It doesn't matter what folder you're on at this point.
-7. Press Enter to run the command, which upgrades Bash to version 4 and copies a file to your Home folder.
-
-   The script first makes use of the Ruby program to install Homebrew which, in turn, installs Bash v4 using the brew command to download and configure packages.
-
-8. After it runs, verify the version again <a href="#VersionWithGap">as described above</a> to ensure it's version 4.
-
-   ### secrets.sh at Home
-
-   The script also copies the <strong>secrets.sh</strong> file from the public on-line repository into your laptop so that you can add your secrets in the file but have no chance the file will be uploaded from the Git repository where it came from.
-
-   The file is placed in your account Home folder.
-
-   <a name="HomeFolder"></a>
-
-   ### Home folder
-
-9. The default location the Teminal command opens to by default is your "Home" folder, which you can reach anytime by:
-
-   <pre><strong>cd
-   </strong></pre>
-
-9. The "~" (tilde character) prompt represents the $HOME folder, which is equivalent to a path that contains your user account, such as (if you were me):
-
-   <pre>/Users/wilsonmar</pre>
-
-1. You can also use this variable to reach Home:
-
-   <pre>cd $HOME</pre>
-
-   In other words these commands all achieve the same result:
-
-   <tt>cd = cd ~ = cd $HOME</tt>
-
-   ### Text edit secrets.sh
-
-1. Use a text editor to edit the <tt>secrets.sh</tt> file using a text editor that comes pre-loaded on every Mac:
-
-   <pre><strong>textedit ~/secrets.sh</strong></pre>
-
-   The tilde character specifies that the file is in your Home folder.
-
-   <a name="Shebang"></a>
-
-   ### Top of file Shebang
-
-   Looking in the file, consider the first line in the secrets.sh file:
-
-   <pre>#!/bin/bash</pre>
-
-   That is the "Bourne-compliant" path for the Bash v3.2 shell installed by default on MacOS up to High Sierra. BTW, other Linux flavors may alternately use this for portability:
-
-   <pre>#!/usr/bin/env</pre>
-
-   BTW, unlike Windows, which determines the program to open files based on the suffix (or extension) of the file name, Linux shell programs such as Bash reference the "shebang" on the first line inside the file. 
-
-1. Open another Terminal window.
-1. View the above files to see that they are binary executable files, such as:
-
-   <pre><strong>textedit /usr/bin/bash</strong></pre>
-
-1. Exit the file.
-1. Press the command key with the back-tick (`) at the upper-left of the keyboard to switch among textedit windows.
-
-   ### Version 4 Shebang
-
-   If you instead see this on the first line:
-
-   <tt>#!/usr/local/bin/bash</tt>
-
-   that is the Bash program associated with <a href="#Bash4">Bash v4</a>.
-
-   Version 4 is needed for <a href="#BashArrays">Bash arrays needed later in the script</a>.
-
-   This is why we needed to first upgrade Bash before running other scripts.
-
-
-   ### App keywords
-
-   The initial file does not have keywords which specify additional apps to install.
-
-1. Scroll down or press command+F to type an app keyword to find its category.
-
-
-   ### Edit port numbers
-
-1. Scroll to the list of ports (listed alphabetically).
-
-1. May sure that none of the ports are the same.
-
-1. Save the file and exit the text editor.
-
-   ### Setup all
-
-1. Now copy, switch, click and paste in a Terminal window to run this command: 
-
-   <pre>sh -c "$(curl -fsSL https://raw.githubusercontent.com/wilsonmar/mac-setup/master/mac-setup-all.sh)"</pre>
-
-   The script referenced in the command obtains more files needed by cloning from a public GitHub repository to a folder under your home folder.
-
-   A folder is necessary to hold additional folders such as "hooks" used by Git (if marked for install.)
-   File "mac-bash-profile.txt" contains starter entries to insert in ~/.bash_profile that is executed before MacOS opens a Terminal session. 
-   Ignore the other files.
-
-   On a 4mbps network the run takes less than 5 minutes for a minimal install.
-
-   PROTIP: A faster network or a proxy Nexus server providing installers within the firewall would speed things up and ensure that vetted installers are used.
-
-   When the script ends it pops up a log file in the TextEdit program that comes with MacOS.
-
-5. Within TextEdit, review the log file.
-6. Close the log file.
-
-   <pre>mac-setup</pre>
-
-   ### Subsequent runs
-
-   Within this folder is a script you can use to update what is installed on your Mac.
-
-1. cd into that folder.
-   
-1. To change what is installed, edit the secrets.sh file then run again locally:
-
-   <pre><strong>chmod +x mac-setup-all.sh
-   ./mac-setup-all.sh
-   </strong></pre>
-
-   The <tt>chmod</tt> (pronounced "che-mod") changes the permissions for executing the file.
-
-   Now let's look at the Bash coding in Bash script file from <a target="_blank" href="
-   https://github.com/wilsonmar/mac-setup/">
-   https://github.com/wilsonmar/mac-setup</a>
+NOTE: This page is still actively under construction (as of April 26, 2018).
 
 
 ## Traps
@@ -745,11 +570,69 @@ Pretty much
    terminal -e command
 
 
+
+<a name="EclipsePlugins"></a>
+
+## Eclips IDE plug-ins
+
+http://download.eclipse.org/releases/juno
+
+Within Eclipse IDE, get a list of plugins at Help -> Install New Software -> Select a repo -> select a plugin -> go to More -> General Information -> Identifier
+
+   <pre>eclipse -application org.eclipse.equinox.p2.director \
+-destination d:/eclipse/ \
+-profile SDKProfile  \
+-clean -purgeHistory  \
+-noSplash \
+-repository http://download.eclipse.org/releases/juno/ \
+-installIU org.eclipse.cdt.feature.group, \
+   org.eclipse.egit.feature.group
+   </pre>
+
+   "Equinox" is the runtime environment of Eclipse, which is the <a target="_blank" href="http://www.vogella.de/articles/OSGi/article.html">reference implementation of OSGI</a>.
+   Thus, Eclipse plugins are architectually the same as bundles in OSGI.
+
+   Notice that there are different versions of Eclipse repositories, such as "juno".
+
+   PROTIP: Although one can install several at once, do it one at a time to see if you can actually use each one.
+   Some of them:
+
+   <pre>
+   org.eclipse.cdt.feature.group, \
+   org.eclipse.egit.feature.group, \
+   org.eclipse.cdt.sdk.feature.group, \
+   org.eclipse.linuxtools.cdt.libhover.feature.group, \
+   org.eclipse.wst.xml_ui.feature.feature.group, \
+   org.eclipse.wst.web_ui.feature.feature.group, \
+   org.eclipse.wst.jsdt.feature.feature.group, \
+   org.eclipse.php.sdk.feature.group, \
+   org.eclipse.rap.tooling.feature.group, \
+   org.eclipse.linuxtools.cdt.libhover.devhelp.feature.feature.group, \
+   org.eclipse.linuxtools.valgrind.feature.group, \
+   </pre>
+
+   <a target="_blank" href="https://stackoverflow.com/questions/2692048/what-are-the-differences-between-plug-ins-features-and-products-in-eclipse-rcp">NOTE</a>:
+   A feature group is a list of plugins and other features which can be understood as a logical separate project unit
+   for the updates manager and for the build process.
+
+
+
 ## Testing
 
 https://medium.com/wemake-services/testing-bash-applications-85512e7fe2de
 
 https://github.com/sstephenson/bats
+
+<a name="SayText"></a>
+
+## Say text out loud
+
+At the bottom of the script is a MacOS command that translates text into voice through the spearker:
+
+say "script ended."  # through speaker
+
+
+
 
 ## References
 
@@ -777,3 +660,4 @@ Includes autocompletion, themes, aliases, custom functions, a few stolen pieces 
 https://github.com/denysdovhan/bash-handbook
 
    See https://scriptingosx.com/2017/10/on-the-shebang/
+
