@@ -20,7 +20,7 @@ This page dives into the <strong>technical ideosycracies</strong> of the <a targ
 
 This tutorial picks up from <a target="_blank" href="https://github.com/wilsonmar/mac-setup/blob/master/README.md">this README to the mac-setup scripts on GitHub</a>,
 which provides steps to run the bash scripts to install apps on Macs. 
-So first finish reading that about "shbangs" and Bash shell versions.
+So first finish reading that about "shbangs" and grep for Bash shell versions.
 
 NOTE: This page is still actively under construction (as of April 26, 2018).
 
@@ -105,24 +105,31 @@ a line like this is added
 
 ## Time start and elapsed
 
+To determine elapsed time, time stamps are captured and the start and end of the script:
+
 Near the script's beginning, the MacOS <tt>date</tt> command is used to obtain a starting time stamp:
 
 <pre>TIME_START="$(date -u +%s)"</pre>
+
+This yields a number counting the number of seconds since the Jan 1, 1970 epoch point in time.
 
 The output is like "1524256274", which is the number of seconds since the "epoch" of January 1, 1970.
 
 At the end of the script, the END timestamp is obtained for use in calculating the 
 time elapsed during the script run.
 
+Since there may be relationships among several files, all files changed in the same run have the same timestamp.
 
-## Disk Space Free and Used
+The file name of the backup contains a date and time stamp in ISO 8601 format such as:
 
-Near the script's beginning, the MacOS <tt>df</tt> command is used to obtain the number of blocks available:
+   <tt>mac-setup-all.sh.2018-04-22T19:26:20-0600-18.log</tt>
 
-<pre>FREE_DISKBLOCKS_START="$(df | sed -n -e '2{p;q}' | cut -d' ' -f 6)"</pre>
+The coding uses the bash date and RANDOM commands (for microseconds):
 
-At the end of the script, the END variable is obtained for use in calculatubg the 
-space used during the script run.
+   <pre>
+LOG_DATETIME=$(date +%Y-%m-%dT%H:%M:%S%z)-$((1 + RANDOM % 1000))
+LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
+   </pre>
 
 
 ## Logging to file
@@ -148,6 +155,17 @@ drwxr-xr-x  54 root  wheel  1728 Apr 21 05:01 /var/log
    </pre>
 
 
+## Disk Space Free and Used
+
+Near the script's beginning, the MacOS <tt>df</tt> command is used to obtain the number of blocks available:
+
+<pre>FREE_DISKBLOCKS_START="$(df | sed -n -e '2{p;q}' | cut -d' ' -f 6)"</pre>
+
+At the end of the script, the END variable is obtained for use in calculatubg the 
+space used during the script run.
+
+
+
 ## Functions for dependencies
 
 <a target="_blank" href="https://stackoverflow.com/questions/11369522/bash-utility-script-library">
@@ -171,15 +189,16 @@ Closures: In Bash, functions themselves are always global (have "file scope"), s
 There are many more complications involving: subshells; exported functions; "function collapsing" (functions that define or redefine other functions or themselves); and the way functions interact with stdio. Don't bite the newbie for not understanding all this. Shell functions are totally f***ed.
 
 
-## Time Stamps for run duration
+## GITS_PATH
 
-To determine elapsed time, time stamps are captured and the start and end of the script:
+<a target="_blank" href="https://unix.stackexchange.com/questions/146942/how-can-i-test-if-a-variable-is-empty-or-contains-only-spaces">
+NOTE</a> on testing if a variable is blank.
 
-<tt>TIME_START="$(date -u +%s)"</tt>
+   <pre>
+   if [[ ! -z "${newdir// }" ]]; then  #it's not blank
+   </pre>
 
-This yields a number counting the number of seconds since the Jan 1, 1970 epoch point in time.
-
-
+   
 ## Disk space used
 
 Available space on disk is obtained using command:
@@ -210,28 +229,13 @@ A reboot is necessary for this to take.
 
 http://bencane.com/2013/09/16/understanding-a-little-more-about-etcprofile-and-etcbashrc/
 
+
 ## Save backup
 
 See "Reliable Writes" in https://www.greenend.org.uk/rjk/tech/shellmistakes.html
 
 A script overwrites files only after saving a backup copy,
 naming the file with a suffix of ".bak" 
-
-
-### Time stamps
-
-Where there may be relationships among several files, all files changed in the same run have the same timestamp.
-
-The file name of the backup contains a date and time stamp in ISO 8601 format such as:
-
-   <tt>mac-setup-all.sh.2018-04-22T19:26:20-0600-18.log</tt>
-
-The coding uses the bash date and RANDOM commands (for microseconds):
-
-   <pre>
-LOG_DATETIME=$(date +%Y-%m-%dT%H:%M:%S%z)-$((1 + RANDOM % 1000))
-LOGFILE="$HOME/$THISPGM.$LOG_DATETIME.log"
-   </pre>
 
 
 ## Brew Package Path Linkages
