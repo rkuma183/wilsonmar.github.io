@@ -381,6 +381,14 @@ Alternatives to Homebrew:
 
    A symlink to the active version of a Keg is called an "opt prefix".
 
+1. List where a link goes:
+
+   <tt><strong>
+   ls -l $(which wget)
+   </strong></tt>
+
+   <pre>/usr/local/bin/wget -> /usr/local/Cellar/wget/1.18/bin/wget</pre>
+
 
    ### Prune symlinks #
    

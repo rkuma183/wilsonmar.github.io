@@ -44,7 +44,7 @@ Licensed nagware:
    * $89 <a href="#SublimeTextz">Sublime Text</a>
    * Texttastic
    * Byword 
-   * There is no equivalent of Windows Notepad++ on MacOS
+   * (There is no equivalent of Windows Notepad++ on MacOS)
 
 Free IDEs:
 
@@ -83,6 +83,7 @@ Licensed IDEs:
 
 vim is the most commonly available text editor in Linux.
 
+
    ### Quitting out from command mode 
 
 0. Open
@@ -110,6 +111,9 @@ vim is the most commonly available text editor in Linux.
    * command mode
    * insert mode
    * line mode
+
+   A Cheat Sheet is at <a target="_blank" href="https://devhints.io/vim">
+   https://devhints.io/vim</a>
 
    ### While in command mode, cursor to a position in the document:
 
@@ -152,7 +156,24 @@ vim is the most commonly available text editor in Linux.
    <pre><strong>vim +55 ~/.bash_profile
    </strong></pre>
 
+<a name="MacVim"></a>
 
+## MacVim
+
+MacVim is a GUI app for macOS.
+
+The manual approach: 
+
+1. Download the binary release <a target="_blank" href="http://macvim-dev.github.io/macvim/">
+http://macvim-dev.github.io/macvim</a>
+or the .dmg file from https://github.com/macvim-dev/macvim/releases
+2. Expand archive
+3. Move MacVim.app into folder /Applications/.
+
+To use brew:
+
+1. Run brew install vim && brew install macvim
+2. Run brew link macvim
 
 <a name="pico"></a>
 

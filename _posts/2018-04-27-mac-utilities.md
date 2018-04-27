@@ -16,7 +16,7 @@ comments: true
 {% include _toc.html %}
 
 MacOS (Mac OS X) comes with the <strong>BSD</strong> (Birkeley Standard Distribution) version of command line tools 
-which are slightly <strong>different</strong> from the <strong>Linux</strong> version (in Red Hat, Debian, Ubuntu, CoreOS, etc.) even though both are compliant with POSIX standards. http://en.wikipedia.org/wiki/POSIX
+which are slightly <strong>different</strong> from the <strong>Linux</strong> version (in Red Hat, Debian, Ubuntu, CoreOS, etc.) even though both are compliant with <a target="_blank" href="http://en.wikipedia.org/wiki/POSIX">POSIX standards</a>.
 
 <a name="XcodeTools"></a>
 
@@ -164,26 +164,17 @@ echo "set startup-with-shell off" >> ~/.gdbinit
    <a target="_blank" href="http://www.blog.howechen.com/install-gdb-macos-sierra/">
    NOTE</a>: To start dbg, use sudo or define alias gdb="sudo gdb"
 
-   ## GNU commands not in MacOS
-
-
-
-   ### Not pre-installed on macOS
+   ### GNU Not pre-installed on macOS
 
    Tutorials make use of some commands, so install them:
 
    <pre>
-brew install diffutils
-brew install grep --with-default-names
-brew install ed --with-default-names
-brew install gawk
-brew install gzip
-brew install wget
+
+brew install gawk  # in /usr/local/bin/gawk
+brew install gzip  # in /usr/bin/gzip
+brew install wget  # /usr/local/bin/wget
 brew install screen  # in /usr/bin
    </pre>
-
-   <tt>--with-default-names</tt> prevents Homebrew from prepending a "g" to each command, so they can be used instead of the ones shipped by OS X.
-
 
    <pre>
 brew install guile  # GNU Ubiquitious Language for Extensions https://www.gnu.org/software/guile/
@@ -191,17 +182,29 @@ brew install gpatch
 brew install binutils  # https://en.wikipedia.org/wiki/GNU_Binutils
    </pre>
  
-   Running which with these:
+   Below are <a target="_blank" href="https://www.gnu.org/manual/blurbs.html">
+   GNU packages on https://www.gnu.org/software</a> but not on macOS:
 
    <pre>
-brew install gnu-indent --with-default-names
+brew install grep --with-default-names
+brew install gnu-indent --with-default-names   # C code prettifier
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
 brew install gnutls
+brew install ed --with-default-names # in /bin/ed
 brew install watch
 brew install wdiff --with-gettext
+   <pre>
+
+   These are search 
+
    </pre>
+brew install diffutils
+brew install wdiff --with-gettext
+   </pre>
+
+   <tt>--with-default-names</tt> prevents Homebrew from prepending a "g" to each command, so they can be used instead of the ones shipped by OS X.
 
    ### findutils
    
