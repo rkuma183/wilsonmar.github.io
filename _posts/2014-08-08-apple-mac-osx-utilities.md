@@ -15,16 +15,271 @@ comments: true
 
 {% include _toc.html %}
 
-This is a guided tour of Linux utilities, presented in as logical a sequence
-as I can imagine.
+MacOS (Mac OS X) comes with the <strong>BSD</strong> (Birkeley Standard Distribution) version of command line tools 
+which are slightly <strong>different</strong> from the <strong>Linux</strong> version (in Red Hat, Debian, Ubuntu, CoreOS, etc.) even though both are compliant with POSIX standards. http://en.wikipedia.org/wiki/POSIX
 
-MacOS/Mac OS X uses the BSD version command line tools, 
-which are different from the Linux version, 
-while they are both compliant with POSIX standards.
+<a name="XcodeTools"></a>
 
-See <a target="_blank" href="https://en.wikipedia.org/wiki/GNU_Core_Utilities/">
-https://en.wikipedia.org/wiki/GNU_Core_Utilities</a>.
+## Command Line Tools
 
+1. To install additional utilities:
+
+   <pre><strong>xcode-select --install</strong></pre>
+
+2. List what it installed to folder <tt>/Library/Developer/CommandLineTools</tt> (containing folders 
+Library, SDKs, and usr):
+
+   <pre><strong>ls /Library/Developer/CommandLineTools/usr/bin/</strong></pre>
+
+More on this:
+
+   * XCode version: https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/pkgutil.1.html
+   * https://gist.github.com/tylergets/90f7e61314821864951e58d57dfc9acd
+   * pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | grep version
+
+<a name="CoreUtils"></a>
+
+## coreutils (Core Utilities)
+
+Many who work with Linux distribution avoid minor (but annoying) differences by replacing OS X commands with GNU versions by installing the "coreutils" family of commands done using. It's among <a target="_blank" href="https://danielmiessler.com/blog/first-10-things-new-mac/">Daniel Missler's The First 10 Things I Do on a New Mac</a>.
+This is about more than having the same toolset as on Linux machines.
+<a target="_blank" href="https://ponderthebits.com/2017/01/know-your-tools-linux-gnu-vs-mac-bsd-command-line-utilities-grep-strings-sed-and-find/">The difference between Linux vs. Mac</a>:
+
+   * Native capability to search for Unicode strings are not in the Mac (BSD) version of strings.
+   * ANSI-C escape sequences (e.g., \r, \t) beyond \n are not suppoed by Mac sed.
+   <br /><br />
+
+1. <a target="_blank" href="https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/">
+   NOTE</a>: To begin with, add the following line to your .bashrc or .zshrc:
+   <tt>/usr/local/opt/coreutils</tt>
+
+   <pre>export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"</pre>
+
+1. get the <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">
+   set of utilities from GNU Linux, but for Mac</a>:
+
+   <pre><strong>brew install coreutils
+   </strong></pre>
+
+   https://en.wikipedia.org/wiki/GNU_Core_Utilities
+
+1. Then you can link:
+
+   <pre><strong>ln -s /usr/local/bin/gtac /usr/local/bin/tac
+   </strong></pre>
+
+   <a target="_blank" href="http://www.nyx.net/~mlu/pages/computing/installing_and_configuring/installing_and_configuring_command-line_utilities/#.WuMRgMgh0Wo">NOTE</a>:
+
+   ### Bash shell
+
+1. Update Bash to version 4:
+
+   <pre>
+brew install bash
+brew link --overwrite bash
+   </pre>
+
+   See https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
+
+   ### Zsh
+
+   Switching to Zsh from Bash is a rather person choice. 
+   But it's done thus:
+
+   <pre>
+brew install zsh  # in /bin/zsh
+   </pre>
+
+   ### Update Mac utilities
+
+2. Several utilities come installed on macOS, but can be upgraded to the (newest?) version known by brew:
+
+   <pre>
+brew reinstall m4
+brew reinstall make
+brew reinstall unzip
+   </pre>
+
+   Because macOS already provides this software, when brew install runs, as its response message says, 
+   formulas for them are installed as <strong>keg-only</strong>, which means brew did not symlink it into /usr/local 
+   and installing another version in parallel can cause all kinds of trouble."
+
+   So their installation would require placing their location in front of the default program's location.
+   That's why many don't bother.
+
+   Updates specific to text editors:
+
+   <pre>
+brew install nano  # text editor
+brew install emacs
+brew install emacs --cocoa --srgb
+brew linkapps emacs
+brew install vim --override-system-vi
+brew install macvim --override-system-vim --custom-system-icons
+   </pre>
+
+   ### GNU Debugger
+
+   Although with its Mavericks version, <a target="_blank" href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Apple</a> (along with the transition from GCC to Clang)
+   substituted GDB (the GNU interactive debugger) with <a target="_blank" href="http://lldb.llvm.org/">LLDB (the standalone LLVM debugger)</a>.
+
+   Unfortunately, the Eclipse IDE was not capable of communicating with any interactive debugger other than gdb.
+   
+   <a target="_blank" href="https://wiki.eclipse.org/CDT/User/FAQ#How_do_I_get_the_LLDB_debugger.3F">
+   NOTE</a>: Install Xcode (version 7.3.1 is known to work). The simplest way is to get is from the App Store. Once it is installed, lldb-mi will reside somewhere under the Xcode folder (it normally is /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi). CDT will initialize the default LLDB path to this value if it is present. Note that if you had previous debug configurations with a non-default path for LLDB or if you changed the path in the preferences, the path to lldb will not be automatically set for you. You will have to edit the LLDB path manually in the debug configuration and/or you need to reset the preferences to defaults (if it was modified). 
+
+
+1. Restore GDB back on your Mac:
+
+   <pre>
+brew install gdb
+   </pre>
+
+   The above does not create a  ~/.gdbinit folder.
+
+2. Notice in the response "On 10.12 (Sierra) or later with SIP, "brew info gdb" says you need to run:"
+
+   <pre>
+echo "set startup-with-shell off" >> ~/.gdbinit
+   </pre>
+
+
+   <a target="_blank" href="https://stackoverflow.com/questions/41966073/how-to-install-gdb-on-macos-terminal-sierra">
+   NOTE</a>: https://sourceware.org/gdb/wiki/BuildingOnDarwin
+   1. download the most recent GDB from https://www.sourceware.org/gdb/download/
+   2. expand the gdb-7.12.1.tar.xz file: tar xopf gdb-7.12.1.tar.xz
+   3. cd gdb-7.12.1 in terminal to open the gdb folder
+   4. Follow the instructions in the README file in the gdb folder, or simply follow the following steps:
+   5. ./configure, wait for the terminal
+   6. make and wait again (which can take some time)
+   7. sudo make install
+   8. csrutil enable --without debug
+
+   <a target="_blank" href="https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html">
+   This</a> describes how to code-sign the GDB executable so that macOS will allow it to control other processes.
+   It involves some manual steps.
+
+   codesign -s gdb-cert  /usr/local/Cellar/gdb/7.12_1/bin/gdb
+
+   <a target="_blank" href="http://www.blog.howechen.com/install-gdb-macos-sierra/">
+   NOTE</a>: To start dbg, use sudo or define alias gdb="sudo gdb"
+
+   ## GNU commands not in MacOS
+
+
+
+   ### Not pre-installed on macOS
+
+   Tutorials make use of some commands, so install them:
+
+   <pre>
+brew install diffutils
+brew install grep --with-default-names
+brew install ed --with-default-names
+brew install gawk
+brew install gzip
+brew install wget
+brew install screen  # in /usr/bin
+   </pre>
+
+   <tt>--with-default-names</tt> prevents Homebrew from prepending a "g" to each command, so they can be used instead of the ones shipped by OS X.
+
+
+   <pre>
+brew install guile  # GNU Ubiquitious Language for Extensions https://www.gnu.org/software/guile/
+brew install gpatch
+brew install binutils  # https://en.wikipedia.org/wiki/GNU_Binutils
+   </pre>
+ 
+   Running which with these:
+
+   <pre>
+brew install gnu-indent --with-default-names
+brew install gnu-sed --with-default-names
+brew install gnu-tar --with-default-names
+brew install gnu-which --with-default-names
+brew install gnutls
+brew install watch
+brew install wdiff --with-gettext
+   </pre>
+
+   ### findutils
+   
+   Missing from the list above is <tt>brew install findutils --with-default-names</tt>
+   becuase that causes 'brew doctor' to issue warning: "Putting non-prefixed findutils in your path can cause python builds to fail."
+
+   ### GPG
+
+   https://superuser.com/questions/655246/are-gnupg-1-and-gnupg-2-compatible-with-each-other
+
+   <pre>
+brew install gnupg  # gpg
+brew install gnupg2 # gpg2
+   </pre>
+
+
+   ### Add to MacOS Non-GNU commands
+
+   <pre>
+brew install file-formula
+brew install less
+brew install openssh
+brew install perl518   # must run "brew tap homebrew/versions" first!
+brew install rsync  # to backup
+   </pre>
+
+   These are handled by specific request:
+
+   <pre>
+brew install git
+brew install python
+brew install svn  # in /usr/bin/svn
+   </pre>
+
+
+   ### Utilities for Mac only
+
+   <pre>
+brew install htop  # like GNU top
+brew install nmap
+brew install tmux 
+   </pre>
+
+   ### MoreUtils and parallel
+
+   <pre>
+brew install moreutils --without-parallel
+   </pre>
+
+   <a target="_blank" href="https://packages.debian.org/unstable/utils/moreutils">
+   The Debian description for it</a> is "Unix tools that nobody thought to write long ago, when Unix was young."
+
+   Read about each utility command at <a target="_blank" href="https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/">
+   https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/</a>
+  
+   * <strong>chronic</strong> runs a command quietly unless it fails
+   * <strong>combine</strong> combines lines in two files using boolean operations
+   * <strong>errno</strong> look up errno names and descriptions
+   * <strong>ifdata</strong> get network interface info without parsing ifconfig output
+   * <strong>ifne</strong> run a program if the standard input is not empty
+   * <strong>isutf8</strong> check if a file or standard input is utf-8
+   * <strong>lckdo</strong> execute a program with a lock held
+   * <strong>mispipe</strong> pipe two commands, returning the exit status of the first
+   * <strong>parallel</strong> run multiple jobs at once (<a target="_blank" href="http://brewformulas.org/Moreutil">conflicts with</a> brew install <a target="_blank" href="http://brewformulas.org/Parallel">parallel</a>, so don't install that stand-alone)
+   * <strong>pee</strong> tee standard input to pipes
+   * <strong>sponge</strong> soak up standard input and write to a file. See <a target="_blank" href="https://unix.stackexchange.com/questions/207919/sponge-from-moreutils-whats-the-difference-to-shell-redirect-useful-examples">this</a>
+   * <strong>ts</strong> timestamp standard input
+   * <strong>vidir</strong> edit a directory in your text editor
+   * <strong>vipe</strong> insert a text editor into a pipe
+   * <strong>zrun</strong> automatically uncompress arguments to command
+   <br /><br />
+   
+   Its home page at <a target="_blank" href="https://joeyh.name/code/moreutils/">https://joeyh.name/code/moreutils/</a>
+   says more are on the way.
+
+   Riff on it at https://news.ycombinator.com/item?id=9013570
+
+<hr />
 
 ## Uptime
 
@@ -122,18 +377,9 @@ UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR
    </strong></pre>
 
 
-## Coreutils
+## Certificates
 
-   Get the set of <a target="_blank" href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">utilities from GNU Linux, but for Mac</a>:
-
-   <pre><strong>brew install coreutils
-   </strong></pre>
-
-   Then you can:
-
-   <pre><strong>ln -s /usr/local/bin/gtac /usr/local/bin/tac
-   </strong></pre>
-
+http://sourceware.org/gdb/wiki/BuildingOnDarwin
 
 <a id="CronJobs"></a>
 
@@ -234,7 +480,15 @@ NOTE</a>:
    networksetup -setairportnetwork [interface] [router SSID] [password]
    </strong></pre>
 
+## Shells
 
+nix-shell environment on top of nixos/nixpkgs 
+
+## References
+
+https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities/69332
+
+https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 
 ## More on OSX
 

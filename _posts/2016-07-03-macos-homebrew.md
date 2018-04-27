@@ -85,7 +85,7 @@ Alternatives to Homebrew:
 
 ## Install Homebrew #
 
-0. Install Homebrew if you haven't already.
+1. Install Homebrew if you haven't already.
 
    <pre><strong>
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -93,10 +93,10 @@ Alternatives to Homebrew:
 
    CAUTION: Don't press Enter on the Terminal until the Download Software dialog reaches 100%.
 
-   Press the Enter key to the message:
+2. Press the Enter key to the message:
    <br /><tt>Press RETURN to continue or any other key to abort.</tt> then
 
-   To proceed, enter the root password, or type Ctrl+C to abort.
+3. To proceed, enter the root password, or type Ctrl+C to abort.
 
    NOTE: The download is from<br />
    https://github.com/Homebrew/homebrew/
@@ -119,6 +119,7 @@ Alternatives to Homebrew:
 
    The "brew" above is a shell script file.
 
+   PROTIP: The "/usr/local" is the default specified by the  $HOMEBREW_PREFIX enviornment variable.
 
    ### Update Homebrew itself #
 
