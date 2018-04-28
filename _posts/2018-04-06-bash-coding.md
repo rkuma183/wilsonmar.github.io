@@ -153,6 +153,24 @@ Logs are not sent to the Linux <tt>/var/log</tt> folder because on a Mac its def
 drwxr-xr-x  54 root  wheel  1728 Apr 21 05:01 /var/log
    </pre>
 
+The script outputs logs to a file.
+
+This is so that during runs, what appears on the command console are only what is relevant to debugging the current issue.
+
+At the end of the script, the log is shown in an editor to <strong>enable search</strong> through the whole log.
+
+
+## Sudo and Password
+
+To disable inputting password:
+
+   <pre><strong>sudo visudo
+yourusername ALL=(root) NOPASSWD: /usr/sbin/installer
+   </strong></pre>
+
+<a target="_blank" href="https://sneakypockets.wordpress.com/2017/07/26/using-installer-choices-xml-to-modify-anyconnect-and-mcafee-deployments/">
+NOTE</a>: An XML file can be used to specify inputs.
+
 
 ## Disk Space Free and Used
 
@@ -667,16 +685,23 @@ Popular in the Maven Repository are:
    
 TODO: The Python edition of this will insert specs such as this in pom.xml files.   
 
-<a name="Logging"></a>
 
-## Logging
+<a name="SilentInstall"></a>
 
-The script outputs logs to a file.
+## Pkg silent install
 
-This is so that during runs, what appears on the command console are only what is relevant to debugging the current issue.
+Although Microsoft's DotNet Core for Mac has a brew formula for the CLI,
+its SDK is installer is only available using a Pkg. 
 
-At the end of the script, the log is shown in an editor to <strong>enable search</strong> through the whole log.
+So we use a command for installing that silently:
 
+   <pre>
+echo "$SUDO_PASS" | sudo installer -store -verbose -verboseR -allowUntrusted -pkg "$DOTNET_PROJ/$PKG" -target /
+   </pre>
+
+   The -target value of / is not a path but a device listed by the df command.
+
+There is also the platypus or pkginastall libraries. 
 
 <a name="JenkinsStart"></a>
 
