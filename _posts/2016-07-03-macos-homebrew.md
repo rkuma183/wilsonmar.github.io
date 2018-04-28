@@ -523,6 +523,10 @@ says tap adds to the list of formulae that brew tracks, updates, and installs fr
 Homebrew cask extends homebrew and brings its elegance, simplicity, and speed to 
 MacOS (OS X) <strong>GUI</strong> applications and large binaries.
 
+<a target="_blank" href="
+https://caskroom.github.io/">
+https://caskroom.github.io</a>
+
 With Cask, you can skip the long URLs, 
 the "To install, drag this icon…", and manually deleting installer files.
 
@@ -537,7 +541,12 @@ the "To install, drag this icon…", and manually deleting installer files.
    brew install brew-cask
    </strong></pre>
 
-   Applications are kept in their Caskroom under /opt and symblinked to $HOME/Applications.
+   Applications are kept in their Caskroom under /opt and symblinked to $HOME/Applications
+   from 
+
+   <a target="_blank" href="
+   https://github.com/caskroom/homebrew-cask">
+   https://github.com/caskroom/homebrew-cask</a>
 
 0. <a target="_blank" href="https://caskroom.github.io/">
    https://caskroom.github.io</a>, the home page, said there are 3,197 casks as of June 5, 2016.
@@ -661,7 +670,6 @@ Homebrew now defaults to retrieving behavioral analytics tracking. Although anon
    <pre><strong>
    brew analytics off
    </strong></pre>
-
 
 ## Debian apt-get
 
