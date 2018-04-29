@@ -162,10 +162,10 @@ At the end of the script, the log is shown in an editor to <strong>enable search
 
 ## Sudo and Password
 
-To disable inputting password:
+To disable inputting password, add this below line in sudoers file:
 
    <pre><strong>sudo visudo
-yourusername ALL=(root) NOPASSWD: /usr/sbin/installer
+yourusername ALL=(root) NOPASSWD: /usr/sbin/installer install
    </strong></pre>
 
 <a target="_blank" href="https://sneakypockets.wordpress.com/2017/07/26/using-installer-choices-xml-to-modify-anyconnect-and-mcafee-deployments/">
@@ -174,11 +174,12 @@ NOTE</a>: An XML file can be used to specify inputs.
 
 ## Disk Space Free and Used
 
-Near the script's beginning, the MacOS <tt>df</tt> command is used to obtain the number of blocks available:
+Near the script's beginning, the MacOS <tt>df</tt> command is used to obtain the number of blocks available at the start of run:
 
-<pre>FREE_DISKBLOCKS_START="$(df | sed -n -e '2{p;q}' | cut -d' ' -f 6)"</pre>
+   <pre>FREE_DISKBLOCKS_START="$(df | sed -n -e '2{p;q}' | cut -d' ' -f 6)"
+   </pre>
 
-At the end of the script, the END variable is obtained for use in calculatubg the 
+At the end of the script, the END variable is obtained for use in calculating the 
 space used during the script run.
 
 
