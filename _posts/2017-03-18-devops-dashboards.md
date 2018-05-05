@@ -28,25 +28,6 @@ is named after the <a target="_blank" href="https://www.wikiwand.com/en/Hygieia"
 daughter of the Greek god of medicine and personification of hygiene and prevention of illness</a>.
 
 
-## Videos
-
-These videos describes:
-
-<a target="_blank" href="https://www.youtube.com/watch?v=WuPQOBMmzSE">
-https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
-
-<a target="_blank" href="https://www.youtube.com/watch?v=SoNTA78j0tc">
-Introducing Hygieia</a> [4:53] Jul 17, 2015 on CapitalOne's GitHub
-
-<a target="_blank" href="https://www.youtube.com/watch?v=Iq8M3llEp0k">
-https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
-
-<a target="_blank" href="https://www.youtube.com/watch?v=WZ3S1xOn8Wg">
-https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
-
-https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi
-
-
 <a name="TeamDashboard"></a>
 
 ## Team Dashboard Widget View
@@ -291,6 +272,64 @@ PROTIP: Have computer programs monitor servers and take automatic actions.
 <a target="_blank" href="https://gitter.im/capitalone/Hygieia/">
 https://gitter.im/capitalone/Hygieia</a>
 
+Videos:
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=WuPQOBMmzSE">
+https://www.youtube.com/watch?v=WuPQOBMmzSE</a> [4:01] May 10, 2016
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=SoNTA78j0tc">
+Introducing Hygieia</a> [4:53] Jul 17, 2015 on CapitalOne's GitHub
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Iq8M3llEp0k">
+https://www.youtube.com/watch?v=Iq8M3llEp0k</a>
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=WZ3S1xOn8Wg">
+https://www.youtube.com/watch?v=WZ3S1xOn8Wg</a> (music, no narration)
+
+* <a target="_blank" href="https://www.spreaker.com/user/pureperformance/012-automating-performance-into-the-capi">
+   Podcast on automating performance</a>
+
+
+## Hygieia configuration
+
+There are several gulpfile.js within <tt>$HOME/gits/hygieia/UI/</tt>
+
+* /gulpfile.js
+* /node_modules/gulp-angular-filesort/node_modules/ng-dependencies/node_modules/estraverse/gulpfile.js
+* /node_modules/gulp-angular-filesort/node_modules/ng-dependencies/gulpfile.js
+* /node_modules/gulp-less/examples/gulpfile.js
+* /node_modules/browser-sync/node_modules/dev-ip/gulpfile.js
+* /node_modules/browser-sync/node_modules/browser-sync-client/gulpfile.js
+* /node_modules/gulp-css-globbing/node_modules/vinyl-map/example/gulpfile.js
+* /node_modules/gulp-csso/gulpfile.js
+<br /><br />
+
+To change the default port, change the gulpfile.js from $HOME/gits/hygieia/UI/
+
+   <pre>
+      browserSync.init({
+          server: {
+              baseDir: hygieia.dist,
+              startPath: '/',
+              middleware: [proxyMiddleware]
+          },
+          ghostMode: ghostMode
+      });
+   </pre>
+
+to this:
+
+   <pre>
+       browserSync.init({
+          port: 9999,
+          server: {
+              baseDir: hygieia.dist,
+              startPath: '/',
+              middleware: [proxyMiddleware]
+          },
+          ghostMode: ghostMode
+      });
+   </pre>
 
 
 ## More on DevOps #
