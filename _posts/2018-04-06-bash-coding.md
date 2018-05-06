@@ -333,9 +333,9 @@ Most packages setup their installer for easy installation by creating an entry i
 
 Some don't do that, such as Gatling. So we have to "scrape" their webpage to obtain the URL that is downloaded when a user manually clicks "DOWNLOAD" on the webpage. An analysis of the page (at gatling.io/download) shows it is one of two URLs which download the bundle.zip file.
 
-   <tt>
-DOWNLOAD_URL="gatling-version.html"; wget -q "https://gatling.io/download/" -O $outputFile; cat "$outputFile" | sed -n -e '/<\/header>/,/<\/footer>/ p' | grep "Format:" | sed -n 's/.*href="\([^"]*\).*/\1/p' ; rm -f $outputFile
-   </tt>
+   <pre>
+DOWNLOAD_URL="gatling-version.html"; wget -q "https://gatling.io/download/" -O $outputFile; cat "$outputFile" | sed -n -e '/&LT;\/header>/,/&LT;\/footer>/ p' | grep "Format:" | sed -n 's/.*href="\([^"]*\).*/\1/p' ; rm -f $outputFile
+   </pre>
 
    The code above (from Wisdom Hambolu) pulls down the page. The grep filters out all but the line containing "Format:" which has a link to "zip bundle".  The sed function extracts out the URL between the "href=".
 
@@ -703,6 +703,34 @@ echo "$SUDO_PASS" | sudo installer -store -verbose -verboseR -allowUntrusted -pk
    The -target value of / is not a path but a device listed by the df command.
 
 There is also the platypus or pkginastall libraries. 
+
+<a name="ExtractWeb"></a>
+
+## Extract version from webpage
+
+To automate "Download .NET SDK" for Mac from page https://www.microsoft.com/net/learn/get-started/macos#install
+
+<pre>curl -s https://www.microsoft.com/net/learn/get-started/macos#macos </pre>
+extracts the entire page.
+
+<pre>grep -B1 "Download .NET SDK"</pre> obtains one line before the text "Download .NET SDK", which is the two lines:
+
+   <pre>
+&LT;a onclick="recordDownload('.NET Core', 'dotnet-sdk-2.1.105-macos-x64-getstarted-installer')"
+href="https://download.microsoft.com/download/2/E/C/2EC018A0-A0FC-40A2-849D-AA692F68349E/dotnet-sdk-2.1.105-osx-gs-x64.pkg"
+class="btn btn-primary">Download .NET SDK&LT;/a>
+   </pre>
+
+<pre>grep href</pre> filters just the lines with href.
+
+<pre>grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"</pre> specifies Extended functionality using the Regular Expression
+to obtain the URLs (one URL for .exe and one URL for .pkg).
+
+<pre>grep -E "*.pkg"</pre> filters the lines to just the one ending with "pkg" file extension (not .exe).
+
+The "basename" command obtains the file name from a file path variable.
+
+PKG_LINK=$(curl -s https://www.microsoft.com/net/learn/get-started/macos#macos | grep -B1 "Download .NET SDK" | grep href | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | grep -E ".pkg")
 
 <a name="JenkinsStart"></a>
 
