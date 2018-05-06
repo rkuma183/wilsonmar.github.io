@@ -550,6 +550,18 @@ complete
 
 ## Visual Studio Code #
 
+Microsoft's Code is slower to startup than Sublime Text.
+
+But its windowing is much more configurable, if that's important to you.
+An example of this is moving the default sidebar to the right side of the editor.
+
+Code's auto-indenting and execution of snippets work naturally.
+
+Search for add-ins on https://marketplace.visualstudio.com/
+by opening its Extension panel (CTRL + Shift + X). 
+<a target="_blank" href="https://nickjanetakis.com/blog/switching-to-vscode-from-sublime-text">
+Nick's list</a>.
+
 On Mac: 
 
 1. Install the GUI program using Homebrew:
