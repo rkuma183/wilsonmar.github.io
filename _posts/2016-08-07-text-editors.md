@@ -323,6 +323,13 @@ Use Sublime Text on Retina? for crisp, readable text, to Settings add
    "font_options" : ["gray_antialias"] 
    </strong></pre>
 
+### Install spell check
+
+Recommended spelling from the geniuses at Google.
+Install ST v3 
+https://github.com/noahcoad/google-spell-check/tree/st3
+by https://github.com/noahcoad/google-spell-check/
+
 ### Install Python linter
 
 1. Install Flake8 -- a favorite Python linters because it's fast yet has a low rate of false positives. 
@@ -378,14 +385,9 @@ SublimeLinter right alongside your code.   BTW SublimeLinter supports more than 
 
 
 
-### Install spell check
+### More configuration
 
-Recommended spelling from the geniuses at Google.
-Install ST v3 
-https://github.com/noahcoad/google-spell-check/tree/st3
-by https://github.com/noahcoad/google-spell-check/
-
-
+http://docs.sublimetext.info/en/sublime-text-3/customization/settings.html
 
 <a id="Git_Editor"></a>
 

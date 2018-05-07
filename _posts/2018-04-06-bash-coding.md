@@ -327,6 +327,17 @@ Go to another blog for advice on this terrible program.
 
 ## No Brew, No problem
 
+## Editors
+
+Other apps look to the enviornment variable EDITOR for the commnand to use for displaying text.
+
+   <pre>
+export EDITOR='subl -w'
+   </pre>
+
+   "-w" causes the command to not exit until the file is closed.
+
+
 ## Scape web page for URL
 
 Most packages setup their installer for easy installation by creating an entry in Homebrew website.
