@@ -537,13 +537,30 @@ variable "service_networks" {
 }
    </pre>   
 
+   In a cluster enviornment:
+
+   <pre>   
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
+  default = 8080
+}
+   </pre>   
+
    ### outputs.tf
 
-   Sample contents of an outputs.tf file:
+   Sample contents of an outputs.tf file for a single instance:
 
   <pre>
   output "public_ip" {
   value = "${aws_instance.example.public_ip}"
+}
+   </pre>
+
+   Sample contents of an outputs.tf file for a cluster points to the Elastic Load Balancer:
+
+  <pre>
+output "elb_dns_name" {
+  value = "${aws_elb.example.dns_name}"
 }
    </pre>
 
