@@ -24,12 +24,12 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
 ## Infrastructure as Code Compared
 
-<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and Terraform:
+The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and Terraform:
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
-<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>Click to pop-up full screen image</small></a>
+<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>(Click to pop-up full screen image <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">from Gruntwork</a>)</small></a>
 
-"Immutable" means servers are treated like "cattle" (removed from the herd) and not as "pets" (kept alive as long as possible).
+"Immutable" means once instantiated, it doesn't change. In DevOps, this strategy means individual servers are treated like "cattle" (removed from the herd) and not as "pets" (kept alive as long as possible).
 
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> Feature </th><th> CloudFormation </th><th> Terraform </th></tr>
@@ -47,23 +47,6 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 </table>
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
-
-## Automation
-
-   NOTE: Automating infrastructure deployment consists of these features:
-
-   * Provisioning resources
-   * Planning updates
-   * Using source control
-   * Reusing templates
-   <br /><br />
-
-  PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). 
-  Thus Terraform defines the "desired state configuration".
-
-   NOTE: Terraform remote configures remote state storage with Terraform.
-
-
 
 ## Installation #
 
@@ -160,6 +143,95 @@ Chocolatey installed 1/1 packages.
  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
     </pre>   
 
+
+
+   ### Version
+
+0. Obtain version installed:
+
+   <tt><strong>terraform version 
+   </strong></tt>
+
+   Alternately:
+
+   <tt><strong>terraform \-\-version 
+   	</strong></tt>
+
+   WARNING: The response at time of writing, Terraform is not even "1.0" release, meaning it's in beta maturity.:
+
+   <pre>
+   Terraform v0.11.7
+   </pre>
+
+
+   ### Commands list & help
+
+0. For a list of commands:
+
+   <tt><strong>terraform 
+   	</strong></tt>
+
+   The response at time of writing:
+
+   <pre>
+Usage: terraform [--version] [--help] &LT;command> [args]
+&nbsp;
+The available commands for execution are listed below.
+The most common, useful commands are shown first, followed by
+less common or more advanced commands. If you're just getting
+started with Terraform, stick with the common commands. For the
+other commands, please read the help and docs before usage.
+&nbsp;
+Common commands:
+    apply              Builds or changes infrastructure
+    console            Interactive console for Terraform interpolations
+    destroy            Destroy Terraform-managed infrastructure
+    env                Workspace management
+    fmt                Rewrites config files to canonical format
+    get                Download and install modules for the configuration
+    graph              Create a visual graph of Terraform resources
+    import             Import existing infrastructure into Terraform
+    init               Initialize a Terraform working directory
+    output             Read an output from a state file
+    plan               Generate and show an execution plan
+    providers          Prints a tree of the providers used in the configuration
+    push               Upload this Terraform module to Atlas to run
+    refresh            Update local state file against real resources
+    show               Inspect Terraform state or plan
+    taint              Manually mark a resource for recreation
+    untaint            Manually unmark a resource as tainted
+    validate           Validates the Terraform files
+    version            Prints the Terraform version
+    workspace          Workspace management
+&nbsp;
+All other commands:
+    debug              Debug output management (experimental)
+    force-unlock       Manually unlock the terraform state
+    state              Advanced state management
+   </pre>
+
+0. Help on a specific command:
+
+   <tt><strong>terraform plan \-\-help
+    </strong></tt>
+
+
+## Automation
+
+   NOTE: Automating infrastructure deployment consists of these features:
+
+   * Provisioning resources
+   * Planning updates
+   * Using source control
+   * Reusing templates
+   <br /><br />
+
+  PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). 
+  Thus Terraform defines the "desired state configuration".
+
+   NOTE: Terraform remote configures remote state storage with Terraform.
+
+
 <a name="modules"></a>
    
 ## Modules
@@ -248,6 +320,12 @@ Unpacking objects: 100% (12/12), done.
    https://github.com/gruntwork-io/intro-to-terraform">
    https://github.com/gruntwork-io/intro-to-terraform.git</a>
 
+   BTW, <a target="_blank" href="#Gruntwork">Gruntwork.io</a> offers (for $4,950), access to their 250,000-line Reference Architecture of starter code for use in production on AWS.
+   An additional $500 a month gets you access to their <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
+   Reference Architecture Walktrough video class</a>.
+
+   ![terraform-ref-arch-683x407-106209](https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg)
+
    * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
 
    <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
@@ -297,7 +375,7 @@ Unpacking objects: 100% (12/12), done.
 
    ### HCL (Hashicorp Configuratio Language) 
 
-   Both CloudFormation and Terraform work with JSON, but Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at <a target="_blank" href="
+   Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at <a target="_blank" href="
    https://www.terraform.io/docs/configuration/syntax.html">
    https://www.terraform.io/docs/configuration/syntax.html</a>
 
@@ -323,6 +401,9 @@ Unpacking objects: 100% (12/12), done.
 
    HCL does not have conditional if/else logic, which is why <a href="#Modules">modules</a> are necessary.
 
+   <a target="_blank" href="https://github.com/hashicorp/hcl2">HCL2</a>
+   combines the interpolation language HIL to produce a single configuration language that supports arbitrary expressions.
+   It's not backward compatible, with no direct migration path.
 
    ### Environment folders  
 
@@ -698,77 +779,6 @@ output "public_ip" {
    This is so that nodes are built in the order they are needed. 
 
 
-   ### Version
-
-0. Obtain version installed:
-
-   <tt><strong>terraform version 
-   </strong></tt>
-
-   Alternately:
-
-   <tt><strong>terraform \-\-version 
-   	</strong></tt>
-
-   WARNING: The response at time of writing, Terraform is not even "1.0" release, meaning it's in beta maturity.:
-
-   <pre>
-   Terraform v0.11.7
-   </pre>
-
-
-   ### Commands list & help
-
-0. For a list of commands:
-
-   <tt><strong>terraform 
-   	</strong></tt>
-
-   The response at time of writing:
-
-   <pre>
-Usage: terraform [--version] [--help] &LT;command> [args]
-&nbsp;
-The available commands for execution are listed below.
-The most common, useful commands are shown first, followed by
-less common or more advanced commands. If you're just getting
-started with Terraform, stick with the common commands. For the
-other commands, please read the help and docs before usage.
-&nbsp;
-Common commands:
-    apply              Builds or changes infrastructure
-    console            Interactive console for Terraform interpolations
-    destroy            Destroy Terraform-managed infrastructure
-    env                Workspace management
-    fmt                Rewrites config files to canonical format
-    get                Download and install modules for the configuration
-    graph              Create a visual graph of Terraform resources
-    import             Import existing infrastructure into Terraform
-    init               Initialize a Terraform working directory
-    output             Read an output from a state file
-    plan               Generate and show an execution plan
-    providers          Prints a tree of the providers used in the configuration
-    push               Upload this Terraform module to Atlas to run
-    refresh            Update local state file against real resources
-    show               Inspect Terraform state or plan
-    taint              Manually mark a resource for recreation
-    untaint            Manually unmark a resource as tainted
-    validate           Validates the Terraform files
-    version            Prints the Terraform version
-    workspace          Workspace management
-&nbsp;
-All other commands:
-    debug              Debug output management (experimental)
-    force-unlock       Manually unlock the terraform state
-    state              Advanced state management
-   </pre>
-
-0. Help on a specific command:
-
-   <tt><strong>terraform plan \-\-help
-    </strong></tt>
-
-
    ### Environment variables
 
 0. Define enviornment variables:
@@ -964,6 +974,8 @@ linkedin.com/in/antonbabenko
    Engineer at Hashicorp
 
 
+<a name="Gruntwork"></a>
+
 <strong>Yevgeniy (Jim) Brikman</strong> (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), 
 co-founder of DevOps as a Service <a target="_blank" href="https://Gruntwork.io/">Gruntwork.io</a>
    
@@ -996,11 +1008,8 @@ co-founder of DevOps as a Service <a target="_blank" href="https://Gruntwork.io/
 
    * $500 <a target="_blank" href="https://gruntwork.teachable.com/p/terraform">
    A Crash Course on Terraform</a>
-   * $500 <a target="_blank" href="https://training.gruntwork.io/courses/a-crash-course-on-docker-packer/lectures/4247382/">
+   * $500 <a target="_blank" href="https://training.gruntwork.io/courses/a-crash-course-on-docker-packer/lectures/4247382">
    A Crash Course on Docker & Packer</a>
-   * $500 <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
-   Reference Architecture Walktrough</a>
-   250,000 lines
 
 dtan4
 
