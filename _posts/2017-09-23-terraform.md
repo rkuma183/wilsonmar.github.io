@@ -238,9 +238,9 @@ All other commands:
 
    NOTE: Terraform remote configures remote state storage with Terraform.
 
-### AWS
+### Provider credentials
 
-Since the point of Terraform is to get you into clouds, Terraform looks for specific environment variables containing AWS credentials:
+Since the point of Terraform is to get you into clouds, Terraform looks for specific environment variables containing AWS credentials. Many Mac users add credentials in their ~/.bash_profile these lines:
 
    <pre>
 export AWS_ACCESS_KEY_ID=(your access key id)
@@ -252,7 +252,8 @@ export AWS_SECRET_ACCESS_KEY=(your secret access key)
    
 ## Modules
 
-Terraform modules provide templates to reduce the complexity of DevOps:
+Terraform modules provide templates to reduce the complexity of DevOps.
+The source can be local:
 
    <pre>
 module "service_foo" {
@@ -262,21 +263,7 @@ module "service_foo" {
 }
    </pre>
 
-<a target="_blank" href="
-https://registry.terraform.io/">
-https://registry.terraform.io</a>
-provides a marketplace of modules.
-
-<a target="_blank" href="https://user-images.githubusercontent.com/300046/39751305-fb4167b4-5274-11e8-9ee4-b62324002453.png">
-<img alt="terraform-devops-vendors-807x352-107086" width="807" src="https://user-images.githubusercontent.com/300046/39751536-bd617afa-5275-11e8-943f-30ebbf17da0e.jpg"></a>
-
-<a target="_blank" href="
-https://github.com/terraform-community-modules">
-https://github.com/terraform-community-modules</a>
-
-<a target="_blank" href="
-https://github.com/objectpartners/tf-modules">
-https://github.com/objectpartners/tf-modules</a>
+  The source can be from a GitHub repo:
 
    <pre>
 module "rancher" {
@@ -284,28 +271,57 @@ module "rancher" {
 }
    </pre>
 
-   The double slashes in the URL above separate the repo from the subdirectory.
+   Double slashes in the URL above separate the repo from the subdirectory.
 
-   The ref is the first 7 hex digits of a commit ID.
+   PROTIP: The ref is the first 7 hex digits of a commit ID.
 
-<target="_blank" href="
+   <a target="_blank" href="
+   https://github.com/objectpartners/tf-modules">
+   https://github.com/objectpartners/tf-modules</a>
+   has some modules.
+
+<a target="_blank" href="
+https://registry.terraform.io/">
+https://registry.terraform.io</a>
+provides a marketplace of modules. At time of writing it had a module to create Hashicorp's own Vault and Consul on Azure, GCP, and Amazon clouds.
+
+<a target="_blank" title="terraform-mod-vaults-1168x207-37317.jpg" href="https://user-images.githubusercontent.com/300046/39780285-1426518c-52c9-11e8-9544-8cac52ff2297.jpg">
+<img alt="terraform-mod-vaults-640x114-16475.jpg" width="640" src="https://user-images.githubusercontent.com/300046/39780240-da22a9b8-52c8-11e8-995e-e8c4a7ce325e.jpg"></a>
+
+
+   ### Community modules
+
+<a target="_blank" href="https://user-images.githubusercontent.com/300046/39751305-fb4167b4-5274-11e8-9ee4-b62324002453.png">
+<img alt="terraform-devops-vendors-807x352-107086" width="807" src="https://user-images.githubusercontent.com/300046/39751536-bd617afa-5275-11e8-943f-30ebbf17da0e.jpg"></a>
+
+* <a target="_blank" href="
+https://github.com/terraform-community-modules">
+https://github.com/terraform-community-modules</a>
+
+* <target="_blank" href="
 https://github.com/gruntwork-io/terragrunt/">
 https://github.com/gruntwork-io/terragrunt</a>
 is a thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules. 
 
-<target="_blank" href="
+* <target="_blank" href="
 https://github.com/gruntwork-io/terratest">
 https://github.com/gruntwork-io/terratest</a>
 is a Go library that makes it easier to write automated tests for your infrastructure code.
 
-   <a target="_blank" href="
+* <a target="_blank" href="
    https://www.ybrikman.com/writing/2017/10/13/reusable-composable-battle-tested-terraform-modules/">
    https://www.ybrikman.com/writing/2017/10/13/reusable-composable-battle-tested-terraform-modules</a>
 
+Blogs and tutorials on modules:
 
-<a target="_blank" href="https://www.youtube.com/watch?time_continue=147&v=LVgP63BkhKQ">
+* <a target="_blank" href="https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d">
+https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d</a>
+* <a target="_blank" href="https://www.youtube.com/watch?time_continue=147&v=LVgP63BkhKQ">
 How to Build Reusable, Composable, Battle tested Terraform Modules</a> [38:58]
 at Oct 12, 2017
+* <a target="_blank" href="https://linuxacademy.com/howtoguides/posts/show/topic/12369-how-to-introduction-to-terraform-modules">
+How to: Introduction to Terraform Modules</a>
+doc posted Nov 18, 2016 by: Giuseppe B
 
 <a name="ScriptInit"></a>
 
@@ -426,6 +442,10 @@ For those without the big bucks, Yevgeniy (Jim) Brikman (<a target="_blank" href
    NOTE: Terraform files coded end with <strong>.tf</strong> file type.
 
 0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
+
+   See <a target="_blank" href="http://www.antonbabenko.com/2016/09/21/how-i-structure-terraform-configurations.html">
+   http://www.antonbabenko.com/2016/09/21/how-i-structure-terraform-configurations.html</a>
+
 
    <a name="HCL"></a>
 
