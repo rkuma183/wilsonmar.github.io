@@ -16,11 +16,16 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial is a step-by-step hands-on introduction to use of Terraform for creating a cluster of web servers through a load balancer on AWS, Azure, and Google Cloud.
+This tutorial is a step-by-step hands-on introduction to use of Terraform
+(at <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>)
+for automating the  building, changing, and versioning of clusters of servers (through load balancers) 
+on AWS, Azure, and Google Cloud using a single set of specifications.
 
-Terraform, at <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>, is a tool for building, changing, and versioning infrastructure in the cloud.
+For me, Terraform (and AWS Cloud Formation) automation <strong>saves you money</strong> by getting you running
+quicker than manually clicking through the GUI.
 
-Repeatable. Versioned. Documented. Automated. Testable. Shareable.
+Terraform makes infrastructure provisioning Repeatable. Versioned. Documented. Automated. Testable. Shareable.
+That means when I make a mistake in a complicated setup, I can get going again quickly and easily with less troubleshooting.
 
 ## Infrastructure as Code Compared
 
@@ -97,6 +102,9 @@ zsh completions have been installed to:
 ==> Summary
 🍺  /usr/local/Cellar/terraform/0.10.6: 7 files, 63.6MB
    </pre>   
+
+   PROTIP: This creates folder <strong>.terraform.d</strong> on your $HOME folder, containing files
+   checkpoint_cache     checkpoint_signature
 
 0. Proceed to <a href="#ScriptInit">Get sample Terraform scripts</a>.
 
@@ -244,7 +252,20 @@ export AWS_SECRET_ACCESS_KEY=(your secret access key)
    
 ## Modules
 
-Terraform modules helps you reduce the complexity in DevOps:
+Terraform modules provide templates to reduce the complexity of DevOps:
+
+   <pre>
+module "service_foo" {
+  source = "/modules/microservice"
+  image_id = "ami-12345"
+  num_instances = 3
+}
+   </pre>
+
+<a target="_blank" href="
+https://registry.terraform.io/">
+https://registry.terraform.io</a>
+provides a marketplace of modules.
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/39751305-fb4167b4-5274-11e8-9ee4-b62324002453.png">
 <img alt="terraform-devops-vendors-807x352-107086" width="807" src="https://user-images.githubusercontent.com/300046/39751536-bd617afa-5275-11e8-943f-30ebbf17da0e.jpg"></a>
@@ -398,7 +419,6 @@ For those without the big bucks, Yevgeniy (Jim) Brikman (<a target="_blank" href
    <a target="_blank" href="https://gist.github.com/jamtur01/a567078b7ba545c3492f7cd32a65450d">
    pre-commit hook to validate in your Git repository</a>
 
-
    ### Main.tf
 
    PROTIP: There should be only one <strong>main.tf</strong> per folder.
@@ -529,7 +549,10 @@ subnet_count = "3"
 
    Cloud providers are not included with the installer, so...
 
-1. In a folder:
+1. In your gits folder:
+
+   <pre>git clone https://github.com/terraform-providers/terraform-provider-aws.git --depth=1
+   </pre>
 
 0. Initialize Terraform plug-ins:
 
@@ -541,7 +564,7 @@ subnet_count = "3"
    <pre>
 Initializing provider plugins...
 - Checking for available provider plugins on https://releases.hashicorp.com...
-- Downloading plugin for provider "aws" (0.1.4)...   
+- Downloading plugin for provider "aws" (1.17.0)...
 &nbsp;
 The following providers do not have any version constraints in configuration,
 so the latest version was installed.
@@ -551,7 +574,7 @@ changes, it is recommended to add version = "..." constraints to the
 corresponding provider blocks in configuration, with the constraint strings
 suggested below.
 &nbsp;
-* provider.aws: version = "~> 0.1"
+* provider.aws: version = "~> 1.17"
 &nbsp;
 Terraform has been successfully initialized!
 &nbsp;
@@ -635,6 +658,7 @@ cidr_block = ${cidrsubnet(var.network_info, 8, 1)} # returns 10.1.0.0/16
 cidr_block = ${cidrsubnet(var.network_info, 8, 2)} # returns 10.2.0.0/16
      </pre>
 
+   Also:
 
    <pre>
 variable network_info {
@@ -668,8 +692,8 @@ private_key_path = "C:\\MyKeys1.pem"
    https://github.com/dtan4/terraforming</a>
    a Ruby script that enables a command such as:   
 
-   <tt><strong>terraforming s3 \-\-profile dev
-   </strong></tt>
+   <pre><strong>terraforming s3 --profile dev
+   </strong></pre>
 
    You can pass profile name by --profile option.
 
@@ -680,8 +704,13 @@ private_key_path = "C:\\MyKeys1.pem"
 
 0. Have Terrform evaluate based on vars in a different (parent) folder:
 
-   <tt><strong>terraform plan -var-file='..\terraform.tfvars' -var-file='.\Development\development.tfvars' -state='.\Development\dev.state' -out base-`date-+'%s'`.plan
-   </strong></tt>
+   <pre><strong>
+   terraform plan \
+      -var-file='..\terraform.tfvars' \
+      -var-file='.\Development\development.tfvars' \
+      -state='.\Development\dev.state' \
+      -out base-`date-+'%s'`.plan
+   </strong></pre>
 
    The two dots in the command specifies to look above the current folder.
 
