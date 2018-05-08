@@ -22,9 +22,9 @@ Terraform, at <a target="_blank" href="https://www.terraform.io/intro/index.html
 
 Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 
-## Competitors to Terraform
+## Infrastructure as Code Compared
 
-<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: Other IAC (Infrastructure as Code) tools include Chef, Puppet, Ansible, SaltStack, AWS CloudFormation.
+<a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">NOTE</a>: The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and Terraform:
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
 <img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>Click to pop-up full screen image</small></a>
@@ -34,6 +34,7 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 <table border="1" cellpadding="4" cellspacing="0">
 <tr valign="bottom"><th> Feature </th><th> CloudFormation </th><th> Terraform </th></tr>
 <tr><td> Source code </td><td> closed-source </td><td> <a target="_blank" href="https://github.com/hashicorp/terraform/">open source</a> </td></tr>
+<tr><td> Open Source contributions? </td><td> No </td><td> Yes (GitHub issues) </td></tr>
 <tr><td> Configuration format </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
 <tr><td> <a href="#State">State management</a> </td><td> JSON </td><td> <a href="#HCL">HCL JSON</a> </td></tr>
 <tr><td> <a href="#Providers">Cloud Providers</a> support </td><td> AWS only </td><td> AWS, GCE, Azure (20+) </td></tr>
@@ -41,12 +42,26 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 <tr><td> Iterations </td><td> No </td><td> Yes </td></tr>
 <tr><td> Manage already created resources </td><td> No </td><td> Yes (hard) </td></tr>
 <tr><td> Failure handling </td><td> Optional rollback </td><td> Fix &amp; retry </td></tr>
-<tr><td> Open Source contributions? </td><td> No </td><td> Yes (GitHub issues) </td></tr>
 <tr><td> Logical comparisons </td><td> No </td><td> Limited </td></tr>
-<tr><td> <a href="#Modules">Extensible Modules</a> </td><td> No </td><td> Yes </td></tr>
+<tr><td> <a href="#Modules">Extensible Modules</a> </td><td> No </td><td> <a href="#Modules">Yes</a> </td></tr>
 </table>
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
+
+## Automation
+
+   NOTE: Automating infrastructure deployment consists of these features:
+
+   * Provisioning resources
+   * Planning updates
+   * Using source control
+   * Reusing templates
+   <br /><br />
+
+  PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). 
+  Thus Terraform defines the "desired state configuration".
+
+   NOTE: Terraform remote configures remote state storage with Terraform.
 
 
 
@@ -54,20 +69,40 @@ Terraform also provides execution control, iterations, and (perhaps most of all)
 
    PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.
 
-### Consider tfenv
+### Install on MacOS
 
 If you plan on frequently switching among several versions installed of Terraform:
 
-   https://github.com/kamatama41/tfenv
+   <a target="_blank" href="
+   https://github.com/kamatama41/tfenv">
+   https://github.com/kamatama41/tfenv</a>
 
-### Install on MacOS
-
-1. In a Terminal window:
-
-   <tt><strong>brew install -g terraform
+   <tt><strong>brew install tfenv
    </strong></tt>
 
    The response at time of writing:
+
+   <pre>
+[INFO] Installing Terraform v0.11.7
+[INFO] Downloading release tarball from https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_darwin_amd64.zip
+######################################################################## 100.0%
+[INFO] Downloading SHA hash file from https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_SHA256SUMS
+tfenv: tfenv-install: [WARN] No keybase install found, skipping GPG signature verification
+Archive:  tfenv_download.9qWxLw/terraform_0.11.7_darwin_amd64.zip
+  inflating: /usr/local/Cellar/tfenv/0.6.0/versions/0.11.7/terraform  
+[INFO] Installation of terraform v0.11.7 successful
+[INFO] Switching to v0.11.7
+[INFO] Switching completed
+   </pre>
+
+   TODO: <pre>tfenv: tfenv-install: [WARN] No keybase install found, skipping GPG signature verification</pre>
+
+   This is instead of 
+
+   <tt><strong>brew install terraform
+   </strong></tt>
+
+   Notice the installer is for a specific version of MacOS (such as High Sierra):
 
    <pre>
 ==> Downloading https://homebrew.bintray.com/bottles/terraform-0.10.6.sierra.bot
@@ -125,30 +160,71 @@ Chocolatey installed 1/1 packages.
  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
     </pre>   
 
+<a name="modules"></a>
+   
+## Modules
+
+<a target="_blank" href="
+https://github.com/terraform-community-modules">
+https://github.com/terraform-community-modules</a>
+
+<a target="_blank" href="
+https://github.com/objectpartners/tf-modules">
+https://github.com/objectpartners/tf-modules</a>
+
+   <pre>
+module "rancher" {
+  source = "github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590"
+}
+   </pre>
+
+   The double slashes in the URL above separate the repo from the subdirectory.
+
+   The ref is the first 7 hex digits of a commit ID.
+
+<target="_blank" href="
+https://github.com/gruntwork-io/terragrunt/">
+https://github.com/gruntwork-io/terragrunt</a>
+is a thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules. 
+
+<target="_blank" href="
+https://github.com/gruntwork-io/terratest">
+https://github.com/gruntwork-io/terratest</a>
+is a Go library that makes it easier to write automated tests for your infrastructure code.
+
 
 <a name="ScriptInit"></a>
 
 ## Get Sample Terraform scripts
 
+The steps below are based on
+   <a target="_blank" href="
+   https://www.terraform.io/intro/examples/">
+   https://www.terraform.io/intro/examples</a>
+and implemented in the setup scripts at:
+   <a target="_blank" href="
+   https://github.com/wilsonmar/mac-setup/">
+   https://github.com/wilsonmar/mac-setup</a>
+which performs the following steps for you:
+
 1. Install a Git client if you haven't already.
-0. Use an internew browser (Chrome) to my sample PowerShell DSC scripts at:
+0. Use an internet browser (Chrome) to see the sample assets at:
 
-   <a target="_blank" href="https://github.com/wilsopnmar/terraform-starter">
-   https://github.com/wilsonmar/terraform-starter.git</a>
+   <a target="_blank" href="
+   https://github.com/terraform-providers/terraform-provider-aws.git">
+   https://github.com/terraform-providers/terraform-provider-aws.git</a>
 
-   (I would be honored if you click Star)
-
-0. Create a GitHub account for yourself if you haven't already.
-0. Click the <strong>Fork</strong> button to make it yours, since you may be making changes.
+0. If you are going to make changes, click the <strong>Fork</strong> button.
 0. Create or navigate to a container folder where new repositories are added. For example:
 
-   `~/gits/wilsonmar/terraform`
+   `~/gits/wilsonmar/tf-sample`
 
-0. Get my sample PowerShell scripts onto your laptop (substituting "wilsonmar" with your own account name):
+0. Get the repo onto your laptop (substituting "wilsonmar" with your own account name):
 
-   <tt><strong>git clone <a target="_blank" href="https://github.com/wilsopnmar/terraform-starter">
-   https://github.com/wilsonmar/terraform-starter.git</a> \-\-depth=1 && 
-   cd terraform-starter
+   <tt><strong>git clone <a target="_blank" href="
+   https://github.com/terraform-providers/terraform-provider-aws.git">
+   https://github.com/terraform-providers/terraform-provider-aws.git</a> \-\-depth=1 && 
+   cd tf-sample
    </strong></tt>
 
    The above is one line, but may be word-wrapped on your screen.
@@ -156,7 +232,7 @@ Chocolatey installed 1/1 packages.
    The response at time of writing:
 
    <pre>
-Cloning into 'terraform-starter'...
+Cloning into 'tf-sample'...
 remote: Counting objects: 12, done.
 remote: Compressing objects: 100% (12/12), done.
 remote: Total 12 (delta 1), reused 9 (delta 0), pack-reused 0
@@ -164,11 +240,12 @@ Unpacking objects: 100% (12/12), done.
    </pre>  
 
 
-   ### Other scripts
+   ### Other samples 
 
    These scripts is a combination of scripts prepared by several helpful people:
 
-   * <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
+   * <a target="_blank" href="
+   https://github.com/gruntwork-io/intro-to-terraform">
    https://github.com/gruntwork-io/intro-to-terraform.git</a>
 
    * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
@@ -180,23 +257,93 @@ Unpacking objects: 100% (12/12), done.
 
    https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
 
+   <a targt="_blank" href="
+   https://training.gruntwork.io/courses/reference-architecture-walkthrough/lectures/4211191">
+   https://training.gruntwork.io/courses/reference-architecture-walkthrough/lectures/4211191</a>
 
-   ### Environment folders Validate 
+   ### Validate .tf files
+
+1. Navigate into the repo and view files in:
+
+   <tt><strong>ls single-web-server
+   </strong></tt>
+
+   The contents:
+
+   <pre>README.md    main.tf      outputs.tf   variables.tf</pre>
+
+0. Validate the <strong>folder</strong> using <a target="_blank" href="
+   https://www.terraform.io/docs/commands/validate.html">
+   https://www.terraform.io/docs/commands/validate.html</a>
+
+   <tt><strong>terraform validate single-web-server
+   </strong></tt>
+
+   If no issues are identified, no message appears. (no news is good news)
+
+   <a target="_blank" href="https://gist.github.com/jamtur01/a567078b7ba545c3492f7cd32a65450d">
+   pre-commit hook to validate in your Git repository</a>
+
+
+   ### Main.tf
+
+   PROTIP: There should be only one <strong>main.tf</strong> per folder.
+
+   NOTE: Terraform files coded end with <strong>.tf</strong> file type.
+
+0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
+
+   <a name="HCL"></a>
+
+   ### HCL (Hashicorp Configuratio Language) 
+
+   Both CloudFormation and Terraform work with JSON, but Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at <a target="_blank" href="
+   https://www.terraform.io/docs/configuration/syntax.html">
+   https://www.terraform.io/docs/configuration/syntax.html</a>
+
+   <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
+   NOTE</a>: Terraform code is written in a language called HCL (HashiCorp Configuration Language). 
+   It's less verbose than JSON and more concise than YML.
+
+   Unlike JSON and YML, <strong>HCL allows annotations</strong> as in bash scripts:<br />
+   single line comments start with # (pound sign).<br />
+   Multi-line comments are wrapped between /* and \*/. 
+
+   Values can be interpolated usning syntax wrapped in $\{\}, called interpolation syntax, in the format of $\{type.name.attribute\}. Literal $ are coded by doubling up $$. For example, $\{aws.instance.base.id\} is interpolated to something like `i-28978a2`.
+
+   Back-slashes specify continuation (as in Bash).
+
+   More importantly, tf files are <strong>declarative</strong>, meaning that they define the desired end-state (outcomes). If 15 servers are declared, Terraform automatically adds or removes servers to end up with 15 servers rather than specifying procedures to add 5 servers. 
+   
+   Terraform can do that because it knows how many servers it has setup already.
+
+   <a target="_blank" href="https://www.hashicorp.com/products/terraform-old/">
+   Paid Pro and Premium licenses of Terraform</a>
+   add version control integration, MFA security, and other enterprise features.
+
+   HCL does not have conditional if/else logic, which is why <a href="#Modules">modules</a> are necessary.
+
+
+   ### Environment folders  
 
    PROTIP: Separate Terraform configurations by a folder for each environment.
 
-   * base
+   * base (template for making changes)
    * dev 
-   * loadtest (performance testing)
+   * loadtest (performance/stress testing)
    * stage
    * uat (User Acceptance Testing)
    * prod
+   * demo (demostration used by salespeople)
+   * train (for training users)
    <br /><br />
 
 0. Navigate into the base folder.
 
    PROTIP: Terraform commands act only on the current directory, and does not recurse into sub directories.
 
+   ## tfvars
+   
 0. View the development.tfvars file:
 
    <pre>
@@ -224,8 +371,6 @@ subnet_count = "3"
    </pre>
 
    All these would use `main_config.tf` and variables.tf files that are commonly used for all environments:
-
-
 
 
    <a name="TerraformInit"></a>
@@ -270,79 +415,21 @@ commands will detect it and remind you to do so if necessary.
    This creates a hidden `.terraform\plugins" folder path containing a folder for your os - `darwin_amd64` for MacOS.
 
 
-   ### .tf files
-
-0. Navigate into one of the folders (in the case of the example repo):
-
-   <tt><strong>cd single-web-server
-   </strong></tt>
-
-0. Open folder using Atom or list files:
-
-   <tt><strong>ls -al
-   </strong></tt>
-
-
-   https://www.terraform.io/docs/commands/validate.html
-
-0. Navigate into
-
-0. Validate the folder:
-
-   <tt><strong>terraform validate 
-   </strong></tt>
-
-   If no issues are identified, no message appears. (no news is good news)
-
-   <a target="_blank" href="https://gist.github.com/jamtur01/a567078b7ba545c3492f7cd32a65450d">
-   pre-commit hook to validate in your Git repository</a>
-
-
-
-   ### Main.tf
-
-   PROTIP: There should be only one <strong>main.tf</strong> per folder.
-
-   NOTE: Terraform files coded end with <strong>.tf</strong> file type.
-
-0. Edit file <strong>main.tf</strong>. Widen the screen width to avoid wrapping.
-
-   <a name="HCL"></a>
-
-   Both CloudFormation and Terraform work with JSON, but Terraform works with HCL (Hashicorp Configuratio Language) that is both human and machine friendly. https://github.com/hashicorp/hcl and described at https://www.terraform.io/docs/configuration/syntax.html
-
-   <a target="_blank" href="https://www.terraform.io/docs/configuration/syntax.html">
-   NOTE</a>: Terraform code is written in a language called HCL (HashiCorp Configuration Language). It's less verbose than JSON and more concise than YML.
-
-   Unlike JSON and YML, HCL allows annotations as in bash scripts: Single line comments start with # (pound sign).<br />
-   Multi-line comments are wrapped between /* and \*/. 
-
-   Values can be interpolated usning syntax wrapped in $\{\}, called interpolation syntax, in the format of $\{type.name.attribute\}. Literal $ are coded by doubling up $$. For example, $\{aws.instance.base.id\} is interpolated to `i-28978a2`.
-
-   Back-slashes specify continuation.
-
-   More importantly, tf files are <strong>declarative</strong>, meaning that they define the desired end-state (outcomes). If 15 servers are declared, Terraform automatically adds or removes servers to end up with 15 servers rather than specifying procedures to invoke (such as add 5 servers). Terraform know how many servers it has setup already.
-
-   <a target="_blank" href="https://www.hashicorp.com/products/terraform-old/">
-   Paid Pro and Premium licenses of Terraform</a>
-   add version control integration, MFA security, and other enterprise features.
-
-   HCL does not have conditional if/else logic, which is why modules are necessary.
-
-
    <a name="Providers"></a>
 
    ## Cloud Providers
 
    Terraform providers reference APIs. Examples are AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack.
 
-   https://github.com/terraform-providers
+   <a target="_blak" href="
+   https://github.com/terraform-providers">
+   https://github.com/terraform-providers</a>
 
-   https://github.com/hashicorp/terraform/tree/master/builtin/providers
+   <a target="_blank" href="
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers">
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers</a>
 
-0. https://aws.amazon.com/
-
-   Metadata related to each provider are defined like this:
+0. Metadata related to each provider are defined like this:
 
    <pre>
 provider "aws" {
@@ -378,14 +465,16 @@ provisioner "remote-exec" {
 
 0. PROTIP: Make sure that the AWS region is what you want.
 
-   https://www.terraform.io/docs/providers/aws/r/instance.html
+   <a target="_blank" href="
+   https://www.terraform.io/docs/providers/aws/r/instance.html">
+   https://www.terraform.io/docs/providers/aws/r/instance.html</a>
    AWS provider
 
    NOTE: The contents of the repo were written based on Terraform 0.7.x.
 
 0. Variables file:
 
-   `vars.tf` file contains specifcation of values to variables, such as the server port (8080).
+   <tt>vars.tf</tt> file specifies values to variables, such as the server port (8080).
 
    ### Defaults and lookup function
 
@@ -410,7 +499,7 @@ variable "amis" {
 ami = ${lookup(var.amis, "us-east-1")}
    </pre>
 
-   PROTIP: With AWS EC2, the us-east-1 region must be used as the basis for creating others.
+   PROTIP: With AWS EC2, region "us-east-1" must be used as the basis for creating others.
 
    <a target="_blank" href="https://www.google.com/url?q=https%3A%2F%2Fdocs.aws.amazon.com%2FAWSEC2%2Flatest%2FUserGuide%2Flaunch-marketplace-console.html&sa=D&sntz=1&usg=AFQjCNGbWvcSfsheH4psSFED8ZF-w6mrqQ">NOTE</a>: Amazon has an approval process for making AMIs available on the public Amazon Marketplace.
 
@@ -522,9 +611,10 @@ output "azure_rm_dns_cname" {
 
    ### Ignore state files
 
-   Terraform apply generates <strong>.tfstate</strong> files (containing JSON) to persist the state of runs. It contains a maps resources IDs to their data. 
+   Terraform apply generates <strong>.tfstate</strong> files (containing JSON) to persist the state of runs. 
+   It maps resources IDs to their data. 
 
-0. View the `.gitignore` file:
+0. In the `.gitignore` file are files generated during processing, so don't need to persist in a repository:
 
    <pre>
 terraform.tfstate*
@@ -536,13 +626,13 @@ terraform.tfstate*
 vpc
    </pre>
 
-   CAUTION: State files can contain secrets.
+   CAUTION: tfstate files can contain secrets, so delete them before git add.
+
+   `tfstate.backup` is created from the most recent previous execution before the current `tfstate` file contents.
 
    `.terraform/` specifies that the folder is ignored when pushing to GitHub.
 
-   Terraform apply creates a dev.state.lock.info file as a way to signal to other processes to stay away while changes to the environment are underway.
-
-   `tfstate.backup` is created from the most recent previous execution before the current `tfstate` file contents.
+   Terraform apply creates a <tt>dev.state.lock.info</tt> file as a way to signal to other processes to stay away while changes to the environment are underway.
 
 
    ### Remote state
@@ -613,7 +703,7 @@ output "public_ip" {
 0. Obtain version installed:
 
    <tt><strong>terraform version 
-   	</strong></tt>
+   </strong></tt>
 
    Alternately:
 
@@ -623,14 +713,8 @@ output "public_ip" {
    WARNING: The response at time of writing, Terraform is not even "1.0" release, meaning it's in beta maturity.:
 
    <pre>
-   Terraform v0.10.6
+   Terraform v0.11.7
    </pre>
-
-   QUESTION: Pace of change in Terraform?
-
-   Release 0.6.8 (2.12.2015)
-
-   TODO: Update terraform
 
 
    ### Commands list & help
@@ -699,11 +783,13 @@ All other commands:
    terraform apply -var 'first_name=John' -var 'last_name=Bunyan'
    </pre>
 
-   Values to Terraform variables define inputs such as run-time DNS/IP addresses into Terraform modules.
+   Values to Terraform variables define inputs such as run-time DNS/IP addresses into <a href="#Modules">Terraform modules</a>.
 
    NOTE: Built-in functions:
 
-   https://terraform.io/docs/configuration/interpolation.html
+   <a target="_blank" href="
+   https://terraform.io/docs/configuration/interpolation.html">
+   https://terraform.io/docs/configuration/interpolation.html</a>
 
 
    ### Apps to install
@@ -738,7 +824,8 @@ output "loadbalancer_dns_name" {
 
    ### Processing flags
 
-   HCL can contain flags that affect processing. For example, within a resource specification, `force_destroy = true` forces the provider to delete the resource when done.
+   HCL can contain flags that affect processing. For example, within a resource specification, 
+   `force_destroy = true` forces the provider to delete the resource when done.
 
 
    ### Verify websites
@@ -755,72 +842,48 @@ output "loadbalancer_dns_name" {
    <tt><strong>terraform destroy
    </strong></tt>
 
-   PROTIP: Amazon charges by the hour while others charge by the minute.
+   PROTIP: Amazon charges for Windows instances by the hour while it charges for Linux by the minute,
+   as other cloud providers do.
 
-0. Verify in the provider's console.
+0. Verify in the provider's console (aws.amazon.com)
 
 
 ## Terraform Console
 
-0. On Windows, open the Terraform Console from a <strong>command Prompt</strong> rather than from within PowerShell.
+1. Open the Terraform Console (REPL) from a Terminal/command shell:
 
    <tt><strong>terraform console</strong></tt>
 
-   element(list("one","two","three"),0,2)
+   The response is <strong>></strong>.
+
+   <pre>element(list("one","two","three"),0,2)</pre>
 
    The response is (because counting begins from zero):
 
-   three
-
-   element(list("one","two","three"),0,2)
-
-   one,
-   two
+   <pre>1:3: element: expected 2 arguments, got 3 in:</pre>
    
-
-## Automation
-
-   NOTE: Automating infrastructure deployment consists of:
-
-   * Provisioning resources
-   * Planning updates
-   * Using source control
-   * Reusing templates
-   <br /><br />
-
-  PROTIP: Terrform files are "idempotent" (repeat runs don't change anything if nothing is changed). Thus Terraform defines the "desired state configuration".
-
-   NOTE: Terraform remote configures remote state storage with Terraform.
+2. Type <tt>exit</tt> to return to Bash console mode.
 
 
-   <a name="modules"></a>
-   
-## Modules
-
-https://github.com/terraform-community-modules
-
-https://github.com/objectpartners/tf-modules
-
-   <pre>
-module "rancher" {
-  source = "github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590"
-}
-   </pre>
-
-   The double slashes separate the repo from the subdirectory.
-
-   The ref is a commit ID 
 
 ## Bootstrap Terraform
 
-   https://forge.puppet.com/inkblot/terraform
+   <a target="_blank" href="
+   https://forge.puppet.com/inkblot/terraform">
+   https://forge.puppet.com/inkblot/terraform</a>
 
-   https://supermarket.chef.io/cookbooks/terraform
+   <a target="_blank" href="
+   https://supermarket.chef.io/cookbooks/terraform">
+   https://supermarket.chef.io/cookbooks/terraform</a>
 
-   https://github.com/migibert/terraform-role
+   <a target="_blank" href="
+   https://github.com/migibert/terraform-role">
+   https://github.com/migibert/terraform-role</a>
    Ansible role to install Terraform on Linux machines
 
-   https://github.com/hashicorp/docker-hub-images/tree/master/terraform
+   <a target="_blank" href="
+   https://github.com/hashicorp/docker-hub-images/tree/master/terraform">
+   https://github.com/hashicorp/docker-hub-images/tree/master/terraform</a>
    builds Docker containers for using the terraform command line program.
 
 
@@ -828,9 +891,13 @@ module "rancher" {
 
 All Terraform providers are plugins - multi-process RPC (Remote Procedure Calls).
 
-   https://github.com/hashicorp/terraform/plugin
+    <a target="_blank" href="
+    https://github.com/hashicorp/terraform/plugin">
+    https://github.com/hashicorp/terraform/plugin</a>
 
-   https://terraform.io/docs/plugins/index.html
+    <a target="_blank" href="
+    https://terraform.io/docs/plugins/index.html">
+    https://terraform.io/docs/plugins/index.html</a>
 
 Terraform expect plugins to follow a very specific naming convention of terraform-TYPE-NAME. For example, terraform-provider-aws, which tells Terraform that the plugin is a provider that can be referenced as "aws".
 
@@ -840,7 +907,9 @@ For \*nix systems, `~/.terraformrc`
 
 For Windows, `%APPDATA%/terraform.rc`
 
-https://www.terraform.io/docs/internals/internal-plugins.html
+   <a target="_blank" href="
+   https://www.terraform.io/docs/internals/internal-plugins.html">
+   https://www.terraform.io/docs/internals/internal-plugins.html</a>
 
 PROTIP: When writing your own terraform plugin, create a new Go project in GitHub, then locally use a  directory structure:
 
@@ -872,11 +941,80 @@ TODO:
 Manage AWS infrastructure as code using Terraform</a>
 talk in Norway 14 Dec 2015
 by Anton Babenko
-https://github.com/antonbabenko
+<a target="_blank" href="https://github.com/antonbabenko">https://github.com/antonbabenko</a>
 linkedin.com/in/antonbabenko
 
 
-### Video courses at Pluralsight.com:
+### Rock Stars
+
+<strong>James Turnbull</strong>
+
+   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
+   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3. Files referenced are at:
+
+   <a target="_blank" href="https://github.com/turnbullpress/tfb-code">
+   https://github.com/turnbullpress/tfb-code</a>
+
+   <a target="_blank" href="https://github.com/jason-azze/tf-web-exercise">
+   https://github.com/jason-azze/tf-web-exercise</a>
+
+
+<strong>James Nugent</strong>
+
+   Engineer at Hashicorp
+
+
+<strong>Yevgeniy (Jim) Brikman</strong> (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), 
+co-founder of DevOps as a Service <a target="_blank" href="https://Gruntwork.io/">Gruntwork.io</a>
+   
+   * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
+   Introduction to Terraform</a>
+
+   * O'Reilly book "Hello Startup" about organizations.
+
+   * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
+   Terraform Up & Running (OReilly book $11.99 on Amazon)</a> and website:<br />
+   <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
+
+   * <a target="_blank" href="https://github.com/brikis98/terraform-up-and-running-code">
+   https://github.com/brikis98/terraform-up-and-running-code</a>
+   contains a Bash script that installs Apache, PHP, and a sample PHP app on an Ubuntu server. It also has automated tests written in Ruby script to make sure it returns "Hello, World".
+
+   zero-downtime deployment, are hard to express in purely declarative terms. 
+
+   <a target="_blank" href="https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca">
+   Comprehensive Guide to Terraform</a> includes:
+
+   1. <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
+   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
+
+   2. <a target="_blank" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">
+   How to manage Terraform state</a>
+
+   5. <a target="_blank" href="https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9">
+   Terraform tips & tricks: loops, if-statements, and gotchas</a>   
+
+   * $500 <a target="_blank" href="https://gruntwork.teachable.com/p/terraform">
+   A Crash Course on Terraform</a>
+   * $500 <a target="_blank" href="https://training.gruntwork.io/courses/a-crash-course-on-docker-packer/lectures/4247382/">
+   A Crash Course on Docker & Packer</a>
+   * $500 <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
+   Reference Architecture Walktrough</a>
+   250,000 lines
+
+dtan4
+
+   <a target="_blank" href="
+   http://terraforming.dtan4.net/">
+   http://terraforming.dtan4.net</a>
+
+   <a target="_blank" href="
+   https://github.com/dtan4/terraforming">
+   https://github.com/dtan4/terraforming</a>
+   is a Ruby 
+
+
+### Video courses
 
 * <a target="_blank" href="https://www.pluralsight.com/courses/terraform-getting-started">
 Terraform - Getting Started (Beginner level)</a> Sep 14 2017 [3:11]
@@ -898,60 +1036,6 @@ at SF CloudOps Meetup
 <br /><br />
 
 
-### Rock Stars
-
-<strong>James Turnbull</strong>
-
-   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
-   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3. Files referenced are at:
-
-   <a target="_blank" href="https://github.com/turnbullpress/tfb-code">
-   https://github.com/turnbullpress/tfb-code</a>
-
-   <a target="_blank" href="https://github.com/jason-azze/tf-web-exercise">
-   https://github.com/jason-azze/tf-web-exercise</a>
-
-<strong>James Nugent</strong>
-
-   Engineer at Hashicorp
-
-
-<strong>Yevgeniy (Jim) Brikman</strong> (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), co-founder of DevOps as a Service Gruntwork.io :
-
-   * <a target="_blank" href="https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180">
-   Gruntwork's Introduction</a>
-
-   * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
-   Terraform Up & Running (OReilly book $11.99 on Amazon)</a>
-
-   * <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
-
-   * https://github.com/brikis98/terraform-up-and-running-code
-   contains a Bash script that installs Apache, PHP, and a sample PHP app on an Ubuntu server. It also has automated tests written in Ruby script to make sure it returns "Hello, World".
-
-   zero-downtime deployment, are hard to express in purely declarative terms. 
-
-   <a target="_blank" href="https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca">
-   Comprehensive Guide to Terraform</a> includes:
-
-   1. <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
-   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
-
-   2. <a target="_blank" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">
-   How to manage Terraform state</a>
-
-   5. <a target="_blank" href="https://blog.gruntwork.io/terraform-tips-tricks-loops-if-statements-and-gotchas-f739bbae55f9">
-   Terraform tips & tricks: loops, if-statements, and gotchas</a>   
-
-
-dtan4
-
-   http://terraforming.dtan4.net/
-
-   https://github.com/dtan4/terraforming
-   is a Ruby 
-
-
 ## AWS Cloud Formation
 
 <a target="_blank" href="http://www.slideshare.net/AntonBabenko/managing-aws-infrastructure-using-cloudformation">
@@ -961,11 +1045,14 @@ AWS API libraries Boto, Fog
 
 ## References
 
-https://github.com/brikis98/infrastructure-as-code-talk
+<a target="_blank" href="
+https://github.com/brikis98/infrastructure-as-code-talk">
+https://github.com/brikis98/infrastructure-as-code-talk</a>
 Infrastructure-as-code: running microservices on AWS with Docker, ECS, and Terraform
 
-
-https://www.youtube.com/channel/UCgWfCzNeAPmPq_1lRQ64JtQ/videos
+<a target="_blank" href="
+https://www.youtube.com/channel/UCgWfCzNeAPmPq_1lRQ64JtQ/videos">
+https://www.youtube.com/channel/UCgWfCzNeAPmPq_1lRQ64JtQ/videos</a>
 SignalWarrant's videos on PowerShell
 by David Keith Hall
 includes:
