@@ -144,9 +144,9 @@ Chocolatey installed 1/1 packages.
     </pre>   
 
 
-   ### Version
+### Version verify
 
-0. Obtain version installed:
+1. Obtain version installed, to check if it's working:
 
    <tt><strong>terraform version 
    </strong></tt>
@@ -230,10 +230,24 @@ All other commands:
 
    NOTE: Terraform remote configures remote state storage with Terraform.
 
+### AWS
+
+Since the point of Terraform is to get you into clouds, Terraform looks for specific environment variables containing AWS credentials:
+
+   <pre>
+export AWS_ACCESS_KEY_ID=(your access key id)
+export AWS_SECRET_ACCESS_KEY=(your secret access key)
+   </pre>
+
 
 <a name="modules"></a>
    
 ## Modules
+
+Terraform modules helps you reduce the complexity in DevOps:
+
+<a target="_blank" href="https://user-images.githubusercontent.com/300046/39751305-fb4167b4-5274-11e8-9ee4-b62324002453.png">
+<img alt="terraform-devops-vendors-807x352-107086" width="807" src="https://user-images.githubusercontent.com/300046/39751536-bd617afa-5275-11e8-943f-30ebbf17da0e.jpg"></a>
 
 <a target="_blank" href="
 https://github.com/terraform-community-modules">
@@ -263,10 +277,20 @@ https://github.com/gruntwork-io/terratest">
 https://github.com/gruntwork-io/terratest</a>
 is a Go library that makes it easier to write automated tests for your infrastructure code.
 
+   <a target="_blank" href="
+   https://www.ybrikman.com/writing/2017/10/13/reusable-composable-battle-tested-terraform-modules/">
+   https://www.ybrikman.com/writing/2017/10/13/reusable-composable-battle-tested-terraform-modules</a>
+
+
+<a target="_blank" href="https://www.youtube.com/watch?time_continue=147&v=LVgP63BkhKQ">
+How to Build Reusable, Composable, Battle tested Terraform Modules</a> [38:58]
+at Oct 12, 2017
 
 <a name="ScriptInit"></a>
 
-## Get Sample Terraform scripts
+## Sample Terraform scripts
+
+### Terraform's sample
 
 The steps below are based on
    <a target="_blank" href="
@@ -311,34 +335,45 @@ Unpacking objects: 100% (12/12), done.
    </pre>  
 
 
-   ### Other samples 
+### Gruntwork's sample
 
-   These scripts is a combination of scripts prepared by several helpful people:
-
-   * <a target="_blank" href="
-   https://github.com/gruntwork-io/intro-to-terraform">
-   https://github.com/gruntwork-io/intro-to-terraform.git</a>
-   <br /><br />
-
-   BTW, <a target="_blank" href="#Gruntwork">Gruntwork.io</a> offers (for $4,950), access to their 250,000-line Reference Architecture of starter code for production-worthy "defense in depth" on AWS.
-   An additional $500 a month gets you access to their <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
-   Reference Architecture Walktrough video class</a>.
+   <a target="_blank" href="#Gruntwork">Gruntwork.io</a> offers (for $4,950), access to their 250,000-line Reference Architecture of starter code to create a production-worthy "defense in depth" setup on AWS:
 
    <a target="_blank" href="https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg">
    <img width="683" alt="terraform-ref-arch-683x407-106209" src="https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg"></a>
 
-   * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
+   An additional $500 a month gets you access to their <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
+   Reference Architecture Walktrough video class</a>.
 
-   <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform">
+For those without the big bucks, Yevgeniy (Jim) Brikman (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>, co-founder of DevOps as a Service <a target="_blank" href="https://Gruntwork.io/">Gruntwork.io</a>) has generously shared:
+
+   * <a target="_blank" href="
+   https://github.com/gruntwork-io/intro-to-terraform">
    https://github.com/gruntwork-io/intro-to-terraform.git</a>
 
-   TODO: The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
+   * <a target="_blank" href="https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations">
+   https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations</a>
 
-   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html
+   * <a target="_blank" href="https://github.com/brikis98/terraform-up-and-running-code/tree/master/code">
+   https://github.com/brikis98/terraform-up-and-running-code</a>
+   provides bash scripts to run on Ubuntu server to install Apache, PHP, and a sample PHP app on an Ubuntu server. 
+   It also has automates tests written in Ruby script to make sure it returns "Hello, World".
+   The repo is referenced by the book <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
+   Terraform Up & Running (OReilly book $11.99 on Amazon)</a> and website:<br />
+   <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
+
+   The sample scripts referenced by this tutorial contain moustache variable mark-up so that you can generate a set for your organization.
+
+   <br /><br />
+
+   <a target="_blank" href="
+   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html">
+   https://www.terraform.io/docs/providers/azurerm/r/virtual_machine_scale_set.html</a>
 
    <a targt="_blank" href="
    https://training.gruntwork.io/courses/reference-architecture-walkthrough/lectures/4211191">
    https://training.gruntwork.io/courses/reference-architecture-walkthrough/lectures/4211191</a>
+
 
    ### Validate .tf files
 
@@ -406,6 +441,39 @@ Unpacking objects: 100% (12/12), done.
    combines the interpolation language HIL to produce a single configuration language that supports arbitrary expressions.
    It's not backward compatible, with no direct migration path.
 
+
+   <a name="Providers"></a>
+
+   ### Cloud Providers
+
+   Terraform translates HCL into API calls to cloud providers
+   AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack, etc.
+
+   <a target="_blak" href="
+   https://github.com/terraform-providers">
+   https://github.com/terraform-providers</a>
+
+   <a target="_blank" href="
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers">
+   https://github.com/hashicorp/terraform/tree/master/builtin/providers</a>
+
+0. Metadata for aws is defined like this:
+
+   <pre>
+provider "aws" {
+  alias = "NorthEast"
+  region = "us-east-1"
+  instance_type = "t1.micro"
+}
+   </pre>
+
+   resource definitions specify the desired state of resources.
+
+   "t1.micro" qualifies for the Amazon free tier available to first-year subscribers.
+
+   NOTE: Components of Terrform are: provider, resource, provision.
+
+
    ### Environment folders  
 
    PROTIP: Separate Terraform configurations by a folder for each environment.
@@ -459,7 +527,9 @@ subnet_count = "3"
 
    ### Plug-in Initialization
 
-   Providers are not included with the installer, so...
+   Cloud providers are not included with the installer, so...
+
+1. In a folder:
 
 0. Initialize Terraform plug-ins:
 
@@ -495,37 +565,6 @@ commands will detect it and remind you to do so if necessary.
    </pre>
 
    This creates a hidden `.terraform\plugins" folder path containing a folder for your os - `darwin_amd64` for MacOS.
-
-
-   <a name="Providers"></a>
-
-   ## Cloud Providers
-
-   Terraform providers reference APIs. Examples are AWS, Google, Azure, Kubernetes, GitLab, DigitalOcean, Heroku, GitHub, OpenStack.
-
-   <a target="_blak" href="
-   https://github.com/terraform-providers">
-   https://github.com/terraform-providers</a>
-
-   <a target="_blank" href="
-   https://github.com/hashicorp/terraform/tree/master/builtin/providers">
-   https://github.com/hashicorp/terraform/tree/master/builtin/providers</a>
-
-0. Metadata related to each provider are defined like this:
-
-   <pre>
-provider "aws" {
-  alias = "NorthEast"
-  region = "us-east-1"
-  instance_type = "t1.micro"
-}
-   </pre>
-
-   resource definitions specify the desired state of resources.
-
-   "t1.micro" qualifies for the Amazon free tier available to first-year subscribers.
-
-   NOTE: Components of Terrform are: provider, resource, provision.
 
 
    ### Provisioners
@@ -902,13 +941,13 @@ output "loadbalancer_dns_name" {
 
 All Terraform providers are plugins - multi-process RPC (Remote Procedure Calls).
 
-    <a target="_blank" href="
-    https://github.com/hashicorp/terraform/plugin">
-    https://github.com/hashicorp/terraform/plugin</a>
+   <a target="_blank" href="
+   https://github.com/hashicorp/terraform/plugin">
+   https://github.com/hashicorp/terraform/plugin</a>
 
-    <a target="_blank" href="
-    https://terraform.io/docs/plugins/index.html">
-    https://terraform.io/docs/plugins/index.html</a>
+   <a target="_blank" href="
+   https://terraform.io/docs/plugins/index.html">
+   https://terraform.io/docs/plugins/index.html</a>
 
 Terraform expect plugins to follow a very specific naming convention of terraform-TYPE-NAME. For example, terraform-provider-aws, which tells Terraform that the plugin is a provider that can be referenced as "aws".
 
@@ -985,21 +1024,10 @@ co-founder of DevOps as a Service <a target="_blank" href="https://Gruntwork.io/
 
    * O'Reilly book "Hello Startup" about organizations.
 
-   * <a target="_blank" href="https://www.amazon.com/Terraform-Running-Writing-Infrastructure-Code-ebook/dp/B06XKHGJHP/">
-   Terraform Up & Running (OReilly book $11.99 on Amazon)</a> and website:<br />
-   <a target="_blank" href="http://www.terraformupandrunning.com/?ref=gruntwork-blog-comprehensive-terraform">terraformupandrunning.com</a>
-
-   * <a target="_blank" href="https://github.com/brikis98/terraform-up-and-running-code">
-   https://github.com/brikis98/terraform-up-and-running-code</a>
-   contains a Bash script that installs Apache, PHP, and a sample PHP app on an Ubuntu server. It also has automated tests written in Ruby script to make sure it returns "Hello, World".
-
    zero-downtime deployment, are hard to express in purely declarative terms. 
 
    <a target="_blank" href="https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca">
    Comprehensive Guide to Terraform</a> includes:
-
-   1. <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c">
-   Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</a>
 
    2. <a target="_blank" href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa">
    How to manage Terraform state</a>
