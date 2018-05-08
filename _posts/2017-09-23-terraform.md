@@ -27,7 +27,7 @@ Repeatable. Versioned. Documented. Automated. Testable. Shareable.
 The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and Terraform:
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
-<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>(Click to pop-up full screen image <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">from Gruntwork</a>)</small></a>
+<img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>(Click to pop-up full screen image <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">colorized from Gruntwork's blog</a>)</small></a>
 
 "Immutable" means once instantiated, it doesn't change. In DevOps, this strategy means individual servers are treated like "cattle" (removed from the herd) and not as "pets" (kept alive as long as possible).
 
@@ -142,7 +142,6 @@ C:\ProgramData\chocolatey\lib\terraform\tools
 Chocolatey installed 1/1 packages.
  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
     </pre>   
-
 
 
    ### Version
@@ -319,12 +318,14 @@ Unpacking objects: 100% (12/12), done.
    * <a target="_blank" href="
    https://github.com/gruntwork-io/intro-to-terraform">
    https://github.com/gruntwork-io/intro-to-terraform.git</a>
+   <br /><br />
 
-   BTW, <a target="_blank" href="#Gruntwork">Gruntwork.io</a> offers (for $4,950), access to their 250,000-line Reference Architecture of starter code for use in production on AWS.
+   BTW, <a target="_blank" href="#Gruntwork">Gruntwork.io</a> offers (for $4,950), access to their 250,000-line Reference Architecture of starter code for production-worthy "defense in depth" on AWS.
    An additional $500 a month gets you access to their <a target="_blank" href="https://gruntwork.teachable.com/p/reference-architecture-walkthrough/">
    Reference Architecture Walktrough video class</a>.
 
-   ![terraform-ref-arch-683x407-106209](https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg)
+   <a target="_blank" href="https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg">
+   <img width="683" alt="terraform-ref-arch-683x407-106209" src="https://user-images.githubusercontent.com/300046/39746950-248190d8-5269-11e8-840d-ba14a45499bc.jpg"></a>
 
    * https://github.com/brikis98/infrastructure-as-code-talk/tree/master/terraform-configurations
 
