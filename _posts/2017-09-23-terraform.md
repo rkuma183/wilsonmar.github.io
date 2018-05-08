@@ -164,7 +164,7 @@ Chocolatey installed 1/1 packages.
    <tt><strong>terraform \-\-version 
    	</strong></tt>
 
-   WARNING: The response at time of writing, Terraform is not even "1.0" release, meaning it's in beta maturity.:
+   WARNING: The response at time of writing, Terraform is not even "1.0" release, meaning it's in beta maturity:
 
    <pre>
    Terraform v0.11.7
@@ -217,7 +217,7 @@ All other commands:
     state              Advanced state management
    </pre>
 
-0. Help on a specific command:
+0. Help on a specific command, for example:
 
    <tt><strong>terraform plan \-\-help
     </strong></tt>
@@ -247,6 +247,26 @@ export AWS_ACCESS_KEY_ID=(your access key id)
 export AWS_SECRET_ACCESS_KEY=(your secret access key)
    </pre>
 
+   For Azure:
+
+   <pre>
+   AZ_PRINCIPAL=""
+   AZ_USER=""
+   AZ_PASSWORD=""
+   AZ_USERNAME=""
+   AZ_TENANT=""
+   AZ_REGION=""
+   </pre>
+
+   For Google Cloud:
+
+   <pre>
+   GCP_PROJECT=""
+   GCP_USER=""
+   GCP_KEY=""
+   GCP_REGION=""
+   </pre>
+
 
 <a name="modules"></a>
    
@@ -263,22 +283,21 @@ module "service_foo" {
 }
    </pre>
 
-  The source can be from a GitHub repo:
+  The source can be from a GitHub repo such as <a target="_blank" href="
+   https://github.com/objectpartners/tf-modules">
+   https://github.com/objectpartners/tf-modules</a>
 
    <pre>
 module "rancher" {
-  source = "github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590"
+  source = "<a target="_blank" href="https://github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590">github.com/objectpartners/tf-modules//rancher/server-standalone-elb-db&ref=9b2e590</a>"
 }
    </pre>
 
-   Double slashes in the URL above separate the repo from the subdirectory.
+   * Notice "https://" are not part of the source string.
+   * Double slashes in the URL above separate the repo from the subdirectory.
+   * PROTIP: The ref is the first 7 hex digits of a commit ID.
+   <br /><br />
 
-   PROTIP: The ref is the first 7 hex digits of a commit ID.
-
-   <a target="_blank" href="
-   https://github.com/objectpartners/tf-modules">
-   https://github.com/objectpartners/tf-modules</a>
-   has some modules.
 
 <a target="_blank" href="
 https://registry.terraform.io/">
@@ -289,22 +308,21 @@ provides a marketplace of modules. At time of writing it had a module to create 
 <img alt="terraform-mod-vaults-640x114-16475.jpg" width="640" src="https://user-images.githubusercontent.com/300046/39780240-da22a9b8-52c8-11e8-995e-e8c4a7ce325e.jpg"></a>
 
 
-   ### Community modules
+### Community modules
+
+Modules help you cope with the many DevOps components and alternatives:
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/39751305-fb4167b4-5274-11e8-9ee4-b62324002453.png">
 <img alt="terraform-devops-vendors-807x352-107086" width="807" src="https://user-images.githubusercontent.com/300046/39751536-bd617afa-5275-11e8-943f-30ebbf17da0e.jpg"></a>
 
-* <a target="_blank" href="
-https://github.com/terraform-community-modules">
+* <a target="_blank" href="https://github.com/terraform-community-modules">
 https://github.com/terraform-community-modules</a>
 
-* <target="_blank" href="
-https://github.com/gruntwork-io/terragrunt/">
+* <target="_blank" href="https://github.com/gruntwork-io/terragrunt/">
 https://github.com/gruntwork-io/terragrunt</a>
 is a thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules. 
 
-* <target="_blank" href="
-https://github.com/gruntwork-io/terratest">
+* <target="_blank" href="https://github.com/gruntwork-io/terratest">
 https://github.com/gruntwork-io/terratest</a>
 is a Go library that makes it easier to write automated tests for your infrastructure code.
 
@@ -1112,7 +1130,7 @@ Automating AWS and vSphere with Terraform (Intermediate level)</a> Jun 12 2017[ 
 by Nick Colyer
 <br /><br />
 
-### YouTube videos:
+### Videos:
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=p2ESyuqPw1A">
 Terraform w/ Lee Trout Chadev</a>
@@ -1120,6 +1138,12 @@ Terraform w/ Lee Trout Chadev</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=WdV4eYZO5Ao">
 Automating Infrastructure Management with Terraform</a>
 at SF CloudOps Meetup
+
+* <a target="_blank" href="https://www.joyent.com/blog/video-simple-terraform-app">
+Get started managing a simple application with Terraform</a>
+February 21, 2018 - by Alexandra White (at Joyant) shows the deployment of the
+<a target="_blank" href="https://github.com/heyawhite/joyent_packer-terraform-series/tree/master/1-create-image-with-packer/happy-randomizer">
+Happy Randomizer app</a>
 <br /><br />
 
 
