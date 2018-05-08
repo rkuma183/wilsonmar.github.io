@@ -53,6 +53,12 @@ The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
+## Glossary
+
+<a target="_blank" href="https://www.terraform.io/docs/enterprise-legacy/glossary/index.html">
+https://www.terraform.io/docs/enterprise-legacy/glossary/index.html</a>
+
+
 ## Installation #
 
    PROTIP: Terraform is written in the [Go language](/golang/), so there is no JVM to download as well.
@@ -440,6 +446,106 @@ For those without the big bucks, Yevgeniy (Jim) Brikman (<a target="_blank" href
    The contents:
 
    <pre>README.md    main.tf      outputs.tf   variables.tf</pre>
+
+   ### main.tf
+
+   An example of the main.tf file:
+
+   <pre>
+terraform {
+  required_version = ">= 0.8, < 0.9"
+}
+provider "aws" {
+  region = "us-east-1"
+}
+resource "aws_instance" "example" {
+  ami           = "ami-40d28157"
+  instance_type = "t2.micro"
+}
+   </pre>
+
+   The example in <a target="_blank" href="https://github.com/gruntwork-io/intro-to-terraform/blob/master/single-web-server/main.tf">
+   Gruntwork's intro-to-terraform</a> also specifies the vpc security group:
+
+   <pre>
+resource "aws_instance" "example" {
+  # Ubuntu Server 14.04 LTS (HVM), SSD Volume Type in us-east-1
+  ami = "ami-2d39803a"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = ["${aws_security_group.instance.id}"]
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
+              EOF
+  tags {
+    Name = "terraform-example"
+  }
+}
+resource "aws_security_group" "instance" {
+  name = "terraform-example-instance"
+  # Inbound HTTP from anywhere
+  ingress {
+    from_port = "${var.server_port}"
+    to_port = "${var.server_port}"
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+   </pre>   
+
+   The "var.server_port" is defined in variables file:
+
+   ### variables.tf (vars.tf)
+
+   An example of the variables.tf file explained in video: <a target="_blank" href="https://www.joyent.com/blog/video-simple-terraform-app">
+Get started managing a simple application with Terraform</a>
+February 21, 2018 - by Alexandra White (at Joyant) shows the deployment of the
+<a target="_blank" href="https://github.com/heyawhite/joyent_packer-terraform-series/tree/master/1-create-image-with-packer/happy-randomizer">
+Happy Randomizer app</a>
+
+   <pre>
+variable "image_name" {
+  type        = "string"
+  description = "The name of the image for the deployment."
+  default     = "happy_randomizer"
+}
+variable "image_version" {
+  type        = "string"
+  description = "The version of the image for the deployment."
+  default     = "1.0.0"
+}
+variable "image_type" {
+  type        = "string"
+  description = "The type of the image for the deployment."
+  default     = "lx-dataset"
+}
+variable "package_name" {
+  type        = "string"
+  description = "The package to use when making a deployment."
+  default     = "g4-highcpu-128M"
+}
+variable "service_name" {
+  type        = "string"
+  description = "The name of the service in CNS."
+  default     = "happiness"
+}
+variable "service_networks" {
+  type        = "list"
+  description = "The name or ID of one or more networks the service will operate on."
+  default     = ["Joyent-SDC-Public"]
+}
+   </pre>   
+
+   ### outputs.tf
+
+   Sample contents of an outputs.tf file:
+
+  <pre>
+  output "public_ip" {
+  value = "${aws_instance.example.public_ip}"
+}
+   </pre>
 
 0. Validate the <strong>folder</strong> using <a target="_blank" href="
    https://www.terraform.io/docs/commands/validate.html">
@@ -1139,11 +1245,6 @@ Terraform w/ Lee Trout Chadev</a>
 Automating Infrastructure Management with Terraform</a>
 at SF CloudOps Meetup
 
-* <a target="_blank" href="https://www.joyent.com/blog/video-simple-terraform-app">
-Get started managing a simple application with Terraform</a>
-February 21, 2018 - by Alexandra White (at Joyant) shows the deployment of the
-<a target="_blank" href="https://github.com/heyawhite/joyent_packer-terraform-series/tree/master/1-create-image-with-packer/happy-randomizer">
-Happy Randomizer app</a>
 <br /><br />
 
 
