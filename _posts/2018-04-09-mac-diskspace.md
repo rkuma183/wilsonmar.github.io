@@ -28,12 +28,17 @@ The more files on your laptop, the more you stand to lose and the longer it take
 ## Take Disk Inventory
 
 Visualize the largest files using your disk space using the free GPL app
-Disk Inventory X from http://www.derlien.com/
+Disk Inventory X from <a target="_blank" href="http://www.derlien.com/">http://www.derlien.com</a>
 which presents the sizes of files and folders in graphical "treemaps". 
 
 ## Macs Read, Not Write NTFS
 
-Windows machines format drives using NTFS.
+Windows machines natively formats drives using NTFS (New Technology File System).
+Additionally, to handle drives larger than 2GB, Windows 10 is moving from MBR (Master Boot Record), first introduced with IBM PC DOS 2.0 in 1983, to GPT (GUID Partition Tables). On Linux, the GRUB boot loader is typically located in the MBR.
+Since GPT identifies every partition on a drive using a GUID, it escapes the MBR limitation of up to four primary partitions. However, Windows allows up to 128 partitions on a GPT drive.
+
+A big advantage of GPT is that it duplicates partition information in several places on the drive.
+Apple’s Intel Macs no longer use Apple’s APT (Apple Partition Table) scheme and use GPT instead.
 
 Apple limited support for Windows volumes by allowing only read but not write or delete anything on NTFS drives.
 
