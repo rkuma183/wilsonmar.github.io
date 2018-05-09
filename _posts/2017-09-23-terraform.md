@@ -1209,7 +1209,14 @@ https://github.com/hashicorp/terraform-aws-vault</a> stored as sub-folder <tt>ha
    <pre><strong>terraform init hashicorp/vault/aws
    terraform apply</strong></pre>
 
-It's got 33 resources.
+It's got 33 resources. The sub-modules are:
+
+   * private-tls-cert (for all providers)
+   * vault-cluster (for all providers)
+   * vault-lb-fr (for Google only)
+   * vault-elb (for AWS only)
+   * vault-security-group-rules (for AWS only)
+
 
 ### Community modules
 

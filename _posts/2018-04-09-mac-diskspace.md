@@ -63,6 +63,13 @@ Delete your copy of repos on your local hard disk when you are not actively edit
 
 ## Cloud Disks
 
-Apple iCloud, Box, Dropbox, Google Cloud, Amazon Drive, Microsoft OneDrive, etc.
+* <a target="_blank" href="https://support.apple.com/en-us/HT201238">Apple iCloud</a>
+in the US charges per month 50GB: $0.99, 200GB: $2.99, 2TB: $9.99
+* Box
+* Dropbox
+* <a target="_blank" href="https://cloud.google.com/storage/pricing">Google Cloud</a> charges for egress.
+* Amazon Drive (for Prime members to store an unlimited number of photo files)
+* Microsoft OneDrive, etc.
+<br /><br />
 
 https://derflounder.wordpress.com/2016/09/23/icloud-desktop-and-documents-in-macos-sierra-the-good-the-bad-and-the-ugly/
