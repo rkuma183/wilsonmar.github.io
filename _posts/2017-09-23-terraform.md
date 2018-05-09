@@ -60,6 +60,7 @@ The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
+
 ## Websites to know
 
 * <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>
@@ -819,7 +820,7 @@ output "elb_dns_name" {
    <tt><strong>terraform init
    </strong></tt>
 
-   Response:
+   Sample response:
 
    <pre>
 Initializing provider plugins...
@@ -847,6 +848,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
    </pre>
 
+   See <a target="_blank" href="https://www.terraform.io/docs/commands/init.html">
+   https://www.terraform.io/docs/commands/init.html</a>
+   
    This creates a hidden `.terraform\plugins" folder path containing a folder for your os - `darwin_amd64` for MacOS.
 
 
@@ -954,7 +958,10 @@ output "azure_rm_dns_cname" {
 
    The two dots in the command specifies to look above the current folder.
 
-   The `-out` parameter outputs to a file name that begins with `base-` and ends with .plan. The date is like 147772345 which is the numer of seconds since 1/1/1970.
+   The `-out` parameter specifies the output file name. 
+   Since the output of terraform plan is fed into the terraform apply command, a static file name is best.
+   However, some prefer to avoid overwriting by automatically using a different date stamp in the file name. 
+   The "%s" yields a date stamp like 147772345 which is the numer of seconds since the 1/1/1970 epoch.
 
    A sample response:
 
@@ -966,8 +973,15 @@ output "azure_rm_dns_cname" {
    Terraform creates a dependency graph (specfically, a Directed Acyclic Graph).
    This is so that nodes are built in the order they are needed. 
 
+   <a name="TerraformApply"></a>
 
    ### Terraform apply
+
+   <tt><strong>
+   terraform apply "happy.plan"
+   </strong></tt>
+
+   Alternately,
 
    <tt><strong>
    terraform apply -state=".\develop\dev.state" -var="environment_name=development"
@@ -982,7 +996,7 @@ output "azure_rm_dns_cname" {
    Values to Terraform variables define inputs such as run-time DNS/IP addresses into 
    <a href="#Modules">Terraform modules</a>.
 
-   What it does:
+   What apply does:
 
    1. Generate model from logical definition (the Desired State).
    2. Load current model (preliminary source data).
@@ -995,6 +1009,20 @@ output "azure_rm_dns_cname" {
    <a target="_blank" href="
    https://terraform.io/docs/configuration/interpolation.html">
    https://terraform.io/docs/configuration/interpolation.html</a>
+
+   Sample response from terraform apply:
+
+   <pre>
+   dns_names = [
+      [
+         359f20b2-673d-6300-e918-fcea6a314a26.inst.d9a01feb-be7d-6a32-b58d-ec4a2bf4ba7d.us-east-3.triton.zone,
+         happy-randomizer.inst.d9a01feb-be7d-6a32-b58d-ec4a2bf4ba7d.us-east-3.triton.zone
+      ]
+   ]
+   primaryIp = [
+      165.225.173.96
+   ]
+   </pre>   
 
 
    <a name="State"></a>
@@ -1168,8 +1196,8 @@ module "rancher" {
 <a target="_blank" href="
 https://registry.terraform.io/">
 https://registry.terraform.io</a>
-provides a marketplace of modules. The <a target="_blank" href="https://registry.terraform.io/modules/hashicorp/t/aws/0.0.2">
-module to create Hashicorp's own Vault and Consul on AWS</a>, Azure, GCP. <a target="_blank" href="https://www.youtube.com/watch?v=LVgP63BkhKQ&t=15m46s">
+provides a marketplace of modules. The <a target="_blank" href="https://registry.terraform.io/modules/hashicorp/vault">
+module to create Hashicorp's own Vault and Consul on <a target="_blank" href="https://registry.terraform.io/modules/hashicorp/vault/aws/">AWS EC2</a>, <a target="_blank" href="https://registry.terraform.io/modules/hashicorp/vault/azurerm/">Azure</a>, <a target="_blank" href="https://registry.terraform.io/modules/hashicorp/vault/google/">GCP</a>. <a target="_blank" href="https://www.youtube.com/watch?v=LVgP63BkhKQ&t=15m46s">
 Video of demo</a> by Yevgeniy Brikman:
 
 <a target="_blank" title="terraform-mod-vaults-1168x207-37317.jpg" href="https://user-images.githubusercontent.com/300046/39780285-1426518c-52c9-11e8-9544-8cac52ff2297.jpg">
@@ -1279,7 +1307,10 @@ dtan4
    (<a target="_blank" href="https://twitter.com/ned1313/">@ned1313</a>, <a target="_blank" href="https://www.nedinthecloud.com/">nedinthecloud</a>), MS MVP.
 
    * <a target="_blank" href="https://app.pluralsight.com/library/courses/deep-dive-terraform/table-of-contents">
-   Deep Dive - Terraform</a> 6 Feb 2018 [3h 39m]
+   Deep Dive - Terraform</a> 6 Feb 2018 [3h 39m] shows how to export secret keys for back-end processes,
+   use custom data sources, and incorporation into enterprise CI/CD frameworks.
+
+   * Resource graphs of dependencies.
 
 Nick Colyer
 
@@ -1299,7 +1330,7 @@ Anton Babenko (<a target="_blank" href="https://github.com/antonbabenko">github.
    talk in Norway 14 Dec 2015
 
 
-### Videos:
+Others (videos):
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=p2ESyuqPw1A">
 Terraform w/ Lee Trout Chadev</a>
@@ -1311,6 +1342,18 @@ at SF CloudOps Meetup
 * <a target="_blank" href="https://www.youtube.com/watch?v=wgzgVm7Sqlk">
 Evolving Your Infrastructure with Terraform</a>
 Jun 26, 2017 by Nicki Watt, CTO at OpenCredo
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=jdDKjWZ2qbk">
+Journey to the Cloud with Packer and Terraform</a>
+Oct 12, 2017 by Nadeem Ahmad, Software Engineer at Box
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=-UtqHkrvFro">
+Terraforming the Kubernetes Land</a>
+Oct 13, 2017 by Radek Simko (@RadekSimko), Terraform Expert HashiCorp
+
+* <a target="_blank" href="https://www.youtube.com/watch?v=Ynfo8qLb_Q8">
+[JFrog Webinar] Infrastructure as Code with Terraform</a>
+25:22
 
 
 ## AWS Cloud Formation
@@ -1336,7 +1379,8 @@ includes:
 
    * <a target="_blank" href="http://www.signalwarrant.com/automate-creating-lab-virtual-machines-in-azure-with-powershell/">
   Automate Creating Lab Virtual Machines in Azure with PowerShell</a>
-  July 12, 2017 by taking input from a CSV file.
+  July 12, 2017
+  shows how to take input from a CSV file.
 
 
 ## More on DevOps #

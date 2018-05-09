@@ -18,7 +18,10 @@ This article describes how you can manage to minimize disk space usage.
 
 ## Why?
 
-Disk space is expensive. If you can live with a 256 GB drive vs. a 500 GB drive, you save hundreds of dollars.
+If you have a way to live comfortably with a 256 GB drive vs. a 500 GB drive on your Mac, 
+you save several hundred dollars.
+
+A 4TB USB external mechanical hard disk costs less than $100 at Costco.
 
 The more files on your laptop, the more you stand to lose and the longer it takes to restore your laptop when you (inevitably) have to recover it.
 
@@ -28,13 +31,26 @@ Visualize the largest files using your disk space using the free GPL app
 Disk Inventory X from http://www.derlien.com/
 which presents the sizes of files and folders in graphical "treemaps". 
 
+## Macs Read, Not Write NTFS
+
+Windows machines format drives using NTFS.
+
+Apple limited support for Windows volumes by allowing only read but not write or delete anything on NTFS drives.
+
+Windows 7 does not work with drives 2.16 TB or more.
+When plugged in, 3TB and 4TB drives don't even appear in the Folder.
+
+However, <a target="_blank" href="https://www.paragon-software.com/home/ntfs-mac/#">
+for $19.99 Paragon software</a> enables your Mac to write and delete files on NTFS drives.
 
 ## Remove Unneeded Language
 
-One quick and simple way of recovering more
-
-brew monolingual at
+One quick and simple way of recovering disk space is
 https://ingmarstein.github.io/Monolingual/index.html
+
+<pre>brew install monolingual</pre> 
+
+Since I'm in the US, I selected for removal all languages except US(en), US(gb).
 
 ## GitHub
 
