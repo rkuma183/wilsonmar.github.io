@@ -16,10 +16,10 @@ comments: true
 
 {% include _toc.html %}
 
-This tutorial is a step-by-step hands-on introduction to use of Terraform
-(at <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>)
-for automating the  building, changing, and versioning of clusters of servers (through load balancers) 
-on AWS, Azure, and Google Cloud using a single set of specifications.
+This tutorial is a step-by-step <strong>hands-on deep yet succinct</strong> introduction to 
+using Hashicorp's Terraform to build, change, and version clusters of 
+<a href="#Immutable">immutable</a> servers (through load balancers) 
+running on AWS, Azure, and Google Cloud using <a href="#Idempotent">idempotent</a> declarative specifications.
 
 For me, Terraform (and AWS Cloud Formation) automation <strong>saves you money</strong> by getting you running
 quicker than manually clicking through the GUI.
@@ -33,6 +33,8 @@ The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and
 
 <a target="_blank" href="https://user-images.githubusercontent.com/300046/30870969-87e52558-a2a2-11e7-8cfa-454fe9081c64.png">
 <img alt="terraform-comp-colored-650x261-36439" width="650" height="261" src="https://user-images.githubusercontent.com/300046/30870914-62437728-a2a2-11e7-8e6a-e3c847f7984f.jpg"><small>(Click to pop-up full screen image <a target="_blank" href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.63ls7fpkq">colorized from Gruntwork's blog</a>)</small></a>
+
+<a name="Immutable"></a>
 
 "Immutable" means once instantiated, it doesn't change. In DevOps, this strategy means individual servers are treated like "cattle" (removed from the herd) and not as "pets" (kept alive as long as possible).
 
@@ -53,10 +55,22 @@ The difference between Chef, Puppet, Ansible, SaltStack, AWS CloudFormation, and
 
 Terraform also provides execution control, iterations, and (perhaps most of all) management of resources already created (desired state configuration) over several cloud providers (not just AWS).
 
-## Glossary
+## Websites to know
 
-<a target="_blank" href="https://www.terraform.io/docs/enterprise-legacy/glossary/index.html">
-https://www.terraform.io/docs/enterprise-legacy/glossary/index.html</a>
+* <a target="_blank" href="https://www.terraform.io/intro/index.html">terraform.io</a>
+   marketing home page.
+
+* <a target="_blank" href="https://www.terraform.io/docs/enterprise-legacy/glossary/index.html">
+Glossary of terms</a>
+
+* <a target="_blank" href="https://www.terraform.io/intro/getting-started/install.html">
+   Official Getting Started docs at Hashicorp</a>
+   focus on individual elements (i.e. resources, input variables, output variables, etc).
+
+* <a target="_blank" href="https://groups.google.com/forum/#!forum/terraform-tool">Google Group terraform-tool</a>
+* IRC
+* StackOverflow
+
 
 
 ## Installation #
@@ -158,6 +172,8 @@ Chocolatey installed 1/1 packages.
     </pre>   
 
 
+## Configuration
+
 ### Version verify
 
 1. Obtain version installed, to check if it's working:
@@ -227,6 +243,22 @@ All other commands:
 
    <tt><strong>terraform plan \-\-help
     </strong></tt>
+
+   ### Terraform Console
+
+1. Open the Terraform Console (REPL) from a Terminal/command shell:
+
+   <tt><strong>terraform console</strong></tt>
+
+   The response is <strong>></strong>.
+
+   <pre>element(list("one","two","three"),0,2)</pre>
+
+   The response is (because counting begins from zero):
+
+   <pre>1:3: element: expected 2 arguments, got 3 in:</pre>
+   
+2. Type <tt>exit</tt> to return to Bash Terminal window.
 
 
 ## Automation
@@ -313,6 +345,7 @@ provides a marketplace of modules. At time of writing it had a module to create 
 <a target="_blank" title="terraform-mod-vaults-1168x207-37317.jpg" href="https://user-images.githubusercontent.com/300046/39780285-1426518c-52c9-11e8-9544-8cac52ff2297.jpg">
 <img alt="terraform-mod-vaults-640x114-16475.jpg" width="640" src="https://user-images.githubusercontent.com/300046/39780240-da22a9b8-52c8-11e8-995e-e8c4a7ce325e.jpg"></a>
 
+xxx
 
 ### Community modules
 
@@ -1088,23 +1121,6 @@ output "loadbalancer_dns_name" {
 0. Verify in the provider's console (aws.amazon.com)
 
 
-## Terraform Console
-
-1. Open the Terraform Console (REPL) from a Terminal/command shell:
-
-   <tt><strong>terraform console</strong></tt>
-
-   The response is <strong>></strong>.
-
-   <pre>element(list("one","two","three"),0,2)</pre>
-
-   The response is (because counting begins from zero):
-
-   <pre>1:3: element: expected 2 arguments, got 3 in:</pre>
-   
-2. Type <tt>exit</tt> to return to Bash console mode.
-
-
 
 ## Bootstrap Terraform
 
@@ -1165,17 +1181,6 @@ TODO:
 
 <hr />
 
-## Learning Resources
-
-* IRC 
-
-* <a target="_blank" href="https://groups.google.com/forum/#!forum/terraform-tool">Google Group terraform-tool</a>
-
-* StackOverflow
-
-* <a target="_blank" href="https://www.terraform.io/intro/getting-started/install.html">
-   Official Getting Started docs at Hashicorp</a>
- focus on individual elements (i.e. resources, input variables, output variables, etc).
 
 * <a target="_blank" href="https://www.youtube.com/watch?v=rgzzkP2L1k8">
 Manage AWS infrastructure as code using Terraform</a>
@@ -1185,24 +1190,7 @@ by Anton Babenko
 linkedin.com/in/antonbabenko
 
 
-### Rock Stars
-
-<strong>James Turnbull</strong>
-
-   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
-   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3. Files referenced are at:
-
-   <a target="_blank" href="https://github.com/turnbullpress/tfb-code">
-   https://github.com/turnbullpress/tfb-code</a>
-
-   <a target="_blank" href="https://github.com/jason-azze/tf-web-exercise">
-   https://github.com/jason-azze/tf-web-exercise</a>
-
-
-<strong>James Nugent</strong>
-
-   Engineer at Hashicorp
-
+## Rock Stars
 
 <a name="Gruntwork"></a>
 
@@ -1241,17 +1229,36 @@ dtan4
    https://github.com/dtan4/terraforming</a>
    is a Ruby 
 
+<strong>James Turnbull</strong>
 
-### Video courses
+   * <a target="_blank" href="https://www.amazon.com/gp/product/B01MZYE7OY/">
+   The Terraform Book ($8 on Kindle)</a> is based on Terraform v0.10.3. Files referenced are at:<br />
+   <a target="_blank" href="https://github.com/turnbullpress/tfb-code">
+   https://github.com/turnbullpress/tfb-code</a>
 
-* <a target="_blank" href="https://www.pluralsight.com/courses/terraform-getting-started">
-Terraform - Getting Started (Beginner level)</a> Sep 14 2017 [3:11]
-by Ned Bellavance (<a target="_blank" href="https://twitter.com/ned1313/">@ned1313</a>, <a target="_blank" href="https://www.nedinthecloud.com/">nedinthecloud</a>), MS MVP.
+<strong>Jason Asse</strong>
 
-* <a target="_blank" href="https://www.pluralsight.com/courses/terraform-automating-aws-vsphere">
-Automating AWS and vSphere with Terraform (Intermediate level)</a> Jun 12 2017[ 1:22]
-by Nick Colyer
-<br /><br />
+   * <a target="_blank" href="https://github.com/jason-azze/tf-web-exercise">
+   https://github.com/jason-azze/tf-web-exercise</a>
+
+<strong>Ned Bellavance</strong> (<a target="_blank" href="https://twitter.com/ned1313">@ned1313</a> at <a target="_blank" href="https://www.nerdinthecloud.com/">nerdinthecloud.com</a>) has several video classs on Pluralsight:
+
+   * <a target="_blank" href="https://www.pluralsight.com/courses/terraform-getting-started">
+   Terraform - Getting Started (Beginner level)</a> Sep 14 2017 [3h 11m]
+   (<a target="_blank" href="https://twitter.com/ned1313/">@ned1313</a>, <a target="_blank" href="https://www.nedinthecloud.com/">nedinthecloud</a>), MS MVP.
+
+   * <a target="_blank" href="https://app.pluralsight.com/library/courses/deep-dive-terraform/table-of-contents">
+   Deep Dive - Terraform</a> 6 Feb 2018 [3h 39m]
+
+Nick Colyer
+
+   * <a target="_blank" href="https://www.pluralsight.com/courses/terraform-automating-aws-vsphere">
+   Automating AWS and vSphere with Terraform (Intermediate level)</a> Jun 12 2017[ 1:22]
+
+<strong>James Nugent</strong>
+
+   * Engineer at Hashicorp
+
 
 ### Videos:
 
