@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Evangelist Job Description"
-excerpt: "Just apply. They can always just ignore you."
+excerpt: "Example of yaml markup variables for Jekyll to generate HTML"
 modified:
 tags: []
 image:
