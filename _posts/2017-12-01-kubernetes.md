@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kubernetes (K8s)"
-excerpt: "Container engine"
+excerpt: "Container engine for every cloud"
 shorturl: "https://goo.gl/"
 filename: kubernetes.md
 modified:
@@ -20,19 +20,48 @@ comments: true
 
 This page is being actively worked on, so please pardon the "dust".
 
-This is a tutorial presented as a hands-on workshop with commentary along the way.
+This is a hands-on tutorial with commentary along the way.
 
-### Open Sourced
+## Terminology background
+
+Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
+
+Kubernetes is the ancient Greek word for "helmsman" (people who pilot cargo ships). 
+Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
+such as "Helm".
+
+## Why Kubernetes?
+
+K8s automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
+<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>
+(previously called minions).
+
+![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
+<!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
+
+BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
+But this tutorial focuses on Docker.
+
+## Open Sourced
+
+<img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
+<a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
+This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> about origins note
+that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
+The predecessor to Kubernetes was called Borg.
+A key Borg character is called "7 of 9".
+
+Anyway, its Google heritage means Kubernetes is about scaling for a lot of traffic
+with redundancies to achieve high availability (HA).
 
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
-<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
+<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation), who administer the
+<a target="_blank" href="https://www.cncf.io/certification/expert/cka/">$300 essay-based Certified Kubernetes Administrator (CKA) exam</a> announced November 8, 2016.
 
 The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
 <a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
-source code at
-
-   <a target="_blank" href="https://github.com/kubernetes/kubernetes">
+source code at <a target="_blank" href="https://github.com/kubernetes/kubernetes">
    https://github.com/kubernetes/kubernetes</a>
 
    * v1.0 was committed on July 2015 within GitHub
@@ -40,26 +69,19 @@ source code at
    * v1.7 was led by Google.
    * v1.8 is led by a Microsoft employee (<a target="_blank" href="https://twitter.com/jaydumars?lang=en">Jaice Singer DuMars</a>) after Microsoft joined the CNCF July 2017.
 
-<img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
-<a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
-This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> about origins note
-that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
-The predecessor to Kub was called Borg.
-A key Borg character is called "7 of 9".
 
-Anyway, its Google heritage means Kubernetes is about scaling for a lot of traffic
-with redundancies to achieve high availability (HA).
+## Competitors
 
+See <a target="_blank" href="https://kubernetes.io/docs/setup/pick-right-solution/">
+https://kubernetes.io/docs/setup/pick-right-solution</a>
 
-### OpenShift support
+Other orchestration systems for Docker containers:
 
-If you want to pay for Kubernetes,
-<a target="_blank" href="
-https://www.redhat.com/en/technologies/cloud-computing/openshift">
-https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
-Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
+* Docker Swarm
 
-### Social
+* <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
+
+## Social
 
    * <a target="_blank" href="https://twitter.com/kubernetesio/">Twitter: @kubernetesio</a>
    * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
@@ -78,22 +100,28 @@ Red Hat® OpenShift is a container application platform that brings Docker and K
 
 Conferences:
 
-   * #KubeCon 
+   * <a target="_blank" href="https://www.twitter.com/KubeCon/">#KubeCon</a>
 
-### Competitors
 
-See https://kubernetes.io/docs/setup/pick-right-solution/
+### Support in clouds
 
-Other orchestration systems for Docker containers:
+* For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
 
-* Docker Swarm
+* If you want to pay for Kubernetes,
+<a target="_blank" href="
+https://www.redhat.com/en/technologies/cloud-computing/openshift">
+https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
+Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
 
-* <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
+* <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
+Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
 
-https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/
-Kubernetes in the Cloud: AWS vs. GCP vs. Azure
+* Kops for AWS (at <a target="_blank" href="https://github.com/kubernetes/kops">https://github.com/kubernetes/kops</a>)
+enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
+See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
+"How Qubit built its production ready Kubernetes (k8s) environments"</a>
 
-<a target="_blank" href="https://aws.amazon.com/eks/">
+* <a target="_blank" href="https://aws.amazon.com/eks/">
 Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
 was introduced December 2017 to work with AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
 EKS runs three Kubernetes masters across three Availability Zones in order to ensure high availability. 
@@ -101,26 +129,15 @@ EKS automatically provides a "highly available and scalable Kubernetes service"
 EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. 
 so you don't have to choose appropriate instance types.
 
-
-## Kubernetes vernacular cartoon
-
-Kubernetes automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
-<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>
-(previously called minions).
-
-![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
-<!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
-
-Click on the diagram for an animation of how the various aspects of Kubernetes fit together:
-<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+## What is Kub?
 
 Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
 built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
 The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
 
-BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
-But this tutorial focuses on Docker.
+Click on the diagram below for an animation of how the various aspects of Kubernetes fit together:
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
 Deployments manage Pods. 
 
@@ -130,7 +147,6 @@ In other words, containers within a Pod share a network namespace.
 Every container has its own unique <strong>port number</strong> within its pod's IP.
 
 Containers also share attached data <strong>volumes</strong> available within each Pod.
-
 
 <a href="#kubelet">Kubelet agents</a>
 
@@ -148,8 +164,6 @@ The Server obtains from Controller Manager ???
 The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
 
 Kubernetes instantiates and then manages the state of containers.
-
-Kubernestes can move 
 
 The Kube Proxy communicates only with Pod admin. whereas
 Kubelets communicate with individual pods as well.
@@ -170,8 +184,6 @@ cAdvisor https://github.com/google/cadvisor
 (Container Advisor) collects, aggregates, processes, and exports information about running containers in order to
 provide container admins an understanding of the resource usage and performance characteristics of their running containers.
 
-
-
 ## Detail
 
 <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
@@ -180,15 +192,15 @@ Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yong
 <a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
 <img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
 
-https://github.com/coreos/flannel
-flannel
-configures a IPv4 "layer 3" network fabric designed for Kubernetes.
-between multiple nodes in a cluster. 
+CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
+sets up <a target="_blank" href="https://github.com/coreos/flannel">
+Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. configures a IPv4 "layer 3" network fabric designed for Kubernetes.
+between multiple nodes in a cluster. Flannel is also widely used outside of kubernetes. When deployed outside of kubernetes, etcd is always used as the datastore.
 
-CoreOS's Tectonic sets up flannel in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process.
-
-flannel is also widely used outside of kubernetes. When deployed outside of kubernetes, etcd is always used as the datastore.
-
+<a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
+title="Kubernetes Workshop published Aug 4, 2017 by Walter Liu">
+This diagram</a>
+![k8s-services-flow-847x644-100409](https://user-images.githubusercontent.com/300046/33525135-9b69e09a-d7e6-11e7-857f-513e8582d450.jpg)
 
 * <a href="#IAC">Infrastructure as code</a>
 * Manage containers
@@ -203,22 +215,6 @@ flannel is also widely used outside of kubernetes. When deployed outside of kube
 * Replicating application instances
 * Horizontal autoscaling
 * Debugging applications
-
-
-
-## Terminology background
-
-Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
-
-Kubernetes is the ancient Greek word for "helmsman" (people who pilot cargo ships). 
-Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
-such as "helm".
-
-Kops for AWS (at https://github.com/kubernetes/kops)
-enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
-See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
-"How Qubit built its production ready Kubernetes (k8s) environments"</a>
-
 
 
 <a name="Install"></a>
@@ -254,9 +250,9 @@ for security vulnerabilities.
 ### Minikube
 
 Minikube goes beyond Docker For Mac (DFM) and Docker for Windows (DFW)
-and includes a node and a Master when it spins up a local environment.
+and includes a node and a Master when it spins up in a local environment (such as your laptop).
 
-CAUTION: At time of writing, https://github.com/kubernetes/minikube
+CAUTION: At time of writing, <a target="_blank" href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a>
 has 257 issues and 20 pending Pull Requests.
 
 1. Install on a Mac:
@@ -265,24 +261,47 @@ has 257 issues and 20 pending Pull Requests.
    brew install docker-machine-driver-xhyve
    </strong></pre>
 
+   Also:
+
    <pre><strong>
    brew install minikube -y
    </strong></pre>
 
    BLAH: On Nov 9, 2017 I got an error message doing the above.
 
-minikube version
+2. Verify if it can be invoked:
 
-On Mac:
+   <pre>minikube version</pre>
+
+3. Start the service:
+
+   On Mac:
+
+   <pre>
    minikube start --vm-driver=xhyve
-On Windows:
+   </pre>
+
+   On Windows:
+
+   <pre>
    minikube start --vm-driver=hyperv
+   </pre>
 
-minikube dashboard
+3. Dashboard
 
-minikube stop
+   <pre>minikube dashboard</pre>
 
-minikube delete
+4. Stop the service:
+
+   <pre>minikube stop</pre>
+
+5. Recover space:
+
+   <pre>minikube delete</pre>
+
+Kubectl 1.8 scale is now the preferred way to control graceful delete.
+
+Kubectl 1.8 rollout and rollback now support stateful sets ???
 
 
 <a name="kubectl"></a>
@@ -307,10 +326,6 @@ the CLI tool for k8s. It's automatically installed within Google cloud instances
    <pre><strong>
    kubectl version --client
    </strong></pre>
-
-Kubectl 1.8 scale is now the preferred way to control graceful delete.
-
-Kubectl 1.8 rollout and rollback now support stateful sets ???
 
 
 <a name="micro-services"></a>
@@ -353,9 +368,9 @@ This "Kubernetes" folder contains scripts to implement what was described in the
 which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 "Kubernetes in the Google Cloud" quest</a>.
 
-   <a name="IAC"></a>
+<a name="IAC"></a>
 
-   ### Infrastructure as code
+## Infrastructure as code
 
 1. Use an internet browser to view 
 
@@ -393,8 +408,7 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    * cert.pem - public key
    * key.pem - private key
 
-
-   Deployments
+   ### Deployments
 
    * auth.yaml
    * frontend.yaml
@@ -402,13 +416,13 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    * hello-canary.yaml
    * hello.yaml
 
-   pods
+   ### pods
 
    * healthy-monolith.yaml configures "livenessProbe" (in folder healthz) and "readinessProbe" (in folder readiness) on port 81
    * monolith.yaml
    * secure-monolith.yaml
 
-   services
+   ### services
 
    * auth.yaml
    * frontend.yaml
@@ -416,7 +430,6 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    * hello-green.yaml
    * hello.yaml
    * monolith.yaml
-
 
    Label
 
@@ -427,12 +440,9 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    <pre><strong>
 
 
-
 <a name="GKE"></a>
 
 ### How Kubernetes Engine works
-
-Kubernetes 
 
 ![kubernetes-pods-599x298-35069](https://user-images.githubusercontent.com/300046/31013696-81d30fc0-a4d4-11e7-9852-36be55b74499.jpg)
 
@@ -775,29 +785,23 @@ Having read several books on Kubernetes, Ivan Fioravanti, writing for Hackernoon
 
 https://run.qwiklab.com/searches/lab?keywords=Build%20a%20Slack%20Bot%20with%20Node.js%20on%20Kubernetes&utm_source=endlab&utm_medium=email&utm_campaign=nextlab
 
+Certified Kubernetes Administrator (CKA)
+<a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
+course by Linux Academy</a> features 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) and sandboxes
+
 
 ## References
 
-<a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
-title="Kubernetes Workshop published Aug 4, 2017 by Walter Liu">
-This diagram</a>
-![k8s-services-flow-847x644-100409](https://user-images.githubusercontent.com/300046/33525135-9b69e09a-d7e6-11e7-857f-513e8582d450.jpg)
+by Adron Hall:
 
+   * <a target="_blank" href="https://www.pelo.tech/blog/running-kubernetes/">
+   Kubernetes with Gcloud and Terraform</a> April 5, 2017
 
-https://twitter.com/TectonicStack
-
-https://www.pelo.tech/blog/running-kubernetes
- Kubernetes with Gcloud and Terraform
-by Adron Hall
-April 5, 2017
-
-http://blog.adron.me/articles/setting-up-gcp-container-cluster/
-Setting up a GCP Container Cluster - Part I
-by Adron Hall and published on January, 31 of 2017.
+   * <a target="_blank" href="http://blog.adron.me/articles/setting-up-gcp-container-cluster/">
+   Setting up a GCP Container Cluster - Part I</a> January 31, 2017.
 
 Drone.io
 
-For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
 
 http://www.nkode.io/2016/10/18/valuable-container-platform-links-kubernetes.html
 
