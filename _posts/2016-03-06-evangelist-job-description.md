@@ -25,26 +25,26 @@ tools: Git, Maven, Gradle, Groovy, Chef, Kubernetes, etc.
 
 {% include _toc.html %}
 
-Yes, this is an example of both a job description for a Developer Evangelist. 
+Yes, this is an example of a job description for a Developer Evangelist. 
 
-But this is also an example of how variables can be used in the markup text residing in GitHub. The author of this page added <tt>targets: developers</tt> in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
+But this is also an example of how variables can be used in the markup text residing in GitHub. The author of this page added variables in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
 
 <pre>
-We are looking for a {{ page.role }} with a passion for {{ page.passion }} to join us in attracting and maintaining the interest of {{ page.targets }} of {{ page.languages }} using {{ page.tools }}.
+&#123;&#123; page.company }} is looking for a &#123;&#123; page.role }} to join us in attract the interest of &#123;&#123; page.targets }} using &#123;&#123; page.languages }} to use our &#123;&#123; page.product }} with &#123;&#123; page.tools }}.
 </pre>
 
 Values are obtained at the top of the page containing:
 
 <pre>
 company: XYZ
-key_tech: MongoDB
+product: Gizmo
 role: Developer Advocate
-passion: marketing and evangelism 
 job_type: developer
 targets: developers
+passion: marketing and evangelism 
 languages: Go, NodeJs, Python, and Ruby
-platforms: Amazon (AWS), Azure, and Google
 tools: Git, Maven, Gradle, Groovy, Chef, Kubernetes, etc.
+platforms: Amazon (AWS), Azure, and Google
 ---
    </pre>
 
@@ -52,7 +52,7 @@ The result:
 
 ## The role
 
-We are looking for a {{ page.role }} with a passion for {{ page.passion }} who will join us in attracting and maintaining the interest of {{ page.targets }} of {{ page.languages }} using {{ page.tools }}.
+{{ page.role }} is looking for a {{ page.role }} to join us to attract the interest of {{ page.targets }} using {{ page.languages }} to use {{ page.product }} along with {{ page.tools }}.
 
 You know the concerns, interests, demographics, and cultures of {{ page.targets }},
 and you have creative ideas around how we can connect deeply and effectively with them.
@@ -127,7 +127,7 @@ You get bonus points if:
  
  * You are naturally inclined to provide unbelievable customer service and enjoy teaching and helping others.
 
- * You are in love with {{ page.key_tech }}.
+ * You are in love with {{ page.product }}.
 
  * Measurable competency with application servers, scripting, and network infrastructure
 

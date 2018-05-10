@@ -36,25 +36,30 @@ Software for hybrid include <a target="_blank" href="https://github.com/cloudfou
 Evaluations can be based on the 6 advantages of cloud:
 
 1. Trade capital expense for variable expense (conserve cash)
-2. Benefit from massive economies of scale
+2. Benefit from massive economies of scale (leverage experts who can focus on difficult issues)
 3. Stop guessing about capacity (over-provisioning)
 4. Increase speed and agility (big team of experts working on innovations)
 5. Stop spending money running and maintaining data centers "friends don't let friends build data centers"
-6. Go global in minutes (time consuming and dangerous to do on your own)
+6. Expand and go global in minutes (time consuming and dangerous to do on your own)
 
 PROTIP: Memorize the above list for exams.
+
+Amazon's "Well Architected" notes the constraints removed by being in the cloud:
+
+* Test production at scale 
+* Make experimentation easier (overcome fear of change)
+* Allow architecture to evolve (rather than being frozen in time)
 
 
 ## TL;DR - The biggest differences
 
-Most individuals are not in a position to select a cloud vendor, but to select the cloud vendor which provides the best career prospects. Here's my logic:
+The perspective of an individual is not to select a cloud vendor, but to select the cloud vendor which provides the best career prospects. Here's my logic:
 
-* If you write in C# on .NET, Azure is the natural choice. But other clouds are trying to support Windows.
+* If you write in C# on .NET (and want to continue leveraging that experience), Azure is the natural choice. (But other clouds are trying to support Windows.)
 * If you're looking to get a job in cloud, go for AWS because of its current <a href="#marketshare">market share</a>. AWS has the most sophisticated authentication and database services.
 * If you're running really large loads, Google offers fast fiber networks that don't limit what large machines can achieve. Plus Google is ahead in Machine Learning with its popular Tensorflow in Python.
 * Google's SSD drives are expensive, though needed for speed.
 
-* AWS has matched Azure pricing, and also per-minute billing.
 * IBM has bare-metal machines, if that's your thing.
 * Increasingly, companies doing business in a particular country are required to keep data within a cloud data center within that country (such as Google in Belgium).
 <br /><br />
@@ -90,9 +95,12 @@ there are so many variables to what affects the final bill that the only accurat
 actually run services.
 
 <ul>
-<li><a target="_blank" href="https://azure.microsoft.com/en-us/pricing/calculator/">Microsoft's Azure Pricing Calculator</a></li>
-<li><a target="_blank" href="http://calculator.s3.amazonaws.com/index.html">Amazon's AWS Pricing Calculator</a></li>
+<li><a target="_blank" href="https://azure.microsoft.com/en-us/pricing/calculator/">
+https://azure.microsoft.com/en-us/pricing/calculator<br />is Microsoft's Azure Pricing Calculator</a></li>
+<li><a target="_blank" href="http://calculator.s3.amazonaws.com/index.html">http://calculator.s3.amazonaws.com<br />is Amazon's AWS Pricing Calculator</a></li>
 </ul>
+
+* AWS has matched Azure pricing, and also per-minute billing.
 
 <a target="_blank" href="http://www.zdnet.com/article/public-cloud-computing-vendors-a-look-at-strengths-weaknesses-big-picture/">
 Cowan analysis May 2016</a> (using 1.0 as average among vendors) rated Amazon 1.37 (above avarge) in prices (most expensive).
@@ -121,9 +129,9 @@ Different surveys contradict each other. Here is one:
 As of May 2016, Azure works with SUSE and Oracle,
 but not Red Hat Enterprise Linux (RHEL).
 
-Amazon provides software to host whatever os is put into images.
-But its free server images are based on 
-CentOS.
+Amazon provides software to host whatever OS is put into images.
+But its free server images are based on CentOS.
+Amazon is working on "Linux2".
 
 
 ## Links to service brand names #
