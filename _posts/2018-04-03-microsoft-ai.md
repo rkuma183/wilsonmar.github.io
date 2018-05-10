@@ -21,15 +21,11 @@ running on the Azure cloud.
 
 ## History
 
-VIDEO:
-<a target="_blank" href="https://www.youtube.com/watch?v=eUce2cB844s">
-Hands-On with Azure Machine Learning
-
 In 2014, Microsoft showed off its facial recognition capabilities with
-<a target="_blank" href="https://www.how-old.net/">how-old.net">how-old.net</a>
+<a target="_blank" href="https://www.how-old.net/">how-old.net</a>
 to guess how old someone is. At conferences they built a booth that takes a picture.
 
-In 2015, Microsoft unleashed the Tay chat bot.
+In 2015, Microsoft unleashed the Tay chat bot, then brought it down after hackers submitted enough racial slurs that fooled the system into that was normal. 
 
 ## Get an account #
 
@@ -42,23 +38,18 @@ All their plans offer:
 
 There are two ways to pay:
 
-* A free Machine Learning Account is just for learning. 
+* A free Machine Learning Account is just for learning at <a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
+https://azure.microsoft.com/en-us/services/machine-learning</a>
 
-   But you can't access SQL with this account.
+   PROTIP: But you can't access SQL for free.
 
 * Adding Machine Learning capabilities in your full account, for production use.
 
    But charges apply.
 
 
-<a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
-https://azure.microsoft.com/en-us/services/machine-learning</a>
-offers free plans
-
    * Guest Workspace for 8 hours on https://studio.azureml.net/Home/ViewWorkspaceCached/...
-
-   * Registered free workspaces with 10 GB storage
-   can scale resources to increase experiment execution performance.
+   These get 10 GB storage and can scale resources to increase experiment execution performance.
 
 
 ## Azure ML Studio
@@ -66,6 +57,87 @@ offers free plans
 The on-line IDE enables drap and drop ease of use.
 
 It supports R and Python.
+
+VIDEO:
+<a target="_blank" href="https://www.youtube.com/watch?v=02R-lZYccEY">
+Machine Learning Algorthms - Part 1</a>
+
+## Azure
+
+http://aka.ms/enterprisecloudebook
+
+<a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture">
+   Microsoft Azure: The Big Picture</a> 1h 50m Mar 10, 2016
+   by Matt Milner
+   makes use of VS 2010, which is rather obsolete now.
+
+## Microsoft Azure Machine Learning #
+
+Follow 
+<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/">
+this machine learning tutorial</a>
+to use Azure Machine Learning Studio to
+create a linear regression model that predicts the price of 
+an automobile based on different variables such as make and technical specifications. 
+Then iterate on a simple predictive analytics experiment after
+
+VIDEO: <a target="_blank" href="https://www.youtube.com/watch?v=eUce2cB844s">
+Hands-On with Azure Machine Learning
+
+0. Enter Microsoft's Learning Studio:
+
+   As per <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Getting-Started-with-Azure-Machine-Learning-Step1?ocid=player">
+   this video</a>: <a target="_blank" href="
+   https://studio.azureml.net/?selectAccess=true&o=2">
+   https://studio.azureml.net/?selectAccess=true&o=2</a>
+
+0. Look at examples in the 
+   <a target="_blank" href="http://gallery.cortanaintelligence.com/?r=legacy">
+   Cortana Intelligence Gallery</a>
+
+0. Take the introductory tutorial:
+
+   <a target="_blank" href="http://gallery.cortanaintelligence.com/Collection/Introduction-to-Machine-Learning-with-Hands-On-Labs-1">
+   Introduction to Machine Learning with Hands-On Labs</a>
+
+   <a target="_blank" href="
+   https://azure.microsoft.com/en-us/documentation/articles/machine-learning-studio-overview-diagram/">
+   https://azure.microsoft.com/en-us/documentation/articles/machine-learning-studio-overview-diagram</a>
+
+0. Create a model.
+
+0. Prepare Data:
+
+   As per <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Preprocessing-Data-in-Azure-ML-Studio?ocid=player">this video</a>
+   using
+
+   - Clean Missing Data - Clip Outliers
+   - Edit Metadata
+   - Feature Selection
+   - Filter
+   - Learning with Counts
+   - Normalize Data
+   - Partition and Sample
+   - Principal Component Analysis
+   - Quantize Data
+   - SQLite Transformation
+   - Synthetic Minority Oversampling Technique
+   <br /><br />
+   
+0. Train the model
+
+   * Cross Validation
+   * Retraining
+   * Parameter Sweep
+   <br /><br />
+
+0. Score and test the model.
+
+0. Make predictions with Elastic APIs
+
+   - Request-Response Service (RRS) Predictive Experiment - Batch Execution Service (BES)
+   - Retraining API
+   <br /><br />
 
 
 <a name="Algorithms"></a>
@@ -234,83 +306,6 @@ which means it's building standard computing functions on top of AI capabilities
   </td><td><a href="#y"> Cortana</a>
   </td></tr>
 </tbody></table> 
-
-VIDEO:
-<a target="_blank" href="https://www.youtube.com/watch?v=02R-lZYccEY">
-Machine Learning Algorthms - Part 1</a>
-
-## Azure
-
-http://aka.ms/enterprisecloudebook
-
-<a target="_blank" href="https://app.pluralsight.com/library/courses/microsoft-azure-big-picture">
-   Microsoft Azure: The Big Picture</a> 1h 50m Mar 10, 2016
-   by Matt Milner
-   makes use of VS 2010, which is rather obsolete now.
-
-## Microsoft Azure Machine Learning #
-
-Follow 
-<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/">
-this machine learning tutorial</a>
-to use Azure Machine Learning Studio to
-create a linear regression model that predicts the price of 
-an automobile based on different variables such as make and technical specifications. 
-Then iterate on a simple predictive analytics experiment after
-
-0. Enter Microsoft's Learning Studio:
-
-   As per <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Getting-Started-with-Azure-Machine-Learning-Step1?ocid=player">
-   this video</a>:
-
-   https://studio.azureml.net/?selectAccess=true&o=2
-
-0. Look at examples in the 
-   <a target="_blank" href="http://gallery.cortanaintelligence.com/?r=legacy">
-   Cortana Intelligence Gallery</a>
-
-0. Take the introductory tutorial:
-
-   <a target="_blank" href="http://gallery.cortanaintelligence.com/Collection/Introduction-to-Machine-Learning-with-Hands-On-Labs-1">
-   Introduction to Machine Learning with Hands-On Labs</a>
-
-0. Create a model
-
-0. Prepare Data:
-
-   As per <a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Preprocessing-Data-in-Azure-ML-Studio?ocid=player">this video</a>
-   using
-
-   - Clean Missing Data - Clip Outliers
-   - Edit Metadata
-   - Feature Selection
-   - Filter
-   - Learning with Counts
-   - Normalize Data
-   - Partition and Sample
-   - Principal Component Analysis
-   - Quantize Data
-   - SQLite Transformation
-   - Synthetic Minority Oversampling Technique
-   <br /><br />
-   
-0. Train the model
-
-   * Cross Validation
-   * Retraining
-   * Parameter Sweep
-   <br /><br />
-
-0. Score and test the model
-
-0. Make predictions with Elastic APIs
-
-   - Request-Response Service (RRS) Predictive Experiment - Batch Execution Service (BES)
-   - Retraining API
-   <br /><br />
-
-https://azure.microsoft.com/en-us/documentation/articles/machine-learning-studio-overview-diagram/
-
 
 ## More
 
