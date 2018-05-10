@@ -23,20 +23,26 @@ This is different than other blogs in the sequence of presentation.
 
 ## Terminology background
 
+Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
+built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
+The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
+
 Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
 
-Kubernetes is the ancient Greek word for "helmsman" (people who pilot cargo ships). 
+Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
 Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
 such as "Helm".
 
 ## Why Kubernetes?
 
 K8s automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
-<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>
-(previously called minions).
+<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>.
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
+
+Nodes were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
+which refers to nodes differently.
 
 BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
 But this tutorial focuses on Docker.
@@ -50,8 +56,6 @@ notes that the Kubernetes logo has 7 sides because its initial developers were S
 The predecessor to Kubernetes was called Borg.
 A key Borg character is called "7 of 9".
 
-Anyway, its Google heritage means Kubernetes is about scaling for a lot of traffic
-with redundancies to achieve high availability (HA).
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
 <a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
@@ -71,6 +75,8 @@ On November 8, 2016 CNCF announced their
    * v1.7 was led by Google.
    * v1.8 is led by a Microsoft employee (<a target="_blank" href="https://twitter.com/jaydumars?lang=en">Jaice Singer DuMars</a>) after Microsoft joined the CNCF July 2017.
 
+K8s' Google heritage means Kubernetes is about scaling for a lot of traffic
+with redundancies to achieve high availability (HA).
 
 ## Competitors
 
@@ -102,7 +108,68 @@ Other orchestration systems for Docker containers:
 
 Conferences:
 
-   * <a target="_blank" href="https://www.twitter.com/KubeCon/">#KubeCon</a>
+   * <a target="_blank" href="https://www.KubeCon.io">KubeCon.io</a (<a target="_blank" href="https://www.twitter.com/KubeConio/">#KubeConio</a>)
+
+
+## Create Kub cluster
+
+Click on the diagram below for an animation of how the various aspects of Kubernetes fit together:
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+
+A <strong>Master node</strong> controls the other nodes.
+
+As described by the <a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
+Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) -- 
+
+1. Select "CloudNativeKubernetes" sandboxes.
+1. Select the first instance as the "Kube Master".
+1. Login that server (user/123456).
+1. Change the password as prompted on the Ubuntu 16.04.3 server.
+
+   ### Deploy Kubernetes master node
+
+1. Deploy Kubernetes master node with command 
+
+   <pre>sudo kubeadm init --pod-network-cidr=10.244.0.0/16</pre>
+
+   The address is the default for Flannel.
+
+   ### Flannel 
+
+   CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
+   sets up <a target="_blank" href="https://github.com/coreos/flannel">
+   Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. configures a IPv4 "layer 3" network fabric designed for Kubernetes.
+   between multiple nodes in a cluster. Flannel is also widely used outside of Kubernetes. When deployed outside of Kubernetes, <strong>etcd</strong> (etc daemon) is always used as the datastore.
+
+1. Create your .kube folder:
+
+   <pre>mkdir -p $HOME/.kube</pre>
+
+1. Copy in:
+
+   <pre>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</pre>
+
+1. Make it owned by you:
+
+   <pre>sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre>
+
+1. Apply it:
+
+   <pre>sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube.flannel.yml</pre>
+
+   The response:
+
+   <pre>clusterrole "flannel" created
+clusterrolebinding "flannel" created
+serviceaccount "flannel" created
+configmap "kube-flannel.cfg" created
+daemonset "kube-flannel.ds" created
+   </pre>
+
+1. List pods created:
+
+   <pre>kubectl get pods --all-namespaces</pre>
 
 
 ### Support in clouds
@@ -128,15 +195,10 @@ Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
 was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
 It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
 
-## What is Kub?
+* https://blog.digitalocean.com/introducing-digitalocean-kubernetes/
 
-Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
-built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
-The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
 
-Click on the diagram below for an animation of how the various aspects of Kubernetes fit together:
-<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+## Details
 
 Deployments manage Pods. 
 
@@ -190,11 +252,6 @@ Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yong
 <small>Click on the diagram to pop-up a full-sized diagram</small>:
 <a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
 <img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
-
-CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
-sets up <a target="_blank" href="https://github.com/coreos/flannel">
-Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. configures a IPv4 "layer 3" network fabric designed for Kubernetes.
-between multiple nodes in a cluster. Flannel is also widely used outside of kubernetes. When deployed outside of kubernetes, etcd is always used as the datastore.
 
 <a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
 title="Kubernetes Workshop published Aug 4, 2017 by Walter Liu">
@@ -447,9 +504,6 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 
 Pods are defined by a <a href="#Manifest">manifest file</a> 
 read by the <strong>apiserver</strong> which deploys nodes.
-
-Nodes were previously called "minions" who do work.
-Apparently Google namers forgot about the existance of NodeJS.
 
 Pods abstact the network and storage of containers. 
 So each <strong>pod</strong> can hold one or more containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
@@ -762,7 +816,8 @@ Nigel Poulton (@NigelPoulton, nigelpoulton.com)
 
 ## Make your own K8s
 
-Kelsey Hightower, in https://github.com/kelseyhightower/kubernetes-the-hard-way, 
+Kelsey Hightower, in <a target="_blank" href="https://github.com/kelseyhightower/kubernetes-the-hard-way">
+https://github.com/kelseyhightower/kubernetes-the-hard-way</a>, 
 shows the steps of how to create Compute Engine yourself:
 
    * Cloud infrastructure firewall and load balancer provisioning
@@ -784,9 +839,6 @@ Having read several books on Kubernetes, Ivan Fioravanti, writing for Hackernoon
 
 https://run.qwiklab.com/searches/lab?keywords=Build%20a%20Slack%20Bot%20with%20Node.js%20on%20Kubernetes&utm_source=endlab&utm_medium=email&utm_campaign=nextlab
 
-Certified Kubernetes Administrator (CKA)
-<a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
-course by Linux Academy</a> features 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) and sandboxes
 
 
 ## References
