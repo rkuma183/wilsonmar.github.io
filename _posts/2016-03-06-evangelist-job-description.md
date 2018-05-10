@@ -33,7 +33,7 @@ so that key words can be changed in one place and be applied to all instances in
 The author of this page added variables in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
 
 <tt>
-&#123;&#123; page.company }} is looking for a &#123;&#123; page.role }} to join us in attracting the interest of &#123;&#123; page.targets }} using &#123;&#123; page.languages }} to use our &#123;&#123; page.product }} with &#123;&#123; page.tools }}.
+&#123;&#123; page.company }} is looking for a &#123;&#123; page.role }} to join us in attracting the interest of &#123;&#123; page.targets }} using &#123;&#123; page.languages }} to use our &#123;&#123; page.product }} along with &#123;&#123; page.tools }}.
 </tt>
 
 Values are obtained at the top of the page containing:
