@@ -11,7 +11,7 @@ image:
   creditlink: 
 comments: true
 company: XYZ
-key_tech: MongoDB
+product: MongoDB
 role: Developer Advocate
 passion: marketing and evangelism 
 job_type: developer
@@ -25,13 +25,16 @@ tools: Git, Maven, Gradle, Groovy, Chef, Kubernetes, etc.
 
 {% include _toc.html %}
 
-Yes, this is an example of a job description for a Developer Evangelist. 
+This is an example of a job description for a {{ page.role }}. 
 
-But this is also an example of how variables can be used in the markup text residing in GitHub. The author of this page added variables in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
+This is also an example of how variables can be used in the markup text residing in GitHub,
+so that key words can be changed in one place and be applied to all instances in the document.
 
-<pre>
-&#123;&#123; page.company }} is looking for a &#123;&#123; page.role }} to join us in attract the interest of &#123;&#123; page.targets }} using &#123;&#123; page.languages }} to use our &#123;&#123; page.product }} with &#123;&#123; page.tools }}.
-</pre>
+The author of this page added variables in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
+
+<tt>
+&#123;&#123; page.company }} is looking for a &#123;&#123; page.role }} to join us in attracting the interest of &#123;&#123; page.targets }} using &#123;&#123; page.languages }} to use our &#123;&#123; page.product }} with &#123;&#123; page.tools }}.
+</tt>
 
 Values are obtained at the top of the page containing:
 
@@ -141,9 +144,9 @@ You get bonus points if:
 * A unique opportunity to play a critical crossover technical/ business role 
 at a high-growth company in a rapidly emerging open source infrastructure category.
 
-* In five years, the chance to say you “got in early” into one of the pioneers!
-* Equity
+* The chance to say you “got in early” into one of the pioneers!
 
+* Equity
 * Matching 401(K) plans 
 * 100% employer paid premiums for medical, dental, life insurance, disability
 * Flexible vacation - take time off when you need it
@@ -162,21 +165,17 @@ at a high-growth company in a rapidly emerging open source infrastructure catego
 
 * Casual dress code
 
-* MacBook (fully loaded)
+* MacBook (16 GB, with 2 additional screens)
 * Employee development opportunities 
 
 ## Summary
 
-BS in STEM degree, developer experience, ability to code demos, excellent written and presentations.
+BS in a STEM degree, {{ page.job_type }} experience, ability to code in {{ page.languages }}, excellent written and presentations.
 
-
-## Footnote
-
-This page was created as an example using page-specific Liquid variables in Jekyll Markdown front-matter.
 
 ## More on Technical Evanglism #
 
-This post is one of a (planned) series:
+This post is one of a series:
 
 {% include evangelist_links.html %}
 
