@@ -18,9 +18,8 @@ comments: true
 
 {% include _toc.html %}
 
-This page is being actively worked on, so please pardon the "dust".
-
 This is a hands-on tutorial with commentary along the way.
+This is different than other blogs in the sequence of presentation.
 
 ## Terminology background
 
@@ -46,22 +45,25 @@ But this tutorial focuses on Docker.
 
 <img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
 <a target="_blank" href="https://cloudplatform.googleblog.com/2016/07/from-Google-to-the-world-the-Kubernetes-origin-story.html">
-This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> about origins note
-that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
+This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> 
+notes that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
 The predecessor to Kubernetes was called Borg.
 A key Borg character is called "7 of 9".
 
 Anyway, its Google heritage means Kubernetes is about scaling for a lot of traffic
 with redundancies to achieve high availability (HA).
-
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
-<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation), who administer the
-<a target="_blank" href="https://www.cncf.io/certification/expert/cka/">$300 essay-based Certified Kubernetes Administrator (CKA) exam</a> announced November 8, 2016.
+<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
+On November 8, 2016 CNCF announced their 
+<a target="_blank" href="https://www.cncf.io/certification/expert/cka/">3-hour essay-based Certified Kubernetes Administrator (CKA)</a> and 2-hour Developer (CKAD) exams. Each costs $300.
 
-The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
-<a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
-source code at <a target="_blank" href="https://github.com/kubernetes/kubernetes">
+1. Get an account at <a target="_blank" href="https://identity.linuxfoundation.org/">
+   https://identity.linuxfoundation.org</a>
+
+   The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
+   <a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
+   source code at <a target="_blank" href="https://github.com/kubernetes/kubernetes">
    https://github.com/kubernetes/kubernetes</a>
 
    * v1.0 was committed on July 2015 within GitHub
@@ -123,11 +125,8 @@ See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="h
 
 * <a target="_blank" href="https://aws.amazon.com/eks/">
 Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
-was introduced December 2017 to work with AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
-EKS runs three Kubernetes masters across three Availability Zones in order to ensure high availability. 
-EKS automatically provides a "highly available and scalable Kubernetes service"
-EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. 
-so you don't have to choose appropriate instance types.
+was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
+It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
 
 ## What is Kub?
 
