@@ -11,102 +11,110 @@ image:
   creditlink: 
 comments: true
 company: XYZ
-database: MongoDB
+key_tech: MongoDB
+role: Developer Advocate
+passion: marketing and evangelism 
+job_type: developer
 targets: developers
+languages: Go, NodeJs, Python, and Ruby
+platforms: Amazon (AWS), Azure, and Google
+tools: Git, Maven, Gradle, Groovy, Chef, Kubernetes, etc.
 ---
 <i>{{ page.excerpt }}</i>
 <hr />
 
 {% include _toc.html %}
 
+Yes, this is an example of both a job description for a Developer Evangelist. 
+
+But this is also an example of how variables can be used in the markup text residing in GitHub. The author of this page added <tt>targets: developers</tt> in the header at the top of the authoring file which is not presented to readers. Within the body of the article's text is inserted <tt>{{ page.targets }}</tt>. When Jekyll reads this markup to generates HTML, it substitutes the variable with the data value from the header.
+
+<pre>
+We are looking for a {{ page.role }} with a passion for {{ page.passion }} to join us in attracting and maintaining the interest of {{ page.targets }} of {{ page.languages }} using {{ page.tools }}.
+</pre>
+
+Values are obtained at the top of the page containing:
+
+<pre>
+company: XYZ
+key_tech: MongoDB
+role: Developer Advocate
+passion: marketing and evangelism 
+job_type: developer
+targets: developers
+languages: Go, NodeJs, Python, and Ruby
+platforms: Amazon (AWS), Azure, and Google
+tools: Git, Maven, Gradle, Groovy, Chef, Kubernetes, etc.
+---
+   </pre>
+
+The result:
+
 ## The role
 
-We are looking for a code-slinger with a passion for marketing and evangelism 
-who will join us in recruiting and driving the success of current and future users. 
+We are looking for a {{ page.role }} with a passion for {{ page.passion }} who will join us in attracting and maintaining the interest of {{ page.targets }} of {{ page.languages }} using {{ page.tools }}.
 
-You know the concerns, interests, demographics, and cultures of the {{ page.developer }} audience,
+You know the concerns, interests, demographics, and cultures of {{ page.targets }},
 and you have creative ideas around how we can connect deeply and effectively with them.
 
-The Developer Advocate role at {{ page.company }} wears many hats: marketing, support, PR, and business development. 
-
 As a key member of our small, rapidly growing marketing team, 
-you will <strong>be the face and voice</strong> of {{ page.company }} to developers 
-using a wide range of development frameworks and languages, including Node.JS, Python, Ruby, and many others. 
+you will <strong>be the face and voice</strong> of {{ page.company }} to {{ page.targets }}. 
 
 You will be the go to person for telling our story to the market - 
-on stage at events, during industry-wide webcasts and in conference rooms at the largest companies. 
+on stage at events, during industry-wide webcasts, and in conference rooms at the largest companies. 
 
 As both a product and customer expert, you will also be the sales force's key marketing contact to help develop effective account specific go-to-market strategies. 
-
-The Product Evangelist will directly impact employers’ ability to source critical talent by helping them better understand online search and how to optimize their recruiting practices, leveraging Indeed’s portfolio of products. 
 
 The successful candidate is an engaging communicator, passionate about technology, 
 and loves interacting with clients and prospects. 
 
-We’re seeking not only a great presenter but an excellent listener, who will be curious about the needs and concerns of our clients. 
+We’re seeking not only a great presenter but an excellent listener, who is curious about the needs and concerns of our prospects and customers.
 
 You'll be exposed to the major cloud platforms, as we currently run on 
-Amazon (AWS), Azure, and Google, 
-and have integrated with all of the major Platform-as-a-Service providers (Heroku et al.).
+{{ page.platforms }}, and have integrated with all of the major Platform-as-a-Service providers (Heroku et al.).
 
-* Up to 50% travel is required of this role.
+* Up to 70% travel is required of this role.
 
 
 ## Responsibilities
 
-Your key responsibilities will include the following:
+Your key responsibilities toward building a following of passionate <strong>{{ page.targets }}</strong> 
+include the following during a day in the life:
 
-* Build a following of passionate <strong>developers</strong> 
-(who want to be the best of the best, using the most efficient technologies and platforms)
- to write their applications.
+* Identify strategies and opportunities to bring content and perspective to both <strong>{{ page.targets }}</strong> and executives who manage them.
 
-* Identify opportunities to bring content and perspective to <strong>senior executives</strong>  in our target market.
+* Plan content and campaigns (with <strong>partners</strong>) that leverage time and expense to achieve the most returns.
 
-* Leverage social networks, blog and video platforms, 
-   and highly scalable marketing technologies to <strong>get the word out</strong>.
+* Identify <strong>trends data</strong> in order to position {{ page.company }} as a thought leader, both online and offline.
+ 
+* Seek out and write up <strong>use cases</strong> (solution briefs) to demonstrate best practices.
 
-* <strong>Publish blog posts and tutorials</strong> that highlight 
-   <strong>best practices</strong> and offer a fresh perspective.
+* Analyze <strong>new features and capabilities</strong> to present them as useful and compelling.
 
-* Attend and speak at meetups and conferences, serving as an evangelist, coach, cheerleader, and teammate to budding and veteran users.
+* <strong>Publish blog posts and tutorials</strong> and <strong>speak at meetups and conferences</strong> to highlight best practices and offer a fresh perspective.
 
-* Champion our users’ needs internally by providing invaluable feedback to the product and engineering teams.
+* Champion users’ needs internally by providing invaluable feedback to the sales, product, and engineering teams.
 
-* Seize moments of inspiration to hack on or create open source projects.
+* Craft attention-getting yet informative <strong>posts in social networks</strong> and <strong>create blog and video content</strong> to attract and grow interest.
 
-* Deliver compelling presentations on solutions, <strong>trends data</strong>, 
-   and <strong>thought leadership</strong> topics.
+* Use and create <strong>open source projects</strong> so {{ page.targets }} can adopt the company's offerings quicker and more confidently.
 
-* Create content and campaigns with <strong>partners</strong> which are NOT boring, 
-   but highly engaging and useful to end users.
+## The ideal candidate 
 
-* Position {{ page.company }} as a technical thought leader, both online and offline.
+* Has done a similar job before in this industry, with sharable examples of previous speaking opportunities, conference speaker feedback, and/or recorded webcast delivery. 
 
-* Confidently <strong>moderate discussions</strong> among clients and other speakers.
+* Has built a visible online presence via social media, blogs, forums, GitHub repos and/or community involvement.
 
-* Analyze application use cases to determine the best ways to provide the most value to specific developer groups, including documentation, tutorials, and new features and capabilities.
-
-* Up to 20% of time on direct developer-centric customer support.
-
-## Our ideal candidate possesses will have done a similar job before, likely in the technology industry, 
-   with sharable examples of previous speaking opportunities, conference speaker feedback, and/or recorded webcast delivery. 
-
-* Experience as a current or former developer with one or more apps published in an app marketplace 
+* Experience as a current or former {{ page.job_type }} with one or more apps published in an app marketplace 
    (Google Play, Apple Store, Windows Store, Office Store, iTunes, etc.)
 
-* Familiarity with Maven, Git, Gradle, Groovy, Chef, Kubernetes, etc.
+* Ability to <strong>code demos</strong> in {{ page.languages }}.
 
-* Ability to code demos in one or more languages.
+* Familiarity using tools ({{ page.tools }}).
 
-* Experience and/or interest creating Developer and DevOps-focused messaging, content, and assets.
+* Can confidently <strong>moderate discussions</strong> among technical and non-technical groups.
 
-* Experience presenting to technical and non-technical audiences.
-
-* Possess one or more developer certifications (e.g. Windows, SharePoint, Microsoft Azure).
-
-* Visible online presence via social media, blogs, forums, GitHub repos and/or community involvement.
-
-* Excellent oral and written communication skills.
+* Possess one or more {{ page.job_type }} certifications.
 
 * A keen interest in trying their hand at the business side, with potential aspirations for marketing, business development, sales, or product leadership roles in the future.
 
@@ -119,7 +127,7 @@ You get bonus points if:
  
  * You are naturally inclined to provide unbelievable customer service and enjoy teaching and helping others.
 
- * You are in love with (or have been seriously dating) {{ page.database }}.
+ * You are in love with {{ page.key_tech }}.
 
  * Measurable competency with application servers, scripting, and network infrastructure
 
