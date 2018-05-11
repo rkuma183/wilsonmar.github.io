@@ -54,7 +54,7 @@ But this tutorial focuses on Docker.
 This blog</a> and <a target="_blank" href="http://softwareengineeringdaily.com/2016/07/20/kubernetes-origins-with-craig-mcluckie/">podcast</a> 
 notes that the Kubernetes logo has 7 sides because its initial developers were Star Trek fans:
 The predecessor to Kubernetes was called Borg.
-A key Borg character is called "7 of 9".
+A key Borg character is called <a target="_blank" href="https://en.wikipedia.org/wiki/Seven_of_Nine">"7 of 9"</a>.
 
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
@@ -111,6 +111,36 @@ Conferences:
    * <a target="_blank" href="https://www.KubeCon.io">KubeCon.io</a (<a target="_blank" href="https://www.twitter.com/KubeConio/">#KubeConio</a>)
 
 
+<a name="kubectl"></a>
+
+## kubectl CLI client install
+
+Running outside Kubernetes servers is <strong>`kubectl`</strong> (kube + ctl), 
+the CLI tool for k8s. It's automatically installed within Google cloud instances.
+
+1. Install on a Mac:
+ 
+   <pre><strong>
+   brew install kubectl -y
+   </strong></pre>
+
+   <pre>
+🍺  /usr/local/Cellar/kubernetes-cli/1.8.3: 108 files, 50.5MB
+   </pre>
+
+0. Verify
+ 
+   <pre><strong>
+   kubectl version --client
+   </strong></pre>
+
+   A sample response:
+
+   <pre>
+Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCommit:"d4ab47518836c750f9949b9e0d387f20fb92260b", GitTreeState:"clean", BuildDate:"2018-04-13T22:27:55Z", GoVersion:"go1.9.5", Compiler:"gc", Platform:"darwin/amd64"}
+   </pre>
+
+
 ## Create Kub cluster
 
 Click on the diagram below for an animation of how the various aspects of Kubernetes fit together:
@@ -133,6 +163,8 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 
    <pre>sudo kubeadm init --pod-network-cidr=10.244.0.0/16</pre>
 
+   ![kubernetes-nodes-363x120-20150](https://user-images.githubusercontent.com/300046/39900888-328f060e-5482-11e8-89eb-14439d7db270.jpg)
+
    The address is the default for Flannel.
 
    ### Flannel 
@@ -140,17 +172,19 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
    CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
    sets up <a target="_blank" href="https://github.com/coreos/flannel">
    Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. configures a IPv4 "layer 3" network fabric designed for Kubernetes.
-   between multiple nodes in a cluster. Flannel is also widely used outside of Kubernetes. When deployed outside of Kubernetes, <strong>etcd</strong> (etc daemon) is always used as the datastore.
+   between multiple nodes in a cluster. Flannel is also widely used outside of Kubernetes. 
+
+   The response suggests several commands:
 
 1. Create your .kube folder:
 
    <pre>mkdir -p $HOME/.kube</pre>
 
-1. Copy in:
+1. Copy in a configuration file:
 
    <pre>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</pre>
 
-1. Make it owned by you:
+1. Make it owned by "501:20":
 
    <pre>sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre>
 
@@ -171,6 +205,60 @@ daemonset "kube-flannel.ds" created
 
    <pre>kubectl get pods --all-namespaces</pre>
 
+   Kubernetes instantiates and then manages the state of containers.
+
+   System administrators control the <strong>Master node</strong>
+   UI in the cloud or write scripts that invoke 
+   <a href="#kubectl">kubectl command-line client program</a>
+   that controls the <strong>Kubernetes Master</strong> node.
+
+   The program talks to the <strong>Kubernetes API Server</strong>.
+
+   The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
+
+   PROTIP: When deployed outside of Kubernetes, <strong>etcd</strong> (etc daemon) is always used as the datastore.
+
+   The Kube Proxy communicates only with Pod admin. whereas Kubelets communicate with individual pods as well.
+
+   The Server gets Scheduler ???
+
+   The Server obtains from Controller Manager ???
+
+1. Switch to the webpage of servers to Login to the next server.
+1. Join the node to the master by pasting in the command captured earlier:
+
+   <pre>kubeadm join --token ... 172.31.21.55:6443 --discovery-token-ca-cert-hash sha256:...</pre>
+
+   Deployments manage Pods. 
+
+   Every Pod has a unique IP. There is one IP Address per Pod.
+   In other words, containers within a Pod share a network namespace. 
+
+   Every <strong>container</strong> has its own unique <strong>port number</strong> within its pod's IP.
+
+1. Switch to the webpage of servers to Login to the 3rd server.
+1. Again Join the node to the master by pasting in the command captured earlier:
+1. Get the list of nodes:
+
+   <pre><strong>kubectl get nodes</strong></pre>
+
+
+
+   ### Volumes
+   
+   Containers also share attached data <strong>volumes</strong> available within each Pod.
+
+   <a href="#kubelet">Kubelet agents</a>
+
+   HAProxy
+   VRRP (Virtual Router Redundancy Protocol)
+   http://searchnetworking.techtarget.com/definition/VRRP
+   automatically assigns available Internet Protocol routers to participating hosts.
+
+6. communicate
+7. over
+8. Master
+9. ETCD
 
 ### Support in clouds
 
@@ -197,47 +285,6 @@ It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VP
 
 * https://blog.digitalocean.com/introducing-digitalocean-kubernetes/
 
-
-## Details
-
-Deployments manage Pods. 
-
-Every Pod has a unique IP. There is one IP Address per Pod.
-In other words, containers within a Pod share a network namespace. 
-
-Every container has its own unique <strong>port number</strong> within its pod's IP.
-
-Containers also share attached data <strong>volumes</strong> available within each Pod.
-
-<a href="#kubelet">Kubelet agents</a>
-
-System administrators control the <strong>Master node</strong>
-UI in the cloud or write scripts that invoke 
-<a href="#kubectl">kubectl command-line client program</a>
-that controls the <strong>Kubernetes Master</strong> node.
-
-The program talks to the <strong>Kubernetes API Server</strong>.
-
-The Server gets Scheduler ???
-
-The Server obtains from Controller Manager ???
-
-The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
-
-Kubernetes instantiates and then manages the state of containers.
-
-The Kube Proxy communicates only with Pod admin. whereas
-Kubelets communicate with individual pods as well.
-
-HAProxy
-VRRP (Virtual Router Redundancy Protocol)
-http://searchnetworking.techtarget.com/definition/VRRP
-automatically assigns available Internet Protocol routers to participating hosts.
-
-6. communicate
-7. over
-8. Master
-9. ETCD
 
 ## cAdvisor
 
@@ -359,29 +406,6 @@ Kubectl 1.8 scale is now the preferred way to control graceful delete.
 
 Kubectl 1.8 rollout and rollback now support stateful sets ???
 
-
-<a name="kubectl"></a>
-
-## kubectl CLI client install
-
-Running outside Kubernetes servers is <strong>`kubectl`</strong> (kube + ctl), 
-the CLI tool for k8s. It's automatically installed within Google cloud instances.
-
-1. Install on a Mac:
- 
-   <pre><strong>
-   brew install kubectl -y
-   </strong></pre>
-
-   <pre>
-🍺  /usr/local/Cellar/kubernetes-cli/1.8.3: 108 files, 50.5MB
-   </pre>
-
-0. Verify
- 
-   <pre><strong>
-   kubectl version --client
-   </strong></pre>
 
 
 <a name="micro-services"></a>
@@ -839,6 +863,9 @@ Having read several books on Kubernetes, Ivan Fioravanti, writing for Hackernoon
 
 https://run.qwiklab.com/searches/lab?keywords=Build%20a%20Slack%20Bot%20with%20Node.js%20on%20Kubernetes&utm_source=endlab&utm_medium=email&utm_campaign=nextlab
 
+The 8 labs covering 8 hours of the
+<a target="_blank" href="https://webinars-run.qwiklab.com/quests/29">
+Kubernetes in the Google Cloud Qwiklab quest</a>
 
 
 ## References
