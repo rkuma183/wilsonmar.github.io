@@ -21,6 +21,43 @@ comments: true
 This is a hands-on "deep dive" tutorial with commentary along the way, 
 arranged in a sequence to make this complex material easier to understand quickly.
 
+## Why Kubernetes?
+
+![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
+<!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
+
+The beauty of Kubernetes is that it enables each microservice Docker <strong>containers</strong> (such as NginX, Redis, search, etc.) to be instantiated (from <strong>DockerHub</strong> or Quay) into a <strong>"pod"</strong>.
+Multiple container instances can be created in each pod by a <strong>Kublet</strong> which restarts pods when necessary.
+To restart Kublet depends on the operating system (Monit on Debian or systemctl on systemd-based systems).
+
+PROTIP: Kubernetes doesn't do auto-scaling based on demand but does manage the instantiating, starting, stopping, deleting  of a <strong>pre-defined number of nodes</strong> that are joined to the master node by an administrator using the <strong>kubeadm join</strong> command.
+
+The master node itself is crated by the <strong>kubeadm init</strong> command which establishes folders
+and invokes the Kubernetes <strong>API server</strong>. That command is installed along with the 
+<strong>kubectl</strong> package. There is a command with the same name used to obtain the <strong>version</strong>.
+
+The API Server carries out <strong>schedule</strong> based on data stored in an <strong>etcd</strong> cluster.
+
+The <strong>controller</strong> ???
+
+DNS
+
+Each node has a different IP address.
+
+CNI Flannel from GitHub
+
+Kube Proxy 
+
+All the services connect to the internet through <strong>HA Proxy cluster</strong>
+
+cAdvisor pods
+also controlled by the Kublet, which controls all pod creation within each node.
+
+Kubernetes provides <strong>resilience</strong> by treating pods as if they are not intended to live long.
+
+the deployment of pods running within <strong>clusters</strong>.
+
+
 ## Terminology background
 
 Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
@@ -28,17 +65,15 @@ built from Docker <strong>images</strong> in a <strong>binary repository</strong
 The images are built by Docker reading <strong>Dockerfiles</strong> in GitHub or other configuration source repository. 
 
 The name Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
-Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
-such as "Helm".
+Thus the nautical references and why Kubernetes experts are called "captain" and why associated products have nautical themes, such as "Helm".
 
-## Why Kubernetes?
+A Helm chart can be used to <a target="_blank" href="https://skillsmatter.com/skillscasts/10813-faas-and-furious-0-to-serverless-in-60-seconds-anywhere">
+quickly create an OpenFaaS (Serverless) cluster</a> on your laptop.
 
-PROTIP: The magic of Kubernetes is that it frees tightly coupled microservices to run separately (in pods) rather than in a single (monolithic) server.
-
-Kubernetes automates the deployment (creation) of Dockerized apps (microservices) running as Docker <strong>containers</strong> within <strong>pods</strong>. 
-
-![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
-<!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
+   <pre>git clone https://github.com/openfaas/faas-netes && cd faas-netes
+   kubectl apply -f ./namespaces.yml 
+   kubectl apply -f ./yaml_armhf
+   </pre>
 
 Containers are declared by yaml such as this to run Alphine Linux Docker container:
 
@@ -61,10 +96,6 @@ spec:
 
 Containers are co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
 
-The job of Kubernetes is to automatically manage the deployment (instantiating, starting, stopping, deleting) of pods running within <strong>clusters</strong> of <strong>nodes</strong>. 
-
-Pods are not intended to live long. They are created, destroyed and re-created on demand, based on the state of the server and the service itself.
-
 TODO: To communicate with whatever pods are running, a Virtual IP address is used by outside callers.
 K8s has introduced the concept of a service, which is an abstraction on top of a number of pods, typically requiring to run a proxy on top, for 
 This is where you can configure load balancing for your numerous pods and expose them via a service.
@@ -73,15 +104,20 @@ This is where you can configure load balancing for your numerous pods and expose
 
 Read how the legendary Scott Hanselman <a target="_blank" href="https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx"> 
 built Kubernetes on 6 Raspberry Pi nodes</a>, each with a 32GB SD card to a 1GB RAM ARM chip (like on smartphones).
+
+<a target="_blank" href="https://www.hanselminutes.com/612/serverless-and-openfaas-with-alex-ellis">
+Hansel talked with</a>
+<a target="_blank" href="https://www.alexellis.io/">Alex Ellis</a> (<a target="_blank" href="https://twitter.com/alexellisuk/">@alexellisuk</a>)
+keeps his <a target="_blank" href="https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975#file-prep-sh">
+instructions with shell file</a> updated for <a target="_blank" href="https://blog.alexellis.io/serverless-kubernetes-on-raspberry-pi/">running on the Pis</a> to install <a target="_blank" href="https://openfaas.com/">OpenFaaS</a>.
+
 CNCF Ambassador Chris Short developed the
 <a target="_blank" href="https://rak8s.io/"> rak8s (pronounced rackets) library</a> to 
 <a target="_blank" href="https://chrisshort.net/my-raspberry-pi-kubernetes-cluster/">make use of Ansible</a>.
+
 Others:
-   * Alex Ellis keeps his <a target="_blank" href="https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975#file-prep-sh">
-   instructions with shell file</a> updated.
    * https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/
    * https://blog.sicara.com/build-own-cloud-kubernetes-raspberry-pi-9e5a98741b49
-
 
 <a name="Architecture"></a>
 
@@ -91,9 +127,6 @@ Others:
 <img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
 This diagram is referenced throughout this tutorial, particularly in the <a href="#Details">Details section below</a>.
-
-The <strong>Kublet</strong> on each node monitors pods to restart them when necessary.
-To restart Kublet for resilency, use Monit on Debian or systemctl on systemd-based systems.
 
 It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
 animations on his website</a>.
@@ -123,6 +156,7 @@ Other orchestration systems for Docker containers:
 
 * <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
 
+* Rancher
 
 ## Open Sourced
 
@@ -455,8 +489,8 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
    
    ### Deploy Kubernetes master node
 
-1. Deploy the <strong>master node</strong> which controls the other nodes. 
-   So it's <a href="#MasterDeploy"></a>deployed first</a>.
+1. Use this command to deploy the <strong>master node</strong> which controls the other nodes. 
+   So it's <a href="#MasterDeploy">deployed first</a> which invokes the <strong>API Server</strong>
 
    <pre>sudo kubeadm init --pod-network-cidr=10.244.0.0/16</pre>
 
