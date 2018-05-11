@@ -18,8 +18,8 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on tutorial with commentary along the way.
-This is different than other blogs in the sequence of presentation.
+This is a hands-on "deep dive" tutorial with commentary along the way, 
+arranged in a sequence to make this complex material easier to understand quickly.
 
 ## Terminology background
 
@@ -33,26 +33,89 @@ such as "Helm".
 
 ## Why Kubernetes?
 
-Kubernetes automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
-<strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>.
+PROTIP: The magic of Kubernetes is that it frees tightly coupled microservices to run separately (in pods) rather than in a single (monolithic) server.
+
+Kubernetes automates the deployment (creation) of Dockerized apps (microservices) running as Docker <strong>containers</strong> within <strong>pods</strong>. 
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-This diagram is referenced throughout this tutorial.
+Containers are declared by yaml such as this to run Alphine Linux Docker container:
+
+   <pre>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine
+  namespace: default
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+   </pre>
+
+Containers are co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
+
+The job of Kubernetes is to automatically manage the deployment (instantiating, starting, stopping, deleting) of pods running within <strong>clusters</strong> of <strong>nodes</strong>. 
+
+Pods are not intended to live long. They are created, destroyed and re-created on demand, based on the state of the server and the service itself.
+
+TODO: To communicate with whatever pods are running, a Virtual IP address is used by outside callers.
+K8s has introduced the concept of a service, which is an abstraction on top of a number of pods, typically requiring to run a proxy on top, for 
+This is where you can configure load balancing for your numerous pods and expose them via a service.
+
+### Raspberry Pi
+
+Read how the legendary Scott Hanselman <a target="_blank" href="https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx"> 
+built Kubernetes on 6 Raspberry Pi nodes</a>, each with a 32GB SD card to a 1GB RAM ARM chip (like on smartphones).
+CNCF Ambassador Chris Short developed the
+<a target="_blank" href="https://rak8s.io/"> rak8s (pronounced rackets) library</a> to 
+<a target="_blank" href="https://chrisshort.net/my-raspberry-pi-kubernetes-cluster/">make use of Ansible</a>.
+Others:
+   * Alex Ellis keeps his <a target="_blank" href="https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975#file-prep-sh">
+   instructions with shell file</a> updated.
+   * https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/
+   * https://blog.sicara.com/build-own-cloud-kubernetes-raspberry-pi-9e5a98741b49
+
 
 <a name="Architecture"></a>
 
 ### Architecture diagram
 
-<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
 <img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
+This diagram is referenced throughout this tutorial, particularly in the <a href="#Details">Details section below</a>.
+
+The <strong>Kublet</strong> on each node monitors pods to restart them when necessary.
+To restart Kublet for resilency, use Monit on Debian or systemctl on systemd-based systems.
+
+It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+animations on his website</a>.
+
+<a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
+Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
+<small>Click on the diagram to pop-up a full-sized diagram</small>:
+<a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
+<img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
+
+BTW What are now called "nodes" were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
+which refers to nodes differently.
+
+A <strong>kubelet</strong> is the "control pane" that runs on the nodes.
+
+The <strong>kube proxy</strong> redirects traffic.
+
+
+### Competitors
 
 BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
 But this tutorial focuses on Docker.
-
-### Competitors
 
 Other orchestration systems for Docker containers:
 
@@ -102,33 +165,6 @@ with redundancies to achieve high availability (HA).
 Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
 Thus, https://k8s.io also works.
 
-### Support in clouds
-
-Being open-source has enabled Kubernetes to flourish on several clouds.
-
-See <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
-Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
-
-* If you want to pay for Kubernetes,
-<a target="_blank" href="
-https://www.redhat.com/en/technologies/cloud-computing/openshift">
-https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
-Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
-
-* Kops for AWS (at <a target="_blank" href="https://github.com/kubernetes/kops">https://github.com/kubernetes/kops</a>)
-enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
-See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
-"How Qubit built its production ready Kubernetes (k8s) environments"</a>
-
-* <a target="_blank" href="https://aws.amazon.com/eks/">
-Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
-was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
-It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
-
-* <a target="_blank" href="https://blog.digitalocean.com/introducing-digitalocean-kubernetes/">
-   https://blog.digitalocean.com/introducing-digitalocean-kubernetes</a>
-
-PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
 
 ## Social
 
@@ -136,8 +172,8 @@ PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Ac
    * <a target="_blank" href="https://slack.k8s.io">https://slack.k8s.io</a>
    * <a target="_blank" href="https://plus.google.com/communities/115402602543170235291">
    Google+ Group: Kubernetes</a>
+   * https://groups.google.com/forum/#!forum/kubernetes-announce for announcements
    * https://groups.google.com/forum/#!forum/kubernetes-dev for contributors to the Kubernetes project to discuss design and implementation issues.
-
    * https://stackoverflow.com/search?q=k8s+or+kubernetes for developers
    * https://serverfault.com/search?q=k8s+or+kubernetes for sysadmins.
    * https://groups.google.com/forum/#!forum/kubernetes-sig-scale
@@ -157,20 +193,58 @@ PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Ac
 There are several ways to obtain a running instance of Kubernetes,
 listed from easiest to most difficult:
 
-A) "Kubernetes Engine" is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines. It was previously called Google Container Engine (GKE). 
+### Support in clouds
 
-   But one can run k8s containers in other clouds or within private data centers.
+Being open-source has enabled Kubernetes to flourish on several clouds.
 
-A) <a href="#Minikube">Minikube spins up a local environment on your laptop</a>.
+But one can run k8s containers in other clouds or within private data centers.
 
-B) <a href="#Centos">install Kubernetes natively on CentOS</a>.
+#### A) Clouds
 
-C) <a href="#DockerHub">Pull an image from Docker Hub</a> 
+See <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
+Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
+
+* "Kubernetes Engine" is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines. It was previously called Google Container Engine (GKE). 
+
+PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
+
+* If you want to pay for Kubernetes support, <a target="_blank" href="
+https://www.redhat.com/en/technologies/cloud-computing/openshift">
+https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
+Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
+
+* Kops for AWS (at <a target="_blank" href="https://github.com/kubernetes/kops">https://github.com/kubernetes/kops</a>)
+enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
+See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
+"How Qubit built its production ready Kubernetes (k8s) environments"</a>
+
+* <a target="_blank" href="https://aws.amazon.com/eks/">
+Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
+was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
+It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
+
+* <a target="_blank" href="https://blog.digitalocean.com/introducing-digitalocean-kubernetes/">
+   https://blog.digitalocean.com/introducing-digitalocean-kubernetes</a>
+
+* Madcore.ai
+
+Other hosted solutions include the IBM cloud container service, Stackpoint, AppCode, KUBE2GO, MadCore, Platform 9, OpenShift Dedicated, OpenShift Online, Giant Swarm, etc.
+
+
+#### Minikube offline
+
+B) <a href="#Minikube">Minikube spins up a local environment on your laptop</a>.
+
+   NOTE: Ubuntu on LXD offers a 9-instance Kubernetes cluster on localhost.
+
+   PROTIP: CAUTION your laptop going to sleep may ruin minikube.
+
+#### Server install
+
+C) <a href="#Centos">install Kubernetes natively on CentOS</a>.
+
+D) <a href="#DockerHub">Pull an image from Docker Hub</a> 
    within a Google Compute or AWS cloud instance.
-
-C) <a href="#Dockerfile">Use a Dockerfile to build your own Docker image containing Kubernetes</a>.
-
-E) <a href="#BinaryInstall">Download installer to install locally</a>.
 
 CAUTION: If you are in a large enterprise, confer with your security team before 
 installing. They often have a repository such as Artifactory or Nexus where
@@ -191,19 +265,17 @@ and includes a node and a Master when it spins up in a local environment (such a
 CAUTION: At time of writing, <a target="_blank" href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a>
 has 257 issues and 20 pending Pull Requests.
 
-1. Install on a Mac:
+1. Install on a Mac Docker:
  
    <pre><strong>
    brew install docker-machine-driver-xhyve
    </strong></pre>
 
-   Also:
+1. Install on a Mac Minikube:
 
    <pre><strong>
    brew install minikube -y
    </strong></pre>
-
-   BLAH: On Nov 9, 2017 I got an error message doing the above.
 
 2. Verify if it can be invoked:
 
@@ -252,8 +324,9 @@ has 257 issues and 20 pending Pull Requests.
 
    ### kubectl CLI client install
 
-   Running outside Kubernetes servers is <strong>`kubectl`</strong> (kube + ctl), 
-   the CLI tool for k8s. It's automatically installed within Google cloud instances.
+   Kubernetes administrators use the <strong>`kubectl`</strong> (kube + ctl)
+   the CLI tool running outside Kubernetes servers to control them. 
+   It's automatically installed within Google cloud instances, but on Macs clients:
 
 1. Install on a Mac:
  
@@ -276,6 +349,32 @@ has 257 issues and 20 pending Pull Requests.
    <pre>
 Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCommit:"d4ab47518836c750f9949b9e0d387f20fb92260b", GitTreeState:"clean", BuildDate:"2018-04-13T22:27:55Z", GoVersion:"go1.9.5", Compiler:"gc", Platform:"darwin/amd64"}
    </pre>
+
+
+   ### API Server
+
+   kubectl communicates using REST API commands to the Kubernetes "API Server" which in turn executes the bound business logic. There are several kinds of API calls: Pod, jobs, etc.???
+
+   yaml files ???
+
+   API primatives ???
+
+   1. Check the status of the job using the kubectl describe command.
+
+   2. When a job is complete, view its results by using the kubectl logs command on the appropriate pod.
+
+   <a name="etcd"></a>
+
+   ### etcd
+
+   The API server persists data through the <strong>etcd</strong>, a simple, distributed, consistent key-value store. 
+   
+   For resiliancy, etcd replicates data across nodes. This is why there is a minimum of two worker nodes per cluster.
+   
+   It’s mainly used for shared configuration and service discovery.
+   It provides a REST API for CRUD operations as well as an interface to register watchers on specific nodes, which enables a reliable way to notify the rest of the cluster about configuration changes.
+
+   An example of data stored by Kubernetes in etcd is jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information, etc.
 
 <a name="Centos"></a>
 
@@ -340,16 +439,9 @@ EOF
 
 ## Details
 
-This section explains the <a href="#Architecture">architecture diagram above</a>.
-
-What are now called "nodes" were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
-which refers to nodes differently.
+This section further explains the <a href="#Architecture">architecture diagram above</a>.
 
 <!-- https://linuxacademy.com/cp/guides/download/refsheets/guides/refsheets/linuxacademy-kubernetesadmin-archdiagrams-1_1516737832.pdf -->
-
-A <strong>Master node</strong> controls the other nodes. There is a two node minimum.
-
-A kubelet is the control pane that runs on the nodes.
 
 As described by the <a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
 Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) provides <a target="_blank" href="https://linuxacademy.com/cp/exercises/view/id/670/module/155">this sequence of commands</a>
@@ -359,9 +451,12 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 1. Login that server (user/123456).
 1. Change the password as prompted on the Ubuntu 16.04.3 server.
 
+   <a name="MasterDeploy"></a>
+   
    ### Deploy Kubernetes master node
 
-1. Deploy the <strong>master node</strong>:
+1. Deploy the <strong>master node</strong> which controls the other nodes. 
+   So it's <a href="#MasterDeploy"></a>deployed first</a>.
 
    <pre>sudo kubeadm init --pod-network-cidr=10.244.0.0/16</pre>
 
@@ -369,12 +464,25 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 
    The address is the default for Flannel.
 
+   PROTIP: Kubernetes uses third-party services to handle load balancing and port forwarding through 
+   <strong>ingress objects</strong> managed by an ingress controller.
+
+   <a name="FlowDiagram"></a>
+
+   ### Flow diagram
+
+   ![k8s-services-flow-847x644-100409](https://user-images.githubusercontent.com/300046/33525135-9b69e09a-d7e6-11e7-857f-513e8582d450.jpg)
+
+   The diagram above is by <a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
+   title="Kubernetes Workshop published Aug 4, 2017">Walter Liu</a>
+
+   Flannel is also widely used outside of Kubernetes. 
+
    ### Flannel 
 
    CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
    sets up <a target="_blank" href="https://github.com/coreos/flannel">
-   Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. configures a IPv4 "layer 3" network fabric designed for Kubernetes.
-   between multiple nodes in a cluster. Flannel is also widely used outside of Kubernetes. 
+   Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. It configures a IPv4 "layer 3" network fabric designed for Kubernetes.
 
    The response suggests several commands:
 
@@ -414,17 +522,15 @@ daemonset "kube-flannel.ds" created
    <a href="#kubectl">kubectl command-line client program</a>
    that controls the <strong>Kubernetes Master</strong> node.
 
-   The program talks to the <strong>Kubernetes API Server</strong>.
-
-   The API Server and Scheduler stores data in an <a href="#ETCD">ETCD Cluster</a>.
+   The program talks to the <strong>Kubernetes API Service</strong>.
+   The Server gets Scheduler ???
+   They both persist data in an <a href="#ETCD">ETCD Cluster</a>.
 
    PROTIP: When deployed outside of Kubernetes, <strong>etcd</strong> (etc daemon) is always used as the datastore.
 
    The Kube Proxy communicates only with Pod admin. whereas Kubelets communicate with individual pods as well.
 
    Each node has a Flannel and a proxy.
-
-   The Server gets Scheduler ???
 
    The Server obtains from Controller Manager ???
 
@@ -455,6 +561,45 @@ daemonset "kube-flannel.ds" created
 
    <pre>kubectl get events --sort-by='.metadata.creationTimestamp'</pre>
 
+1. Create the initial log file so that Docker mounts a file instead of a directory:
+
+   <pre>
+   touch /var/log/kube-appserver.log
+   </pre>
+
+1. Create in each node a folder:
+
+   <pre>
+   mkdir /srv/kubernetes
+   </pre>
+
+1. Put in that folder (in each node):
+
+   * basic_auth.csv user and password
+   * ca.crt - the certificate authority certificate
+   * known_tokens.csv kublets use to talk to the apiserver
+   * kubecfg.crt - client cert public key
+   * kubecfg.key - client cert private key
+   * server.cert - server cert public key
+   * server.key - server cert private key
+   <br /><br />
+
+1. Copy from API server to each master node:
+
+   <pre><strong>
+   cp kube-apiserver.yaml  /etc/kubernetes/manifests/
+   </strong></pre>
+
+   The kublet compares its contents to make it so, uses the manifests folder to create kube-apiserver instances.
+
+1. For details about each pod:
+
+   <pre><strong>
+   kubectl describe pods
+   </strong></pre>
+
+<hr />
+
    ### Volumes
    
    Containers also share attached data <strong>volumes</strong> available within each Pod.
@@ -465,11 +610,6 @@ daemonset "kube-flannel.ds" created
    VRRP (Virtual Router Redundancy Protocol)
    http://searchnetworking.techtarget.com/definition/VRRP
    automatically assigns available Internet Protocol routers to participating hosts.
-
-6. communicate
-7. over
-8. Master
-9. ETCD
 
 A Persistent Volume (PV) is a provisioned block of storage for use by the cluster. 
 
@@ -494,32 +634,7 @@ cAdvisor https://github.com/google/cadvisor
 (Container Advisor) collects, aggregates, processes, and exports information about running containers in order to
 provide container admins an understanding of the resource usage and performance characteristics of their running containers.
 
-## Detail
-
-<a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
-Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
-<small>Click on the diagram to pop-up a full-sized diagram</small>:
-<a target="_blank" title="k8s_details-ruo91-2071x2645.png" href="https://user-images.githubusercontent.com/300046/33525160-4dc5931a-d7e7-11e7-8b83-9e373fc5ac7d.png">
-<img alt="k8s_details-ruo91-350x448.jpg" src="https://user-images.githubusercontent.com/300046/33525167-7a5d3b9e-d7e7-11e7-8dd6-99694dc31782.jpg"></a>
-
-<a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
-title="Kubernetes Workshop published Aug 4, 2017 by Walter Liu">
-This diagram</a>
-![k8s-services-flow-847x644-100409](https://user-images.githubusercontent.com/300046/33525135-9b69e09a-d7e6-11e7-857f-513e8582d450.jpg)
-
-* <a href="#IAC">Infrastructure as code</a>
-* Manage containers
-* Naming and discovery
-* Mounting storage systems
-* Balancing loads
-* Rolling updates
-* Distributing secrets/config
-* Checking application health
-* Monitoring resources
-* Accessing and ingesting logs
-* Replicating application instances
-* Horizontal autoscaling
-* Debugging applications
+## Activities
 
 1. To drain a node out of service temporarily for maintenance:
 
@@ -604,7 +719,8 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 
    * frontend.conf
    * proxy.conf
-
+   <br /><br />
+   
    These are explained in detail at https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-14-04-droplet
 
    ### SSL keys
@@ -685,18 +801,6 @@ From the https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
    * proxy load balances across all pods in a service
    * scheduler watches api server for new pods to assign work to new pods
    <br /><br />
-
-0. List app pods in the default namespace:
-
-   <pre><strong>
-   kubectl get nodes
-   </strong></pre>
-
-0. For more details:
-
-   <pre><strong>
-   kubectl describe pods
-   </strong></pre>
 
 
 <a name="Manifest"></a>
@@ -988,6 +1092,21 @@ The 8 labs covering 8 hours of the
 <a target="_blank" href="https://webinars-run.qwiklab.com/quests/29">
 Kubernetes in the Google Cloud Qwiklab quest</a>
 
+## Topics
+
+* <a href="#IAC">Infrastructure as code</a>
+* Manage containers
+* Naming and discovery
+* Mounting storage systems
+* Balancing loads
+* Rolling updates
+* Distributing secrets/config
+* Checking application health
+* Monitoring resources
+* Accessing and ingesting logs
+* Replicating application instances
+* Horizontal autoscaling
+* Debugging applications
 
 ## References
 
@@ -998,6 +1117,10 @@ by Adron Hall:
 
    * <a target="_blank" href="http://blog.adron.me/articles/setting-up-gcp-container-cluster/">
    Setting up a GCP Container Cluster - Part I</a> January 31, 2017.
+
+Julia Evans
+
+   * https://jvns.ca/categories/kubernetes/
 
 Drone.io
 
