@@ -27,8 +27,6 @@ Kubernetes is called an "orchestrator" of various <a href="#micro-services">micr
 built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
 The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
 
-Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
-
 Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
 Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
 such as "Helm".
@@ -55,9 +53,9 @@ A key Borg character is called <a target="_blank" href="https://en.wikipedia.org
 
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
-<a target="_blank" href="https://www.cncf.io/">CNCF</a> (Cloud Native Computing Foundation).
+Cloud Native Computing Foundation</a> (<a target="_blank" href="https://www.cncf.io/">cncf.io</a>).
 On November 8, 2016 CNCF announced their 
-<a target="_blank" href="https://www.cncf.io/certification/expert/cka/">3-hour essay-based Certified Kubernetes Administrator (CKA)</a> and 2-hour Developer (CKAD) exams. Each costs $300.
+<a target="_blank" href="https://www.cncf.io/certification/expert/">3-hour task-based Certified Kubernetes Administrator (CKA)</a> and 2-hour Application Developer (CKAD) exams. Each costs $300, taken using their Chrome extension from "Innovative Exams".
 
 1. Get an account at <a target="_blank" href="https://identity.linuxfoundation.org/">
    https://identity.linuxfoundation.org</a>
@@ -74,6 +72,9 @@ On November 8, 2016 CNCF announced their
 
 K8s' Google heritage means Kubernetes is about scaling for a lot of traffic
 with redundancies to achieve high availability (HA).
+
+Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
+Thus, https://k8s.io also works.
 
 ## Competitors
 
@@ -122,12 +123,12 @@ A) "Kubernetes Engine" is a container management SaaS product running within the
 
 A) <a href="#Minikube">Minikube spins up a local environment on your laptop</a>.
 
-B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
+B) <a href="#Centos">install Kubernetes natively on CentOS</a>.
+
+C) <a href="#DockerHub">Pull an image from Docker Hub</a> 
    within a Google Compute or AWS cloud instance.
 
 C) <a href="#Dockerfile">Use a Dockerfile to build your own Docker image containing Kubernetes</a>.
-
-D) <a href="Homebrew">Use Homebrew to install Kubernetes natively on you Mac</a>.
 
 E) <a href="#BinaryInstall">Download installer to install locally</a>.
 
@@ -165,6 +166,14 @@ has 257 issues and 20 pending Pull Requests.
 
    <pre>minikube version</pre>
 
+3. Show the current context:
+
+   <pre><strong>
+   kubectl config current-context
+   <pre><strong>
+
+   The response on minikube is that.
+
 3. Start the service:
 
    On Mac:
@@ -191,17 +200,17 @@ has 257 issues and 20 pending Pull Requests.
 
    <pre>minikube delete</pre>
 
-Kubectl 1.8 scale is now the preferred way to control graceful delete.
+   Kubectl 1.8 scale is now the preferred way to control graceful delete.
 
-Kubectl 1.8 rollout and rollback now support stateful sets ???
+   Kubectl 1.8 rollout and rollback now support stateful sets ???
 
 
-<a name="kubectl"></a>
+   <a name="kubectl"></a>
 
-## kubectl CLI client install
+   ### kubectl CLI client install
 
-Running outside Kubernetes servers is <strong>`kubectl`</strong> (kube + ctl), 
-the CLI tool for k8s. It's automatically installed within Google cloud instances.
+   Running outside Kubernetes servers is <strong>`kubectl`</strong> (kube + ctl), 
+   the CLI tool for k8s. It's automatically installed within Google cloud instances.
 
 1. Install on a Mac:
  
@@ -225,6 +234,63 @@ the CLI tool for k8s. It's automatically installed within Google cloud instances
 Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCommit:"d4ab47518836c750f9949b9e0d387f20fb92260b", GitTreeState:"clean", BuildDate:"2018-04-13T22:27:55Z", GoVersion:"go1.9.5", Compiler:"gc", Platform:"darwin/amd64"}
    </pre>
 
+<a name="Centos"></a>
+
+### CentOS
+
+   <pre>
+cat &LT; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+   </pre>
+   Also:
+   <pre>
+cat <  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+   </pre>
+
+<a name="Ubuntu"></a>
+
+### Ubuntu
+
+1. On Ubuntu, install:
+
+   <pre>apt install -y docker.io</pre>
+
+2. To make sure Docker and Kublet are using the same systemd driver:
+
+   <pre>cat &LT;&LT;EOF >/etc/docker/daemon.json
+   {
+     "exec-opts": ["native.cgroupdriver=systemd"]
+   }
+   EOF</pre>
+
+3. Install the keys:
+
+   <pre>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -</pre>
+
+4. sources:
+
+   <pre>cat &LT;&LT;EOF >/etc/apt/sources.list.d/kubernetes.list
+   &LT;deb http://apt.kubernetes.io/ kubernetes-xenial main
+   &LT;EOF</pre>
+
+5. To download new sources:
+
+   <pre>apt update</pre>
+
+6. To download the programs:
+
+   <pre>apt install -y kubelet kubeadm kubectl</pre>
+
 
 ## Create Kub cluster
 
@@ -239,6 +305,8 @@ which refers to nodes differently.
 
 A <strong>Master node</strong> controls the other nodes. There is a two node minimum.
 
+A kubelet is the control pane that runs on the nodes.
+
 As described by the <a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
 Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) provides <a target="_blank" href="https://linuxacademy.com/cp/exercises/view/id/670/module/155">this sequence of commands</a>
 
@@ -249,7 +317,7 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 
    ### Deploy Kubernetes master node
 
-1. Deploy Kubernetes master node with command 
+1. Deploy the <strong>master node</strong>:
 
    <pre>sudo kubeadm init --pod-network-cidr=10.244.0.0/16</pre>
 
@@ -274,11 +342,11 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 
    <pre>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</pre>
 
-1. Make it owned by "501:20":
+1. Give ownership of "501:20":
 
    <pre>sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre>
 
-1. Apply it:
+1. Make use of CNI:
 
    <pre>sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube.flannel.yml</pre>
 
@@ -310,14 +378,19 @@ daemonset "kube-flannel.ds" created
 
    The Kube Proxy communicates only with Pod admin. whereas Kubelets communicate with individual pods as well.
 
+   Each node has a Flannel and a proxy.
+
    The Server gets Scheduler ???
 
    The Server obtains from Controller Manager ???
 
 1. Switch to the webpage of servers to Login to the next server.
-1. Join the node to the master by pasting in the command captured earlier:
+1. Be root with <tt>sudo -i</tt> and provide the password.
+1. Join the node to the master by pasting in the command captured earlier, as root:
 
    <pre>kubeadm join --token ... 172.31.21.55:6443 --discovery-token-ca-cert-hash sha256:...</pre>
+
+   Note the above is one long command. So you may need to use a text editor.
 
    Deployments manage Pods. 
 
@@ -334,7 +407,9 @@ daemonset "kube-flannel.ds" created
 
    <pre><strong>kubectl get nodes</strong></pre>
 
+1. To get list of events sorted by timestamp:
 
+   <pre>kubectl get events --sort-by='.metadata.creationTimestamp'</pre>
 
    ### Volumes
    
@@ -351,6 +426,20 @@ daemonset "kube-flannel.ds" created
 7. over
 8. Master
 9. ETCD
+
+A Persistent Volume (PV) is a provisioned block of storage for use by the cluster. 
+
+A Persistent Volume Claim (PVC) is a request for that storage by a user, and once granted, is 
+used as a "claim check" for 
+
+Recycling policies are Retain (keep the contents) and Recycle (Scrub the contents).
+
+
+### Deploy service
+
+To deploy a service:
+
+   <pre>kubectl expose deployment *deployment-name* [options]</pre>
 
 ### Support in clouds
 
@@ -412,7 +501,17 @@ This diagram</a>
 * Debugging applications
 
 
+1. To take a node out of service temporarily for maintenance:
 
+   <pre>kubectl drain student3.mylabserver.com --ignore-daemonsets</pre>
+
+   daemonsets (ds)
+
+   Usually for system services or other pods that need to physically reside on every node in the cluster, such as for network services. They can also be deployed only to certain nodes using labels and node selectors.
+
+1. To return to service:
+
+   <pre>kubectl uncordon student3.mylabserver.com</pre>
 
 <a name="micro-services"></a>
 
@@ -518,13 +617,6 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    * monolith.yaml
 
    Label
-
-   ### Current context
-
-   <pre><strong>
-   kubectl config current-context
-   <pre><strong>
-
 
 <a name="GKE"></a>
 
@@ -822,16 +914,16 @@ etcd is a simple, distributed, consistent key-value store.
 
 ### CNI
 
-The Controller Network Interface is installed using 
+The Controller Network Interface (CNI) is installed using 
 basic cbr0 using the bridge and host-local CNI plugins.
-
-https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/
 
 The CNI plugin is selected by passing Kubelet the command-line option:
 
    <pre>
    --network-plugin=cni 
    </pre>
+
+See https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/
 
 
 ## Learning resources
