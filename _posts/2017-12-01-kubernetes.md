@@ -41,9 +41,6 @@ K8s automates the deployment (creation) of Dockerized apps running as <strong>co
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-Nodes were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
-which refers to nodes differently.
-
 BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
 But this tutorial focuses on Docker.
 
@@ -111,6 +108,94 @@ Conferences:
    * <a target="_blank" href="https://www.KubeCon.io">KubeCon.io</a (<a target="_blank" href="https://www.twitter.com/KubeConio/">#KubeConio</a>)
 
 
+
+<a name="Install"></a>
+
+## Installation options
+
+There are several ways to obtain a running instance of Kubernetes,
+listed from easiest to most difficult:
+
+A) "Kubernetes Engine" is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines. It was previously called Google Container Engine (GKE). 
+
+   But one can run k8s containers in other clouds or within private data centers.
+
+A) <a href="#Minikube">Minikube spins up a local environment on your laptop</a>.
+
+B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
+   within a Google Compute or AWS cloud instance.
+
+C) <a href="#Dockerfile">Use a Dockerfile to build your own Docker image containing Kubernetes</a>.
+
+D) <a href="Homebrew">Use Homebrew to install Kubernetes natively on you Mac</a>.
+
+E) <a href="#BinaryInstall">Download installer to install locally</a>.
+
+CAUTION: If you are in a large enterprise, confer with your security team before 
+installing. They often have a repository such as Artifactory or Nexus where
+installers are available after being vetted and perhaps patched
+for security vulnerabilities.
+
+
+<a name="Minikube"></a>
+
+### Minikube
+
+Minikube goes beyond Docker For Mac (DFM) and Docker for Windows (DFW)
+and includes a node and a Master when it spins up in a local environment (such as your laptop).
+
+CAUTION: At time of writing, <a target="_blank" href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a>
+has 257 issues and 20 pending Pull Requests.
+
+1. Install on a Mac:
+ 
+   <pre><strong>
+   brew install docker-machine-driver-xhyve
+   </strong></pre>
+
+   Also:
+
+   <pre><strong>
+   brew install minikube -y
+   </strong></pre>
+
+   BLAH: On Nov 9, 2017 I got an error message doing the above.
+
+2. Verify if it can be invoked:
+
+   <pre>minikube version</pre>
+
+3. Start the service:
+
+   On Mac:
+
+   <pre>
+   minikube start --vm-driver=xhyve
+   </pre>
+
+   On Windows:
+
+   <pre>
+   minikube start --vm-driver=hyperv
+   </pre>
+
+3. Dashboard
+
+   <pre>minikube dashboard</pre>
+
+4. Stop the service:
+
+   <pre>minikube stop</pre>
+
+5. Recover space:
+
+   <pre>minikube delete</pre>
+
+Kubectl 1.8 scale is now the preferred way to control graceful delete.
+
+Kubectl 1.8 rollout and rollback now support stateful sets ???
+
+
 <a name="kubectl"></a>
 
 ## kubectl CLI client install
@@ -147,10 +232,15 @@ Click on the diagram below for an animation of how the various aspects of Kubern
 <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
 <img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
-A <strong>Master node</strong> controls the other nodes.
+What are now called "nodes" were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
+which refers to nodes differently.
+
+<!-- https://linuxacademy.com/cp/guides/download/refsheets/guides/refsheets/linuxacademy-kubernetesadmin-archdiagrams-1_1516737832.pdf -->
+
+A <strong>Master node</strong> controls the other nodes. There is a two node minimum.
 
 As described by the <a target="_blank" href="https://linuxacademy.com/cp/modules/view/id/155">
-Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) -- 
+Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="_blank" href="https://twitter.com/OpenChad/">@OpenChad</a>) provides <a target="_blank" href="https://linuxacademy.com/cp/exercises/view/id/670/module/155">this sequence of commands</a>
 
 1. Select "CloudNativeKubernetes" sandboxes.
 1. Select the first instance as the "Kube Master".
@@ -236,7 +326,9 @@ daemonset "kube-flannel.ds" created
 
    Every <strong>container</strong> has its own unique <strong>port number</strong> within its pod's IP.
 
-1. Switch to the webpage of servers to Login to the 3rd server.
+   ![kubernetes-ports-381x155-19677](https://user-images.githubusercontent.com/300046/39901343-1484c54c-5485-11e8-8a2d-2681f819c4ce.jpg)
+
+1. Switch to the webpage of servers to Login to the 3rd server. 
 1. Again Join the node to the master by pasting in the command captured earlier:
 1. Get the list of nodes:
 
@@ -319,92 +411,6 @@ This diagram</a>
 * Horizontal autoscaling
 * Debugging applications
 
-
-<a name="Install"></a>
-
-## Options for deployment
-
-There are several ways to obtain a running instance of Kubernetes,
-listed from easiest to most difficult:
-
-A) "Kubernetes Engine" is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines. It was previously called Google Container Engine (GKE). 
-
-   But one can run k8s containers in other clouds or within private data centers.
-
-A) <a href="#Minikube">Minikube spins up a local environment on your laptop</a>.
-
-B) <a href="#DockerHub">Pull an image from Docker Hub</a> 
-   within a Google Compute or AWS cloud instance.
-
-C) <a href="#Dockerfile">Use a Dockerfile to build your own Docker image containing Kubernetes</a>.
-
-D) <a href="Homebrew">Use Homebrew to install Kubernetes natively on you Mac</a>.
-
-E) <a href="#BinaryInstall">Download installer to install locally</a>.
-
-CAUTION: If you are in a large enterprise, confer with your security team before 
-installing. They often have a repository such as Artifactory or Nexus where
-installers are available after being vetted and perhaps patched
-for security vulnerabilities.
-
-
-<a name="Minikube"></a>
-
-### Minikube
-
-Minikube goes beyond Docker For Mac (DFM) and Docker for Windows (DFW)
-and includes a node and a Master when it spins up in a local environment (such as your laptop).
-
-CAUTION: At time of writing, <a target="_blank" href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a>
-has 257 issues and 20 pending Pull Requests.
-
-1. Install on a Mac:
- 
-   <pre><strong>
-   brew install docker-machine-driver-xhyve
-   </strong></pre>
-
-   Also:
-
-   <pre><strong>
-   brew install minikube -y
-   </strong></pre>
-
-   BLAH: On Nov 9, 2017 I got an error message doing the above.
-
-2. Verify if it can be invoked:
-
-   <pre>minikube version</pre>
-
-3. Start the service:
-
-   On Mac:
-
-   <pre>
-   minikube start --vm-driver=xhyve
-   </pre>
-
-   On Windows:
-
-   <pre>
-   minikube start --vm-driver=hyperv
-   </pre>
-
-3. Dashboard
-
-   <pre>minikube dashboard</pre>
-
-4. Stop the service:
-
-   <pre>minikube stop</pre>
-
-5. Recover space:
-
-   <pre>minikube delete</pre>
-
-Kubectl 1.8 scale is now the preferred way to control graceful delete.
-
-Kubectl 1.8 rollout and rollback now support stateful sets ???
 
 
 
