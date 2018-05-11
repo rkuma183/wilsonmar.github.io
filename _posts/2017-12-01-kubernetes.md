@@ -25,22 +25,41 @@ This is different than other blogs in the sequence of presentation.
 
 Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
 built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
-The images are built by Docker reading <strong>Dockerfiles</strong> in a configuration source repository such as GitHub. 
+The images are built by Docker reading <strong>Dockerfiles</strong> in GitHub or other configuration source repository. 
 
-Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
+The name Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
 Thus the nautical references and why k8s experts are called "captain" and why associated products have nautical themes,
 such as "Helm".
 
 ## Why Kubernetes?
 
-K8s automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
+Kubernetes automates the deployment (creation) of Dockerized apps running as <strong>containers</strong> within 
 <strong>pods</strong> arranged in <strong>clusters</strong> of <strong>nodes</strong>.
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
+This diagram is referenced throughout this tutorial.
+
+<a name="Architecture"></a>
+
+### Architecture diagram
+
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+
+
 BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
 But this tutorial focuses on Docker.
+
+### Competitors
+
+Other orchestration systems for Docker containers:
+
+* Docker Swarm
+
+* <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
+
 
 ## Open Sourced
 
@@ -53,14 +72,19 @@ A key Borg character is called <a target="_blank" href="https://en.wikipedia.org
 
 Kubernetes was created inside Google (using the [Golang](/Golang/) programming language)
 and used for over a decade before being open-sourced in 2014 to the 
-Cloud Native Computing Foundation</a> (<a target="_blank" href="https://www.cncf.io/">cncf.io</a>).
+Cloud Native Computing Foundation (<a target="_blank" href="https://www.cncf.io/">cncf.io</a>).
+
+### Skill certifications
+
 On November 8, 2016 CNCF announced their 
-<a target="_blank" href="https://www.cncf.io/certification/expert/">3-hour task-based Certified Kubernetes Administrator (CKA)</a> and 2-hour Application Developer (CKAD) exams. Each costs $300, taken using their Chrome extension from "Innovative Exams".
+<a target="_blank" href="https://www.cncf.io/certification/expert/">3-hour task-based Certified Kubernetes Administrator (CKA)</a> and 2-hour Application Developer (CKAD) exams. Each costs $300, taken <a target="_blank" href="http://www.examslocal.com/linuxfoundation/"> at home</a> using their Chrome extension from "Innovative Exams", which uses your laptop camera and microphone watching you use a virtual Ubuntu machine. No multiple choice questions.
+
+CNCF is part of the Linux Foundation. It's a non-profit organization, thus the ".org".
 
 1. Get an account at <a target="_blank" href="https://identity.linuxfoundation.org/">
    https://identity.linuxfoundation.org</a>
 
-   The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
+   PROTIP: The word "Kubernetes" is a registered trademark of the Linux Foundation, which maintains the website
    <a target="_blank" href="https://kubernetes.io">https://kubernetes.io</a> and
    source code at <a target="_blank" href="https://github.com/kubernetes/kubernetes">
    https://github.com/kubernetes/kubernetes</a>
@@ -70,22 +94,41 @@ On November 8, 2016 CNCF announced their
    * v1.7 was led by Google.
    * v1.8 is led by a Microsoft employee (<a target="_blank" href="https://twitter.com/jaydumars?lang=en">Jaice Singer DuMars</a>) after Microsoft joined the CNCF July 2017.
 
-K8s' Google heritage means Kubernetes is about scaling for a lot of traffic
+2. Use your Linux Foundation credentials to sign-in at <a target="_blank" href="https://www.examslocal.com/">examslocal.com</a> to register for the exams.
+
+Its Google heritage means Kubernetes is about scaling for a lot of traffic
 with redundancies to achieve high availability (HA).
 
 Kubernetes is often abbreviated as "k8s", with 8 replacing the number of characters between k and s.
 Thus, https://k8s.io also works.
 
-## Competitors
+### Support in clouds
 
-See <a target="_blank" href="https://kubernetes.io/docs/setup/pick-right-solution/">
-https://kubernetes.io/docs/setup/pick-right-solution</a>
+Being open-source has enabled Kubernetes to flourish on several clouds.
 
-Other orchestration systems for Docker containers:
+See <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
+Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
 
-* Docker Swarm
+* If you want to pay for Kubernetes,
+<a target="_blank" href="
+https://www.redhat.com/en/technologies/cloud-computing/openshift">
+https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
+Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
 
-* <a target="_blank" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=en&rurl=translate.google.com&sl=ko&sp=nmt4&tl=en&u=https://www.yongbok.net/blog/apache-mesos-cluster-resource-management/&usg=ALkJrhjiggTWHQtSdhkl8jOvGnAx43NIQw">Mesos from Apache</a>, which runs other containers in addition to Docker. K8SM is a Mesos Framework developed for Apache Mesos to use Google's Kubernetes. <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/how-to-install-kubernetes-mesos-framework-on-ubuntu/">Installation</a>.
+* Kops for AWS (at <a target="_blank" href="https://github.com/kubernetes/kops">https://github.com/kubernetes/kops</a>)
+enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
+See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
+"How Qubit built its production ready Kubernetes (k8s) environments"</a>
+
+* <a target="_blank" href="https://aws.amazon.com/eks/">
+Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
+was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
+It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
+
+* <a target="_blank" href="https://blog.digitalocean.com/introducing-digitalocean-kubernetes/">
+   https://blog.digitalocean.com/introducing-digitalocean-kubernetes</a>
+
+PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
 
 ## Social
 
@@ -104,10 +147,7 @@ Other orchestration systems for Docker containers:
    * https://cloud.google.com/support/docs/issue-trackers to report bugs
    <br /><br />
 
-Conferences:
-
-   * <a target="_blank" href="https://www.KubeCon.io">KubeCon.io</a (<a target="_blank" href="https://www.twitter.com/KubeConio/">#KubeConio</a>)
-
+   * <a target="_blank" href="https://www.KubeCon.io">KubeCon.io</a> Conferences (<a target="_blank" href="https://www.twitter.com/KubeConio/">#KubeConio</a>)
 
 
 <a name="Install"></a>
@@ -136,6 +176,9 @@ CAUTION: If you are in a large enterprise, confer with your security team before
 installing. They often have a repository such as Artifactory or Nexus where
 installers are available after being vetted and perhaps patched
 for security vulnerabilities.
+
+See <a target="_blank" href="https://kubernetes.io/docs/setup/pick-right-solution/">
+https://kubernetes.io/docs/setup/pick-right-solution</a>
 
 
 <a name="Minikube"></a>
@@ -291,12 +334,13 @@ EOF
 
    <pre>apt install -y kubelet kubeadm kubectl</pre>
 
+<hr />
 
-## Create Kub cluster
+<a name="Details"></a>
 
-Click on the diagram below for an animation of how the various aspects of Kubernetes fit together:
-<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+## Details
+
+This section explains the <a href="#Architecture">architecture diagram above</a>.
 
 What are now called "nodes" were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
 which refers to nodes differently.
@@ -441,31 +485,8 @@ To deploy a service:
 
    <pre>kubectl expose deployment *deployment-name* [options]</pre>
 
-### Support in clouds
 
-* For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
-
-* If you want to pay for Kubernetes,
-<a target="_blank" href="
-https://www.redhat.com/en/technologies/cloud-computing/openshift">
-https://www.redhat.com/en/technologies/cloud-computing/openshift</a>
-Red Hat® OpenShift is a container application platform that brings Docker and Kubernetes to the enterprise. 
-
-* <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
-Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
-
-* Kops for AWS (at <a target="_blank" href="https://github.com/kubernetes/kops">https://github.com/kubernetes/kops</a>)
-enables multi-master, multi-AZ cluster setup and management of multiple instance groups.
-See <a target="_blank" title="Oct 27, 2017 by Tristan Colgate-McFarlane" href="https://medium.com/qubit-engineering/kubernetes-up-integrated-authentication-5d2c908c2810">
-"How Qubit built its production ready Kubernetes (k8s) environments"</a>
-
-* <a target="_blank" href="https://aws.amazon.com/eks/">
-Amazon Elastic Container Service for Kubernetes (Amazon EKS)</a>
-was introduced December 2017 to run three Kubernetes masters across three Availability Zones in order to ensure high availability. EKS automatically detects and replaces unhealthy masters, and provides automated version upgrades and patching for the masters. So you don't have to choose appropriate instance types.
-It of course leverages AWS Elastic Load Balancing, IAM authentication, Amazon VPC isolation, AWS PrivateLink access, and AWS CloudTrail logging. 
-
-* https://blog.digitalocean.com/introducing-digitalocean-kubernetes/
-
+<a name="cAdvisor"></a>
 
 ## cAdvisor
 
@@ -500,18 +521,20 @@ This diagram</a>
 * Horizontal autoscaling
 * Debugging applications
 
+1. To drain a node out of service temporarily for maintenance:
 
-1. To take a node out of service temporarily for maintenance:
+   <pre>kubectl drain node3.mylabserver.com --ignore-daemonsets</pre>
 
-   <pre>kubectl drain student3.mylabserver.com --ignore-daemonsets</pre>
+   ### DaemonSets
 
-   daemonsets (ds)
+   daemonsets (ds) 
 
    Usually for system services or other pods that need to physically reside on every node in the cluster, such as for network services. They can also be deployed only to certain nodes using labels and node selectors.
 
 1. To return to service:
 
-   <pre>kubectl uncordon student3.mylabserver.com</pre>
+   <pre>kubectl uncordon node3.mylabserver.com</pre>
+
 
 <a name="micro-services"></a>
 
