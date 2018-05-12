@@ -114,6 +114,8 @@ Hands-On with Azure Machine Learning
 0. Click "Gallery" to look at examples in the <a target="_blank" href="https://gallery.azure.ai/">
    Azure AI Gallery</a> (previously called the Cortana Intelligence Gallery at gallery.azureml.net).
 
+   PROTIP: There is not many views, so you're one of the early adopter visionaries!
+
    <a target="_blank" href="https://gallery.azure.ai/">
    <img align="right" alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
    Notice the menu items: Solutions, Projects, (trained) Models, Experiments, 
@@ -125,8 +127,6 @@ Hands-On with Azure Machine Learning
    
    * https://gallery.azure.ai/projects - collection of scripts, notebooks, and/or data designed to support the everyday work of data scientists.
    
-   PROTIP: There is not many views, so you're one of the early adopter visionaries!
-
    https://github.com/plaidml/plaidml
 
    https://gallery.azure.ai/models (.ONNX or .WinML files) for download - to build projects and solutions.
