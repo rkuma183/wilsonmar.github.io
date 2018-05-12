@@ -27,13 +27,13 @@ In 2015, Microsoft unleashed the Tay chat bot, then brought it down after hacker
 
 Two divisions within Microsoft offes AI:
 
-* The research division, headed by Harry Shum, offers Bing, Cortana, ambient computing, and robotics.
+* <a target="_blank" href="https://www.microsoft.com/en-us/research/project/machine-learning-edge/">
+The research division</a>, headed by Harry Shum, is putting AI into Bing, Cortana, ambient computing, and robotics.
 
-* The Azure AI services for developers, headed up by Scott Guthrie, makes AI services available to developers who build apps using customizable machine learning with speech, language, vision, and knowledge services. Tools offered include Cognitive Services and Bot Framework, deep-learning tools like Azure Machine Learning, Visual Studio Code Tools for AI, and Cognitive Toolkit.
+* With the "computing fabric" led by <a target="_blank" href="https://www.linkedin.com/in/guthriescott/">Scott Guthrie</a>, makes AI services available for those building customizable machine learning with speech, language, vision, and knowledge services. Tools offered include Cognitive Services and Bot Framework, deep-learning tools like Azure Machine Learning, Visual Studio Code Tools for AI, and Cognitive Toolkit.
+Microsoft's Azure IoT Edge (at <a target="_blank" href="https://github.com/Azure/ai-toolkit-iot-edge"> https://github.com/Azure/ai-toolkit-iot-edge</a>) brings AI and machine learning to the edge of networks, such as in the field and on factory floors.
 
-Microsoft is also investing in AI-powered hardware. At Build 2018, Microsoft announced <a target="_blank" href="https://www.microsoft.com/en-us/research/publication/serving-dnns-real-time-datacenter-scale-project-brainwave/">Project Brainwave</a> to run Google's Tensorflow AI code and Facebook's Caffe2 as well as Microsoft's Cognitive Toolkit. Its use of field programmable gate arrays (FPGA) enable it perform AI calculations reportedly is five times faster than Google's TPU hardware.
-
-Another key to Microsoft's Azure IoT Edge (at <a target="_blank" href="https://github.com/Azure/ai-toolkit-iot-edge"> https://github.com/Azure/ai-toolkit-iot-edge</a>) brings AI and machine learning to the edge of networks, such as in the field and on factory floors.
+Microsoft is also investing in AI-powered hardware. At Build 2018, Microsoft announced <a target="_blank" href="https://www.microsoft.com/en-us/research/publication/serving-dnns-real-time-datacenter-scale-project-brainwave/">Project Brainwave</a> to run Google's Tensorflow AI code and Facebook's Caffe2, and Microsoft's <a href="#CNTK">Cognitive Toolkit</a>. Its use of field programmable gate arrays (FPGA) enable it perform AI calculations reportedly is five times faster than Google's TPU hardware.
 
 XiaoIce, a chatbot Microsoft launched in China, "has more than 200 million users, has engaged in 30 billion conversations, and has an average conversation length of 23 turns, which averages out to about half an hour, achieving human parity at translation from Chinese to English.
  Japan-based Rinna and the US-based Zo)
@@ -114,15 +114,34 @@ Hands-On with Azure Machine Learning
 0. Click "Gallery" to look at examples in the <a target="_blank" href="https://gallery.azure.ai/">
    Azure AI Gallery</a> (previously called the Cortana Intelligence Gallery at gallery.azureml.net).
 
-   Notice the menu items (Solutions, Projects, Models, Experiments) reflect the left menu:
-
    <a target="_blank" href="https://gallery.azure.ai/">
-   <img alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
+   <img align="right" alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
+   Notice the menu items: Solutions, Projects, (trained) Models, Experiments, 
+   reflect the left menu (but in a different order):
 
-   * https://gallery.azure.ai/solutions
+   "Notebooks" are iPython Notebooks that combine Python code with HTML.
 
-
+   * https://gallery.azure.ai/solutions - templates, reference architectures and design patterns to make them your own with included instructions or with a featured partner. 
+   
+   * https://gallery.azure.ai/projects - collection of scripts, notebooks, and/or data designed to support the everyday work of data scientists.
+   
    PROTIP: There is not many views, so you're one of the early adopter visionaries!
+
+   https://github.com/plaidml/plaidml
+
+   https://gallery.azure.ai/models (.ONNX or .WinML files) for download - to build projects and solutions.
+
+   Most of them are ported from the <a target="_blank" href="https://github.com/onnx/models">repository of pre-trained machine learning computational graph models</a> in ONNX (Open Neural Network Exchange) format (<a target="_blank" href="https://onnx.ai/">https://onnx.ai</a>), which can run on different deep learning <a target="_blank" href="https://github.com/onnx/tutorials">frameworks (Tensorflow, Keras, Microsoft Cognitive Toolkit or Caffe2)</a>.
+      
+   WinML (Windows Machine Learning)
+   https://docs.microsoft.com/en-us/windows/uwp/machine-learning/
+   converts ONNX models to execute locally in Windows 10 devices, leveraging GPU Hardware Acceleration on DirectX12.
+   WinML converts models in Apple CoreML, scikit-learn (subset of models convertible to ONNX), LibSVM, XGBoost
+
+   https://gallery.azure.ai/Model/MNIST-Handwritten-Digit-Recognition
+   
+   * https://gallery.azure.ai/experiments - Explore predictive analytic experiments contributed by Microsoft and the data science community that solve interesting problems or demonstrate advanced machine learning techniques. Use these experiments as starting points to develop your own solutions. 
+
 
    PROTIP: Consider these collections:
 
