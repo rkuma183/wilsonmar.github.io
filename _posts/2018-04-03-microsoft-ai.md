@@ -15,9 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-This article provides an overview of use Microsoft's Machine / Deep Learning capabilities
-running on the Azure cloud.
-
+This article provides an overview of use Microsoft's AI (Artificial Intelligence) offering, which include Machine / Deep Learning capabilities running on the Azure cloud.
 
 ## History
 
@@ -26,6 +24,19 @@ In 2014, Microsoft showed off its facial recognition capabilities with
 to guess how old someone is. At conferences they built a booth that takes a picture.
 
 In 2015, Microsoft unleashed the Tay chat bot, then brought it down after hackers submitted enough racial slurs that fooled the system into that was normal. 
+
+Two divisions within Microsoft offes AI:
+
+* The research division, headed by Harry Shum, offers Bing, Cortana, ambient computing, and robotics.
+
+* The Azure AI services for developers, headed up by Scott Guthrie, makes AI services available to developers who build apps using customizable machine learning with speech, language, vision, and knowledge services. Tools offered include Cognitive Services and Bot Framework, deep-learning tools like Azure Machine Learning, Visual Studio Code Tools for AI, and Cognitive Toolkit.
+
+Microsoft is also investing in AI-powered hardware. At Build 2018, Microsoft announced <a target="_blank" href="https://www.microsoft.com/en-us/research/publication/serving-dnns-real-time-datacenter-scale-project-brainwave/">Project Brainwave</a> to run Google's Tensorflow AI code and Facebook's Caffe2 as well as Microsoft's Cognitive Toolkit. Its use of field programmable gate arrays (FPGA) enable it perform AI calculations reportedly is five times faster than Google's TPU hardware.
+
+Another key to Microsoft's Azure IoT Edge (at <a target="_blank" href="https://github.com/Azure/ai-toolkit-iot-edge"> https://github.com/Azure/ai-toolkit-iot-edge</a>) brings AI and machine learning to the edge of networks, such as in the field and on factory floors.
+
+XiaoIce, a chatbot Microsoft launched in China, "has more than 200 million users, has engaged in 30 billion conversations, and has an average conversation length of 23 turns, which averages out to about half an hour, achieving human parity at translation from Chinese to English.
+ Japan-based Rinna and the US-based Zo)
 
 ## Get an account #
 
@@ -46,7 +57,6 @@ https://azure.microsoft.com/en-us/services/machine-learning</a>
 * Adding Machine Learning capabilities in your full account, for production use.
 
    But charges apply.
-
 
    * Guest Workspace for 8 hours on https://studio.azureml.net/Home/ViewWorkspaceCached/...
    These get 10 GB storage and can scale resources to increase experiment execution performance.
@@ -76,10 +86,10 @@ http://aka.ms/enterprisecloudebook
 Follow 
 <a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/">
 this machine learning tutorial</a>
-to use Azure Machine Learning Studio to
+to use <strong>Azure Machine Learning Studio</strong> to
 create a linear regression model that predicts the price of 
 an automobile based on different variables such as make and technical specifications. 
-Then iterate on a simple predictive analytics experiment after
+Then iterate on a simple predictive analytics experiment.
 
 VIDEO: <a target="_blank" href="https://www.youtube.com/watch?v=eUce2cB844s">
 Hands-On with Azure Machine Learning

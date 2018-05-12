@@ -26,7 +26,12 @@ arranged in a sequence to make this complex material easier to understand quickl
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-Kubernetes provides <strong>resilience</strong> by treating pods as if they don't live long.
+Kubernetes provides <strong>resilience</strong> to Docker containers by abstacting the network and storage of containers in "pods". 
+Each pod can hold one or more Docker containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
+
+Pods are replicated across several Compute Engine nodes.
+Each container has a different port.
+Containers within the same pod are on the same localhost.
 
 Kubernetes instantiates each <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>, Quay, or other binary repository such as Nexus or Artifactory into <strong>"pods"</strong> that it controls.
 
@@ -44,7 +49,7 @@ animations on his website</a>.
 
 PROTIP: Kubernetes recently added <strong>auto-scaling</strong> based on metrics API measurement of demand. Before that, Kubernetes manages the instantiating, starting, stopping, updating, and deleting of a <strong>pre-defined number of pod replicas</strong> based on declarations in <strong>*.yaml</strong> files or interactive commands.
 
-<strong>Kublet</strong> constantly compares the status of pods against what is declared in yaml files, and will start or delete pods as necessary. 
+<strong>Kublet</strong> constantly compares the status of pods against what is declared in yaml files, and starts or deletes pods as necessary to meet the request. 
 
 This Kublet is automatically installed.
 Each <strong>kubelet</strong> is the "control pane" that runs its node.
@@ -62,26 +67,23 @@ The API Server carries out <strong>schedule</strong> based on data stored in an 
 
 The <strong>controller</strong> ???
 
-DNS
-Kubernetes has a built-in role-based access control system.
-
 Each node has a different IP address.
 
 CNI (Container Network Interface) Flannel from GitHub
 
 The <strong>kube proxy</strong> redirects traffic to pods within each node.
 
+Kubernetes has a built-in role-based access control system.
+
+To communicate with whatever pods are running, a single Virtual IP address (VIP) is used by outside callers. K8s "service" is an abstraction on top of a number of pods running under a <strong>proxy</strong> for <strong>load balancing</strong>.
+
 For network resiliency, all services connect to the <strong>public internet</strong> through <strong>HA Proxy cluster</strong>. 
 
-<strong>cAdvisor</strong> pods
-also controlled by the Kublet, which controls all pod creation within each node.
-
 To collect resource usage and performance characteristics of running containers,
-many install <a target="_blank" href="https://github.com/google/cadvisor">Google's</a> (Container Advisor)<strong>cAdvisor</strong>. It aggregates and export telemetry to an <strong>InfluxDB</strong> database for visualization using Grafana.
+many install a pod containing <a target="_blank" href="https://github.com/google/cadvisor">Google's</a> Container Advisor (<strong>cAdvisor</strong>). It aggregates and exports telemetry to an <strong>InfluxDB</strong> database for visualization using <strong>Grafana</strong>.
 Google's Heapster is also be used to send metrics to Google's cloud monitoring console.
 
-
-## Terminology background
+## Helm charts
 
 The name Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
 Thus the nautical references and why Kubernetes experts are called "captain" and why associated products have nautical themes, such as "Helm".
@@ -113,9 +115,6 @@ spec:
   restartPolicy: Always
    </pre>
 
-TODO: To communicate with whatever pods are running, a Virtual IP address is used by outside callers.
-K8s has introduced the concept of a service, which is an abstraction on top of a number of pods, typically requiring to run a proxy on top, for 
-This is where you can configure load balancing for your numerous pods and expose them via a service.
 
 ### Raspberry Pi
 
@@ -248,9 +247,7 @@ But one can run k8s containers in other clouds or within private data centers.
 See <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-cloud-aws-vs-gcp-vs-azure/">
 Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
 
-* "Kubernetes Engine" is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines. It was previously called Google Container Engine (GKE). 
-
-PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
+* <a href="#GKE">Google Kubernetes Engine (GKE)</a> is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines.
 
 * If you want to pay for Kubernetes support, <a target="_blank" href="
 https://www.redhat.com/en/technologies/cloud-computing/openshift">
@@ -647,11 +644,11 @@ daemonset "kube-flannel.ds" created
 1. Put in that folder (in each node):
 
    * basic_auth.csv user and password
-   * ca.crt - the certificate authority certificate
+   * ca.crt - the certificate authority certificate from pki folder
    * known_tokens.csv kublets use to talk to the apiserver
    * kubecfg.crt - client cert public key
    * kubecfg.key - client cert private key
-   * server.cert - server cert public key
+   * server.cert - server cert public key from issued folder
    * server.key - server cert private key
    <br /><br />
 
@@ -827,19 +824,15 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 
 ![kubernetes-pods-599x298-35069](https://user-images.githubusercontent.com/300046/31013696-81d30fc0-a4d4-11e7-9852-36be55b74499.jpg)
 
+https://google-run.qwiklab.com/focuses/639?parent=catalog
+
+PROTIP: For GKE we disable all legacy authentication, enable RBAC (Role Based Access Control), and enable IAM authentication.
+
 Pods are defined by a <a href="#Manifest">manifest file</a> 
 read by the <strong>apiserver</strong> which deploys nodes.
 
-Pods abstact the network and storage of containers. 
-So each <strong>pod</strong> can hold one or more containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
-
 Pods go into "succeeded" state after being run because
 pods have short lifespans -- deleted and recreated as necessary.
-
-Each container has a different port.
-Containers within the same pod are on the same localhost.
-
-Pods are replicated across several Compute Engine nodes.
 
 The <a target="_blank" href="https://cloud.google.com./container-engine/docs/replicationcontrollers/">
 replication controller</a> automatically adds or removes pods to comply with the specified number of pod replicas declared are running across nodes.
