@@ -7,8 +7,8 @@ filename: kubernetes.md
 modified:
 tags: [google, cloud]
 image:
-# feature: pic blue black stars spin 1900x500.jpg
-  feature: https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg
+# kubernetes-head-1900x500-472493.jpg
+  feature: https://user-images.githubusercontent.com/300046/39955449-b791191e-558b-11e8-8bde-9042df1b66ab.jpg
   credit: Jeremy Thomas
   creditlink: https://www.flickr.com/photos/132218932@N03/page2
 comments: true
@@ -26,43 +26,62 @@ arranged in a sequence to make this complex material easier to understand quickl
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-The beauty of Kubernetes is that it enables each microservice Docker <strong>containers</strong> (such as NginX, Redis, search, etc.) to be instantiated (from <strong>DockerHub</strong> or Quay) into a <strong>"pod"</strong>.
-Multiple container instances can be created in each pod by a <strong>Kublet</strong> which restarts pods when necessary.
-To restart Kublet depends on the operating system (Monit on Debian or systemctl on systemd-based systems).
+Kubernetes provides <strong>resilience</strong> by treating pods as if they don't live long.
 
-PROTIP: Kubernetes doesn't do auto-scaling based on demand but does manage the instantiating, starting, stopping, deleting  of a <strong>pre-defined number of nodes</strong> that are joined to the master node by an administrator using the <strong>kubeadm join</strong> command.
+Kubernetes instantiates each <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>, Quay, or other binary repository such as Nexus or Artifactory into <strong>"pods"</strong> that it controls.
 
-The master node itself is crated by the <strong>kubeadm init</strong> command which establishes folders
+Several containers can be co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
+
+Kubernetes is written in Go language, so it can run on Windows, Linux, and MacOS.
+
+<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
+<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
+
+This diagram is referenced throughout this tutorial, particularly in the <a href="#Details">Details section below</a>.
+
+It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+animations on his website</a>.
+
+PROTIP: Kubernetes recently added <strong>auto-scaling</strong> based on metrics API measurement of demand. Before that, Kubernetes manages the instantiating, starting, stopping, updating, and deleting of a <strong>pre-defined number of pod replicas</strong> based on declarations in <strong>*.yaml</strong> files or interactive commands.
+
+<strong>Kublet</strong> constantly compares the status of pods against what is declared in yaml files, and will start or delete pods as necessary. 
+
+This Kublet is automatically installed.
+Each <strong>kubelet</strong> is the "control pane" that runs its node.
+Restarting Kublet itself depends on the operating system (Monit on Debian or systemctl on systemd-based systems).
+
+Nodes are joined to the master node using the <strong>kubeadm join</strong> command.
+
+The master node itself is crated by the <strong>kubeadm init</strong> command which establishes folders 
 and invokes the Kubernetes <strong>API server</strong>. That command is installed along with the 
 <strong>kubectl</strong> package. There is a command with the same name used to obtain the <strong>version</strong>.
+The kubectl <strong>get nodes</strong> command lists basic information about each node.
+The describe command provides more detailed information.
 
 The API Server carries out <strong>schedule</strong> based on data stored in an <strong>etcd</strong> cluster.
 
 The <strong>controller</strong> ???
 
 DNS
+Kubernetes has a built-in role-based access control system.
 
 Each node has a different IP address.
 
-CNI Flannel from GitHub
+CNI (Container Network Interface) Flannel from GitHub
 
-Kube Proxy 
+The <strong>kube proxy</strong> redirects traffic to pods within each node.
 
-All the services connect to the internet through <strong>HA Proxy cluster</strong>
+For network resiliency, all services connect to the <strong>public internet</strong> through <strong>HA Proxy cluster</strong>. 
 
-cAdvisor pods
+<strong>cAdvisor</strong> pods
 also controlled by the Kublet, which controls all pod creation within each node.
 
-Kubernetes provides <strong>resilience</strong> by treating pods as if they are not intended to live long.
-
-the deployment of pods running within <strong>clusters</strong>.
+To collect resource usage and performance characteristics of running containers,
+many install <a target="_blank" href="https://github.com/google/cadvisor">Google's</a> (Container Advisor)<strong>cAdvisor</strong>. It aggregates and export telemetry to an <strong>InfluxDB</strong> database for visualization using Grafana.
+Google's Heapster is also be used to send metrics to Google's cloud monitoring console.
 
 
 ## Terminology background
-
-Kubernetes is called an "orchestrator" of various <a href="#micro-services">micro-service apps</a>
-built from Docker <strong>images</strong> in a <strong>binary repository</strong> (such as Nexus or Artifactory).
-The images are built by Docker reading <strong>Dockerfiles</strong> in GitHub or other configuration source repository. 
 
 The name Kubernetes is the ancient Greek word for people who pilot cargo ships -- "helmsman" in English. 
 Thus the nautical references and why Kubernetes experts are called "captain" and why associated products have nautical themes, such as "Helm".
@@ -94,8 +113,6 @@ spec:
   restartPolicy: Always
    </pre>
 
-Containers are co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
-
 TODO: To communicate with whatever pods are running, a Virtual IP address is used by outside callers.
 K8s has introduced the concept of a service, which is an abstraction on top of a number of pods, typically requiring to run a proxy on top, for 
 This is where you can configure load balancing for your numerous pods and expose them via a service.
@@ -123,14 +140,6 @@ Others:
 
 ### Architecture diagram
 
-<a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
-<img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
-
-This diagram is referenced throughout this tutorial, particularly in the <a href="#Details">Details section below</a>.
-
-It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-animations on his website</a>.
-
 <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http%3A%2F%2Fwww.yongbok.net%2Fblog%2F">
 Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yongbok.net/ruo91/architecture/k8s/v1.1/kubernetes_architecture.png">posted (on Jan 24, 2016)</a> a master map of how all the pieces relate to each other:<br />
 <small>Click on the diagram to pop-up a full-sized diagram</small>:
@@ -140,10 +149,11 @@ Yongbok Kim (who writes in Korean)</a> <a target="_blank" href="https://cdn.yong
 BTW What are now called "nodes" were previously called minions. Apparently Google namers forgot about the existance of NodeJs,
 which refers to nodes differently.
 
-A <strong>kubelet</strong> is the "control pane" that runs on the nodes.
+### Testing
 
-The <strong>kube proxy</strong> redirects traffic.
-
+End-to-end tests by those who develop Kubernetes are coded in Ginko and Gomega (because Kubernets is written in Go).
+The Kubtest suite builds, stages, extracts, and brings up the cluster.
+After testing, it dumps logs and tears down the test rig.
 
 ### Competitors
 
@@ -311,7 +321,7 @@ has 257 issues and 20 pending Pull Requests.
    brew install minikube -y
    </strong></pre>
 
-2. Verify if it can be invoked:
+2. Verify if its command works by getting the version:
 
    <pre>minikube version</pre>
 
@@ -321,7 +331,7 @@ has 257 issues and 20 pending Pull Requests.
    kubectl config current-context
    <pre><strong>
 
-   The response on minikube is that.
+   The response on minikube is "minikube".
 
 3. Start the service:
 
@@ -496,7 +506,7 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
 
    ![kubernetes-nodes-363x120-20150](https://user-images.githubusercontent.com/300046/39900888-328f060e-5482-11e8-89eb-14439d7db270.jpg)
 
-   The address is the default for Flannel.
+   The address is the default for <strong>Flannel</strong>.
 
    PROTIP: Kubernetes uses third-party services to handle load balancing and port forwarding through 
    <strong>ingress objects</strong> managed by an ingress controller.
@@ -544,6 +554,8 @@ serviceaccount "flannel" created
 configmap "kube-flannel.cfg" created
 daemonset "kube-flannel.ds" created
    </pre>
+
+   configmaps in cfg files are used to define <strong>environment variables</strong>.
 
 1. List pods created:
 
@@ -607,6 +619,31 @@ daemonset "kube-flannel.ds" created
    mkdir /srv/kubernetes
    </pre>
 
+1. Get a utility to generate TLS certificates:
+
+   <pre>
+   brew install easyrsa
+   </pre>
+
+1. Run it:
+
+   <pre>
+   ./easyrsa init-pki
+   </pre>
+
+1. Run it:
+
+   <pre>
+   MASTER_IP=172.31.38.152
+   echo $MASTER_IP
+   </pre>
+
+1. Run it:
+
+   <pre>
+   ./easyrsa --batch "--req-cn=${MASTER_IP}@`date +%s`* build-ca nopass
+   </pre>
+
 1. Put in that folder (in each node):
 
    * basic_auth.csv user and password
@@ -659,14 +696,7 @@ To deploy a service:
 
    <pre>kubectl expose deployment *deployment-name* [options]</pre>
 
-
-<a name="cAdvisor"></a>
-
-## cAdvisor
-
-cAdvisor https://github.com/google/cadvisor
-(Container Advisor) collects, aggregates, processes, and exports information about running containers in order to
-provide container admins an understanding of the resource usage and performance characteristics of their running containers.
+## configmap
 
 ## Activities
 
@@ -1006,11 +1036,66 @@ spec:
 The `deploy.yml` defines the deploy:
 
    <pre>
-apiVersion: v1beta
+apiVersion: apps/v1beta2
 kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+  spec:
+    containers:
+    - name: nginx
+      image: nginx:1.7.9
+      ports:
+      - containerPort: 80
    </pre>
 
 Deployment wraps around <strong>replica sets</strong>, a newer version of doing rolling-update on Replication Controller. Old replica sets can revert roll-back by just changing the deploy.yml file.
+
+1. Retrieve the yaml for a deployment:
+
+   <pre>kubectl get deployment nginx-deployment -o yaml</pre>
+
+   Notice the "RollingUpdateStrategy: 25% max unavilable, 25% max surge".
+
+1. Begin rollout of a new desired version from the command line:
+
+   <pre>kubectl set image deployment/nginx-deployment nginx=nginx:1.8</pre>
+
+   Alternately, edit the yaml file to nginx:1.9.1 and:
+
+   <pre>kubectl apply -f nginx-deployment.yaml</pre>
+
+1. View Rollout a new desired version:
+
+   <pre>kubectl rollout status deployment/nginx-deployment</pre>
+
+1. Describe the yaml for a deployment:
+
+   <pre>kubectl describe deployment nginx-deployment</pre>
+
+1. List the DESIRED, CURRENT, UP-TO-DATE, AVAILABLE:
+
+   <pre>kubectl get deployments </pre>
+
+1. List the DESIRED, CURRENT, UP-TO-DATE, AVAILABLE:
+
+   <pre>kubectl get deployments </pre>
+
+1. List the history:
+
+   <pre>kubectl rollout history deployment/nginx-deployment --revision=3</pre>
+
+1. Backout the revision:
+
+   <pre>kubectl rollout undo deployment/nginx-deployment --to-revision=2</pre>
 
 
 <a name="Kubelet"></a>
