@@ -101,13 +101,72 @@ Hands-On with Azure Machine Learning
    https://studio.azureml.net/?selectAccess=true&o=2">
    https://studio.azureml.net/?selectAccess=true&o=2</a>
 
-0. Look at examples in the 
-   <a target="_blank" href="http://gallery.cortanaintelligence.com/?r=legacy">
-   Cortana Intelligence Gallery</a>
+0. If you want to learn how it works using their data, click "Enter" for the 8-hour trial with no login. This is what this article discusses.
+
+   Altrnately, if you want to use your own data (up to 10GB), click "Sign-in".
+
+0. Click the "hamberger menu" at the upper left.
+
+   Selecting "Azure AI" takes you to their marketing page at <a target="_blank" href="
+   https://azure.microsoft.com/en-us/overview/ai-platform/">
+   https://azure.microsoft.com/en-us/overview/ai-platform</a>
+
+0. Click "Gallery" to look at examples in the <a target="_blank" href="https://gallery.azure.ai/">
+   Azure AI Gallery</a> (previously called the Cortana Intelligence Gallery at gallery.azureml.net).
+
+   Notice the menu items (Solutions, Projects, Models, Experiments) reflect the left menu:
+
+   <a target="_blank" href="https://gallery.azure.ai/">
+   <img alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
+
+   * https://gallery.azure.ai/solutions
+
+
+   PROTIP: There is not many views, so you're one of the early adopter visionaries!
+
+   PROTIP: Consider these collections:
+
+   * <a target="_blank" href="https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_101_LogisticRegression.ipynb">
+   Linear (straight line) Regression classifer</a> using <a href="#CNTK">CNTK</s>
+   * Multi-variate/Logistic regression 
+   * K-means clustering analysis / Softmax
+   * Guided selection of wines: https://gallery.azure.ai/Experiment/30146a6b10c6401d9b65afac17dfa5d9
+   * svm (support vector machine) 
+   
+   * At <a target="_blank" href="https://gallery.azure.ai/Tutorial/Twitter-Stream-Analysis-with-Azure-Machine-Learning">
+   Twitter sentiment analysis</a> click "DEPLOY" for
+   <a target="_blank" href="https://quickstart.azure.ai/Deployments/new/streamanalysiswithaml?source=CIGallery">
+   estimate of cost<a>
+   <br /><br />
+
+   <a name="CNTK"></a>
+
+   ### CNTK CogNitive ToolKit
+
+   https://gallery.azure.ai/Tutorial/Cognitive-Toolkit-Tutorial-Getting-Started
+   makes use of Microsoft's new network-description language BrainScript at
+   https://docs.microsoft.com/en-us/cognitive-toolkit/BrainScript-Network-Builder
+   https://github.com/Microsoft/CNTK/wiki/Tutorial
+   https://github.com/Microsoft/CNTK
+
+   CNTK invented some terms:
+
+   * a sequence (in CNTK) is also referred to as an instance
+   * a sample (in CNTK) is also referred to as a feature
+   * input stream(s) (in CNTK) is also referred to as feature column or a feature
+   * the criterion (in CNTK) is also referred to as the loss
+   * the evalutaion error (in CNTK) is also referred to as a metric
+   <br /><br />
+
+0. Click through to a page with "Open in Studio".
+
+0. Your selects appear in the "TRAINED MODELS" tab on the left side.
+
+## Tutorials
 
 0. Take the introductory tutorial:
 
-   <a target="_blank" href="http://gallery.cortanaintelligence.com/Collection/Introduction-to-Machine-Learning-with-Hands-On-Labs-1">
+   <a target="_blank" href="https://gallery.azure.ai/Collection/Introduction-to-Machine-Learning-with-Hands-On-Labs-1">
    Introduction to Machine Learning with Hands-On Labs</a>
 
    <a target="_blank" href="
