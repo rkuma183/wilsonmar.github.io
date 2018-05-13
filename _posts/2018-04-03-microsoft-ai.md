@@ -31,7 +31,8 @@ Two divisions within Microsoft offes AI:
 The research division</a>, headed by Harry Shum, is putting AI into Bing, Cortana, ambient computing, and robotics.
 
 * With the "computing fabric" led by <a target="_blank" href="https://www.linkedin.com/in/guthriescott/">Scott Guthrie</a>, makes AI services available for those building customizable machine learning with speech, language, vision, and knowledge services. Tools offered include Cognitive Services and Bot Framework, deep-learning tools like Azure Machine Learning, Visual Studio Code Tools for AI, and Cognitive Toolkit.
-Microsoft's Azure IoT Edge (at <a target="_blank" href="https://github.com/Azure/ai-toolkit-iot-edge"> https://github.com/Azure/ai-toolkit-iot-edge</a>) brings AI and machine learning to the edge of networks, such as in the field and on factory floors.
+
+Microsoft's Azure IoT Edge (at <a target="_blank" href="https://github.com/Azure/ai-toolkit-iot-edge"> https://github.com/Azure/ai-toolkit-iot-edge</a>) brings AI and machine learning to the edge of networks, such as in the field and on factory floors. See the <a target="_blank" href="https://gallery.azure.ai/Solution/IoT-Edge-2">Sample app</a> and <a target="_blank" href="https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning">read all the unanswered forum posts</a>
 
 Microsoft is also investing in AI-powered hardware. At Build 2018, Microsoft announced <a target="_blank" href="https://www.microsoft.com/en-us/research/publication/serving-dnns-real-time-datacenter-scale-project-brainwave/">Project Brainwave</a> to run Google's Tensorflow AI code and Facebook's Caffe2, and Microsoft's <a href="#CNTK">Cognitive Toolkit</a>. Its use of field programmable gate arrays (FPGA) enable it perform AI calculations reportedly is five times faster than Google's TPU hardware.
 
