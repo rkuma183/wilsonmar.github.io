@@ -23,21 +23,25 @@ arranged in a sequence to make this complex material easier to understand quickl
 
 ## Why Kubernetes?
 
+Kubernetes leverages efforts to "containerize" <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>.
+
+PROTIP: Use security-vetted installers in Docker Enterprise, Quay, or an organization's own binary repository setup using Nexus or Artifactory. 
+
+Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
+But this tutorial focuses on Docker.
+
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-Kubernetes provides <strong>resilience</strong> to Docker containers by abstacting the network and storage of containers in "pods". 
-Each pod can hold one or more Docker containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
-
-Pods are replicated across several Compute Engine nodes.
-Each container has a different port.
-Containers within the same pod are on the same localhost.
-
-Kubernetes instantiates each <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>, Quay, or other binary repository such as Nexus or Artifactory into <strong>"pods"</strong> that it controls.
-
+Kubernetes automates <strong>resilience</strong> to containers by abstacting the network and storage of containers in "pods". Each pod can hold one or more containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
 Several containers can be co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
 
-Kubernetes is written in Go language, so it can run on Windows, Linux, and MacOS.
+Within a pod, each container has a different port.
+
+Pods are replicated across several nodes.
+
+Kubernetes is written in Go language, so it can run on Windows, Linux, and MacOS
+(the need to install a JVM).
 
 <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
 <img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
@@ -49,11 +53,16 @@ animations on his website</a>.
 
 PROTIP: Kubernetes recently added <strong>auto-scaling</strong> based on metrics API measurement of demand. Before that, Kubernetes manages the instantiating, starting, stopping, updating, and deleting of a <strong>pre-defined number of pod replicas</strong> based on declarations in <strong>*.yaml</strong> files or interactive commands.
 
-<strong>Kublet</strong> constantly compares the status of pods against what is declared in yaml files, and starts or deletes pods as necessary to meet the request. 
+### Kublet
 
-This Kublet is automatically installed.
-Each <strong>kubelet</strong> is the "control pane" that runs its node.
+A <strong>Kublet</strong> agent program within each node constantly compares the status of pods against what is declared in yaml files, and starts or deletes pods as necessary to meet the request. 
+
+This Kublet is automatically installed when they are <strong>created</strong>.
+
+Each <strong>kubelet</strong> is called the "control pane" that runs nodes under its control.
 Restarting Kublet itself depends on the operating system (Monit on Debian or systemctl on systemd-based systems).
+
+### Master node
 
 Nodes are joined to the master node using the <strong>kubeadm join</strong> command.
 
@@ -61,9 +70,18 @@ The master node itself is crated by the <strong>kubeadm init</strong> command wh
 and invokes the Kubernetes <strong>API server</strong>. That command is installed along with the 
 <strong>kubectl</strong> package. There is a command with the same name used to obtain the <strong>version</strong>.
 The kubectl <strong>get nodes</strong> command lists basic information about each node.
-The describe command provides more detailed information.
+The <strong>describe</strong> command provides more detailed information.
 
-The API Server carries out <strong>schedule</strong> based on data stored in an <strong>etcd</strong> cluster.
+<a name="#etcd"></a>
+
+### etcd storage 
+
+The API Server stores its configuration information in an <strong>etcd</strong> cluster,
+a simple, distributed, consistent key-value store.
+
+Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication details.
+
+## Scheduler
 
 The <strong>controller</strong> ???
 
@@ -71,13 +89,12 @@ Each node has a different IP address.
 
 CNI (Container Network Interface) Flannel from GitHub
 
-The <strong>kube proxy</strong> redirects traffic to pods within each node.
+Communications with the outside callers occur through a single Virtual IP address (VIP) going through the
+<strong>kube-proxy</strong> which load balances traffic to pods within each node.
 
-Kubernetes has a built-in role-based access control system.
+For network resiliency, <strong>HA Proxy cluster</strong> distributes traffic among nodes.
 
-To communicate with whatever pods are running, a single Virtual IP address (VIP) is used by outside callers. K8s "service" is an abstraction on top of a number of pods running under a <strong>proxy</strong> for <strong>load balancing</strong>.
-
-For network resiliency, all services connect to the <strong>public internet</strong> through <strong>HA Proxy cluster</strong>. 
+### cAdvisor
 
 To collect resource usage and performance characteristics of running containers,
 many install a pod containing <a target="_blank" href="https://github.com/google/cadvisor">Google's</a> Container Advisor (<strong>cAdvisor</strong>). It aggregates and exports telemetry to an <strong>InfluxDB</strong> database for visualization using <strong>Grafana</strong>.
@@ -95,6 +112,22 @@ quickly create an OpenFaaS (Serverless) cluster</a> on your laptop.
    kubectl apply -f ./namespaces.yml 
    kubectl apply -f ./yaml_armhf
    </pre>
+
+## Topics
+
+* <a href="#IAC">Infrastructure as code</a>
+* Manage containers
+* Naming and discovery
+* Mounting storage systems
+* Balancing loads
+* Rolling updates
+* Distributing secrets/config
+* Checking application health
+* Monitoring resources
+* Accessing and ingesting logs
+* Replicating application instances
+* Horizontal autoscaling
+* Debugging applications
 
 Containers are declared by yaml such as this to run Alphine Linux Docker container:
 
@@ -155,9 +188,6 @@ The Kubtest suite builds, stages, extracts, and brings up the cluster.
 After testing, it dumps logs and tears down the test rig.
 
 ### Competitors
-
-BTW, instead of Docker, Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
-But this tutorial focuses on Docker.
 
 Other orchestration systems for Docker containers:
 
@@ -402,7 +432,9 @@ Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCom
 
    1. Check the status of the job using the kubectl describe command.
 
-   2. When a job is complete, view its results by using the kubectl logs command on the appropriate pod.
+   2. When a job is complete, view its results:
+
+   <pre>kubectl logs counter</pre>
 
    <a name="etcd"></a>
 
@@ -556,9 +588,9 @@ daemonset "kube-flannel.ds" created
 
 1. List pods created:
 
-   <pre>kubectl get pods --all-namespaces</pre>
+   <pre>kubectl get pods --all-namespaces -o wide</pre>
 
-   Kubernetes instantiates and then manages the state of containers.
+   Specifying wide output adds the IP address column
 
    System administrators control the <strong>Master node</strong>
    UI in the cloud or write scripts that invoke 
@@ -566,10 +598,20 @@ daemonset "kube-flannel.ds" created
    that controls the <strong>Kubernetes Master</strong> node.
 
    The program talks to the <strong>Kubernetes API Service</strong>.
-   The Server gets Scheduler ???
-   They both persist data in an <a href="#ETCD">ETCD Cluster</a>.
-
-   PROTIP: When deployed outside of Kubernetes, <strong>etcd</strong> (etc daemon) is always used as the datastore.
+   
+   The API Server puts nodes in "pending" state when it sends requests to bring them up and down to the <strong>Scheduler</strong> to do so only when there are enough resources available.
+   The scheduler can operate according to a schedule.
+   But whether it does or not are defined in rules obayed by the Scheduler about nodes called "Taints".
+   Rules obayed by the Scheduler about pods are called "Tolerances".
+   Such details are reaveled using the <strong>kubectl describe nodes</strong> command.
+   
+   Such data is persisted in an <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">ETCD Cluster</a>.
+   
+   <a href="#ETCD"></a>
+   
+   ### ETCD 
+   
+   PROTIP: When deployed outside of Kubernetes, <strong>ETCD</strong> (ETC daemon) is always used as the datastore.
 
    The Kube Proxy communicates only with Pod admin. whereas Kubelets communicate with individual pods as well.
 
@@ -596,7 +638,7 @@ daemonset "kube-flannel.ds" created
 
 1. Switch to the webpage of servers to Login to the 3rd server. 
 1. Again Join the node to the master by pasting in the command captured earlier:
-1. Get the list of nodes:
+1. Get the list of nodes instantiated:
 
    <pre><strong>kubectl get nodes</strong></pre>
 
@@ -628,6 +670,10 @@ daemonset "kube-flannel.ds" created
    ./easyrsa init-pki
    </pre>
 
+   <a name="MasterIP"></a>
+   
+   ### Master IP address
+
 1. Run it:
 
    <pre>
@@ -640,6 +686,17 @@ daemonset "kube-flannel.ds" created
    <pre>
    ./easyrsa --batch "--req-cn=${MASTER_IP}@`date +%s`* build-ca nopass
    </pre>
+
+   ### Watchers
+   
+   To register watchers on specific nodes.???
+   Kubernetes supports TLS certifications for encryption over the line.
+
+   REST API CRUD operations are used 
+   For authorization, Kubernetes supports Role Base Access Control (RBAC),
+   (ABAC), and Webhook.
+   Admission ???
+
 
 1. Put in that folder (in each node):
 
@@ -666,6 +723,14 @@ daemonset "kube-flannel.ds" created
    kubectl describe pods
    </strong></pre>
 
+   ### Expose
+
+   ### Deploy service
+
+1. To deploy a service:
+
+   <pre>kubectl expose deployment *deployment-name* [options]</pre>
+
 <hr />
 
    ### Volumes
@@ -679,19 +744,13 @@ daemonset "kube-flannel.ds" created
    http://searchnetworking.techtarget.com/definition/VRRP
    automatically assigns available Internet Protocol routers to participating hosts.
 
-A Persistent Volume (PV) is a provisioned block of storage for use by the cluster. 
+   A Persistent Volume (PV) is a provisioned block of storage for use by the cluster. 
 
-A Persistent Volume Claim (PVC) is a request for that storage by a user, and once granted, is 
-used as a "claim check" for 
+   A Persistent Volume Claim (PVC) is a request for that storage by a user, and once granted, is 
+   used as a "claim check" for 
 
-Recycling policies are Retain (keep the contents) and Recycle (Scrub the contents).
+   Recycling policies are Retain (keep the contents) and Recycle (Scrub the contents).
 
-
-### Deploy service
-
-To deploy a service:
-
-   <pre>kubectl expose deployment *deployment-name* [options]</pre>
 
 ## configmap
 
@@ -715,13 +774,6 @@ To deploy a service:
 <a name="micro-services"></a>
 
 ## Sample micro-service apps
-
-I have built a GitHub repository containing example apps and utilities that process them at:
-
-   <a target="_blank" href="https://github.com/wilsonmar/DevSecOps/Kubernetes">
-   https://github.com/wilsonmar/DevSecOps/Kubernetes</a>
-
-The remainder of this tutorial refers to files in this repository.
 
 The repo is based on work from others, 
 especially Kelsy Hightower, the Google Developer Advocate.
@@ -820,7 +872,7 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
 
 <a name="GKE"></a>
 
-### How Kubernetes Engine works
+### How Google Kubernetes Engine works
 
 ![kubernetes-pods-599x298-35069](https://user-images.githubusercontent.com/300046/31013696-81d30fc0-a4d4-11e7-9852-36be55b74499.jpg)
 
@@ -911,6 +963,7 @@ path: /var/lib/docker
    </pre>
 
 
+<a name="rc"></a>
 
 ### Replication rc.yml
 
@@ -920,7 +973,7 @@ The `rc.yml` (Replication Controller) defines the number of replicas and
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name:   cadvisor
+  name: cadvisor
 spec:
   replicas: 5
   selector:
@@ -936,7 +989,6 @@ spec:
       ports:
         containerPort: 8080
    </pre>
-
 
 0. Apply replication:
 
@@ -991,7 +1043,26 @@ spec:
 
    PROTIP: The selector should match the pods.xml.
 
-0. Create services:
+   One type of service is load balancer within a cloud:
+
+   <pre>
+apiVersion: v1
+kind: Service
+metadata:
+  name: la-lb-service
+spec:
+  selector:
+    app: la-lb
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9376
+  type: LoadBalancer
+  clusterIP: 10.0.171.223
+  loadBalancerIP: 78.12.23.17
+   </pre>
+
+0. To create services:
 
    <pre><strong>
    kubectl create -f svc.yml
@@ -1034,10 +1105,10 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
-  replicas: 2
   template:
     metadata:
       labels:
@@ -1048,9 +1119,14 @@ spec:
       image: nginx:1.7.9
       ports:
       - containerPort: 80
+        protocol: TCP
+    nodeSelector:
+      net: gigabit
    </pre>
 
-Deployment wraps around <strong>replica sets</strong>, a newer version of doing rolling-update on Replication Controller. Old replica sets can revert roll-back by just changing the deploy.yml file.
+   Deployment wraps around <strong>replica sets</strong>, a newer version of doing rolling-update on Replication Controller. Old replica sets can revert roll-back by just changing the deploy.yml file.
+
+   PROTIP: Don't run apt-upgrade within containers, which breaks the image-container relationship controls.
 
 1. Retrieve the yaml for a deployment:
 
@@ -1091,6 +1167,61 @@ Deployment wraps around <strong>replica sets</strong>, a newer version of doing 
    <pre>kubectl rollout undo deployment/nginx-deployment --to-revision=2</pre>
 
 
+<a name="SecurityContext"></a>
+
+### Security Context
+
+The `security.yml` defines a secrurity context pod:
+
+   <pre>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context.pod
+spec:
+  securityContext:
+    runAsUser: 1000
+    fsGroup: 2000
+  volumess:
+  - name: sam-vol
+    emptyDir: {}
+  containers:
+  - name: sample-container
+    image: gcr.io/google-samples/node-hello:1.0
+    volumeMounts:
+    - name: sam-vol
+      mountPath: /data/demo
+    securityContext:
+      allowPrivilegeEscalation: false
+   </pre>
+
+1. Create the pod:
+
+   <pre>kubectl create -f security.yaml</pre>
+   
+   This can take several minutes.
+
+1. Enter the security context:
+
+   <pre>kubectl exec -it security-context-pod -- sh</pre>
+   
+1. See the users:
+
+   <pre>ps aux</pre>
+
+1. See that the group is "2000" as specified:
+
+   <pre>cd /data && ls -al</pre>
+
+1. Exit the security context:
+
+   <pre>exit</pre>
+
+1. Delete the security context:
+
+   <pre>kubectl delete -f security.yaml</pre>
+
+
 <a name="Kubelet"></a>
 
 ## Kubelet Daemonset.yaml
@@ -1100,6 +1231,7 @@ the fundamental units nodes.
 
 A Kubelet <strong>agent program</strong> is installed on each server
 to watch the apiserver and register each node with the cluster.
+
 
 PROTIP: Use a DaemonSet when running clustered Kubernetes with static pods to run a pod on every node. Static pods are managed directly by the kubelet daemon on a specific node, without the API server observing it. 
 
@@ -1135,20 +1267,6 @@ Some typical uses of a DaemonSet are:
 The container engine pulls images and stopping/starting containers.
 
    * https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/
-
-
-<a name="#etcd"></a>
-
-### etcd storage 
-
-etcd provides a reliable way to notify the rest of the cluster about configuration changes for
-shared configuration and service discovery.
-
-Data stored by Kubernetes in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information, etc.
-
-etcd provides a REST API for CRUD operations as well as an interface to register watchers on specific nodes.
-
-etcd is a simple, distributed, consistent key-value store.
 
 
 ### CNI
@@ -1203,22 +1321,6 @@ https://run.qwiklab.com/searches/lab?keywords=Build%20a%20Slack%20Bot%20with%20N
 The 8 labs covering 8 hours of the
 <a target="_blank" href="https://webinars-run.qwiklab.com/quests/29">
 Kubernetes in the Google Cloud Qwiklab quest</a>
-
-## Topics
-
-* <a href="#IAC">Infrastructure as code</a>
-* Manage containers
-* Naming and discovery
-* Mounting storage systems
-* Balancing loads
-* Rolling updates
-* Distributing secrets/config
-* Checking application health
-* Monitoring resources
-* Accessing and ingesting logs
-* Replicating application instances
-* Horizontal autoscaling
-* Debugging applications
 
 ## References
 
