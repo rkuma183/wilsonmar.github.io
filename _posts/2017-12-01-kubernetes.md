@@ -21,6 +21,8 @@ comments: true
 This is a hands-on "deep dive" tutorial with commentary along the way, 
 arranged in a sequence to make this complex material easier to understand quickly.
 
+We begin with a "bottom-up" description of the architecture with a gradual reveal video:
+
 ## Why Kubernetes?
 
 Kubernetes leverages efforts to "containerize" <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>.
@@ -38,9 +40,9 @@ Several containers can be co-located together and thus share storage, Linux name
 
 Within a pod, each container has a different port.
 
-Pods are replicated across several nodes.
+> Pods are replicated across several nodes.
 
-Kubernetes is written in Go language, so it can run on Windows, Linux, and MacOS
+Kubernetes is written in the Go language, so it can run on Windows, Linux, and MacOS
 (the need to install a JVM).
 
 <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
@@ -72,33 +74,53 @@ and invokes the Kubernetes <strong>API server</strong>. That command is installe
 The kubectl <strong>get nodes</strong> command lists basic information about each node.
 The <strong>describe</strong> command provides more detailed information.
 
-<a name="#etcd"></a>
+   ### API Server
 
-### etcd storage 
+   The kubectl client communicates using REST API calls to an <strong>API Server</strong> 
+   which handles authentication and authorization.
 
-The API Server stores its configuration information in an <strong>etcd</strong> cluster,
-a simple, distributed, consistent key-value store.
+   The API Server routes several <strong>kinds</strong> of <a href="#Ayaml-files">yaml declaration files</a>: 
+   Pod, Deployment, Service, Job.
 
-Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication details.
+   API primatives ???
 
-## Scheduler
+   <a name="Scheduler"></a>
+   
+   ## Scheduler
 
-The <strong>controller</strong> ???
+   The API Server puts nodes in "pending" state when it sends requests to bring them up and down to the <strong>Scheduler</strong> to do so only when there are enough resources available.
+   The scheduler can operate according to a schedule.
+   But whether it does or not are defined in rules obayed by the Scheduler about nodes called "Taints".
+   Rules obayed by the Scheduler about pods are called "Tolerances".
+   Such details are reaveled using the <strong>kubectl describe nodes</strong> command.
+   
+   <a name="#etcd"></a>
 
-Each node has a different IP address.
+   ### etcd storage 
 
-CNI (Container Network Interface) Flannel from GitHub
+   The API Server and Scheduler persists their configuration information in a ETCD cluster <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">from CoreOS</a>, which calls ETCD a simple, distributed, consistent key-value store.
 
-Communications with the outside callers occur through a single Virtual IP address (VIP) going through the
-<strong>kube-proxy</strong> which load balances traffic to pods within each node.
+   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication details.
 
-For network resiliency, <strong>HA Proxy cluster</strong> distributes traffic among nodes.
+   The <strong>controller</strong> ???
 
-### cAdvisor
+   Each node has a different IP address.
+
+   ### Flannel 
+
+   CNI (Container Network Interface) Flannel from GitHub
+
+   Communications with the outside callers occur through a single Virtual IP address (VIP) going through the <strong>kube-proxy</strong> which load balances traffic to pods within each node.
+
+   For network resiliency, <strong>HA Proxy cluster</strong> distributes traffic among nodes.
+
+   ### cAdvisor
 
 To collect resource usage and performance characteristics of running containers,
 many install a pod containing <a target="_blank" href="https://github.com/google/cadvisor">Google's</a> Container Advisor (<strong>cAdvisor</strong>). It aggregates and exports telemetry to an <strong>InfluxDB</strong> database for visualization using <strong>Grafana</strong>.
 Google's Heapster is also be used to send metrics to Google's cloud monitoring console.
+
+<hr />
 
 ## Helm charts
 
@@ -421,15 +443,6 @@ has 257 issues and 20 pending Pull Requests.
 Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCommit:"d4ab47518836c750f9949b9e0d387f20fb92260b", GitTreeState:"clean", BuildDate:"2018-04-13T22:27:55Z", GoVersion:"go1.9.5", Compiler:"gc", Platform:"darwin/amd64"}
    </pre>
 
-
-   ### API Server
-
-   kubectl communicates using REST API commands to the Kubernetes "API Server" which in turn executes the bound business logic. There are several kinds of API calls: Pod, jobs, etc.???
-
-   yaml files ???
-
-   API primatives ???
-
    1. Check the status of the job using the kubectl describe command.
 
    2. When a job is complete, view its results:
@@ -592,26 +605,22 @@ daemonset "kube-flannel.ds" created
 
    Specifying wide output adds the IP address column
 
+   Included are pods named:
+   * api server (aka "master") accepts kubectl commands
+   * <a href="#etcd">etcd</a> (cluster store) for HA (High Availability) in control pane
+   * controller to watch for changes and maintain desired state
+   * dns (domain name server)
+   * proxy load balances across all pods in a service
+   * scheduler watches api server for new pods to assign work to new pods
+   <br /><br />
+   
    System administrators control the <strong>Master node</strong>
    UI in the cloud or write scripts that invoke 
    <a href="#kubectl">kubectl command-line client program</a>
    that controls the <strong>Kubernetes Master</strong> node.
 
-   The program talks to the <strong>Kubernetes API Service</strong>.
    
-   The API Server puts nodes in "pending" state when it sends requests to bring them up and down to the <strong>Scheduler</strong> to do so only when there are enough resources available.
-   The scheduler can operate according to a schedule.
-   But whether it does or not are defined in rules obayed by the Scheduler about nodes called "Taints".
-   Rules obayed by the Scheduler about pods are called "Tolerances".
-   Such details are reaveled using the <strong>kubectl describe nodes</strong> command.
-   
-   Such data is persisted in an <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">ETCD Cluster</a>.
-   
-   <a href="#ETCD"></a>
-   
-   ### ETCD 
-   
-   PROTIP: When deployed outside of Kubernetes, <strong>ETCD</strong> (ETC daemon) is always used as the datastore.
+   ### Proxy networking
 
    The Kube Proxy communicates only with Pod admin. whereas Kubelets communicate with individual pods as well.
 
@@ -845,6 +854,12 @@ which is part of the <a taget="_blank" href="https://run.qwiklab.com/quests/29">
    * cert.pem - public key
    * key.pem - private key
 
+<a name="yaml-files"></a>
+
+## Kind yaml files
+
+The kinds of yaml files:
+
    ### Deployments
 
    * auth.yaml
@@ -902,14 +917,6 @@ From the https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/
    kubectl get nodes --all-namespaces
    </strong></pre>
 
-   Included are pods named:
-   * api server (aka "master") accepts kubectl commands
-   * <a href="#etcd">etcd</a> (cluster store) for HA (High Availability) in control pane
-   * controller to watch for changes and maintain desired state
-   * dns (domain name server)
-   * proxy load balances across all pods in a service
-   * scheduler watches api server for new pods to assign work to new pods
-   <br /><br />
 
 
 <a name="Manifest"></a>
