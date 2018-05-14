@@ -22,23 +22,22 @@ A-Z List of Machine Learning Studio Modules</a>,
 lists basic database and UI features such as forms,
 which means it's building standard computing functions on top of AI capabilities.
 
-* <a href="#Stats">Statistical Functions</a>
+* <a href="#Stats">(descriptive) Statistical Functions</a>
+* <a href="#Anomaly">Anomaly Detection</a> - finding unusual data points
 * <a href="#Recommendation">Recommendation</a> (collaborative filtering)
-* <a href="#Regression">Regression</a>
-* <a href="#Clustering">Clustering</a>
-* <a href="#Anomaly">Anomaly Detection</a>
+* <a href="#Regression">Regression</a> - predicting values
+* <a href="#Clustering">Clustering</a> - discovering structure
 * <a href="#Two-class"> Two-class Classification</a>
-* <a href="#Multi-class">Multi-class Classification</a>
+* <a href="#Multi-class">Multi-class Classification</a> - predicting categories
 * <a href="#TextAnalytics">Text Analytics</a>
 * <a href="#CV">Computer Vision</a>
 * <a href="#Voice">Voice</a>
 * <a href="#Translation">Translation</a>
 
-which <a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-cheat-sheet">Machine learning algorithm cheat sheet PDF</a>
-
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-cheat-sheet">
+This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
 <a href="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png">
-<img width="1280" alt="aml-cheatsheet.png" src="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png"></a>
-
+<img width="1280" alt="aml-cheatsheet.png" src="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png"><br />(click for full-screen image)</a>
 <a name="x"></a>
 <a name="y"></a>
 <table border="1" cellpadding="4" cellspacing="0">
@@ -179,7 +178,7 @@ which <a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-le
   </td><td><a href="#y"> Y</a>
   </td></tr>
 
-<tr valign="top"><td rowspan="2"><a name="TextAnalytics"></a> Text Analytics
+<tr valign="top"><td rowspan="4"><a name="TextAnalytics"></a> Text Analytics
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906018.aspx"> 
   Feature Hashing</a>
   </td><td><a href="#y"> Y</a>
@@ -188,6 +187,15 @@ which <a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-le
   Named Entity Recognition Vowpal Wabbit (v8)</a>
   </td><td><a href="#y"> Y</a>
   </td></tr>
+  <tr valign="top"><td>
+  Sentiment analysis</a>
+  </td><td><a href="#y"> ?</a>
+  </td></tr>
+  <tr valign="top"><td>
+  Bot (chat) Framework</a>
+  </td><td><a href="#y"> ?</a>
+  </td></tr>
+
 <tr valign="top"><td rowspan="1"><a name="CV"></a> Computer Vision
   </td><td><a href="#x"> OpenCV Library</a>
   </td><td><a href="#y"> Y</a>
