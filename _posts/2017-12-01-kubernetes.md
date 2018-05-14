@@ -121,7 +121,16 @@ The <strong>describe</strong> command provides more detailed information.
 
    ### Flannel 
 
-   CNI (Container Network Interface) Flannel from GitHub
+   PROTIP: Kubernetes uses third-party services to handle load balancing and port forwarding through 
+   <strong>ingress objects</strong> managed by an ingress controller.
+
+   CNI (Container Network Interface) 
+   
+   Flannel.
+
+   Other CNI vendors include Calico, Cilium, Contiv.
+
+   ### HA Proxy cluster
 
    For network resiliency, <strong>HA Proxy cluster</strong> distributes traffic among nodes.
 
@@ -554,9 +563,6 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
    ![kubernetes-nodes-363x120-20150](https://user-images.githubusercontent.com/300046/39900888-328f060e-5482-11e8-89eb-14439d7db270.jpg)
 
    The address is the default for <strong>Flannel</strong>.
-
-   PROTIP: Kubernetes uses third-party services to handle load balancing and port forwarding through 
-   <strong>ingress objects</strong> managed by an ingress controller.
 
    <a name="FlowDiagram"></a>
 

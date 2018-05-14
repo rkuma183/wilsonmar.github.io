@@ -93,7 +93,7 @@ an automobile based on different variables such as make and technical specificat
 Then iterate on a simple predictive analytics experiment.
 
 VIDEO: <a target="_blank" href="https://www.youtube.com/watch?v=eUce2cB844s">
-Hands-On with Azure Machine Learning
+Hands-On with Azure Machine Learning</a>
 
 0. Enter Microsoft's Learning Studio:
 
@@ -103,6 +103,8 @@ Hands-On with Azure Machine Learning
    https://studio.azureml.net/?selectAccess=true&o=2</a>
 
 0. If you want to learn how it works using their data, click "Enter" for the 8-hour trial with no login. This is what this article discusses.
+
+   ![azure-ml-plans-640x344-54460](https://user-images.githubusercontent.com/300046/39979116-90de3d8e-5701-11e8-94da-b17dd0f48072.jpg)
 
    Altrnately, if you want to use your own data (up to 10GB), click "Sign-in".
 
