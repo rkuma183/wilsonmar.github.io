@@ -41,7 +41,7 @@ Registration info for <a target="_blank" href="https://www.microsoft.com/en-us/l
 
 I mention this duo because vendors offer bundles such as:
 
-* 70-774 MCSA: Machine Learning Exam material is now available in Bundle-Pack | PDF & Practice Exam from CertificationGenie
+* PDF & Practice Exam from CertificationGenie
 * https://www.netcomlearning.com/certifications/610/MCSA-Machine-Learning-training.html
 * https://www.pass4itsure.com/70-774.html
 
@@ -50,14 +50,16 @@ I mention this duo because vendors offer bundles such as:
 
 The top-level:
 
-A. Prepare <strong>data</strong> for analysis in Azure Machine Learning and export from Azure Machine Learning
-B. Develop machine learning <strong>models</strong>
-C. Operationalize and manage Azure Machine Learning <strong>services</strong>
-D. Use <strong>other services</strong> for machine learning
+A. <a href="#PrepareDate">Prepare <strong>data</strong></a> for analysis in Azure Machine Learning and export from Azure Machine Learning<br />
+B. <a href="#DevelopModels">Develop machine learning <strong>models</strong></a><br />
+C. <a href="#Operationalize">Operationalize and manage Azure Machine Learning <strong>services</strong></a><br />
+D. <a href="#OtherServices">Use <strong>other services</strong> for machine learning</a>
 
 ### Objectives
 
 <a target="_blank" href="https://buildazure.com/2017/02/09/70-774-perform-cloud-data-science-with-azure-machine-learning-certification-exam/">This</a> provides a deeper list:
+
+<a name="PrepareData"></a>
 
 A. Prepare Data and Analytics in Azure Machine Learning and Export from Azure Machine Learning
 
@@ -67,6 +69,8 @@ A. Prepare Data and Analytics in Azure Machine Learning and Export from Azure Ma
    * <a href="#FeatureEngr">Perform feature engineering</a>
    <br /><br />
 
+<a name="DevelopModels"></a>
+
 B. Develop Machine Learning Models
 
    * <a href="#Algorithm">Select an appropriate algorithm or method</a>
@@ -74,13 +78,17 @@ B. Develop Machine Learning Models
    * <a href="#ValidateModels">Validate models</a>
    <br /><br />
 
+<a name="Operationalize"></a>
+
 C. Operationalize and Manage Azure Machine Learning services
 
-   * Deploy models using Azure Machine Learning
-   * Manage Azure Machine Learning projects and workspaces
-   * Consume Azure Machine Learning models
-   * Consume exemplar Cognitive Services APIs
+   * <a href="#DeployModels">Deploy models</a> using Azure Machine Learning
+   * <a href="#Projects">Manage Azure Machine Learning projects and workspaces</a>
+   * <a href="#ConsumeModels">Consume Azure Machine Learning models</a>
+   * <a href="#ConsumeApis">Consume exemplar Cognitive Services APIs</a>
    <br /><br />
+
+<a name="OtherServices"></a>
 
 D. Use Other Services for Machine Learning
 
@@ -161,12 +169,16 @@ Validate models
 
 C. Operationalize and Manage Azure Machine Learning Services
 
+<a name="DeployModels">
+
 Deploy models using Azure Machine Learning
 
 [_] Publish a model developed inside Azure Machine Learning, 
 [_] publish an externally developed scoring function using an Azure Machine Learning package, 
 [_] use web service parameters, create and publish a recommendation model, 
 [_] create and publish a language understanding model
+
+<a name="Projects"></a>
 
 Manage Azure Machine Learning projects and workspaces
 
@@ -176,6 +188,8 @@ Manage Azure Machine Learning projects and workspaces
 [_] invite users to a workspace, switch between different workspaces, 
 [_] create a Jupyter notebook that references an intermediate dataset
 
+<a name="ConsumeModels"></a>
+
 Consume Azure Machine Learning models
 
 [_] Connect to a published Machine Learning web service, 
@@ -183,6 +197,8 @@ Consume Azure Machine Learning models
 [_] consume a published Machine Learning model programmatically using a request response service, 
 [_] interact with a published Machine Learning model using Microsoft Excel, 
 [_] publish models to the marketplace
+
+<a name="ConsumeApis"></a>
 
 Consume exemplar Cognitive Services APIs
 
