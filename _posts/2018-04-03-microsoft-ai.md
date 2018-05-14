@@ -102,13 +102,15 @@ Hands-On with Azure Machine Learning</a>
    https://studio.azureml.net/?selectAccess=true&o=2">
    https://studio.azureml.net/?selectAccess=true&o=2</a>
 
-0. If you want to learn how it works using their data, click "Enter" for the 8-hour trial with no login. This is what this article discusses.
+0. If you want to learn how it works using their data, click the blue "Enter" for the 8-hour trial with no login. This is what this article discusses.
 
    ![azure-ml-plans-640x344-54460](https://user-images.githubusercontent.com/300046/39979116-90de3d8e-5701-11e8-94da-b17dd0f48072.jpg)
 
    Altrnately, if you want to use your own data (up to 10GB), click "Sign-in".
 
 0. Click the "hamberger menu" at the upper left.
+
+   ![azure-ml-top-menu-430x198-16945](https://user-images.githubusercontent.com/300046/39979174-075583f0-5702-11e8-9249-b794675d5491.jpg)
 
    Selecting "Azure AI" takes you to their marketing page at <a target="_blank" href="
    https://azure.microsoft.com/en-us/overview/ai-platform/">
