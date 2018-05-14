@@ -25,35 +25,34 @@ We begin with a "bottom-up" description of the architecture with a gradual revea
 
 ## Why Kubernetes?
 
-Kubernetes leverages efforts to "containerize" <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> pulled from <strong>DockerHub</strong>.
+Kubernetes leverages efforts to "containerize" <a href="#micro-services">microservice app</a> (such as NginX, Redis, search, etc.) Dockerized into a virtual <strong>container</strong> image pulled from <strong>DockerHub</strong>.
 
 PROTIP: Use security-vetted installers in Docker Enterprise, Quay, or an organization's own binary repository setup using Nexus or Artifactory. 
 
-Kubernetes also works with <strong>rkt</strong> (pronounced "rocket").
+Kubernetes also works with <strong>rkt</strong> (pronounced "rocket") containers.
 But this tutorial focuses on Docker.
 
 ![k8s-container-sets-479x364](https://user-images.githubusercontent.com/300046/33526550-6c98a980-d800-11e7-9862-ff202492e08b.jpg)
 <!-- From https://app.pluralsight.com/library/courses/getting-started-kubernetes/exercise-files -->
 
-Kubernetes automates <strong>resilience</strong> to containers by abstacting the network and storage of containers in "pods". Each pod can hold one or more containers, all of which <strong>share the same IP address</strong>, hostname, namespaces, and other resources. 
-Several containers can be co-located together and thus share storage, Linux namespaces, cgroups, IP addresses and are always scheduled together.
-
-Within a pod, each container has a different port.
-
-> Pods are replicated across several nodes.
-
-Kubernetes is written in the Go language, so it can run on Windows, Linux, and MacOS
-(the need to install a JVM).
+Kubernetes automates <strong>resilience</strong> to containers by abstacting the network and storage of containers in replaceable "pods". Each pod can hold one or more Docker containers.
+Within a pod, each container has a different <srtong>port number</strong>.
+But containers??? in the same pod share the <strong>same IP address</strong>, hostname, Linux namespaces, cgroups, storage, and other resources.
 
 <a target="_blank" title="from Yongbok Kim (who writes in Korean)" href="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg">
 <img alt="k8s-arch-ruo91-797x451-104467" src="https://user-images.githubusercontent.com/300046/33525757-6fcd2624-d7f3-11e7-9745-79ce5f9600e9.jpg"></a>
 
 This diagram is referenced throughout this tutorial, particularly in the <a href="#Details">Details section below</a>.
 
-It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
-animations on his website</a>.
+<em>It is by Yongbok Kim who presents <a target="_blank" href="https://translate.google.com/translate?hl=en&sl=ko&tl=en&u=http://www.yongbok.net/blog/google-kubernetes-container-cluster-manager/">
+animations on his website</a>.</em>
+
+Kubernetes replicates Pods across several worker <strong>nodes</strong> (VM or physical machines).
 
 PROTIP: Kubernetes recently added <strong>auto-scaling</strong> based on metrics API measurement of demand. Before that, Kubernetes manages the instantiating, starting, stopping, updating, and deleting of a <strong>pre-defined number of pod replicas</strong> based on declarations in <strong>*.yaml</strong> files or interactive commands.
+
+The number of pods replicated is based on <strong>deployment</strong> yaml files. 
+Service yaml files specify what ports are used in deployments.
 
 ### Kublet
 
@@ -79,11 +78,6 @@ The <strong>describe</strong> command provides more detailed information.
    The kubectl client communicates using REST API calls to an <strong>API Server</strong> 
    which handles authentication and authorization.
 
-   The API Server routes several <strong>kinds</strong> of <a href="#Ayaml-files">yaml declaration files</a>: 
-   Pod, Deployment, Service, Job.
-
-   API primatives ???
-
    <a name="Scheduler"></a>
    
    ## Scheduler
@@ -98,19 +92,36 @@ The <strong>describe</strong> command provides more detailed information.
 
    ### etcd storage 
 
-   The API Server and Scheduler persists their configuration information in a ETCD cluster <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">from CoreOS</a>, which calls ETCD a simple, distributed, consistent key-value store.
+   The API Server and Scheduler persists their configuration and status information in a 
+   <strong>ETCD cluster</strong> 
+   <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">
+   (from CoreOS)</a>.
+   
+   , which calls ETCD a simple, distributed, consistent key-value store.
 
-   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication details.
+   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
 
-   The <strong>controller</strong> ???
+   It's called a cluster because, for resiliancy, etcd replicates data across nodes. 
+   This is why there is a minimum of two worker nodes per cluster. ???
+
+   <a name="Controllers"></a>
+   
+   ### Controllers
+
+   The <strong>Node controller</strong> assigns a CIDR block to newly registered nodes,
+   then continually monitors node health. When necessary, it taints unhealthy nodes and
+   gracefully evicts unhealthy pods. The default timeout is 40 seconds.
 
    Each node has a different IP address.
+
+   Communications with outside callers occur through a single Virtual IP address (VIP) going through the <strong>kube-proxy</strong> which load balances traffic to <strong>deployments</strong>, which are load-balanced sets of pods within each node.
+
+   Load balancing among nodes (hosts within a cloud) are handled by third-party port forwarding
+   via Ingress controllers.
 
    ### Flannel 
 
    CNI (Container Network Interface) Flannel from GitHub
-
-   Communications with the outside callers occur through a single Virtual IP address (VIP) going through the <strong>kube-proxy</strong> which load balances traffic to pods within each node.
 
    For network resiliency, <strong>HA Proxy cluster</strong> distributes traffic among nodes.
 
@@ -170,6 +181,8 @@ spec:
   restartPolicy: Always
    </pre>
 
+Kubernetes is written in the Go language, so it can run on Windows, Linux, and MacOS
+(the need to install a JVM).
 
 ### Raspberry Pi
 
@@ -449,18 +462,10 @@ Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCom
 
    <pre>kubectl logs counter</pre>
 
-   <a name="etcd"></a>
+   The API Server routes several <strong>kinds</strong> of <a href="#Ayaml-files">yaml declaration files</a>: Pod, Deployment of pods, Service, Job, Configmap.
 
-   ### etcd
+   API primatives ???
 
-   The API server persists data through the <strong>etcd</strong>, a simple, distributed, consistent key-value store. 
-   
-   For resiliancy, etcd replicates data across nodes. This is why there is a minimum of two worker nodes per cluster.
-   
-   It’s mainly used for shared configuration and service discovery.
-   It provides a REST API for CRUD operations as well as an interface to register watchers on specific nodes, which enables a reliable way to notify the rest of the cluster about configuration changes.
-
-   An example of data stored by Kubernetes in etcd is jobs being scheduled, created and deployed, pod/service details and state, namespaces and replication information, etc.
 
 <a name="Centos"></a>
 
@@ -562,13 +567,12 @@ Linux Academy's CKA course</a> -- 05:34:43 of videos by Chad Miller (<a target="
    The diagram above is by <a target="_blank" href="https://www.slideshare.net/walterliu7/kubernetes-workshop-78554820"
    title="Kubernetes Workshop published Aug 4, 2017">Walter Liu</a>
 
-   Flannel is also widely used outside of Kubernetes. 
+   ### Flannel for Minikube
 
-   ### Flannel 
-
-   CoreOS's Tectonic (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>) 
-   sets up <a target="_blank" href="https://github.com/coreos/flannel">
-   Flannel </a> in the Kubernetes clusters it creates using the open source Tectonic Installer to drive the setup process. It configures a IPv4 "layer 3" network fabric designed for Kubernetes.
+   When using Minikube locally, a CNI () is needed. 
+   So setup <a target="_blank" href="https://github.com/coreos/flannel">
+   Flannel from CoreOS</a> using the open source Tectonic Installer (<a target="_blank" href="https://twitter.com/TectonicStack/">@TectonicStack</a>). 
+   It configures a IPv4 "layer 3" network fabric designed for Kubernetes.
 
    The response suggests several commands:
 
