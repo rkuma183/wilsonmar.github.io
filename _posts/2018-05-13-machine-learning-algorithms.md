@@ -42,150 +42,150 @@ This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
 <a name="y"></a>
 <table border="1" cellpadding="4" cellspacing="0">
 <tr align="bottom" align="left">
-<th> Category </th><th> Algorithm </th><th> MS </th></tr>
+<th> Category </th><th> Algorithm </th><th> Notes </th></tr>
 <tbody>
 <tr valign="top"><td rowspan="4"><a name="Stats"></a> Statistical Functions
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905933.aspx"> 
   Descriptive Statistics (Summarize Data)</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905917.aspx"> 
   Hypothesis Testing</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905819.aspx"> 
   Compute T-Test Linear Correlation</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905813.aspx"> Evaluate Probability Function Evaluation</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="3"><a name="Recommendation"></a> Recommendation (collaborative filtering)
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905987.aspx"> 
   Train Matchbox Recommender</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905970.aspx"> 
   Score Matchbox Recommender</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905954.aspx"> 
   Evaluate Recommender</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="8"><a name="Regression"></a> Regression
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906022.aspx"> 
   Bayesian Linear Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905801.aspx"> 
   Boosted Decision Tree</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905862.aspx"> 
   Tree Decision Forest</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn913093.aspx"> 
   Fast Forest Quantile Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905978.aspx"> 
   Linear Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a href="#x"> Neural Network Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906029.aspx"> 
   Ordinal Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a href="#x"> Poisson Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="1"><a name="Clustering"></a>Clustering
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905944.aspx"> 
   K-means Clustering</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="3"> Anomaly Detection
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn913103.aspx">
   One-class Support Vector Machine</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn913053.aspx">Principal Component Analysis-based Anomaly Detection</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a href="#x"> Time Series Anomaly Detection</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 <tr valign="top"><td rowspan="8"><a name="Two-class"></a> Two-class<br />Classification
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906036.aspx">
   Averaged Perceptron</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905930.aspx">
   Bayes Point Machine</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906025.aspx"> 
   Boosted Decision Tree</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906008.aspx"> 
   Decision Forest</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905976.aspx"> 
   Decision Jungle</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905994.aspx"> Logistic Regression</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905947.aspx"> Neural Network</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905835.aspx"> Support Vector Machine</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="6"><a name="Multi-class"></a> Multi-class<br />Classification
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905810.aspx"> 
   Tune Model Hyperparameters</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906015.aspx"> Decision Forest</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905963.aspx"> Decision Jungle</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx"> Logistic Regression</a> 
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906030.aspx"> 
   Neural Network</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn905887.aspx"> 
   One-vs-all</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 
 <tr valign="top"><td rowspan="4"><a name="TextAnalytics"></a> Text Analytics
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906018.aspx"> 
   Feature Hashing</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
   <tr valign="top"><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/mt712721.aspx"> 
   Named Entity Recognition Vowpal Wabbit (v8)</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y"> <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki">JohnLangford</a></a>
   </td></tr>
   <tr valign="top"><td>
   Sentiment analysis</a>
@@ -198,7 +198,7 @@ This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
 
 <tr valign="top"><td rowspan="1"><a name="CV"></a> Computer Vision
   </td><td><a href="#x"> OpenCV Library</a>
-  </td><td><a href="#y"> Y</a>
+  </td><td><a href="#y">-</a>
   </td></tr>
 <tr valign="top"><td rowspan="1"><a name="VoiceRecognition"></a> Voice
   </td><td><a href="#x"> Text to Speech</a>

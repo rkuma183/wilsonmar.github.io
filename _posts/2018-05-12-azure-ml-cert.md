@@ -67,7 +67,6 @@ A. Prepare Data and Analytics in Azure Machine Learning and Export from Azure Ma
    * <a href="#Explore">Explore and summarize data</a>
    * <a href="#Cleanse"> Cleanse data</a> for Azure Machine Learning
    * <a href="#FeatureEngr">Perform feature engineering</a>
-   <br /><br />
 
 <a name="DevelopModels"></a>
 
@@ -76,7 +75,6 @@ B. Develop Machine Learning Models
    * <a href="#Algorithm">Select an appropriate algorithm or method</a>
    * <a href="#TrainModels">Initialize and train appropriate models</a>
    * <a href="#ValidateModels">Validate models</a>
-   <br /><br />
 
 <a name="Operationalize"></a>
 
@@ -86,7 +84,6 @@ C. Operationalize and Manage Azure Machine Learning services
    * <a href="#Projects">Manage Azure Machine Learning projects and workspaces</a>
    * <a href="#ConsumeModels">Consume Azure Machine Learning models</a>
    * <a href="#ConsumeApis">Consume exemplar Cognitive Services APIs</a>
-   <br /><br />
 
 <a name="OtherServices"></a>
 
@@ -96,7 +93,6 @@ D. Use Other Services for Machine Learning
    * <a href="#StreamlineDev">Streamline development by using existing resources</a>
    * <a href="#HDInsights">Perform data sciences at scale by using HDInsights</a>
    * <a href="#SQLonAzure">Perform database analytics by using SQL Server R Services on Azure</a>
-   <br /><br />
 
 ### Tasks
 
@@ -111,61 +107,63 @@ A. Prepare Data for Analysis in Azure Machine Learning and Export from Azure Mac
 
 Import and export data to and from Azure Machine Learning
 
-* [_] Import and export data to and from Azure Blob storage, 
-* [_] import and export data to and from Azure SQL Database, 
-* [_] import and export data via Hive Queries, 
-* [_] import data from a website, 
+* [_] Import and export data to and from Azure Blob storage
+* [_] import and export data to and from Azure SQL Database
+* [_] import and export data via Hive Queries
+* [_] import data from a website
 * [_] import data from on-premises SQL
 
 <a name="Explore"></a>
 
 Explore and summarize data
 
-* [_] Create univariate summaries, 
-* [_] create multivariate summaries, 
-* [_] visualize univariate distributions, 
-* [_] use existing Microsoft R or Python notebooks for custom summaries and custom visualizations, 
+* [_] Create univariate summaries
+* [_] create multivariate summaries
+* [_] visualize univariate distributions
+* [_] use existing Microsoft R or Python notebooks for custom summaries and custom visualizations
 * [_] use zip archives to import external packages for R or Python
 * [_] Cleanse data for Azure Machine Learning
-* [_] Apply filters to limit a dataset to the desired rows, 
-* [_] identify and address missing data, 
-* [_] identify and address outliers, 
+* [_] Apply filters to limit a dataset to the desired rows
+* [_] identify and address missing data
+* [_] identify and address outliers
 * [_] remove columns and rows of datasets
 
 <a name="FeatureEngr"></a>
 
 Perform feature engineering
 
-* [_] Merge multiple datasets by rows or columns into a single dataset by columns, 
-* [_] merge multiple datasets by rows or columns into a single dataset by rows, 
-* [_] add columns that are combinations of other columns, 
-* [_] manually select and construct features for model estimation, 
-* [_] automatically select and construct features for model estimation, 
-* [_] reduce dimensions of data through principal component analysis (PCA), 
-* [_] manage variable metadata, 
+* [_] Merge multiple datasets by rows or columns into a single dataset by columns
+* [_] merge multiple datasets by rows or columns into a single dataset by rows
+* [_] add columns that are combinations of other columns
+* [_] manually select and construct features for model estimation
+* [_] automatically select and construct features for model estimation
+* [_] reduce dimensions of data through principal component analysis (PCA)
+* [_] manage variable metadata
 * [_] select standardized variables based on planned analysis
-
-<a name="TrainModels"></a>
 
 B. Develop Machine Learning Models
 
-* <a href="https://wilsonmar.github.io/machine-learning-algorithms/"> 
-   Select an appropriate algorithm or method</a>
+<a name="Algorithm"></a>
 
-* [_] Select an appropriate algorithm for predicting continuous label data, 
-* [_] select an appropriate algorithm for supervised versus unsupervised scenarios, 
-* [_] identify when to select R versus Python notebooks, 
-* [_] identify an appropriate algorithm for grouping unlabeled data, 
-* [_] identify an appropriate algorithm for classifying label data, 
+Select an appropriate algorithm or method
+
+* <a href="https://wilsonmar.github.io/machine-learning-algorithms/"> 
+   My notes on algorithms</a>
+
+* [_] Select an appropriate algorithm for predicting continuous label data
+* [_] select an appropriate algorithm for supervised versus unsupervised scenarios
+* [_] identify when to select R versus Python notebooks
+* [_] identify an appropriate algorithm for grouping unlabeled data
+* [_] identify an appropriate algorithm for classifying label data
 * [_] select an appropriate ensemble
 
 <a name="TrainModels"></a>
 
 Initialize and train appropriate models
 
-* [_] Tune hyperparameters manually; 
-* [_] tune hyperparameters automatically; 
-* [_] split data into training and testing datasets, including using routines for cross-validation; 
+* [_] Tune hyperparameters manually
+* [_] tune hyperparameters automatically
+* [_] split data into training and testing datasets, including using routines for cross-validation
 * [_] build an ensemble using the stacking method
 
 <a name="ValidateModels"></a>
@@ -185,37 +183,37 @@ C. Operationalize and Manage Azure Machine Learning Services
 
 Deploy models using Azure Machine Learning
 
-* [_] Publish a model developed inside Azure Machine Learning, 
-* [_] publish an externally developed scoring function using an Azure Machine Learning package, 
-* [_] use web service parameters, create and publish a recommendation model, 
+* [_] Publish a model developed inside Azure Machine Learning
+* [_] publish an externally developed scoring function using an Azure Machine Learning package
+* [_] use web service parameters, create and publish a recommendation model
 * [_] create and publish a language understanding model
 
 <a name="Projects"></a>
 
 Manage Azure Machine Learning projects and workspaces
 
-* [_] Create projects and experiments, 
-* [_] add assets to a project, 
-* [_] create new workspaces, 
-* [_] invite users to a workspace, switch between different workspaces, 
+* [_] Create projects and experiments
+* [_] add assets to a project
+* [_] create new workspaces
+* [_] invite users to a workspace, switch between different workspaces
 * [_] create a Jupyter notebook that references an intermediate dataset
 
 <a name="ConsumeModels"></a>
 
 Consume Azure Machine Learning models
 
-* [_] Connect to a published Machine Learning web service, 
-* [_] consume a published Machine Learning model programmatically using a batch execution service, 
-* [_] consume a published Machine Learning model programmatically using a request response service, 
-* [_] interact with a published Machine Learning model using Microsoft Excel, 
+* [_] Connect to a published Machine Learning web service
+* [_] consume a published Machine Learning model programmatically using a batch execution service
+* [_] consume a published Machine Learning model programmatically using a request response service
+* [_] interact with a published Machine Learning model using Microsoft Excel
 * [_] publish models to the marketplace
 
 <a name="ConsumeApis"></a>
 
 Consume exemplar Cognitive Services APIs
 
-* [_] Consume Vision APIs to process images, 
-* [_] consume Language APIs to process text, 
+* [_] Consume Vision APIs to process images
+* [_] consume Language APIs to process text
 * [_] consume Knowledge APIs to create recommendations
 
 D. Use Other Services for Machine Learning
@@ -224,34 +222,34 @@ D. Use Other Services for Machine Learning
 
 Build and use neural networks with the Microsoft Cognitive Toolkit
 
-* [_] Use N-series VMs for GPU acceleration, 
-* [_] build and train a three-layer feed forward neural network, 
+* [_] Use N-series VMs for GPU acceleration
+* [_] build and train a three-layer feed forward neural network
 * [_] determine when to implement a neural network
 
 <a name="StreamlineDev"></a>
 
 Streamline development by using existing resources
 
-* [_] Clone template experiments from Cortana Intelligence Gallery, 
-* [_] use Cortana Intelligence Quick Start to deploy resources, 
+* [_] Clone template experiments from Cortana Intelligence Gallery
+* [_] use Cortana Intelligence Quick Start to deploy resources
 * [_] use a data science VM for streamlined development
 
 <a name="HDInsights"></a>
 
 Perform data sciences at scale by using HDInsights
 
-* [_] Deploy the appropriate type of HDI cluster, 
-* [_] perform exploratory data analysis by using Spark SQL, 
-* [_] build and use Machine Learning models with Spark on HDI, 
-* [_] build and use Machine Learning models using MapReduce, 
+* [_] Deploy the appropriate type of HDI cluster
+* [_] perform exploratory data analysis by using Spark SQL
+* [_] build and use Machine Learning models with Spark on HDI
+* [_] build and use Machine Learning models using MapReduce
 * [_] build and use Machine Learning models using Microsoft R Server
 
 <a name="SQLonAzure"></a>
 
 Perform database analytics by using SQL Server R Services on Azure
 
-* [_] Deploy a SQL Server 2016 Azure VM, 
-* [_] configure SQL Server to allow execution of R scripts, 
+* [_] Deploy a SQL Server 2016 Azure VM
+* [_] configure SQL Server to allow execution of R scripts
 * [_] execute R scripts inside T-SQL statements
 
 

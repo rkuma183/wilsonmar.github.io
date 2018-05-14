@@ -19,9 +19,8 @@ approach to design (rather than "desktop-first" or "mainframe-first" design),
 some companies at the "bleeding edge" are moving to
 <strong>"AI first"</strong> design.
 
-> The assumption is that computers are better than humans.
-
 For example, Foxconn, is now assemblying iPhones using most mechanical robots rather than human robots.
+Tesla, BMW, and other auto manufacturers make heavy use of mechanical robots.
 
 Simerlerly, Uber drivers are human until they are replaced by driverless cars.
 
@@ -36,8 +35,7 @@ Hit songs are written</a> with emotional insights gained from
 scraping millions of conversations, newspaper headlines and speeches”
 "Not Easy" reached number four in the iTunes Hot Tracks chart, and number six in the alternative chart, within 48 hours of its release.
 
-In offices, the trend is to replace the human intelligence
-reading charts.
+In offices, the trend is to replace people reading lines on screens.
 Instead of creating lines on various charts for analysis by people 
    to make decisions,
    computers are making decisions.
@@ -69,15 +67,16 @@ instead of people <strong>editing</strong> files.
 
 ## No rules
 
-Traditionally, people program rules to detect known threats.
+Traditionally, programmers hand-code rules to detect and respond to known threats.
 
 But this has not kept up.
 
 AI (neural networks in particular) 
 can now discover, in real-time, 
-threats such as malware installation, phishing attacks, and brute-force intrusions.
+threats such as malware installation, phishing attacks, and brute-force intrusions
+which <strong>programmers did not anticipate</strong>.
 
-They can do that because Big Data systems enable the analysis of larger data sets quickly.
+They can do that because Big Data systems enable the analysis of massive floods of data quickly.
 Many computers in the cloud (with fast Google Fiber network links) 
 now process data faster than in the past.
 
@@ -110,7 +109,7 @@ influence each other by their vote, in real-time, like a Ouiji board.
 In the above scenarios, the role of human operators is to
 make sure the data sets fed into an AI engine are accurate and robust. 
 
-Data quality is more important than ever to weed out false positives.
+Data quality is more important than ever to weed out <strong>false positives</strong>.
 The old adage "garbage in garbage out" applies even more today.
 Systems can only be as intelligent as the data it analyzes. 
 
@@ -119,48 +118,80 @@ More importantly, AI adapts rules to deal with new threats.
 AI does that by analyzing judgements human experts make.
 
 
-??? data quality
+## "Sophomoric"
+
+<a target="_blank" href="https://www.youtube.com/watch?v=M2IebCN9Ht4">
+VIDEO: Deep Neural Networks are Easily Fooled</a>
+by Evolving AI Lab
+
+When an early-model Tay chatbot was first introduced in 2015,
+Microsoft shut it down a week after launch because
+it began spewing out racist and sexist texts
+because it lacked the filter that most human kids learn from parents.
 
 
+## Data quality
 
-## Super-human
+<p>Normalizing Data<br />
+<a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
 
-Therefore,
-the job of testing AI requires a "super-human" approach.
+<p>TanH<br />
+<a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">https://reference.wolfram.com/language/ref/Tanh.html</a></p>
 
-That would be ethics.
+<p>ZScore<br />
+<a target="_blank"  href="http://stattrek.com/statistics/dictionary.aspx?definition=z-score">http://stattrek.com/statistics/dictionary.aspx?definition=z-score</a><br />
+<a target="_blank" href="http://howto.commetrics.com/methodology/statistics/normalization/">http://howto.commetrics.com/methodology/statistics/normalization/</a></p>
 
-Automation to replace humans
+<p>Min Max<br />
+<a target="_blank"  href="https://www.quora.com/What-is-the-meaning-of-min-max-normalization">https://www.quora.com/What-is-the-meaning-of-min-max-normalization</a></p>
 
-What will people do
+<p>PCA<br />
+<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
+<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
+<a target="_blank" href="https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning">https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning</a></p>
 
+<p>Singular Value Decomposition (SVD)<br />
+<a target="_blank" href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
+
+<p>Canonical-correlation analysis (CCA)<br />
+
+<a target="_blank" href="https://en.wikipedia.org/wiki/Canonical_correlation">
+https://en.wikipedia.org/wiki/Canonical_correlation</a></p>
+
+<a href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
+
+<h4>Develop Machine Learning Models</h4>
+
+<p>Team Data Science<br />
+<a target="_blank"  href="https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access">https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access</a></p>
+
+<p>K-Means<br />
+<a target="_blank"  href="https://www.datascience.com/blog/k-means-clustering">https://www.datascience.com/blog/k-means-clustering</a></p>
+
+<p>Confusion Matrix<br />
+<a target="_blank"  href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a><br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a><br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/F1_score">https://en.wikipedia.org/wiki/F1_score</a></p>
+
+<p>Ordinal Regression<br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Ordinal_regression">https://en.wikipedia.org/wiki/Ordinal_regression</a></p>
+
+<p>Poisson regression<br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Poisson_regression">https://en.wikipedia.org/wiki/Poisson_regression</a></p>
+
+<p>Mean Absolute Error and Root Mean Squared Error<br />
+<a target="_blank"  href="http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm">http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm</a></p>
+
+<p>Cross Validation<br />
+<a target="_blank" href="https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f">https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f</a></p>
+
+
+## Output
 
 Model training produces a <strong>checkpoint file</strong> that contains a 
 model which already has parameters output from traning.
 Using checkpoint files means we can get straight to applying the model.
 
-
-
-## Organizational Silos
-
-We all know that stand-alone "silos" in organizations have both advantages and disadvantages
-when it comes to achieving speed.
-
-A fragmented approach to application delivery makes it harder to share knowledge and best practices.
-
-The ‘DevOps mindset’ requires collaboration.
-
-
-## Foolish
-
-https://www.youtube.com/watch?v=M2IebCN9Ht4
-Deep Neural Networks are Easily Fooled
-Evolving AI Lab
-
-Remember when the Tay chatbot was first introduced in 2016?
-Microsoft shut it down a week after launch because
-it began spewing out racist and sexist texts
-because it lacked the filter that most human kids learn from parents.
 
 
 ## Technical Debt
