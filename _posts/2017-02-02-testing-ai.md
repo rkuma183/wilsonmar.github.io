@@ -14,6 +14,8 @@ comments: true
 
 {% include _toc.html %}
 
+## Humans are limited and replaceable
+
 While many organizations are still working toward a <strong>"mobile-first"</strong>
 approach to design (rather than "desktop-first" or "mainframe-first" design),
 some companies at the "bleeding edge" are moving to
@@ -24,8 +26,6 @@ Tesla, BMW, and other auto manufacturers make heavy use of mechanical robots.
 
 Simerlerly, Uber drivers are human until they are replaced by driverless cars.
 
-By 2017, Artificial Intelligence programs have beaten 
-world champions in Jeopardy, chess, go, and poker.
 Robots are at par with Olympic atheletes in
 <a target="_blank" href="https://www.kuka.com/en-de/about-kuka/brand/timo-boll-the-duel/">
 table tennis</a>.
@@ -39,8 +39,6 @@ In offices, the trend is to replace people reading lines on screens.
 Instead of creating lines on various charts for analysis by people 
    to make decisions,
    computers are making decisions.
-
-## Humans are limited
 
 > "Machines will be capable, within 20 years, of doing any work a man can do." 
 --Herbert Simon (1916-2001), Nobel Laureate
@@ -64,6 +62,15 @@ In operation of computers, <strong>configuration settings</strong>
 are increasingly being updated by programs 
 instead of people <strong>editing</strong> files.
 
+The point of these apocalyptic pronouncements is that AI and Machine Learning will probaly
+not be embrased with open arms in organizations where executive see their human army
+with disdain.
+
+To reduce the likelihood of robots being undermined by the human workforce,
+management needs to <strong>prove</strong> that it's not a "zero sum game" but that rising demand for
+services would result only in planned displacement of people to different human roles.
+
+Those different roles are available only when the organization is growing and will continue to grow.
 
 ## No rules
 
@@ -113,9 +120,9 @@ Data quality is more important than ever to weed out <strong>false positives</st
 The old adage "garbage in garbage out" applies even more today.
 Systems can only be as intelligent as the data it analyzes. 
 
-More importantly, AI adapts rules to deal with new threats.
+More importantly, <strong>good AI adapts</strong> rules to deal with new conditions (threats).
 
-AI does that by analyzing judgements human experts make.
+AI may do that by analyzing judgements human experts make.
 
 
 ## "Sophomoric"
@@ -131,6 +138,56 @@ because it lacked the filter that most human kids learn from parents.
 
 
 ## Data quality
+
+Another difference with AI is that testing cannot achieve one-to-one correspondance between
+input requirements and resulting outcomes.
+
+This is because the fundamental approach to Machine Learning is essentially <strong>guesswork</strong>.
+This is why people celebrated when 98% accuracy was achieved.
+
+Machine Learning does not approach problems like a double-entry accounting system,
+where dollars and cents are supposed to balance out every time.
+
+> One does not bring an accounting system to a gunfight playing first-person shooter games.
+
+Artificial Intelligence programs have beaten 
+world champions in Jeopardy, chess, go, and poker
+because of algorithms which aim to <strong>learn new rules rather than following rules mechanically</strong>.
+
+So a new mind-set is necessary to test AI.
+
+## Split data for eval.
+
+The now standard approach to testing AI is to divide the universe of a large dataset into two groups.
+Usually 70% of the dataset is used for training and
+the remaining 30% of the dataset is reserved for evaluating the training.
+
+But I argue here that this is not enough.
+
+The case in point is an AI system that is about as serious as it gets -- 
+the system that recommends to judges how long a sentence to give convicts.
+That system was used for years before an investigative report analyzed the <strong>impact</strong>
+discovered that African Americans and the poor were systematically given harsher sentences
+than whites and well-to-do citizens.
+
+"Garbage in, garbgse out" still applies here.
+
+## Looking for bias
+
+One aspect of making judgement about the efficacy of AI results is whether it is <strong>biased</strong>
+against factors that were <strong>not part of data processed by the AI system</strong>.
+The judge and the AI system never said "oh you're
+
+Again, one cannot approach evaulating the <strong>total impact</strong> of an AI system simply by looking at only the data the AI system used.
+
+That is the "creative" role of "higher thinking" which humans can do well.
+
+But humans need to be emboldened by management to both recognize and name "elephants in the room".
+
+An organization's "cultural history" can and often does limit whether its members speak up.
+
+
+
 
 <p>Normalizing Data<br />
 <a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
@@ -240,3 +297,10 @@ https://medium.com/@jaredpolivka/machine-learning-with-humans-in-the-loop-lesson
 https://www.youtube.com/watch?v=zwm2C3V35Fw
 Artificial Intelligence - The Apex Technology of the Information Age: Goldman Sachs' Heath Terry
 2:41 general talk
+
+
+## More
+
+This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
+
+{% include ai_links.html %}

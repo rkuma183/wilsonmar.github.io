@@ -34,6 +34,9 @@ which means it's building standard computing functions on top of AI capabilities
 * <a href="#Voice">Voice</a>
 * <a href="#Translation">Translation</a>
 
+<a target="_blank" href="https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf">
+PDF: Microsoft's long infographic about algorithms</a>
+
 <a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio/algorithm-cheat-sheet">
 This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
 <a href="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png">
@@ -113,7 +116,7 @@ This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
   </td><td><a href="#y">-</a>
   </td></tr>
 
-<tr valign="top"><td rowspan="3"> Anomaly Detection
+<tr valign="top"><td rowspan="3"><a name="Anomaly"></a> Anomaly Detection
   </td><td><a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn913103.aspx">
   One-class Support Vector Machine</a>
   </td><td><a href="#y">-</a>
@@ -209,3 +212,18 @@ This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
   </td><td><a href="#y"> Cortana</a>
   </td></tr>
 </tbody></table> 
+
+
+<a target="_blank" href="https://gallery.azure.ai/Experiment/b6b96207eef94a15b0ef87bf69a0f771">
+Anomaly Detection ML example experiment</a> to predict credit risk as anomalies within German Credit data
+
+<a target="_blank" href="https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_106B_LSTM_Timeseries_with_IOT_Data.ipynb">
+CNTK 106: Part B - Time series prediction with LSTM (IOT Data)</a>
+
+
+
+## More
+
+This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
+
+{% include ai_links.html %}

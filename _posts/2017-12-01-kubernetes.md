@@ -97,9 +97,7 @@ The <strong>describe</strong> command provides more detailed information.
    <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">
    (from CoreOS)</a>.
    
-   , which calls ETCD a simple, distributed, consistent key-value store.
-
-   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
+   Kubernetes data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
 
    It's called a cluster because, for resiliancy, etcd replicates data across nodes. 
    This is why there is a minimum of two worker nodes per cluster. ???

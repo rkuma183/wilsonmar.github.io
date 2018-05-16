@@ -15,21 +15,29 @@ comments: true
 
 {% include _toc.html %}
 
-This is a deep-dive tutorial of how to being using Microsoft's offerings for Machine Learning in their Azure cloud.
+This is a deep-dive guided tour of how to being using Microsoft's offerings for Machine Learning in their Azure cloud.
 
 ## Azure AI + Machine Learning
 
-For an idea of the sophistication Microsoft has achieved:
+PROTIP: Where many become confused is that one has to traverse three different web sites:
+
+![aml-steps-405x156-17814](https://user-images.githubusercontent.com/300046/40132203-665cad26-58f9-11e8-9eb8-34076f838a3b.jpg)
+
+Working backwards from the Azure Portal used in production:
 
 1. Log into <a target="_blank" href="
    https://portal.azure.com/">
    https://portal.azure.com</a>
 
-   PROTIP: This is where the real pros go every day to do real data science and AI.
+   This presents the full sophistication Microsoft has achieved.
 
-1. Click "All services" in the left menu and type "AI" or scroll down to see:
+1. Switch to another window by opening a new tab.
+2. Click "All services" in the left menu and type "AI" or scroll down to see:
 
    ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
+
+   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/batch-ai/overview">
+   Batch AI</a>
 
    Azure offers "NC-series" Windows 2016 and Ubuntu Linux "Data Science Virtual Machines" (DSVMs) with GPU drivers for <a target="_blank" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning">Deep Learning</a>.
    These use "HDD" not "SSD" disks. [<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview">Docs</a>]
@@ -41,6 +49,9 @@ For an idea of the sophistication Microsoft has achieved:
 0. Microsoft's AzureML Studio provides an on-line app
    with drap and drop ease of use with no setup on your laptop or servers.
    So you can use a Chromebook with no hard drive.
+
+   <a target="_blank" href="https://studio.azureml.net/">
+   https://studio.azureml.net</a>
 
    NOTE: AzureML supports R and Python scripts.
 
@@ -67,22 +78,37 @@ For an idea of the sophistication Microsoft has achieved:
    BTW There is also a marketing page at <br /><a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
    https://azure.microsoft.com/en-us/services/machine-learning</a>
 
+
 0. Click "Gallery" to look at examples in <a target="_blank" href="https://gallery.azure.ai/">
    https://gallery.azure.ai</a> titled "Azure AI Gallery" (previously called the Cortana Intelligence Gallery at gallery.azureml.net).
 
    PROTIP: There is not many views to an item, so you're one of the early adopter visionaries!
 
-   The <a target="_blank" href="https://gallery.azure.ai/solutions/">
-   menu item Solutions on the menu</a> 
-   (templates, reference architectures and design patterns to make them your own)
-   is not a selection in the Learning Studio.
+   ### Solutions
+
+   The menu item on the menu named 
+   <a target="_blank" href="https://gallery.azure.ai/solutions/">
+   Solutions</a> applies to usage by a particular customer/industry.
+   
+   An example of a solution is the <a target="_blank" href="https://gallery.azure.ai/Solution/Interactive-Price-Analytics">
+   Interactive Price Analytics</a> applying models (studied in "Micro Economics" courses)
+   that are the basis for recommending pricing changes based on the history of 
+   how demand for particular products responds to prices changes.
+
+   Solutions are not a selection in ML Studio because they make use of models derived
+   from experiments in the ML Studio:
+   Modeling Price Elasticity - Part 1: Own-Price-Elasticity, Parts
+   <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-1">
+   1</a>, <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-2">2</a>, <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-3">and 3</a>.
 
    ### Projects
+
+1. Within the ML Studio:
 
    <a target="_blank" href="https://gallery.azure.ai/">
    <img align="right" alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
    Projects, (trained) Models, Experiments, 
-   reflect the left menu (but in a different order):
+   reflect the left menu than the solutions horizonal menu (but in a different order):
 
    <a target="_blank" href="https://gallery.azure.ai/projects/">PROJECTS</a>
    are in both - collection of scripts, notebooks, and/or data designed to support the everyday work of data scientists.
