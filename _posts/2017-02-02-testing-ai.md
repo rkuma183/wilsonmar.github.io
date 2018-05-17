@@ -176,11 +176,10 @@ than whites and well-to-do citizens.
 
 One aspect of making judgement about the efficacy of AI results is whether it is <strong>biased</strong>
 against factors that were <strong>not part of data processed by the AI system</strong>.
-The judge and the AI system never said "oh you're
 
 Again, one cannot approach evaulating the <strong>total impact</strong> of an AI system simply by looking at only the data the AI system used.
 
-That is the "creative" role of "higher thinking" which humans can do well.
+Working with data "outside the system" is the "creative" role of "higher thinking" which humans can do well.
 
 But humans need to be emboldened by management to both recognize and name "elephants in the room".
 

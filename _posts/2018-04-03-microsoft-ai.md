@@ -67,6 +67,7 @@ to perform SGD (stochastic-gradient descent).
 
 https://www.youtube.com/watch?v=eJOv-TfhhzQ
 
+https://services.azureml.net/
 
 ## Subject matter
 
@@ -133,6 +134,8 @@ XiaoIce, a chatbot Microsoft launched in China, "has more than 200 million users
    - Request-Response Service (RRS) Predictive Experiment - Batch Execution Service (BES)
    - Retraining API
    <br /><br />
+
+<a name="HDInsight"></a>
 
 ## HDInsight
 

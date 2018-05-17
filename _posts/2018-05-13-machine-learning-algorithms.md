@@ -15,23 +15,26 @@ comments: true
 
 {% include _toc.html %}
 
-Here are the beginnings of an analysis of algorithms offered by Microsoft Azure, Amazon, and Google.
+Here is a catalog of what AI and Machine Learning algorithms and Modules offered by Microsoft Azure, Amazon, and Google.
 
-From the <a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx">
-A-Z List of Machine Learning Studio Modules</a>,
-lists basic database and UI features such as forms,
-which means it's building standard computing functions on top of AI capabilities.
+* <a href="#Anomaly">Anomaly Detection</a> to identify and predict rare or unusual data points.
+* <a href="#Recommendation">Recommendation</a> (collaborative filtering)
+* <a href="#Clustering">Clustering</a> to discover structure, separate similar data points into intuitive groups.
+* <a href="#Regression">Regression</a> to predict values (forecast the future by estimating the relationship between variables)
+* <a href="#Two-class"> Two-class Classification</a> to answer simple two-choice questions like yes-no or true-false.
+* <a href="#Multi-class">Multi-class Classification</a> to answer complex questions with multiple possible answers
+
+Microsoft created a cute interactive museum to view their use cases in a non-technical way <a target="_blank" href="http://azuremlsimpleds.azurewebsites.net/simpleds/">here</a>
+
+Additionally:
 
 * <a href="#Stats">(descriptive) Statistical Functions</a>
-* <a href="#Anomaly">Anomaly Detection</a> - finding unusual data points
-* <a href="#Recommendation">Recommendation</a> (collaborative filtering)
-* <a href="#Regression">Regression</a> - predicting values
-* <a href="#Clustering">Clustering</a> - discovering structure
-* <a href="#Two-class"> Two-class Classification</a>
-* <a href="#Multi-class">Multi-class Classification</a> - predicting categories
-* <a href="#TextAnalytics">Text Analytics</a>
+
+These are more Artificial Intelligence (AI):
+
 * <a href="#CV">Computer Vision</a>
 * <a href="#Voice">Voice</a>
+* <a href="#TextAnalytics">Text Analytics</a> and
 * <a href="#Translation">Translation</a>
 
 <a target="_blank" href="https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf">
@@ -41,6 +44,12 @@ PDF: Microsoft's long infographic about algorithms</a>
 This cheat sheet PDF of Microsoft'a Azure ML Algorithms</a>
 <a href="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png">
 <img width="1280" alt="aml-cheatsheet.png" src="https://user-images.githubusercontent.com/300046/40009626-d5359eec-575f-11e8-8a4d-7a24d52d4d8b.png"><br />(click for full-screen image)</a>
+
+From the <a target="_blank" href="https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx">
+A-Z List of Machine Learning Studio Modules</a>,
+lists basic database and UI features such as forms,
+which means it's building standard computing functions on top of AI capabilities.
+
 <a name="x"></a>
 <a name="y"></a>
 <table border="1" cellpadding="4" cellspacing="0">

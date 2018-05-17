@@ -21,13 +21,14 @@ Major organizations are in an arms race in offering
 Artificial intelligence and Machine Learning (ML) services in their clouds:
 
    * [Microsoft Cortana in Azure cloud](/microsoft-ai)
-   * Facebook
-   * Google
+   * Google's TensorFlow
    * IBM Watson
-   * Amazon Alexa
+   * Amazon Alexa and Lex Chatbot
+   * Apple Siri
+   * Facebook 
    <br />
 
-Each of the above are cloud vendors hoping to cash in by charging for processing of other people's data.
+Each of the above are cloud vendors hoping to cash in by charging for storing and processing data on their cloud. Facebook, as we all know to our chagrin, makes money from selling their user's data to advertisers.
 
 Benedict Evans, resident futurist at venture capital firm Andreessen Horowitz, 
 observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google"> blog post</a> that the future of AI remains opaque: 

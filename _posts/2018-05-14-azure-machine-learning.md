@@ -15,23 +15,23 @@ comments: true
 
 {% include _toc.html %}
 
-This is a deep-dive guided tour of how to being using Microsoft's offerings for Machine Learning in their Azure cloud.
+This is a deep-dive guided tour of how to begin using Microsoft's offerings for Machine Learning in their Azure cloud.
 
 ## Azure AI + Machine Learning
 
-PROTIP: Where many become confused is that one has to traverse three different web sites:
+PROTIP: One has to traverse three different web sites to design, deploy, and consume Machine Learning.
 
 ![aml-steps-405x156-17814](https://user-images.githubusercontent.com/300046/40132203-665cad26-58f9-11e8-9eb8-34076f838a3b.jpg)
 
 Working backwards from the Azure Portal used in production:
 
-1. Log into <a target="_blank" href="
+1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> within the
+   Azure Portal at <a target="_blank" href="
    https://portal.azure.com/">
    https://portal.azure.com</a>
+   which presents the full sophistication Microsoft has achieved.
 
-   This presents the full sophistication Microsoft has achieved.
-
-1. Switch to another window by opening a new tab.
+1. Switch to another window by opening a new tab. On MacOS press Command+Tab. On Windows press Ctrl+Esc.
 2. Click "All services" in the left menu and type "AI" or scroll down to see:
 
    ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
@@ -77,7 +77,6 @@ Working backwards from the Azure Portal used in production:
 
    BTW There is also a marketing page at <br /><a target="_blank" href="https://azure.microsoft.com/en-us/services/machine-learning/">
    https://azure.microsoft.com/en-us/services/machine-learning</a>
-
 
 0. Click "Gallery" to look at examples in <a target="_blank" href="https://gallery.azure.ai/">
    https://gallery.azure.ai</a> titled "Azure AI Gallery" (previously called the Cortana Intelligence Gallery at gallery.azureml.net).
