@@ -52,7 +52,7 @@ The team behind <a target="_blank" href="http://learnanalytics.microsoft.com/hom
 http://learnanalytics.microsoft.com/home/index</a> has a <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-774_community_guide.html">GitHub.io page</a> which mentions courses at EdX.com:
 
    * <a target="_blank" href="https://www.edx.org/course/principles-of-machine-learning">
-   https://www.edx.org/course/principles-of-machine-learning</a> 6 x 4 (24 hour) hands-on class 
+   https://www.edx.org/course/principles-of-machine-learning DAT203.2x</a> 6 x 4 (24 hour) hands-on class 
    (by the brilliant Cythina Rudin of the Prediction Analytics Lab at Duke
    and Steve Elston of Quantia Analytics) covers classification, regression, models,
    and tree ensemble models, recommenders from clustering.
@@ -67,9 +67,7 @@ http://learnanalytics.microsoft.com/home/index</a> has a <a target="_blank" href
 
    * Content Developer <a target="_blank" href="https://www.linkedin.com/in/graemesplace/">Graeme Malcolm</a> also narrated at the "DAT203.1x: Data Science Essentials" class at Edx.
 
-## Topics
-
-The top-level:
+## Exam Topics - Top-level 
 
 A. <a href="#PrepareDate">Prepare <strong>data</strong></a> for analysis in Azure Machine Learning Studio and export from the Studio<br />
 B. <a href="#DevelopModels">Develop machine learning <strong>models</strong></a><br />
