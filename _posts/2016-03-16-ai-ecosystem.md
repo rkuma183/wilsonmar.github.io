@@ -17,7 +17,7 @@ comments: true
 
 ## Leading Companies #
 
-Major organizations are in an arms race in offering 
+In the 2010's there is an "arms race" in offering 
 Artificial intelligence and Machine Learning (ML) services in their clouds:
 
    * [Microsoft Cortana in Azure cloud](/microsoft-ai)
@@ -34,25 +34,24 @@ Benedict Evans, resident futurist at venture capital firm Andreessen Horowitz,
 observes in a <a target="_blank" href="http://ben-evans.com/benedictevans/2016/6/23/ai-apple-and-google"> blog post</a> that the future of AI remains opaque: 
 "This field is moving so fast that it's not easy to say where the strongest leads necessarily are, nor to work out which things will be commodities and which will be strong points of difference."
 
-
-## Other companies
-
-<a target="_blank" href="https://algorithmia.com/algorithms">
-Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
-
 <a target="_blank" href="https://gibhut.com/josephmisiti/awesome-machine-learning/">
 awesome-machine-learning</a>
 provides many links to resources, so they will not be repeated here.
 
+## Pubs 
 
-## Arxiv
+There is a website that specializes in academic publications about Artificial Intelligence.
+See the <a target="_blank" href="https://docs.google.com/spreadsheets/d/1xej5Nca2xUUtrZ1GCyPjFMqI9ZgNq_OhgnTxOOMQ2js/edit#gid=404493967">Arxiv Paper Analysis Worksheet (Responses) on Google Sheet</a>
 
-<a target="_blank" href="https://docs.google.com/spreadsheets/d/1xej5Nca2xUUtrZ1GCyPjFMqI9ZgNq_OhgnTxOOMQ2js/edit#gid=404493967">Arxiv Paper Analysis Worksheet (Responses) on Google Sheet</a>
+<a target="_blank" href="http://aka.ms/academicgraph">
+Microsoft Academic Graph (MAG)</a>
+knowledge base mined from the Bing web index. It models scholarly activities: field of study, author, institution, paper, venue, and event.
 
+## Algorithmia
 
-## Data Conversions
-
-   Some utilities may involve conventional lookups of data:
+<a target="_blank" href="https://algorithmia.com/algorithms">
+Algorithmia.com</a> provide API interfaces to algorithms offered by its partners.
+They have these data conversion utilities for conventional lookups of data:
 
    * https://algorithmia.com/algorithms/alixaxel/CoordinatesToTimezone
 
@@ -68,18 +67,32 @@ provides many links to resources, so they will not be repeated here.
 
    * https://algorithmia.com/algorithms/opencv/ChangeImageFormat (from jpg to png)
 
+## The offerings
+
+Here are some of the 
 
 <a name="Translation"></a>
 
 ## Translation #
 
-   * Google Translate API 
-   has been working on websites for years.
+<a target="_blank" href="https://translate.google.com/">
+https://translate.google.com</a>
+and the Google Translate API 
+has been working on translating websites since the 90's.
+In 2017 Google made a breakthrough 
 
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/">
+Microsoft's Translator Speech</a>
 
 <a name="CV"></a>
 
-## Image Recognition / Computer Vision #
+## Computer Vision #
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/">
+Microsoft's Computer Vision</a>
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/face/">
+Microsoft's "Face"</a>
 
    * https://algorithmia.com/algorithms/z/ColorPalettefromImage
 
@@ -102,6 +115,9 @@ provides many links to resources, so they will not be repeated here.
 
    * <a target="_blank" href="http://www.techrepublic.com/article/microsofts-ai-can-now-understand-speech-better-than-humans/">
    Microsoft says its Cortana is as accurate as human transcriptionists</a>
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart/">
+Microsoft's Web App Bot</a>
 
 
 ## NLP Sentiment Analysis #
@@ -126,6 +142,12 @@ provides many links to resources, so they will not be repeated here.
 
 ## Document (article) Search #
 
+Google made it's fortune on offering search services.
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/">
+Microsoft's Bing Search</a>
+
+
    <strong>TF-IDF = Term Frequency - Inverse Document Frequency</strong>
    emphasizes important words (called a vector)
    which appear rarely in the corpus searched (rare globally).
@@ -149,4 +171,4 @@ https://www.wikiwand.com/en/Deep_learning
 
 This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
 
-{% include ai_links.html %}
+{% include   %}

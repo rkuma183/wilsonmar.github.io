@@ -16,41 +16,60 @@ comments: true
 {% include _toc.html %}
 
 Here are materials I've come across for learning enough to pass Microsoft's 
-Azure Machine Learning certification exam 70-774 - 37 questions at a VUE center for $165.
+Azure Machine Learning certification exam <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-774.aspx">70-774</a> 
+- 37 questions in 90 minutes at a VUE center for $165.
 
-The exam began beta on Feb 17, 2017.
+This is one way to demonstrate your expertise in making use of  machine learning and Big Data with R Server and SQL R Services within the Microsoft Azure cloud, that you have a good understanding of Azure data services and are familiar with common data science processes such as filtering and transforming data sets, model estimation, and model evaluation. Candidates for this exam should have experience publishing effective APIs for knowledge intelligence.
 
-Since Machine Learning often involves processing a lot of data, passing this exam as well as "Exam 70-773: Analyzing Big Data with Microsoft R" gets you an MCSA: <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsa-machine-learning.aspx">"Microsoft Certified Solutions Associate: Machine Learning certification"</a>, demonstrating your expertise in operationalizing Microsoft Azure machine learning and Big Data with R Server and SQL R Services.
-
-Candidates for this exam are data scientists or analysts who use Azure cloud services to build and deploy intelligent solutions. Candidates have a good understanding of Azure data services and machine learning and are familiar with common data science processes such as filtering and transforming data sets, model estimation, and model evaluation. Candidates for this exam should have experience publishing effective APIs for knowledge intelligence.
-
-
-### MCSA Bundle 
-
-The http://learnanalytics.microsoft.com/home/index team has a <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-774_community_guide.html">GitHub.io page</a>
-
-PROTIP: The 336 page reference book published Feb 2018 for the exam is <a target="_blank" href="https://www.microsoftpressstore.com/store/exam-ref-70-774-perform-cloud-data-science-with-azure-9781509307012">
+The 70-7734 exam began beta on Feb 17, 2017.
+The 336 page reference book for the exam was published Feb 2018. 
+It is <a target="_blank" href="https://www.microsoftpressstore.com/store/exam-ref-70-774-perform-cloud-data-science-with-azure-9781509307012">
 $32 from Microsoft</a>, but <a target="_blank" href="https://www.amazon.com/70-774-Perform-Science-Machine-Learning-ebook/dp/B07B263ZVP/">
 $17.27 on Kindle</a>. 
 
-Its authors - <a target="_blank" href="https://www.desertislesql.com/wordpress1/?p=2028">
+PROTIP: In September 2017 "Studio" was added to the name "Azure Machine Learning" when referring to the web tool. This fixes a confusion in terminology between a tool versus a process.
+References in this website reflect that change.
+
+### MCSA Bundle 
+
+The authors - <a target="_blank" href="https://www.desertislesql.com/wordpress1/?p=2028">
 Ginger Grant</a>, Julio Granados, Guillermo Fernández, Pau Sempere, Javier Torrenteras
 also wrote the book on 70-773.
 
-Registration info for <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-773.aspx">70-773</a> and <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-774.aspx">70-774</a>. It says:
+Since Machine Learning often involves processing a lot of data, passing this exam as well as "Exam 70-773: Analyzing Big Data with Microsoft R" <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-773.aspx">70-773</a> gets you an MCSA: <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsa-machine-learning.aspx">"Microsoft Certified Solutions Associate: Machine Learning certification"</a>.
 
-I mention this duo because vendors offer bundles such as:
+This exam set is referenced by vendors who offer bundles such as:
 
 * PDF & Practice Exam from CertificationGenie
 * https://www.netcomlearning.com/certifications/610/MCSA-Machine-Learning-training.html
 * https://www.pass4itsure.com/70-774.html
 
+## Microsoft Classes
+
+The team behind <a target="_blank" href="http://learnanalytics.microsoft.com/home/index">
+http://learnanalytics.microsoft.com/home/index</a> has a <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-774_community_guide.html">GitHub.io page</a> which mentions courses at EdX.com:
+
+   * <a target="_blank" href="https://www.edx.org/course/principles-of-machine-learning">
+   https://www.edx.org/course/principles-of-machine-learning</a> 6 x 4 (24 hour) hands-on class 
+   (by the brilliant Cythina Rudin of the Prediction Analytics Lab at Duke
+   and Steve Elston of Quantia Analytics) covers classification, regression, models,
+   and tree ensemble models, recommenders from clustering.
+   Example code <a target="_blank" href="https://aka.ms/edx-dat203.2x-labfiles">files</a> 
+   are provided in both R and Python.
+
+   * <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4 ">https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4</a>
+   by Graeme Malcolm plus the authors listed above.
+   This was not available at time of this writing May 2018.
+   The class covers of time series and forecasting, spatial data analysis, text analytics,
+   and analysis of images.
+
+   * Content Developer <a target="_blank" href="https://www.linkedin.com/in/graemesplace/">Graeme Malcolm</a> also narrated at the "DAT203.1x: Data Science Essentials" class at Edx.
 
 ## Topics
 
 The top-level:
 
-A. <a href="#PrepareDate">Prepare <strong>data</strong></a> for analysis in Azure Machine Learning and export from Azure Machine Learning<br />
+A. <a href="#PrepareDate">Prepare <strong>data</strong></a> for analysis in Azure Machine Learning Studio and export from the Studio<br />
 B. <a href="#DevelopModels">Develop machine learning <strong>models</strong></a><br />
 C. <a href="#Operationalize">Operationalize and manage Azure Machine Learning <strong>services</strong></a><br />
 D. <a href="#OtherServices">Use <strong>other services</strong> for machine learning</a>
@@ -59,11 +78,11 @@ D. <a href="#OtherServices">Use <strong>other services</strong> for machine lear
 
 <a target="_blank" href="https://buildazure.com/2017/02/09/70-774-perform-cloud-data-science-with-azure-machine-learning-certification-exam/">This</a> provides a deeper list:
 
-<a name="PrepareData"></a>
+<a name="PrepareDate"></a>
 
 A. Prepare Data and Analytics in Azure Machine Learning and Export from Azure Machine Learning
 
-   * <a href="#ImportExport">Import</a> and data to and from for Azure Machine Learning</a>
+   * <a href="#ImportExport">Import</a> and export data to and from Azure Machine Learning Studio</a>
    * <a href="#Explore">Explore and summarize data</a>
    * <a href="#Cleanse"> Cleanse data</a> for Azure Machine Learning
    * <a href="#FeatureEngr">Perform feature engineering</a>
@@ -80,7 +99,7 @@ B. Develop Machine Learning Models
 
 C. Operationalize and Manage Azure Machine Learning services
 
-   * <a href="#DeployModels">Deploy models</a> using Azure Machine Learning
+   * <a href="#DeployModels">Deploy models</a> using Azure Machine Learning Studio
    * <a href="#Projects">Manage Azure Machine Learning projects and workspaces</a>
    * <a href="#ConsumeModels">Consume Azure Machine Learning models</a>
    * <a href="#ConsumeApis">Consume exemplar Cognitive Services APIs</a>
@@ -97,7 +116,7 @@ D. Use Other Services for Machine Learning
 ### Tasks
 
 <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-774.aspx">
-Microsoft's official reference page on the exam</a> lists what tasks are being tested.
+Microsoft's official reference page on the exam</a> lists the tasks being tested.
 
 PROTIP: Save this page and check off what you're able to do as you learn each one.
 

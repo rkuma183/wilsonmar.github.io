@@ -18,24 +18,28 @@ comments: true
 Here is a catalog of what AI and Machine Learning algorithms and Modules offered by Microsoft Azure, Amazon, and Google.
 
 * <a href="#Anomaly">Anomaly Detection</a> to identify and predict rare or unusual data points.
-* <a href="#Recommendation">Recommendation</a> (collaborative filtering)
 * <a href="#Clustering">Clustering</a> to discover structure, separate similar data points into intuitive groups.
 * <a href="#Regression">Regression</a> to predict values (forecast the future by estimating the relationship between variables)
 * <a href="#Two-class"> Two-class Classification</a> to answer simple two-choice questions like yes-no or true-false.
 * <a href="#Multi-class">Multi-class Classification</a> to answer complex questions with multiple possible answers
 
-Microsoft created a cute interactive museum to view their use cases in a non-technical way <a target="_blank" href="http://azuremlsimpleds.azurewebsites.net/simpleds/">here</a>
+Microsoft created a cute interactive museum to view their use cases in a non-technical way at<a target="_blank" href="http://azuremlsimpleds.azurewebsites.net/simpleds/">
+http://azuremlsimpleds.azurewebsites.net/simpleds/</a>
 
 Additionally:
 
 * <a href="#Stats">(descriptive) Statistical Functions</a>
+* <a href="#Recommendation">Recommendation</a> (collaborative filtering)
+* Sentiment Analysis
 
 These are more Artificial Intelligence (AI):
 
-* <a href="#CV">Computer Vision</a>
-* <a href="#Voice">Voice</a>
-* <a href="#TextAnalytics">Text Analytics</a> and
-* <a href="#Translation">Translation</a>
+* <a href="https://wilsonmar.github.io/ai-echosystem/#CV">Computer Vision</a>
+* <a href="https://wilsonmar.github.io/ai-echosystem/#VoiceRecognition">Voice Recognition</a>
+* <a href="https://wilsonmar.github.io/ai-echosystem/#TextAnalytics">Text Analytics</a> and
+* <a href="https://wilsonmar.github.io/ai-echosystem/#Translation">Translation</a>
+
+<hr />
 
 <a target="_blank" href="https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf">
 PDF: Microsoft's long infographic about algorithms</a>
@@ -207,28 +211,15 @@ which means it's building standard computing functions on top of AI capabilities
   Bot (chat) Framework</a>
   </td><td><a href="#y"> ?</a>
   </td></tr>
-
-<tr valign="top"><td rowspan="1"><a name="CV"></a> Computer Vision
-  </td><td><a href="#x"> OpenCV Library</a>
-  </td><td><a href="#y">-</a>
-  </td></tr>
-<tr valign="top"><td rowspan="1"><a name="VoiceRecognition"></a> Voice
-  </td><td><a href="#x"> Text to Speech</a>
-  </td><td><a href="#y"> Cortana</a>
-  </td></tr>
-<tr valign="top"><td rowspan="1"><a name="Translation"></a> Translation
-  </td><td><a href="#x"> Language Translation</a>
-  </td><td><a href="#y"> Cortana</a>
-  </td></tr>
 </tbody></table> 
 
+<hr />
 
 <a target="_blank" href="https://gallery.azure.ai/Experiment/b6b96207eef94a15b0ef87bf69a0f771">
 Anomaly Detection ML example experiment</a> to predict credit risk as anomalies within German Credit data
 
 <a target="_blank" href="https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_106B_LSTM_Timeseries_with_IOT_Data.ipynb">
 CNTK 106: Part B - Time series prediction with LSTM (IOT Data)</a>
-
 
 
 ## More

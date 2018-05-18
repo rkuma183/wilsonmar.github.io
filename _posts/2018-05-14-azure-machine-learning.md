@@ -25,13 +25,13 @@ PROTIP: One has to traverse three different web sites to design, deploy, and con
 
 Working backwards from the Azure Portal used in production:
 
-1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> within the
-   Azure Portal at <a target="_blank" href="
+1. In an internet browser, visit the Azure Portal at<br />
+   <a target="_blank" href="
    https://portal.azure.com/">
    https://portal.azure.com</a>
-   which presents the full sophistication Microsoft has achieved.
+   
+   This presents the full sophistication Microsoft has achieved.
 
-1. Switch to another window by opening a new tab. On MacOS press Command+Tab. On Windows press Ctrl+Esc.
 2. Click "All services" in the left menu and type "AI" or scroll down to see:
 
    ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
@@ -43,6 +43,15 @@ Working backwards from the Azure Portal used in production:
    These use "HDD" not "SSD" disks. [<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview">Docs</a>]
 
    But if you are new to AI and Machine Learning, begin with ML Studio and their sample data:
+
+
+1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> within the
+
+   Microsoft's documentation on this is at https://docs.microsoft.com/en-us/azure/machine-learning/studio/create-workspace
+
+   ### Worspace
+   
+1. Switch to another window by opening a new tab. On MacOS press Command+Tab. On Windows press Ctrl+Esc.
 
    ### Azure Machine Learning Studio #
 
