@@ -88,6 +88,9 @@ Microsoft's Translator Speech</a>
 
 ## Computer Vision #
 
+Open-source OpenCV (Computer Vision) was an early entrant and is still used today by many because
+it is written in C and runs quite efficiently. 
+
 <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/">
 Microsoft's Computer Vision</a>
 

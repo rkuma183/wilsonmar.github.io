@@ -36,8 +36,11 @@ Working backwards from the Azure Portal used in production:
 
    ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
 
-   * <a target="_blank" href="https://docs.microsoft.com/en-us/azure/batch-ai/overview">
-   Batch AI</a>
+   ### Batch AI
+   
+   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/batch-ai/overview">
+   Batch AI</a> <a target="_blank" href="https://portal.azure.com/#blade/Microsoft_Azure_BatchAI/MenuBlade/home-overview">
+   in the Azure Portal</a> works with resources Cluster, Job, and File Server.
 
    Azure offers "NC-series" Windows 2016 and Ubuntu Linux "Data Science Virtual Machines" (DSVMs) with GPU drivers for <a target="_blank" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning">Deep Learning</a>.
    These use "HDD" not "SSD" disks. [<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview">Docs</a>]

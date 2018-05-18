@@ -21,6 +21,8 @@ Azure Machine Learning certification exam <a target="_blank" href="https://www.m
 
 This is one way to demonstrate your expertise in making use of  machine learning and Big Data with R Server and SQL R Services within the Microsoft Azure cloud, that you have a good understanding of Azure data services and are familiar with common data science processes such as filtering and transforming data sets, model estimation, and model evaluation. Candidates for this exam should have experience publishing effective APIs for knowledge intelligence.
 
+## Exam Reference Book
+
 The 70-7734 exam began beta on Feb 17, 2017.
 The 336 page reference book for the exam was published Feb 2018. 
 It is <a target="_blank" href="https://www.microsoftpressstore.com/store/exam-ref-70-774-perform-cloud-data-science-with-azure-9781509307012">
@@ -30,11 +32,11 @@ $17.27 on Kindle</a>.
 PROTIP: In September 2017 "Studio" was added to the name "Azure Machine Learning" when referring to the web tool. This fixes a confusion in terminology between a tool versus a process.
 References in this website reflect that change.
 
-### MCSA Bundle 
-
 The authors - <a target="_blank" href="https://www.desertislesql.com/wordpress1/?p=2028">
 Ginger Grant</a>, Julio Granados, Guillermo Fernández, Pau Sempere, Javier Torrenteras
 also wrote the book on 70-773.
+
+### MCSA Bundle 
 
 Since Machine Learning often involves processing a lot of data, passing this exam as well as "Exam 70-773: Analyzing Big Data with Microsoft R" <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-773.aspx">70-773</a> gets you an MCSA: <a target="_blank" href="https://www.microsoft.com/en-us/learning/mcsa-machine-learning.aspx">"Microsoft Certified Solutions Associate: Machine Learning certification"</a>.
 
@@ -80,7 +82,7 @@ D. <a href="#OtherServices">Use <strong>other services</strong> for machine lear
 
 <a name="PrepareDate"></a>
 
-A. Prepare Data and Analytics in Azure Machine Learning and Export from Azure Machine Learning
+A. Prepare Data and Analytics in Azure Machine Learning Studio and Export from Azure Machine Learning Studio
 
    * <a href="#ImportExport">Import</a> and export data to and from Azure Machine Learning Studio</a>
    * <a href="#Explore">Explore and summarize data</a>
@@ -112,6 +114,8 @@ D. Use Other Services for Machine Learning
    * <a href="#StreamlineDev">Streamline development by using existing resources</a>
    * <a href="#HDInsights">Perform data sciences at scale by using HDInsights</a>
    * <a href="#SQLonAzure">Perform database analytics by using SQL Server R Services on Azure</a>
+
+There is considerable overlap of material with SQL and big data subject matter in the 70-774 exam.
 
 ### Tasks
 
@@ -204,7 +208,8 @@ Deploy models using Azure Machine Learning
 
 * [_] Publish a model developed inside Azure Machine Learning
 * [_] publish an externally developed scoring function using an Azure Machine Learning package
-* [_] use web service parameters, create and publish a recommendation model
+* [_] use web service parameters, 
+* [_] create and publish a recommendation model
 * [_] create and publish a language understanding model
 
 <a name="Projects"></a>
@@ -239,7 +244,7 @@ D. Use Other Services for Machine Learning
 
 <a name="BuildNeuro"></a>
 
-Build and use neural networks with the Microsoft Cognitive Toolkit
+Build and use neural networks with the Microsoft Cognitive Toolkit (CNTK)
 
 * [_] Use N-series VMs for GPU acceleration
 * [_] build and train a three-layer feed forward neural network
@@ -276,16 +281,15 @@ Perform database analytics by using SQL Server R Services on Azure
 
 I've rearranged Daniel Calbimonte's <a target="_blank" href="https://www.mssqltips.com/sqlservertip/4978/exam-material-for-the-microsoft-70774-perform-cloud-data-science-with-azure-machine-learning/">massive list</a> and others into my sequence below.
 
+<a href="https://buildazure.com/2016/01/26/free-ebook-azure-machine-learning/" target="_blank" >Microsoft Azure Essentials: Azure Machine Learning</a> by Jeff Barnes
+is a free ebook from 2016.
 
-### Free ebooks
+<a name="HDInsights-links"></a>
 
-Let's start
+### HDInsight clusters
 
-<ul>
-<li><a href="https://buildazure.com/2016/01/26/free-ebook-azure-machine-learning/" target="_blank" >Microsoft Azure Essentials: Azure Machine Learning</a> by Jeff Barnes</li>
-
-<li><a href="http://amzn.to/2jXPKeI" target="_blank" >Introducing Microsoft Azure HDInsight</a> by Avkash Chauhan, Valentive Fontama, and 3 others</li>
-</ul>
+<a target="_blank" href="http://amzn.to/2jXPKeI" >Introducing Microsoft Azure HDInsight</a> 
+<a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.HDInsight%2Fclusters">on the Azure Portal</a> by Avkash Chauhan, Valentive Fontama, and 3 others</li>
 
 ### Premium Video Courses
 

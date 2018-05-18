@@ -137,26 +137,27 @@ it began spewing out racist and sexist texts
 because it lacked the filter that most human kids learn from parents.
 
 
-## Data quality
+## Good enough, isn't
 
 Another difference with AI is that testing cannot achieve one-to-one correspondance between
 input requirements and resulting outcomes.
 
 This is because the fundamental approach to Machine Learning is essentially <strong>guesswork</strong>.
-This is why people celebrated when 98% accuracy was achieved.
+This is why people celebrated when 90% accuracy was achieved.
 
 Machine Learning does not approach problems like a double-entry accounting system,
 where dollars and cents are supposed to balance out every time.
 
 > One does not bring an accounting system to a gunfight playing first-person shooter games.
 
-Artificial Intelligence programs have beaten 
-world champions in Jeopardy, chess, go, and poker
-because of algorithms which aim to <strong>learn new rules rather than following rules mechanically</strong>.
+Artificial Intelligence programs have beaten world champions in Jeopardy, chess, go, poker, and other games because of algorithms which aim to <strong>learn new rules rather than following rules mechanically</strong>. 
 
-So a new mind-set is necessary to test AI.
+The assumed standard for production deployment among AI today seems to be if the machine can beat the best humans, it's good enough for everyone.
 
-## Split data for eval.
+PROTIP: Define the <strong>hard requirements</strong> for a system, and test to ensure it's met, regardless of the technology used to build it.
+
+
+## Don't just split data for evaluation
 
 The now standard approach to testing AI is to divide the universe of a large dataset into two groups.
 Usually 70% of the dataset is used for training and
@@ -164,32 +165,39 @@ the remaining 30% of the dataset is reserved for evaluating the training.
 
 But I argue here that this is not enough.
 
+PROTIP: Engineer "sythetic" outlier examples among the data used to evaulate the trained model.
+This is what testers have always done.
+
 The case in point is an AI system that is about as serious as it gets -- 
 the system that recommends to judges how long a sentence to give convicts.
-That system was used for years before an investigative report analyzed the <strong>impact</strong>
-discovered that African Americans and the poor were systematically given harsher sentences
-than whites and well-to-do citizens.
+That system was used for years before an investigative reporter (from Propublica) analyzed the <strong>impact</strong> discovered that African Americans and the poor were systematically given harsher sentences than whites and well-to-do citizens.
 
 "Garbage in, garbgse out" still applies here.
 
-## Looking for bias
+## Systematically evaluate for bias
 
-One aspect of making judgement about the efficacy of AI results is whether it is <strong>biased</strong>
-against factors that were <strong>not part of data processed by the AI system</strong>.
+One aspect of making judgement about the efficacy of AI results is analyzing whether it has <strong>biases</strong> against factors that were <strong>not part of data processed by the AI system</strong>. 
+
+Race, gender, disability status, and other basis for discrimination should not be considered for hiring.
+But the information is collected along with every job application so that bias can be analyzed later.
+
+PROTIP: Collect data that can possibly bias even though it is not among data processed by Machine Learning.
 
 Again, one cannot approach evaulating the <strong>total impact</strong> of an AI system simply by looking at only the data the AI system used.
 
 Working with data "outside the system" is the "creative" role of "higher thinking" which humans can do well.
 
-But humans need to be emboldened by management to both recognize and name "elephants in the room".
+## Cultural conditions
 
-An organization's "cultural history" can and often does limit whether its members speak up.
+But humans need to be emboldened by management to be bold enough to recognize and publicly name "elephants in the room".
+
+An organization's "cultural history" can and often does limit whether its members feel enabled to speak up.
 
 
+## Normalizing Data
 
 
-<p>Normalizing Data<br />
-<a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
 
 <p>TanH<br />
 <a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">https://reference.wolfram.com/language/ref/Tanh.html</a></p>
