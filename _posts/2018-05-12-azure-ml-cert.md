@@ -15,7 +15,7 @@ comments: true
 
 {% include _toc.html %}
 
-Here are materials I've come across for learning enough to pass Microsoft's 
+Here are links to materials I've come across for learning enough to pass Microsoft's 
 Azure Machine Learning certification exam <a target="_blank" href="https://www.microsoft.com/en-us/learning/exam-70-774.aspx">70-774</a> 
 - 37 questions in 90 minutes at a VUE center for $165.
 
@@ -46,26 +46,6 @@ This exam set is referenced by vendors who offer bundles such as:
 * https://www.netcomlearning.com/certifications/610/MCSA-Machine-Learning-training.html
 * https://www.pass4itsure.com/70-774.html
 
-## Microsoft Classes
-
-The team behind <a target="_blank" href="http://learnanalytics.microsoft.com/home/index">
-http://learnanalytics.microsoft.com/home/index</a> has a <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-774_community_guide.html">GitHub.io page</a> which mentions courses at EdX.com:
-
-   * <a target="_blank" href="https://www.edx.org/course/principles-of-machine-learning">
-   https://www.edx.org/course/principles-of-machine-learning DAT203.2x</a> 6 x 4 (24 hour) hands-on class 
-   (by the brilliant Cythina Rudin of the Prediction Analytics Lab at Duke
-   and Steve Elston of Quantia Analytics) covers classification, regression, models,
-   and tree ensemble models, recommenders from clustering.
-   Example code <a target="_blank" href="https://aka.ms/edx-dat203.2x-labfiles">files</a> 
-   are provided in both R and Python.
-
-   * <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4 ">https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4</a>
-   by Graeme Malcolm plus the authors listed above.
-   This was not available at time of this writing May 2018.
-   The class covers of time series and forecasting, spatial data analysis, text analytics,
-   and analysis of images.
-
-   * Content Developer <a target="_blank" href="https://www.linkedin.com/in/graemesplace/">Graeme Malcolm</a> also narrated at the "DAT203.1x: Data Science Essentials" class at Edx.
 
 ## Exam Topics - Top-level 
 
@@ -114,6 +94,38 @@ D. Use Other Services for Machine Learning
    * <a href="#SQLonAzure">Perform database analytics by using SQL Server R Services on Azure</a>
 
 There is considerable overlap of material with SQL and big data subject matter in the 70-774 exam.
+
+
+## Microsoft Classes
+
+The team behind <a target="_blank" href="http://learnanalytics.microsoft.com/home/index">
+http://learnanalytics.microsoft.com/home/index</a> has a <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-774_community_guide.html">GitHub.io page on 70-774</a> and <a target="_blank" href="https://azure.github.io/learnAnalytics-public/cert_guides/certification_70-773_community_guide.html">70-773</a> which mentions courses at EdX.com:
+
+   * <a target="_blank" href="https://www.edx.org/course/principles-of-machine-learning">
+   https://www.edx.org/course/principles-of-machine-learning DAT203.2x</a> 6 x 4 (24 hour) hands-on class 
+   (by the brilliant Cythina Rudin of the Prediction Analytics Lab at Duke
+   and Steve Elston of Quantia Analytics) covers classification, regression, models,
+   and tree ensemble models, recommenders from clustering.
+   Example code <a target="_blank" href="https://aka.ms/edx-dat203.2x-labfiles">files</a> 
+   are provided in both R and Python.
+
+   * <a target="_blank" href="https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4 ">https://www.edx.org/course/applied-machine-learning-microsoft-dat203-3x-4</a>
+   by Graeme Malcolm plus the authors listed above.
+   This was not available at time of this writing May 2018.
+   The class covers of time series and forecasting, spatial data analysis, text analytics,
+   and analysis of images.
+
+   * Content Developer <a target="_blank" href="https://www.linkedin.com/in/graemesplace/">Graeme Malcolm</a> also narrated at the "DAT203.1x: Data Science Essentials" class at Edx.
+
+<a target="_blank" href="https://gallery.azure.ai/Collection/Introduction-to-Machine-Learning-with-Hands-On-Labs-1">
+Introduction to Machine Learning with Hands-On Labs dated June 15, 2016</a> provides a series on 
+   
+   * Introduction to AMLS - Lab Setup
+
+   https://github.com/Azure-Readiness/hol-azure-machine-learning
+
+   * <a target="_blank" href="https://gallery.azure.ai/Tutorial/8-Recommendation-System-1">
+   Recommender Systems</a>
 
 ### Tasks
 

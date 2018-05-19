@@ -34,10 +34,10 @@ Additionally:
 
 These are more Artificial Intelligence (AI):
 
-* <a href="https://wilsonmar.github.io/ai-echosystem/#CV">Computer Vision</a>
-* <a href="https://wilsonmar.github.io/ai-echosystem/#VoiceRecognition">Voice Recognition</a>
-* <a href="https://wilsonmar.github.io/ai-echosystem/#TextAnalytics">Text Analytics</a> and
-* <a href="https://wilsonmar.github.io/ai-echosystem/#Translation">Translation</a>
+* <a href="https://wilsonmar.github.io/ai-ecosystem/#CV">Computer Vision</a>
+* <a href="https://wilsonmar.github.io/ai-ecosystem/#VoiceRecognition">Voice Recognition</a>
+* <a href="https://wilsonmar.github.io/ai-ecosystem/#TextAnalytics">Text Analytics</a> and
+* <a href="https://wilsonmar.github.io/ai-ecosystem/#Translation">Translation</a>
 
 <hr />
 
@@ -204,7 +204,7 @@ which means it's building standard computing functions on top of AI capabilities
   </td><td><a href="#y"> <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki">JohnLangford</a></a>
   </td></tr>
   <tr valign="top"><td>
-  Sentiment analysis</a>
+  Sentiment analysis
   </td><td><a href="#y"> ?</a>
   </td></tr>
   <tr valign="top"><td>
@@ -215,8 +215,104 @@ which means it's building standard computing functions on top of AI capabilities
 
 <hr />
 
-<a target="_blank" href="https://gallery.azure.ai/Experiment/b6b96207eef94a15b0ef87bf69a0f771">
-Anomaly Detection ML example experiment</a> to predict credit risk as anomalies within German Credit data
+
+<a name="Translation"></a>
+
+## Translation #
+
+<a target="_blank" href="https://translate.google.com/">
+https://translate.google.com</a>
+and the Google Translate API 
+has been working on translating websites since the 90's.
+In 2017 Google made a breakthrough 
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/">
+Microsoft's Translator Speech</a>
+
+<a name="CV"></a>
+
+## Computer Vision #
+
+Open-source OpenCV (Computer Vision) was an early entrant and is still used today by many because
+it is written in C and runs quite efficiently. 
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/">
+Microsoft's Computer Vision</a>
+
+https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
+Hands-on guide: build a classifier with Custom Vision
+
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/face/">
+Microsoft's "Face"</a>
+
+   * https://algorithmia.com/algorithms/z/ColorPalettefromImage
+
+   * <a target="_blank" href="https://cloud.google.com/vision/">Google Cloud Vision API</a>
+
+   * https://algorithmia.com/algorithms/opencv/FaceDetection
+  then https://algorithmia.com/algorithms/opencv/CensorFace
+
+   * https://algorithmia.com/algorithms/ocr/RecognizeCharacters OCR
+
+   Some of these make use of <strong>OpenCV</strong> (CV = Computer Vision).
+
+
+<a name="VoiceRecognition"></a>
+
+## Voice Recognition
+
+   * <a target="_blank" href="https://cloud.google.com/speech/">
+   Google Cloud Speech API</a>, which powers Google’s own voice search and voice-enabled apps. 
+
+   * <a target="_blank" href="http://www.techrepublic.com/article/microsofts-ai-can-now-understand-speech-better-than-humans/">
+   Microsoft says its Cortana is as accurate as human transcriptionists</a>
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart/">
+Microsoft's Web App Bot</a>
+
+
+## NLP Sentiment Analysis #
+
+   Analyze text for positive or negative sentiment (opinion),
+   based on a training database of potential word meanings,
+   which involved Natural Language Processing:
+
+   * https://algorithmia.com/algorithms/nlp/SentimentAnalysis
+
+   * IBM's algorithm
+
+   Andrew W. Trask,
+   PhD student at University of Oxford
+   Deep Learning for Natural Language Processing
+   authored Grokking Deep Learning.
+
+   Use Bag of words and
+   Word2vec
+   transform words into vectors.
+   Use TFLearn, a Python library for quickly building networks.
+
+## Document (article) Search #
+
+Google made it's fortune on offering search services.
+
+<a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/">
+Microsoft's Bing Search</a>
+
+
+   <strong>TF-IDF = Term Frequency - Inverse Document Frequency</strong>
+   emphasizes important words (called a vector)
+   which appear rarely in the corpus searched (rare globally).
+   which appear frequently in document (common locally)
+   Term frequency is measured by word count (how many occurances of each word).
+
+   The IDF to downweight words is the log of #docs divided by 1 + #docs using given word.
+
+   Cosine similarity normalizes vectors
+   so small angle thetas identify similarity.
+
+   Normalizing makes the comparison invariant to the number of words.
+   The common compromise is to cap maximum word count.
 
 <a target="_blank" href="https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_106B_LSTM_Timeseries_with_IOT_Data.ipynb">
 CNTK 106: Part B - Time series prediction with LSTM (IOT Data)</a>

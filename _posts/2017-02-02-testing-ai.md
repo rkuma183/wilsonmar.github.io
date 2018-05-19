@@ -196,67 +196,87 @@ An organization's "cultural history" can and often does limit whether its member
 
 ## Normalizing Data
 
-
 <a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
 
-<p>TanH<br />
-<a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">https://reference.wolfram.com/language/ref/Tanh.html</a></p>
+<a target="_blank" href="http://howto.commetrics.com/methodology/statistics/normalization/">http://howto.commetrics.com/methodology/statistics/normalization/</a></p>
+
+
+<a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">
+https://reference.wolfram.com/language/ref/Tanh.html</a>
+TanH gives the hyperbolic tangent of z
+based on the natural logarithm of a rational number.
 
 <p>ZScore<br />
 <a target="_blank"  href="http://stattrek.com/statistics/dictionary.aspx?definition=z-score">http://stattrek.com/statistics/dictionary.aspx?definition=z-score</a><br />
-<a target="_blank" href="http://howto.commetrics.com/methodology/statistics/normalization/">http://howto.commetrics.com/methodology/statistics/normalization/</a></p>
 
-<p>Min Max<br />
-<a target="_blank"  href="https://www.quora.com/What-is-the-meaning-of-min-max-normalization">https://www.quora.com/What-is-the-meaning-of-min-max-normalization</a></p>
 
-<p>PCA<br />
-<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
-<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
-<a target="_blank" href="https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning">https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning</a></p>
+### Min Max
 
-<p>Singular Value Decomposition (SVD)<br />
-<a target="_blank" href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
+<a target="_blank"  href="https://www.quora.com/What-is-the-meaning-of-min-max-normalization">https://www.quora.com/What-is-the-meaning-of-min-max-normalization</a>
 
-<p>Canonical-correlation analysis (CCA)<br />
+### PCA
+
+
+PCA let you train a model using existing imbalanced data.
+
+<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a>
+Creates an anomaly detection model using Principal Component Analysis
+
+<a target="_blank" href="https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning">
+https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning</a>
+
+
+### Singular Value Decomposition (SVD)
+
+<a target="_blank" href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a>
+
+### Canonical-correlation analysis (CCA)
 
 <a target="_blank" href="https://en.wikipedia.org/wiki/Canonical_correlation">
-https://en.wikipedia.org/wiki/Canonical_correlation</a></p>
+https://en.wikipedia.org/wiki/Canonical_correlation</a>
 
-<a href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
+<a href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a>
 
-<h4>Develop Machine Learning Models</h4>
+### Develop Machine Learning Models
 
 <p>Team Data Science<br />
 <a target="_blank"  href="https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access">https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access</a></p>
 
-<p>K-Means<br />
+### K-Means
+
 <a target="_blank"  href="https://www.datascience.com/blog/k-means-clustering">https://www.datascience.com/blog/k-means-clustering</a></p>
 
-<p>Confusion Matrix<br />
-<a target="_blank"  href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a><br />
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a><br />
-<a target="_blank"  href="https://en.wikipedia.org/wiki/F1_score">https://en.wikipedia.org/wiki/F1_score</a></p>
+### Confusion Matrix
 
-<p>Ordinal Regression<br />
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Ordinal_regression">https://en.wikipedia.org/wiki/Ordinal_regression</a></p>
+<a target="_blank"  href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a>
 
-<p>Poisson regression<br />
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Poisson_regression">https://en.wikipedia.org/wiki/Poisson_regression</a></p>
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a>
 
-<p>Mean Absolute Error and Root Mean Squared Error<br />
-<a target="_blank"  href="http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm">http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm</a></p>
+### F1 score
 
-<p>Cross Validation<br />
-<a target="_blank" href="https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f">https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f</a></p>
+<a target="_blank"  href="https://en.wikipedia.org/wiki/F1_score">https://en.wikipedia.org/wiki/F1_score</a>
 
+### Ordinal Regression
+
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Ordinal_regression">https://en.wikipedia.org/wiki/Ordinal_regression</a>
+
+### Poisson regression
+
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Poisson_regression">https://en.wikipedia.org/wiki/Poisson_regression</a>
+
+### Mean Absolute Error and Root Mean Squared Error
+
+<a target="_blank"  href="http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm">http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm</a>
+
+### Cross Validation
+
+<a target="_blank" href="https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f">https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f</a>
 
 ## Output
 
 Model training produces a <strong>checkpoint file</strong> that contains a 
 model which already has parameters output from traning.
 Using checkpoint files means we can get straight to applying the model.
-
-
 
 ## Technical Debt
 
@@ -295,8 +315,6 @@ Aaron Courville (of OpenAI)
 ## Articles
 
 http://www.computerworld.com/article/3163145/data-analytics/how-to-root-out-bias-in-your-data.html
-
-https://blog.monkeylearn.com/sentiment-analysis-apis-benchmark/
 
 https://medium.com/@jaredpolivka/machine-learning-with-humans-in-the-loop-lessons-from-stitchfix-300672904f80#.4n5ub8pt6
 

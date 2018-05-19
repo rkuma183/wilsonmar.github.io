@@ -30,25 +30,86 @@ Working backwards from the Azure Portal used in production:
    https://portal.azure.com/">
    https://portal.azure.com</a>
    
-   This presents the full sophistication Microsoft has achieved.
+   <!-- ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
+   -->
 
-2. Click "All services" in the left menu and type "AI" or scroll down to see:
+2. Click "Create a Resource" in the left menu:
 
-   ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
+   <a target="_blank" href="https://portal.azure.com/#create/hub">
+   <img align="right" alt="azure-resource-list-210x529-22177" src="https://user-images.githubusercontent.com/300046/40260563-fa98acec-5ac0-11e8-9599-eaa18accfa58.jpg"></a>
 
-   ### Batch AI
-   
-   <a target="_blank" href="https://docs.microsoft.com/en-us/azure/batch-ai/overview">
-   Batch AI</a> <a target="_blank" href="https://portal.azure.com/#blade/Microsoft_Azure_BatchAI/MenuBlade/home-overview">
-   in the Azure Portal</a> works with resources Cluster, Job, and File Server.
+   AI and Machine Learning projects usually involve several of these "Azure Marketplace" items.
 
-   Azure offers "NC-series" Windows 2016 and Ubuntu Linux "Data Science Virtual Machines" (DSVMs) with GPU drivers for <a target="_blank" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning">Deep Learning</a>.
-   These use "HDD" not "SSD" disks. [<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview">Docs</a>]
+3. Click "AI + Machine Learning" to see the scope of sophistication Microsoft has achieved.
 
-   But if you are new to AI and Machine Learning, begin with ML Studio and their sample data:
+   * "Data Science Virtual Machine - Windows 2016" is not included in the list
+   <a target="_blank" href="https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016">
+   Create virtual machine</a>
 
+4. At the top next to the "Featured" heading, click "See all", notice Microsoft's categorizes:
 
-1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> within the
+   * Machine Learning (below)
+   * <a target="_blank" href="https://wilsonmar.githhub.io/chatbots/">Bot Service</a>
+   * Cognitive Service (which is AI for speech, vision, text analytics, search, etc.).
+
+   A separate article/page for each category.
+
+   TBD: The "Machine Learning Model Management" 
+
+5. Click "Machine Learning Experimentation", which was in "preview" at the time of writing.
+
+   If you don't have an Experiment account, you are prompted for one.
+
+   ![azure-ml-ex-1-278x410-25903](https://user-images.githubusercontent.com/300046/40262848-c6ca5fd6-5ad0-11e8-80a0-7285a7256206.jpg)
+
+6. The Experiment Name has is a maximum of 32 characters. The only special character allowed is the dash
+   or underlines to separate words.
+
+7. PROTIP: Define a naming convention for your <strong>Resource Groups</strong> which your team
+   will follow for consistency. This also avoids confusion.
+
+8. For Location, in the US there is "East US 2" and "West Central US".
+
+9. The "seats" is how it's charged.
+
+1. Create a new Storage account if you haven't already.
+
+   ![azure-ml-ex-2-278x352-25479](https://user-images.githubusercontent.com/300046/40262852-d2dbc684-5ad0-11e8-8d42-12997c1374c1.jpg)
+
+1. Your Model Mangement account name can be up to 260 characters.
+
+1. Model Management account fee types:
+
+   ![manage-acct-types-727x189-40314](https://user-images.githubusercontent.com/300046/40262379-8bc6b5b4-5acc-11e8-9fb6-83669780fbc9.jpg)
+
+1. Check "Pin to dashboard".
+
+1. Click "Automation options" to expose the parameters file for the selections above.
+
+1. Click "Download" to save the "template.zip" file to your laptop for use in CLI calls.
+
+   PROTIP: The files downloaded in the zip enable you to <strong>quickly re-create</strong>
+   the manual selections you took above. This enables you to save money by re-creating on demand rather than paying for unused services lingering around racking up charges.
+
+1. Click the "CLI" tab for the Bash (deploy.sh) script to make use of the parameter file.
+1. Click the "PowerShell" tab for the deploy.ps1 script.
+1. Click the ".NET" tab for the DeploymentHelper.cs programming code.
+1. Click the "Ruby" tab for the deployer.rb file.
+1. Click "Create". Wait for the completion pop-up in your account's Dashboard.
+1. Click "See more" at the bottom of the "All resources" pane. This is because you may not see the item you just created.
+1. Click the Machine Learning Experimentation you just created.
+
+   ### Machine Deployment
+ 
+ 1. Click <a target="_blank" href="https://portal.azure.com/#create/Microsoft.MachineLearningModelManagement">
+    Create Microsoft Machine Learning Model Management</a>
+
+   NOTE: You can not select the "DEVTEST" pricing tier for deployment.
+   See https://azure.microsoft.com/en-us/pricing/details/machine-learning-services/
+
+   ### Workspace
+
+1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> 
 
    Microsoft's documentation on this is at https://docs.microsoft.com/en-us/azure/machine-learning/studio/create-workspace
 

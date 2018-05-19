@@ -94,6 +94,10 @@ it is written in C and runs quite efficiently.
 <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/">
 Microsoft's Computer Vision</a>
 
+https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier
+Hands-on guide: build a classifier with Custom Vision
+
+
 <a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/face/">
 Microsoft's "Face"</a>
 
