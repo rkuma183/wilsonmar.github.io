@@ -1069,3 +1069,4 @@ https://github.com/denysdovhan/bash-handbook
 ## TODO's
 
 For AWS there is a <a target="_blank" href="https://www.cloudping.info/">cloudping.info</a> website which website which tells people which region is the quickest. Do you know if there is one like it for Azure and Google. If not we can write a Serverless program to do that.
+
