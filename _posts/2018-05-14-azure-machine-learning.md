@@ -15,116 +15,32 @@ comments: true
 
 {% include _toc.html %}
 
-This is a deep-dive guided tour of how to begin using Microsoft's offerings for Machine Learning in their Azure cloud.
+This is a deep-dive tutorial of how to being using Microsoft's offerings for Machine Learning in their Azure cloud.
 
 ## Azure AI + Machine Learning
 
-PROTIP: One has to traverse three different web sites to design, deploy, and consume Machine Learning.
+For an idea of the sophistication Microsoft has achieved:
 
-![aml-steps-405x156-17814](https://user-images.githubusercontent.com/300046/40132203-665cad26-58f9-11e8-9eb8-34076f838a3b.jpg)
-
-Working backwards from the Azure Portal used in production:
-
-1. In an internet browser, visit the Azure Portal at<br />
-   <a target="_blank" href="
+1. Log into <a target="_blank" href="
    https://portal.azure.com/">
    https://portal.azure.com</a>
-   
-   <!-- ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
-   -->
 
-2. Click "Create a Resource" in the left menu:
+   PROTIP: This is where the real pros go every day to do real data science and AI.
 
-   <a target="_blank" href="https://portal.azure.com/#create/hub">
-   <img align="right" alt="azure-resource-list-210x529-22177" src="https://user-images.githubusercontent.com/300046/40260563-fa98acec-5ac0-11e8-9599-eaa18accfa58.jpg"></a>
+1. Click "All services" in the left menu and type "AI" or scroll down to see:
 
-   AI and Machine Learning projects usually involve several of these "Azure Marketplace" items.
+   ![azure-ai-offerings-415x396-27423](https://user-images.githubusercontent.com/300046/39999744-209d8336-5747-11e8-8773-bc5f88733be2.jpg)
 
-3. Click "AI + Machine Learning" to see the scope of sophistication Microsoft has achieved.
+   Azure offers "NC-series" Windows 2016 and Ubuntu Linux "Data Science Virtual Machines" (DSVMs) with GPU drivers for <a target="_blank" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning">Deep Learning</a>.
+   These use "HDD" not "SSD" disks. [<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview">Docs</a>]
 
-   * "Data Science Virtual Machine - Windows 2016" is not included in the list
-   <a target="_blank" href="https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016">
-   Create virtual machine</a>
-
-4. At the top next to the "Featured" heading, click "See all", notice Microsoft's categorizes:
-
-   * Machine Learning (below)
-   * <a target="_blank" href="https://wilsonmar.githhub.io/chatbots/">Bot Service</a>
-   * Cognitive Service (which is AI for speech, vision, text analytics, search, etc.).
-
-   A separate article/page for each category.
-
-   TBD: The "Machine Learning Model Management" 
-
-5. Click "Machine Learning Experimentation", which was in "preview" at the time of writing.
-
-   If you don't have an Experiment account, you are prompted for one.
-
-   ![azure-ml-ex-1-278x410-25903](https://user-images.githubusercontent.com/300046/40262848-c6ca5fd6-5ad0-11e8-80a0-7285a7256206.jpg)
-
-6. The Experiment Name has is a maximum of 32 characters. The only special character allowed is the dash
-   or underlines to separate words.
-
-7. PROTIP: Define a naming convention for your <strong>Resource Groups</strong> which your team
-   will follow for consistency. This also avoids confusion.
-
-8. For Location, in the US there is "East US 2" and "West Central US".
-
-9. The "seats" is how it's charged.
-
-1. Create a new Storage account if you haven't already.
-
-   ![azure-ml-ex-2-278x352-25479](https://user-images.githubusercontent.com/300046/40262852-d2dbc684-5ad0-11e8-8d42-12997c1374c1.jpg)
-
-1. Your Model Mangement account name can be up to 260 characters.
-
-1. Model Management account fee types:
-
-   ![manage-acct-types-727x189-40314](https://user-images.githubusercontent.com/300046/40262379-8bc6b5b4-5acc-11e8-9fb6-83669780fbc9.jpg)
-
-1. Check "Pin to dashboard".
-
-1. Click "Automation options" to expose the parameters file for the selections above.
-
-1. Click "Download" to save the "template.zip" file to your laptop for use in CLI calls.
-
-   PROTIP: The files downloaded in the zip enable you to <strong>quickly re-create</strong>
-   the manual selections you took above. This enables you to save money by re-creating on demand rather than paying for unused services lingering around racking up charges.
-
-1. Click the "CLI" tab for the Bash (deploy.sh) script to make use of the parameter file.
-1. Click the "PowerShell" tab for the deploy.ps1 script.
-1. Click the ".NET" tab for the DeploymentHelper.cs programming code.
-1. Click the "Ruby" tab for the deployer.rb file.
-1. Click "Create". Wait for the completion pop-up in your account's Dashboard.
-1. Click "See more" at the bottom of the "All resources" pane. This is because you may not see the item you just created.
-1. Click the Machine Learning Experimentation you just created.
-
-   ### Machine Deployment
- 
- 1. Click <a target="_blank" href="https://portal.azure.com/#create/Microsoft.MachineLearningModelManagement">
-    Create Microsoft Machine Learning Model Management</a>
-
-   NOTE: You can not select the "DEVTEST" pricing tier for deployment.
-   See https://azure.microsoft.com/en-us/pricing/details/machine-learning-services/
-
-   ### Workspace
-
-1. Create a <a target="_blank" href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.MachineLearning%2Fworkspaces">Machine Learning Studio Workspace</a> 
-
-   Microsoft's documentation on this is at https://docs.microsoft.com/en-us/azure/machine-learning/studio/create-workspace
-
-   ### Worspace
-   
-1. Switch to another window by opening a new tab. On MacOS press Command+Tab. On Windows press Ctrl+Esc.
+   But if you are new to AI and Machine Learning, begin with ML Studio and their sample data:
 
    ### Azure Machine Learning Studio #
 
 0. Microsoft's AzureML Studio provides an on-line app
    with drap and drop ease of use with no setup on your laptop or servers.
    So you can use a Chromebook with no hard drive.
-
-   <a target="_blank" href="https://studio.azureml.net/">
-   https://studio.azureml.net</a>
 
    NOTE: AzureML supports R and Python scripts.
 
@@ -156,31 +72,17 @@ Working backwards from the Azure Portal used in production:
 
    PROTIP: There is not many views to an item, so you're one of the early adopter visionaries!
 
-   ### Solutions
-
-   The menu item on the menu named 
-   <a target="_blank" href="https://gallery.azure.ai/solutions/">
-   Solutions</a> applies to usage by a particular customer/industry.
-   
-   An example of a solution is the <a target="_blank" href="https://gallery.azure.ai/Solution/Interactive-Price-Analytics">
-   Interactive Price Analytics</a> applying models (studied in "Micro Economics" courses)
-   that are the basis for recommending pricing changes based on the history of 
-   how demand for particular products responds to prices changes.
-
-   Solutions are not a selection in ML Studio because they make use of models derived
-   from experiments in the ML Studio:
-   Modeling Price Elasticity - Part 1: Own-Price-Elasticity, Parts
-   <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-1">
-   1</a>, <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-2">2</a>, <a target="_blank" href="https://gallery.azure.ai/Experiment/Modeling-Price-Elasticity-Part-1-Own-Price-Elasticity-3">and 3</a>.
+   The <a target="_blank" href="https://gallery.azure.ai/solutions/">
+   menu item Solutions on the menu</a> 
+   (templates, reference architectures and design patterns to make them your own)
+   is not a selection in the Learning Studio.
 
    ### Projects
-
-1. Within the ML Studio:
 
    <a target="_blank" href="https://gallery.azure.ai/">
    <img align="right" alt="azure-ml-menu-175x259-10955.jpg" width="175" src="https://user-images.githubusercontent.com/300046/39960539-e0e903ac-55e1-11e8-8b75-3518d4527ca1.jpg"></a>
    Projects, (trained) Models, Experiments, 
-   reflect the left menu than the solutions horizonal menu (but in a different order):
+   reflect the left menu (but in a different order):
 
    <a target="_blank" href="https://gallery.azure.ai/projects/">PROJECTS</a>
    are in both - collection of scripts, notebooks, and/or data designed to support the everyday work of data scientists.

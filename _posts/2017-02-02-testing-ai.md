@@ -14,8 +14,6 @@ comments: true
 
 {% include _toc.html %}
 
-## Humans are limited and replaceable
-
 While many organizations are still working toward a <strong>"mobile-first"</strong>
 approach to design (rather than "desktop-first" or "mainframe-first" design),
 some companies at the "bleeding edge" are moving to
@@ -26,6 +24,8 @@ Tesla, BMW, and other auto manufacturers make heavy use of mechanical robots.
 
 Simerlerly, Uber drivers are human until they are replaced by driverless cars.
 
+By 2017, Artificial Intelligence programs have beaten 
+world champions in Jeopardy, chess, go, and poker.
 Robots are at par with Olympic atheletes in
 <a target="_blank" href="https://www.kuka.com/en-de/about-kuka/brand/timo-boll-the-duel/">
 table tennis</a>.
@@ -39,6 +39,8 @@ In offices, the trend is to replace people reading lines on screens.
 Instead of creating lines on various charts for analysis by people 
    to make decisions,
    computers are making decisions.
+
+## Humans are limited
 
 > "Machines will be capable, within 20 years, of doing any work a man can do." 
 --Herbert Simon (1916-2001), Nobel Laureate
@@ -62,15 +64,6 @@ In operation of computers, <strong>configuration settings</strong>
 are increasingly being updated by programs 
 instead of people <strong>editing</strong> files.
 
-The point of these apocalyptic pronouncements is that AI and Machine Learning will probaly
-not be embrased with open arms in organizations where executive see their human army
-with disdain.
-
-To reduce the likelihood of robots being undermined by the human workforce,
-management needs to <strong>prove</strong> that it's not a "zero sum game" but that rising demand for
-services would result only in planned displacement of people to different human roles.
-
-Those different roles are available only when the organization is growing and will continue to grow.
 
 ## No rules
 
@@ -120,9 +113,9 @@ Data quality is more important than ever to weed out <strong>false positives</st
 The old adage "garbage in garbage out" applies even more today.
 Systems can only be as intelligent as the data it analyzes. 
 
-More importantly, <strong>good AI adapts</strong> rules to deal with new conditions (threats).
+More importantly, AI adapts rules to deal with new threats.
 
-AI may do that by analyzing judgements human experts make.
+AI does that by analyzing judgements human experts make.
 
 
 ## "Sophomoric"
@@ -137,146 +130,69 @@ it began spewing out racist and sexist texts
 because it lacked the filter that most human kids learn from parents.
 
 
-## Good enough, isn't
+## Data quality
 
-Another difference with AI is that testing cannot achieve one-to-one correspondance between
-input requirements and resulting outcomes.
+<p>Normalizing Data<br />
+<a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
 
-This is because the fundamental approach to Machine Learning is essentially <strong>guesswork</strong>.
-This is why people celebrated when 90% accuracy was achieved.
-
-Machine Learning does not approach problems like a double-entry accounting system,
-where dollars and cents are supposed to balance out every time.
-
-> One does not bring an accounting system to a gunfight playing first-person shooter games.
-
-Artificial Intelligence programs have beaten world champions in Jeopardy, chess, go, poker, and other games because of algorithms which aim to <strong>learn new rules rather than following rules mechanically</strong>. 
-
-The assumed standard for production deployment among AI today seems to be if the machine can beat the best humans, it's good enough for everyone.
-
-PROTIP: Define the <strong>hard requirements</strong> for a system, and test to ensure it's met, regardless of the technology used to build it.
-
-
-## Don't just split data for evaluation
-
-The now standard approach to testing AI is to divide the universe of a large dataset into two groups.
-Usually 70% of the dataset is used for training and
-the remaining 30% of the dataset is reserved for evaluating the training.
-
-But I argue here that this is not enough.
-
-PROTIP: Engineer "sythetic" outlier examples among the data used to evaulate the trained model.
-This is what testers have always done.
-
-The case in point is an AI system that is about as serious as it gets -- 
-the system that recommends to judges how long a sentence to give convicts.
-That system was used for years before an investigative reporter (from Propublica) analyzed the <strong>impact</strong> discovered that African Americans and the poor were systematically given harsher sentences than whites and well-to-do citizens.
-
-"Garbage in, garbgse out" still applies here.
-
-## Systematically evaluate for bias
-
-One aspect of making judgement about the efficacy of AI results is analyzing whether it has <strong>biases</strong> against factors that were <strong>not part of data processed by the AI system</strong>. 
-
-Race, gender, disability status, and other basis for discrimination should not be considered for hiring.
-But the information is collected along with every job application so that bias can be analyzed later.
-
-PROTIP: Collect data that can possibly bias even though it is not among data processed by Machine Learning.
-
-Again, one cannot approach evaulating the <strong>total impact</strong> of an AI system simply by looking at only the data the AI system used.
-
-Working with data "outside the system" is the "creative" role of "higher thinking" which humans can do well.
-
-## Cultural conditions
-
-But humans need to be emboldened by management to be bold enough to recognize and publicly name "elephants in the room".
-
-An organization's "cultural history" can and often does limit whether its members feel enabled to speak up.
-
-
-## Normalizing Data
-
-<a target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/normalize-data</a></p>
-
-<a target="_blank" href="http://howto.commetrics.com/methodology/statistics/normalization/">http://howto.commetrics.com/methodology/statistics/normalization/</a></p>
-
-
-<a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">
-https://reference.wolfram.com/language/ref/Tanh.html</a>
-TanH gives the hyperbolic tangent of z
-based on the natural logarithm of a rational number.
+<p>TanH<br />
+<a target="_blank"  href="https://reference.wolfram.com/language/ref/Tanh.html">https://reference.wolfram.com/language/ref/Tanh.html</a></p>
 
 <p>ZScore<br />
 <a target="_blank"  href="http://stattrek.com/statistics/dictionary.aspx?definition=z-score">http://stattrek.com/statistics/dictionary.aspx?definition=z-score</a><br />
+<a target="_blank" href="http://howto.commetrics.com/methodology/statistics/normalization/">http://howto.commetrics.com/methodology/statistics/normalization/</a></p>
 
+<p>Min Max<br />
+<a target="_blank"  href="https://www.quora.com/What-is-the-meaning-of-min-max-normalization">https://www.quora.com/What-is-the-meaning-of-min-max-normalization</a></p>
 
-### Min Max
+<p>PCA<br />
+<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
+<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a><br />
+<a target="_blank" href="https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning">https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning</a></p>
 
-<a target="_blank"  href="https://www.quora.com/What-is-the-meaning-of-min-max-normalization">https://www.quora.com/What-is-the-meaning-of-min-max-normalization</a>
+<p>Singular Value Decomposition (SVD)<br />
+<a target="_blank" href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
 
-### PCA
-
-
-PCA let you train a model using existing imbalanced data.
-
-<a target="_blank"  href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/principal-component-analysis</a>
-Creates an anomaly detection model using Principal Component Analysis
-
-<a target="_blank" href="https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning">
-https://stackoverflow.com/questions/9590114/importance-of-pca-or-svd-in-machine-learning</a>
-
-
-### Singular Value Decomposition (SVD)
-
-<a target="_blank" href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a>
-
-### Canonical-correlation analysis (CCA)
+<p>Canonical-correlation analysis (CCA)<br />
 
 <a target="_blank" href="https://en.wikipedia.org/wiki/Canonical_correlation">
-https://en.wikipedia.org/wiki/Canonical_correlation</a>
+https://en.wikipedia.org/wiki/Canonical_correlation</a></p>
 
-<a href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a>
+<a href="http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/">http://andrew.gibiansky.com/blog/mathematics/cool-linear-algebra-singular-value-decomposition/</a></p>
 
-### Develop Machine Learning Models
+<h4>Develop Machine Learning Models</h4>
 
 <p>Team Data Science<br />
 <a target="_blank"  href="https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access">https://docs.microsoft.com/fi-fi/azure/machine-learning/team-data-science-process/python-data-access</a></p>
 
-### K-Means
-
+<p>K-Means<br />
 <a target="_blank"  href="https://www.datascience.com/blog/k-means-clustering">https://www.datascience.com/blog/k-means-clustering</a></p>
 
-### Confusion Matrix
+<p>Confusion Matrix<br />
+<a target="_blank"  href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a><br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a><br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/F1_score">https://en.wikipedia.org/wiki/F1_score</a></p>
 
-<a target="_blank"  href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a>
+<p>Ordinal Regression<br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Ordinal_regression">https://en.wikipedia.org/wiki/Ordinal_regression</a></p>
 
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a>
+<p>Poisson regression<br />
+<a target="_blank"  href="https://en.wikipedia.org/wiki/Poisson_regression">https://en.wikipedia.org/wiki/Poisson_regression</a></p>
 
-### F1 score
+<p>Mean Absolute Error and Root Mean Squared Error<br />
+<a target="_blank"  href="http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm">http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm</a></p>
 
-<a target="_blank"  href="https://en.wikipedia.org/wiki/F1_score">https://en.wikipedia.org/wiki/F1_score</a>
+<p>Cross Validation<br />
+<a target="_blank" href="https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f">https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f</a></p>
 
-### Ordinal Regression
-
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Ordinal_regression">https://en.wikipedia.org/wiki/Ordinal_regression</a>
-
-### Poisson regression
-
-<a target="_blank"  href="https://en.wikipedia.org/wiki/Poisson_regression">https://en.wikipedia.org/wiki/Poisson_regression</a>
-
-### Mean Absolute Error and Root Mean Squared Error
-
-<a target="_blank"  href="http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm">http://www.eumetrain.org/data/4/451/english/msg/ver_cont_var/uos3/uos3_ko1.htm</a>
-
-### Cross Validation
-
-<a target="_blank" href="https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f">https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f</a>
 
 ## Output
 
 Model training produces a <strong>checkpoint file</strong> that contains a 
 model which already has parameters output from traning.
 Using checkpoint files means we can get straight to applying the model.
+
+
 
 ## Technical Debt
 
@@ -316,16 +232,11 @@ Aaron Courville (of OpenAI)
 
 http://www.computerworld.com/article/3163145/data-analytics/how-to-root-out-bias-in-your-data.html
 
+https://blog.monkeylearn.com/sentiment-analysis-apis-benchmark/
+
 https://medium.com/@jaredpolivka/machine-learning-with-humans-in-the-loop-lessons-from-stitchfix-300672904f80#.4n5ub8pt6
 
 
 https://www.youtube.com/watch?v=zwm2C3V35Fw
 Artificial Intelligence - The Apex Technology of the Information Age: Goldman Sachs' Heath Terry
 2:41 general talk
-
-
-## More
-
-This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
-
-{% include ai_links.html %}

@@ -97,7 +97,9 @@ The <strong>describe</strong> command provides more detailed information.
    <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">
    (from CoreOS)</a>.
    
-   Kubernetes data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
+   , which calls ETCD a simple, distributed, consistent key-value store.
+
+   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
 
    It's called a cluster because, for resiliancy, etcd replicates data across nodes. 
    This is why there is a minimum of two worker nodes per cluster. ???
@@ -305,17 +307,8 @@ Thus, https://k8s.io also works.
 
 ## Installation options
 
-There are several ways to obtain a running instance of Kubernetes.
-
-<a target="_blank" href="http://docs.rancher.com/rancher/v1.5/en/quick-start-guide/">
-Rancher</a> is a deployment tool for Kubernetes that also provides networking and load balancing support.
-Rancher initially created it's own framework called Cattle to coordinate docker containers across multiple hosts, at a time when Docker was limited to running on a single host. 
-Now Rancher's networking provides a consistent solution across a variety of platforms, especially on bare metal or standard (non cloud) virtual servers.
-In addition to Kubernetes, Rancher enables users to deploy a choice of Cattle, Docker Swarm, Apache Mesos upstream project for DCOS (Data Center Operating System).
-Rancher eventually become part of Docker Swarm.
-
-Within https://github.com/kubernetes/kops AWS KOPS 
-
+There are several ways to obtain a running instance of Kubernetes,
+listed from easiest to most difficult:
 
 ### Support in clouds
 
