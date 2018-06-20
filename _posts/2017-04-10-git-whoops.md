@@ -45,7 +45,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    <a name="GitConfig"></a>
 
-### Git config
+   ### Git config
 
    If you find a mis-spelling in your attribution, 
    simply repeat the command with the information you want.
@@ -251,28 +251,12 @@ If you didn't mean to fork a repository, but you did anyway,
    <a href="https://wilsonmar.github.io/git-flow#Commit">Return</a>
 
 
-   <a name="Rebasing"></a>
-
-   ### Rebasing
-
-   Before pushing to GitHub, some prefer to rebase to squash some commits so that only one commit message appears for several commits made. 
-
-   * Rebasing cleans up intermediate commits that is unwanted noise to the rest of the team.
-   The extra commits complicates the history, and makes back-out of code more difficult.
-
-   * Yes, this changes history, which is why we do it. But it's only on your local version.
-
-   * See <a target="_blank" href="http://wilsonmar.github.io/git-rebase">http://wilsonmar.github.io/git-rebase</a>
-   for step-by-step instructions.
-
-
-
    <a name="LocalCommits"></a>
 
    ### Reset Local Commits
 
    To reset the .git repo history and the working tree
-   (the "hard" part) back the way it was 2 commits ago:
+   (the "hard" part) back the way it was one commit (^) ago:
 
    <pre><strong>git reset --hard <em>HEAD^</em>
    </strong></pre>
@@ -313,13 +297,12 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Un-Push tags
 
-   To delete a tag in the origin repo (on GitHub or GitLab),
+   To delete a tag in the origin repo (on GitHub or GitLab), such as in branch released:
 
    <pre>git tag released/201706
    </pre>
 
-   Remember the colon character to specify delete, followed by "refs/tags"
-   as in:
+   In GitHub, the colon character is what specifies delete, followed by "refs/tags" as in:
 
    <pre><strong>git push origin :refs/tags/released/201706
    </strong></pre>
@@ -328,19 +311,34 @@ If you didn't mean to fork a repository, but you did anyway,
    [<a target="_blank" href="https://git-scm.com/docs/git-tag/">SCM</a>],
    <a href="https://wilsonmar.github.io/git-flow#Tags">Return</a>
 
+   <a name="Fallback"></a>
+
+   ### Fallback to previous SHA
+
+   I've had to do this with my github.io repository, which contains markdown text in the _posts folder that GitHub automatically converts into displayable HTML in the _source folder. GitHub sends emails out if it cannot do that. However, I didn't read my email and several changes to markdown didn't become visible to readers. 
+
+   To fix it, I looked at GitHub online to identify the date and time stamp to the last good update so I can fall back all changes to that point in time.
+
+   PROTIP: This is a way to fall back if there are no merges in between the current HEAD and the hash one before the one that you want to go back to:
+
+   <pre>git revert --no-commit e05fced..HEAD</pre>
+
+   <pre>git commit</pre>
+
+   <pre>git push</pre>
 
 
    <a name="DeleteBranch"></a>
 
    ### Delete branch
 
-0. Because branches are just markers within Git, once a feature branch is in GitHub, 
+   Because branches are just markers within Git, once a feature branch is in GitHub, 
    that branch can be deleted from the local repo 
 
    <pre><strong>git branch -d <em>feat1</em>
    </strong></pre>
 
-0. and from GitHub (by specifying that colon in front of the branch name). 
+   and from GitHub (by specifying that colon in front of the branch name). 
 
    <pre><strong>git push origin :feat1</strong></pre>
 
@@ -355,7 +353,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Pull Request
 
-   A pull request can be cancelled from GitHub.
+   A pull request can be cancelled in the GitHub web GUI.
 
    <a href="https://wilsonmar.github.io/git-flow#PullRequest">Return</a>
 
@@ -364,7 +362,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Upstream Remove
 
-   To remove a remote:
+   To remove a remote named "upstream":
 
    <pre><strong>git remote remove upstream 
    </strong></pre>
@@ -382,13 +380,13 @@ If you didn't mean to fork a repository, but you did anyway,
 
    ### Pull reversal
 
-   Use the `ORIG_HEAD` created when a checkout occurred:
+   Use the `ORIG_HEAD` created when the last checkout occurred:
 
    <pre><strong>git reset --hard ORIG_HEAD
    </strong></pre>
 
 
-   Alternately, you can use time specification:
+   Alternately, specify a timeframes:
 
    <pre><strong>git reset --hard master@{"10 minutes ago"}
    </strong></pre>
