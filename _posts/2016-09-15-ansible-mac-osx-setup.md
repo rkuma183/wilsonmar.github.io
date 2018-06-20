@@ -20,10 +20,31 @@ comments: true
 This is the fastest way to configure everything on a Mac for software developement,
 specific to what you want installed.
 
-One can <a target="_blank" href="https://www.youtube.com/watch?v=bjgZ93oEZF0">
-Set Up OS X For Web Development in 10 Minutes</a>.
-Try this for yourself. 
-But first on a virtual machine (VMWare Fusion, Vagrant, or Virtualbox).
+## Manual way
+
+<a target="_blank" href="https://www.youtube.com/watch?v=bjgZ93oEZF0">
+VIDEO: Set Up OS X For Web Development in 10 Minutes [10:56]</a> used these steps to customize a new Mac based on his <a target="_blank" href="https://github.com/robbyrussell/oh-my-zsh">notes on GitHub</a>:
+
+   * Remove from Dock at the bottom of the screen
+   * [0:21] In System Preferences, General, Dark Menu
+   * [0:27] Dock, Automatically hide and show the Dock
+   * [0:31] Install Chrome browsesr, as default browser
+   * [0:48] Dropbox, 1Password, Alfred 2, Contexts, Sublime Text 3
+   * [1:51] Dropbox password file for 1Password
+   * [1:58] Command+Space key for Spotlight
+   * [2:09] Sublime Text configuration
+   * [2:44] iTerm, Command-line tools, Homebrew
+   * [3:32] Vagrant, Virtualbox
+   * [4:21] SQL Pro database, [4:32] Path Finder 7
+   * [5:09] Telegram messaging
+   * [5:20] App Store paid apps download Airmail, Slack, Navicat, 
+   * [5:41] Transmit FTP, Tower Git client
+
+   * etc.
+
+To practice, use a virtual machine (VMWare Fusion, Vagrant, or Virtualbox).
+
+## Automate much?
 
 If you've already run this, <a href="#SelectApps">click here to skip to view and edit the install specifications further down this tutorial</a>.
 
@@ -285,6 +306,31 @@ Example:
    The `-g` globally installs for access from any folder.
 
 
+
+<a name="Inventory"></a>
+
+## Inventory of Hosts
+
+The inventory of hosts can be defined within <tt>/etc/ansible/hosts</tt> containing .ini format Microsoft uses:
+
+<pre>
+mail.example.com
+
+[webservers]
+foo.example.com
+bar.example.com:5309
+
+[dbservers]
+one.example.com
+two.example.com
+three.example.com
+</pre>
+
+   Items in square brackets define group names.
+
+Alternately, a YAML format:
+
+
 ### Other Ansible Playbooks #
 
 Consider other Ansible playbooks for Mac:
@@ -305,12 +351,9 @@ Consider other Ansible playbooks for Mac:
 
    &nbsp;
 
-* Mr. Jeff Geeling I call "Master of the
-   <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
-   Ansible Galaxy</a>" because he has contributed both the most downloaded roles and garnered the highest ratings.
+* Mr. Jeff Geeling I call "Master of the <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">Ansible Galaxy</a>" because he has contributed both the most downloaded roles and garnered the highest ratings.
    His <a target="_blank" rel="amphtml" href="https://github.com/geerlingguy/mac-dev-playbook">
-   mac-dev-playbook</a>
-   contains:
+   mac-dev-playbook</a> contains:
 
 {% highlight text %}
 |-- LICENSE
@@ -402,15 +445,15 @@ QUESTION: How to remove apps
 
 ## Apple Store programs #
 
-Programs are installed into the Applications folder.
-Remember there are two different Applications folders
+Programs are installed into the Applications folder. Two different ones:
 
    * `cd /Applications`
 
    * `cd ~/Applications` to see programs installed by clicking browser links,
    such as GoToMeeting, etc.
+   <br /><br />
 
-To get rid of GarageBand,
+To get rid of the GarageBand music program, which comes with Apple MacOS:
 
 0. In a Terminal, go to where Apple stores its default apps at:
 
@@ -438,6 +481,15 @@ To get rid of GarageBand,
    rm -rf *.* /s
    </pre>
 
+
+## Ansible Tower
+
+<a target="_blank" href="https://www.ansible.com/awx-project-faq">Ansible Tower</a> 
+is a hub for automation tasks. It is a commercial product supported by Red Hat, Inc. but open sourced as AWX in September 2017 at <a target="_blank" href="https://github.com/ansible/awx">https://github.com/ansible/awx</a>.
+
+An open source alternative to Tower is Semaphore, written in Go.
+
+
 ## Others like this
 
 The script described here was based on reviews of other similar "Mac booststrap" scripts:
@@ -459,8 +511,21 @@ The script described here was based on reviews of other similar "Mac booststrap"
    provides a set of shell scripts.
 
 
+## Certification
+
+Since Ansible was acquired by Red Hat, Inc. in October 2015, the company also controls certification and provides three training for it. 
+
+* <a target="_blank" href="https://www.redhat.com/en/services/training/do407-automation-ansible-i">AUTOMATION WITH ANSIBLE I (DO407)</a> for $2,890 over 90 days or 4 days
+* <a target="_blank" href="https://www.redhat.com/en/services/training/do409-automation-ansible-ii-ansible-tower">AUTOMATION WITH ANSIBLE II: RED HAT ANSIBLE TOWER (DO409)</a> for $1,445 over 90 days
+* <a target="_blank" href=""> RED HAT CERTIFICATE OF EXPERTISE IN ANSIBLE AUTOMATION (EX407)</a>
+
 
 ## Resources #
+
+https://en.wikipedia.org/wiki/Ansible_(software)
+
+<a target="_blank" href="https://www.youtube.com/channel/UCp6NUFV9mSEK6RxUiEVymVg">
+Red Hat's YouTube channel</a>
 
 https://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449
 
@@ -473,8 +538,17 @@ http://osxdaily.com/2014/01/01/4-free-os-x-utilities-mac/
 https://www.ansible.com/videos-ansiblefest-sf-2016
 
 
+
+
 ## More on OSX
 
 This is one of a series on Mac OSX:
 
 {% include mac_links.html %}
+
+
+## More on DevOps #
+
+This is one of a series on DevOps:
+
+{% include devops_links.html %}
