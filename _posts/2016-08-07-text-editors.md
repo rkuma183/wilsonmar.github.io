@@ -23,7 +23,7 @@ Built-in OSX:
 
    * <a href="#vim">vim</a>
    * <a href="#pico">pico</a>
-   * nano
+   * <a href="#nano">nano</a>
 
 Free:
 
@@ -75,21 +75,44 @@ Licensed IDEs:
 * Refactoring (renaming) support
 * Debugging
 
+
+<a name="Emacs"></a>
+
+## Emacs
+
+emacs was developed in 1976 by then 23-year old MIT and Harvard grad <a target="_blank" href="https://en.wikipedia.org/wiki/Richard_Stallman">Richard Stallman</a>, well known as the developer of gcc (open source C compiler) and the founder of the GNU Free Software Foundation. 
+
+Emacs has, perhaps, more manual editing commands than other editors, numbering over 1,000 commands. 
+
+"Some jokingly referred to emacs as the Carpal Tunnel editor, since most of the commands in emacs are accesses by typing multiple keys on the keyboard at the same time."
+
+But Emacs users can define macros that combine commands. 
+
+
 <a name="vim"></a>
 
 ## Vim
 
-`vim` is an alias of `vi`. vim is vi improved.
-
+`vim` is an alias of `vi`. vim is vi plus the m from the word improved.
 vim is the most commonly available text editor in Linux.
+vi is still the standard text editor available on many Unix system. 
+A good reason to become proficient with vi is that on some industrial type systems, where no extra software can be installed, vi may be the only editor available.
 
+   The original vi (visual editor) was developed in 1976 as part of BSD Unix system by Bill Joy, who went on to be one of the co-founders of Sun Microsystems (which Oracle later purchased). 
+   vi became popular within the Unix community for its full screen visual editing not available before. 
 
-   ### Quitting out from command mode 
+The newer vim and graphical gvim, do add many nice features to vi.
 
-0. Open
+### Quitting out from command mode 
+
+0. In a Terminal, type command:
 
    <pre><strong>vimtutor
    </strong></pre>
+
+   This is an interactive tutorial.
+
+0. Press Enter as requested.
 
 0. Press : to enter line mode.
 
@@ -99,7 +122,13 @@ vim is the most commonly available text editor in Linux.
 0. Press q to quit out.
 
 
-   ### Open
+### vi/vim cheatsheet
+
+<a target="_blank" href="https://user-images.githubusercontent.com/300046/41471886-08e73d56-7072-11e8-8294-8dccce320337.gif">
+<img alt="editors-vi-vim-cheat-sheet-1024x724.gif" width="1024" src="https://user-images.githubusercontent.com/300046/41471886-08e73d56-7072-11e8-8294-8dccce320337.gif"></a>
+
+
+### Open
 
 0. To open to the first occurance of "x" in the file executed automatically when opening a command-line Terminal:
 
@@ -156,6 +185,27 @@ vim is the most commonly available text editor in Linux.
    <pre><strong>vim +55 ~/.bash_profile
    </strong></pre>
 
+
+
+<a name="nano"></a>
+<a name="pico"></a>
+
+## pico and nano
+
+The user interface of nano and pico are identical because they were both developed by the University of Washington. nano is an open source clone of pico.
+
+According to <a target="_blank" href="https://en.wikipedia.org/wiki/Pico_%28text_editor%29">
+Wikipedia</a>, pico stands for "pine composer".
+
+   ![pico menu 75](https://cloud.githubusercontent.com/assets/300046/15268678/21302782-19a4-11e6-9f8d-873c5a3073e4.jpg)
+
+pico became well known and popular because it was the default editor used with the pine e-mail client (an easy-to-use text based e-mail client popular when early internet users sent e-mail messages only in plain text data using slow dial-up modems).
+
+The ^ character means hold down the <strong>control</strong> key while you press the character.
+
+Today, nano is easy to use for beginners. However, it lacks the advanced features of vim and emacs. 
+
+
 <a name="MacVim"></a>
 
 ## MacVim
@@ -174,17 +224,6 @@ To use brew:
 
 1. Run brew install vim && brew install macvim
 2. Run brew link macvim
-
-<a name="pico"></a>
-
-## pico
-
-According to <a target="_blank" href="https://en.wikipedia.org/wiki/Pico_%28text_editor%29">
-Wikipedia</a>, pico stands for "pine composer".
-
-   ![pico menu 75](https://cloud.githubusercontent.com/assets/300046/15268678/21302782-19a4-11e6-9f8d-873c5a3073e4.jpg)
-
-The ^ character means hold down the <strong>control</strong> key while you press the character.
 
 <a id="SublimeTextz"></a>
 
@@ -604,6 +643,17 @@ On Mac:
 
    * <a target="_blank" href="https://scotch.io/courses/make-visual-studio-code-your-editor/">
    Make Visual Studio Code Your Editor video course at Scotch.io</a>
+
+
+## References
+
+https://earthsci.stanford.edu/computing/unix/editing/editorchoices.php
+
+## Codota.com
+https://www.codota.com/code/tutorials
+Full sentence completion, learned from millions of programs.
+dmg attaches to Eclipse, IntelliJ, STS, Android Studio 3.0.  (Not Netbeans)
+Invokes by default shift+Alt+space.
 
 
 ## More on front-end styling #
