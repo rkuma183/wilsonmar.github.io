@@ -41,7 +41,11 @@ comments: true
    <li><a href="//www.macrumors.com/roundup/mac-mini/">Mac mini</a> (2010 or newer)</li>
    </ul>
 
-2. Compare performance between hardware models at <a target="_blank" href="http://browser.geekbench.com/mac-benchmarks/">http://browser.geekbench.com/mac-benchmarks/</a>
+2. Compare the performance rankings among hardware models at <a target="_blank" href="http://browser.geekbench.com/mac-benchmarks/">http://browser.geekbench.com/mac-benchmarks/</a>
+
+   Install Geekbench to obtain CPU Benchmark statics for your own machine <a target="_blank" href="https://browser.geekbench.com/v4/cpu/8746987">posted on their website</a>.
+
+   The Compute Benchmark is run and <a target="_blank" href="https://browser.geekbench.com/v4/compute/2532765">posted</a> separately.
 
 3. Download installers from <a target="_blank" href="https://developer.apple.com/download/">https://developer.apple.com/download</a>. Beta installers should be placed in a bootable USB drive.
 
