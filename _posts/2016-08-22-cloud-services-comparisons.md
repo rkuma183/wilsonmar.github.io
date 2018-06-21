@@ -117,7 +117,10 @@ layout="responsive" src="https://cloud.githubusercontent.com/assets/300046/15745
 
 ## Market share #
 
-Different surveys contradict each other. Here is one:
+   Amazon had an early lead in 2006 and has maintaing its lead even though Microsoft and Google are growing fast as well with 50%+ annual growth<a target="_blank" href="http://www.kpcb.com/internet-trends" title="slide 185/294 from Mary Meeker's May 30, 2018">*</a>
+   <img alt="aws-onboarding-cloud-growth-441x272.jpg" width="441" src="https://user-images.githubusercontent.com/300046/40881057-5dc36fd6-667a-11e8-9166-cd5803dde7c3.jpg">
+
+Earlier:
 
    <amp-img layout="responsive" alt="cloud chart iaas market share 2015-529x488-c22.jpg" width="529" height="488" 
    src="https://cloud.githubusercontent.com/assets/300046/16921114/778410d8-4ccd-11e6-9bb8-faf3cd75a449.jpg">
@@ -126,12 +129,33 @@ Different surveys contradict each other. Here is one:
 
 ## Operating Systems in the cloud #
 
-As of May 2016, Azure works with SUSE and Oracle,
+As of May 2016, Microsoft Azure works with SUSE and Oracle,
 but not Red Hat Enterprise Linux (RHEL).
 
 Amazon provides software to host whatever OS is put into images.
 But its free server images are based on CentOS.
 Amazon is working on "Linux2".
+
+## Network speed
+
+To compare network speeds:
+
+   * <a target="_blank" href="http://www.cloudping.info/">http://cloudping.info</a> measures current ping speed to various regions on Amazon's EC2 cloud. Scroll down to click "HTTP Ping" to begin collection to a running line graph:
+
+   ![cloud-services-amazon-392x647-65305](https://user-images.githubusercontent.com/300046/40890545-21c4a818-6735-11e8-92b3-9329d0465914.jpg)
+
+   <a target="_blank" href="https://ping.varunagw.com/aws.htm">https://ping.varunagw.com/aws.htm</a> provides green, yellow, red colors with Mean, Median, Min, and Max statistics based several measures of the speed to each EC2 region.
+
+   Amazon's own <a target="_blank" href="http://ec2-reachability.amazonaws.com/">EC2 Reachability Test</a> does not provide ping speeds, only a green icon when it can be reached at any speed.
+
+   * <a target="_blank" href="http://www.azurespeed.com/">http://http://www.azurespeed.com</a> measures current ping speed to various regions on Microsoft's Azure cloud. To stop collection, click "uncheck all" or individual regions of interest:
+
+   ![cloud-service-azure-checks-603x261-56530](https://user-images.githubusercontent.com/300046/40890517-a7bc4b02-6734-11e8-9c1f-88e6a686de0d.jpg)
+
+   * <a target="_blank" href="http://www.gcping.com/">http://www.gcping.com</a> measures current ping speed to various regions on Google's cloud. To stop collection, press the dot with the arrow.
+
+   ![cloud-services-gcping-507x224-14208](https://user-images.githubusercontent.com/300046/40890488-10f2b1de-6734-11e8-8aea-6ebfb3edfa3c.jpg)
+
 
 
 ## Links to service brand names #
@@ -221,8 +245,22 @@ Amazon is working on "Linux2".
 <tr valign="top" class="tblOdd"><th align="left">Media Services</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/media-services/">Azure Media Services</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/elastictranscoder/">ElasticTranscoder</a><br /><span style="text-decoration:underline;"><a target="_blank" href="http://aws.amazon.com/mobileanalytics/">MobileAnalytics</a>
 <br /><a target="_blank" href="http://aws.amazon.com/cognito/">Cognitor</a><br /></span></td></tr>
+<tr valign="top" class="tblEven"><th align="left">Voice Recognition</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
+</td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">Machine-Learning</a><a target="_blank" href="https://aws.amazon.com/sagemaker/">SageMaker</a></td></tr>
+
+<tr valign="top" class="tblEven"><th align="left">Translation</th><td>?
+</td><td>?</td></tr>
+<tr valign="top" class="tblEven"><th align="left">Text Analytics</th><td>?
+</td><td>?</td></tr>
+
 <tr valign="top" class="tblEven"><th align="left">Machine Learning (ML)</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/machine-learning/">Azure Machine Learning</a>
-</td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">MachineLearning</a></td></tr>
+</td><td><a target="_blank" href="https://aws.amazon.com/machine-learning/">Machine-Learning</a><a target="_blank" href="https://aws.amazon.com/sagemaker/">SageMaker</a></td></tr>
+
+<tr valign="top" class="tblOdd"><th align="left">Computer Vision</th><td><a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/">Computer Vision</a><a target="_blank" href="https://docs.microsoft.com/en-us/azure/cognitive-services/face/">Face</a>
+</td><td><a target="_blank" href="https://aws.amazon.com/rekognition/">Rekognition</a></td></tr>
+<tr valign="top" class="tblOdd"><th align="left">Video camera</th><td>?
+</td><td><a target="_blank" href="https://www.amazon.com/AWS-DeepLens-learning-enabled-developers/dp/B075Y3CK37/">$249</a> <a target="_blank" href="https://aws.amazon.com/deeplens/">DeepLens</a></td></tr>
+
 <tr valign="top" class="tblOdd"><th align="left">Triggers</th>
 <td><a target="_blank" href="https://azure.microsoft.com/en-us/documentation/services/app-service/logic/">Logic Apps</a></td>
 <td><a target="_blank" href="http://aws.amazon.com/lambda/">AWS Lambda</a></td></tr>
@@ -242,7 +280,6 @@ TomsITPro</a> and
 
 ## Resources #
 
-
 <a target="_blank" href="http://resources.sdtimes.com/whitepaper-ibm-q4-2015-bluemix-ebook">
 IBM Bluemix</a>
 
@@ -250,6 +287,8 @@ IBM Bluemix</a>
 http://downdetector.com/status/aws-amazon-web-services</a>
 provides 3rd-party crowd-source status.
 
+<a target="_blank" href="https://www.pluralsight.com/resource-center/webinars/watch-understanding-the-difference-between-microsoft-azure-and-amazon-aws">
+"Understanding the Difference Between Microsoft Azure and Amazon AWS" by veteran Pluralsight video presenter Elias Khanser, a Microsoft MVP</a>
 
 ## More on DevOps #
 
