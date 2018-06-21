@@ -21,7 +21,7 @@ The object of this tutorial is to succintly present
 CentOS Linux, and 
 <a href="#Docker4Windows">Windows</a>.
 
-This is a companion to ["Docker image build"](/docker-build/).
+<!-- This is a companion to <a target="_blank" href="https://wilsonmar.github.io/docker-build/">Docker image build</a>. -->
 
 
 ## VMs on MacOS vs. Docker #
@@ -2048,7 +2048,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
    using tabs and line breaks.
 
    <pre>
-\nID\t{{.ID}}\nIMAGE\t{{.Image}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.RunningFor}}\nSTATUS\t{{.Status}}\n
+\nID\t\{\{.ID}}\nIMAGE\t\{\{.Image}}\nCOMMAND\t\{\{.Command}}\nCREATED\t\{\{.RunningFor\}\}\nSTATUS\t\{\{.Status}}\n
    </pre>
 
    <tt><strong>docker ps -a \-\-format $FORMAT

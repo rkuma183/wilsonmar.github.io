@@ -1384,4 +1384,4 @@ https://kubernetes.io/community/
 
 This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
 
-{% include   %}
+{% include ai_links.html %}
