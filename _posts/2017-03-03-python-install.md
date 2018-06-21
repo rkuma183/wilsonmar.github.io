@@ -371,11 +371,10 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 ## Don't Uninstall Python 2.7 #
 
-
 > The version of Python that comes with Mac OSX should not be removed 
 because some Apple system software have hard-coded references to it.
 
-That is the reason why elevated privilages (sudo) is necessary to remove Python from your Mac:
+That is the reason why elevated privilages (sudo) is necessary to remove Python from your Mac.
 
 Nevertheless here's the bad advice to harm yourself:
 
@@ -446,7 +445,7 @@ lrwxr-xr-x  1 root  wheel  75 Oct  8 10:46 /usr/bin/python2.7 -> ../../System/Li
 
 0. Run:
 
-   python2.7
+   <pre><strong>python2.7</strong></pre>
 
    The response:
 
@@ -462,7 +461,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 0. Run the generic python generically:
 
    <pre><strong>
-   python2.7
+   python
    </strong></pre>
 
    The response is a newer Python:
@@ -484,7 +483,7 @@ Type "help", "copyright", "credits" or "license" for more information.
    this</a>:
 
 
-   ### Alias to the rescue #
+   ### Alias symlink to the rescue #
 
    CAUTION: I'm still working on the following:
 
@@ -2155,6 +2154,16 @@ Read:
 
    * https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/
 
+
+## Where installed?
+
+When Python is installed using pip, see where it's installed:
+
+   <pre><strong>python3 -m site --user-base</strong></pre>
+
+   The response on my system:
+
+   <pre>/Users/[myusername]/Library/Python/3.6</pre>
 
 
 <hr />
