@@ -29,6 +29,7 @@ comments: true
    * iMac Pro (2017 or newer)
    * Mac Pro (late 2013 or newer, or mid 2010 and mid 2012 models with Metal capable GPU)
    * Mac Mini (late 2012 or newer)
+   <br /><br />
 
    MacOS Sierra can run using these hardware models:
 
@@ -39,7 +40,7 @@ comments: true
    <li><a href="//www.macrumors.com/roundup/mac-pro/">Mac Pro</a> (2010 or newer)</li>
    <li><a href="//www.macrumors.com/roundup/imac/">iMac</a> (Late 2009 or newer)</li>
    <li><a href="//www.macrumors.com/roundup/mac-mini/">Mac mini</a> (2010 or newer)</li>
-   </ul>
+   </ul><br /><br />
 
 2. Compare the performance rankings among hardware models at <a target="_blank" href="http://browser.geekbench.com/mac-benchmarks/">http://browser.geekbench.com/mac-benchmarks/</a>
 
