@@ -15,6 +15,37 @@ comments: true
 
 {% include _toc.html %}
 
+## Versions
+
+1. Click the Apple icon at the upper left corner and select
+<strong>About this Mac</strong>.
+
+   macOS Mojave 10.14 can run using these hardware models: 
+
+   * MacBook Pro (mid 2012 and newer)
+   * MacBook Air (mid 2012 and newer)
+   * MacBook (early 2015 and later)
+   * iMac (late 2012 or newer)
+   * iMac Pro (2017 or newer)
+   * Mac Pro (late 2013 or newer, or mid 2010 and mid 2012 models with Metal capable GPU)
+   * Mac Mini (late 2012 or newer)
+
+   MacOS Sierra can run using these hardware models:
+
+   <ul>
+   <li><a href="//www.macrumors.com/roundup/macbook-pro/">MacBook Pro</a> (2010 or newer)</li>
+   <li><a href="//www.macrumors.com/roundup/macbook-air/"><a href="//www.macrumors.com/roundup/retina-macbook-air/">MacBook</a> Air</a> (2010 or newer)</li>
+   <li>MacBook (Late 2009 or newer)</li>
+   <li><a href="//www.macrumors.com/roundup/mac-pro/">Mac Pro</a> (2010 or newer)</li>
+   <li><a href="//www.macrumors.com/roundup/imac/">iMac</a> (Late 2009 or newer)</li>
+   <li><a href="//www.macrumors.com/roundup/mac-mini/">Mac mini</a> (2010 or newer)</li>
+   </ul>
+
+2. Compare performance between hardware models at <a target="_blank" href="http://browser.geekbench.com/mac-benchmarks/">http://browser.geekbench.com/mac-benchmarks/</a>
+
+3. Download installers from <a target="_blank" href="https://developer.apple.com/download/">https://developer.apple.com/download</a>. Beta installers should be placed in a bootable USB drive.
+
+
 <a id="Register"></a>
 
 ## Register it. Now.
@@ -61,14 +92,6 @@ Identify your Mac</a> for
 <a target="_blank" href="https://www.ifixit.com/Teardown/Retina+Macbook+2015+Teardown/39841">
 tear-down instructions such as for MacBook Pro A1398 (Retina, 15-inch,Early 2015)</a>.
 
-MacOS Sierra supports these hardware models:
-
-<ul><li><a href="//www.macrumors.com/roundup/imac/">iMac</a> (Late 2009 or newer)</li>
-<li><a href="//www.macrumors.com/roundup/macbook-air/"><a href="//www.macrumors.com/roundup/retina-macbook-air/">MacBook</a> Air</a> (2010 or newer)</li>
-<li>MacBook (Late 2009 or newer)</li>
-<li><a href="//www.macrumors.com/roundup/mac-mini/">Mac mini</a> (2010 or newer)</li>
-<li><a href="//www.macrumors.com/roundup/macbook-pro/">MacBook Pro</a> (2010 or newer)</li>
-<li><a href="//www.macrumors.com/roundup/mac-pro/">Mac Pro</a> (2010 or newer)</li></ul>
 
 ## Case
 
@@ -91,10 +114,11 @@ Install its driver from:
 ## Screws on case
 
 Apple uses tiny screws for their products.
-Screws for older Mac Book Pro's have a + pattern requiring a 1.5mm screwdriver.
+Screws for older Mac Book Pro's have a "+"" pattern requiring a 1.5mm screwdriver.
 Screws for newer Mac Book Pro's have a 5-point design which require a
 screwdriver called the "pentalobe" Torx T6.
-iPhones have requiring a T6 Torx 0.6 screwdriver.
+
+iPhones require a T6 Torx 0.6 screwdriver.
 The Phillips PH#00 is a little too big.
 
 Screws on the black hindge edge are longer. 
@@ -126,44 +150,74 @@ The number shown at the top is 0 (zero) when the laptop is plugged in.
 
 ## Charger
 
-15 inch diagonal MacBooks use a 85 watt charger cube.
-
-<a target="_blank" href="https://www.thingiverse.com/thing:2768119">
-Make on a Formlab</a> a Magsafe anti-fray - Apple charger
-
 13 inch diagonal MacBooks use a 65 watt charger cube.
 
+15 inch diagonal MacBooks use a 85 watt charger cube. Newer ones from 2017 have a removeable USB-C cable. This solved a long-standing issue with the cable fraying near the plug.
 
+<a target="_blank" href="https://www.thingiverse.com/thing:2768119">
+Have a Formlab 2 3D printer?</a> Make a Magsafe anti-fray Apple charger:
+
+![apple-macbook-hardward-fray-537x243-34850](https://user-images.githubusercontent.com/300046/40870115-9b5770da-65e5-11e8-9255-fd24809bd3bc.jpg)
+
+That may be a good thing considering Apple's 85W charger <a target="_blank" href="https://www.amazon.com/Apple-MNF82LL-USB-C-Power-Adapter/dp/B01M8O7W40/">costs $79 on Amazon</a> and elsewhere.
 
 ## USB-C ports
 
-2015 Macbooks 
-don't come with regular USB ports so one has to buy 
+2015 Macbooks don't come with older USB-B ports so one has to buy 
 <a target="_blank" href="http://store.apple.com/us/product/MJ1M2AM/A/usb-c-to-usb-adapter">
 $19 Apple proprietary adapter cables</a>.
 
-Another power plug runs 
-<a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
+Another power plug runs <a target="_blank" href="http://store.apple.com/us/product/MJ262LL/A/apple-29w-usb-c-power-adapter?fnode=51">
 $49</a>
 
-2015 Macbooks combine power and communication (Ethernet) into a single
+<a target="_blank" href="https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260">New</a> Macbooks combine power and communication (Ethernet) into a single
 proprietary oblong rounded USB-C connector.
 USB-C connectors can be inserted on either side (unlike earlier USB plugs).
 It follows the USB 3.1 standard, which has a theoretical
 maximum speed of up to 10Gbps (gigabits per second)
 -- two times faster than USB 3.0. But the Macbook is at 5Gbps for now.
 
-3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
+USB 3.1 support is used by <a target="_blank" href="http://store.apple.com/us/product/MJ1K2AM/A/usb-c-digital-av-multiport-adapter"> Apple's $79 HDMI/VGA connector</a>
 and by upcoming MHL (Mobile High-definition Link) 3 devices to 
-stream 4K video from mobile devices to TV sets.
+stream 4K video from mobile devices to TV sets. That would obsolete ChromeCast.
 
 Get a USB-C to USB-B cable.
 Plug it into a battery pack and you can charge the laptop.
 
-* https://www.ifixit.com/Device/MacBook_Pro_15%22_Core_2_Duo_Models_A1226_and_A1260
+<a target="_blank" href="https://www.amazon.com/dp/B01MUAEI7J/">This $90 adapter from Amazon</a> works for me:
+![apple-macbook-hardware-adapter-569x345-43408](https://user-images.githubusercontent.com/300046/40870296-d1e6947e-65e9-11e8-8529-70b9ef107123.jpg)
 
 
+## Camera
 
+If I installed a QR reader on my iPhone, I can read a QR code to take me to the URL represented by the code.
+
+You can read a printed QR code by holding up to your Mac's Facetime camera using app "QuickMark".<a target="_blank" href="https://www.youtube.com/watch?v=6JAAKm5ZQRE">*</a>
+
+BTW there used to be a <a target="_blank" href="http://itunes.apple.com/us/app/qr-right/id496947232?mt=12">$2.99 QR Right app</a>.
+
+MacOS apps <a target="_blank" href="http://dansl.net/qrreader/">QReader</a> and <a target="_blank" href="https://itunes.apple.com/us/app/qr-journal/id483820530?mt=12">"QR Journal"</a> for those with the Apple iSight A1023 USB external camera from <a target="_blank" href="https://www.macworld.com/article/3018431/macs/in-praise-of-the-glorious-wildly-over-engineered-isight-webcam.html">2003</a> (or iSight compatible). It connects to the Firewire port on older Macs.
+And some reviewers report crashes.
+
+<a target="_blank" href="http://www.madrau.com/index.html">The $16 SwitchResX app</a> is advertised as a screen size formatter for Mac Retina-friendly HiDP screens and for making Macs into teleprompters.
+
+How can one read a QR code appearing on a Mac screen? 
+
+After you create a QR code using qrstuff.com and download the png file, or use an image editor to create an image file containing a QR code, upload the file to:
+
+   https://zxing.org/w/decode.jspx
+
+Alternately, install imagemagick as a dependency to this app using Homebrew:
+
+   <pre><strong>brew install zbar</strong></pre>
+
+Then specify the file:
+
+   <pre><strong>cd ~/Downloads & zbarimg qrcode_file.png</strong></pre>
+
+   The response should be the text (URL) embedded in the QR code image.
+
+ 
 <a id="Trackpad"></a>
 
 ## Trackpad and Mouse Speed
