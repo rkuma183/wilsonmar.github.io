@@ -25,6 +25,14 @@ comments: true
 </th><th><a href="/ruby-on-apple-mac-osx/">Ruby</a>
 </th><th> Introduced
 </th></tr>
+<tr valign="top"><td> 10.14<br />MacOS
+</td><td align="right"> Mojave
+</td><td align="right"> June 2018
+</td><td align="right"> 2.6.0
+</td><td align="right"> 2.7.10
+</td><td align="right"> 2.4.2p198
+</td><td align="left"> Dark theme
+</td></tr>
 <tr valign="top"><td> 10.13<br />MacOS
 </td><td align="right"> High<br />Sierra
 </td><td align="right"> Oct. 2017
