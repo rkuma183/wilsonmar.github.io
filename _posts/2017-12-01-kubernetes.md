@@ -97,9 +97,7 @@ The <strong>describe</strong> command provides more detailed information.
    <a target="_blank" href="https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html">
    (from CoreOS)</a>.
    
-   , which calls ETCD a simple, distributed, consistent key-value store.
-
-   Data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
+   Kubernetes data stored in etcd includes jobs being scheduled, created and deployed, pod/service details and state, namespaces, and replication details.
 
    It's called a cluster because, for resiliancy, etcd replicates data across nodes. 
    This is why there is a minimum of two worker nodes per cluster. ???
@@ -241,6 +239,7 @@ Other orchestration systems for Docker containers:
 
 * Rancher
 
+
 ## Open Sourced
 
 <img align="right" alt="kubernetes-logo-125x134-15499.png" src="https://user-images.githubusercontent.com/300046/33524448-ca1d7e30-d7da-11e7-9358-45845910198c.png">
@@ -307,8 +306,17 @@ Thus, https://k8s.io also works.
 
 ## Installation options
 
-There are several ways to obtain a running instance of Kubernetes,
-listed from easiest to most difficult:
+There are several ways to obtain a running instance of Kubernetes.
+
+<a target="_blank" href="http://docs.rancher.com/rancher/v1.5/en/quick-start-guide/">
+Rancher</a> is a deployment tool for Kubernetes that also provides networking and load balancing support.
+Rancher initially created it's own framework called Cattle to coordinate docker containers across multiple hosts, at a time when Docker was limited to running on a single host. 
+Now Rancher's networking provides a consistent solution across a variety of platforms, especially on bare metal or standard (non cloud) virtual servers.
+In addition to Kubernetes, Rancher enables users to deploy a choice of Cattle, Docker Swarm, Apache Mesos upstream project for DCOS (Data Center Operating System).
+Rancher eventually become part of Docker Swarm.
+
+Within https://github.com/kubernetes/kops AWS KOPS 
+
 
 ### Support in clouds
 
@@ -322,6 +330,7 @@ See <a target="_blank" href="https://codefresh.io/kubernetes-guides/kubernetes-c
 Kubernetes in the Cloud: AWS vs. GCP vs. Azure</a>
 
 * <a href="#GKE">Google Kubernetes Engine (GKE)</a> is a container management SaaS product running within the Google Compute Platform (GCP) on top of Google Compute Engine providing machines.
+GKE in GCP integration covers networking and VPC, monitoring, logging, and CI/CD.
 
 * If you want to pay for Kubernetes support, <a target="_blank" href="
 https://www.redhat.com/en/technologies/cloud-computing/openshift">
@@ -1360,3 +1369,19 @@ http://www.nkode.io/2016/10/18/valuable-container-platform-links-kubernetes.html
 
 https://medium.com/@ApsOps/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727
 
+https://cloud.google.com/solutions/heterogeneous-deployment-patterns-with-kubernetes
+
+https://cloud.google.com/solutions/devops/
+
+https://docs.gitlab.com/ee/install/kubernetes/gitlab_omnibus.html
+
+## Social
+
+https://kubernetes.io/community/
+
+
+## More
+
+This is one of a series on AI, Machine Learning, Deep Learning, Robotics, and Analytics:
+
+{% include   %}
