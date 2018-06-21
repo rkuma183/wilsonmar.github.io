@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mac OSX Command-Line Utilities kill, grep, sed, regex, cron"
-excerpt: "The Swiss Army knives for Linux and Mac - they've thought of everything"
+excerpt: "The Swiss Army Knife for almost every need"
 tags: [apple, mac, utilities]
 image:
 # feature: pic Giant-Swiss-Army-Knife-1900x500.jpg
@@ -15,8 +15,250 @@ comments: true
 
 {% include _toc.html %}
 
-MacOS (Mac OS X) comes with the <strong>BSD</strong> (Birkeley Standard Distribution) version of command line tools 
-which are slightly <strong>different</strong> from the <strong>Linux</strong> version (in Red Hat, Debian, Ubuntu, CoreOS, etc.) even though both are compliant with <a target="_blank" href="http://en.wikipedia.org/wiki/POSIX">POSIX standards</a>.
+## System Preferences GUI
+
+macOS provides a GUI to manage system configuration settings. Mouse to the upper-left corner of the screen and click the Apple icon that appears to choose "System Preferences...". 
+
+Alternately, you can also open the dialog with this command:
+
+   <pre><strong>open /Applications/System\ Preferences.app</strong></pre>
+
+BTW, instead of typing out the whole line above, you can simply type "prefs" if you use a text editor to add this line in the ~/.bash_profile file:
+
+   <pre>alias prefs='open /Applications/System\ Preferences.app'</pre>
+
+Apple stores its apps in folder "/Applications". The "back-slash" character needs to precede every space character in the name because a space usually separates parts of commands.
+
+BTW There is also a folder at "~/Applications" for user-level apps.
+
+Open a Finder window to view files in both folders.
+
+
+## System information
+
+In folder "/Applications/Utilities" are several apps which include "System Information.app".
+
+macOS provides a GUI to display detailed information about system Hardware, Software, and Networks. Mouse to the upper-left corner of the screen and <strong>hold down Option</strong> while you click the Apple icon. "System Information..." appears. But you can also open it without the Option key by selecting "About This Mac" then pressing "System Report". 
+
+Instead of examining various Linux config files (/etc/\*elease, /proc/meminfo for memory, /proc/cpuinfo for number of cores), macOS has a "system_profiler" utility presenting many data types.
+
+### system_profiler
+
+Internally, the display can be output as text using this command:
+
+   <pre><strong>system_profiler SPHardwareDataType</strong></pre>
+
+   PROTIP: Use the command above to obtain your serial number for Apple Support.
+
+"SPHardwareDataType" is one of several DataTypes or items of information listed by:
+
+   <pre>system_profiler -listDataTypes</pre>
+
+   The list output:
+
+   <pre>
+SPParallelATADataType
+SPUniversalAccessDataType
+SPApplicationsDataType
+SPAudioDataType
+SPBluetoothDataType
+SPCameraDataType
+SPCardReaderDataType
+SPComponentDataType
+SPDeveloperToolsDataType
+SPDiagnosticsDataType
+SPDisabledSoftwareDataType
+SPDiscBurningDataType
+SPEthernetDataType
+SPExtensionsDataType
+SPFibreChannelDataType
+SPFireWireDataType
+SPFirewallDataType
+SPFontsDataType
+SPFrameworksDataType
+SPDisplaysDataType
+SPHardwareDataType
+SPHardwareRAIDDataType
+SPInstallHistoryDataType
+SPNetworkLocationDataType
+SPLogsDataType
+SPManagedClientDataType
+SPMemoryDataType
+SPNVMeDataType
+SPNetworkDataType
+SPPCIDataType
+SPParallelSCSIDataType
+SPPowerDataType
+SPPrefPaneDataType
+SPPrintersSoftwareDataType
+SPPrintersDataType
+SPConfigurationProfileDataType
+SPRawCameraDataType
+SPSASDataType
+SPSerialATADataType
+SPSPIDataType
+SPSmartCardsDataType
+SPSoftwareDataType
+SPStartupItemDataType
+SPStorageDataType
+SPSyncServicesDataType
+SPThunderboltDataType
+SPUSBDataType
+SPNetworkVolumeDataType
+SPWWANDataType
+SPAirPortDataType
+SPiBridgeDataType
+   </pre>
+
+There is a lot of information, so it takes time to generate output.
+
+PROTIP: Save these files to provide to Support:
+
+   <pre>system_profiler -detailLevel basic > ~/Desktop/system_report.txt</pre>
+
+Instead of "basic", there is also "mini" and "full" scope of output. When providing full scope, output in .spx file extension so that it opens automatically using the GUI:
+
+   <pre>system_profiler -detailLevel full -xml > ~/Desktop/system_report_mini.spx</pre>
+
+
+### Uname = Darwin (BSD)
+
+The command that must be common to all Linux/BSD variants is the one that returns the operating system name:
+
+   <pre><strong>uname
+   </strong></pre>
+
+   On macOS, the response is "Darwin".
+
+MacOS (Mac OS X) comes with the <strong>BSD</strong> (Berkeley Standard Distribution) version of command line tools which are slightly <strong>different</strong> from the <strong>Linux</strong> version (in Red Hat, Debian, Ubuntu, CoreOS, etc.) even though both are compliant with <a target="_blank" href="http://en.wikipedia.org/wiki/POSIX">POSIX standards</a>.
+
+
+
+## CPU Utilization uptime
+
+To see whether CPU utilization is increasing recently:
+
+   <pre><strong>uptime
+   </strong></pre>
+
+   <pre>
+ 6:35  up 9 days, 11:56, 7 users, load averages: 2.09 2.08 2.06
+   </pre>
+
+   Load averages lists calculations of the average system load over three period of times:
+   the last one-, five-, and fifteen-minute periods.
+
+   Load averages count the number of processes using or <strong>waiting</strong> for CPU (the ready queue or run queue) increments the load number by 1. In a system with four CPUs, a load average of 3.73 would indicate that there were, on average, 3.73 processes ready to run, and each one could be scheduled into a CPU.
+
+## Memory Statistics
+
+To obtain a new reading every 5 seconds, the command on macOS is:
+
+   <pre><strong>vm_stat 5
+   </strong></pre>
+
+   The number of most interest is <strong>pageout</strong>, the "3459" in this sample response:
+
+   <pre>
+Mach Virtual Memory Statistics: (page size of 4096 bytes)
+  free active inac wire   faults     copy zerofill reactive  pageins pageout
+ 49314  97619 154001 26746 42361341   320895 24148787   145786    50308 3459
+ 49341  97814 153974 26551     2902       21     1429        0        0 0
+    </pre>
+
+   On Linux systems, the "vmstat" command is similar but not identical.
+
+0. To cancel the display, press <strong>control+C</strong>.
+
+NOTE: The page size (of 4096) is obtained using <tt>getconf PAGESIZE</tt>.
+
+
+## Top processes
+
+0. To list the top hungry processes, and refersh the screen:
+
+   <pre><strong>top
+   </strong></pre>
+
+0. To cancel the display, press <strong>control+C</strong>.
+
+   That works with any process you want to kill.
+
+0. Alternately, install the htop utility using Homebrew:
+
+   <pre><strong>brew install htop</strong></pre>
+
+0. Invoke it:
+   
+   <pre><strong>htop</strong></pre>
+
+<a id="Processes"></a>
+
+## Processes
+
+0. So that we can kill it for fun, create a background process (by specifying &) 
+   which sleep for 999 seconds:
+
+   <pre><strong>sleep 999 &
+   </strong></pre>
+
+0. Get the process identifier:
+
+   <pre><strong>pgrep sleep
+   </strong></pre>
+
+0. List background processes:
+
+   <pre><strong>jobs
+   </strong></pre>
+
+   <pre>
+[1]+  Running                 sleep 999 &
+   </pre>
+
+   The + shows the focus.
+
+0. To list all processes with a niceness (NI) column:
+
+   <pre><strong>ps -l
+   </strong></pre>
+
+   Expand the terminal window width to avoid line wrapping.
+
+  <pre>
+UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD
+501  2752  2749     4006   0  31  0  4320804     44 -      Ss                  0 ttys001    0:00.19 /Users/wilsonmar
+   </pre>
+
+   ### Niceness of priority
+
+   Default niceness of zero, but can be -20 to +19.
+
+   PROTIP: A niceness of +19 is a priority of 99, which is lowest.
+
+   <pre><strong>nice -n 5 sleep 1000&
+   </strong></pre>
+
+   root permissions are needed to set nice below zero.
+
+0. Reset nicer:
+
+   <pre><strong>renice -n 5 sleep 1000&
+   </strong></pre>
+
+
+   ## Kill
+
+0. To kill a single program by name: 
+
+   <pre><strong>pkill sleep
+   </strong></pre>
+
+0. To kill several progams by name: 
+
+   <pre><strong>killall sleep
+   </strong></pre>
+
 
 <a name="XcodeTools"></a>
 
@@ -154,6 +396,7 @@ echo "set startup-with-shell off" >> ~/.gdbinit
    6. make and wait again (which can take some time)
    7. sudo make install
    8. csrutil enable --without debug
+   <br /><br />
 
    <a target="_blank" href="https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html">
    This</a> describes how to code-sign the GDB executable so that macOS will allow it to control other processes.
@@ -284,101 +527,6 @@ brew install moreutils --without-parallel
 
 <hr />
 
-## Uptime
-
-   <pre><strong>uptime
-   </strong></pre>
-
-   <pre>
- 6:35  up 9 days, 11:56, 7 users, load averages: 2.09 2.08 2.06
-   </pre>
-
-   Load averages lists calcuations of the average system load over three period of times:
-   the last one-, five-, and fifteen-minute periods.
-   Each process using or <strong>waiting</strong> for CPU (the ready queue or run queue) increments the load number by 1. In a system with four CPUs, a load average of 3.73 would indicate that there were, on average, 3.73 processes ready to run, and each one could be scheduled into a CPU.
-
-
-### Top processes
-
-0. To list the top hungry processes, and refersh the screen:
-
-   <pre><strong>top
-   </strong></pre>
-
-   Alternately, there is a htop utility that can installed.
-
-0. To cancel the display, press <strong>control+C</strong>.
-
-   That works with any process you want to kill.
-
-
-<a id="Processes"></a>
-
-## Processes
-
-0. So that we can kill it for fun, create a background process (by specifying &) 
-   which sleep for 999 seconds:
-
-   <pre><strong>sleep 999 &
-   </strong></pre>
-
-0. Get the process identifier:
-
-   <pre><strong>pgrep sleep
-   </strong></pre>
-
-0. List background processes:
-
-   <pre><strong>jobs
-   </strong></pre>
-
-   <pre>
-[1]+  Running                 sleep 999 &
-   </pre>
-
-   The + shows the focus.
-
-0. To list all processes with a niceness (NI) column:
-
-   <pre><strong>ps -l
-   </strong></pre>
-
-   Expand the terminal window width to avoid line wrapping.
-
-  <pre>
-UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD
-501  2752  2749     4006   0  31  0  4320804     44 -      Ss                  0 ttys001    0:00.19 /Users/wilsonmar
-   </pre>
-
-   ### Niceness of priority
-
-   Default niceness of zero, but can be -20 to +19.
-
-   PROTIP: A niceness of +19 is a priority of 99, which is lowest.
-
-   <pre><strong>nice -n 5 sleep 1000&
-   </strong></pre>
-
-   root permissions are needed to set nice below zero.
-
-0. Reset nicer:
-
-   <pre><strong>renice -n 5 sleep 1000&
-   </strong></pre>
-
-
-   ## Kill
-
-0. To kill a single program by name: 
-
-   <pre><strong>pkill sleep
-   </strong></pre>
-
-0. To kill several progams by name: 
-
-   <pre><strong>killall sleep
-   </strong></pre>
-
 
 ## Certificates
 
@@ -492,6 +640,14 @@ nix-shell environment on top of nixos/nixpkgs
 https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities/69332
 
 https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
+
+http://clarkgrubb.com/diagnostic-tools compares Linux, Darwin, and Windows utilities
+
+http://www.brendangregg.com/USEmethod/use-macosx.html
+
+https://support.apple.com/kb/DL75?viewlocale=en_US&locale=en_US
+Apple's Common Criteria Tools for 10.5
+
 
 ## More on OSX
 
