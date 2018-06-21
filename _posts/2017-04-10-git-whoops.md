@@ -2,13 +2,14 @@
 layout: post
 title: "Git Whoops"
 excerpt: "Don't panic. Here's how to un-do mistakes in Git"
+shorturl: "https://goo.gl/4vQ2Yl"
 modified:
 tags: []
 image:
-# feature: git-whoops-homealone-889x500.jpg
-  feature: https://user-images.githubusercontent.com/300046/41686842-d06e597a-74a2-11e8-8ee3-acec78cd876a.jpg
-  credit: Macaulay Culkin in "Home Alone" (1990)
-  creditlink: 
+# feature: pic blue black stars spin 1900x500.jpg
+  feature: https://cloud.githubusercontent.com/assets/300046/14621973/fe6e21a6-0583-11e6-9a94-a969a51759b6.jpg
+  credit: Jeremy Thomas
+  creditlink: https://www.flickr.com/photos/132218932@N03/page2
 comments: true
 ---
 <i>{{ page.excerpt }}</i>
@@ -232,7 +233,7 @@ If you didn't mean to fork a repository, but you did anyway,
 
    First figure out the specific commit id using the git log command (such as "5a34def")
 
-   <pre><strong>git log
+   <pre><strong>git log</em>
    </strong></pre>
 
    Then supply that commit id in the command:
