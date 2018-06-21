@@ -15,8 +15,10 @@ comments: true
 
 {% include _toc.html %}
 
-This is a hands-on narrated tour on how to end up with a serverless app running
-in a server cloud.
+This is a description the ecosystem around the Serverless computing concept and the Serverless Framework.
+
+This is a follow-up to <a target="_blank" href="https://wilsonmar.github.io/aws-lambda-serverless/">my notes on creating a new Amazon Lambda serverless app running in the Amazon cloud</a>.
+
 
 <hr />
 

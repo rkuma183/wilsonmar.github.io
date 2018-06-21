@@ -17,16 +17,11 @@ comments: true
 
 This tutorial aims to have you ending up with a serverless app running in the Amazon cloud.
 
-It's assumed that you're already familiar with
-[the Serverless framework](/serverless/)
+This is a follow-up to <a target="_blank" href="https://wilsonmar.github.io/serverless/">my notes on the ecosystem around the Serverless computing concept</a>.
 
+## Permissions for serverless-admin
 
-<a target="_blank" href="https://techcrunch.com/2016/09/01/serverless-is-the-new-multitenancy/">
-Multitenancy</a>
-"not only allowed for higher gross margins, it made it viable to serve small and medium businesses with world-class software  —  at a profit."
-
-
-0. Create an Amazon Web Services account.
+0. Create an Amazon Web Services account. See [my tutorial on Amazon on-ramp](/amazon-onboarding/).
 
    ### Create a "serverless-admin" user 
 
@@ -35,7 +30,7 @@ Multitenancy</a>
 1. Login to your AWS account
 0. Go to the **Identity & Access Management (IAM)** page
 0. Click on **Users**
-0. Click on **Create New Users**
+0. Click on **Create New Users** or edit an existing user.
 0. Enter *serverless-admin* and click **Create**
 0. Click on **Download Credentials** to download the .csv file with the AWS credentials
 0. Click **Users** on the left
@@ -46,13 +41,14 @@ Multitenancy</a>
 
 ### Python
 
-0. Install Python
+0. Install Python. See <a href="https://wilsonmar.github.io/python-install/">
+   my tutorial on Python interpreter installation on Macs</a>.
 
 0. Install AWS CLI per 
-   <a target="_blank" href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">
+   <a target="_blank" href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html" target="_blank">
    https://docs.aws.amazon.com/cli/latest/userguide/installing.html</a>
 
-   <tt><strong>pip install \-\-upgrade \-\-user awscli
+   <pre><strong>pip install --upgrade --user awscli
    </strong></pre>
 
    The \-\-upgrade option tells pip to upgrade any requirements that are already installed. 
@@ -61,12 +57,12 @@ Multitenancy</a>
 
 0. Verify:
 
-   <tt><strong>aws \-\-version
+   <pre><strong>aws --version
    </strong></pre>
 
 0. To uninstall:
 
-   <tt><strong>pip uninstall awscli
+   <pre><strong>pip uninstall awscli
    </strong></pre>
 
 0. Obtain AWS Access Key ID
@@ -77,9 +73,20 @@ Multitenancy</a>
    <tt><strong>aws configure
    </strong></tt>
 
+## Example of processing an S3 image
+
+The <a href="https://www.qwiklabs.com/focuses/284?locale=en&parent=catalog">
+Qwiklab Introduction to AWS Lambda</a>
+
+1. Login to 
+
+## Lambda CLI
+
+https://blog.symphonia.io/learning-lambda-part-5-743d8a99db53
 
 
 ## Resources #
+
 
 * <a target="_blank" href="https://cloudacademy.com/webinars/aws-lambda-advanced-coding-session-22/">
   video: Advanced Coding Session</a>
@@ -92,7 +99,7 @@ Multitenancy</a>
   repo</a>
 
 
-## Social #
+## Twitter #
 
 @AWSLambda
 
@@ -108,3 +115,10 @@ Multitenancy</a>
 This is one of a series on Serverless computing
 
 {% include serverless_links.html %}
+
+
+## More on Clouds #
+
+This is one of a series on Cloud computing
+
+{% include cloud_links.html %}
