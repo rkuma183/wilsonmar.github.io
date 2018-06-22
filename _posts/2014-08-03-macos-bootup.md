@@ -26,7 +26,7 @@ During boot-up (Apple logo):
 <li> Hold down <strong>N</strong> to boot from network (do a NetBoot from a network server).</li>
 <li> Hold down <strong>option</strong> (alt) key for the Mac's Startup Manager to select a (USB) startup disk.</li>
 
-<li> Hold down <strong>shift</strong> key to boot in Safe Mode (which does not load start-up items).</li>
+<li> Hold down <strong>shift</strong> key to boot in Safe Mode (which does not load <a href="#StartUps">start-up items</a>).</li>
 <li> Hold down &#8984; (command) + R for the <a href="#RecoveryMenu">Recovery menu</a>.</li>
 <li> Hold down &#8984; (command) + option + P + R to reset Parameter RAM (PRAM).</li>
 </ul>
@@ -104,16 +104,17 @@ Create a bootable installer for macOS</a>
 
 Boot up with the installer Disc.
 
-## Launch
 
-MacOS provices its <tt>launchctl</tt> utility to let you interact with the OS X init script system deamon launchd
+## Start-up items
+
+MacOS provices its <tt>launchctl</tt> utility for interaction with the OS X init script system deamon launchd
 which controls the services that start up on boot.
 
 1. List what launch scripts are currently loaded:
 
    <pre><strong>launchctl list | wc -l</strong></pre>
 
-   375 shows up. Remove the "| wc -l" to see the list.
+   375 shows up. Remove the "\| wc -l" to see the list.
 
    Launchd scripts are stored in several folders:
 
@@ -124,15 +125,15 @@ which controls the services that start up on boot.
    *  /System/Library/LaunchDaemons 
    <br /><br />
 
-1. To stop and unload running scripts:
+2. To stop and unload running scripts:
 
-   sudo launchctl unload [path/to/script] -w 
+   <pre>sudo launchctl unload [path/to/script] -w </pre>
 
-   The -2 flag removes the script permanently from your boot sequence. 
+   The -w flag removes the script permanently from your boot sequence. 
    
    I like to run this one on all the auto-update " helpers"="" created="" by="" adobe="" apps="" and="" microsoft="" office.&LT;="" p="">
 
-1. To see what goes into a launch agent or daemon, there's a great blog post by Paul Annesley that walks you through the file format at:
+3. To see what goes into a launch agent or daemon, there's a great blog post that walks you through the file format at:
 
    <a target="_blank" href="
    http://paul.annesley.cc/2012/09/mac-os-x-launchd-is-cool/">
@@ -140,25 +141,24 @@ which controls the services that start up on boot.
 
    "I particularly like the idea of using QueueDirectories to monitor and act upon files dropped into a directory, without having to run any extra daemons. The files could be uploaded to S3, transcoded to a different video format, gzipped… anything."
 
-1. Learn how to write your own launchd scripts from 
-   <a target="_blank" href="
-   https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">Apple's Developer site:</a>
+4. Learn how to <a target="_blank" href="
+   https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html">write your own launchd scripts, explained at Apple's Developer site</a>.
 
-1. If you'd prefer a GUI rather than using the command line, buy the $10 Lingon app from:
+5. If you'd prefer a GUI rather than using the command line, buy the $10 Lingon app from:
 
    <a target="_blank" href="
    http://www.peterborgapps.com/lingon/">
    http://www.peterborgapps.com/lingon</a>
 
-1. Consider setting up bash scripts to run periodically or at timed intervals in the background, similar to cron jobs on Linux. For example, to start the Apache web server start automatically when you turn on your Mac:
+6. Consider setting up bash scripts to run periodically or at timed intervals in the background, similar to cron jobs on Linux. For example, to start the Apache web server start automatically when you turn on your Mac:
 
    <pre><strong>
    sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
-   </strong>
+   </strong></pre>
 
-## Plists
+   ### Plists
 
-Plist files are how Macs define services.
+   Plist files are how Macs define services.
 
 
 ## More on OSX
