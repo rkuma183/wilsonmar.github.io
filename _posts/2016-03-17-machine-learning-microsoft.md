@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Machine Learning"
-excerpt: "Yes, it will be smarter than you"
+title: "Microsoft Azure Machine Learning"
+excerpt: "All the options for Enterprise integration"
 tags: [HTML, personalization, machine learning, ML]
 image:
 # feature: pic green matrix hallway 1900x500.jpg
