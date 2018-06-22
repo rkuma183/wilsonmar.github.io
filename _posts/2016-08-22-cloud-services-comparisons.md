@@ -140,7 +140,7 @@ Amazon is working on "Linux2".
 
 To compare network speeds:
 
-   * <a target="_blank" href="http://www.cloudping.info/">http://cloudping.info</a> measures current ping speed to various regions on Amazon's EC2 cloud. Scroll down to click "HTTP Ping" to begin collection to a running line graph:
+* <a target="_blank" href="http://www.cloudping.info/">http://cloudping.info</a> measures current ping speed to various regions on Amazon's EC2 cloud. Scroll down to click "HTTP Ping" to begin collection to a running line graph:
 
    ![cloud-services-amazon-392x647-65305](https://user-images.githubusercontent.com/300046/40890545-21c4a818-6735-11e8-92b3-9329d0465914.jpg)
 
@@ -148,11 +148,11 @@ To compare network speeds:
 
    Amazon's own <a target="_blank" href="http://ec2-reachability.amazonaws.com/">EC2 Reachability Test</a> does not provide ping speeds, only a green icon when it can be reached at any speed.
 
-   * <a target="_blank" href="http://www.azurespeed.com/">http://http://www.azurespeed.com</a> measures current ping speed to various regions on Microsoft's Azure cloud. To stop collection, click "uncheck all" or individual regions of interest:
+* <a target="_blank" href="http://www.azurespeed.com/">http://http://www.azurespeed.com</a> measures current ping speed to various regions on Microsoft's Azure cloud. To stop collection, click "uncheck all" or individual regions of interest:
 
    ![cloud-service-azure-checks-603x261-56530](https://user-images.githubusercontent.com/300046/40890517-a7bc4b02-6734-11e8-9c1f-88e6a686de0d.jpg)
 
-   * <a target="_blank" href="http://www.gcping.com/">http://www.gcping.com</a> measures current ping speed to various regions on Google's cloud. To stop collection, press the dot with the arrow.
+* <a target="_blank" href="http://www.gcping.com/">http://www.gcping.com</a> measures current ping speed to various regions on Google's cloud. To stop collection, press the dot with the arrow.
 
    ![cloud-services-gcping-507x224-14208](https://user-images.githubusercontent.com/300046/40890488-10f2b1de-6734-11e8-8aea-6ebfb3edfa3c.jpg)
 
@@ -160,7 +160,7 @@ To compare network speeds:
 
 ## Links to service brand names #
 
-
+Here are the names of brand names, some with links to marketing or documentation pages:
 <table valign="top" border="1" cellspacing="0" cellpadding="4">
 <thead>
 <tr valign="bottom">
@@ -211,7 +211,7 @@ To compare network speeds:
     <td>-</td></tr>
 <tr valign="top" class="tblEven"><th align="left">NoSQL Database Options</th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/documentdb/">Azure DocumentDB</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/dynamodb/">DynamoDB</a></td>
-    <td>-</td></tr>
+    <td>BigTable</td></tr>
 <tr valign="top" class="tblOdd"><th align="left"><br /></th><td><a target="_blank" href="http://azure.microsoft.com/en-us/services/cache/">Azure Managed Cache (Redis Cache)</a>
 </td><td><a target="_blank" href="http://aws.amazon.com/elasticache/">ElasticCache</a></td>
     <td>-</td></tr>

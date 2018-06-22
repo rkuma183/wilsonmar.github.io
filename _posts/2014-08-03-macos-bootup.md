@@ -21,13 +21,14 @@ comments: true
 During boot-up (Apple logo):
 
 <ul>
-<li> Hold down the start button for a hard reset.</li>
-<li> Hold down &#8984; + R gets you the Recovery menu. </li>
-<li> Hold down &#8984; + option + P + R to reset Parameter RAM.</li>
+<li> Hold down the start button for a hard reset when the keyboard and mouse are not responsive.</li>
+<li> Hold down <strong>C</strong> to boot from CD.</li>
+<li> Hold down <strong>N</strong> to boot from network (do a NetBoot from a network server).</li>
+<li> Hold down <strong>option</strong> (alt) key for the Mac's Startup Manager to select a (USB) startup disk.</li>
 
-<li> Hold down C to boot from CD.</li>
-<li> Hold down option key to select startup disk.</li>
-<li> Hold down shift key to boot in Safe Mode.</li>
+<li> Hold down <strong>shift</strong> key to boot in Safe Mode (which does not load start-up items).</li>
+<li> Hold down &#8984; (command) + R for the <a href="#RecoveryMenu">Recovery menu</a>.</li>
+<li> Hold down &#8984; (command) + option + P + R to reset Parameter RAM (PRAM).</li>
 </ul>
 
 After powering up the computer, 
@@ -45,15 +46,30 @@ and hold it for another 10 sec.</li>
 make a "normal" press as if you would normally turn on your computer.</li>
 </ol>
 
-If that doesn't work then try to remove one RAM memory and 
+If that doesn't work then try to remove one RAM memory chip and 
 switch places before repeating the above.
 
-During login:
+See https://www.tekrevue.com/tip/mac-startup-options/
 
-<ul>
-<li> Hold down shift key to prevent startup items from 
-loading.</li>
-</ul>
+<a name="RecoveryMenu"></a>
+
+## Recovery menu
+
+Prior to OS X Lion in 2011, one had to insert an OS X DVD or USB installer. That was a hassle.
+
+With Lion onwards, Apple added a 2GB hidden recovery partition on the Mac’s hard drive to boot up in Recovery Mode.
+
+"macOS Utilities" appears:
+
+![macos-bootup-utils-640x347-74954.jpg](https://user-images.githubusercontent.com/300046/41775389-f79fa38e-75e0-11e8-9765-20e95762e777.jpg)
+
+Open a Terminal by clicking "Utilities" menu item:
+
+![macos-bootup-utils-640x196-39501.jpg](https://user-images.githubusercontent.com/300046/41775582-a340e892-75e1-11e8-9298-d8713b9c42ea.jpg)
+
+
+
+Also, <strong>OS X Internet Recovery</strong> loads the recovery information directly from Apple’s servers. 
 
 
 <a name="MacBoot"></a>

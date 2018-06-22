@@ -1375,6 +1375,9 @@ https://cloud.google.com/solutions/devops/
 
 https://docs.gitlab.com/ee/install/kubernetes/gitlab_omnibus.html
 
+https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
+
+
 ## Social
 
 https://kubernetes.io/community/
