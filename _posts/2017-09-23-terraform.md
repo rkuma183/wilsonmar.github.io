@@ -1258,6 +1258,11 @@ doc posted Nov 18, 2016 by: Giuseppe B
 
 ## Rock Stars
 
+Jonathon Brouse 
+<a target="_blank" href="https://www.youtube.com/watch?v=B375x3J-2mA">
+Terraform Best Practices (SRE NYC)</a> May 10, 2017
+
+
 <a name="Gruntwork"></a>
 
 <strong>Yevgeniy (Jim) Brikman</strong> (<a target="_blank" href="https://www.ybrikman.com/">ybrikman.com</a>), 
@@ -1319,10 +1324,17 @@ dtan4
 
    * Resource graphs of dependencies.
 
+<a target="_blank" href="https://www.linkedin.com/in/jboero/">John Boero</a>, Solutions Engineer, HashiCorp London
+
+   * <a target="_blank" href="https://www.youtube.com/watch?v=i425aTrW6Gg">
+   Terraform for Instant K8s Clusters on AWS EKS</a> Jun 22, 2018 [29:51]
+
+
 Nick Colyer
 
    * <a target="_blank" href="https://www.pluralsight.com/courses/terraform-automating-aws-vsphere">
    Automating AWS and vSphere with Terraform (Intermediate level)</a> Jun 12 2017[ 1:22]
+
 
 <strong>James Nugent</strong>
 
@@ -1389,6 +1401,7 @@ includes:
   July 12, 2017
   shows how to take input from a CSV file.
 
+at https://www.hashicorp.com/resources/?content_type=Webinar
 
 ## More on DevOps #
 

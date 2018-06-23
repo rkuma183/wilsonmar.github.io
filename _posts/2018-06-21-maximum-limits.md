@@ -1,7 +1,7 @@
 ---
 layout: post
 file: 2018-06-21-maximum-limits.md
-title: "Maximum limits macOS"
+title: "Maximum limits (macOS etc.)"
 excerpt: "Set this higher to prevent errors during high load"
 tags: [apple, mac, setup, USB]
 image:
@@ -15,9 +15,9 @@ comments: true
 
 {% include _toc.html %}
 
-Operating systems (Linux and macOS included) have settings which limit the number of files and processing that are allowed to be open. This limit protects the system from being overrun. But its default is usually set too low and thus a "gotcha" that is only apparent when "too many files open" crashes appear only under load (as in during a stress test or production spike).
+Operating systems (Linux and macOS included) have settings which limit the number of files and processes that are allowed to be open. This limit protects the system from being overrun. But its default is usually set too low, when machines had way less power. Thus a "gotcha" that is only apparent when "too many files open" crashes appear only under load (as in during a stress test or production spike).
 
-"man bash" says the ulimit command (common among Linux flavors) provides "control over the resources available to the shell and to processes started by it".
+<a target="_blank" href="https://www.gnu.org/software/bash/manual/html_node/index.html">man bash, the Bash manual</a> says the ulimit command (common among Linux flavors) provides "control over the resources available to the shell and to processes started by it".
 
 1. Obtain the current <strong>limit of file descriptors</strong>
 

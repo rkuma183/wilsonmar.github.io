@@ -1382,6 +1382,9 @@ https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
 
 https://kubernetes.io/community/
 
+<a target="_blank" href="https://www.youtube.com/watch?v=i425aTrW6Gg">
+Solutions Engineering Hangout: Terraform for Instant K8s Clusters on AWS EKS</a>
+by HashiCorp
 
 ## More
 

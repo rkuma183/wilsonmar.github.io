@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ruby with RVM or RBenv on MacOS"
+title: "Ruby with RVM or RBenv on macOS"
 excerpt: "Switch among multiple versions of Ruby"
 tags: [ruby, apple, mac, setup, programming]
 image:
@@ -16,17 +16,16 @@ comments: true
 {% include _toc.html %}
 
 
-First of all, know that there is a war going on within the Ruby community between rvm and rbenv.
-
-The major commands:
+The major commands around Ruby:
 
    0. ruby
    0. gem
-   0. rvm
    0. bundle
-   0. <a href="#rbenv">rbenv</a>
+   0. rvm version manager
+   0. <a href="#rbenv">rbenv</a> version manager
 
-http://jonathan-jackson.net/rvm-and-rbenv
+There is a war going on within the Ruby community between rvm and rbenv.
+See http://jonathan-jackson.net/rvm-and-rbenv
 
 
 ### Versions #
@@ -46,11 +45,17 @@ CAUTION: Don't touch the system Ruby that comes with your Mac.
 
    Alternately:
 
-   <tt><strong>
-   ruby \-\-version
-   </strong></tt>
+   <pre><strong>
+   ruby --version
+   </strong></pre>
 
-    The response for the Sierra default:
+   The response for the High Sierra default:
+
+   <tt>
+   ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-darwin17]
+   </tt>
+
+   The response for the Sierra default:
 
    <tt>
    ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
@@ -140,6 +145,12 @@ RubyGems Environment:
    gem \-\-version
    </strong></tt>
 
+   The response for the High Sierra default:
+
+   <tt>
+   2.7.6
+   </tt>
+
    The response for the Sierra default:
 
    <tt>
@@ -167,22 +178,22 @@ RubyGems Environment:
    rvm info
    </strong></tt>
 
-   List:
+0. List:
 
    <tt><strong>
    rvm list known
    </strong></tt>
 
-   For a smaller response:
+0. For a smaller response:
    
-   <tt><strong>
-   rvm \-\-version
-   </strong></tt>
+   <pre><strong>
+   rvm --version
+   </strong></pre>
 
    The response on 2016-06-16:
 
    <tt>
-   rvm 1.27.0 (master) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+   rvm 1.27.0 (master) by Wayne E. Seguin &LT;wayneeseguin@gmail.com>, Michal Papis &LT;mpapis@gmail.com> [https://rvm.io/]
    </tt>
 
 0. Visit the RVM.io website
@@ -194,9 +205,9 @@ RubyGems Environment:
 
 0. Update:
 
-   <tt><strong>
-   sudo gem update \-\-system
-   </strong></tt>
+   <pre><strong>
+   sudo gem update --system
+   </strong></pre>
 
    The response on 2016-06-16:
 
@@ -323,6 +334,21 @@ Successfully installed bundler-1.9.4
    <pre>
    Updating installed gems
    Updating CFPropertyList
+...
+RubyGems installed the following executables:
+  /usr/local/Cellar/ruby/2.5.1/bin/gem
+  /usr/local/Cellar/ruby/2.5.1/bin/bundle
+&nbsp;
+Ruby Interactive (ri) documentation was installed. ri is kind of like man 
+pages for Ruby libraries. You may access it like this:
+  ri Classname
+  ri Classname.class_method
+  ri Classname#instance_method
+If you do not wish to install this documentation in the future, use the
+--no-document flag, or set it as the default in your ~/.gemrc file. See
+'gem help env' for details.
+&nbsp;
+RubyGems system software updated
    </pre>
 
 0. Press y and Enter if you see:
@@ -358,7 +384,114 @@ rdoc's executable "ri" conflicts with /usr/bin/ri
 
 ## Ruby Version Manager (rvm) #
 
-0. Get on the latest version of RVM:
+See https://rvm.io/rvm/security
+
+1. First try:
+
+   <pre><strong>$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+   </strong></pre>
+
+   The response I got:
+
+   <pre>gpg: keyserver receive failed: Server indicated a failure
+   </pre>
+
+2. Since that didn't work:
+
+   <pre><strong>curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+   </strong></pre>
+   
+   <pre>
+gpg: key 3804BB82D39DC0E3: 47 signatures not checked due to missing keys
+gpg: key 3804BB82D39DC0E3: public key "Michal Papis (RVM signing) <mpapis@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   2  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 2u
+   </pre>
+
+3. Download:
+
+   <pre><strong>\curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer</strong></pre>
+
+   <pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 24361  100 24361    0     0  72332      0 --:--:-- --:--:-- --:--:-- 72502
+   </pre>
+
+4. Download:
+
+   <pre><strong>\curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc</strong></pre>
+
+   <pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   833  100   833    0     0   3368      0 --:--:-- --:--:-- --:--:--  3372
+   </pre>
+
+5. Verify:
+
+   <pre><strong> gpg --verify rvm-installer.asc</strong></pre>
+
+   <pre>
+gpg: assuming signed data in 'rvm-installer'
+gpg: Signature made Sat Mar 31 15:47:44 2018 MDT
+gpg:                using RSA key 62C9E5F4DA300D94AC36166BE206C29FBF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>" [unknown]
+gpg:                 aka "Michal Papis <michal.papis@toptal.com>" [unknown]
+gpg:                 aka "[jpeg image of size 5015]" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+   </pre>
+
+6. Get on the latest version of RVM:
+
+   <tt><strong>
+   bash rvm-installer stable
+   </strong></tt>
+
+   The response run on 2018-06-22:
+
+   <pre>
+Downloading https://github.com/rvm/rvm/archive/1.29.3.tar.gz
+Downloading https://github.com/rvm/rvm/releases/download/1.29.3/1.29.3.tar.gz.asc
+gpg: Signature made Sun Sep 10 14:59:21 2017 MDT
+gpg:                using RSA key E206C29FBF04FF17
+gpg: Good signature from "Michal Papis (RVM signing) <mpapis@gmail.com>" [unknown]
+gpg:                 aka "Michal Papis <michal.papis@toptal.com>" [unknown]
+gpg:                 aka "[jpeg image of size 5015]" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+     Subkey fingerprint: 62C9 E5F4 DA30 0D94 AC36  166B E206 C29F BF04 FF17
+GPG verified '/Users/wilsonmar/.rvm/archives/rvm-1.29.3.tgz'
+&nbsp;
+Installing RVM to /Users/wilsonmar/.rvm/
+    Adding rvm PATH line to /Users/wilsonmar/.profile /Users/wilsonmar/.mkshrc /Users/wilsonmar/.bashrc /Users/wilsonmar/.zshrc.
+    Adding rvm loading line to /Users/wilsonmar/.profile /Users/wilsonmar/.bash_profile /Users/wilsonmar/.zlogin.
+Installation of RVM in /Users/wilsonmar/.rvm/ is almost complete:
+&nbsp;
+  * To start using RVM you need to run `source /Users/wilsonmar/.rvm/scripts/rvm`
+    in all your open shell windows, in rare cases you need to reopen all shell windows.
+/Users/wilsonmar/.bash_profile:1:PATH=/usr/bin/python:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/share/dotnet
+&nbsp;
+  * WARNING: Above files contains `PATH=` with no `$PATH` inside, this can break RVM,
+    for details check https://github.com/rvm/rvm/issues/1351#issuecomment-10939525
+    to avoid this warning prepend `$PATH`.
+   </pre>
+
+7. Do as instructed:
+
+   <tt><strong>
+   source /Users/wilsonmar/.rvm/scripts/rvm
+   </strong></tt>
+
+   No response is returned.
+
+8. Get on the latest version of RVM:
 
    <tt><strong>
    rvm get stable
@@ -411,6 +544,15 @@ Upgrade Notes:
 &nbsp;
 RVM reloaded!
    </pre>
+
+0. Obtain version:
+
+   <tt><strong>rvm --version
+   </strong></tt>
+
+   <pre>rvm 1.29.3 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
+   </pre>
+
 
    ### Uninstall Ruby
 
