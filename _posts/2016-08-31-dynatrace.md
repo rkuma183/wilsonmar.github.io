@@ -145,13 +145,22 @@ QUESTION: Does Dynatrace compete with OverOps, which analyzes Java and .NET sour
 
    <a target="_blank" href="https://university.dynatrace.com/certificate/industry">
    https://university.dynatrace.com/certificate/industry</a><br />
+   Dynatrace Certification website lists a learning path.
+
    The "Industry Associate" level validates understanding of APM -- the why,
-   core concepts, history, and emerging trends.<br />
-   <a target="_blank" href="https://d3sj466wqlrld0.cloudfront.net/certificate/docs/du_certificate_industry_associate_blueprint.pdf">
-   DOWNLOAD: Associate Exam Blueprint.pdf</a>
+   core concepts, history, and emerging trends.
    It's free.
 
-   Other exams are $200:
+   How to register? dtu.payments@dynatrace.com
+
+   The <a target="_blank" href="https://d3sj466wqlrld0.cloudfront.net/certificate/docs/du_certificate_industry_associate_blueprint.pdf">
+   DOWNLOAD: Associate Exam Blueprint.pdf</a>
+   Answer 80% correct 70 multiple choice items in 2 hours.
+   It's free. 
+
+   The Pro written exam is $200 plus $250 for the practical exam.
+
+   Mind Map for <a target="_blank" href="https://d3sj466wqlrld0.cloudfront.net/certificate/docs/dtu_dynatrace_associate_certification_mindmap_031618.pdf">Associate</a> and <a target="_blank" href="https://d3sj466wqlrld0.cloudfront.net/certificate/docs/dtu_dynatrace_professional_certification_mindmap_031618.pdf">Pro</a>.
 
    <a target="_blank" href="https://university.dynatrace.com/certificate/appmon">
    AppMon</a>
@@ -188,7 +197,7 @@ The following focusing on analysis of server applications running <strong>locall
 
    The US address of Dynatrace is 404 Wyman Street, Suite 500, Waltham, MA 02451
 
-   Dynatrace alsomhas offices in Detroit, Michigan, Linz, Austria, and Gdańsk, Poland.
+   Dynatrace also has offices in Detroit, Michigan, Linz, Austria, and Gdańsk, Poland.
 
 0. Click Register and Start Trial.
 
