@@ -5,10 +5,10 @@ excerpt: "He sees you when you're sleeping. He knows when you're awake ..."
 tags: [Clouds, Monitoring, Analytics]
 shorturl: "https://goo.gl/wer9DB"
 image:
-# pic silver robot white skin handshake 1900x500
-  feature: https://cloud.githubusercontent.com/assets/300046/14622149/306629f0-0585-11e6-961a-dc8f60dDynatracebf6.jpg
-  credit: 
-  creditlink: 
+# ![dynatrace-per-minute-1900x500-162499.jpg
+  feature: https://user-images.githubusercontent.com/300046/41830955-5de633b6-7801-11e8-9f92-c052dd9c2eba.jpg
+  credit: Dynatrace
+  creditlink: https://dynatrace.com
 comments: true
 ---
 <i>{{ page.excerpt }}</i>

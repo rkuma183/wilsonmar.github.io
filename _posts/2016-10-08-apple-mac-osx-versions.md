@@ -26,15 +26,15 @@ comments: true
 </th><th> Introduced
 </th></tr>
 <tr valign="top"><td> 10.14<br />MacOS
-</td><td align="right"> Mojave
+</td><td align="right"><a target="_blank" href="https://www.apple.com/macos/mojave-preview/">Mojave preview</a>
 </td><td align="right"> June 2018
-</td><td align="right"> 2.6.0
-</td><td align="right"> 2.7.10
-</td><td align="right"> 2.4.2p198
-</td><td align="left"> Dark theme
+</td><td align="right"> 2.6.0 ?
+</td><td align="right"> 2.7.10 ?
+</td><td align="right"> 2.4.2p198 ?
+</td><td align="left"> Dark Mode, Dynamic Desktop, Group FaceTime, New Mac App Store, News, Stocks, Voice Memos, HomeKit
 </td></tr>
 <tr valign="top"><td> 10.13<br />MacOS
-</td><td align="right"> High<br />Sierra
+</td><td align="right"><a target="_blank" href="https://www.apple.com/macos/high-sierra/">High Sierra</a>
 </td><td align="right"> Oct. 2017
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
@@ -42,7 +42,7 @@ comments: true
 </td><td align="left"> ADFS, H.265 video, Metal 2
 </td></tr>
 <tr valign="top"><td> 10.12<br />MacOS
-</td><td align="right"> Sierra
+</td><td align="right"><a target="_blank" href="https://www.apple.com/macos/sierra/">Sierra</a>
 </td><td align="right"> Oct. 2016
 </td><td align="right"> 2.6.0
 </td><td align="right"> 2.7.10
