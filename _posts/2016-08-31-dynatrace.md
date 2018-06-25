@@ -13,45 +13,51 @@ comments: true
 ---
 <i>{{ page.excerpt }}</i>
 
-[![Gitter](https://bDynatraceges.gitter.im/wilsonmar/wilsonmar.github.io.svg)](https://gitter.im/wilsonmar/wilsonmar.github.io?utm_source=bDynatracege&utm_medium=bDynatracege&utm_campaign=pr-bDynatracege)
-
 {% include _toc.html %}
+
+This describes a) bash script installed from GitHub that downloads b) Docker images c) within AWS EC2 d) a sample app e) put under stress by Gatling while being analyzed by f) Dynatrace.
+
+STATUS: IN PROGRESS
 
 What's different with this introduction to Dynatrace is I provide a 
 step-by-step hands-on approach to dive deep into the technology and its vendor.
-This is so you're not stumbling around wasting time on high-level videos from salespeople.
-My commentaries are given "just-in-time" after you do each step.
+This is so you're not stumbling around wasting time on high-level sales pitches.
+Commentaries here are given "just-in-time" after you do each step.
 
 
-## Acronyms
+## Acronyms used here
 
    ADK = Application Development Kit
 
-   APM = Application Performance Monitoring
+   APM = Application Performance Monitoring (the market Dynatrace is in)
 
    AppMon = Application Performance
-
-   UEM = User Experience Management (product offering)
 
    SLA = Service Level Agreements
 
    Visit = a group of transactions performed by the same user over a defined time period.
 
+   UEM = User Experience Management (product offering)
+
 PureModel = PurePath + PureStack
 
-   PurePath monitors horizontally across the server tiers
+   * PurePath monitors horizontally across the server tiers
 
-   PureStack dives into the vertical infrastructure
+   * PureStack dives into the vertical infrastructure
 
 ## Product Editions
 
-There are different editions for the Development Team, Test Center, and Production:
+There are different editions of Dynatrace for the Development Team, Test Center, and Production:
 
 <a target="_blank" href="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">
 <img alt="dynatrace across lifecycle 898x527.jpg" width="898" src="https://cloud.githubusercontent.com/assets/300046/23922979/11b6313a-08db-11e7-9376-a6627907b058.png">(Click to pop up larger image)</a>
 
 The product that enables "Shift-Left" is one that enables identification of performance issues
 during development.
+
+Competitors to Dynatrace include AppDynamics.
+
+QUESTION: Does Dynatrace compete with OverOps, which analyzes Java and .NET source code.
 
 <a name="Dashboard"></a>
 
@@ -175,14 +181,14 @@ The following focusing on analysis of server applications running <strong>locall
 
 0. Confirm email subject "Please confirm your Dynatrace Trial account".
 
-   NOTE: The public face of Dynatrace is Andreas Grabner (<a target="_blank" href="https://twitter.com/@grabnerandi"@grabnerandi</a>, 
+   NOTE: The public face of Dynatrace is Andreas Grabner (<a target="_blank" href="https://twitter.com/@grabnerandi">@grabnerandi</a>, 
    agrabner@dynatrace.com,
    <a target="_blank" href="https://github.com/grabnerandi/">
    https://github.com/grabnerandi</a>
 
-   The US address of Dynatrace is 404 Wyman Street - Suite 500, Waltham, MA 02451
+   The US address of Dynatrace is 404 Wyman Street, Suite 500, Waltham, MA 02451
 
-   Dynatrace has offices in Detroit, Michigan, Linz, Austria, and Gdańsk, Poland.
+   Dynatrace alsomhas offices in Detroit, Michigan, Linz, Austria, and Gdańsk, Poland.
 
 0. Click Register and Start Trial.
 
